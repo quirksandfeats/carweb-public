@@ -39,8 +39,12 @@ def mock_wikipedia(route):
         route.continue_()
 
 BASE = "http://localhost:8077/index.html"
-OUT = "/sessions/trusting-tender-cerf/mnt/Claude Cowork/Personal Projects/carweb/qa/"
-LLM_FAMILIES_PATH = "/sessions/trusting-tender-cerf/mnt/Claude Cowork/Personal Projects/carweb/app/llm_families.json"
+# Output/asset paths resolve relative to this file, so the script runs from
+# anywhere and on any machine.
+_QA_DIR = os.path.dirname(os.path.abspath(__file__))
+_APP_DIR = os.path.join(_QA_DIR, "..", "app")
+OUT = _QA_DIR + os.sep
+LLM_FAMILIES_PATH = os.path.join(_APP_DIR, "llm_families.json")
 fails, errs = [], []
 
 def check(name, cond, extra=""):

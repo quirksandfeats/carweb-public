@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
 """Full QA sweep: screenshots + functional assertions for The Car Web."""
 from playwright.sync_api import sync_playwright
-import json, sys
+import json, os, sys
 
 BASE = "http://localhost:8077/index.html"
-OUT = "/sessions/compassionate-sharp-ritchie/mnt/outputs/carweb/qa/"
+# Screenshots land next to this script, so it runs from anywhere.
+OUT = os.path.dirname(os.path.abspath(__file__)) + os.sep
 fails, errs = [], []
 
 def check(name, cond, extra=""):

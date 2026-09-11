@@ -7407,8 +7407,8 @@ Rules:
   // model, and try out a response by hand, for the times an automatic
   // check's verdict looks wrong and it's genuinely unclear whether that's
   // the model's own read of the article or a prompt/parsing gap in this
-  // file. Anthropic's own Claude session driving this codebase has no way
-  // to reach the user's local llama-server instance directly -- this is the
+  // file. A remote second pair of eyes on this codebase has no way to reach
+  // the user's local llama-server instance directly -- this is the
   // "tell me what to type and I'll bring back what it said" bridge
   // instead. Deliberately built by splitting the REAL check functions
   // above into a "gather material" half (buildCheckMaterial,

@@ -2,10 +2,14 @@
 """QA sweep for two additions: the Graph 'None' people-layer option, and the
 Timeline 'follow a nameplate' picker."""
 from playwright.sync_api import sync_playwright
-import sys
+import os, sys
 
 BASE = "http://localhost:8077/index.html"
-OUT = "/sessions/trusting-tender-cerf/mnt/Claude Cowork/Personal Projects/carweb/qa/"
+# Output/asset paths resolve relative to this file, so the script runs from
+# anywhere and on any machine.
+_QA_DIR = os.path.dirname(os.path.abspath(__file__))
+_APP_DIR = os.path.join(_QA_DIR, "..", "app")
+OUT = _QA_DIR + os.sep
 fails, errs = [], []
 
 def check(name, cond, extra=""):
