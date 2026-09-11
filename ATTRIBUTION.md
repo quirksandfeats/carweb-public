@@ -7,7 +7,7 @@ they are handling.
 
 ## Ready-to-paste attribution
 
-> Data from [The Car Web](https://github.com/quirksandfeats/carweb) by Andrew
+> Data from [The Car Web](https://github.com/quirksandfeats/carweb-public) by Andrew
 > Goldenberg, licensed under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/).
 > Derived from [DBpedia](https://www.dbpedia.org/) and
 > [Wikipedia](https://en.wikipedia.org/), also CC BY-SA.
