@@ -1,0 +1,566 @@
+{{Use British English|date=October 2024}}
+{{Short description|Subcompact car produced by Renault and its Dacia subsidiary}}
+{{Use dmy dates|date=December 2020}}
+{{Infobox automobile
+| name = Dacia Logan
+| image = Dacia Logan 2023 Front 2 (cropped).jpg
+| manufacturer = [[Automobile Dacia|Dacia]] ([[Renault]])
+| production = 2004–present
+| class = [[Subcompact car]] ([[B-segment|B]])
+| related = 
+| layout = [[Front-engine, front-wheel-drive layout|Front-engine, front-wheel-drive]]
+| predecessor = [[Dacia 1310]]<br />[[Dacia Solenza]]
+}}
+ 
+The '''Dacia Logan''' is a family of automobiles produced and marketed jointly by the [[France|French]] manufacturer [[Renault]] and its [[Romania]]n subsidiary [[Automobile Dacia|Dacia]] since mid-2004, and was the successor to the [[Dacia 1300|Dacia 1310]] and [[Dacia Solenza]]. It has been produced as a [[Sedan (automobile)|sedan]], [[station wagon]], and as a [[pick-up truck|pick-up]]. It has been manufactured at Dacia's automobile plant in [[Mioveni]], [[Romania]], and at Renault (or its partners') plants in [[Morocco]], [[Argentina]], [[Turkey]], [[Russia]], [[Colombia]], [[Iran]] and [[India]]. The [[pickup truck|pick-up]] has also been produced at [[Nissan]]'s plant in [[Rosslyn, Gauteng|Rosslyn]], [[South Africa]].
+
+It has also been marketed as the '''Renault Logan''', '''Nissan Aprio''', '''Mahindra Verito''', '''Renault L90''', [[Lada Largus]] (the [[#Logan I MCV|MCV]]), '''Nissan NP200''' (the [[#Logan Pick-Up|pick-up]]), [[Renault Symbol]] (Mk3), '''Renault Taliant''',  and as the '''Renault Tondar 90''' depending on the existing presence or positioning of the [[Renault]] brand.
+ 
+Since its launch, the Dacia Logan was estimated to have reached over 4 million sales worldwide as of 2018.<ref>{{cite web |title=10 countries in 10 days in a Dacia Logan – 1/10: Romania |url=https://bestsellingcarsblog.com/2019/01/10-countries-in-10-days-in-a-dacia-logan-1-10-romania/ |publisher=Best Selling Cars Blog |access-date=10 January 2019 |date=3 January 2018}}</ref>
+
+__TOC__
+{{clear}}
+
+==<span class="anchor" id="Logan I"></span><span class="anchor" id="I"></span><span class="anchor" id="First"></span><span class="anchor" id="first generation"></span>First generation (L90/U90/F90; 2004)==
+{{Infobox automobile
+| name = Logan I
+| image = Dacia Logan front 20070611.jpg
+| aka = Renault Logan<br />[[SAIPA|Saipa]]-[[Renault]] ParsTondar (Iran)<br />Renault Tondar 90 (Iran)<br />Pars Khodro Nova/Cadila (P90) (Iran)<br />Nissan Aprio (Mexico)<br />Mahindra Verito/eVerito (India)<br />Mahindra-Renault Logan (India)<br />Nissan NP200 (pick-up, South Africa)<br />[[Lada Largus]] (wagon, Russia)<br />EMC E36 (electric)
+| production = 2004–2012 (Romania)<br />2005–2015 (Colombia)<ref>{{cite web |title=Легковые автомобили |url=https://www.renault.ru/vehicles/range.html |website=Renault Россия |access-date=14 August 2021 |archive-url=https://web.archive.org/web/20201030214340/https://www.renault.ru/personal-cars.html |archive-date=30 October 2020 |language=Russian |url-status=live}}</ref><br />2005–2015 (Russia)<ref>{{cite web |url=https://group.renault.com/en/our-company/locations/renault-locations/moscow-plant/ |title=  Renault Locations: Moscow Plant|access-date=2016-03-27 |url-status=dead |archive-url=https://web.archive.org/web/20160304084301/https://group.renault.com/en/our-company/locations/renault-locations/moscow-plant/ |archive-date=4 March 2016 |df=dmy-all }}</ref><br />2011–present (Russia, Lada Largus)<br />2007–2019 (India)<br />2007–2021 (Iran)<ref>{{Cite web |url=http://www.renault.co.ir/range.html |title=Renault World Wide |access-date=27 March 2016 |archive-url=https://web.archive.org/web/20160407191407/http://www.renault.co.ir/range.html |archive-date=7 April 2016 |url-status=dead }}</ref><br />2009–2024 (South Africa)<ref>{{cite web |title=New Vehicles |url=https://www.news24.com/life/motoring/bakkies-suvs/the-end-of-the-half-tonner-in-sa-nissan-finally-discontinues-np200-bakkie-20230808|website=News24 |access-date=11 April 2024 }}</ref>
+| assembly = {{ubl|
+
+| Romania: [[Mioveni]]
+
+| Brazil: [[São José dos Pinhais]] ([[Renault do Brasil|Renault Brazil]])
+
+| Colombia: [[Envigado]] ([[Sofasa]])
+
+| India: [[Nashik]] ([[Mahindra & Mahindra|Mahindra]])
+
+| Iran: [[Tehran]] ([[Pars Khodro]], [[Iran Khodro|IKCO]])
+
+| Morocco: [[Casablanca]] ([[Somaca]])
+
+| Russia: [[Moscow]] ([[Avtoframos]]); [[Tolyatti]] ([[Lada]]){{#tag:ref|Only the station wagon, rebadged as the Lada Largus.<ref name="autovesti"/>|group=nb}}
+
+| South Africa: [[Rosslyn, Gauteng]] ([[Nissan South Africa]]){{#tag:ref|Only the pick-up version, rebadged as the Nissan NP200.<ref name="renault"/>|group=nb}}
+}}
+| body_style = 4-door [[sedan (car)|sedan]]<br />5-door [[station wagon]]<br />5-door [[panel van]]<br />2-door [[coupé utility]] (pick-up)
+| platform = [[Nissan B platform|Dacia B0 platform]]
+| engine = '''[[Petrol engine|Petrol]]:'''<br />1.2 L 16v [[Renault D-Type engine#D4F|''D4F'']] [[Straight-4|I4]]<br />1.4 L [[Renault K-Type engine#Applications (K7J 8v)|''K7J'']] [[Straight-4|I4]]<br />1.6 L [[Renault K-Type engine#Applications (K7M 8v)|''K7M'']] [[Straight-4|I4]]<br />1.6 L 16v [[Renault K-Type engine#Applications (K4M 16v)|''K4M'']] [[Straight-4|I4]]<br />1.6 L 16v [[Saipa M engine#ME16)|''ME16'']] [[Straight-4|I4]] (Iran)<br />'''[[Flexible-fuel vehicle|Flex-fuel]]:'''<br />1.0 L [[Renault D-Type engine#D4D|''D4D'']] [[Straight-4|I4]]<br />1.2 L 16v [[Renault D-Type engine#D4F|''D4F'']] [[Straight-4|I4]]<br />1.4 L [[Renault K-Type engine#Applications (K7J 8v)|''K7J'']] [[Straight-4|I4]]<br />1.6 L [[Renault K-Type engine#Applications (K7M 8v)|''K7M'']] [[Straight-4|I4]]<br />'''[[Diesel engine|Diesel]]:'''<br />1.5 L [[Renault K-Type engine#K9K dCi|''K9K'']] [[dCi]] [[Straight-4|I4]] [[turbo-diesel|turbo]]
+| transmission = 5-speed [[Manual transmission|manual]]<br />4-speed [[Automatic transmission|automatic]]{{#tag:ref|Available in certain markets only, such as Brazil, Mexico and Russia.<ref>{{cite web|title=Renault Logan - Ficha técnica|url=http://www.renault.com.br/Veiculos/conheca-e-compare-a-gama-renault/logan/logan/ficha_tecnica/|publisher=Renault Brazil|access-date=5 August 2013}}</ref><ref>{{cite web|title=Ficha técnica Nissan Aprio|url=http://www.daciamodellen.nl/brochures-en-prijslijsten/|publisher=Nissan Mexicana|access-date=5 August 2013|date=28 October 2009|archive-url=https://web.archive.org/web/20170809000541/https://www.daciamodellen.nl/brochures-en-prijslijsten/|archive-date=9 August 2017|url-status=dead}}</ref><ref>{{cite web|title=Renault Logan brochure|url=http://www.daciamodellen.nl/brochures-en-prijslijsten/|publisher=Renault Russia|access-date=5 August 2013|date=14 July 2010|archive-url=https://web.archive.org/web/20170809000541/https://www.daciamodellen.nl/brochures-en-prijslijsten/|archive-date=9 August 2017|url-status=dead}}</ref>|group=nb}}
+| wheelbase = {{convert|2630|mm|in|1|abbr=on}} (sedan)<br />{{convert|2905|mm|in|1|abbr=on}} (station wagon & pick-up)<br />{{convert|2900|mm|in|1|abbr=on}} (panel van)
+| length = {{convert|4288|mm|in|1|abbr=on}} (sedan)<br />{{convert|4473|mm|in|1|abbr=on}} (station wagon)<br />{{convert|4450|mm|in|1|abbr=on}} (panel van)<br />{{convert|4496|mm|in|1|abbr=on}} (pick-up)
+| width = {{convert|1740|mm|in|1|abbr=on}} (sedan, station wagon & panel van)<br />{{convert|1735|mm|in|1|abbr=on}} (pick-up)
+| height = {{convert|1534|mm|in|1|abbr=on}} (sedan)<br />{{convert|1640|mm|in|1|abbr=on}} & {{convert|1674|mm|in|1|abbr=on}} (station wagon & panel van)<br />{{convert|1554|mm|in|1|abbr=on}} (pick-up)
+| weight = {{convert|1090-1360|kg|lb|0|abbr=on}}
+| related = [[Dacia Sandero#BS|Dacia Sandero]]<br />[[Dacia Duster#HS|Dacia Duster]]
+| designer = Renault Technocentre
+| successor = [[Dacia Lodgy]] (for MCV)<br />[[Dacia Dokker]] (for van)
+| motor = 3 Phase AC Induction Motor
+| powerout = {{cvt|31|kW|hp|order=flip}}, 91 N⋅m
+}}
+[[File:Dacia Logan rear 20070611.jpg|alt=Passion Red (21D)|left|thumb|Rear (pre-facelift)]]
+The first-generation Logan was designed at [[Renault]]'s Technocentre near Paris, being the result of four years of development of the X90 project, announced by Renault in 1999, after the purchase of Dacia in the same year.<ref name="Project">{{cite web |url=http://www.daciagroup.com/en/the-logan-project.html |archive-url=https://web.archive.org/web/20110708220614/http://daciagroup.com/en/the-logan-project.html |title=The Logan Project |publisher=Dacia |date=28 January 2010 |archive-date=8 July 2011 |access-date=9 October 2010}}</ref>
+
+During a visit to [[Russia]] by [[President of France|French President]] [[Jacques Chirac]], [[Louis Schweitzer (CEO)|Louis Schweitzer]] noted that at [[Lada]] and [[Renault]] dealerships the €6,000 [[Lada]]s were selling very well while the €12,000 Renaults stayed in the showroom. "Seeing those antiquated cars, I found it unacceptable that technical progress should stop you making a good car for €6,000." The cheapest version of the car is €5,900, and the price can reach €11,200, depending on equipment and customs duty. (The base model for Western Europe, where it is badged as a Dacia but generally sold in Renault dealerships, is somewhat more expensive).
+
+The Logan was designed from the outset as an affordable car, and has many simplified features to keep costs down. It replaces many older cars in production, including the [[Romania]]n Dacia 1310 series of [[Renault 12]]-based cars.
+
+It was officially launched in June 2004,<ref>{{cite web|title=Dacia Logan, lansata la Bucuresti si la Technocentre, Franta|url=http://www.romanialibera.ro/editie/index.php?url=articol&tabel=z03062004&idx=7|publisher=Romania Libera|archive-url=https://web.archive.org/web/20040607183001/http://www.romanialibera.ro/editie/index.php?url=articol&tabel=z03062004&idx=7|archive-date=7 June 2004|date=3 June 2004}}</ref> and began marketing in September 2004.<ref>{{cite web|title=Drive test Logan: cum a aleargat Dacia printre stancile din Turcia pentru clientii de acasa|url=http://www.zf.ro/auto/drive-test-logan-cum-a-aleargat-dacia-printre-stancile-din-turcia-pentru-clientii-de-acasa-2903143/|publisher=Ziarul Financiar|access-date=31 July 2013|date=8 September 2004}}</ref> Renault originally had no plans to sell the Logan in [[Western Europe]], but in June 2005, they began importing a more expensive version of the car, starting at around €7,500.<ref>{{cite web|title=Logan arrives on Western European markets|url=http://www.renault.co.ir/images/pdf/Logan.pdf|publisher=Renault Pars|access-date=8 August 2011|archive-url=https://web.archive.org/web/20060207090511/http://www.renault.co.ir/images/pdf/Logan.pdf|archive-date=7 February 2006 }}</ref>  It was an unexpected success with people wanting an inexpensive, no-frills car they could repair themselves.{{Citation needed|date=August 2011}}
+
+===Facelift===
+On 1 July 2008, almost four years after the release of the first Logan, a facelifted version called the ''Dacia New Logan'' was announced.<ref>{{cite web |last=Tan |first=Paul |url=http://paultan.org/archives/2008/07/02/facelifted-dacia-new-logan/ |title=Facelifted Dacia New Logan |publisher=Paultan.org |access-date=9 October 2010}}</ref> The new version features a more modern design and a more attractive and more comfortable interior.<ref>{{cite web|title=New Dacia Logan: better than ever!|url=http://www.daciagroup.com/en/press/press-releases/2008/new-dacia-logan-better-than-ever|publisher=Dacia|access-date=25 March 2016|date=1 July 2008}}</ref> This facelift was adopted on the station wagon in October the same year.<ref>{{cite web|title=The New Logan MCV officially launched in Romania|url=http://www.daciagroup.com/en/press/press-releases/2008/the-new-logan-mcv-officially-launched-in-romania|publisher=Dacia|access-date=25 March 2016|date=23 October 2008}}</ref><gallery widths="200" heights="110">
+File:Dacia Logan Facelift front - PSM 2009.jpg|Dacia Logan (facelift) - front
+File:Dacia Logan Facelift rear - PSM 2009.jpg|Dacia Logan (facelift) - rear
+</gallery>
+
+===Features===
+
+The Logan is based on the [[Nissan B platform|Dacia B0 platform]], also used for other [[Renault]] and [[Nissan]] models.<ref>{{cite journal|title=Dacia Lodgy. Un monospace à 10 000 €!|journal=Auto Plus|date=28 November 2011|issue=1212|pages=21|url=http://www.autonews.fr/|quote=Il ne s'agit plus de la base de la Clio 2, comme pour les autres modèles de la gamme [...]}}</ref> It has 50% fewer parts than a high-end Renault vehicle and has a limited number of [[electronics|electronic]] devices. This makes the car cheaper to produce and easier and cheaper to repair.
+
+Some parts are also much simpler than those of its competitors. For example, rear-view mirrors are [[symmetrical]] and can be used on either side of the car, the [[windshield]] is flatter than usual, and the [[dashboard]] is a single [[injection molding|injection-molded]] piece.
+
+The developers have taken into account several differences between road and climate conditions in developed and developing countries. The Logan suspension is soft and strong, and the chassis sits visibly higher than most other [[compact car]]s to help it negotiate dirt roads and potholes on ill-maintained asphalt roads. The engine is specially prepared to handle lower quality fuel, whereas the air conditioning is powerful enough to lower the temperature several degrees (temperatures above 40&nbsp;°C are common in the [[Middle East]] and the [[Mediterranean Sea]]).
+
+===Trim levels===
+In [[Romania]], it was initially available in four trim levels: Ambiance, Preference, Laureate and Ambition. The basic trim level, Ambiance, featured a driver airbag, optional body-coloured bumpers, wheel trims and electric door locks. The second trim level, Preference, added a passenger airbag, power steering, electric front windows, a radio, two rear seat head restraints and remote locking. The third trim level, Laureate, added front fog lights, air conditioning, a trip computer, electric mirrors, three rear seat head restraints and a multi-adjustable driver seat.<ref>{{cite web|title=Echipamente| trans-title = Equipment | url=http://www.dacia.ro/images/Echipamente.pdf|publisher=Dacia|language = ro |archive-url=https://web.archive.org/web/20050208005220/http://www.dacia.ro/images/Echipamente.pdf|archive-date=8 February 2005}}</ref> The top trim level, Ambition also had ABS, electric rear windows, a CD player and alloy wheels. The 1.6-litre petrol engine was only available starting with the Preference trim level.<ref>{{cite web|title=Versiuni|url=http://www.dacia.ro/logan/versiuni|publisher=Dacia|access-date=23 August 2013|archive-url=https://web.archive.org/web/20051205010641/http://www.dacia.ro/logan/versiuni|archive-date=5 December 2005}}</ref> In September 2005, the 1.5-litre diesel engine was introduced,<ref>{{cite web|title=Acum Logan cu motor Diesel! | trans-title = Logan now with a diesel engine! | url = http://www.dacia.ro/noutati/acum-logan-cu-motor-diesel|publisher=Dacia| language = ro|archive-url=https://web.archive.org/web/20060418084224/http://www.dacia.ro/noutati/acum-logan-cu-motor-diesel|archive-date=18 April 2006 |date=9 September 2005}}</ref> initially not being available on the Ambition trim level. In January 2006, a new intermediate trim level called Laureate Plus was added, which in addition to the Laureate trim level featured ABS, electric rear windows and a CD player. Also, the diesel engine became available for the Ambition trim level.<ref>{{cite web|title=Versiuni|url=http://www.dacia.ro/logan/versiuni|publisher=Dacia| language = ro |archive-url=https://web.archive.org/web/20060112035038/http://www.dacia.ro/logan/versiuni|archive-date=12 January 2006}}</ref>
+
+In September 2006, several improvements were introduced to the range, such as a new button for the trunk lid, a new knob for the gear lever, crystal rear lamps, as well as new designs for the wheel trims and the alloy wheels in addition to three new paint colours.<ref>{{cite web|title=Dacia prezintă Noua Colecţie Logan|url=http://www.dacia.ro/noutati/dacia-prezinta-noua-colectie-logan|publisher=Dacia|access-date=23 August 2013|archive-url=https://web.archive.org/web/20061119215346/http://www.dacia.ro/noutati/dacia-prezinta-noua-colectie-logan|archive-date=19 November 2006 |date=14 September 2006}}</ref> Also, the new top of the range level Prestige was introduced, which featured larger door mirrors, body-coloured bumpers (entirely), side moldings and door handles, leather-trimmed gear lever and steering wheel, as well as other interior refinements. It was only available with a new 1.6-litre 16-valve petrol engine, which developed {{cvt|105|hp-metric|kW|0}}.<ref>{{cite web|title=Versiuni|url=http://www.dacia.ro/logan/versiuni|publisher=Dacia|access-date=23 August 2013|archive-url=https://web.archive.org/web/20061006074328/http://www.dacia.ro/logan/versiuni|archive-date=6 October 2006}}</ref>
+
+In July 2007, a more powerful version of the 1.5-litre diesel engine was added, developing {{cvt|85|hp-metric|kW|0}}. It was initially made available only for the [[station wagon]], on the Preference and Laureate levels,<ref>{{cite web|title=Un nou motor diesel pe Dacia Logan MCV|url=http://www.dacia.ro/noutati/un-nou-motor-diesel-pe-dacia-logan-mcv|publisher=Dacia|access-date=23 August 2013|archive-url=https://web.archive.org/web/20070706203851/http://www.dacia.ro/noutati/un-nou-motor-diesel-pe-dacia-logan-mcv|archive-date=6 July 2007|date=3 July 2007}}</ref> and in September 2007, it also became available for the sedan version, on the Laureate, Ambition and Prestige levels.<ref>{{cite web|title=Un nou motor diesel 1.5 dCi, de 85 CP|url=http://www.dacia.ro/noutati/Un%20nou%20motor%20diesel%201.5%20dCi,%20de%2085%20CP|publisher=Dacia|access-date=23 August 2013|archive-url=https://web.archive.org/web/20071117221853/http://www.dacia.ro/noutati/Un%20nou%20motor%20diesel%201.5%20dCi%2C%20de%2085%20CP|archive-date=17 November 2007|date=3 September 2007|url-status=dead|df=dmy-all}}</ref>
+
+In June 2009, the new 1.2-litre 16-valve petrol engine was added for both the Logan and the Sandero. The engine was capable of developing a maximum power of {{cvt|75|hp-metric|kW|0}} and {{convert|107|Nm|lbft|0|abbr=on}} of torque.<ref>{{cite web|title=Noul motor 1.2 16 V 75 CP, disponibil pe modelele Dacia Logan berlina si Sandero|url=http://www.daciagroup.com/presa/comunicate-de-presa/2009/noul-motor-12-16-v-75-cp-disponibil-pe-modelele-dacia-logan-berlina|publisher=Dacia|access-date=4 January 2014|date=22 June 2009}}</ref>
+
+===Safety===
+In June 2005, the car achieved a three-star rating at the [[Euro NCAP]] crash tests.<ref>{{cite web |url=http://www.euroncap.com/tests/dacia_logan_2005/221.aspx |title=Dacia Logan |publisher=Euro NCAP |access-date=9 October 2010}}</ref> This result confirms initial expectations stated previously by Renault.
+
+Depending on the equipment level, standard on some variants and optional on others, the facelifted Logan comes with driver, passenger and side airbags.<ref>{{cite web|title=Dacia New Logan brochure|url=http://www.daciamodellen.nl/docs/ro-brochure-dacia-logan-sedan-2008-08.pdf|publisher=Dacia|access-date=9 September 2013|date=28 August 2008|archive-url=https://web.archive.org/web/20160304054041/http://www.daciamodellen.nl/docs/ro-brochure-dacia-logan-sedan-2008-08.pdf|archive-date=4 March 2016|url-status=dead}}</ref> In terms of active safety, all versions feature the latest generation Bosch 8.1 ABS, which incorporates EBD (electronic brakeforce distribution) and EBA (emergency brake assist).
+
+===Engines===
+When the Logan appeared, all engines complied to the Euro 3 standard and since January 2007, all engines have complied with the Euro 4 standard, including the diesel engine, whose power has increased to 70&nbsp;hp.
+
+{| class="wikitable" style="text-align:center; font-size:90%;"
+|-
+! Name<ref>{{cite web |url=http://www.renault.com.br/downloads/meu/catalogos/folheto_logan.pdf#page=7 |page=7 |title=Novo Renault Logan |publisher=Renault do Brasil |date=20 January 2011 |access-date=2 August 2011 }}{{Dead link|date=July 2019 |bot=InternetArchiveBot |fix-attempted=yes }}</ref><ref>{{cite web |url=http://www.dacia.ro/export/sites/default/dacia.ro/brosuri/Noua-Dacia-Logan.pdf |title=Noua Dacia Logan |publisher=Dacia |date=2 April 2010 |access-date=2 August 2011 |archive-url=https://web.archive.org/web/20120320005626/http://www.dacia.ro/export/sites/default/dacia.ro/brosuri/Noua-Dacia-Logan.pdf |archive-date=20 March 2012 |url-status=dead }}</ref>!! Code !! Capacity !! Type!! Power !! Torque !! Top speed !! Combined consumption
+|-
+| 1.0 16v || [[Renault D-Type engine#D4D|D4D]] [[Flexible-fuel vehicle|Hi-Flex]] || 999&nbsp;cc || 16 valves [[SOHC]] || {{cvt|57|kW|PS|0}} at 5850&nbsp;rpm || {{convert|99|Nm|lbft|0|abbr=on}} at 4350 rpm || {{convert|160|km/h|mph|abbr=on}} || (gas/ethanol)
+|-
+| 1.2 16v || [[Renault D-Type engine#D4F|D4F]] 732 || 1,149&nbsp;cc || 16 valves [[SOHC]] || {{cvt|55|kW|PS|0}} at 5500&nbsp;rpm || {{convert|107|Nm|lbft|0|abbr=on}} at 4250 rpm || {{convert|161|km/h|mph|abbr=on}} || {{convert|5.9|L/100 km|abbr=on}}
+|-
+| 1.4 8v || [[Renault K-Type engine#KxJ petrol engine|K7J]] 710 || 1,390&nbsp;cc || 8 valves [[SOHC]] || {{cvt|55|kW|PS|0}} at 5500&nbsp;[[Revolutions per minute|rpm]] || {{convert|112|Nm|lbft|0|abbr=on}} at 3000 rpm || {{convert|162|km/h|mph|abbr=on}} || {{convert|6.9|L/100 km|abbr=on}}
+|-
+| 1.6 8v || [[Renault K-Type engine#KxM petrol engine|K7M]] 710 || 1,598&nbsp;cc || 8 valves [[SOHC]] || {{cvt|64|kW|PS|0}} at 5500&nbsp;rpm || {{convert|128|Nm|lbft|0|abbr=on}} at 3000 rpm || {{convert|175|km/h|mph|abbr=on}} || {{convert|7.3|L/100 km|abbr=on}}
+|-
+| 1.6 8v || K7M [[Flexible-fuel vehicle|Hi-Torque]] || 1,598&nbsp;cc || 8 valves [[SOHC]] || {{cvt|70|kW|PS|0}} at 5250&nbsp;rpm || {{convert|138|Nm|lbft|0|abbr=on}} at 2850 rpm || {{convert|175|km/h|mph|abbr=on}} || (gas/ethanol)
+|-
+| 1.6 8v || K7M [[Flexible-fuel vehicle|Hi-Power]] || 1,598&nbsp;cc || 8 valves [[SOHC]] || {{cvt|72|kW|PS|0}} at 5500&nbsp;rpm || {{convert|138|Nm|lbft|0|abbr=on}} at 2850 rpm || {{convert|182|km/h|mph|abbr=on}} || (gas/ethanol)
+|-
+| 1.6 16v || [[Renault K-Type engine#KxM petrol engine|K4M]] 690 || 1,598&nbsp;cc || 16 valves [[DOHC]] || {{cvt|77|kW|PS|0}} at 5750&nbsp;rpm || {{convert|148|Nm|lbft|0|abbr=on}} at 3750 rpm || {{convert|183|km/h|mph|abbr=on}} || {{convert|7.1|L/100 km|abbr=on}}
+|-
+| 1.6 16v || K4M [[Flexible-fuel vehicle|Hi-Flex]] || 1,598&nbsp;cc || 16 valves [[DOHC]] || {{cvt|107|kW|PS|0}} at 5750&nbsp;rpm || {{convert|152|Nm|lbft|0|abbr=on}} at 3750 rpm || {{cvt|185|km/h|mph|0}} || (gas/ethanol)
+|-
+| 1.5 [[common rail|dCi]] || [[Renault K-Type engine#K9K dCi|K9K]] 700 || 1,461&nbsp;cc || 8 valves [[SOHC]] || {{cvt|48|kW|PS|0}} at 4000&nbsp;rpm || {{cvt|160|Nm|lbft|0}} at 1900 rpm || {{cvt|155|km/h|mph|0}} || {{convert|4.9|L/100 km|abbr=on}}
+|-
+| 1.5 [[common rail|dCi]] || [[Renault K-Type engine#K9K dCi|K9K]] 792 || 1,461&nbsp;cc || 8 valves [[SOHC]] || {{cvt|75|PS|kW|0|disp=flip}} at 4000&nbsp;rpm || {{cvt|160|Nm|lbft|0}} at 1700 rpm || {{cvt|158|km/h|mph|0}} || {{convert|4.7|L/100 km|abbr=on}}
+|-
+| 1.5 [[common rail|dCi]] || K9K 796 || 1,461&nbsp;cc || 8 valves [[SOHC]] || {{cvt|90|PS|kW|0|disp=flip}} at 3750&nbsp;rpm || {{cvt|200|Nm|lbft|0}} at 1900 rpm || {{cvt|167|km/h|mph|0}} || {{convert|4.6|L/100 km|abbr=on}}
+|}
+
+===Marketing and production===
+[[File:Renault Logan.JPG|thumb|right|Renault Logan assembled by Avtoframos (Russia)]]
+The Logan, vital to increasing sales of the Renault group to the 4 million mark by 2010, is manufactured in nine production and operational assembly centres: Romania (Automobile Dacia), the pilot plant of the Logan Programme, Russia ([[Avtoframos]]), Morocco ([[Somaca]]), Colombia ([[Sofasa]]), Iran (two assembly plants ([[Iran Khodro]] and [[Pars Khodro]]) supervised by [[Renault Pars|Renault-Pars]]), India ([[Mahindra & Mahindra Limited|Mahindra]]), Brazil (Renault),<ref>{{cite web |url=http://www.renault.com/en/Lists/ArchivesDocuments/Renault%20-%202007%20Registration%20Document.pdf |page=45 |title=2007 Registration Document |publisher=Renault |date=17 April 2008 |access-date=19 June 2011 |archive-url=https://web.archive.org/web/20110815223211/http://www.renault.com/en/Lists/ArchivesDocuments/Renault%20-%202007%20Registration%20Document.pdf |archive-date=15 August 2011 |url-status=dead }}</ref> and South Africa ([[Nissan South Africa]]).<ref name="renault">{{cite web|title=2011 Registration Document|url=http://www.renault.com/en/lists/archivesdocuments/renault%20-%202011%20registration%20document.pdf|publisher=Renault|page=21|date=23 March 2012|access-date=5 September 2012|archive-url=https://web.archive.org/web/20121207171628/http://www.renault.com/en/Lists/ArchivesDocuments/Renault%20-%202011%20Registration%20Document.pdf|archive-date=7 December 2012|url-status=dead}}</ref> The [[Complete knock down|CKD]] centre is named the International Logistics Network and is located near the [[Mioveni]] plant in [[Romania]]. It is the biggest logistic centre of its kind, not only within the Renault Group but in the entire global automotive industry.<ref name="Project"/>
+
+====Dacia models====
+In markets where Renault has a presence, such as Europe (Russia, Belarus and Ukraine excepted), Turkey, the Maghreb, and Chile, it is generally sold as the Dacia Logan.<ref>{{cite web |url=http://www.daciagroup.com/eKontentDaciaXFiles/home_ro/ventes/rseau_monde/dacia_pe_glob/index.html |title=Distribution of Dacia throughout the world |publisher=Dacia Group |access-date=9 October 2010 |archive-url=https://web.archive.org/web/20110708220248/http://daciagroup.com/eKontentDaciaXFiles/home_ro/ventes/rseau_monde/dacia_pe_glob/index.html |archive-date=8 July 2011 |url-status=dead }}</ref>
+
+====Renault & Nissan models====
+Exceptions are South Africa, Argentina, Russia, Ukraine,{{#tag:ref|In Ukraine, it was marketed under the Dacia marque until September 2009.<ref>{{cite web|title=Dacia |url=http://www.dacia.ua/ |publisher=Dacia Ukraine |date=17 September 2009 |url-status=dead |archive-url=https://web.archive.org/web/20100211140227/http://www.dacia.ua/ |archive-date=11 February 2010 }}</ref>|group=nb}} Colombia, Ecuador, Israel, Egypt, Brazil, Chile, Peru, Saudi Arabia, India, Nepal and Venezuela where it is marketed as the ''Renault Logan'', and furthermore Mexico, where the Logan was sold as the ''Nissan Aprio'', given the better reputation of the Japanese brand and stronger brand recognition of Nissan itself in the Mexican market.<ref group="nb" name="nissan"/> The Nissan Aprio has the 1.6-litre 16 valve [[straight-four engine]] with a 5-speed [[Manual transmission|manual]] or 4-speed [[automatic transmission]],<ref>{{cite news|url=http://www.post-gazette.com/pg/06277/727315-185.stm/ |archive-url=https://web.archive.org/web/20061024130425/http://www.post-gazette.com/pg/06277/727315-185.stm |url-status=dead |archive-date=24 October 2006 |title=Inexpensive Logan boosts Renault in emerging markets |publisher=Post-gazette.com |date=4 October 2006 |access-date=9 October 2010 | first1=Norihiko | last1=Shirouzu | first2=Stephen | last2=Power}}</ref> and was assembled in Brazil.<ref>{{cite web|title=Atlas Renault – Édition Septembre 2008|url=http://www.renault.com/fr/Lists/ArchivesDocuments/Renault%20-%20Atlas%20-%20fr%20-sept08.pdf|page=9;31|publisher=Renault|date=28 September 2008|access-date=27 January 2012|archive-url=https://web.archive.org/web/20120106013844/http://www.renault.com/fr/Lists/ArchivesDocuments/Renault%20-%20Atlas%20-%20fr%20-sept08.pdf|archive-date=6 January 2012|url-status=dead}}</ref> It was later discontinued from that market in August 2010, due to decreasing sales, and the [[Nissan Tiida|Versa]] replaced it for the 2012 model year.<ref>{{cite news|title=Descontinúan Nissan Aprio en México desde agosto|url=http://www.alvolante.info/nacionales/descontinuan-nissan-aprio-en-mexico-desde-agosto/|newspaper=Alvolante.info|access-date=5 September 2012|date=14 September 2010}}</ref>
+
+In Brazil, it was manufactured by Renault at the [[São José dos Pinhais]] factory since 2007, with the facelifted model being introduced in 2010.<ref>{{cite web|title=Novo Renault Logan parte de R$ 28.690|url=http://g1.globo.com/Noticias/Carros/0,,MUL1567877-9658,00.html|publisher=Globo.com|access-date=6 September 2012|date=13 April 2010}}</ref>
+
+In [[South Africa]], only the pick-up version was manufactured, at the Nissan factory in Rosslyn,{{#tag:ref|[[Nissan]] is the partner of [[Renault]] in the [[Renault–Nissan Alliance]].|group=nb|name=nissan}} starting from 2009.<ref name="renault"/><gallery widths="200" heights="140">
+File:Renault Logan 2007 Curitiba.jpg|2007 Renault Logan (Brazil)
+File:RenaultLoganEC.jpg|2011 Renault Logan (Ecuador)
+File:Nissan Aprio.jpg|2008 Nissan Aprio (Mexico)
+</gallery>
+
+====India====
+In India, the Logan was marketed as the ''Mahindra Renault Logan''.<ref>{{cite web |url=http://www.mahindrarenault.com/ |title=Mahindra Logan |publisher=Mahindra Renault |access-date=9 October 2010}}</ref> In 2005, Renault partnered the Indian utility and commercial vehicles manufacturer [[Mahindra & Mahindra]] (M&M). The Logan was launched in [[India]] in April 2007, as a collaboration with Mahindra, who helped Renault cut costs by 15%.<ref>{{cite book|last1=Sirkin|first1=Harold L.|url=https://archive.org/details/globalitycompeti00sirk/page/304|title=GLOBALITY: Competing with Everyone from Everywhere for Everything'|last2=Hemerling|first2=James W.|last3=Bhattacharya|first3=Arindam K.|date=11 June 2008|publisher=Business Plus|isbn=978-0-446-17829-7|location=New York|page=[https://archive.org/details/globalitycompeti00sirk/page/304 304]|url-access=registration|df=dmy-all}}</ref> India was the first [[Left- and right-hand traffic|right-hand drive]] market for the Logan. Logan could not make it in the Indian market, selling just over 44,000 vehicles since then, with an additional 2,600 vehicles in Nepal and South Africa where M&M also held the licence to sell the Logan.<ref>{{cite web |url=http://www.hindustantimes.com/rssfeed/auto/Mahindra-buys-out-Renault-in-Logan-venture/Article1-532209.aspx |title=Mahindra buys out Renault in Logan venture |work=Hindustan Times |date=16 April 2010 | url-status=dead |archive-url=https://web.archive.org/web/20110605233505/http://www.hindustantimes.com/rssfeed/auto/Mahindra-buys-out-Renault-in-Logan-venture/Article1-532209.aspx |archive-date=5 June 2011 |df=dmy-all }}</ref><ref>{{cite web |url=http://www.financialexpress.com/news/renault-exits-mahindra-jv/607367/ |title=Renault exits from Logan JV, M&M gets licence |work=The Financial Express |date=16 April 2010 |access-date=9 October 2010 |archive-url=https://web.archive.org/web/20100420161903/http://www.financialexpress.com/news/renault-exits-mahindra-jv/607367 |archive-date=20 April 2010 |url-status=dead }}</ref> In April 2010, it was announced that the M&M had bought out Renault's 49% in the Mahindra-Renault joint venture. The new agreement gave M&M more flexibility in engineering the car to suit the needs of the Indian consumer. The Logan was marketed with the Mahindra-Renault logo until the end of March 2011.
+
+=====Mahindra Verito=====
+[[File:Mahindra Verito Vibe 2015.JPG|left|thumb|The [[Mahindra Verito Vibe]] notchback derived from the Logan model]]
+Following the dissolution of the Indian joint venture between [[Renault India Private Limited|Renault India]] and M&M in 2010, Mahindra retained the rights to produce and sell the Logan under its own name of ''Mahindra Verito'', with minor alterations to the front, but retaining Renault diesel engines.<ref>{{cite web|title=Logan now renamed into Verito|url=http://indiaautoindustry.blogspot.com/2011/04/logan-now-renamed-into-verito.html|archive-url=https://archive.today/20120709191731/http://indiaautoindustry.blogspot.com/2011/04/logan-now-renamed-into-verito.html|url-status=dead|archive-date=9 July 2012|publisher=India Auto Industry|access-date=13 January 2012|date=25 April 2011}}</ref><ref>{{cite web|date=27 April 2011|title=Mahindra launches Verito sedan: drops Renault badges, name|url=http://www.carmayogi.in/new-a-event/197-mahinda-verito.html|url-status=dead|archive-url=https://web.archive.org/web/20110911192643/http://www.carmayogi.in/new-a-event/197-mahinda-verito.html|archive-date=11 September 2011|access-date=27 April 2011|publisher=Carmayogi.in}}</ref><ref>{{cite web|title=Why Choose Verito|url=http://www.mahindraverito.com/why_choose_verito.html|publisher=Mahindra Verito|access-date=26 January 2012|archive-date=3 March 2016|archive-url=https://web.archive.org/web/20160303232214/http://www.mahindraverito.com/why_choose_verito.html|url-status=dead}}</ref> On 26 July 2012, a facelifted version of the car was revealed by Mahindra in [[New Delhi]],<ref>{{cite web|title=2012 Mahindra Verito Facelift launched at Rs 5.27 lakh|url=http://www.oncars.in/Car-News-Detail/2012-Mahindra-Verito-Facelift-launched-at-Rs-5-27-lakh/2775|publisher=OnCars.in|date=26 July 2012|access-date=5 September 2012|archive-date=29 July 2012|archive-url=https://web.archive.org/web/20120729044645/http://www.oncars.in/Car-News-Detail/2012-Mahindra-Verito-Facelift-launched-at-Rs-5-27-lakh/2775|url-status=dead}}</ref> and on 5 June 2013, a [[notchback]] version was launched in [[Mumbai]], called the [[Mahindra Verito Vibe]].<ref>{{cite web|title=2013 Mahindra Verito Vibe Launched At Rs 5.63 Lakh Ex-Mumbai|url=http://overdrive.in/news/2013-mahindra-verito-vibe-launched-at-rs-5-63-lakh-ex-mumbai/|publisher=Overdrive|access-date=5 August 2013|date=5 June 2013}}</ref> Production was shut down on 31 December 2019.
+
+An electric version of the Verito sedan and its notchback version Verito Vibe was sold as the ''Mahindra eVerito'' from 2016.<ref>{{cite web|title=eVerito|url=http://www.mahindraelectric.com/everito/|publisher=Mahindra Electric|access-date=29 April 2018}}</ref> Production was shut down on 31 December 2019.
+
+====Iran====
+[[File:Saipa-Renault Pars Tondar 2024-05-04.jpg|thumb|Renault Pars Tondar]]
+In 2007, the Logan branded as ''Renault Tondar 90'' (also called Renault L90), began to be marketed in Iran by [[Renault Pars|Renault-Pars]],<ref>{{cite web|url=http://www.renault.co.ir/cars/Logan/home.html|title=Renault Tondar|access-date=26 January 2012|publisher=Renault Pars|archive-url=https://web.archive.org/web/20120104093156/http://renault.co.ir/cars/Logan/home.html|archive-date=4 January 2012|url-status=dead}}</ref> manufactured by [[Pars Khodro]] and [[Iran Khodro]].<ref>{{cite web |url=http://www.payvand.com/news/06/jun/1231.html |title=First Logan manufactured in Iran |publisher=Payvand.com |access-date=28 April 2009 |archive-date=23 March 2020 |archive-url=https://web.archive.org/web/20200323081447/http://www.payvand.com/news/06/jun/1231.html |url-status=dead }}</ref> In the first month of production more than 100,000 Tondar 90 had been ordered.<ref>{{cite web |url=http://www.informatiiauto.ro/renault-logan-comandat-de-100000-iranieni-sid1001.html |title=Renault Logan comandat de 100.000 iranieni |publisher=Informaţii Auto |access-date=27 November 2010 |archive-date=25 June 2018 |archive-url=https://web.archive.org/web/20180625050158/http://www.informatiiauto.ro/renault-logan-comandat-de-100000-iranieni-sid1001.html |url-status=dead }}</ref> Renault Pars is a joint venture, 51 percent of which belongs to Renault of France. Forty-nine percent of Renault Pars' shares is jointly held by [[Industrial Development and Renovation Organization of Iran|Iran's Industrial Development and Renovation Organization]], [[IKCO]] and [[Saipa Group]]. The company was established in 2003.{{citation needed|date=July 2021}} In 2010, IKCO and Pars Khodro started to produce CNG Tondar 90s which can run on both petrol and CNG. They stopped producing CNG models in 2012. In 2013, IKCO started to produce Tondar 90s with automatic gearbox and they also made it comply with the Euro IV standards. A facelifted version is sold as the Tondar 90+, along with the original one.<ref>{{Cite web|url=https://renault-iran.com/en/cars/tondar-90-plus/index.html|title=Renault TONDAR 90+ &#124; Renault Iran|website=renault-iran.com}}</ref> There is also a pickup version called the Tondar Pick-Up.<ref>{{cite web |title=Renault TONDAR PICK-UP |url= http://renault.co.ir/en/cars/tondar-pickup/index.html |publisher= Renault Iran |access-date= 28 April 2018}}</ref> In 2014 Renault updated the transmission of Logan for Iranian market using JHQ gearbox instead of regular JH3 to make the car more reliable.
+
+By 2018, Renault had left the Iranian market but in 2023, Pars Khodro released a [[Facelift (automotive)|facelifted]] version of the original Dacia Logan called ''Pars Khodro Cadilla'' with over 85 percent local parts content.<ref>{{Cite web|url=https://www.carscoops.com/2020/11/iranian-carmaker-to-restart-old-dacia-logan-production-without-renaults-involvement/|title=Iranian Carmaker To Restart Old Dacia Logan Production Without Renault's Involvement| first = Dan | last = Mihalascu | date=November 14, 2020}}</ref><ref>{{Cite web |date=2023-01-18 |title=عکس {{!}} نسخه ایرانی ال ۹۰ با نام کادیلا روانه بازار می‌شود |url=https://www.khabaronline.ir/news/1720742/عکس-نسخه-ایرانی-ال-۹۰-با-نام-کادیلا-روانه-بازار-می-شود |access-date=2023-01-25 |website=خبرآنلاین |language=fa}}</ref> The Cadila uses the 1.6-litre Saipa ME16 engine, which is actually an updated version of the [[PSA TU engine|PSA TU5]] engine.<ref>{{Cite web |title=سهند و کادیلا توسط پارس‌خودرو تولید خواهند شد | url=https://www.pedal.ir/pars-khodro/pars-khodro-sahand-cadila/ | trans-title = Sahand and Cadila will be produced by Pars Khodro | work = Pedal Magazine | access-date=2023-01-25 |date = 2023-01-19 | language=fa-IR}}</ref>
+
+====Electric versions====
+=====United States=====
+In the United States, an attempt at marketing electric versions of the wagon, the van and the pick-up as the ''EMC E36'' was launched by the EnVision Motor Company, based in [[Des Moines, Iowa|Des Moines]], Iowa.<ref>{{cite web|title=Dacia Logan Electric Pickup for the U.S.|url=http://www.autoevolution.com/news/dacia-logan-electric-pickup-for-the-us-16426.html|publisher=Autoevolution|date=7 February 2010}}</ref> The automobiles were assembled by Dacia in Romania<ref>{{Cite web|url = https://www.greenoptimistic.com/emc-electric-vehicle-dacia-logan-20100207/|title = EMC Launches Affordable Electric Vehicle Based on Dacia Logan|date = 7 February 2010|access-date = 16 November 2020|archive-date = 13 February 2021|archive-url = https://web.archive.org/web/20210213150413/https://www.greenoptimistic.com/emc-electric-vehicle-dacia-logan-20100207/|url-status = dead}}</ref> and powered by an [[asynchronous motor]] with a range of {{cvt|200|mi}} per charge, giving a top highway speed as high as {{cvt|75|mph}}. EMC planned to use regenerative braking and is coupled to an automatic shiftless button transmission. The battery can be charged through a [[SAE J1772|J1772]] plug or from wall outlets of either 120 or 240 volts.  This venture has since collapsed into bankruptcy.<ref>{{cite web|title=EMC Brochure|url=http://www.electricmobilecars.com/Electric_Mobile_Cars/Home_files/EMC%20Brochure.pdf|publisher=Electric Mobile Cars|date=10 October 2011|access-date=26 November 2012|archive-url=https://web.archive.org/web/20160309124853/http://electricmobilecars.com/electric_mobile_cars/home_files/emc%20brochure.pdf|archive-date=9 March 2016|url-status=dead}}</ref>
+
+=====Russia=====
+The Lada e-Largus was announced on August 8, 2022,<ref>{{cite web|url=https://www.carscoops.com/2022/08/lada-e-largus-based-on-previous-gen-dacia-logan-could-become-avtovazs-first-ev/|title=Lada e-Largus Based On Previous-Gen Dacia Logan Could Become AvtoVAZ's First EV|date=8 August 2022 }}</ref> being a fully electric version based on the Largus Furgon model, and AvtoVAZ's first production electric vehicle since the Ellada in the early 2010s.
+
+====Production====
+Logan production began with a 4-door [[sedan (car)|sedan]], followed by a [[station wagon|wagon]] in September 2006. Four other models, a [[pick-up truck]], a [[panel van]], a related [[hatchback]] (the [[Dacia Sandero|Sandero]]) and a facelifted sedan followed in 2007 and 2008. Dacia sales for 2006 were over €1.5 billion, 19.6% more than in 2005. Annual production has reached almost 250,000 cars, half for exports. As of March 2009, more than 1.3 million vehicles on the Logan platform have been sold worldwide.<ref>{{cite web |url=http://www.edmunds.com/insideline/do/News/articleId=143467#2 |archive-url=https://web.archive.org/web/20090311223811/http://www.edmunds.com/insideline/do/News/articleId%3D143467#2 |title=Renault Launches Sandero in South Africa |publisher=Edmunds.com |date=9 March 2009 |archive-date=11 March 2009 |access-date=9 October 2010 |url-status=dead |df=dmy-all }}</ref> On 3 September 2009, it was announced that one million Dacia cars on the Logan platform X90 have been produced at the Mioveni plant: 576,887 Logans, 246,869 Logan MCVs, 144,931 Sanderos and Stepways, 19,897 Logan VANs and 11,416 Logan Pick-Ups.<ref>{{cite web |url=http://www.romaniantimes.at/news/Business/2009-09-03/2704/_One_million_Dacia_cars_produced_at_Mioveni_plant__ |title=One million Dacia cars produced at Mioveni plant |work=Romanian Times |access-date=9 October 2010 |archive-url=https://web.archive.org/web/20110706094225/http://www.romaniantimes.at/news/Business/2009-09-03/2704/_One_million_Dacia_cars_produced_at_Mioveni_plant__ |archive-date=6 July 2011 |url-status=dead }}</ref>
+
+One of the reasons for the increase in sales is the dependability of Dacia cars. In a recent survey conducted by a French magazine, Dacia cars were voted one of the safest cars in France. Another reason is their low maintenance and repair costs. According to the survey, Dacia cars were the cheapest to maintain and repair.<ref>{{cite web |url=http://www.dacialogan.org/dacia-wins-kudos/ |title=Dacia wins Kudos |publisher=Dacia Logan |date=13 January 2010 |access-date=9 October 2010 |archive-url=https://web.archive.org/web/20101126140101/http://www.dacialogan.org/dacia-wins-kudos/ |archive-date=26 November 2010 |url-status=dead }}</ref> In Germany, Dacia was placed on the second position in the 2010 Vehicle Ownership Satisfaction Study released by [[J. D. Power and Associates]] in June 2010.<ref>{{cite web |url=http://www.autoevolution.com/news/dacia-and-bmw-go-head-to-head-in-satisfaction-study-21735.html |title=Dacia and BMW Go Head to Head in Satisfaction Study |date=24 June 2010 |publisher=Autoevolution.com |access-date=9 October 2010}}</ref>
+
+===<span class="anchor" id="Logan I MCV"></span><span class="anchor" id="first generation MCV"></span>Logan MCV===
+The Logan MCV (''Multi Convivial Vehicle''), launched at the [[2006 Paris Motor Show]], is the [[station wagon]] version of the Logan.<ref name="Logan MCV">{{cite web|title=Logan MCV: space, versatility and value for money|url=http://www.daciagroup.com/en/press/press-releases/2006/logan-mcv-space-versatility-and-value-for-money|publisher=Dacia|date=26 September 2006}}</ref> It has 5- or 7-seat versions, with a luggage space between 200 and 2,350 litres depending on how many seats are folded, and numerous storage spaces for smaller objects. It has a wheelbase longer by {{convert|275|mm|in|1|abbr=on}} than the [[sedan (car)|saloon]], and larger rear doors for easy access to the third row of seats.<ref>{{cite web|title=Dacia Logan MCV car volumes|url=http://www.renault-dacia-logan.com/dacia-logan-mcv-volumes.php|publisher=Renault-Dacia-Logan.com|access-date=27 November 2012|archive-url=https://web.archive.org/web/20130601083432/http://www.renault-dacia-logan.com/dacia-logan-mcv-volumes.php|archive-date=1 June 2013|url-status=dead}}</ref> It uses the same engines as the [[sedan (car)|saloon]],<ref name="Logan MCV" /> and an important improvement was the availability of side [[airbag]]s.<ref>{{cite web|title=Dacia Logan MCV car safety|url=http://www.renault-dacia-logan.com/dacia-logan-mcv-safety.php|publisher=Renault-Dacia-Logan.com|access-date=27 November 2012|archive-url=https://web.archive.org/web/20130601062734/http://www.renault-dacia-logan.com/dacia-logan-mcv-safety.php|archive-date=1 June 2013|url-status=dead}}</ref> It has been considered a competitor for [[compact MPV]]s, for its dimensions and the 7-seat capacity.<ref>{{cite web|title=Évaluation détaillée de la DACIA Logan MCV 7 places|url=http://www.latribuneauto.com/impression-evaluation-DACI-LOGM-BK-07-1397-dacia-logan-mcv-7-places.html|publisher=La Tribune Auto|access-date=27 November 2012|archive-date=12 March 2016|archive-url=https://web.archive.org/web/20160312151644/http://latribuneauto.com/impression-evaluation-daci-logm-bk-07-1397-dacia-logan-mcv-7-places.html|url-status=dead}}</ref>
+
+Sales on the Romanian market began in October 2006 with prices ranging between €8,200 and €12,550,<ref>{{cite web |url=http://masini.acasa.ro/noutati/logan-mcv-spatiu-si-polivalenta-la-cel-mai-bun-pret-24642.html |title=Logan MCV : spatiu si polivalenta la cel mai bun pret |publisher=Acasa.ro |access-date=27 November 2010 |archive-url=https://web.archive.org/web/20110820181718/http://masini.acasa.ro/noutati/logan-mcv-spatiu-si-polivalenta-la-cel-mai-bun-pret-24642.html |archive-date=20 August 2011 |url-status=dead }}</ref> while sales to other countries began in early 2007. A revised version, with the new lights and bumper from the New Logan [[sedan (car)|saloon]], was released in late 2008. As of June 2010, Dacia produced 300,000 Logan MCVs.<ref>{{cite web |url=http://www.autoevolution.com/news/dacia-rolls-out-300000th-logan-mcv-21877.html |title=Dacia Rolls Out 300,000th Logan MCV |date=29 June 2010 |publisher=Autoevolution.com |access-date=9 October 2010}}</ref>
+
+Since 2012 it is also produced in [[Russia]] by [[AvtoVAZ]] as [[Lada Largus]].<ref name="autovesti">{{cite web|title="АвтоВАЗ" выпустил вторую партию универсала Largus|url=http://auto.vesti.ru/doc.html?id=436213|publisher=Auto.Vesti.ru|date=24 January 2012|access-date=9 February 2012}}</ref> This version was first exhibited at the 2010 Moscow International Motor Show as the [[Lada]] Project R90.<ref>{{cite web |title=Moscú 2010: Lada R90 Project |url=http://es.autoblog.com/2010/08/25/moscu-2010-lada-r90-project/ |publisher=[[Autoblog.com|Autoblog]] Español |date=25 August 2010 |access-date=27 November 2010 |url-status=dead |archive-url=https://web.archive.org/web/20100901063331/http://es.autoblog.com/2010/08/25/moscu-2010-lada-r90-project/ |archive-date=1 September 2010 |df=dmy-all }}</ref> It is also offered with crossover-style body elements as the Largus Cross.<ref>{{cite web |title=LADA Official Website |url=https://www.lada.ru/en/ |website=LADA |access-date=14 August 2021 |archive-url=https://web.archive.org/web/20210802222700/https://www.lada.ru/en/ |archive-date=2 August 2021 |url-status=dead}}</ref>
+
+<gallery widths="200" heights="140">
+File:Dacia Logan MCV Lauréate 1.6 16V Flammenrot.JPG|Dacia Logan MCV (pre-facelift)
+File:Dacia Logan MCV Lauréate 1.6 16V Flammenrot Heck.JPG|Dacia Logan MCV (pre-facelift)
+File:Dacia Logan MCV Facelift front - PSM 2009.jpg|Dacia Logan MCV (facelift)
+File:Dacia Logan MCV Facelift rear - PSM 2009.jpg|Dacia Logan MCV (facelift)
+</gallery>
+
+===<span class="anchor" id="Van"></span><span class="anchor" id="first generation MCV"></span>Logan Van===
+[[File:Dacia Logan Van rear - PSM 2009.jpg|left|thumb|Dacia Logan Van]]
+The [[panel van]] variant of the Logan was launched on 23 January 2007 in Bucharest.<ref>{{cite web|title=Dacia sets out to conquer the commercial vehicle market with Logan VAN|url=http://www.daciagroup.com/en/press-releases/dacia-sets-out-to-conquer-the-commercial-vehicle-market-with-logan-van.html|publisher=Dacia Group|date=23 January 2007|access-date=26 January 2012}}{{Dead link|date=July 2019 |bot=InternetArchiveBot |fix-attempted=yes }}</ref> It is a small business oriented vehicle, with 2,500 litre loading space and 800&nbsp;kg payload. The Logan Van is more or less an MCV without the rear side windows and therefore has the same safety features and uses the same engines as the other models (except the 1.6 16v engine). Production of this model was stopped in August 2012. Since its launch, over 53,000 units were manufactured.<ref>{{cite web |date=20 September 2012 |title=Productia de utilitare Dacia, mutata definitiv in Maroc |url=http://transporter.ro/s-10255-Stiri-Productia-de-utilitare-Dacia--mutata-definitiv-in-Maroc |url-status=dead |archive-url=https://web.archive.org/web/20160305020144/http://transporter.ro/s-10255-stiri-productia-de-utilitare-dacia--mutata-definitiv-in-maroc |archive-date=5 March 2016 |access-date=29 September 2012 |publisher=Transporter.ro}}</ref> The panel van version continues to be produced as the [[Lada Largus]] by AvtoVAZ.{{clear}}
+
+===<span class="anchor" id="Pickup"></span><span class="anchor" id="Pick-up"></span><span class="anchor" id="Nissan NP200"></span>Logan Pick-Up===
+The [[coupé utility]] version of the Logan, also based on the MCV, was introduced on 10 September 2007 (4 October 2007 at the Bucharest International Motor Show),<ref>{{cite web |url=http://www.automarket.ro/stiri/premiera-mondiala-logan-pick-up-s-a-lansat-la-siab-6723.html |title=Premiera mondiala: Logan Pick-up s-a lansat la SIAB |publisher=AutoMarket.ro |access-date=27 November 2010}}</ref> as a replacement for the [[Dacia Pick-Up]]. Sales began in Romania in 2008, with the price ranging between €7,300 and €9,450.
+
+The Logan Pick-Up was discontinued by Dacia in July 2012,<ref>{{cite web |title=Productia de Logan Pick-up, MCV si Van inceteaza anul acesta in Romania |url=http://www.4tuning.ro/vanzari-economie/productia-de-logan-pick-up-mcv-si-van-inceteaza-14939.html |access-date=24 July 2012 |publisher=4tuning.ro}}</ref> and it was not until October 2020 that the company introduced a new  [[Dacia Duster#Duster Pick-Up|pickup model based on the Dacia Duster]].<ref name="Bakkie">{{cite web |date=2020-10-23 |title=New Renault Duster 4x4 Bakkie Launched |url=https://www.cars.co.za/motoring_news/new-renault-duster-4x4-bakkie-launched/50105/ |access-date=2020-10-29 |publisher=cars.co.za}}</ref>
+
+Starting October 2008, the Logan Pick-Up is sold in South Africa as the '''Nissan NP200'''. Visually similar to the original model at launch,<ref>{{cite web|title=Nissan starts LCV global product offensive with NP200|url=http://www.nissan-global.com/EN/NEWS/2008/_STORY/080929-04-e.html|publisher=Nissan|access-date=6 September 2012|date=29 September 2008|archive-url=https://web.archive.org/web/20120109061015/http://www.nissan-global.com/EN/NEWS/2008/_STORY/080929-04-e.html|archive-date=9 January 2012|url-status=dead}}</ref> it received a light facelift in early 2009.<ref>{{cite web|title=Nissan NP200 gets a make over|url=http://www.focusontransport.co.za/regulars/market-review/64-nissan-np200-gets-a-make-over.html|publisher=Focus on Transport & Logistics|access-date=6 September 2012|date=4 June 2009|archive-url=https://web.archive.org/web/20120626064847/http://www.focusontransport.co.za/regulars/market-review/64-nissan-np200-gets-a-make-over.html|archive-date=26 June 2012|url-status=dead}}</ref> It is being built at the Nissan plant outside Pretoria, alongside the [[Renault Sandero]], and is also exported to several Southern Africa countries such as Zimbabwe, Mozambique, Namibia, Zambia, Kenya, Uganda, Seychelles and Botswana.<ref>{{cite web|access-date=2023-04-04|title=NP200 {{!}} Across Zimbabwe {{!}} Nissan Clover Leaf Motors|url=https://www.cloverleaf.co.zw/nissan/new-cars/np200/|website=www.cloverleaf.co.zw|archive-date=4 April 2023|archive-url=https://web.archive.org/web/20230404220606/https://www.cloverleaf.co.zw/nissan/new-cars/np200/|url-status=dead}}<!-- auto-translated by Module:CS1 translator --></ref><ref>{{cite web|access-date=2023-04-04|title=NP200 {{!}} Namibia {{!}} Pupkewitz Nissan|url=https://www.pupkewitz-motors.com/nissan/new-cars/np200/|website=www.pupkewitz-motors.com}}<!-- auto-translated by Module:CS1 translator --></ref><ref>{{cite web|access-date=2023-04-04|language=en-ZA|title=Demo NISSAN NP200 1.6 For Sale {{!}} NTT Motor Group|url=https://www.nttnissan.co.bw/used_car/nissan-np200-1-6-p-u-s-c/|website=NTT Nissan Botswana|archive-date=4 April 2023|archive-url=https://web.archive.org/web/20230404220606/https://www.nttnissan.co.bw/used_car/nissan-np200-1-6-p-u-s-c/|url-status=dead}}<!-- auto-translated by Module:CS1 translator --></ref><ref>{{cite web|access-date=2023-04-04|title=Nissan|url=https://www.nissanzambia.co.zm/new-vehicles/browse-range/np200/|website=www.nissanzambia.co.zm}}<!-- auto-translated by Module:CS1 translator --></ref><ref>{{Cite web |title=Nissan |url=https://www.nissankenya.com/new-vehicles/browse-range/np200/ |access-date=2023-04-05 |website=www.nissankenya.com}}</ref><ref>{{Cite web |title=Nissan |url=https://www.nissan.co.ug/new-vehicles/browse-range/np200/ |access-date=2023-04-05 |website=www.nissan.co.ug}}</ref><ref>{{Cite web |title=Nissan |url=https://www.nissanseychelles.com/new-vehicles/browse-range/np200/ |access-date=2023-04-05 |website=www.nissanseychelles.com}}</ref><ref>{{cite web |title=Nissan |url=https://www.nissan.co.mz/en/new-vehicles/browse-range/np200/ |access-date=2023-04-04 |website=www.nissan.co.mz |archive-date=4 April 2023 |archive-url=https://web.archive.org/web/20230404220606/https://www.nissan.co.mz/en/new-vehicles/browse-range/np200/ |url-status=dead }}<!-- auto-translated by Module:CS1 translator --></ref> In March 2024, the NP200 was discontinued.<ref>{{Cite magazine |last=Classen |first=Robin |title=The end of the half-tonner in SA: Nissan finally discontinues NP200 bakkie |url=https://www.news24.com/life/motoring/bakkies-suvs/the-end-of-the-half-tonner-in-sa-nissan-finally-discontinues-np200-bakkie-20230808 |access-date=2024-04-11 |magazine=Life |language=en-US}}</ref>
+
+As of 2016, it is also offered in Iran as the Renault Tondar Pick-Up.<ref>{{Cite web|url=https://renault-iran.com/en/cars/tondar-pickup/index.html|title=Renault Tondar Pick-Up &#124; Renault Iran|website=renault-iran.com}}</ref>
+
+<gallery widths="220">
+File:Dacia Logan Pick-Up 20090712 front.JPG|Dacia Logan Pick-Up
+File:Dacia Logan Pick-up rear view.jpg|Dacia Logan Pick-Up
+File:2008 Nissan NP200.jpg|Nissan NP200 (pre-facelift)
+File:Nissan NP200 (cropped).jpg|Nissan NP200 (facelift)
+</gallery>
+
+==<span class="anchor" id="Logan II"></span><span class="anchor" id="II"></span><span class="anchor" id="Second"></span><span class="anchor" id="second generation"></span>Second generation (L52/K52; 2012)==
+{{For|the hatchback version|Dacia Sandero#II}}
+{{Infobox automobile
+| name = Logan II
+| image = Dacia Logan 2012–2017 (front).jpg
+| aka = [[Renault Symbol#3|Renault Symbol]]<br />Renault Logan
+| production = {{ubl |2012–2020 (Dacia) |2014–2024 (Brazil) |2014–2022 (Russia)|2021–present (Nigeria)}}
+| assembly = {{ubl|
+  | Romania: [[Mioveni]]
+  | Morocco: [[Casablanca]] ([[Somaca]]); [[Tangier]] (Renault-Nissan)
+  | Russia: [[Togliatti (city)|Togliatti]] ([[AvtoVAZ]])
+  | Brazil: [[São José dos Pinhais]] ([[Renault Brazil]])
+  | Colombia: [[Envigado]] ([[SOFASA]])
+  | Argentina: [[Santa Isabel, Córdoba|Santa Isabel]] ([[Renault Argentina]])
+  | Algeria: [[Oran]] ([[:fr:Usine Renault Algérie Production|Renault Algérie]])
+  | Nigeria: [[Lagos]] (Coscharis)
+}}
+| designer = Erde Tungaa (Renault Design Central Europe)<ref name="erde_tungaa"/>
+| body_style = 4-door [[sedan (car)|saloon]]<br />5-door [[station wagon]]
+| platform = [[Nissan B platform|Dacia M0 platform]]<ref>{{cite web|title=European Malaise Not Slowing Down Renault's Dacia|url=http://wardsauto.com/europe/european-malaise-not-slowing-down-renault-s-dacia|publisher=WardsAuto|date=27 November 2012|access-date=23 December 2012|archive-url=https://web.archive.org/web/20150701183123/http://wardsauto.com/europe/european-malaise-not-slowing-down-renault-s-dacia|archive-date=1 July 2015|url-status=dead}}</ref>
+| related = [[Dacia Sandero#II|Dacia Sandero II]]
+| engine = '''[[Petrol engine|Petrol]]:'''<br />1.0 L ''[[Mercedes-Benz M281 engine#M281 E10 (Nissan HR10DE/Renault H4D)|''H4D'']]'' [[Naturally aspirated engine|sCe]] [[Straight-three engine|I3]]<br />1.2 L 16v [[Renault D-Type engine#D4F|''D4F'']] [[Straight-4|I4]]<br />1.6 L [[Renault K-Type engine#Applications (K7M 8v)|''K7M'']] [[Straight-4|I4]]<br />'''[[Flexible-fuel vehicle|Flex-fuel]]:'''<br />1.0 L 16v [[Renault D-Type engine#D4D|''D4D'']] [[Straight-4|I4]]<br />1.6 L [[Renault K-Type engine#Applications (K7M 8v)|''K7M'']] [[Straight-4|I4]]<br />1.6 L 16v [[Nissan HR engine#HR16DE|''H4M'']] [[Naturally aspirated engine|sCe]] [[Straight-4|I4]]<br />'''[[Petrol engine|Petrol]]/[[Autogas|LPG]]:'''<br />0.9 L ''[[Mercedes-Benz M281 engine#M281 E09 LA (Nissan HR09DET/Renault H4Bt)|''H4BT'']]'' [[Straight-three engine|I3]] [[Turbocharger|t]][[Gasoline direct injection|Ce]]<br />1.2 L 16v [[Renault D-Type engine#D4F|''D4F'']] [[Straight-four engine|I4]]<br />'''[[Diesel engine|Diesel]]:'''<br />1.5 L [[Renault K-Type engine#K9K dCi|''K9K'']] [[dCi]] [[Straight-four engine|I4]] [[turbo-diesel|turbo]]
+| transmission = 5-speed [[Manual transmission|manual]]<br />4-speed [[Automatic transmission|automatic]]<br />5/6-speed [[Dacia Easy-R|automated manual]] (Easy-R)<br />[[Nissan]]/[[Jatco]] ''JF015E'' [[continuously variable transmission|CVT]] ''X-Tronic''
+| wheelbase = {{ubl
+  | {{cvt|2634|mm|in|1}} (sedan)
+  | {{cvt|2635|mm|in|1}} (station wagon)
+  }}
+| length = {{ubl
+  | {{cvt|4346-4380|mm|in|1}} (sedan)
+  | {{cvt|4494-4528|mm|in|1}} (station wagon)
+  }}
+| width = {{convert|1733-1762|mm|in|1|abbr=on}}
+| height = {{ubl
+  | {{cvt|1517-1576|mm|in|1}} (sedan)
+  | {{cvt|1518-1590|mm|in|1}} (station wagon)
+  }}
+| weight = {{cvt|976-1268|kg|lb|0}}
+| successor = [[Dacia Jogger]] / [[Dacia Striker]] (for Dacia Logan MCV)<br />[[Renault Taliant]] (for Renault Logan/Symbol)
+}}
+[[File:Dacia Logan II Rear.jpg|left|thumb|Rear view (pre-facelift)]]
+[[File:CAR pic4.jpg|left|thumb|Interior]]
+The second generation Logan was revealed by Dacia at the [[2012 Paris Motor Show]]. Official photos with the new Logan were released on 17 September 2012.<ref name="automobile">{{cite web|title=Dacia Logan 2 – Madame Plus|url=http://www.automobile-magazine.fr/actualites/dacia/dacia_logan_2|publisher=L'Automobile Magazine|date=17 September 2012|access-date=17 September 2012|archive-date=8 April 2016|archive-url=https://web.archive.org/web/20160408125113/http://www.automobile-magazine.fr/actualites/dacia/dacia_logan_2|url-status=dead}}</ref> It shares the same front end design with the second generation [[Dacia Sandero|Sandero]], also revealed at the motor show, as well as other elements too.<ref name="paris">{{cite web|title=Noile Dacia Logan, Sandero şi Sandero Stepway|url=http://www.daciagroup.com/presa/comunicate-de-presa/2012/noile-dacia-logan-sandero-si-sandero-stepway|publisher=Dacia|date=27 September 2012}}</ref>
+
+According to Dacia, 60% of the design work was carried out in Romania, at Renault's engineering centre.<ref name="erde_tungaa">{{cite web |title=Cum arătau schiţele cu noile modele Dacia Logan, Sandero şi Sandero Stepway acum 3 ani |url=https://www.economica.net/cum-aratau-schitele-cu-noile-modele-dacia-logan-sandero-si-sandero-stepway-galerie-foto_40777.html |publisher=Economica.net |access-date=6 July 2019 |archive-url=https://archive.today/20190706154926/https://www.economica.net/cum-aratau-schitele-cu-noile-modele-dacia-logan-sandero-si-sandero-stepway-galerie-foto_40777.html |url-status=live |archive-date=6 July 2019 |language=ro |date=13 December 2012 }}</ref>
+
+===Features===
+Among the new features introduced with the new model there was a new three-cylinder turbocharged 0.9-litre petrol engine and capable of developing {{convert|90|hp|kW|0|abbr=on}} and {{convert|135|Nm|lbft|0|abbr=on}}. The other two engine options are the 1.2-litre 16-valve petrol engine, initially available also as an [[Autogas|LPG]] variant, and the 1.5-litre diesel engine, available with two power outputs.<ref name="paris"/> Their performance figures are predominantly similar to the ones of the second generation [[Dacia Sandero#Engines 2|Sandero]].<ref name="versiuni"/> Later, the 1.2-litre [[Autogas|LPG]] variant was discontinued, in favor of the 0.9 TCe, as the first did not meet the new Euro 6 emission standards.<ref>{{Cite web|url=http://www.autolatest.ro/editorial-auto/dacia-nu-renunt-la-gpl-noul-motor-pe-gaz-este-0-9-tce-si-corespunde-normelor-euro-6|title=Dacia nu renunta la GPL! Noul motor pe gaz este 0.9 TCE si corespunde normelor Euro 6|date=8 May 2015}}</ref>
+
+Another addition was the Media Nav system, already introduced earlier in the same year on the [[Dacia Lodgy|Lodgy]], consisting of a 7-inch touchscreen display with multimedia functions and a navigation software included. Other new features are [[speed limiter]], cruise control, rear parking sensors, and front and side airbags, as well as ABS and ESP, as standard.<ref name="paris"/> The interior has been significantly revised, with new chromed elements added, and the hood is now supported with a [[strut]]. A new Eco button, placed on the dashboard, limits the engine revs to 4,000 rpm.<ref name="0-100">{{cite web|title=Noile Sandero si Logan in imagini. Cum a fost la premiera din Paris|url=http://0-100.hotnews.ro/2012/09/27/video-foto-noile-sandero-si-logan-in-30-de-imagini-cum-a-fost-la-premiera-din-paris/|publisher=0–100.ro|date=27 September 2012}}</ref>
+
+At the end of 2014, Dacia started to produce [[Euro 6]] engines, with reduced exhaust emissions.<ref>{{Cite web|url=http://www.agerpres.ro/economie/2014/02/24/dacia-va-incepe-fabricarea-de-motoare-euro-6-la-finalul-anului-12-02-06|title=Dacia va începe fabricarea de motoare Euro 6 la finalul anului|website=www.agerpres.ro|access-date=24 March 2016|archive-date=8 April 2016|archive-url=https://web.archive.org/web/20160408213239/http://www.agerpres.ro/economie/2014/02/24/dacia-va-incepe-fabricarea-de-motoare-euro-6-la-finalul-anului-12-02-06|url-status=dead}}</ref> From August 2015, the 0.9 TCe engine is equipped with the [[Start-stop system|Start & Stop]] system.<ref>{{Cite web|url=http://www.promotor.ro/masini-noi/news/dacia-face-schimbari-in-gama-de-propulsoare-unitati-euro-6-si-doua-noi-motoare-cu-start-stop-14689751|title = Dacia face schimbări în gama de propulsoare: Unităţi Euro 6 şi două noi motoare cu Start-Stop|date = 26 August 2015}}</ref>
+
+Starting from the end of 2016, the Dacia Logan range is offered with the ''[[Dacia Easy-R]]'' automated manual transmission (AMT).<ref>{{Cite web|url=http://www.daciagroup.com/presa/comunicate-de-presa/2016/noutatile-dacia-la-salonul-de-la-geneva-2016|title = Noutățile Dacia la Salonul de la Geneva 2016|date = 7 March 2016}}</ref><ref name="Easy-R">{{cite web|title=Dacia introduces new automatic manual Easy-R transmission|url=http://media.renault.com/global/en-gb/dacia/Media/PressRelease.aspx?mediaid=73734|publisher=media.renault.com|date=24 November 2015|access-date=29 September 2016|archive-date=6 February 2017|archive-url=https://web.archive.org/web/20170206212631/http://media.renault.com/global/en-gb/dacia/Media/PressRelease.aspx?mediaid=73734|url-status=dead}}</ref>
+
+===Variants===
+In the European market, the new Logan is available in different trim levels: Access, Ambiance, Laureate, Stepway, Prestige. The Access level comes with black bumpers and power steering, and is available only with the 1.2-litre engine. Ambiance has body-coloured bumpers, wheel covers, Eco mode function, power [[vehicle door|lock door]]s, front [[vehicle door|power window]]s or [[CD player]], and as options there are [[metallic paint]], [[fog light]]s and air conditioning. Laureate adds body-coloured [[door handle]]s, [[fog light]]s as standard and trip computer, and additionally can be ordered with [[metallic paint]], Media Nav system, leather upholstery, parking sensors, cruise control or alloy wheels. This is the only equipment level available for the {{convert|90|hp|kW|0|abbr=on}} version of the 1.5-litre diesel engine.<ref name="versiuni">{{cite web|title=Noul Logan – Versiuni şi echipamente|url=http://www.dacia.ro/modele-si-preturi/noul-logan/versiuni-si-echipamente/acces/index.jsp|publisher=Dacia|access-date=14 November 2012|archive-url=https://web.archive.org/web/20130720211507/http://www.dacia.ro/modele-si-preturi/noul-logan/versiuni-si-echipamente/acces/index.jsp|archive-date=20 July 2013|url-status=dead}}</ref>
+
+In June 2014, a limited edition was made available in order to celebrate 10 years since the model's launch.<ref>{{cite web|url=http://www.wall-street.ro/articol/Auto/167742/dacia-a-lansat-seria-limitata-logan-10-ani-si-primul-model-cu-aer-conditionat-automat.html|title=Dacia a lansat seria limitata LOGAN 10 ANI si primul model cu aer cond|date=18 June 2014|work=Wall-Street|access-date=15 July 2015}}</ref> There will be produced only 2,000 units of this version, which features new equipment such as automatic air conditioning, double optic fog lights, mirror-mounted repeaters, 16-inch wheels, along with several special design elements like the different dashboard lighting (white instead of the then usual amber colour). This model was only available on the Romanian market and came equipped with 1.2 16v petrol and 1.5 dci diesel engines, both having 75 bhp. 
+
+In October 2015, Dacia launched the new Prestige trim level, which has automatic air conditioning, mirror-mounted repeaters and 16-inch wheels.<ref>{{cite web |last1=Meșter |first1=Mircea |title=Dacia lansează Logan Prestige, noua echipare de top: climatizare automată, comenzi pe uși, jante de 16 inch și semnalizatoare pe oglinzi |url=https://www.automarket.ro/stiri/dacia-lanseaza-logan-prestige-noua-echipare-de-top-climatizare-automata-66843.html |website=Automarket |access-date=14 August 2021 |archive-url=https://web.archive.org/web/20200215135258/http://www.automarket.ro/stiri/dacia-lanseaza-logan-prestige-noua-echipare-de-top-climatizare-automata-66843.html |archive-date=15 February 2020 |language=Romanian |date=22 October 2015 |url-status=live}}</ref>
+
+=== <span class="anchor" id="Logan II MCV"></span><span class="anchor" id="second generation MCV"></span>Logan MCV ===
+The estate version of the car made its debut at the [[Geneva Motor Show#2013|2013 Geneva Motor Show]]. The car will keep the MCV name, although it now stands for ''Maximum Capacity Vehicle'', rather than the previous ''Multi Convivial Vehicle''. It has 5 seats and a luggage capacity between {{convert|573|L|cuft}} and {{convert|1518|L|cuft}},<ref>{{cite web|date=5 March 2013|title=Dacia Logan MCV revealed|url=http://www.whatcar.com/car-news/dacia-logan-mcv-revealed/265418|publisher=What Car?}}</ref> featuring the same standard equipment and engine range as the [[sedan (car)|saloon]].<ref>{{cite web|date=5 March 2013|title=Dacia îşi continuă ofensiva cu Noul Logan MCV şi Duster Aventure|url=http://www.dacia.ro/despre-noi/noutati/2013/martie/dacia-continua-ofensiva-logan-mcv-duster-aventure/index.jsp|url-status=dead|archive-url=https://web.archive.org/web/20130928025200/http://www.dacia.ro/despre-noi/noutati/2013/martie/dacia-continua-ofensiva-logan-mcv-duster-aventure/index.jsp|archive-date=28 September 2013|access-date=5 March 2013|publisher=Dacia}}</ref> It began to be marketed from the second half of 2013.<ref>{{cite web|date=5 March 2013|title=Dacia a lansat noul Logan MCV.|url=http://www.economica.net/dacia-lanseaza-astazi-doua-modele-urmareste-conferinta-live-aici_47074.html|publisher=Economica.net}}</ref>
+
+<gallery widths="200">
+File:2015 Dacia Logan MCV Laureate DCi 1.5.jpg|Dacia Logan MCV (pre-facelift)
+File:CAR pic1.jpg|Dacia Logan MCV (pre-facelift)
+File:2017 Dacia Logan MCV Laureate DCi 1.5 Front.jpg|Dacia Logan MCV (2016 facelift)
+File:2017 Dacia Logan MCV Laureate DCi 1.5 Rear.jpg|Dacia Logan MCV (2016 facelift)
+</gallery>
+
+===Facelift===
+Dacia presented the new Logan facelift at the [[2016 Paris Motor Show]]. The Romanian car manufacturer models have a new design, a new steering wheel and a new 1.0-litre engine.
+
+The Dacia designers wanted to give a new look for the Dacia models and the front side comes with several new features. The front and back bumpers have been slightly redesigned and the headlights have a new design that includes LED day running lights (it is the first time that Dacia models offer LED lights). The aesthetic package is completed by a new front grille, similar to the one found on the Duster.
+
+The interior changes include a four-spoke steering wheel that includes the horn, new buttons and new chrome lines to suggest a new look. There is also a new glossy plastic that covers the dashboard and fits better with the "MediaNav" multimedia system that has received an updated interface with a better resolution.
+<gallery widths="200" heights="150">
+File:2017 Dacia Logan Ambiance 1.5 dCi 90 Facelift.jpg|Dacia Logan sedan (2016 facelift)
+File:Dacia Logan II, WAW.jpg|Dacia Logan sedan (2016 facelift)
+</gallery>
+
+=== <span class="anchor" id="Stepway"></span>Logan Stepway/Intens ===
+Since the release of the facelift version, the Logan is also available with the [[Crossover (automobile)#Styled|crossover-styled]] Stepway trim, which feature raised ride height and adds exterior accessories such as black plastic [[Fender (vehicle)|wheel arch]] trims, body cladding, skid plates and roof rails. In February 2017, the Dacia Logan MCV Stepway in Europe.{{Clarify|reason=There is no verb in the sentence.|date=August 2022}}<ref>{{Cite web|title=Dacia Logan range to expand with new Stepway model|url=https://www.autotrader.co.uk/content/news/dacia-logan-range-to-expand-with-new-stepway-model|access-date=2021-02-21|website=Auto Trader UK}}</ref> Starting from 2018, the Stepway version also became available for the sedan version in Latin America,<ref>{{Cite web|url=https://www.elcarrocolombiano.com/autos-del-mundo/el-renault-logan-crossover-llego-a-ecuador-y-al-parecer-se-produce-en-colombia/|title=El Renault Logan Crossover llegó a Ecuador (y al parecer, se produce en Colombia)|first=Óscar Julián Restrepo|last=Mantilla|date=18 January 2019}}</ref> and from November 2019 in Europe.<ref>{{Cite web|url=https://www.digi24.ro/stiri/economie/dacia-logan-stepway-a-fost-lansat-in-romania-foto-1216705|title=Dacia Logan Stepway a fost lansat în România - FOTO|website=www.digi24.ro|date=14 November 2019 }}</ref> The Renault Logan Stepway was launched in Russia in December 2018,<ref>{{Cite web|last=Gnaticov|first=Cristian|date=2018-08-19|title=Renault Logan Stepway Is A High-Riding Sedan For The Russian Market|url=https://www.carscoops.com/2018/08/renault-logan-stepway-high-riding-sedan-thats-natural-fit-russias-roads/|url-status=live|access-date=2021-02-21|website=Carscoops|archive-url=https://web.archive.org/web/20180823052052/https://www.carscoops.com/2018/08/renault-logan-stepway-high-riding-sedan-thats-natural-fit-russias-roads/ |archive-date=23 August 2018 }}</ref><ref>{{cite web|last1=Меньщиков|first1=Олег|title=Renault Logan и Sandero в версиях Stepway City: старт продаж|url=https://autoreview.ru/news/renault-logan-i-sandero-v-versiyah-stepway-city-start-prodazh|access-date=10 December 2018|website=autoreview.ru|date=10 December 2018}}</ref><ref>{{cite web|last1=Попов|first1=Леонид|title=Renault › Пара Renault Logan и Sandero Stepway City вышла дороже собратьев|url=https://www.drive.ru/news/renault/5c0e5ff2ec05c4a033000027.html|access-date=10 December 2018|website=www.drive.ru|date=10 December 2018 }}</ref> followed by Brazil in July 2019 along with the facelifted model without carrying the Stepway nameplate to avoid confusion with the Sandero-based Stepway.<ref>{{Cite web|last=Radu|first=Mihnea|date=2019-07-28|title=2020 Renault Sandero and Logan Get Facelift in Brazil, RS and Stepway Included|url=https://www.autoevolution.com/news/2020-renault-sandero-and-logan-get-facelift-in-brazil-rs-and-stepway-included-136335.html|access-date=2021-02-21|website=autoevolution|language=en}}</ref> In several South American markets including Colombia, the crossover version of the Renault Logan was available as the Intens top trim.<ref>{{Cite web|last=Ordóñez|first=Nicolás Ramírez|date=2020-11-19|title=Renault Logan Intens CVT, a prueba: Nueva faceta del sedán más popular (+VIDEO)|url=https://www.elcarrocolombiano.com/pruebas/renault-logan-intens-a-prueba-nueva-faceta-del-sedan-mas-popular-video/|access-date=2021-02-21|website=El Carro Colombiano|language=es-CO}}</ref>
+
+For versions equipped with [[Continuously variable transmission|CVT]], the lifted version of the Logan is essentially a workaround to mitigate the fact that the CVT gearbox does not fit due to the tight space of the platform layout, which led to the vehicle being raised by fitting a reworked suspension. Without raising the ground clearance, the CVT unit would be too close to the ground and causes a risk of damage.<ref>{{Cite web|title=Renault Logan CVT Iconic 2020: Prós e Contras|trans-title=Renault Logan CVT Iconic 2020: Pros and Cons|url=https://motor1.uol.com.br/reviews/391059/renault-logan-cvt-iconic-2020-pros-e-contras/|url-status=live|access-date=2021-03-11|website=Motor1.com|language=pt|quote=A suspensão elevada e os apliques fazem parte do conjunto para a colocação do câmbio CVT na plataforma, que teve que ser elevada pelo formato e posição da caixa. Sem isso, ela ficaria próxima do solo e poderia ser danificada em alguma pancada.|archive-url=https://web.archive.org/web/20200612065342/https://motor1.uol.com.br/reviews/391059/renault-logan-cvt-iconic-2020-pros-e-contras/ |archive-date=12 June 2020 }}</ref><ref>{{Cite web|date=2020-08-06|title=Review: Renault Logan CVT 2020|url=http://www.carsdrive.com.ar/pruebas/review-renault-logan-cvt-2020/|url-status=live|access-date=2021-03-11|website=CarsDrive Córdoba|language=es|quote=El tema es que, por cuestiones de disposición, la caja queda muy expuesta en la parte baja del auto, por lo que tuvieron que elevar el despeje del suelo en todos los automáticos, y eso terminó dando lugar a este Logan CVT y a una gama que la marca denomina Cross Light.|archive-url=https://web.archive.org/web/20210721231242/http://www.carsdrive.com.ar/pruebas/review-renault-logan-cvt-2020/ |archive-date=21 July 2021 }}</ref><gallery widths="200">
+File:2018 Dacia Logan MCV Stepway Comfort 900cc Front.jpg|Dacia Logan MCV Stepway (UK)
+File:2018 Dacia Logan MCV Stepway Comfort 900cc Rear.jpg|Dacia Logan MCV Stepway (UK)
+File:Dacia Logan Stepway.jpg|Dacia Logan Stepway (Romania)
+File:2020 Renault Logan Intens (Colombia) front view 02.png|2020 Renault Logan Intens (Colombia)
+File:2020 Renault Logan Intens (Colombia) rear view.png|2020 Renault Logan Intens (Colombia)
+File:Рено Логан Степвей 2021 — side.png|2021 Renault Logan Stepway (Russia)
+</gallery>
+
+===Marketing and production===
+Sales in Romania began in November 2012, with a starting price of €6,690.<ref>{{cite web|title=Dacia accelerează cu noile Logan, Sandero şi Sandero Stepway|url=http://www.daciagroup.com/presa/comunicate-de-presa/2012/dacia-accelereaza-cu-noile-logan-sandero-si-sandero-stepway|publisher=Dacia|date=8 November 2012}}</ref> It is manufactured in [[Mioveni]], Romania, and in [[Casablanca]], Morocco, at the [[Somaca]] factory, for the North African market.<ref name="paris"/> There will be no seven-seat or panel van versions of the second generation Logan, as they have been replaced by the [[Dacia Lodgy|Lodgy]] and the [[Dacia Dokker|Dokker]] respectively.<ref name="automobile"/>
+
+The [[sedan (car)|saloon]] version was also launched in [[South America]], as the second generation Renault Logan, in December 2013,<ref name="renault_blog">{{cite web|title=New Logan : successful launches in South America|url=http://blog.renault.com/en/2014/01/14/new-logan-successful-launches-in-south-america/|publisher=Renault|access-date=31 January 2014|date=14 January 2014|archive-url=https://web.archive.org/web/20140201210603/http://blog.renault.com/en/2014/01/14/new-logan-successful-launches-in-south-america/|archive-date=1 February 2014|url-status=dead}}</ref> after being revealed at the Buenos Aires Motor Show in June 2013.<ref>{{cite web|title=Salão de Buenos Aires: novo Renault Logan chega ainda este ano|url=http://carplace.virgula.uol.com.br/salao-de-buenos-aires-novo-sandero-aparece-pela-primeira-vez-vestido-de-renault/|publisher=CARPLACE|access-date=31 January 2014|language=pt|date=19 June 2013|archive-url=https://web.archive.org/web/20130623231009/http://carplace.virgula.uol.com.br/salao-de-buenos-aires-novo-sandero-aparece-pela-primeira-vez-vestido-de-renault/|archive-date=23 June 2013|url-status=dead}}</ref> It is manufactured at the [[Renault do Brasil|Renault Brazil]] factory in [[São José dos Pinhais]] (near [[Curitiba]]).<ref name="renault_blog"/>
+
+In March 2014, it was launched in [[Russia]] (where it is marketed as the Renault Logan). The model is produced at the [[AvtoVAZ]] facility in [[Togliatti (city)|Togliatti]], [[Samara Oblast|Samara]].<ref>{{cite web|url=http://blog.alliance-renault-nissan.com/blog/renault-unveils-new-logan-russia|title=Renault unveils New Logan for Russia|work=Blog of RENAULT NISSAN|access-date=15 July 2015|archive-url=https://web.archive.org/web/20140328000359/http://blog.alliance-renault-nissan.com/blog/renault-unveils-new-logan-russia|archive-date=28 March 2014|url-status=dead}}</ref>
+
+Also in 2014, the model was launched in [[Egypt]] (as the Renault Logan),<ref name="renault.com.eg">{{cite web|url=http://www.renault.com.eg/cars/logan/overview.html|title=Renault - OVERVIEW|access-date=15 July 2015}}</ref> together with the second generation of the [[Dacia Sandero|Sandero]] and Sandero Stepway.<ref name="renault.com.eg"/>
+
+Production of the Logan started in [[Algeria]] in November 2014.<ref>{{Cite web |date=10 November 2014 |title=Inauguration of Oran plant marks start of automotive industry in Algeria |url=https://media.renaultgroup.com/inauguration-of-oran-plant-marks-start-of-automotive-industry-in-algeria/ |access-date=2026-02-25 |website=Newsroom Renault Group |language=en-GB}}</ref> Sold as the [[Renault Symbol]], the [[Knock-down kit|SKD]] assembly of the car at the {{Interlanguage link|Renault Algérie|fr|Usine Renault Algérie Production}} plant in [[Oran]] lasted until 2020, when the plant was closed due to new regulations surrounding the assembly of cars in Algeria.{{Citation needed|date=February 2026}} Although production temporarily restarted in 2021 before stopping shortly after,<ref>{{Cite web |last=Merabet |first=Aicha |date=2021-05-23 |title=L’usine Renault Algérie reprend son activité : ce qu’il faut savoir |url=https://www.tsa-algerie.com/lusine-renault-algerie-reprend-son-activite-ce-quil-faut-savoir/ |access-date=2026-02-25 |website=TSA |language=fr-FR}}</ref> {{As of|2025|lc=y}}, the plant remains closed due to ongoing disputes between Renault and the [[Algerian government]].<ref>{{Cite web |last=Merabet |first=Aicha |date=2025-07-19 |title=Retour de Renault en Algérie : Tebboune intransigeant |url=https://www.tsa-algerie.com/retour-de-renault-en-algerie-tebboune-intransigeant/ |access-date=2026-02-25 |website=TSA |language=fr-FR}}</ref>
+
+In August 2015, the new Logan was presented in [[Colombia]],<ref name="Revista Motor">{{cite web|title=Renault presentó en Colombia su nuevo y evolucionado Renault Logan|url=http://www.eltiempo.com/revista-motor/actualidad/lanzamientos/nuevo-renault-logan/23291|publisher=El Tiempo|access-date=23 August 2015|date=21 August 2015}}</ref> with the pre-sale of a thousand units. It is manufactured in Envigado at the [[SOFASA|Renault SOFASA]] factory.{{Citation needed|date=March 2016}}
+
+In 2021, [[Coscharis Motors]] started [[Knock-down kit|SKD]] assembly in Awoyaya, [[Lagos]] (Nigeria).<ref>{{Cite news|title=Coscharis Motors to increase assembling variants in Nigeria|url=https://punchng.com/coscharis-motors-to-increase-assembling-variants-in-nigeria/|newspaper=[[The Punch]]|language=en-US|date=2022-06-20|access-date=2022-08-17}}</ref><ref>{{cite web|title=Document d'enregistrement universel 2021|url=https://www.renaultgroup.com/wp-content/uploads/2022/03/renault_deu_2021.pdf|website=Renault Group|language=fr|date=March 2022|access-date=17 August 2022|archive-date=14 December 2022|archive-url=https://web.archive.org/web/20221214125655/https://www.renaultgroup.com/wp-content/uploads/2022/03/renault_deu_2021.pdf|url-status=dead}}</ref>
+
+Production in [[Córdoba, Argentina|Cordoba]], Argentina stopped in December 2025.<ref>{{Cite news |title=Argentina - Córdoba Plant |url=https://www.renaultgroup.com/en/group/locations/cordoba-plant/ |archive-url=https://web.archive.org/web/20260520203930/https://www.renaultgroup.com/en/group/locations/cordoba-plant/ |archive-date=2026-05-20 |access-date=2026-05-20 |work=Renault Group |language=en-US}}</ref>
+
+====Turkey====
+The third generation [[Renault Symbol]] is a rebadged version of the second generation Logan.<ref>{{cite web|title=2013 Renault Symbol revealed – rebadged Dacia Logan for Turkey|url=http://www.worldcarfans.com/112110150070/2013-renault-symbol-revealed---rebadged-dacia-logan-for|publisher=Worldcarfans|date=1 November 2012|access-date=7 November 2012|archive-date=12 February 2015|archive-url=https://web.archive.org/web/20150212141636/http://www.worldcarfans.com/112110150070/2013-renault-symbol-revealed---rebadged-dacia-logan-for|url-status=dead}}</ref> It was revealed at the 2012 Istanbul Motor Show,<ref name="istanbul">{{cite web|title=New Renault Symbol: a status-enhancing yet affordable family saloon|url=http://media.renault.com/global/en-gb/Media/PressRelease.aspx?mediaid=39236|publisher=Renault|date=1 November 2012|access-date=7 November 2012|archive-url=https://web.archive.org/web/20140201191402/http://media.renault.com/global/en-gb/Media/PressRelease.aspx?mediaid=39236|archive-date=1 February 2014|url-status=dead}}</ref><ref>{{cite web|title=Renault Symbol / Thalia|url=http://www.renault.com/en/vehicules/aujourd-hui/renault-vehicules-particuliers/pages/symbol-thalia.aspx|publisher=Renault|access-date=22 November 2012}}</ref> It went on sale on the Turkish market at the beginning of 2013, also being released in Tunisia, Algeria, the Middle East, and Chile, but not Morocco.<ref name="istanbul"/>
+
+<gallery widths="220">
+File:Renault Symbol 1.6 Expression 2015.jpg|Renault Symbol (pre-facelift)
+File:Renault Symbol 1.6 Zen 2017 (36828075845).jpg|Renault Symbol (2017 facelift)
+</gallery>
+
+===Safety===
+The Renault Logan has solid front [[disc brakes]] and rear drum brakes.<ref>{{Cite web|url=https://www.16valvulas.com.ar/prueba-nuevo-renault-logan-intens-con-caja-cvt/|title=Prueba Nuevo Renault Logan Intens con caja CVT|first=Daniel|last=Panzera|date=26 February 2020|website=16 Valvulas}}</ref>
+
+====Latin NCAP====
+The Logan in its most basic Latin American market configuration with 2 airbags and no [[Electronic stability control|ESC]] received 1 star for adult occupants and 3 stars for toddlers from [[Latin NCAP]] in 2018 (one level above 2010–2015).<ref>{{Cite web|url=https://www.latinncap.com/en/result/106/renault-sandero--logan-+-2-airbags|title=Official results of the Renault Sandero / Logan + 2 Airbags 2018|website=LATIN NCAP - PARA AUTOS MAS SEGUROS}}</ref>
+
+{{Latin NCAP
+|year=2018
+|description=Renault Sandero / Logan + 2 Airbags
+|reference_code=106/renault-sandero--logan-+-2-airbags
+|adult_stars=1
+|adult_points=18.01
+|child_stars=3
+|child_points=28.97
+}}
+
+The Logan in its most basic Latin American market configuration with 4 airbags and no [[Electronic stability control|ESC]] received 1 star for adult occupants and 4 stars for toddlers from [[Latin NCAP]] in 2019.<ref>{{Cite web|url=https://www.latinncap.com/en/result/139/renault-sandero--logan--stepway-+-4-airbags-|title=Official results of the Renault Sandero / Logan / Stepway + 4 Airbags * 2019|website=LATIN NCAP - PARA AUTOS MAS SEGUROS}}</ref>
+
+{{Latin NCAP
+|year=2019
+|description=Renault Sandero / Logan / Stepway + 4 Airbags *
+|reference_code=139/renault-sandero--logan--stepway-+-4-airbags-
+|adult_stars=1
+|adult_points=23.28
+|child_stars=4
+|child_points=38.52
+}}
+
+The updated Logan in its most basic Latin American market configuration with 4 airbags received 3 stars for adult occupants and 4 stars for toddlers from [[Latin NCAP]] in 2019.<ref>{{Cite web|url=https://www.latinncap.com/en/result/141/renault-sandero--logan--stepway-+-4-airbags-|title=Official results of the Renault Sandero / Logan / Stepway + 4 Airbags ** 2019|website=LATIN NCAP - PARA AUTOS MAS SEGUROS}}</ref>
+
+{{Latin NCAP
+|year=2019
+|description=Renault Sandero / Logan / Stepway + 4 Airbags **
+|reference_code=141/renault-sandero--logan--stepway-+-4-airbags-
+|adult_stars=3
+|adult_points=23.40
+|child_stars=4
+|child_points=38.52
+}}
+
+The updated Logan in its most basic Latin American market configuration received  0 stars from [[Latin NCAP]] in 2024 (similar to [[Euro NCAP]] 2014).<ref>{{Cite web|url=https://www.latinncap.com/en/result/189/renault-sandero--logan--stepway-+-4-airbags|title=Official results of the Renault Sandero / Logan / Stepway + 4 Airbags 2024|website=LATIN NCAP - PARA AUTOS MAS SEGUROS}}</ref>
+
+{{Latin NCAP
+|year=2024
+|description=Renault Sandero / Logan / Stepway + 4 Airbags
+|reference_code=189/renault-sandero--logan--stepway-+-4-airbags
+|overall_stars=0
+|adult_percent=33
+|child_percent=61
+|pedestrian_percent=46
+|safety_percent=0
+|adult_points=13.13
+|child_points=30.00
+|pedestrian_points=22.22
+|safety_points=0.00
+}}
+
+==<span class="anchor" id="Logan III"></span><span class="anchor" id="III"></span><span class="anchor" id="Third"></span><span class="anchor" id="third generation"></span>Third generation (LJI; 2020)==
+{{For|the hatchback version|Dacia Sandero#III}}
+{{Infobox automobile
+| name = Logan III
+| image = 2021 Dacia Logan III (front).jpg
+| model_code = {{ubl
+  | LJI
+  | LJF (Renault Taliant)
+  }}
+| aka = Renault Taliant (2021–present)<!--<br />Renault Logan (Russia, cancelled)-->
+| production = 2020–present<br>2021–present (Renault Taliant)
+| assembly = {{ubl
+| Romania: [[Mioveni]]<ref>{{Cite web|title=Renault shifts production of Dacia's budget model from Romania to Morocco|url=https://www.romania-insider.com/dacia-budget-models-production-morocco|access-date=2020-11-01|website=Romania Insider|date=14 October 2020 |language=en}}</ref>}}
+Morocco: [[Casablanca]] ([[Somaca]])<ref>{{Cite web|title=Le Groupe Renault Maroc se prépare à la fabrication des nouvelles Sandero, Sandero Stepway et Logan|url=https://telquel.ma/2020/09/15/le-groupe-renault-maroc-se-prepare-a-la-fabrication-des-nouvelles-sandero-sandero-stepway-et-logan_1695968|access-date=2021-10-09|website=Tel Quel|language=fr}}</ref>
+| body_style = 4-door [[Sedan (car)|saloon]]
+| platform = [[Renault–Nissan Common Module Family#CMF-B LS|Renault–Nissan CMF-B LS platform]]<ref>{{Cite web|last=Niculescu|first=Aurel|date=2020-09-29|title=2021 Dacia Sandero, Logan and Stepway Upgrade the Essentials With Modern Tech|url=https://www.autoevolution.com/news/2021-dacia-sandero-logan-and-stepway-upgrade-the-essentials-with-modern-tech-149386.html|access-date=2020-09-29|website=autoevolution|language=en}}</ref>
+| engine = {{ubl|
+| '''[[Petrol engine|Petrol]]:'''
+| 1.0 L ''[[Nissan HR engine#H4D|H4D]] [[Naturally aspirated engine|sCe]] 65'' [[Straight-three engine|I3]] [[Multi-valve|12V]]
+| 1.0 L ''[[Nissan HR engine#H4Dt|H4Dt]] [[Turbocharger|t]][[Gasoline direct injection|Ce]] 90'' I3 12V
+| '''[[Petrol engine|Petrol]]/[[Autogas|LPG]]:'''
+| 1.0 L ''[[Nissan HR engine#H4Dt|H4Dt]] [[Turbocharger|t]][[Gasoline direct injection|Ce]] ECO-G 100'' I3 12V
+| '''[[Diesel engine|Diesel]]:'''
+| 1.5 L ''[[Renault K-Type engine#K9K dCi|K9K]]'' [[dCi]] I4 8V [[turbo-diesel|turbo]]
+}}
+| transmission = 5/6-speed [[manual transmission|manual]]<br />[[Continuously variable transmission|CVT]]
+| wheelbase = {{convert|2649|mm|in|1|abbr=on}}
+| length = {{convert|4396|mm|in|1|abbr=on}}
+| width = {{convert|1848|mm|in|1|abbr=on}}
+| height = {{convert|1501|mm|in|1|abbr=on}}
+| weight = 
+| related = [[Dacia Sandero#III|Dacia Sandero III]]<br />[[Dacia Jogger]]<br />[[Renault Kardian]]<br />[[Lada Iskra]]
+| designer = Renault Technocentre & Renault Technologie Roumanie
+}}
+[[File:2021 Dacia Logan III (rear).jpg|left|thumb|Rear view]]
+The third-generation Logan was launched together with the new [[Dacia Sandero#Third generation (DJF; 2020)|Dacia Sandero III]], on 29 September 2020.<ref>{{Cite web|url=https://www.autoexpress.co.uk/dacia/sandero/109074/new-dacia-sandero-gets-sub-ps9k-price-tag|title=New Dacia Sandero gets sub £9k price tag|website=Auto Express}}</ref><ref>{{Cite web|title=ALL-NEW SANDERO, SANDERO STEPWAY AND LOGAN : DACIA REDEFINES THE ESSENTIAL & C...|url=https://en.media.groupe.renault.com/news/all-new-sandero-sandero-stepway-and-logan-dacia-redefines-the-essential-contemporary-car-d216-989c5.html|access-date=2020-09-29|website=en.media.groupe.renault.com|language=en|archive-date=14 January 2021|archive-url=https://web.archive.org/web/20210114131156/https://en.media.groupe.renault.com/news/all-new-sandero-sandero-stepway-and-logan-dacia-redefines-the-essential-contemporary-car-d216-989c5.html|url-status=dead}}</ref> It is longer by {{convert|36|mm|in|1|abbr=on}}, supported by a longer wheelbase and a reduced rear overhang. It has a slimmer shape, featuring a more sloping windscreen and a roof lowered by {{convert|10|mm|in|1|abbr=on}}.
+
+It is built on a [[Renault–Nissan Common Module Family#CMF-B|CMF-B LS]] modular platform used by the new Sandero, and is claimed to combine greater strength and rigidity with less weight while complying with more stringent crash-test.  The new powertrain reduces emissions, and as of 2021 is compliant with pollution control requirements.<ref>{{Cite web|title=Dacia Logan (2021)|url=https://www.netcarshow.com/dacia/2021-logan/|access-date=2020-10-03|website=NetCarShow.com|language=en}}</ref>
+===2022 refresh===
+In June 2022, the Logan received a slight update incorporating the brand's new logo alongside other Dacia models. To accommodate the new logo, the grille is redesigned.<ref>{{cite web |date=15 June 2022 |title=Présentation - Le nouveau visage des Dacia |url=https://www.caradisiac.com/presentation-le-nouveau-visage-des-dacia-196623.htm |access-date=15 June 2022 |website=caradisiac.com |language=fr}}</ref>
+<gallery widths="200" heights="110">
+File:2023 Dacia Logan III IMG 9678 (cropped).jpg|Facelift (front view)
+File:2023 Dacia Logan III IMG 9671 (cropped).jpg|Facelift (rear view)
+</gallery>
+
+=== 2025 refresh ===
+On 6 October 2025, the Logan alongside the Sandero, Sandero Stepway and Jogger, received a heavy facelift featuring a redesigned front fascia, new headlights, new fog lights and new alloys, while the rear remains the same as the previous facelift.<ref>{{Cite web |last=Pappas |first=Thanos |title=Dacia’s Budget Stars Just Got A Serious Glow-Up |url=https://www.carscoops.com/2025/10/dacia-facelifted-europes-best-selling-car-and-its-siblings/ |access-date=2025-10-06 |website=Carscoops}}</ref>
+
+===<span class="anchor" id="Taliant"></span><span class="anchor" id="Renault Taliant"></span><span class="anchor" id="LJF"></span> Renault Taliant (LJF)===
+The Renault Taliant is a rebadged third-generation Logan. It was revealed in Turkey on 11 March 2021,<ref>{{Cite web|title=İşte karşınızda 2021 Renault Taliant! Symbol'ün yerine geçen Renault Taliant neler sunuyor?|trans-title=Here is the 2021 Renault Taliant! What does the Symbol replacement Renault Taliant offer?|url=https://www.sabah.com.tr/galeri/otomobil/iste-karsinizda-2021-renault-taliant-symbolun-yerine-gecen-renault-taliant-neler-sunuyor|url-status=live|access-date=2021-03-11|website=Sabah|language=tr|archive-url=https://web.archive.org/web/20210311134606/https://www.sabah.com.tr/galeri/otomobil/iste-karsinizda-2021-renault-taliant-symbolun-yerine-gecen-renault-taliant-neler-sunuyor |archive-date=11 March 2021 }}</ref> and went on sale on 24 May 2021.<ref>{{Cite web|date=2021-05-24|title=2021 Renault Taliant prices have been announced!|url=https://tr.motor1.com/news/509199/2021-renault-taliant-turkiye-fiyati/|url-status=live|access-date=2021-05-24|website=Motor1.com|language=tr|archive-url=https://web.archive.org/web/20210524140443/https://tr.motor1.com/news/509199/2021-renault-taliant-turkiye-fiyati/ |archive-date=24 May 2021 }}</ref><ref>{{Cite web|date=2021-05-24|title=Renault Taliant to be launched in Turkey for the first time|url=https://www.aa.com.tr/tr/sirkethaberleri/otomotiv/renault-taliant-ilk-kez-turkiyede-satisa-sunulacak/665001|url-status=live|access-date=2021-05-24|website=www.aa.com.tr|archive-url=https://web.archive.org/web/20210524140441/https://www.aa.com.tr/tr/sirkethaberleri/otomotiv/renault-taliant-ilk-kez-turkiyede-satisa-sunulacak/665001 |archive-date=24 May 2021 }}</ref> Built in Morocco,<ref>{{Cite web |date=2025-10-23 |title=Usine de Casablanca (SOMACA) |url=https://www.renaultgroup.com/groupe/implantations/usine-casablanca-somaca/ |access-date=2025-12-29 |website=Renault Group |language=fr-FR}}</ref> the vehicle is overall largely similar on the Logan, sharing the same bodywork with changes on the front fascia, rear fascia, and side door shoulder lines. As with the Logan, the Taliant is based on the CMF-B LS platform.<ref>{{Cite web|last=terciar|date=2021-03-11|title=Renault Taliant: ¿se viene el reemplazo del Logan?|trans-title=Renault Taliant: Is The Logan Replacement Coming?|url=https://autotest.com.ar/noticias/renault-taliant-reemplazo-del-logan/|url-status=live|access-date=2021-03-11|website=Auto Test|language=es|archive-url=https://web.archive.org/web/20210311143130/https://autotest.com.ar/noticias/renault-taliant-reemplazo-del-logan/ |archive-date=11 March 2021 }}</ref><ref>{{Cite web|title=Renault превратила новый Logan в Taliant, чтобы заменить Symbol|trans-title=Renault turns new Logan into Taliant to replace Symbol|url=https://ru.motor1.com/news/493723/renault-taliant-turkey-pics/|url-status=live|access-date=2021-03-11|website=Motor1.com|language=ru|archive-url=https://web.archive.org/web/20210311150528/https://ru.motor1.com/news/493723/renault-taliant-turkey-pics/ |archive-date=11 March 2021 }}</ref> It is sold on various markets, such as Turkey, but also Ukraine, Georgia, Middle-East and in some African countries.<ref>{{cite web|access-date=2025-12-29 |language=uk-UA |title=Renault TALIANT |url=https://www.renault.ua/passenger/taliant.html |website=www.renault.ua}}<!-- auto-translated from French by Module:CS1 translator --></ref><ref>{{cite web|access-date=2025-12-29 |language=en |title=Renault Taliant |url=https://renault.com.eg/cars/taliant-ljf-ph1/overview.html |website=renault.com.eg}}<!-- auto-translated from French by Module:CS1 translator --></ref><ref>{{Cite web |title=Renault Taliant |url=https://renault.ge/cars/taliant-ljf-ph1/overview.html |archive-url=https://web.archive.org/web/20251202171540/https://renault.ge/cars/taliant-ljf-ph1/overview.html |archive-date=2025-12-02 |access-date=2025-12-29 |website=renault.ge}}</ref><ref>{{cite web|access-date=2025-12-29 |language=fr |title=Renault Taliant |url=https://www.renault.ga/cars/taliant-ljf-ph1/overview.html |website=www.renault.ga}}<!-- auto-translated from French by Module:CS1 translator --></ref>
+
+The name "Taliant" is derived from the word "talent".<ref>{{Cite web|date=2021-03-11|title=Седан Renault Taliant: новый Logan в другом костюме|trans-title=Renault Taliant sedan: new Logan in a different suit|url=https://autoreview.ru/news/sedan-renault-taliant-novyy-logan-v-drugom-kostyume|url-status=live|access-date=2021-03-12|website=autoreview.ru|language=ru|archive-url=https://web.archive.org/web/20210311201048/https://autoreview.ru/news/sedan-renault-taliant-novyy-logan-v-drugom-kostyume |archive-date=11 March 2021 }}</ref>
+
+In 2025, the Taliant was removed from Renault's Turkish website. After 2025 refresh for model year 2026 Renault Taliant rebadged to Dacia Logan in Turkey.<ref>{{Cite web |date=2026-02-18 |title=Dacia Logan, 2026'da Türkiye'ye geri dönüyor |url=https://www.donanimhaber.com/dacia-logan-2026-da-turkiye-ye-geri-donuyor--202277 |access-date=2026-02-19 |website=DonanımHaber |language=tr}}</ref><ref>{{Cite web |title=Dacia Started the Year 2026 Ambitiously: The Renewed Model Family Hits the Road |url=http://www.oyak.com.tr/en/oyak-companies/company-news/dacia-started-the-year-2026-ambitiously-the-renewed-model-family-hits-the-road |access-date=2026-02-19 |website=OYAK |language=en}}</ref>
+
+<gallery widths="200" heights="140">
+File:Renault Taliant 1.0 Turbo 90 X-tronic (Exterior).png|Renault Taliant (front)
+File:2021 Renault Taliant 1.0 Joy (Turkey) rear view.png|Renault Taliant (rear)
+File:Renault Taliant 1.0 Turbo 90 X-tronic (Interior) 1.png|Interior
+</gallery>
+
+===Markets===
+
+==== Dacia Logan ====
+The third generation is available in fewer markets than its predecessor, at launch being offered only in Albania, Bosnia and Herzegovina, Kosovo, Moldova, Morocco, North Macedonia, Overseas French territories of the Pacific Ocean (French Polynesia and New Caledonia), Romania, Serbia and Tunisia.
+
+In 2023, it was withdrawn from the Polish market due to "low customer interest".<ref>{{Cite web|url=https://francuskie.pl/czy-dacia-logan-na-powrot-pojawi-sie-w-polsce-mamy-odpowiedz-importera/|title=Czy Dacia Logan na powrót pojawi się w Polsce? Mamy odpowiedź importera! &#124; Francuskie.pl - Dziennik Motoryzacyjny|date=9 April 2024}}</ref> Also in 2023, the car was reintroduced to Israel after a five-year absence.<ref>{{Cite news|url=https://www.ynetnews.com/business/article/s1xlgxdy3|title=Dacia revives family subcompact model, unveils tempting price|first=Noam|last=Rhein|newspaper=Ynetnews |date=8 July 2023|via=www.ynetnews.com}}</ref>
+
+In 2024, at the request of dealers, a test batch of several hundred units was sent to Germany.<ref>{{Cite web|url=https://www.profit.ro/povesti-cu-profit/auto-transporturi/surpriza-dacia-logan-se-intoarce-pe-cea-mai-mare-piata-auto-din-europa-21626070|title=SURPRIZĂ Dacia Logan se întoarce pe cea mai mare piață auto din Europa|website=Profit.ro |date=12 June 2024 }}</ref> In the same year, the model was brought back to Portugal.<ref>{{Cite web |title=MSN |url=https://www.msn.com/en-us/autos/other/dacia-logan-is-back-and-already-has-prices/ar-BB1pB0Km?item=flightsprg-tipsubsc-v1a?season89c26d1ce19649ab8c6b1ea6904de419Thu&apiversion=v2&noservercache=1&domshim=1&renderwebcomponents=1&wcseo=1&batchservertelemetry=1&noservertelemetry=1 |access-date=2025-10-16 |website=www.msn.com}}</ref>
+
+==== Renault Taliant ====
+Outside of Turkey, the Taliant is only offered in a very limited number of countries, located in Eastern Europe (such as Ukraine,<ref>{{Cite web |title=Новий TALIANT |url=https://www.renault.ua/passenger/taliant.html |access-date=2025-04-07 |website=www.renault.ua |language=uk-UA}}</ref> Georgia<ref>{{Cite web |date=7 April 2025 |title=Renault Taliant |url=https://renault.ge/cars/taliant-ljf-ph1/overview.html |access-date=7 April 2025 |website=Renault Georgia}}</ref>), Middle-East (Egypt,<ref>{{Cite web |title=Renault Taliant |url=https://www.renault.com.eg/cars/taliant-ljf-ph1/overview.html |access-date=2025-04-07 |website=www.renault.com.eg |language=en}}</ref> Jordan<ref>{{Cite web |title=Renault Taliant |url=https://renault.jo/cars/taliant-ljf-ph1/overview.html |access-date=2025-04-07 |website=renault.jo}}</ref>) and Africa (Nigeria,<ref>{{Cite web |title=Renault Taliant |url=https://www.renault.com.ng/cars/taliant-ljf-ph1/overview.html |access-date=2025-04-07 |website=www.renault.com.ng}}</ref> Gabon<ref>{{Cite web |title=Renault Taliant |url=https://www.renault.ga/cars/taliant-ljf-ph1/overview.html |access-date=2025-04-07 |website=www.renault.ga |language=fr}}</ref>).
+
+====Russia====
+The Logan, along with the [[Dacia Sandero|Sandero]], was supposed to launch in Russia in 2022, but this was never completed due to the [[2022 Russian invasion of Ukraine|ongoing war]] and the sale of [[Renault Russia]]. However, some camouflaged prototypes were photographed at the former Renault factory in Moscow, now [[Moskvitch]].<ref>{{Cite web|url=https://motor.ru/news/na-zavode-moskvich-sfotografirovali-novye-renault-logan-i-sandero-18-08-2022.htm|title=На заводе «Москвич» сфотографировали новые Renault Logan и Sandero|website=motor.ru}}</ref> A cross-sedan based on the Dacia Logan was also supposed to launch in [[Russia]], with camouflaged prototypes even photographed.<ref>{{Cite web|url=https://www.auto-moto.com/nouveautes/scoop/renault-taliant-x-2023-cette-berline-captur-sera-t-vendue-france-363655.html|title=Renault Taliant X (2023) : une berline Captur bientôt en France ?|date=August 19, 2022}}</ref> A leaked image of the final car has been found in the [[Dacia Jogger]]'s owner's manual, as revealed by French forum Worldscoop.<ref>{{Cite web|url=http://worldscoop.forumpro.fr/t13551-2022-renault-ljf-cross?highlight=renault|title=2022 Renault LJF Cross|website=worldscoop.forumpro.fr}}</ref> A subcompact sedan developed independently by [[AvtoVAZ]] on the same platform was presented in 2024 and badged as the [[Lada Iskra]].<ref>{{Cite web|url=https://www.carscoops.com/2024/06/lada-iskra-sedan-debuts-in-russia-based-on-renault-bones/ |title= Lada Iskra Sedan Debuts In Russia Based On Renault Bones |date=7 June 2024|website=Carscoops |access-date=2024-06-14 }}</ref>
+
+===Safety===
+====Euro NCAP====
+The Logan in its standard European market configuration received 2 stars from [[Euro NCAP]] in 2021 with shared results from the Sandero Stepway.<ref>{{Cite web|url=https://www.euroncap.com/en/results/dacia/logan/42505|title=Official Dacia Logan 2021 safety rating|website=www.euroncap.com}}</ref>{{clear}}
+
+==Sales==
+{| class="wikitable" style="float:; clear:right; margin:0em 0em 1em 1em; text-align:center"
+|+ Sales by year<ref>{{cite web|title=Monthly sales|url=http://www.renault.com/en/finance/chiffres-cles/pages/ventes-mensuelles.aspx|publisher=Renault|access-date=6 November 2012}}</ref><ref>{{cite web |title= Documents & presentations |url= http://www.renault.com/en/finance/presentations-et-documents/Pages/documents-et-presentations.aspx|publisher=Renault|access-date=6 November 2012}}</ref>
+|-
+! Year !! Dacia !! Renault
+|-
+| 2004 || 22,833 || −
+|-
+| 2005 || 135,184 || 9,915
+|-
+| 2006 || 184,472 || 63,134
+|-
+| 2007 || 230,294 || 136,742
+|-
+| 2008 || 218,887 || 206,059
+|-
+| 2009 || 160,120 || 150,603
+|-
+| 2010 || 126,598 || 189,898
+|-
+| 2011 || 95,365 || 253,698
+|-
+| 2012 || 102,175 || 221,752
+|-
+| 2013 || 69,355 || 188,185
+|}
+
+{{clear}}
+
+==Awards==
+The Logan was voted official best car of the year ''Autobest 2005''<ref name="ABIOTO Motor trend awards">{{cite news|title=The great winner of AUTOBEST 2005 award is the new Dacia Logan|url=http://www.autobest.org/varianta/press/2005/26ian2005.php|publisher=Autobest|access-date=2014-10-01|date=2005-01-26|archive-date=5 March 2016|archive-url=https://web.archive.org/web/20160305031428/http://www.autobest.org/varianta/press/2005/26ian2005.php|url-status=dead}}</ref> by the members of the Autobest jury, coming from 15 countries: [[Bulgaria]], [[Croatia]], [[Czech Republic]], [[Cyprus]], [[North Macedonia|Macedonia]], [[Hungary]], [[Poland]], [[Romania]], [[Russia]], [[Serbia]], [[Slovakia]], [[Slovenia]], [[Turkey]], [[Ukraine]] and [[Malta]]. The members of the jury score 13 criteria like fuel consumption, versatility, roominess or design.
+
+The Logan won the fifteenth Best Compact trophy awarded by ''Abioto'', the Brazilian trade press organisation, by a panel of 67 of the country's most influential motoring journalists.<ref name="ABIOTO Motor trend awards"/>
+
+The Logan won the 'Melhor Carro do Ano 2013' trophy (Best car of the year 2013) awarded by ''Motor Press magazine'',<ref name="ABIOTO Motor trend awards"/> ahead of the [[Citroën C4#C4L, C4 Lounge and C4 Sedan (B73; 2012)|Citroën C4L sedan]].
+
+On 9 December 2013, less than one month after it was presented to Brazilian journalists, the Renault Logan won the ''Top Car TV Award''<ref name="ABIOTO Motor trend awards"/> in the Best National Car up to 30,999 reais category, ahead of the [[VW Golf]] and [[VW Fox]], [[Toyota Etios]] and [[Ford Fiesta]]. The prize, awarded by a panel of communications and marketing professionals from various automakers and news organisations, also considered the launch campaign.
+
+==Concept cars and projects==
+[[File:Dacia Logan Steppe Concept.JPG|right|thumb|Dacia Logan Steppe]]
+
+===Logan Steppe===
+In 2006, a [[station wagon]] [[concept car]], the Dacia Logan [[Steppe]] was presented at the [[Salon International de l'Auto]] in [[Geneva]]. The car was built by noted [[concept car]] builders DC Design in [[India]] as a forerunner of the Logan MCV.
+
+===Logan S2000===
+The ''S2000'' was a short lived project for a racing version of the Logan.<ref>{{cite web |url=http://www.rallye-magazin.de/h/schlagzeilen/archiv/d15/d/2005/08/24/jean-joseph-testet-dacia-s2000/index.html |title=Jean-Joseph testet Dacia S2000 |publisher=Rallye-magazin.de |access-date=28 April 2009 |archive-url=https://web.archive.org/web/20110123211520/http://www.rallye-magazin.de/h/schlagzeilen/archiv/d15/d/2005/08/24/jean-joseph-testet-dacia-s2000/index.html |archive-date=23 January 2011 |url-status=dead }}</ref><ref>{{cite web|title=Shock: Ecco i primi scatti della Dacia Logan S2000! |url=http://www.racingworld.it/rally/notizia2.php?idtitolo=1625 |publisher=Racingworld.it |date=24 August 2005 |url-status=dead |archive-url=https://web.archive.org/web/20070927084406/http://www.racingworld.it/rally/notizia2.php?idtitolo=1625 |archive-date=27 September 2007 }}</ref><ref>{{Cite web|title=Dacia Logan S2000 Test - YouTube|url=https://www.youtube.com/watch?v=1BP2uAvxDj0 |archive-url=https://ghostarchive.org/varchive/youtube/20211222/1BP2uAvxDj0 |archive-date=2021-12-22 |url-status=live|access-date=2020-08-05|website=www.youtube.com| date=12 February 2007 }}{{cbignore}}</ref>
+
+===Dacia Cup===
+Since 2007, there is a dedicated class in the [[Romanian Rally Championship]], called [[Dacia Logan Cup|Cupa Dacia]],<ref>{{cite web|title=Despre Cupa Dacia|url=http://www.cupadacia.ro/despre-cupa-dacia|publisher=CupaDACIA.ro|access-date=25 June 2011|archive-url=https://web.archive.org/web/20130824204645/http://cupadacia.ro/despre-cupa-dacia|archive-date=24 August 2013|url-status=dead}}</ref> for [[Group N]] prepared Logans. It is a class competed especially by rookies, in the beginning of their careers.<ref>{{cite web |url=http://www.autorally.ro/index.cfm/page/cnr/subpage/stiri/news/8890/cupa_dacia_in_al_cincilea_sezon.html |title=Cupa Dacia in al cincilea sezon |publisher=Autorally.ro |date=1 April 2011 |access-date=25 June 2011 |archive-url=https://web.archive.org/web/20111001014426/http://www.autorally.ro/index.cfm/page/cnr/subpage/stiri/news/8890/cupa_dacia_in_al_cincilea_sezon.html |archive-date=1 October 2011 |url-status=dead }}</ref> The cars used are 1.6 MPI versions.<ref>{{cite web |url=http://issuu.com/autorallyro/docs/fisa_tehnica_dacia_logan_cupa_dacia |title=Fisa Tehnica Dacia Logan Cupa Dacia |publisher=Autorally.ro |date=31 March 2011}}</ref>
+
+===Motorsport===
+[[File:NLS 3 2024 (222).jpg|thumb|Dacia Logan of Ollis Garage Racing.]]
+A first-generation Logan run by Ollis Garage Racing started competing in the [[Nürburgring Langstrecken-Serie]], which solely competes on the [[Nürburgring|Nürburgring Nordschleife]], in [[2021 Nürburgring Langstrecken-Serie|2021]]. The car gathered a following, similar to that of the [[Opel Manta#Rally and special versions|Opel Manta 'Foxtail']], as the slowest car around the Nordschleife. The original car was destroyed in the [[2023 24 Hours of Nürburgring|2023 edition]] of the [[24 Hours of Nürburgring]] in a collision with the [[Dinamic Motorsport|Dinamic GT]] [[Porsche 911 GT3#992 GT3 R (2023–)|Porsche]] whilst competing in the SP3 class, but returned in 2024 with a new body and a turbocharged engine, now running in the SP3T class.<ref name="2024 season">{{cite news|url=https://www.motorsport-total.com/24-stunden-vom-nuerburgring/news/dacia-logan-wird-zur-rakete-24h-nuerburgring-2024-mit-280-ps-24040201|title=Dacia Logan becomes a rocket: 24h Nürburgring 2024 with 280 hp|language=de|publisher=Motorsport Total|date=2 April 2024|access-date=2 April 2024}}</ref> The team has since continued to race the Logan in subsequent editions of the 24-hour event.
+
+==Notes==
+{{Reflist|group=nb}}
+
+==References==
+{{Reflist|2}}
+
+==Further reading==
+{{commons category|Dacia Logan}}
+*James Ruppert. [https://web.archive.org/web/20110724001407/http://www.autoweek.com/apps/pbcs.dll/article?AID=%2F20050131%2FFREE%2F501310705&SearchID=73231037246857 Not for U.S. Sale: 2005 Dacia Logan]. ''[[AutoWeek]]'', 31 January 2005.
+*Gail Edmondson and Constance Faivre. [https://web.archive.org/web/20050627012831/http://www.businessweek.com/magazine/content/05_27/b3941072_mz054.htm Got 5,000 Euros? Need A New Car?]. ''[[BusinessWeek]]'', 4 July 2005.
+*Molly Moor. [https://www.washingtonpost.com/wp-dyn/content/article/2006/01/25/AR2006012502026.html France's Renault Takes a Detour]. ''[[The Washington Post]]'', 26 January 2006.
+*Autoevolution. [http://www.autoevolution.com/testdrive/dacia-logan-mcv-15-dci-85-hp-2008--new-cars-collection.html DACIA Logan MCV 1.5 dCI (85 hp) road test, review, test drive]. 1 April 2009.
+
+==External links==
+* [https://www.dacia.ro/gama-dacia/noul-logan.html Official website]
+{{Automobile Dacia}}
+{{Dacia}}
+{{Renault vehicles timeline, Latin American market, 1980–present}}
+{{Renault vehicles timeline, European market, 1980–2019}}
+{{Renault vehicles timeline, European market, 2020 to date}}
+{{Renault}}
+{{Nissan}}
+{{Mahindra and Mahindra vehicles}}
+
+[[Category:Dacia vehicles|Logan]]
+[[Category:Cars of Algeria]]
+[[Category:Cars of Argentina]]
+[[Category:Cars of Brazil]]
+[[CAtegory:Cars of Colombia]]
+[[Category:Cars of Iran]]
+[[Category:Cars of Morocco]]
+[[Category:Cars of Nigeria]]
+[[Category:Cars of Romania]]
+[[Category:Cars of South Africa]]
+[[Category:Front-wheel-drive vehicles]]
+[[Category:Euro NCAP small family cars]]
+[[Category:Latin NCAP small family cars]]
+[[Category:Subcompact cars]]
+[[Category:Sedans]]
+[[Category:Vans]]
+[[Category:Coupé utilities]]
+[[Category:Pickup trucks]]
+[[Category:Cars introduced in 2004]]
+[[Category:2010s cars]]
+[[Category:2020s cars]]
+[[Category:Electric concept cars]]
+[[Category:Vehicles with continuously variable transmission]]
+[[Category:Station wagons]]

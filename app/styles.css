@@ -1,0 +1,710 @@
+:root{
+  --paper:#f6f1e7; --paper2:#efe8d9; --card:#fffdf7;
+  --ink:#17140f; --ink2:#4a4335; --muted:#8a7f6c; --hairline:#d9cfbc;
+  --accent:#c2451d; --accent2:#e8b9a5;
+  --designer:#34586e; --designer2:#bccdd6;
+  --engineer:#9a6b2f; --engineer2:#e3cfae;
+  --db-gold:#b3891f; --db-gold2:#ecdcaf;
+  --llm:#5b4c8a; --llm2:#dcd6ec;
+  --gensucc:#2f7d5c; --gensucc2:#c9ddd0;
+  --serif:"Fraunces",Georgia,"Times New Roman",serif;
+  --sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{
+  font-family:var(--sans); background:var(--paper); color:var(--ink);
+  overflow:hidden; display:flex; flex-direction:column;
+  background-image:radial-gradient(ellipse 1200px 700px at 50% -10%, #fbf7ee 0%, var(--paper) 60%);
+}
+
+/* ---------- top bar ---------- */
+#topbar{
+  display:flex; align-items:center; gap:10px; padding:12px 16px 10px;
+  border-bottom:1px solid var(--ink); flex:none; z-index:30; position:relative;
+  /* Every child already has flex-shrink:0 (see below) so nothing squishes
+     illegibly on a narrow window -- instead, once the natural width of all
+     the tabs/toggles/buttons exceeds the window, the bar scrolls
+     horizontally rather than silently clipping (and hiding) whatever ran
+     out of room, like the LLM debug button. Real user request: "all of the
+     buttons... aligned horizontally in a way that all of the buttons fit on
+     a standard laptop screen, but only once the window gets smaller, that
+     it can be scrollable left to right" -- flex-wrap stays at its default
+     (nowrap) so items never drop to a second line. Every item below is now
+     sized compactly BY DEFAULT (not just under some narrow-window media
+     query) specifically because a real laptop-width screenshot still showed
+     the Tools button getting cut off at full-size padding/fonts -- this
+     needed to be tighter everywhere, not just below some breakpoint, for
+     this row to actually fit at ordinary laptop widths with zero scrolling,
+     while this horizontal scroll remains as the fallback for whatever's
+     narrower than that. */
+  overflow-x:auto; overflow-y:hidden; scrollbar-width:thin;
+}
+#topbar::-webkit-scrollbar{height:6px}
+#topbar::-webkit-scrollbar-thumb{background:var(--hairline); border-radius:3px}
+#topbar::-webkit-scrollbar-track{background:transparent}
+.wordmark{display:flex; flex-direction:column; line-height:1.05; min-width:150px; flex-shrink:0}
+.wm-title{font-family:var(--serif); font-weight:600; font-size:23px; letter-spacing:.01em; font-variation-settings:"opsz" 60}
+/* The subtitle line is the single widest thing in this bar (a long uppercase
+   phrase with heavy letter-spacing) and purely decorative -- hidden by
+   default now, and only reappears on a genuinely wide monitor (see the
+   min-width media query far below), rather than only hiding once the window
+   gets narrow. */
+.wm-sub{display:none; font-size:10.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--muted); margin-top:4px}
+#viewtabs{display:flex; border:1px solid var(--ink); border-radius:999px; overflow:hidden; background:var(--card); flex-shrink:0}
+.tab{
+  font-family:var(--sans); font-size:11.5px; font-weight:600; letter-spacing:.05em; text-transform:uppercase;
+  padding:8px 13px; background:transparent; border:0; cursor:pointer; color:var(--ink2);
+}
+.tab+.tab{border-left:1px solid var(--hairline)}
+.tab.active{background:var(--ink); color:var(--paper)}
+/* ---------- control bar: search (left) + Graph year slider (right) ---------- */
+/* Sits in normal document flow between the header and <main>, so it's never
+   squeezed out by topbar buttons and the Graph view's #legend -- which is
+   pinned to the top of <main> -- naturally ends up just below it. */
+#controlbar{
+  display:flex; align-items:center; justify-content:space-between; gap:18px;
+  padding:10px 26px; border-bottom:1px solid var(--hairline); flex:none; z-index:25; position:relative;
+  /* NOT overflow-x:auto here like #topbar below -- #searchresults is an
+     absolutely-positioned dropdown that extends BELOW this bar, and
+     scrolling one axis forces the other to clip too (no "auto x, visible
+     y" in browsers), which would cut the search results dropdown off.
+     flex-wrap keeps the year slider from ever getting squeezed off /
+     hidden on a narrow window; it drops to its own line under the search
+     bar instead. */
+  flex-wrap:wrap; row-gap:8px;
+}
+#searchbar-fixed{ position:relative; width:270px; flex:none }
+#search{
+  font-family:var(--sans); font-size:13.5px; width:100%; padding:10px 15px;
+  border:1px solid var(--ink); border-radius:999px; background:var(--card); color:var(--ink); outline:none;
+  box-shadow:3px 3px 0 rgba(23,20,15,.1);
+}
+#search::placeholder{color:var(--muted)}
+#search:focus{box-shadow:3px 3px 0 var(--accent2)}
+#searchresults,.sd-results,.llmpg-results{
+  position:absolute; top:calc(100% + 6px); right:0; width:340px; max-height:340px; overflow:auto;
+  background:var(--card); border:1px solid var(--ink); box-shadow:6px 6px 0 rgba(23,20,15,.12); z-index:60;
+}
+/* the search box now sits at the far left of a narrow control bar -- a
+   340px box anchored by its RIGHT edge to a 270px-wide input would spill
+   ~70px off the left edge of the window. Anchor by the left edge instead
+   so it opens rightward, where there's room. */
+#searchresults{ right:auto; left:0; }
+.sr-item{display:flex; gap:10px; align-items:baseline; padding:9px 13px; cursor:pointer; border-bottom:1px solid var(--paper2)}
+.sr-item:hover,.sr-item.sel{background:var(--paper2)}
+.sr-type{font-size:9.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--card); padding:2px 6px; border-radius:3px; flex:none}
+.sr-type.model{background:var(--accent)} .sr-type.make{background:var(--ink)}
+.sr-type.person{background:var(--designer)}
+.sr-type.family{background:var(--accent); box-shadow:inset 0 0 0 1.5px var(--ink)}
+.sr-label{font-size:13.5px} .sr-sub{margin-left:auto; font-size:11px; color:var(--muted)}
+
+/* ---------- views ---------- */
+main{flex:1; position:relative; min-height:0}
+.view{position:absolute; inset:0; visibility:hidden}
+.view.active{visibility:visible}
+#graphcanvas,#sdcanvas{position:absolute; inset:0; width:100%; height:100%; display:block; cursor:grab}
+#graphcanvas:active{cursor:grabbing}
+
+#legend,.legend-style{
+  position:absolute; left:22px; top:16px; display:flex; gap:16px; align-items:center;
+  font-size:11.5px; color:var(--ink2); background:color-mix(in srgb, var(--paper) 82%, transparent);
+  padding:8px 14px; border:1px solid var(--hairline); border-radius:999px; backdrop-filter:blur(2px);
+}
+.lg{display:flex; gap:6px; align-items:center}
+.sw{width:11px; height:11px; border-radius:50%; display:inline-block}
+.sw-make{background:var(--ink)} .sw-model{background:var(--accent)}
+.sw-family{background:var(--accent); box-shadow:0 0 0 1.5px var(--paper), 0 0 0 3px var(--ink)}
+.sw-designer{background:var(--card); border:2.5px solid var(--designer)}
+.sw-engineer{background:var(--card); border:2.5px solid var(--engineer)}
+.sw-platform{width:22px; height:0; border-top:2.5px dashed var(--accent); border-radius:0}
+.sw-related{width:22px; height:0; border-top:1.6px dashed var(--accent); border-radius:0; opacity:.6}
+.sw-succession{width:22px; height:0; border-top:2px solid var(--ink2); border-radius:0; opacity:.55}
+.sw-gensucc{width:22px; height:0; border-top:2.5px solid var(--gensucc); border-radius:0}
+.sw-db{background:var(--accent); border:2.5px solid var(--db-gold); width:9px; height:9px}
+.sw-garage{background:transparent; border:2px dashed var(--ink)}
+
+#graphhint{
+  position:absolute; bottom:14px; left:50%; transform:translateX(-50%);
+  font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); white-space:nowrap;
+}
+#clearfocus{
+  position:absolute; top:16px; right:22px; font-family:var(--sans); font-size:12px; font-weight:600;
+  background:var(--ink); color:var(--paper); border:0; border-radius:999px; padding:8px 16px; cursor:pointer;
+}
+
+/* ---------- zoom slider (bottom-LEFT corner of the Graph canvas, horizontal)
+   Real user requests: "I want the zoom bar to be horizontal not vertical
+   orientation, and for the information card to not overlap over it so that
+   I can access the zoom bar at all times." The detail panel (#detail) is
+   right-anchored and can run nearly the full height of the canvas, so a
+   right-side control of any kind sits behind it the moment a car is
+   selected -- moving to the bottom-left corner (unused by every other
+   Graph-view overlay: #legend/search live top-left, #graphhint is bottom-
+   CENTER, #clearfocus is top-right, #detail is right-anchored) keeps it
+   reachable regardless of what's open. ---------- */
+#zoomslider-wrap{
+  position:absolute; left:22px; bottom:20px; z-index:5;
+  display:flex; flex-direction:row; align-items:center; gap:8px;
+  background:var(--card); border:1px solid var(--hairline); border-radius:999px;
+  padding:0 12px; height:38px; box-shadow:0 2px 10px rgba(0,0,0,.08);
+}
+#zoomslider-wrap button{
+  width:26px; height:26px; border-radius:50%; border:1px solid var(--hairline);
+  background:var(--paper); color:var(--ink); font-size:15px; line-height:1; font-family:var(--sans);
+  cursor:pointer; display:flex; align-items:center; justify-content:center; flex:none;
+}
+#zoomslider-wrap button:hover{background:var(--hover, var(--hairline))}
+#zoomslider{
+  width:140px; height:18px; margin:0; cursor:pointer; accent-color:var(--ink); flex:none;
+}
+
+/* ---------- Graph-only year-range slider (lives in #controlbar, right side) ---------- */
+#yearfilter{
+  display:flex; align-items:center; gap:10px; flex:none;
+  font-size:11px; color:var(--ink2); background:var(--card);
+  padding:8px 15px; border:1px solid var(--hairline); border-radius:999px;
+}
+.yf-label{font-family:var(--sans); font-weight:600; font-variant-numeric:tabular-nums; width:32px; text-align:center; flex:none}
+.yf-track{position:relative; width:220px; height:18px; flex:none}
+.yf-track-base{
+  position:absolute; top:50%; left:0; right:0; height:2px; transform:translateY(-50%);
+  background:var(--hairline); border-radius:2px;
+}
+.yf-range-bar{
+  position:absolute; top:50%; height:3px; transform:translateY(-50%);
+  background:var(--accent); border-radius:2px;
+}
+.yf-track input[type="range"]{
+  position:absolute; top:0; left:0; width:100%; height:18px; margin:0;
+  background:none; -webkit-appearance:none; appearance:none; pointer-events:none;
+}
+.yf-track input[type="range"]::-webkit-slider-runnable-track{background:transparent; height:18px}
+.yf-track input[type="range"]::-webkit-slider-thumb{
+  -webkit-appearance:none; appearance:none; pointer-events:auto;
+  width:14px; height:14px; border-radius:50%; margin-top:2px;
+  background:var(--card); border:2px solid var(--ink); cursor:pointer; box-shadow:0 1px 2px rgba(23,20,15,.25);
+}
+.yf-track input[type="range"]::-moz-range-track{background:transparent; height:18px; border:0}
+.yf-track input[type="range"]::-moz-range-thumb{
+  pointer-events:auto; width:14px; height:14px; border-radius:50%;
+  background:var(--card); border:2px solid var(--ink); cursor:pointer; box-shadow:0 1px 2px rgba(23,20,15,.25);
+}
+
+/* ---------- hover card ---------- */
+#hovercard{
+  position:fixed; z-index:70; width:250px; background:var(--card);
+  border:1px solid var(--ink); box-shadow:7px 7px 0 rgba(23,20,15,.14);
+  pointer-events:none; overflow:hidden;
+}
+.hc-imgwrap{position:relative; height:132px; background:var(--paper2); display:none}
+#hovercard.hasimg .hc-imgwrap{display:block}
+.hc-img{position:absolute; inset:0; background-size:cover; background-position:center; filter:saturate(.88) contrast(1.02)}
+.hc-monogram{position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
+  font-family:var(--serif); font-size:54px; font-weight:300; color:var(--muted)}
+#hovercard.hasimg .hc-monogram{display:none}
+.hc-body{padding:11px 13px 12px; border-top:1px solid var(--hairline)}
+.hc-kicker{font-size:9.5px; letter-spacing:.16em; text-transform:uppercase; color:var(--accent); font-weight:600}
+#hovercard[data-type="person"] .hc-kicker{color:var(--designer)}
+#hovercard[data-type="make"] .hc-kicker{color:var(--ink2)}
+.hc-title{font-family:var(--serif); font-size:19px; font-weight:600; line-height:1.12; margin:3px 0 5px}
+.hc-meta{font-size:12px; color:var(--ink2); line-height:1.45}
+.hc-note{font-size:11.5px; font-style:italic; color:var(--muted); margin-top:5px; line-height:1.4}
+.hc-note:empty{display:none}
+
+/* ---------- detail panel ---------- */
+#detail{
+  /* top offset is relative to <main>'s own box (it's nested inside <main>
+     now), which already starts below the header and the control bar --
+     so this stays strictly below the year slider without needing to know
+     the header/control-bar height. */
+  position:absolute; top:16px; right:18px; width:308px; max-height:calc(100% - 32px); overflow:auto;
+  background:var(--card); border:1px solid var(--ink); box-shadow:8px 8px 0 rgba(23,20,15,.13); z-index:40; padding:18px 18px 16px;
+}
+#detail-close{position:absolute; top:10px; right:10px; border:0; background:none; font-size:14px; cursor:pointer; color:var(--muted)}
+.dt-kicker{font-size:10px; letter-spacing:.16em; text-transform:uppercase; color:var(--accent); font-weight:600}
+.dt-title{font-family:var(--serif); font-size:25px; font-weight:600; line-height:1.08; margin:4px 0 10px}
+.dt-imgwrap{margin:0 -18px; height:150px; background-size:cover; background-position:center; display:none}
+.dt-imgwrap.show{display:block}
+.dt-meta{font-size:12.5px; color:var(--ink2); line-height:1.5; margin-top:10px}
+.dt-extract{font-size:12.5px; line-height:1.55; margin-top:10px; color:var(--ink2)}
+.dt-extract a{color:var(--accent)}
+.dt-connections{margin-top:12px; border-top:1px solid var(--hairline); padding-top:10px}
+.dt-connections h4{font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:var(--muted); margin:8px 0 4px}
+.dt-conn{display:block; width:100%; text-align:left; background:none; border:0; font-family:var(--sans);
+  font-size:12.5px; padding:4px 2px; cursor:pointer; color:var(--ink); border-radius:4px}
+.dt-conn:hover{background:var(--paper2)}
+.dt-conn .verb{color:var(--muted); font-size:11px}
+.dt-generations{margin-top:12px; border-top:1px solid var(--hairline); padding-top:10px}
+.dt-generations:empty{display:none; border-top:0; margin-top:0; padding-top:0}
+.dt-generations h4{font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:var(--accent); margin:8px 0 4px}
+.dt-gen{font-weight:600}
+
+/* ---------- timeline ---------- */
+#tl-controls{
+  position:absolute; top:14px; left:22px; right:22px; z-index:20; display:flex; align-items:center; gap:16px;
+}
+#tl-play{
+  width:38px; height:38px; border-radius:50%; border:1px solid var(--ink); background:var(--ink); color:var(--paper);
+  font-size:13px; cursor:pointer; flex:none;
+}
+.tl-year{font-family:var(--serif); font-size:44px; font-weight:550; min-width:128px; letter-spacing:.01em; font-variant-numeric:tabular-nums}
+#tl-caption{font-size:11.5px; color:var(--muted); max-width:300px; line-height:1.4}
+#tl-designer{
+  margin-left:auto; font-family:var(--sans); font-size:12.5px; padding:8px 12px; border:1px solid var(--ink);
+  border-radius:999px; background:var(--card); color:var(--ink); max-width:250px;
+}
+#tl-scroll{position:absolute; inset:0; overflow-y:auto; overflow-x:hidden; padding-top:74px}
+#tlsvg{display:block}
+.tl-axis text{font-family:var(--sans); font-size:10.5px; fill:var(--muted); letter-spacing:.05em}
+.tl-axis line{stroke:var(--hairline)}
+.tl-decade{font-family:var(--serif); font-size:22px; fill:var(--hairline); font-weight:600}
+.tl-makelabel{font-family:var(--sans); font-size:10px; letter-spacing:.12em; fill:var(--muted); text-transform:uppercase}
+.tl-run{stroke:var(--accent); stroke-opacity:.28}
+.tl-dot{fill:var(--accent); cursor:pointer}
+.tl-dot.heritage{fill:#9c8b6d}
+.tl-dot.family{stroke:var(--ink); stroke-width:1.1px}
+.tl-dot.db{stroke:var(--db-gold); stroke-width:1.8px}
+.tl-dot.garage{stroke:var(--ink); stroke-width:2px; stroke-dasharray:1.4 1.4}
+.tl-dot:hover{stroke:var(--ink); stroke-width:1.5}
+.tl-playhead{stroke:var(--ink); stroke-width:1.25}
+.tl-playhead-grab{cursor:ew-resize}
+.tl-career{stroke:var(--designer); fill:none; stroke-width:1.75; opacity:.85}
+.tl-careerdot{fill:var(--card); stroke:var(--designer); stroke-width:2.5}
+
+/* ---------- six degrees ---------- */
+#sd-panel{
+  position:absolute; left:22px; top:18px; width:305px; z-index:20;
+  background:var(--card); border:1px solid var(--ink); box-shadow:8px 8px 0 rgba(23,20,15,.13); padding:18px;
+  max-height:calc(100% - 90px); overflow:auto;
+}
+#sd-panel h2{font-family:var(--serif); font-size:24px; font-weight:600}
+.sd-blurb{font-size:12px; color:var(--ink2); line-height:1.5; margin:6px 0 14px}
+.sd-pick{position:relative; margin-bottom:10px}
+.sd-pick label{display:block; font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:var(--muted); margin-bottom:4px}
+.sd-pick input{width:100%; font-family:var(--sans); font-size:13px; padding:9px 12px; border:1px solid var(--ink); background:var(--paper); outline:none}
+.sd-pick input:focus{box-shadow:3px 3px 0 var(--accent2)}
+.sd-pick .sd-results{left:0; right:auto; width:100%}
+.sd-actions{display:flex; gap:8px; margin:12px 0 4px}
+#sd-go{flex:1; font-family:var(--sans); font-weight:600; font-size:13px; padding:10px; background:var(--accent); color:#fff; border:0; cursor:pointer}
+#sd-go:disabled{background:var(--hairline); color:var(--muted); cursor:default}
+#sd-random{font-family:var(--sans); font-size:12.5px; padding:10px 12px; background:none; border:1px solid var(--ink); cursor:pointer}
+#sd-steps{list-style:none; margin-top:12px}
+#sd-steps li{padding:7px 0 7px 14px; border-left:2px solid var(--hairline); font-size:12.5px; line-height:1.45; position:relative; opacity:.25; transition:opacity .4s}
+#sd-steps li.lit{opacity:1; border-left-color:var(--accent)}
+#sd-steps li b{font-family:var(--serif); font-size:14px; font-weight:600}
+#sd-steps li .verb{display:block; font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); margin-top:1px}
+
+/* ---------- footer ---------- */
+#colophon{
+  flex:none; display:flex; justify-content:space-between; gap:20px; padding:8px 26px;
+  border-top:1px solid var(--ink); font-size:10.8px; color:var(--muted); background:var(--paper);
+  z-index:30; letter-spacing:.02em;
+}
+#colophon a{color:var(--ink2)}
+/* ---------- people-layer toggle ---------- */
+#layertoggle{display:flex; border:1px solid var(--ink); border-radius:999px; overflow:hidden; background:var(--card); flex-shrink:0}
+#layertoggle button{
+  font-family:var(--sans); font-size:10.5px; font-weight:600; letter-spacing:.04em; text-transform:uppercase;
+  padding:8px 9px; background:transparent; border:0; cursor:pointer; color:var(--ink2);
+}
+#layertoggle button+button{border-left:1px solid var(--hairline)}
+#layertoggle button.active[data-layer="none"]{background:var(--muted); color:var(--paper)}
+#layertoggle button.active[data-layer="designers"]{background:var(--designer); color:var(--paper)}
+#layertoggle button.active[data-layer="engineers"]{background:var(--engineer); color:var(--paper)}
+#layertoggle button.active[data-layer="both"]{background:var(--ink); color:var(--paper)}
+
+/* ---------- My Database filter ---------- */
+#dbfilter{
+  font-family:var(--sans); font-size:10px; font-weight:600; letter-spacing:.04em; text-transform:uppercase;
+  padding:8px 10px; border:1px solid var(--ink); border-radius:999px; background:var(--card); color:var(--ink2); cursor:pointer;
+  flex:none;
+}
+#dbfilter[hidden]{display:none}
+#dbfilter.active{background:var(--db-gold); color:var(--card); border-color:var(--db-gold)}
+
+/* ---------- "shared platforms only" filter (formerly the separate Platforms tab) ---------- */
+#platformsonly{
+  font-family:var(--sans); font-size:10px; font-weight:600; letter-spacing:.04em; text-transform:uppercase;
+  padding:8px 10px; border:1px solid var(--ink); border-radius:999px; background:var(--card); color:var(--ink2); cursor:pointer;
+  flex:none;
+}
+#platformsonly.active{background:var(--accent); color:var(--card); border-color:var(--accent)}
+
+/* ---------- one consolidated dropdown for every LLM/debug tool ---------- */
+/* Real user request: "I want all of the tools/debug features to be within
+   one dropdown as opposed to all being separate buttons." Order (top to
+   bottom, matching the exact order requested): LLM Check, LLM Debug, Match
+   Cars, Playground, Unconfirmed Relationships, Add Car. Each item keeps its
+   own original element id (#llmcheck etc.) and click behavior unchanged --
+   only the container and per-item visual treatment changed, from a row of
+   standalone pill buttons to menu items inside #toolsmenu. */
+#toolsmenu-wrap{position:relative; flex:none}
+#toolsmenu-btn{
+  font-family:var(--sans); font-size:10px; font-weight:600; letter-spacing:.04em; text-transform:uppercase;
+  padding:8px 10px; border:1px solid var(--ink); border-radius:999px; background:var(--card); color:var(--ink2); cursor:pointer;
+  display:inline-flex; align-items:center; gap:6px;
+}
+#toolsmenu-btn.open{background:var(--ink); color:var(--paper)}
+#toolsmenu-armed-dot{color:var(--llm); font-size:9px; line-height:1}
+#toolsmenu-armed-dot[hidden]{display:none}
+/* Real user report: "the tools bar is appearing behind the main viewfinder
+   window." Root cause: #topbar sets overflow-y:hidden (so it can scroll
+   horizontally without also picking up an unwanted vertical scrollbar --
+   see #topbar's own comment above) -- and an ancestor's overflow:hidden
+   clips ALL of its descendants' painted content, including an absolutely
+   positioned dropdown that visually extends below the header's own box,
+   regardless of that dropdown's own z-index. Two layers of belt-and-braces
+   fix here, since the report persisted even after the first one: (1)
+   #toolsmenu is position:fixed (a fixed box's containing block is the
+   viewport, not #topbar, since #topbar has no transform/filter of its own,
+   so this alone should already escape the clip), and (2) on top of that,
+   the actual <div id="toolsmenu"> markup in index.html was moved OUT of
+   #toolsmenu-wrap entirely, to a top-level sibling of <header>/<main> --
+   the same place #llmdebug/#llmplayground/#unconfirmedrel/#addcar already
+   successfully live -- so it isn't even a DOM descendant of the clipping
+   box anymore, regardless of any position-related subtlety. app.js's
+   initToolsMenu() sets its top/right inline, in viewport coordinates, from
+   the trigger button's own bounding rect each time the menu opens (jsdom
+   never caught this because it doesn't do real layout/clipping at all). */
+#toolsmenu{
+  position:fixed; min-width:230px; z-index:50;
+  background:var(--card); border:1px solid var(--ink); box-shadow:6px 6px 0 rgba(23,20,15,.13);
+  display:flex; flex-direction:column; padding:6px;
+}
+#toolsmenu[hidden]{display:none}
+.toolsmenu-item{
+  font-family:var(--sans); font-size:12.5px; font-weight:500; text-align:left;
+  padding:9px 12px; border:0; border-radius:6px; background:transparent; color:var(--ink2); cursor:pointer;
+  text-decoration:none; display:block; width:100%;
+}
+.toolsmenu-item:hover{background:var(--paper2); color:var(--ink)}
+.toolsmenu-item[hidden]{display:none}
+.toolsmenu-item.active{background:var(--llm); color:var(--card)}
+#llmdebug{
+  position:absolute; top:76px; right:18px; width:308px; max-height:calc(100% - 150px); overflow:auto;
+  background:var(--card); border:1px solid var(--ink); box-shadow:8px 8px 0 rgba(23,20,15,.13); z-index:41; padding:18px;
+}
+#llmdebug[hidden]{display:none}
+.llmdebug-head{display:flex; align-items:center; justify-content:space-between; margin-bottom:6px}
+.llmdebug-head h3{font-family:var(--serif); font-size:17px; font-weight:600; margin:0}
+#llmdebug-close{border:0; background:none; font-size:14px; cursor:pointer; color:var(--muted)}
+.llmdebug-note{font-size:11px; color:var(--muted); line-height:1.5; margin:0 0 12px}
+.llmdebug-section{margin-top:12px; padding-top:12px; border-top:1px solid var(--hairline)}
+.llmdebug-section label{font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:var(--muted); display:block; margin-bottom:6px}
+.llmdebug-row{display:flex; gap:6px}
+#llmdebug-select{
+  flex:1; min-width:0; font-family:var(--sans); font-size:11.5px; padding:6px 8px; border:1px solid var(--hairline);
+  border-radius:8px; background:var(--paper); color:var(--ink2);
+}
+#llmdebug-clearall{width:100%}
+#llmdebug button:disabled, #llmdebug select:disabled{opacity:.5; cursor:not-allowed}
+.dt-llmcheck{margin-top:8px; padding-top:8px; border-top:1px dashed var(--llm2)}
+.dt-llmcheck:empty{display:none; margin:0; padding:0; border:0}
+.llm-status{font-size:11.5px; color:var(--ink2); line-height:1.5}
+.llm-error{color:var(--accent)}
+.llm-applied{color:var(--gensucc); font-weight:600}
+.llm-resolved{font-size:11px; color:var(--gensucc); line-height:1.5; margin-top:4px}
+.llm-label{font-size:9.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--llm); font-weight:700; margin-bottom:6px}
+.llm-gens{margin-bottom:8px}
+.llm-gen-row{display:flex; align-items:flex-start; gap:8px; font-size:12px; color:var(--ink2); line-height:1.45; padding:3px 0}
+.llm-gen-row b{color:var(--ink); font-weight:600}
+.llm-gen-row .verb{color:var(--muted); font-size:11px}
+.llm-gen-people{color:var(--muted); font-size:11px; font-style:italic}
+.llm-gen-thumb{width:38px; height:38px; border-radius:6px; object-fit:cover; flex:none; border:1px solid var(--hairline); background:var(--paper)}
+.llm-gen-text{flex:1; min-width:0}
+.llm-actions{display:flex; gap:8px; margin-bottom:8px}
+.llm-btn{
+  font-family:var(--sans); font-size:11px; font-weight:600; padding:6px 12px; border-radius:999px;
+  border:1px solid var(--hairline); background:var(--card); color:var(--ink2); cursor:pointer;
+}
+.llm-yes{border-color:var(--llm); color:var(--llm)}
+.llm-yes:hover{background:var(--llm); color:var(--card)}
+.llm-no:hover{background:var(--accent); color:var(--card); border-color:var(--accent)}
+.llm-retry-row{display:flex; gap:6px}
+.llm-reason{
+  flex:1; font-family:var(--sans); font-size:11px; padding:6px 9px; border:1px solid var(--hairline);
+  border-radius:999px; background:var(--paper);
+}
+.llm-attempts{font-size:10px; color:var(--muted); margin-top:6px}
+/* Manual "LLM Re-check" trigger (see app.js's renderManualRecheckButton) --
+   always sits at the bottom of .dt-llmcheck for any eligible nameplate,
+   regardless of whatever else that panel is currently showing, so a
+   dashed rule separates it from any status/discrepancy content above it. */
+.llm-recheck-row{margin-top:8px; padding-top:8px; border-top:1px dashed var(--hairline)}
+.llm-recheck-btn{color:var(--muted)}
+.llm-recheck-btn:hover{background:var(--llm2); color:var(--ink)}
+.llm-genresearch-btn{color:var(--muted)}
+.llm-genresearch-btn:hover{background:var(--llm2); color:var(--ink)}
+/* Persistent "this car's Wikipedia link" row (app.js's renderWpLinkRow) --
+   always the last thing in .dt-llmcheck for any model/family/generation,
+   below whatever the check itself is showing, same separated-footer
+   treatment as .llm-recheck-row above. The link itself can be a long
+   article title, so it wraps rather than forcing the panel wider. */
+.llm-wp-row{margin-top:8px; padding-top:8px; border-top:1px dashed var(--hairline)}
+/* "hidden by a compacted dropdown button, since I don't want the user to have
+   it be as accessible as it currently is, to prevent misclicks or mistakes."
+   The link itself stays plainly visible above; only the two controls that
+   REWRITE it (each of which also triggers a fresh LLM check) sit behind this
+   closed disclosure. Styled as a quiet muted line rather than a button, so it
+   reads as "more options" and not as another action to click. */
+.llm-wp-tools{margin-top:6px}
+.llm-wp-tools > summary{
+  cursor:pointer; font-size:10.5px; color:var(--muted); list-style:none;
+  padding:3px 0; user-select:none;
+}
+.llm-wp-tools > summary::-webkit-details-marker{display:none}
+.llm-wp-tools > summary::before{content:"\25B8 "; display:inline-block; transition:transform .12s}
+.llm-wp-tools[open] > summary::before{transform:rotate(90deg)}
+.llm-wp-tools > summary:hover{color:var(--ink2)}
+.llm-wp-toolrow{display:flex; gap:6px; flex-wrap:wrap; margin:6px 0 2px}
+.llm-wp-line{display:flex; flex-wrap:wrap; align-items:center; gap:6px}
+.llm-wp-current{flex:1 1 100%; font-size:10.5px; color:var(--muted); line-height:1.4; word-break:break-word}
+.llm-wp-current a{color:var(--llm)}
+.llm-wp-edit{margin-top:6px}
+.llm-debug-toggle{
+  font-family:var(--sans); font-size:10px; font-weight:600; padding:2px 8px; border-radius:999px;
+  border:1px solid var(--hairline); background:transparent; color:var(--muted); cursor:pointer; margin-left:4px;
+}
+.llm-debug{margin-top:6px}
+.llm-debug-pre{
+  font-size:10px; line-height:1.4; white-space:pre-wrap; word-break:break-word; max-height:180px; overflow:auto;
+  background:var(--paper); border:1px solid var(--hairline); border-radius:8px; padding:8px; color:var(--ink2);
+}
+.llm-debug-dropped{font-size:10px; color:var(--accent); margin-top:4px; line-height:1.4}
+/* Real quality-of-life request: "have the 'dismiss' 'x' button be to the left
+   of the description of the match, like a bullet point. That way, I can simply
+   hover my mouse on one location and as I continue dismissing the messages I
+   won't have to move my mouse to the end of the text of the description."
+   Every call site now emits llmCloseBtn() FIRST; this makes it read as a
+   bullet. `float` rather than flex on purpose -- these messages are inline
+   prose with links and toggles mixed in, so the text needs to wrap around the
+   button and keep its own flow, which a flex row would break. The fixed width
+   is what makes the target land in the SAME place on every row, which is the
+   entire point of the request: the mouse never has to move between clicks. */
+.llm-close{
+  font-family:var(--sans); font-size:10px; font-weight:600; padding:2px 7px; border-radius:999px;
+  border:1px solid var(--hairline); background:transparent; color:var(--muted); cursor:pointer; line-height:1.4;
+  float:left; margin:1px 6px 0 0; width:22px; text-align:center; box-sizing:content-box;
+}
+.llm-close:hover{background:var(--accent); color:var(--card); border-color:var(--accent)}
+/* Contain the float so a short message can't let the next one ride up beside
+   its button. */
+.llm-status, .llm-resolved{overflow:hidden}
+.llm-disclaimer{font-size:10px; color:var(--muted); font-style:italic; margin-top:4px}
+
+#llmplayground{
+  position:absolute; top:76px; right:18px; width:400px; max-height:calc(100% - 150px); overflow:auto;
+  background:var(--card); border:1px solid var(--ink); box-shadow:8px 8px 0 rgba(23,20,15,.13); z-index:42; padding:18px;
+}
+#llmplayground[hidden]{display:none}
+
+#unconfirmedrel{
+  position:absolute; top:76px; right:18px; width:320px; max-height:calc(100% - 150px); overflow:auto;
+  background:var(--card); border:1px solid var(--ink); box-shadow:8px 8px 0 rgba(23,20,15,.13); z-index:41; padding:18px;
+}
+#unconfirmedrel[hidden]{display:none}
+.ucr-empty{font-size:11.5px; color:var(--muted); font-style:italic}
+/* Real user request: "the user should directly be able to accept or
+   decline this relationship" right in this list. .ucr-row is now a plain
+   container (was a single <button> -- can't legally nest buttons inside a
+   button) holding the clickable pair label (still flies the graph to both
+   cars) plus two real inline action buttons below it. */
+.ucr-row{ display:block; width:100%; border-top:1px solid var(--hairline); padding:9px 0 }
+.ucr-row:first-child{border-top:0}
+.ucr-pair-btn{
+  display:block; width:100%; text-align:left; font-family:var(--sans); font-size:12px; color:var(--ink2);
+  background:transparent; border:0; padding:0; cursor:pointer; line-height:1.45;
+}
+.ucr-pair-btn:hover .ucr-pair{color:var(--llm)}
+.ucr-pair{color:var(--ink); font-weight:600}
+.ucr-meta{display:block; font-size:10.5px; color:var(--muted); margin-top:2px}
+.ucr-rework{color:var(--accent); font-weight:600}
+/* The two specific generation codes being proposed, plus the LLM's own
+   stated reason for proposing them (see app.js's initUnconfirmedRelPanel).
+   The reason can run to several sentences on a knowledge-based or
+   sanity-checked match, so it's capped with a scroll rather than pushing
+   every other row off the panel. */
+.ucr-codes{display:block; font-size:10.5px; color:var(--ink2); margin-top:3px; font-weight:600}
+.ucr-reason{
+  display:block; font-size:10px; color:var(--muted); margin-top:4px; line-height:1.45;
+  max-height:76px; overflow:auto; white-space:normal;
+}
+/* Modify Existing Car -- the merge candidate checkboxes (app.js's
+   initModifyCarPanel). One per row, scrollable, since a prolific make can
+   easily have several dozen ungrouped models. */
+#modifycar-merge-list{max-height:190px; overflow:auto; margin:4px 0 8px}
+.modifycar-cand{
+  display:flex; align-items:center; gap:7px; font-size:11px; color:var(--ink2);
+  padding:3px 2px; cursor:pointer;
+}
+.modifycar-cand:hover{color:var(--ink)}
+.modifycar-cand input{margin:0}
+/* Generations already under the target nameplate -- shown greyed rather than
+   omitted, so it's obvious they're already in and not mysteriously absent
+   (the reported confusion with the Honda Civic). */
+.modifycar-already-head{font-size:10px; letter-spacing:.06em; text-transform:uppercase; color:var(--muted); margin:8px 0 2px}
+/* The "which article is this nameplate's?" prompt -- see app.js's
+   renderWpConflict. Tinted rather than alarming: an unanswered conflict is a
+   question waiting to be answered, not an error. */
+#modifycar-wpconflict{margin-top:8px; padding:8px; border:1px solid var(--hairline); border-radius:6px; background:rgba(194,69,29,.05)}
+.modifycar-conflict-head{font-size:12px; color:var(--ink2); margin-bottom:6px; line-height:1.4}
+#modifycar-wpconflict .modifycar-cand{display:flex; align-items:center; gap:8px; justify-content:space-between}
+.modifycar-cand.modifycar-already{color:var(--muted); cursor:default; padding-left:20px}
+.ucr-actions{display:flex; gap:6px; margin-top:7px}
+.ucr-yes,.ucr-no{
+  font-family:var(--sans); font-size:11px; font-weight:600; padding:5px 11px; border-radius:999px;
+  border:1px solid var(--hairline); background:var(--card); color:var(--ink2); cursor:pointer;
+}
+.ucr-yes{border-color:var(--llm); color:var(--llm)}
+.ucr-yes:hover{background:var(--llm); color:var(--card)}
+.ucr-no:hover{background:var(--accent); color:var(--card); border-color:var(--accent)}
+
+#addcar{
+  position:absolute; top:76px; right:18px; width:308px; max-height:calc(100% - 150px); overflow:auto;
+  background:var(--card); border:1px solid var(--ink); box-shadow:8px 8px 0 rgba(23,20,15,.13); z-index:41; padding:18px;
+}
+#addcar[hidden]{display:none}
+#addcar-status:empty{display:none}
+#addcar-status.addcar-error{color:var(--accent)}
+#addcar-status.addcar-ok{color:var(--gensucc)}
+/* Modify Existing Car -- same slot/treatment as #addcar above (it's the
+   direct counterpart panel), just a little taller since it stacks a car
+   picker, a link field, a free-text LLM prompt and a merge list. */
+#modifycar{
+  position:absolute; top:76px; right:18px; width:308px; max-height:calc(100% - 130px); overflow:auto;
+  background:var(--card); border:1px solid var(--ink); box-shadow:8px 8px 0 rgba(23,20,15,.13); z-index:41; padding:18px;
+}
+#modifycar[hidden]{display:none}
+#modifycar-status:empty, #modifycar-current:empty, #modifycar-answer:empty{display:none}
+#modifycar-status.addcar-error{color:var(--accent)}
+#modifycar-status.addcar-ok{color:var(--gensucc)}
+/* Delete / Restore -- same slot and treatment as the other Tools panels. */
+#deletepanel{
+  position:absolute; top:76px; right:18px; width:308px; max-height:calc(100% - 130px); overflow:auto;
+  background:var(--card); border:1px solid var(--ink); box-shadow:8px 8px 0 rgba(23,20,15,.13); z-index:41; padding:18px;
+}
+#deletepanel[hidden]{display:none}
+#deletepanel-status:empty, #deletepanel-preview:empty{display:none}
+#deletepanel-status.addcar-error{color:var(--accent)}
+#deletepanel-status.addcar-ok{color:var(--gensucc)}
+#deletepanel-preview{
+  font-size:11px; line-height:1.5; color:var(--ink2); background:var(--paper);
+  border:1px solid var(--hairline); border-radius:8px; padding:8px; margin-top:8px;
+}
+#deletepanel-list{max-height:220px; overflow:auto; margin-top:4px}
+/* Its own class rather than reusing .llm-no: that class means "reject this
+   LLM proposal", and several regression tests legitimately scan the whole
+   document for one to assert no review box is showing. Same destructive-action
+   styling, no shared meaning. */
+.dp-delete-btn:hover{background:var(--accent); color:var(--card); border-color:var(--accent)}
+/* Rebuild-from-scratch section in the Delete/Restore panel. dp-error is the
+   one state that must not read as ordinary muted note text -- a failed
+   rebuild needs to be visibly different from "rebuilding..." */
+.dp-inline-label{display:flex; align-items:center; gap:6px; font-size:11px; color:var(--muted); cursor:pointer}
+.dp-inline-label input{margin:0}
+#rebuild-section{border-top:1px solid var(--hairline); padding-top:14px; margin-top:4px}
+#rebuild-status:empty{display:none}
+#rebuild-status{margin-top:8px}
+.llmdebug-note.dp-error{color:var(--accent)}
+/* The "this was harvested data, not something the LLM invented" flag -- the
+   distinction the delete feature was specifically asked to record. */
+.dp-hard{color:var(--accent); font-weight:600}
+/* "Delete all newly created makes and models... (and a dropdown where the
+   user can select a particular make and model)". The dropdown can hold a few
+   hundred entries and their labels carry how each one got here, so it needs
+   real width rather than the browser's shrink-to-content default. */
+#newcars-section{border-top:1px solid var(--hairline); padding-top:14px; margin-top:4px}
+.dp-select{
+  flex:1; min-width:0; font:inherit; font-size:11px; color:var(--ink2);
+  background:var(--card); border:1px solid var(--hairline); border-radius:6px;
+  padding:5px 7px; cursor:pointer;
+}
+.dp-select:disabled{color:var(--muted); cursor:default}
+#newcars-status:empty{display:none}
+#newcars-status{margin-top:8px}
+/* The irreversible half of the Deleted-so-far list. Muted until it arms
+   itself (at which point it also picks up .dp-delete-btn), so the reversible
+   Restore stays the visually obvious action of the two. */
+.dp-clear-btn{color:var(--muted)}
+#modifycar-rename-note:empty{display:none}
+#modifycar-rename-note{font-size:10.5px; color:var(--muted); margin-top:6px; line-height:1.5}
+#modifycar-answer{
+  font-size:11px; line-height:1.5; color:var(--ink2); background:var(--paper);
+  border:1px solid var(--hairline); border-radius:8px; padding:8px; margin-top:8px;
+}
+.llmpg-note{font-size:11px; color:var(--muted); line-height:1.5; margin:0 0 12px}
+.llmpg-modes{display:flex; gap:6px; margin-bottom:4px}
+.llmpg-mode{
+  flex:1; font-family:var(--sans); font-size:10.5px; font-weight:600; letter-spacing:.03em;
+  padding:8px 8px; border:1px solid var(--hairline); border-radius:8px; background:var(--paper); color:var(--muted); cursor:pointer;
+}
+.llmpg-mode.active{background:var(--llm); color:var(--card); border-color:var(--llm)}
+.llmpg-section{margin-top:12px; padding-top:12px; border-top:1px solid var(--hairline)}
+.llmpg-section[hidden]{display:none}
+.llmpg-section label{font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:var(--muted); display:block; margin-bottom:6px}
+.llmpg-section label:not(:first-child){margin-top:10px}
+.llmpg-pick{position:relative}
+.llmpg-pick input{
+  width:100%; font-family:var(--sans); font-size:12.5px; padding:8px 11px; border:1px solid var(--hairline);
+  border-radius:8px; background:var(--paper); color:var(--ink2); outline:none; box-sizing:border-box;
+}
+.llmpg-pick input:focus{border-color:var(--ink)}
+.llmpg-pick .llmpg-results{left:0; right:0; width:auto; top:calc(100% + 4px)}
+#llmpg-rel-type{
+  width:100%; font-family:var(--sans); font-size:12.5px; padding:8px 11px; border:1px solid var(--hairline);
+  border-radius:8px; background:var(--paper); color:var(--ink2);
+}
+.llmpg-textarea{
+  width:100%; font-family:var(--mono,monospace); font-size:11px; line-height:1.5; padding:9px 11px;
+  border:1px solid var(--hairline); border-radius:8px; background:var(--paper); color:var(--ink2);
+  resize:vertical; box-sizing:border-box;
+}
+.llmpg-textarea[readonly]{background:var(--paper2); color:var(--muted)}
+#llmpg-output{margin-top:12px}
+#llmpg-output:empty{margin:0}
+.llmpg-result{font-size:11.5px; color:var(--ink2); line-height:1.6}
+.llmpg-result b{color:var(--ink)}
+.llmpg-result-error{color:var(--accent)}
+.hc-db,.dt-db{margin-top:8px; padding-top:8px; border-top:1px dashed var(--db-gold2)}
+.hc-db:empty,.dt-db:empty{display:none; margin:0; padding:0; border:0}
+.db-label{font-size:9.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--db-gold); font-weight:700; margin-bottom:4px}
+.db-row{display:flex; justify-content:space-between; gap:10px; font-size:11.5px; color:var(--ink2); line-height:1.5}
+.db-row b{color:var(--ink); font-weight:600; text-align:right}
+.db-foot{font-size:10.5px; color:var(--muted); margin-top:5px; font-style:italic}
+.db-page-link{display:inline-block; margin-top:7px; font-size:11px; font-weight:600; color:var(--db-gold);
+  text-decoration:none; border-bottom:1px solid var(--db-gold2)}
+.db-page-link:hover{color:var(--accent); border-color:var(--accent2)}
+
+/* ---------- live data ---------- */
+#datastatus{white-space:nowrap}
+#livetoast[hidden]{display:none}
+#livetoast{
+  position:fixed; bottom:52px; left:50%; transform:translateX(-50%); z-index:80;
+  display:flex; gap:12px; align-items:center; background:var(--ink); color:var(--paper);
+  padding:11px 16px; border-radius:8px; box-shadow:6px 6px 0 rgba(23,20,15,.2); font-size:12.5px;
+}
+#livetoast button{
+  font-family:var(--sans); font-size:12px; font-weight:600; border:0; border-radius:5px;
+  padding:6px 12px; cursor:pointer; background:var(--accent); color:#fff;
+}
+#livetoast #livetoast-dismiss{background:transparent; color:var(--muted); padding:6px 4px}
+
+/* Real user request: "all of the buttons... fit on a standard laptop
+   screen, but only once the window gets smaller, that it can be scrollable
+   left to right." Every topbar item's base size (above) is already the
+   compact one now -- a real laptop-width screenshot showed the Tools button
+   still cut off even at full screen with the OLD compact-only-below-1300px
+   version of this, so compact needed to be the default everywhere, not
+   something gated behind a max-width query. The one exception is the
+   wordmark subtitle: it's hidden by default (the single widest thing in
+   this bar) and only reappears on a genuinely wide monitor, where there's
+   width to spare for it. #topbar's overflow-x:auto is still the fallback
+   for whatever's narrower than a normal laptop screen. */
+@media (min-width:1700px){
+  .wm-sub{display:block}
+}
+
+@media (max-width:1050px){
+  #search{width:180px} #tl-caption{display:none} .tl-year{font-size:32px}
+}

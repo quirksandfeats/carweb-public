@@ -1,0 +1,36 @@
+Dataset licence — The Car Web
+=============================
+
+The SOFTWARE in this repository is licensed under the Apache License 2.0
+(see LICENSE). This file covers the DATA, which is licensed separately.
+
+The dataset — app/cars.json, app/data.js, app/llm_families.json,
+app/llm_families_data.js, the curated source tables in data_src/, and the
+cached source text in qa/wiki_cache/ — is licensed under
+
+    Creative Commons Attribution-ShareAlike 4.0 International
+    (CC BY-SA 4.0)
+
+    Human-readable summary:  https://creativecommons.org/licenses/by-sa/4.0/
+    Full legal code:         https://creativecommons.org/licenses/by-sa/4.0/legalcode
+
+Why ShareAlike: the dataset is a derivative of DBpedia and Wikipedia, whose
+text is itself CC BY-SA. That licence's ShareAlike term carries forward into
+this dataset, so it cannot be relicensed under more permissive terms. It is
+free to use commercially, provided you attribute and keep derivatives under
+the same licence.
+
+WHAT YOU MUST DO WHEN REUSING THE DATA
+--------------------------------------
+1. Credit "The Car Web" and its upstream sources — see ATTRIBUTION.md for a
+   ready-to-paste attribution line.
+2. Link to the CC BY-SA 4.0 licence.
+3. Indicate whether you changed anything.
+4. License any adapted dataset you distribute under CC BY-SA 4.0 as well.
+
+WHAT IS NOT IN THIS REPOSITORY
+------------------------------
+The "My Database" layer — a personal collection of magazine road-test data
+and photographs — is deliberately excluded. It is not covered by any licence
+granted here and is not redistributable. The code paths that read it
+(data_src/build_db_layer.py) are disabled by default; see ATTRIBUTION.md.

@@ -1,0 +1,551 @@
+{{Short description|Supermini car produced by Peugeot (1983–1999)}}
+{{Use dmy dates|date=January 2020}}
+{{Infobox automobile
+| name = Peugeot 205
+| image = Peugeot 205 front 20080121.jpg
+| caption = 5-door (facelift)
+| manufacturer = [[Peugeot]]
+| production = 1983–1999
+| assembly = {{ubl |France: [[Mulhouse]] ([[PSA Mulhouse Plant|Mulhouse Plant]]) |France: [[Cerizay]] ([[Heuliez]]: 205T16)|Spain: [[Madrid]] (Peugeot España) |Chile: [[Los Andes, Chile|Los Andes]] (Automotores Franco Chilena S.A.) |Taiwan: [[Changhua]] (GSK Corp.) |Iran: [[Tehran]] ([[Iran Khodro]])|Morocco: [[Casablanca]] ([[Sopriam]])<ref>{{cite web|language=fr|title=Dossier le secteur automobile marocain|work=Al Wassit Magazine|number=24|date=May–June 1998|url=http://archives.cnd.hcp.ma/uploads/news/018524.pdf|access-date=20 June 2023|archive-date=20 June 2023|archive-url=https://web.archive.org/web/20230620163116/http://archives.cnd.hcp.ma/uploads/news/018524.pdf|url-status=dead}}</ref> |Uruguay: [[Montevideo]] (Nordex S.A.)<ref>{{cite web | url=https://www.autonews.com/article/19960902/SUB/609020789/psa-ponders-50-000-unit-brazil-plant | title=Psa Ponders 50,000 Unit Brazil Plant | work=Automotive News | date=13 December 2005 }}</ref>}}
+| designer = [[Gerard Welter]]<br />[[Pininfarina]] (cabriolet)
+| class = [[Supermini]] ([[B-segment]])
+| body_style = {{ubl |3/5-door [[hatchback]] |2-door [[convertible]]|3/4-door [[panel van]]}}
+| related = [[Peugeot 309]]
+| layout = {{unbulleted list | [[Front-engine, front-wheel-drive layout|Front-engine, front-wheel-drive]] | [[Mid-engine, four-wheel-drive layout|Rear Mid-engine, four-wheel-drive]] ([[#T16|205 T16]]) }}
+| engine = {{ubl
+ | '''[[Petrol engine|Petrol]]:'''
+ | 954&nbsp;cc ''[[PSA-Renault X-Type engine#XV|XV]]'' [[Straight-four engine|I4]]
+ | 1124&nbsp;cc ''[[PSA-Renault X-Type engine#XW|XW]]'' I4
+ | 1124&nbsp;cc ''[[PSA TU engine#TU1|TU1]]'' I4
+ | 1204 cc ''[[Simca Poissy engine#1204 cc|F1]]'' I4
+ | 1294 cc ''[[Simca Poissy engine#1294 cc|G1A]]'' I4
+ | 1294&nbsp;cc ''[[PSA TU engine#TU2|TU2]]'' I4
+ | 1360&nbsp;cc ''[[PSA-Renault X-Type engine#XY|XY]]'' I4
+ | 1360&nbsp;cc ''[[PSA TU engine#TU3|TU3]]'' I4
+ | 1442 cc ''[[Simca Poissy engine#1442 cc|6Y]]'' I4
+ | 1580&nbsp;cc ''[[PSA XU engine#XU5|XU5]]'' I4
+ | 1592 cc ''[[Simca Poissy engine#1592 cc|6J]]'' I4
+ | 1775&nbsp;cc ''[[PSA XU engine#XU8|XU8T]]'' [[Turbocharger|turbo]] I4
+ | 1905&nbsp;cc ''[[PSA XU engine#XU9|XU9]]'' I4
+ | '''[[Diesel engine|Diesel]]:'''
+ | 1769&nbsp;cc ''[[PSA XUD engine#XUD7|XUD7]]'' I4
+ | 1769&nbsp;cc ''[[PSA XUD engine#XUD7|XUD7]]'' [[turbodiesel]] I4
+ | 1905&nbsp;cc ''[[PSA XUD engine#XUD9|XUD9]]'' I4
+ }}
+| transmission = {{ubl |4-speed [[Automatic transmission|automatic]] [[ZF 4HP14 transmission|ZF 4HP14]] |4/5-speed manual }}
+| wheelbase = {{convert|2420|mm|in|0|abbr=on}}<ref name=205specs>{{cite web|url=https://www.automobile-catalog.com/model/peugeot/205.html|title=Peugeot 205 specifications: versions & types|website=www.automobile-catalog.com}}</ref><br />{{convert|2540|mm|in|1|abbr=on}} (205 T16)<ref name=T16dimensions>{{cite web|url=http://tech-racingcars.wikidot.com/peugeot-205-t16|title=Peugeot 205 T16 group B (1984)|website=tech-racingcars.wikidot.com}}</ref>
+| length = {{convert|3705|mm|in|1|abbr=on}}<ref name=205specs/><br />{{convert|3820|mm|in|1|abbr=on}} (205 T16)<ref name=T16dimensions/>
+| width = {{convert|1562|-|1572|mm|in|1|abbr=on}}<br />{{convert|1589|mm|in|1|abbr=on}} (GTI/CTI)<ref name=205specs/><br />{{convert|1700|mm|in|1|abbr=on}} (205 T16)<ref name=T16dimensions/>
+| height = {{convert|1350|-|1376|mm|in|1|abbr=on}}<ref name=205specs/><br />{{convert|1354|mm|in|1|abbr=on}} (GTI/205 T16)<ref name=205specs/><ref name=T16dimensions/><br />{{convert|1381|mm|in|1|abbr=on}} (Cabriolet)<ref name=205specs/>
+| weight = {{convert|740|-|935|kg|lb|1|abbr=on}}<ref name=205specs/> (excluding 205 T16)
+| sp = 
+| predecessor = {{ubl|[[Peugeot 104]]|[[Talbot Samba]]|[[Peugeot 204]]}}
+| successor = {{ubl|[[Peugeot 106]]|[[Peugeot 206]]}}
+| platform = [[PSA PF2 platform|PSA N platform]]
+}}
+
+The '''Peugeot 205''' is a [[supermini]] ([[B-segment]]) car manufactured and marketed by [[Peugeot]] from 1983 to 1999 over a single generation. Developed from ''Projet'' M24 and introduced on 25 February 1983, the 205 replaced the [[Peugeot 104]] and the [[Talbot Samba]], using some elements from their design.<ref name=":0">{{Cite web |title=Peugeot 205 at 40: celebrating an icon |url=https://www.carmagazine.co.uk/car-reviews/peugeot/205-gti/ |access-date=2023-02-21 |website=CAR Magazine |language=en}}</ref> It won ''[[What Car?]]''{{'s}} [[Car of the Year]] for 1984. It was also declared "car of the decade" by [[CAR magazine|CAR Magazine]] in 1990.<ref name=":0" /> Peugeot stopped marketing the 205 in 1999 in favor of its new front-engined [[Peugeot 206|206]]. The [[Peugeot 106|106]], which was introduced in 1991, effectively took over as Peugeot's smaller front-engined model in their lineup. The latter was developed as a close sibling of the [[Citroën AX]], sharing many components and a platform that later evolved into the [[Citroën Saxo]].
+
+==History==
+{{Multiple image
+| align             = left
+| direction         = vertical
+| width             = 
+| image1            = 1986 Peugeot 205 GL (9032147497) (cropped).jpg
+| caption1          = 5-door (pre-facelift)
+| image2            = 1985 Peugeot 205 XL 1.1 Rear.jpg
+| caption2          = 3-door (pre-facelift)
+| image3            = Peugeot 205 1.4 GT Cabriolet 1989 (36372390585).jpg
+| caption3          = Cabriolet (pre-facelift)
+}}
+Before the 205, Peugeot was considered the most conservative of France's "big three" car manufacturers, producing large [[sedan (car)|saloons]] such as the [[Peugeot 504|504]] and [[Peugeot 505|505]], although it had entered the modern supermini market in 1973 with the [[Peugeot 104]]. The genesis of the 205 lay within Peugeot's takeover in 1978 of [[Chrysler]]'s [[Chrysler Europe|European]] divisions [[Simca]] and the former [[Rootes Group]], which had the necessary expertise in making small cars including the [[Simca 1100]] in France and [[Hillman Imp]] in Britain. It was around this time that Peugeot began to work on the development of a new supermini for the 1980s.
+
+After its main launch in February 1983, the right-hand drive form for the UK market followed in September that year.<ref>{{cite web |url=http://www.classicandperformancecar.com/features/octane_features/245797/driven_peugeot_205_gti_and_t16.html |title=Driven: Peugeot 205 GTI and T16 | work = Octane |publisher=Classic and Performance Car |date=December 2009 | first = John | last = Simister |archive-date=21 August 2014 |archive-url=https://web.archive.org/web/20140821220118/http://www.classicandperformancecar.com/features/octane_features/245797/driven_peugeot_205_gti_and_t16.html |url-status=dead }}</ref> Shortly after its launch, it was pipped to the [[European Car of the Year]] award by the similar sized [[Fiat Uno]], but ultimately (according to the award organizers) it would enjoy a longer high market demand than its Italian competitor.<ref>{{cite web |url=http://www.caroftheyear.org/previous-winners/1984_1/coty |title=Previous winners |publisher=Car of the year |access-date=4 December 2010 |url-status=dead |archive-url=https://web.archive.org/web/20120616045053/http://www.caroftheyear.org/previous-winners/1984_1/coty |archive-date=16 June 2012 }}</ref> It was one of five important small cars to be launched onto the European market within a year of each other: the other four were the Uno, the second generation [[Ford Fiesta]], the original [[Opel Corsa]] (sold as the [[Vauxhall Nova]] on the British market) and the original [[Nissan Micra]]. Its launch also closely followed that of the [[Austin Metro]] and [[Volkswagen Polo]] Mk2.
+
+The styling of the 205 is often thought to be a Pininfarina design, although [[Gerard Welter]] claims that it is an in-house design; [[Pininfarina]] only styled the Cabriolet.<ref>{{cite news | url = https://www.telegraph.co.uk/motoring/4755873/Keeping-track-I-knew-that.-Or-did-I.html | archiveurl = https://web.archive.org/web/20160303021338/http://www.telegraph.co.uk/motoring/4755873/Keeping-track-I-knew-that.-Or-did-I.html | archivedate = 2016-03-03 | title = Keeping track: I knew that. Or did I | newspaper = [[The Daily Telegraph|The Telegraph]] | first = Peter | last = Dron | date = 2002-04-13 }}</ref> It is often credited as the car that turned Peugeot's fortunes around.
+
+The fully independent suspension used the standard [[PSA Peugeot Citroën]] layout that had debuted in the [[Peugeot 305]] estate. A key ingredient of the success of the 205, it had [[MacPherson strut]]s at the front and trailing arms with [[torsion bar suspension|torsion bars]] at the rear. The rear suspension was very compact, designed to minimise suspension intrusion into the boot, giving a wide flat loadspace, while providing excellent ride and handling.
+
+Early 205s used the [[PSA X engine|X]] [[petrol engine|petrol]] engine{{refn|group=n|commonly nicknamed the Douvrin "Suitcase Engine"}} from the older [[Peugeot 104]], although these were later (1987–1988) replaced with the newer [[PSA XU engine|XU]] and [[PSA TU engine|TU]]-series engines, which were of PSA design. [[Engine]]s ranged in [[engine displacement|displacement]] from 954&nbsp;cc to 1905&nbsp;cc, in [[carburettor]] or [[fuel injection|fuel injected]] versions.
+
+The [[Diesel engine|diesel]] models employed the [[PSA XUD]] engine, lifted from the [[Citroën BX]] which was introduced in September 1982. These engines had a capacity of 1769&nbsp;cc (XUD7) and 1905&nbsp;cc (XUD9) and are closely related to the XU5 and XU9 petrol engines in the BX16 and BX19 of the time. The diesel engines were world-beating and so petrol-like that many buyers were won over by petrol car performance combined with diesel economy. For instance, the 205 GRD (1.8 Diesel, {{convert|59|bhp|kW|0|abbr=on}} at 4,600 rpm, {{convert|110|Nm|lbft Nm|0|abbr=on|order=out}} at 2,000 rpm) was as fast as, yet smoother than, the 205 GR (1.4 Petrol, {{convert|59|bhp|kW|0|abbr=on}} at 5,000 rpm, {{convert|106.9|Nm|lbft Nm|0|abbr=on|order=out}} at 2,500 rpm),<ref>{{citation |title=Alle Auto's 1987 |last=Dubbelman |first=Huub |p=137/219 |publisher=Uitgeverij De Alk BV |location=Alkmaar |language=nl |series=Grote alken |volume=824 |year=1986 |isbn=90-6013-824-4 }}</ref> due to the engine developing its higher peak torque at lower rpm, while using much less fuel.
+
+{{Multiple image
+| align             = right
+| direction         = vertical
+| width             = 
+| image1            = 1990s Peugeot 205 XAD rear.jpg
+| caption1          = 205 XAD (facelift)
+| image2            = Peugeot 205 XAD (9371759100).jpg
+| caption2          = 205 XAD panel van (facelift)
+| image3            = Peugeot 205 XA Van.JPG
+| caption3          = Gruau-bodied 205 Multi XA ("VU", two-seater)
+| image4            = Peugeot 205F (5020322999).jpg
+| caption4          = 205F
+| image5            = Peugeot 205 1.8 D "Terberg" (11840281184).jpg
+| caption5          = 205 Terberg
+}}
+
+There were various versions intended for commercial use, such as the two-seater '''XA'''-series. There was also the "205 Multi", a tall-bodied special version on XA or XE-basis built by independent coachbuilders like Gruau and Durisotti. Gruau called their XA-based two-seater version the "VU", while the five-seat XE-based version was called the "VP". Durisotti began building the 205 Multi in 1986; it was called the "205 Multi New Look".<ref name="salon91">{{Cite journal | editor = Bellu, René | date = September 1990 | title = Salon: Toutes les Voitures du Monde 90/91 | issue = 14 & 15 | pages = 182–183 | publisher = Homme N°1 | journal = L'Auto Journal | location = Paris | language = fr | issn = 0005-0768 }}</ref>
+
+===1990 and onwards===
+{{Multiple image | align = left | direction = vertical | width =
+| image1 = 1992 Peugeot 205 Zest 1.1 Front.jpg
+| image2 = 1992 Peugeot 205 Zest 1.1 Rear.jpg
+| caption2 = 5-door (facelift)
+| image3 = Peugeot 205 Blanche 002.jpg
+| caption3 = 3-door (facelift)
+| image4 = 205-RG-French-Open face arr.jpg
+| caption4 = Cabriolet (facelift)
+| image5 = Cockpit Peugeot 205 GR Type II.JPG
+| caption5 = Interior}}
+The 205 was an instant hit, and its styling was echoed in every Peugeot model that was to follow, as well as markedly changing the company's perception with buyers - having long been regarded as the most conservative of France's major manufacturers, and had long been associated with large saloon and station wagon type cars. Such was the success of the 205, its exterior styling was never significantly altered in its 15-year production run apart from small details. There was a dashboard redesign for the 1988 [[model year]], and in late 1990 the 205 received a minor facelift with new door design and cards, clear front indicators, new 'smoked' rear light clusters, single point petrol injection and catalytic converters were introduced, to meet the new 1992 pollution limits. These updates came at a crucial time, as 1990 also saw the arrival of a completely new French competitor, the [[Renault Clio]], while the [[Rover Metro]] and [[Volkswagen Polo]] were also heavily updated, and [[Ford Motor Company|Ford]] had already replaced its [[Ford Fiesta|Fiesta]] with a third generation model. Still, the 205 was still widely regarded in the motoring press as the benchmark car in this sector by 1990. Indeed, ''[[Top Gear (2002 TV series)|Top Gear]]'''s [[Jeremy Clarkson]] described the 1990 edition as "an instant modern Classic."{{citation needed|date=April 2018}}
+
+At the beginning of 1993, Peugeot launched the [[Peugeot 306|306]], which officially replaced the [[Peugeot 309|309]]; the arrival of this car also diminished the 205's role (and its sales figures) in the Peugeot range, as had the arrival of the smaller [[Peugeot 106|106]] in September 1991 – although the final demise of the 205 was still some years away.
+
+The engines were continuously updated, with the new [[PSA TU engine|TU]] engines introduced in 1988.<ref name="AR90">{{cite book | ref = AR90 | title = Automobil Revue 1990 | editor-last = Büschi | editor-first = Hans-Ulrich | publisher = Hallwag AG | location = Berne, Switzerland | language = de, fr | page = 487 | volume = 85 | date = 8 March 1990 | isbn = 3-444-00495-8 }}</ref> In 1991, the 205 dTurbo was launched with a powerful turbocharged version of the 1,769&nbsp;cc xud 
+[[diesel engine]].
+
+After several years of gradually declining sales, the Peugeot 205 was discontinued in the United Kingdom in 1996. The Peugeot 205 was still offered in the "Sacré Numéro" and "Génération" models until the end of the production in 1998. The last models were GLD 1.8 configuration and were sold in Argentina. Most of the later European versions were only sold in France.<ref>{{cite web|url=http://www.carsurvey.org/reviews/peugeot/205/1999/|title=1999 Peugeot 205 Review|date=27 September 2004|work=carsurvey.org}}</ref> Due to the pressure from the market, with buyers wanting a Peugeot supermini in the mould of the 205 again, the company finally built a direct replacement in the [[Peugeot 206|206]], which was launched in 1998. 5,278,050 Peugeot 205s have been sold, and a significant percentage of them were still in circulation as of 2009. By 2014, there were still as many as 14,000 on the road in the United Kingdom, compared to the peak high of 374,773 in 1994. With potentially as many 400,000 sales in the UK, it became the best selling car ever sold by Peugeot in the UK – although its success was emulated a few years later by the larger 306 and later by the 206. It also helped boost the popularity of the Peugeot brand there, and was at least a factor in Peugeot's decision to phase out the [[Talbot (automobile)|Talbot]] brand in the mid 1980s when launching new models to be built at the former [[Rootes Group]] plant near [[Coventry]] and the former [[Simca]] plant at [[Poissy]].<ref>{{cite web|author=Olly Smith |url=http://howmanyleft.co.uk/combined/peugeot_205 |title=Combined stats (70 models) PEUGEOT 205 – How Many Left? |publisher=Howmanyleft.co.uk |access-date=18 December 2011}}</ref>
+
+The 205 was first available as a GTI in 1984 (the same year that the three-door bodystyle debuted) and was initially powered by a fuel injected 1.6 petrol engine. The 1.9 GTI was launched in 1986 and the 1.9-litre engine was also used in the GTI version of the larger [[Peugeot 309|309]]. The 205 GTI was discontinued in 1994, by which time Peugeot was producing high performance versions of the 106 and 306.
+
+{{clear left}}
+
+===Range===
+{| border="1" class="wikitable"
+|-
+!Type!!Body style!!Produced!!Engine type!!Fuel!!Transmission
+|-
+|205 Junior||3/5-door Hatchback||1986–1993||4-cyl 954&nbsp;cc or 1124cc||Petrol||Manual
+|-
+|205 Base||5-door Hatchback||1983–1984||4-cyl 954&nbsp;cc||Petrol||Manual
+|-
+|205 XE||3-door Hatchback||1985–1992||4-cyl 954&nbsp;cc or 1124cc||Petrol||Manual
+|-
+|205 GE||5-door Hatchback||1984–1988||4-cyl 954&nbsp;cc||Petrol||Manual
+|-
+|205 Look||3-door Hatchback||1989–1994||4-cyl 1124&nbsp;cc||Petrol||Manual
+|-
+|205 Style||3-door Hatchback||1990–1995||4-cyl 1124&nbsp;cc||Petrol||Manual
+|-
+|205 Style||5-door Hatchback||1990–1996||4-cyl 1124&nbsp;cc||Petrol||Manual
+|-
+|205 XL||3-door Hatchback||1985–1989 <br />1984–1991||4-cyl 954&nbsp;cc <br />4-cyl 1124&nbsp;cc||Petrol||Manual
+|-
+|205 XL Automatic||3-door Hatchback||1990–1993||4-cyl 1580&nbsp;cc||Petrol||Automatic
+|-
+|205 GL||5-door Hatchback||1983–1993||4-cyl 1124&nbsp;cc||Petrol||Manual
+|-
+|205 Rallye||3-door Hatchback||1987–1992||4-cyl 1294&nbsp;cc||Petrol||Manual
+|-
+|205 XR||3-door Hatchback||1984–1988 <br />1990–1992 <br />1988–1990||4-cyl 1124&nbsp;cc <br />4-cyl 1360&nbsp;cc||Petrol||Manual
+|-
+|205 GR||5-door Hatchback||1983–1992 <br />1990–1991||4-cyl 1360&nbsp;cc <br />4-cyl 1124&nbsp;cc||Petrol||Manual
+|-
+|205 SR||5-door Hatchback||1983–1990||4-cyl 1360&nbsp;cc||Petrol||Manual
+|-
+|205 Automatic||5-door Hatchback||1986–1994<br />1989–1991||4-cyl 1580&nbsp;cc <br />4-cyl 1905&nbsp;cc||Petrol||Automatic
+|-
+|205 Sunset||5-door Hatchback||1993–1997||4-cyl 1124&nbsp;cc||Petrol||Manual
+|-
+|205 XT||3-door Hatchback||1990–1994||4-cyl 1360&nbsp;cc||Petrol||Manual
+|-
+|205 XS||3-door Hatchback||1986–1992||4-cyl 1360&nbsp;cc||Petrol||Manual
+|-
+|205 GT||5-door Hatchback||1983–1987 <br />1989–1993||4-cyl 1360&nbsp;cc||Petrol||Manual
+|-
+|205 GTX||3-door Hatchback||1986–1991 || 4-cyl 1592&nbsp;cc || Petrol || Manual
+|-
+|205 [[French Open|Roland Garros]]||3-door Hatchback & 2-door Convertible||1989–1992||4-cyl 1360&nbsp;cc||Petrol||Manual
+|-
+|205 CJ||2-door Convertible||1986–1994||4-cyl 1360&nbsp;cc||Petrol||Manual
+|-
+|205 GTi||3-door Hatchback||1984–1994 <br />1986–1993||4-cyl 1580&nbsp;cc <br />4-cyl 1905&nbsp;cc||Petrol||Manual
+|-
+|205 CTi||2-door Convertible||1985–1992 <br />1986–1992||4-cyl 1580&nbsp;cc <br />4-cyl 1905&nbsp;cc||Petrol||Manual
+|-
+|205 Style Diesel||3-door Hatchback||1990–1995||4-cyl 1769&nbsp;cc||Diesel||Manual
+|-
+|205 Style Diesel||5-door Hatchback||1990–1996||4-cyl 1769&nbsp;cc||Diesel||Manual
+|-
+|205 Green<ref>{{Cite web |title=Les Peugeot séries spéciales. |url=http://www.auto-pub.net/ASL/Peugeot/page_Peugeot_205_Green.htm |access-date=2023-07-07 |website=www.auto-pub.net}}</ref>
+|3/5-door Hatchback
+|1989–1991
+|4-cyl 1360&nbsp;cc
+|Petrol
+|Manual
+|-
+|205 XRD/XSD||3-door Hatchback||1987–1994||4-cyl 1905&nbsp;cc||Diesel||Manual
+|-
+|205 XLD||3-door Hatchback||1984–1994||4-cyl 1769&nbsp;cc||Diesel||Manual
+|-
+|205 GLD||5-door Hatchback||1983–1994<br />1990–1992||4-cyl 1769&nbsp;cc<br />4-cyl 1905&nbsp;cc||Diesel||Manual
+|-
+|205 GRD||5-door Hatchback||1983–1994<br />1987–1994||4-cyl 1769&nbsp;cc<br />4-cyl 1905&nbsp;cc||Diesel||Manual
+|-
+|205 SRD||5-door Hatchback||1987–1990<br />1987–1990||4-cyl 1769&nbsp;cc<br />4-cyl 1905&nbsp;cc||Diesel||Manual
+|-
+|205 DTurbo||3-door Hatchback||1991–1995||4-cyl turbocharged 1769&nbsp;cc||Diesel||Manual
+|-
+|205 STDT||3-door Hatchback||1993/1994||4-cyl turbocharged 1769&nbsp;cc||Diesel||Manual
+|-
+|205 Gentry||3-door Hatchback||1991–1994||4-cyl 1905&nbsp;cc||Petrol||Manual/Automatic
+|-
+|205 XRAD||3-door Commercial Van||??||4-cyl 1769&nbsp;cc||Diesel||Manual
+|}
+
+==Versions==
+Most of the versions had [[manual transmission]].<ref name=205specs/> The 205 had a rather unusual trim level scheme for its models; three-door models (apart from the GTI) were badged 'X' and five-door models were badged 'G'.
+
+Trim levels were:
+* '''XA''' and '''XAD''', two-seater commercial versions. There was also the "Multi", tall-bodied special versions built by independents such as Gruau and Durisotti.<ref name="salon91"/>
+** 1.1 litre petrol, 4-cylinder –  {{convert|54|PS|kW hp|0|abbr=on}}, 1124&nbsp;cc
+** 1.8 litre diesel, 4-cylinder – {{convert|59|PS|kW hp|0|abbr=on}}, 1769&nbsp;cc
+* '''XE/GE''', available with:
+** 1.0 litre petrol, 4-cylinder – {{convert|44|PS|kW hp|0|abbr=on}}, 954&nbsp;cc
+** 1.1 litre petrol, 4-cylinder – {{convert|54|PS|kW hp|0|abbr=on}}, 1124&nbsp;cc
+* '''XL/GL''', available with:
+** 1.0 litre petrol, 4-cylinder –  {{convert|44|PS|kW hp|0|abbr=on}}, 954&nbsp;cc
+** 1.1 litre petrol, 4-cylinder –  {{convert|50|PS|kW hp|0|abbr=on}}, 1124&nbsp;cc
+** 1.1 litre petrol, 4-cylinder –  {{convert|54|-|60|PS|kW hp|0|abbr=on}}, 1124&nbsp;cc (in Spain, 1118 cc Simca/Talbot engine)
+** 1.8 litre diesel, 4-cylinder – {{convert|59|PS|kW hp|0|abbr=on}}, 1769&nbsp;cc
+** 1.6 litre petrol, 4-cylinder – {{convert|79|PS|kW hp|0|abbr=on}}, 1580&nbsp;cc Automatic
+(Note: The 1.0 litre GL was not offered in the UK). The 1.8 litre '''GLD''' [[Diesel engine|diesel]] model was popular, and ''[[What Car?]]'' magazine recommended it as a Used Car Buy in August 1992. It was also a ''Which?'' magazine best buy for five years running in the late 1980s and early 1990s. It was, (and is as a used buy), a better car than the 106 diesel that replaced it.
+* '''XR/GR''', available with:
+** 1.1 litre petrol, 4-cylinder – {{convert|54|-|60|PS|kW hp|0|abbr=on}}, 1124&nbsp;cc (higher output for fuel injected and [[Catalytic converter|catalyzed]] version)
+** 1.2 litre petrol, 4-cylinder – {{convert|63|PS|kW hp|0|abbr=on}}, 1204&nbsp;cc (GR only, Spain only, Simca/Talbot engine)
+** 1.3 litre petrol, 4-cylinder – {{convert|65|PS|kW hp|0|abbr=on}}, 1294&nbsp;cc (In Spain, Simca/Talbot engine)
+** 1.4 litre petrol, 4-cylinder – {{convert|69|PS|kW hp|0|abbr=on}}, 1360&nbsp;cc
+** 1.6 litre petrol, 4-cylinder
+** 1.9 litre petrol, 4-cylinder – {{convert|102|PS|kW hp|0|abbr=on}}, 1905&nbsp;cc Automatic
+** 1.8 litre diesel – {{convert|59|PS|kW hp|0|abbr=on}}, 1769&nbsp;cc
+The 1.4 litre GR was a five-door version only, launched in 1986. A 1.4 litre XR three-door was also available, 1991–92.
+* '''XT''', available with:
+** 1.4 litre petrol, 4-cylinder – {{convert|79|PS|kW hp|abbr=on}}, 1360&nbsp;cc (catalyzed)
+** 1.4 litre petrol, 4-cylinder – {{convert|84|PS|kW hp|abbr=on}}, 1360&nbsp;cc (In Spain, Simca/Talbot engine)
+** 1.4 litre petrol, 4-cylinder –  {{convert|83|PS|kW hp|0|abbr=on}}, 1442&nbsp;cc (Spain only, Simca/Talbot engine)
+* '''XS/GT''', available with:
+** 1.3 litre petrol, 4-cylinder – {{convert|65|PS|kW hp|0|abbr=on}}, 1294&nbsp;cc (Spain only, Simca/Talbot engine)
+** 1.4 litre petrol I4 – 85&nbsp;bhp 1360 cc TU3S engine.
+** 1.6 litre (1580 cc) petrol
+The 5 door model (GT) used the same 1360 cc TU3s engine as the XS (UK)
+* '''GTX''', only available in Spain with:
+** 1.6 litre petrol, 4-cylinder – {{convert|94|PS|kW hp|0|abbr=on}}, 1592&nbsp;cc (Simca/Talbot engine)
+* '''GTX''' (UK Version), 1993–94.
+** 1,360 cc TU3M/Z PSA engine with Bosch Mono-Jetronic injection system with Catalytic converter.
+** Power output – 75&nbsp;bhp
+** 0–100&nbsp;km/h (0–62&nbsp;mph) – 10.6 seconds.
+** Fuel consumption (MPG) constant speed driving: {{convert|56|mi/h|km/h|abbr=on}} = {{convert|50.4|mpgimp|L/100 km mpgus|abbr=on}} & {{convert|75|mi/h|km/h|abbr=on}} = {{convert|38.2|mpgimp|L/100 km mpgus|abbr=on}}.
+** 3 and 5-door versions were available with sliding sunroof, remote central locking, 5 speed MA gearbox.
+From 1994, the X/G trim scheme was replaced by ''[[Mardi Gras]]'', ''Colorline'', ''Forever'' and ''Accent''. 'GT' versions became offered only in [[Continental Europe]] with a 1.6-litre engine; the UK models were badged ''Mardi Gras''. However, GTI versions continued unchanged.
+* '''SI''' 
+{{Multiple image | align = left | direction = vertical | width =
+| image1 = 1993 Peugeot 205 Si 3-door hatchback (19202172483).jpg
+| image2 = 1993 Peugeot 205 Si 3-door hatchback (19200423264).jpg
+| caption2 = 205 SI Automatic
+}}
+There is also an SI version believed to have been released in Australia and Japan, featuring a 65&nbsp;kW 1.6 engine with max torque of 132&nbsp;Nm offered in either 4-speed automatic or 5-speed manual transmission, it had styling from the GTI inside and out, drive.com.au were quoted as saying:
+
+"Although the 205 graced Australian shores with the GTi model in 1988, It wasn't until 1992 (with the Japanese Yen rising and memories of the Rainbow Warrior fading) that it made fiscal sense for Peugeot to start selling a version that could compete on price with the Toyota Corolla, which at the time was Australia's biggest selling small car. The SI model, with its 1.6 litre motor, was introduced to do this. Although the 1.6 in the SI was larger than most of the motors in its European siblings, it was regarded as a bit of an escargot in Australia."<ref>[https://www.drive.com.au/owner-reviews/1992-peugeot-205-review/ 1992 Peugeot 205 Review] 22 October 2015 ''www.drive.com.au'', accessed 12 November 2020</ref>
+
+==High performance variants==
+
+===205 GTI/CTI===
+{{Multiple image
+| align             = left
+| direction         = vertical
+| width             = 
+| image1            = 1985 Peugeot 205 GTi.jpg
+| caption1          = Peugeot 205 GTI 1.6
+| image2            = 1990 Peugeot 205 CTi 1.9 katalysator, front left.jpg
+| caption2          = Peugeot 205 CTI
+}}
+
+The 1.6 litre GTI was launched in 1984, and came with a [[PSA XU engine#XU5|XU5J]] engine, producing {{Convert|105|PS|kW hp|0|abbr=on}}, for the 1987 model year the XU5J received the [[cylinder head]] with larger [[poppet valve|valves]] thus becoming XU5JA. The new engine was quoted for {{convert|115|bhp|kW PS|0|abbr=on}}.
+
+The 1.9 litre GTI came with an XU9JA engine producing {{convert|128|PS|kW hp|0|abbr=on}}, although later models with a [[catalytic converter]] produce {{convert|122|PS|kW hp|0|abbr=on}}. Internally these engines are very similar, the main differences on 1.9 litre versions being the longer stroke, oil cooler, and some parts of the fuel injection system. The shorter stroke 1.6 litre engine is famed for being revvy and eager, while the 1.9 litre feels lazier and torquier. Outside the engine bay the main differences between the 1.6 GTI and the 1.9 GTI are half-leather seats (1.9 GTI) vs. cloth seats (1.6 GTI); and [[disc brake]]s all-round (1.9 GTI) vs. discs at the front and [[drum brake]]s at the back (1.6 GTI); as well as the 14" alloy (Speedline SL201) wheels (1.6 GTI) vs. 15" (Speedline SL299) alloys (1.9 GTI).
+
+The 205 is still often treated as a benchmark in group car tests of the newest GTI models or equivalent. Peugeot itself has never truly recreated this success in future GTI models, although they came very close with the highly regarded GTI-6 variant of the [[Peugeot 306]]. A [[Cabriolet (automobile)|cabriolet]] version of the 205, known as the CJ/CT/CTI, was designed and partially assembled by [[Pininfarina]] of Italy. The CTI version offered the same plastic arches and wheels as the 1.6 GTI. Some later models incorporated the catalysed 1.9-litre engine.
+
+{{Multiple image
+| align             = right
+| direction         = vertical
+| width             = 
+| image1            = 1991 Peugeot 205 GTi 1.9 Front.jpg
+| caption1          = Peugeot 205 GTI 1.9
+| image2            = Pug205gti hinten.jpg
+| caption2          = Peugeot 205 GTI 1.9
+| image3            = Peugeot 205 GTI interior.jpg
+| caption3          = Peugeot 205 GTI interior
+}}
+
+The main aesthetic difference between the GTI/CTi versions and other 205 models were the plastic wheel arches and trim, beefier front and rear bumper valances. The shell also underwent some minor changes, including larger wheel arches (to suit the larger wheels on the GTI and CTi), and the suspension was redesigned and sat lower on the GTI with stiffer springs, different wishbones and a drop-linked [[Sway bar|anti-roll bar]].
+
+With the early success of the 205 GTI in Europe, ''[[Motor Trend]]'' reported in 1984 that Peugeot was seriously considering adding it to its US lineup, even though Peugeot had a more upmarket image in the United States.{{Citation needed|date=April 2011}} Nothing ever came of such rumours, however, and any talk of Peugeot expanding its presence in US became moot when the company was forced to pull out in 1991.
+
+Sales of the GTI in the United Kingdom in the early 1990s were badly hit by soaring insurance premiums, brought about by high theft and 'joyriding' of cars of this sort. Increasingly stringent emissions regulations meant the 1.6&nbsp;GTI went out of production in 1992, while the 1.9-litre was sold for a couple more years thanks to re-engineering of the engine to enable it to work properly with a [[catalytic converter]], which dropped power to {{Convert|122|PS|kW hp|0|abbr=on}}.
+
+In October 2020 Peugeot announced that their heritage brand "l'Aventure Peugeot" would make a factory restoration program for the 205 GTI available in 2021 as part of the company's 210th anniversary celebration.<ref name=AWnl1>{{cite magazine | magazine = AutoWeek (NL) | language = nl | title = Peugeot gaat zelf 205 GTI's restaureren | trans-title = Peugeot will restore 205 GTIs themselves | url = https://www.autoweek.nl/autonieuws/artikel/peugeot-gaat-zelf-205-gtis-restaureren/ | archive-url = https://web.archive.org/web/20201020125530/https://www.autoweek.nl/autonieuws/artikel/peugeot-gaat-zelf-205-gtis-restaureren/ | archive-date = 2020-10-20 | publisher = DPG Media Magazines B.V. | date = 2020-10-16 | last = Van Wingerden | first = Joas }}</ref> This program is intended to be expanded to other Peugeot (and possibly Citroën) models later, but will begin with the 205 GTI as it is one of the most desirable Peugeot built that is also available in large numbers. The cars will be restored to as-new condition, with certain no longer available parts being made on 3D-printers.<ref name=AWnl1/>
+
+===Special 205 GTI editions===
+Peugeot produced a number of [[limited edition]] 205 GTI models over the car's life:
+
+Across 1989–1990, 1200 GTIs were made in the then new colours of Miami blue (bright metallic blue) and Sorrento Green (a very dark pearlescent green). The cars were made in an equal mix of 300 blue 1.6 litre, 300 green 1.6 litre, 300 blue 1.9 litre and 300 green 1.9 litre. The cars had a sliding sunroof, power steering and full grey leather interior as standard, together with grey carpets and doorcards. These paint colours were later added to the list of available colours for mainstream models.
+
+[[File:Peugeot 205 1.9 Gentry (10084673506).jpg|thumb|left|Peugeot 205 1.9 Gentry]]
+The Gentry was a limited-edition version of the 205; it had 1.6 GTI suspension combined with a detuned {{convert|105|bhp|kW PS|0|abbr=on}} 1.9-litre engine (as fitted to export market GTIs such as those for Australia and Switzerland) but with an automatic gearbox. Only 300 models were made in Sorrento Green and Aztec Gold (sometimes called Mayfair Beige). They came with full leather trim and real wood trim, power steering and heated mirrors in the UK, as well as the same body side trims as the GTI – which led to the Gentry often being mistaken for a GTI.
+
+A production run of 200 limited-edition 1.9 GTI cars was commenced in 1991 for the Japanese market. Due to a breakdown in trade negotiations, the production run ceased at what was believed to be 33 units, which were subsequently sold off to the European market. All the cars were in automatic transmission guise, having power steering, a sunroof and air conditioning as standard. The Japanese edition was easily identifiable by having the raised bonnet normally attributed to the diesel models. Pepperpot alloys and cloth trim were used, more reminiscent of the 1.6 GTI cars.{{citation needed|date=July 2020}}
+
+The Griffe was a special GTI edition for mainland Europe, and was sold in France, Germany and the Netherlands. It was bright green (called 'Laser' Green or 'Vert Fluorite'<ref>Picture: {{cite web | url = http://www.peugeot205.pl/photos/1591/jvg4yobh.jpg | archive-url = https://web.archive.org/web/20071107071218/http://peugeot205.pl/photos/1591/jvg4yobh.jpg | archive-date = 7 November 2007 | title = Serie Specjalne: Griffe | work = Peugeot 205 Fan Klub }}</ref>), and came equipped with all available vendor options at that time except air-conditioning, but including full black leather interior, [[Anti-lock braking system|ABS]], power steering and sunroof. 1652 Griffes were made, all in laser green and with grey alloy wheels with a silver rim.
+
+The 1FM was produced for the UK market in 1992 to coincide with the 25th birthday of [[BBC Radio 1]]. Only 25 were made and each car was individually numbered with a small brass plate.<ref>''Scott Mills Show'', BBC Radio 1, broadcast 25 September 2007</ref> The car was black with 'Radio 1FM 25th' bodywork decals, grey Speedline alloy wheels and came with all options fitted as standard, including ABS, air conditioning, full leather interior, remote central locking, catalytic converter and power steering. A bespoke stereo system including a CD changer, CD head unit, amplifier, uprated door speakers and an acoustic rear shelf containing 200W 6x9 speakers was specified by Clarion. One was raffled at a Radio 1 event, and Radio 1 ran a competition on air to win one.{{Citation needed|date=March 2011}}
+
+===205 STDT===
+
+In 1993 Peugeot introduced the 205 and 405 STDT, higher performance diesel models that offered some of the GTI's sporting qualities in the diesel engined part of the range. The 205 STDT (special trim diesel turbo) was available only in the 3-door bodyshell with a 1,769 cc turbo diesel engine (XUD7 T/K) with the trim and luxuries of the 205 GTI. The car was initially marketed towards executives, with soft cloth bucket seats in Beige with matching carpet and dashboard, as also found in the Gentry models. The car featured PAS, central locking, electric windows and also electrically heated mirrors. Many were fitted with a large, vacuum-seal slide sunroof.
+
+The brochure specification from 1993 on the STDT lists its equipment as:
+* 1769cc, 78&nbsp;bhp turbo diesel engine 
+* 5-speed manual gearbox
+* Power steering
+* Alloy wheels (different from the GTI models)
+* Bodyside mouldings, wheelarch finishers and bumper inserts (chrome inserts)
+* Long range driving lamps
+* Optional sliding sunroof
+* Heated door mirrors
+* Choice of body colours: Aztec Gold; Oberon Green; Steel Grey
+* Sports front seats, velour trim
+* 50/50 split rear seats
+* Leather-trimmed sports steering wheel
+* Remote control central locking (base models were not remote control, running off the key only)
+* Electric front windows
+* Tinted glass
+* Clarion 97001F digital stereo radio/stereo cassette with 4 speakers
+* Lockable glove box with lamp
+
+Its performance data is defined in the brochure from 1993 as:
+
+* Maximum speed:  {{Convert|108|mph|0|abbr=on}}
+* Acceleration 0–100&nbsp;km/h (62 mph): 12.2 seconds, 0–1000 m: 34.2 seconds.
+* Fuel consumption – mpg (L/100&nbsp;km): constant driving speed 56&nbsp;mph (90&nbsp;km/h) – 61.4 (4.6); 75&nbsp;mph (120&nbsp;km/h) – 40.9 (6.9); simulated urban driving – 42.8 (6.6)
+
+The 205 STDT is only found in three colours; Oberon Green, Steel Grey and Aztec Gold. Production of the car was approximately one year between 1993 and 1994.<ref>{{cite web|url=http://www.parkers.co.uk/cars/reviews/facts-and-figures/peugeot/205/hatchback-1983/8039/|title=Peugeot 205 Hatchback (83–97) 1.8 STDT 3d – MPG, Dimensions & Performance|work=Parkers}}</ref>
+
+As of the fourth quarter of 2024, there were reportedly only 15 STDTs left on the roads and 152 SORN in the UK.<ref>{{cite web|url=https://www.howmanyleft.co.uk/vehicle/peugeot_205_stdt | archive-url = https://web.archive.org/web/20200624233446/https://www.howmanyleft.co.uk/vehicle/peugeot_205_stdt | title=PEUGEOT 205 STDT |website=Howmanyleft.co.uk |archive-date= 24 June 2020 }}</ref>
+
+===205 Rallye===
+[[File:Peugeot 205 Rallye (1989) (cropped).jpg|thumb|1989 Peugeot 205 Rallye]]
+From 1988 to 1992, Peugeot produced another variant of the 205, the 205 Rallye, which was engineered and produced by [[Talbot (automobile)#Chrysler/Peugeot era|Peugeot–Talbot]] sport. This edition of the 205 was positioned as a cost-effective alternative to the 205 GTI, retaining its sporty character, but being less expensive to buy or maintain.
+
+To achieve this, Peugeot used a derivative of the [[PSA TU engine|TU-series]] engine used in the post-1987 205s, which was designated [[PSA TU engine#TU2|TU24]]. The engine is essentially the same engine as was in the 1.1-litre 205 with the cylinders bored out to a total engine displacement of 1294&nbsp;cc, a sports camshaft and twin [[Weber carburetor]]s. The 1.3-litre engine produced {{convert|103|PS|kW hp|0|abbr=on}} at 6,800&nbsp;rpm. The car got the 1.6 GTI front suspension with ventilated brake discs, and the 1.6 GTI rear axle with drum brakes.
+
+The 205 Rallye was stripped of almost all soundproofing, electrical systems or other luxury items, bringing down the weight to no more than {{convert|794|kg|lb|0|abbr=on}}. Peugeot expected to build around 5000 Rallyes. In the end 30,111 Rallyes were produced, even though they were only sold in certain mainland European markets (including France, Belgium, Portugal, Spain, Italy, Greece and the Netherlands).
+
+The distinctive aesthetic features of the 205 Rallye include the squarer wheel arches (which are different from GTI arches), the steel body-coloured wheels and the rainbow-coloured Peugeot-Talbot sport decals on the front grille and the tailgate. They were only available in white. The Rallye was sold with a reduced-weight interior with the Peugeot-Talbot sport logo embroidered in the front seats.
+
+From 1990 to 1992, Peugeot also built a 1.9 litre version of the 205 Rallye. Only about 1000 examples were produced and they were only sold in Germany, because the 1.3 litre version did not meet German road regulations. The 1.9 Rallye is just a {{convert|105|bhp|kW|0|abbr=on}} 1.9 GTI with the Rallye bodyshell and the new-style clear indicators and rear light units. Although they are even rarer than the 1.3 Rallye, they are less popular among Peugeot enthusiasts, because they lack the raw and spartan character of the 1.3 Rallye and are {{convert|150|kg|lb|0|abbr=on}} heavier.{{Citation needed|date=October 2025}}
+
+In 1992, Peugeot introduced the Rallye to the UK market, it was available in three colours (500 white, 250 yellow, 80 blue) and was essentially a re-badged XT. It came equipped with black cloth seats embroidered with the Peugeot-Talbot Sport logo, the Peugeot-Talbot sports colours behind the front arches and over the back arches, as well as the same markings on the grill and tailgate of its European brother. It was powered by an iron-blocked 1360&nbsp;cc TU3.2 engine with the same twin-choke Solex carburettor found on the earlier XS engine. It produced {{convert|75|bhp|kW PS|0|abbr=on}} and achieved {{Convert|107|mi/h|km/h|abbr=on}} with a 0–60&nbsp;mph time of 11.7 seconds.
+
+After the 205 Rallye, Peugeot again used the 'Rallye' designation for some of its 106 and 306 models.
+
+===<span class="anchor" id="T16"></span>205 Turbo 16 (T16)===
+[[File:1985 Peugeot Turbo 16, front right, trackside.jpg|thumb|Peugeot 205 T16 Homologation car]]
+[[File:Peugeot Talbot Sport 205 T16 (28504430670).jpg|thumb|left|Peugeot 205 Turbo 16 Evo 2]]
+To [[Homologation (motorsport)|homologate]] the 205 T16 ("Turbo 16" in France) [[Group B]] [[rally car]], Peugeot had to produce 200 road-going examples. According to the [[Group B]] regulations, these had to be based on a current production road car. Peugeot decided to base the Group B rally car on the two door version of the 205.
+
+The body was built by [[Heuliez]], where standard three door bodyshells from the production line were delivered and heavily modified. Heuliez cut off the complete rear of the car and welded in a transverse firewall between the B-posts. The rear frame was then built in a mixture of sheet steel profiles and tubes. The front was modified in a similar way with a tube frame carrying the front suspension. The completed bodies were delivered to Simca (Talbot) for the 200-series production cars and to Peugeot Talbot Sport for the competition versions.
+
+The engine, based on the cast iron block of the diesel version of the then new XU engine family, albeit with a specially developed 16-valve head, was moved from the front of the vehicle to the rear, transforming it from a front-engine, front-wheel-drive to a rear-mid engine four-wheel-drive automobile. The gearbox came from the [[Citroën SM]] but was mounted transversely. The car had all wheel drive.
+
+All street versions (VINs P1 to P200) were left hand drive and identically kitted out in dark grey colour, except the first (VIN P1) that was painted white and carried all the competition cars' decoration for demonstration purposes. The competition cars of the first evolution series (VIN C1 to C20) were built at the sport department Peugeot Talbot Sport and presented to the public at the same day as the standard street version. Later competition vehicles of the Evolution 2 series (VIN C201 to C220) were built differently as the rear spaceframe had no more sheet steel profiles in it but was composed entirely of tubes.
+
+Apart from the appearance, the road variants had practically nothing in common with the regular production model. They shared the {{convert|1775|cc|L CID|1|abbr=on}} with a [[Bore (engine)|bore]] × [[Stroke (engine)|stroke]] of {{convert|83x82|mm|in|2|abbr=on}} [[transverse engine|transversely-mounted]], [[mid-engine, four-wheel-drive layout]] of the rally car. It did, however, have less than half the power at around {{convert|200|PS|bhp kW|0|abbr=on}} at 6,750 rpm and {{convert|255|Nm|lbft|0|abbr=on}} of [[Torque#Machine torque|torque]] at 4,000 rpm. The T was for ([[Kühnle, Kopp & Kausch|KKK]]) [[Turbocharger|Turbo]], fuel fed by [[Robert Bosch GmbH|Bosch]] [[Jetronic#K-Jetronic (1973–1994)|K-Jetronic]] [[fuel injection]] and a [[compression ratio]] of 6.5:1; the 16 stands for [[Overhead camshaft#Dual overhead camshaft|DOHC]] 16 [[Multi-valve#Four-valve cylinder head|valve]]s.<ref>{{citation | first = Jean | last = Todt | title = Peugeot 205: The Story of a Challenge | publisher = Flammarion | date = 1985 | page = 27 | isbn = 2-08-201823-7 }}</ref><ref>{{cite web|url=http://www.automobile-catalog.com/car/1984/50885/peugeot_205_turbo_16.html|website=automobile-catalog.com|title=1984 Peugeot 205 Turbo 16|language=en-us|access-date=14 June 2018}}</ref> Outwardly similar to a normal 205, the T16 had wider wheel arches, and the whole rear section lifted up to give access to the engine. Underneath, the complex [[drivetrain]] from the rally car was kept to abide by the Group B rules.
+
+In addition to the Group B model, the lesser 205 GTI was also [[FIA]] approved for competition in the [[Group N]] and [[Group A]] categories.<ref name=Echap>{{cite magazine | magazine = Echappement | date = April 1985 | number = 198 | ref = GB85 | title = Courir en... Peugeot 205 GTI | trans-title = Racing a... Peugeot 205 GTI | last = Bridier | first = Gérard | page = 147 | publisher = Michael Hommell | location = Paris, France | language = fr }}</ref>
+[[File:Peugeot 205 Turbo 16 Dakar 01.JPG|thumb|Peugeot 205 Turbo 16 Dakar.]]
+[[Peugeot Talbot Sport]]'s factory 205 T16s under [[Jean Todt]] were the most successful cars to compete in the last two years of the [[World Rally Championship]]'s Group B era, winning the [[1985 World Rally Championship season|1985]] and [[1986 World Rally Championship season|1986]] [[List of World Rally Championship Constructors' Champions|Constructors']] and [[List of World Rally Championship Drivers' Champions|Drivers' titles]] with [[Timo Salonen]] and [[Juha Kankkunen]] respectively against such notable competition from [[Audi Quattro|Audi]], [[Lancia Delta S4|Lancia]] and [[Ford RS200|Ford]], with an Evolution 2 model being introduced for the latter of those two seasons.
+
+The chassis and engine from this model would later underpin the [[Peugeot Quasar]] [[concept car]].
+
+{{clear_left}}
+
+== Electric prototype ==
+In 1983, Peugeot secured a partnership with [[Saft (company)|Saft]], a battery company that supplied many advanced batteries for the time. Together, they took a year to develop an electric version of the 205, and produced 20 prototypes starting in 1984. Most electric vehicles typically used [[Lead–acid battery|lead-acid batteries]], but instead Saft chose their [[Nickel–iron battery|Nickel Iron]] chemistry for added longevity and capacity, with a claimed {{Convert|200000|km|mi|abbr=on}} lifespan.
+
+The battery pack weighed {{Convert|300|kg|lb|abbr=on}}, with 12 batteries in total all in the engine compartment. Being 6V cells, the total capacity was 230A. Charge time was 10 hours using a standard 16A outlet.
+
+The electric motor in the 205 was an {{Convert|8|kW|hp|abbr=on}} [[Nidec Leroy-Somer|Leroy-Somer]] unit with a maximum power of {{Convert|17.5|kW|hp|abbr=on}}. Top speed was {{Convert|100|km/h|mph|abbr=on}} and acceleration from 0-{{Convert|50|km/h|mph|abbr=on}} could be done in 11.6 seconds.
+
+Many of the 20 prototypes were exported and came as 3 doors, 5 door hatchbacks, convertibles, and vans. None are known to have survived today and were not displayed at the Peugeot Adventure Museum's electric vehicle exhibit in 2021.
+
+The development of the 205 made way for the production of the [[Peugeot 106|Peugeot 106 Electrique]], as well as the many electric Citroëns made during the late 1980s and 1990s including the 1989 [[Citroën C15#Citroën C15 Electrique|Citroën C15 Electrique]] and 1995 [[Citroën AX#AX Electrique|Citroën AX Electrique]].<ref>{{Cite news |title=Peugeot 205 électrique. L'ancêtre méconnue de la Peugeot e-208 |url=https://www.largus.fr/actualite-automobile/peugeot-205-electrique-lancetre-meconnue-de-la-peugeot-e-208-10364390.html |archive-url=https://web.archive.org/web/20240826055914/https://www.largus.fr/actualite-automobile/peugeot-205-electrique-lancetre-meconnue-de-la-peugeot-e-208-10364390.html |archive-date=2024-08-26 |access-date=2026-02-27 |work=www.largus.fr |language=fr}}</ref><ref>{{Cite web |last=Velden |first=Maarten van der |date=2026-01-04 |title=Peugeot 205 Electrique: the forgotten ancestor of the Peugeot e-208 |url=https://peugeotvintage.com/en/pacenotes/2026/01/04/peugeot-205-electrique-the-forgotten-ancestor-of-the-peugeot-e-208/ |access-date=2026-02-27 |website=Peugeot Vintage |language=en-US}}</ref><ref>{{Cite news |date=2013-03-13 |title=All-Electric Peugeot 205 Was Ahead of Its Time {{!}} Carscoops |url=https://www.carscoops.com/2013/03/all-electric-peugeot-205-was-ahead-of/ |archive-url=https://web.archive.org/web/20220715150652/https://www.carscoops.com/2013/03/all-electric-peugeot-205-was-ahead-of/ |archive-date=2022-07-15 |access-date=2026-02-28 |work=Carscoops |language=en-US}}</ref>
+
+==World Rally Championship victories==
+Peugeot 205s have won the following World Rally Championship rounds:
+{|class="wikitable" style="font-size: 95%; "
+! No.
+! Event
+! Season
+! Driver
+! Co-driver
+! Car
+|-
+| 1
+| {{Flagicon|Finland}} [[Rally Finland|34th 1000 Lakes Rally]]
+| [[1984 World Rally Championship season|1984]]
+| {{Flagicon|FIN}} [[Ari Vatanen]]
+| {{Flagicon|GBR}} {{ill|Terry Harryman|fr}}
+| [[Peugeot 205 Turbo 16]]
+|-
+| 2
+| {{Flagicon|Italy}} [[Rallye Sanremo|26th Rallye Sanremo]]
+| [[1984 World Rally Championship season|1984]]
+| {{Flagicon|FIN}} [[Ari Vatanen]]
+| {{Flagicon|GBR}} {{ill|Terry Harryman|fr}}
+| Peugeot 205 Turbo 16
+|-
+| 3
+| {{Flagicon|Great Britain}} [[Rally GB|33rd Lombard RAC Rally]]
+| [[1984 World Rally Championship season|1984]]
+| {{Flagicon|FIN}} [[Ari Vatanen]]
+| {{Flagicon|GBR}} {{ill|Terry Harryman|fr}}
+| Peugeot 205 Turbo 16
+|-
+| 4
+| {{Flagicon|Monaco}} [[Monte Carlo Rally|53rd Rallye Automobile de Monte Carlo]]
+| [[1985 World Rally Championship season|1985]]
+| {{Flagicon|FIN}} [[Ari Vatanen]]
+| {{Flagicon|GBR}} {{ill|Terry Harryman|fr}}
+| Peugeot 205 Turbo 16
+|-
+| 5
+| {{Flagicon|Sweden}} [[Rally Sweden|35th International Swedish Rally]]
+| [[1985 World Rally Championship season|1985]]
+| {{Flagicon|FIN}} [[Ari Vatanen]]
+| {{Flagicon|GBR}} {{ill|Terry Harryman|fr}}
+| Peugeot 205 Turbo 16
+|-
+| 6
+| {{Flagicon|Portugal}} [[Rallye de Portugal|19th Rallye de Portugal Vinho do Porto]]
+| [[1985 World Rally Championship season|1985]]
+| {{Flagicon|FIN}} [[Timo Salonen]]
+| {{Flagicon|FIN}} [[Seppo Harjanne]]
+| Peugeot 205 Turbo 16
+|-
+| 7
+| {{Flagicon|Greece}} [[Acropolis Rally|32nd Acropolis Rally]]
+| [[1985 World Rally Championship season|1985]]
+| {{Flagicon|FIN}} [[Timo Salonen]]
+| {{Flagicon|FIN}} [[Seppo Harjanne]]
+| [[Peugeot 205 Turbo 16 E2]]
+|-
+| 8
+| {{Flagicon|New Zealand}} [[Rally New Zealand|15th AWA Clarion Rally of New Zealand]]
+| [[1985 World Rally Championship season|1985]]
+| {{Flagicon|FIN}} [[Timo Salonen]]
+| {{Flagicon|FIN}} [[Seppo Harjanne]]
+| Peugeot 205 Turbo 16 E2
+|-
+| 9
+| {{Flagicon|Argentina}} [[Rally Argentina|5th Marlboro Rally Argentina]]
+| [[1985 World Rally Championship season|1985]]
+| {{Flagicon|FIN}} [[Timo Salonen]]
+| {{Flagicon|FIN}} [[Seppo Harjanne]]
+| Peugeot 205 Turbo 16 E2
+|-
+| 10
+| {{Flagicon|Finland}} [[Rally Finland|35th 1000 Lakes Rally]]
+| [[1985 World Rally Championship season|1985]]
+| {{Flagicon|FIN}} [[Timo Salonen]]
+| {{Flagicon|FIN}} [[Seppo Harjanne]]
+| Peugeot 205 Turbo 16 E2
+|-
+| 11
+| {{Flagicon|Sweden}} [[Rally Sweden|36th International Swedish Rally]]
+| [[1986 World Rally Championship season|1986]]
+| {{Flagicon|FIN}} [[Juha Kankkunen]]
+| {{Flagicon|FIN}} [[Juha Piironen]]
+| Peugeot 205 Turbo 16 E2
+|-
+| 12
+| {{Flagicon|France}} [[Tour de Corse|30th Tour de Corse – Rallye de France]]
+| [[1986 World Rally Championship season|1986]]
+| {{Flagicon|FRA}} [[Bruno Saby]]
+| {{Flagicon|FRA}} [[Jean-François Fauchille]]
+| Peugeot 205 Turbo 16 E2
+|-
+| 13
+| {{Flagicon|Greece}} [[Acropolis Rally|33rd Acropolis Rally]]
+| [[1986 World Rally Championship season|1986]]
+| {{Flagicon|FIN}} [[Juha Kankkunen]]
+| {{Flagicon|FIN}} [[Juha Piironen]]
+| Peugeot 205 Turbo 16 E2
+|-
+| 14
+| {{Flagicon|New Zealand}} [[Rally New Zealand|16th AWA Clarion Rally of New Zealand]]
+| [[1986 World Rally Championship season|1986]]
+| {{Flagicon|FIN}} [[Juha Kankkunen]]
+| {{Flagicon|FIN}} [[Juha Piironen]]
+| Peugeot 205 Turbo 16 E2
+|-
+| 15
+| {{Flagicon|Finland}} [[Rally Finland|36th 1000 Lakes Rally]]
+| [[1986 World Rally Championship season|1986]]
+| {{Flagicon|FIN}} [[Timo Salonen]]
+| {{Flagicon|FIN}} [[Seppo Harjanne]]
+| Peugeot 205 Turbo 16 E2
+|-
+| 16
+| {{Flagicon|Great Britain}} [[Rally GB|35th Lombard RAC Rally]]
+| [[1986 World Rally Championship season|1986]]
+| {{Flagicon|FIN}} [[Timo Salonen]]
+| {{Flagicon|FIN}} [[Seppo Harjanne]]
+| Peugeot 205 Turbo 16 E2
+|- 
+|}
+
+== World Records ==
+On 11 October 1992, Angus Hamilton set three world records with the car (Class 7) at the former [[RAF Elvington|Elvington airbase]] in the [[United Kingdom]]: quarter-mile, half-kilometer, and kilometer, in Category A3 Group 3.<ref>{{Cite web |title=LISTE OFFICIELLE DES RECORDS DE VITESSE HOMOLOGUES PAR LA FIA EN CATEGORIE A / OFFICIAL LIST OF SPEED RECORDS HOMOLOGATED BY THE FIA IN CATEGORY A |url=https://argent.fia.com/web/fia-public.nsf/D167033B0D09A227C125780E004ADA63/$FILE/Liste%20Records%20Cat%20A-040111.pdf |website=argent fia}}</ref>
+
+==See also==
+*[[Citroën Saxo]]
+*[[Peugeot 405]]
+*[[Saipa 111]]
+
+==References==
+{{reflist|group=n}}
+
+{{Reflist}}
+
+===Works cited===
+* {{citation | ref = Haynes | title = Peugeot 205: Service and Repair Manual | isbn = 1-85960-189-8 | last1 = Legg | first1 = A. K. | last2 = Mead | first2 = John S. | year = 1996 | location = Sparkford, Nr Yeovil, Somerset, UK | publisher = Haynes Publishing }}
+
+{{Commons category}}
+
+{{Peugeot}}
+{{Peugeot timeline 1980 to date}}
+
+[[Category:Peugeot vehicles|205]]
+[[Category:Pininfarina]]
+[[Category:Subcompact cars]]
+[[Category:Hatchbacks]]
+[[Category:Convertibles]]
+[[Category:Rally cars]]
+[[Category:Group B cars]]
+[[Category:Rally raid cars]]
+[[Category:Touring cars]]
+[[Category:Dakar Rally–winning cars]]
+[[Category:Cars introduced in 1983]]
+[[Category:Cars discontinued in 1999]]
+[[Category:1990s cars]]
+[[Category:Front-wheel-drive vehicles]]
+[[Category:All-wheel-drive vehicles]]
+[[Category:Cars of Chile]]
+[[Category:Cars of Iran]]
+[[Category:Cars of Morocco]]
+[[Category:Cars of Spain]]
+[[Category:Cars of Taiwan]]
+[[Category:Cars of Uruguay]]

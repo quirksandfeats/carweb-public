@@ -1,0 +1,1670 @@
+{{short description|Series of Sport Utility Vehicles (SUVs)}}
+{{Infobox automobile
+| name = Mercedes-Benz G-Class
+| image = Mercedes-Benz W463 G 350 BlueTEC 01.jpg
+| caption = Mercedes-Benz G 350 (W463)
+| manufacturer = {{Plain list|
+* [[Daimler-Benz]] (1979–1998)
+* [[DaimlerChrysler]] (1998–2007)
+* [[Daimler AG]] (2007–2022)
+* [[Mercedes-Benz Group]] (2022–present)
+}}
+| aka = {{Plain list|
+* {{Nowrap|Mercedes-Benz G-Wagen (1979–present)}}
+* {{Nowrap|Mercedes-Benz G-Wagon}}
+* Puch G (1979–2000)}}
+| production = 1979–present
+| assembly = {{ubl
+  |Austria: [[Graz]] ([[Magna Steyr]])
+  |Algeria: [[Tiaret]] (BA6, BA9 G Class)<ref name="Algeria">{{cite web |url=http://www.defenceweb.co.za/index.php?option=com_content&view=article&id=38381 |title=Algerian factory unveils new locally assembled truck for Algerian military |date=16 March 2015 |publisher=Db-defenceweb.co.za |access-date=2015-03-16 |archive-url=https://archive.today/20151009150440/http://www.defenceweb.co.za/index.php?option=com_content&view=article&id=38381 |archive-date=2015-10-09 |url-status=live }}</ref>
+  |Greece: [[Thessaloniki]] ([[Hellenic Vehicle Industry]])<ref name="ELBO">{{cite web|url=http://www.elbo.gr/en/jeeps1_4tons.html |title=Cross country 1/4 ton military jeeps |access-date=2010-10-06 |publisher=ELBO |url-status=dead |archive-url=https://web.archive.org/web/20110718110058/http://www.elbo.gr/en/jeeps1_4tons.html |archive-date=2011-07-18 }}</ref>
+  }}
+| class = [[Military jeep|Military off-roader]]<br />[[Off-road vehicle]]<br />[[Luxury car|Luxury]] [[SUV]]<br />[[Pickup truck]]
+| chassis = [[Body-on-frame]]
+}}
+The '''Mercedes-Benz G-Class''', colloquially known as the '''G-Wagon''' or '''G-Wagen'''<ref>{{cite web|url=https://www.theverge.com/2021/9/5/22657738/mercedes-benz-eqg-concept-g-class-suv-electric-iaa-mobility|title=Mercedes-Benz Reveals an Electric G-Wagen Concept for the Future|website=The Verge|last=O'Kane|first=Sean|date=5 September 2021|accessdate=12 May 2022}}</ref> (as an abbreviation of '''Geländewagen'''), is a [[four-wheel drive]] luxury [[SUV]] sold by [[Mercedes-Benz]]. Originally developed as a military off-roader, later more luxurious models were added to the line. In certain markets, it was sold under the [[Puch]] name as '''Puch G''' until 2000.
+
+The G-Class is characterised by its boxy styling and [[body-on-frame]] construction. It uses three fully [[locking differential]]s, making it one of the few passenger vehicles to have such a feature. Despite the introduction of an intended replacement, the [[unibody]] SUV [[Mercedes-Benz GL-Class]] in 2006, the G-Class is still in production and is one of the longest-produced vehicles in Daimler's history, with a span of {{age|September 1979}} years; only the [[Unimog]] surpasses it.<ref>{{cite web|title=Mercedes-Benz G-Class to be produced till 2020 |url=http://arabia.msn.com/autos/news/ame/2012/february/12698064/mercedesbenz-gclass-produced-till-2020.aspx |publisher=MSN Arabia |access-date=7 August 2012 |url-status=dead |archive-url=https://web.archive.org/web/20120521020603/http://arabia.msn.com/autos/news/ame/2012/february/12698064/mercedesbenz-gclass-produced-till-2020.aspx |archive-date=21 May 2012 }}</ref> In 2018, Mercedes-Benz introduced the second-generation W463 with heavily revised chassis, powertrain, body, and interior. In 2023, Mercedes-Benz announced plans to launch a smaller version of the G-Class, named "little G"—though no definitive date was given for the launch.<ref>{{Cite web |last=Kharpal |first=Arjun |date=2023-09-03 |title=Mercedes to release a smaller version of its G Class luxury SUV |url=https://www.cnbc.com/2023/09/03/mercedes-to-launch-smaller-version-of-g-class-luxury-suv.html |access-date=2023-09-04 |website=CNBC |language=en}}</ref>
+
+The 400,000th unit was built on 4 December 2020.<ref name=":0">{{cite web|url=https://www.motor1.com/news/458343/mercedes-g-class-400000-production/ |title=Mercedes G-Class Reaches Production Milestone: 400,000th SUV Assembled |date=4 December 2020 |work=Motor1 |first=Adrian |last=Padeanu}}</ref> The success of the second-generation W463 led to the 500,000th unit milestone three years later in April 2023.<ref>{{cite web|url=https://www.stuttgarter-nachrichten.de/inhalt.produktionsjubilaeum-bei-mercedes-g-klasse-macht-die-halbe-million-voll.0925e04d-bd0c-43fa-9f9b-4d4d6bdcba18.html |title=G-Klasse macht die halbe Million voll |language=de |date=20 April 2023 |first=Matthias |last=Schmidt |work=Stuttgarter Nachrichten |accessdate=16 October 2023}}</ref> The 500,000th model was a special one-off model with agave green paintwork, black front end, and amber turn signal indicators in tribute to the iconic 1979 press release photo of a jumping W460 240 GD.<ref>{{cite web|url=https://www.radio-oldtimer.de/news/aktuelles/details/news/geschichten-des-g-sonderausstellung-g-klasse-im-mercedes-benz-museum.html |title=Geschichte(n) des G: Sonderausstellung G-Klasse im Mercedes-Benz Museum |work=Radio Oldtimer |date=7 October 2019 |language=de |accessdate=16 October 2023}}</ref>
+
+== History ==
+[[File:Geländewagen Puch G.JPG|thumb|right|[[Puch]] G]]
+[[File:Steyr Daimler Puch 290GD.jpg|thumb|Steyr Daimler Puch 290GD]]
+[[File:MB 230G Cabrio rear.JPG|thumb|Very early, carburetted [[Grey import vehicle#United States|grey market]] Mercedes-Benz 230 G Cabriolet]]
+
+The G-class was developed as a military vehicle from a suggestion by the [[Shah of Iran]] [[Mohammad Reza Pahlavi]] to Mercedes<ref>{{cite web |title=Mercedes-Benz G-Wagen, Austria |url=http://www.army-technology.com/projects/mercedesgwagon/ |url-status=dead |archive-url=https://archive.today/20161227141952/http://www.army-technology.com/projects/mercedesgwagon/ |archive-date=2016-12-27 |access-date=2012-01-04 |work=Army Technology}}</ref> and was later offered as a civilian vehicle in 1979. In this [[military]] role the vehicle was sometimes referred to as the "Wolf". The [[Peugeot P4]] was a variant made under licence in France with a Peugeot engine. The first military in the world to use it was the [[Argentine Army]] (Ejército Argentino) beginning in 1981 with the military model 461, at least one of these was captured in the [[Falkland Islands|Falklands]] and subsequently served with the [[Royal Air Force]].<ref>{{Cite web|url=https://www.rafmuseum.org.uk/blog/oh-lord-wont-you-buy-me-a-mercedes-benz/|title = Oh Lord won't you buy me a Mercedes Benz|date = 15 September 2016}}</ref>
+
+The development of the G-Class started in 1972 with a cooperative agreement between [[Daimler-Benz]] and [[Steyr-Daimler-Puch]] in Graz, Austria. [[Mercedes-Benz]] engineers in Stuttgart were in charge of design and testing, while the team in Graz developed the production plans. The first wooden model was presented to [[Daimler-Benz]] management in 1973, with the first drivable prototype beginning various testing including German coalfields, the Sahara Desert, and the Arctic Circle in 1974. Construction commenced on a new production facility in Graz, where the new cross-country vehicle would be assembled nearly entirely by hand in 1975, with production of the "G Model" beginning in Graz in 1979. In 1980, the Vatican took delivery of a specially made G-Wagen outfitted with a clear thermoplastic top which served as the [[Popemobile]]. The "Papa G" later took up permanent residence at the [[Mercedes-Benz Museum]] in Stuttgart, Germany.{{citation needed|date= October 2021}}
+
+The first major refinements were introduced in 1981, including an automatic transmission, air conditioning, an auxiliary fuel tank, protective headlamp grilles, and a cable winch. Fuel injection became available in 1982, when the 230 GE was introduced in Turin,<ref name="AR87">{{cite book | title = Automobil Revue 1987 | editor-last = Büschi | editor-first = Hans-Ulrich | publisher = Hallwag AG | location = Berne, Switzerland | language = de, fr | page = 382 | volume = 82 |date=5 March 1987 | isbn = 3-444-00458-3 }}</ref> along with more comfortable and supportive front seats, auxiliary heating, wider tires and fender flares. For 1985, differential locks, central door locking and a tachometer became standard. By 1986, over 50,000 G Models had been produced.{{citation needed|date= October 2021}}
+
+The G-Wagen was facelifted in 1990. In 1989, for the 10th anniversary of the G Model, a new model variant with permanent 4-wheel drive, a wood-trimmed interior and optional [[Anti-lock Braking System]] ([[Anti-lock braking system|ABS]]) debuted at the [[Frankfurt International Motor Show]]. Production began the following April. For 1992, production began on a new sub-series for professional users. The civilian model began to offer cruise control, a stainless-steel spare-tire cover, running boards and Burl Walnut wood interior trim. In the same year, the 100,000th G Model was built in Graz and in 1994, the model line was officially renamed the G-Class. Ventilated front disc brakes and a driver's air bag became standard. In 1996 the automatic transmission became an electronically controlled 5-speed unit and headlamp washers, cruise control, and a front passenger's air bag were added. In 1998, the range-topping G 500 with a {{cvt|300|PS|kW hp|0}} V8 was introduced for series production.{{citation needed|date= October 2021}}
+
+For 1999 a limited run of V8 powered "G 500 Classic" special editions marked the model's 20th anniversary. A multifunction steering wheel was added to all models. Later in the year, the new G 55 AMG debuted as the most powerful G-Class yet, with 354&nbsp;hp. The U.S. market launch of the G-Class took place in 2001. New alloy wheels, a chrome grille and body-colour bumpers plus a more luxurious cabin were introduced. New dynamic control systems included the Electronic Stability Program (ESP), Brake Assist, and the four-wheel Electronic Traction System (4 ETS). The G 55 AMG was upgraded in 2004 with a supercharged V8 engine developing {{cvt|480|PS|kW hp|0}}.{{citation needed|date= October 2021}}
+
+In 2006, a documentary filmmaker was the first foreigner to reach Siberia, the world's coldest region, with a passenger vehicle in winter, driving a stock G 500 nearly 19,000&nbsp;km without a single breakdown, in temperatures as frigid as −63˚F/-53&nbsp;°C.{{citation needed|date= October 2021}}
+
+==W460 (1979–1991)==
+{{Infobox automobile
+| name = W460
+| image = 1986_280GE.jpg
+| aka = Puch G
+| body_style = 2-door SWB convertible<br />2-door cab chassis (pickup truck)<br />3-door SWB station wagon<br />3-door SWB panel van<br />3-door LWB station wagon<br />3-door LWB panel van<br />5-door LWB station wagon
+| platform = 
+| layout = [[Front-engine, four-wheel-drive layout|Front engine]], [[four-wheel drive]]
+| engine = 2.0L ''[[Mercedes-Benz M102 engine|M 102.964 E20]]'' I4<br />2.3L ''[[Mercedes-Benz M115 engine|M 115.973]]'' I4<br />2.6L ''[[Mercedes-Benz M115 engine|M 115 2.6 Brabus]]'' I4<br />2.8L ''[[Mercedes-Benz M110 engine|M 110.994]]'' I6<br />2.4L ''[[Mercedes-Benz OM616 engine|OM 616]]'' I4 diesel<br />2.5L ''[[Mercedes-Benz OM602 engine|OM 602]]'' I5 diesel<br />3.0L ''[[Mercedes-Benz OM617 engine|OM 617]]'' I5 diesel
+| transmission = 4-speed manual<br />5-speed manual<br />4-speed [[722.0 722.1 722.2|720.1 (W4A 018)]] [[automatic transmission|automatic]]
+| wheelbase = {{convert|2400|mm|in|1|abbr=on|}} (2-door) <br /> {{convert|2850|mm|in|1|abbr=on|}} (4-door)
+| length = 
+| width = 
+| height = 
+| weight = {{convert|3913.21|lb|kg|0|abbr=on}}<ref name="[1]">{{cite web |title= |url=https://www.auto-data.net/en/mercedes-benz-g-class-w460-230-g-90hp-4wd-43054 |website=auto-data.net |access-date=12 May 2022}}</ref>
+
+| production = 1979–1991
+| designer = Erich Ledwinka<ref>{{Cite web |date=January 11, 2022 |title=From battlefield to Belgravia: The Classic Mercedes G-Wagon |url=https://www.footmanjames.co.uk/blog/from-battlefield-to-belgravia-the-classic-mercedes-g-wagon |work=Footman James}}</ref>
+}}
+{{more citations needed section |date= October 2021}}
+The W460 was introduced at a press event held at the off-road proving ground in [[Toulon]], France, and went on sale in September 1979 with three engine choices and five body variants. Over the next decade, the engine and transmission choices were expanded or updated along with more and more optional extra cost creature comforts (air conditioning, automatic transmission, power windows, etc.).
+
+The G-Wagen gained its global fame in 1980 when Mercedes-Benz built a [[Popemobile]] based on 230 G cabriolet during the [[List of pastoral visits of Pope John Paul II#1980s|first visit]] of [[Pope John Paul II]] in Germany.
+
+Mercedes-Benz never officially exported the G-Wagen to the United States because it was considered more of a utilitarian vehicle and didn't fit the American perception of what Mercedes-Benz was. During the 1980s, the [[grey import]] specialists brought the W460 to the United States and modified them to meet the US regulations. In 1988, the new federal law, Motor Vehicle Safety Compliance Act, closed the loopholes and tightened up the regulations for grey imports, making it more difficult and more expensive for the registered importers to federalise the W460 in a very small number. The other issue was severely underpowered engines in the 230 GE, 280 GE, and 300 GD models might not have appealed to the American market as was the case with the Mercedes-Benz [[Mercedes-Benz W126|380 SEL]] in the early 1980s.
+
+The 200 GE was built specifically for Italian markets and other markets where a heavy tax penalty was incurred for engines larger than 2 litres. The 300 GD was the most popular model while the 280 GE was the most powerful. Despite the availability of turbocharged diesel engines in other Mercedes-Benz vehicles, one was never fitted to the W460.
+
+The rarest W460 variants were the Italian market 200 GE Cabriolet with 64 total units produced,<ref>{{Cite web |last=Mortison |date=December 1, 2004 |title=Short Wheelbase Production Numbers and Import Numbers |url=https://www.benzworld.org/threads/g500-cab-production.1189222/#:~:text=Like-,4x4abc,-2%2C341%20posts%20%C2%B7 |website=benzworld.org}}</ref><ref>{{Cite web |last=4x4abc |date=October 20, 2004 |title=Cab production |url=https://www.benzworld.org/threads/g500-cab-production.1189222/#:~:text=Like-,4x4abc,-2%2C341%20posts%20%C2%B7 |website=benzworld.org}}</ref> 230 GE 2.6 Brabus (1989–?), the 280 GE AMG, and the 560 GE (1993).{{citation needed|date=February 2022}} Brabus increased the engine displacement of the 2.3-litre four-cylinder inline engine to 2.6 litres, increasing the power to {{convert|114|kW|PS bhp|abbr=on|0}}. [[Mercedes-AMG|AMG]] modified the 2.8-litre six-cylinder inline petrol engine for more power, {{convert|134|kW|PS bhp|abbr=on|0}}. Only two units of the 560 GE were built in 1993 as part of a feasibility study that resulted in a limited series of the W463 500 GE for 1993–1994 and the W463 G 500 from 1998 on.<ref>{{cite web |url=http://www.w463.de/460_560ge.htm |title=560 GE (W460) |work=W463.de |access-date=20 February 2020 |archive-date=5 March 2016 |archive-url=https://web.archive.org/web/20160305171859/http://www.w463.de/460_560ge.htm |url-status=dead }}</ref>
+
+===Derivations===
+
+====G-Wagen W462 ELBO (1988–2005)====
+This version was assembled from Complete Knock Down ([[Knock-down kit|CKD]]) by [[Hellenic Vehicle Industry|ELBO]], formerly a Steyr-Daimler-Puch branch division, in [[Thessaloniki]], [[Greece]] for the [[Greek Army]]. Additionally, the CKD was also assembled at Mercedes-Benz's Aksaray plant in [[Turkey]]. The engine options were a 2.3-litre four-cylinder inline petrol and later a 2.9-litre five-cylinder inline diesel, with the available models being the 240 GD and the 290 GDT.
+
+====Peugeot P4 VLTT (1981–1988)====
+{{Main|Peugeot P4}}
+The W460 was assembled in France under licence by Peugeot for the French Army with Peugeot engine and transmission from the [[Peugeot 504|504]] and [[Peugeot 604|604]] respectively as well as its own seats and wiring system. The front differential gear lock was omitted because Peugeot used its own axles. They are easily identified by rectangular headlamps.
+
+====Puch G (1979–2000)====
+An agreement between Daimler-Benz AG and Steyr-Daimler-Puch stipulated that G-Wagens sold in Austria, Switzerland, Yugoslavia (and its successor states: Bosnia-Herzegovina, Croatia, Macedonia, Serbia, and Slovenia), Mongolia, and Eastern European [[COMECON]] countries were called Puch G and elsewhere as Mercedes-Benz G-Wagen/G-Class. The reason for the different branding was due to Puch's reputation for its all-terrain vehicles, the Haflinger and Pinzgauer. Since the agreement expired in 2000, consumers could order a retrofit kit from Magna's Puch Competence Centre to replace the Mercedes-Benz brands with Puch emblems.<ref>{{cite web |url=https://www.puch.at/en/spare-parts/accessories/ |title=Accessories |website=Puch |access-date=20 February 2020 |archive-date=20 February 2020 |archive-url=https://web.archive.org/web/20200220164248/https://www.puch.at/en/spare-parts/accessories/ |url-status=dead }}</ref>
+
+For Pope John Paul II's visit to Austria in 1983, Puch emblems was used on the Popemobile instead.{{citation needed|date=June 2024}}
+
+===Engines===
+{| class="wikitable"
+!Model!!Years!!Configuration!!Displacement!!Power!!Torque!!{{cvt|0–100|km/h|mph|0}}!!Top speed!!Fuel consumption/efficiency<br />(EU-norm-urban, 90&nbsp;km/h, 120&nbsp;km/h)
+|-
+! colspan="9" style="text-align:center"|Petrol engines
+|-
+|200 GE (Italy only)
+|1986–1991
+|I4 ([[Mercedes-Benz M102 engine|M 102.964]])
+|{{cvt|1997|cc|cuin}} 
+|{{cvt|87|kW|PS bhp|0}} at 5,200 rpm
+|{{cvt|178|Nm|lbft|0}} at 3,500 rpm
+|18 seconds
+|{{cvt|140|km/h|0}}
+|{{cvt|16.0|L/100 km|mpgUS}}<br />—<br />—
+|-
+|230 G
+|1979–1982
+|I4 ([[Mercedes-Benz M115 engine|M 115.973]])
+|{{cvt|2307|cc|cuin|1}} 
+|{{cvt|66|kW|PS bhp|0}} at 5,000 rpm<br>{{cvt|75|kW|PS bhp|0}} at 5,000 rpm
+|{{cvt|167|Nm|lbft|0}} at 3,500 rpm
+|26 seconds
+|{{cvt|128|km/h|mph|0}}
+|{{cvt|19.8|L/100 km|mpgUS}}<br />{{cvt|13.5|L/100 km|mpgUS}}<br />{{cvt|19.8|L/100 km|mpgUS}}
+|-
+|230 GE
+|1982–1992
+|I4 ([[Mercedes-Benz M102 engine|M 102.981]])
+|{{cvt|2299|cc|cuin|1}} 
+|{{cvt|92|kW|PS bhp|0}} at 5,100 rpm<br>Catalyzed: {{cvt|90|kW|PS bhp|0}}
+|{{cvt|192|Nm|lbft|0}} at 4,000 rpm
+|17 seconds
+|{{cvt|152|km/h|0}}
+|{{cvt|17.2|L/100 km|mpgUS}}<br />{{cvt|12.2|L/100 km|mpgUS}}<br />{{cvt|16.2|L/100 km|mpgUS}}
+|-
+|280 GE 
+|1979–1990
+|I6 ([[Mercedes-Benz M110 engine|M 110.994]])
+|{{cvt|2746|cc|cuin}} 
+|{{cvt|115|kW|PS bhp|0}} at 5,250 rpm<br>Catalyzed: {{cvt|110|kW|PS bhp|0}}
+|{{cvt|226|Nm|lbft|0}} at 4,250 rpm
+|14 seconds
+|{{cvt|165|km/h|0}}
+|{{cvt|22.4|L/100 km|mpgUS}}<br />{{cvt|14.0|L/100 km|mpgUS}}<br />{{cvt|18.8|L/100 km|mpgUS}}
+|-
+! colspan="9" style="text-align:center"|Special variants
+|-
+|230 GE 2.6 Brabus
+|1989–1990
+|I4 ([[Mercedes-Benz M102 engine|M 102.981 2.6 Brabus]])
+|{{cvt|2587|cc|cuin}} 
+|{{cvt|114|kW|PS bhp|0}} at 5,500 rpm
+|{{cvt|260|Nm|lbft|0}} at 3,300 rpm
+|14.7 seconds
+|{{cvt|158|km/h|0}}
+|{{cvt|17.2|L/100 km|mpgUS}}<br />{{cvt|12.2|L/100 km|mpgUS}}<br />{{cvt|16.2|L/100 km|mpgUS}}
+|-
+|280 GE AMG
+|1979–1990
+|I6 ([[Mercedes-Benz M110 engine|M 110.994]])
+|{{cvt|2746|cc|cuin}} 
+|{{cvt|134|kW|PS bhp|0}} at 5,250 rpm
+|{{cvt|226|Nm|lbft|0}} at 4,250 rpm
+|14 seconds
+|{{cvt|165|km/h|0}}
+|{{cvt|22.4|L/100 km|mpgUS}}<br />{{cvt|14.0|L/100 km|mpgUS}}<br />{{cvt|18.8|L/100 km|mpgUS}}
+|-
+! colspan="9" style="text-align:center"|Diesel engines
+|-
+|240 GD
+|1979–1987
+|I4 ([[Mercedes-Benz OM616 engine|OM 616.936, .938, .941]])
+|{{cvt|2399|cc|cuin}} 
+|{{cvt|53|kW|PS bhp|0}} at 4,400 rpm
+|{{cvt|137|Nm|lbft|0}} at 2,400 rpm
+|32 seconds
+|{{cvt|115|km/h|0}}
+|{{cvt|14.4|L/100 km|mpgUS}}<br />{{cvt|12.0|L/100 km|mpgUS}}<br />—
+|-
+|250 GD
+|1987–1992
+|I5 ([[Mercedes-Benz OM602 engine|OM 602.938, .939]])
+|{{cvt|2497|cc|cuin}} 
+|{{cvt|62|kW|PS hp|0|order=out}}
+|{{cvt|154|Nm|lbft|0}} at 2,200–2,800 rpm
+|27 seconds
+|{{cvt|127|km/h|0}}
+|{{cvt|12.8|L/100 km|mpgUS}}<br />{{cvt|10.0|L/100 km|mpgUS}}<br />—
+|-
+|300 GD
+|1979–1990
+|I5 ([[Mercedes-Benz OM617 engine|OM 617.931, .932]])
+|{{cvt|2998|cc|cuin}} 
+|{{cvt|65|kW|PS bhp|0}} at 4,400 rpm
+|{{cvt|172|Nm|lbft|0}} at 2,400 rpm
+|27 seconds
+|{{cvt|127|km/h|0}}
+|{{cvt|14.6|L/100 km|mpgUS}}<br />{{cvt|11.7|L/100 km|mpgUS}}<br />{{cvt|18.8|L/100 km|mpgUS}}
+|-
+|}
+
+==W461 (1985–2022)==
+{{Infobox automobile
+| name       = W461
+| image      = 
+Mercedes G-Klasse Edition Pur 20090808 front.JPG
+| caption    = Mercedes G-Class G 280 CDI EDITION.30 PUR
+|aka=Puch G 
+| production = 1985–2022 (military variant)<ref>{{cite web|last=Westbrook |first=Justin T. |title=The Outgoing Mercedes G-Class Is Still In Production Because Icons Never Die |url=https://jalopnik.com/the-outgoing-mercedes-g-class-is-still-in-production-be-1826122717 |work=Jalopnik |date=18 May 2018}}</ref><br />Civilian variant produced through 2019
+| body_style   = 2-door SWB convertible<br />2-door cab chassis (pickup truck)<br />3-door SWB panel van<br />3-door LWB panel van<br />5-door LWB station wagon
+| platform     = 
+| layout       = [[Front-engine, four-wheel-drive layout|Front engine]], [[four-wheel drive]]
+| engine       = 2.3L ''[[Mercedes-Benz M102 engine|M 102 E 23]]'' I4<br />2.5L ''[[Mercedes-Benz OM602 engine|OM 602.930]]'' I5 diesel<br />2.7L ''[[Mercedes-Benz OM612 engine|OM 612 DE 27 LA]]'' I5 turbodiesel<br />2.9L ''[[Mercedes-Benz OM602 engine|OM 602 D 29]]'' I5 diesel<br />2.9L ''[[Mercedes-Benz OM602 engine|OM 602 DE 29 LA]]'' I5 turbodiesel<br />3.0L ''[[Mercedes-Benz OM642 engine|OM 642 DE 30 LA red.]]'' V6 turbodiesel
+| transmission = 4-speed [[722.0 722.1 722.2|720.1 (W4A 018)]] [[automatic transmission|automatic]]<br />5-speed [[manual transmission|manual]]<br />4-speed manual
+| wheelbase    = {{convert|2400|mm|in|1|abbr=on|}} (2-door) <br /> {{convert|2850|mm|in|1|abbr=on|}} (4-door)
+| length       = 
+| width        = 
+| height       = 
+| weight = {{convert|4728.92|lb|kg|0|abbr=on}}<ref name="[2]">{{cite web |title=1992 Mercedes-Benz G-class (W463) 350 GD Turbo (136 Hp) 4MATIC Automatic |url=https://www.auto-data.net/en/mercedes-benz-g-class-w463-350-gd-turbo-136hp-4matic-automatic-41096 |website=auto-data.net |access-date=12 May 2022}}</ref>
+| designer = [[Bruno Sacco]]
+}}
+
+After the new W463 was introduced in 1989 with an extensively updated chassis and a revised front end, the production of the W460 ended in 1991 and was replaced by the W461. The W461 has essentially the same chassis as the W460 but with the powertrain of the W463 and the body of the W460. While the W463 is aimed at consumers who seek more creature comforts and better driving dynamics, the W461 is built specifically for military, public authorities, and non-governmental organisations.<ref name="Road and Track old style g wagen" /> That included the 24-Volt electrical system for the W461.
+
+During the 1990s, the W461 was offered with a 2.3-litre four inline petrol engine and a 2.9-litre five inline diesel engine from 1992 to 2001. From 2001 to 2014, the W461 model for military and public authorities was offered with a 2.7-litre inline five turbodiesel engine and later with a 3.0-litre V6 turbodiesel engine. They were called G 270 CDI Worker (2001–2006) and G 280 CDI Worker (2007–2009) respectively.
+
+On 1 October 2021, Mercedes-Benz announced a new variation of W461 called [[#W464 (2022–present)|W464]].<ref name="thedrive.com">{{cite news|title=Mercedes Shows Off New Military Spec G-Wagen With a Solid Front Axle|newspaper=The Drive |date=7 October 2021 |url=https://www.thedrive.com/news/42656/mercedes-first-new-military-g-wagen-in-30-years-keeps-the-straight-axle |last1=Gilboy |first1=James }}</ref>
+
+===Civilian editions===
+Over the years, Mercedes-Benz had introduced the civilian version of the W461, built in limited numbers and for a limited period of time. They targeted primarily the consumers who wanted the "stripped down" version and did not need the creature comforts. The engine choice was often limited to one type, namely a diesel engine, per series. Those editions were named PUR or Professional.
+
+====EDITION.30 PUR====
+In 2009, Mercedes-Benz, celebrating the 30-year anniversary of the G-Class, introduced the G 280 CDI EDITION.30 PUR as a five-door long wheelbase station wagon. The consumers could order theirs with "Off-Road Package 1" or "Off-Road Package 2". The passenger compartment had four seats upholstered in hard-wearing fabric or vinyl, rubber floor coverings, spray-protected/water-resistant controls, drainage apertures in the footwells, and a wood floor in the load compartment with load lashing lugs and rails. The dashboard received a new instrument cluster from the W463 and dual air bags and the climate control remained manually operated as did the window winders and locks. The exterior received flexible wheel arch flaring, protective grilles for headlamps, taillamps, front turn signal indicators, a walk-on hood/bonnet for easy access to the optional roof rack, a towing lug attached to the front bumper and two-section barn doors at the rear.
+
+====Professional====
+The success of the limited series "EDITION.30 PUR" led to the G 280 CDI Professional in 2009 and its successor, the G 300 CDI Professional, in 2010. Initially the 280 CDI Professional was limited to a five-door long wheelbase station wagon design before the body variants were expanded to five different body variations: a three-door long wheelbase panel van (Kastenwagen in German), a five-door long wheelbase station wagon, a two-door cabriolet and a two or four-door cab chassis truck (Pritschenwagen in German) for the G 300 CDI Professional.<ref>{{cite web|url=https://www.whichcar.com.au/reviews/road-tests/mercedes-benz-w461-g300-cdi-cab-chassis-first-drive |title=Mercedes-Benz W461 G300 CDI Cab-Chassis: First-Drive |work=Which Car |first=Matt |last=Raudonikis |date=8 December 2016}}</ref> The production of the civilian variant continued through 2019.<ref>{{cite news|title=End of the track for Mercedes G-Pro|newspaper=Goauto |date=12 November 2019 |url=https://www.goauto.com.au/news/mercedes-benz/g-wagon/end-of-the-track-for-mercedes-g-pro/2019-11-12/80573.html}}</ref> However, the military variant continued through 2022 when it was replaced by the new W464 model.<ref name="Road and Track old style g wagen">{{cite web|url=https://www.roadandtrack.com/new-cars/a20690385/you-can-still-buy-a-brand-new-old-style-g-wagen-sort-of/ |title=You Can Still Buy a Brand-New Old-Style G-Wagen, Sort of |first=Bob |last=Sorokanich |date=15 May 2018 |work=Road & Track}}</ref><ref name="thedrive.com"/>
+
+{{Multiple image | align = left | direction = horizontal | width =
+|image1 = Mercedes-Benz_G_300_CDI_Professional_(W_461)_–_Frontansicht,_7._August_2012,_Stuttgart.jpg
+|caption1 = G 300 CDI Professional (W461), Front View
+|image2 = Mercedes-Benz_G_300_CDI_Professional_(W_461)_–_Heckansicht,_7._August_2012,_Stuttgart.jpg
+|caption2 = G 300 CDI Professional (W461), Rear View
+|image3 = Mercedes-Benz_G_300_CDI_Professional_Pritsche_(W_461)_–_Frontansicht,_7._August_2012,_Stuttgart.jpg
+|caption3 = G 300 CDI Professional Pritschenwagen (W461), Front View
+|image4 = Mercedes-Benz_G_300_CDI_Professional_Pritsche_(W_461)_–_Heckansicht,_7._August_2012,_Stuttgart.jpg
+|caption4 = G 300 CDI Professional Pritschenwagen (W461), Rear View
+}}
+{{Multiple image
+| align             = left
+| direction         = horizontal
+| width             = 
+| image1            = USMC_Fast_Attack_Vehicle_(IFAV).1.JPEG
+| caption1          = USMC [[Interim Fast Attack Vehicle]] (IFAV)
+| image2            = USMC_Fast_Attack_Vehicle_(IFAV).2.jpg
+| caption2          = USMC Interim Fast Attack Vehicle (IFAV)
+| image3            = Puch G (1990-2001) (cropped).jpg
+| caption3          = Puch G (1990–2000)
+}}
+{{clear}}
+
+===Engines===
+{| class="wikitable"
+!Model!!Years!!Configuration!!Displacement!!Power!!Torque!!{{convert|0–100|km/h|mph|0|abbr=on}}!!Top speed!!Fuel consumption/efficiency<br />(EU-norm-urban, extra urban, combined)
+|-
+! colspan="9" style="text-align:center"|Petrol engines
+|-
+|230 GE<br />G 230
+|1992–2001
+|I4 ([[Mercedes-Benz M102 engine|M 102 E 23]])
+|{{cvt|2298|cc|cuin|1}} 
+|{{cvt|93|kW|PS bhp|0}} at 5,100 rpm
+|{{convert|188|Nm|lbft|0|abbr=on}} at 3,500 rpm
+|19–20 seconds
+|{{Convert|144–147|km/h|0|abbr=on}}
+|{{convert|17.2|L/100 km|mpgUS|abbr=on}}<br />{{convert|12.2|L/100 km|mpgUS|abbr=on}}<br />{{convert|16.2|L/100 km|mpgUS|abbr=on}}
+|-
+! colspan="9" style="text-align:center"|Diesel engines
+|-
+|250 GD<br />"Wolf" ([[Bundeswehr]])
+|1990–1991
+|I5 ([[Mercedes-Benz OM602 engine|OM 602.930]])
+|{{convert|2497|cc|cuin|abbr=on}} 
+|{{convert|68|kW|PS bhp|abbr=on|0}} at 4,600 rpm
+|{{convert|154|Nm|lbft|0|abbr=on}} at 2,200–2,800 rpm
+|27 seconds
+|{{Convert|127|km/h|0|abbr=on}}
+|{{convert|12.8|L/100 km|mpgUS|abbr=on}}<br />{{convert|10.0|L/100 km|mpgUS|abbr=on}}<br />—
+|-
+|G 270 CDI Worker (Military)
+|2001–2006
+|I5 turbo ([[Mercedes-Benz OM612 engine|OM 612 DE 27 LA]])
+|{{convert|2685|cc|cuin|abbr=on}} 
+|{{convert|115|kW|PS bhp|abbr=on|0}} at 3,800 rpm
+|{{convert|400|Nm|lbft|0|abbr=on}} at 1,800–2,400 rpm
+|—
+|—
+|—
+|-
+|G 280 CDI Worker (Military)
+|2007–2014
+|rowspan="4"|V6 [[Turbocharger|turbo]] ([[Mercedes-Benz OM642 engine|OM 642 DE 30 LA red.]])
+|rowspan="4"|{{convert|2987|cc|cuin|abbr=on}} 
+|rowspan="4"|{{convert|135|kW|PS bhp|abbr=on|0}} at 3,800 rpm
+|rowspan="4"|{{convert|400|Nm|lbft|0|abbr=on}} at 1,600–2,600 rpm
+|—
+|{{Convert|120|km/h|0|abbr=on}}
+|—
+|-
+|G 280 CDI EDITION.30PUR
+|2009
+|13 seconds
+|{{Convert|160|km/h|0|abbr=on}}
+|rowspan="3"|{{convert|14.1|L/100 km|mpgUS|abbr=on}}<br />{{convert|9.8|L/100 km|mpgUS|abbr=on}}<br />{{convert|11.4|L/100 km|mpgUS|abbr=on}}*
+|-
+|G 280 CDI Professional
+|2009
+|rowspan="2"|18 seconds
+|rowspan="2"|{{Convert|160|km/h|0|abbr=on}}
+|-
+|G 300 CDI Professional
+|2010–2019
+|-
+|290 GD<br />G 290 DIESEL
+|1992–1997
+|I5 ([[Mercedes-Benz OM602 engine|OM 602 D 29]])
+|{{convert|2874|cc|cuin|abbr=on}} 
+|{{convert|70|kW|PS bhp|abbr=on|0}} at 4,000 rpm
+|{{convert|192|Nm|lbft|0|abbr=on}} at 2,300 rpm
+|25–27 seconds
+|{{Convert|135–138|km/h|0|abbr=on}}
+|{{convert|13.5|L/100 km|mpgUS|abbr=on}}<br />{{convert|9.8|L/100 km|mpgUS|abbr=on}}<br />{{convert|12.6|L/100 km|mpgUS|abbr=on}}
+|-
+|290 GD T<br />G 290 TURBODIESEL
+|1998–2001
+|I5 ([[Mercedes-Benz OM602 engine|OM 602 DE 29 LA]])
+|{{cvt|2,874|cc|cuin|1}} 
+|{{cvt|89|kW|PS bhp|0}} at 3,800 rpm
+|{{cvt|280|Nm|lbft|0}} at 1,900–2,300 rpm
+|17.2 seconds
+|{{Convert|137|km/h|0|abbr=on}}
+|{{convert|12.0|L/100 km|mpgUS|abbr=on}}<br />{{convert|10.0|L/100 km|mpgUS|abbr=on}}<br />{{convert|10.9|L/100 km|mpgUS|abbr=on}}
+|-
+|300 GD "Wolf"
+|1985–1987
+|I5 ([[Mercedes-Benz OM617 engine#:~:text=OM617.931 and OM617.932|OM617.932]])
+|{{cvt|2,998|cc|cuin|1}} 
+|{{cvt|89|kW|PS bhp|0}} DIN
+|{{cvt|172|Nm|lbft|0}}
+|
+|
+|
+|}
+
+==W463, first generation (1990–2018) {{anchor|W463 first}}==
+{{Infobox automobile
+| name = W463
+| image = Mercedes-Benz G500.jpg
+|aka=Puch G
+| production = 1990–2018
+| body_style = 3-door SWB<br />2-door SWB [[convertible (car)|convertible]]<br />5-door LWB [[station wagon]]<br />4-door LWB [[Landaulet (car)|landaulet]]
+| platform = 
+| related = [[KSU Gazal-1]]
+| layout = [[Front-engine, four-wheel-drive layout|Front engine]], [[four-wheel drive]]
+| engine = {{ubl
+  | '''[[Petrol engine|petrol]]:'''
+  | 2.0&nbsp;L ''[[Mercedes-Benz M102 engine|M 102.965 E 20]]'' I4
+  | 2.3&nbsp;L ''[[Mercedes-Benz M102 engine|M 102.989 E 23]]'' I4
+  | 3.0&nbsp;L ''[[Mercedes-Benz M103 engine|M 103.987 E 30]]'' I6
+  | 3.2&nbsp;L ''[[Mercedes-Benz M104 engine|M 104.996 E 32]]'' I6
+  | 3.2&nbsp;L ''[[Mercedes-Benz M112 engine|M 112.945 E 32]]'' V6
+  | 3.6&nbsp;L ''[[Mercedes-Benz M104 engine|M 104.992 E 36]]'' I6
+  | 4.0&nbsp;L ''[[Mercedes-Benz M176 engine|M 176 DE 40 AL]]'' [[twin-turbo]] V8
+  | 5.0&nbsp;L ''[[Mercedes-Benz M117 engine|M 117.965 E 50]]'' V8
+  | 5.0&nbsp;L ''[[Mercedes-Benz M113 engine|M 113.965 E 50]]'' V8
+  | 5.4&nbsp;L ''[[Mercedes-Benz M113 engine|M 113 E 55]]'' V8
+  | 5.4&nbsp;L ''[[Mercedes-Benz M113 engine|M 113 E 55 ML]]'' [[supercharged]] V8
+  | 5.5&nbsp;L ''[[Mercedes-Benz M273 engine|M 273 KE 55]]'' V8
+  | 5.5&nbsp;L ''[[Mercedes-Benz M157 engine|M 157 DE 55]]'' [[twin-turbo]] V8
+  | 6.0&nbsp;L [[Mercedes-Benz M117 engine|''M 117.965 E 50'' (bored out)]]<ref name="6.0">{{cite web|url=http://nast-sonderfahrzeuge.de/MB-Exotenforum/img/uploaded/image67903.jpg |title=AMG Motoren |language=de |work=Nast Sonderfahrzeug |access-date=12 August 2020}}</ref> V8
+  | 6.0&nbsp;L ''[[Mercedes-Benz M279 engine|M 279 E 60 AL]]'' twin-turbo V12
+  | 6.3&nbsp;L ''[[Mercedes-Benz M137 engine|M 137 E 63]]'' V12
+  | '''[[Diesel engine|diesel]]:'''
+  | 2.5&nbsp;L ''[[Mercedes-Benz OM602 engine|OM 602.931 D 25]]'' I5
+  | 2.7&nbsp;L ''[[Mercedes-Benz OM612 engine|OM 612.965 DE 27 LA]]'' [[Turbocharger|turbo]] I5
+  | 3.0&nbsp;L ''[[Mercedes-Benz OM603 engine|OM 603.931 D 30]]'' I6
+  | 3.0&nbsp;L ''[[Mercedes-Benz OM606 engine|OM 606.964 D 30 LA]]'' turbo I6
+  | 3.0&nbsp;L ''[[Mercedes-Benz OM642 engine|OM 642 DE 30 LA]]'' turbo V6
+  | 3.5&nbsp;L ''[[Mercedes-Benz OM603 engine|OM 603.972 D 35 A]]'' turbo I6
+  | 4.0&nbsp;L ''[[Mercedes-Benz OM628 engine|OM 628.962 DE 40 LA]]'' [[biturbo]] V8
+  }}
+| transmission = {{ubl |5-speed [[Manual transmission|manual]]|4-speed ''[[Mercedes-Benz 4G-Tronic transmission|4G-Tronic]]'' [[Automatic transmission|automatic]]|5-speed ''[[Mercedes-Benz 5G-Tronic transmission|5G-Tronic]]'' automatic|7-speed ''[[Mercedes-Benz 7G-Tronic transmission|7G-Tronic]]'' automatic}}
+| wheelbase = {{convert|2400|mm|in|1|abbr=on|}} (2-door) <br /> {{convert|2850|mm|in|1|abbr=on|}} (4-door)
+| length = Pre-2003: {{cvt|183.5|in|mm|0|order=flip}}<br />2004–09: {{cvt|185.6|in|mm|0|order=flip}} (LWB)<br />2010–18: {{cvt|184.5|in|mm|0|order=flip}}
+| width = Pre-2003: {{convert|69.3|in|mm|0|abbr=on|order=flip}}<br />2004–09: {{convert|71.3|in|mm|0|abbr=on|order=flip}}<br />2004–09 AMG: {{convert|73.4|in|mm|0|abbr=on|order=flip}}<br />2010–18: {{convert|71.8|in|mm|0|abbr=on|order=flip}}<br />2010–18 AMG: {{convert|73.1|in|mm|0|abbr=on|order=flip}}
+| height = Pre-2002: {{convert|72.3|in|mm|0|abbr=on|order=flip}}<br />2002–09: {{convert|77.8|in|mm|0|abbr=on|order=flip}}<br />2010–18: {{convert|76.0|in|mm|0|abbr=on|order=flip}}
+| weight = {{convert|2580|kg|lb|abbr=on}} (G 55 AMG)
+| sp = uk
+| model_years = 1991–2018
+| designer = [[Bruno Sacco]]
+}}
+
+For 1990, the W460 was extensively revised, and a new chassis number, W463, was assigned. The W463 moved the G-Class from spartan and utilitarian to a luxury model on par with the [[Mercedes-Benz S-Class]] and the luxurious [[Range Rover]]. Thus, no three-door panel vans in short and long wheelbase lengths or barn doors in the rear were offered for the W463: those features are exclusive to the W461. The W461 continued in production as military and utilitarian vehicles for the government agencies and non-government organisations.<ref name="Road and Track old style g wagen" />
+
+The exterior was revised to smooth out the front end and the front fenders/wings were vertically flattened out at the front underneath headlamps. The fender flares and front end (cooling grille and headlamp bezels) were painted in body colour. The headlamps have square and slightly recessed bezels whilst the grille is narrower to give space for the front numberplate attached to the top of the bumper. The front bumpers are form-fitted and have integrated fog lamps while the rear bumpers have the integrated red rear fog lamp and white reversing lamp. The fuel filler is now covered by a panel. The side running boards were given a standard fitment. The external rear view mirrors have a new housing that pivots on anchors attached to the front doors. New revised tail lamps without white reversing lamps were fitted in the rear.
+
+The interior was significantly updated with wood trim and leather upholstery for the first time. The centre console is smoother and better integrated with the dashboard and the lower part of the dashboard is covered with rubber pads for better knee protection in the event of a frontal collision. The electric differential lock switches are placed prominently in the middle of the dashboard with other electric switches and the instrument cluster has a smoother and more curved housing that meets the dashboard fluidly. The gauges are integrated into one panel rather than a few separate gauges attached to the instrument cluster. The climate control panel was revised to include the temperature and fan speed dials and the door panels are fully trimmed with ruffled leather paneling and soft paddings. The seats are more plush and have several defined cushions along with lumbar support.
+
+The new features included [[anti-lock brake|ABS]] and full-time four-wheel-drive with electrically locking [[differential (mechanics)|differentials]]. The engines were carried over from the W460/W461, including the 200 GE, 230 GE, and 300 GE models for petrol engines along with the 250 GD and 300 GD for diesel engines. In 1994, the Geländewagen was renamed as the G-Class when model names were revised to reflect the new corporate nomenclature.
+
+When Mercedes-Benz didn't consider selling the G-Class in the United States, a small registered importer based in New Mexico, Europa International, Inc., began the expensive process of certifying and modifying the G-Class for the US market and started selling them in 1993. When the new G 500 was introduced in 1998, Europa International sought and received the "small-volume manufacturer status", allowing the company to be the exclusive importer and distributor of the G 500 in the United States. The sales success of the G 500 was attributed to Europa International's clever marketing toward high-end luxury clientele and led Mercedes-Benz to the decision of purchasing the distribution rights and including the G-Class in its official US model ranges.<ref>{{cite web|url=https://www.autotrader.com/car-news/heres-how-mercedes-benz-g-wagen-got-around-25-year-import-rule-281474979839166 |title=Here's How the Mercedes-Benz G-Wagen Got Around the 25-Year Import Rule |last=O'Neill |first=Chris |date=August 2018 |work=Auto Trader}}</ref>
+
+The first generation W463 had the widest range of engines ever fitted to a Mercedes-Benz vehicle during its entire 28-year model run: from four to twelve cylinders; and from natural aspiration to supercharger, turbo, and twin turbo. Towards the end of the first-generation model run the W463 had the highest number of paint colour options at 22, including the bright and intense colours of the '''Crazy Color Edition'''.
+
+===Models===
+The W463 had the highest number of body variations and derivations of any post-war Mercedes-Benz:
+* two-door cabriolet
+* three-door station wagon with short wheelbase
+* four-door pickup truck with six wheels (Mercedes-AMG G 63 6x6)
+* four-door cabriolet with extended wheelbase (Mercedes-Maybach G 650 Landaulet)
+* five-door station wagon with long wheelbase
+* five-door station wagon with extended wheelbase (custom built by AMG)
+* five-door station wagon with long wheelbase and widened track (Mercedes-Benz G 500 4x4²)
+
+[[File:Mercedes G500 Cabrio.jpg|thumb|left|Mercedes-Benz G500 Cabrio]]
+
+===Special models and special editions===
+
+====500 GE V8 (1993)====
+Mercedes-Benz premiered a special edition of G-Class with its first-ever V8 engine at 1993 [[Geneva International Motor Show]].<ref name=500GE>{{cite web|url=https://g-class.mercedes-benz.com/en/news/2023/exclusive-special-model-30-years-ago-the-mercedes-benz-500-ge-v8.html |title=Exclusive special model 30 years ago. |work=Mercedes-Benz |accessdate=18 March 2023}}</ref> The 500 GE V8 was available in 5-door, long wheelbase station wagon and for one year, 1993, only.
+
+The completed body and chassis were shipped from Graz, Austria to AMG engineering centre in Affalterbach where the chassis was modified to accept the [[Mercedes-Benz M117 engine|M117]] V8 engine and beefed up for extra weight and performance. The V8 engine developed {{convert|177|kW|PS hp|abbr=on|0}} and {{convert|375|Nm|lbft|abbr=on|0}}, providing the acceleration from 0 to {{Convert|100|km/h|0|abbr=on}} in 11.4 seconds and the top speed of {{Convert|180|km/h|0|abbr=on}}.<ref>{{cite web|url=https://mbpassion.de/2023/03/mercedes-benz-500-ge-v8-wurde-nur-446-mal-produziert/ |title=Mercedes-Benz 500 GE V8 gab es nur 446 mal |language=de |date=11 March 2023 |first=Markus |last=Jordan |work=MBpassion |accessdate=18 March 2023}}</ref>
+
+A special paint finish, Amethyst Blue Metallic, is exclusive to 500 GE V8 and is not available to any other Mercedes-Benz models. The paint finish is extended to the cooling grille, bumpers, mirror housings, and fender flares. The interior is trimmed with black leather containing the contrasting element in medium grey colour, including the steering wheel. The walnut veneer was fitted to the centre console, part of the handbrake lever, the two transmission selector levers, and trim elements on the door cards.<ref name=500GE/>
+
+The 500 GE V8 is equipped with many features including air conditioning, an automatic gearbox, cruise control, a sliding sunroof, heated seats, a power central locking system, and electric window winders.
+
+The retail price for the 500 GE V8 was [[Deutsche Mark|DM]] 178,250 ($107,381 US at 1993 currency exchange rate and $223,138 US (2022, adjusted)). To put the price in perspectives, a 1993 300 GE (the top-of-line G-Class in a regular production) was DM 88,500, and a 1993 [[Mercedes-Benz W140|W140]] 500 SE with [[Mercedes-Benz M119 engine|M119]] V8 engine was DM 129,030.
+
+The production was initially to be limited to 500 units, signifying the "500" in model name: 446 units were actually produced and sold. Mercedes-Benz had a remaining batch of 446 M117 V8 engines when the next-generation M119 production started for W140 S-Class. The wider M119 engine could not fit the engine compartment in G-Class.<ref name=500GE/> The V8 engine option for G-Class was reintroduced in 1998 when the G 500 with [[Mercedes-Benz M113 engine|M113]] V8 engine entered into a regular production.
+
+A Puch 500 GE V8 was offered as well: only three units were produced.<ref>{{cite web|url=https://www.motor1.com/news/408749/puch-500-ge-for-sale/ |title=Super-Rare Puch 500 GE Is For Sale, But Don't Call It A Mercedes |first=Adrian |last=Padeanu |work=Motor1.com |date=9 April 2020 |accessdate=18 March 2023}}</ref>
+
+AMG offered the performance upgrade kit for 500 GE V8 with 6-litre displacement: 500 GE V8 6.0 AMG. The upgrade kit offers the higher output ({{convert|220|kW|PS hp|abbr=on|0}}), higher top speed ({{convert|195|km/h|mph|abbr=on|0}}) and quicker acceleration (10.4 seconds to 100&nbsp;km/h from zero).<ref>{{cite web|url=https://www.youtube.com/watch?v=OPyx-vPXhCM |title=1994 Mercedes-Benz 500 GE 6.0 AMG w463 restored by BRABUS |work=Brabus |date=12 January 2020 |accessdate=18 March 2023}}</ref> 13 units of 500 GE V8 received the upgrade kit.<ref>{{cite web|url=https://www.mercedes-fans.de/magazin/news/1-von-13-1994-500-ge-6-0-aus-brabus-komplettrestauration-mercedes-benz-500-ge-6-0-von-brabus-classic.14539 |title=Mercedes-Benz 500 GE 6.0 AMG von BRABUS Classic |first=Luca |last=Felshart |date=24 April 2019 |work=Mercedes-Fan |accessdate=18 March 2023}}</ref>
+
+==== G 500 Classic Special-Edition (1999) ====
+In 1999, the luxuriously equipped '''G 500 Classic Special-Edition''' model was unveiled to mark the 20th anniversary of the Mercedes-Benz G-Class. All Classic Special-Edition models were equipped with the 500 V8 engine, all of them received a special Almandinschwarz-Metallic (182) paintwork, which in certain lighting conditions looks black or dark aubergine purple. This limited series design inherited everything from the original classic G-Class, but benefited from the technical developments of the new generation released in 2000. All Classic Special-Edition G-Class receive unique 18" alloy wheels painted in body color inside, with exterior elements painted in vehicle color, Classic inscription strip on the side of the vehicle, stainless steel and painted spare wheel cover, new instrument cluster, equipped with Becker navigation and Hi-Fi with a multi-functional steering wheel appearing for the first time, ultrasonic reversing assist, front and rear seat heating, anti-theft alarm system, illuminated thresholds. The interior is made of black and aubergine purple Nappa leather, with black suede carpets embroidered with Classic lettering and fine burr walnut interior elements. A total of 500 Classic Special-Editions of all versions were produced, 6 in RHD configuration and 494 in LHD configuration, with the majority being long-wheelbase models and only 12 Cabrio models (the rarest G-Class Cabrio model ever produced until the end of production of the G-Class Cabrio in 2014).
+
+====Grand Edition (2005)====
+The 500 units of the G 500 and G 55 AMG '''Grand Edition''' were built and shipped to the United States when Mercedes-Benz decided to end the sales of G-Class in the United States for 2006 before rescinding its decision. The exterior had an exclusive Allanite Grey Magno metallic paint finish and brushed aluminium trim stripes with "Grand Edition" lettering. The interior had matte-silk wood trim on the dashboard and centre console, designo exclusive leather upholstery, and door sills with illuminated "Grand Edition" lettering.
+
+====G 500 Guard (2009–2018)====
+An armoured version of the long wheelbase G 500 five-door station wagon with bullet resistance level FB6 or FB7.<ref>{{cite web|url=http://eblog.mercedes-benz-passion.com/2011/06/mercedes-benz-guard-safety-philosophy-licenced-to-protect/ |title=Mercedes-Benz Guard safety philosophy: Licenced to protect |date=23 June 2011 |last=Deppe |first=Philip |work=Mercedes-Benz Passion |archive-url=https://web.archive.org/web/20120518210225/http://eblog.mercedes-benz-passion.com/2011/06/mercedes-benz-guard-safety-philosophy-licenced-to-protect/ |archive-date=2012-05-18 |url-status=live }}</ref>
+
+====G-Class LIMITED.30 (2009)====
+The LIMITED.30 model is a special edition, celebrating the 30-year anniversary of the G-model (1979–2009). This edition includes designo platinum black paint finish, specially designed light-alloy wheels and EDITION30 lettering on the wings. The interior has designo leather in the colour "chablis" and designo trim in anthracite poplar wood.<ref>{{Cite web |url=http://media.daimler.com/dcmedia/0-921-614254-1-1206075-1-0-0-0-0-1-11701-854934-0-1-0-0-0-0-0.html?TS=1354783088486 |title=The magazine 4WheelFun crowns the G-Class as "2009 superstar": Best in class: the G-Class |access-date=2012-12-06 |archive-url=https://web.archive.org/web/20160107233459/http://media.daimler.com/dcmedia/0-921-614254-1-1206075-1-0-0-0-0-1-11701-854934-0-1-0-0-0-0-0.html?TS=1354783088486 |archive-date=2016-01-07 |url-status=dead }}</ref>
+
+====G 55 AMG KOMPRESSOR "Edition 79" (2009)====
+Like the LIMITED.30 special edition, the "Edition 79" is exclusive to the Middle East market, celebrating the sales launch in 1979. This edition includes designo magno alanite grey paint finish, a crash bar at the front, carbon fibre side trim stripes, 19-inch AMG wheels with titanium finish, chrome protection grilles for the front turn signal indicators, designo leather upholstery in black/sand colour, a carbon fibre dashboard and centre console trims and an edition logo, e.g. "1 out of 79", placed in front of the gear selector. The vehicle was unveiled in 2009 at the Dubai International Motor Show.<ref>{{Cite web |url=http://www.autoblog.com/2009/12/15/mercedes-benz-sls-goes-from-zero-to-gold-in-seconds-for-dubai-sh/ |title=Mercedes-Benz SLS goes from zero to gold in seconds for Dubai show |work=Autoblog |first=Sam |last=Abuelsamid |date=15 December 2009}}</ref>
+
+====BA3 Final Edition and Edition Selection (2011)====
+The '''BA3 Final Edition''' was launched in 2011 to mark the final production run of the three-door, short wheelbase station wagon. The single model variation was G 350 CDI BlueTEC. This farewell special is distinguished by body-coloured AMG flared wheel arches with 5-twin-spoke light-alloy wheels, carbon optics stripes, an AMG radiator grille, 18-inch alloys, extra chrome trims inside and outside, black leather interior offset by walnut burr veneers and ambient lighting.
+
+At the same time, Mercedes-Benz offered the "Edition Select" special for the five-door model, G 500. '''Edition Selection''' applies the same special edition treatment to the G 500/G 550 even though the five-door long wheelbase station wagon would continue for several more years.<ref>{{cite web|url=http://www.autoblog.com/2011/05/05/mercedes-benz-gears-up-for-the-demise-of-the-g-class-with-ba3-fi |title=Mercedes-Benz gears up for the demise of the G-Class with BA3 Final Edition and Edition Select |work=Autoblog |first=Noah |last=Joseph |date=5 May 2011}}</ref>
+
+====G 55 AMG long "mastermind" Limited (2012)====
+As a brand awareness collaboration for the Fashion Week, Mercedes-Benz Japan and [[mastermind JAPAN]] built five units for the Japanese market. Externally, the chrome trims and wheels were done in black paint finish, and two stickers were affixed to the side panels at the rear. The mastermind JAPAN skull and bone badges were affixed to the headrests and spare wheel cover. The interior was done in black leather trim with the roof liner finished in light grey Alcantara.<ref>{{cite web|url=https://www.freshnessmag.com/2012/01/09/mastermind-japan-x-mercedes-benz-g-550/ |date=9 January 2012 |first=Masaaki |last=Homma |work=Freshness |title=mastermind JAPAN x Mercedes-Benz G-550}}</ref>
+
+====G 550 Night Edition (2013–2015)====
+Exclusive to the Japanese market, 100 units of the G 550 Night Edition were produced with a black paint finish, AMG badges on the front fenders/wings and five twin-spoke, aluminium wheels finished in titanium grey. Two choices of interior colours were offered: porcelain white (60 units) and classic red (40 units). The dashboard and centre console were trimmed with designo piano lacquer black wood. The roof liner was Alcantara in anthracite colour. The sales price was [[Japanese yen|¥]]13,900,000 JPY.<ref>{{Cite web |url=http://hypebeast.com/2013/4/mercedes-benz-g550-night-edition-japan-exclusive |title=Mercedes-Benz G550 "Night Edition" Japan Exclusive |date=April 2016 |work=Hype Beast}}</ref>
+
+====G-Class Cabriolet "Final Edition 200" (2013–2014)====
+To commemorate the production end of the two-door cabriolet, Mercedes-Benz introduced the "Final Edition 200" with the G 500 being the only model variation. All of the 200 units had been sold out prior to its premiere at [[International Motor Show Germany#2013|2013 Frankfurt Auto Show]]. Externally, the soft top and tonneau cover are beige in colour, the grille is chrome-coloured, and the 5-spoke light-alloy wheels are paint in titanium grey. The B-pillars are fitted with "Final Edition 200" badges. The interior received designo leather seats and door panels coloured in ecru with black trim, satin-finished light brown poplar wood trim, and an AMG performance steering wheel.<ref>{{cite web|url=https://emercedesbenz.com/autos/mercedes-benz/g-class/mercedes-g-class-cabriolet-final-edition/ |title=Mercedes G-Class Cabriolet Final Edition |first=Jim |last=Davis |date=3 September 2013 |work=eMercedes-Benz}}</ref>
+
+====G 500 4×4²====
+{{main|Mercedes-Benz G500 4×4²}}
+[[File:Mercedes-Benz G 4x4-2 - lewy tył (MSP17).jpg|thumb|Rear quarter view of G 500 4×4²]]
+Continuing with the G 63 AMG 6×6 formula, Mercedes-Benz introduced the G 500 4×4², using the body of the long wheelbase 5-door station wagon on a shortened chassis from the G 63 AMG 6×6. The G500 4×4², along with the G 500/G 550, received a new 4.0-litre biturbo V8 ([[Mercedes-Benz M176/M177/M178 engine#M176|M176]]), producing {{Convert|310|kW|hp|0|abbr=on}}. The exterior is the same as the Mercedes-AMG G 63 and G 65 despite the G 500 4×4² not being a Mercedes-AMG edition.<ref>{{Cite web|url=http://www.gtspirit.com/2015/02/21/exclusive-mercedes-benz-g-500-4x4%C2%B2-review/ |title=Exclusive: Mercedes-Benz G500 4×4² Review |date=21 February 2015 |work=GT Spirit |first=Des |last=Sellmeyer}}</ref>
+
+====Mercedes-Maybach G 650 Landaulet (2017)====
+Following the success of the G 63 AMG 6×6 and G 500 4×4², Mercedes-Benz introduced the first SUV under the sub-brand name [[Maybach#Mercedes-Maybach|Mercedes-Maybach]] at the [[Geneva Motor Show]] in March 2017.<ref>{{Cite web |url=https://www.mercedes-benz.com/en/mercedes-benz/vehicles/passenger-cars/g-class/the-new-mercedes-maybach-g-650-landaulet/ |title=The new Mercedes-Maybach G 650 Landaulet, Strictly Limited: an open-air luxury both on and off road |access-date=18 February 2020 |work=Mercedes-Benz |archive-date=29 June 2019 |archive-url=https://web.archive.org/web/20190629134545/https://www.mercedes-benz.com/en/mercedes-benz/vehicles/passenger-cars/g-class/the-new-mercedes-maybach-g-650-landaulet/ |url-status=dead }}</ref> G 650 Landaulet used the extended chassis with the [[portal axle]]s and raised suspension system from the G 500 4×4². The rear end of the G 650 Landaulet was built from the rear part of the W463 cabriolet with a folding fabric roof covering the rear half of the body behind the B-pillar. The rear passenger doors with no wheel-opening cut-out were from the G 55 with extended wheelbase (2001). The front end is from the Mercedes-AMG G 65 with more chrome trims. The light alloy wheels and extendable side running boards are chrome plated. The powertrain is from the G 65 with the {{Convert|463|kW|hp|0|abbr=on}} biturbo V12.
+
+The interior is finished in ultimate luxury as found in Mercedes-Maybach GLS-Class and S-Class. Like the original Maybach 62 Landaulet, a division wall is installed behind the driver and front passenger. The second row seats are moved further back from the rear passenger doors and are the same rear seats as used in the Mercedes-Maybach S-Class. A second control panel and centre console is installed behind the division wall toward the rear. The dashboard above the second set is one set of the two front passenger's dashboards with a glove box and hold two large LED monitors.
+
+The sales price was €749,700, and the production was limited to 99 units.<ref>{{cite web|url=https://www.auto-motor-und-sport.de/news/mercedes-maybach-g650-landaulet-2017-fotos-daten-preise-marktstart/ |title=Brutalo-Teilcabrio feiert Genf-Premiere |language=de |first=Jochen |last=Knecht |date=6 March 2017 |work=Auto Motor und Sport}}</ref>
+
+{{Multiple image
+| align             = right
+| direction         = horizontal
+| width             = 
+| image1            = Mercedes-Maybach G 650 Landaulet IMG 0753.jpg
+| caption1          = Mercedes-Maybach G 650 Landaulet
+| image2            = Mercedes G 650 Landaulet Back IMG 0567.jpg
+| caption2          = The rear view of the Mercedes-Maybach G 650 Landaulet
+}}
+
+===AMG models===
+
+====500 GE 6.0 AMG (1993–1995)====
+For the first time, an AMG version of the G-Class was offered in 1993 with the 500 GE 6.0 AMG. The [[Mercedes-Benz M117 engine|M 117.965 E 50]] engine was bored from 5 to 6 litres, producing {{convert|243|kW|hp|0|abbr=on}} and {{convert|525|Nm|lbft|0|abbr=on}}. The increased output did not make the 500 GE 6.0 AMG much faster with a time of 10.9 seconds for 0–{{convert|100|km/h|0|abbr=on}}. Only thirteen units were built and it was available in long wheelbase form only.<ref>{{cite web|url=https://www.brabus.com/en/classics/C4S500GE.html |title=Mercedes-Benz 500 GE 6.0 |work=Brabus |access-date=16 February 2020}}</ref><ref>{{cite web|url=https://www.mercedes-fans.de/magazin/news/1-von-13-1994-500-ge-6-0-aus-brabus-komplettrestauration-mercedes-benz-500-ge-6-0-von-brabus-classic.14539 |work=Mercedes Fans |title=Mercedes-Benz 500 GE 6.0 AMG von BRABUS Classic |date=24 April 2019 |first=Luca |last=Felshart}}</ref><ref name="6.0"/>
+
+====G 36 AMG (1994–1997)====
+After AMG entered into co-operation with Mercedes-Benz in 1993, the G 36 AMG was introduced and fitted with the [[Mercedes-Benz M104 engine#AMG 3.6 L M104.941/M104.992|M104.992]], the same engine as found in the C 36 AMG and E 36 AMG.
+
+====G 43 AMG (1997–1998)====
+A total of 38 units of the G 43 AMG were produced between 1997 and 1998, all of them were special orders with country code "293 Company Vehicle", mostly for VIPs and probably secret services. Six of them bore 463.233 chassis numbers, as though they were G 320 LWBs that had their V6 engine replaced with a type M113.982 V8 engine. Bizarrely, the remaining 32 units were coded 463.241, meaning that they were meaning to be G 500 LWB that had the M113.982 AMG 4.3-litre engine fitted in lieu of the M113.962 standard 5-litre engine.{{Citation needed|date=August 2023}}
+
+Ten G 43 AMG were produced for the Japanese market.<ref>{{cite web|url=https://germancarsforsaleblog.com/class-of-23-1998-mercedes-benz-g43-amg/ |title=Class of '23: 1998 Mercedes-Benz G43 AMG |work=German Cars For Sale Blog |date=15 January 2023 |accessdate=20 August 2023}}</ref>
+
+====G 63 AMG V12 (2002)====
+The G 63 AMG V12 had a very limited production run with reportedly five units built between 2001 and 2003.<ref>[https://www.autopower.parts/mercedes-g-63-amg-v12-the-legendary-quot-cube-quot-produced-in-only-5-units.html Mercedes G 63 AMG V12: the legendary "cube", produced in only 5 units]</ref> It was the first G-Class with a V12 engine before Mercedes-AMG officially introduced the more powerful G 65 AMG. The engine produced {{Convert|326|kW|PS hp|0|abbr=on}} and propelled the G 63 AMG V12 to {{convert|100|km/h|0|abbr=on}} in 6.5 seconds.<ref>{{cite web|url=https://motor-car.net/mercedes-engines/item/13778-mercedes-m137-v12-engine|title=Mercedes-Benz M137 V12 engine|website=motor-car.net|accessdate=8 January 2020}}</ref> The retail price was [[Euro|€]] 189,329.<ref>{{cite web|url=https://www.autobild.de/artikel/mercedes-g-63-amg-v12-2001-gebrauchtwagen-27656011.html |title=Diese Mercedes G-Klasse gibt es nur fünf Mal |date=12 November 2024 |accessdate=9 June 2025 |work=Autobild |language=de |first=Jan |last=Götze}}</ref> Neither Mercedes-Benz nor AMG publicised the G 63 AMG V12: no sales brochures, advertisements, or exhibitions. Instead, the prospective buyers were selected from the AMG customer base and invited to purchase one. One of the five units, purchased new by the Dubai royal family, was sold in 2024 for [[USD|$]] 398,750 USD at an R.M. Sotheby's auction.<ref>{{cite web|url=https://rmsothebys.com/auctions/df24/lots/r0044-2002-mercedesbenz-g-63-amg-v12/ |title=2002 Mercedes-Benz G 63 AMG V12 |work=R.M. Sotheby's |accessdate=9 June 2025}}</ref>
+
+====G 55 AMG (2002–2004) and G 55 AMG Kompressor (2004–2012)====
+[[File:Black G 55 AMG fr.jpg|thumb|right|G 55 AMG]]
+Citing the sales success of the G 500 in the United States and the absorption of AMG into DaimlerChrysler AG, Mercedes-Benz began to expand the AMG versions to several models, including the G-Class. To coincide with the official launch of the G-Class in the United States, Mercedes-Benz introduced the 55 AMG along with the G 500 in 2001 for the 2002 model year. The G 55 AMG visually did not differ from the G 500 other than side exhaust pipes, wider tyres, AMG five-spoke wheels, chrome tip at bottom of front bumper, and AMG lettering in the rear. The G 55 AMG became the favourite of celebrities and the wealthy.
+
+For the 2005 model year, AMG revised the G 55 AMG by adding a [[supercharger]] to the 5.4-litre V8 engine, increasing the output to {{Convert|350|kW|hp|0|abbr=on}}.
+
+In 2009, to differentiate the G 55 AMG KOMPRESSOR from the G 500 visually, AMG changed the radiator grille to three thick fins, added the embossed metal KOMPRESSOR lettering underneath the V8 badge on the front fenders/wings, and introduced new light-alloy wheels in titanium grey and three new metallic paint colours (Calcite White, Periclase Green, and Teallite Blue). The 0–{{convert|100|km/h|mph|0|abbr=on}} acceleration was reduced from 7.4 to 5.6 seconds. Yet, the top speed remained at {{convert|210|km/h|mph|0|abbr=on}}. The engine was upgraded again for 2006 (2007MY in USA) to {{Convert|368|kW|hp|0|abbr=on}} then again to {{Convert|373|kW|hp|0|abbr=on}} for 2008 (2009MY in USA).
+
+==== G 63 AMG (2012–2018) {{anchor|G63 AMG|G 63 AMG|G63|G 63}} ====
+[[File:Mercedes-Benz G 63 AMG (51921550544).jpg|thumb|G 63 AMG]]
+The supercharged 5.4-litre V8 was replaced by the new 5.5-litre biturbo V8 for 2012 (2013MY in USA) for better fuel consumption and lower emissions. AMG made some more changes to the exterior to give the G 63 AMG a more "brawly" appearance: single horizontal fin with twin chrome edges in the middle of the radiator grille with a more prominent three-pointed star ornament in the middle, a new light-alloy wheel design, three enlarged airflow inlets on both sides and in the middle of the front bumper, vertical chrome strips to cover the small bumper guards and exterior rear-view mirrors from the [[Mercedes-Benz GL-Class#Second generation (X166; 2013)|GL-Class]] and [[Mercedes-Benz M-Class#Third generation (W166/C292; 2011)|ML-Class]]. The mechanical upgrade was an AMG sports exhaust system with high-gloss chrome inserts, larger AMG high performance brakes with six-piston fixed calipers at the front from the ML 63 AMG and revised suspension and damper settings for more dynamic handling characteristics. The new E-SELECT gear selector from the Mercedes-Benz SLS replaced the standard gear selector.
+
+For 2016, the name was changed to Mercedes-AMG G 63.
+
+====G 65 AMG (2012–2018)====
+{{main|Mercedes-AMG G 65}}
+[[File:Mercedes-Benz G-Klasse Cabriolet (W443) G 65 AMG (2017).jpg|thumb|G 65 AMG]]
+The G 63 AMG V12, built in 2002, demonstrated the feasibility of installing a V12 engine in the G-Class. The new G 65 AMG was introduced at the same time as the G 63 AMG V8, making the G 65 AMG the third production passenger SUV to have a V12 engine, with the [[Lamborghini LM002]] (built from 1986 to 1993) being the first one. The G 65 AMG is powered by a twin-turbocharged [[Mercedes-Benz M279 engine|M279]] V12 engine, and is otherwise equipped the same as the G 63 AMG, aside from minor cosmetic differences, with V12 BITURBO badges on the front fenders/wings, floor mats and seat backs.
+
+Like the G 63, the name was changed to Mercedes-AMG G 65 for 2016.
+
+====G 63 AMG 6×6 (2013–2015)====
+{{see also|Mercedes-Benz G63 AMG 6x6}}
+To mark the thirtieth anniversary of G-Wagen production, Mercedes-Benz introduced the new stretched version with six-wheel-drive system and portal axles.<ref>{{cite web|url=https://www.mercedes-benz.com/en/innovation/vehicle-development/the-automotive-declaration-of-independence/ |title=The Automotive Declaration of Independence |work=Mercedes-Benz |access-date=17 February 2020}}</ref><ref>{{cite web|url=https://www.forbes.com/sites/jimgorzelany/2013/03/06/a-six-wheeled-mercedes-g-class-could-be-the-ultimate-road-warrior/ |title=A Six-Wheeled Mercedes G-Class Could Be The Ultimate Road Warrior |date=6 March 2013 |work=Forbes |last=Gorzelany |first=Jim}}</ref> The G 63 AMG 6×6 was derived from a model developed specifically for the Australian Army in 2007. Despite the heavy weight and large dimensions, the G 63 AMG 6×6 could accelerate to {{convert|100|km/h|mph|0|abbr=on}} in six seconds and reach a top speed of {{convert|160|km/h|mph|0|abbr=on}}.
+
+The consumer reception of the G 63 AMG 6×6 was stronger than anticipated, and Mercedes-Benz sold slightly more than 100 units, with the last customer delivery taking place in May 2015.<ref>{{cite web|url=http://www.gtspirit.com/2015/02/17/exclusive-mercedes-benz-g63-amg-6x6-sold-out/ |title=Mercedes-Benz G63 AMG 6×6 Sold Out |last=Anderson |first=Brad |date=17 February 2015 |work=GT Spirit}}</ref>
+
+{{Multiple image
+| align             = left
+| direction         = horizontal
+| width             = 
+| image1            = Mercedes-Benz W463 G 63 AMG 6x6 at Legendy 2014 (cropped).JPG
+| caption1          = Mercedes-Benz G 63 AMG 6×6
+| image2            = Mercedes-Benz G63 AMG 6x6, Monaco diplomatic plates, rear right.jpg
+| caption2          = Rear quarter view of the Mercedes-Benz G 63 6×6
+| image3            = Mercedes-Benz G-Class 6x6 JPN 005.JPG
+| caption3          = Mercedes-Benz G 63 6×6 dashboard
+| image4            = Mercedes-Benz G-Class 6x6 JPN 007.JPG
+| caption4          = Mercedes-Benz G 63 6×6 tyre pressure regulation switches
+| image5            = Mercedes Benz G 63 AMG Brabus B63S 700 6x6 (14569321096).jpg
+| caption5          = Brabus G 63 700 AMG 6×6
+}}
+
+{{clear}}
+
+===Concept cars===
+
+====Mercedes-Benz G-Wagen Light Armoured Patrol Vehicle 6.X CONCEPT (2010)====
+It is an armoured patrol vehicle developed with EADS, based on LAPV 5.4. It included a diesel engine, 1.3 tonnes of cargo capacity, a monocoque full steel body, compact {{convert|2850|mm|in|1|abbr=on|}} wheelbase, modular armour plate and mine deflector plate underneath the floor, adjustable variable lift front and rear coil-over air shock absorbers with a maximum of {{convert|450|mm|in|1|abbr=on|}} of ground clearance and hydraulic brakes with four ventilated discs. EADS provided the communication technology: vehicle data recorder system, integrated communication system for UHF or VHF bands, integrated mobile command, control and information system, and jamming system. The vehicle was unveiled in EUROSATORY 2010.<ref>{{Cite web |url=http://www.autoblog.com/2010/07/06/mercedes-benz-g-wagon-lapv-6-x-concept-ready-to-blitz-the-front/ |title=Mercedes-Benz G-Wagon LAPV 6.X Concept ready to blitz the front |first=Noah |last=Joseph |date=6 July 2010}}</ref>
+
+====Ener-G-Force (2012)====
+{{Multiple image
+| align             = left
+| direction         = horizontal
+| width             = 
+| image1            = Mercedes-Benz Ener-G-Force Concept (13172004965).jpg
+| caption1          = Mercedes-Benz Ener-G Force
+| image2            = Mercedes Benz Ener-G-Force (rear) 2012 LA Show (cropped).jpg
+| caption2          = The rear view of the Mercedes-Benz Ener-G Force
+}}
+
+The Ener-G-Force was a concept vehicle in response to the Los Angeles Design Challenge 2012 for a future police car. The vehicle was unveiled at the [[LA Auto Show#2012|2012 LA Auto Show]]. The concept vehicle was hydrogen-powered with fuel cells generating the electricity to the electric motors inside the wheel hubs. A roof rack contained the water tanks with a hydrogen converter, and the body included a three-panel greenhouse, 20-inch wheels and side skirts illuminating the charge and operation status of energy packs.<ref>{{Cite web |url=http://www.autoblog.com/2012/11/16/mercedes-benz-ener-g-force-concept-is-a-g-class-for-the-future/ |title=Mercedes-Benz Ener-G-Force concept is a G-Class for the future |first=Jeffrey |last=Ross |date=16 November 2012 |work=Autoblog}}</ref><ref>{{Cite web |url=http://www.autoblog.com/2012/11/29/mercedes-benz-ener-g-force-la-2012/ |title=Mercedes-Benz Ener-G-Force Concept is mean, clean and green |first=Michael |last=Harley |date=29 November 2012 |work=Autoblog}}</ref>
+
+===Marketing===
+The W463 was positioned in the marketplace as a luxury passenger vehicle to compete with the likes of Bentley. After Mercedes-Benz launched the G-Class in the United States with the G 500 and G 55 AMG models, the G-Class became very popular with celebrities, film stars, and the wealthy. The G-Class has appeared in numerous films, television series, and music videos ever since.<ref>{{cite web|url=https://www.imcdb.org/vehicles.php?make=Mercedes-Benz&model=W463&modelMatch=2&modelInclChassis=on |title=Mercedes-Benz G-Class Search Result |work=Internet Movie Car Database |access-date=16 February 2020}}</ref>
+
+As part of Mercedes-Benz's attempt to demonstrate the off-road capability of the G-Class SUV, seven G-Class vehicles took a journey from [[Halls Creek]] in Western Australia to [[Wiluna, Western Australia|Wiluna]]. However, shock absorbers on six of the vehicles (5 civilian G 350s and 1 military model) were broken during their trip on the corrugations of the [[Canning Stock Route]] on day 7. Mercedes-Benz Australia later arranged for the replacement shock absorbers to land in Perth, before transferring to a light plane destined for a remote Aboriginal settlement close to Well 33, about 1000&nbsp;km from Wiluna. The parts would be delivered by the sole surviving vehicle, a G-Professional.<ref>{{Cite web |url=http://www.autoblog.com/2011/08/08/australian-outback-cripples-fleet-of-mercedes-g-wagons-during-pr/ |title=Australian Outback cripples fleet of Mercedes G-Wagens during PR event |first=Jeremy |last=Korzeniewski |date=8 August 2011}}</ref><ref>{{Cite web |url=http://www.caradvice.com.au/131418/mercedes-benz-g-class-broken-by-the-australian-outback/ |title=Mercedes-Benz G-Class broken by the Australian Outback |work=Car Advice |first=Tim |last=Beissmann |date=5 August 2011}}</ref>
+
+===End of production debacle and revised decisions===
+Mercedes-Benz announced that 2005 would be the final year of the G-Class to be sold in the United States, citing the new [[Mercedes-Benz GL-Class (X164)|GL-Class]] as its successor. The 500 units of G 500 and G 55 AMG '''Grand Edition''' were built and shipped to the United States. However, an unexpected order placed by the [[U.S. Marine Corps]] for 157 [[Interim Fast Attack Vehicle|Interim Fast Attack Vehicle (IFAV)]] based on the G-Class, replacing its ageing, slow, and cumbersome [[Desert Patrol Vehicle]]s, caused Mercedes-Benz to rescind its decision and to continue offering the G-Class in the United States.
+
+This '''Grand Edition''' also led to the rumours of the end of production of the W463 in 2006. A few factors contributed to the rumours: the increasing difficulties in meeting the newer and stricter safety and emission regulations, especially the new EU regulations on pedestrian protection; Mercedes-Benz had introduced new GL-Class as an intended successor; and military contracts fulfilled. An outcry among enthusiasts who admired the G-Class for its tremendous off-road potential along with its reputation and cachet showed that a market still existed for such a vehicle. On 11 November 2005, Dieter Zetsche, DaimlerChrysler Board of Management member and head of the Mercedes Car Group, announced that G-Class production would continue. At the [[2006 Paris Motor Show|Paris Motor Show]] in September 2006, Mercedes-Benz reiterated that the G-Class would continue to be manufactured through 2015 due to the strong worldwide demand by both civilian and military buyers.<ref>{{cite web |url=http://www.emercedesbenz.com/Nov05/11MercedesToContinueGClass.html |title=Mercedes To Continue Producing G-Class |date=11 November 2005 |work=eMercedes-Benz |archive-url=https://web.archive.org/web/20121130045004/http://www.emercedesbenz.com/Nov05/11MercedesToContinueGClass.html |archive-date=30 November 2012 |url-status=dead |access-date=6 December 2012 }}</ref> Daimler AG extended the manufacturing contract with Magna Steyr to continue producing the W463 until 2017.
+
+In late 2017, the end of production of the first generation W463 was announced with the heavily reengineered and updated successor to be introduced in 2018 for the 2019 model year.<ref>{{cite web |title=Mercedes bids current G-Class adieu with three special editions |url=https://www.nydailynews.com/autos/news/mercedes-g-class-production-ends-special-edition-models-article-1.3619499 |work=NY Daily News |access-date=1 July 2019 |language=en}}</ref>
+
+===Updates (1990–2018)===
+
+====1994 update====
+The update was minor with the model designation revised to reflect the new nomenclature system and with an enlarged six-cylinder inline petrol engine for the G 320, replacing the G 300. The Italy-only 200 GE/G 200 and 230 GE/G 230 were dropped, marking the end for the G-Class with the four-cylinder inline engine until G 350 was reintroduced for Chinese market in 2020. After the 200 GE/G 200, 230 GE/G 230, and 300 GE/G 300 were dropped in 1994, manual transmission was dropped from the W463 for good. The steering wheel received the driver's side airbag.
+
+====1997 update====
+The W463 received its mechanical update in 1997. The update included a new power-assisted folding mechanism for its convertible. The engine range was revised with six-cylinder engines shifting from inline to V-form for both petrol and diesel versions. The G 500 was reintroduced with a new V8 petrol engine. The W463 received dual airbags for the driver and the front passenger.
+
+====2002 update====
+The external rear-view mirrors were revised with integrated turn signal repeaters and power-assisted mirror control, eliminating the separate turn signal indicators attached to the body. The front and rear turn signal indicators received a clear lens. The newly revised headlamps for both American and international markets were also given clear glass lenses. The interior was updated with more creature comforts and better control switches. In 2002, Mercedes-Benz officially launched the G-Class in the United States for the first time since its inception in 1979 with the G 500 and G 55 AMG.
+
+====2005 update====
+Mercedes-Benz announced the new G55 AMG Kompressor model with a more powerful, supercharged 5.4L V8 engine (code 113.993, or M113K), replacing the naturally aspirated 5.0L V8 engine (113.982, or M113). The G 500 was renamed as G 550 for certain markets (not USA until 2009).
+
+====2006 update====
+This minor update revised the engine range with a new 3.0-litre V6 diesel engine in the G 320 CDI, replacing both the G 270 CDI and G 400 CDI. The G 500 and G 55 AMG Kompressor continued unchanged. The G 320 with the petrol engine was dropped, marking the suspension of six-cylinder petrol engines until 2018. The G 55 AMG Kompressor remained as a five-door station wagon while the G 320 CDI and G 500 were offered in three body styles: two-door cabriolet and station wagons with three-door short and five-door long wheelbases.
+
+====2007 update====
+Mercedes-Benz showcased a heavily revised 2007 model at the [[2006 Paris Motor Show|Paris Motor Show]] in September 2006 with emphasis on an updated interior, engine range, and new safety equipment.<ref>{{cite web |url=http://www.autoweek.com/apps/pbcs.dll/article?AID=/20060502/FREE/60501010&SearchID=73250322941160 |title=Mercedes to show face-lifted G-Class ute at upcoming Paris auto show (''AutoWeek Magazine'') |publisher=Autoweek.com |first=Jens |last=Meiners |date=6 May 2010 |archive-url=https://web.archive.org/web/20100908111114/http://www.autoweek.com/apps/pbcs.dll/article?AID=%2F20060502%2FFREE%2F60501010&SearchID=73250322941160 |archive-date=8 September 2010 |url-status=dead |access-date=26 June 2019 }}</ref>
+
+For 2007, the G-Class received its first [[High-intensity discharge lamp|high-intensity discharge headlamps]], reversing camera, and tire pressure monitoring system (the latter two are federally mandated safety equipment for the United States). 2007 G500's in the USA start to phase out the 722.6 5spd transmission, and instead start coming with the new 722.9 7spd transmission. The G55(K)'s still have the 722.6 5spd transmission. The G 500 could be fitted with the sports side exhaust pipes from the G 55 AMG for extra cost. The power output for the G 55 AMG was increased from {{convert|350|kW|hp|0|abbr=on}} to {{convert|368|kW|hp|0|abbr=on}}.
+
+The interior received a new instrument cluster with four chrome-trimmed round gauges from the [[Mercedes-Benz C-Class (W204)|C-Class]] and a new four-spoke multi-function steering wheel with options of full leather cover or combination of leather and wood. The centre console was updated with new control switches for the vehicle's functions and a new climate control panel along with new COMAND APS infotainment and navigation system. In conjunction with the reversing camera, COMAND APS displays the rear view and graph representation of distance and width, assisting the driver during reversing maneuvers. The new ARTICO upholstery colour, cognac, was added to black and grey interior colour options.
+
+====2008 update====
+The 2008 update included a new radiator grille with three thicker horizontal fins, replacing the previous seven, thinner fins. The COMAND APS infotainment and navigation system was revised with many new or extended functions such as the LINGUATRONIC voice control system, a 12-speaker Harman Kardon Logic 7 surround sound stereo system, TV tuner and a special off-road menu for the G 320 CDI and G 500 model. Heated and ventilated front seats were also offered.
+
+Last year for the G500 in the USA.
+
+====2009 update====
+The 2009 G550 replaces the 2008 G500, and gets a new 5.5-litre V8 petrol engine with {{convert|285|kW|hp|0|abbr=on}} [mated to the 722.9 7spd transmission], replacing the 5.0-litre {{convert|218|kW|hp|0|abbr=on}} that was in the 2008 G500. The new engine will improve the acceleration for the new G550.
+
+The 2009 and 2010 vehicles saw the absence of a trailer hitch making this the first model years since the vehicles inception where no native towing hardware was available on the vehicle.
+
+For the 30th anniversary of production, Mercedes-Benz offered two special anniversary editions. One was the G 500/G 550 with a more opulent interior and exclusive designo leather upholstery along with special decals. Another one was a new utility model, the G 280 CDI Edition 30 PUR, consisting of the W461 chassis with a 3.0-litre V6 turbodiesel engine (OM 642 DE LA red.) and the W463 four-wheel-drive system.
+
+====2011 update====
+Last year for the G55(K) [with 722.6 5spd transmission], in the USA.
+
+====2012 update====
+[[File:Mercedes-Benz G 63 AMG 2012.JPG|thumb|left|G 63 AMG with revised front end]]
+After its last major update in 2007, the interior received a completely redesigned instrument panel and centre console adapted from the [[Mercedes-Benz M-Class#Third generation (W166/C292; 2011)|ML-Class]]. The COMAND APS touchscreen and control panel were moved up toward the top of the dashboard for easier viewing and operation. The COMAND APS was updated with the MBrace2 telematics system. Additional safety features included DISTRONIC adaptive cruise control, blind-spot monitoring, revised PARKTRONIC reverse sensors and rear-view camera and revised ATS4 stability control for improved trailer stabilising functionality.
+
+Externally, the G-Class received the same horizontal bars of LED daytime running lamps underneath the headlamps and the new external side rear-view mirrors as the GL-Class and ML-Class models. The AMG version received a new front bumper with three large air intakes.
+
+The 5.4-litre supercharged V8 [with 722.6 5spd transmission] in the 2011 G55(K) will be replaced by a new 5.5-litre biturbo V8 [with 722.9 7spd transmission] for increased performance on the upcoming 2013 G63. Topping out the G-Class model range was a new G 65 AMG with a 6-litre biturbo V12 petrol engine. Two models were carried over unchanged: the G 350 CDI BlueTEC and G 500/G 550.<ref>{{Cite web |url=http://www.autoblog.com/2012/04/11/mercedes-introduces-2013-g-class-including-612-hp-g65-amg/ |title=Mercedes introduces 2013 G-Class, including 612-HP G65 AMG |date=11 April 2012 |work=Autoblog |first=Jonathon |last=Ramsey }}</ref>
+
+====2016 update====
+For the 2016 model year, the outgoing [[Mercedes-Benz M273 engine|M273]] 5.5-litre naturally aspirated V8 fitted to the G 500/G 550 was replaced by the new [[Mercedes-Benz M176/M177/M178 engine|M176]] 4.0-litre biturbo V8 for increased horsepower and torque.<ref>{{cite web |last1=Meiners |first1=Jens |date=20 October 2015 |title=2016 Mercedes-Benz G550 |url=https://www.caranddriver.com/reviews/a15105172/2016-mercedes-benz-g550-first-drive-review/ |website=Car and Driver}}</ref>
+
+===Technical data===
+
+====Engine (1990–2018)====
+''Notes: '''(m)''' and '''(a)''' denote "manual" and "automatic" transmissions where applicable. '''Fuel consumption''' marked with * denotes the older EEC regulation of "urban, 90 km/h, and 120 km/h" (U/90/120). '''Top speed''' with ** denotes the "electronically limited".''
+{| class="wikitable"
+!Model!!Years!!Configuration!!Displacement!!Power!!Torque!!{{convert|0–100|km/h|mph|0|abbr=on}}!!Top speed!!Fuel consumption/efficiency<br />(EU-norm combined)
+|-
+! colspan="9" style="text-align:center"|Petrol engines
+|-
+|200 GE<br />(Italy)
+|1990–1994
+|I4 ([[Mercedes-Benz M102 engine|M 102.965 E 20 KAT]])
+|{{convert|1996|cc|cuin|abbr=on}}
+|{{cvt|85|kW|PS hp|0}} at 5,200 rpm<br />Cat: {{cvt|83|kW|PS hp|0}}
+|{{cvt|172|Nm|lbft|0}} at 3,500 rpm
+|20.8 seconds
+|{{Convert|144|km/h|0|abbr=on}}
+|{{convert|15.6|L/100 km|mpgUS|abbr=on}}*<br />{{convert|11.1|L/100 km|mpgUS|abbr=on}}*<br />{{convert|15.7|L/100 km|mpgUS|abbr=on}}*
+|-
+|rowspan="2"|230 GE<br />G 230
+|rowspan="2"|1990–1995
+|rowspan="2"|I4 ([[Mercedes-Benz M102 engine|M 102.989 E 23 KAT]])
+|rowspan="2"|{{convert|2298|cc|cuin|abbr=on}}
+|rowspan="2"|{{cvt|93|kW|PS hp|0}} at 5,000 rpm
+|rowspan="2"|{{convert|190|Nm|lbft|0|abbr=on}} at 4,000 rpm
+|17.7 seconds (m)
+|{{Convert|145|km/h|0|abbr=on}} (m)
+|{{convert|16.4|L/100 km|mpgUS|abbr=on}}* (m)<br />{{convert|12.7|L/100 km|mpgUS|abbr=on}}*<br />{{convert|17.3|L/100 km|mpgUS|abbr=on}}*
+|-
+|18.4 seconds (a)
+|{{Convert|144|km/h|0|abbr=on}} (a)
+|{{convert|15.1|L/100 km|mpgUS|abbr=on}}* (a)<br />{{convert|13.1|L/100 km|mpgUS|abbr=on}}*<br />{{convert|18.0|L/100 km|mpgUS|abbr=on}}*
+|-
+|rowspan="2"|300 GE<br />G 300
+|rowspan="2"|1990–1994
+|rowspan="2"|I6 ([[Mercedes-Benz M103 engine|M 103.987 E 30 KAT]])
+|rowspan="2"|{{convert|2962|cc|cuin|abbr=on}}
+|rowspan="2"|{{cvt|125|kW|PS hp|0}} at 5,700 rpm
+|rowspan="2"|{{convert|190|Nm|lbft|0|abbr=on}} at 4,000 rpm
+|13.5 seconds (m)
+|{{cvt|164|km/h|mph|0}} (m)
+|{{convert|18.7|L/100 km|mpgUS|abbr=on}}* (m)<br />{{convert|13.4|L/100 km|mpgUS|abbr=on}}*<br />{{convert|17.7|L/100 km|mpgUS|abbr=on}}*
+|-
+|14 seconds (a)
+|{{Convert|162|km/h|0|abbr=on}} (a)
+|{{convert|18.2|L/100 km|mpgUS|abbr=on}}* (a)<br />{{convert|14.2|L/100 km|mpgUS|abbr=on}}*<br />{{convert|19.2|L/100 km|mpgUS|abbr=on}}*
+|-
+|rowspan="2"|G 320
+|1994–1998
+|I6 ([[Mercedes-Benz M104 engine|M 104.996 E 32]])
+|{{convert|3199|cc|cuin|abbr=on}}
+|{{cvt|155|kW|PS hp|0}} at 5,500 rpm
+|{{convert|300|Nm|lbft|0|abbr=on}} at 3,750 rpm
+|12.1 seconds
+|{{Convert|175|km/h|0|abbr=on}}
+|{{convert|16.6|L/100 km|mpgUS|abbr=on}}*<br />{{convert|14.0|L/100 km|mpgUS|abbr=on}}*<br />{{convert|18.4|L/100 km|mpgUS|abbr=on}}*
+|-
+|1997–2006
+|V6 ([[Mercedes-Benz M112 engine|M 112.945 E 32]])
+|{{convert|3199|cc|cuin|abbr=on}}
+|{{cvt|160|kW|PS hp|0}} at 5,600 rpm
+|{{convert|300|Nm|lbft|0|abbr=on}} at 2,800–4,800 rpm
+|10.9 seconds
+|{{Convert|175|km/h|0|abbr=on}}
+|{{convert|15.5|L/100 km|mpgUS|abbr=on}}
+|-
+|G 36 AMG
+|1994–1995
+|I6 ([[Mercedes-Benz M104 engine|M 104.992 E 36]])
+|{{convert|3606|cc|cuin|abbr=on}}
+|{{cvt|206|kW|PS hp|0}} at 5,750 rpm
+|{{convert|385|Nm|lbft|0|abbr=on}} at 4,000 rpm
+|9.6 seconds
+|{{cvt|190|km/h|mph|0}}
+|—
+|-
+|500 GE
+|1993–1994
+|V8 ([[Mercedes-Benz M117 engine|M 117.965 E 50]])
+|{{convert|4973|cc|cuin|abbr=on}}
+|{{cvt|177|kW|PS hp|0}} at 5,200 rpm
+|{{convert|365|Nm|lbft|0|abbr=on}} at 3,750 rpm
+|11.4 seconds
+|{{Convert|180|km/h|0|abbr=on}}
+|—<br />{{convert|16.1|L/100 km|mpgUS|abbr=on}}*<br />{{convert|21.8|L/100 km|mpgUS|abbr=on}}*
+|-
+|500 GE 6.0 AMG<ref name="6.0"/>
+|1993
+|V8 ([[Mercedes-Benz M117 engine|M 117.965 E 50]])
+|{{convert|5953|cc|cuin|abbr=on}}
+|{{cvt|243|kW|PS hp|0}} at 5,250 rpm
+|{{cvt|525|Nm|lbft|0}} at 4,000 rpm
+|10.9 seconds
+|{{Convert|195|km/h|0|abbr=on}}
+|—
+|-
+|G 500
+|1998–2008
+|V8 ([[Mercedes-Benz M113 engine|M 113.965 E 50]])
+|{{cvt|4966|cc|cuin|1}}
+|{{cvt|218|kW|PS hp|0}} at 5,500 rpm
+|{{convert|456|Nm|lbft|0|abbr=on}} at 2,800–4,000 rpm
+|9.7–10.2 seconds
+|{{Convert|190|km/h|0|abbr=on}}
+|{{convert|16.7|L/100 km|mpgUS|abbr=on}}
+|-
+|rowspan="2"|G 500<br />G 550 (USA, 2005–2018)
+|2008–2015
+|V8 ([[Mercedes-Benz M273 engine|M 273 KE 55]])
+|{{cvt|5461|cc|cuin|1}}
+|{{cvt|285|kW|PS hp|0}} at 6,000 rpm
+|{{convert|530|Nm|lbft|0|abbr=on}} at 2,800–4,800 rpm
+|5.9–6.1 seconds
+|rowspan="3"|{{Convert|210|km/h|0|abbr=on}}
+|{{convert|14.9|L/100 km|mpgUS|abbr=on}}
+|-
+|2015–2018
+|rowspan=2"|V8 [[biturbo]] ([[Mercedes-Benz M176 engine|M 176 DE 40 AL]])
+|rowspan=2"|{{cvt|3982|cc|cuin|1}}
+|rowspan=2"|{{cvt|310|kW|PS hp|0}}at 5,250–5,500 rpm
+|rowspan=2"|{{cvt|610|Nm|lbft|0}} at 2,250–4,750 rpm
+|5.9 seconds
+|{{convert|12.3|L/100 km|mpgUS|abbr=on}}
+|-
+|G 500 4×4²
+|2015–2018
+|7.4 seconds
+|{{convert|13.8|L/100 km|mpgUS|abbr=on}}
+|-
+|rowspan="4"|G 55 AMG
+|2001–2003
+|V8 ([[Mercedes-Benz M113 engine|M 113 E 55]])
+|rowspan="4"|{{cvt|5439|cc|cuin|1}}
+|{{cvt|260|kW|PS hp|0}}} at 5,500 rpm
+|{{convert|525|Nm|lbft|0|abbr=on}} at 2,800–4,000 rpm
+|7.4 seconds
+|{{Convert|209|km/h|0|abbr=on}}
+|{{convert|15.9|L/100 km|mpgUS|abbr=on}}
+|-
+|2004–2006
+|rowspan="3"|V8 [[supercharged]] ([[Mercedes-Benz M113 engine|M 113 E 55 ML]])
+|{{cvt|350|kW|PS hp|0}} at 6,100 rpm
+|{{convert|700|Nm|lbft|0|abbr=on}} at 2,650–4,500 rpm
+|5.6 seconds
+|rowspan="3"|{{Convert|210|km/h|0|abbr=on}}
+|{{convert|16.3|L/100 km|mpgUS|abbr=on}}
+|-
+|2006–2008
+|{{cvt|368|kW|PS hp|0}} at 6,100 rpm
+|rowspan="2"|{{cvt|700|Nm|lbft|0}} at 2,750–4,000 rpm
+|rowspan="2"|5.5 seconds
+|rowspan="2"|{{convert|15.9|L/100 km|mpgUS|abbr=on}}
+|-
+|2008–2012
+|{{cvt|373|kW|PS hp|0}} at 6,100 rpm
+|-
+|G 63 AMG (V8)
+|2012–2015
+|rowspan="2"|V8 [[biturbo]] ([[Mercedes-Benz M157 engine|M 157 DE 55 AL]])
+|rowspan="2"|{{cvt|5461|cc|cuin|1}}
+|{{cvt|400|kW|PS hp|0}} at 5,500 rpm
+|{{cvt|800|Nm|lbft|0}} at 1,700–5,000 rpm
+|rowspan="2"|5.4 seconds
+|rowspan="2"|{{Convert|210|km/h|0|abbr=on}}**
+|rowspan="2"|{{convert|13.8|L/100 km|mpgUS|abbr=on}}
+|-
+|Mercedes-AMG<br />G 63
+|2015–2018
+|{{cvt|420|kW|PS hp|0}} at 5,500 rpm
+|{{convert|800|Nm|lbft|0|abbr=on}} at 1,700–5,000 rpm
+|-
+|G 63 AMG (V12)
+|2002–2003
+|V12 ([[Mercedes-Benz M137 engine|M 137 E 63]])
+|{{cvt|6258|cc|cuin|1}}
+|{{cvt|326|kW|PS hp|0}} at 5,500 rpm
+|{{convert|620|Nm|lbft|0|abbr=on}} at 4,400 rpm
+|6.5 seconds
+|{{Convert|210|km/h|0|abbr=on}}
+|—
+|-
+|G 63 AMG 6×6
+|2013–2015
+|V8 [[biturbo]] ([[Mercedes-Benz M157 engine|M 157 DE 55 AL red.]])
+|{{cvt|5461|cc|cuin|1}}
+|{{cvt|400|kW|PS hp|0}} at 5,500 rpm
+|{{convert|760|Nm|lbft|0|abbr=on}} at 1,700–5,000 rpm
+|7.9 seconds
+|{{Convert|160|km/h|0|abbr=on}}
+|—<br />—<br />{{convert|15.6|L/100 km|mpgUS|abbr=on}}
+|-
+|G 65 AMG 
+|2012–2015
+|rowspan="3"|V12 [[biturbo]] ([[Mercedes-Benz M279 engine|M 279 E 60 AL]])
+|rowspan="3"|{{convert|5980|cc|cuin|abbr=on}}
+|{{cvt|450|kW|PS hp|0}} at 4,300–5,600 rpm
+|rowspan="3"|{{convert|1000|Nm|lbft|0|abbr=on}} at 2,300–4,300 rpm
+|rowspan="2"|5.3 seconds
+|rowspan="2"|{{Convert|230|km/h|0|abbr=on}}
+|rowspan="2"|{{convert|17.0|L/100 km|mpgUS|abbr=on}}
+|-
+|Mercedes-AMG<br />G 65
+|2015–2018
+|rowspan="2"|{{cvt|463|kW|PS hp|0}} at 4,800–5,400 rpm
+|-
+|Mercedes-Maybach G 650 Landaulet
+|2017-2018
+|6.0 seconds
+|{{Convert|180|km/h|0|abbr=on}}
+|—
+|-
+! colspan="9" style="text-align:center"|Diesel engines
+|-
+|250 GD
+|1990–1992
+|I5 ([[Mercedes-Benz OM602 engine|OM 602.931 D 25]])
+|{{convert|2497|cc|cuin|abbr=on}}
+|{{cvt|69|kW|PS hp|0}} at 4,600 rpm
+|{{convert|158|Nm|lbft|0|abbr=on}} at 2,600–3,100 rpm
+|28.1 seconds
+|{{Convert|132|km/h|0|abbr=on}}
+|{{convert|13.5|L/100 km|mpgUS|abbr=on}}*<br />{{convert|10.5|L/100 km|mpgUS|abbr=on}}*<br />{{convert|15.2|L/100 km|mpgUS|abbr=on}}*
+|-
+|G 270 CDI
+|2002–2006
+|I5 [[Turbocharger|turbo]] ([[Mercedes-Benz OM612 engine|OM 612.965 DE 27 LA]])
+|{{convert|2685|cc|cuin|abbr=on}}
+|{{cvt|115|kW|PS hp|0}} at 4,200 rpm
+|{{cvt|400|Nm|lbft|0}} at 1,800–2,600 rpm
+|13.2–13.7 seconds
+|{{Convert|160|km/h|0|abbr=on}}
+|{{convert|12.8|L/100 km|mpgUS|abbr=on}}<br />{{convert|9.6|L/100 km|mpgUS|abbr=on}}<br />{{convert|10.9|L/100 km|mpgUS|abbr=on}}
+|-
+|rowspan="2"|300 GD<br />G 300 D
+|rowspan="2"|1990–1994
+|rowspan="2"|I6 ([[Mercedes-Benz OM603 engine|OM 603.931 D 30]])
+|rowspan="2"|{{convert|2996|cc|cuin|abbr=on}}
+|rowspan="2"|{{cvt|83|kW|PS hp|0}} at 4,600 rpm
+|rowspan="2"|{{convert|191|Nm|lbft|0|abbr=on}} at 2,700–2,900 rpm
+|22.2 seconds (m)
+|{{Convert|141|km/h|0|abbr=on}} (m)
+|{{convert|14.7|L/100 km|mpgUS|abbr=on}}* (m)<br />{{convert|10.9|L/100 km|mpgUS|abbr=on}}*<br />{{convert|16.0|L/100 km|mpgUS|abbr=on}}*
+|-
+|23.3–23.6 seconds (a)
+|{{Convert|138–141|km/h|0|abbr=on}} (a)
+|{{convert|12.5|L/100 km|mpgUS|abbr=on}}* (a)<br />{{convert|10.8|L/100 km|mpgUS|abbr=on}}*<br />{{convert|15.9|L/100 km|mpgUS|abbr=on}}*
+|-
+|G 300 D Turbodiesel
+|1996–2001
+|I6 [[Turbocharger|turbo]] ([[Mercedes-Benz OM606 engine|OM 606.964 D 30 LA]])
+|{{convert|2996|cc|cuin|abbr=on}}
+|{{cvt|130|kW|PS hp|0}} at 4,400 rpm
+|{{cvt|330|Nm|lbft|0}} at 1,600–3,600 rpm
+|14.2 seconds (m)
+|{{cvt|164|km/h|mph|0}}
+|{{convert|14.6|L/100 km|mpgUS|abbr=on}}<br />{{convert|10.6|L/100 km|mpgUS|abbr=on}}<br />{{convert|12.1|L/100 km|mpgUS|abbr=on}}
+|-
+|G 320 CDI
+|2006–2009
+|V6 [[Turbocharger|turbo]] ([[Mercedes-Benz OM642 engine|OM 642 DE 30 LA]])
+|{{convert|2987|cc|cuin|abbr=on}}
+|{{cvt|165|kW|PS hp|0}} at 3,800 rpm
+|{{convert|540|Nm|lbft|0|abbr=on}} at 1,600–2,400 rpm
+|8.8–9.1 seconds
+|{{Convert|177|km/h|0|abbr=on}}
+|{{convert|13.4|L/100 km|mpgUS|abbr=on}}<br />{{convert|9.7|L/100 km|mpgUS|abbr=on}}<br />{{convert|11.0|L/100 km|mpgUS|abbr=on}}
+|-
+|350 GD T<br />G 350 Turbodiesel
+|1992–1996
+|I6 [[Turbocharger|turbo]] ([[Mercedes-Benz OM603 engine|OM 603.972 D 35 A]])
+|{{convert|3449|cc|cuin|abbr=on}}
+|{{cvt|100|kW|PS hp|0}} at 4,000 rpm
+|{{convert|305|Nm|lbft|0|abbr=on}} at 1,800 rpm
+|16 seconds
+|{{Convert|150|km/h|0|abbr=on}}
+|{{convert|13.5|L/100 km|mpgUS|abbr=on}}<br />{{convert|11.8|L/100 km|mpgUS|abbr=on}}<br />{{convert|16.9|L/100 km|mpgUS|abbr=on}}
+|-
+|G 350 CDI
+|2009-2010
+|rowspan="2"|V6 [[Turbocharger|turbo]] ([[Mercedes-Benz OM642 engine|OM 642 DE 30 LA]])
+|rowspan="4"|{{cvt|2,987|cc|cuin|1}}
+|{{cvt|165|kW|PS hp|0}} at 3,800 rpm
+|rowspan="2"|{{convert|540|Nm|lbft|0|abbr=on}} at 1,600–2,400 rpm
+|rowspan="2"|8.8–9.1 seconds
+|{{Convert|177|km/h|0|abbr=on}}
+|{{convert|16.1|L/100 km|mpgUS|abbr=on}}<br />{{convert|11.0|L/100 km|mpgUS|abbr=on}}<br />{{convert|12.8|L/100 km|mpgUS|abbr=on}}
+|-
+|G 350 CDI BlueTEC
+|2010-2015
+|{{cvt|155|kW|PS hp|0}} at 3,400 rpm
+|{{Convert|175|km/h|0|abbr=on}}
+|{{convert|13.6|L/100 km|mpgUS|abbr=on}}<br />{{convert|9.8|L/100 km|mpgUS|abbr=on}}<br />{{convert|11.2|L/100 km|mpgUS|abbr=on}}
+|-
+|G 350 d
+|2015–2018
+|rowspan="2"|V6 [[Turbocharger|turbo]] ([[Mercedes-Benz OM642 engine|OM 642 LS DE 30 LA]])
+|rowspan="2"|{{cvt|180|kW|PS hp|0}} at 3,600 rpm
+|rowspan="2"|{{convert|600|Nm|lbft|0|abbr=on}} at 1,600–2,400 rpm
+|rowspan="2"|8.8 seconds
+|{{Convert|192|km/h|0|abbr=on}}
+|rowspan="2"|{{convert|11.1|L/100 km|mpgUS|abbr=on}}<br />{{convert|9.1|L/100 km|mpgUS|abbr=on}}<br />{{convert|9.9|L/100 km|mpgUS|abbr=on}}
+|-
+|G 350 d Professional
+|2016-2018
+|{{Convert|160|km/h|0|abbr=on}}
+|-
+|G 400 CDI
+|2001-2006
+|V8 [[biturbo]] ([[Mercedes-Benz OM628 engine|OM 628.962 DE 40 LA]])
+|{{convert|3996|cc|cuin|abbr=on}}
+|{{cvt|184|kW|PS hp|0}} at 4,000 rpm
+|{{convert|560|Nm|lbft|0|abbr=on}} at 1,700–2,600 rpm
+|9.9–10.3 seconds
+|{{Convert|182|km/h|0|abbr=on}}
+|{{convert|16.1|L/100 km|mpgUS|abbr=on}}<br />{{convert|11.0|L/100 km|mpgUS|abbr=on}}<br />{{convert|12.8|L/100 km|mpgUS|abbr=on}}
+|-
+|}
+
+==W463, second generation (2018–2024) {{anchor|W463 second}}==
+{{Infobox automobile
+| name = Mercedes-Benz G-Class (W463)
+| image = Mercedes-Benz G 350d Genf 2019 1Y7A5114.jpg
+| production = May 2018<ref>{{cite web | url=https://motortrend.com/news/2019-mercedes-benz-g-class-enters-production-austria/ | title=2019 Mercedes-Benz G-Class Enters Production in Austria | work=MotorTrend | date=18 May 2018 }}</ref>–March 2024
+| assembly = Austria: [[Graz]] ([[Magna Steyr]])
+| class = [[Mid-size]] [[luxury SUV]]
+| body_style = 5-door [[SUV]]
+| related = 
+| layout = [[Front-engine, four-wheel drive layout|F4]] ([[4MATIC]])
+| engine = {{ubl
+ | '''Petrol:'''
+ | 2.0 L ''[[Mercedes-Benz M260/M264 engine|M264]]'' [[Turbocharger|turbo]] [[Straight-four engine|I4]]
+ | 3.0 L ''[[Mercedes-Benz M256 engine|M256]]'' turbo [[Straight-six engine|I6]]
+ | 4.0 L ''[[Mercedes-Benz M176/M177/M178 engine|M176]]'' [[twin-turbo]] [[V8 engine|V8]]
+ | 4.0 L ''[[Mercedes-Benz M176/M177/M178 engine|M177]]'' twin-turbo V8
+ | '''Diesel:'''
+ | 2.9 L ''[[Mercedes-Benz OM656 engine|OM656 D29T R SCR]]'' turbo I6
+ | }}
+| transmission = 9-speed ''[[Mercedes-Benz 9G-Tronic transmission|9G-Tronic]]'' AMG SpeedShift [[Torque converter|TCT]] [[Automatic transmission|automatic]]
+| wheelbase = {{cvt|2890|mm|in|1}}
+| length = {{convert|4725-4817|mm|in|1|abbr=on}}
+| width = {{convert|1931|mm|in|1|abbr=on}}
+| height = {{convert|1969|mm|in|1|abbr=on}}
+| weight = {{convert|2354|-|2485|kg|lb|0|abbr=on}}
+| predecessor = [[#W463, first generation (1990%E2%80%932018)|W463 1]]
+| successor = [[#W465 (2024%E2%80%93present)|W465]]
+| model_years = 2019–2024
+| designer = Balázs Filczer<ref>{{Cite web|url=https://group-media.mercedes-benz.com/marsMediaSite/en/instance/picture.xhtml?oid=33317411|title=Mercedes-Benz G-Class Design 2018|website=group-media.mercedes-benz.com|language=en|access-date=2022-07-28}}</ref>
+}}
+
+The second generation G-Class (W463) was launched on 14 January 2018 at the [[North American International Auto Show#2018|North American International Auto Show]] in Detroit.<ref>{{cite web|title=Live from Detroit - Master G is back! This is the 2019 Mercedes-Benz G-Class |url=http://mercedesblog.com/live-from-detroit-master-g-is-back-this-is-the-2019-mercedes-benz-g-class/ |first=Elena |last=Luchian |website=MercedesBlog |date=14 January 2018}}</ref>
+
+Compared to its predecessor, the new G-Class has grown 121 millimeters in width, 53 millimeters in length, and the ground clearance has increased by 6 millimeters.<ref>{{cite web|title=Die Mercedes G-Klasse bleibt ein klassischer Geländewagen|url=https://www.springerprofessional.de/fahrzeugtechnik/fahrerassistenz/die-mercedes-g-klasse-bleibt-ein-klassischer-gelaendewagen/15363006 |work=SpringerProfessional |first=Patrick |last=Schäfer |date=15 January 2018 |language=de}}</ref> The increase in width is for more driving stability, sturdier side impact protection, and more seating comfort. The increased length, especially in the front end, is due to the new 2019 EU pedestrian impact safety regulations: the previous generation did not have enough open space between the car's front end and the rigid components beneath for the crumple zone as to mitigate the injury to a pedestrian's body.
+
+A major change was with the steering system which was switched from a [[Steering#Rack and pinion, recirculating ball, worm and sector|recirculating ball]] system to [[Power steering#Electrically variable gear ratio systems|variable-ratio]] rack-and-pinion with [[Power steering#Electrically variable gear ratio systems|adaptive electric power assistance]]. The new steering system allows safety and convenience equipment such as active lane-keeping assist, Pre-Safe collision avoidance systems and self-parking capability. The rack-and-pinion steering system does not work with [[Beam axle|solid front suspension]] so a change was made to use [[independent suspension|independent front suspension]].
+
+The extensive, ground-up redesign allowed engineers to incorporate more lightweight materials such as high-strength and ultra-high-strength steels and aluminums. In addition, the redesign led to an improved manufacturing process which increased structural rigidity. The gap between the doors and body shell is much narrower than the previous generation. Despite the increased dimensions, the weight has been reduced by about 170 kilograms.
+
+The second generation W463 is similar visually to the first generation, and the chassis code, W463, is still retained rather than W464 as some media outlets erroneously reported. However, only three parts from the previous generation were carried over to the new generation: the headlamp washers, the push-button door handles and the spare wheel cover bolted to the rear tailgate.<ref>{{cite web |title=Mercedes-Benz G-class review: we test the year's hardest, gnarliest 4x4 |url=https://www.carmagazine.co.uk/car-reviews/mercedes-benz/mercedes-g-class-review-2018-on-new-g-wagen/ |last=Pollard |first=Tim |work=CAR Magazine |date=23 August 2018 |language=en |archive-url=https://web.archive.org/web/20180824034057/https://www.carmagazine.co.uk/car-reviews/mercedes-benz/mercedes-g-class-review-2018-on-new-g-wagen/ |archive-date=24 August 2018 |url-status=live }}</ref>
+[[File:Techno-Classica 2018, Essen (IMG 9835).jpg|left|thumb|G 500 at the 2018 [[Essen Motor Show]] ]]
+The new G 500 (G 550 for select markets) is powered by the 4.0-liter [[Mercedes-Benz M176 engine|''M176'']] V8 [[twin-turbo]] engine, producing 416&nbsp;hp and 450&nbsp;lb⋅ft of torque. It is mated to a nine-speed automatic [[Mercedes-Benz 9G-Tronic transmission|9G-Tronic]] transmission with torque-converter.<ref>{{Cite web |date=2018-05-07 |title=The new Mercedes-Benz G-Class |url=http://media.mbusa.com/releases/the-new-mercedes-benz-g-class |access-date=2022-12-12 |website=MBUSA Newsroom |language=en}}</ref><ref name=":2" />
+
+For the new diesel variant, the G 350 d was initially released for the 2019 model year, powered by the 2.9-liter [[Mercedes-Benz OM656 engine|''OM656'']] inline-6 [[Turbocharger|turbo]]charged diesel engine, producing 282&nbsp;hp and 443&nbsp;lb⋅ft of torque.<ref>{{Cite web |title=The new Mercedes-Benz G 350 d. |url=https://www.mercedes-benz.com/en/vehicles/g-class/the-new-g-350-d/ |access-date=2022-12-12 |website=www.mercedes-benz.com |language=en}}</ref> The G 400 d was later introduced for the 2020 model year onwards. The G 400 d features the same ''OM656'' engine as the G 350 d, but output has been increased to 326&nbsp;hp and 516&nbsp;lb⋅ft of torque.<ref>{{Cite web |date=2022-05-09 |title=2022 Mercedes-Benz G400d First Drive: Is This Diesel G Great? |url=https://www.motortrend.com/reviews/2022-mercedes-benz-g-class-g400d-diesel-first-drive-review/ |access-date=2022-12-12 |website=MotorTrend |language=en}}</ref> Both models are still produced by Mercedes-Benz, however certain markets only sell one of the two.<ref>{{Cite web |date=2021-09-22 |title=Mercedes G-Class G400d review: 'the best version of the best off-roader' Reviews 2022 |url=https://www.topgear.com/car-reviews/g-class-diesel-station-wagon-2019/first-drive |access-date=2022-12-12 |website=Top Gear |language=en}}</ref>
+
+The redesign also allowed newer safety and collision avoidance equipment from the [[Mercedes-Benz S-Class (W222)|W222 S-Class]] to be fitted to the G-Class for the first time. In addition, the updated interior has a new instrument cluster and infotainment system from other Mercedes-Benz models ([[Mercedes-Benz A-Class (W177)|A-Class (W177)]] and [[Mercedes-Benz E-Class (W213)|E-Class (W213)]]), air vents, steering column-mounted gear selector, multimedia system and control panel on the tunnel console, a higher level of luxury trimming and 64-color ambient lighting. A [[Burmester Audiosysteme|Burmester]] surround sound system and a larger dual 12-inch [[liquid-crystal display]] with smartphone integration ([[CarPlay|Apple CarPlay]] and [[Android Auto]]) were offered as optional equipment. One design element carried over to the new generation was the front passenger's grab bar on the dashboard.<ref>{{Cite web|url=https://www.mbusa.com/mercedes/future/model/model-2019_Mercedes_Benz_G_Class |title=Future Models 2019 Mercedes-Benz G-Class |website=Mercedes-Benz USA |date=9 February 2019 |archive-url=https://web.archive.org/web/20190209124334/https://www.mbusa.com/mercedes/future/model/model-2019_Mercedes_Benz_G_Class |archive-date=9 February 2019 |url-status=live}}</ref>
+
+The new G 550 and AMG G 63 went on sale in the United States with a starting price of $149,900 and $188,050 respectively. The G-Class for the US market has the widest range of exterior colors available, totaling 24, of any Mercedes-Benz passenger vehicle.<ref name=":2">{{cite web |url=https://www.mbusa.com/en/vehicles/class/g-class/suv |title=The next-generation G-Class. |website=Mercedes-Benz USA |date=13 May 2019 |archive-url=https://web.archive.org/web/20190510030444/https://www.mbusa.com/en/vehicles/class/g-class/suv |archive-date=10 May 2019 |url-status=live }}</ref>
+
+In September 2020, the G 350 was introduced for the Chinese market to circumvent the heavy taxation on larger engine displacement.<ref>{{Cite web|url=https://www.motor1.com/news/443156/mercedes-g350-revealed-china/|title = Mercedes G350 Revealed in China, 4-Cylinder G-Class Costs $209,000}}</ref> It is powered by the 2-litre [[Mercedes-Benz M260/M264 engine|M264]] [[turbocharger|turbocharged]] four-cylinder inline petrol engine, producing {{Convert|255|hp|0|abbr=on}} and {{Convert|273|lbft|0|abbr=on}} of torque. The G 350 is the first G-Class with a four-cylinder inline engine since the previous model, the G 230, was discontinued in 1995.
+
+===Alternative designation: W463A/W464===
+
+Mercedes-Benz has not explained the reason for retaining the same chassis designation, W463, for its heavily revised G-Class in production since 2018. Some media outlets have erroneously attributed the updated G-Class as W464,<ref>{{cite web|url=https://www.autobild.de/marken-modelle/mercedes-benz/g-klasse/4/ |title=Mercedes G-Klasse IV (W 464) seit 2017 |work=Auto Bild |language=de |accessdate=16 October 2023}}</ref><ref>{{cite web|url=https://mbpassion.de/2017/08/erlkoenig-mercedes-amg-g-63-modell-mit-panamericana-grill/ |title=Erlkönig: Mercedes-AMG G 63 Modell mit Panamericana-Grill |first=Markus |last=Jordan |work=MB Passion Blog |date=18 August 2017 |accessdate=16 October 2023 |language=de}}</ref> which has been assigned to the W461 successor introduced in October 2022.
+
+Some media outlets,<ref>{{cite web|url=https://www.mivodo.com/auto/mercedes-benz/g-klasse/w463-facelift-2018/ |title=Mercedes-Benz G-Klasse Station-Wagen lang (W463A) |work=Mivodo |language=de |accessdate=16 October 2023}}</ref><ref>{{cite web|url=https://mbpassion.de/2020/12/erweiterte-ambiente-beleuchtung-fuer-die-g-klasse/ |title=Erweitere Ambiente-Beleuchtung für die G-Klasse |work=MB Passion Blog |first=Markus |last=Jordan |date=22 December 2020 |accessdate=16 October 2023}}</ref> owner's forums,<ref>{{cite web|url=https://mbworld.org/forums/g-class-w463a-269/ |title=G Class (W463A) Produced 2019-Present: G550, G63 AMG |work=MB World |accessdate=16 October 2023}}</ref> tuners,<ref>{{cite web|url=https://www.mansory.com/g-class-w463a |title=The customization programme for G-Class (W463A) |work=Mansory |date=17 April 2019 |accessdate=16 October 2023}}</ref> and aftermarket part manufacturers<ref>{{cite web|url=https://www.kunzmann.de/shop/de/produkte/mercedes-benz/g-klasse/463a/ |title=Tuning & Zubehör für die neue G-Klasse W463A |work=Kunzmann |language=de |accessdate=16 October 2023}}</ref><ref>{{cite web|url=https://www.gparts24.com/produkt-kategorie/g-klasse/ |title=G-Klasse |work=GParts 24 |language=de |accessdate=16 October 2023}}</ref> designate the G-Class in production from 2018 to 2022 as W463A as to avoid the confusion between the original [[#G-Class W463, first generation (1990–2018)|W463 (1990–2018)]] and revised W463. None of the official Mercedes-Benz websites and product information around the world shows W463A.
+
+=== Safety ratings ===
+The second generation W463 is the first G-variant to ever be formally crash tested. No model prior to this has been certified or had its safety equipment tested for crash safety. EURONCAP testing showed overall positive results, with a 90% rating for adult occupants, 83% for child occupants and a 73% rating for pedestrians.<ref name=":4">{{Cite web |title=Test Results EURO NCAP Mercedes-Benz G-Class |url=https://cdn.euroncap.com/media/82655/euroncap-2019-mercedes-benz-g-class-datasheet.pdf |website=EURO NCAP}}</ref> The results showed good protection for the head and neck but were let down by disappointing protection for the chest in both frontal impacts.<ref name=":4" /> 
+{| class="wikitable"
+|+
+! colspan="5" |[https://cdn.euroncap.com/media/82655/euroncap-2019-mercedes-benz-g-class-datasheet.pdf EURONCAP Assessment Details] (Tested 2019)
+|-
+| colspan="5" |''Frontal Offset - Simulates impact with a vehicle of similar weight''
+|-
+|6.4 / 8.0 points
+|'''Head'''
+|'''Neck'''
+|'''Chest'''
+|'''Legs'''
+|-
+|'''Driver'''
+| style="background: #32CD32"|Good
+| style="background: #32CD32"|Good
+| style="background: #CD853F"|Weak
+|style={{Linear-gradient background | #FFFF00| #32CD32  | direction = right | alt bg color = lime }}|Adequate - Good
+|-
+|'''Passenger'''
+| style="background: #32CD32"|Good
+| style="background: #32CD32"|Good
+| style="background: #FFFF00"|Adequate
+|style={{Linear-gradient background | #FFFF00| #32CD32  | direction = right | alt bg color = lime }}|Adequate - Good
+|-
+| colspan="5" |''Frontal Full-width - Simulates impact with a wall''
+|-
+|6.6 / 8.0 points
+|'''Head'''
+|'''Neck'''
+|'''Chest'''
+|'''Legs'''
+|-
+|'''Driver'''
+| style="background: #32CD32"|Good
+| style="background: #32CD32"|Good
+| style="background: #FFC125"|Marginal
+| style="background: #32CD32"|Good
+|-
+|'''Passenger'''
+| style="background: #32CD32"|Good
+| style="background: #FFFF00"|Adequate
+| style="background: #CD853F"|Weak
+| style="background: #32CD32"|Good
+|-
+| colspan="5" |''Whiplash - Neck protection from rear impact''
+|-
+|1.5 / 2.0 points
+| colspan="4" |'''Whiplash protection'''
+|-
+|'''Front Seats'''
+| style="background: #32CD32"colspan="4" |Good
+|-
+|'''Rear Seats'''
+| style="background: #FFC125"colspan="4" |Marginal
+|-
+| colspan="5" |''Side Impact - Simulates side impact with vehicle or pole''
+|-
+|16.0 / 16.0 points
+| colspan="4" |'''Protection from side impacts'''
+|-
+|'''Impact from car'''
+| style="background: #32CD32"colspan="4" |Good
+|-
+|'''Impact with pole'''
+| style="background: #32CD32"colspan="4" |Good
+|}
+
+=== Mercedes-AMG models ===
+<!--READ FIRST: You don't need to add AMG to the front of the nomenclature as Mercedes-Benz AMG has been renamed as Mercedes-AMG in 2017. If the AMG models are cited here as produced prior to the 2017 name change, you can write "G 55 AMG". Thank you.-->
+
+====G 63====
+Alongside the new G 500/G 550, Mercedes-AMG unveiled the new G 63 in March 2018 at the [[Geneva International Motor Show#2018|Geneva International Motor Show]]. The model is powered by the V8 [[twin-turbo]] [[Mercedes-Benz M177 engine|''M177'']] engine, producing {{Convert|577|hp|0|abbr=on}} and {{Convert|627|lbft|0|abbr=on}} of torque, an increase of {{Convert|14|hp|0|abbr=on}} and {{Convert|66|lbft|0|abbr=on}} over the previous generation G 63 AMG. Mercedes-AMG claims a 0-60&nbsp;mph time of 4.4 seconds and a top speed of 149&nbsp;mph with the optional Driver's Package. The G 63 now defaults to a rear-biased 40:60 torque split versus the 50:50 split of its predecessor.<ref name=":3">{{Cite web |date=2018-02-13 |title=The new 2019 Mercedes-AMG G63 |url=http://media.mbusa.com/releases/the-new-2019-mercedes-amg-g63 |access-date=2022-12-12 |website=MBUSA Newsroom |language=en}}</ref><ref>{{Cite web |last=Ewing |first=Steven |title=2019 Mercedes-AMG G63 brings 577 hp to Geneva |url=https://www.cnet.com/roadshow/news/2019-mercedes-amg-g63-geneva-motor-show/ |access-date=2022-12-12 |website=CNET |language=en}}</ref><ref>{{Cite web |date=2018-02-13 |title=2019 Mercedes-AMG G63 Driven: The Speedier G-wagen |url=https://www.caranddriver.com/news/a17536293/2019-mercedes-amg-g63-official-photos-and-info-news/ |access-date=2022-12-12 |website=Car and Driver |language=en-us}}</ref>
+
+In addition to the performance increases over the G 500/G 550, the G 63 also features AMG-developed suspension, larger red brake calipers and perforated brake discs, AMG-specific transmission modes, radiator grille, flared wheel arches, striking side pipes on the exhaust system, and wider wheels up to 22-inches in diameter. The model features distinct front and rear fascias and body styling, as well as an AMG-specific interior with a standard AMG Performance steering wheel with flattened bottom.<ref name=":3" /><gallery widths="200" heights="148">
+File:Mercedes-AMG G 63 W453A black (1).jpg|G 63
+File:Mercedes-AMG G 63 W453A black (2).jpg|G 63 (rear)
+File:Mercedes-AMG G63 (W464) interior.jpg|G 63 (Japan-market interior)
+</gallery>
+
+===== G 63 Edition 1 =====
+To commemorate the launch of the second-generation G 63 in 2023, Mercedes-AMG released the Edition 1 special edition at market launch. The special model features Designo Night Black Magno paint with contrasting matte Graphite Grey sports stripes along the vehicle sides, a decorative red stripe on the exterior mirrors, and Night Package featuring gloss black trim and accents. The Edition 1 also features matte black 22-inch forged wheels with red-painted rim flanges and a cross-spoke design, as well as red accents throughout the interior.<ref name=":3" /><gallery widths="200" heights="140">
+File:Mercedes-AMG G 63 Genf 2018.jpg|G 63 Edition 1 at the 2018 Geneva Motor Show
+File:Mercedes-AMG G 63 Back Genf 2018.jpg|G 63 Edition 1 rear
+</gallery>
+
+===== G 63 Trail Package =====
+The optional AMG Trail Package can be specified for the G 63 model only, offering greater off-road capability and styling. The package adds softer settings for the adaptive dampers to enhance off-road driving and maneuverability. 20-inch wheels with five sets of twin spokes and all-terrain tires are part of the package. A black skid plate and mud flaps behind the rear wheels are fitted to the body.<ref>{{cite web |last=Bruce |first=Chris |date=14 June 2019 |title=Mercedes Celebrates G-Class Anniversary With Exclusive Puddle Lamps |url=https://www.motor1.com/news/354907/mercedes-benz-g-class-stronger/ |work=Motor1}}</ref>
+
+==== G 63 4x4² ====
+Following the previous generation's G 63 AMG 6x6 and G 500/G 550 4x4², Mercedes-AMG introduced the new G 63 4x4² for the second generation iteration in June 2022.<ref>{{Citation |title=G-Class Private Lounge – Walkaround {{!}} Mercedes-AMG G 63 4x4² | date=14 June 2022 |url=https://www.youtube.com/watch?v=x19n9zNQm50 |language=en |access-date=2022-12-12}}</ref> The G 63 4x4² features the same [[Mercedes-Benz M177 engine|''M177'']] V8 [[twin-turbo]] as the G 63 but with output increased to 585&nbsp;hp from 577&nbsp;hp, and raised portal axles like the previous generation G 500/G 550 4x4², except now with independent front axles.<ref>{{Cite web |date=2022-06-14 |title=2023 Mercedes-AMG G63 4x4 Squared First Look: Portal to the Past |url=https://www.motortrend.com/news/2023-mercedes-amg-g63-4x4-squared-first-look-review/ |access-date=2022-12-12 |website=MotorTrend |language=en}}</ref><ref>{{Cite web |last=Perkins |first=Chris |date=2022-06-14 |title=The 2023 Mercedes-AMG G63 4x4 Squared is a 585-HP Factory Monster Truck |url=https://www.roadandtrack.com/news/a40290345/2023-mercedes-amg-g63-4x4-squared/ |access-date=2022-12-12 |website=Road & Track |language=en-US}}</ref> The model went on sale Fall 2022 for the 2023 model year with a starting price of $350,050 USD.<ref name=":1">{{Cite web |date=2022-10-21 |title=2022 Mercedes-AMG 4x4² First Drive: Same Lunacy, Back for Round 2 |url=https://www.motortrend.com/reviews/2022-mercedes-amg-g63-4x4-squared-first-drive-review/ |access-date=2022-12-12 |website=MotorTrend |language=en}}</ref>
+
+Compared to the G 63, the G 63 4x4² features a raised height, larger carbon-fiber fenders, 22-inch wheels with 37-inch Pirelli 325/55R22 all-terrain tires, LED light bar, roof rack with carbon-fiber windscreen, carbon-fiber spare tire cover, and rugged styling. With this increase in height, the model offers a ground clearance 4.3 inches over stock at 13.8 inches, wading depth 8.2 inches over stock at 35.8 inches, and 41.3° approach and 36.8° departure angles.<ref>{{Cite web |title=2023 Mercedes-AMG G63 4x4 Squared First Look Review: The Uber-Overlander |url=https://carbuzz.com/cars/mercedes-benz/amg-g63-4x4-squared |access-date=2022-12-12 |website=CarBuzz |language=en-us}}</ref>
+
+Additionally, compared to the previous generation G 500/G 550 4x4², the wheelbase is increased by 0.9 inch to 113.1 inches, height is increased by 0.8 inch to 88.8 inches, width is increased by 5.4 inches to 82.5 inches, and length is increased by 3.9 inches to 181.1 inches, or 194.5 inches when accounting for the spare tire carrier. Weight is decreased by 379&nbsp;lbs to 6,315&nbsp;lbs. Mercedes-Benz claims an estimated 5.0 0-60&nbsp;mph time.<ref name=":1" />
+
+<gallery widths="200" heights="140">
+File:Mercedes-AMG G 63 4x4² 1X7A6594.jpg|G 63 4x4² at Retro Classics 2023
+File:Mercedes-AMG G 63 4x4² 1X7A6595.jpg|G 63 4x4² rear
+</gallery>
+
+=== Special models ===
+[[File:Mercedes-Benz G 550 manufaktur Program (W463) front.jpg|thumb|Mercedes-Benz G 550 in G manufaktur trim, front view]]
+[[File:Mercedes-Benz G 550 manufaktur Program (W463) rear.jpg|thumb|Mercedes-Benz G 550 G manufaktur trim, rear view]]
+
+==== G manufaktur (Individualisation Programme) ====
+Mercedes-Benz has introduced the bespoke/individualisation programme exclusive for the G-Class: G manufaktur. Similar to the Mercedes-Benz designo programme, buyers can specify different colour and material options. For the exterior, buyers can choose from 26 exclusive G manufaktur paint colours, and the Black Accents covers for the fender flares, roof, front and rear bumpers, external rear-view mirrors, rub stripes, spare wheel cover ring, wheels, side exhaust pipe tips, etc. in gloss black paint. For the interior, 64 different seat colour combinations and three patterns can be specified. The dashboard and steering wheel cover can be ordered with a two-toned colour combination. On the passenger grab bar, the G manufaktur brand is etched on the stainless steel trim.<ref>{{cite web|url=https://www.mercedes-benz.com/en/vehicles/passenger-cars/g-class/g-manufaktur/ |title=G manufaktur |work=Mercedes-Benz |access-date=5 July 2020}}</ref>
+
+====Stronger Than Time====
+To celebrate the 40th anniversary of the G-Class and the 20th anniversary of the G 55 AMG, Mercedes-Benz introduced the Stronger Than Time edition for the G 400 d, G 500, and Mercedes-AMG G 63. For the G 400 d and G 500, the edition is fitted with the AMG Line exterior package, black 20-inch AMG wheels, and stainless steel trim for the running boards, spare wheel cover, and door sills. The puddle lamps display the G-Class logo and Stronger Than Time on the ground. The driver's assistance package, LED headlamps, Burmester surround stereo system, and sunroof are added as standard equipment. The G 63 has a dark chrome grille and matte chrome covering the running boards, exhaust outlets, mirror caps, portions of the front and rear bumper, skid plate, and sections of the spare wheel cover. The 22-inch matte black AMG wheels are fitted to the G 63.
+
+Three interior designs can be chosen: black Nappa leather with gold stitching and open-pore black ash wood trim; a mix of Macchiato Beige and Yacht Blue leather with light brown sen wood trim; and Macchiato Beige and Lounge Red with piano black lacquer. The Nappa leather trim covers the roof grab handles and the instrument cluster cover. The two-tone black and Titanium Grey Pearl Nappa leather with carbon fiber trim is exclusive to the G 63 model.
+
+==== Professional Line ====
+With the success of ''Worker'', ''Pur'', and ''Professional'' variants in the previous W461 generation, Mercedes-Benz introduced the new ''Professional Line Exterior'' at the [[International Motor Show Germany|IAA Mobility 2021]] in Munich.<ref>{{cite web|url=https://mbpassion.de/2021/09/neue-g-klasse-professional-steht-auf-der-iaa-mobility-2021-mbiaa21/ |title=Neue G-Klasse Professional steht auf der IAA Mobility 2021 #MBIAA21 |first=Markus |last=Jordan |work=MB Passion |date=2 September 2021}}</ref> ''Professional Line Exterior'' is an exterior accessory options that the owners can customise their G-Class vehicles. The options include climbing ladder, roof rack, simpler spare wheel holder, black trims, headlamp protection grill shield, and like. Unlike the previous ''Worker'', ''Pur'', and ''Professional'' variants, ''Professional Line Exterior'' isn't a stripped-down utilitarian version of G-Class and based on W461 chassis.<ref>{{cite web|url=https://www.thedrive.com/news/42274/new-mercedes-g-wagen-off-road-trim-finally-starts-to-unlock-the-trucks-potential |title=New Mercedes G-Wagen Off-Road Trim Finally Starts to Unlock the Truck's Potential |first=Chris |last=Tsui |date=7 September 2021 |work=The Drive}}</ref><gallery widths="200" heights="148">
+File:Mercedes-Benz W 463 (2018) Professional Line IAA 2021 1X7A0207.jpg|Professional Line at [[International Motor Show Germany|IAA 2021]]
+File:Mercedes-Benz W 463 (2018) Professional Line IAA 2021 1X7A0206.jpg|Professional Line rear
+</gallery>
+
+==== Final Edition G 500 V8 (2023) ====
+On the 30th anniversary of the first G-Class to be equipped with a V8, the extremely limited production [[#500 GE V8 (1993)|500 GE V8]], Mercedes-Benz made a surprise announcement on 27 June 2023 that the production of the G 500 (G 550 in selected markets) with a V8 engine will end in 2023.<ref>{{cite web|url=https://mbpassion.de/2023/06/mehr-details-zur-kommenden-final-edition-g-500-der-g-klasse/ |title=Das letzte V8-Modell des G 500: die Final Edition der G-Klasse |work=MB Passion |date=27 June 2023 |language=de |first=Markus |last=Lang}}</ref> The Final Edition G 500 V8 marks the end of the G 500 with a V8 engine from Mercedes-Benz.<ref>{{cite web|url=https://g-class.mercedes-benz.com/en/stories/spotlight-g/the-final-edition-g-500-v8.html |title=Final Edition to mark 30th birthday |work=Mercedes-Benz |accessdate=20 August 2023}}</ref> The high-performance Mercedes-AMG G 63 with a more powerful V8 engine will continue for the foreseeable future.
+
+Production of the Final Edition G 500 V8 is limited to 1,500 units. Three paint colours are offered: metallic obsidian black, Manufaktur opalith white mango, and Manufaktur olive mango. Each colour is limited to 500 units. Along with the special livery and badges, Final Edition G 500 is fitted with double-five-spoke 20-inch wheels, Burmester Hi-Fi stereo system, and active multi-contour seats in two-tone Manufaktur leather. The headliner, luggage compartment, and seat switch panel are covered with leather.<ref>{{cite web|url=https://motortrends.net/news/farewell-v8powered-mercedesbenz-g500-final-edition/ |title=Farewell V8-Powered Mercedes-Benz G500 Final Edition |work=Motor Trend |date=29 June 2023 |accessdate=20 August 2023 |author1=Marco }}</ref> The retail price for the "Final Edition G 500 V8" is $215,015 [[USD]].<ref>{{cite web|url=https://carbuzz.com/news/mercedes-benz-g500-final-edition-says-goodbye-to-the-v8-powered-off-roader |title=Mercedes-Benz G500 Final Edition Says Goodbye To The V8-Powered Off-Roader |work=Car Buzz |date=29 June 2023 |first=Gerhard |last=Horn |accessdate=20 August 2023}}</ref>
+
+===Production End of W463===
+Daimler AG announced the production of current W463 generation to be ended in March 2024 with the updated version to be introduced sometime in 2024.<ref name="W465">{{cite web|url=https://mbpassion.de/2023/10/die-aktuelle-g-klasse-produktion-endet-im-maerz-2024/ |title=Die Aktuelle G-Klasse Produktion Endet Im März 2024 |first=Markus |last=Jordan |work=MB Passion |date=13 October 2023 |language=de}}</ref> The updated version is to have more improvement in aerodynamic and lower fuel consumption along with styling cues from EQG concept car.<ref>{{cite web|url=https://www.autocar.co.uk/car-news/new-cars/2024-mercedes-g-class-takes-aero-cues-electric-eqg |title=2024 Mercedes G-Class takes aero cues from electric EQG |work=Autocar |first=James |last=Attwood |date=15 September 2023}}</ref> With six-year production, the second-generation W463 has the shortest production time of all G-Class versions (except the special production of W462). No official information is given yet what nomenclature will be assigned to the updated version: the designation, W465, has been proposed by the media outlet.<ref name="W465"/>
+
+===Concept EQG===
+{{Main|Mercedes-Benz G-Class EV}}{{Update section|date=August 2026}}{{Multiple image
+| direction         = vertical
+| image1            = Mercedes-Benz Concept EQG IAA 2021 1X7A0095.jpg
+| align             = right
+| footer            = Mercedes-Benz Concept EQG front view at the 2021 [[International Motor Show Germany|IAA]]
+| image2            = Mercedes-Benz Concept EQG IAA 2021 1X7A0094.jpg
+}}
+On 5 September 2021, Mercedes-Benz previewed Concept EQG, the G-Class concept car with pure electric drive, at [[International Motor Show Germany|IAA Mobility 2021]] in Munich.<ref name="EQG">{{cite web|url=https://www.motor1.com/news/530887/mercedes-benz-concept-eqg-debut/ |title=Mercedes Concept EQG Debuts In Munich With Electric G-Class Style |date=5 September 2021 |first=Christopher |last=Smith |work=Motor1}}</ref> Externally, Concept EQG carries the styling of the second generation G-Class, with updated elements to distinguish the electric variant, such as a square tire cover, extensive additional LED lighting including a LED Black Panel grille, updated front and rear fascias, new 22-inch wheels, and special roof rack. While Mercedes-Benz has not revealed the technical data yet, Concept EQG has four electric motors that are placed closer to the wheels and that can operate independently; the battery packs are 108 kWH. Additionally, a two-speed gearbox allows the gear reductions for the off-road travel.<ref name="EQG" /><ref>{{cite web|url=https://www.autocar.co.uk/car-news/new-cars/mercedes-primes-luxury-eqg-electric-g-class-4x4 |title=Mercedes primes luxury EQG electric G-Class 4x4 |first=Felix |last=Page |date=16 August 2021 |work=Autocar}}</ref> The model names are EQG 560 4MATIC and EQG 580 4MATIC.<ref>{{cite web|url=https://www.motor1.com/news/498716/mercedes-eqg-trademark-filings-euipo/ |title=Mercedes EQG Trademarks Remind Us Electric G-Class Is Coming |date=1 April 2021 |first=Jacob |last=Oliva |work=Motor1}}</ref><ref>{{cite web|url=https://paultan.org/2021/08/17/mercedes-benz-eqg-fully-electric-g-class-to-get-true-4x4-capabilities-eqg-580-4matic-with-523-ps-855-nm/ |title=Mercedes-Benz EQG – fully electric G-Class to get true 4×4 capabilities, EQG 580 4Matic with 523 PS, 855 Nm? |first=Matthew |last=Hong |work=Paul Tan |date=17 August 2021}}</ref> The production version is confirmed for 2024.<ref>{{cite web|url=https://www.motor1.com/news/526813/mercedes-eqg-technical-specs-report/ |title=Mercedes EQG Could Keep Ladder Frame, Add Big Battery For Electric G-Class |first=Adrian |last=Padeanu |date=16 August 2021 |work=Motor 1}}</ref><ref>{{cite web|url=https://paultan.org/2021/09/06/mercedes-benz-concept-eqg-debuts/ |title=Mercedes-Benz Concept EQG debuts – previews an all-electric G-Class; 4 electric motors, 2-speed gearbox |first=Gerard |last=Lye |date=6 September 2021 |work=Paul Tan}}</ref>
+
+===Technical data===
+
+====Engines (2018–2024)====
+{| class="wikitable"
+!Model!!Years!!Configuration!!Displacement!!Power!!Torque!!{{convert|0–100|km/h|mph|0|abbr=on}}!!Top speed!!Fuel consumption/efficiency<br />(EU-norm combined)
+|-
+! colspan="9" style="text-align:center"|Petrol engines
+|-
+|G 350 (China)
+|09/2020–03/2024 
+|I4 [[turbocharger]] ([[Mercedes-Benz M260/M264 engine|M264 E20 DEH LA]])
+|{{convert|1991|cc|cuin|abbr=on}}
+|{{convert|190|kW|PS hp|0|abbr=on}} 
+|{{convert|370|Nm|lbft|0|abbr=on}}
+|8.1 seconds
+|{{convert|190|km/h|0|abbr=on}}
+|{{Convert|10.7|L/100km|mpgUS|abbr=on}}
+|- 
+|G 500 / G 550
+|05/2018–09/2023
+|V8 [[twin-turbo]] ([[Mercedes-Benz M176 engine|M176 DE40 LA]])
+|{{convert|3982|cc|cuin|abbr=on}}
+|{{convert|310|kW|PS hp|0|abbr=on}} at 5,250–5,500 rpm
+|{{convert|610|Nm|lbft|0|abbr=on}} <br /> at 2,250–4,750 rpm
+|5.9 seconds
+|{{Convert|210|km/h|0|abbr=on}}
+|{{convert|11.5-12.1|L/100 km|mpgUS|abbr=on}}
+|-
+|-
+|G 63 AMG
+|06/2018–03/2024
+|V8 [[twin-turbo]] ([[Mercedes-Benz M177 engine|M 177 DE 40 AL]])
+|{{convert|3982|cc|cuin|abbr=on}}
+|{{convert|430|kW|PS hp|0|abbr=on}} at 6,000 rpm
+|{{convert|850|Nm|lbft|0|abbr=on}} at 2,500–3,500 rpm
+|4.5 seconds
+|{{Convert|220|km/h|0|abbr=on}} / {{Convert|240|km/h|0|abbr=on}}*
+|{{convert|11.5-12.1|L/100 km|mpgUS|abbr=on}}
+|-
+! colspan="9" style="text-align:center"|Diesel engines
+|-
+|G 350 d
+|01/2019–03/2024
+|Inline 6 [[Turbocharger|turbo]] ([[Mercedes-Benz OM656 engine|OM 656 D29T R SCR]])
+|{{convert|2925|cc|cuin|abbr=on}}
+|{{convert|210|kW|PS hp|0|abbr=on}} at 3,400 rpm
+|{{convert|600|Nm|lbft|0|abbr=on}} at 1,200–3,200 rpm
+|7.4 seconds
+|{{Convert|200|km/h|0|abbr=on}}
+|{{convert|9.6-9.8|L/100 km|mpgUS|abbr=on}}
+|-
+|G 400 d
+|07/2019–03/2024
+|Inline 6 [[Turbocharger|turbo]] ([[Mercedes-Benz OM656 engine|OM 656 D29T SCR]])
+|{{convert|2925|cc|cuin|abbr=on}}
+|{{convert|243|kW|PS hp|0|abbr=on}} at 3,400 rpm
+|{{convert|700|Nm|lbft|0|abbr=on}} at 1,200–3,200 rpm
+|6.4 seconds
+|{{Convert|210|km/h|0|abbr=on}}
+|{{convert|9.6|L/100 km|mpgUS|abbr=on}}
+|-
+|}
+<nowiki>*</nowiki>With optional extra cost AMG Driver's Package
+
+====Transmission (2018–2024)====
+{| class=wikitable
+|-
+!Model!!Years!!Types
+|-
+|G 350||2020–2024||9-speed [[Mercedes-Benz 9G-Tronic transmission|9G-Tronic automatic]]
+|-
+|G 500 / G 550 ||2018–2024||9-speed [[Mercedes-Benz 9G-Tronic transmission|9G-Tronic automatic]]
+|-
+|G 63||2024–present||9-speed [[Mercedes-Benz 9G-Tronic transmission#AMG SpeedShift TCT 9G|AMG Speedshift TCT automatic]]
+|-
+|G 350 d||2019–2024||9-speed [[Mercedes-Benz 9G-Tronic transmission|9G-Tronic automatic]]
+|-
+|G 400 d||2019–2024||9-speed [[Mercedes-Benz 9G-Tronic transmission|9G-Tronic automatic]]
+|-
+|}
+
+=== Safety ===
+{{Euro NCAP |year=2019 |overall_stars=5 |description=Mercedes-Benz G-Class |reference={{cite web|url=https://www.euroncap.com/en/results/mercedes-benz/g-class/34835 |title=Official Mercedes-Benz G-Class 2019 safety rating |website=EuroNCAP |access-date=27 February 2019}} |adult_points=34.6 |adult_percent=90 |child_points=40.8 |child_percent=83 |pedestrian_points=37.5 |pedestrian_percent=78 |safety_points=9.4 |safety_percent=72}}
+
+{{ANCAP
+|overall_stars=5
+|year=2019
+|reference_code=49eb1e
+|description=Mercedes-Benz G-Class G63 and G400d variants only
+|adult_points=34.5
+|adult_percent=90
+|child_points=41.7
+|child_percent=85
+|pedestrian_points=37.4
+|pedestrian_percent=78
+|safety_points=9.5
+|safety_percent=73
+}}
+
+==W464 (2022–present)==
+[[File:Mercedes-Benz G350 for Lithuanian Armed Forces (1).jpg|thumb|Mercedes-Benz G350 (W464)]]
+After thirty years in production, the [[#W461 (1992–2022)|W461]] model for militaries has been replaced by the second generation G-Class, designated “Type-BR464” or W464 in October 2021. The New G 350d model with a new engine, the nine-speed automatic gearbox, and the front end with a heavy-duty steel bumper, larger cooling grille, and updated LED headlamp and daytime running lamp units. The W464 is offered in two body configurations: 5-door Station Wagon (BA06) and Single-Cab version (BA09). Unlike the [[#G-Class W463, second generation (2018–2024)|W463 (2018–2024)]], the W464 still retains the solid axle for front and rear with front, central, and rear differential locks, spartan interior, 24-volt electrical system, and heavy-duty chassis.
+
+The 2.9-litre six-cylinder inline diesel engine [[Mercedes-Benz OM656 engine|(OM656, unspecified version)]] is detuned for Euro III-compliance so the low-quality diesel fuel (500 ppm), most common in African and Central Asian countries, can be used. The engine has been tested to run 400 hours on diesel fuel with higher sulphur content (3,000 ppm).<ref>{{cite web|url= https://www.drive.com.au/news/new-mercedes-benz-g-class-revealed-for-military-use/ |title=New Mercedes-Benz G-Class Revealed for Military Use |first=Alex |last=Misoyannis |work=Drive |date=4 October 2021 |accessdate=16 October 2023}}</ref> As result, the engine output is lowered to {{convert|135|kW|PS hp|0|abbr=on}} while retaining the same {{convert|600|Nm|lbft|0|abbr=on}}.
+
+The engine fitted to W464 has a special feature called "Emergency Override Switch" (EOS).<ref>{{cite web|url= https://www.auto-motor-und-sport.de/neuheiten/mercedes-g-militaer-464-2021-weltpremiere/ |title= Hier kommt die neue G-Klasse für harte Einsätze |first=Torsten |last=Seibt |work=auto motor und sport |language=de |date=7 November 2021 |accessdate=16 October 2023}}</ref> When the engine malfunctions due to technical, mechanical, or electrical issues, the emergency mode (limp-home or shutdown) is activated as to protect the engine from damage. If the emergency mode is activated when the military crew is fleeing the dangerous environment, the operator can activate the EOS to override the emergency/protection mode in order to escape to the safety.
+
+As of June 2025, a civilian version of W464 has not been offered to the public yet despite the popularity of W461 civilian version in the past.
+
+==W465 (2024–present) {{anchor|W465}}==
+{{Infobox automobile
+| name = Mercedes-Benz G-Class (W465)
+| image = Mercedes-Benz G 580 with EQ Technology DSC 8256.jpg
+| production = April 2024–present<ref>{{cite web | url=https://www.mbusa.com/en/owners/manuals/g-class-suv-2024-04-c465-mbux | title=&#124; Mercedes-Benz USA }}</ref>
+| assembly = Austria: [[Graz]] ([[Magna Steyr]])
+| class = [[Mid-size]] [[luxury SUV]]
+| body_style = 5-door [[SUV]]
+| related = 
+| layout = [[Front-engine, four-wheel drive layout|F4]] ([[4MATIC]])<br />[[Individual wheel drive|IWD]] (G 580 with EQ Technology)
+| engine = {{ubl
+| '''Petrol:'''
+| 3.0 L ''[[Mercedes-Benz M256 engine|M256]]'' [[Inline-six engine|I6]] [[turbocharger|turbocharged]]
+| 4.0 L ''[[Mercedes-Benz M176/M177/M178 engine|M177]]'' [[V8 engine|V8]] [[twin-turbo]]
+| '''Diesel:'''
+| 3.0 L ''[[Mercedes-Benz OM656 engine|OM656 D30T M]]'' I6 [[turbocharger|turbocharged]]
+| }}
+| transmission = 9-speed ''[[Mercedes-Benz 9G-Tronic transmission|9G-Tronic]]'' [[Automatic transmission|automatic]]<br />9-speed AMG SpeedShift [[Torque converter|TCT]] [[Automatic transmission|automatic]]<br />2-speed gearbox
+| wheelbase = {{convert|2890|mm|1|abbr=on}}
+| length = {{convert|4625|-|4873|mm|in|1|abbr=on}}
+| width = {{convert|1931|-|1948|mm|in|1|abbr=on}}
+| height = {{convert|1986|-|2042|mm|in|1|abbr=on}}
+| weight = {{convert|2485|-|3085|kg|lb|0|abbr=on}}
+| predecessor = [[#W463, second generation (2018%E2%80%932024)|W463 2]]
+| caption =
+}}
+
+The W465 is the new generation of G-Class introduced on 26 March 2024 with three engines carried over from the W463, a 3-litre petrol [[Straight-six engine|I6]] and a 2.9-litre diesel I6, as well as a 4-litre petrol [[V8 engine|V8]]. The 4-litre petrol V8 fitted in the G 500/G 550 was not carried over and was replaced by the 3-litre petrol I6. The Mercedes-AMG G 63 remains the only W465 with a V8 petrol engine. The new W465 with petrol and diesel engines are fitted with a 48-volt hybrid system.<ref>{{cite web|url=https://www.caranddriver.com/news/a60294852/2025-mercedes-benz-g550-amg-g63-revealed/ |title=2025 Mercedes-Benz G550 Swaps V-8 for Turbo Six with More HP, Less Torque |work=Car and Driver |date=26 March 2024 }}</ref>
+
+A month later on 24 April 2024, the electric version, G 580 with EQ Technology, was introduced. This model was inspired by the [[Mercedes-Benz EQG|Concept EQG]] and first electric vehicle from Mercedes-Benz not to have a separate EQ model.<ref>{{cite web | url=https://www.caranddriver.com/mercedes-benz/g-class-ev | title=2025 Mercedes-Benz G-Class EV Review, Pricing, and Specs | work=Car and Driver | date=14 May 2024 }}</ref>
+
+The electric G-Class, G 580 with EQ Technology, has sold 1,450 in a one-year period compared 9,000 units for the G-Class with internal combustion engines.<ref>{{cite web|url=https://www.handelsblatt.com/unternehmen/industrie/mercedes-elektrische-g-klasse-faellt-bei-den-kunden-durch-01/100131131.html |language=de |work=Handelsblatt |title=Elektrische G-Klasse fällt bei den Kunden durch |date=4 June 2025 |first=Franz |last=Hubik |accessdate=9 June 2025}}</ref> Various reasons for its poor sales are heavier gross weight (3,085&nbsp;kg or 6,746&nbsp;lbs), short range (473&nbsp;km on WLTP cycle and 239 miles on EPA cycle), higher price than ICE-equipped G-Class, and lack of towbar option (important for the European customers).<ref>{{cite web|url=https://www.motor1.com/news/761479/mercedes-exec-admits-electric-g-class-flop-report/ |title=Mercedes Exec Admits Electric G-Class Is a 'Complete Flop': Report |first=Adrian |last=Padenau |date=3 June 2025 |work=Motor1 |accessdate=9 June 2025}}</ref>
+
+<gallery widths="200" heights="120">
+File:Mercedes-Benz G 580 with EQ Technology DSC 8257.jpg|Rear view
+File:Mercedes-Benz G 580 with EQ Technology Auto Zuerich 2024 DSC 6666.jpg|Interior
+File:Mercedes-Benz W465 450 d DSC 0679.jpg|G 450 d
+File:Mercedes-Benz G 450 d Launch Edition (W465) rear.jpg|G 450 d (rear view)
+File:Mercedes-Benz G580 with EQ Technology (W465) front.jpg|G 580 with EQ Technology
+File:Mercedes-Benz G-Class Prototyp IAA 2023 1X7A0483.jpg|G-Class EV Prototype at [[2023 Munich Motor Show]]
+File:G-Class, IAA Open Space 2023, Munich (P1120148).jpg|G-Class EV Prototype (rear view)
+</gallery>{{clear}}
+
+=== Engines (2024–present) ===
+{| class="wikitable"
+!Model!!Years!!Configuration!!Displacement!!Power!!Torque!!{{convert|0–100|km/h|mph|0|abbr=on}}!!Top speed!!Fuel consumption/efficiency<br />(EU-norm combined)
+|-
+! colspan="9" style="text-align:center"|Petrol engines
+|-
+|G 500 / G 550
+|2024–present
+|Inline 6 [[Turbocharger|turbo]] ([[Mercedes-Benz M256 engine|M 256]])
+|{{convert|2999|cc|cuin|abbr=on}}
+|{{convert|330|kW|PS hp|0|abbr=on}} + {{convert|15|kW|PS hp|0|abbr=on}} at 5,800–6,100 rpm
+|{{convert|560|Nm|lbft|0|abbr=on}} + {{convert|200|Nm|lbft|0|abbr=on}} at 2,200–5,000 rpm
+|5.4 seconds
+|{{Convert|210|km/h|0|abbr=on}}
+|{{convert|10.9–12.3|L/100 km|mpgUS|abbr=on}}
+|-
+|G 63
+|2024–present
+|V8 [[Turbocharger|turbo]] ([[Mercedes-Benz M177 engine|M 177]])
+|{{convert|3982|cc|cuin|abbr=on}}
+|{{convert|430|kW|PS hp|0|abbr=on}} + {{convert|15|kW|PS hp|0|abbr=on}} at 6,000 rpm
+|{{convert|850|Nm|lbft|0|abbr=on}} + {{convert|200|Nm|lbft|0|abbr=on}} at 2,500–3,500 rpm
+|4.4 seconds
+|{{Convert|210|km/h|0|abbr=on}} ({{Convert|240|km/h|0|abbr=on}}*
+|{{convert|14.7–15.7|L/100 km|mpgUS|abbr=on}}
+|-
+! colspan="9" style="text-align:center"|Diesel engines
+|-
+|G 450 d
+|2024–present
+|Inline 6 [[Turbocharger|turbo]] ([[Mercedes-Benz OM656 engine|OM 656]])
+|{{convert|2990|cc|cuin|abbr=on}}
+|{{convert|270|kW|PS hp|0|abbr=on}} + {{convert|15|kW|PS hp|0|abbr=on}} at 4,000 rpm
+|{{convert|750|Nm|lbft|0|abbr=on}} + {{convert|200|Nm|lbft|0|abbr=on}} at 1,350–2,800 rpm
+|5.8 seconds
+|{{Convert|210|km/h|0|abbr=on}}
+|{{convert|8.7–10.0|L/100 km|mpgUS|abbr=on}}
+|-
+! colspan="9" style="text-align:center"|Electric
+|-
+|G 580 with EQ Technology
+|2024–present
+|4 electric motors 
+|NA
+|{{convert|432|kW|PS hp|0|abbr=on}}
+|{{convert|1165|Nm|lbft|0|abbr=on}}
+|4.7 seconds
+|{{Convert|180|km/h|0|abbr=on}}
+|27,7–30,3 kWh
+|-
+|}
+
+<nowiki>*</nowiki>With optional extra cost AMG Performance Package
+
+====Transmission (2024–present)====
+{| class=wikitable
+|-
+!Model!!Years!!Types
+|-
+|G 500||2024–present||9-speed [[Mercedes-Benz 9G-Tronic transmission|9G-Tronic automatic]]
+|-
+|G 63||2024–present||9-speed [[Mercedes-Benz 9G-Tronic transmission#AMG SpeedShift TCT 9G|AMG Speedshift TCT automatic]]
+|-
+|G 450 d||2024–present||9-speed [[Mercedes-Benz 9G-Tronic transmission|9G-Tronic automatic]]
+|-
+|G 580 with EQ Technology||2024–present||2-speed gearbox
+|-
+|}
+
+==Military operators==
+<!--READ FIRST: This section is for cited entries only. Please do not add entries into this list without a citation from a reliable source. All entries without a citation will be removed. Thank you.-->
+
+[[File:G-Class operators.png|thumb|300px|Map of military Mercedes-Benz G-Class operators]]
+
+;{{ALB}}: Since the 2010s, the [[Albanian Army]] has been using G-Class vehicles.
+
+;{{ALG}}: Since the 2010s, the [[Algerian Army]], [[Gendarmerie Nationale (Algeria)|Gendarmerie Nationale]] and the [[Algerian police]] have been using several models of G-Class vehicles 4x4 6x6 G 500. Most of those vehicles are manufactured in Bouchekif factory [[Tiaret]], owned by the Algerian army.<ref name="Algeria"/> First G-Class wagons released in 2015.{{citation needed|date=December 2020}}
+
+;{{ARG}}: Since the 1980s, the [[Argentine Army]] has used the MB-230G (short and long chassis) for different purposes. 900 remain in service.<ref>{{cite web |url=https://www.blogdecazaypesca.com/ejercito-argentino-orbat/ |title=ORBAT del Ejército Argentino |work=Blog de Caza y Pesca |archive-date=2019-04-26 |access-date=2019-04-26 |archive-url=https://web.archive.org/web/20190426194641/https://www.blogdecazaypesca.com/ejercito-argentino-orbat/ |url-status=live }}</ref>
+
+;{{AUS}}: In October 2007, Mercedes-Benz became the preferred tenderer for the [[Australian Defence Force]] to replace the fleet of [[Land Rover Perentie]] in Project Land 121 Overlander.<ref>{{cite press release|url=http://www.minister.defence.gov.au/NelsonMintpl.cfm?CurrentId=7143 |title=New defence contracts deliver a boost for Brisbane |first = Brendan | last = Nelson |publisher=Department of Defence |date=5 October 2007 |url-status=bot: unknown |archive-url=https://web.archive.org/web/20071031062909/http://www.minister.defence.gov.au/NelsonMintpl.cfm?CurrentId=7143 |archive-date=31 October 2007 }}</ref> Mercedes-Benz was the sole tenderer with neither Toyota for the [[Toyota Land Cruiser|Land Cruiser]] or Land Rover for the [[Land Rover Defender|Defender]] submitting a proposal. In October 2008, an initial contract for 1200 vehicles was signed.<ref>{{cite news|last1=Ridgway|first1=Steve|title=$350m wagon deal|url=http://www.defence.gov.au/Publications/NewsPapers/Army/editions/1202/1202.pdf|work=Army: The Soldiers' Newspaper|edition=1202|date=13 November 2008|publisher=Department of Defence|location=Canberra, Australia|issn=0729-5685|access-date=8 August 2016|archive-url=https://web.archive.org/web/20160827011353/http://www.defence.gov.au/Publications/NewsPapers/Army/editions/1202/1202.pdf|archive-date=27 August 2016|url-status=live}}</ref> 2,268 vehicles were purchased with ten variants including 6x6.<ref>{{cite web|title=G Wagon|url=http://www.army.gov.au/Our-work/Equipment-and-clothing/Vehicles/G-Wagon|website=Australian Army|access-date=8 August 2016|archive-url=https://web.archive.org/web/20160817160216/http://army.gov.au/Our-work/Equipment-and-clothing/Vehicles/G-Wagon|archive-date=17 August 2016|url-status=live}}</ref><ref>{{cite web|title=G-wagon booklet|url=http://www.army.gov.au/~/media/Army/Our%20work/Equipment%20and%20clothing/Vehicles/G%20wagon/G%20wagon%20booklet.pdf|archive-url=https://web.archive.org/web/20160105090112/http://www.army.gov.au/~/media/Army/Our%20work/Equipment%20and%20clothing/Vehicles/G%20wagon/G%20wagon%20booklet.pdf|url-status=dead|archive-date=5 January 2016|website=Australian Army|access-date=8 August 2016}}</ref> The first G-Wagons were delivered in February 2010.<ref>{{cite web | url=https://www.drive.com.au/news/mercedes-benz-g-wagon-military-vehicles-delivered-to-adf-w463-g-class-inching-closer/ | title=Mercedes-Benz G-Wagon Military Vehicles Delivered to ADF, Civilian G-Class "Inching Closer" | date=February 2010 }}</ref>
+
+:Australia is the first military customer to receive 6×6 vehicles and these are the first six-wheel military vehicles built by Mercedes-Benz since 1941.<ref name=Duff>{{cite news |url=http://www.news.com.au/news/merc-g-wagons-for-military/story-fnejnq7a-1226473498468 |title=Cars Guide: Merc G-wagons for military |last=Duff |first=Craig |date=13 September 2012 |journal=The Daily Telegraph |pages=21–22 (90–91) |access-date=16 September 2012 |archive-date=21 January 2021 |archive-url=https://web.archive.org/web/20210121040910/https://www.news.com.au/tablet/merc-g-wagons-for-military/news-story/116f54baae6d3d81b731938d18e6454c |url-status=dead }}</ref>
+
+;{{AUT}}: The [[Military of Austria|Austrian Army]] has been a long time user of various Puch G models.
+[[File:Puch G Bundesheer (cropped).jpg|thumb|A Puch G of the [[Military of Austria|Austrian Army]].]]
+;{{BEL}}: The [[Belgian Police]] or "Gendarmerie-Rijkswacht" has been a long time user of first G 500 models.
+
+;{{BUL}}: The [[Military of Bulgaria|Bulgarian Army]] operates 600+ vehicles in various configurations, most of them armed.
+[[File:Bulgarian army Mercedes G-Class.jpg|thumb|right|[[Bulgarian army]] G-class with [[HELBROC]] insignia]]
+
+;{{CAM}}: [[Royal Gendarmerie of Cambodia]] purchased 30 armored Mercedes-Benz G-Class from RMA Cambodia.
+
+;{{CMR}}: 60 "Wolf" in service with the [[Cameroon Armed Forces]].<ref>{{cite web |url=https://www.defenceweb.co.za/land/land-land/france-donates-military-equipment-to-cameroon/ |title=France donates military equipment to Cameroon |date=2016-12-12 |accessdate=2021-10-06 |publisher=defenceWeb}}</ref>
+
+;{{CAN}}: A total of 1,159 vehicles have been ordered by the [[Canadian Army]] beginning in late 2003. Canada purchased three variants including: with Gun turret; non turreted; and military police. These vehicles are utilised by both Regular and Reserve units.<ref>{{Cite web|url=https://www.sfu.ca/casr/ft-gwagon.htm|archiveurl=https://web.archive.org/web/20080421193312/http://www.sfu.ca/casr/ft-gwagon.htm|url-status=dead|title=Armoured Vehicles – Mercedes G-Wagon – Blast Resistant Vehicles – Nyala APV – IED – MND Gordon O'Connor – Afghan Mission – Procurement Priorities – CASR – Canadian American Strategic Review|archivedate=April 21, 2008}}</ref> An armoured kit can be fitted (or removed) in 8 hours by three soldiers. Their light armour has been criticised for leading to loss of life in Afghanistan, however it is considerably better than the [[Volkswagen Iltis|Iltis]] predecessor.<ref>{{Cite web|url=https://www.sfu.ca/casr/ft-afghanarmour.htm|archiveurl=https://web.archive.org/web/20070504104646/http://www.sfu.ca/casr/ft-afghanarmour.htm|url-status=dead|title=Mercedes G-Wagon – Kandahar – Afghanistan – Gumbad IED – Media Response – Canadian Forces – CASR – Canadian American Strategic Review|archivedate=May 4, 2007}}</ref> The CAF settled on a replacement called the [[Textron tactical armoured patrol vehicle]] (TAPV) in 2012. For the most exposed missions in Afghanistan 75 [[RG-31|RG-31 Nyala]]s built by [[BAE Systems Land & Armaments|BAE Land Systems OMC]], [[South Africa]] were used.<ref>[http://www.army.forces.gc.ca/lf/English/2_display.asp?product=73&more=73 The Canadian Army — Equipment] {{webarchive |url=https://web.archive.org/web/20080620075142/http://www.army.forces.gc.ca/lf/English/2_display.asp?product=73&more=73 |date=June 20, 2008 }}</ref>
+[[File:Two Canadian Forces G-Wagons.jpg|thumb|Canadian Army G-Wagens]]
+
+;{{CHI}}: The [[Chilean Army]] has been using the W461 for many decades in many configurations.<ref>{{cite web |url=https://razonyfuerza.mforos.com/549910/11554914-noticias-del-ejercito-viii/?pag=228 | title=Noticias del Ejercito VIII | date=3 June 2020 }}</ref>
+
+;{{CRO}}: Croatia bought 300 to 320 vehicles for needs of Croatian army and for operations in Afghanistan additional 30 RG-31 vehicles were delivered. Croatia uses mix of 4×4 vehicles in peacekeeping operations and the G-Class is a very popular choice within the Croatian Army. G-Class is supplemented by Land Rover Wolf and Iveco LMV.
+
+;{{DEN}}: The [[Military of Denmark|Danish military]] bought the 240 GD (/24, /28 and /34 variants) to supersede the M151A1, the [[Volkswagen]] 181 ("Jagdwagen") and the Land Rover 88.<ref>{{cite web |url=http://www.armyvehicles.dk/merc240gd.htm |title=Danish army Mercedes 240 GD/24 |publisher=Armyvehicles.dk |access-date=2010-10-01 |archive-url=https://archive.today/20161229144445/http://www.armyvehicles.dk/merc240gd.htm |archive-date=2016-12-29 |url-status=live }}</ref> First deliveries of the 240 GD were in 1985 and later the 290 GD (/24 and /28 variants) were also introduced. More than 1,300 have been put in service. A few 300 GE's have also been used — mainly by the Danish army [[Explosive Ordnance Disposal|EOD-services]].<ref>{{cite web |url=http://www.armyvehicles.dk/merc300ge.htm |title=Danish army Mercedes 300 GE/28 |publisher=Armyvehicles.dk |access-date=2010-10-01 |archive-url=https://archive.today/20161229144514/http://www.armyvehicles.dk/merc300ge.htm |archive-date=2016-12-29 |url-status=live }}</ref> Currently the Danes are taking delivery of over 2,000 270CDIs in several variants, starting in 2003.<ref>{{cite web |url=http://www.armyvehicles.dk/merc270cdi.htm |title=Danish army Mercedes G270CDI/28 |publisher=Armyvehicles.dk |access-date=2010-10-01 |archive-url=https://web.archive.org/web/20110211175006/http://www.armyvehicles.dk/merc270cdi.htm |archive-date=2011-02-11 |url-status=live }}</ref>
+
+;{{flag|East Timor}}: used by units of Army of the [[Timor Leste Defence Force]].{{citation needed|date=June 2017}}
+
+;{{EGY}}: The [[Egyptian Army]] uses the G 320 (4 × 4) armoured personnel carrier has been designed as a private venture by the Kader Factory for Developed Industries and is based on the chassis of the commercial German Mercedes-Benz MB 320G (4 × 4) light vehicle. This vehicle is based on the long-wheelbase version of the German Mercedes-Benz G 320 4 × 4 with the chassis frame being modified by a heavy-duty suspension which has been designed to withstand the additional weight imposed by the armour package.<ref>{{cite web |archive-url= https://web.archive.org/web/20120503102930/http://articles.janes.com/articles/Janes-Armour-and-Artillery/Kader-G-320-armoured-personnel-carrier-Egypt.html |archive-date= 2012-05-03 |url= http://articles.janes.com/articles/Janes-Armour-and-Artillery/Kader-G-320-armoured-personnel-carrier-Egypt.html |title= Kader G 320 armoured personnel carrier (Egypt) – Jane's Armour and Artillery |publisher= Articles.janes.com |date= 2007-10-04 |access-date= 2012-04-12}}</ref>
+
+;{{EST}}: The [[Estonian Defence Forces]] have a small number of various G-Class vehicles, which were purchased to replace the outdated [[UAZ]] and [[Volkswagen Iltis]] vehicles.
+
+;{{FIN}}: The [[Finnish Army]] uses the ''Geländewagen'' mostly as armored vehicles and [[ambulance]]s, but other versions are also in service.
+[[File:Circulation fh000013.jpg|thumb|French Army Peugeot P4s]]
+
+;{{FRA}}: The [[French Army]] has the [[Peugeot P4]] which is a derivative from the G-Class equipped with [[Peugeot]] engine and equipment.
+
+[[File:Serval 2.jpg|thumb|[[AGF (Light infantry vehicle)]] of the German [[Kommando Spezialkräfte|special forces]]]]
+[[File:Light Armoured Patrol Vehicle ENOK.jpg|thumb|A [[LAPV Enok]], the latest armored model of the [[German Army]]]]
+[[File:Bundeswehr MB Wolf.jpg|thumb|right|A Wolf of the German Army]]
+
+;{{FRG}}: W460 accepted into Federal Border Guards ([[Bundesgrenzschutz]]) service 1978 but rejected from German Armed Forces ([[Bundeswehr]]) service in favor of the [[Volkswagen Iltis]].
+
+;{{DEU}}: W461 accepted into Bundeswehr service 1989 to replace the Volkswagen Iltis, deliveries from 1993 onward. The Bundeswehr uses the G-Class under the name "Wolf". Over 12,000 vehicles have been delivered in over 50 versions, ranging from ambulance vehicles to armored variants used by German [[Kommando Spezialkräfte|special forces]] ([[LAPV Enok]]).
+
+[[File:Hellenic Army - Mercedes-Benz G-Class - 7211.jpg|thumb|A Greek Army vehicle in Military Police colours]]
+
+;{{GRE}}: The [[Greek Army]] as well as Air Force, Navy and Police have several versions (462) of the ''Geländewagen'', manufactured by [[Hellenic Vehicle Industry|ELBO]] the Hellenic Vehicles Industry.<ref name="ELBO"/>
+
+;{{HUN}}: The [[Hungarian Ground Forces]] have 233 of G-270 CDI BA 10, which is mounted with UMF light-machine gun platform, and 5 of G-280 CDI BA6 C+R SSA FB6. More will be purchased between 2010 and 2013.
+
+;{{INA}}: [[Paspampres]] (Indonesian Presidential Security forces) are using G 270 CDI for their fleet with SIRINA lights, Gunner Roof Mount, Bullbar, Black Grill, Roof and Rear View Mirror Handles. New model of G 300 CDI in 2010 acquired not less than 30 units for presidential and vice-presidential escort purposes. The Paspampres uses black G 300 CDI with the Military Police in white and ensigns with Indonesian MP insignia.
+
+;{{IRQ}}: The [[Kurdistan|Kurdish]] [[Peshmerga]] has 60 "Wolf" including 20 lightly armored type to help fight off the [[Islamic State of Iraq and the Levant|ISIL]] forces.<ref>{{cite web |url=http://www.sldinfo.com/germany-and-the-kurds-supplying-arms-as-part-of-evolving-german-foreign-policy/ |title=Germany and the Kurds: Supplying Arms as Part of Evolving German Foreign Policy? |date=3 September 2014 |publisher=sldinfo.com |access-date=2014-09-03 |archive-url=https://web.archive.org/web/20140908163158/http://www.sldinfo.com/germany-and-the-kurds-supplying-arms-as-part-of-evolving-german-foreign-policy/ |archive-date=2014-09-08 |url-status=live }}</ref>
+
+;{{IRL}}: The [[Irish Army]] used a number of G-Wagens as ambulances.
+
+;{{KOS}}: The [[Kosovo Security Force|KSF]] use more than 200. And used by the [[Kosovo Police]] which were seized after the [[Banjska attack]].
+
+;{{LAT}}: The [[Latvian Land Forces]] and [[Latvian National Guard]]s use different modifications of ''Geländewagen'', including armored. More than 300 of the 240 GD modification were bought from Norway in 2004, with at least 66 later refurbished/upgraded.<ref>{{Cite web |date=2004-12-15 |title=Ar ko brauc Latvijas armijā |trans-title=What does the Latvian army drive with |url=https://www.apollo.lv/4711694/ar-ko-brauc-latvijas-armija |access-date=2025-09-10 |website=[[Apollo.lv]] |language=lv}}</ref> A small number of the 300GDN variants are also used.<ref name="eng.lsm.lv">{{cite web |date=2015-03-20 |title=National Guard loads up with anti-tank weapons, trucks |url=https://eng.lsm.lv/article/society/society/national-guard-loads-up-with-anti-tank-weapons-trucks.a122282/ |access-date=2022-10-03 |website=eng.lsm.lv/}}</ref>
+
+;{{LBN}}: The [[Lebanese Army]] operates 20 G-wagon donated by [[Royal Dutch Army]] as ambulances.
+
+[[File:Mercedes-Benz G350 for Lithuanian Armed Forces.jpg|thumb|Lithuanian Armed Forces Mercedes-Benz G350]]
+;{{LIT}}: The [[Lithuanian Armed Forces]] operates approximately 200 formerly Dutch GD vehicles since delivery in 2016.<ref>{{cite web|last1=Tomkins|first1=Richard|title=Lithuania receives surplus vehicles from the Netherlands|url=http://www.upi.com/Business_News/Security-Industry/2016/08/18/Lithuania-receives-surplus-vehicles-from-the-Netherlands/4301471499946/|website=United Press International|access-date=18 August 2016|date=18 August 2016|archive-url=https://archive.today/20161229122358/http://www.upi.com/Business_News/Security-Industry/2016/08/18/Lithuania-receives-surplus-vehicles-from-the-Netherlands/4301471499946/|archive-date=29 December 2016|url-status=live}}</ref> On December 17, 2021, the National Defence Volunteer Force will receive 125 ex-Dutch GDs for patrolling the land border with Belarus.<ref>{{Cite web|url=https://www.joint-forces.com/defence-equipment-news/49344-lithuania-acquires-dutch-gelandewagens-for-belarus-border|title = Lithuania Acquires Dutch Geländewagens for Belarus Border|date = 20 December 2021}}</ref>
+
+;{{LUX}}: The [[Military of Luxembourg]] uses the 300D variant of the ''Geländewagen''.
+
+;{{flag|Malaysia}}: Locally built by DEFTECH since 2001, the G-Wagon is used along with [[Land Rover Defender]] as light transport of [[Malaysian Army]].<ref>{{cite web|url=http://www.klsreview.com/HTML/2009Jul_Dec/20091023_01.html|title=Ahmad Zahid: 84 G-WAGON Masih Beroperasi|language=ms|access-date=2010-10-04|publisher=KL Security Review|archive-url=https://archive.today/20161229145237/http://www.klsreview.com/HTML/2009Jul_Dec/20091023_01.html|archive-date=2016-12-29|url-status=live}}</ref> It uses the GD280 chassis.<ref>{{cite web |url=http://www.deftech.com.my/product10.html |title=Archived copy |website=www.deftech.com.my |access-date=11 January 2022 |archive-url=https://web.archive.org/web/20111113223822/http://www.deftech.com.my/product10.html |archive-date=13 November 2011 |url-status=dead}}</ref>
+
+[[File:Mercedes-Benz G-Klasse GD290 Malaysia.jpg|right|thumb|Malaysia Army GD290]]
+
+;{{MEX}}: The Mexican naval defense secretary (SEMAR) announced in 2008, a contract to purchase large numbers of Mercedes-Benz military vehicles for the Mexican Marine corps. As of May 16, 2009 The SEMAR has received 20 of the 84 G-Class vehicles in order.<ref>{{cite web|url=http://www.semar.gob.mx/boletin/2009/bol_136_09.html |title=Secretaria de Marina – Armada de México |publisher=Semar.gob.mx |access-date=2009-07-26 |url-status=dead |archive-url=https://web.archive.org/web/20110716115452/http://www.semar.gob.mx/boletin/2009/bol_136_09.html |archive-date=2011-07-16 }}</ref><ref>{{cite web |url=https://www.informador.mx/Mexico/Recibe-Semar-vehiculos-para-incrementar-capacidad-operativa-20090516-0055.html |title=Recibe Semar vehículos para incrementar capacidad operativa :: El Informador |work=EL INFORMADOR |publisher=Informador.com.mx |access-date=2009-07-26 |archive-url=https://archive.today/20161229145138/http://www.informador.com.mx/mexico/2009/103816/6/recibe-semar-vehiculos-para-incrementar-capacidad-operativa.htm |archive-date=2016-12-29 |url-status=live }}</ref>
+
+;{{MNG}}: The Ministry of Defense of Mongolia operates 10 G-class vehicles (Wolf) donated by the German Government in 2010.<ref>Батлан хамгаалах салбарт 140 мянган еврогийн vнэ бvхий 10 машин бэлэглэлээ. {{cite web |url=http://www.olloo.mn/modules.php?name=News&file=article&sid=1175104 |title=Olloo.mn - Єдєр бvр дэлхий даяар |access-date=2012-07-18 |url-status=dead |archive-url=https://web.archive.org/web/20120706120126/http://www.olloo.mn/modules.php?name=News |archive-date=2012-07-06 }}</ref> An additional 60 G-Wolf vehicles were donated by the German Government in 2016.<ref>{{Cite web |title=Батлан хамгаалах яаманд Герман улсаас 60 ширхэг бенз машин бэлэглэлээ |url=https://dnn.mn/news/batlan-khamgaalakh-yaamand-german-ulsaas-60-shirkheg-be |access-date=2025-07-26 |website=dnn.mn}}</ref>
+
+;{{NLD}}: The [[Royal Netherlands Army]] uses various versions of the Mercedes-Benz G-Class, mostly 461 290GD manual gearbox, 290GD TD manual gearbox models and a 280cdi V6 model with automatic gearbox. The [[Dutch police]] and [[Koninklijke Marechaussee]] also use the G-Class. Most of the police versions are armored 463 models.
+
+;{{PRK}}: The [[Korean People's Army]] appears to have acquired several 230G(E)-class vehicles,{{sfnp|Mitzer|Oliemans|2020|p=42}}<ref>{{cite web | url=https://www.nknews.org/2021/09/g-wagon-mystery-where-did-north-korea-get-its-luxury-suv/ | title=G Wagon mystery: Where did North Korea get its luxury SUV? &#124; NK News | date=20 September 2021 | access-date=2023-11-09 | archive-date=2021-09-21 | archive-url=https://archive.today/20210921014205/https://www.nknews.org/2021/09/g-wagon-mystery-where-did-north-korea-get-its-luxury-suv/ | url-status=bot: unknown }}</ref> some of which were seen on the [[Workers' Party of Korea]] 65th anniversary military parade.<ref>{{Cite web|url=https://www.youtube.com/watch?v=hoJwHTSXK9Q|archiveurl=https://web.archive.org/web/20101001004009/https://www.youtube.com/watch?v=hoJwHTSXK9Q|url-status=dead|title=- YouTube|archivedate=October 1, 2010|website=www.youtube.com}}</ref> At the funeral of [[Kim Jong-il]] his hearse was flanked by G-Class vehicles.<ref>{{cite web |url=http://www.ibtimes.com/articles/273501/20111228/kim-jong-il-funeral-photos.htm |title=Kim Jong-il's Funeral Held in N. Korea (PHOTOS) |publisher=Ibtimes.com |date=2011-12-28 |access-date=2012-04-12 |archive-url=https://archive.today/20161229144341/http://www.ibtimes.com/kim-jong-ils-funeral-held-n-korea-photos-709315 |archive-date=2016-12-29 |url-status=live }}{{failed verification|date=October 2023}}</ref>
+
+[[File:Mercedes-Benz Geländewagen Norwegian military MB240GD side.jpg|right|thumb|Norwegian military MB240GD]]
+;{{NOR}}: The [[Norwegian Army]] bought 240 GD to replace [[Volvo]] and [[Land Rover]] 4×4 vehicles in the mid-1980s, and 300 GD to use as ambulances. The 300GD is also used to transport the launch control station and optical sensors for the [[NASAMS]] Air-defense system. During the 90's 290 GD's where bought, and in the first half of the 00's a small number of armoured 270 CDI's were put into service. Today the Defence Forces operates a total of 3000 vehicles. The escort company of the [[Hans Majestet Kongens Garde|Norwegian Royal Guard]] employs a black G 500 [[Mercedes-AMG|AMG]] with police lights on the roof. More than 300 of the 240 GD's were sold to Latvia in 2004.
+
+;{{POL}}: 96 GD 290 and 25 MB290GD WD in service with [[Polish Army|Wojska Lądowe]]. 13 GD 290 in service with the [[Żandarmeria Wojskowa]].<ref name="Militarypedia">{{cite web |url=http://militarypedia.corran.pl/wiki/Zestawienie_pojazd%C3%B3w_u%C5%BCytkowych_Wojska_Polskiego |title=Zestawienie pojazdów użytkowych Wojska Polskiego – Militarypedia (note: it does provide its own sources) |language=pl |publisher=Militarypedia.corran.pl |access-date=2010-10-01 |archive-url=https://web.archive.org/web/20110822004246/http://militarypedia.corran.pl/wiki/Zestawienie_pojazd%C3%B3w_u%C5%BCytkowych_Wojska_Polskiego |archive-date=2011-08-22 |url-status=dead }}</ref>
+
+;{{POR}}: The [[Portuguese Marine Corps]] uses the G-class for light transport along with Toyota Landcruiser and Land Rover Defender 90.<ref>{{Cite web| url=http://i720.photobucket.com/albums/ww202/report-air_2009/Dia%20de%20Portugal_Santarem_10JUN09/IMG_9725.jpg | title=Mercedes ATV with a boat | access-date=2011-12-28 | archive-url=https://web.archive.org/web/20120425152751/http://i720.photobucket.com/albums/ww202/report-air_2009/Dia%20de%20Portugal_Santarem_10JUN09/IMG_9725.jpg | archive-date=2012-04-25 | url-status=live}}</ref>
+
+;{{RUS}}: Police, state security units, military and governmental agencies are using the G-Class. Mostly civilian versions in black. Security escort vehicles for both the President and Prime Minister are black G 500 and G 55 AMG.
+
+;{{SRB}}: The [[Military of Serbia|Serbian Military]] currently uses Puch 300GD model. They also uses the following models in 300GD33, 300GD6 and 300GD10 variants, for transport of [[VIP]] persons in 300GD3-LUX and 300GD6-LUX and Special Forces Brigade is use modified version designed for access to combat zone.
+
+;{{SIN}}: The [[Singapore Army]] bought the 270 and 290 versions as secondary military transport. It is used in soft-top truck configuration and is known as a 1.5-tonner or simply "MB" to its users. And also some were used also for patrolling in a "jeep" form. The Army also deploys the extremely short-wheelbase, soft-top version for its Colonels, Battalion COs, Brigade and Division Commanders as personal field transports.
+
+;{{SLO}}: The [[Military of Slovenia]] uses Mercedes-Benz G-Class vehicles mainly for transport.
+
+;{{SVK}}: The [[Military of Slovakia|Armed Forces of Slovak republic]] uses Mercedes-Benz G-280 CDI in [[5th Special Forces Regiment]].
+
+;{{SWE}}: The [[Swedish Army]] uses MB 290/T (1994), MB 290GD (2000) and MB 270 CDI (2005). The GW is to be the main light terrain vehicle in the Swedish armed forces in the future. In 2011 a framework agreement was signed between FMV and Daimler AG. An initial contract for 105 300 CDI was signed.<ref>{{cite web |first=Henrik | last = Svensk |url=http://www.soldf.com/ptgb5_gw.html |title=Personterrängbil 5 -MB 290/T Geländewagen |publisher=SoldF.com |access-date=2010-10-01 |archive-url=https://archive.today/20161229143631/https://www.soldf.com/ptgb5_gw.html |archive-date=2016-12-29 |url-status=dead }}</ref><ref>{{cite web |first=Henrik | last = Svensk |url=http://www.soldf.com/ptgb5_gwt.html |title=Personterrängbil 5 Geländewagen |publisher=Soldf.com |access-date=2010-10-01 |archive-url=https://archive.today/20161229143613/https://www.soldf.com/ptgb5_gw.html |archive-date=2016-12-29 |url-status=dead }}</ref>
+
+;{{SUI}}: The [[Swiss Armed Forces]] uses the 230 with soft top as the primary general purpose carrier, and a hardtop version as mobile radio access point. It is in service since 1985 and gradually replaced Willys Jeeps, [[Steyr-Puch Haflinger]] light transports and [[Pinzgauer High Mobility All-Terrain Vehicle|Pinzgauer]] medium transports in the liaison and transport role. All versions in Swiss Army use are unarmed. When it was selected, it was in competition against the Saurer F006 (developed with [[Monteverdi (automobile)|Monteverdi]]) or the 230M variant.<ref>{{Cite web| title=Monteverdi Design | year=1994 | url=http://www.auto-pub.net/Divers/Monteverdi/Monteverdi_94.jpg | archive-url=https://web.archive.org/web/20160829015241/http://auto-pub.net/Divers/Monteverdi/Monteverdi_94.jpg | archive-date=2016-08-29}}</ref> From 2014, the Steyr Daimler Puch 230 GE is going to be gradually replaced by the Mercedes-Benz G 300 CDI 4x4 hardtop version, starting with a first series of 3,200 vehicles.
+
+;{{TWN}}: The [[Republic of China Air Force|Air Force]] uses a handful of G-Classes.
+
+;{{THA}}: Royal Thai Army<ref name="yuththopkrn">{{cite web|url=https://sites.google.com/site/frunkyen/yuththopkrn/yan-phahna-say-srrphawuth|title=yan-phahna-say-srrphawuth|date= |access-date=4 February 2023}}</ref>
+
+;{{GBR}}: An Argentine Army G-Class captured by the British Army during the [[Falklands War]] was subsequently used by [[No. 18 Squadron RAF]] in [[West Germany]] for several years but is now on display at the Royal Air Force Museum, Cosford<ref name="raf18sqn">{{cite web|last1=Carr|first1=Clare|title=Oh Lord won't you buy me a Mercedes Benz|url=https://www.rafmuseum.org.uk/blog/oh-lord-wont-you-buy-me-a-mercedes-benz/|publisher=RAF Museum|access-date=18 January 2018|date=15 September 2016|archive-url=https://web.archive.org/web/20180119120230/https://www.rafmuseum.org.uk/blog/oh-lord-wont-you-buy-me-a-mercedes-benz/|archive-date=19 January 2018|url-status=live}}</ref> The British Commanders'-in-Chief Mission to the Soviet Forces in Germany ([[BRIXMIS]]) also used a number.<ref>{{Cite web|url=http://www.brixmis.co.uk/later-years.html|title = Later Years &#124; BRIXMIS}}</ref>
+
+;{{UKR}}: Police, state security units, military and governmental agencies are using the G-Class. Mostly civilian versions in black. Security escort vehicles for both the President and Prime Minister are black G 500 and G 55 AMG.
+
+;{{USA}}:[[File:USMC Fast Attack Vehicle (IFAV).1.JPEG|thumb|USMC IFAV]] The [[United States Marine Corps|USMC]] [[Interim Fast Attack Vehicle]] (IFAV) is a modified version of the Mercedes-Benz ''Geländewagen'' 290. It replaces the modified [[M151|M-151A2{{fraction|1|4}} ton truck]] jeep used by the Marines as an FAV in the 1990s. The U.S. Marine Corps acquired 157 of the IFAVs distributed as follows:
+
+* (I) Marine Expeditionary Force (MEF) Camp Pendleton, CA (33)
+* (II) MEF Camp Lejeune, NC (25)
+* (III) MEF on Okinawa, Japan (27)
+* (IV) 17 Force Recon, Afghanistan (22)
+* (V) 3 Force Recon Bn, Iraq (23)
+* (VI) 1st Provisional DMZ Police Company, Korea (15)
+* (VII) various miscellaneous (12)
+
+In the late 1990s the USMC acquired the G-Class model as the Interim Fast Attack Vehicle (IFAV), which was essentially a '97 to '01 DaimlerChrysler model 290 GDT, a diesel-power 2-door with a pick-up bed.<ref name="trucktrend.com">[http://www.trucktrend.com/cool-trucks/1005dp-us-marine-corps-g-wagen/ U.S. Marine Corps' G-Wagen] {{Webarchive|url=https://web.archive.org/web/20161124090930/http://www.trucktrend.com/cool-trucks/1005dp-us-marine-corps-g-wagen/ |date=2016-11-24 }} ''Truck Trend''</ref> This was compact and light enough to be transported inside a [[Sikorsky CH-53 Sea Stallion]] Helicopter.<ref name="trucktrend.com"/>
+
+== Bodystyles ==
+{| class="wikitable"
+|-
+! Code !! Bodywork !! Wheelbase !! Notes
+|-
+| 1|| Convertible with fixed windshield|| {{convert|2400|mm|inch|1|abbr=on}}|| Only civilian types: 460, 463 and 465 (from late 2026)
+|-
+| 2|| Van || {{convert|2400|mm|inch|1|abbr=on}}|| Only 460/461 and military types
+|-
+| 3|| Station Wagon|| {{convert|2400|mm|inch|1|abbr=on}}|| All types except Professional and Greenline military types
+|-
+| 4|| Van || {{convert|2850|mm|inch|1|abbr=on}}|| Only 460/461/Professional/Worker and military types
+|-
+| 5|| Pickup|| {{convert|2850|mm|inch|1|abbr=on}}|| Only 460/461 types and G 63 6x6 (W463)
+|-
+| 6|| Station Wagon|| {{convert|2850|mm|inch|1|abbr=on}}|| All types
+|-
+| 7|| Convertible with folding windshield|| {{convert|2400|mm|inch|1|abbr=on}}|| Only military types
+|-
+| 8|| Code unused|| N/A|| N/A
+|-
+| 9|| Chassis Cab|| {{convert|3120|mm|inch|1|abbr=on}}|| Only 460/461 and military types
+|-
+| 9,1|| Chassis Cab|| {{convert|3400|mm|inch|1|abbr=on}}|| Only 460/461/Professional and military types
+|-
+| 10|| Convertible with folding windshield|| {{convert|2850|mm|inch|1|abbr=on}}|| Only military types
+|-
+| 11|| Chassis Double Cab|| {{convert|3120|mm|inch|1|abbr=on}}||  Only 460/461 and military types
+|-
+| 11,1|| Chassis Double Cab|| {{convert|3400|mm|inch|1|abbr=on}}||  Only 460/461 and military types
+|-
+| 11,2|| Chassis Double Cab 6×6|| {{convert|3400|mm|inch|1|abbr=on}}|| Only Greenline military types
+|}
+
+'''US sales figures'''<ref name="Archived copy">{{Cite web |url=http://carsalesbase.com/us-car-sales-data/mercedes-benz/mercedes-benz-g-class/ |title=Mercedes-Benz G-Class US car sales figures |date=8 November 2015 |access-date=2017-01-29 |archive-url=https://web.archive.org/web/20170202081427/http://carsalesbase.com/us-car-sales-data/mercedes-benz/mercedes-benz-g-class/ |archive-date=2017-02-02 |url-status=live }}</ref>
+*2023: 10,342
+*2022: 8,697
+*2021: 8,223
+*2020: 5,166
+*2019: 7,348
+*2018: 3,970 
+*2017: 4,188 
+*2016: 3,950 
+*2015: 3,616 
+*2014: 3,090 
+*2013: 2,494 
+*2012: 1,330 
+*2011: 1,191 
+*2010: 919 
+*2009: 662 
+*2008: 931 
+*2007: 1,152 
+*2006: 587 
+*2005: 1,334 
+*2004: 1,491 
+*2003: 1,980 
+*2002: 3,114 
+*2001: 674
+{| class="wikitable"
+! rowspan="2" |Year
+! colspan="3" |China
+|-
+!G-class
+!AMG
+!EV
+|-
+|2023
+|5,593<ref name=":5">{{Cite web |title=【易车销量榜】全国2023年奔驰终端量销量榜-易车榜-易车 |url=https://car.yiche.com/newcar/salesrank/?brandId=2&saleType=2&flag=2023 |access-date=2026-02-11 |website=car.yiche.com}}</ref>
+|3,974<ref name=":5" />
+|{{Em dash}}
+|-
+|2024
+|5,258<ref name=":6">{{Cite web |title=【易车销量榜】全国2024年奔驰终端量销量榜-易车榜-易车 |url=https://car.yiche.com/newcar/salesrank/?brandId=2&saleType=2&flag=2024 |access-date=2026-02-11 |website=car.yiche.com}}</ref>
+|1863<ref name=":6" />
+|40<ref name=":6" />
+|-
+|2025
+|3,890<ref name=":7">{{Cite web |title=【易车销量榜】全国2025年奔驰终端量销量榜-易车榜-易车 |url=https://car.yiche.com/newcar/salesrank/?brandId=2&saleType=2&flag=2025 |access-date=2026-02-11 |website=car.yiche.com}}</ref>
+|2,200<ref name=":7" />
+|151<ref name=":7" />
+|}
+
+==Motorsport==
+In 1983 a specially modified 280 GE won the [[Paris–Dakar Rally]] driven by [[Jacky Ickx]] and [[Claude Brasseur]].<ref>{{cite web|title=Mercedes-Benz G-Class History|url=http://www.edmunds.com/mercedes-benz/g-class/history.html|work=Edmunds|access-date=7 August 2012|archive-url=https://web.archive.org/web/20120703040330/http://www.edmunds.com/mercedes-benz/g-class/history.html|archive-date=3 July 2012|url-status=live}}</ref>
+
+== In popular culture ==
+A specially modified W465 G580e G-Class was announced by Mercedes as the official Trophy Carrier for the [[2024 League of Legends World Championship]]. In addition to a special livery, the car featured a specially designed module designed to safely hold the Summoner's Cup while in transit. The car safely transported the Summoner's Cup to [[The O2 Arena]] in [[London]], where the final took place.<ref>{{Cite web |title=The all-new Trophy Carrier |url=https://www.mercedes-benz.com/en/art-and-culture/zeitgeist/esports/all-new-trophy-carrier/ |access-date=2024-11-03 |website=www.mercedes-benz.com |language=en}}</ref>
+
+As the G-Class transitioned through its W460, W463, and subsequent generations, its dimensions and kerb weight notably increased to accommodate modern safety standards, luxury interiors, and advanced drivetrain modules.<ref>{{Cite web |title=Mercedes-Benz G-Class Technical Data and Engine Specifications |url=https://carwiki.io/en/model/mercedes-benz/mercedes-benz-g-class |access-date=2023-11-18 |website=CarWiki.io |language=en}}</ref>
+
+== See also ==
+* [[Force Gurkha]], [[Force Trax|Trax]] - Indian SUVs of similar appearance
+* [[Beijing BJ80]] - similar Chinese SUV
+* [[Unimog]]
+
+== References ==
+
+=== Notes ===
+{{reflist}}
+
+=== Bibliography ===
+<!-- last updated July 2022 -->
+
+==== General ====
+{{refbegin}}
+* {{cite book |last1=Arthur |first1=Gordon |title=Australian G-Wagons [sic]: Mercedes-Benz G-Klasse 4x4 und 6x6 Geländewagen der Australischen Streitkräfte |trans-title=Australian G-Wagons [sic]: Mercedes-Benz G-Class 4x4 and 6x6 off-road vehicles of the Australian Defence Force |series=International Special No. 8010 |date=2021 |publisher=Tankograd Publishing |location=Erlangen, Germany |oclc=1268193713 |language=en,de}}
+* {{Barrett: Illustrated Buyer's Guide Mercedes-Benz|edition=Second}}
+* {{cite book |last1=Bolsinger |first1=Markus |last2=Lengert |first2=Axel |last3=Peters |first3=Wolfgang |title=Legend – The G Class: from 1979 to today |year=2013 |publisher=Delius Klasing |location=Bielefeld, Germany |isbn=9783768836241 }}
+* {{cite book |last=Breuninger |first=Martin |title=Das G-Buch: Alles über den Geländewagen von Mercedes-Benz |trans-title=The G Book: Everything about the Geländewagen from Mercedes-Benz |year=1993 |publisher=Tufa |location=Radolfzell, Germany |asin=B002UNICHS |language=de}}
+* {{cite book |last=Breuninger |first=Martin |title=Das G-Reisebuch – mit dem Geländewagen von Mercedes-Benz unterwegs  |trans-title=The G Travel Book: On the move with the Geländewagen from Mercedes-Benz |year=1995 |publisher=Tufa |location=Radolfzell, Germany |asin=B002UNICIM |language=de |author-mask=8}}
+* {{cite book |last=Breuninger |first=Martin |title=The Legend Keeps on Driving: 25 Years of Mercedes-Benz G-Class |year=2004 |publisher=Tufa |location=Radolfzell, Germany |isbn=0962554154 |author-mask=8}}
+* {{cite book |editor-last=Clarke |editor-first=R.M. |title=Mercedes G-Wagen 1981–1994 |series=Road Test Portfolio Series |year=1999 |publisher=Brooklands Books |location=Cobham, Surrey, UK |isbn=1855203081 }}
+* {{cite book |editor-last=Clarke |editor-first=R.M. |title=Mercedes-Benz G-Wagen Gold Portfolio 1981–2005 |series=Road Test Portfolio Series |year=2006 |publisher=Brooklands Books |location=Cobham, Surrey, UK |isbn=1855206994 |editor-mask=6}}
+* {{cite book |last=Füngeling |first=Michael |title=Das große Mercedes-G-Buch Baureihen 460, 461, 463 |trans-title=The Big Mercedes G Book 460, 461, 463 series |series=Ein Off-road-Sachbuch series |edition=2nd, expanded |year=2001 |publisher=AC Verlag |location=Ottobrunn |isbn=3930193248 |language=de}}
+* {{cite book |last=García Loperena |first=Gastón Javier |title=Mercedes-Benz G en el Ejército Argentino  |year=2018 |publisher=1884 Círculo Militar |location=Buenos Aires, Argentina |isbn=9789874112156 |language=es}}
+* {{cite book |last1=Giesen |first1=Norbert |title=Mercedes G-Modell |series=Bewegte Zeiten series |date=2021 |publisher=Delius Klasing |location=Bielefeld, Germany |isbn=978366712230-8 |language=de}}
+* {{cite book |last=Greene |first=Nik|title=Mercedes-Benz G-Wagen: All models including AMG specials, 1979 to 2006 |series=Essential Buyer's Guide series |year=2020|publisher=Veloce Publishing |location=Dorchester, Dorset, UK |isbn= 9781787115149}}
+* {{cite book |last1=Hack |first1=Joachim |title=Mercedes-Benz G-Klasse: seit 40 Jahren nicht zu stoppen |trans-title=Mercedes-Benz G-Class: unstoppable for 40 years |date=2019 |location=Stuttgart |isbn=9783613041721 |language=de |edition=1. Auflage}}
+* {{Deutsche Autos|volume=7}}
+* {{cite book |last=Long |first=Brian|title=Mercedes-Benz G-Wagen: 1979 to 2015 |series=Mercedes-Benz series |year=2016|publisher=Veloce Publishing |location=Dorchester, Dorset, UK|isbn= 9781845847777}}
+* {{cite book |last1=Mitzer |first1= Stijn |last2=Oliemans |first2=Joost |date= 2020|title=The Armed Forces of North Korea: On the Path of Songun|publisher=Helion and Company|isbn=978-1910777145}}
+* {{cite book |last=Sand |first=Jörg |title=Das Neue Große Mercedes G-Klasse-Buch |trans-title=The New Big Mercedes G Class Book |edition=updated and revised |year=2011 |publisher=Heel Verlag |location=Königswinter, Germany |isbn=9783868524710 |language=de}}
+* {{cite book |last1=Sand |first1=Jörg |title=Mercedes-Benz G-Klasse: Baureihe W 460 / W461; alle Modelle von 1979 bis 2000 |trans-title=Mercedes-Benz G-Class: W 460 / W461 series; all models from 1979 to 2000 |series=Praxisratgeber Klassikerkauf series |date=2015 |publisher=Heel Verlag |location=Königswinter, Germany |isbn=9783958430259 |language=de |author-mask1=5}}
+* {{cite book |last1=Sand |first1=Jörg |title=The Mercedes-Benz G-Class: The Complete History of an Off-Road Classic |date=2022 |publisher=Schiffer Publishing |location= Atglen, PA, USA |url={{GBurl|VbI9zgEACAAJ}} |isbn=9780764362637 |author-mask1=5}}
+* {{cite book |last=Seper |first=Hans |author-link=:de:Hans Seper |title=100 Jahre Steyr 1864–1964 |trans-title=100 Years of Steyr 1864–1964 |edition= 3rd (facsimile) |year=2009 |publisher=Weishaupt Verlag |location=Gnas, Austria |isbn=9783705902909 |language=de}}
+* {{cite book |last=Sippel |first=Kai |title=Das G-Modell als Einsatzfahrzeug. Mercedes-Benz/Puch – Geländewagen im Behördendienst |trans-title=The G Model as Emergency Vehicle: Mercedes-Benz/Puch Geländewagen in Public Service |year=2007 |publisher=Kai Sippel |isbn=9783000218422 |language=de}}
+* {{cite book |last=Skarics |first=((Rudolf (editor-in-chief))) |title=100 Years of Steyr-Daimler-Puch Graz 1899–1999 |year=1999 |publisher=Steyr-Daimler-Puch |location=Graz, Austria |isbn=3950110712 }}
+* {{cite book |last=Stroh |first=Gari M. |title=Overland: A Mercedes-Benz Journey Through the Americas |year=2008 |publisher=StarGroup International |location=West Palm Beach, FL, USA |isbn=9781884886911 }}
+* {{cite book |last=Storz |first=Alexander Franc |title=Mercedes G-Modell – seit 1979 |series=Schrader-Typen-Chronik series |edition=revised |year=2013 |publisher=Motorbuch Verlag |location=Stuttgart |isbn=9783613035829 |language=de}}
+*{{cite book |last=Taylor |first=James |title=Mercedes-Benz since 1945: A Collector's Guide |volume=4: The 1980s |year=1994 |publisher=Motor Racing Publications |location=Croydon, UK |isbn=0947981772 |pages=89–96 }}
+{{refend}}
+
+====Workshop manuals====
+{{refbegin}}
+* {{cite book |last=Russek |first=Peter |title=Mercedes-Benz G-Models / Puch G / 240 GD, 300 GD, 230 G, 230 GE, 280 GE, 250 GD |series=Pocket Mechanic Vehicle Manual |year=2006 |publisher=Peter Russek Publications |location=Caversham, Reading, Berkshire, UK |isbn=1898780773}}
+* {{cite book |last=Sand |first=Jörg |title=Das Mercedes-Benz G-Klasse Schrauberhandbuch: reparieren und optimieren leicht gemacht |trans-title=The Mercedes-Benz G Class Gearheads' Handbook: repairing and optimizing made easy |year=2008 |publisher=Heel |location=Königswinter, Germany |isbn=9783898807180 |language=de}}
+* {{cite book |title=Mercedes-Benz G / Puch G / 240 GD, 300 GD bis 1989; 300 GD ab 1990; 230 G, 230 GE bis 1984; 230 GE ab 1985; 280 GE, 250 GD ab 1988. |edition=3rd |series=Reparaturanleitung, Band 1201. |year=2011 |publisher=Verlag Bucheli |location=Zug, Switzerland |isbn=9783716819203 |language=de}}
+* {{cite book |title=Mercedes-Benz Technical Companion |year=1998 |publisher=Bentley Publishers |location=Cambridge, MA, USA |isbn=9780837610337}}
+{{refend}}
+
+== External links ==
+{{commons category|Mercedes-Benz G-Class}}
+* {{Official website| https://www.mercedes-benz.com/en/vehicles/g-class/}}
+Press kit:
+*[https://web.archive.org/web/20160304002619/http://media.daimler.com/dcmedia/0-921-614254-1-1489395-1-0-0-0-0-1-11701-1549054-0-1-0-0-0-0-0.html The new generation Mercedes-Benz G-Class: Forever young]
+*[https://web.archive.org/web/20160304072050/http://media.daimler.com/dcmedia/0-921-1581582-1-1582095-1-0-0-0-0-1-11701-1549054-0-1-0-0-0-0-0.html Mercedes-Benz G 63 AMG 6x6: Taking the desert by storm]
+
+{{Mercedes-Benz timeline 1990–2019}}
+{{Mercedes-Benz timeline 2020 to date}}
+{{Maybach Post Revival}}
+
+[[Category:Mercedes-Benz G-Class| ]]
+[[Category:Mercedes-Benz vehicles|G-Class]]
+[[Category:Police vehicles]]
+[[Category:Luxury sport utility vehicles]]
+[[Category:Off-road vehicles]]
+[[Category:Mid-size sport utility vehicles]]
+[[Category:Dakar Rally–winning cars]]
+[[Category:Retro-style automobiles]]
+[[Category:Post–Cold War military vehicles of Germany]]
+[[Category:All-wheel-drive vehicles]]
+[[Category:Convertibles]]
+[[Category:Military light utility vehicles]]
+[[Category:ANCAP large SUVs]]
+[[Category:Euro NCAP large off-road]]
+[[Category:Cars of Austria]]
+[[Category:Cars introduced in 1979]]
+[[Category:1980s cars]]
+[[Category:1990s cars]]
+[[Category:2000s cars]]
+[[Category:2010s cars]]
+[[Category:2020s cars]]
+[[Category:Pickup trucks]]
+[[Category:Flagship vehicles]]
+[[Category:Military vehicles introduced in the 1980s]]
+[[Category:Cold War military vehicles of Germany]]
+[[Category:Diesel hybrid vehicles]]
+[[Category:Cars powered by V12 engines]]

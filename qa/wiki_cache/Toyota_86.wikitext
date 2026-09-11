@@ -1,0 +1,838 @@
+{{Short description|Japanese sports car}}
+{{Use British English|date=March 2026}}
+{{Use dmy dates|date=March 2026}}
+{{Infobox automobile
+| name = Toyota 86 / Subaru BRZ
+| image = 2022 Toyota GR86 Premium in Halo, Front Right, 04-10-2022.jpg
+| caption = 2022 Toyota GR86 Premium (ZN8, US)
+| manufacturer = {{Unbulleted list
+  | [[Toyota]]
+  | [[Subaru]]
+  }}
+| aka = {{Unbulleted list
+  | Subaru BRZ
+  | Toyota GT86 (Europe, 2012–2021)
+  | Scion FR-S (North America, 2012–2016)
+  | Toyota GR86 (2021–present)
+  | Toyota FT86 (Brunei, Nicaragua and Jamaica)
+  }}
+| production = January 2012 – present
+| model_years = 2013–present
+| assembly = Japan: [[Ōta, Gunma]] (Subaru Corp. Gunma Plant)
+| class = [[Sports car]] ([[S-segment|S]])
+| body_style = 2-door [[fastback]] [[coupé]]
+| layout = [[Front-engine, rear-wheel-drive]]
+| predecessor = <!--Not [[Toyota AE86]], as Toyota says the AE86 was marketing inspiration only.--><!--Scion FR-S is the same as 86.-->
+| sp = uk
+}}
+
+The '''Toyota 86''' and the '''Subaru BRZ''' are [[2+2 (car body style)|2+2]] [[sports car]]s jointly developed by [[Toyota]] and [[Subaru]], manufactured at Subaru's [[Ōta, Gunma]] assembly plant.<ref>{{Cite web |last=Kennedy |first=George |url=https://cars.usnews.com/cars-trucks/toyota-86-vs-subaru-brz |title=2019 Toyota 86 vs. 2019 Subaru BRZ: Head to Head |website=US News }}</ref>
+
+The [[2+2 (car body style)|2+2]] [[fastback]] [[coupé]] has a [[naturally aspirated]] [[boxer engine]], [[Front-engine, rear-wheel-drive layout|front-engined, rear-wheel-drive]] configuration, 53/47 front/rear weight balance and low centre of gravity; it was inspired by Toyota's earlier [[Toyota AE86|AE86]], a small, light, front-engine/rear-drive [[Toyota Corolla|Corolla]] variant widely popular for [[Production car racing|Showroom Stock]], [[Group A]], [[Group N]], [[Rallying|Rally]], Club and [[Drifting (motorsport)|drift]] racing.
+
+For the first-generation model, Toyota marketed the sports car as the '''86''' in Asia, Australia, North America (from August 2016), South Africa, and South America;<ref>{{cite web |url=http://www.toyota.com.au/86?WT.ac=Toyota_GlobalNav_Cars_86 |title=The 86 – Toyota's New Rear Wheel Drive Sports Car |publisher=Toyota |access-date=22 December 2012 }}</ref> as the '''Toyota GT86''' in Europe; as the 86 and GT86 in New Zealand; as the '''Toyota FT86''' in Brunei, Nicaragua and Jamaica and as the '''Scion FR-S''' (2012–2016) in the United States and Canada.<ref name="Scion Transition Toyota">{{Cite press release |title=Scion Brand to Transition to Toyota |url=http://pressroom.toyota.com/releases/scion+transition+toyota.htm |publisher=Toyota |date=3 February 2016 |archive-date=24 October 2016 |archive-url=https://web.archive.org/web/20161024045631/http://pressroom.toyota.com/releases/scion+transition+toyota.htm }}</ref><ref name="Bruce 2016">{{Cite web |last=Bruce |first=Chris |date=17 March 2016 |url=http://www.autoblog.com/2016/03/17/2017-toyota-86-scion-frs-new-york-official/ |title=More Powerful 2017 Toyota 86 Takes Over for the Scion FR-S |website=Autoblog |access-date=17 March 2026 }}</ref>
+
+The second-generation model is marketed by Toyota as the '''GR86''' as part of the [[Gazoo Racing]] (GR) family.<ref>{{Cite web |last=Capparella |first=Joey |date=5 April 2021 |title=2022 Toyota GR 86 Keeps the RWD Sports-Car Spirit Alive |url=https://www.caranddriver.com/news/a36023984/2022-toyota-gr-86-revealed/ |access-date=21 November 2021 |website=Car and Driver }}</ref>
+{{TOClimit|3}}
+
+{{anchor|FT-86}}
+{{anchor|FT-86 G Sports}}
+{{anchor|FT-86 II}}
+{{anchor|BRZ Prologue}}
+{{anchor|BRZ Concept STi}}
+{{anchor|Five Axis Scion FRS Concept}}
+{{anchor|FR-S Sports Coupé Concept}}
+
+==Name==
+The development code of the 2+2 was ''086A''<ref name="Farr 2014">{{cite web |last=Farr |first=Eliott |date=20 June 2014 |title=10 Things That Make the Toyota GT86 Special |url=http://blog.toyota.co.uk/10-things-that-make-the-toyota-gt86-special |website=Toyota: The Official Blog of Toyota GB |access-date=22 April 2015 }}</ref> and the eight six (Hachi-Roku in Japanese), references the historic 1983 to 1987 [[Toyota AE86|AE86]].<ref name="FR-S Story">{{cite web |date=2011 |url=http://www.frs-scion.com/story |title=The FR-S Story |archive-url=https://web.archive.org/web/20120107200606/http://www.frs-scion.com/story/ |archive-date=7 January 2012 |website=Frs-Scion.com }}</ref>
+
+==Pre-launch concept cars==
+Initial layout and design elements for the 86 were presented by Toyota using its "FT" (Future Toyota) [[concept car]] nomenclature. The first was the [[Toyota FT-HS]], which was presented at the [[North American International Auto Show#2007|North American International Auto Show]] in 2007. It had a front engine, rear-wheel drive layout and 2+2 seating and was powered by a [[V6 engine]] with [[hybrid electric]] assistance. In 2008, Toyota bought 16.5% of [[Fuji Heavy Industries]], which includes the Subaru automotive brand.<ref name="Toyota-Fuji">{{cite news |last=Flint | first=Jerry |date=11 May 2009 |url=https://www.forbes.com/global/2009/0511/025-autos-backseat-driver-subaru-defies-gravity.html |title=Subaru Defies Gravity |work=[[Forbes]].com |access-date=2 June 2013}}</ref> Toyota, led by project leader Tetsuya Tada,<ref>{{cite press release |date=11 February 2013 |url=http://blog.toyota.co.uk/tada-how-toyota-and-subaru-created-the-gt86 |title=Tada: How Toyota and Subaru created the GT86 |publisher=Toyota |archive-date=27 July 2013 |archive-url=https://web.archive.org/web/20130727234613/http://blog.toyota.co.uk/tada-how-toyota-and-subaru-created-the-gt86 }}</ref> then invited Subaru to partner in the project, by co-developing the new '''D-4S boxer''' engine.<ref>{{cite news |last=Tan |first=Paul |author-link=Paul Tan |date=13 October 2009 |title=Toyota FT-86 to Feature D-4S Boxer Engine |url=http://paultan.org/2009/10/09/toyota-ft-86-to-feature-d-4s-boxer-engine/ |work=PaulTan.org |access-date=13 October 2009 }}</ref> The offer, which conflicted with Subaru's reputation for high performance [[all-wheel drive]] (AWD) cars, was rejected. The project came to a six-month halt before Toyota invited journalists and Subaru engineers to test a developmental prototype. Following the test, Subaru agreed to become further involved in development.<ref>{{cite web |url=http://www.autoguide.com/auto-news/2011/12/how-the-scion-fr-s-almost-never-happened-and-why-subaru-thought-it-was-a-bad-idea.html |title=How the Scion FR-S Almost Never Happened and Why Subaru Thought It Was a Bad Idea |website=AutoGuide.com |date=14 December 2011 |access-date=10 January 2012}}</ref>
+
+[[File:Toyota FT-86 001.JPG|thumb|Toyota FT-86 Concept (2009)]]
+
+The collaboration produced a concept car, the [[Toyota FT-86 Concept|FT-86 Concept]], which debuted at the [[Tokyo Motor Show#2009|Tokyo Motor Show]] in October 2009. Smaller than the FT-HS, the design of the FT-86 was further refined by Toyota's [[Toyota Motor Europe|ED<sup>2</sup> design studio]] while the hybrid V6 powerplant was replaced by the new D-4S boxer. Subaru provided the chassis, modifying it from their [[Impreza]]. The custom red paint was based on the backside of a [[Japanese macaque]].<ref>{{cite web |last=Greimel |first=Hans |date=21 October 2009 |url=http://www.autoweek.com/article/20091006/TOKYO/910069998#ixzz0TAez5qn4 |title=Tokyo Auto Show: Toyota Goes Sporty with FT-86 |access-date=20 January 2010 |website=AutoWeek.com }}</ref> Classic Toyota sports cars such as the [[Toyota AE86|AE86]], [[Toyota Celica|Celica]] and [[Toyota Supra|Supra]] were cited as inspirations for the concept.<ref name=":4">{{Cite web |last=Clifford |first=Joe |date=25 November 2021 |title=History of Toyota 86 |url=https://mag.toyota.co.uk/history-of-toyota-86/ |access-date=6 February 2024 |website=Toyota UK Magazine }}</ref>
+
+At the [[Tokyo Motor Show#2010|2010 Tokyo Motor Show]], Toyota launched its [[Toyota G Sports|G Sports]] line of aftermarket accessories, along with the [[Toyota FT-86 G Sports Concept|FT-86 G Sports]] concept car. It featured G Sports carbon fibre panels, a vented [[Hood (vehicle)|bonnet]], rear wing, {{convert|19|in|cm|abbr=on}} wheels, [[Recaro]] race seats, and an interior rollcage.<ref>{{cite web |last=Siu |first=Jason |date=14 January 2010 |url=http://www.autoguide.com/auto-news/2010/01/tokyo-auto-salon-2010-gs-ft-86-g-sports-concept.html |title=Tokyo Auto Salon 2010: G's Toyota FT-86 G Sports Concept |work=autoguide.com |access-date=20 January 2010 }}</ref> The D-4S engine also added a [[turbocharger]].<ref>{{cite web|url=http://www.insideline.com/toyota/ft-86-concept/toyota-ft-86-g-sports-concept-2010-tokyo-auto-salon.html |title=Toyota FT-86 G Sports Concept: 2010 Tokyo Auto Salon |work=Insideline.com |date=15 January 2010 |archive-url=https://web.archive.org/web/20120104030626/http://www.insideline.com/toyota/ft-86-concept/toyota-ft-86-g-sports-concept-2010-tokyo-auto-salon.html |archive-date=4 January 2012 }}</ref>
+
+In 2011, Toyota and Subaru unveiled five near-production concept cars to show their progress with the project. The first, known as the [[Toyota FT-86 II Concept|FT-86 II Concept]], was unveiled at the [[Geneva Motor Show#2011|Geneva Motor Show]] in March 2011. ED<sup>2</sup> refined the design of the initial FT-86, by developing new front and rear fascias, and marginally increasing the dimensions of the concept.<ref>{{cite web |last=Gall |first=Jared |date=3 March 2011 |url=http://www.caranddriver.com/news/toyota-ft-86-ii-concept-news |title=Toyota FT-86 II Concept |work=Car and Driver |access-date=3 June 2013 }}</ref> At the same show, Subaru unveiled a transparent silhouette of the car showing the new D-4S boxer engine and displayed the "Boxer Sports Car Architecture".<ref>{{cite news |last=Korzeniewski |first=Jeremy |date=1 March 2011 |url=http://www.autoblog.com/2011/03/01/geneva-2011-subarus-rwd-sports-car-getting-2-0-liter-non-turbo |title=Geneva 2011: Subaru's RWD Sports Car getting 2.0-liter non-turbo engine, confirmed for America |work=Autoblog.com |access-date=3 June 2013 }}</ref>
+
+Scion followed in April 2011 at the [[New York International Auto Show#2011|New York International Auto Show]] with the [[Scion FR-S Concept|FR-S Sports Coupé Concept]], co-developed with aftermarket tuner Five Axis.<ref name="Scion FR-S Concept">{{cite press release |url=http://pressroom.scion.com/releases/scion-fr-s-sports-coupe-concept-2011-new-york-auto-show.htm |title=Scion Introduces FR-S Sports Coupé Concept at 2011 New York Auto Show |access-date=3 June 2013 |publisher=Toyota }}</ref> Another semi-transparent Subaru concept, known as the '''BRZ Prologue''', was shown at the [[International Motor Show Germany#2011|Frankfurt Motor Show]] that September,<ref>{{cite press release |url=http://www.fhi.co.jp/english/news/press/2011/11_09_13_1e.html |title=FHI Introduces 'Subaru BRZ Prologue' |publisher=Fuji Heavy Industries |date=13 September 2011 |archive-date=4 March 2016 |archive-url=https://web.archive.org/web/20160304035448/http://www.fhi.co.jp/english/news/press/2011/11_09_13_1e.html }}</ref> followed in November at the [[LA Auto Show#2011|Los Angeles Auto Show]] by the '''BRZ Concept STi''', the first full mock-up of Subaru's version of the 86 with input from [[Subaru Tecnica International]] (STI).<ref>{{cite news |last=Ewing |first=Steven J. |date=16 November 2011 |url=http://www.autoblog.com/2011/11/16/subaru-brz-concept-sti-la-2011 |title=Subaru BRZ Concept STi looks fast, furious |work=Autoblog.com |access-date=3 June 2013 }}</ref>
+
+{{Gallery
+|Toyota FT-HS at NYIAS.jpg|Toyota FT-HS (2007)
+|Toyota FT-86 Gs1001 (cropped).JPG|Toyota FT-86 G Sports (2010)
+|Toyota FT-86 II (5488250099) (cropped).jpg|Toyota FT-86 II (2011)
+|IAA FrankfurtCN 051 (cropped).jpeg|Subaru BRZ Prologue (2011)
+|2011 Greater Los Angeles Auto Show IMG 4546 (6870956428).jpg|Scion FR-S Sports Coupé (2011)
+|Subarubrz.jpg|Subaru BRZ Concept STi (2011)
+|width=170|height=120}}
+
+==<span class="anchor" id="first"></span><span class="anchor" id="ZN6"></span><span class="anchor" id="2012"></span>First generation (ZN6/ZC6; 2012)==
+{{Infobox automobile
+| name = First generation
+| image = Toyota GT86 – Frontansicht, 17. September 2012, Düsseldorf.jpg
+| caption = Toyota GT86 (Europe; pre-facelift)
+| model_code = {{unbulleted list
+  | ZN6 (Toyota/Scion)
+  | ZC6 (Subaru)
+  }}
+| aka = {{unbulleted list
+  | Subaru BRZ
+  | Toyota GT86 (Europe)
+  | Scion FR-S (North America, 2012–2016)
+  }}
+| production = {{unbulleted list
+  | January 2012 – March 2021 (86/GT86)
+  | January 2012 – July 2020 (BRZ)
+  }}
+| model_years = 2013–2020 (North America)
+| designer = Kenji Kido, Tatsuya Sonoda, Kosuke Kubo, Takanori Ito, Ryota Nakai, Hiroyuki Kobayashi and Kouhei Kobayashi (Toyota 86 exterior)<ref>{{cite patent |country=US |number=D686111S |inventor1-last=Kido |inventor1-first=Kenji |inventor2-last=Sonoda |inventor2-first=Tatsuya |inventor3-last=Kubo |inventor3-first=Kosuke |inventor4-last=Ito |inventor4-first=Takanori |title=Motor Vehicle and/or Toy Replica Thereof |publication-date=16 July 2013 |assign1=Toyota Motor Company |assign2=Fuji Heavy Industries }}</ref>
+| platform = 
+| engine = 2.0&nbsp;L ''[[Toyota U engine#4U-GSE|4U-GSE]]''/''[[Subaru FA engine#FA20|FA20]]'' [[Flat-four engine|H4]]
+| powerout = {{convert|200|–|207|PS|kW hp|0|abbr=on}}
+| transmission = {{unbulleted list
+  | 6-speed [[List of Aisin transmissions#Longitudinal rear-wheel drive|Toyota TL70 (Aisin AZ6)]] [[Manual transmission|manual]]
+  | 6-speed [[Toyota A transmission#A960E|A960E]] [[Automatic transmission|automatic]]
+  }}
+| wheelbase = {{convert|2570|mm|in|1|abbr=on}}<ref name="86std1">{{cite web |url=https://www.goo-net-exchange.com/catalog/TOYOTA__86/#10/2019 |title=Toyota 86 Catalog |date=19 November 2020 |website=Goo-Net-Exchange.com }}</ref>
+| length = {{unbulleted list
+  | Standard 86/BRZ/FR-S:
+  | {{convert|4240|mm|in|1|abbr=on}}<ref name="86std1" /><ref name="BRZstd1">{{cite web |url=https://www.goo-net-exchange.com/catalog/SUBARU__BRZ/#4/2019 |title=Subaru BRZ Catalog |date=19 November 2020|website=Goo-Net-Exchange.com }}</ref>
+  | Subaru BRZ tS:
+  | {{convert|4260|mm|in|1|abbr=on}}<ref>{{cite web |url=https://www.goo-net-exchange.com/catalog/SUBARU__BRZ/10098178/ |title=Subaru BRZ tS Catalog |date=19 November 2020 |website=Goo-Net-Exchange.com }}</ref>
+  | Toyota 86 special models:
+  | {{convert|4280|mm|in|1|abbr=on}} ([[GR Sport]])<ref>{{cite web |url=https://www.goo-net-exchange.com/catalog/TOYOTA__86/10124139/ |title=Toyota 86 GR Sport Catalog |date=19 November 2020 |website=Goo-Net-Exchange.com }}</ref>
+  | {{convert|4285|mm|in|1|abbr=on}} (14R)<ref>{{cite web |url=https://www.goo-net-exchange.com/catalog/TOYOTA__86/10108420/ |title=Toyota 86 14R Catalog |date=19 November 2020 |website=Goo-Net-Exchange.com }}</ref>
+  | {{convert|4290|mm|in|1|abbr=on}} (GR/GRMN)<ref name="86GR1">{{cite web |url=https://www.goo-net-exchange.com/catalog/TOYOTA__86/10112915/ |title=Toyota 86 GR Catalog |date=19 November 2020 |website=Goo-Net-Exchange.com }}</ref><ref>{{cite web |url=https://www.goo-net-exchange.com/catalog/TOYOTA__86/10101424/ |title=Toyota 86 GRMN Catalog |date=19 November 2020 |website=Goo-Net-Exchange.com }}</ref>
+  | {{convert|4310|mm|in|1|abbr=on}} (Style Cb)<ref>{{cite web |url=https://www.goo-net-exchange.com/catalog/TOYOTA__86/10095690/ |title=Toyota 86 Style Cb Catalog |date=19 November 2020 |website=Goo-Net-Exchange.com }}</ref>
+  | {{convert|4335|mm|in|1|abbr=on}} (14R-60)<ref>{{cite web |url=https://www.goo-net-exchange.com/catalog/TOYOTA__86/10094169/ |title=Toyota 86 14R-60 Catalog |date=19 November 2020 |website=Goo-Net-Exchange.com }}</ref>
+  }}
+| width = {{unbulleted list
+  | {{convert|1775|mm|in|1|abbr=on}} (standard 86/BRZ/FR-S models)<ref name="86std1" /><ref name="BRZstd1" />
+  | {{convert|1790|mm|in|1|abbr=on}} (Toyota 86 GR)<ref name="86GR1" />
+  }}
+| height = {{convert|1285|–|1320|mm|in|1|abbr=on}}
+| weight = {{unbulleted list
+  | Toyota 86:
+  | {{convert|1190|–|1298|kg|lb|0|abbr=on}}
+  | Subaru BRZ:
+  | {{convert|1190|–|1270|kg|lb|0|abbr=on}}<ref name="BRZstd1" />
+  | Scion FR-S:
+  | {{convert|2758|–|2806|lb|kg|0|abbr=on|order=flip}}
+  }}
+| sp = uk
+| predecessor = [[Scion tC]] (North America)
+}}
+
+=== Development and production ===
+The production Toyota 86 debuted at the [[Tokyo Motor Show#2011|December 2011 Tokyo Motor Show]]. Its development was led by chief engineer Tetsuya Tada.<ref>{{cite news |last=DeGasperi |first=Daniel |url=https://www.whichcar.com.au/features/tetsuya-tada-san-man-behind-the-toyota-86 |title=Tetsuya Tada-San: The man behind the Toyota 86 |work=Which Car |date=6 August 2016 |access-date=9 October 2019 }}</ref> All variants are built at Subaru's Gunma Main Plant,<ref>{{cite news |last=Korzeniewski |first=Jeremy |date=16 March 2012 |url=http://www.autoblog.com/2012/03/16/subaru-brz-and-toyota-gt-86-production-gets-underway-w-video/ |title=Subaru BRZ and Toyota GT 86 production gets underway |work=Autoblog.com |access-date=3 June 2013}}</ref> with the first cars assembled on 2 February 2012 before sales began in March and deliveries in April. 7,000 orders were placed for the Toyota 86 in the first month of production,{{Citation needed|date=March 2026}} while Subaru took in 3,500 orders.<ref>{{cite press release |url=http://www.fhi.co.jp/english/news/press/2012/12_03_28e.html |title=New Subaru BRZ Sales Hit in Japan – First two-month sales figures approximately quadruple initial target |publisher=Fuji Heavy Industries |date=28 March 2012 |archive-date=4 March 2016 |archive-url=https://web.archive.org/web/20160304023813/http://www.fhi.co.jp/english/news/press/2012/12_03_28e.html }}</ref>
+
+In the United States, Scion were allocated 10,000 units of the 2013 [[model year]] (MY13) production,<ref>{{cite news |last=Bowman |first=Zach |date=20 June 2012 |url=http://www.autoblog.com/2012/06/20/subaru-brz-scion-fr-s-lead-list-of-fastest-selling-cars |title=Subaru BRZ, Scion FR-S lead list of fastest-selling cars |work=Autoblog.com |access-date=3 June 2013 }}</ref> while Subaru was limited to only 6,000 units.<ref>{{cite news |last=Bowman |first=Zach |date=13 March 2012 |url=http://www.autoblog.com/2012/03/13/preorder-now-subaru-only-sending-6-000-brz-coupes-to-u-s-in-20 |title=Preorder Now: Subaru only sending 6,000 BRZ Coupés to U.S. in 2013 |work=Autoblog.com |access-date=3 June 2013 }}</ref>
+
+<gallery widths="250" heights="113">
+File:Toyota GT86 – Heckansicht, 17. September 2012, Düsseldorf.jpg|Rear view (Germany; pre-facelift)
+</gallery>
+
+==== Engineering ====
+The 86's low-weight design uses an aluminium bonnet, a fixed roof, and a boot as opposed to a [[hatchback]].<ref name="pressrelease">{{cite press release |url=http://media.toyota.ca/pr/tci/en/scion/2013-scion-fr-s-brings-the-sport-234313.aspx |title=2013 Scion FR-S Brings the Sport Back to the Car |publisher=Toyota |date=23 March 2012 |archive-date=20 October 2013 |archive-url=https://web.archive.org/web/20131020053605/http://media.toyota.ca/pr/tci/en/scion/2013-scion-fr-s-brings-the-sport-234313.aspx }}</ref><ref>{{cite web |title=Subaru BRZ |url=http://www.subaru.com/brz/2013/index.html |publisher=Subaru |archive-date=15 April 2017 |archive-url=https://web.archive.org/web/20170415020852/http://www.subaru.com/brz/2013/index.html }}</ref> To improve driving dynamics, the boxer engine is mounted low in a front engine / rear drive layout, yielding a [[weight distribution]] of 53% in front and 47% in the rear and a low centre of mass height.<ref name="pressrelease" />
+
+The 86's engine, known by the Toyota code [[Toyota U engine#4U|4U-GSE]] and Subaru code [[List of Subaru engines#Subaru FA engine|FA20]], is a [[naturally aspirated engine]] that uses Subaru's [[flat-four engine]] design, with the addition of Toyota's D-4S injection system, which uses [[Gasoline direct injection]] (GDI). With its [[front-engine, rear-wheel-drive layout]], its engine runs on 98 [[Octane rating#Research Octane Number (RON)|RON]] (premium unleaded) fuel and features a [[compression ratio]] of 12.5:1 with a [[Bore (engine)|bore]] and [[Stroke (engine)|stroke]] of {{convert|86|mm|in|2|abbr=on}} for a total [[Engine displacement|displacement]] of {{cvt|1998|cc|L CID|1|abbr=on|order=flip}} that results in {{convert|200|PS|bhp kW|0|abbr=on}} at 7,000 rpm and {{convert|151|lbft|Nm|0|abbr=on}} of torque at 6,400 rpm.<ref>{{cite web |title=2013 FR-S Specifications |url=http://www.scion.com/cars/FR-S/specs/ |publisher=Scion |archive-date=16 September 2015 |archive-url=https://web.archive.org/web/20150916213339/http://www.scion.com/cars/FR-S/specs/ }}</ref><ref>{{cite web |date=26 October 2013 |title=2012 Subaru BRZ, 2013 MY US |url=https://www.carfolio.com/specifications/models/car/?car=275319 |website=CarFolio.com |access-date=31 July 2018 }}</ref>
+
+The 86, BRZ and FR-S are offered with two six-speed transmissions: an in-house developed Toyota TL70 manual gearbox (based on [[Aisin]] AI's AZ6<ref>{{cite web |last=Ruhi |first=Joaquín |url=https://kaizenfactor.wordpress.com/2012/04/26/were-we-and-aisin-wrong-about-the-brz-fr-s-gt-86-manual-transmission-or-is-scion/ |title=Were we (and Aisin) wrong about the BRZ / FR-S / GT 86 manual transmission? Or is Scion? |work=Kaizen Factor |date=26 April 2012 |access-date=21 November 2017}}</ref>) and an Aisin-Warner [[Toyota A transmission#A960E|A960E]] [[automatic transmission]], which is modified from that used on the [[Lexus IS 250]]. The latter uses a traditional wet torque converter design, but its software has been engineered to mimic the response of a [[dual-clutch transmission]]. The automatic transmission uses three different modes: Sport, Snow, and Normal. A torsen style [[limited-slip differential]] is standard on most models.
+
+The vehicles are offered with 16" steel and alloy wheels fitted with [[Yokohama Rubber Company|Yokohama]] dB Decibel E70 tyres in 205/55 size or 17" alloy wheels fitted with [[Michelin]] Primacy HP tyres in 215/45 size, depending on sales market. The limited editions [[Toyota Racing Development]] (TRD) GT86 models are instead offered with 18" forged aluminium wheels, which are fitted with either Yokohama Advan Sport tyres or Michelin Pilot Sport 3 tyres in 225/40 size, also depending on market. The braking systems vary between models and countries:
+
+* Dual-piston front sliding calipers, single-piston rear sliding calipers, 294/290&nbsp;mm ventilated disks (front/rear) – US market, EU markets, higher trim levels on most other markets
+* Dual-piston front sliding calipers, single-piston rear sliding calipers, 277&nbsp;mm ventilated disks front / 286&nbsp;mm solid disks rear – lower trim levels on most other markets
+* Four-piston front fixed calipers, two-piston rear fixed calipers, 326/316&nbsp;mm ventilated disks (front/rear) – Performance Pack cars
+* Six-piston front fixed calipers, four-piston rear fixed calipers, 355&nbsp;mm two-piece / 345&nbsp;mm ventilated disks (front/rear) – TRD Edition cars
+
+Suspension design comprises front [[MacPherson strut|MacPherson]] [[Strut#Automobiles|struts]] and [[Double wishbone suspension|double wishbones]] at the rear.
+
+In 2016, for the 2017 model year, the manual transmission 86 was upgraded to {{cvt|205|bhp|kW bhp PS|abbr=on|0|order=out}} and {{cvt|156|lbft|abbr=on|0|order=flip}}. The final [[Gear train#Wide-ratio vs. close-ratio transmission|drive ratio]] was changed from 4.10 to 4.30.<ref>{{cite web |last=Jacquot |first=Josh |title=2017 Subaru BRZ Manual |url=https://www.caranddriver.com/reviews/2017-subaru-brz-manual-test-review |work=Car and Driver |publisher=Hearst Communications |date=October 2016 |access-date=21 November 2017 }}</ref>
+
+{{Multiple image
+| align     = left
+| direction = vertical
+| width     = 
+| image1    = 2017 Toyota GT86 PRO D-4S 2.0 Front.jpg
+| caption1  = 
+| image2    = 2017 Toyota GT86 PRO D-4S 2.0 Rear (1).jpg
+| caption2  = Toyota GT86 (United Kingdom; facelift)
+| header    = Facelift (2017)
+}}
+
+==== Design ====
+The 86's rear-wheel drive configuration and front-mounted flat boxer engine allow a low centre of gravity for strong handling characteristics.<ref name="FR-S Story" /> The bodywork has a {{Cd|link=car|long=yes|0.27}}.<ref>{{cite news |last=Sathiah |first=Sanjiv |date=8 July 2012 |title=Toyota reveals GT 86 aero kit |url=http://www.leftlanenews.com/toyota-reveals-gt-86-aero-kit.html |archive-date=4 March 2016 |archive-url=https://web.archive.org/web/20160304115036/http://www.leftlanenews.com/toyota-reveals-gt-86-aero-kit.html |work=Left Lane }}</ref>
+
+[[File:Toyota 86 GT - Logo.jpg|thumb|The "86" boxer side badge on Toyota and Scion models]]
+
+According to the 86's designers, "The goal was to create an authentic rear-wheel drive sports car with compelling style, exceptionally balanced performance and handling, flexible utility and surprising MPG."<ref name="FR-S Story" /> When asked about the TRD version of the car, the lead engineer Mr. Tada said "There is definitely going to be a more TRD oriented variant down the line. However any of the parts that would be standard on the TRD model will fit on your current Toyota 86 so there is no need to wait."<ref>{{cite web |title=Google+ Hangout with Lead Engineer Tada-San! |url=https://www.youtube.com/watch?v=FophcHUuNWM |archive-url=https://web.archive.org/web/20120724025426/http://www.youtube.com/watch?v=FophcHUuNWM&;amp;feature=youtube_gdata |archive-date=24 July 2012 |work=Toyota }}</ref>
+
+The design of the GT86 was inspired by the Toyota 2000GT, as part of the concept of 'Neo Functionalism' (the idea that the cars driving quality and appearance were part of its functionality). 2000GT references were especially apparent in the side profile, windows and dashboard of the car.<ref>{{Cite web |last=Brindusescu |first=Gabriel |date=12 March 2014 |title=Toyota GT 86 Facts You Might Not Know About |url=https://www.autoevolution.com/news/toyota-gt-86-facts-you-might-not-know-about-video-78389.html |access-date=6 February 2024 |website=autoevolution }}</ref><ref name=":4" />
+
+The 86 "boxer" side badge appears on all Toyota and Scion versions of the car, but not the Subaru BRZ. Aside from badging, the main differences between the 86/GT86 and the BRZ are the front grilles and bumper bars.
+
+The car included numerous references to the number 86:<ref name="Farr 2014" /><ref name="Australia press kit">{{cite press release |url=http://www.pressroom.com.au/press_kit_detail.asp?clientID=2&navSectionID=6&categoryID=1000&kitID=324 |title=2012 Toyota 86 press kit |publisher=Toyota |date=4 June 2012 |access-date=22 April 2015}}</ref>
+* the engine bore and stroke is 86mm x 86mm
+* the diameter of the exhaust tip is also 86mm.
+
+==== Interior ====
+[[File:Toyota GT86 - wnętrze (MSP16).jpg|thumb|Toyota 86 interior with bucket seats]]
+
+The interior uses low mounted front seats and fold down rear enabling increased storage space.<ref name="pressrelease" /> The FR-S and base 86 models have cloth seats with all black interior trim with a black patterned dash trim, and shift boot red stitching. The BRZ has two available interiors, one identical to the FR-S but with silver dash trim, a red stitched parking brake boot, black gauge faces (instead of the white tachometer of the 86 GTS models) and a touch-screen navigation head unit; the second interior to leather and Alcantara heated seats, automatic HVAC controls, and a push-button start. The top-of-the-range 86 models are fitted like the BRZ except as noted above, and the Japanese interior can be had in black and red leather and Alcantara or full black leather and Alcantara.
+
+==== Performance ====
+* Top speed: {{convert|145|mph|km/h|abbr=on}} (as tested)<ref name="Top Gear 2012">{{cite web |url=http://www.topgear.com/uk/toyota/gt-86/road-test/driven |title=Toyota GT 86 Driven |work=[[Top Gear (magazine)|Top Gear]] |date=1 January 2012 |archive-date=23 June 2015 |archive-url=https://web.archive.org/web/20150623192134/http://www.topgear.com/uk/toyota/gt-86/road-test/driven }}</ref>
+* Acceleration:
+** {{convert|0|-|62|mph|km/h|abbr=on}}: 7.6 seconds (manufacturer's claim)<ref>{{cite web |url=http://www.toyota.co.uk/cgi-bin/toyota/bv/generic_editorial.jsp?navRoot=toyota_1024_root&fullwidth=true&noLeftMenu=true&forceText=%3Cnone%3E&edname=CC2-GT86-specification&zone=Zone+GT86&id=CC2-GT86-specification |title=GT86 Specification in Detail |author=Toyota UK |archive-url=https://web.archive.org/web/20131102110600/http://www.toyota.co.uk/cgi-bin/toyota/bv/generic_editorial.jsp?navRoot=toyota_1024_root&fullwidth=true&noLeftMenu=true&forceText=%3cnone%3e&edname=CC2-GT86-specification&zone=Zone+GT86&id=CC2-GT86-specification |archive-date=2 November 2013 }}</ref>
+** {{convert|0|-|60|mph|km/h|abbr=on}}: 6.0–6.2 seconds (estimated)<ref name="car&drive1">{{cite web |url=http://www.caranddriver.com/reviews/2013-subaru-brz-sports-car-first-drive-review |title=2013 Subaru BRZ – First Drive Review |first=Jared |last=Gall |work=Car and Driver |date=1 December 2011 |access-date=25 December 2012}}</ref><ref>{{cite web |last=Neil |first=Dan |date=23 March 2012 |url=https://www.wsj.com/articles/SB10001424052702304724404577293812942708538 |title=Subaru BRZ: It's Thinker Than You Fast It Is |work=Wall Street Journal |access-date=25 December 2012 }}</ref>
+** Standing 1/4 Mile: 14.7–14.9 seconds (estimated).<ref name="car&drive1" />
+
+=== Toyota 86, GT86 and FT86 ===
+The Toyota 86 is available in Japan from Toyota's ''[[Netz Store]]'' and ''Corolla Store'' line of dealerships; the 1983–1987 Sprinter Trueno and Corolla Levin were also sold at the same networks. Four trim levels are offered, with the RC model being the base aimed at people wishing to modify or race their vehicles.<ref>{{Cite web |url=http://www.speedhunters.com/2014/01/a-grid-full-of-win-toyota-nzs-own-racecar/ |title=A Grid Full of Win: Toyota NZ's Own Racecar |date=6 January 2014 |website=Speedhunters |access-date=29 May 2019 }}</ref><ref>{{Cite web |url=https://www.pistonheads.com/news/general-pistonheads/gt-86-for-16k/25155 |title=GT 86 for £16K... |website=PistonHeads.com |access-date=29 May 2019 }}</ref> This model is available with only a six-speed manual transmission and comes with unpainted bumpers and mirrors, 16&nbsp;inch steel wheels, simpler interior trim components, analogue speedometer and no stereo or air conditioning. Outside Japan, the RC model is only available in New Zealand. The G model adds all the interior components missing from the RC, plus a fully painted exterior and 16&nbsp;inch alloy wheels and the availability of an automatic transmission. The GT86 model adds [[high intensity discharge]] headlights with [[LED]] [[daytime running lights]], fog lamps, automatic climate control, keyless start with engine start button, 17&nbsp;inch alloy wheels, chrome exhaust tips, white tachometer face with analogue and digital speedometer, silver accents on the centre dash and steering wheel, aluminium pedals. The top-of-the-range GT Limited adds leather and [[Alcantara (material)|Alcantara]] seating and a rear [[Spoiler (automotive)|spoiler]].
+
+In Europe, GT86 models are generally the same as the Japanese 86 GT with a red/black leather/Alcantara interior with red stitching. In the United Kingdom, the Japanese G model is sold as the GT86 Primo<ref name="Top Gear 2012" /> and the car has also been available as a limited edition Toyota Racing Development "TRD GT86", which features: 18&nbsp;inch forged aluminium wheels with Yokohama Advan Sport tyres; full bodykit with front and side skirts, rear spoiler and new diffuser; quad-exhaust system; TRD-branded detailing on the filler cap, radiator cap and gear knob. In New Zealand, the TRD 86 is sold with the above features except for Michelin Pilot Sport 3 tyres instead plus upgraded TRD braking system. Options not available to all markets include a Bose sound system upgrade.
+
+In Australia, the GT is the equivalent of the Japanese G model but with only an all black interior trim and standard radio head unit, whereas the top-of-the-range GTS model is the equivalent of the Japanese GT Limited except for an all black leather/Alcantara and red-stitch interior trim only and touchscreen multimedia head unit. Upon Australian launch in June 2012, all models for Australia featured a full-size spare wheel, the GTS lacked a rear spoiler, and a [[limited-slip differential]] or LSD was standard on all models except automatic GT's.<ref name="Australia press kit" /> The full-size spare wheel was phased out after the first shipments to Australia, replaced with a repair kit. This model also benefited from a remapping of its Electronic Control Unit ([[Electronic Control Unit|ECU]]) to address initial reports of rough idling and stalling.<ref>{{cite news |url=http://www.drive.com.au/motor-news/engine-problems-for-toyota-86-and-subaru-brz-20121010-27cbu.html |title=Engine problems for Toyota 86 and Subaru BRZ |first=Matt |last=Campbell |work=Drive |date=10 October 2012 |access-date=5 August 2014}}</ref> The range of models and main options had the following retail prices: GT manual {{AUD|29,990}}; GT automatic {{AUD|32,490}}; GTS manual {{AUD|35,490}}; GTS automatic {{AUD|37,990}}; metallic paint {{AUD|425}} for all models; "Aero pack" bodykit {{AUD|3,000}} for GTS only.
+
+As of the August 2013 production update (which carried the formal year designation MY14), the automatic GT also gained LSD as standard (but with a price increase of {{AUD|300}}; manual price unchanged in Australia) and the GTS gained the same rear spoiler fitted to the Japanese GTS Limited and the Subaru BRZ (with a price increase of {{AUD|500}} for both the manual and automatic model in Australia).<ref>{{cite press release |url=https://www.pressroom.com.au/press_release_detail.asp?clientID=2&prID=5124&navSectionID=2 |title=Changes for Toyota 86, but not for entry price |publisher=Toyota |date=26 September 2013 |access-date=28 September 2013}}</ref> Other distinguishing features on the MY14 models include the removal of the lettered "TOYOTA" badge from the rear bonnet of the GTS and optional availability of rear parking sonar sensors on GT and GTS.
+
+In July 2014, an updated version of the Australian Toyota 86 range was launched with year designation MY15. The key highlights include: revised suspension settings; "shark-fin" roof antenna; GTS instrument cluster on GT; carbon-fibre look dash insert and reverse-view camera on GTS; new white and silver exterior paints. The price of the GT remained unchanged while the GTS was the subject of a price increase of {{AUD|500}} and {{AUD|800}} for the manual and automatic version, respectively.<ref>{{cite news |url=http://www.caradvice.com.au/298326/toyota-86-revised-suspension-updated-interior-for-updated-sports-car |title=Toyota 86 : Revised suspension, enhanced interior for updated sports car |first=Tim |last=Beissmann |work=CarAdvice.com.au |date=24 July 2014 |access-date=26 July 2014}}</ref>
+
+In late 2014, as part of its MY15 range, Toyota offered in the UK two new models: the GT86 Aero, featuring a full bodykit and 18&nbsp;inch OZ Ultraleggera alloy wheels in anthracite grey finish; and the GT86 "Giallo" (meaning yellow in Italian), limited to only 86 units.<ref>{{cite web |title=What's different about the Toyota GT86 Aero and Giallo models? |url=http://blog.toyota.co.uk/whats-different-toyota-gt86-aero-giallo-models |website=Toyota GB Blog |publisher=Toyota GB |date=11 December 2014 |archive-date=11 February 2015 |archive-url=https://web.archive.org/web/20150211204254/http://blog.toyota.co.uk/whats-different-toyota-gt86-aero-giallo-models }}</ref> Similar to the latter, Toyota also offered in Italy a total of 50 "Limited Edition" models.<ref>{{cite web|title=La Toyota GT86 diventa Limited Edition|url=http://tgcup.quattroruote.it/it/news/144/la-toyota-gt86-diventa-limited-edition/page|website=Toyota GB Blog|publisher=Quattroruote|date=18 November 2014|access-date=13 February 2015}}</ref> Externally, the key distinguishing feature of these limited editions is the new ''Sunrise Yellow'' metallic paint and black side stripes (bonnet, roof and bonnet stripes are available in the UK at no extra cost and standard in Italy). The interior is distinguished by a limited edition badge and heated quilt leather seats with yellow 86 logo. The retail price of the Limited Edition in Italy is {{currency|28,500|EUR}}, which translates to {{currency|1700|EUR}} more than the standard base model.<ref>{{cite web|title=Toyota GT86, una Limited Edition per l'Italia|url=http://www.alvolante.it/news/toyota-gt86-una-limited-edition-l-italia-337699|publisher=AlVolante.it|date=13 October 2014|access-date=13 February 2015}}</ref>
+
+At the same time in Japan, Toyota released the 14R-60 model limited to 100 units, inspired by the GT86 TRD Griffon Project of 2013. Its engine power remains the same as the standard models despite featuring various drivetrain changes such as twin central exhausts, a TRD mechanical LSD, a short-shifter, and revised gearing for the six-speed manual transmission. Other changes include extra body reinforcement, a variable-height coil-over spring suspension setup and more rigid suspension bushings. A TRD bodykit with carbon fibre components is complemented by 18&nbsp;inch magnesium wheels and, overall, 14R-60 model results lighter than the base model. Inside there are race-style bucket seats with four-point belts, an Alcantara-clad steering wheel, carbon fibre dashboard trim and yellow piping and highlights. Price-wise, this Japan-only model is listed for {{JPY|6,300,000}}, which is significantly higher than the {{JPY|2,100,000}} for the base RC model or {{JPY|3,100,000}} for the top-of-the-range GT Limited.<ref>{{cite news |title=Toyota 86 14R-60 limited edition makes full use of TRD's parts catalogue |url=http://www.caradvice.com.au/313573/toyota-86-14r-60-limited-edition-makes-full-use-of-trds-parts-catalogue |work=CarAdvice.com.au |date=13 October 2014 |access-date=13 February 2015}}</ref>
+
+In 2015, the 86xstyle Cb was officially launched after its presentations at the 2013 and 2014 Tokyo Auto Salon. It is characterised by a drastically different front end design with revised lights and bumper bar but standard bonnet. Available in six-speed manual or automatic transmission, it has revised interior trimmings including a red Cb logo embroidered leather steering wheel, white (instead of red) backlit instruments and a dark woodgrain-style panel across the dashboard. The most peculiar features are the replacement of the front side gills with a set of LED-illuminated fins and optional contrasting colour for the car's upper body section. Another option is different alloy wheels than those fitted as standard on the GT86. On sale from April, this Japan-only model is listed for {{JPY|4,180,000}}, which is a {{JPY|1,280,000}} premium over the regular 86 GT on which this variant is based.<ref>{{cite news |date=13 February 2015 |title=Toyota 86 Style Cb – Restyled Sports Car Has a Softer Face, Is Japan-Only |url=http://www.caradvice.com.au/336080/toyota-86-style-cb-restyled-sports-car-has-a-softer-face-is-japan-only |work=CarAdvice.com.au }}</ref>
+
+To celebrate Australia's 86 2016 Pro-Am racing series,<ref>{{cite press release |url=http://www.toyota.com.au/assets/images/86/pro-am/86Pro-Am-FAQs-Website.pdf |title=What is the Toyota 86 Pro–Am? |archive-date=27 April 2015 |archive-url=https://web.archive.org/web/20150427210924/http://www.toyota.com.au/assets/images/86/pro-am/86Pro-Am-FAQs-Website.pdf }}</ref><ref>{{cite web |url=http://www.toyota.com.au/86/pro-am |title=The 86 – Pro-Am |publisher=Toyota |archive-date=8 May 2015 |archive-url=https://web.archive.org/web/20150508125955/http://www.toyota.com.au/86/pro-am }}</ref><ref>{{cite news |last=Stevens |first=Mike |date=2 November 2015 |title=Toyota 86 Racing Series to offer $125,000 prize pool in Australia |url=http://www.caradvice.com.au/393064/toyota-86-racing-series-to-offer-125000-prize-pool-in-australia/ |work=CarAdvice.com.au |access-date=5 December 2015 }}</ref> the following November Toyota launched 450 "Blackline" units (250 of which with manual transmission). Based on the standard GTS model, this limited edition carries a {{AUD|2000}} premium because of its cosmetic upgrade with TRD parts and special livery.<ref>{{cite news |last=Stevens |first=Mark |date=23 November 2015 |title=Toyota 86 Blackline on sale in Australia$37,990 TRD special celebrates 86 Racing Series |url=http://www.caradvice.com.au/398067/toyota-86-blackline-on-sale-in-australia-37990-trd-special-celebrates-86-racing-series/ |work=CarAdvice.com.au |access-date=5 December 2015 }}</ref>
+
+In Indonesia, the 86 was launched in 2012.<ref>{{cite news |url=http://stephenlangitan.com/archives/54065 |title=Launching The All-New Toyota 86 (Hachiroku) |website=StephenLangitan.com |language=id |date=1 June 2012 |access-date=27 May 2017}}</ref> The facelifted version was launched in August 2016.<ref>{{cite news |last=Arif |first=Hariawan |url=http://otodriver.com/article/view/toyota-86-facelift-hadir-di-indonesia-ini-wujudnya/C96eYPpvdmepdjddqQbCCA1JdYeXrwK_WwEBAlcQiuU |title=Toyota 86 Facelift Hadir di Indonesia, Ini Wujudnya |trans-title=The Toyota 86 Facelift Arrives in Indonesia; Here's What It Looks Like |language=id |work=OTO Driver |date=26 October 2016 |access-date=27 May 2017}}</ref> Toyota Indonesia sells the 86 in the TRD package with only an automatic transmission and the non-TRD package with both manual and automatic transmission.<ref>{{cite web |url=http://www.toyota.astra.co.id/product/toyota-86 |title=Toyota 86 |publisher=Toyota-Astra Motor |language=id |archive-url=https://web.archive.org/web/20170517205009/http://www.toyota.astra.co.id/product/toyota-86 |archive-date=17 May 2017 }}</ref>
+
+In 2018, Toyota sold a special edition 86 called Apollo Blue to celebrate that the 86 had passed 20,000 units sold in Australia. It features a unique Apollo Blue body colour, black rear spoiler and mirror caps, and is only available with the optional Dynamic Performance Package.<ref>{{Cite web |url=https://www.toyota.com.au/86/range |title=Range {{!}} 86 |publisher=Toyota |access-date=10 April 2020 }}</ref>
+
+Peculiarly, in Jamaica and Nicaragua, the 86 is marketed and sold using one of its pre-launch concept car badges, the "FT-86".<ref>{{cite web |title=Toyota FT-86: Sports car perfection |url=http://www.jamaicaobserver.com/auto/Toyota-FT-86---Sports-car-perfection-_14878231 |publisher=Jamaica Observer |date=16 August 2013 |archive-url=https://web.archive.org/web/20151214043644/http://www.jamaicaobserver.com/auto/Toyota-FT-86---Sports-car-perfection-_14878231 |archive-date=14 December 2015 }}</ref><ref>{{cite web |title=Toyota FT-86 |url=http://www.autonica.com/ft-86 |publisher=Centro Toyota Auto Nica |archive-url=https://web.archive.org/web/20150903011937/http://www.autonica.com/ft-86/ |archive-date=3 September 2015 }}</ref>
+
+Although BRZ production ended in July 2020, 86 production was to continue at least until the third quarter of 2020.<ref name="CD_2020-71-31">{{Cite web |last=Hoffman |first=Connor |date=31 July 2020 |url=https://www.caranddriver.com/news/a33481466/toyota-86-subaru-brz-next-gen-model/ |title=Toyota 86 and Subaru BRZ Production Winding Down, New Model Coming Soon |website=CarAndDriver.com |access-date=6 August 2020 }}</ref>
+
+===<span class="anchor" id="ZC6"></span> Subaru BRZ === 
+{{Multiple image
+| align     = right
+| direction = vertical
+| width     = 
+| image1    = Subaru BRZ 1998cc October 2013 (2).jpg
+| caption1  = 
+| image2    = Subaru BRZ (ZC6, rear).jpg
+| caption2  = Subaru BRZ (pre-facelift)
+}}
+
+The BRZ's name comes from three elements: Boxer engine, rear-wheel drive, and Z standing for Zenith.<ref>{{cite web |date=23 August 2012 |url=http://www.fhi.co.jp/news/11_07_09/11_08_23.html |title=富士重工業 新型スポーツ車の名称を「SUBARU BRZ」に決定～ フランクフルトモーターショーにて 技術コンセプトを展示 ～ |trans-title=The Exhibition of a Technology Concept at the Frankfurt Motor Show Is the "Subaru BRZ" the Name of Fuji Heavy Industries' New Sports Car |publisher=Fuji Heavy Industries |language=ja |archive-date=26 February 2017 |archive-url=https://web.archive.org/web/20170226194612/http://www.fhi.co.jp/news/11_07_09/11_08_23.html }}</ref><ref>{{cite press release |url=https://www.subaru.co.jp/en/news/archives/contents/pdf_en_73587.pdf |title=Subaru Names All-New Sports Car 'Subaru BRZ' |publisher=Subaru |date=23 August 2011 |access-date=28 February 2018}}</ref> The Subaru BRZ differs from the 86's design in the front fascia, with a different grille and headlight assembly, as well as a different front wing vent. The BRZ's grill is hexagonal in shape and inverted, compared to the Toyota's trapezoid. The BRZ features a wraparound of LED parking lights in the headlight assembly, while daytime running lights are integrated into the bumper. The suspension setup of the Subaru is different from the Toyota.<ref>{{cite web |last=Harley |first=Michael |date=12 December 2011 |url=http://i.autoblog.com/2011/12/12/2013-scion-fr-s-w-video/ |title=2013 Scion FR-S |work=Autoblog.com |archive-date=25 October 2020 |archive-url=https://web.archive.org/web/20201025112522/http://i.autoblog.com/2011/12/12/2013-scion-fr-s-w-video/ }}</ref> Like the Japanese Toyota 86, Subaru offers an RA base model lacking most interior comforts and using 16&nbsp;inch steel wheels, with the only difference from the 86 RC being that the BRZ RA's bumpers are painted the same colour as the body. Two main trim levels are offered: R trim, known as Premium in North America, and S trim, known as Limited in North America. The most notable differences between the trims being the S trim (Limited) received leather seats with Alcantara inserts that were heated rather than the cloth seats in the R trim (Premium). In Europe and Australia BRZs offer a Toyota stereo unit, while Japanese and North American vehicles use a Subaru unit. Australian BRZs were originally available for sale only online.
+
+[[File:The interior of Subaru BRZ S (DBA-ZC6) with optional parts.jpg|thumb|left|Interior]]
+
+In 2013, Subaru unveiled a BRZ tS model for the Japanese market, tuned by STI. The tS model features an improved suspension setup, 18 inch silver [[BBS Kraftfahrzeugtechnik|BBS wheels]], STI bodykit and front spoiler, a larger [[drive shaft]], and [[Brembo]] brakes, along with interior changes including a new steering wheel, front seat, gauges, and Alcantara accents.<ref>{{cite web |date=20 August 2013 |url=http://www.automoblog.net/2013/08/20/subaru-brz-ts/ |archive-url=https://web.archive.org/web/20130823065721/http://www.automoblog.net/2013/08/20/subaru-brz-ts/ |archive-date=23 August 2013 |title=Subaru BRZ tS – An Answer to a Question that Nobody Asked |website=Automoblog.net }}</ref> A further tS GT Package includes [[Recaro]] seats, black BBS wheels, and an adjustable [[carbon fibre]] rear wing. The tS is limited to 500 units in total, with a maximum of 250 of them being the GT package.<ref>{{cite press release |url=http://www.fhi.co.jp/english/contents/pdf_en_91086.pdf |title=STi Releases 'Subaru BRZ tS' in Japan |publisher=Fuji Heavy Industries |date=19 August 2013 |archive-date=29 September 2013 |archive-url=https://web.archive.org/web/20130929154958/http://www.fhi.co.jp/english/contents/pdf_en_91086.pdf }}</ref> In 2015, a similar release of 300 units was sold again only in Japan.<ref>{{cite news |last=Bober |first=Isaac |date=30 June 2015 |url=https://practicalmotoring.com.au/car-news/2015-subaru-brz-ts-by-sti-revealed/ |title=2015 Subaru BRZ tS by STI revealed |work=Practical Motoring |access-date=2 July 2015}}</ref>
+
+In 2014, as part of running changes consistent with those of the MY15 Toyota 86 GTS, the Subaru BRZ also featured a new key fob and two new colours, including 'WR Blue Pearl' metallic finish.<ref>{{cite web |last=Beissmann |first=Tim |url=http://www.caradvice.com.au/282559/2015-subaru-brz-gets-suspension-revisions-subtle-tweaks |title=2015 Subaru BRZ gets suspension revisions, subtle tweaks |website=CarAdvice.com.au |date=23 April 2014 |access-date=11 November 2014 }}</ref> In addition, Subaru also launched special editions both for the United States and Australia markets. For the former, one thousand BRZ Series. Blue editions were marketed at additional cost, half painted in ''Blue Pearl'' and the other half in ''Crystal Pearl White''. This model featured STI body kit parts, 17-inch STI black alloy wheels and red brake calipers. For Australia, Subaru launched a similar variant known as the Special Edition, also at additional cost. It featured stripes across the bonnet, boot and roof; 17-inch STI black alloy wheels; STI boot spoiler plus front, side and rear-side under spoilers; a rear diffuser and a push-button starter switch. It was available in every existing BRZ paint hue.<ref>{{cite web |last=Costello |first=Mike |date=10 September 2014 |url=http://www.caradvice.com.au/307517/subaru-brz-special-edition-revealed |title=Subaru BRZ Special Edition Revealed |website=CarAdvice.com.au |access-date=11 November 2014 }}</ref>
+
+[[File:2018 Subaru BRZ SE LUX Automatic 2.0.jpg|thumb|Subaru BRZ (facelift)]]
+
+In 2015, for the 2016 model year, Subaru released the limited edition ''Hyper Blue'' range across its WRX, WRX STI and BRZ models. In Australia, the BRZ was limited to 50 units with manual transmission only. This limited edition is characterised by the said blue paint and a host of other cosmetic upgrades.<ref>{{cite web |last=Stevens |first=Mike |date=1 October 2015 |url=http://www.caradvice.com.au/386537/subaru-wrx-wrx-sti-and-brz-hyper-blue-specials-on-sale-in-australia/ |title=Subaru WRX, WRX STI and BRZ Hyper Blue Specials on Sale in Australia |website=CarAdvice.com.au |access-date=31 October 2015 }}</ref>
+
+For the 2017 model year Subaru released another new special edition for the newly redesigned BRZ. This edition is called the Series Yellow in America which was limited to 500 units but known as the Inazuma Edition in Canada which was limited to between 200 and 250 cars. This special edition is based on the Limited trim level for the BRZ and features the optional Performance package as standard, which includes 4 piston Brembo brakes in the front, 2 piston Brembo brakes in the rear, and Sachs dampers, a special yellow body colour called Charlesite Yellow with black trim, a yellow embroidered BRZ logo on the seats, and yellow accents and stitching throughout the interior.<ref>{{Cite web |date=14 June 2016 |url=https://www.motortrend.com/news/2017-subaru-brz-series-yellow-unveiled-limited-500-units/ |title=2017 Subaru BRZ Series. Yellow Unveiled, Limited to 500 Units }}</ref>
+
+In February 2018, Subaru of America released a limited edition SOA 50th Anniversary edition BRZ based on the Limited trim level featuring Heritage Blue exterior colour, satin chrome exterior trim and badging; and SOA 50th anniversary emblem. The interior features black upholstery with contrasting silver stitching; silver seatbelts; and the 50th Anniversary logo embroidered on the front seats and carpeted floor mats. Only 250 were made.<ref>{{cite press release |url=http://media.subaru.com/pressrelease/1246/1/subaru-america-debuts-limited-edition-models-commemorate-50th |title=Subaru of America Debuts Limited Editions Models to Commemorate 50th Anniversary |publisher=Subaru |date=8 February 2018 |access-date=10 February 2018 }}</ref>
+
+In late July 2020, Subaru ended production of the first-generation BRZ, and no more orders were accepted.<ref name="CD_2020-71-31" />
+
+=== Scion FR-S ===
+{{Multiple image
+| align     = right
+| direction = vertical
+| width     = 
+| image1    = Scion FR-S 3-22-2012-Toyota-Motorsports-Kickoff-Day-USA-100-57 (2).jpg
+| caption1  = 
+| image2    = Scion FRS 2012 Toyotafest-100-7 (2).jpg
+| caption2  = Scion FR-S (North America)
+}}
+In the United States and Canada, the GT86 was initially sold under Toyota's youth-oriented [[Scion (automobile)|Scion]] brand, with its name, ''FR-S'', derived from a description of the platform: front-engine, rear-wheel drive, sport.<ref name="Scion FR-S Concept" /> Scion used a simplified "pure price" sales model that eschewed traditional factory options in favour of fixed base-vehicle pricing and buyer customisation via dealer-installed accessories;<ref>{{cite press release |url=https://pressroom.toyota.com/scion-fact-sheet/ |title=Scion Fact Sheet |publisher=Toyota |date=3 February 2016 |access-date=11 December 2019}}</ref> hence, the FR-S was offered in a single standard trim, with exterior colours and the choice of transmission typically being the only factory options. However, Scion offered some limited-production special editions with added factory equipment and exclusive colours.
+
+==== 10 Series ====
+As part of the 10th anniversary of the Scion marque, 2,500 units of "10 Series" FR-S models were released by Scion in June 2013 for the 2013 model year. They were painted in ''Silver Ignition'' and fitted with extra equipment, including HID headlights, automatic climate control, push button start, illuminated exterior badges plus shifter knob.<ref>{{cite news |url=http://www.autoblog.com/2013/04/01/scion-celebrates-first-10-years-with-special-edition-models |title=Scion Celebrates First 10 Years with Special-Edition Models |work=Autoblog.com |first=Jeffrey N. |last=Ross |date=1 April 2013 |access-date=3 June 2013}}</ref><ref>{{cite web|url=http://www.revvolution.com/blog/2014/01/the-subaru-brz-and-scion-fr-s-platform-introduction |title=The Subaru BRZ and Scion FR-S Platform Introduction |work=Revvolution.com |access-date=13 March 2015}}</ref>
+
+==== Release Series 1.0 ====
+Presented at the April 2014 [[New York Auto Show#2014|New York Auto Show]] and mirroring the European ''Giallo'' and ''Limited Edition'' yellow-painted special editions, Scion released 1500 units of the "Release Series 1.0" in similar ''Yuzu Yellow'' paint. It features TRD bodykit and quad-tip exhaust system, along with TRD lowered suspension, TRD steering wheel and shift knob and the highest specification (dual A/C, HID headlamps with LED daytime running lamps, push-button start-stop) plus a numbered commemorative plaque near the gearshift lever.<ref>{{cite news |url=http://blog.caranddriver.com/screaming-yellow-zonker-scion-fr-s-release-series-1-0-unveiled-2014-new-york-auto-show/ |title=Scion Unveils FR-S Release Series 1.0 – News |work=Car and Driver |first=Steve |last=Siler |date=22 April 2014 |access-date=1 May 2015 }}</ref>
+
+==== Release Series 2.0 ====
+In October 2015, Scion revealed a limited run of 1000 cars called the FR-S Release Series 2.0.<ref>{{cite web |author=Gunar |date=10 November 2015 |title=Scion Announces Un-Lame Fr-S Release Series 2.0, Just 1000 Will Be Built |url=https://rimsandtiresmag.com/scion-announces-un-lame-fr-s-release-series-2-0-just-1000-will-be-built/ |website=Rims and Tires Mag |access-date=13 April 2021 }}</ref>
+
+Due to the discontinuation of the Scion marque, in August 2016 the FR-S was re-branded as the Toyota 86 in North America for the 2017 model year and onward.<ref name="Scion Transition Toyota" /><ref name="Bruce 2016" /><ref>{{cite news |last=Undercoffler |first=David |date=15 March 2016 |url=http://www.autonews.com/article/20160203/OEM01/160209930/toyota-to-scrap-scion-brand-keep-the-cars |title=Toyota to scrap Scion brand, keep the cars |work=Autonews |access-date=16 March 2016 }}</ref>
+
+=== Post-launch concept cars ===
+
+====Scion FR-S Tuner Challenge (2012)<span class="anchor" id="Minty FReSh"></span>====
+There are 3 versions of 2013 Scion FR-S built with a $15,000 build budget, created as part of the eighth annual Scion Tuner Challenge. The FR-S Tuner Challenge vehicles are the: ''Carbon Stealth FR-S'' by John Toca of Chicago, Illinois; ''FR-S GT'' by Daniel Song of Orange County, California; ''Minty FReSh'' by Chris Basselgia of Lebanon, Pennsylvania.
+
+The vehicles were unveiled at the 2012 [[SEMA (association)#2012|SEMA]] show.<ref>{{cite web|url=http://www.autoblog.com/2012/10/28/scion-shows-off-trio-of-sema-bound-fr-s-coupes-w-video/|title=Scion shows off trio of SEMA-bound FR-S coupés [w/video]|first=Zach |last=Bowman|work=Autoblog|date=28 October 2012 }}</ref>
+
+The 2012 challenge was won by the ''Minty FReSh''.<ref>{{cite web |url=http://www.autoblog.com/2012/11/01/scion-ft-s-tuner-challenge-winner-sema-2012 |title=Scion FR-S Tuner Challenge Declares a Winner |work=AutoBlog |date=1 November 2012 |access-date=3 June 2013 }}</ref>
+
+====Subaru BRZ Premium Sport Package Concept (2013)<span class="anchor" id="Premium Sport Package"></span>====
+At the January 2013 [[Tokyo Auto Salon]], Subaru unveiled a ''BRZ Premium Sport Package'' concept featuring various STI parts as well as 19 inch [[BBS Kraftfahrzeugtechnik|BBS]] wheels and a [[carbon fibre]] roof.
+
+==== Toyota 86 concepts – Tokyo Auto Salon (2013) ====
+
+=====Toyota 86×Style Cb<span class="anchor" id="86 cb"></span>=====
+The ''86xStyle Cb'' (model ZN6-A2E7) is a re-presentation of the concept seen at the 2013 [[Tokyo Auto Salon]]. Its listed features are a six-speed automatic transmission, style Cb TB sport seats, leather-wrapped steering wheel, original meter and lighting, style Cb original floor mats, Toyota NHZD-W62G navigation system, dark smoke plated inner panel register RL, centre cluster garnish, door panel; metallic steering wheel door switch base, shift bezel; Zack suspension absorber, BBS style Cb original colour wheels (18x7J front, 18x7.5J rear) and [[Bridgestone]] POTENZA S001 86 exclusive spec tyres (215/40R18 85W front, 225/40R18 88W rear).<ref>{{cite web |url=http://gazooracing.com/pages/autosalon2014/carlist/style_cb.html|title=86×style Cb – 東京オートサロン2014 |author=トヨタ自動車株式会社 |website=GazooRacing.com |archive-url=https://web.archive.org/web/20140116201934/http://gazooracing.com/pages/autosalon2014/carlist/style_cb.html |archive-date=16 January 2014 }}</ref><ref>{{cite web |date=15 January 2013 |url=http://www.gtspirit.com/2013/01/15/tokyo-2013-toyota-86-x-style-cb-only-for-women/ |title=Tokyo 2013: Toyota 86 x Style Cb – Only for Women |publisher=GT Spirit |access-date=2 June 2013 }}</ref>
+
+<gallery widths="200px" heights="150px">
+File:Osaka Auto Messe 2013 - Toyota 86×style Cb front.jpg|Front view
+File:Osaka Auto Messe 2014 (211) Toyota 86×Style Cb.JPG|Rear view
+File:Tuned Toyota 86 style cb (DBA-ZN6) front.jpg|2015 Toyota 86 style Cb (front)
+File:Tuned Toyota 86 style cb (DBA-ZN6) rear.jpg|2015 Toyota 86 style Cb (rear view, with aftermarket rear lamps)
+</gallery>
+
+=====Toyota GT86 Modellista<span class="anchor" id="86 Modellista"></span>=====
+''The Toyota GT86 Modellista'' is a version of the Toyota 86 with new side skirts, rear bumper and diffuser, a special lip spoiler, 18 inch matte chrome "Wing Dancer II" wheels with 225/40 Toyo tyres and a two-tone black and red interior with the instrument cluster and interior panels in a red metal finish.<ref name="86 Modellista">{{cite web |url=http://www.gtspirit.com/2013/01/15/2013-toyota-gt-86-modellista-by-gazoo-racing/ |title=2013 Toyota GT86 Modellista by Gazoo Racing |publisher=GT Spirit |date=15 January 2013 |access-date=2 June 2013}}</ref>
+
+=====TOM'S N086V<span class="anchor" id="N086V"></span>=====
+The [[TOM'S]] ''N086V'' is a version of the Toyota 86 with a [[Toyota GR engine|GR]] 3.5 litre [[V6 engine]] originally found under the bonnet of the Lexus IS and GS rated at {{convert|400|hp|kW|0|abbr=on|order=flip}}.<ref name="Tom's 86">{{cite web |url=http://www.autoguide.com/auto-news/2013/01/toms-n086v-is-a-v6-powered-400-hp-toyota-gt86-2013-tokyo-auto-salon.html |title=TOM'S N086V is a V6-Powered 400-HP Toyota GT86: 2013 Tokyo Auto Salon |last=Siu |first=Jason |publisher=AutoGuide |date=10 January 2013 |access-date=2 June 2013}}</ref>
+
+====Toyota TRD Griffon Concept (2013)<span class="anchor" id="Griffon"></span>====
+[[File: 86 TRD Griffon Concept.jpg|thumb|Toyota TRD Griffon Concept]]
+
+The ''TRD Griffon Concept'' is a version of the GT86 designed specifically for track driving, created by Toyota Racing Development. Changes include bonnet, roof, doors, boot lid and rear wings made from lightweight carbon fibre; carbon fibre reinforced plastic bumpers, wider front wings and rear diffuser; windows made from polycarbonate material, TRD driver's bucket seat, gear shift knob, ignition button and oil pressure and water temperature gauges; [[Momo (company)|MOMO]] steering wheel, [[Takata Corporation|Takata]] seatbelts, a TRD mechanical LSD replacing the standard [[Torsen]] limited-slip differential, coil over suspension kit, final gear ratio shortened to 4.8:1, an oil cooler for the engine, a TRD monoblock brake calliper kit with racing spec brake pads and TWS 18-inch wheels with [[Yokohama Rubber Company|Yokohama]] Advan tyres. The engine is a stock Toyota GT86 engine. The vehicle is {{convert|500|lb|kg|0|abbr=on|order=flip}} lighter than the stock Toyota GT86.
+
+The TRD Griffon Concept was unveiled at the 2013 [[Tokyo Auto Salon]]<ref name="86 Griffon">{{cite web |url=http://www.autoguide.com/auto-news/2013/01/toyota-86-trd-griffon-concept-sheds-500-pounds-to-go-ferrari-fast-2013-tokyo-auto-salon.html |title=Toyota 86 TRD Griffon Concept Sheds 500 Pounds to go Ferrari Fast: 2013 Tokyo Auto Salon |last=Siu |first=Jason |publisher=AutoGuide |date=10 January 2013 |access-date=2 June 2013}}</ref> followed by the 2013 [[Goodwood Festival of Speed]].<ref>{{cite web|url=http://www.autoblog.com/2013/07/12/toyota-brings-trd-griffon-gt86-to-goodwood-w-video/|title=Toyota brings TRD Griffon GT86 to Goodwood [w/video]|author=Brandon Turkus|work=Autoblog|date=12 July 2013 }}</ref>
+
+====Toyota FT-86 Open Concept (2013)<span class="anchor" id="FT-86 Open"></span>====
+[[File:2013-03-05 Geneva Motor Show 8324 (cropped).JPG|thumb|The Toyota FT-86 Open Concept, a [[convertible]] version of the 86]]
+
+The FT-86 Open concept is a [[convertible]] concept vehicle based on the Toyota 86. It includes an electrically operated multi-layered fabric roof with glass, high-contrast white and navy blue interior and exterior designed by Toyota Boshoku Milan Design (TBMD) to capture the spirit and atmosphere of Milan, a white body colour and yellow-gold stitching in the floor mats and seats. It was first shown at the [[Geneva Motor Show#2013|Geneva Motor Show]] in March 2013,<ref>{{cite press release |url=http://blog.toyota.co.uk/toyota-ft-open-first-pictures-and-video |title=Toyota FT-86 Open first pictures and video |publisher=Toyota |date=5 March 2013 |archive-date=4 March 2013 |archive-url=https://web.archive.org/web/20130304042227/http://blog.toyota.co.uk/toyota-ft-open-first-pictures-and-video }}</ref><ref>{{cite press release |url=http://www2.toyota.co.jp/en/news/13/03/0301_1.html |title=TMC to Display 'FT-86 Open concept' at Geneva Motor Show |publisher=Toyota |date=1 March 2013 |archive-date=25 May 2013 |archive-url=https://web.archive.org/web/20130525051212/http://www2.toyota.co.jp/en/news/13/03/0301_1.html }}</ref> followed by the [[Tokyo Motor Show#2013|2013 Tokyo Motor Show]] (with Flash Red body colour and electrically operated soft top).<ref>{{cite web |url=http://www.gtspirit.com/2013/11/21/tokyo-2013-toyota-ft-86-open-concept/ |title=Tokyo 2013: Toyota FT-86 Open Concept |work=GT Spirit |date=21 November 2013 |access-date=13 December 2013}}</ref><ref>{{cite press release |url=http://www.toyota-global.com/tokyoms2013/86open/ |title=The 43rd Tokyo Motor Show 2013 – FT-86 Open concept |publisher=Toyota |access-date=13 December 2013}}</ref>
+
+Nonetheless, Subaru brand chief Yasuyuki Yoshinaga has said that a convertible 86 would need a complete redesign to meet safety standards and that it is unlikely to happen.<ref>{{cite news |last=Greimel |first=Hans |date=30 November 2013 |url=http://www.autonews.com/article/20131120/OEM03/131129985/subaru-boss-spurns-convertible-brz-fr-s#axzz2lCvA32Lo |title=Subaru Boss Spurns Convertible BRZ, FR-S |work=Automotive News |access-date=13 December 2013 }}</ref>
+
+==== Subaru Cross Sport Design Concept (2013) ====
+[[File:Osaka Motor Show 2013 (132) Subaru CROSS SPORT DESIGN CONCEPT (2).JPG|thumb|Cross Sport concept rear 3/4-view]]
+
+Also seen at the [[Tokyo Motor Show#2013|Tokyo Motor Show]], this vehicle was presented as a combination of 'sport' and 'utility', adopting a heavily BRZ-inspired [[shooting-brake]] body shape. Its compact body measured an overall length of {{convert|4300|mm|in|1|abbr=on}} and was described as what Subaru perceives to be the next trend in urban SUVs.<ref>{{cite news |url=http://www.subaru-global.com/2013tokyo.html |title=The 43rd Tokyo Motor Show 2013 |work=Subaru |archive-url=https://web.archive.org/web/20140728025450/http://www.subaru-global.com/2013tokyo.html |archive-date=28 July 2014 }}</ref><ref>{{cite news |last=Cole |first=Craig |date=20 November 2013 |url=http://www.autoguide.com/auto-news/2013/11/subaru-cross-sport-design-concept-is-a-brz-station-wagon.html|title=Subaru Cross Sport Design Concept is a BRZ Station Wagon |work=Automotive Guide |access-date=17 July 2014 }}</ref> The total height of the Cross Sport concept is {{convert|90|mm|abbr=on}} taller than the standard BRZ.<ref>{{cite news |url=https://car.watch.impress.co.jp/docs/event_repo/2013tokyo/624355.html |title=1.6リッター、2.0リッター直噴ターボ搭載のスポーツツアラー「Levorg（レヴォーグ）」を世界初公開したスバル {{!}}「Viziv Evolution Concept」「Cross Sport Design Concept」も展示 |trans-title=1.6 Litre, 2.0 Litre Direct Injection Turbo-Equipped Sports Tourer Subaru 'Levorg' Has World Premiere {{!}} "Viziv Evolution Concept" "Cross Sport Design Concept" Also Exhibited |author=高橋 学 |date=20 November 2013 |work=Car Watch |access-date=7 March 2018 }}</ref>
+
+==== Toyota Gazoo 86 GRMN Sports FR Concept Platinum (2013) ====
+The Toyota Gazoo 86 GRMN Sports FR Concept Platinum is a Toyota 86/Scion FR-S modified by [[Toyota Gazoo Racing]] and equipped with a GRMN exclusive turbocharger and scroll supercharger, six-speed manual transmission, GRMN suspension tuning, GRMN brake calipers and brake rotors; GRMN dual exhaust, GRMN alloy wheels and tyres; different front and rear wing panels and bumper bars; rear wing; rear garnish; bucket seats; 4-point seat belts; roll cage; back skin tone interior and extra instrumentation (boost, water temperature and oil temperature gauges).
+
+The vehicle was unveiled at the [[Nürburgring]] Circuit.<ref>{{cite web |url=http://www.tune86.com/ft-86-news/20730-grmn-twin-charged-toyota-86-320hp |title=GRMN Twin Charged Toyota 86 with 320hp |website=Tune86.com |archive-date=16 January 2014 |archive-url=https://web.archive.org/web/20140116192645/http://www.tune86.com/ft-86-news/20730-grmn-twin-charged-toyota-86-320hp }}</ref><ref>{{cite web |url=http://www2.toyota.co.jp/jp/news/12/05/nt12_0510.html |title=ニュルブルクリンクでGRMNのコンセプトカーを展示 – ニュース |work=toyota.co.jp }}</ref>
+
+==== Toyota 86 concepts – Tokyo Auto Salon (2014) ====
+Just like the year before, the 2014 [[Tokyo Auto Salon]] saw the presentation of various Toyota 86-based custom models and concepts.<ref>{{cite web |last=Joseph |first=Noah |date=12 January 2014 |url=http://www.autoblog.com/2014/01/12/toyota-harrier-vitz-gt86-mark-x-2014-tokyo-auto-salon/ |title=Toyota Reveals Brace of Customized Concepts at Tokyo Auto Salon |work=Autoblog |access-date= }}</ref><ref>{{cite web |author=姅幃夛幮僀儞僾儗僗 |url=http://car.watch.impress.co.jp/docs/event_repo/2014autosalon/20140111_630483.html |title=亂搶嫗僆乕僩僒儘儞2014亃僩儓僞丄僯儏儖僽儖僋儕儞僋24帪娫偵5.3儕僢僞乕偺乽LFA CodeX乿側偳偱堷偒懕偒嶲愴 |language=ja |trans-title= |work=Car Watch |date=11 January 2014 }}</ref>
+
+===== Toyota GRMN 86 Concept =====
+The ''[[Toyota Gazoo Racing#GRMN|GRMN]] 86 Concept'' is a version of the Toyota 86 that incorporates the technical expertise gained through the [[24 Hours Nürburgring]] endurance race, achieving optimal vehicle weight reduction, a lower centre of gravity, an enhanced powertrain and improved body rigidity. It includes an FA20 engine, six-speed manual transmission, 215/40R17 tyres, carbon fibre engine cover, roof, rear hatch, diffuser, side skirt, tail wing, seats; polycarbonate windows, reinforced engine parts, oil cooler, rewritten ECU, mechanical limited-slip differential.<ref>{{cite web |url=http://www.nanrenwo.net/qiche/44259.html |title=丰田GRMN 86概念车正式亮相 操控性大幅提升 |work=nanrenwo.net }}</ref><ref name="トヨタ自動車株式会社">{{cite web |url=http://gazooracing.com/pages/autosalon2014/carlist/ms_luck86.html |title=Gazoo Racing LUCK 86 – 東京オートサロン2014 |author=トヨタ自動車株式会社 |website=GazooRacing.com |archive-url=https://web.archive.org/web/20140116202206/http://gazooracing.com/pages/autosalon2014/carlist/ms_luck86.html |archive-date=16 January 2014 }}</ref><ref>{{cite press release |date=10 January 2014
+ |url=http://newsroom.toyota.co.jp/detail/309597 |title=New Toyota 'GRMN', 'G's' Concepts Debut at Tokyo Auto Salon 2014 |publisher=Toyota |access-date=19 March 2026 }}</ref>
+
+<gallery widths="200px" heights="150px">
+File:GRMN 86 Concept.jpg|Front
+File:Toyota 86 GRMN rear.jpg|Rear view
+</gallery>
+
+===== Toyota 86×Style Cb Spider =====
+The ''86xStyle Cb Spider'' (model ZN6-A2B8) is a convertible version of the 86 built by Toyota Original Accessory. It features a six-speed automatic transmission, wing garnish with side lamp, boot spoiler and licence garnish, rear combination lamp (in dark smoke plated), backup lamp rear bumper, spider aero bulge, rear diffuser integrated into rear bumper, one-off style Cb sport seat, leather-wrapped steering wheel, style Cb original meter panel/new decorative panel with lighting, Style Cb original floor mat, [[Brembo]] brakes with front 4-piston and rear 2-piston calipers and [[Goodyear Tire and Rubber Company|Goodyear]] Eagle LS Premium tyres (215/40R18 89W front, 225/45R18 91W rear).<ref>{{cite web |url=http://gazooracing.com/pages/autosalon2014/carlist/style_cb_spyder.html|title=86×style Cb spider – 東京オートサロン2014 |author=トヨタ自動車株式会社 |website=GazooRacing.com |archive-url=https://web.archive.org/web/20140116185121/http://gazooracing.com/pages/autosalon2014/carlist/style_cb_spyder.html |archive-date=16 January 2014 }}</ref><ref>{{cite web |url=http://carnews.beforward.jp/searchs/detail/entry_id=214627/category=newmodel |title=2014 Tokyo Auto Salon: Show Car Library – Toyota 86 x Style Cb Spider |work=Beforward.jp |archive-url=https://web.archive.org/web/20140116181735/http://carnews.beforward.jp/searchs/detail/entry_id=214627/category=newmodel |archive-date=16 January 2014 }}</ref>
+
+===== Toyota Gazoo Racing TRD 86 =====
+The ''Gazoo Racing TRD 86'' is a race car version of the Toyota 86 for the TRD Rally Challenge. It is built by Gazoo Racing and includes a six-speed manual transmission.<ref>{{cite web |url=http://gazooracing.com/pages/autosalon2014/carlist/ms_trd86.html |title=Gazoo Racing TRD 86 – 東京オートサロン2014 |author=トヨタ自動車株式会社 |website=GazooRacing.com |archive-url=https://web.archive.org/web/20140116185419/http://gazooracing.com/pages/autosalon2014/carlist/ms_trd86.html |archive-date=16 January 2014 }}</ref>
+
+===== Toyota Gazoo Racing LUCK 86 =====
+The ''Gazoo Racing LUCK 86'' is a race car version of the Toyota 86 for the JN3 class of the Japanese Rally Championship. It is built by Gazoo Racing and includes a six-speed manual transmission.<ref name="トヨタ自動車株式会社" />
+
+===== Toyota Gazoo Racing SPIRIT 86 =====
+The ''Gazoo Racing SPIRIT 86'' is a race car version of the Toyota 86 for the Super Taikyu Series. It is built by Gazoo Racing and includes a six-speed manual transmission.<ref>{{cite web |url=http://gazooracing.com/pages/autosalon2014/carlist/ms_spirit86.html |title=Gazoo Racing SPIRIT 86 – 東京オートサロン2014 |author=トヨタ自動車株式会社 |website=GazooRacing.com |archive-url=https://web.archive.org/web/20140116183315/http://gazooracing.com/pages/autosalon2014/carlist/ms_spirit86.html |archive-date=16 January 2014 }}</ref>
+
+===== Toyota 86 Supercharger =====
+The ''86 Supercharger'' produced by Team Netz with [[TOM'S]] is a version of the Toyota 86 built for the online community Area 86. It includes a six-speed manual transmission, [[Roots blower]], exclusive ECU, water-cooled intercooler, exclusive muffler, original aero kit, Satin white pearl 37J body panel, TEAM NETZ original front bumper (made by ABS), TOM'S side step, TOM'S rear under spoiler, TOM'S ADVOX suspension kit with exclusive setting, TOM'S brake pads and brake line, 8.0J INSET44-inch TWS T66F wheel in original gun metal colour and 225/40R18 [[Michelin]] Pilot Sport 3 tyres.<ref>{{cite web |url=http://gazooracing.com/pages/autosalon2014/carlist/area86_team_netz_toms.html |title=８６ Supercharger Produced by Team Netz with TOM'S – 東京オートサロン2014 |author=トヨタ自動車株式会社 |website=GazooRacing.com |archive-url=https://web.archive.org/web/20140116202506/http://gazooracing.com/pages/autosalon2014/carlist/area86_team_netz_toms.html |archive-date=16 January 2014 }}</ref>
+
+===== Toyota TRD Griffon Concept 014 =====
+The ''TRD Griffon Concept 014'' is based on the 2013 TRD Griffon Concept.<ref>{{cite web |url=http://gazooracing.com/pages/autosalon2014/carlist/trd_86_griffon.html |title=86 TRD Griffon Concept 014 – 東京オートサロン2014 |author=トヨタ自動車株式会社 |website=GazooRacing.com |archive-url=https://web.archive.org/web/20140116201001/http://gazooracing.com/pages/autosalon2014/carlist/trd_86_griffon.html |archive-date=16 January 2014}}</ref> In turn, the ''86 TRD Customize Concept 014'' is based on the 86 TRD Griffon Concept 014, and features a roof fin, rear diffuser, HID bulb kit, winker bulb, full bucket driver seat, passenger sports seat, shoulder pad set, interior panel set (carbon), steering wheel and interior boot set, sport meter set (water temperature, oil temperature, oil pressure), leather shift knob (for manual transmission car), knee pad, battery clamp, fuel cap cover, full length adjustable suspension set, pillow upper set, stabiliser set (front, rear), front strut tower bar, member brace set, door stabiliser set, sports air filter, high response muffler Ver.R, sound changer, circuit brake kit, clutch cover, clutch disc (sport phasing), flywheel, quick shift set (18-inch cast aluminium TRD TF6 18x7.5J-inch wheels, Goodyear EAGLE RS Sport 86spec 225/40R18 tyres), lug nut set (M12×P1.25), oil filler cap, sport oil filter, radiator cap.<ref>{{cite web |url=http://gazooracing.com/pages/autosalon2014/carlist/trd_86_customize.html |title=86 TRD Customize Concept 014 – 東京オートサロン2014 |author=トヨタ自動車株式会社 |website=GazooRacing.com |archive-url=https://web.archive.org/web/20140116201831/http://gazooracing.com/pages/autosalon2014/carlist/trd_86_customize.html |archive-date=16 January 2014 }}</ref>
+
+===== Toyota Autobacs G7 86 Potenza =====
+The ''Toyota Autobacs G7 86 Potenza (No. 557)'' (model ZN6-VPNT8A)<ref>{{cite web |url=http://gazooracing.com/pages/autosalon2014/carlist/86brz_autobacs.html |title=557号車 オートバックスG7 86 ポテンザ – 東京オートサロン2014 |author=トヨタ自動車株式会社 |website=GazooRacing.com |archive-url=https://web.archive.org/web/20140116203121/http://gazooracing.com/pages/autosalon2014/carlist/86brz_autobacs.html |archive-date=16 January 2014 }}</ref> is a race car version of the Toyota 86 Racing built for the GAZOO Racing 86/BRZ Race.{{Clarify|reason=|date=June 2018}}
+
+===== Subaru Manatura Kota-R BRZ =====
+[[File:Osaka Auto Messe 2014 (216) manatura KOTA-R BRZ.JPG|thumb|Subaru Manatura Kota-R]]
+
+The ''Subaru Manatura Kota-R BRZ'' (No. 61) (DBA-ZC6)<ref>{{cite web |url=http://gazooracing.com/pages/autosalon2014/carlist/86brz_kota.html |title=61号車 マナチュラKOTA-R BRZ – 東京オートサロン2014 |author=トヨタ自動車株式会社 |website=GazooRacing.com |archive-url=https://web.archive.org/web/20140116201733/http://gazooracing.com/pages/autosalon2014/carlist/86brz_kota.html |archive-date=16 January 2014 }}</ref> is a race car version of the Subaru BRZ RA Racing built for the Gazoo Racing 86/BRZ Race.{{Clarify|reason=|date=June 2018}}
+
+===== Toyota N1 Tech Potenza Win 86 =====
+The ''Toyota N1 Tech Potenza Win 86'' (No. 100) (ZN6-VPNT8A)<ref>{{cite web |url=http://gazooracing.com/pages/autosalon2014/carlist/86brz_potenza.html|title=100号車 N1 TECH ポテンザ WIN86 – 東京オートサロン2014 |author=トヨタ自動車株式会社 |website=GazooRacing.com |archive-url=https://web.archive.org/web/20140116193212/http://gazooracing.com/pages/autosalon2014/carlist/86brz_potenza.html |archive-date=16 January 2014 }}</ref> is another race car version of the Toyota 86 Racing built for the Gazoo Racing 86/BRZ Race.{{Clarify|reason=|date=June 2018}}
+
+===== Toyota NETZ Gunma FK Massimo μ86 =====
+The ''Toyota NETZ Gunma FK Massimo μ86'' (No. 62) (ZN6-VPNT8A)<ref>{{cite web |url=http://gazooracing.com/pages/autosalon2014/carlist/86brz_netzgunma.html|title=62号車 ネッツ群馬FKマッシモμ86 – 東京オートサロン2014 |author=トヨタ自動車株式会社 |website=GazooRacing.com |archive-url=https://web.archive.org/web/20140116195737/http://gazooracing.com/pages/autosalon2014/carlist/86brz_netzgunma.html |archive-date=16 January 2014 }}</ref> is yet another version of the Toyota 86 Racing built for the Gazoo Racing 86/BRZ Race.{{Clarify|reason=|date=June 2018}}
+
+==== Scion FR-S T1 (2014) ====
+Built by [[Los Angeles]] metal shop, Cartel Customs, and displayed at the [[SEMA (association)#2014|2014 SEMA Show]], the Scion FR-S T1 is the first [[targa top]] version of any 86-based model. Apart from the [[Porsche 911]]-style removable roof, it features upgraded and lowered coil-over suspension, 19-in forged chrome wheels, upgrade braking system and a [[turbocharged]] engine with a centre exhaust tip. Inside it has an upgraded sound system and two-tone beige/black leather interior (including over the dashboard). The exterior is characterised by enlarged wheel arches and an integrated "duck tail" rear spoiler, and is painted in two-tone ''Azzurro California Blue'' with a contrasting black [[Glossary of automotive design#S|sill line]] up to the roof and rear [[louvre window]].<ref>{{cite magazine |author=Shawy |date=December 2014 |title=Targa-Top 86 Makes Us Drool with Envy |magazine=[[Top Gear Australia (magazine)|Top Gear Australia]] |page=29 }}</ref><ref>{{cite web |url=http://www.caradvice.com.au/316938/scion-fr-s-t1-toyota-86-targa-heads-to-sema |title=Scion FR-S T1: Toyota 86 Targa Heading to SEMA |website=CarAdvice.com.au |access-date= }}</ref>
+
+==== Subaru STI Performance Concept (2015) ====
+[[File:Subaru BRZ STI Performance Concept (24777750296).jpg|thumb|STI Performance Concept at [[Philadelphia Auto Show]] (2016)]]
+
+Subaru unveiled the BRZ-based ''STI Performance Concept'' at the [[New York Auto Show#2015|2015 New York Auto Show]].<ref>{{cite press release |url=http://media.subaru.com/pressrelease/734/153/subaru-america-inc-unveils-sti-performance-concept-2015 |title=Subaru of America, Inc. unveils STI performance concept at 2015 New York International Auto Show |publisher=Subaru |date=1 April 2015 |access-date=7 March 2018 }}</ref> It stated that this concept car does not preview a production model but rather a visualisation of the future application of the STI program to the BRZ. The concept car uses the same turbocharged 2.0-litre engine employed in the [[#Motorsport|BRZ GT300]] race car, producing an estimated {{convert|300|bhp|kW|abbr=on|order=flip}} and {{convert|330|lbft|Nm|0|abbr=on}}. Even so, Subaru also stated that a turbocharger will not find its way into the BRZ production. Mechanically, the concept car has chassis, suspension and brake upgrades from the Japan-only BRZ tS. Externally, it is distinguished by LED headlights and taillights, new-style alloy wheels and a full bodykit featuring new-design front fascia, rear diffuser and rear wing.
+
+==== Toyota 86 Shooting Brake Concept (2016) ====
+[[File:Toyota 86 Shooting Brake rear.jpg|thumb|Toyota 86 Shooting Brake Concept]]
+
+The ''Toyota 86 Shooting Brake Concept'' was displayed in Sydney, Australia on 6 May 2016<ref name="shoot-2016-05-06">{{cite press release |date=6 May 2016 |url=http://blog.toyota.co.uk/toyota-gt86-shooting-brake-concept |title=Toyota Reveals GT86 Shooting Brake Concept |publisher=Toyota |archive-date=11 June 2016 |archive-url=https://web.archive.org/web/20160611132657/http://blog.toyota.co.uk/toyota-gt86-shooting-brake-concept }}</ref> and at the ''Toyota Festival of 86'' in Canberra, Australia on 7 May 2016.<ref>{{cite press release |url=https://toyota.pressroom.com.au/press_release_detail.asp?clientID=2&prID=9752&navSectionID=2 |title=Toyota Festival of 86 hits nation's capital |publisher=Toyota |date=4 May 2016 |access-date=16 April 2023 }}</ref><ref>{{cite news |last=Pepper |first=Robert |date=10 May 2016 |url=https://practicalmotoring.com.au/voices/the-festival-of-86-2016/ |title=The Festival of 86, 2016 |work=Practical Motoring |access-date=16 April 2023 }}</ref> Toyota's global chief engineer Tetsuya Tada saw a quarter scale clay model of the car during a trip to the Australian branch in 2014 and arranged for a full scale, fully function version to be built in Japan by Toyota's Takumi ("artisan") craftsmen.<ref name="shoot-2016-05-06" /> Tada said, "while we never say never, and I would love this concept to become a production reality, it is very much a concept that demonstrates the passion within Toyota for cars that are fun to drive". Commenting on the new car, Toyota's Australian Divisional Manager National Marketing Brad Cramb said, "The Toyota 86 lends itself perfectly to a concept that expands its appeal with added versatility while retaining its sleek and sporty coupe styling and sharp, responsive driving character."
+
+==== Toyota 86 Fujiwara Tofu Shop (2016) ====
+In 2016, Toyota UK created a "Fujiwara Tofu Shop" version of the car as a homage to the manga ''[[Initial D]]'' and the car the protagonist drives, an [[Toyota AE86|AE86]] Sprinter Trueno.<ref>{{cite web |date=29 July 2016 |url=http://blog.toyota.co.uk/toyota-gt86-initial-d-concept |title=Toyota Creates Manga-Inspired GT86 Initial D Concept |archive-url=https://web.archive.org/web/20160822130610/http://blog.toyota.co.uk/toyota-gt86-initial-d-concept |archive-date=22 August 2016 |publisher=Toyota }}</ref><ref>{{cite news |last=Krok |first=Andrew |date=29 June 2016 |url=https://www.cnet.com/roadshow/news/tofu-touge-toyota-sends-new-gt86-to-the-old-world-of-initial-d/ |title=Toyota's Manga-Inspired Concept Adds New GT86 to Old World of Initial D |work=CNET |access-date=17 March 2026 }}</ref>
+
+=== Safety ===
+{{ANCAP
+| overall_stars = 5
+| year = 2012
+| reference_code = f4ac7a
+| description = Toyota 86
+| frontal_offset = 14.97/16
+| side_impact = 15.43/16
+| pole = 2/2
+| seat_belt_reminders = 2/3
+| whiplash_protection = Good
+| pedestrian_protection = Adequate
+| electronic_stability_control = Standard
+}}
+
+{{ANCAP
+| overall_stars = 5
+| year = 2012
+| reference_code = b8212e
+| description = Subaru BRZ
+| frontal_offset = 14.97/16
+| side_impact = 15.43/16
+| pole = 2/2
+| seat_belt_reminders = 2/3
+| whiplash_protection = Good
+| pedestrian_protection = Adequate
+| electronic_stability_control = Standard
+}}
+
+=== Marketing ===
+[[File:2020 Toyota 86 Hakone (cropped).jpg|thumb|A 2020 Toyota 86 Hakone edition]]
+At the Subaru BRZ's market launch, a 2-part film documented the car's development.<ref>{{cite news |last=Ramsey |first=Jonathon |date=25 April 2012 |url=http://www.autoblog.com/2012/04/25/subaru-spills-all-the-beans-on-brz-development-with-new-document |title=Subaru spills all the beans on BRZ development with new documentary |work=Autoblog.com |access-date=5 June 2013}}</ref> In Canada, a TV commercial titled ''Scorched'' was shot at [[Queen Street West|Queen]] and McCaul St. in Toronto.<ref>{{cite news |last=Maloney |first=Val |url=http://mediaincanada.com/2012/08/30/spotted-subaru-heats-up-queen-st |title=Spotted! Subaru heats up Queen St |work=Media in Canada |date=30 August 2012 |access-date=5 June 2013}}</ref><ref>{{cite news |url=http://www.autoblog.com/2012/07/08/canada-gets-hotter-subaru-brz-commercials-than-we-do/ |title=Canada gets hotter Subaru BRZ commercials than we do |first=Zach |last=Bowman |work=Autoblog.com |date=8 July 2012 |access-date=5 June 2013 }}</ref><ref>{{cite web |url=http://adland.tv/commercials/subaru-brz-sizzles-scorched-2012 |title=Subaru BRZ Sizzles – "Scorched" – (2012) |work=adland.tv |date=5 July 2012 |access-date=5 June 2013 }}</ref><ref>{{cite news |url=http://www.ddbcanada.com/#/News/SubaruBRZlaunchesnewcampaign |title=New Subaru BRZ Sizzles |work=DDB Canada |date=5 July 2012 |access-date=5 June 2013 }}</ref>
+
+In Australia, Subaru BRZ was the first new car ever to be sold on that market exclusively online, with orders opening on 16 July 2012. It was also marketed with free servicing for 3 years or 60,000&nbsp;km. According to Subaru this sale concept was a success, after the entire 2012 Australian allocation of 201 cars was sold in under 3 hours. The first buyer was able to secure their car in less than 20 minutes from the site going live. This sale process was implemented as a consequence of the demand for the Toyota 86 far outstripping supply (resulting in long delivery times) and a low BRZ supplies for Australia. As of 1 January 2014, the vehicle became available both online and at dealerships, with free servicing no longer included in the purchase.<ref>{{cite news |last=Zalstein |first=David |date=6 January 2014 |url=http://www.caradvice.com.au/265360/subaru-brz-sale-showrooms-first-time-free-servicing-scrapped/ |title=Subaru BRZ on sale in showrooms for first time, free servicing scrapped |work=CarAdvice.com.au |access-date=1 July 2014 }}</ref>
+
+Scion made a similar decision in the United States, creating the 'First 86' program to allow 86 buyers to take delivery of their cars before the general public sales. On 12 January 2012 users had eight hours and six minutes to submit their requests to a program website. Winners were required to take their confirmation number and $500 to a dealer within 96 hours to claim their cars.<ref>{{cite news |last=Ramsey |first=Jonathon |url=http://www.autoblog.com/2012/01/10/how-to-be-one-of-the-first-86-owners-of-the-scion-fr-s |title=How to be one of the first 86 owners of the Scion FR-S |work=Autoblog.com |date=10 January 2012 |access-date=5 June 2013 }}</ref> Scion produced a commercial called ''Close Call'' featuring [[Ken Gushi]] avoiding a collision with a deer while driving Scion FR-S in Mt. Diablo State Park in Northern California.<ref>{{cite web |last=Lavrinc |first=Damon |date=8 February 2012 |url=https://www.autoblog.com/news/watch-ken-gushi-narrowly-avoid-a-deer-in-a-scion-fr-s |title=Watch Ken Gushi Narrowly Avoid a Deer in a Scion FR-S |work=Autoblog.com |access-date=14 March 2026 }}</ref>
+
+A British Toyota GT86 commercial titled ''The Real Deal'' was banned for encouraging motorists to drive irresponsibly.<ref>{{cite news |url=http://www.autoblog.com/2012/11/14/toyota-gt86-ad-banned-in-uk-for-encouraging-dangerous-driving |title=Toyota GT86 ad banned in UK for encouraging "dangerous driving" |first=Seyth |last=Miersma |work=Autoblog.com |date=14 November 2012 |access-date=5 June 2013}}</ref>
+
+The 2020 model year was offered in the special "Hakone" edition. Named for the [[Hakone Turnpike]], it featured a glossy "Hakone Green" colour(marketed as "[[British racing green]]" in Japan) with matching Bronze rims and interior. It was otherwise identical to the GT trim level.<ref>{{Cite news |last=Goodwin |first=Antuan |date=2020-07-02 |title=2020 Toyota 86 Hakone Edition review: A slice of green heaven |url=https://www.cnet.com/roadshow/reviews/2020-toyota-86-review/ |url-status=live |archive-url=https://web.archive.org/web/20260322170843/https://www.cnet.com/web/20260322170843/https:/www.cnet.com/roadshow/reviews/2020-toyota-86-review/ |archive-date=2026-03-22 |access-date=2026-03-22 |work=[[CNET]]}}</ref><ref>{{Cite web |date=2020 |title=2020 Toyota 86 eBrochure |url=https://www.toyota.com/content/dam/toyota/brochures/pdf/2020/86_ebrochure.pdf |url-status=live |archive-url=https://web.archive.org/web/20260322170931/https://www.toyota.com/content/dam/toyota/brochures/pdf/2020/86_ebrochure.pdf |archive-date=2026-03-22 |access-date=2026-03-22 |publisher=Toyota |format=pdf}}</ref>
+
+==<span class="anchor" id="second"></span><span class="anchor" id="ZN8"></span><span class="anchor" id="GR86"></span><span class="anchor" id="2021"></span>Second generation (ZN8/ZD8; 2021)==
+{{Infobox automobile
+| name = Second generation
+| image = 2023_Toyota_GR86_4_(2).jpg
+| caption = 2023 Toyota GR86 (ZN8)
+| model_code = {{unbulleted list
+  | ZN8 (Toyota)
+  | ZD8 (Subaru)
+  }}
+| aka = {{unbulleted list
+  | Subaru BRZ
+  | Toyota GR86
+  }}
+| production = {{unbulleted list
+  | July 2021 – present (BRZ)
+  | October 2021 – present (GR86)
+  }}
+| model_years = 2022–present
+| designer = {{unbulleted list
+  | Koichi Matsumoto (project chief designer)<ref name="gr86design">{{cite web |date=28 October 2021 |title=GR86 Design Sketches |url=https://global.toyota/en/mobility/toyota-brand/toyota-design/gr86/ |access-date=19 July 2022 |website=Toyota Motor Corporation Official Global Website |publisher=Toyota}}</ref>
+  | Kosuke Kubo and Kazuhiko Ito (GR86 exterior)<ref name="gr86design" />
+  | Kazuki Tanaka and Yuka Kanazawa (interior)<ref name="gr86design" />
+  }}
+| platform = 
+| engine = 2.4&nbsp;L ''[[Subaru FA engine#FA24D|FA24D]]'' [[Flat-four engine|H4]]
+| powerout = {{convert|231|–|235|PS|kW hp|0|abbr=on}}
+| transmission = {{unbulleted list
+  | 6-speed [[List of Aisin transmissions#Longitudinal rear-wheel drive|Toyota TL70 (Aisin AZ6)]] [[Manual transmission|manual]]
+  | 6-speed [[Toyota A transmission#A960E|A960E]] [[Automatic transmission|automatic]]
+  }}
+| wheelbase = {{convert|2575|mm|in|1|abbr=on}}
+| length = {{convert|4265|mm|in|1|abbr=on}}
+| width = {{convert|1775|mm|in|1|abbr=on}}
+| height = {{convert|1310|mm|in|1|abbr=on}} (including antenna)
+| weight = {{convert|1270|–|1307|kg|lb|0|abbr=on}}
+| sp = uk
+}}
+
+The second-generation BRZ debuted on 18 November 2020 and went on sale in the US in late 2021.<ref>{{Cite web |last=Hoffman |first=Connor |date=18 November 2020 |title=228-HP 2022 Subaru BRZ Sticks to the Purist Sports-Car Formula |url=https://www.caranddriver.com/news/a34680479/2022-subaru-brz-specs-revealed/ |website=Car and Driver}}</ref><ref>{{Cite web |title=First Look: 2022 Subaru BRZ Revealed With More Power |url=https://www.motor1.com/news/455005/2022-subaru-brz-video-debut/ |access-date=18 November 2020 |website=Motor1.com }}</ref> The Toyota version was introduced later on 5 April 2021, briefly named the "GR 86".<ref>{{cite press release |url=https://global.toyota/en/newsroom/toyota/34997138.html |title=Toyota Gazoo Racing Presents World Debut of the New GR 86 |publisher=Toyota |date=5 April 2021 |access-date=5 April 2021}}</ref> It was later renamed "GR86", without the space, for [[digital marketing]] reasons.<ref>{{Cite news |last=Chilton |first=Chris |date=20 November 2021 |title=GR 86 Becomes GR86 as Toyota Bows to the Power of the Hashtag |url=https://www.carscoops.com/2021/11/gr-86-becomes-gr86-as-toyota-bows-to-the-power-of-the-hashtag/ |access-date=21 November 2021 |work=Carscoops}}</ref>
+
+The roof, bonnet and front wings are made from aluminium to lower the vehicle's centre of gravity and reduce the weight gain from the engine and safety features.<ref name=Watch-20210405/> The second-generation BRZ and GR86 architecture adopts elements from the [[Subaru Global Platform]] (SGP), claiming 50 percent more torsional rigidity than its predecessor.<ref>{{Cite news |date=5 April 2021|title=2021 Toyota GR86 debuts in Japan – 2.4L NA flat-four with 235 PS and 250 Nm; six-speed auto and manual |url=https://paultan.org/2021/04/05/2021-toyota-gr-86-global-debut/ |access-date=8 April 2021 |work=PaulTan.org }}</ref><ref>{{Cite news |title=Subaru And Toyota Reveal Japan-Spec 2022 BRZ And GR86 Sport Coupes |url=https://www.torquenews.com/1084/subaru-and-toyota-reveal-japan-spec-2022-brz-and-gr86-sport-coupes |first=Denis |last=Flierl |work=Torque News |date=5 April 2021 |access-date=8 April 2021 }}</ref>
+
+In August 2026, the GR86 received minor updates such as a new EyeSight triple camera replaced the two camera setup, and the automatic transmission option for GR86 Cup Car Basic grade. The Solid Gray, which was previously available in the first generation 86, was reintroduced.<ref>{{Cite news |title=Subaru And Toyota Reveal Japan-Spec 2022 BRZ And GR86 Sport Coupes |url=https://www.carscoops.com/2026/08/toyota-gr86-update-jdm |first=Brad |last=Anderson |work=Carscoops |date=6 August 2026 |access-date=20 August 2026 }}</ref> The update GR86 went to sale on 28 August 2026.
+
+<gallery widths="200" heights="150">
+File:2022 Toyota GR86 Premium in Halo, Rear Right, 04-10-2022.jpg|Rear view
+File:The interior of Toyota GR86 RZ (3BA-ZN8-A2F7) ver.GR Garage CHAUPY Nara Tomigaoka demonstration car.jpg|Interior
+</gallery>
+
+=== <span class="anchor" id="ZD8"></span>Subaru BRZ === 
+Subaru uses the ''[[Subaru FA engine#FA24D|FA24D]]'' designation for the new engine. It has a displacement of {{convert|2387|cc|cuin|abbr=on}} using a {{convert|94|×|86|mm|in|abbr=on}} bore and stroke, with a power output of {{convert|231|–|235|PS|kW hp|0|abbr=on}} at 7,000&nbsp;rpm and a torque output of {{convert|250|Nm|lbft kgm|0|abbr=on}} at 3,700&nbsp;rpm.<ref>{{cite press release |url=https://www.media.subaru-global.com/ja/news/3083 |title=～トヨタともっといいクルマづくりを追求し、「誰もが愉しめる究極のFRピュアスポーツカー」へ進化～ |trans-title=Pursuing better car manufacturing with Toyota, evolving into 'the ultimate FR pure sports car that everyone can enjoy' |date=5 April 2021 |publisher=Subaru |access-date=5 April 2021}}</ref> According to Subaru, a naturally aspirated engine was chosen to meet the goal of developing "the ultimate pure sports car". Compared to the previous gen ''[[Subaru FA engine#FA20|FA20]]'' it retains a free-revving character, with a larger cylinder bore increasing peak torque at a lower rpm.<ref>{{cite press release |last=Ohto |first=Yasuhiro |date=2021 |url=https://www.subaru.jp/brz/brz/special/file/subarubrz_japanpremierebook2021.pdf#page=6 |title=Japan Premiere 2021: Subaru BRZ |archive-date=6 April 2021 |archive-url=https://web.archive.org/web/20210406034802/https://www.subaru.jp/brz/brz/special/file/subarubrz_japanpremierebook2021.pdf#page=6 |publisher=Subaru }}</ref>
+
+When tested by ''[[Car and Driver]]'', the BRZ achieved a {{cvt|0–60|mph|km/h|0|order=flip}} time of 5.4 seconds, with the top speed electronically limited to {{cvt|140|mph|km/h|0|order=flip}}.<ref>{{cite web |url=https://www.caranddriver.com/reviews/a41979904/2023-subaru-brz-manual-reliability-maintenance/ |title=Our Subaru BRZ (Briefly) Ups Its Game |date=2023 |publisher=Car and Driver Magazine |last=Sutton |first=Mike }}</ref>
+
+Vehicles equipped with an automatic transmission (and manual transmission, starting from 2024)<ref>{{Cite press release |title=Subaru announces pricing on 2024 BRZ sports car |url=https://media.subaru.com/pressrelease/2110/1/subaru-announces-pricing-2024-brz-sports-car |publisher=Subaru |date=26 October 2023 |access-date=22 December 2024 }}</ref> include Subaru's [[advanced driver-assistance system]], using Eyesight-branded stereoscopic cameras; however, the BRZ/GR86 deletes the assisted steering feature to suit the sporty nature of the car.<ref name=Watch-20210405>{{cite news  |last=Kobayashi |first=Takashi |date=5 April 2021 |url=https://car.watch.impress.co.jp/docs/news/1316399.html |title=トヨタ＆スバルの新型スポーツカー「GR 86」「BRZ」はどう進化した？ |language=ja |trans-title=How Have the New Toyota & Subaru Sports Cars 'GR&nbsp;86' and 'BRZ' Evolved? |work=Car Watch |access-date=5 April 2021}}</ref>
+
+<gallery widths="200" heights="113">
+File:Subaru BRZ (ZD8) Auto Zuerich 2023 1X7A1254.jpg|Subaru BRZ [with STI Aero Kit] (ZD8)
+File:Subaru BRZ S (3BA-ZD8) rear (2).jpg|Subaru BRZ (ZD8, Japan)
+File:The interior of Subaru BRZ S (3BA-ZD8) with STI Performance parts.jpg|Interior
+</gallery>
+
+==== BRZ tS ====
+In July 2023, for the 2024 model year, Subaru released the BRZ tS (tS standing for "tuned by STI") as a new trim that features an upgraded interior with blue stitching, an STI-themed instrument cluster, a red STI engine start button, golden 4-piston Brembo brakes in the front, 2-piston brakes in the back, upgraded suspension, black metallic-finish wheels, black mirror caps, and a black antenna fin. It also features Subaru's Eyesight system with the manual transmission along with the rest of the 2024 model trims. The tS trim is only available with the manual transmission, and is based on the Limited trim, featuring heated seats and a similar interior design. While previous tS editions of the cars were under limited production, this one is mass-produced. The customer is able to choose the car's colour, add accessories, etc.<ref>{{Cite press release |title=New performance-focused 2024 Subaru BRZ tS debuts at Subiefest California |url=https://media.subaru.com/newsrelease.do?id=2077&mid=1&allImage=1&teaser=new-performance-focused-2024-subaru-brz-ts-debuts |publisher=Subaru |date=24 July 2023 |access-date=5 July 2025}}</ref><ref>{{Cite web |title=The 2024 Subaru BRZ. |url=https://www.subaru.com/vehicles/brz/features.html |publisher=Subaru |access-date=8 April 2024}}</ref> It was released again in 2024, for the 2025 model year.<ref>{{Cite press release |title=2025 Subaru BRZ Press Kit:Subaru announces pricing on 2025 BRZ |url=https://media.subaru.com/newsrelease.do?id=2244&mid=135 |publisher=Subaru |access-date=4 July 2025}}</ref>
+
+<gallery widths="200" heights="120">
+File:Subaru BRZ ts (2024) (53624345109).jpg|Front view
+File:Subaru BRZ ts (2024) (53624216913).jpg|Rear view
+</gallery>
+
+=== Special editions ===
+
+==== 10th Anniversary Special Edition ====
+In 2022, for the 2023 [[model year]], a new 10th Anniversary Special Edition ("SE") 86 is available in [[North America]] and [[Japan]]. Celebrating ten years since the release of the [[Scion FR-S]] in [[North America]] and Toyota 86 in Japan, and based on the top-tier Premium trim level, the 86 Special Edition is finished in a unique "Solar Shift" (Orange) exterior paint colour, with unique Matte Black-finished eighteen-inch forged aluminium-alloy wheels, black exterior side mirror caps, a black "Duck-Bill" rear spoiler and rear deck (boot) lid accent bar, and black "C"-pillar stripe decals. A [[Gazoo Racing]] (GR)-tuned performance exhaust system with black chrome-finished exhaust tips is also included with the Special Edition 86. In US, Production limited to 860 units.<ref>{{cite press release |url=https://pressroom.toyota.com/toyota-celebrates-the-pure-sports-car-with-2023-gr86-special-edition/ |title=Toyota Celebrates the Pure Sports Car with 2023 GR86 Special Edition |publisher=Toyota |date=1 June 2022 |access-date=12 July 2022}}</ref><ref>{{cite news |url=https://paultan.org/2022/06/02/2023-toyota-gr86-special-edition-revealed-for-the-us/ |title=2023 Toyota GR86 Special Edition revealed for the US – new wheels, catback exhaust; limited to 860 units |first=Gerard |last=Lye |work=PaulTan.org |date=2 June 2022 |access-date=12 July 2022 }}</ref>
+
+The 10th Special Edition was also sold in Japan in same year alongside the BRZ 10th Anniversary Edition. Based on the RZ variant, sales were limited to 24 July to 30 September.<ref>{{Cite news |date=24 July 2022 |title=GR86, 10周年記念特別仕様車の期間限定販売を発表 |trans-title=GR86 10th Anniversary Special Edition Vehicle on Sale for a Limited Time |url=https://global.toyota/jp/newsroom/toyota/37544072.html |website=Toyota |language=ja |access-date=22 February 2026 }}</ref>
+
+<gallery widths="200px" heights="150px">
+File:Toyota GR86 RZ 10th Anniversary Limited (3BA-ZN8) front.jpg|GR86 10th Anniversary Special Edition (Japan)
+File:Toyota GR86 RZ"10th Anniversary Limited" (3BA-ZN8) rear.jpg|Rear view (Japan)
+</gallery>
+
+==== Trueno Edition ====
+{{Multiple image
+| align     = right
+| direction = vertical
+| width     = 
+| image1    = 2024 Toyota GR86 Trueno Edition 01.jpg
+| caption1  = 
+| image2    = 2024 Toyota GR86 Trueno Edition 02.jpg
+| caption2  = Toyota GR86 Trueno Edition (ZN8, North America)
+}}
+
+In June 2023, for the 2024 model year, another limited edition of the GR86 called the Trueno Edition was released exclusively in North America. It was made to celebrate 40 years since the release of the [[Toyota Sprinter Trueno#AE85 & AE86 Series (1983–1987)|AE86 Sprinter Trueno]] in Japan. It came with a Matte Black-finished bonnet, a white exterior paint colour with black stripe decals on the doors and front fenders resembling the original "High-Tech Two-Tone" colour option of the AE86, black exterior side mirrors, a black "Duck-Bill" rear spoiler, and is fitted with Matte Black-finished aluminium alloy wheels. Like the Special Edition 86, production of this variant is limited to 860 units.<ref>{{cite press release |url=https://pressroom.toyota.com/2024-gr86-trueno-edition-throwback-spirit-modern-performance/ |title=2024 GR86 Trueno Edition: Throwback Spirit, Modern Performance |date=21 June 2023 |publisher=Toyota }}</ref><ref>{{cite press release |url=http://media.toyota.ca/releases/2024-gr86-trueno-edition-throwback-spirit-modern-performance |title=2024 GR86 Trueno Edition: Throwback Spirit, Modern Performance |date=21 June 2023 |publisher=Toyota }}</ref>
+
+==== Kongō-class 86 ====
+On 12 June 2024, Toyota began accepting orders for the Kongō-class 86 series, a collaboration between [[Kantai Collection]] and Toyota's sports car, the GR86.
+
+This vehicle debuted at a ''[[Kantai Collection]]'' real-life event held at [[Fuji Speedway]] by C2 Kikan, and features a special exterior design inspired by the four [[Kongō-class battlecruiser]]s (金剛型姉妹). The line-up includes four types: "Kongo 86," "Hiei 86," "Kirishima 86," and "Haruna 86". Only 8 units are planned.<ref>{{Cite web |title=「艦これ」の金剛型姉妹をイメージした特別仕様の"GR86"が受注開始に。
+ |trans-title=Orders have begun for the special edition "GR86" model, inspired by the Kongou-class sisters of "Kantai Collection" |url=https://www.4gamer.net/games/999/G999905/20240613042/ |website=4gamer.net |language=ja |date=13 June 2024 |access-date=21 August 2025}} </ref>
+
+==== Hakone Edition ====
+On 12 July 2024, Toyota announced the GR86 Hakone Edition for the 2025 model year in North America. Like the 2020 86 Hakone Edition that preceded it, the GR86 Hakone Edition pays tribute to the [[Hakone Turnpike]] in Japan. It is offered in a single colour, Ridge Green with tan leather seats and satin bronze wheels, and limited to 860 units.<ref>{{Cite press release |title=2025 Toyota GR86 Hakone Special Edition Puts a Modern Twist on an Icon |url=https://pressroom.toyota.com/2025-toyota-gr86-hakone-special-edition-puts-a-modern-twist-on-an-icon/ |publisher=Toyota |date=12 July 2024 |access-date=4 July 2025}}</ref>
+
+==== Yuzu Edition/Yellow Limited ====
+In April 2025, Toyota announced the Yuzu Edition for the 2026 model year in North America. The exclusive colour, Yuzu Yellow, is a nod to the Scion FR-S Release Series 1.0. Like the previous three limited editions, the Yuzu Edition is limited to 860 units.<ref>{{Cite press release |title=Toyota Brightens the City Streets with New GR86 Yuzu Edition |url=https://pressroom.toyota.com/toyota-brightens-the-city-streets-with-new-gr86-yuzu-edition/ |publisher=Toyota |date=4 April 2025 |access-date=4 July 2025}}</ref>
+
+In Japan, Toyota announced the "Yellow Limited" in September 2025. The Yellow Limited is based on the RZ grade with the addition of yellow stitching in the cabin, grey wheels, Brembo brakes and Sachs shock absorbers. It is limited to 300 units.<ref>{{Cite web |title=Toyota Gazoo Racing、300台限定の特別仕様車「GR86 RZ'Yellow Limited'」を「FUJI 86/BRZ STYLE 2025 with 頭文字D」で公開 |website=Car Watch |date=5 September 2025 |url=https://car.watch.impress.co.jp/docs/news/2044852.html |language=ja |access-date=22 February 2026 }}</ref>
+
+<gallery widths="200" heights="120">
+File:2026 Toyota GR86 Yuzu Special Edition, front NYIAS 2025.jpg|Toyota GR86 Yuzu Edition 
+File:2026 Toyota GR86 Yuzu Special Edition, rear NYIAS 2025.jpg|Rear View
+</gallery>
+
+=== Safety ===
+The 2022 BRZ was tested by the [[IIHS]] and its top trim received a ''Top Safety Pick+'' award:<ref>{{Cite web |url=https://www.iihs.org/ratings/vehicle/subaru/brz-2-door-hatchback/2022 |title=2022 Subaru BRZ 2-Door Hatchback |publisher=IIHS |access-date= }}</ref>
+
+{| class="wikitable"
+|+ [[IIHS]] scores
+|-
+| Small overlap front (Driver) || style="color:white;background: green" | Good
+|-
+| Small overlap front (Passenger) || style="color:white;background: green" | Good
+|-
+| Moderate overlap front || style="color:white;background: green" | Good
+|-
+| Side (original test) || style="color:white;background: green" | Good
+|-
+| Roof strength || style="color:white;background: green" | Good
+|-
+| Head restraints and seats || style="color:white;background: green" | Good
+|-
+| Headlights || style="color:white;background: green" | Good
+|-
+| Front crash prevention (Vehicle-to-Vehicle) || style="color:white;background: green" | Superior || optional
+|-
+| Front crash prevention (Vehicle-to-Pedestrian, day) || style="color:white;background: green" | Superior || optional
+|-
+| Child seat anchors (LATCH) ease of use || style="background: yellow" | Acceptable
+|}
+
+
+{{clear}}
+
+== Awards ==
+[[File:Toyota 86 - Engine.jpg|thumb|The Subaru FA20/Toyota 4U-GSE engine, marketed as the D-4S Boxer, was named one of [[Ward's 10 Best Engines]] in 2013]]
+
+In Europe, the GT86 was awarded the following titles in 2012:
+* Car of the Year by ''[[Top Gear (magazine)|Top Gear]]'' magazine (and [[Jeremy Clarkson]]) who also crowned it Coupé of the Year and winner of the Top Gear Speed Week (against competition including the [[McLaren MP4-12C]], [[Porsche 911 Carrera]] S, and [[Lotus Exige]] S);<ref name="McManus">{{cite web |url=http://blog.toyota.co.uk/toyota-gt86-is-top-gears-car-of-the-year-2012 |title=Toyota GT86 is Top Gear's Car of the Year |publisher=Toyota UK |first=Will |last=McManus |date=6 December 2012 |archive-date=31 December 2012 |archive-url=https://web.archive.org/web/20121231082131/http://blog.toyota.co.uk/toyota-gt86-is-top-gears-car-of-the-year-2012 }}</ref>
+* Best Driver's Car by ''[[Autocar (magazine)|Autocar]]'';<ref>{{cite news |url=http://www.autocar.co.uk/car-news/motoring/britains-best-drivers-car-winner |title=Britain's best driver's car: The winner |work=Autocar |first=Matt |last=Prior |date=2 November 2012 |access-date=1 January 2013}}</ref>
+* Performance Car by ''[[Auto Express]]''.<ref>{{cite web |url=http://blog.toyota.co.uk/gt86-wins-auto-express-performance-car-award |title=GT86 wins Auto Express performance car award |publisher=Toyota UK |first=Will |last=McManus |date=1 November 2012 |archive-date=30 December 2012 |archive-url=https://web.archive.org/web/20121230002530/http://blog.toyota.co.uk/gt86-wins-auto-express-performance-car-award }}</ref>
+
+In Australia, the 86 was awarded the following titles in 2012:
+* Car of the Year award by ''[[Wheels Car of the Year|Wheels]]'' magazine,<ref>{{cite news |url=http://www.motoring.com.au/news/2012/subaru/subaru-brz-and-toyota-86-win-wheels-coty-34152 |title=Subaru BRZ and Toyota 86 win Wheels COTY |work=Motoring.com.au |date=7 December 2012 }}</ref> ''[[CarsGuide]]'',<ref>{{cite news |last=Pottinger |first=Paul |date=14 December 2012 |url=http://www.news.com.au/national/subaru-brz-and-toyota-86-named-carsguides-car-of-the-year/story-fncynjr2-1226536279994 |title=Subaru BRZ and Toyota 86 named Carsguide's Car of the Year |work=News.com.au |archive-date=2 February 2016 |archive-url=https://web.archive.org/web/20160202235149/http://www.news.com.au/national/subaru-brz-and-toyota-86-named-carsguides-car-of-the-year/story-fncynjr2-1226536279994 }}</ref> and ''[[Drive.com.au|Drive]]''<ref name="Toyota Australia">{{cite news |url=http://www.toyota.com.au/news/toyota-86-wins-drive-car-of-the-year-award |title=Toyota 86 Wins Drive Car of the Year Award |work=Toyota Australia |date=29 November 2012 |archive-date=14 March 2016 |archive-url=https://web.archive.org/web/20160314150038/http://www.toyota.com.au/news/toyota-86-wins-drive-car-of-the-year-award }}</ref> (shared with Subaru BRZ);
+* Best Performance Car under {{AUD|60,000}} and People's Choice again by ''Drive'';<ref name="Toyota Australia" />
+* People's Choice Best Performance Car under {{AUD|100,000}} by Carsales (shared with Subaru BRZ).<ref name="Subaru 2013-01-04">{{cite press release |url=http://www.subaru-global.com/news2013n001282.html |title=News 2013 |publisher=Subaru Global |date=4 January 2013 |archive-url=https://web.archive.org/web/20130207064708/http://www.subaru-global.com/news2013n001282.html |archive-date=7 February 2013 }}</ref>
+
+Other awards received include:
+* 2012 Car of the Year in New Zealand (Toyota 86 and GT86);<ref>{{cite news |last=Thomson |first=David |date=15 December 2012 |url=http://www.drivesouth.co.nz/news/toyota/toyota-86-crowned-nz-car-of-the-year |title=Toyota 86 crowned NZ Car of the Year |work=Drivesouth |archive-url=https://web.archive.org/web/20130208232818/http://www.drivesouth.co.nz/news/toyota/toyota-86-crowned-nz-car-of-the-year |archive-date=8 February 2013 }}</ref>
+* 2012 Best Affordable Sports Car by ''[[US News]]'' (Scion FR-S);<ref>{{cite web |url=http://usnews.rankingsandreviews.com/cars-trucks/rankings/Affordable-Sports-Cars/ |title=Best Affordable Sports Cars Rankings |work=U.S. News Best Cars |access-date=1 January 2013}}</ref>
+* 2012 [[Insurance Institute for Highway Safety]] Top Safety Pick in the US (Scion FR-S and Subaru BRZ);<ref>{{cite web |url=http://www.subaru.com/company/news/2011_december.html#2011_december_iihs_topsafetypick |title=December 2011 News Archives |publisher=Subaru US |date=15 December 2011 |archive-date=24 September 2015 |archive-url=https://web.archive.org/web/20150924111305/http://www.subaru.com/company/news/2011_december.html#2011_december_iihs_topsafetypick }}</ref>
+* 2013 [[Car and Driver 10Best|10Best List]] by the American ''[[Car and Driver]]'' (Scion FR-S and Subaru BRZ);<ref>{{cite news |url=http://www.caranddriver.com/reviews/2013-10best-cars-scion-fr-s-subaru-brz-video |title=2013 10Best: Scion FR-S / Subaru BRZ |work=Car and Driver |date=1 December 2012}}</ref>
+* 2012–2013 Japan Car of the Year "Special Award" (Toyota 86 and Subaru BRZ).<ref name="McManus" />
+
+The Subaru BRZ was also crowned:
+* Fun-est Car of the Year by ''[[Top Gear Australia]]'' (against the Toyota 86, BMW M135i, Porsche 911 Carrera, Audi RS5, Ford Focus ST, and Renault Megane RS265);<ref name="Subaru 2013-01-04" />
+* 2012 Sports Car of the Year by France's ''Échappement'';<ref name="McManus" />
+* 2013 Best Sports Car by Canada's ''Auto123''.<ref name="McManus" />
+
+In addition, the Toyota-Subaru D-4S boxer engine was named one of [[Ward's 10 Best Engines]] in 2013.<ref>{{cite press release |url=http://www.media.subaru.com/newsrelease.do;jsessionid=4A364752A7923C63F72D539CFE9AA56F?&id=402&allImage=1&teaser=subaru-brz-engine-earns-ward's-10-best-engines&mid=1 |title=Subaru BRZ engine earns Ward's "10 best engines" recognition |publisher=Subaru |date=17 December 2012 |access-date=13 January 2013 }}</ref>
+
+== Motorsport ==
+[[File:No.61 SUBARU BRZ R&D SPORT after 2022 Takanoko no Hotel Suzuka GT 300km (1).jpg|thumb|[[R&D Sport]]'s Subaru BRZ currently competes in the GT300 class of the [[Super GT Series]].]]
+[[File:No.2 muta Racing GR86 GT at 2022 Takanoko no Hotel Suzuka GT 300km (66).jpg|thumb|muta Racing's Toyota GR86 [[silhouette racing car|silhouette]] currently competes in the [[Super GT Series]].]]
+
+=== Super GT ===
+In 2011 Subaru unveiled the Super BRZ Concept STi and their latest entry in the [[Super GT]] series GT300-category. [[R&D Sport]] developed the BRZ GT300 to replace their [[Subaru Legacy|Legacy]] for the 2012 season using the [[Subaru EJ engine|EJ20 engine]].<ref>{{cite web |url=http://www.autoblog.com/2011/11/29/subaru-brz-gt300-set-to-take-on-supergt/ |title=Subaru BRZ GT300 Set to Take on SuperGT |first=Damon |last=Lavrinc |work=Autoblog |date=29 November 2011 }}</ref>
+
+The Toyota 86 MC also competes in the GT300, but unlike the BRZ GT300 it is based on a standard Super GT [[Dome (constructor)|Dome]]-produced "mother chassis" and GT Association-branded [[Nissan VK engine#VK45DE|Nissan]] V8 engine. Only the name and body style are shared with the production car.<ref>{{cite web |last=Collins |first=Sam |title=GT300 Mother Chassis |url=http://www.racecar-engineering.com/articles/gt300-mother-chassis/ |website=Racecar Engineering |access-date=7 August 2017 |date=26 August 2016 }}</ref> In [[2016 Super GT Series|2016]] VivaC team Tsuchiya's 86 MC won the GT300 driver and team championships, with [[Takeshi Tsuchiya]] and [[Takamitsu Matsui]] at the wheel.
+
+In 2021, Subaru unveiled the new BRZ GT300 based on the second-generation BRZ, followed by Toyota unveiling the new GR86 GT300 in 2022.<ref>{{Cite press release |title=2021 Subaru Motorsport Activities |url=https://www.subaru.co.jp/press/news-en/2021_02_22_9546/ |access-date=28 October 2022 |work=Subaru }}</ref><ref>{{Cite press release |title=Toyota Gazoo Racing announced its 2022 motorsport team setups |url=https://global.toyota/en/newsroom/corporate/36420883.html |access-date=28 October 2022 |publisher=Toyota }}</ref><ref>{{Cite web |title=Super GT: Inside Subaru's all-new 2021 BRZ GT300 challenger |url=https://us.motorsport.com/supergt/news/subaru-new-brz-gt300-ozawa/6627483/ |access-date=28 October 2022 |website=us.motorsport.com }}</ref> They were built around the road car instead of a predefined mother chassis, with advanced aerodynamics and a lightweight body.<ref>{{Cite web |title=Toyota GR86 GT300 Unveiled by apr Racing |url=https://www.dailysportscar.com/2022/01/14/toyota-gr86-gt300-unveiled-by-apr-racing.html |access-date=5 June 2022 |website=DailySportsCar.com |date=14 January 2022 }}</ref> The BRZ GT300 is powered by an updated version of the same [[Subaru EJ engine|EJ20]] turbocharged flat-four racing engine as its predecessor.<ref>{{Cite web |title=New BRZ GT300 Headlines Subaru Racing Activities In 2021 |url=http://www.dailysportscar.com/2021/02/22/new-brz-gt300-headlines-subaru-racing-activities-in-2021.html |access-date=28 October 2022 |website=DailySportsCar.com |date=22 February 2021 }}</ref> The GR86 GT300 is powered by a naturally-aspirated TRD 5.4 litre [[Toyota UR engine|2UR-GSE]] racing engine and features a [[Hewland]] six-speed [[Sequential manual transmission|sequential transmission]]. The Toyota GR86 GT300 is {{Convert|50|kg|lb|0|abbr=on}} lighter, with a shorter wheelbase and overall length compared to the Subaru BRZ GT300.<ref>{{Cite web |title=Toyota GR86 GT300 Unveiled by apr Racing |url=https://www.dailysportscar.com/2022/01/14/toyota-gr86-gt300-unveiled-by-apr-racing.html |access-date=28 October 2022 |website=DailySportsCar.com |date=14 January 2022 }}</ref>
+
+In its first year of competition, the new second-generation BRZ GT300 won the GT300 class of the [[2021 Super GT Series|2021 Super GT Championship]], driven by [[Takuto Iguchi]] and [[Hideki Yamauchi]] for [[R&D Sport]].<ref>{{Cite press release |title=Subaru wins its first-ever Super GT title with all-new Subaru BRZ GT300 in Japan |url=https://www.subaru.co.jp/news-en/2021_12_01_090207/ |publisher=Subaru Corporation |access-date=28 October 2022 }}</ref>
+
+=== Formula Drift ===
+In the United States [[Ken Gushi]] used a GPP Scion Racing FR-S built by [[GReddy Racing]] for the US [[Formula Drift]] championship. The FR-S features a turbocharged [[Subaru EJ engine|EJ25]] boxer engine from a [[Subaru WRX STI]]<ref name="subietv1">{{cite web|url=http://subiesport.tv/site/2012/07/ken-gushi-scores-top-4-at-formula-drift-round-5/|title=Gushi in Final Four at Formula Drift Round 5|work=Subie Sport TV|publisher=subiesport.tv|date=24 July 2012|access-date=25 December 2012}}</ref> producing more than {{convert|600|bhp|kW|abbr=on|order=flip}}.<ref>{{cite web |url=http://www.scion.com/scionracing/drift/index.html |title=Scion Racing Drift GReddy Racing |date=14 June 2012 |website=Scion.com |archive-date=1 March 2013 |archive-url=https://web.archive.org/web/20130301222359/http://www.scion.com/scionracing/drift/index.html }}</ref> [[Ryan Tuerck]] drove a Scion FR-S powered by a stroked [[Toyota JZ engine#2JZ-GTE|2JZ-GTE]] producing more than {{convert|700|bhp|kW|abbr=on|order=flip}} for Retaks Backpacks and Maxxis Tires in the 2013 US Formula Drift championship.<ref>{{cite web |title=Ryan Tuerck |url=http://formulad.com/drivers/profile/ryan-tuerck.php |archive-url=https://web.archive.org/web/20130724082004/http://formulad.com/drivers/profile/ryan-tuerck.php |archive-date=24 July 2013 |website=[[Formula D]] |publisher=Formula Drift Holding }}</ref>
+
+=== D1 Grand Prix ===
+[[File:TEAM TOYO TIRES DRIFT GR86 in 2022 D1GP INTERNATIONAL DRIFT CHAMPIONSHIP (1).jpg|thumb|Team Toyo Tires Drift's Toyota GR86 for [[D1 Grand Prix]]]]
+[[File:Gazoo Racing Toyota 86 2012 Super Taikyu Suzuka 300km.jpg|thumb|Gazoo Racing's Toyota 86 competing in the Super Taikyu Endurance Series]]
+
+For 2012 season, HKS, Droo-P and [[Max Orido]] debuted their car for 2012 competition followed by Blitz in round 3 and OTG Motorsport in 2014. the first win for the chassis came at the 2013 season with Tetsuya Hibino behind the wheel of the Droo-P built 86. Manabu Orido also achieved victory with his car at 2015 season after facing Yoichi Imamura also in 86 making it the only all GT86 final in D1GP with both cars powered by V8 engines.<ref>{{cite web |last=Carbonare |first=Dino Dalle |date=7 March 2012 |url=http://www.speedhunters.com/2012/03/hibino_s_d1_toyota_86_gt_gt_the_build_pt_2/ |title=Build>> Hibino's D1 Toyota 86 Pt.2 |archive-url=https://web.archive.org/web/20230121105658/http://www.speedhunters.com/2012/03/hibino_s_d1_toyota_86_gt_gt_the_build_pt_2/ |archive-date=21 January 2023 }}</ref>
+
+In 2022, Team Toyo Tires debut the new GR86 built by Wisteria. On its debut season the car win the overall round twice with Masato Kawabata behind the wheel on both occasions, Kawabata finished the season as runner-up and taking the Solo run championship making the GR86 one of the most successful seasons for a new chassis.{{Citation needed|date=January 2026}} Hideyuki Fujino drove the sister car to win the overall title in 2023 and 2025 with the latter season finished with an all-GR86 top three in overall standings.{{Citation needed|date=January 2026}}
+
+=== 86 Racing / BRZ RA Racing ===
+In October 2012 [[Toyota Racing Development]] and Gazoo Racing introduced a production racing model based on the 86. The 86 Racing adds [[brake]] and [[oil cooler]] modifications, as well as a 4-point racing harness and [[rollcage]]. The stock alloy wheels are replaced by steel wheels, while the exterior colour was only available in white.<ref>{{cite web |url=http://gazoo.com/racing/motorsports/86brz_race2013/ |title=Rd.7 ツインリンクもてぎ – Gazoo Racing 86/BRZ Race |author=トヨタ自動車株式会社 |website=Gazoo Racing |archive-url=https://web.archive.org/web/20130406022320/http://gazoo.com/racing/motorsports/86brz_race2013/ |archive-date=6 April 2013 }}</ref> Subaru followed in early 2013 with the BRZ RA Racing, featuring similar modifications. Both cars are only available in the Japanese market, and are eligible for a [[one-design|one-make]] racing series run by Gazoo Racing. Unlike the Toyota, the BRZ RA Racing is available in any of the production car's colours.<ref>{{cite web |url=http://www.motorward.com/2013/01/subaru-brz-ra-racing-announced/ |title=Subaru BRZ RA Racing Announced |publisher=Motorward |editor-first=Arman |editor-last=Barari |access-date=28 January 2013 }}</ref><ref>{{cite web |url=http://www.autoblog.com/2013/01/27/subaru-readies-brz-ra-racing-for-japanese-trackdays/ |title=Subaru readies BRZ RA Racing for Japanese trackdays |first=Jeffrey N. |last=Ross |work=Autoblog |date=27 January 2013 }}</ref>
+
+In 2013, the FR-S replaced the [[Scion tC]] for the [[Toyota Pro/Celebrity Race]] at the [[Grand Prix of Long Beach]].<ref name="Toyota Pro/Celebrity">{{cite web |last=Neff |first=John |date=7 February 2013 |title=Toyota Pro/Celebrity race switching from Scion tC to FR-S [w/video] |url=http://www.autoblog.com/2013/02/07/toyota-pro-celebrity-race-switching-from-scion-tc-to-fr-s-w-vid/ |work=Autoblog }}</ref>
+
+The Series was replaced in 2022 by the Toyota Gazoo Racing GR86/BRZ Cup.
+
+=== Toyota Gazoo Racing GR86/BRZ Cup ===
+From 2022, [[Toyota Gazoo Racing]] organised an 86/BRZ-Spec championship across Japan called the ''Toyota Gazoo Racing GR86/BRZ Cup''. The series was based on (and succeeded) the TGR 86/BRZ Racing, that consisted of races on single circuits instead of a National Series, akin to the ''[[NASCAR Weekly Series]]''.<ref>{{Cite web |title=GR86/BRZ Cup |url=https://toyotagazooracing.com/jp/86brz/ |publisher=Toyota |access-date=28 October 2022 |language=ja }}</ref>
+
+=== Toyota 86 Racing Series ===
+
+The [[Toyota 86 Racing Series]] has been contested in [[Australia]] annually since 2016.<ref>{{Cite web |url=https://www.toyota.com.au/86/racing-series/about |title=TGRA 86 Series |publisher=Toyota |access-date=24 March 2019 |archive-url=https://web.archive.org/web/20190324061052/https://www.toyota.com.au/86/racing-series/about |archive-date=24 March 2019}}</ref> It was initially announced as the 86 Pro-Am Series.<ref>{{Cite web |url=https://www.caradvice.com.au/393064/toyota-86-racing-series-to-offer-125000-prize-pool-in-australia/ |title=Toyota 86 Racing Series to Offer $125,000 Prize Pool in Australia |work=CarAdvice.com.au |access-date=9 August 2018 |archive-url=https://web.archive.org/web/20180809193250/https://www.caradvice.com.au/393064/toyota-86-racing-series-to-offer-125000-prize-pool-in-australia/ |archive-date=9 August 2018 |url-status=live }}</ref>
+
+=== Sports Car Club of America ===
+For 2018 onwards, the [[Sports Car Club of America]] (SCCA) created the "Solo Spec Coupe" (SSC) class for autocross competitions using the 2013–2016 Subaru BRZ or Scion FR-S, competing on [[Falken Tire|Falken]] Azenis RT615+ tyres. The choice of vehicle was because of its popularity with enthusiasts, modest price, rear-wheel drive, and its ability to be used as a daily driver. Vehicles may compete with original equipment or install specified performance parts including factory-sealed KONI Sport Shocks, Eibach Pro-Plus springs, anti-roll bars, and an SPC Front Alignment Kit.<ref>{{Cite press release |url=https://www.scca.com/articles/2007820-new-solo-spec-coupe-class-unveiled |title=New SCCA Solo Spec Coupe Class Unveiled |publisher=Sports Car Club of America |date=17 September 2017 |access-date=8 April 2018}}</ref><ref>{{Cite press release |url=https://www.scca.com/articles/2008298-official-specifications-announced-for-new-scca-solo-spec-coupe-class |title=Specifications Announced for New SCCA Solo Spec Coupe Class |publisher=Sports Car Club of America |date=11 October 2017 |access-date=8 April 2018}}</ref><ref>{{Cite press release |url=https://www.scca.com/pages/solo-spec-class |title=Solo Spec Coupe (SSC) |publisher=Sports Car Club of America |archive-date=9 April 2018 |archive-url=https://web.archive.org/web/20180409044209/https://www.scca.com/pages/solo-spec-class }}</ref>
+
+In 2020, the tyre specification was changed to the Falken Azenis RT660.<ref>{{Cite web |date=16 March 2020 |title=SSC Tire Decision from SEB |url=https://www.scca.com/announcements/121-ssc-tire-decision-from-seb?fbclid=IwAR2FHx25tfqli0Zas4palPARlmq8mDwKHalCgKZmUE41pg0Ww7gzTv1zSnk |website=Sports Car Club of America |access-date=12 September 2025 }}</ref> In 2025, it was changed to the Falken Azenis RT660+.<ref>{{Cite web |date=7 February 2025 |title=SSC Tire Approval for 2025 |url=https://www.solomatters.com/announcements/851-ssc-tire-approval-for-2025 |access-date=12 September 2025 |website=Sports Car Club of America }}</ref>
+
+=== Time Attack ===
+In the US, the 86CUP one-chassis time attack series was created in 2013. The series sees hundreds of drivers compete every year split among regional divisions in Southern California,<ref>{{cite web |title=86CUP: 86 / BRZ Time Attack Series |url=https://www.86cup.us |access-date=8 March 2018 }}</ref> Northern California,<ref>{{cite web |url=https://86challenge.us |title=86 Challenge |access-date=9 April 2024}}</ref> Midwest{{Citation needed|date=March 2026}} and North East.<ref>{{Cite web |title=86 CUP |url=https://www.northeast86cup.com/ |access-date=21 February 2023 |website=86 CUP}}</ref> Since 2022, the competition allows mixed use of 2012–2020 86 models as well as the new 2022+ models with the 2.4L engine, using a handicap system to level the playing field between generations.
+
+[[Nobuhiro Tajima]] entered a 86 to compete at the 2013 [[Pikes Peak Hill Climb]], but only used the production car silhouette.<ref>{{cite web |last=Vijayenthiran |first=Vaknesh |date=26 April 2013 |title=Meet Monster Tajima's Toyota GT 86 Pikes Peak Racer: Video |url=http://www.motorauthority.com/news/1083741_meet-monster-tajimas-toyota-gt-86-pikes-peak-racer-video#100425714 |access-date=2 June 2013 |publisher=Motor Authority }}</ref>
+
+=== Miscellaneous ===
+Toyota worked in partnership with Gazoo Racing to develop the 86 for motorsports, with both supporting [[privateer (motorsport)|private teams]] in the Super Taikyu Endurance Series and All-Japan Rally Championship.<ref name="86 Racing">{{cite web |date=9 April 2012 |title=Toyota to field GT 86 pair at the Nürburgring 24 – could WRC be far behind? [w/video] |url=http://www.autoblog.com/2012/04/09/toyota-to-field-gt-86-pair-at-the-nurburgring-24-could-wrc-be/ |website=[[Autoblog.com]] |access-date=2 June 2013 }}</ref> Gazoo Racing entered cars in the [[24 Hours Nürburgring]], winning the SP3 class in 2012. Privateers Toyota Swiss Racing also claimed the V3 category in the same year.<ref>{{cite web |date=21 May 2012 |title=Victories for Toyota 86, GT86 and Lexus LFA at 24 hours Nurburgring |url=http://www.tune86.com/ft-86-news/20867-victories-toyota-86-gt86-and-lexus-lfa |website=Tune86.com |archive-date=28 March 2016 |archive-url=https://web.archive.org/web/20160328234317/http://www.tune86.com/ft-86-news/20867-victories-toyota-86-gt86-and-lexus-lfa }}</ref> UK-based GPRM developed a turbocharged version for classification in the European [[SRO Group]] [[SRO GT4|GT4 category]], without formal factory backing but "with the blessing of Toyota Great Britain."<ref name=":1">{{cite web |last=Bowman |first=Zach |title=Toyota GT86 GT4 Racer Is Ready for UK Competition |url=http://www.autoblog.com/2013/02/05/toyota-gt86-gt4-racer-is-ready-for-uk-competition/ |work=Autoblog |date=5 February 2013 }}</ref> Race engine development work on the 2.0l boxer unit was carried out by Nicholson McLaren Engines.<ref name=":1" /> The car ran practice sessions at [[2013 British GT Championship|2013 British GT]] round 3 at Silverstone but withdrew during FP2 when the car dropped oil.<ref>{{Cite web |date=2 June 2014 |title=Early Days for GPRM Toyota G86 {{!}} dailysportscar.com |url=http://www.dailysportscar.com/2014/06/02/early-days-for-gprm-toyota-g86.html |website=DailySportsCar.com |access-date=6 April 2022 }}</ref> In 2014 the car ran four rounds in the Invitational category; starting 2015 in the same category but running as a full entry from R3 onwards.
+
+== Sales ==
+
+{| class=wikitable style="font-size:97%;text-align:right;"
+|-
+! rowspan=2 | Calendar year
+! colspan="5" |Toyota GT-86/86 (Scion FR-S)
+! colspan="3" |Subaru BRZ
+|-
+!Japan<ref name=":5">{{Cite web |last=交通タイムス社 |date=15 August 2022 |title=トヨタとスバルに敬礼！ 改めて見たら「86&BRZ」の功績が偉大すぎた |url=https://www.webcartop.jp/2022/08/940017/ |access-date=20 April 2024 |website=WebCartop.jp |language=ja }}</ref><ref>{{Cite web |title=トヨタ GR86 新車販売台数の推移/売れ行き(生産台数)と生産状況は？工場とラインの稼働状況も – 株式会社アイディーインフォメーション |trans-title=Toyota GR86 New car sales trends/sales (production volume) and production status? Factory and line operating status |url=https://id-information.co.jp/kuruma/gr86-hanbaidaisu/ |access-date=20 April 2024 |website=Id-Information.co.jp |language=ja }}</ref>
+! US<ref name="Scion Transition Toyota" /> !! Canada<ref name="GCBC-86">{{cite web |date=20 July 2012 |title=Toyota 86 sales figures |url=https://www.goodcarbadcar.net/scion-fr-s-sales-figures/ |website=Good Car Bad Car |access-date=14 April 2021 }}</ref> !! Australia<ref name="toyota-86-charting-its-sales">{{cite press release |url=https://www.drive.com.au/news/toyota-86-charting-its-sales/ |title=toyota-86-charting-its-sales |publisher=Drive |date=4 June 2018 |access-date=27 September 2021 }}</ref>
+!UK<ref name="sales-UK-1965-2022">{{Cite press release |title=History by model |url=https://media.toyota.co.uk/wp-content/uploads/sites/5/pdf/Toyota-Passenger-Vehicles-Sales-Figures-January-2022.pdf |publisher=Toyota |date=2022 |access-date=21 December 2024 }}</ref>
+!Japan<ref name=":5" />
+! US !! Canada<ref>{{Cite web |date=6 January 2023 |title=Subaru BRZ Canada Sales Figures |url=https://carfigures.com/canada-market-brand/subaru/brz |website=CarFigures.com |access-date= }}</ref>
+|-
+!2012
+|22,510
+|11,417
+|1,470
+| 2,047
+|1,438
+|4,831
+|4,144<ref name="Subaru-US-sales-2012-2013">{{Cite press release |url=http://media.subaru.com/pressrelease/520//subaru-america-inc-reports-best-december-ever-all |title=December 2013 Sales Chart |publisher=Subaru |date=3 January 2014 |access-date=24 October 2019}}</ref>
+|504
+|-
+!2013
+|12,400
+|18,327
+|1,825
+|6,706
+|1,777
+|4,784
+|8,587<ref name="Subaru-US-sales-2013-2014">{{Cite press release |url=http://media.subaru.com/pressrelease/713//subaru-america-inc-reports-best-december-ever-sets |title=December 2014 Sales Chart |publisher=Subaru |date=10 March 2019 |access-date=10 March 2019}}</ref>
+|1,119
+|-
+!2014
+|8,190
+|14,062
+|1,559
+|4,257
+|1,046
+|2,826
+|7,504<ref name="Subaru-US-sales-2013-2014" />
+|922
+|-
+!2015
+|6,690
+|10,507
+|1,329
+|3,006
+|777
+|2,043
+|5,296<ref name="Subaru-US-sales-2015-2016">{{Cite press release |url=http://media.subaru.com/pressrelease/1065//subaru-america-inc-announces-december-2016-best-ever |title=December 2016 Sales Chart |publisher=Subaru |date=10 March 2019 |access-date=10 March 2019}}</ref>
+|800
+|-
+!2016
+|6,570
+|7,457{{efn|Includes FR-S sales}}<ref>{{cite press release |url=http://corporatenews.pressroom.toyota.com/releases/toyota-lexus-december-2016-sales-chart.htm |title=December 2016 and Year-End Sales Chart |publisher=Toyota |date=5 January 2017 |access-date=5 January 2017}}</ref>
+|988
+|2,068
+|684
+|2,096
+|4,141<ref name="Subaru-US-sales-2015-2016" />
+|740
+|-
+!2017
+|7,170
+|6,846<ref>{{cite web |url=http://carsalesbase.com/us-car-sales-data/scion/scion-fr-s/ |title=Scion FR-S / Toyota 86 US car sales figures |work=Car Sales Base |access-date=10 February 2018 }}</ref>
+|919
+|1,619
+|669
+|2,097
+|4,146<ref name="Subaru-US-sales-2017">{{Cite press release |url=http://media.subaru.com/pressrelease/1387/120/subaru-america-celebrates-decade-yearly-sales-records-best |title=December 2017 Sales Chart |publisher=Subaru |date=10 March 2019 |access-date=10 March 2019 }}</ref>
+|787
+|-
+!2018
+|4,950
+|4,146<ref name="2019 US sales">{{cite press release |url=https://pressroom.toyota.com/toyota-motor-north-america-reports-december-2019-year-end-sales/ |title=2019 Toyota 86 US car sales figures |publisher=Toyota |access-date=21 March 2020 }}</ref>
+|550
+|
+|479
+|1,635
+|3,834<ref>{{Cite press release |url=http://media.subaru.com/pressrelease/1387//subaru-america-celebrates-decade-yearly-sales-records-best |title=December 2018 Sales Chart |publisher=Subaru |date=3 January 2019 |access-date=21 March 2020 }}</ref>
+|604
+|-
+!2019
+|4,630
+|3,398
+|262
+|
+|349
+|1,291
+|2,334<ref>{{Cite press release |url=http://media.subaru.com/pressrelease/1571/120/subaru-america-inc-announces-december-2019-sales-sets |title=December 2019 Sales Chart |publisher=Subaru |date=3 January 2020 |access-date=21 March 2020 }}</ref>
+|647
+|-
+!2020
+|3,940
+|2,476<ref name="GCBC-86" />
+|234
+|
+|260
+|998
+|2,267<ref name="GCBC-BRZ">{{cite web |title=Subaru BRZ sales figures |url=https://www.goodcarbadcar.net/subaru-brz-sales-figures/ |access-date=14 April 2021 |website=Good Car Bad Car}}</ref>
+|692
+|-
+!2021
+|1,620
+|1,152<ref name=":3">{{Cite press release |last=Vanov |first=Victor |date=4 January 2023 |title=Toyota Motor North America Reports Year-End 2022 U.S. Sales Results |url=https://www.prnewswire.com/news-releases/toyota-motor-north-america-reports-year-end-2022-us-sales-results-301713474.html |publisher=Toyota |via=PR Newswire }}</ref>
+|75
+|
+|
+|6
+|2,320<ref name=":2">{{Cite press release |last=Camden |first=N.J. |date=4 January 2023 |title=Reports December and 2022 year-end sales results |url=https://media.subaru.com/newsrelease.do?id=2004&mid=1&allImage=1&teaser=subaru-america-inc-reports-december-2022-year-end&searchresult |access-date=5 February 2023 |publisher=Subaru }}</ref>
+|438
+|-
+!2022
+|13,341
+|11,996<ref name=":3" />
+|537
+|
+|
+|
+|3,345<ref name=":2" />
+|
+|-
+!2023
+|9,796
+|11,078<ref name="Toyota Motor North America Reports 2023">{{Cite press release |title=Toyota Motor North America Reports 2023 U.S. Sales Results |url=https://pressroom.toyota.com/toyota-motor-north-america-reports-2023-u-s-sales-results |publisher=Toyota }}</ref>
+|
+|
+|
+|
+|4,188<ref>{{Cite press release |title=Subaru of America 2023 year-end sales up 13.6 Percent |url=https://media.subaru.com/pressrelease/2131/120/subaru-america-2023-year-end-sales-up-13.6 |publisher=Subaru }}</ref>
+|
+|-
+!2024
+|
+|11,426<ref>{{Cite press release |date=3 January 2025 |title=Toyota Motor North America Reports 2024 U.S. Sales Results |url=https://pressroom.toyota.com/toyota-motor-north-america-reports-2024-u-s-sales-results/ |access-date=11 January 2025 |website=Toyota }}</ref>
+|
+|
+|
+|
+|3,345<ref>{{cite press release |url=https://media.subaru.com/pressrelease/2265/1/subaru-america-reports-december-sales-up-7.1-percent |title=Subaru of America Reports December Sales Up 7.1 Percent; 2024 Year-End Sales Up 5.6 Percent |website=Subaru US Media Center |date=3 January 2025 |access-date=20 January 2025}}</ref>
+|
+|-
+!2025
+|
+|9,940<ref>{{Cite press release |date=3 January 2025 |title=Toyota Motor North America Reports 2025 U.S. Sales Results |url=https://pressroom.toyota.com/toyota-motor-north-america-reports-2025-u-s-sales-results/ |website=Toyota |access-date=23 January 2026 }}</ref>
+|
+|
+|
+|
+|2,882<ref>{{cite press release |url=https://media.subaru.com/pressrelease/2410/subaru-america-reports-december-2025-year-end-sales |title=Subaru of America Reports December 2025 and Year-End Sales |website=Subaru US Media Center |date=5 January 2026 |access-date=23 January 2026 }}</ref>
+|
+|}
+
+===Notes===
+{{Notelist}}
+
+== See also ==
+* [[List of Subaru vehicles]]
+* [[List of Toyota vehicles]]
+
+== References ==
+{{Reflist}}
+
+== External links ==
+{{Commons category multi|Toyota 86|Toyota GT86|Subaru BRZ|Scion FR-S|Toyota GR86}}
+* {{Official website|https://global.toyota/en/mobility/toyota-brand/gallery/86.html|Official website of Toyota 86}}
+* {{Official website|https://www.subaru-global.com/ebrochure/BRZ/2020my/KC/home/index.html|Official website of Subaru BRZ}}
+
+{{Toyota Motor Corporation}}
+{{Modern North American Toyota vehicles}}
+{{Subaru}}
+{{Subaru vehicles}}
+{{Subaru North America}}
+{{Scion}}
+
+<!--Scion and Subaru cats are done in their redirects [[Scion FR-S]] and [[Subaru BRZ]].-->
+
+[[Category:2+2 coupés]]
+[[Category:2020s cars]]
+[[Category:ANCAP sports cars]]
+[[Category:Cars introduced in 2012]]
+[[Category:Cars powered by boxer engines]]
+[[Category:Cars powered by longitudinal 4-cylinder engines]]
+[[Category:Rally cars]]
+[[Category:Rear-wheel-drive vehicles]]
+[[Category:Sport compact cars]]
+[[Category:Sports cars]]
+[[Category:Toyota vehicles|86]]

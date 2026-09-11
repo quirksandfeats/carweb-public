@@ -1,0 +1,703 @@
+{{Short description|Small family cars manufactured by Volkswagen}}
+{{distinguish|Volkswagen Gol}}
+{{pp-sock|small=yes}}
+{{Use dmy dates|date=August 2023}}
+{{Infobox automobile
+| name = Volkswagen Golf
+| image = 2020 Volkswagen Golf Style 1.5 Front.jpg
+| caption = Volkswagen Golf Mk8 (UK)
+| manufacturer = [[Volkswagen]]
+| production = 1974–present
+| class = [[Compact car]]/[[small family car]] ([[C-segment|C]])
+| predecessor = [[Volkswagen Beetle]] (first generation only, until [[Volkswagen New Beetle|1998]])
+| successor = [[Volkswagen ID.3]] (for e-Golf)
+| alt = grey car (hatchback)
+}}
+
+The '''Volkswagen Golf''' ({{Audio|GT VW-Golf.ogg|listen}}) is a [[compact car]]/[[small family car]] ([[C-segment]]) produced by the German automotive manufacturer [[Volkswagen]] since 1974, marketed worldwide across eight generations, in various body configurations and under various [[nameplate]]s – including as the '''Volkswagen Rabbit''' in the United States and Canada (Mk1 and Mk5), and as the '''Volkswagen Caribe'''<ref>{{Cite web |title=Historia del VW Golf |url=https://www.dasweltauto.com.mx/es/blog/historias/evolucion-golf-caribe-volkswagen.html |access-date=2022-05-19 |website=www.dasweltauto.com.mx |language=es-MX |archive-date=28 July 2021 |archive-url=https://web.archive.org/web/20210728233514/https://www.dasweltauto.com.mx/es/blog/historias/evolucion-golf-caribe-volkswagen.html |url-status=dead }}</ref> in Mexico (Mk1). The Golf is Volkswagen's bestseller and the third [[List of best-selling automobiles|best-selling automobile of all time]], with over 37 million units sold worldwide.<ref name=VWG30mi>{{cite web|url=http://www.greencarcongress.com/2013/06/wolfsburg-20130614.html|title=30 millionth VW Golf rolls off assembly line in Wolfsburg |publisher=Green Car Congress|date=14 June 2013|access-date=2013-06-14}}</ref><ref name="carmagazine.co.uk">{{cite web | first=Gareth | last = Kent |title=VW Golf build passes 25 million |work= CAR magazine |date=30 March 2007 |url= http://www.carmagazine.co.uk/News/Search-Results/Industry-News/VW-Golf-build-passes-25-million-/?&R=EPI-3666 |access-date=11 March 2008}}</ref><ref>{{Cite web |title=Golf turns 45 – On 29 March 1974, Volkswagen started making Europe's most successful car |url=https://www.volkswagen-newsroom.com:443/en/press-releases/golf-turns-45-on-29-march-1974-volkswagen-started-making-europes-most-successful-car-4788 |access-date=2022-06-11 |website=Volkswagen Newsroom |language=en}}</ref>
+
+The original Golf Mk1 was a front-engined, [[front-wheel drive]] replacement for the [[air-cooled]], rear-engined, rear-wheel drive [[Volkswagen Beetle]].
+
+Initially, most Golfs were [[hatchback]]s, with the three-door version being somewhat more popular than the five-door.<ref>Figures for 1974-1987: 4,700,000 3-door models, 2,550,000 5-door models, according to: {{cite book|title=Deutsche Autos 1945–1990, vol.3|last=Oswald |first=Werner|year=2001|publisher=Motorbuch Verlag|location= Stuttgart|isbn=3-613-02116-1|pages=86–87}}</ref> Other variants include an [[Station wagon|estate]] (Variant, from 1993), [[convertible]] (Cabriolet or Cabrio, from 1979), and a Golf-based [[Sedan (car)|saloon]] called the [[Volkswagen Jetta|Jetta]], [[Volkswagen Vento|Vento]] (from 1992), or [[Volkswagen Bora|Bora]] (from 1999). The Golf covers economy to high-performance market segments.
+
+The Golf has won awards, including the [[World Car of the Year]] in 2009, with the [[Volkswagen Golf Mk6|Mk6]] and in 2013 with the [[Volkswagen Golf Mk7|Mk7]]. Along with the [[Renault Clio]] and the Vauxhall Astra, the Golf is one of only three cars to have won European Car of the Year twice, in 1992 and 2013.<ref>[http://www.automotoportal.com/article/Top_5_Worlds_Most_Successful_Cars_Ever "Top 5 World's Most Successful Cars Ever"] {{Webarchive|url=https://web.archive.org/web/20200812065138/http://www.automotoportal.com/article/Top_5_Worlds_Most_Successful_Cars_Ever |date=12 August 2020 }}, Automotoportal.com</ref><ref name="coty">{{cite web |url=http://www.caroftheyear.org/previous-winners/1992_1/coty |title=Previous Winners |language=es |publisher=Car of the Year |access-date=9 November 2011 |url-status=dead |archive-url=https://web.archive.org/web/20111031044912/http://www.caroftheyear.org/previous-winners/1992_1/coty |archive-date=31 October 2011 |df=dmy-all }}</ref> The Golf has made the annual [[Car and Driver 10Best]] list multiple times. The Mk7 won the [[Motor Trend Car of the Year]] award in 2015, and the [[Volkswagen Golf Mk1|Mk1]] GTI also won the award in 1985. The [[Volkswagen Golf Mk4|Mk4]] won for the best-selling car in Europe in 2001.
+{{-}}
+==<span class="anchor" id="A1"></span><span class="anchor" id="17"></span>First generation (Mk1/A1, ''Typ'' 17; 1974)==<!--1993 is correct; Cabrio produced until then. Do not change. -->
+{{Main article|Volkswagen Golf Mk1}}
+[[File:VW Golf I Facelift front 20081209.jpg|thumbnail|right|Volkswagen Golf 3-door (Europe)]]
+
+In May 1974,<ref>All dates for Mk1 to Mk4 according to: {{cite book|title=Deutsche Autos 1945–1990, vol.3 |last=Oswald |first=Werner |year=2001 |publisher=Motorbuch Verlag |location=Stuttgart |isbn=3-613-02116-1 |pages=72–137}} and {{cite book |last=Kittler |first=Eberhard |title=Deutsche Autos seit 1990, vol.5 |pages=266–313 |language=de |publisher=Motorbuch Verlag |year=2001 |location=Stuttgart |isbn=3-613-02128-5}}</ref> Volkswagen presented the first-generation Golf as a modern front-wheel-drive, long-range replacement for the [[Volkswagen Beetle]]. Later Golf variations included the Golf GTI (introduced in June 1976 with a fuel-injected 1.6-litre engine capable of {{convert|180|km/h|mph|abbr=on}}), a diesel-powered version (from September 1976), the [[Volkswagen Jetta (A1)|Jetta]] [[notchback]] saloon version (from October 1979), the Volkswagen Golf Cabriolet (from January 1980 through 1994) and a Golf-based van and pickup, the [[Volkswagen Caddy]].
+
+The '''Golf Mk1''' was sold as the '''Volkswagen Rabbit''' in the United States and Canada and as the '''Volkswagen Caribe''' in Mexico.
+
+A facelifted version of the Golf Mk1 was produced in South Africa as the '''[[Volkswagen Citi Golf|Citi Golf]]''' from 1984 to 2009.<ref name="C4Wauto-4411956">{{cite web |url=http://topcar.co.za/user-generated/goodbye-citi-golf/ |title=Goodbye Citi Golf &#124; TopCar |work=topcar.co.za |date=3 November 2009 |access-date=19 March 2014 |author=<!--Staff writer(s); no by-line.--> |archive-url=https://web.archive.org/web/20140320062853/http://topcar.co.za/user-generated/goodbye-citi-golf/ |archive-date=20 March 2014 |url-status=dead |df=dmy-all }}</ref>
+{{clear right}}
+
+==<span class="anchor" id="A2"></span><span class="anchor" id="1G"></span>Second generation (Mk2/A2, ''Typ'' 19E/1G; 1983)==
+[[File:VW Golf II front 20080206.jpg|thumbnail|right|Volkswagen Golf (Europe)]]
+{{Main article|Volkswagen Golf Mk2}}
+
+September 1983 saw the introduction of the second-generation '''Golf (Mk2)''' which grew slightly in terms of wheelbase, and exterior, and interior dimensions, while retaining, in a more rounded form, the Mk1's overall look. Although it was available on the home market and indeed most other left-hand drive markets by the end of 1983, it was not launched in the UK until March 1984.
+
+The Mk2 GTI featured a 1.8-litre 8-valve fuel-injected engine from its launch, with a 16-valve version capable of more than {{convert|220|km/h|mph|0|abbr=on}} being introduced in 1985.
+
+In 1985, the first Golfs with four-wheel-drive (Golf Syncro) went on sale with the same Syncro four-wheel-drive system being employed on the [[G-Lader#Sizes and car models|supercharged G60 models]], exclusively released in continental Europe in 1989 with {{convert|120|kW|hp PS|0|abbr=on}} and anti-lock brakes (ABS).
+
+An Mk2-based second-generation Jetta was unveiled in January 1984. There was no Mk2-based cabriolet model; instead, the Mk1 Cabriolet was continued over the Mk2's entire production run.
+{{Clear}}
+
+==<span class="anchor" id="A3"></span><span class="anchor" id="1H"></span>Third generation (Mk3/A3, ''Typ'' 1H/1E/1V; 1991)==<!--2002 is correct; Cabrio produced until then. Do not change. -->
+[[File:1996-1998 Volkswagen Golf (1H) CL 5-door hatchback 03.jpg|thumbnail|right|Volkswagen Golf CL (Australia)]]
+
+{{Main article|Volkswagen Golf Mk3}}
+
+The third-generation '''Golf (Mk3)''' made its home-market debut in August 1991 and again grew slightly in comparison with its immediate predecessor, while its wheelbase remained unchanged.
+
+New engines included the first [[Turbocharged Direct Injection]] (TDI) [[diesel engine]] in a Golf, and a narrow-angle 2.8-litre [[VR6 engine]]. US Environmental Protection Agency (EPA) fuel consumption estimates are {{convert|9.0|L/100 km|mpgimp mpgus|abbr=on}} (city) and {{convert|7.4|L/100 km|mpgimp mpgus|abbr=on}} (highway), with {{convert|261|mi|km|abbr=on|order=flip}} per tank (city) and {{convert|363|mi|km|abbr=on|order=flip}} per tank (highway). For the first time ever, a Golf estate (Golf Variant) joined the line-up in September 1993 (although most markets did not receive this model until early 1994). At the same time, a completely new Mk3-derived [[Convertible (car)|Cabriolet]] was introduced, replacing the 13-year-old Mk1-based version with one based on the Mk3 Golf platform from 1995 to early 1999. The Mk3 Golf Cabrio received an Mk4-style facelift in late 1999 and was continued until 2002.
+
+The notchback version, called VW Vento (or Jetta in North America), was presented in January 1992.
+
+It was [[European Car of the Year]] for 1992, ahead of the new Citroën [[Citroën ZX|ZX]] and General Motors' new [[Opel Astra]] model.
+
+The Mk3 continued to be sold until 1999 in the United States, Canada, and parts of South America, also in Mexico as a special edition called "Mi" (basically a Golf CL 4-door with added air conditioning, special interior, original equipment (OEM) black-tinted rear brake lights, and anti-lock brakes (ABS), but without a factory-fitted radio). The "i" in "Mi" is coloured red, which designates that multi-point fuel injection was equipped and the 1.8-litre engine was upgraded to 2.0-litre. Heated seats were offered on all trims.
+
+{{Clear}}
+
+==<span class="anchor" id="A4"></span><span class="anchor" id="1J"></span>Fourth generation (Mk4/A4, ''Typ'' 1J; 1997)==
+[[File:2003 Volkswagen Golf Match - 1390cc 1.4 (75PS) Petrol - Reflex Silver - 02-2025, Front.jpg|thumb|Volkswagen Golf Match (United Kingdom; 2003)]]
+{{Main article|Volkswagen Golf Mk4}}
+
+The '''Golf Mk4''' was first introduced in August 1997 and later released in October of that same year as the 1998 model, followed by a notchback version (VW Bora or, in North America, again VW Jetta) in August 1998 and a new Golf Variant (estate) in March 1999. There was no Mk4-derived Cabriolet, although the Mk3 Cabriolet received a facelift in late 1999 that consisted of bumpers, grille, and headlights similar to those of the Mark IV models.
+
+As with the earlier three versions of the Golf, the UK and other right-hand drive markets received each version several months later than the rest of Europe. The hatchback version was launched there in the spring of 1998 and the estate some 12 months later (around the same time as the Bora).
+
+New high-performance models included the 3.2-litre [[VR6 engine|VR6]]-engined [[4Motion|four-wheel-drive]] Golf "R32" introduced in 2002, its predecessor, the 2.8-litre [[VR6 engine|VR6]]-engined "Golf V6 [[4Motion]]" (succeeding the 2.9-litre Mk3 "Golf [[VR6 engine|VR6]] [[4Motion|Syncro]]"), as well as the famous 1.8T (turbo) 4-cylinder used in various Volkswagen Group models. The Golf GTI was offered with both 1.8T and 2.8-litre VR6 for this generation.<ref>{{Cite web |title=1999-2005 VW Golf GTI {{!}} Tech Tips |url=https://grassrootsmotorsports.com/articles/tech-tips-1999-2005-vw-golf-gti/ |access-date=2025-08-14 |website=grassrootsmotorsports.com |language=en}}</ref>
+
+=== Extended production (Mk4.5) ===
+[[File:Volkswagen Golf 2008 (15033460500).jpg|thumb|Volkswagen City Golf Mk4.5 (Facelift 2008 Model, Brazil)]]
+Since 2008, certain variants of the Golf/Bora Mk4 (nicknamed the Mk4.5) were still in production in Brazil, China, and Mexico. Revised versions of the Mk4.5 were sold in Canada and marketed as the City Golf and Jetta City from 2007 to 2010. The two models were VW Canada's entry-level offerings. They received a significant refresh for the 2008 model year, including revised headlamps, taillamps, front and rear fascias, sound systems, and wheels. Both models were offered only with the 2.0-litre, 8-valve single overhead cam (SOHC) [[Straight-four engine|four-cylinder]] gasoline engine, rated at {{convert|86|kW|hp PS||abbr=on}}. They were the only entry-level offerings with an optional six-speed [[automatic transmission]]. Production of the European variant of the Golf Mk4 ceased at the end of the 2006 model year. Production of the U.S. version ended in 2006.
+
+When the Chinese market Bora received a July 2006 facelift, the Golf did too, becoming the "Bora HS" in the process.
+
+The Mk4.5 facelift was produced in Brazil until 2013.
+
+==<span class="anchor" id="A5"></span><span class="anchor" id="1K"></span>Fifth generation (Mk5/A5, ''Typ'' 1K; 2003)==
+[[File:2007 Volkswagen Golf (1K MY07) Sportline 2.0 TDI 5-door hatchback (2010-07-05).jpg|thumb|Volkswagen Golf Comfortline (Australia)]]
+{{Main article|Volkswagen Golf Mk5}}
+
+The '''Golf Mk5''' was introduced in Europe in the autumn of 2003, reaching the UK market in early 2004. In North America, Volkswagen brought back the '''Rabbit''' nameplate when it introduced the vehicle in 2006. In Canada, the Golf is still the prevalent nameplate of the fifth generation (though both Rabbit and Golf have been used historically). The North American base model is powered by a 2.5-litre five-cylinder engine, which produced {{convert|112|kW|hp PS|abbr=on}} in 2006 and 2007, but was upped to {{convert|127|kW|hp PS|abbr=on}} in the later models. A [[Grand Tourer Injection|GTI]] version is powered by a turbocharged version of the 2.0-litre FSI engine, producing {{Convert|147|kW|hp PS|abbr=on}}. 
+
+An R32 version features the 3.2-litre [[VR6 engine]], increasing power output to {{Convert|184|kW|hp PS|abbr=on}} and including the [[Haldex Traction]]-based [[4motion]] part-time [[four-wheel drive]] system. The R32 went on a limited production run in 2005 for the European market. Then in 2007, 5000 units of the R32 were made for the US, each with its production number laser etched on its steering wheel.
+
+Volkswagen also introduced the "Fast" marketing campaign for the US, "dedicated to the 'fast' that lives inside every driver," with a spirit totem character illustrating the concept and purchasers of the GTI Mk5 receiving a plastic figurine of the ''Fast''.<ref>{{Cite web|title=Volkswagen Fast|url=http://www.neffink.com/vwfast|access-date=2021-08-02|website=DJNEFF|language=en-US}}</ref> The GTI version is the only version on sale in Mexico.
+
+The saloon/sedan version, again widely marketed by Volkswagen as the Jetta, is assembled in Germany, South Africa, as well as Mexico. It is marketed in certain markets, including European markets and Mexico as ''Bora''. It was followed in 2007 by a new Golf Variant. The front ends of the car are the same, with the only difference being that the GLI is a sedan, while the GTI is a hatchback.
+
+Later models of the Mk5 introduced the 1.4-litre TSI [[turbocharged]] petrol engine with front-wheel drive.
+
+In a comparison test conducted by ''[[Car and Driver]]'' Magazine, the Rabbit won vs eight small cars. It was praised for its driving position, instruments, and engine; and was criticized for road noise, seating, and poor fuel economy. The Rabbit also placed first in their final comparison in December 2006.
+
+==<span class="anchor" id="A6"></span><span class="anchor" id="5K"></span>Sixth generation (Mk6/A6, ''Typ'' 5K; 2008)==<!--Still produced as a Cabrio, do not change until production of the Mk6 Cabrio ceases-->
+{{Main article|Volkswagen Golf Mk6}}
+[[File:2009-2012 Volkswagen Golf (5K) 118TSI Comfortline 5-door hatchback (2018-11-02) 01.jpg|thumb|Volkswagen Golf 118TSI (Australia)]]
+Volkswagen based the '''Golf Mk6''' on the existing [[Volkswagen Group A platform#A5|PQ35 platform]] from the Golf Mk5.<ref>{{Cite news|last=Taylor|first=Edward|date=2008-06-09|title=VW to Cut Costs to Produce Golf|language=en-US|work=[[The Wall Street Journal]]|url=https://www.wsj.com/articles/SB121295991392455457|access-date=2022-02-26|issn=0099-9660}}</ref> This vehicle was debuted at the [[2008 Paris Motor Show]].<ref>{{cite web|url=http://www.autobild.de/artikel/erste-fotos-vom-vw-golf-vi_759923.html|title=Erste Fotos vom VW Golf VI – Das ist der neue Golf – News|date=4 August 2008 |publisher=autobild.de |access-date=12 October 2009}}</ref>
+
+The Mk6 Golf was designed by Volkswagen's chief designer [[Walter de'Silva]]. The design is said to be more aerodynamic, helping fuel efficiency, and is quieter than its predecessor. Following criticism of the downgraded interior trim quality of the Mk5 Golf in comparison to the Mk4, Volkswagen opted to overhaul the interior to match the quality of the Mk4 Golf, while maintaining the same user friendliness from the Mk5. The car is also cheaper to build than its predecessor; Volkswagen claims it consequently will be able to pass these savings on to the customer.<ref>{{cite web|url=http://www.whatcar.com/news-special-report.aspx?NA=234338&EL=3253020| title=New VW Golf revealed – Introduction – Car and Car-Buying News – What Car?|publisher=Whatcar.com |date=6 August 2008|access-date=12 October 2009}}</ref>
+
+The Mk6 Jetta was released in Mexico in mid-2010, and by late 2011 it was available in all markets. [[Turbocharged Direct Injection]] [[diesel engine]]s which uses [[common rail]] injection technology replaced the longstanding Pumpe Düse (PD) [[Unit Injector]] system. New on the Golf is the optional Volkswagen Adaptive Chassis Control (not available in the North American market), which allows the driver to select between 'normal', 'comfort', and 'sports' modes, which will vary the suspension, steering, and accelerator behavior accordingly.<ref>{{cite web|last=Tan |first=Paul |url=https://paultan.org/2008/08/06/6th-generation-volkswagen-golf-details-and-photos/ |title=6th Generation Volkswagen Golf Details and Photos |publisher=Paultan.org |access-date=15 October 2010}}</ref>
+
+The Mk6 Golf is available with both 5- and 6-speed [[manual transmission]], and 6- or 7-speed Direct-Shift Gearbox ([[Direct-Shift Gearbox|DSG]])(with [[Dual clutch transmission|Dual Clutch]]) transmission options. In North America, the Mk5 version was originally sold as the Rabbit from 2006 to 2009. In 2010, Volkswagen brought back the Golf nameplate with the mid-cycle refresh. With it came a {{cvt|130|kW|PS hp|0}}, 2.5-litre inline five-cylinder with {{cvt|240|Nm|lbft|0}} of torque and a 2.0-litre, {{cvt|100|kW|PS hp|0}} turbocharged inline four-cylinder diesel engine that generates {{cvt|320|Nm|lbft|0}} of torque. The GTI version is equipped with a {{cvt|157|kW|PS hp|0}} turbocharged inline four-cylinder TSI gasoline engine while the Golf R has a {{cvt|191|kW|PS hp|0}} turbocharged TFSI inline-four engine. All three engines can be paired with a DSG dual-clutch 6-speed automatic or 6-speed manual transmission in either a 3- or 5-door configuration.
+
+The car was introduced for sale in the UK in January 2009,<ref>{{cite web|url=http://uk.cars.yahoo.com/06082008/62/volkswagen-golf-mark-6-unveiled-0.html|title=Volkswagen Golf Mark-6-unveiled|publisher=Uk.cars.yahoo.com|access-date=15 October 2010}}</ref> and in North America in October 2009 as the 2010 Golf, rather than Rabbit.<ref>{{cite news |last=Garrett | first = Jerry |title=VW kills Rabbit name, again |work=[[The New York Times]] |url=http://wheels.blogs.nytimes.com/2009/03/27/vw-kills-rabbit-name-again/ |date=27 March 2009 |access-date=27 March 2009}}</ref> The Mk6 also reintroduced a diesel engine option to the North American market.<ref>{{cite web |url=http://www.automoblog.net/2010/08/06/2010-vw-golf-tdi-review/ |title=2010 VW Golf TDI Review |publisher=Automoblog.net |date=6 August 2010 |access-date=5 October 2010 |archive-date=15 April 2021 |archive-url=https://web.archive.org/web/20210415044030/https://www.automoblog.net/2010/08/06/2010-vw-golf-tdi-review/ |url-status=dead }}</ref>
+
+The Volkswagen Golf Mk6 was a 2012 Insurance Institute for Highway Safety (IIHS) Top Safety Pick.<ref>{{Cite web|url=http://web.vw.com/why-vw/awards-and-accolades/#!awards-and-accolades|title=Awards & Accolades|accessdate=19 August 2023|archive-date=25 March 2014|archive-url=https://web.archive.org/web/20140325013950/http://web.vw.com/why-vw/awards-and-accolades/#!awards-and-accolades|url-status=dead}}</ref>
+{{Clear}}
+
+==<span class="anchor" id="A7"></span><span class="anchor" id="5G"></span>Seventh generation (Mk7, ''Typ'' 5G; 2012)==
+{{Main article|Volkswagen Golf Mk7}}
+[[File:2018 Volkswagen Golf SE Navigation TSi BlueMotion 1.0 Front.jpg|thumb|Volkswagen Golf 1.0 TSI BlueMotion (United Kingdom; facelift)]]
+The seventh-generation Golf had its debut in September 2012 at the [[2012 Paris Motor Show|Paris Motor Show]].<ref>{{cite web |title=Paris 2012: the new Golf GTI - BBC Top Gear |publisher=topgear.com |date=27 September 2012 |url=http://www.topgear.com/uk/paris-motor-show-2012/photos/new-volkswagen-golf-gti-concept-revealed-2012-09-27 |access-date=29 September 2012 |url-status=dead |archive-url=https://web.archive.org/web/20120930005851/http://www.topgear.com/uk/paris-motor-show-2012/photos/new-volkswagen-golf-gti-concept-revealed-2012-09-27 |archive-date=30 September 2012 |df=dmy-all }}</ref>
+
+The '''Golf VII''', Typ 5G<ref>{{Citation |title=Volkswagen Elektronischer Teilekatalog |language=de |issue=931 |publisher=Lex-Com GmbH}}</ref> used the new [[Volkswagen Group MQB platform|MQB platform]], shared with the third-generation [[Audi A3]], [[SEAT León]] and [[Škoda Octavia]]. It was slightly larger than the Mk6 while managing to be approximately 100&nbsp; kg lighter, depending on engine choice. The GTI offered a {{convert|154|kW|hp PS|abbr=on}} turbocharged 2.0-litre four-cylinder with an available performance pack to raise the output to {{convert|162|kW|hp PS|abbr=on}}.<ref>{{cite web |last=Vijayenthiran |first=Viknesh |title=2014 Volkswagen Golf GTI Previewed In Paris By Concept |publisher=Motorauthority.com |date=27 September 2012 |url= http://www.motorauthority.com/news/1079419_2014-volkswagen-golf-gti-concept-2012-paris-auto-show |access-date=8 February 2013}}</ref> The Golf R had a {{convert|220|kW|hp PS|abbr=on}} turbocharged 2.0-litre four-cylinder with [[Haldex Traction]] all-wheel-drive.
+
+A version of the GTI dubbed the GTI Clubsport making {{convert|195|kW|hp PS|abbr=on}} was released in 2016. A variant of the Clubsport called the Clubsport S held the record for the fastest front-wheel-drive car around the [[Nürburgring]] until the 2017 Honda Civic Type-R took the record once again.
+
+The Golf line was available in all the relevant drive systems: the Golf TSI, including GTI, was petrol-powered; Golf TDI diesel (Turbo Direct Injection), including GTD, was diesel-powered; the Golf TGI was powered by [[compressed natural gas]] (CNG); the e-Golf was powered by electricity, and the Golf GTE was a [[plug-in hybrid]]. The use of a modular transverse matrix assembly kit enabled the manufacturing of Golf models with gasoline, diesel, natural gas, electric, and hybrid drives from bumper to bumper at Volkswagen factories.<ref name="VW_GTE"/>
+
+In November 2016, Volkswagen revealed a facelifted version (Golf 7.5) to the 3-door hatchback, 5-door hatchback, 5-door estate, GTI, and GTE, in addition to a new "[[Volkswagen R|R-Line]]" Golf. With those models, came a new economical engine: 1.5-litre TSI EVO which produced {{convert|97|kW|hp PS|abbr=on}} or {{convert|110|kW|hp PS|0|abbr=on}} and replaced the 1.4-litre TSI. The updated GTI version featured a 230&nbsp;hp as standard (220&nbsp;hp previously) or 247&nbsp;hp in the optional performance pack (230&nbsp;hp previously).
+In terms of interior technology, the Golf featured a 12.3" TFT display as an option similar to [[Audi]] models and known as "Virtual Cockpit", full LED lights, animated tail indicators as an option (also used in Audi models), etc.
+
+The most powerful Golf in the range was the Golf R. Built as a 3 or 5 door hatchback, it was powered by a newly developed version of the {{cvt|1984|cc|L CID|1|abbr=on}} [[turbocharged]] [[List of Volkswagen Group petrol engines#2.0 R4 16v TSI/TFSI (EA888)|EA888]] [[Gasoline direct injection|petrol FSI]] [[straight-four engine]] used in the latest Golf GTI (and Audi S3), but in this application producing {{cvt|300|PS|bhp kW|0|abbr=on}} ({{cvt|206|kW|PS bhp|0|abbr=on}} for "hot climate" markets such as Australia, Japan, USA) from 5,500 to 6,200 rpm and {{cvt|380|Nm|lbft|0|abbr=on}} from 1,800 to 5,500 rpm of [[Torque#Machine torque|torque]].<ref>{{cite web|url=https://www.carmagazine.co.uk/car-reviews/volkswagen/vw-golf-r-2014-review/|title=VW Golf R 2014 review|date=February 4, 2014|editor=Georg Kacher|website=carmagazine.co.uk|access-date=June 29, 2018}}</ref> 0-62&nbsp;mph (100&nbsp;km/h) takes 5.1 seconds (versus 5.7 seconds for previous Golf R), or 4.9 seconds with optional DSG gearbox. In 3rd-party testing, it has been recorded at 4.5 seconds using Launch Control. The top speed is electronically limited to {{convert|155|mph||0|abbr=on}}.
+
+Volkswagen produced a "Rabbit Edition" GTI for the 2019 model year. Only 3,000 were produced for the US market: 1000 in Cornflower Blue, 1000 in Urano Gray, 500 in Black, and 500 in White, all split evenly between DSG automatic and 6-speed manual transmissions. The Rabbit Edition featured a LED lighting package, a "Vmax" spoiler, 18-inch "Pretoria" alloy wheels painted in gloss black, no sunroof, and Clark plaid seats with red tags embroidered with the VW Rabbit logo.<ref>{{Cite web|url=https://newsroom.vw.com/company/history/welcome-back-rabbit/|website=newsroom.vw.com|access-date=2019-02-11|title=The Legendary Rabbit Name Makes a 2019 Comeback|archive-date=12 February 2019|archive-url=https://web.archive.org/web/20190212011908/https://newsroom.vw.com/company/history/welcome-back-rabbit/|url-status=dead}}</ref> Canada also received a Rabbit Edition in 2019. Only 900 were produced: 272 in Cornflower Blue, 272 in Urano Grey, 178 in Pure White and 178 in Pure Black Pearl. The Canadian variant came with all the Rabbit specific cosmetic upgrades, but also included all the same features as the top level Autobahn package with the exception of the sunroof, satnav and leather seats. 
+
+In Mexico, the production of the Volkswagen Golf VII finished in 2021.<ref>{{Cite web |title=Hasta la vista, Golf: despedimos la producción en México {{!}} VW |url=https://www.vw.com.mx/es/experiencia/cultura/golf-despedida-planta-puebla.html |access-date=2022-05-19 |website=www.vw.com.mx |language=es}}</ref>
+
+==<span class="anchor" id="A8"></span><span class="anchor" id="CD1"></span> Eighth generation (Mk8, CD1; 2019) ==
+[[File:2020 Volkswagen Golf Style ETSi S-A 1.5 Front.jpg|thumb|Volkswagen Golf Style 1.5 TSI]]
+{{Main|Volkswagen Golf Mk8}}
+The Mk8 Golf was revealed on 24 October 2019 in [[Wolfsburg]]. It rides on an updated version of the [[Volkswagen Group MQB platform|MQB platform]], with engine options consisting of compact petrol, diesel, and hybrid powertrains. At launch, the five-door hatchback was the only model available, with the three-door hatchback having been discontinued due to poor sales. The Golf VIII's interior receives a major overhaul with an entirely digital driver's display and digital control panel. All Mk8s have advanced safety features available such as travel assist, [[Car2X]], and an oncoming vehicle while braking function, the latter two of which are the first to be used on a production Volkswagen model.
+
+Powertrain options now have three ETSI mild-hybrid and two hybrids [[plug-in hybrid]] engines in addition to existing TSI petrol, TDI diesel, and TGI compressed natural gas (CNG) options. All TSI engines with an output up to 130 PS feature the efficient TSI Miller combustion process and a turbocharger with variable turbocharger geometry, and the 1.5-litre engines have temporary Active Cylinder Management. ETSI models use a 12 V vehicle electrical system and 48 V belt starter generator driven by the 48 V lithium-ion battery, whereas hybrid models have a 13 kWh lithium-ion battery capable of running in EV mode. TDI models utilize a new twin dosing SCR system featuring dual AdBlue selective catalytic reduction, which lowers nitrogen oxide emissions (NOx) up to 80% compared to the Mk7. Performance models consist of the GTE, GTI, GTD, and Golf R. The GTE and GTI produce {{cvt|180|kW|PS hp|0}}, the GTD produces {{cvt|147|kW|PS hp|0}}, while the R produces {{cvt|235|kW|PS hp|0}} The e-Golf previously offered on the Mk7 has been replaced by the ID.3.
+
+In January 2024, Volkswagen unveiled a facelifted version, called the Mk8.5 by some, to coincide with the Golf's 50th anniversary.<ref>{{Cite news |date=2024-01-24 |title=The facelifted Mk8.5 Volkswagen Golf is here! And it has a new infotainment screen |url=https://www.topgear.com/car-news/first-look/facelifted-mk85-volkswagen-golf-here-and-it-has-a-new-infotainment-screen |archive-url=https://web.archive.org/web/20250916101424/https://www.topgear.com/car-news/first-look/facelifted-mk85-volkswagen-golf-here-and-it-has-a-new-infotainment-screen |archive-date=16 September 2025 |access-date=2025-12-15 |work=Top Gear |language=en |url-status=live }}</ref> Exterior revisions include redesigned headlamps, taillights, and bumpers, while some engines were also upgraded and the interior replaced the controversial touch-sensitive steering wheel controls with physical buttons in response to customer feedback.<ref>{{Cite web |date=2024-02-10 |title=2025 VW Golf Mk8.5 {{!}} Expected Changes & Updates |url=https://www.budbrownvw.com/what-changes-can-be-expected-on-the-mark-8-5-golf/ |access-date=2025-12-15 |website=Bud Brown Volkswagen |language=en}}</ref>
+
+==Electric versions==
+{{See also|Electric vehicle|plug-in electric vehicle}}
+[[File:VW Golf CityStromer ( 1070567-HDR).jpg|thumb|Golf III CityStromer]]
+
+The VW Golf has had several generations made into electric ''CityStromer'' models. The first of these was in the 1970s when VW took a standard Golf Mk1 and converted it to electric power. By the time the [[Volkswagen Golf Mk2|Golf Mk2]] came into production a limited number of electric Golfs were made, using [[lead–acid battery]] packs and a custom-made motor and controller.{{Citation needed|date=April 2010}} VW continued with the production of limited numbers of CityStromer electric cars with the introduction of the Golf Mk3. The electric CityStromer Mk3 included a [[Siemens]]-based AC drive system, and [[Lead-acid battery|lead–acid battery]] packs. They had a maximum speed of {{convert|60|mph|km/h|abbr=on|order=flip}} and a range of approximately {{convert|50|mi|km|abbr=on|order=flip}}.<ref>{{cite web|url=http://www.citystromer.cz/index_en.html |title=CitySTROMer |publisher=Citystromer.cz |access-date=15 October 2010}}</ref> With a few exceptions, only left-hand drive Golfs were converted by VW into Citystromer models. These vehicles are still used today and have popularity in mainland Europe with only a few present in [[Great Britain]]. Only two right-hand drive Mk2 CityStromers were built for the UK market and it is believed only one remains today. It is owned by EV advocate and broadcaster Nikki Gordon-Bloomfield, host of Transport Evolved.<ref>{{Cite web|url=http://www.aminorjourney.com/journal/2009/11/13/aminorjourneycom-on-positivetv.html|title=The CityStromer EV on PositiveTV|accessdate=19 August 2023}}{{Dead link|date=August 2025 |bot=InternetArchiveBot |fix-attempted=yes }}</ref>
+
+===Golf Variant Twin Drive===
+As part of the "Fleet study in electric mobility" project that began in 2008, VW developed the Golf Variant twinDRIVE [[plug-in hybrid electric vehicle]], and built twenty examples for research. These vehicles have an [[all-electric range]] of {{cvt|57|km|mi|0}} and the [[internal combustion engine]] provides for a total range of {{cvt|900|km|mi}}. The plug-in hybrid drive of the Golf Variant twinDRIVE is equipped with either an 11.2&nbsp;[[kWh]] or a 13.2&nbsp;kWh [[lithium-ion battery]] pack, as Volkswagen is testing packs from two vendors. Ten vehicles are equipped with batteries from the American-German manufacturer GAIA with [[cathode]] type nickel cobalt aluminium dioxide (NCA). The other ten is powered by lithium-ion batteries with [[Lithium-ion battery#NMC|nickel manganese cobalt (NMC)]] cathodes from the Korean-German joint venture SB LiMotive ([[Samsung]] and [[Robert Bosch GmbH|Bosch]]). These 10 vehicles have been in use since early 2011. Both battery systems offer high power and energy density. They each weigh about {{cvt|150|kg|lb}}. The [[gasoline engine]] is used to support the electric heating system when outdoor temperatures are low.<ref name=GCC0611>{{cite web|url=http://www.greencarcongress.com/2011/06/vw-20110629.html|title=Volkswagen presents status of fleet study in electromobility; latest generation of twïnDRIVE plug-in hybrid|publisher=Green Car Congress|date=29 June 2011|access-date=30 June 2011}}</ref>
+
+Using guidelines for determining the fuel consumption of plug-in hybrids, VW estimated a fuel consumption of 2.1&nbsp;L/100&nbsp;km (112&nbsp;mpg US), which is equivalent to 49&nbsp;g/km CO<sub>2</sub>. When the battery is fully charged, the Golf Variant twinDRIVE is designed to maximize the share of pure electrical energy used for driving, and only when longer distances are driven does the share of supplemental gasoline fuel increase. Top speed of the car is {{cvt|170|km/h|mph|0}} and it accelerates to 100&nbsp;km/h (62&nbsp;mph) in under 12&nbsp;seconds. When operated in pure electric mode, the Golf Variant twinDRIVE can reach a top speed of {{cvt|120|km/h|mph|0}}.<ref name=GCC0611/>
+
+The production version was expected to be based on Mk6 Golf featuring a 1.5&nbsp;L turbodiesel engine and electric motor, with estimated arrival date of 2015.<ref>{{cite web |last=Vijayenthiran |first=Viknesh |url=http://www.motorauthority.com/volkswagen-twin-drive-plug-in-hybrids-not-due-until-2015.html |title=VW Twin Drive plug-in hybrids not due until 2015 |publisher=Motorauthority.com |date=4 September 2008 |access-date=15 October 2010 |archive-url=https://web.archive.org/web/20090427113614/http://www.motorauthority.com/volkswagen-twin-drive-plug-in-hybrids-not-due-until-2015.html |archive-date=27 April 2009 |url-status=dead }}</ref> A [[SEAT León]] prototype with the Twin Drive system was also under development.{{citation needed|date=February 2014}}
+
+===Volkswagen e-Golf===
+
+==== Concept version ====
+[[File:Golf VII Blue-e-Motion.JPG|thumb|Volkswagen Golf blue-e-motion concept]]
+Based on the Golf Mk6, the Golf blue-e-motion concept has a [[all-electric range|range]] of {{convert|150|km|abbr=on}}.<ref>{{cite web |title=VW provides update with a few more technical details on Golf blue-e-motion EV; market debut in 2014 |publisher=Green Car Congress |date=9 November 2010 |url= http://www.greencarcongress.com/2010/11/vw-provides-update-with-a-few-more-technical-details-on-golf-blue-e-motion-ev-market-debut-in-2014.html  |access-date=27 June 2011}}</ref> Volkswagen scheduled a field testing program with 500 units to begin in 2011.<ref>{{cite news | first=Andrew | last = Peterson|title=Volkswagen's First Electric Car Will Be Based on 2013 Golf |publisher=Automobiles Magazine |date=22 April 2010 |url= http://rumors.automobilemag.com/6637183/green/volkswagen-s-first-electric-car-will-be-based-on-2013-golf/index.html  |access-date=26 April 2010}}</ref><ref>{{cite web |title=Volkswagen announces electrification plan, 500 Golf EVs in 2011 |publisher=[[AutoblogGreen]] |date=1 March 2010 |url= http://green.autoblog.com/2010/03/01/volkswagen-announces-electrification-plan-500-golf-evs-in-2011/ |access-date=26 April 2010}}</ref> The first 10 units began field testing in [[Wolfsburg Volkswagen Plant|Wolfsburg]] in May 2011.<ref>{{cite web |title=Test fleet of the Golf blue-e-motion launched |publisher=TechVehi |date=11 May 2011 |url=http://www.technologicvehicles.com/en/green-transportation-news/826/test-fleet-of-the-golf-blue-e-motion-launched |access-date=27 June 2011 |archive-date=17 May 2011 |archive-url=https://web.archive.org/web/20110517063926/http://www.technologicvehicles.com/en/green-transportation-news/826/test-fleet-of-the-golf-blue-e-motion-launched |url-status=dead }}</ref> A second batch of 80 test cars began testing in June 2011 in [[Berlin]], [[Hannover]] and Wolfsburg.<ref name="Autoweek110616">{{cite news |first=David | last = Jolley |url=http://www.autoweek.com/article/20110616/CARNEWS/110619900 |title=Volkswagen preps the Golf EV for 2013 launch |date=16 June 2011 |publisher=AutoWeek}}</ref> In February 2012, the first e-Golf, as the production version was renamed, was delivered in [[Belmont, California]]. A total of 20 e-Golfs were allocated to the U.S. field testing program.<ref>{{cite web | first=Nikki | last = Gordon-Bloomfield |title=Volkswagen Plugs In, Starts eGolf Test Fleet In California |publisher=Green Car Reports |date=27 February 2012 |url= http://www.greencarreports.com/news/1073454_volkswagen-plugs-in-starts-egolf-test-fleet-in-california |access-date=1 March 2012}}</ref>
+
+The Golf blue-emotion concept has a 26.5&nbsp;kWh [[lithium-ion battery]] pack and is powered by an 85&nbsp;kW electric motor which drives the front wheels through a single-speed transmission. It will accelerate to {{convert|62|mph|order=flip|abbr=on}} in 11.8&nbsp;seconds and has a top speed of {{convert|86|mph|order=flip|abbr=on}}.<ref name=Autoweek110616/> [[Paddle shift]]ers are used to adjust the amount of regenerative braking. The vehicle's PRNDL stick has an additional 'B' mode as found on some other electric vehicles to set the regenerative braking effort to the maximum for sustained downhill travelling.{{Citation needed|date=June 2011}}
+
+; Production version
+
+{{Main|Volkswagen e-Golf}}
+
+[[File:2019 Volkswagen e-Golf.jpg|thumb|2019 Volkswagen e-Golf]]
+
+The production version of the 2015 '''Volkswagen e-Golf''' was unveiled at the 2013 [[Frankfurt Motor Show]].<ref>{{cite web|url=http://www.autoblog.com/2013/09/10/2015-volkswagen-e-golf-frankfurt-2013/ |title=2015 Volkswagen e-Golf is ready to battle the Nissan Leaf | first= Chris | last = Paukert |publisher=[[Autoblog.com]] |date=10 September 2013|access-date=10 September 2013}}</ref> According to VW the e-Golf has a practical [[all-electric range]] of {{convert|130|to|190|km|abbr=on}}, with an official [[New European Driving Cycle|NEDC cycle]] of {{Convert|190|km|abbr=on}}, and the winter range is expected to be {{convert|80|to|120|km|abbr=on}}.<ref name="eGolf2014">{{cite web|url=http://www.greencarcongress.com/2014/02/20140215-egolf.html|title=Volkswagen launches the battery-electric e-Golf in Germany; "Das e-Auto"|author=VW Media Services|publisher=Green Car Congress|date=15 February 2014|access-date=16 February 2014}}</ref> The 2015 e-Golf has an official [[EPA]] rated [[all-electric range]] of {{convert|83|mi|abbr=on|order=flip}}, and a combined fuel economy of 116 [[miles per gallon gasoline equivalent]] (MPGe) for an energy consumption of 29&nbsp;kW-hrs/100&nbsp;mi. The EPA rating for city driving is 126 MPGe and 105 MPGe for the highway.<ref>{{cite web|url=http://www.fueleconomy.gov/feg/Find.do?action=sbs&id=35849|title=2015 Volkswagen e-Golf|publisher=Fueleconomy.gov|author=[[U. S. Environmental Protection Agency]] and [[U.S. Department of Energy]]|date=14 November 2014|access-date=15 November 2014}}</ref> Production of vehicles destined for retail customers began in March 2014.<ref>{{cite web|url=http://www.avem.fr/actualite-volkswagen-debute-la-production-de-la-golf-electrique-a-wolfsburg-4828.html|title=Volkswagen débute la production de la Golf électrique à Wolfsburg|language=fr|trans-title=Volkswagen starts production of electric Golf in Wolfsburg| first=Michaël | last= Torregrossa|publisher= Association pour l'Avenir du Véhicule Electrique Méditerranéen (AVEM) |date=10 March 2014|access-date=11 March 2014}}</ref>
+
+For the 2017 model year, the e-Golf received an update, which included an improved range, better fuel economy, and more power than the outgoing model. With a new 35.8 kWh lithium-ion battery, the upgraded car is said to achieve an EPA-estimated range of {{convert|144|to|201|km|abbr=on}}, and have a combined 119 MPGe. The 2017 e-Golf also provides a faster charging time; SE and SEL Premium trim levels have a 7.2&nbsp;kW unit that allows the battery to be fully charged in under six hours at a 240 V charging station. There is an optional (standard on SEL Premium) DC Fast Charging feature that allows the car to be charged to 80% in only an hour at a DC fast charging station.<ref>{{cite web |author=Carl Anthony |title=2017 VW e-Golf Improves Strongly Over 2016 Model |publisher=Automoblog.net |date=22 February 2017 |url=http://www.automoblog.net/2017/02/22/2017-vw-e-golf-improves-strongly-2016-model/ |access-date=2 March 2017 |archive-date=16 December 2017 |archive-url=https://web.archive.org/web/20171216091450/http://www.automoblog.net/2017/02/22/2017-vw-e-golf-improves-strongly-2016-model/ |url-status=dead }}</ref>
+
+; Markets and sales
+
+On 14 February 2014, Volkswagen launched sales of the e-Golf in Germany.<ref name=eGolf2014/> On 11 March 2014, Volkswagen opened ordering for the e-Golf in the UK,<ref>{{cite web|url=http://www.myvwegolf.com/uk-e-golf-orders-open-priced-at-25845/|access-date=19 March 2014|author=Mike Szostech|title=UK e-Golf – orders open, priced at £25,845|date=19 March 2014|archive-date=19 March 2014|archive-url=https://web.archive.org/web/20140319192348/http://www.myvwegolf.com/uk-e-golf-orders-open-priced-at-25845/|url-status=dead}}</ref> with deliveries began at the end of June.<ref>{{cite web|url=http://www.greencarcongress.com/2013/11/20131114-egolf.html|title=VW provides details on e-Golf prior to launch at LA Auto Show|author=VW Press Release|publisher=Green Car Congress|date=14 November 2013|access-date=16 February 2014}}</ref>
+
+In [[Norway]], the e-Golf became available for pre-order on 25 February 2014 for delivery in June 2014. European sales totaled 3,328 units in 2014, and 1,214 units in 2015.<ref name="Europe2014">{{cite web |last=Pontes |first=Jose |date=2015-01-31 |title=Europe December 2014 |url=http://www.ev-sales.blogspot.ca/2015/01/europe-december-2014.html |access-date=2016-02-07 |publisher=EVSales.com}} ''European VW e-Golf sales totaled 3,328 units in 2014.''</ref>
+
+The 2015 e-Golf did not have a liquid-cooled battery pack because strict testing showed high ambient temperatures did not affect battery performance.<ref>{{cite web|title=Volkswagen chooses to drop the liquid cooling on the e-Golf|url=http://www.myvwegolf.com/volkswagen-chooses-to-drop-the-liquid-cooling-on-the-e-golf/|publisher=My Electric Car News|access-date=17 April 2014|author=Mike Szostech|date=17 April 2014|archive-date=19 April 2014|archive-url=https://web.archive.org/web/20140419020008/http://www.myvwegolf.com/volkswagen-chooses-to-drop-the-liquid-cooling-on-the-e-golf/|url-status=dead}}</ref> U.S. sales were slated to start in selected states in November 2014.<ref name=USeGolf>{{cite web|url=http://www.greencarcongress.com/2014/08/20140825-egolf.html|title=Volkswagen prices e-Golf in US at $35,445
+|author=VW Press Release|publisher=Green Car Congress|date=25 August 2014|access-date=26 August 2014}}</ref> In January 2015, the e-Golf started to show up at dealerships throughout the Northeast.<ref>{{cite web|author1=Michael Szostech|title=Volkswagen e-Golf Availability|url=http://www.myvwegolf.com/volkswagen-e-golf-availability/|website=My VW e-Golf|publisher=MECF|access-date=25 March 2015|archive-date=3 April 2015|archive-url=https://web.archive.org/web/20150403012944/http://www.myvwegolf.com/volkswagen-e-golf-availability/|url-status=dead}}</ref>
+
+Production of the e-Golf ended in December 2020.<ref>{{cite news|url= https://electrek.co/2020/12/23/vw-ends-production-electric-e-golf-favor-id3/ |title= VW ends production of electric e-Golf in favor of new ID.3 |website= [[electrek.co]] |first= Fred |last= Lambert |date= 2020-12-23 |access-date= 2021-01-26}}</ref>
+
+===Volkswagen Golf GTE===
+{{See also|Volkswagen Passat GTE|Audi A3 Sportback e-tron}}
+[[File:Volkswagen Golf GTE Sport Concept front.jpg|thumb|Volkswagen Golf GTE Sport at the IAA 2015]]
+The Golf GTE is a [[plug-in hybrid]] version of the Golf hatchback unveiled at the 2014 [[Geneva Motor Show]]. The Golf GTE shares the basic powertrain hardware with the [[Audi A3 Sportback e-tron]] but the software controls are different.<ref name=VWemobility>{{cite web|url=http://www.greencarcongress.com/2014/03/20140313-golf.html|title=Volkswagen: e-mobility and sustainability; Part 1, the e-Golf and Golf GTE |first=Mike | last = Millikin |publisher=Green Car Congress|date=13 March 2014|access-date=13 March 2014}}</ref> The Golf GTE also shares the same plug-in hybrid powertrain with the [[Volkswagen Passat GTE]], but the Passat has a larger 9.9 kWh Li-ion battery pack.<ref>{{cite web|url=http://www.greencarcongress.com/2014/09/20140929-passatgte-1.html|title=Promised VW Passat plug-in hybrid to debut at Paris show; both sedan and wagon|first=Mike | last = Millikin|publisher=Green Car Congress|date=29 September 2014|access-date=29 September 2014}}</ref>
+
+The GTE [[Volkswagen Golf Mk7#Golf GTE|Mark 7]] generation was powered by a 1.4-litre {{cvt|110|kW}} TSI direct-injection gasoline engine combined with a {{Convert|75|kW|hp|abbr=on|lk=in}} [[electric motor]], powered by a 400 [[Volt|V]] 8.8 [[kWh]] [[lithium-ion battery]], for a total hybrid system power of around {{Convert|153|kW|hp|abbr=on|lk=in}}. The electric motor delivered a theoretical [[all-electric range]] of {{cvt|50|km}} and the hybrid system a total theoretical range of {{cvt|933|km}} (measured using [[New European Driving Cycle|NEDC]]). The [[all-electric mode]] can be activated at the push of a button. Under the [[New European Driving Cycle]], combined fuel economy is {{cvt|157|mpgUS|L/100km|order=flip}} equivalent ({{cvt|176.6|mpgUS|L/100km|order=flip}} in generation 8). The Golf GTE has a top speed of {{cvt|130|mph|order=flip}} in the all-electric mode and accelerates from {{cvt|0|to|62|mph|order=flip}} in under 7.6&nbsp;seconds.<ref>{{cite web|url=http://www.autoblog.com/2014/02/20/vw-golf-gte-plug-in-hybrid-geneva-official/|title=VW Golf GTE plugs in the GTI for guilt-free fun|author=Noah Joseph|publisher=[[Autoblog.com]]|date=20 February 2014|access-date=29 September 2014}}</ref>
+
+In the [[Volkswagen Golf Mk8#Golf GTE|Mark 8]] generation, available from model year 2021, the electric motor power was increased to {{cvt|81|kW}}, the total system power to {{cvt|180|kW}}, the battery capacity to 13 [[kWh]], and the all-electric range to 60 kilometers (measured using [[Worldwide Harmonised Light Vehicles Test Procedure|WLTP]]).<ref>{{Cite web|title=VOLKSWAGEN Golf VIII GTE specs & photos - 2020, 2021|url=https://www.autoevolution.com/cars/volkswagen-golf-viii-gte-2020.html|access-date=2021-08-02|website=autoevolution|language=en}}</ref> The fuel tank was diminished from 50 litres (10.6 gallons) to 40 litres (8.8 gallons).
+
+The vehicle can be recharged from a Type 2 charging point in about 2 hours, or from a standard 230 V wall outlet in approximately 4 hours (6 hours for generation 8). In common with other plug-in hybrid vehicles, the vehicle may be used in pure electric mode, parallel-hybrid (petrol + electric), and range-extender mode (petrol engine recharging the high-voltage battery).
+
+The GTE release to retail customers was scheduled for the fourth quarter of 2014.<ref name=VW_GTE>{{cite web|url=http://www.greencarcongress.com/2014/02/20140221-gte.html |title=Volkswagen to introduce Golf plug-in hybrid at Geneva; first deliveries in autumn|author=VW Media|publisher=Green Car Congress |date=21 February 2014|access-date=21 February 2014}}</ref> The first units were registered in Germany in August 2014.<ref>{{cite web|url=http://www.ev-sales.blogspot.ca/2014/09/germany-august-2014.html|title=Germany August 2014|first=José | last = Pontes|publisher=EVSales.com|date=13 September 2014|access-date=29 September 2014}}</ref> The Golf GTE, with 1,695 units sold, was the best-selling plug-in hybrid in France in 2015, representing 30.3% of the segment sales.<ref>{{cite news|url=http://insideevs.com/volkswagen-golf-gte-is-the-most-popular-plug-in-hybrid-in-france/ |title=Volkswagen Golf GTE Is The Most Popular Plug-In Hybrid In France |first=Mark |last=Kane |work=InsideEVs.com| date=2016-02-06|access-date=2016-02-07}} ''A total of 5,583 plug-in hybrids were sold in France in 2015, including 543 [[BMW i3 REx]] models.''</ref> With 17,300 units sold in Europe in 2015, the Golf GTE ranked as the second top selling plug-in hybrid after the [[Mitsubishi Outlander P-HEV]] (31,214).<ref name=Europe2015/> According to [[JATO Dynamics]], a total of 18,397 units have been registered in Europe through December 2015.<ref name=Europe2015>{{cite web| url=http://europe.autonews.com/article/20160315/ANE/160319949/hybrid-sales-expected-to-triple-in-europe-as-tougher-co2-rules-loom |title=Hybrid sales expected to triple in Europe as tougher {{CO2}} rules loom  |first=Nick |last=Gibbs |work=[[Automotive News|Automotive News Europe]]|date=2016-03-15 |access-date=2016-02-22}} ''VW Golf GTE sales totaled 1,097 units in 2014 and 17,300 as reported by [[JATO Dynamics]].''</ref> The Golf GTE was temporarily discontinued in 2018, due to high demand leading to long lead times, according to Volkswagen.<ref>{{Cite web|url=https://www.volkswagen.co.uk/new/golf/explore/gte|title=Volkswagen Golf GTE &#124; New 2018 Range : Volkswagen UK|website=www.volkswagen.co.uk}}</ref>
+
+==Motorsport==
+[[File:Volkswagen Golf TCR.jpg|thumb|A 2017 spec [[Volkswagen Golf Mk7#Golf GTI|Volkswagen Golf GTI TCR]] in the [[TCR International Series#Champions|Champions]] paddock]]
+
+In [[auto racing]], [[Audi Performance and Racing|APR Motorsport]] has led two MKV VW GTIs to victory in the Grand-Am [[KONI Sports Car Challenge]] Street Tuner (ST) class.
+
+=== Golf GTI ===
+[[File:British GT VW Golf GTi.jpg|thumb|Mk4 GTI at Donington Park]]
+The Golf GTI competed in the British GT Championship in 2003 with Steve Wood and Stuart Scott at the wheel.
+
+=== Golf TCR and Golf GTI TCR ===
+[[File:GIMS 2019, Le Grand-Saconnex (GIMS0735).jpg|thumb|Golf GTI TCR (road car)]]
+[[Volkswagen Motorsport]], the motorsport division of the brand, built the Golf TCR touring car in 2015 for use in various international and national competitions which use [[TCR International Series|TCR]] regulations.<ref name="Golf">{{cite news|url=http://www.touringcartimes.com/2014/11/20/engstler-motorsport-to-run-volkswagen-golfs-in-tc3-series-in-2015/|title=Engstler Motorsport to run Volkswagen Golfs in TC3 Series in 2015|date=20 November 2014|work=TouringCarTimes.com}}</ref><ref name="Developers">{{cite news|url=http://www.tcr-series.com/pdf/TCR_Brand_contacts_details_for_ordering.pdf|title=TCR Brand - contacts details for ordering|work=tcr-series.com|access-date=17 March 2016|archive-url=https://web.archive.org/web/20160328165317/http://www.tcr-series.com/pdf/TCR_Brand_contacts_details_for_ordering.pdf|archive-date=28 March 2016|url-status=dead|df=dmy-all}}</ref> In 2016 the car was updated and renamed Golf GTI TCR.<ref>{{Cite news |title=Essai Volkswagen Golf GTI TCR : dernière cartouche |url=https://www.largus.fr/actualite-automobile/essai-volkswagen-golf-gti-tcr-derniere-cartouche-9601395.html |newspaper=www.largus.fr}}</ref>
+
+==Volkswagen emissions scandal==
+Volkswagen Golfs are among the models included in the September 2015 [[Volkswagen emissions scandal]] in which Volkswagen manufactured and installed in their diesel vehicles a software program that manipulated the cars' [[vehicle emissions control]] during testing, thereby violating numerous countries' regulations.<ref name="fortune VW emissions 2015">{{Cite web|url=https://fortune.com/2015/09/23/volkswagen-carbon-emissions-scandal/|title=How this clean air NGO caught Volkswagen cheating emissions tests|website=Fortune|accessdate=19 August 2023}}</ref> The program caused the vehicles' [[nitrogen oxide]] ({{NOx}}) output to meet US standards during regulatory testing but emit up to 40 times more {{NOx}} in real-world driving.<ref name=npr-congressdefeatdevice>{{cite news|title='It Was Installed For This Purpose,' VW's U.S. CEO Tells Congress About Defeat Device|url=https://www.npr.org/sections/thetwo-way/2015/10/08/446861855/volkswagen-u-s-ceo-faces-questions-on-capitol-hill|access-date=19 October 2015|publisher=NPR|date=8 October 2015}}</ref>
+
+==Awards and recognition==
+* The Golf Mk3 won the 1992 [[European Car of the Year]] award.<ref>{{cite web |title=Car of the Year 1992 |url=http://www.caroftheyear.org/winners/1992/index.php |website=Car of the Year |publisher=CaroftheYear.org |access-date=14 September 2019}}</ref>
+* In April 2010 [[Kelley Blue Book]] included the VW Golf TDI ([[clean diesel]]) among its Top 10 Green Cars for 2010.<ref name=KBB2010>{{cite web |url=http://www.kbb.com/kbb/green-cars/articles.aspx?BlogPostId=1783 |title=KBB Green: Top 10 Green Cars for 2010 |publisher=[[Kelley Blue Book]] |date=April 2010 |access-date=2 May 2010 |url-status=dead |archive-url=https://web.archive.org/web/20100424225137/http://www.kbb.com/kbb/green-cars/articles.aspx?BlogPostId=1783 |archive-date=24 April 2010 |df=dmy-all }}</ref><ref>{{cite news |title=KBB's green cars list includes VW Golf TDI, Chevy Tahoe hybrid |work=USA Today |date=20 April 2010 |url= http://content.usatoday.com/communities/driveon/post/2010/04/kbbs-green-cars-list-includes-vw-golf-tdi-chevy-tahoe-hybrid/1 |access-date=2 May 2010}}</ref>
+* The Golf Mk7 was named "The ''All The Car You'll Ever Need Car of the Year'' 2012"<ref name="All The Car You'll Ever Need">{{cite web|title=All-the-car-you'll-ever-need car of the Year 2012: VW Golf|url=http://www.topgear.com/car-news/all-car-you%E2%80%99ll-ever-need-car-year-2012-vw-golf|work=Top Gear|access-date=16 July 2015}}</ref> by ''[[Top Gear (magazine)|Top Gear]]''.
+* The Golf Mk7 won the 2013 European Car of the Year award for the second time.<ref name="Car of the Year twice">{{cite web|title=Car of the Year twice - 1992 & 2013|url=http://www.volkswagen.co.uk/new/golf-vii/explore/reviews-and-awards|work=Car manufacturer|publisher=Volkswagen|access-date=24 April 2013|archive-url=https://web.archive.org/web/20170421021154/http://www.volkswagen.co.uk/new/golf-vii/explore/reviews-and-awards|archive-date=21 April 2017|url-status=dead}}</ref><ref>{{cite web |url=http://www.caroftheyear.org/winner/Volkswagen/Golf/2013_69/coty |title=Car of the Year 2013: VW Golf does it again |publisher=caroftheyear.org |date=4 March 2013 |access-date=29 March 2013 |url-status=dead |archive-url=https://web.archive.org/web/20130307180459/http://www.caroftheyear.org/winner/Volkswagen/Golf/2013_69/coty |archive-date=7 March 2013 |df=dmy-all }}</ref>
+* The Golf Mk7 won the 2013 [[World Car of the Year]] award.<ref>{{cite web|url=http://www.autoblog.com/2013/03/28/volkswagen-golf-named-2013-world-car-of-the-year/|title=Volkswagen Golf named 2013 World Car of the Year|author=Steven J. Ewing|work=[[Autoblog.com]]|date=28 March 2013|access-date=29 March 2013}}</ref>
+* Volkswagen Golf has been selected as the [[Car of the Year Japan]] 2013–2014, becoming the first imported car to win the award created in 1980.<ref>{{Cite web|url=http://www.jcoty.org/|title=第34回 2013 – 2014 日本カー･オブ･ザ･イヤー|website=日本カー・オブ・ザ・イヤー公式サイト|language=ja|access-date=2019-09-16}}</ref>
+* The entire [[Volkswagen Golf Mk7]] line-up, including the 1.8T, Golf TDI Clean Diesel, Golf GTI, and e-Golf models, was named 2015 [[Motor Trend Car of the Year]].<ref>{{cite web|url=http://www.greencarcongress.com/2014/11/20141113-golf.html|title=Volkswagen Golf family named "2015 Motor Trend Car of the Year" |author=Mike Millikin |publisher=Green Car Congress|date=13 November 2014|access-date=15 November 2014}}</ref>
+* The Golf GTI Mk7 won the 2015 Yahoo! Car of the Year award.<ref>{{cite web|url=https://autos.yahoo.com/blogs/motoramic/the-2015-yahoo-autos-car-of-the-year--volkswagen-golf-gti-012823997.html;_ylt=AwrTWVU.TnZUIk8AXrc2m4lQ |title=The 2015 Yahoo Autos Car of the Year: Volkswagen Golf GTI |author1=Justin Hyde |author2=Alex Lloyd |website=Yahoo Autos |date=3 November 2014 |access-date=5 December 2014 |url-status=dead |archive-url=https://web.archive.org/web/20141221135227/https://autos.yahoo.com/blogs/motoramic/the-2015-yahoo-autos-car-of-the-year--volkswagen-golf-gti-012823997.html |archive-date=21 December 2014 }}</ref>
+* [[South African Car of the Year]] 2010<ref>{{cite web |last1=Dean |first1=Gareth |title=SA Car of the Year gong for Golf |date=19 March 2010 |url=https://www.carmag.co.za/news-blog/sa-car-of-the-year-gong-for-golf/ |publisher=CarMag |access-date=14 September 2019}}</ref>
+* The Volkswagen GTI has received the [[Car and Driver 10Best]] award for the 12th consecutive year in 2018.{{citation needed|date=September 2019}}
+
+== Sales ==
+{| class="wikitable"
+|+
+!Year
+!Global (production)
+!Europe<ref>{{Cite web|date=2014-01-31|title=Volkswagen Golf European sales figures|url=https://carsalesbase.com/europe-volkswagen-golf/|access-date=2022-01-21|website=carsalesbase.com|language=en-US|archive-date=21 January 2022|archive-url=https://web.archive.org/web/20220121144228/https://carsalesbase.com/europe-volkswagen-golf/|url-status=dead}}</ref>
+!US<ref>{{Cite web|date=2015-11-21|title=Volkswagen Golf US car sales figures|url=https://carsalesbase.com/us-volkswagen-golf/|access-date=2022-01-21|website=carsalesbase.com|language=en-US|archive-date=21 January 2022|archive-url=https://web.archive.org/web/20220121144228/https://carsalesbase.com/us-volkswagen-golf/|url-status=dead}}</ref>
+!Canada<ref>{{Cite web|title=Volkswagen Golf Sales Figures|url=https://www.goodcarbadcar.net/volkswagen-golf-sales-figures/|access-date=2022-01-21|website=GCBC|language=en-US}}</ref>
+!China<ref>{{Cite web|last=Sales|first=ModelVolkswagen Car SalesVolkswagen Model|date=2015-04-22|title=Volkswagen Golf China auto sales figures|url=https://carsalesbase.com/china-volkswagen-golf/|access-date=2022-01-21|website=carsalesbase.com|language=en-US|archive-date=21 January 2022|archive-url=https://web.archive.org/web/20220121144229/https://carsalesbase.com/china-volkswagen-golf/|url-status=dead}}</ref>
+!Australia
+!Malaysia
+|-
+|1980
+|
+|
+|191,166
+|unknown
+|
+|
+|
+|-
+|1981
+|
+|
+|159,588
+|unknown
+|
+|
+|
+|-
+|1982
+|
+|
+|107,396
+|unknown
+|
+|
+|
+|-
+|1983
+|
+|
+|83,222
+|unknown
+|
+|
+|
+|-
+|1984
+|
+|
+|83,084
+|unknown
+|
+|
+|
+|-
+|1985
+|
+|
+|77,699
+|unknown
+|
+|
+|
+|-
+|1986
+|891,466<ref>{{Cite web |date=2023-06-16 |title=1982 to 1991 – New Brands, New Markets |url=https://www.volkswagen-group.com/en/volkswagen-chronicle-17351/1982-to-1991-new-brands-new-markets-17359 |access-date=2024-05-07 |website=Volkswagen Group |language=en}}</ref>
+|
+|73,891
+|unknown
+|
+|
+|
+|-
+|1987
+|
+|
+|45,890
+|unknown
+|
+|
+|
+|-
+|1988
+|
+|
+|26,086
+|unknown
+|
+|
+|
+|-
+|1989
+|879,981
+|
+|22,246
+|unknown
+|
+|
+|
+|-
+|1990
+|887,738<ref>{{Cite news |title=Annual Report 1990 |url=https://www.volkswagen-group.com/en/publications/corporate/annual-report-1990-2308 |work=Volkswagen}}</ref>
+|
+|17,122
+|unknown
+|
+|
+|
+|-
+|1991
+|712,754
+|
+|14,339
+|unknown
+|
+|
+|
+|-
+|1992
+|914,178<ref>{{Cite news |title=Annual Report 1992 |url=https://www.volkswagen-group.com/en/publications/corporate/annual-report-1992-2310 |work=Volkswagen}}</ref>
+|
+|9,359
+|unknown
+|
+|
+|
+|-
+|1993
+|725,191
+|
+|4,693
+|unknown
+|
+|
+|
+|-
+|1994
+|767,609<ref>{{Cite news |title=Annual Report 1994 |url=https://www.volkswagen-group.com/en/publications/corporate/annual-report-1994-2312 |work=Volkswagen}}</ref>
+|
+|16,394
+|unknown
+|
+|
+|
+|-
+|1995
+|717,873
+|
+|18,429
+|unknown
+|
+|
+|
+|-
+|1996
+|701,475<ref>{{Cite news |title=Annual Report 1996 |url=https://www.volkswagen-group.com/en/publications/corporate/annual-report-1996-2314 |work=Volkswagen}}</ref>
+|
+|24,208
+|unknown
+|
+|
+|
+|-
+|1997
+|624,168
+|500,848
+|20,702
+|unknown
+|
+|
+|
+|-
+|1998
+|893,820<ref name=":0">{{Cite news |title=Annual Report 1998 |url=https://www.volkswagen-group.com/en/publications/corporate/annual-report-1998-2316 |work=Volkswagen}}</ref>
+|672,465
+|25,406
+|unknown
+|
+|
+|
+|-
+|1999
+|791,969
+|703,932
+|23,456
+|unknown
+|
+|2,807<ref name="bestsellingcarsblog2001">{{Cite web|last=Gasnier|first=Matt|date=2001-01-24|title=Australia 2000: Holden Commodore enjoys 5th year in a row at #1|url=https://bestsellingcarsblog.com/2001/01/australia-2000-holden-commodore-enjoys-5th-year-in-a-row-at-consecutive-years-at-1/|access-date=2022-02-26|website=Best Selling Cars Blog|language=en-US}}</ref>
+|
+|-
+|2000
+|818,955<ref name=":1">{{Cite news |title=Annual Report 2000 |url=https://www.volkswagen-group.com/en/publications/corporate/annual-report-2000-2318 |work=Volkswagen}}</ref>
+|685,029
+|28,124
+|unknown
+|
+|3,674<ref name="bestsellingcarsblog2001" />
+|
+|-
+|2001
+|854,533
+|664,328
+|31,271
+|unknown
+|
+|5,767<ref name="bestsellingcarsblog2003">{{Cite web|last=Gasnier|first=Matt|date=2003-01-04|title=Australia 2002: Commodore in command, breaks monthly record|url=https://bestsellingcarsblog.com/2003/01/australia-2002-commodore-in-command/|access-date=2022-02-26|website=Best Selling Cars Blog|language=en-US}}</ref>
+|32,627<ref>{{Cite web |date=2022-02-03 |title=Brazil 2001 |url=https://bestsellingcarsblog.com/2002/01/brazil-2001-vw-gol-and-fiat-palio-dominate/|archive-url=https://web.archive.org/web/20111122132323/http://bestsellingcarsblog.com/2002/01/12/brazil-2001-vw-gol-and-fiat-palio-dominate/|archive-date=2011-11-22 |access-date=2023-01-06 |website=Best Selling Cars Blog}}</ref>
+|-
+|2002
+|774,718<ref name=":5">{{Cite news |title=Annual Report 2002 |url=https://www.volkswagen-group.com/en/publications/corporate/annual-report-2002-2320 |work=Volkswagen}}</ref>
+|596,415
+|40,157
+|unknown
+|
+|4,809<ref name="bestsellingcarsblog2003" />
+|27,169<ref>{{Cite web |date=2022-02-03 |title=Brazil 2002 |url=https://bestsellingcarsblog.com/2003/01/brazil-2002-vw-gol-at-15-chevy-corsa-2/|archive-url=https://web.archive.org/web/20120801184338/http://bestsellingcarsblog.com/2003/01/03/brazil-2002-vw-gol-at-15-chevy-corsa-2/|archive-date=2012-08-01 |access-date=2023-01-06 |website=Best Selling Cars Blog}}</ref>
+|-
+|2003
+|647,067
+|494,832
+|29,342
+|unknown
+|15,093
+|6,467<ref name="bestsellingcarsblog2005">{{Cite web|last=Gasnier|first=Matt|date=2005-01-03|title=Australia 2004: Commodore undisputed leader|url=https://bestsellingcarsblog.com/2005/01/australia-2004-commodore-undisputed-leader/|access-date=2022-02-26|website=Best Selling Cars Blog|language=en-US}}</ref>
+|15,218<ref>{{Cite web |date=2022-02-03 |title=Brazil 2003 |url=https://www.fenabrave.org.br/portal/files/2_2003_12_2.pdf |access-date=2023-01-06 |website=Fenabrave}}</ref>
+|-
+|2004
+|711,883<ref name=":6">{{Cite news |title=Annual Report 2004 |url=https://www.volkswagen-group.com/en/publications/corporate/annual-report-2004-2322 |url-status= |work=Volkswagen}}</ref>
+|585,356
+|24,669
+|unknown
+|20,901
+|5,920<ref name="bestsellingcarsblog2005" />
+|14,166<ref>{{Cite web |date=2022-02-03 |title=Brazil 2004 |url=https://online.fliphtml5.com/ordey/wpob/index.html#p=6 |access-date=2023-01-06 |website=Fenabrave}}</ref>
+|-
+|2005
+|732,715
+|487,210
+|15,690
+|unknown
+|17,154
+|9,311<ref name="bestsellingcarsblog2007">{{Cite web|last=Gasnier|first=Matt|date=2007-01-02|title=Australia 2006: Commodore limits fall thanks to new gen, Falcon down to #3!|url=https://bestsellingcarsblog.com/2007/01/australia-2006-commodore-limits-fall-thanks-to-new-gen/|access-date=2022-02-26|website=Best Selling Cars Blog|language=en-US}}</ref>
+|9,638<ref>{{Cite web |date=2022-02-03 |title=Brazil 2005 |url=https://online.fliphtml5.com/ordey/yffn/index.html#p=6 |access-date=2023-01-06 |website=Fenabrave}}</ref>
+|-
+|2006
+|693,376<ref name=":7">{{Cite news |title=Annual Report 2006 |url=https://www.volkswagen-group.com/en/publications/corporate/annual-report-2006-2324/download?disposition=attachment |work=Volkswagen}}</ref>
+|416,507
+|28,699
+|unknown
+|13,729
+|9,643<ref name="bestsellingcarsblog2007" />
+|8,294<ref>{{Cite web |date=2022-02-03 |title=Brazil 2006 |url=https://online.fliphtml5.com/ordey/omnh/index.html#p=6 |access-date=2023-01-06 |website=Fenabrave}}</ref>
+|-
+|2007
+|763,491
+|435,610
+|41,844
+|unknown
+|4,396
+|11,029<ref name="bestsellingcarsblog2009">{{Cite web|last=Gasnier|first=Matt|date=2009-01-09|title=Australia 2008: Corolla ahead until July, Commodore saved by Sportwagon version, Toyota Hilux #1 twice|url=https://bestsellingcarsblog.com/2009/01/australia-2008-commodore-saved-by-sportwagon-version/|access-date=2022-02-26|website=Best Selling Cars Blog|language=en-US}}</ref>
+|13,560<ref>{{Cite web |date=2022-02-03 |title=Brazil 2007 |url=https://online.fliphtml5.com/ordey/hyly/index.html#p=6 |access-date=2023-01-06 |website=Fenabrave}}</ref>
+|-
+|2008
+|764,776<ref name=":2">{{Cite news |title=Annual Report 2008 |url=https://www.volkswagen-group.com/en/publications/corporate/annual-report-2008-2326 |work=Volkswagen |pages=81}}</ref>
+|461,620
+|35,408
+|unknown
+|3,576
+|11,632<ref name="bestsellingcarsblog2009" />
+|17,265<ref>{{Cite web|title=Carros Mais vendidos do Brasil em 2008|url=https://www.autoo.com.br/emplacamentos/veiculos-mais-vendidos/2008/|access-date=2021-03-12|website=AUTOO}}</ref>
+|-
+|2009
+|792,608
+|579,246
+|15,752
+|unknown
+|7,218
+|12,141<ref name="bestsellingcarsblog2011">{{Cite web|last=Gasnier|first=Matt|date=2011-01-08|title=Australia Full Year 2010: Commodore #1 for 15th year in a row|url=https://bestsellingcarsblog.com/2011/01/australia-full-year-2010-commodore-1-for-15th-year-in-a-row/|access-date=2022-02-26|website=Best Selling Cars Blog|language=en-US}}</ref>
+|20,959<ref>{{Cite web|title=Carros Mais vendidos do Brasil em 2009|url=https://www.autoo.com.br/emplacamentos/veiculos-mais-vendidos/2009/|access-date=2021-03-12|website=AUTOO}}</ref>
+|-
+|2010
+|828,910<ref name=":3">{{Cite news |title=Annual Report 2010 |url=https://www.volkswagen-group.com/en/publications/corporate/annual-report-2010-2328/download?disposition=attachment |work=Volkswagen |pages=109}}</ref>
+|497,051
+|28,286
+|unknown
+|57,517
+|15,425<ref name="bestsellingcarsblog2011" />
+|17,731<ref>{{Cite web|title=Carros Mais vendidos do Brasil em 2010|url=https://www.autoo.com.br/emplacamentos/veiculos-mais-vendidos/2010/|access-date=2021-03-12|website=AUTOO}}</ref>
+|-
+|2011
+|913,693
+|493,899
+|34,706<ref>{{Cite web|title=volkswagen reports 35.1 percent increase in 2012 u.s. sales|url=http://media.vw.com/en-us/releases/95|website=media.vw.com}}</ref>
+|unknown
+|99,542
+|18,682<ref name="bestsellingcarsblog2013">{{Cite web|last=Gasnier|first=Matt|date=2013-01-05|title=Australia Full Year 2012: Mazda3 leads again in record market, no local model on podium for the first time since 1930s!|url=https://bestsellingcarsblog.com/2013/01/australia-full-year-2012-mazda3-leads-again-in-record-market-no-local-model-on-podium-for-the-first-time-since-1930s/|access-date=2022-02-26|website=Best Selling Cars Blog|language=en-US}}</ref>
+|15,515<ref>{{Cite web|title=Carros Mais vendidos do Brasil em 2011|url=https://www.autoo.com.br/emplacamentos/veiculos-mais-vendidos/2011/|access-date=2021-03-12|website=AUTOO}}</ref>
+|-
+|2012
+|825,591<ref name=":4">{{Cite news |title=Annual Report 2012 |url=https://www.volkswagen-group.com/en/publications/corporate/annual-report-2012-2330 |work=Volkswagen |pages=107}}</ref>
+|430,088
+|40,885<ref name="vw135">{{Cite web|title=volkswagen reports December 2013 and year-end results|url=http://media.vw.com/en-us/releases/135|website=media.vw.com}}</ref>
+|12,198
+|127,376
+|18,112<ref name="bestsellingcarsblog2013" />
+|15,115<ref>{{Cite web|title=Carros Mais vendidos do Brasil em 2012|url=https://www.autoo.com.br/emplacamentos/veiculos-mais-vendidos/2012/|access-date=2021-03-12|website=AUTOO}}</ref>
+|-
+|2013
+|824,629
+|462,527
+|30,931<ref name="vw135" />
+|11,871
+|101,802
+|17,342<ref name="bestsellingcarsblog2014">{{Cite web|last=Gasnier|first=Matt|date=2014-01-15|title=Australia Full Year 2013: Toyota Corolla finally tops record market|url=https://bestsellingcarsblog.com/2014/01/australia-full-year-2013-toyota-corolla-finally-tops-record-market/|access-date=2022-02-26|website=Best Selling Cars Blog|language=en-US}}</ref>
+|13,787<ref>{{Cite web|title=Carros Mais vendidos do Brasil em 2013|url=https://www.autoo.com.br/emplacamentos/veiculos-mais-vendidos/2013/|access-date=2021-03-12|website=AUTOO}}</ref>
+|-
+|2014
+|1,011,124<ref name=":52">{{Cite news |title=Annual Report 2014 |url=https://annualreport2014.volkswagenag.com/ |work=Volkswagen |archive-date=19 February 2025 |access-date=7 May 2024 |archive-url=https://web.archive.org/web/20250219094428/https://annualreport2014.volkswagenag.com/ |url-status=dead }}</ref>
+|523,729
+|33,675<ref name="vw625">{{Cite web|title=volkswagen of America reports December sales and 2015 year-end results|url=http://media.vw.com/en-us/releases/625|website=media.vw.com}}</ref>
+|12,045
+|193,047
+|19,178
+|16,107<ref>{{Cite web|title=Carros Mais vendidos do Brasil em 2014|url=https://www.autoo.com.br/emplacamentos/veiculos-mais-vendidos/2014/|access-date=2021-03-12|website=AUTOO}}</ref>
+|-
+|2015
+|1,095,553
+|534,535
+|65,308<ref name="vw625" />
+|20,515
+|192,410
+|22,092
+|10,895<ref>{{Cite web|title=Carros Mais vendidos do Brasil em 2015|url=https://www.autoo.com.br/emplacamentos/veiculos-mais-vendidos/2015/|access-date=2021-03-12|website=AUTOO}}</ref>
+|-
+|2016
+|982,495<ref name=":62">{{Cite news |title=Annual Report 2016 |url=https://annualreport2016.volkswagenag.com/ |work=Volkswagen}}</ref>
+|491,681
+|61,687<ref name="vw966">{{Cite web|title=VOLKSWAGEN OF AMERICA REPORTS DECEMBER AND 2017 YEAR-END SALES RESULTS|url=http://media.vw.com/en-us/releases/966|website=media.vw.com}}</ref>
+|19,966
+|178,791
+|
+|6,948<ref>{{Cite web|title=Carros mais vendidos do Brasil em 2016|url=https://www.autoo.com.br/emplacamentos/veiculos-mais-vendidos/2016/|access-date=2021-03-12|website=AUTOO}}</ref>
+|-
+|2017
+|968,284
+|482,177
+|68,978<ref name="vw966" />
+|24,604
+|150,695
+|
+|4,585<ref>{{Cite web|title=Carros mais vendidos do Brasil em 2017|url=https://www.autoo.com.br/emplacamentos/veiculos-mais-vendidos/2017/|access-date=2021-03-12|website=AUTOO}}</ref>
+|-
+|2018
+|805,752<ref name=":72">{{Cite news |title=Annual Report 2018 |url=https://annualreport2018.volkswagenag.com/ |work=Volkswagen}}</ref>
+|445,303
+|42,271<ref name="vw1243">{{Cite web|title=VOLKSWAGEN OF AMERICA REPORTS DECEMBER AND 2019 YEAR-END SALES RESULTS|url=http://media.vw.com/en-us/releases/1243|website=media.vw.com}}</ref>
+|21,477
+|139,813
+|
+|3,573<ref>{{Cite web|title=Carros mais vendidos do Brasil em 2018|url=https://www.autoo.com.br/emplacamentos/veiculos-mais-vendidos/2018/|access-date=2021-03-12|website=AUTOO}}</ref>
+|-
+|2019
+|679,351
+|410,779
+|37,393<ref name="vw1243" />
+|19,668
+|105,795
+|
+|1,245<ref>{{Cite web|title=Carros mais vendidos do Brasil em 2019|url=https://www.autoo.com.br/emplacamentos/veiculos-mais-vendidos/2019/|access-date=2021-03-12|website=AUTOO}}</ref>
+|-
+|2020
+|408,528<ref name=":02">{{Cite news |title=Annual Report 2020 |url=https://annualreport2020.volkswagenag.com/ |work=Volkswagen}}</ref>
+|285,013
+|25,693<ref>{{Cite web |date=2021-01-05 |title=Volkswagen of America reports Q4 and 2020 year-end sales results |url=https://media.vw.com/en-us/releases/1454 |website=VW.com}}</ref>
+|13,113
+|91,114
+|
+|105<ref>{{Cite web|date=2016-01-01|title=Carros mais vendidos do Brasil em 2020|url=https://www.autoo.com.br/emplacamentos/veiculos-mais-vendidos/2020/|access-date=2021-01-12|website=AUTOO|language=pt-BR}}</ref>
+|-
+|2021
+|267,352
+|214,069
+|9,253
+|8,587
+|63,203
+|
+|8<ref>{{Cite web|date=2016-01-01|title=Carros mais vendidos do Brasil em 2021|url=https://www.autoo.com.br/emplacamentos/veiculos-mais-vendidos/2021/|access-date=2021-01-12|website=AUTOO|language=pt-BR}}</ref>
+|-
+|2022
+|300,090<ref name=":13">{{Cite news |title=Annual Report 2022 |url=https://annualreport2022.volkswagenag.com/divisions/volkswagen-passenger-cars.html |work=Volkswagen}}</ref>
+|177,203
+|
+|
+|87,105
+|
+|
+|-
+|2023
+|309,414<ref>{{Cite news |title=Annual Report 2023 |url=https://www.volkswagen-group.com/en/publications/more/annual-report-2023-2671 |work=Volkswagen}}</ref>
+|
+|
+|
+|51,553<ref>{{Cite web |title=【易车销量榜】全国2023年大众终端量销量榜-易车榜-易车 |url=https://car.yiche.com/newcar/salesrank/?brandId=8&saleType=2&flag=2023&page=2 |access-date=2026-02-10 |website=car.yiche.com}}</ref>
+|
+|
+|-
+|2024
+|309,000<ref>{{Cite news |title=Annual Report 2024 |url=https://www.volkswagen-group.com/en/publications/more/annual-report-2024-2931 |work=Volkswagen |date=2025-03-11}}</ref>
+|
+|
+|
+|42,807<ref>{{Cite web |title=【易车销量榜】全国2024年大众终端量销量榜-易车榜-易车 |url=https://car.yiche.com/newcar/salesrank/?brandId=8&saleType=2&flag=2024&page=2 |access-date=2026-02-10 |website=car.yiche.com}}</ref>
+|
+|
+|-
+|2025
+|
+|
+|
+|
+|29,917<ref>{{Cite web |title=【易车销量榜】全国2025年大众终端量销量榜-易车榜-易车 |url=https://car.yiche.com/newcar/salesrank/?brandId=8&saleType=2&flag=2025&page=2 |access-date=2026-02-10 |website=car.yiche.com}}</ref>
+|
+|
+|}
+
+==References==
+{{Reflist}}
+
+==External links==
+{{Commons category}}
+* [https://www.volkswagen.de/de/modelle-und-konfigurator/golf.html Official website] (Germany)
+<!--======================== {{No more links}} ============================
+ | PLEASE BE CAUTIOUS IN ADDING MORE LINKS TO THIS ARTICLE. Wikipedia  |
+ | is not a collection of links nor should it be used for advertising. |
+ | |
+ | Excessive or inappropriate links WILL BE DELETED. |
+ | See [[Wikipedia:External links]] & [[Wikipedia:Spam]] for details.  |
+ | |
+ | If there are already plentiful links, please propose additions or   |
+ | replacements on this article's discussion page, or submit your link |
+ | to the relevant category at the Open Directory Project (dmoz.org)   |
+ | and link back to that category using the {{dmoz}} template.         |
+ ======================= {{No more links}} =============================-->
+
+{{Volkswagen}}
+{{Volkswagen (Europe) timeline 1950–1979}}
+{{Volkswagen (Europe) timeline 1980 to date}}
+{{Volkswagen (North America) timeline 1950–1979}}
+{{Volkswagen (North America) timeline 1980 to date}}
+{{Volkswagen (South America) timeline 1980 to date}}
+{{Volkswagen (China) timeline 1984 to date}}
+{{Authority control}}
+
+[[Category:Cars introduced in 1974]]
+[[Category:Volkswagen vehicles|Golf]]
+[[Category:Rally cars]]
+[[Category:Compact cars]]
+[[Category:Front-wheel-drive vehicles]]
+[[Category:Slanted engines]]
+[[Category:All-wheel-drive vehicles]]
+[[Category:Hatchbacks]]
+[[Category:Station wagons]]
+[[Category:Flexible-fuel vehicles]]
+[[Category:Hybrid electric cars]]
+[[Category:ANCAP small cars]]
+[[Category:Partial zero-emissions vehicles]]
+[[Category:Cars powered by VR engines]]
+[[Category:Plug-in hybrid vehicles]]
+[[Category:1980s cars]]
+[[Category:1990s cars]]
+[[Category:2000s cars]]
+[[Category:2010s cars]]
+[[Category:2020s cars]]
+[[Category:Production electric cars]]

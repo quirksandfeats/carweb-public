@@ -1,0 +1,9 @@
+{
+  "name": "carweb-data",
+  "private": true,
+  "type": "module",
+  "description": "Build pipeline for The Car Web (layout baking)",
+  "dependencies": {
+    "d3-force": "^3.0.0"
+  }
+}

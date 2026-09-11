@@ -1,0 +1,15 @@
+harvest titles kept:   6948
+matched curated:       383
+auto models:           6364
+auto makes:            1222
+auto designers:        2144
+succession edges:      3446
+related edges:         2999
+unmatched (no make):   5
+
+---- unmatched titles ----
+1937 Ford
+1957 Chevrolet
+1957 and 1958 Packards
+212 X03
+Åtvidaberg (automobile)

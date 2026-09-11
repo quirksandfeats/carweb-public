@@ -1,0 +1,548 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Car Web — makes, models & the people who drew them</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..900,50&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header id="topbar">
+  <div class="wordmark">
+    <span class="wm-title">The Car Web</span>
+    <span class="wm-sub">makes · models · the people behind them, 1886–today</span>
+  </div>
+  <nav id="viewtabs" role="tablist">
+    <button class="tab active" data-view="graph" role="tab">Graph</button>
+    <button class="tab" data-view="timeline" role="tab">Timeline</button>
+    <button class="tab" data-view="sixdeg" role="tab">Six Degrees</button>
+  </nav>
+  <div id="layertoggle" title="people layer">
+    <button data-layer="none">None</button>
+    <button data-layer="designers" class="active">Designers</button>
+    <button data-layer="engineers">Engineers</button>
+    <button data-layer="both">Both</button>
+  </div>
+  <button id="dbfilter" title="highlight the cars I've personally tested and documented" hidden>✦ My Database</button>
+  <button id="platformsonly" title="show only cars that share a platform or are related/rebadged, plus their make and the people who worked on them">⛓ Shared Platforms</button>
+  <!-- All LLM/debug tools live under one dropdown now, in a fixed order:
+       LLM Check, LLM Debug, Match Cars, Playground, Unconfirmed
+       Relationships, + Add Car -- rather than a separate top-bar button
+       apiece. #toolsmenu-btn shows a small indicator when LLM Check is
+       currently armed, since the item's own .active state is invisible
+       once the menu is closed. The actual dropdown panel (#toolsmenu) is
+       NOT nested inside here anymore -- see the top-level div further down
+       (right after </header>) and its own comment for why. -->
+  <div id="toolsmenu-wrap">
+    <button id="toolsmenu-btn" title="LLM tools &amp; debug features">🛠 Tools <span id="toolsmenu-armed-dot" hidden>●</span></button>
+  </div>
+</header>
+
+<!-- persistent control bar: search (left) + Graph year-range slider (right),
+     sitting between the header and the legend so it's never squeezed out
+     of the topbar and is always in the same place regardless of view -->
+<div id="controlbar">
+  <div id="searchbar-fixed">
+    <input id="search" type="text" placeholder="Search a car, make or designer…" autocomplete="off" spellcheck="false">
+    <div id="searchresults" hidden></div>
+  </div>
+  <div id="yearfilter" title="show only makes/models with a production year overlapping this range">
+    <span id="yf-lo-label" class="yf-label">2000</span>
+    <div class="yf-track">
+      <div class="yf-track-base"></div>
+      <div id="yf-range-bar" class="yf-range-bar"></div>
+      <input type="range" id="yf-lo" min="1886" max="2026" value="2000" step="1">
+      <input type="range" id="yf-hi" min="1886" max="2026" value="2026" step="1">
+    </div>
+    <span id="yf-hi-label" class="yf-label">2026</span>
+  </div>
+</div>
+
+<main>
+  <!-- GRAPH -->
+  <section id="view-graph" class="view active">
+    <canvas id="graphcanvas"></canvas>
+    <div id="legend">
+      <span class="lg"><i class="sw sw-make"></i>make</span>
+      <span class="lg"><i class="sw sw-model"></i>model</span>
+      <span class="lg"><i class="sw sw-family"></i>nameplate — click to expand</span>
+      <span class="lg"><i class="sw sw-designer"></i>designer</span>
+      <span class="lg"><i class="sw sw-engineer"></i>engineer</span>
+      <span class="lg"><i class="sw sw-platform"></i>shared platform / rebadge (thicker dashes)</span>
+      <span class="lg"><i class="sw sw-related"></i>related / sister model (thinner dashes)</span>
+      <span class="lg"><i class="sw sw-succession"></i>succession</span>
+      <span class="lg"><i class="sw sw-gensucc"></i>next generation</span>
+      <span class="lg"><i class="sw sw-db"></i>in my database</span>
+      <span class="lg"><i class="sw sw-garage"></i>my garage</span>
+    </div>
+    <div id="graphhint">click&nbsp;·&nbsp;focus a neighborhood&ensp;/&ensp;double-click&nbsp;·&nbsp;widen it&ensp;/&ensp;esc&nbsp;·&nbsp;release</div>
+    <button id="clearfocus" hidden>✕ release focus</button>
+    <div id="zoomslider-wrap" title="zoom">
+      <button id="zoomslider-out" title="zoom out">–</button>
+      <input type="range" id="zoomslider" min="0" max="100" value="0" step="1" aria-label="zoom">
+      <button id="zoomslider-in" title="zoom in">+</button>
+    </div>
+  </section>
+
+  <!-- TIMELINE -->
+  <section id="view-timeline" class="view">
+    <div id="tl-controls">
+      <button id="tl-play" title="play">▶</button>
+      <div id="tl-year" class="tl-year">1880</div>
+      <div id="tl-caption">drag the year, or press play — dots are model debuts; lines are production runs</div>
+      <select id="tl-designer"><option value="">Follow…</option></select>
+    </div>
+    <div id="tl-scroll"><svg id="tlsvg"></svg></div>
+  </section>
+
+  <!-- SIX DEGREES -->
+  <section id="view-sixdeg" class="view">
+    <div id="sd-panel">
+      <h2>Six Degrees</h2>
+      <p class="sd-blurb">Pick any two — a car, a make, a designer — and trace the shortest path between them through the web.</p>
+      <div class="sd-pick"><label>From</label><input id="sd-from" placeholder="e.g. Scion FR-S" autocomplete="off"><div class="sd-results" hidden></div></div>
+      <div class="sd-pick"><label>To</label><input id="sd-to" placeholder="e.g. Marcello Gandini" autocomplete="off"><div class="sd-results" hidden></div></div>
+      <div class="sd-actions">
+        <button id="sd-go" disabled>Trace the path</button>
+        <button id="sd-random" title="random pair">Surprise me</button>
+      </div>
+      <ol id="sd-steps"></ol>
+    </div>
+    <canvas id="sdcanvas"></canvas>
+  </section>
+
+  <!-- detail panel -- lives inside <main> (not the page body) so its
+       position:absolute top offset is relative to main's own box, which
+       already starts below both the header AND the control bar. That way
+       it's always strictly below the year slider without a brittle
+       hardcoded pixel offset that has to be re-tuned whenever the header
+       or control bar's height changes. -->
+  <aside id="detail" hidden>
+    <button id="detail-close">✕</button>
+    <div class="dt-kicker"></div>
+    <h2 class="dt-title"></h2>
+    <div class="dt-imgwrap"></div>
+    <div class="dt-meta"></div>
+    <div class="dt-db"></div>
+    <div class="dt-extract"></div>
+    <div class="dt-generations"></div>
+    <div class="dt-llmcheck"></div>
+    <div class="dt-relations"></div>
+    <div class="dt-connections"></div>
+    <!-- Real user request: "I want that the buttons for 'change link' and
+         'find it' to be at the very bottom of an information card, hidden by
+         a compacted dropdown button, since I don't want the user to have it
+         be as accessible as it currently is, to prevent misclicks or
+         mistakes." Its own container at the end of the card rather than
+         staying inside .dt-llmcheck, which sits above the relations and
+         connections lists. See app.js's renderWpLinkRow. -->
+    <div class="dt-wplink"></div>
+  </aside>
+</main>
+
+<!-- Real user report: "the tools bar is appearing behind the main window."
+     #topbar sets overflow-y:hidden so it can scroll horizontally without
+     also picking up an unwanted vertical scrollbar -- but that clips ANY
+     descendant that visually extends past the header's own box, no matter
+     its z-index or position. Rather than lean entirely on the "position:
+     fixed escapes ancestor overflow" behavior (which does hold in every
+     mainstream browser, but is an easy thing to get subtly wrong), this
+     panel is a top-level sibling of <header>/<main> instead of living
+     inside #toolsmenu-wrap -- the exact same place #llmdebug/#llmplayground/
+     #unconfirmedrel/#addcar already successfully live (just below), which
+     never had this problem. app.js's initToolsMenu() positions it in
+     viewport coordinates from #toolsmenu-btn's own bounding rect each time
+     it opens. (Placed here, after </main>, rather than directly after
+     </header>, so it doesn't sit between the header and #controlbar --
+     #controlbar's own CSS/tests assume it comes immediately after the
+     header in DOM order.) -->
+<div id="toolsmenu" role="menu" hidden>
+  <button id="llmcheck" class="toolsmenu-item" role="menuitem" title="when you open a car, ask a local LLM whether its Wikipedia article hides multiple generations DBpedia didn't split out" hidden>🤖 LLM Check</button>
+  <button id="llmdebugbtn" class="toolsmenu-item" role="menuitem" title="reset the LLM generation-check layer (clear everything, or one car at a time)" hidden>🧹 LLM Debug</button>
+  <a id="dbmatchbtn" class="toolsmenu-item" role="menuitem" href="db_match.html" title="review Car Database folders that need manual matching, or unmatch/re-match/archive existing ones" hidden>🗂 Match Cars</a>
+  <button id="llmplaygroundbtn" class="toolsmenu-item" role="menuitem" title="see the exact prompt sent to the local LLM, and try a response by hand" hidden>🧪 Playground</button>
+  <button id="unconfirmedrelbtn" class="toolsmenu-item" role="menuitem" title="browse every discovered relationship you haven't confirmed or rejected yet" hidden>🔗 Unconfirmed Relationships</button>
+  <button id="addcarbtn" class="toolsmenu-item" role="menuitem" title="add a specific make/model to the graph by hand" hidden>➕ Add Car</button>
+  <!-- Real user request: "in the 'Tools' Section there should also be a
+       'Modify Existing Car' button which lets the user modify the wikipedia
+       link or ask for a particular request with the LLM, like potentially
+       merging multiple models together into one nameplate if it has not been
+       previously caught." Add Car's counterpart, for a car that's already
+       here -- see app.js's initModifyCarPanel. -->
+  <button id="modifycarbtn" class="toolsmenu-item" role="menuitem" title="fix an existing car's Wikipedia link, rename it, merge several models into one nameplate, or ask the LLM about it" hidden>✏️ Modify Existing Car</button>
+  <!-- Real user request: "I want to also be able to delete makes (and models,
+       nameplates, or generations, or designers/engineers) within the 'tools'
+       tab underneath the 'modify existing cars' button. This should be
+       universally deletable, meaning that even if the data comes directly
+       from dbpedia or my database, it should also be deletable, however
+       should be stored somewhere that 'hard data' (not LLM data) has been
+       deleted, and therefore should also be recoverable." Sits directly
+       below Modify Existing Car, as asked. See app.js's initDeletePanel. -->
+  <button id="deletebtn" class="toolsmenu-item" role="menuitem" title="delete any make, car, nameplate, generation or designer/engineer — including harvested data — and restore it later">🗑 Delete / Restore</button>
+</div>
+
+<!-- shared hover card -->
+<div id="hovercard" hidden>
+  <div class="hc-imgwrap"><div class="hc-img"></div><div class="hc-monogram"></div></div>
+  <div class="hc-body">
+    <div class="hc-kicker"></div>
+    <div class="hc-title"></div>
+    <div class="hc-meta"></div>
+    <div class="hc-note"></div>
+    <div class="hc-db"></div>
+  </div>
+</div>
+
+<!-- LLM generation-check debug panel: reset the whole layer, or one car at a time -->
+<div id="llmdebug" hidden>
+  <div class="llmdebug-head">
+    <h3>🧹 LLM Debug</h3>
+    <button id="llmdebug-close">✕</button>
+  </div>
+  <p class="llmdebug-note"></p>
+  <div class="llmdebug-section">
+    <button id="llmdebug-clearall" class="llm-btn">Clear ALL checked cars</button>
+  </div>
+  <div class="llmdebug-section">
+    <button id="llmdebug-clearpositive" class="llm-btn" title="Dismiss every successful match/applied-correction message currently showing, without deleting the underlying data or touching errors/no-match results">Clear all positive messages</button>
+  </div>
+  <div class="llmdebug-section">
+    <label for="llmdebug-select">Delete one at a time</label>
+    <div class="llmdebug-row">
+      <select id="llmdebug-select"></select>
+      <button id="llmdebug-deleteone" class="llm-btn">Delete</button>
+    </div>
+  </div>
+  <!-- Real user request: "I also want that the program lets me configure how
+       many hops to do, similar to how there's a setting for picking the number
+       of hops for the LLM to perform for the models." serve.py's
+       TRANSITIVE_MAX_HOPS is the default; this overrides it and is saved with
+       everything else, so it survives a reload without a server restart. -->
+  <div class="llmdebug-section" id="transitive-section">
+    <label for="transitive-hops">Suggested connections — how many steps to follow</label>
+    <p class="llmdebug-note">If this car is related to another, and that one is related to a third, the third is probably related to this one too. Generations are respected: a link to a whole nameplate never chains through a link to one specific generation of it.<br>
+    Suggestions are always shown for you to accept or dismiss — nothing is added on its own.</p>
+    <div class="llmdebug-row">
+      <select id="transitive-hops">
+        <option value="0">Off</option>
+        <option value="1">1 step — A → B → C</option>
+        <option value="2">2 steps — A → B → C → D</option>
+        <option value="3">3 steps</option>
+      </select>
+      <span id="transitive-hops-note" class="llmdebug-note"></span>
+    </div>
+  </div>
+</div>
+
+<!-- LLM prompt/response playground: see the exact prompt a real check would
+     send, and try a response by hand -- for verifying/debugging what the
+     model is actually being given and producing, without needing this
+     session's own agent to reach the local llama-server instance directly. -->
+<div id="llmplayground" hidden>
+  <div class="llmdebug-head">
+    <h3>🧪 Playground</h3>
+    <button id="llmpg-close">✕</button>
+  </div>
+  <p class="llmpg-note">Build the exact prompt a real check would send, paste in a response from your own local LLM, and preview (or apply) the result -- nothing here calls llama.cpp for you unless you click "Run it here".</p>
+  <div class="llmpg-modes" role="tablist">
+    <button class="llmpg-mode active" data-mode="node">Check one car's generations</button>
+    <button class="llmpg-mode" data-mode="relation">Check a relation between two cars</button>
+  </div>
+
+  <div class="llmpg-section" data-for="node">
+    <label for="llmpg-node-pick">Car</label>
+    <div class="llmpg-pick"><input id="llmpg-node-pick" placeholder="e.g. Mercedes-Benz SL-Class" autocomplete="off"><div class="llmpg-results" hidden></div></div>
+  </div>
+  <div class="llmpg-section" data-for="relation" hidden>
+    <label for="llmpg-rel-a">Car A</label>
+    <div class="llmpg-pick"><input id="llmpg-rel-a" placeholder="e.g. Mercedes-Benz A-Class" autocomplete="off"><div class="llmpg-results" hidden></div></div>
+    <label for="llmpg-rel-b">Car B</label>
+    <div class="llmpg-pick"><input id="llmpg-rel-b" placeholder="e.g. Infiniti Q30" autocomplete="off"><div class="llmpg-results" hidden></div></div>
+    <label for="llmpg-rel-type">Relationship type</label>
+    <select id="llmpg-rel-type">
+      <option value="platform">platform</option>
+      <option value="related" selected>related</option>
+      <option value="succession">succession</option>
+    </select>
+  </div>
+
+  <div class="llmdebug-section">
+    <button id="llmpg-build" class="llm-btn">Build prompt</button>
+    <button id="llmpg-run" class="llm-btn" title="calls this session's own llama-server, if reachable -- same as the real app would">Run it here</button>
+  </div>
+  <div class="llmpg-section">
+    <label>System prompt</label>
+    <textarea id="llmpg-system" class="llmpg-textarea" readonly rows="4"></textarea>
+    <label>User prompt (this is what actually varies per car -- copy this into your own local LLM chat alongside the system prompt above)</label>
+    <textarea id="llmpg-user" class="llmpg-textarea" readonly rows="8"></textarea>
+  </div>
+  <div class="llmpg-section">
+    <label for="llmpg-response">Paste the LLM's raw JSON response here</label>
+    <textarea id="llmpg-response" class="llmpg-textarea" rows="6" placeholder='{"hasMultipleGenerations": true, "generations": [...]}'></textarea>
+  </div>
+  <div class="llmdebug-section">
+    <button id="llmpg-preview" class="llm-btn">Preview parsed result</button>
+    <button id="llmpg-apply" class="llm-btn" title="writes this into the review layer, exactly like a real check would -- still needs a Yes/No on the car's own detail panel">Apply</button>
+  </div>
+  <div id="llmpg-output"></div>
+</div>
+
+<!-- Unconfirmed Relationships browser: every relation-check the LLM found
+     confident enough to propose but that wasn't auto-approved -- it still
+     needs an explicit yes/no from you (see llm_families.js's store.relations,
+     status "provisional"). Clicking a row flies the graph to both cars. -->
+<div id="unconfirmedrel" hidden>
+  <div class="llmdebug-head">
+    <h3>🔗 Unconfirmed Relationships</h3>
+    <button id="unconfirmedrel-close">✕</button>
+  </div>
+  <p class="llmdebug-note"></p>
+  <div id="unconfirmedrel-list"></div>
+</div>
+
+<!-- Add Car: manually add a specific make/model to the graph by hand, then
+     run it through the exact same Wikipedia-then-LLM discovery flow as any
+     other car (nameplate vs plain model, generations, designers/engineers,
+     shared platforms) -- see app.js's initAddCarPanel. -->
+<div id="addcar" hidden>
+  <div class="llmdebug-head">
+    <h3>➕ Add Car</h3>
+    <button id="addcar-close">✕</button>
+  </div>
+  <p class="llmdebug-note">Type a make and model to add to the graph. It'll try to find the Wikipedia article on its own; if it can't, it'll ask you for a link.</p>
+  <div class="llmdebug-section">
+    <label for="addcar-make">Make</label>
+    <div class="llmpg-pick"><input id="addcar-make" type="text" placeholder="e.g. Mazda" autocomplete="off"></div>
+  </div>
+  <div class="llmdebug-section">
+    <label for="addcar-model">Model</label>
+    <div class="llmpg-pick"><input id="addcar-model" type="text" placeholder="e.g. Familia" autocomplete="off"></div>
+  </div>
+  <div class="llmdebug-section">
+    <button id="addcar-submit" class="llm-btn">Find &amp; add</button>
+  </div>
+  <div id="addcar-status" class="llmdebug-note"></div>
+  <div id="addcar-url-section" class="llmdebug-section" hidden>
+    <label for="addcar-url">Wikipedia link</label>
+    <div class="llmdebug-row">
+      <div class="llmpg-pick" style="flex:1"><input id="addcar-url" type="text" placeholder="https://en.wikipedia.org/wiki/..." autocomplete="off"></div>
+      <button id="addcar-use-url" class="llm-btn">Use this link</button>
+    </div>
+  </div>
+</div>
+
+<!-- Modify Existing Car -- the counterpart to Add Car above, for a car that
+     is already in the graph. Three things it can do, all of which previously
+     had no home anywhere in the UI: correct a wrong/missing Wikipedia link
+     and re-check against it, merge several standalone models into one
+     nameplate that neither build_family_layer.py's pattern matching nor the
+     LLM split ever caught, and ask the local model a free-text question
+     about the car (whose only structural power is to SUGGEST a merge, always
+     for confirmation -- see llm_families.js's askModifyCar). -->
+<div id="modifycar" hidden>
+  <div class="llmdebug-head">
+    <h3>✏️ Modify Existing Car</h3>
+    <button id="modifycar-close">✕</button>
+  </div>
+  <p class="llmdebug-note">Pick a car that's already in the graph, then fix its Wikipedia link, merge other models into it as generations, or just ask the local LLM about it.</p>
+  <div class="llmdebug-section">
+    <label for="modifycar-pick">Car</label>
+    <div class="llmpg-pick">
+      <input id="modifycar-pick" type="text" placeholder="search for a make + model…" autocomplete="off">
+      <div class="llmpg-results sr-list" hidden></div>
+    </div>
+  </div>
+  <div id="modifycar-current" class="llmdebug-note"></div>
+  <!-- Real user request: "within 'Modify existing cars', I should also be
+       able to change the name of the make, model, nameplate,
+       engineer/designer, etc..." Applies to any node type, unlike the
+       Wikipedia-link and merge sections below it, which are car-only. -->
+  <div class="llmdebug-section" id="modifycar-rename-section" hidden>
+    <label for="modifycar-name">Name</label>
+    <div class="llmdebug-row">
+      <div class="llmpg-pick" style="flex:1"><input id="modifycar-name" type="text" placeholder="new name…" autocomplete="off"></div>
+      <button id="modifycar-rename" class="llm-btn">Rename</button>
+    </div>
+    <div id="modifycar-rename-note" class="llmdebug-note"></div>
+  </div>
+  <div class="llmdebug-section" id="modifycar-wp-section" hidden>
+    <label for="modifycar-url">Wikipedia link</label>
+    <div class="llmdebug-row">
+      <div class="llmpg-pick" style="flex:1"><input id="modifycar-url" type="text" placeholder="https://en.wikipedia.org/wiki/..." autocomplete="off"></div>
+      <button id="modifycar-use-url" class="llm-btn">Use &amp; re-check</button>
+    </div>
+    <!-- Shown only when a merge found two different articles both claiming to
+         BE this nameplate and deliberately didn't guess between them. See
+         llm_families.js's applyOneMerge/wpConflict. -->
+    <div id="modifycar-wpconflict" hidden></div>
+  </div>
+  <div class="llmdebug-section" id="modifycar-ask-section" hidden>
+    <label for="modifycar-request">Ask the LLM about this car</label>
+    <div class="llmpg-pick"><input id="modifycar-request" type="text" placeholder="e.g. should the Crown Majesta be merged into the Crown nameplate?" autocomplete="off"></div>
+    <div class="llmdebug-row">
+      <button id="modifycar-ask" class="llm-btn">Ask</button>
+    </div>
+  </div>
+  <div id="modifycar-answer" class="llmdebug-note"></div>
+  <div class="llmdebug-section" id="modifycar-merge-section" hidden>
+    <label>Merge other models into this one as generations</label>
+    <div id="modifycar-merge-list"></div>
+    <div class="llmdebug-row">
+      <button id="modifycar-merge" class="llm-btn">Merge selected</button>
+    </div>
+  </div>
+  <!-- Real user request: "I also want an 'unmerge' option just like how there
+       is a 'merge' option in the 'modify existing car' section, if the car
+       that I selected is a nameplate. This would unmerge all of the
+       generations of the car from the existing 'nameplate' of the car."
+       Shown only for a nameplate, which is why it has its own section rather
+       than a button inside the merge one above. See llm_families.js's
+       unmergeNameplate. -->
+  <div class="llmdebug-section" id="modifycar-unmerge-section" hidden>
+    <label>Unmerge this nameplate</label>
+    <p class="llmdebug-note" id="modifycar-unmerge-note"></p>
+    <div class="llmdebug-row">
+      <button id="modifycar-unmerge" class="llm-btn">Unmerge…</button>
+      <button id="modifycar-unmerge-confirm" class="llm-btn dp-delete-btn" hidden>Yes, unmerge</button>
+      <button id="modifycar-unmerge-cancel" class="llm-btn" hidden>Cancel</button>
+    </div>
+  </div>
+  <div id="modifycar-status" class="llmdebug-note"></div>
+</div>
+
+<!-- Delete / Restore. Deliberately its own panel rather than another section
+     of Modify Existing Car: it's the only feature in the app that takes
+     something AWAY from the build-time snapshot, it applies to people and
+     makes as well as cars, and the restore list needs room of its own. See
+     llm_families.js's deleteNode for why "delete" here is a recorded hide
+     rather than an erase (which is exactly what makes it recoverable). -->
+<div id="deletepanel" hidden>
+  <div class="llmdebug-head">
+    <h3>🗑 Delete / Restore</h3>
+    <button id="deletepanel-close">✕</button>
+  </div>
+  <p class="llmdebug-note">Delete anything in the graph — a make, a car, a nameplate, a single generation, or a designer/engineer. Harvested (DBpedia / My Database) data can be deleted too; it's recorded separately below and can always be restored, because nothing is ever erased from the underlying data files.</p>
+  <div class="llmdebug-section">
+    <label for="deletepanel-pick">What to delete</label>
+    <div class="llmpg-pick">
+      <input id="deletepanel-pick" type="text" placeholder="search for a make, car or person…" autocomplete="off">
+      <div class="llmpg-results sr-list" hidden></div>
+    </div>
+  </div>
+  <div id="deletepanel-preview" class="llmdebug-note"></div>
+  <div class="llmdebug-section" id="deletepanel-confirm-section" hidden>
+    <label for="deletepanel-reason">Reason (optional, kept with the record)</label>
+    <div class="llmpg-pick"><input id="deletepanel-reason" type="text" placeholder="e.g. duplicate of another entry" autocomplete="off"></div>
+    <div class="llmdebug-row">
+      <button id="deletepanel-delete" class="llm-btn dp-delete-btn">Delete</button>
+    </div>
+  </div>
+  <div id="deletepanel-status" class="llmdebug-note"></div>
+  <!-- Real user request: "any car that was added newly (for example through
+       me manually adding it or from it being added due to the car being added
+       from another wikipedia page that discovered a particular car), it
+       should also be fully deletable in an easy way... there should be a
+       single button to delete all newly created makes and models, like a
+       resetting of the newly added cars memory... (and a dropdown where the
+       user can select a particular make and model)". Deliberately separate
+       from the search box above: these are exactly the cars that AREN'T in
+       the build-time snapshot, and the whole point is being able to see and
+       clear the lot without knowing their names. See llm_families.js's
+       newlyAddedNodes / deleteNewCars. -->
+  <div class="llmdebug-section" id="newcars-section">
+    <label for="newcars-pick">Newly added cars</label>
+    <p class="llmdebug-note">Cars and makes that weren't in the build-time snapshot — added by hand through Add Car, or created by the LLM when another car's article named one the graph didn't have yet.</p>
+    <div class="llmdebug-row">
+      <select id="newcars-pick" class="dp-select"></select>
+      <button id="newcars-delete-one" class="llm-btn">Delete this one</button>
+    </div>
+    <div class="llmdebug-row">
+      <button id="newcars-delete-all" class="llm-btn dp-delete-btn">Delete all newly added cars…</button>
+      <button id="newcars-confirm-all" class="llm-btn dp-delete-btn" hidden>Yes, delete them all</button>
+      <button id="newcars-cancel-all" class="llm-btn" hidden>Cancel</button>
+    </div>
+    <div id="newcars-status" class="llmdebug-note"></div>
+  </div>
+  <div class="llmdebug-section">
+    <label>Deleted so far</label>
+    <p class="llmdebug-note">↺ Restore puts something back. ✕ Clear removes it for good — the record disappears from this list and every trace of the car is wiped from the LLM data file, so it can never be restored or rediscovered.</p>
+    <div id="deletepanel-list"></div>
+  </div>
+  <!-- Real user request: "a button which reloads the entire data.js file from
+       scratch, which would then show the snapshot being from today's date".
+       Distinct from the live DBpedia refresh in the footer: that one patches
+       newly-found cars into the graph in your browser and leaves data.js
+       alone, which is exactly why its "built" date never moved. This re-runs
+       the real harvest and re-bakes the file. See serve.py's /api/rebuild. -->
+  <div class="llmdebug-section" id="rebuild-section">
+    <label>Rebuild all data from scratch</label>
+    <p class="llmdebug-note">Re-harvests everything from DBpedia and Wikipedia and rebuilds <code>data.js</code>, so the snapshot is dated today instead of whenever it was last built. Takes a few minutes and needs an internet connection.<br>
+    Your deletions, the local LLM's findings and your My&nbsp;Database review decisions are all kept — they live in separate files this doesn't touch.</p>
+    <div class="llmdebug-row">
+      <label class="dp-inline-label"><input type="checkbox" id="rebuild-skipharvest"> Skip the download step (faster; reuses the last harvest)</label>
+    </div>
+    <div class="llmdebug-row">
+      <button id="rebuild-start" class="llm-btn">Rebuild data.js…</button>
+      <button id="rebuild-confirm" class="llm-btn dp-delete-btn" hidden>Yes, rebuild now</button>
+      <button id="rebuild-cancel" class="llm-btn" hidden>Cancel</button>
+    </div>
+    <div id="rebuild-status" class="llmdebug-note"></div>
+  </div>
+</div>
+
+<footer id="colophon">
+  <span>Data: <a href="https://www.dbpedia.org" target="_blank" rel="noopener">DBpedia</a> + <a href="https://en.wikipedia.org" target="_blank" rel="noopener">Wikipedia</a> (CC BY-SA), engineers layer hand-verified · images fetched live from Wikimedia Commons · built with D3</span>
+  <span id="datastatus" title="live data status"></span>
+  <span id="counts"></span>
+</footer>
+
+<div id="livetoast" hidden>
+  <span id="livetoast-msg"></span>
+  <button id="livetoast-apply">Apply</button>
+  <button id="livetoast-dismiss">✕</button>
+</div>
+
+<script src="d3.min.js"></script>
+<script src="data.js"></script>
+<script src="llm_families_data.js"></script>
+<script>
+  // Synchronously seed window.LLM_FAMILIES (deliberately blocking — this is
+  // a same-machine request to serve.py, sub-millisecond) so it's ready
+  // before app.js builds its node/link indexes below. If serve.py's
+  // /api/llm-families route is reachable, that's the live, writable source
+  // of truth. Otherwise (still on file://, or a plain `python3 -m
+  // http.server` with no /api routes) fall back to llm_families_data.js —
+  // the `<script>`-loadable mirror serve.py regenerates on every write —
+  // loaded just above, so a plain double-clicked index.html shows the exact
+  // same confirmed generations as the live session that produced them. Only
+  // the live XHR path can check new cars or record new decisions; the
+  // static fallback is read-only (serverAvailable stays false), which is
+  // exactly what gates the interactive controls in llm_families.js.
+  (function () {
+    try {
+      var xhr = new XMLHttpRequest();
+      xhr.open("GET", "/api/llm-families", false);
+      xhr.send(null);
+      if (xhr.status === 200) {
+        var data = JSON.parse(xhr.responseText);
+        data.__serverAvailable = true;
+        window.LLM_FAMILIES = data;
+        return;
+      }
+    } catch (e) { /* file://, or no serve.py — fall through to the static mirror */ }
+    window.LLM_FAMILIES = Object.assign(
+      { families: {} }, window.LLM_FAMILIES_STATIC, { __serverAvailable: false }
+    );
+  })();
+</script>
+<script src="llm_families.js"></script>
+<script src="data_live.js"></script>
+<script src="app.js"></script>
+<script src="timeline.js"></script>
+<script src="sixdeg.js"></script>
+<script>CarWeb.boot();</script>
+</body>
+</html>
