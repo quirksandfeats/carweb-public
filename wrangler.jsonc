@@ -1,0 +1,14 @@
+{
+  // Static-asset deploy for Cloudflare Workers. There is no Worker script:
+  // the whole site is the contents of app/, served as-is, which is the same
+  // thing that happens when you double-click app/index.html locally.
+  //
+  // The build has no steps. cars.json/data.js are committed with the layout
+  // already baked, so there is nothing to compile, bundle or generate at
+  // deploy time — Cloudflare just uploads app/ and serves it.
+  "name": "carweb-public",
+  "compatibility_date": "2026-09-11",
+  "assets": {
+    "directory": "./app"
+  }
+}
