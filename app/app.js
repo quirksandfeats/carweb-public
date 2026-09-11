@@ -5158,6 +5158,32 @@ window.CarWeb = (function () {
       initDeletePanel();
       initRebuildPanel();
       initTransitiveSetting();
+
+      // Every panel under Tools writes through serve.py's JSON API, so with no
+      // server reachable -- a plain file:// open, or a deployed static build --
+      // they can only ever report that nothing can be saved. LLM Check and Add
+      // Car already gated themselves on serverAvailable; these five did not, so
+      // a visitor to the public site was offered a menu of controls that all
+      // dead-end. initToolsMenu() below drops the whole Tools button once every
+      // item inside it is hidden, so gating them here removes the menu itself.
+      if (!(window.LlmFamilies && window.LlmFamilies.serverAvailable)) {
+        for (const id of ["llmdebugbtn", "llmplaygroundbtn", "unconfirmedrelbtn",
+                          "modifycarbtn", "deletebtn"]) {
+          const el = document.getElementById(id);
+          if (el) el.hidden = true;
+        }
+      }
+
+      // The legend listed the "My Database" ring and the "my garage" marker
+      // unconditionally, but both are written by build_db_layer.py, which a
+      // public build never runs -- so the legend described two colours nothing
+      // on screen actually used. Driven by the data rather than hardcoded, so a
+      // private build carrying those flags still shows both rows.
+      const lgDb = document.getElementById("lg-db");
+      const lgGarage = document.getElementById("lg-garage");
+      if (lgDb) lgDb.hidden = !nodes.some((n) => n.db);
+      if (lgGarage) lgGarage.hidden = !nodes.some((n) => n.garage);
+
       initToolsMenu();
       if (window.CarWebLive) CarWebLive.start();
     },
