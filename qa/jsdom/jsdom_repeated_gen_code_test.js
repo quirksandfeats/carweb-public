@@ -118,7 +118,7 @@ function freshWindow(withApp, seedData, seedStore) {
   if (seedData) seedData(window.CARDATA);
   window.LLM_FAMILIES = Object.assign({ families: {}, relations: {}, __serverAvailable: true }, seedStore || {});
   load("llm_families.js");
-  if (withApp) { load("app.js"); load("timeline.js"); load("sixdeg.js"); load("platforms.js"); }
+  if (withApp) { load("app.js"); load("timeline.js"); load("sixdeg.js"); }
   return window;
 }
 

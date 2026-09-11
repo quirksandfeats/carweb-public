@@ -55,7 +55,6 @@ function freshWindow(seed, llmSeed) {
   load("app.js");
   load("timeline.js");
   load("sixdeg.js");
-  load("platforms.js");
   window.CarWeb.boot();
   window.CarWeb.setYearRange(1900, window.CarWeb.yearRange().max);
   return window;

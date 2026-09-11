@@ -59,7 +59,6 @@ function freshWindow({ fetchImpl, seed } = {}) {
   loadScript("app.js");
   loadScript("timeline.js");
   loadScript("sixdeg.js");
-  loadScript("platforms.js");
   return window;
 }
 
@@ -170,7 +169,6 @@ function scenario2_provisionalAutoApplies() {
   loadScript("app.js");
   loadScript("timeline.js");
   loadScript("sixdeg.js");
-  loadScript("platforms.js");
   const cw = window.CarWeb;
   cw.boot();
   cw.setLlmCheck(true);
@@ -222,7 +220,6 @@ function scenario3_familyRecheckDebugAndAppliedClose() {
     loadScript("app.js");
     loadScript("timeline.js");
     loadScript("sixdeg.js");
-  loadScript("platforms.js");
     const cw = window.CarWeb;
     cw.boot();
     cw.setLlmCheck(true);
@@ -249,7 +246,6 @@ function scenario3_familyRecheckDebugAndAppliedClose() {
     loadScript("app.js");
     loadScript("timeline.js");
     loadScript("sixdeg.js");
-  loadScript("platforms.js");
     const cw = window.CarWeb;
     cw.boot();
     cw.setLlmCheck(true);
@@ -439,7 +435,6 @@ function scenario5_clearAllPositiveMessages() {
   loadScript("app.js");
   loadScript("timeline.js");
   loadScript("sixdeg.js");
-  loadScript("platforms.js");
   const cw = window.CarWeb;
   cw.boot();
   cw.setLlmCheck(true);

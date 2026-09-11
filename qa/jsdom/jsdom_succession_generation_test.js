@@ -64,7 +64,6 @@ function freshWindow(seed, llmSeed) {
   load("app.js");
   load("timeline.js");
   load("sixdeg.js");
-  load("platforms.js");
   return window;
 }
 

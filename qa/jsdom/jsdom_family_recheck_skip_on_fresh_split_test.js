@@ -103,7 +103,6 @@ loadScript("llm_families.js");
 loadScript("app.js");
 loadScript("timeline.js");
 loadScript("sixdeg.js");
-loadScript("platforms.js");
 
 let fails = 0;
 function check(name, cond, extra) {
@@ -207,7 +206,6 @@ loadScript2("llm_families.js");
 loadScript2("app.js");
 loadScript2("timeline.js");
 loadScript2("sixdeg.js");
-loadScript2("platforms.js");
 
 window2.CarWeb.boot(); // applyConfirmed runs here, at boot, no interaction at all
 window2.CarWeb.setLlmCheck(true);

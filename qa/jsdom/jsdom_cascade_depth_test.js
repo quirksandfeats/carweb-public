@@ -108,7 +108,6 @@ function run(cascadeMaxDepth) {
   load("app.js");
   load("timeline.js");
   load("sixdeg.js");
-  load("platforms.js");
   const cw = window.CarWeb;
   cw.boot();
   cw.setYearRange(1900, cw.yearRange().max);

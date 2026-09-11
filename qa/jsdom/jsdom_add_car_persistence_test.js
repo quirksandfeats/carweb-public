@@ -89,7 +89,6 @@ loadScript(w1, "llm_families.js");
 loadScript(w1, "app.js");
 loadScript(w1, "timeline.js");
 loadScript(w1, "sixdeg.js");
-loadScript(w1, "platforms.js");
 w1.CarWeb.boot();
 
 const btn1 = w1.document.getElementById("addcarbtn");
@@ -131,7 +130,6 @@ setTimeout(() => {
   loadScript(w2, "app.js");
   loadScript(w2, "timeline.js");
   loadScript(w2, "sixdeg.js");
-  loadScript(w2, "platforms.js");
   w2.CarWeb.boot();
 
   const cw2 = w2.CarWeb;

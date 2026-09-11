@@ -69,7 +69,6 @@ function freshWindow(opts) {
   load("app.js");
   load("timeline.js");
   load("sixdeg.js");
-  load("platforms.js");
   return window;
 }
 

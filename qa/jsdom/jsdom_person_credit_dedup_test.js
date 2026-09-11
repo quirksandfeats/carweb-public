@@ -109,7 +109,6 @@ loadScript("llm_families.js");
 loadScript("app.js");
 loadScript("timeline.js");
 loadScript("sixdeg.js");
-loadScript("platforms.js");
 
 const cw = window.CarWeb;
 cw.boot();

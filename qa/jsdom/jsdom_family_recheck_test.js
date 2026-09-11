@@ -81,7 +81,6 @@ function freshWindow(llmFamiliesSeed) {
   loadScript("app.js");
   loadScript("timeline.js");
   loadScript("sixdeg.js");
-  loadScript("platforms.js");
   return window;
 }
 

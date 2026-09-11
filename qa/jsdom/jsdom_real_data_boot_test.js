@@ -56,7 +56,6 @@ load("llm_families.js");
 load("app.js");
 load("timeline.js");
 load("sixdeg.js");
-load("platforms.js");
 
 const cw = window.CarWeb;
 let bootError = null;

@@ -124,7 +124,6 @@ async function scenarioA() {
   loadScript("app.js");
   loadScript("timeline.js");
   loadScript("sixdeg.js");
-  loadScript("platforms.js");
 
   const cw = window.CarWeb;
   cw.boot();
@@ -245,7 +244,6 @@ async function scenarioB() {
   loadScript("app.js");
   loadScript("timeline.js");
   loadScript("sixdeg.js");
-  loadScript("platforms.js");
 
   const cw = window.CarWeb;
   cw.boot();
@@ -347,7 +345,6 @@ async function scenarioC() {
   loadScript("app.js");
   loadScript("timeline.js");
   loadScript("sixdeg.js");
-  loadScript("platforms.js");
 
   const cw = window.CarWeb;
   cw.boot();

@@ -109,7 +109,6 @@ async function scenario1_backgroundLookupAndCascadeCheck() {
   loadScript("app.js");
   loadScript("timeline.js");
   loadScript("sixdeg.js");
-  loadScript("platforms.js");
 
   const cw = window.CarWeb;
   cw.boot();
@@ -177,7 +176,6 @@ async function scenario2_pasteLinkUi() {
   loadScript("app.js");
   loadScript("timeline.js");
   loadScript("sixdeg.js");
-  loadScript("platforms.js");
 
   const cw = window.CarWeb;
   cw.boot();
@@ -258,7 +256,6 @@ async function scenario3_bootReplay() {
   loadScript("app.js");
   loadScript("timeline.js");
   loadScript("sixdeg.js");
-  loadScript("platforms.js");
 
   const cw = window.CarWeb;
   cw.boot();

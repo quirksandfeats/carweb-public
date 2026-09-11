@@ -155,7 +155,6 @@ loadScript("llm_families.js");
 loadScript("app.js");
 loadScript("timeline.js");
 loadScript("sixdeg.js");
-  loadScript("platforms.js");
 
 window.CarWeb.boot();
 const cw = window.CarWeb;
@@ -207,7 +206,6 @@ console.log("\n--- deleteRecheckEntry(X3): should purge ONLY X3's two relation e
   window2.eval(fs.readFileSync(path.join(APP, "app.js"), "utf-8"));
   window2.eval(fs.readFileSync(path.join(APP, "timeline.js"), "utf-8"));
   window2.eval(fs.readFileSync(path.join(APP, "sixdeg.js"), "utf-8"));
-  window2.eval(fs.readFileSync(path.join(APP, "platforms.js"), "utf-8"));
   window2.CarWeb.boot();
   const x3_2 = window2.CarWeb.byId.get(FAM_X3_ID);
   window2.CarWeb.openDetail(x3_2);

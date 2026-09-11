@@ -68,7 +68,6 @@ loadScript("llm_families.js");
 loadScript("app.js");
 loadScript("timeline.js");
 loadScript("sixdeg.js");
-  loadScript("platforms.js");
 
 let fails = 0;
 function check(name, cond, extra) {

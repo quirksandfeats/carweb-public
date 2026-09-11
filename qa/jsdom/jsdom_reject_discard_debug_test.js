@@ -99,7 +99,6 @@ loadScript("llm_families.js");
 loadScript("app.js");
 loadScript("timeline.js");
 loadScript("sixdeg.js");
-  loadScript("platforms.js");
 
 let fails = 0;
 function check(name, cond, extra) {
@@ -242,7 +241,6 @@ async function main() {
   window2.eval(fs.readFileSync(path.join(APP, "app.js"), "utf-8"));
   window2.eval(fs.readFileSync(path.join(APP, "timeline.js"), "utf-8"));
   window2.eval(fs.readFileSync(path.join(APP, "sixdeg.js"), "utf-8"));
-  window2.eval(fs.readFileSync(path.join(APP, "platforms.js"), "utf-8"));
   window2.CarWeb.boot();
   const logan2 = window2.CarWeb.byId.get(LOGAN);
   check("a fresh boot after the debug delete sees Dacia Logan as a plain model again", logan2.type === "model", logan2.type);

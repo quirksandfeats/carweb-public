@@ -57,7 +57,6 @@ function freshWindow({ fetchImpl, seed, llmFamilies } = {}) {
   loadScript("app.js");
   loadScript("timeline.js");
   loadScript("sixdeg.js");
-  loadScript("platforms.js");
   return window;
 }
 
