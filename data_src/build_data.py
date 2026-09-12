@@ -43,6 +43,17 @@ except ImportError:  # build_db_layer.py absent from this checkout
 
 errors, warnings = [], []
 
+# The start year has always been range-checked; the END year never was, so
+# garbage sailed through: "Aichi Kokuki Cony Guppy [1961-5000]" and "Panhard
+# Dyna Junior [1952-4707]" are both real entries from the harvest. Anything
+# outside the plausible window is dropped to None, which the app already reads
+# as "no recorded end", rather than drawing a timeline bar into the year 5000.
+YEAR_CEILING = datetime.date.today().year + 2
+
+
+def plausible_end(y1, y0):
+    return y1 is not None and y0 is not None and y0 <= y1 <= YEAR_CEILING
+
 def slug(s):
     s = unicodedata.normalize("NFKD", s.lower())
     s = "".join(c for c in s if not unicodedata.combining(c))
@@ -56,9 +67,36 @@ def norm(s):
     return re.sub(r"[^a-z0-9]+", "", s.lower())
 
 # ---------------- makes ----------------
+# A harvested marque that differs from one already known only by case or
+# punctuation is the same marque, and was being registered as a second one:
+# "NIO" carried ten models while "Nio" carried a single stranded Firefly.
+# Curated spellings win, then whichever harvested spelling brings more models,
+# so the survivor is the one the rest of the data already agrees with.
+def make_key(s):
+    s = unicodedata.normalize("NFKD", s.lower())
+    s = "".join(c for c in s if not unicodedata.combining(c))
+    return re.sub(r"[^a-z0-9]", "", s)
+
+
 all_makes = dict(MAKES)
-for k, v in AUTO_MAKES.items():
-    if k not in all_makes: all_makes[k] = (v[0], v[1])
+_canon_make = {make_key(k): k for k in MAKES}          # curated wins outright
+_auto_model_count = Counter(mk for (mk, *_rest) in AUTO_MODELS)
+for k in sorted(AUTO_MAKES, key=lambda m: (-_auto_model_count[m], m)):
+    ck = make_key(k)
+    if ck not in _canon_make:
+        _canon_make[ck] = k                             # first/biggest spelling wins
+    canon = _canon_make[ck]
+    if canon not in all_makes:
+        all_makes[canon] = (AUTO_MAKES[k][0], AUTO_MAKES[k][1])
+
+
+def canon_make(name):
+    return _canon_make.get(make_key(name), name)
+
+
+_folded = sorted({k for k in AUTO_MAKES if canon_make(k) != k})
+if _folded:
+    warnings.append(f"marque spellings folded: {[(k, canon_make(k)) for k in _folded]}")
 
 # ---------------- people ----------------
 # key: norm(name) -> {label, kind, born, died, country, note, roles}
@@ -97,15 +135,20 @@ for (make, name, y0, y1, designers, wp, note) in MODELS:
     # icons no longer need to reach into the 1959+ era to be included
     if not (1880 <= y0 <= 2026): errors.append(f"odd year {y0} for {make} {name}")
     if y1 is not None and y1 < y0: errors.append(f"end<start for {make} {name}")
+    elif y1 is not None and not plausible_end(y1, y0):
+        errors.append(f"end year {y1} out of range for {make} {name}")
     w = wp or f"{make} {name}"
     models.append(dict(make=make, name=name, y0=y0, y1=y1, designers=list(designers),
                        wp=w, note=note, src="cur"))
     seen_mn.add((norm(make), norm(name))); seen_wp.add(norm(w))
 
 for (make, name, y0, y1, designers, wp, note) in AUTO_MODELS:
+    make = canon_make(make)
     if (norm(make), norm(name)) in seen_mn or norm(wp) in seen_wp: continue
     if not (1880 <= y0 <= 2026): continue
-    if y1 is not None and y1 < y0: y1 = None
+    if y1 is not None and not plausible_end(y1, y0):
+        warnings.append(f"dropped implausible end year {y1} on {make} {name} ({y0}-)")
+        y1 = None
     models.append(dict(make=make, name=name, y0=y0, y1=y1, designers=list(designers),
                        wp=wp, note=note, src="auto"))
     seen_mn.add((norm(make), norm(name))); seen_wp.add(norm(wp))

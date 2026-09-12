@@ -198,6 +198,25 @@ def known_make_prefix(title_spaced):
     rest = title_spaced[len(mk):].strip()
     return MAKE_ALIAS.get(mk, mk), rest
 
+def coinable_marque(token):
+    """Whether a leading title token may be registered as a brand-new marque.
+
+    Excludes a purely-numeric token -- a leading model year, common on pre-1959
+    titles like "1937 Cord 812", which would otherwise register a marque called
+    "1937". That guard already existed.
+
+    Also excludes any token CONTAINING a digit, which is new. Real marque names
+    effectively never do, and every one this rule had coined was a model whose
+    title happened to resist prefix-matching: "MGS5" and "MGS6" became marques
+    each owning a single model called "EV" (the cars are the MG S5 EV and S6
+    EV), alongside "ZAZ-969", "ZIS-110", "Jenhoo EV48" and "Beltoise BT01".
+    A rejected title falls through to the manufacturer field, and failing that
+    is reported as unmatched -- which is the honest outcome, and far better
+    than a bogus marque diluting a 1,130-strong make list.
+    """
+    return not any(ch.isdigit() for ch in token)
+
+
 JUNK_TITLE = re.compile(r"(List_of|Category:|Template:|_\(disambiguation\)|^Timeline|_lineup$)", re.I)
 
 def clean_designers(raw):
@@ -326,6 +345,12 @@ def manufacturer_make(rec):
         cand = deunder(re.sub(r"_\(.*?\)$", "", m))
         cand = re.sub(r"\s+(Motors?|Motor Company|Auto|Automobiles?|Automotive|Cars|Group|Corporation|Holdings?|Company|Inc\.?|Ltd\.?|AG|GmbH|S\.p\.A\.?|Co\.)$", "", cand).strip()
         if not cand or len(cand) > 28: continue
+        # Same rule as the two title-derived coining sites: never register a
+        # marque whose name carries a digit. This third path was missed and is
+        # how "Beltoise BT01" and "Jenhoo EV48" became marques -- DBpedia gives
+        # both articles a self-referential dbo:manufacturer, so the model name
+        # arrived here as the manufacturer name.
+        if cand not in ALL_MAKES and not coinable_marque(cand): continue
         if cand not in ALL_MAKES and cand not in auto_makes:
             f, ctry = makes_meta.get(m, (None, None))
             auto_makes[cand] = (ctry or "Unknown", f)
@@ -349,7 +374,7 @@ for t, rec in sorted(by_title.items()):
         # older/pre-1959 article titles like "1937 Cord 812") so a year never
         # gets mistaken for a marque name.
         w = spaced.split(" (")[0].split()
-        if w and first_words[w[0]] >= 2 and len(w) > 1 and re.match(r"^[A-Z0-9]", w[0]) and not w[0].isdigit():
+        if w and first_words[w[0]] >= 2 and len(w) > 1 and re.match(r"^[A-Z0-9]", w[0]) and coinable_marque(w[0]):
             make = w[0]
             if make not in ALL_MAKES and make not in auto_makes:
                 f, ctry = makes_meta.get(make.replace(" ", "_"), (None, None))
@@ -368,7 +393,7 @@ for t, rec in sorted(by_title.items()):
         # (again excluding a bare leading year -- better to leave it unmatched
         # for the report than register a "make" like '1937')
         w = spaced.split(" (")[0].split()
-        if w and re.match(r"^[A-Z0-9]", w[0]) and not w[0].isdigit():
+        if w and re.match(r"^[A-Z0-9]", w[0]) and coinable_marque(w[0]):
             make = w[0]
             rest = spaced[len(make):].strip() or spaced
             if make not in ALL_MAKES and make not in auto_makes:

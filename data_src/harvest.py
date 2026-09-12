@@ -23,7 +23,14 @@ def sparql(query, tries=3):
             print(f"  retry {i+1} after: {e}", file=sys.stderr)
             time.sleep(5)
 
-Q_MAIN = '''SELECT ?s ?y (MIN(?ey) AS ?e)
+# MAX, not MIN, on the production end year. A car with several
+# dbo:productionEndYear statements -- one per market, body style or engine
+# variant -- was being given the EARLIEST of them, which frequently equals its
+# start year and produced a one-year production run: Porsche 911 (930) came out
+# as 1975-1975 for a car built until 1989, Toyota Corolla (E10) as 1966-1966,
+# BMW 6 Series (E24) as 1976-1976. "When did production end" is a maximum.
+# 803 of 6,785 models carried end == year before this.
+Q_MAIN = '''SELECT ?s ?y (MAX(?ey) AS ?e)
 (GROUP_CONCAT(DISTINCT ?mf;separator="~") AS ?mm)
 (GROUP_CONCAT(DISTINCT ?dn;separator="~") AS ?dd)
 (GROUP_CONCAT(DISTINCT ?rl;separator="~") AS ?rr)
