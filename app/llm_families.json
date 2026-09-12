@@ -6468,12 +6468,371 @@
    "genIdB": "llm-m-skoda-octavia-mk1-nx",
    "reason": "proposed by overlapping production years only (a shared-platform/rebadge mention was found alongside this generation's own text, but which specific generation of the OTHER nameplate it refers to was guessed from year overlap, not stated explicitly) -- please verify before accepting",
    "llmDiscovered": true
+  },
+  "llm-m-audi-a3-mk3-fourth-generation-typ-8y|llm-related-skoda-octavia-mk4|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-12T13:19:15.134Z",
+   "decidedAt": "2026-09-12T13:19:15.134Z",
+   "famA": "m-audi-a3-mk3",
+   "famB": "llm-related-skoda-octavia-mk4",
+   "relType": "platform",
+   "codeA": "A3 Mk3 Fourth generation (Typ 8Y)",
+   "codeB": "Octavia Mk4",
+   "genIdA": "llm-m-audi-a3-mk3-fourth-generation-typ-8y",
+   "genIdB": "llm-related-skoda-octavia-mk4",
+   "reason": "matched automatically -- \"Škoda Octavia Mk4\" was named as a related car but didn't exist anywhere in the graph yet, so it was newly created from this mention (double-checked by the local LLM sanity pass against every plausible existing car -- none matched)",
+   "llmDiscovered": true
+  },
+  "llm-m-audi-tt-8n-mk1|m-saturn-ion|platform": {
+   "status": "provisional",
+   "checkedAt": "2026-09-12T13:19:15.141Z",
+   "famA": "m-audi-tt",
+   "famB": "m-saturn-ion",
+   "relType": "platform",
+   "codeA": "TT 8N (Mk1)",
+   "codeB": "Ion",
+   "genIdA": "llm-m-audi-tt-8n-mk1",
+   "genIdB": "m-saturn-ion",
+   "reason": "proposed from a loosely-matched shared-platform/rebadge mention (the matched nameplate name wasn't an exact match, just a substring overlap) -- please verify this is really the right car before accepting",
+   "llmDiscovered": true
+  },
+  "llm-m-audi-tt-8n-mk1|llm-related-seat-leon-first-generation|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-12T13:19:15.151Z",
+   "decidedAt": "2026-09-12T13:19:15.151Z",
+   "famA": "m-audi-tt",
+   "famB": "llm-related-seat-leon-first-generation",
+   "relType": "platform",
+   "codeA": "TT 8N (Mk1)",
+   "codeB": "León (First Generation)",
+   "genIdA": "llm-m-audi-tt-8n-mk1",
+   "genIdB": "llm-related-seat-leon-first-generation",
+   "reason": "matched automatically -- \"SEAT León (First Generation)\" was named as a related car but didn't exist anywhere in the graph yet, so it was newly created from this mention",
+   "llmDiscovered": true
+  },
+  "llm-m-audi-tt-8n-mk1|merge-m-skoda-octavia-mk1-self|platform": {
+   "status": "provisional",
+   "checkedAt": "2026-09-12T13:19:15.161Z",
+   "famA": "m-audi-tt",
+   "famB": "m-skoda-octavia-mk1",
+   "relType": "platform",
+   "codeA": "TT 8N (Mk1)",
+   "codeB": "Octavia Mk1",
+   "genIdA": "llm-m-audi-tt-8n-mk1",
+   "genIdB": "merge-m-skoda-octavia-mk1-self",
+   "reason": "proposed by overlapping production years only (a shared-platform/rebadge mention was found alongside this generation's own text, but which specific generation of the OTHER nameplate it refers to was guessed from year overlap, not stated explicitly) -- please verify before accepting",
+   "llmDiscovered": true
+  },
+  "llm-m-audi-tt-fv-8s-mk3|m-saturn-ion|platform": {
+   "status": "provisional",
+   "checkedAt": "2026-09-12T13:19:15.212Z",
+   "famA": "m-audi-tt",
+   "famB": "m-saturn-ion",
+   "relType": "platform",
+   "codeA": "TT FV/8S (Mk3)",
+   "codeB": "Ion",
+   "genIdA": "llm-m-audi-tt-fv-8s-mk3",
+   "genIdB": "m-saturn-ion",
+   "reason": "proposed from a loosely-matched shared-platform/rebadge mention (the matched nameplate name wasn't an exact match, just a substring overlap) -- please verify this is really the right car before accepting",
+   "llmDiscovered": true
+  },
+  "llm-m-seat-leon-mk3-kl1-kl8|llm-related-skoda-octavia-mk4|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-12T13:19:15.262Z",
+   "decidedAt": "2026-09-12T13:19:15.262Z",
+   "famA": "m-seat-leon-mk3",
+   "famB": "llm-related-skoda-octavia-mk4",
+   "relType": "platform",
+   "codeA": "León Mk3 KL1/KL8",
+   "codeB": "Octavia Mk4",
+   "genIdA": "llm-m-seat-leon-mk3-kl1-kl8",
+   "genIdB": "llm-related-skoda-octavia-mk4",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-audi-a3-mk3-third-generation-typ-8v|llm-m-skoda-octavia-mk1-5e|platform": {
+   "status": "provisional",
+   "checkedAt": "2026-09-12T13:19:15.442Z",
+   "famA": "m-skoda-octavia-mk1",
+   "famB": "m-audi-a3-mk3",
+   "relType": "platform",
+   "codeA": "Octavia Mk1 5E",
+   "codeB": "A3 Mk3 Third generation (Typ 8V)",
+   "genIdA": "llm-m-skoda-octavia-mk1-5e",
+   "genIdB": "llm-m-audi-a3-mk3-third-generation-typ-8v",
+   "reason": "proposed by overlapping production years only (a shared-platform/rebadge mention was found alongside this generation's own text, but which specific generation of the OTHER nameplate it refers to was guessed from year overlap, not stated explicitly) -- please verify before accepting",
+   "llmDiscovered": true
+  },
+  "llm-m-audi-a3-mk3-third-generation-typ-8v|llm-m-skoda-octavia-mk1-nx|platform": {
+   "status": "provisional",
+   "checkedAt": "2026-09-12T13:19:15.456Z",
+   "famA": "m-skoda-octavia-mk1",
+   "famB": "m-audi-a3-mk3",
+   "relType": "platform",
+   "codeA": "Octavia Mk1 NX",
+   "codeB": "A3 Mk3 Third generation (Typ 8V)",
+   "genIdA": "llm-m-skoda-octavia-mk1-nx",
+   "genIdB": "llm-m-audi-a3-mk3-third-generation-typ-8v",
+   "reason": "proposed by overlapping production years only (a shared-platform/rebadge mention was found alongside this generation's own text, but which specific generation of the OTHER nameplate it refers to was guessed from year overlap, not stated explicitly) -- please verify before accepting",
+   "llmDiscovered": true
+  },
+  "llm-m-seat-leon-mk3-5f|llm-m-skoda-octavia-mk1-nx|platform": {
+   "status": "provisional",
+   "checkedAt": "2026-09-12T13:19:15.461Z",
+   "famA": "m-skoda-octavia-mk1",
+   "famB": "m-seat-leon-mk3",
+   "relType": "platform",
+   "codeA": "Octavia Mk1 NX",
+   "codeB": "León Mk3 5F",
+   "genIdA": "llm-m-skoda-octavia-mk1-nx",
+   "genIdB": "llm-m-seat-leon-mk3-5f",
+   "reason": "proposed by overlapping production years only (a shared-platform/rebadge mention was found alongside this generation's own text, but which specific generation of the OTHER nameplate it refers to was guessed from year overlap, not stated explicitly) -- please verify before accepting",
+   "llmDiscovered": true
+  },
+  "m-volkswagen-karmann-ghia|m-volkswagen-type-3|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-12T13:19:15.500Z",
+   "decidedAt": "2026-09-12T13:19:15.500Z",
+   "famA": "m-volkswagen-type-3",
+   "famB": "m-volkswagen-karmann-ghia",
+   "relType": "platform",
+   "codeA": "Type 3",
+   "codeB": "Karmann Ghia",
+   "genIdA": "m-volkswagen-type-3",
+   "genIdB": "m-volkswagen-karmann-ghia",
+   "reason": "auto-approved in the background -- the local LLM sanity check confidently identified this as the same car as \"VW Karmann Ghia Type 34\" (confidence: high) -- The mention 'VW Karmann Ghia Type 34' refers to the same vehicle as the database entry 'Volkswagen Karmann Ghia (1955–1974)'. 'Type 34' is the specific internal chassis designation for the Karmann Ghia, and the name 'Karmann Ghia' is consistent between the mention and the candidate, despite minor spelling variations (Karmann vs Karmann) and the addition of the chassis type in the mention.",
+   "llmDiscovered": true,
+   "llmVerifiedDuplicate": true
+  },
+  "m-volkswagen-sp2|m-volkswagen-type-3|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-12T13:19:15.507Z",
+   "decidedAt": "2026-09-12T13:19:15.507Z",
+   "famA": "m-volkswagen-type-3",
+   "famB": "m-volkswagen-sp2",
+   "relType": "platform",
+   "codeA": "Type 3",
+   "codeB": "SP2",
+   "genIdA": "m-volkswagen-type-3",
+   "genIdB": "m-volkswagen-sp2",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "m-seat-altea|m-volkswagen-golf-mk5|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-12T13:19:15.509Z",
+   "decidedAt": "2026-09-12T13:19:15.509Z",
+   "famA": "m-seat-altea",
+   "famB": "fam-volkswagen-golf",
+   "relType": "platform",
+   "codeA": "Altea",
+   "codeB": "Golf Mk5",
+   "genIdA": "m-seat-altea",
+   "genIdB": "m-volkswagen-golf-mk5",
+   "reason": "matched automatically (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "m-seat-altea|m-volkswagen-golf-mk6|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-12T13:19:15.512Z",
+   "decidedAt": "2026-09-12T13:19:15.512Z",
+   "famA": "m-seat-altea",
+   "famB": "fam-volkswagen-golf",
+   "relType": "platform",
+   "codeA": "Altea",
+   "codeB": "Golf Mk6",
+   "genIdA": "m-seat-altea",
+   "genIdB": "m-volkswagen-golf-mk6",
+   "reason": "matched automatically (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "m-seat-altea|m-volkswagen-golf-plus|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-12T13:19:15.514Z",
+   "decidedAt": "2026-09-12T13:19:15.514Z",
+   "famA": "m-seat-altea",
+   "famB": "m-volkswagen-golf-plus",
+   "relType": "platform",
+   "codeA": "Altea",
+   "codeB": "Golf Plus",
+   "genIdA": "m-seat-altea",
+   "genIdB": "m-volkswagen-golf-plus",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "m-seat-altea|m-volkswagen-touran|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-12T13:19:15.516Z",
+   "decidedAt": "2026-09-12T13:19:15.516Z",
+   "famA": "m-seat-altea",
+   "famB": "m-volkswagen-touran",
+   "relType": "platform",
+   "codeA": "Altea",
+   "codeB": "Touran",
+   "genIdA": "m-seat-altea",
+   "genIdB": "m-volkswagen-touran",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "m-seat-altea|m-volkswagen-tiguan|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-12T13:19:15.518Z",
+   "decidedAt": "2026-09-12T13:19:15.518Z",
+   "famA": "m-seat-altea",
+   "famB": "m-volkswagen-tiguan",
+   "relType": "platform",
+   "codeA": "Altea",
+   "codeB": "Tiguan",
+   "genIdA": "m-seat-altea",
+   "genIdB": "m-volkswagen-tiguan",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-related-seat-salsa-emocion-concept|m-seat-altea|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-12T13:19:15.523Z",
+   "decidedAt": "2026-09-12T13:19:15.523Z",
+   "famA": "m-seat-altea",
+   "famB": "llm-related-seat-salsa-emocion-concept",
+   "relType": "platform",
+   "codeA": "Altea",
+   "codeB": "Salsa Emoción concept",
+   "genIdA": "m-seat-altea",
+   "genIdB": "llm-related-seat-salsa-emocion-concept",
+   "reason": "matched automatically -- \"SEAT Salsa Emoción concept\" was named as a related car but didn't exist anywhere in the graph yet, so it was newly created from this mention (double-checked by the local LLM sanity pass against every plausible existing car -- none matched)",
+   "llmDiscovered": true
+  },
+  "m-volkswagen-golf-mk5|m-volkswagen-golf-plus|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-12T13:19:15.526Z",
+   "decidedAt": "2026-09-12T13:19:15.526Z",
+   "famA": "m-volkswagen-golf-plus",
+   "famB": "fam-volkswagen-golf",
+   "relType": "platform",
+   "codeA": "Golf Plus",
+   "codeB": "Golf Mk5",
+   "genIdA": "m-volkswagen-golf-plus",
+   "genIdB": "m-volkswagen-golf-mk5",
+   "reason": "matched automatically (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "m-volkswagen-golf-mk6|m-volkswagen-golf-plus|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-12T13:19:15.528Z",
+   "decidedAt": "2026-09-12T13:19:15.528Z",
+   "famA": "m-volkswagen-golf-plus",
+   "famB": "fam-volkswagen-golf",
+   "relType": "platform",
+   "codeA": "Golf Plus",
+   "codeB": "Golf Mk6",
+   "genIdA": "m-volkswagen-golf-plus",
+   "genIdB": "m-volkswagen-golf-mk6",
+   "reason": "matched automatically (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "m-volkswagen-golf-plus|m-volkswagen-touran|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-12T13:19:15.533Z",
+   "decidedAt": "2026-09-12T13:19:15.533Z",
+   "famA": "m-volkswagen-golf-plus",
+   "famB": "m-volkswagen-touran",
+   "relType": "platform",
+   "codeA": "Golf Plus",
+   "codeB": "Touran",
+   "genIdA": "m-volkswagen-golf-plus",
+   "genIdB": "m-volkswagen-touran",
+   "reason": "auto-approved in the background -- the local LLM sanity check confidently identified this as the same car as \"Volkswagen Touran Mk1\" (confidence: high) -- The mention 'Volkswagen Touran Mk1' refers to the first generation of the Touran model. The candidate 'm-volkswagen-touran' covers the production period 2003–present, which includes the first generation (2003–2010). While the candidate label lacks the specific 'Mk1' designation, it represents the same model line and era, whereas all other candidates are distinctly different models or generations.",
+   "llmDiscovered": true,
+   "llmVerifiedDuplicate": true
+  },
+  "m-volkswagen-golf-plus|m-volkswagen-jetta-a5|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-12T13:19:15.535Z",
+   "decidedAt": "2026-09-12T13:19:15.535Z",
+   "famA": "m-volkswagen-golf-plus",
+   "famB": "m-volkswagen-jetta",
+   "relType": "platform",
+   "codeA": "Golf Plus",
+   "codeB": "Jetta (A5)",
+   "genIdA": "m-volkswagen-golf-plus",
+   "genIdB": "m-volkswagen-jetta-a5",
+   "reason": "matched automatically (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "m-volkswagen-eos|m-volkswagen-golf-plus|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-12T13:19:15.537Z",
+   "decidedAt": "2026-09-12T13:19:15.537Z",
+   "famA": "m-volkswagen-golf-plus",
+   "famB": "m-volkswagen-eos",
+   "relType": "platform",
+   "codeA": "Golf Plus",
+   "codeB": "Eos",
+   "genIdA": "m-volkswagen-golf-plus",
+   "genIdB": "m-volkswagen-eos",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-related-skoda-octavia-mk2|m-volkswagen-golf-plus|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-12T13:19:15.543Z",
+   "decidedAt": "2026-09-12T13:19:15.543Z",
+   "famA": "m-volkswagen-golf-plus",
+   "famB": "llm-related-skoda-octavia-mk2",
+   "relType": "platform",
+   "codeA": "Golf Plus",
+   "codeB": "Octavia Mk2",
+   "genIdA": "m-volkswagen-golf-plus",
+   "genIdB": "llm-related-skoda-octavia-mk2",
+   "reason": "matched automatically -- \"Škoda Octavia Mk2\" was named as a related car but didn't exist anywhere in the graph yet, so it was newly created from this mention (double-checked by the local LLM sanity pass against every plausible existing car -- none matched)",
+   "llmDiscovered": true
+  },
+  "llm-related-seat-leon-mk2|m-volkswagen-golf-plus|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-12T13:19:15.547Z",
+   "decidedAt": "2026-09-12T13:19:15.547Z",
+   "famA": "m-volkswagen-golf-plus",
+   "famB": "llm-related-seat-leon-mk2",
+   "relType": "platform",
+   "codeA": "Golf Plus",
+   "codeB": "León Mk2",
+   "genIdA": "m-volkswagen-golf-plus",
+   "genIdB": "llm-related-seat-leon-mk2",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-related-audi-a3-mk2|m-volkswagen-golf-plus|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-12T13:19:15.555Z",
+   "decidedAt": "2026-09-12T13:19:15.555Z",
+   "famA": "m-volkswagen-golf-plus",
+   "famB": "llm-related-audi-a3-mk2",
+   "relType": "platform",
+   "codeA": "Golf Plus",
+   "codeB": "A3 Mk2",
+   "genIdA": "m-volkswagen-golf-plus",
+   "genIdB": "llm-related-audi-a3-mk2",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "m-cupra-formentor|m-hyundai-eon|platform": {
+   "status": "provisional",
+   "checkedAt": "2026-09-12T13:19:15.560Z",
+   "famA": "m-cupra-formentor",
+   "famB": "m-hyundai-eon",
+   "relType": "platform",
+   "codeA": "Formentor",
+   "codeB": "Eon",
+   "genIdA": "m-cupra-formentor",
+   "genIdB": "m-hyundai-eon",
+   "reason": "proposed from a loosely-matched shared-platform/rebadge mention (the matched nameplate name wasn't an exact match, just a substring overlap) -- please verify this is really the right car before accepting",
+   "llmDiscovered": true
   }
  },
  "recheck": {
   "m-mercedes-benz-g-class": {
    "status": "none",
-   "checkedAt": "2026-09-11T13:59:48.470Z",
+   "checkedAt": "2026-09-12T13:19:14.839Z",
    "sourceTitle": "Mercedes-Benz G-Class",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -6557,7 +6916,7 @@
   },
   "m-mercedes-benz-gla": {
    "status": "none",
-   "checkedAt": "2026-09-11T13:59:48.521Z",
+   "checkedAt": "2026-09-12T13:19:14.890Z",
    "sourceTitle": "Mercedes-Benz GLA",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -6660,7 +7019,7 @@
   },
   "m-mercedes-benz-cla": {
    "status": "none",
-   "checkedAt": "2026-09-11T13:59:48.562Z",
+   "checkedAt": "2026-09-12T13:19:14.926Z",
    "sourceTitle": "Mercedes-Benz CLA",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -6942,7 +7301,7 @@
   },
   "m-toyota-celica": {
    "status": "none",
-   "checkedAt": "2026-09-11T13:59:48.617Z",
+   "checkedAt": "2026-09-12T13:19:14.976Z",
    "sourceTitle": "Toyota Celica",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -7058,7 +7417,7 @@
   },
   "m-toyota-carina": {
    "status": "none",
-   "checkedAt": "2026-09-11T13:59:48.683Z",
+   "checkedAt": "2026-09-12T13:19:15.037Z",
    "sourceTitle": "Toyota Carina",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -7186,7 +7545,7 @@
   },
   "m-lexus-sc": {
    "status": "none",
-   "checkedAt": "2026-09-11T13:59:48.688Z",
+   "checkedAt": "2026-09-12T13:19:15.042Z",
    "sourceTitle": "Lexus SC",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -7835,7 +8194,7 @@
   },
   "m-seat-toledo": {
    "status": "none",
-   "checkedAt": "2026-09-11T14:24:21.966Z",
+   "checkedAt": "2026-09-12T13:19:15.106Z",
    "sourceTitle": "SEAT Toledo",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -7966,7 +8325,7 @@
   },
   "m-daren-mk-3": {
    "status": "none",
-   "checkedAt": "2026-09-11T14:26:19.467Z",
+   "checkedAt": "2026-09-12T13:19:15.118Z",
    "sourceTitle": "Daren Mk.3",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -8041,7 +8400,7 @@
   },
   "m-audi-a3-mk3": {
    "status": "none",
-   "checkedAt": "2026-09-11T14:27:28.799Z",
+   "checkedAt": "2026-09-12T13:19:15.135Z",
    "sourceTitle": "Audi A3",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -8097,7 +8456,7 @@
   },
   "m-audi-tt": {
    "status": "none",
-   "checkedAt": "2026-09-11T14:33:21.483Z",
+   "checkedAt": "2026-09-12T13:19:15.212Z",
    "sourceTitle": "Audi TT",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -8237,7 +8596,7 @@
   },
   "m-seat-leon-mk3": {
    "status": "none",
-   "checkedAt": "2026-09-11T14:34:53.462Z",
+   "checkedAt": "2026-09-12T13:19:15.263Z",
    "sourceTitle": "SEAT León",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -9830,6 +10189,21 @@
    "label": "Honda Odyssey",
    "kind": "model",
    "purgedAt": "2026-08-31T14:48:58.105Z"
+  },
+  "m-alfa-romeo-giulia-952": {
+   "label": "Alfa Romeo Giulia (952)",
+   "kind": "model",
+   "purgedAt": "2026-09-12T13:23:05.345Z"
+  },
+  "m-ford-model-a-1927": {
+   "label": "Ford Model A (1927)",
+   "kind": "model",
+   "purgedAt": "2026-09-12T13:24:54.320Z"
+  },
+  "m-nissan-fairlady-z-240z": {
+   "label": "Nissan Fairlady Z (240Z)",
+   "kind": "model",
+   "purgedAt": "2026-09-12T13:25:52.352Z"
   }
  },
  "unmerges": {}
