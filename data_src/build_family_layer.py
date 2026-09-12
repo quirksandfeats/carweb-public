@@ -34,6 +34,26 @@ GEN_PAREN_RE = re.compile(r"\s*\([^)]*\)\s*$")
 GEN_MK_RE = re.compile(r"\s+Mk\.?\s?\d+.*$", re.I)
 CLASS_SUFFIX_RE = re.compile(r"[\s-]Class$", re.I)
 
+# A trailing parenthetical that names nothing but a market. Deliberately a
+# closed list rather than "any capitalised word": the whole point is to be sure
+# a label really is market-scoped before excluding it from a nameplate.
+MARKET_RE = re.compile(r"""^(?:
+      china | japan | korea | india | australia | australasia | new\s+zealand
+    | north\s+america | south\s+america | latin\s+america | americas | canada
+    | mexico | brazil | argentina | chile | colombia | europe | european
+    | uk | united\s+kingdom | britain | ireland | international | worldwide
+    | global | asia | south\s+africa | africa | russia | middle\s+east
+    | taiwan | thailand | indonesia | malaysia | philippines | vietnam
+    | united\s+states | usa | us
+)$""", re.I | re.X)
+
+# Anything that marks a discrete generation: an ordinal, the word "generation",
+# an Mk number, or any digit (year-disambiguated titles like "500 (2007)").
+GEN_MARKER_RE = re.compile(
+    r"\b(?:gen|generation|mk\.?\s?\d+|first|second|third|fourth|fifth|sixth|"
+    r"seventh|eighth|ninth|tenth|eleventh|twelfth|thirteenth|fourteenth|"
+    r"facelift|restyling)\b|\d", re.I)
+
 
 def norm(s):
     s = unicodedata.normalize("NFKD", s)
@@ -69,6 +89,34 @@ def declass(base):
     would wrongly start looking like a suffixed generation of something
     called "C") and would rename every unaffected "X-Class" family's label."""
     return CLASS_SUFFIX_RE.sub("", base).strip() or base
+
+
+def market_variant(label):
+    """The market a label's trailing parenthetical names, if the parenthetical
+    is ONLY a market and carries no generation marker -- otherwise None.
+
+    "Taurus (China)" is a different car built and sold for a different market,
+    not the seventh generation of the North American Taurus. DBpedia hands us a
+    succession edge saying otherwise, which is exactly how it ended up appended
+    to the end of the mainline chain. Same shape: "Escort (China)", "Falcon
+    (Australia)", "Odyssey (international)", "Ranger (Americas)", "Bora
+    (China)". Excluding them leaves each as its own model, which is what it is.
+
+    The generation-marker check is load-bearing in the other direction. A
+    parenthetical naming a market AND a generation is a real generation that
+    happens to be market-specific, and must NOT match here: Ford Focus's
+    "(second generation, North America)" and Honda Accord's "(North America
+    seventh generation)" are steps in a sequence, and dropping those would cost
+    the nameplate a generation it really has."""
+    m = re.search(r"\(([^)]*)\)\s*$", label)
+    if not m:
+        return None
+    inner = m.group(1).strip()
+    if not inner or GEN_MARKER_RE.search(inner):
+        return None
+    # "North America and China", "Japan, Europe" -> every part must be a market
+    parts = [x.strip() for x in re.split(r"\s+and\s+|,|/", inner) if x.strip()]
+    return inner if parts and all(MARKET_RE.match(x) for x in parts) else None
 
 
 # ---------------- candidate grouping ----------------
@@ -214,6 +262,19 @@ def validate_chain(members, links_by_pair):
     if no_year:
         working = [n for n in working if n.get("year") is not None]
         pruned += [(n, "missing year data, can't place it chronologically") for n in no_year]
+
+    # A market-scoped article is a different car for a different market, not a
+    # step in this nameplate's sequence -- see market_variant(). Pruned before
+    # the connectivity check rather than after, because DBpedia often DOES give
+    # it a succession edge (that edge is what put "Taurus (China)" on the end of
+    # the Taurus chain), so it would otherwise pass as connected.
+    market = [(n, market_variant(n["label"])) for n in working]
+    market = [(n, mk) for n, mk in market if mk]
+    if market:
+        drop = {n["id"] for n, _ in market}
+        working = [n for n in working if n["id"] not in drop]
+        pruned += [(n, f"market-specific variant ({mk}) rather than a generation of this "
+                       f"nameplate -- left as its own model") for n, mk in market]
 
     connected_ids = {a for a, _ in edges} | {b for _, b in edges}
     isolates = [n for n in working if n["id"] not in connected_ids]

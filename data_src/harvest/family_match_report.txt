@@ -1,7 +1,7 @@
 FAMILY GROUPING REPORT
 Generated: 2026-09-12
 
-CONFIRMED FAMILIES (104) -- clean, unbroken succession chain
+CONFIRMED FAMILIES (101) -- clean, unbroken succession chain
   Alfa Romeo 33 Stradale  (2 generations, 1967–)
       33 Stradale[1967-1969] -> 33 Stradale (2023)[2023-]
   Alpina B3  (2 generations, 2007–2019)
@@ -67,9 +67,6 @@ CONFIRMED FAMILIES (104) -- clean, unbroken succession chain
   Chevrolet Silverado  (2 generations, 1998–2013)
       Silverado (first generation)[1998-2007] -> Silverado (second generation)[2006-2013]
       EXCLUDED: Silverado [1998-] id=m-chevrolet-silverado -- chronologically overlaps other generations here with no direct succession link to its would-be neighbor 'Silverado (first generation)' -- likely a broader retrospective/umbrella article (like Porsche '911 (classic)') or a regional/parallel-market generation running outside the mainline succession chain (like a China- or NA-only generation), rather than a discrete step in this sequence
-  Chevrolet Tracker  (2 generations, 1988–)
-      Tracker (Americas)[1988-1990] -> Tracker (2019)[2019-]
-      EXCLUDED: Tracker [1988-] id=m-chevrolet-tracker -- no succession link to any other candidate generation here
   Chevrolet Volt  (2 generations, 2010–2019)
       Volt (first generation)[2010-2015] -> Volt (second generation)[2015-2019]
       EXCLUDED: Volt [2010-] id=m-chevrolet-volt -- no succession link to any other candidate generation here
@@ -96,9 +93,6 @@ CONFIRMED FAMILIES (104) -- clean, unbroken succession chain
       1100 (1937)[1937-1953] -> 1100[1953-1969]
   Fiat 500  (2 generations, 1957–)
       500 (1957)[1957-1975] -> 500 (2007)[2007-]
-  Ford Escort  (2 generations, 1980–2023)
-      Escort Mk3[1980-1986] -> Escort (China)[2015-2023]
-      EXCLUDED: Escort (North America) [1980-2003] id=m-ford-escort-north-america -- no succession link to any other candidate generation here
   Ford F-Series  (14 generations, 1947–)
       F-Series (first generation)[1947-] -> F-Series (second generation)[1952-1956] -> F-Series (third generation)[1956-1960] -> F-Series (fourth generation)[1960-1966] -> F-Series (fifth generation)[1966-1972] -> F-Series (sixth generation)[1972-1979] -> F-Series (seventh generation)[1979-1986] -> F-Series (eighth generation)[1986-1991] -> F-Series (ninth generation)[1991-1997] -> F-Series (tenth generation)[1996-] -> F-Series (eleventh generation)[2003-2008] -> F-Series (twelfth generation)[2008-2014] -> F-Series (thirteenth generation)[2014-] -> F-Series (fourteenth generation)[2020-]
   Ford Fiesta  (7 generations, 1976–2023)
@@ -112,8 +106,9 @@ CONFIRMED FAMILIES (104) -- clean, unbroken succession chain
   Ford Mustang  (7 generations, 1964–)
       Mustang (first generation)[1964-1973] -> Mustang (second generation)[1973-1978] -> Mustang (Fox)[1979-1993] -> Mustang (fourth generation)[1993-] -> Mustang (S197)[2005-2014] -> Mustang (sixth generation)[2014-2023] -> Mustang (seventh generation)[2022-]
       EXCLUDED: Mustang [1964-] id=m-ford-mustang -- no succession link to any other candidate generation here
-  Ford Taurus  (7 generations, 1985–2022)
-      Taurus (first generation)[1985-1985] -> Taurus (second generation)[1991-1991] -> Taurus (third generation)[1995-] -> Taurus (fourth generation)[1999-1999] -> Taurus (fifth generation)[2007-2009] -> Taurus (sixth generation)[2009-2019] -> Taurus (China)[2016-2022]
+  Ford Taurus  (6 generations, 1985–2019)
+      Taurus (first generation)[1985-1985] -> Taurus (second generation)[1991-1991] -> Taurus (third generation)[1995-] -> Taurus (fourth generation)[1999-1999] -> Taurus (fifth generation)[2007-2009] -> Taurus (sixth generation)[2009-2019]
+      EXCLUDED: Taurus (China) [2016-2022] id=m-ford-taurus-china -- market-specific variant (China) rather than a generation of this nameplate -- left as its own model
       EXCLUDED: Taurus [1986-] id=m-ford-taurus -- no succession link to any other candidate generation here
   Ford Thunderbird  (11 generations, 1955–2005)
       Thunderbird (first generation)[1955-1957] -> Thunderbird (second generation)[1958-1960] -> Thunderbird (third generation)[1961-] -> Thunderbird (fourth generation)[1964-1966] -> Thunderbird (fifth generation)[1967-1971] -> Thunderbird (sixth generation)[1972-1976] -> Thunderbird (seventh generation)[1977-1979] -> Thunderbird (eighth generation)[1980-1982] -> Thunderbird (ninth generation)[1983-1988] -> Thunderbird (tenth generation)[1988-1988] -> Thunderbird (eleventh generation)[2002-2005]
@@ -258,19 +253,17 @@ CONFIRMED FAMILIES (104) -- clean, unbroken succession chain
   Toyota Prius  (4 generations, 1997–2022)
       Prius (XW10)[1997-2001] -> Prius (XW20)[2003-2009] -> Prius (XW30)[2009-2015] -> Prius (XW50)[2015-2022]
       EXCLUDED: Prius [1997-] id=m-toyota-prius -- chronologically overlaps other generations here with no direct succession link to its would-be neighbor 'Prius (XW10)' -- likely a broader retrospective/umbrella article (like Porsche '911 (classic)') or a regional/parallel-market generation running outside the mainline succession chain (like a China- or NA-only generation), rather than a discrete step in this sequence
-  Volkswagen Bora  (2 generations, 1999–2006)
-      Bora (China)[1999-] -> Bora[1999-2006]
   Volkswagen Golf  (8 generations, 1974–)
       Golf Mk1[1974-1983] -> Golf Mk2[1983-1992] -> Golf Mk3[1991-1998] -> Golf Mk4[1997-2003] -> Golf Mk5[2003-2010] -> Golf Mk6[2008-2013] -> Golf Mk7[2012-2019] -> Golf Mk8[2019-]
       EXCLUDED: Golf [1974-] id=m-volkswagen-golf -- no succession link to any other candidate generation here
   Volkswagen Jetta  (5 generations, 1979–)
       Jetta (A1)[1979-1984] -> Jetta (A2)[1984-1992] -> Jetta (A5)[2005-2011] -> Jetta (A6)[2010-2019] -> Jetta (A7)[2018-]
+      EXCLUDED: Jetta (China) [1979-] id=m-volkswagen-jetta-china -- market-specific variant (China) rather than a generation of this nameplate -- left as its own model
       EXCLUDED: Jetta [1979-] id=m-volkswagen-jetta -- no succession link to any other candidate generation here
-      EXCLUDED: Jetta (China) [1979-] id=m-volkswagen-jetta-china -- chronologically overlaps other generations here with no direct succession link to its would-be neighbor 'Jetta (A1)' -- likely a broader retrospective/umbrella article (like Porsche '911 (classic)') or a regional/parallel-market generation running outside the mainline succession chain (like a China- or NA-only generation), rather than a discrete step in this sequence
   Volkswagen Passat  (8 generations, 1973–)
       Passat (B1)[1973-1980] -> Passat (B2)[1981-1981] -> Passat (B3)[1988-1993] -> Passat (B4)[1993-1993] -> Passat (B5)[1996-1996] -> Passat (B6)[2005-2011] -> Passat (B8)[2014-2022] -> Passat (B9)[2023-]
+      EXCLUDED: Passat (North America and China) [2011-] id=m-volkswagen-passat-north-america-and-china -- market-specific variant (North America and China) rather than a generation of this nameplate -- left as its own model
       EXCLUDED: Passat [1973-] id=m-volkswagen-passat -- no succession link to any other candidate generation here
-      EXCLUDED: Passat (North America and China) [2011-] id=m-volkswagen-passat-north-america-and-china -- chronologically overlaps other generations here with no direct succession link to its would-be neighbor 'Passat (B8)' -- likely a broader retrospective/umbrella article (like Porsche '911 (classic)') or a regional/parallel-market generation running outside the mainline succession chain (like a China- or NA-only generation), rather than a discrete step in this sequence
   Volkswagen Polo  (6 generations, 1975–)
       Polo Mk1[1975-1981] -> Polo Mk2[1981-1994] -> Polo Mk3[1994-2002] -> Polo Mk4[2001-2010] -> Polo Mk5[2009-2009] -> Polo Mk6[2017-]
       EXCLUDED: Polo [1975-] id=m-volkswagen-polo -- no succession link to any other candidate generation here
@@ -281,7 +274,7 @@ CONFIRMED FAMILIES (104) -- clean, unbroken succession chain
       Type 2[1950-] -> Type 2 (T3)[1979-2002]
       EXCLUDED: Type 2 (T1) [1950-1967] id=m-volkswagen-type-2-t1 -- no succession link to any other candidate generation here
 
-UNCONFIRMED (74) -- candidate group found, NOT auto-grouped, needs review
+UNCONFIRMED (77) -- candidate group found, NOT auto-grouped, needs review
   Acura Integra  (2 candidates) -- fewer than 2 chronologically-connected generations remain after pruning
       Integra [1985-] id=m-acura-integra
       Integra (2022) [2022-] id=m-acura-integra-2022
@@ -326,6 +319,10 @@ UNCONFIRMED (74) -- candidate group found, NOT auto-grouped, needs review
   Chevrolet Monza  (2 candidates) -- fewer than 2 chronologically-connected generations remain after pruning
       Monza [1975-1980] id=m-chevrolet-monza
       Monza (China) [2019-] id=m-chevrolet-monza-china
+  Chevrolet Tracker  (3 candidates) -- fewer than 2 chronologically-connected generations remain after pruning
+      Tracker (Americas) [1988-1990] id=m-chevrolet-tracker-americas
+      Tracker [1988-] id=m-chevrolet-tracker
+      Tracker (2019) [2019-] id=m-chevrolet-tracker-2019
   Citroën Ami  (2 candidates) -- fewer than 2 chronologically-connected generations remain after pruning
       Ami [1961-1978] id=m-citroen-ami
       Ami (electric vehicle) [2020-] id=m-citroen-ami-electric-vehicle
@@ -348,6 +345,10 @@ UNCONFIRMED (74) -- candidate group found, NOT auto-grouped, needs review
   Ford Capri  (2 candidates) -- fewer than 2 chronologically-connected generations remain after pruning
       Capri [1969-1986] id=m-ford-capri
       Capri (Australia) [1989-1994] id=m-ford-capri-australia
+  Ford Escort  (3 candidates) -- fewer than 2 chronologically-connected generations remain after pruning
+      Escort Mk3 [1980-1986] id=m-ford-escort-mk3
+      Escort (North America) [1980-2003] id=m-ford-escort-north-america
+      Escort (China) [2015-2023] id=m-ford-escort-china
   Ford Fairlane  (2 candidates) -- fewer than 2 chronologically-connected generations remain after pruning
       Fairlane (Americas) [1955-1970] id=m-ford-fairlane-americas
       Fairlane (Australia) [1959-2007] id=m-ford-fairlane-australia
@@ -522,6 +523,9 @@ UNCONFIRMED (74) -- candidate group found, NOT auto-grouped, needs review
   Volkswagen Beetle  (2 candidates) -- fewer than 2 chronologically-connected generations remain after pruning
       Beetle [1938-2003] id=m-volkswagen-beetle
       Beetle (A5) [2011-2019] id=m-volkswagen-beetle-a5
+  Volkswagen Bora  (2 candidates) -- fewer than 2 chronologically-connected generations remain after pruning
+      Bora (China) [1999-] id=m-volkswagen-bora-china
+      Bora [1999-2006] id=m-volkswagen-bora
   Volkswagen Vento  (2 candidates) -- fewer than 2 chronologically-connected generations remain after pruning
       Vento (A3) [1992-1999] id=m-volkswagen-vento-a3
       Vento (A05) [2010-2022] id=m-volkswagen-vento-a05
