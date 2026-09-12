@@ -593,3 +593,52 @@ NAME COLLISIONS (18) -- unrelated marques sharing a name, correctly not grouped
       (Italian automobile) [1906-] id=m-standard-italian-automobile
       (1911 automobile) [1911-] id=m-standard-1911-automobile
       (1912 automobile) [1914-1923] id=m-standard-1912-automobile
+
+UN-SPLIT NAMEPLATE CANDIDATES (19) -- suggested by credit dates
+  Not errors. A credited designer whose dates do not fit the car's span almost
+  always means the MODEL still covers several generations in one article: the
+  Chevrolet Suburban node runs 1933-present, and Wayne Cherry did design a
+  Suburban, just not the 1933 one. Both facts are true; only the pairing of a
+  nameplate-wide credit with a nameplate-wide date range is misleading.
+  Two different actions: a model with no family of that nameplate yet wants
+  SPLITTING by the LLM generation check; one that already has a family beside it
+  is the bare overview article and wants FOLDING IN, which
+  mergeDuplicateNameplates already handles at runtime.
+  Buick Century  [1936-ongoing]  id=m-buick-century  -> split into generations
+      Wayne Cherry (b. 1937) predates the car's start year
+  Buick Regal  [1973-ongoing]  id=m-buick-regal  -> split into generations
+      Mark Adams (b. 1961) predates the car's start year
+  Cadillac Series 70  [1936-1942]  id=m-cadillac-series-70  -> split into generations
+      Irv Rybicki (b. 1921) predates the car's start year
+  Cadillac de Ville series  [1949-ongoing]  id=m-cadillac-de-ville-series  -> split into generations
+      Wayne Cherry (b. 1937) predates the car's start year
+  Chevrolet Caprice  [1965-2017]  id=m-chevrolet-caprice  -> split into generations
+      Michael Simcoe (b. 1959) predates the car's start year
+  Chevrolet Malibu  [1964-ongoing]  id=m-chevrolet-malibu  -> split into generations
+      Bryan Nesbitt (b. 1969) predates the car's start year
+  Chevrolet Suburban  [1933-ongoing]  id=m-chevrolet-suburban  -> split into generations
+      Wayne Cherry (b. 1937) predates the car's start year
+  Dodge Magnum  [1978-1979]  id=m-dodge-magnum  -> split into generations
+      Ralph Gilles (b. 1970) predates the car's start year
+  Fiat Fiorino  [1977-2024]  id=m-fiat-fiorino  -> split into generations
+      Flavio Manzoni (b. 1965) predates the car's start year
+  Jaguar XJS  [1975-1996]  id=m-jaguar-xjs  -> split into generations
+      Malcolm Sayer (d. 1970) died well before it
+  Lincoln Continental  [1940-ongoing]  id=m-lincoln-continental  -> split into generations
+      Jack Telnack (b. 1937) predates the car's start year
+  Mercedes-Benz S-Class  [1972-ongoing]  id=m-mercedes-benz-s-class  -> fold into the existing nameplate
+      Gorden Wagener (b. 1968) predates the car's start year
+  Nissan Skyline  [1957-ongoing]  id=m-nissan-skyline  -> split into generations
+      Kozo Watanabe (b. 1942) predates the car's start year
+  Oldsmobile 98  [1941-1942]  id=m-oldsmobile-98  -> split into generations
+      Chuck Jordan (b. 1927) predates the car's start year
+  Oldsmobile Cutlass  [1961-1999]  id=m-oldsmobile-cutlass  -> split into generations
+      Tom Matano (b. 1947) predates the car's start year
+  Pontiac Grand Prix  [1962-ongoing]  id=m-pontiac-grand-prix  -> split into generations
+      John Manoogian II (b. 1947) predates the car's start year
+  Quantum GP700  [2016-2019]  id=m-quantum-gp700  -> split into generations
+      Jeff David (d. 2008) died well before it
+  Reliant Scimitar SS1  [1984-1990]  id=m-reliant-scimitar-ss1  -> split into generations
+      Giovanni Michelotti (d. 1980) died well before it
+  Rover 8  [1904-1912]  id=m-rover-8  -> split into generations
+      Jack Sangster (b. 1896) predates the car's start year

@@ -412,6 +412,73 @@ def build_link_pairs(links, links_type="succession"):
     return {(l["source"], l["target"]) for l in links if l["type"] == links_type}
 
 
+# ---------------- models that should probably be nameplates ----------------
+
+def split_candidates(nodes, links, confirmed=()):
+    """Models whose credited designers/engineers could not have worked on the
+    car as dated -- which is a signal that the MODEL covers several
+    generations and has not been split into a nameplate yet.
+
+    Deliberately not treated as bad data to be dropped. Chevrolet Suburban is
+    the case: the node runs 1933-present because DBpedia describes the whole
+    nameplate in one article, and Wayne Cherry really did design a Suburban,
+    just not the 1933 one. The credit is true of the nameplate and merely
+    undated, so throwing it away would lose a real fact. Malcolm Sayer and the
+    Jaguar XJS are the same shape from the other side: he died in 1970 and the
+    car launched in 1975, but he did its early styling work, so the credit is
+    correct and the dates simply do not capture how car design works.
+
+    What the mismatch DOES reliably indicate is an un-split nameplate, so these
+    are reported as candidates for the LLM generation check rather than as
+    errors. A person is counted when the model's start year precedes their 16th
+    birthday, or follows their death by more than three years -- wide enough
+    not to fire on ordinary early-career or posthumous-launch credits."""
+    by_id = {n["id"]: n for n in nodes}
+    # A model flagged here needs one of two different things doing to it. If no
+    # family of the same nameplate exists, the article really does cover several
+    # generations and wants SPLITTING. If one already exists, this is the bare
+    # nameplate-overview article sitting beside it and wants FOLDING IN -- which
+    # mergeDuplicateNameplates already does at runtime. Mercedes-Benz S-Class is
+    # the second kind; Chevrolet Suburban the first.
+    # Taken from analyze()'s confirmed list rather than from the node array,
+    # because this runs at the top of build_families() -- before a single family
+    # node exists. Reading node types here silently matched nothing and filed
+    # every candidate as needing a split, including Mercedes-Benz S-Class, which
+    # has had a family beside it all along.
+    fam_names = {(mk, declass(base).lower()) for mk, base, *_ in confirmed}
+    fam_names |= {(f.get("make"), declass(base_name(f["label"])).lower())
+                  for f in nodes if f["type"] == "family"}
+    out = {}
+    for l in links:
+        if l["type"] not in ("designed", "engineered"):
+            continue
+        a, b = by_id.get(l["source"]), by_id.get(l["target"])
+        if not a or not b:
+            continue
+        car, person = (a, b) if b.get("type") == "person" else (b, a)
+        if person.get("type") != "person" or car.get("type") not in ("model", "family"):
+            continue
+        y = car.get("year")
+        if y is None:
+            continue
+        born, died = person.get("born"), person.get("died")
+        why = None
+        if born is not None and y < born + 16:
+            why = f"{person['label']} (b. {born}) predates the car's start year"
+        elif died is not None and y > died + 3:
+            why = f"{person['label']} (d. {died}) died well before it"
+        if why:
+            e = out.setdefault(car["id"], {"car": car, "reasons": [], "action": None})
+            e["reasons"].append(why)
+            if e["action"] is None:
+                has_fam = (car.get("make"),
+                           declass(base_name(car["label"])).lower()) in fam_names
+                e["action"] = ("fold into the existing nameplate" if has_fam and car["type"] == "model"
+                               else "split into generations")
+    return sorted(out.values(),
+                  key=lambda e: (-len(e["reasons"]), e["car"].get("make") or "", e["car"]["label"]))
+
+
 # ---------------- reporting ----------------
 
 def analyze(nodes, links):
@@ -434,7 +501,7 @@ def analyze(nodes, links):
     return confirmed, unconfirmed, collisions
 
 
-def write_report(confirmed, unconfirmed, collisions=()):
+def write_report(confirmed, unconfirmed, collisions=(), split_cands=()):
     REPORT_PATH.parent.mkdir(parents=True, exist_ok=True)
     lines = ["FAMILY GROUPING REPORT", f"Generated: {datetime.date.today().isoformat()}", ""]
     lines.append(f"CONFIRMED FAMILIES ({len(confirmed)}) -- clean, unbroken succession chain")
@@ -461,6 +528,25 @@ def write_report(confirmed, unconfirmed, collisions=()):
         for n in members:
             lines.append(f"      {n['label']} [{n.get('year')}-{n.get('end') or ''}] id={n['id']}")
     lines.append("")
+    lines.append(f"UN-SPLIT NAMEPLATE CANDIDATES ({len(split_cands)}) -- suggested by credit dates")
+    lines.append("  Not errors. A credited designer whose dates do not fit the car's span almost")
+    lines.append("  always means the MODEL still covers several generations in one article: the")
+    lines.append("  Chevrolet Suburban node runs 1933-present, and Wayne Cherry did design a")
+    lines.append("  Suburban, just not the 1933 one. Both facts are true; only the pairing of a")
+    lines.append("  nameplate-wide credit with a nameplate-wide date range is misleading.")
+    lines.append("  Two different actions: a model with no family of that nameplate yet wants")
+    lines.append("  SPLITTING by the LLM generation check; one that already has a family beside it")
+    lines.append("  is the bare overview article and wants FOLDING IN, which")
+    lines.append("  mergeDuplicateNameplates already handles at runtime.")
+    for e in split_cands:
+        c = e["car"]
+        lines.append(f"  {c.get('make')} {c['label']}  [{c.get('year')}-{c.get('end') or 'ongoing'}]"
+                     f"  id={c['id']}  -> {e.get('action')}")
+        for r in e["reasons"][:4]:
+            lines.append(f"      {r}")
+        if len(e["reasons"]) > 4:
+            lines.append(f"      ...and {len(e['reasons']) - 4} more")
+    lines.append("")
     report = "\n".join(lines)
     REPORT_PATH.write_text(report, encoding="utf-8")
     print(report)
@@ -485,7 +571,8 @@ def build_families(nodes, links):
     standalone, so it silently went stale after every normal rebuild.sh
     run and no longer matched what was actually in cars.json/data.js."""
     confirmed, unconfirmed, collisions = analyze(nodes, links)
-    write_report(confirmed, unconfirmed, collisions)
+    write_report(confirmed, unconfirmed, collisions,
+                 split_candidates(nodes, links, confirmed))
     make_id_by_label = {n["label"]: n["id"] for n in nodes if n["type"] == "make"}
     person_links_by_model = defaultdict(list)
     for l in links:
@@ -592,7 +679,13 @@ def mirror_relation_links(nodes, links):
                        # what the gensucc chain already represents, not a cross-model relation
         new_source = s_fam or l["source"]
         new_target = t_fam or l["target"]
-        key = (new_source, new_target, l["type"])
+        # "Shares a platform with" and "is related to" are symmetric claims, so
+        # they key undirected -- otherwise the same fact mirrored from each end
+        # lands twice. Succession is NOT symmetric ("A is succeeded by B" and
+        # "B is succeeded by A" are different claims), so it keys directionally
+        # and contradictory pairs are dealt with after the loop instead.
+        key = ((new_source, new_target, l["type"]) if l["type"] == "succession"
+               else (frozenset((new_source, new_target)), l["type"]))
         if key in seen:
             continue
         seen.add(key)
@@ -601,6 +694,27 @@ def mirror_relation_links(nodes, links):
         if t_fam: nl["mirrorTargetFam"] = t_fam
         if l.get("note"): nl["note"] = l["note"]
         new_links.append(nl)
+    # Drop any succession mirror whose opposite direction was also derived.
+    # This is not a dedup miss -- both come from real, different
+    # generation-level links. BMW 5 Series and 6 Series have "5 Series (F10) ->
+    # 6 Series (G32)" AND "6 Series (G32) -> 5 Series (G60)", each true of those
+    # generations; Daihatsu Rocky and Terios interleave the same way. Mirroring
+    # both up to the family level asserts that each nameplate succeeds the
+    # other, which cannot be true of either and is what produced every one of
+    # the 15 duplicated links and 30 mutual succession pairs in the graph.
+    #
+    # Emit NEITHER rather than picking a winner by year: the honest statement at
+    # nameplate level is that these two interleave, and the accurate
+    # generation-level links are untouched and become visible the moment the
+    # family is expanded -- which is the only thing the mirror existed to
+    # stand in for.
+    succ_dirs = {(l["source"], l["target"]) for l in new_links if l["type"] == "succession"}
+    contradictory = {(a, b) for (a, b) in succ_dirs if (b, a) in succ_dirs}
+    if contradictory:
+        new_links = [l for l in new_links
+                     if l["type"] != "succession"
+                     or (l["source"], l["target"]) not in contradictory]
+
     links.extend(new_links)
     return len(new_links)
 
@@ -609,7 +723,8 @@ if __name__ == "__main__":
     cars_json = SCRIPT_DIR.parent / "app" / "cars.json"
     data = json.loads(cars_json.read_text(encoding="utf-8"))
     confirmed, unconfirmed, collisions = analyze(data["nodes"], data["links"])
-    write_report(confirmed, unconfirmed, collisions)
+    write_report(confirmed, unconfirmed, collisions,
+                 split_candidates(data["nodes"], data["links"], confirmed))
     print(f"\nconfirmed={len(confirmed)} unconfirmed={len(unconfirmed)} collisions={len(collisions)} "
           f"total generation nodes in confirmed families={sum(len(o) for _,_,o,_ in confirmed)}")
     stats = build_families(data["nodes"], data["links"])
