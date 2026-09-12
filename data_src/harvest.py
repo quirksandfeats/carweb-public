@@ -23,13 +23,32 @@ def sparql(query, tries=3):
             print(f"  retry {i+1} after: {e}", file=sys.stderr)
             time.sleep(5)
 
-# MAX, not MIN, on the production end year. A car with several
-# dbo:productionEndYear statements -- one per market, body style or engine
-# variant -- was being given the EARLIEST of them, which frequently equals its
-# start year and produced a one-year production run: Porsche 911 (930) came out
+# MAX, not MIN, on the production end year: "when did production end" is a
+# maximum, so where a car carries several dbo:productionEndYear statements
+# (one per market, body style or engine variant) the latest is the right one.
+#
+# It is NOT, however, the cause of the ~840 models whose end year equals their
+# start year, which is what this was changed for. Porsche 911 (930) comes back
 # as 1975-1975 for a car built until 1989, Toyota Corolla (E10) as 1966-1966,
-# BMW 6 Series (E24) as 1976-1976. "When did production end" is a maximum.
-# 803 of 6,785 models carried end == year before this.
+# Land Rover Defender as 1983-1983 -- and DBpedia holds exactly ONE
+# productionEndYear for each of them, equal to the start year. MIN and MAX
+# agree; the value itself is wrong upstream.
+#
+# The obvious second source does not rescue it either. dbp:production is the
+# raw infobox string, and it was tried: 911 (930) has no dbp:production at
+# all, Chrysler Valiant (RV1) carries "January 1962 - March 1962Gavin Farmer,
+# Great Ideas in Motion, 2010, page 414" (a citation, so any year-scraping
+# reads 2010), Chevrolet Impala is a bag of loose years ending "~2014~69768",
+# and where a range IS parseable it is usually the FIRST generation's range on
+# a nameplate-wide article: Ford Kuga "2008-2013", Mazda CX-5 "2012-2017",
+# both still in production. Anchoring on a closed range that starts in the
+# model's own start year cut 872 candidate repairs down to 54, and a sample of
+# those 54 was still mostly wrong. Restricting it to strings that say
+# "present" -- clearing a bogus end year rather than inventing one -- matched
+# 6 models out of 842. It is not a usable source and is not harvested.
+#
+# The end years are a job for the grounded LLM pass, which reads the article
+# text and has a human confirm each answer, not for another SPARQL guess.
 Q_MAIN = '''SELECT ?s ?y (MAX(?ey) AS ?e)
 (GROUP_CONCAT(DISTINCT ?mf;separator="~") AS ?mm)
 (GROUP_CONCAT(DISTINCT ?dn;separator="~") AS ?dd)

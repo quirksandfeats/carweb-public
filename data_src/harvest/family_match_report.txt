@@ -3,7 +3,7 @@ Generated: 2026-09-12
 
 CONFIRMED FAMILIES (101) -- clean, unbroken succession chain
   Alfa Romeo 33 Stradale  (2 generations, 1967–)
-      33 Stradale[1967-1969] -> 33 Stradale (2023)[2023-]
+      33 Stradale[1967-1976] -> 33 Stradale (2023)[2023-]
   Alpina B3  (2 generations, 2007–2019)
       B3 (E90)[2007-2013] -> B3 (F30)[2013-2019]
       EXCLUDED: B3 [1987-] id=m-alpina-b3 -- its run [1987-ongoing] covers two or more of the other generations here and it has no succession link to the one that follows it -- either a retrospective article for a whole era (Porsche '911 (classic)') or a parallel line whose end year is missing, not a single step in this sequence
