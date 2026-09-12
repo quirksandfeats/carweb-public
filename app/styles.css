@@ -708,3 +708,141 @@ main{flex:1; position:relative; min-height:0}
 @media (max-width:1050px){
   #search{width:180px} #tl-caption{display:none} .tl-year{font-size:32px}
 }
+
+/* ---------- phone layout ----------------------------------------------------
+   Real user request: "Mobile version (new UI)... It should have all features
+   as on the laptop version, only that it's usable on a smaller screen like a
+   phone."
+
+   Nothing is removed below. Every control the laptop has is still on the page
+   and still reachable; what changes is where each one sits and how wide it is,
+   because the desktop layout assumes a canvas wide enough to park four
+   independent overlays in four corners, and a 390px screen has no corners to
+   spare. The moves, and why each one:
+
+     - The two top bars already scroll horizontally or wrap, so they only need
+       to be tighter. The search box and the year slider become full-width
+       rows instead of fixed 270px/220px columns -- both were being clipped.
+     - The legend is the single widest element on the page (nine items on one
+       line). It becomes its own horizontally-scrollable strip rather than
+       running off the right edge invisibly, which is what it did before.
+     - The detail panel becomes a bottom sheet. A 308px right-anchored card on
+       a 390px screen is the whole screen, and it covered the graph it was
+       describing.
+     - The zoom control therefore moves OFF the bottom-left, where the sheet
+       would now sit on top of it -- the original request behind its placement
+       ("the information card [must] not overlap over it so that I can access
+       the zoom bar at all times") is honoured here by moving the zoom control
+       to the top-right instead, under the legend strip. Pinch-to-zoom works
+       too, but the slider stays because it is a feature.
+     - #graphhint is the one thing that genuinely does not apply: it reads
+       "CLICK TO FOCUS A NEIGHBOURHOOD / DOUBLE-CLICK · WIDEN IT / ESC ·
+       RELEASE", which is mouse-and-keyboard instruction on a device with
+       neither, and it sat under the zoom control anyway.
+     - The footer's three columns become three lines, counts first, since the
+       counts are the live part and the licence text is reference.
+   -------------------------------------------------------------------------- */
+
+/* d3-zoom's pinch handling needs the browser to stop claiming the gesture
+   first; without this a two-finger pinch scrolls/zooms the page instead of
+   the graph. Not scoped to the media query -- it is equally true on a
+   touchscreen laptop. */
+#graphcanvas,#sdcanvas{touch-action:none}
+
+/* A phone's URL bar changes the viewport height as it hides and reveals, and
+   100% of a percentage-height chain resolves against the LARGER value, which
+   pushes the footer under the browser chrome. */
+@supports (height:100dvh){
+  html,body{height:100dvh}
+}
+
+/* There is no hover on a touchscreen, so the hovercard can only ever appear
+   stuck to the last thing tapped, over the detail panel that the same tap
+   just opened. */
+@media (hover:none){
+  #hovercard{display:none !important}
+}
+
+@media (max-width:720px){
+  #topbar{padding:8px 10px 7px; gap:8px}
+  .wm-title{font-size:18px}
+  .wordmark{min-width:0}
+  .tab{padding:7px 11px}
+
+  #controlbar{padding:8px 10px; gap:8px; row-gap:8px}
+  #searchbar-fixed{width:100%}
+  #search{width:100%; padding:9px 14px}
+  #searchresults{width:100%; left:0; right:0}
+  #yearfilter{width:100%; padding:7px 12px; gap:8px}
+  .yf-track{flex:1 1 auto; width:auto; min-width:0}
+
+  /* Full-width strip that scrolls instead of clipping. */
+  #legend,.legend-style{
+    left:8px; right:8px; top:8px; gap:13px; font-size:10.5px;
+    padding:6px 11px; border-radius:13px;
+    justify-content:flex-start; overflow-x:auto; overflow-y:hidden;
+    scrollbar-width:none; -webkit-overflow-scrolling:touch;
+  }
+  #legend::-webkit-scrollbar,.legend-style::-webkit-scrollbar{display:none}
+  .lg{flex:none; white-space:nowrap}
+
+  #graphhint{display:none}
+  #clearfocus{top:auto; bottom:12px; left:10px; right:auto; padding:9px 15px}
+
+  /* Top-right, clear of the bottom sheet. */
+  #zoomslider-wrap{
+    left:auto; right:8px; top:52px; bottom:auto;
+    padding:0 9px; height:34px; gap:6px;
+  }
+  #zoomslider-wrap button{width:24px; height:24px; font-size:14px}
+  #zoomslider{width:88px}
+
+  #detail{
+    top:auto; left:0; right:0; bottom:0; width:auto;
+    max-height:68%; padding:16px 14px 20px;
+    border-left:0; border-right:0; border-bottom:0;
+    border-radius:14px 14px 0 0;
+    box-shadow:0 -6px 22px rgba(23,20,15,.18);
+  }
+  .dt-imgwrap{margin:0 -14px; height:132px}
+  .dt-title{font-size:21px}
+  #detail-close{top:8px; right:8px; font-size:17px; padding:6px 10px}
+
+  #tl-controls{left:10px; right:10px; top:10px; gap:8px; flex-wrap:wrap}
+  .tl-year{font-size:28px; min-width:0}
+  #tl-play{width:34px; height:34px}
+  #tl-designer{margin-left:0; flex:1 1 100%; max-width:100%}
+  #tl-scroll{padding-top:112px}
+  /* The timeline SVG is drawn at the container's own width with no viewBox,
+     so it genuinely re-lays out at 375px -- nothing is cut off. What does
+     collide is the decade watermark: a 22px serif "1890" is wider than the
+     ~27px a decade gets at this width. These are the only two labels whose
+     size is not driven by the data. */
+  .tl-decade{font-size:12px}
+  .tl-makelabel{font-size:9px; letter-spacing:.08em}
+
+  #sd-panel{left:8px; right:8px; width:auto; top:8px; padding:14px; max-height:calc(100% - 16px)}
+  #sd-panel h2{font-size:20px}
+
+  #toolsmenu{max-width:calc(100vw - 16px)}
+
+  /* align-items:stretch, not flex-start: a shrink-to-fit child is free to be
+     wider than the column and the counts line ran off both edges instead of
+     wrapping. */
+  #colophon{
+    flex-direction:column; align-items:stretch; gap:3px;
+    padding:7px 12px; font-size:10px; line-height:1.35;
+  }
+  #colophon > span{max-width:100%}
+  #counts{order:-1; color:var(--ink2); font-weight:600}
+
+  /* A centred auto-width toast is wider than the screen and loses its own
+     buttons off the edges. Full-width, sitting directly on the footer. */
+  #livetoast{
+    left:8px; right:8px; bottom:8px; transform:none;
+    flex-wrap:wrap; gap:8px; padding:10px 12px; font-size:12px;
+  }
+  #livetoast-msg{flex:1 1 100%}
+  #livetoast button{padding:7px 14px}
+  #livetoast #livetoast-dismiss{margin-left:auto}
+}

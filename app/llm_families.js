@@ -1026,12 +1026,74 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
       else if (sectionText.startsWith("}}", i)) { depth--; i += 1; if (depth <= 0) { i += 2; break; } }
     }
     const box = sectionText.slice(start, i);
-    // Two spellings in the wild: a bare filename in `image =`, and a full
-    // [[File:...]] link. Both mean the same thing.
+    return boxImage(box);
+  }
+  // Two spellings in the wild: a bare filename in `image =`, and a full
+  // [[File:...]] link. Both mean the same thing.
+  function boxImage(box) {
     const bare = box.match(INFOBOX_IMAGE_RE);
     const candidate = bare ? bare[1].trim() : (filesIn(box)[0] || null);
     if (!candidate) return null;
     return NON_PHOTO_FILE_RE.test(candidate) ? null : candidate;
+  }
+
+  // Every {{Infobox ...}} in the article, with its character range and its own
+  // image. Needed because a nameplate does not have to give its generations
+  // HEADINGS: the Mercedes-Benz GLA writes each one as a bold chassis code
+  // followed straight away by its own {{Infobox automobile}}, and its only
+  // headings are sub-sections INSIDE those generations ("Facelift",
+  // "GLA 45 AMG", "Technical details"). sectionRangeForCode finds nothing for
+  // "X156" there, so the two heading-based tiers below are both skipped -- and
+  // the article contains no [[File:...]] syntax at all (all four photos are
+  // infobox `image =` parameters), so the tiers after them had nothing to scan
+  // either. Every GLA and CLA generation came back with no picture at all.
+  function infoboxBlocks(wikitext) {
+    const out = [];
+    const re = /\{\{\s*Infobox/gi;
+    let m;
+    while ((m = re.exec(wikitext))) {
+      let depth = 0, i = m.index;
+      for (; i < wikitext.length; i++) {
+        if (wikitext.startsWith("{{", i)) { depth++; i += 1; }
+        else if (wikitext.startsWith("}}", i)) { depth--; i += 1; if (depth <= 0) { i += 2; break; } }
+      }
+      const body = wikitext.slice(m.index, i);
+      out.push({ start: m.index, end: i, image: boxImage(body), body });
+      re.lastIndex = Math.max(i, m.index + 1);
+    }
+    return out;
+  }
+
+  // "See if the local LLM can better be pointed to the proper section of the
+  // Wikipedia page where that generation is listed, like where the info card
+  // of that generation exists in the Wikipedia, is also where the picture for
+  // that generation likely lives." -- exactly the rule, applied without
+  // needing a heading to find the generation by.
+  //
+  // Position first: an un-headed generation is written as its code followed
+  // immediately by its own infobox, so the box the code sits in, or the next
+  // one to open right after it, IS that generation's card. The window keeps a
+  // generation with no infobox of its own from claiming a distant one.
+  // Naming second: a box whose text names the code, compared with punctuation
+  // and spacing removed, because captions write "X 156" for X156.
+  function infoboxImageForCode(wikitext, code, anchorIndex, used) {
+    const boxes = infoboxBlocks(wikitext);
+    if (!boxes.length) return null;
+    const free = f => f && !used.has(f.toLowerCase());
+    if (anchorIndex >= 0) {
+      const WINDOW = 2000;
+      const near = boxes.find(b => anchorIndex >= b.start && anchorIndex < b.end) ||
+                   boxes.find(b => b.start >= anchorIndex && b.start - anchorIndex <= WINDOW);
+      if (near && free(near.image)) return near.image;
+    }
+    const squash = x => String(x).toLowerCase().replace(/[^a-z0-9]/g, "");
+    const parts = String(code == null ? "" : code)
+      .replace(/\s*\([^)]*\)\s*$/, "")
+      .split(/\s*[\/,&]\s*|\s+and\s+/)
+      .map(squash).filter(x => x.length > 2);
+    if (!parts.length) return null;
+    const named = boxes.find(b => free(b.image) && parts.some(x => squash(b.body).includes(x)));
+    return named ? named.image : null;
   }
   function findGenerationImage(wikitext, code, anchorIndex, used, occurrence) {
     used = used || new Set();
@@ -1048,7 +1110,13 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
       const inSection = fresh(filesIn(wikitext.slice(range.start, range.end)));
       if (inSection) return inSection;
     }
-    // Tier 2: a bounded forward scan from wherever the code was actually
+    // Tier 2: the generation's own infobox, found by position rather than by
+    // heading. Ranked above the nearby-file scan below because an infobox
+    // image is captioned as that exact generation, while a file merely lying
+    // near the text could be a rival, a detail shot or a historical aside.
+    const boxed2 = infoboxImageForCode(wikitext, code, anchorIndex, used);
+    if (boxed2) return boxed2;
+    // Tier 3: a bounded forward scan from wherever the code was actually
     // verified to appear -- the old behaviour, but exclusive and
     // photo-filtered, and only reached when there's no section to use.
     if (anchorIndex >= 0) {
@@ -1067,7 +1135,12 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
     // So the last resort is a photo from the article rather than nothing --
     // preferring one no other generation has taken, and accepting a repeat only
     // when the article genuinely has fewer photos than it has generations.
-    const all = filesIn(wikitext);
+    // filesIn only sees [[File:...]] syntax, and a whole class of car articles
+    // has none -- every photo is an infobox `image =` parameter. Without the
+    // infobox images here, the last resort is empty on exactly the articles
+    // that reached it.
+    const all = filesIn(wikitext)
+      .concat(infoboxBlocks(wikitext).map(b => b.image).filter(Boolean));
     return fresh(all) || all[0] || null;
   }
   // Kept as a thin wrapper: several call sites (and the QA suite) still ask
@@ -7584,7 +7657,8 @@ Rules:
     // and the per-generation image picker, whose exact behavior several
     // regression tests pin down directly rather than through a whole check
     // round trip.
-    parseLlmJson, codeAnchorIn, codeVerifiedIn, findGenerationImage, looksLikePlatformNotCar,
+    parseLlmJson, codeAnchorIn, codeVerifiedIn, findGenerationImage, infoboxImageForCode,
+    looksLikePlatformNotCar,
     // Exposed for the regression suite only: a persisted proposal from before
     // the platform guard existed replays through mintRelatedNode on every
     // boot, so the guard has to hold HERE too, not just in validate() -- and

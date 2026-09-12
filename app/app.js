@@ -179,6 +179,19 @@ window.CarWeb = (function () {
         const g = gens[i], next = gens[i + 1];
         if (g.end == null) g.end = next.year;
       }
+      // ...and then the family's OWN end year, which build_family_layer.py
+      // could only leave null: it closes a family solely when every member
+      // already had an end year, and a single open-ended middle generation
+      // was enough to stop that. Once the loop above has bounded the middle
+      // ones, the only generation still allowed to be open is the last, so
+      // the family is over exactly when the last generation is over. Without
+      // this, 20 families rendered as still in production against their own
+      // evidence -- BMW 5 Series (last generation ends 2023), Camaro (2023),
+      // Thunderbird (2005), Taurus (2019), Accord (2017).
+      if (fam.end == null && gens.length) {
+        const ends = gens.map(g => g.end);
+        if (ends.every(e => e != null)) fam.end = Math.max(...ends);
+      }
     });
   }
   backfillGenerationEnds();
