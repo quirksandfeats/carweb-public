@@ -3436,6 +3436,220 @@
     "dropped": []
    },
    "cascadeDiscovered": true
+  },
+  "m-porsche-panamera": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-12T15:58:32.281Z",
+   "sourceTitle": "Porsche Panamera",
+   "proposal": {
+    "hasMultipleGenerations": true,
+    "generations": [
+     {
+      "code": "970 / G1",
+      "yearStart": 2009,
+      "yearEnd": 2016,
+      "designers": [
+       "Michael Mauer"
+      ],
+      "engineers": [],
+      "wikiFile": "Porsche 989 Prototyp Seitenansicht (cropped).jpg",
+      "sharedPlatforms": []
+     },
+     {
+      "code": "971 / G2",
+      "yearStart": 2016,
+      "yearEnd": 2024,
+      "designers": [
+       "Peter Varga"
+      ],
+      "engineers": [],
+      "wikiFile": "2011-03-04 Autosalon Genf 1216.JPG",
+      "sharedPlatforms": [
+       "Bentley Continental GT",
+       "Bentley Flying Spur"
+      ],
+      "sharedPlatformMatches": {
+       "Bentley Flying Spur": {
+        "matchId": "m-bentley-flying-spur-2005",
+        "confidence": "high",
+        "reason": "The mention 'Bentley Flying Spur' matches the database entry 'Bentley Flying Spur (2005)' exactly by model name. The production years (2005–present) overlap perfectly, confirming they are the same car generation introduced in 2005."
+       }
+      }
+     },
+     {
+      "code": "976 / G3",
+      "yearStart": 2024,
+      "yearEnd": null,
+      "designers": [
+       "James Burgess"
+      ],
+      "engineers": [],
+      "wikiFile": "Porsche 972 IMG 9526.jpg",
+      "sharedPlatforms": [
+       "Bentley Continental GT",
+       "Bentley Flying Spur"
+      ],
+      "sharedPlatformMatches": {
+       "Bentley Flying Spur": {
+        "matchId": "m-bentley-flying-spur-2005",
+        "confidence": "high",
+        "reason": "The mention 'Bentley Flying Spur' matches the database entry 'Bentley Flying Spur (2005)' exactly by model name. The production years (2005–present) overlap perfectly, confirming they are the same car generation introduced in 2005."
+       }
+      }
+     }
+    ]
+   },
+   "attempts": 2,
+   "feedback": [
+    ""
+   ],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": true,
+     "generations": [
+      {
+       "code": "970 / G1",
+       "yearStart": 2009,
+       "yearEnd": 2016,
+       "designers": [
+        "Michael Mauer"
+       ],
+       "engineers": [],
+       "sharedPlatforms": []
+      },
+      {
+       "code": "971 / G2",
+       "yearStart": 2016,
+       "yearEnd": 2024,
+       "designers": [
+        "Peter Varga"
+       ],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Bentley Continental GT",
+        "Bentley Flying Spur"
+       ]
+      },
+      {
+       "code": "976 / G3",
+       "yearStart": 2024,
+       "yearEnd": null,
+       "designers": [
+        "James Burgess"
+       ],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Bentley Continental GT",
+        "Bentley Flying Spur"
+       ]
+      }
+     ]
+    },
+    "dropped": []
+   },
+   "decidedAt": "2026-09-12T15:58:34.593Z",
+   "allDesigners": [
+    "Michael Mauer",
+    "Peter Varga",
+    "James Burgess"
+   ],
+   "allEngineers": []
+  },
+  "m-volkswagen-karmann-ghia": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-12T15:57:07.902Z",
+   "sourceTitle": "Volkswagen Karmann Ghia",
+   "proposal": {
+    "hasMultipleGenerations": true,
+    "generations": [
+     {
+      "code": "Type 14",
+      "yearStart": 1955,
+      "yearEnd": 1974,
+      "designers": [
+       "Luigi Segre",
+       "Felice Mario Boano",
+       "Sergio Sartorelli"
+      ],
+      "engineers": [],
+      "wikiFile": "VW Karmann Ghia in São Paulo, Brazil.jpg",
+      "sharedPlatforms": [
+       "Volkswagen Beetle"
+      ]
+     },
+     {
+      "code": "Type 34",
+      "yearStart": 1962,
+      "yearEnd": 1969,
+      "designers": [
+       "Sergio Sartorelli"
+      ],
+      "engineers": [],
+      "wikiFile": "1966 Type 34 Karmann Ghia.jpg",
+      "sharedPlatforms": [
+       "Volkswagen Type 3"
+      ]
+     },
+     {
+      "code": "Type 145 TC",
+      "yearStart": 1972,
+      "yearEnd": 1975,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "Volkswagen Karmann Ghia convertible 2.jpg",
+      "sharedPlatforms": []
+     }
+    ]
+   },
+   "attempts": 1,
+   "feedback": [],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": true,
+     "generations": [
+      {
+       "code": "Type 14",
+       "yearStart": 1955,
+       "yearEnd": 1974,
+       "designers": [
+        "Luigi Segre",
+        "Felice Mario Boano",
+        "Sergio Sartorelli"
+       ],
+       "sharedPlatforms": [
+        "Volkswagen Beetle"
+       ]
+      },
+      {
+       "code": "Type 34",
+       "yearStart": 1962,
+       "yearEnd": 1969,
+       "designers": [
+        "Sergio Sartorelli"
+       ],
+       "sharedPlatforms": [
+        "Volkswagen Type 3"
+       ]
+      },
+      {
+       "code": "Type 145 TC",
+       "yearStart": 1972,
+       "yearEnd": 1975,
+       "designers": [],
+       "sharedPlatforms": []
+      }
+     ]
+    },
+    "dropped": []
+   },
+   "cascadeDiscovered": true,
+   "decidedAt": "2026-09-12T15:57:07.902Z",
+   "allDesigners": [
+    "Luigi Segre",
+    "Felice Mario Boano",
+    "Sergio Sartorelli"
+   ],
+   "allEngineers": []
   }
  },
  "relations": {
@@ -6827,12 +7041,52 @@
    "genIdB": "m-hyundai-eon",
    "reason": "proposed from a loosely-matched shared-platform/rebadge mention (the matched nameplate name wasn't an exact match, just a substring overlap) -- please verify this is really the right car before accepting",
    "llmDiscovered": true
+  },
+  "llm-m-volkswagen-karmann-ghia-type-34|m-volkswagen-type-3|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-12T15:57:07.916Z",
+   "decidedAt": "2026-09-12T15:57:07.916Z",
+   "famA": "m-volkswagen-karmann-ghia",
+   "famB": "m-volkswagen-type-3",
+   "relType": "platform",
+   "codeA": "Karmann Ghia Type 34",
+   "codeB": "Type 3",
+   "genIdA": "llm-m-volkswagen-karmann-ghia-type-34",
+   "genIdB": "m-volkswagen-type-3",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-volkswagen-karmann-ghia-type-14|merge-m-volkswagen-beetle-self|platform": {
+   "status": "provisional",
+   "checkedAt": "2026-09-12T15:57:16.805Z",
+   "famA": "m-volkswagen-karmann-ghia",
+   "famB": "m-volkswagen-beetle",
+   "relType": "platform",
+   "codeA": "Karmann Ghia Type 14",
+   "codeB": "Beetle",
+   "genIdA": "llm-m-volkswagen-karmann-ghia-type-14",
+   "genIdB": "merge-m-volkswagen-beetle-self",
+   "reason": "proposed by overlapping production years only (a shared-platform/rebadge mention was found alongside this generation's own text, but which specific generation of the OTHER nameplate it refers to was guessed from year overlap, not stated explicitly) -- please verify before accepting",
+   "llmDiscovered": true
+  },
+  "llm-m-volkswagen-karmann-ghia-type-14|m-volkswagen-type-3|platform": {
+   "status": "provisional",
+   "checkedAt": "2026-09-12T15:57:17.078Z",
+   "famA": "m-volkswagen-type-3",
+   "famB": "m-volkswagen-karmann-ghia",
+   "relType": "platform",
+   "codeA": "Type 3",
+   "codeB": "Karmann Ghia Type 14",
+   "genIdA": "m-volkswagen-type-3",
+   "genIdB": "llm-m-volkswagen-karmann-ghia-type-14",
+   "reason": "proposed by overlapping production years only (a shared-platform/rebadge mention was found alongside this generation's own text, but which specific generation of the OTHER nameplate it refers to was guessed from year overlap, not stated explicitly) -- please verify before accepting",
+   "llmDiscovered": true
   }
  },
  "recheck": {
   "m-mercedes-benz-g-class": {
    "status": "none",
-   "checkedAt": "2026-09-12T13:19:14.839Z",
+   "checkedAt": "2026-09-12T15:57:16.251Z",
    "sourceTitle": "Mercedes-Benz G-Class",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -6916,7 +7170,7 @@
   },
   "m-mercedes-benz-gla": {
    "status": "none",
-   "checkedAt": "2026-09-12T13:19:14.890Z",
+   "checkedAt": "2026-09-12T15:57:16.323Z",
    "sourceTitle": "Mercedes-Benz GLA",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -7019,7 +7273,7 @@
   },
   "m-mercedes-benz-cla": {
    "status": "none",
-   "checkedAt": "2026-09-12T13:19:14.926Z",
+   "checkedAt": "2026-09-12T15:57:16.378Z",
    "sourceTitle": "Mercedes-Benz CLA",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -7301,7 +7555,7 @@
   },
   "m-toyota-celica": {
    "status": "none",
-   "checkedAt": "2026-09-12T13:19:14.976Z",
+   "checkedAt": "2026-09-12T15:57:16.459Z",
    "sourceTitle": "Toyota Celica",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -7417,7 +7671,7 @@
   },
   "m-toyota-carina": {
    "status": "none",
-   "checkedAt": "2026-09-12T13:19:15.037Z",
+   "checkedAt": "2026-09-12T15:57:16.541Z",
    "sourceTitle": "Toyota Carina",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -7545,7 +7799,7 @@
   },
   "m-lexus-sc": {
    "status": "none",
-   "checkedAt": "2026-09-12T13:19:15.042Z",
+   "checkedAt": "2026-09-12T15:57:16.547Z",
    "sourceTitle": "Lexus SC",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -8194,7 +8448,7 @@
   },
   "m-seat-toledo": {
    "status": "none",
-   "checkedAt": "2026-09-12T13:19:15.106Z",
+   "checkedAt": "2026-09-12T15:57:16.620Z",
    "sourceTitle": "SEAT Toledo",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -8325,7 +8579,7 @@
   },
   "m-daren-mk-3": {
    "status": "none",
-   "checkedAt": "2026-09-12T13:19:15.118Z",
+   "checkedAt": "2026-09-12T15:57:16.633Z",
    "sourceTitle": "Daren Mk.3",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -8400,7 +8654,7 @@
   },
   "m-audi-a3-mk3": {
    "status": "none",
-   "checkedAt": "2026-09-12T13:19:15.135Z",
+   "checkedAt": "2026-09-12T15:57:16.650Z",
    "sourceTitle": "Audi A3",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -8456,7 +8710,7 @@
   },
   "m-audi-tt": {
    "status": "none",
-   "checkedAt": "2026-09-12T13:19:15.212Z",
+   "checkedAt": "2026-09-12T15:57:16.741Z",
    "sourceTitle": "Audi TT",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -8596,7 +8850,7 @@
   },
   "m-seat-leon-mk3": {
    "status": "none",
-   "checkedAt": "2026-09-12T13:19:15.263Z",
+   "checkedAt": "2026-09-12T15:57:16.802Z",
    "sourceTitle": "SEAT León",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -8701,6 +8955,56 @@
         "reason": "The mention 'Škoda Octavia Mk4' refers to the fourth generation of the Škoda Octavia. The candidate 'm-skoda-octavia-mk3' explicitly denotes the third generation (2013–2020). Since they represent distinct physical cars with different production years and generations, they are not a match."
        }
       }
+     }
+    ]
+   },
+   "discrepancy": null,
+   "attempts": 1,
+   "feedback": []
+  },
+  "m-volkswagen-karmann-ghia": {
+   "status": "none",
+   "checkedAt": "2026-09-12T15:57:16.814Z",
+   "sourceTitle": "Volkswagen Karmann Ghia",
+   "proposal": {
+    "hasMultipleGenerations": true,
+    "generations": [
+     {
+      "code": "Type 14",
+      "yearStart": 1955,
+      "yearEnd": 1974,
+      "designers": [
+       "Luigi Segre",
+       "Felice Mario Boano",
+       "Sergio Sartorelli"
+      ],
+      "engineers": [],
+      "wikiFile": "VW Karmann Ghia in São Paulo, Brazil.jpg",
+      "sharedPlatforms": [
+       "Volkswagen Beetle"
+      ]
+     },
+     {
+      "code": "Type 34",
+      "yearStart": 1962,
+      "yearEnd": 1969,
+      "designers": [
+       "Sergio Sartorelli"
+      ],
+      "engineers": [],
+      "wikiFile": "1966 Type 34 Karmann Ghia.jpg",
+      "sharedPlatforms": [
+       "Volkswagen Type 3"
+      ]
+     },
+     {
+      "code": "Type 145 TC",
+      "yearStart": 1972,
+      "yearEnd": 1975,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "Volkswagen Karmann Ghia convertible 2.jpg",
+      "sharedPlatforms": []
      }
     ]
    },
@@ -9865,6 +10169,13 @@
    "died": null,
    "country": null,
    "tries": 1
+  },
+  "p-luigi-segre": {
+   "checkedAt": "2026-09-12T15:57:11.699Z",
+   "born": 1919,
+   "died": 1963,
+   "country": "Italy",
+   "source": "wikipedia"
   }
  },
  "userCars": {},
