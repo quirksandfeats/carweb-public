@@ -7,7 +7,29 @@ cd "$(dirname "$0")"
 
 if [ "$1" != "--no-harvest" ]; then
   echo "── harvesting fresh data (needs internet, ~1-2 min) ──"
+  # A failed harvest must not abandon the rebuild. DBpedia's endpoint goes down
+  # for hours at a time, and when it does the harvest CSV from last time is
+  # still sitting in harvest/ -- so every step after this one can still run and
+  # still pick up any changes to the curated tables or the build code. Only a
+  # missing CSV is genuinely fatal. (harvest.py exits 2 for an unreachable
+  # endpoint and has already explained itself by this point.)
+  set +e
   python3 harvest.py
+  harvest_status=$?
+  set -e
+  if [ $harvest_status -ne 0 ]; then
+    if [ -f harvest/carweb_dbpedia_harvest.csv ]; then
+      echo
+      echo "── harvest failed (exit $harvest_status) — continuing from the existing CSV ──"
+      echo "   The graph will rebuild from the last successful harvest, so anything"
+      echo "   that changed in the curated tables or the build code still applies."
+      echo "   Re-run without --no-harvest once the endpoint is back to pick up new cars."
+    else
+      echo "!! harvest failed and there is no previous harvest/carweb_dbpedia_harvest.csv"
+      echo "   to fall back on, so there is nothing to build from. Aborting."
+      exit $harvest_status
+    fi
+  fi
 fi
 
 echo "── merging harvest into source tables ──"

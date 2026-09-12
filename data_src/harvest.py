@@ -5,7 +5,7 @@ harvest/carweb_dbpedia_harvest.csv (4 sections: MAIN, PEOPLE, MAKES, RECENT).
 Stdlib only — no pip installs needed. Takes ~1–2 minutes.
 """
 import json, os, sys, time, datetime
-import urllib.request, urllib.parse
+import urllib.request, urllib.parse, urllib.error
 
 UA = {"User-Agent": "CarWeb/2.0 (personal knowledge-graph project)"}
 
@@ -108,4 +108,22 @@ def main():
     print("harvest written.", file=sys.stderr)
 
 if __name__ == "__main__":
-    main()
+    # DBpedia's public endpoint is not reliably up -- it refuses connections
+    # outright for hours at a time. That is not a bug in this script and it is
+    # not something the person running it can act on, so it should not arrive
+    # as a forty-line urllib traceback. Exit 2 with one readable line; the
+    # existing harvest CSV is untouched, and rebuild.sh treats that exit code
+    # as "carry on from the CSV you already have".
+    try:
+        main()
+    except (urllib.error.URLError, OSError, TimeoutError) as e:
+        print(f"\n!! could not reach DBpedia: {e}", file=sys.stderr)
+        print("   Its public SPARQL endpoint goes down for hours at a time; this is",
+              file=sys.stderr)
+        print("   almost never a local problem. The existing harvest CSV is unchanged,",
+              file=sys.stderr)
+        print("   so nothing has been lost -- try again later, or rebuild from what is",
+              file=sys.stderr)
+        print("   already there with:  bash data_src/rebuild.sh --no-harvest",
+              file=sys.stderr)
+        sys.exit(2)
