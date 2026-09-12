@@ -1008,7 +1008,13 @@ def refresh_db_layer():
         return  # nothing to enrich onto yet -- run the full build pipeline first
     try:
         sys.path.insert(0, os.path.join(DIR, "..", "data_src"))
-        from build_db_layer import enrich as enrich_db_layer, flag_garage
+        # Resolved at runtime off the sys.path line above, and only ever
+        # reached when CARWEB_DB_LAYER is on (checked at the top of this
+        # function). build_db_layer.py is intentionally absent from the public
+        # checkout, so a static analyser cannot resolve this and reports it as
+        # a missing import -- expected, hence the ignore. The enclosing
+        # try/except is what handles it at runtime.
+        from build_db_layer import enrich as enrich_db_layer, flag_garage  # type: ignore[import-not-found]
 
         with open(CARS_JSON_PATH, "r", encoding="utf-8") as f:
             data = json.load(f)

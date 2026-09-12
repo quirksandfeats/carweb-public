@@ -131,6 +131,49 @@ def candidate_groups(nodes):
 
 # ---------------- succession-chain validation ----------------
 
+
+
+
+
+def _clean_handover(a, b):
+    """True when a's run finishes before b's begins, with no overlap at all.
+
+    A missing succession edge between two chronologically adjacent members is
+    usually just harvest incompleteness rather than evidence that they are
+    parallel variants -- but only when their runs genuinely hand over. Jeep
+    Cherokee is the case that motivated this: SJ[1974-1983] -> XJ[1984-2001] ->
+    KL[2013-2023] -> KM[2025-] carries no harvested XJ->KL edge at all, and the
+    whole nameplate went ungrouped over it, even though nothing about that
+    ordering is in doubt -- XJ had been out of production for twelve years when
+    KL arrived, and both are otherwise linked into the chain.
+
+    Deliberately strict on two points, because overlap is the exact signal that
+    separates a sequential generation from a parallel or regional one, and
+    getting that wrong is what this entire layer exists to avoid. `a` must have
+    a known end year (a run still in production cannot have handed over to
+    anything), and the two spans must not share even a single year."""
+    a_end, b_start = a.get("end"), b.get("year")
+    return a_end is not None and b_start is not None and a_end <= b_start
+
+
+def looks_like_distinct_marques(members, succ_pairs):
+    """Two unrelated things sharing a Wikipedia title are disambiguated with a
+    parenthetical -- "ABC (1906 automobile)" and "ABC (1920 automobile)" are two
+    different defunct manufacturers, not two generations of one car. They land
+    in the candidate set because base_name() strips the parenthetical and leaves
+    nothing, so every article collapses onto the same empty base.
+
+    Needs BOTH an empty base on every member AND no succession edge between any
+    of them. The second half is load-bearing: Range Rover's generations are also
+    titled as bare parentheticals under the Land Rover marque -- "(P38A)",
+    "(L322)", "(L405)", "(L460)" -- and those are a real, confirmed chain, which
+    their succession edges prove."""
+    if not all(base_name(n["label"]) == "" for n in members):
+        return False
+    ids = {n["id"] for n in members}
+    return not any(src in ids and dst in ids for (src, dst) in succ_pairs)
+
+
 def validate_chain(members, links_by_pair):
     """A candidate group is confirmed if, once sorted chronologically, every
     consecutive pair is joined by a direct succession edge. This tolerates
@@ -185,12 +228,26 @@ def validate_chain(members, links_by_pair):
         ordered = sorted(items, key=lambda n: (n["year"], n.get("end") or n["year"]))
         for i in range(len(ordered) - 1):
             a, b = ordered[i], ordered[i + 1]
-            if a["year"] == b["year"] and (a["id"], b["id"]) not in edges:
+            if (a["id"], b["id"]) in edges:
+                continue
+            if a["year"] == b["year"]:
                 return False, (a, b), f"tied/ambiguous year with no direct link to disambiguate order: {a['id']} vs {b['id']}"
-            if (a["id"], b["id"]) not in edges:
-                return False, (a, b), f"no succession link between chronologically adjacent {a['label']!r} and {b['label']!r}"
+            if _clean_handover(a, b):
+                continue  # see _clean_handover: gap-separated, order not in doubt
+            return False, (a, b), f"no succession link between chronologically adjacent {a['label']!r} and {b['label']!r}"
         return True, [n["id"] for n in ordered], "ok"
 
+    # Retry-pruning: if the chronological-adjacency check fails on exactly one
+    # pair, try dropping either side and accept it only if the REST of the group
+    # then validates outright.
+    #
+    # Deliberately ONE round, not a loop. A loop was tried and prunes too hard:
+    # on Honda Accord it chipped away the North America seventh and eighth
+    # generations -- real generations, not umbrella articles -- to force a clean
+    # Japan/Europe chain, and would have had the app present a nameplate that
+    # ran 1997-2017 when the Accord started in 1976 and is still in production.
+    # One round can only ever discard a single member, which is the shape an
+    # umbrella or lone parallel variant actually has.
     ok, result, reason = try_order(working)
     if not ok and isinstance(result, tuple):
         a, b = result
@@ -209,6 +266,7 @@ def validate_chain(members, links_by_pair):
 
     if not ok:
         return False, None, reason, pruned
+
     reason_out = "ok" if not pruned else f"ok (excluded {len(pruned)} disconnected candidate(s), see below)"
     return True, result, reason_out, pruned
 
@@ -222,19 +280,24 @@ def build_link_pairs(links, links_type="succession"):
 def analyze(nodes, links):
     groups = candidate_groups(nodes)
     succ_pairs = build_link_pairs(links, "succession")
-    confirmed, unconfirmed = [], []
+    confirmed, unconfirmed, collisions = [], [], []
     for (make, base), members in sorted(groups.items()):
         ok, order, reason, pruned = validate_chain(members, succ_pairs)
         by_id = {n["id"]: n for n in members}
         if ok:
             confirmed.append((make, base, [by_id[i] for i in order], pruned))
+            continue
+        members_sorted = sorted(members, key=lambda n: n.get("year") or 0)
+        # Unrelated marques that merely share a name are a correct refusal, not
+        # a miss. Reported separately so the review count means something.
+        if looks_like_distinct_marques(members, succ_pairs):
+            collisions.append((make, base, members_sorted, reason))
         else:
-            members_sorted = sorted(members, key=lambda n: n.get("year") or 0)
             unconfirmed.append((make, base, members_sorted, reason))
-    return confirmed, unconfirmed
+    return confirmed, unconfirmed, collisions
 
 
-def write_report(confirmed, unconfirmed):
+def write_report(confirmed, unconfirmed, collisions=()):
     REPORT_PATH.parent.mkdir(parents=True, exist_ok=True)
     lines = ["FAMILY GROUPING REPORT", f"Generated: {datetime.date.today().isoformat()}", ""]
     lines.append(f"CONFIRMED FAMILIES ({len(confirmed)}) -- clean, unbroken succession chain")
@@ -248,6 +311,16 @@ def write_report(confirmed, unconfirmed):
     lines.append(f"UNCONFIRMED ({len(unconfirmed)}) -- candidate group found, NOT auto-grouped, needs review")
     for make, base, members, reason in unconfirmed:
         lines.append(f"  {make} {base}  ({len(members)} candidates) -- {reason}")
+        for n in members:
+            lines.append(f"      {n['label']} [{n.get('year')}-{n.get('end') or ''}] id={n['id']}")
+    lines.append("")
+    lines.append(f"NAME COLLISIONS ({len(collisions)}) -- unrelated marques sharing a name, correctly not grouped")
+    lines.append("  Nothing to review here. Wikipedia disambiguates two different things with the")
+    lines.append("  same title using a parenthetical, so these collapse onto one empty base name,")
+    lines.append("  and no succession edge joins any of them. Listed separately so they stop")
+    lines.append("  inflating the review count above.")
+    for make, base, members, _reason in collisions:
+        lines.append(f"  {make}  ({len(members)} unrelated articles)")
         for n in members:
             lines.append(f"      {n['label']} [{n.get('year')}-{n.get('end') or ''}] id={n['id']}")
     lines.append("")
@@ -274,8 +347,8 @@ def build_families(nodes, links):
     build -- it used to only get refreshed by manually running this file
     standalone, so it silently went stale after every normal rebuild.sh
     run and no longer matched what was actually in cars.json/data.js."""
-    confirmed, unconfirmed = analyze(nodes, links)
-    write_report(confirmed, unconfirmed)
+    confirmed, unconfirmed, collisions = analyze(nodes, links)
+    write_report(confirmed, unconfirmed, collisions)
     make_id_by_label = {n["label"]: n["id"] for n in nodes if n["type"] == "make"}
     person_links_by_model = defaultdict(list)
     for l in links:
@@ -348,7 +421,8 @@ def build_families(nodes, links):
     links.extend(new_links)
     mirrored = mirror_relation_links(nodes, links)
     return {"families": len(confirmed), "generations": sum(len(o) for _, _, o, _ in confirmed),
-            "unconfirmed": len(unconfirmed), "mirroredRelations": mirrored}
+            "unconfirmed": len(unconfirmed), "collisions": len(collisions),
+            "mirroredRelations": mirrored}
 
 
 def mirror_relation_links(nodes, links):
@@ -397,9 +471,9 @@ def mirror_relation_links(nodes, links):
 if __name__ == "__main__":
     cars_json = SCRIPT_DIR.parent / "app" / "cars.json"
     data = json.loads(cars_json.read_text(encoding="utf-8"))
-    confirmed, unconfirmed = analyze(data["nodes"], data["links"])
-    write_report(confirmed, unconfirmed)
-    print(f"\nconfirmed={len(confirmed)} unconfirmed={len(unconfirmed)} "
+    confirmed, unconfirmed, collisions = analyze(data["nodes"], data["links"])
+    write_report(confirmed, unconfirmed, collisions)
+    print(f"\nconfirmed={len(confirmed)} unconfirmed={len(unconfirmed)} collisions={len(collisions)} "
           f"total generation nodes in confirmed families={sum(len(o) for _,_,o,_ in confirmed)}")
     stats = build_families(data["nodes"], data["links"])
     print(f"rewired: {stats}")

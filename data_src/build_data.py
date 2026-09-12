@@ -32,7 +32,12 @@ from build_family_layer import build_families
 # guard immediately before cars.json/data.js are written, below.
 DB_LAYER = os.environ.get("CARWEB_DB_LAYER", "0").strip().lower() in ("1", "true", "yes", "on")
 try:
-    from build_db_layer import enrich as enrich_db_layer, flag_garage
+    # build_db_layer.py is intentionally NOT part of the public checkout -- it
+    # reads a private road-test tree that cannot be redistributed. A static
+    # analyser has nothing to resolve here and will flag the import; that is
+    # the expected state, hence the ignore. The ImportError branch below is
+    # what actually runs in a public build.
+    from build_db_layer import enrich as enrich_db_layer, flag_garage  # type: ignore[import-not-found]
 except ImportError:  # build_db_layer.py absent from this checkout
     enrich_db_layer = flag_garage = None
 
@@ -251,7 +256,8 @@ else:
 # ---------------- nameplate family layer ----------------
 fam_stats = build_families(nodes, links)
 print(f"  family layer: families={fam_stats['families']} generations-collapsed={fam_stats['generations']} "
-      f"unconfirmed={fam_stats['unconfirmed']} mirrored-relations={fam_stats.get('mirroredRelations', 0)} "
+      f"unconfirmed={fam_stats['unconfirmed']} name-collisions={fam_stats.get('collisions', 0)} "
+      f"mirrored-relations={fam_stats.get('mirroredRelations', 0)} "
       f"(see harvest/family_match_report.txt)")
 
 counts = {"nodes": len(nodes), "links": len(links),

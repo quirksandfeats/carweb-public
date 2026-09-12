@@ -1,7 +1,7 @@
 FAMILY GROUPING REPORT
-Generated: 2026-09-11
+Generated: 2026-09-12
 
-CONFIRMED FAMILIES (101) -- clean, unbroken succession chain
+CONFIRMED FAMILIES (104) -- clean, unbroken succession chain
   Alfa Romeo 33 Stradale  (2 generations, 1967–)
       33 Stradale[1967-1969] -> 33 Stradale (2023)[2023-]
   Alpina B3  (2 generations, 2007–2019)
@@ -112,6 +112,9 @@ CONFIRMED FAMILIES (101) -- clean, unbroken succession chain
   Ford Mustang  (7 generations, 1964–)
       Mustang (first generation)[1964-1973] -> Mustang (second generation)[1973-1978] -> Mustang (Fox)[1979-1993] -> Mustang (fourth generation)[1993-] -> Mustang (S197)[2005-2014] -> Mustang (sixth generation)[2014-2023] -> Mustang (seventh generation)[2022-]
       EXCLUDED: Mustang [1964-] id=m-ford-mustang -- no succession link to any other candidate generation here
+  Ford Taurus  (7 generations, 1985–2022)
+      Taurus (first generation)[1985-1985] -> Taurus (second generation)[1991-1991] -> Taurus (third generation)[1995-] -> Taurus (fourth generation)[1999-1999] -> Taurus (fifth generation)[2007-2009] -> Taurus (sixth generation)[2009-2019] -> Taurus (China)[2016-2022]
+      EXCLUDED: Taurus [1986-] id=m-ford-taurus -- no succession link to any other candidate generation here
   Ford Thunderbird  (11 generations, 1955–2005)
       Thunderbird (first generation)[1955-1957] -> Thunderbird (second generation)[1958-1960] -> Thunderbird (third generation)[1961-] -> Thunderbird (fourth generation)[1964-1966] -> Thunderbird (fifth generation)[1967-1971] -> Thunderbird (sixth generation)[1972-1976] -> Thunderbird (seventh generation)[1977-1979] -> Thunderbird (eighth generation)[1980-1982] -> Thunderbird (ninth generation)[1983-1988] -> Thunderbird (tenth generation)[1988-1988] -> Thunderbird (eleventh generation)[2002-2005]
       EXCLUDED: Thunderbird [1955-2005] id=m-ford-thunderbird -- no succession link to any other candidate generation here
@@ -146,6 +149,8 @@ CONFIRMED FAMILIES (101) -- clean, unbroken succession chain
   Jaguar XK  (2 generations, 1996–2014)
       XK (X100)[1996-2006] -> XK (X150)[2006-2014]
       EXCLUDED: XK [1996-2014] id=m-jaguar-xk -- no succession link to any other candidate generation here
+  Jeep Cherokee  (4 generations, 1974–)
+      Cherokee (SJ)[1974-1983] -> Cherokee (XJ)[1984-2001] -> Cherokee (KL)[2013-2023] -> Cherokee (KM)[2025-]
   Jeep Grand Cherokee  (4 generations, 1992–2022)
       Grand Cherokee (ZJ)[1992-1998] -> Grand Cherokee (WJ)[1998-] -> Grand Cherokee (WK)[2004-2010] -> Grand Cherokee (WK2)[2009-2022]
       EXCLUDED: Grand Cherokee [1992-] id=m-jeep-grand-cherokee -- no succession link to any other candidate generation here
@@ -258,6 +263,10 @@ CONFIRMED FAMILIES (101) -- clean, unbroken succession chain
   Volkswagen Golf  (8 generations, 1974–)
       Golf Mk1[1974-1983] -> Golf Mk2[1983-1992] -> Golf Mk3[1991-1998] -> Golf Mk4[1997-2003] -> Golf Mk5[2003-2010] -> Golf Mk6[2008-2013] -> Golf Mk7[2012-2019] -> Golf Mk8[2019-]
       EXCLUDED: Golf [1974-] id=m-volkswagen-golf -- no succession link to any other candidate generation here
+  Volkswagen Jetta  (5 generations, 1979–)
+      Jetta (A1)[1979-1984] -> Jetta (A2)[1984-1992] -> Jetta (A5)[2005-2011] -> Jetta (A6)[2010-2019] -> Jetta (A7)[2018-]
+      EXCLUDED: Jetta [1979-] id=m-volkswagen-jetta -- no succession link to any other candidate generation here
+      EXCLUDED: Jetta (China) [1979-] id=m-volkswagen-jetta-china -- chronologically overlaps other generations here with no direct succession link to its would-be neighbor 'Jetta (A1)' -- likely a broader retrospective/umbrella article (like Porsche '911 (classic)') or a regional/parallel-market generation running outside the mainline succession chain (like a China- or NA-only generation), rather than a discrete step in this sequence
   Volkswagen Passat  (8 generations, 1973–)
       Passat (B1)[1973-1980] -> Passat (B2)[1981-1981] -> Passat (B3)[1988-1993] -> Passat (B4)[1993-1993] -> Passat (B5)[1996-1996] -> Passat (B6)[2005-2011] -> Passat (B8)[2014-2022] -> Passat (B9)[2023-]
       EXCLUDED: Passat [1973-] id=m-volkswagen-passat -- no succession link to any other candidate generation here
@@ -272,27 +281,10 @@ CONFIRMED FAMILIES (101) -- clean, unbroken succession chain
       Type 2[1950-] -> Type 2 (T3)[1979-2002]
       EXCLUDED: Type 2 (T1) [1950-1967] id=m-volkswagen-type-2-t1 -- no succession link to any other candidate generation here
 
-UNCONFIRMED (95) -- candidate group found, NOT auto-grouped, needs review
-  ABC   (2 candidates) -- fewer than 2 chronologically-connected generations remain after pruning
-      (1906 automobile) [1905-] id=m-abc-1906-automobile
-      (1920 automobile) [1920-] id=m-abc-1920-automobile
-  Abingdon   (2 candidates) -- fewer than 2 chronologically-connected generations remain after pruning
-      (1902 automobile) [1902-] id=m-abingdon-1902-automobile
-      (1922 automobile) [1922-] id=m-abingdon-1922-automobile
-  Ace   (2 candidates) -- fewer than 2 chronologically-connected generations remain after pruning
-      (1913 automobile) [1913-] id=m-ace-1913-automobile
-      (1920 automobile) [1920-] id=m-ace-1920-automobile
+UNCONFIRMED (74) -- candidate group found, NOT auto-grouped, needs review
   Acura Integra  (2 candidates) -- fewer than 2 chronologically-connected generations remain after pruning
       Integra [1985-] id=m-acura-integra
       Integra (2022) [2022-] id=m-acura-integra-2022
-  Ajax   (3 candidates) -- fewer than 2 chronologically-connected generations remain after pruning
-      (1906 automobile) [1906-] id=m-ajax-1906-automobile
-      (1913 automobile) [1913-] id=m-ajax-1913-automobile
-      (Nash Motors) [1925-] id=m-ajax-nash-motors
-  Alba   (3 candidates) -- fewer than 2 chronologically-connected generations remain after pruning
-      (1907 automobile) [1907-] id=m-alba-1907-automobile
-      (1913 automobile) [1913-] id=m-alba-1913-automobile
-      (1952 automobile) [1952-] id=m-alba-1952-automobile
   Alfa Romeo Giulia  (3 candidates) -- fewer than 2 chronologically-connected generations remain after pruning
       Giulia [1962-1962] id=m-alfa-romeo-giulia
       Giulia (952) [2016-] id=m-alfa-romeo-giulia-952
@@ -301,15 +293,6 @@ UNCONFIRMED (95) -- candidate group found, NOT auto-grouped, needs review
       Giulietta (1954) [1954-1965] id=m-alfa-romeo-giulietta-1954
       Giulietta (1977) [1977-1985] id=m-alfa-romeo-giulietta-1977
       Giulietta (2010) [2010-2020] id=m-alfa-romeo-giulietta-2010
-  Allen   (2 candidates) -- fewer than 2 chronologically-connected generations remain after pruning
-      (1913 Ohio automobile) [1913-] id=m-allen-1913-ohio-automobile
-      (1913 Philadelphia automobile) [1913-] id=m-allen-1913-philadelphia-automobile
-  Apollo   (2 candidates) -- fewer than 2 chronologically-connected generations remain after pruning
-      (1906 automobile) [1906-] id=m-apollo-1906-automobile
-      (1910 automobile) [1910-] id=m-apollo-1910-automobile
-  Ascot   (2 candidates) -- fewer than 2 chronologically-connected generations remain after pruning
-      (1914 automobile) [1914-] id=m-ascot-1914-automobile
-      (1928 automobile) [1928-] id=m-ascot-1928-automobile
   Aston Martin DBS  (2 candidates) -- fewer than 2 chronologically-connected generations remain after pruning
       DBS [1967-1972] id=m-aston-martin-dbs
       DBS (2007) [2007-2012] id=m-aston-martin-dbs-2007
@@ -319,10 +302,6 @@ UNCONFIRMED (95) -- candidate group found, NOT auto-grouped, needs review
   Aston Martin Vanquish  (2 candidates) -- fewer than 2 chronologically-connected generations remain after pruning
       Vanquish [2001-2007] id=m-aston-martin-vanquish
       Vanquish (2012) [2012-2018] id=m-aston-martin-vanquish-2012
-  Astra   (3 candidates) -- fewer than 2 chronologically-connected generations remain after pruning
-      (1922 automobile) [1922-] id=m-astra-1922-automobile
-      (1930 automobile) [1930-] id=m-astra-1930-automobile
-      (1954 automobile) [1954-] id=m-astra-1954-automobile
   Austin 12  (2 candidates) -- fewer than 2 chronologically-connected generations remain after pruning
       12 [1921-1939] id=m-austin-12
       12 (1939) [1939-1947] id=m-austin-12-1939
@@ -360,9 +339,6 @@ UNCONFIRMED (95) -- candidate group found, NOT auto-grouped, needs review
   Dodge Dart  (2 candidates) -- fewer than 2 chronologically-connected generations remain after pruning
       Dart [1960-1976] id=m-dodge-dart
       Dart (PF) [2012-2016] id=m-dodge-dart-pf
-  Eureka   (2 candidates) -- fewer than 2 chronologically-connected generations remain after pruning
-      (1907 automobile) [1906-] id=m-eureka-1907-automobile
-      (French automobile) [1906-] id=m-eureka-french-automobile
   Fiat 600  (2 candidates) -- fewer than 2 chronologically-connected generations remain after pruning
       600 [1955-1955] id=m-fiat-600
       600 (2023) [2023-] id=m-fiat-600-2023
@@ -432,27 +408,12 @@ UNCONFIRMED (95) -- candidate group found, NOT auto-grouped, needs review
       Ranger (Americas) [1983-2011] id=m-ford-ranger-americas
       Ranger (international) [1998-] id=m-ford-ranger-international
       Ranger (T6) [2011-] id=m-ford-ranger-t6
-  Ford Taurus  (8 candidates) -- no succession link between chronologically adjacent 'Taurus (fourth generation)' and 'Taurus (fifth generation)'
-      Taurus (first generation) [1985-1985] id=m-ford-taurus-first-generation
-      Taurus [1986-] id=m-ford-taurus
-      Taurus (second generation) [1991-1991] id=m-ford-taurus-second-generation
-      Taurus (third generation) [1995-] id=m-ford-taurus-third-generation
-      Taurus (fourth generation) [1999-1999] id=m-ford-taurus-fourth-generation
-      Taurus (fifth generation) [2007-2009] id=m-ford-taurus-fifth-generation
-      Taurus (sixth generation) [2009-2019] id=m-ford-taurus-sixth-generation
-      Taurus (China) [2016-2022] id=m-ford-taurus-china
   Ford Territory  (2 candidates) -- fewer than 2 chronologically-connected generations remain after pruning
       Territory (Australia) [2004-2016] id=m-ford-territory-australia
       Territory (China) [2018-] id=m-ford-territory-china
   Ford Versailles  (2 candidates) -- fewer than 2 chronologically-connected generations remain after pruning
       Versailles (France) [1954-] id=m-ford-versailles-france
       Versailles [1991-1996] id=m-ford-versailles
-  Gordon   (2 candidates) -- fewer than 2 chronologically-connected generations remain after pruning
-      (1912–1916) [1912-] id=m-gordon-1912-1916
-      (1954–1958) [1954-] id=m-gordon-1954-1958
-  Hammer   (2 candidates) -- fewer than 2 chronologically-connected generations remain after pruning
-      (Australian automobile) [1900-1900] id=m-hammer-australian-automobile
-      (American automobile) [1905-] id=m-hammer-american-automobile
   Honda Accord  (7 candidates) -- no succession link between chronologically adjacent 'Accord' and 'Accord (sixth generation)'
       Accord [1976-] id=m-honda-accord
       Accord (sixth generation) [1997-] id=m-honda-accord-sixth-generation
@@ -476,11 +437,6 @@ UNCONFIRMED (95) -- candidate group found, NOT auto-grouped, needs review
   Hyundai Sonata  (2 candidates) -- fewer than 2 chronologically-connected generations remain after pruning
       Sonata (Y2) [1988-1993] id=m-hyundai-sonata-y2
       Sonata (YF) [2009-2014] id=m-hyundai-sonata-yf
-  Jeep Cherokee  (4 candidates) -- no succession link between chronologically adjacent 'Cherokee (XJ)' and 'Cherokee (KL)'
-      Cherokee (SJ) [1974-1983] id=m-jeep-cherokee-sj
-      Cherokee (XJ) [1984-2001] id=m-jeep-cherokee-xj
-      Cherokee (KL) [2013-2023] id=m-jeep-cherokee-kl
-      Cherokee (KM) [2025-] id=m-jeep-cherokee-km
   Jeep Commander  (3 candidates) -- fewer than 2 chronologically-connected generations remain after pruning
       Commander (XK) [2005-] id=m-jeep-commander-xk
       Commander [2005-] id=m-jeep-commander
@@ -507,9 +463,6 @@ UNCONFIRMED (95) -- candidate group found, NOT auto-grouped, needs review
   Lancia Kappa  (2 candidates) -- fewer than 2 chronologically-connected generations remain after pruning
       Kappa (1919) [1919-1922] id=m-lancia-kappa-1919
       Kappa [1994-1994] id=m-lancia-kappa
-  Lincoln   (2 candidates) -- fewer than 2 chronologically-connected generations remain after pruning
-      (1914 automobile) [1914-] id=m-lincoln-1914-automobile
-      (EL-series) [1949-] id=m-lincoln-el-series
   Lincoln Continental  (2 candidates) -- fewer than 2 chronologically-connected generations remain after pruning
       Continental (Mark I) [1939-1948] id=m-lincoln-continental-mark-i
       Continental [1940-] id=m-lincoln-continental
@@ -529,12 +482,6 @@ UNCONFIRMED (95) -- candidate group found, NOT auto-grouped, needs review
   Mercedes-Benz GLS  (2 candidates) -- fewer than 2 chronologically-connected generations remain after pruning
       GLS [2006-2006] id=m-mercedes-benz-gls
       GLS (X167) [2019-] id=m-mercedes-benz-gls-x167
-  Michigan   (2 candidates) -- fewer than 2 chronologically-connected generations remain after pruning
-      (1903 automobile) [1903-] id=m-michigan-1903-automobile
-      (1908 automobile) [1904-] id=m-michigan-1908-automobile
-  Mini   (2 candidates) -- fewer than 2 chronologically-connected generations remain after pruning
-      (Mark I) [1959-1959] id=m-mini-mark-i
-      (marque) [1959-] id=m-mini-marque
   Morris Major  (2 candidates) -- fewer than 2 chronologically-connected generations remain after pruning
       Major (1931 to 1933) [1930-1933] id=m-morris-major-1931-to-1933
       Major [1958-1964] id=m-morris-major
@@ -553,9 +500,6 @@ UNCONFIRMED (95) -- candidate group found, NOT auto-grouped, needs review
   Peugeot 408  (2 candidates) -- fewer than 2 chronologically-connected generations remain after pruning
       408 (saloon) [2010-] id=m-peugeot-408-saloon
       408 [2010-] id=m-peugeot-408
-  Queen   (2 candidates) -- fewer than 2 chronologically-connected generations remain after pruning
-      (American automobile) [1902-] id=m-queen-american-automobile
-      (English automobile) [1904-] id=m-queen-english-automobile
   Renault Filante  (2 candidates) -- fewer than 2 chronologically-connected generations remain after pruning
       Filante (concept) [2025-] id=m-renault-filante-concept
       Filante (crossover) [2026-] id=m-renault-filante-crossover
@@ -565,14 +509,6 @@ UNCONFIRMED (95) -- candidate group found, NOT auto-grouped, needs review
   Rolls-Royce Wraith  (2 candidates) -- fewer than 2 chronologically-connected generations remain after pruning
       Wraith (1938) [1938-1939] id=m-rolls-royce-wraith-1938
       Wraith (2013) [2013-2023] id=m-rolls-royce-wraith-2013
-  Ross   (2 candidates) -- fewer than 2 chronologically-connected generations remain after pruning
-      (steam automobile) [1906-] id=m-ross-steam-automobile
-      (gasoline automobile) [1915-] id=m-ross-gasoline-automobile
-  Standard   (4 candidates) -- fewer than 2 chronologically-connected generations remain after pruning
-      (1904 automobile) [1901-] id=m-standard-1904-automobile
-      (Italian automobile) [1906-] id=m-standard-italian-automobile
-      (1911 automobile) [1911-] id=m-standard-1911-automobile
-      (1912 automobile) [1914-1923] id=m-standard-1912-automobile
   Toyota Supra  (2 candidates) -- fewer than 2 chronologically-connected generations remain after pruning
       Supra [1978-] id=m-toyota-supra
       Supra (A80) [1993-2002] id=m-toyota-supra-a80
@@ -586,14 +522,6 @@ UNCONFIRMED (95) -- candidate group found, NOT auto-grouped, needs review
   Volkswagen Beetle  (2 candidates) -- fewer than 2 chronologically-connected generations remain after pruning
       Beetle [1938-2003] id=m-volkswagen-beetle
       Beetle (A5) [2011-2019] id=m-volkswagen-beetle-a5
-  Volkswagen Jetta  (7 candidates) -- tied/ambiguous year with no direct link to disambiguate order: m-volkswagen-jetta-china vs m-volkswagen-jetta-a1
-      Jetta (A1) [1979-1984] id=m-volkswagen-jetta-a1
-      Jetta (China) [1979-] id=m-volkswagen-jetta-china
-      Jetta [1979-] id=m-volkswagen-jetta
-      Jetta (A2) [1984-1992] id=m-volkswagen-jetta-a2
-      Jetta (A5) [2005-2011] id=m-volkswagen-jetta-a5
-      Jetta (A6) [2010-2019] id=m-volkswagen-jetta-a6
-      Jetta (A7) [2018-] id=m-volkswagen-jetta-a7
   Volkswagen Vento  (2 candidates) -- fewer than 2 chronologically-connected generations remain after pruning
       Vento (A3) [1992-1999] id=m-volkswagen-vento-a3
       Vento (A05) [2010-2022] id=m-volkswagen-vento-a05
@@ -620,3 +548,68 @@ UNCONFIRMED (95) -- candidate group found, NOT auto-grouped, needs review
   Škoda Superb  (2 candidates) -- fewer than 2 chronologically-connected generations remain after pruning
       Superb (1934–1949) [1934-1943] id=m-skoda-superb-1934-1949
       Superb [2001-] id=m-skoda-superb
+
+NAME COLLISIONS (18) -- unrelated marques sharing a name, correctly not grouped
+  Nothing to review here. Wikipedia disambiguates two different things with the
+  same title using a parenthetical, so these collapse onto one empty base name,
+  and no succession edge joins any of them. Listed separately so they stop
+  inflating the review count above.
+  ABC  (2 unrelated articles)
+      (1906 automobile) [1905-] id=m-abc-1906-automobile
+      (1920 automobile) [1920-] id=m-abc-1920-automobile
+  Abingdon  (2 unrelated articles)
+      (1902 automobile) [1902-] id=m-abingdon-1902-automobile
+      (1922 automobile) [1922-] id=m-abingdon-1922-automobile
+  Ace  (2 unrelated articles)
+      (1913 automobile) [1913-] id=m-ace-1913-automobile
+      (1920 automobile) [1920-] id=m-ace-1920-automobile
+  Ajax  (3 unrelated articles)
+      (1906 automobile) [1906-] id=m-ajax-1906-automobile
+      (1913 automobile) [1913-] id=m-ajax-1913-automobile
+      (Nash Motors) [1925-] id=m-ajax-nash-motors
+  Alba  (3 unrelated articles)
+      (1907 automobile) [1907-] id=m-alba-1907-automobile
+      (1913 automobile) [1913-] id=m-alba-1913-automobile
+      (1952 automobile) [1952-] id=m-alba-1952-automobile
+  Allen  (2 unrelated articles)
+      (1913 Ohio automobile) [1913-] id=m-allen-1913-ohio-automobile
+      (1913 Philadelphia automobile) [1913-] id=m-allen-1913-philadelphia-automobile
+  Apollo  (2 unrelated articles)
+      (1906 automobile) [1906-] id=m-apollo-1906-automobile
+      (1910 automobile) [1910-] id=m-apollo-1910-automobile
+  Ascot  (2 unrelated articles)
+      (1914 automobile) [1914-] id=m-ascot-1914-automobile
+      (1928 automobile) [1928-] id=m-ascot-1928-automobile
+  Astra  (3 unrelated articles)
+      (1922 automobile) [1922-] id=m-astra-1922-automobile
+      (1930 automobile) [1930-] id=m-astra-1930-automobile
+      (1954 automobile) [1954-] id=m-astra-1954-automobile
+  Eureka  (2 unrelated articles)
+      (1907 automobile) [1906-] id=m-eureka-1907-automobile
+      (French automobile) [1906-] id=m-eureka-french-automobile
+  Gordon  (2 unrelated articles)
+      (1912–1916) [1912-] id=m-gordon-1912-1916
+      (1954–1958) [1954-] id=m-gordon-1954-1958
+  Hammer  (2 unrelated articles)
+      (Australian automobile) [1900-1900] id=m-hammer-australian-automobile
+      (American automobile) [1905-] id=m-hammer-american-automobile
+  Lincoln  (2 unrelated articles)
+      (1914 automobile) [1914-] id=m-lincoln-1914-automobile
+      (EL-series) [1949-] id=m-lincoln-el-series
+  Michigan  (2 unrelated articles)
+      (1903 automobile) [1903-] id=m-michigan-1903-automobile
+      (1908 automobile) [1904-] id=m-michigan-1908-automobile
+  Mini  (2 unrelated articles)
+      (Mark I) [1959-1959] id=m-mini-mark-i
+      (marque) [1959-] id=m-mini-marque
+  Queen  (2 unrelated articles)
+      (American automobile) [1902-] id=m-queen-american-automobile
+      (English automobile) [1904-] id=m-queen-english-automobile
+  Ross  (2 unrelated articles)
+      (steam automobile) [1906-] id=m-ross-steam-automobile
+      (gasoline automobile) [1915-] id=m-ross-gasoline-automobile
+  Standard  (4 unrelated articles)
+      (1904 automobile) [1901-] id=m-standard-1904-automobile
+      (Italian automobile) [1906-] id=m-standard-italian-automobile
+      (1911 automobile) [1911-] id=m-standard-1911-automobile
+      (1912 automobile) [1914-1923] id=m-standard-1912-automobile
