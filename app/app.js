@@ -3930,6 +3930,109 @@ window.CarWeb = (function () {
   // initLlmPlaygroundPanel, and the llmcheck/dbmatchbtn setup in boot()) --
   // this just adds the menu container's own open/close behavior on top,
   // without touching any item's individual click logic.
+  // ---------- refresh generation photos (local only) ----------
+  // A generation's photo is written once, into llm_families.json, at the
+  // moment its family was scanned -- so an improvement to findGenerationImage
+  // only reaches families scanned after it, and rebuild.sh (which regenerates
+  // cars.json and never touches llm_families.json) changes nothing. This
+  // re-reads the source articles and recomputes only that pointer, leaving
+  // every code, year, credit and confirmation exactly where it was.
+  function initGenPhotos() {
+    const trigger = document.getElementById("genphotosbtn");
+    const panel = document.getElementById("genphotos-panel");
+    if (!trigger || !panel) return;
+    const closeBtn = document.getElementById("genphotos-close");
+    const allEl = document.getElementById("genphotos-all");
+    const runBtn = document.getElementById("genphotos-run");
+    const statusEl = document.getElementById("genphotos-status");
+    const say = (m, cls) => { statusEl.textContent = m || ""; statusEl.className = "lrq-status" + (cls ? " " + cls : ""); };
+    // Every item in this menu ships hidden and is revealed by its own init.
+    // Writing the result back needs serve.py, so this one follows the same
+    // rule as the rest of the menu: local only.
+    trigger.hidden = !(window.LlmFamilies && window.LlmFamilies.serverAvailable);
+    if (trigger.hidden) return;
+
+    function positionPanel() {
+      const r = trigger.getBoundingClientRect();
+      panel.style.top = (r.bottom + 6) + "px";
+      panel.style.left = "auto";
+      panel.style.right = Math.max(0, window.innerWidth - r.right) + "px";
+    }
+    function open() { positionPanel(); panel.hidden = false; say(""); }
+    function close() { panel.hidden = true; }
+
+    // The graph node for a generation, from the family entry it belongs to.
+    // Two id spellings exist in the wild -- applyConfirmed strips a trailing
+    // hyphen off the slug and applyFamilyOverride does not -- so both are
+    // tried before falling back to the minted label, which is always
+    // "<family label> <code>".
+    function genNodeFor(familyId, code) {
+      const slug = String(code).toLowerCase().replace(/[^a-z0-9]+/g, "-");
+      const n = byId.get("llm-" + familyId + "-" + slug.replace(/-+$/, "")) ||
+                byId.get("llm-" + familyId + "-" + slug);
+      if (n) return n;
+      const want = String(code).toLowerCase().trim();
+      return nodes.find(x => x.familyOf === familyId && !x.retired &&
+                             String(x.label || "").toLowerCase().endsWith(want)) || null;
+    }
+
+    runBtn.onclick = async () => {
+      const LF = window.LlmFamilies;
+      if (!LF || !LF.serverAvailable) return say("No local server this session — there'd be nothing to save to.", "err");
+      runBtn.disabled = true;
+      allEl.disabled = true;
+      say("Reading articles…");
+      let res;
+      try {
+        res = await LF.refreshGenerationImages({
+          all: !!allEl.checked,
+          onProgress: ({ title, done, total }) => say(`Reading ${title} (${done + 1} of ${total})…`),
+        });
+      } catch (e) {
+        runBtn.disabled = false; allEl.disabled = false;
+        return say("Couldn't finish: " + ((e && e.message) || e), "err");
+      }
+      runBtn.disabled = false;
+      allEl.disabled = false;
+
+      // The stored records are updated; the drawn nodes are not, and
+      // genPhotoUrl reads the node. Without this the new photos would only
+      // appear after a reload.
+      let applied = 0, orphaned = 0;
+      (res.updates || []).forEach(u => {
+        const n = genNodeFor(u.familyId, u.code);
+        if (!n) { orphaned++; return; }
+        n.wikiFile = u.wikiFile;
+        applied++;
+      });
+      if (applied) { Graph.touch(); if (dtNode) openDetail(dtNode); }
+
+      const bits = [];
+      if (res.filled) bits.push(res.filled + " generation" + (res.filled === 1 ? "" : "s") + " that had no photo now has one");
+      if (res.replaced) bits.push(res.replaced + " swapped for a better match");
+      if (res.stillNone) bits.push(res.stillNone + " still has none in the article");
+      if (res.unchanged) bits.push(res.unchanged + " unchanged");
+      let msg = res.scanned
+        ? "Read " + res.families + " article" + (res.families === 1 ? "" : "s") + ": " + bits.join(", ") + "."
+        : "Nothing to do — every scanned generation already has a photo.";
+      if (orphaned) msg += " " + orphaned + " updated record" + (orphaned === 1 ? " has" : "s have") +
+                          " no node drawn right now; they'll show on the next reload.";
+      if (res.failed && res.failed.length) {
+        msg += " " + res.failed.length + " article" + (res.failed.length === 1 ? "" : "s") +
+               " couldn't be read (" + res.failed.slice(0, 3).map(f => f.title).join(", ") + ").";
+      }
+      say(msg, res.failed && res.failed.length ? "err" : "ok");
+    };
+
+    trigger.addEventListener("click", e => { e.stopPropagation(); if (panel.hidden) open(); else close(); });
+    closeBtn.onclick = close;
+    document.addEventListener("click", e => {
+      if (e.target !== trigger && !panel.contains(e.target)) close();
+    });
+    document.addEventListener("keydown", e => { if (e.key === "Escape" && !panel.hidden) close(); });
+    window.addEventListener("resize", () => { if (!panel.hidden) positionPanel(); });
+  }
+
   // ---------- request-a-scan (hosted site only) ----------
   // Real user request: "Add some kind of 'request' button on the hosted
   // webpage that sends a request to my machine to do the local LLM search,
@@ -5324,7 +5427,7 @@ window.CarWeb = (function () {
       // item inside it is hidden, so gating them here removes the menu itself.
       if (!(window.LlmFamilies && window.LlmFamilies.serverAvailable)) {
         for (const id of ["llmdebugbtn", "llmplaygroundbtn", "unconfirmedrelbtn",
-                          "modifycarbtn", "deletebtn"]) {
+                          "modifycarbtn", "deletebtn", "genphotosbtn"]) {
           const el = document.getElementById(id);
           if (el) el.hidden = true;
         }
@@ -5340,6 +5443,7 @@ window.CarWeb = (function () {
       if (lgDb) lgDb.hidden = !nodes.some((n) => n.db);
       if (lgGarage) lgGarage.hidden = !nodes.some((n) => n.garage);
 
+      initGenPhotos();
       initToolsMenu();
       initLlmRequest();
       if (window.CarWebLive) CarWebLive.start();

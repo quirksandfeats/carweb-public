@@ -1143,6 +1143,83 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
       .concat(infoboxBlocks(wikitext).map(b => b.image).filter(Boolean));
     return fresh(all) || all[0] || null;
   }
+  // ---------- public: re-derive stored generation photos, no model involved ----
+  // Real user question: "so for the thumbnails to be proper, do i need to do a
+  // rebuild or what?" No -- rebuild.sh regenerates cars.json from DBpedia and
+  // the curated tables and never touches llm_families.json, which is where a
+  // generation's photo actually lives. Each generation's `wikiFile` is written
+  // once, by validate(), at the moment that family was scanned, so an
+  // improvement to findGenerationImage only reaches families scanned AFTER it.
+  //
+  // Re-running the whole LLM check to pick one up is the wrong tool: the
+  // codes, years and credits are already settled and, for a confirmed family,
+  // already approved by a human, and a fresh check would throw all of that
+  // back into provisional over a picture. This re-reads the article and
+  // recomputes ONLY the image pointer, using the identical ordering validate()
+  // uses so two generations still cannot end up holding the same photo.
+  //
+  // It never blanks a photo that already exists: a generation that had one and
+  // finds nothing this time keeps what it had. By default it only fills in the
+  // ones that have none; pass {all:true} to re-derive every generation, which
+  // is what you want after a change like the infobox tier, where a generation
+  // may be holding a WORSE photo rather than none at all.
+  async function refreshGenerationImages(opts) {
+    opts = opts || {};
+    const all = !!opts.all;
+    const onProgress = typeof opts.onProgress === "function" ? opts.onProgress : null;
+    const entries = Object.entries(store.families).filter(([, e]) =>
+      e && e.proposal && Array.isArray(e.proposal.generations) && e.proposal.generations.length);
+    const todo = entries.filter(([, e]) =>
+      all ? true : e.proposal.generations.some(g => !g.wikiFile));
+    const result = { families: todo.length, scanned: 0, filled: 0, replaced: 0,
+                     unchanged: 0, stillNone: 0, failed: [], updates: [] };
+    let done = 0;
+    for (const [nodeId, entry] of todo) {
+      const title = entry.sourceTitle || nodeId;
+      if (onProgress) onProgress({ title, done, total: todo.length });
+      done++;
+      let wikitext;
+      try {
+        wikitext = (await fetchArticleDigest(title)).wikitext;
+      } catch (e) {
+        result.failed.push({ id: nodeId, title, error: (e && e.message) || String(e) });
+        continue;
+      }
+      const hay = wikitext.toLowerCase();
+      const usedFiles = new Set();
+      const seenCodes = new Map();
+      // Reserve the photos the generations we are NOT touching already hold,
+      // or a fill-in could take one of them and produce the duplicate this
+      // whole mechanism exists to prevent.
+      if (!all) entry.proposal.generations.forEach(g => {
+        if (g.wikiFile) usedFiles.add(String(g.wikiFile).toLowerCase());
+      });
+      entry.proposal.generations.forEach(g => {
+        // Walked in full even when only some generations are being refilled:
+        // seenCodes is what tells the G-Class's two W463 sections apart, and
+        // skipping an entry early would shift every later one's section.
+        const lookupCode = g.codeBase || g.code;
+        const seenBefore = seenCodes.get(norm(lookupCode)) || 0;
+        seenCodes.set(norm(lookupCode), seenBefore + 1);
+        if (!all && g.wikiFile) return;
+        result.scanned++;
+        const before = g.wikiFile || null;
+        const found = findGenerationImage(wikitext, lookupCode, codeAnchorIn(hay, g.code), usedFiles, seenBefore);
+        if (found) usedFiles.add(found.toLowerCase());
+        if (!found) {
+          if (before) result.unchanged++; else result.stillNone++;
+          return;
+        }
+        if (found === before) { result.unchanged++; return; }
+        g.wikiFile = found;
+        if (before) result.replaced++; else result.filled++;
+        result.updates.push({ familyId: nodeId, code: g.code, wikiFile: found });
+      });
+    }
+    if (result.filled || result.replaced) await persist();
+    return result;
+  }
+
   // Kept as a thin wrapper: several call sites (and the QA suite) still ask
   // the simple "any photo near here" question.
   function findNearbyFile(wikitext, anchorIndex) {
@@ -7657,6 +7734,7 @@ Rules:
     // and the per-generation image picker, whose exact behavior several
     // regression tests pin down directly rather than through a whole check
     // round trip.
+    refreshGenerationImages,
     parseLlmJson, codeAnchorIn, codeVerifiedIn, findGenerationImage, infoboxImageForCode,
     looksLikePlatformNotCar,
     // Exposed for the regression suite only: a persisted proposal from before

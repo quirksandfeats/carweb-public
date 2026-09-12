@@ -192,11 +192,39 @@
   <div id="llmrequest-status" class="lrq-status"></div>
 </div>
 
+<div id="genphotos-panel" hidden>
+  <div class="lrq-head">
+    <strong>Refresh generation photos</strong>
+    <button id="genphotos-close" title="close">✕</button>
+  </div>
+  <p class="lrq-blurb">
+    Re-reads each scanned article and recomputes only the picture each
+    generation points at. The model is not involved, nothing is re-checked,
+    and a confirmed family stays confirmed. A generation that already has a
+    photo and finds nothing this time keeps the one it has.
+  </p>
+  <label class="lrq-check">
+    <input id="genphotos-all" type="checkbox">
+    <span>Re-derive every generation, not just the ones with no photo</span>
+  </label>
+  <div class="lrq-actions">
+    <button id="genphotos-run">Run</button>
+  </div>
+  <div id="genphotos-status" class="lrq-status"></div>
+</div>
+
 <div id="toolsmenu" role="menu" hidden>
   <button id="llmcheck" class="toolsmenu-item" role="menuitem" title="when you open a car, ask a local LLM whether its Wikipedia article hides multiple generations DBpedia didn't split out" hidden>🤖 LLM Check</button>
   <button id="llmdebugbtn" class="toolsmenu-item" role="menuitem" title="reset the LLM generation-check layer (clear everything, or one car at a time)" hidden>🧹 LLM Debug</button>
   <button id="llmplaygroundbtn" class="toolsmenu-item" role="menuitem" title="see the exact prompt sent to the local LLM, and try a response by hand" hidden>🧪 Playground</button>
   <button id="unconfirmedrelbtn" class="toolsmenu-item" role="menuitem" title="browse every discovered relationship you haven't confirmed or rejected yet" hidden>🔗 Unconfirmed Relationships</button>
+  <!-- Re-reads each scanned article and recomputes ONLY the per-generation
+       photo. Separate from a re-check on purpose: a generation's codes,
+       years and credits are already settled (and, for a confirmed family,
+       approved), so throwing all of that back into provisional over a
+       picture would be the wrong trade. See llm_families.js's
+       refreshGenerationImages. -->
+  <button id="genphotosbtn" class="toolsmenu-item" role="menuitem" title="re-read the source articles and fill in the per-generation photos, without re-running the model" hidden>🖼 Refresh Generation Photos</button>
   <button id="addcarbtn" class="toolsmenu-item" role="menuitem" title="add a specific make/model to the graph by hand" hidden>➕ Add Car</button>
   <!-- Real user request: "in the 'Tools' Section there should also be a
        'Modify Existing Car' button which lets the user modify the wikipedia
