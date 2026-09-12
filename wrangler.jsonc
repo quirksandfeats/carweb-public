@@ -1,14 +1,32 @@
 {
-  // Static-asset deploy for Cloudflare Workers. There is no Worker script:
-  // the whole site is the contents of app/, served as-is, which is the same
-  // thing that happens when you double-click app/index.html locally.
+  // Cloudflare Workers deploy. app/ is served as static assets exactly as
+  // before -- src/worker.js hands every path it does not own straight to the
+  // ASSETS binding, so the site is unchanged for anyone who never touches the
+  // request button.
   //
-  // The build has no steps. cars.json/data.js are committed with the layout
-  // already baked, so there is nothing to compile, bundle or generate at
-  // deploy time — Cloudflare just uploads app/ and serves it.
+  // The build still has no steps. cars.json/data.js are committed with the
+  // layout already baked, so there is nothing to compile at deploy time.
   "name": "carweb",
+  "main": "src/worker.js",
   "compatibility_date": "2026-09-11",
   "assets": {
-    "directory": "./app"
+    "directory": "./app",
+    "binding": "ASSETS"
   }
+
+  // The request queue needs one KV namespace, and this file deliberately does
+  // NOT declare it yet: wrangler refuses to deploy against a namespace id that
+  // does not exist, so committing a placeholder would take the live site down
+  // until the namespace was created. src/worker.js answers every queue route
+  // with a plain "queue-unconfigured" until the binding appears, so this
+  // deploys and serves normally as it stands.
+  //
+  // To turn the queue on:
+  //   1. npx wrangler kv namespace create CARWEB_JOBS
+  //      (or Cloudflare dashboard → Storage & Databases → KV → Create)
+  //   2. paste the id it prints into a block here:
+  //        "kv_namespaces": [{ "binding": "JOBS", "id": "<id>" }]
+  //   3. npx wrangler secret put REQUEST_SECRET     # the button's passphrase
+  //      npx wrangler secret put AGENT_TOKEN        # the polling agent's token
+  //      (or dashboard → the Worker → Settings → Variables and Secrets)
 }

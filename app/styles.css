@@ -709,6 +709,46 @@ main{flex:1; position:relative; min-height:0}
   #search{width:180px} #tl-caption{display:none} .tl-year{font-size:32px}
 }
 
+/* ---------- request-a-scan (hosted site only) ---------- */
+#llmrequest-wrap{position:relative; flex:none}
+#llmrequest-wrap[hidden]{display:none}
+#llmrequest-btn{
+  font-family:var(--sans); font-size:11.5px; font-weight:600; letter-spacing:.02em;
+  padding:8px 12px; border:1px solid var(--ink); border-radius:999px;
+  background:var(--card); color:var(--ink); cursor:pointer; white-space:nowrap;
+}
+#llmrequest-btn.open{background:var(--ink); color:var(--paper)}
+#llmrequest-dot{color:var(--llm); font-size:9px; line-height:1}
+#llmrequest-dot[hidden]{display:none}
+#llmrequest-panel{
+  position:fixed; z-index:50; width:330px; max-width:calc(100vw - 16px);
+  background:var(--card); border:1px solid var(--ink); box-shadow:6px 6px 0 rgba(23,20,15,.13);
+  padding:14px 15px 13px;
+}
+#llmrequest-panel[hidden]{display:none}
+.lrq-head{display:flex; align-items:center; justify-content:space-between; gap:10px}
+.lrq-head strong{font-family:var(--serif); font-size:16px; font-weight:600}
+#llmrequest-close{border:0; background:none; font-size:14px; cursor:pointer; color:var(--muted); padding:2px 4px}
+.lrq-blurb{font-size:11.5px; color:var(--ink2); line-height:1.5; margin:7px 0 11px}
+.lrq-label{display:block; font-size:9.5px; letter-spacing:.13em; text-transform:uppercase;
+  color:var(--muted); margin:9px 0 4px}
+.lrq-label span{letter-spacing:0; text-transform:none}
+#llmrequest-panel input{
+  width:100%; font-family:var(--sans); font-size:13px; padding:8px 11px;
+  border:1px solid var(--ink); background:var(--paper); color:var(--ink); outline:none;
+}
+#llmrequest-panel input:focus{box-shadow:3px 3px 0 var(--accent2)}
+.lrq-actions{display:flex; gap:8px; margin-top:12px}
+#llmrequest-send{
+  flex:1; font-family:var(--sans); font-weight:600; font-size:13px; padding:9px;
+  background:var(--llm); color:#fff; border:0; cursor:pointer;
+}
+#llmrequest-send:disabled{background:var(--hairline); color:var(--muted); cursor:default}
+.lrq-status{font-size:11.5px; line-height:1.5; color:var(--ink2); margin-top:10px}
+.lrq-status:empty{display:none}
+.lrq-status.err{color:var(--accent)}
+.lrq-status.ok{color:var(--gensucc)}
+
 /* ---------- phone layout ----------------------------------------------------
    Real user request: "Mobile version (new UI)... It should have all features
    as on the laptop version, only that it's usable on a smaller screen like a
@@ -825,6 +865,7 @@ main{flex:1; position:relative; min-height:0}
   #sd-panel h2{font-size:20px}
 
   #toolsmenu{max-width:calc(100vw - 16px)}
+  #llmrequest-panel{left:8px !important; right:8px; width:auto; max-width:none}
 
   /* align-items:stretch, not flex-start: a shrink-to-fit child is free to be
      wider than the column and the counts line ran off both edges instead of

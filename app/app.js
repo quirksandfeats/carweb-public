@@ -3930,6 +3930,149 @@ window.CarWeb = (function () {
   // initLlmPlaygroundPanel, and the llmcheck/dbmatchbtn setup in boot()) --
   // this just adds the menu container's own open/close behavior on top,
   // without touching any item's individual click logic.
+  // ---------- request-a-scan (hosted site only) ----------
+  // Real user request: "Add some kind of 'request' button on the hosted
+  // webpage that sends a request to my machine to do the local LLM search,
+  // and then automatically push the changes (and close the program running
+  // locally) once all of the LLM processing is finished."
+  //
+  // The button cannot call the machine. It has no public address and is
+  // usually asleep, so this leaves a JOB and the agent on that machine polls
+  // for it when it is awake -- which is also why every state shown here is a
+  // record of what the agent last reported, never a live view of it. See
+  // src/worker.js for the queue and docs/REQUEST-QUEUE.md for the whole flow.
+  //
+  // Shown only when there is NO local server: with serve.py running you are
+  // sitting at the machine and run the pass yourself from the Tools menu.
+  // That makes it the exact mirror of #toolsmenu-wrap, which is hidden in the
+  // other case.
+  const LRQ_POLL_MS = 20000;
+  function initLlmRequest() {
+    const wrap = document.getElementById("llmrequest-wrap");
+    const trigger = document.getElementById("llmrequest-btn");
+    const panel = document.getElementById("llmrequest-panel");
+    if (!wrap || !trigger || !panel) return;
+    if (window.LlmFamilies && window.LlmFamilies.serverAvailable) { wrap.hidden = true; return; }
+    wrap.hidden = false;
+
+    const dot = document.getElementById("llmrequest-dot");
+    const closeBtn = document.getElementById("llmrequest-close");
+    const noteEl = document.getElementById("llmrequest-note");
+    const passEl = document.getElementById("llmrequest-pass");
+    const sendBtn = document.getElementById("llmrequest-send");
+    const statusEl = document.getElementById("llmrequest-status");
+    let poll = null;
+
+    const say = (msg, cls) => { statusEl.textContent = msg || ""; statusEl.className = "lrq-status" + (cls ? " " + cls : ""); };
+    const ago = iso => {
+      const ms = Date.now() - Date.parse(iso);
+      if (!isFinite(ms)) return "";
+      const m = Math.round(ms / 60000);
+      if (m < 1) return "just now";
+      if (m < 60) return m + " min ago";
+      const h = Math.round(m / 60);
+      return h < 48 ? h + "h ago" : Math.round(h / 24) + " days ago";
+    };
+
+    // Same fixed-position trick #toolsmenu uses, and for the same reason:
+    // #topbar clips anything that extends below its own box.
+    function positionPanel() {
+      const r = trigger.getBoundingClientRect();
+      panel.style.top = (r.bottom + 6) + "px";
+      panel.style.left = "auto";
+      panel.style.right = Math.max(0, window.innerWidth - r.right) + "px";
+    }
+
+    function render(d) {
+      if (!d || !d.ok) {
+        if (d && d.error === "queue-unconfigured") {
+          say("The queue isn't set up on this deploy yet — see docs/REQUEST-QUEUE.md.", "err");
+        }
+        dot.hidden = true;
+        return;
+      }
+      const p = d.pending, last = d.last;
+      dot.hidden = !p;
+      if (p && p.state === "running") {
+        say("Running on the machine since " + ago(p.claimedAt || p.queuedAt) + ". It pushes and shuts down when it finishes.", "ok");
+      } else if (p) {
+        say("Queued " + ago(p.queuedAt) + ", waiting for the machine to wake up.", "ok");
+      } else if (last && last.state === "done") {
+        say("Last run finished " + ago(last.finishedAt) + (last.summary ? " — " + last.summary : "") + ".");
+      } else if (last) {
+        say("Last run failed " + ago(last.finishedAt) + (last.summary ? " — " + last.summary : "") + ".", "err");
+      } else {
+        say("");
+      }
+      // A job already in flight: another request would only be dropped.
+      sendBtn.disabled = !!p;
+      sendBtn.textContent = p ? "Already requested" : "Send request";
+    }
+
+    async function refresh() {
+      try {
+        const r = await fetch("/api/request/status", { cache: "no-store" });
+        render(await r.json());
+      } catch (e) {
+        // Offline, or a deploy with no Worker at all. Either way there is
+        // nothing useful to say beyond not pretending it worked.
+        dot.hidden = true;
+      }
+    }
+
+    function openPanel() {
+      positionPanel();
+      panel.hidden = false;
+      trigger.classList.add("open");
+      refresh();
+      if (!poll) poll = setInterval(refresh, LRQ_POLL_MS);
+      passEl.focus();
+    }
+    function closePanel() {
+      panel.hidden = true;
+      trigger.classList.remove("open");
+      if (poll) { clearInterval(poll); poll = null; }
+    }
+
+    sendBtn.onclick = async () => {
+      if (!passEl.value) { say("Enter the passphrase first.", "err"); passEl.focus(); return; }
+      sendBtn.disabled = true;
+      say("Sending…");
+      try {
+        const r = await fetch("/api/request/queue", {
+          method: "POST",
+          headers: { "content-type": "application/json" },
+          body: JSON.stringify({ passphrase: passEl.value, note: noteEl.value || "" }),
+        });
+        const d = await r.json();
+        if (d && d.error === "bad-passphrase") { say("That passphrase isn't right.", "err"); sendBtn.disabled = false; return; }
+        if (!r.ok || !d || !d.ok) {
+          say(d && d.message ? d.message : "The queue didn't accept that (" + r.status + ").", "err");
+          sendBtn.disabled = false;
+          return;
+        }
+        passEl.value = "";
+        render(d);
+        if (d.already) say("There's already a job waiting — yours wasn't added on top of it.", "ok");
+      } catch (e) {
+        say("Couldn't reach the queue.", "err");
+        sendBtn.disabled = false;
+      }
+    };
+
+    trigger.onclick = (e) => { e.stopPropagation(); if (panel.hidden) openPanel(); else closePanel(); };
+    closeBtn.onclick = closePanel;
+    passEl.addEventListener("keydown", e => { if (e.key === "Enter") sendBtn.click(); });
+    document.addEventListener("click", e => { if (!wrap.contains(e.target) && !panel.contains(e.target)) closePanel(); });
+    document.addEventListener("keydown", e => { if (e.key === "Escape" && !panel.hidden) closePanel(); });
+    window.addEventListener("resize", () => { if (!panel.hidden) positionPanel(); });
+    wrap.closest("#topbar")?.addEventListener("scroll", closePanel);
+
+    // One check at boot so the dot can show a job is already in flight
+    // without the panel ever being opened.
+    refresh();
+  }
+
   function initToolsMenu() {
     const wrap = document.getElementById("toolsmenu-wrap");
     const trigger = document.getElementById("toolsmenu-btn");
@@ -5198,6 +5341,7 @@ window.CarWeb = (function () {
       if (lgGarage) lgGarage.hidden = !nodes.some((n) => n.garage);
 
       initToolsMenu();
+      initLlmRequest();
       if (window.CarWebLive) CarWebLive.start();
     },
     sim: () => sim,

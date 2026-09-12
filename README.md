@@ -65,7 +65,7 @@ cd qa/jsdom && npm install jsdom --no-save
 for f in jsdom_*_test.js; do node "$f" >/dev/null 2>&1 || echo "FAILED: $f"; done
 ```
 
-84 headless jsdom regression tests, plus the `qa/qa_*.py` suites (those
+85 headless jsdom regression tests, plus the `qa/qa_*.py` suites (those
 need Playwright, or a running `llama-server` for the MTP benchmark).
 
 ## Data and licence

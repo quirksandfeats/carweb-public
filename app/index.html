@@ -39,7 +39,15 @@
   <div id="toolsmenu-wrap">
     <button id="toolsmenu-btn" title="LLM tools &amp; debug features">🛠 Tools <span id="toolsmenu-armed-dot" hidden>●</span></button>
   </div>
+  <!-- The mirror image of #toolsmenu-wrap: that one is hidden on the hosted
+       site because every tool inside it needs serve.py, and this one is
+       hidden LOCALLY because when serve.py is right there you run the pass
+       yourself instead of queueing it. app.js picks between them. -->
+  <div id="llmrequest-wrap" hidden>
+    <button id="llmrequest-btn" title="ask the machine running the local model to scan for missing generations">⚡ Request scan <span id="llmrequest-dot" hidden>●</span></button>
+  </div>
 </header>
+
 
 <!-- persistent control bar: search (left) + Graph year-range slider (right),
      sitting between the header and the legend so it's never squeezed out
@@ -159,6 +167,31 @@
      </header>, so it doesn't sit between the header and #controlbar --
      #controlbar's own CSS/tests assume it comes immediately after the
      header in DOM order.) -->
+<!-- Sits outside <header> for the same reason #toolsmenu does: the header is
+     a horizontally-scrolling flex row, and a panel anchored inside it would
+     scroll away with its button and be clipped by the overflow. -->
+<div id="llmrequest-panel" hidden>
+  <div class="lrq-head">
+    <strong>Request an LLM scan</strong>
+    <button id="llmrequest-close" title="close">✕</button>
+  </div>
+  <p class="lrq-blurb">
+    This site is a static copy — the local model runs on one machine, which
+    is usually asleep. Sending a request leaves a job for it; it picks the
+    job up next time it is awake, scans for generations this graph is
+    missing, and pushes the result here. Findings arrive as
+    <em>provisional</em> and still wait for you to confirm them.
+  </p>
+  <label class="lrq-label" for="llmrequest-note">What should it look at? <span>(optional)</span></label>
+  <input id="llmrequest-note" type="text" maxlength="200" placeholder="e.g. the 69 families in the review queue" autocomplete="off">
+  <label class="lrq-label" for="llmrequest-pass">Passphrase</label>
+  <input id="llmrequest-pass" type="password" autocomplete="off" placeholder="required">
+  <div class="lrq-actions">
+    <button id="llmrequest-send">Send request</button>
+  </div>
+  <div id="llmrequest-status" class="lrq-status"></div>
+</div>
+
 <div id="toolsmenu" role="menu" hidden>
   <button id="llmcheck" class="toolsmenu-item" role="menuitem" title="when you open a car, ask a local LLM whether its Wikipedia article hides multiple generations DBpedia didn't split out" hidden>🤖 LLM Check</button>
   <button id="llmdebugbtn" class="toolsmenu-item" role="menuitem" title="reset the LLM generation-check layer (clear everything, or one car at a time)" hidden>🧹 LLM Debug</button>
