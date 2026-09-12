@@ -187,6 +187,19 @@ MANUF_MAP = {
     "Datsun": "Datsun", "Smart_(marque)": "Smart", "Mini_(marque)": "Mini",
 }
 
+# Aliases whose text is a SUB-BRAND or model line of the canonical make rather
+# than a spelling variant of it. For these the matched text has to STAY in the
+# model name. "Range Rover (P38A)" is a Land Rover, but stripping the matched
+# "Range Rover" left a model literally called "(P38A)" -- which is how the Land
+# Rover nameplate family ended up rendering with an empty label, since the
+# family label is the text the members share once parentheticals come off.
+# "Mercedes" -> "Mercedes-Benz", "VW" -> "Volkswagen" and "AvtoVAZ" -> "Lada"
+# are the other kind: the same brand spelled differently, and there the matched
+# text must still be dropped or every model gains a redundant prefix.
+SUB_BRAND_ALIAS = {
+    "Mercedes-AMG", "Mercedes-Maybach", "Range Rover", "Ram", "Ramcharger",
+}
+
 def known_make_prefix(title_spaced):
     """longest known make that prefixes the title"""
     cands = []
@@ -196,7 +209,10 @@ def known_make_prefix(title_spaced):
     if not cands: return None, None
     mk = max(cands, key=len)
     rest = title_spaced[len(mk):].strip()
-    return MAKE_ALIAS.get(mk, mk), rest
+    canon = MAKE_ALIAS.get(mk, mk)
+    if canon != mk and mk in SUB_BRAND_ALIAS:
+        rest = title_spaced.strip()   # keep the sub-brand in the model name
+    return canon, rest
 
 def coinable_marque(token):
     """Whether a leading title token may be registered as a brand-new marque.

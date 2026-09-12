@@ -1,9 +1,9 @@
 # The Car Web
 
-An explorable knowledge graph of the automobile industry: **6,790 car models**
-(101 of them grouped into nameplate families spanning 394 generations),
-**1,130 makes** and **2,356 people** — 2,253 designers and 139 chief engineers —
-joined by **19,653 relations**, from 1883 to today.
+An explorable knowledge graph of the automobile industry: **6,786 car models**
+(101 of them grouped into nameplate families spanning 427 generations),
+**1,124 makes** and **2,356 people** — 2,253 designers and 139 chief engineers —
+joined by **19,695 relations**, from 1883 to today.
 
 Made-by, designed-by, engineered-by, shared-platform, rebadge, succession and
 generation-succession links, all on one canvas.

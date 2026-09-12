@@ -165,10 +165,11 @@ CONFIRMED FAMILIES (101) -- clean, unbroken succession chain
   Jeep Wrangler  (4 generations, 1986–)
       Wrangler (YJ)[1986-1995] -> Wrangler (TJ)[1996-2006] -> Wrangler (JK)[2006-2018] -> Wrangler (JL)[2017-]
       EXCLUDED: Wrangler [1986-] id=m-jeep-wrangler -- no succession link to any other candidate generation here
-  Land Rover   (4 generations, 1994–)
-      (P38A)[1994-2001] -> (L322)[2002-2012] -> (L405)[2012-2021] -> (L460)[2021-]
   Land Rover Defender  (2 generations, 1983–)
       Defender[1983-1983] -> Defender (L663)[2020-]
+  Land Rover Range Rover  (4 generations, 1994–)
+      Range Rover (P38A)[1994-2001] -> Range Rover (L322)[2002-2012] -> Range Rover (L405)[2012-2021] -> Range Rover (L460)[2021-]
+      EXCLUDED: Range Rover [1970-] id=m-land-rover-range-rover -- no succession link to any other candidate generation here
   Lexus GS  (2 generations, 1991–2011)
       GS[1991-2020] -> GS (S190)[2005-2011]
   Lexus IS  (2 generations, 1998–2013)
