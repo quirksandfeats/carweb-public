@@ -1,15 +1,15 @@
 FAMILY GROUPING REPORT
 Generated: 2026-09-12
 
-CONFIRMED FAMILIES (101) -- clean, unbroken succession chain
+CONFIRMED FAMILIES (100) -- clean, unbroken succession chain
   Alfa Romeo 33 Stradale  (2 generations, 1967–)
       33 Stradale[1967-1969] -> 33 Stradale (2023)[2023-]
   Alpina B3  (2 generations, 2007–2019)
       B3 (E90)[2007-2013] -> B3 (F30)[2013-2019]
-      EXCLUDED: B3 [1987-] id=m-alpina-b3 -- chronologically overlaps other generations here with no direct succession link to its would-be neighbor 'B3 (E90)' -- likely a broader retrospective/umbrella article (like Porsche '911 (classic)') or a regional/parallel-market generation running outside the mainline succession chain (like a China- or NA-only generation), rather than a discrete step in this sequence
+      EXCLUDED: B3 [1987-] id=m-alpina-b3 -- its run [1987-ongoing] covers two or more of the other generations here and it has no succession link to the one that follows it -- either a retrospective article for a whole era (Porsche '911 (classic)') or a parallel line whose end year is missing, not a single step in this sequence
   Alpina B5  (3 generations, 2005–)
       B5 (E60)[2005-2011] -> B5 (F10)[2011-2016] -> B5 (G30)[2017-]
-      EXCLUDED: B5 [2005-] id=m-alpina-b5 -- no succession link to any other candidate generation here
+      EXCLUDED: B5 [2005-] id=m-alpina-b5 -- its run [2005-ongoing] covers two or more of the other generations here and it has no succession link to the one that follows it -- either a retrospective article for a whole era (Porsche '911 (classic)') or a parallel line whose end year is missing, not a single step in this sequence
   Alpina B6  (2 generations, 2005–2019)
       B6 (E63)[2005-2010] -> B6 (F12)[2011-2019]
   Alpina B7  (3 generations, 2003–2022)
@@ -22,46 +22,45 @@ CONFIRMED FAMILIES (101) -- clean, unbroken succession chain
   Audi R8  (2 generations, 2006–2024)
       R8 (Type 42)[2006-2015] -> R8 (Type 4S)[2015-2024]
       EXCLUDED: R8 [2006-2024] id=m-audi-r8 -- no succession link to any other candidate generation here
-  BMW 1 Series  (4 generations, 2004–)
-      1 Series (E87)[2004-2013] -> 1 Series (F20)[2011-2019] -> 1 Series (F40)[2019-2024] -> 1 Series (F70)[2024-]
-      EXCLUDED: 1 Series (F52) [2016-] id=m-bmw-1-series-f52 -- no succession link to any other candidate generation here
+  BMW 1 Series  (3 generations, 2004–)
+      1 Series (E87)[2004-2013] -> 1 Series (F40)[2019-2024] -> 1 Series (F70)[2024-]
+      EXCLUDED: 1 Series (F20) [2011-2019] id=m-bmw-1-series-f20 -- its run [2011-2019] covers two or more of the other generations here and it has no succession link to the one that follows it -- either a retrospective article for a whole era (Porsche '911 (classic)') or a parallel line whose end year is missing, not a single step in this sequence
+      EXCLUDED: 1 Series (F52) [2016-] id=m-bmw-1-series-f52 -- its run [2016-ongoing] covers two or more of the other generations here and it has no succession link to the one that follows it -- either a retrospective article for a whole era (Porsche '911 (classic)') or a parallel line whose end year is missing, not a single step in this sequence
   BMW 2 Series  (2 generations, 2013–)
       2 Series (F22)[2013-2021] -> 2 Series (G42)[2021-]
   BMW 3 Series  (7 generations, 1975–)
       3 Series (E21)[1975-] -> 3 Series (E30)[1982-1994] -> 3 Series (E36)[1990-2000] -> 3 Series (E46)[1997-2006] -> 3 Series (E90)[2005-] -> 3 Series (F30)[2011-2018] -> 3 Series (G20)[2018-]
-  BMW 4 Series  (2 generations, 2013–)
-      4 Series (F32)[2013-2020] -> 4 Series (G22)[2020-]
-      EXCLUDED: 4 Series [2014-] id=m-bmw-4-series -- no succession link to any other candidate generation here
   BMW 5 Series  (8 generations, 1972–2023)
       5 Series (E12)[1972-1981] -> 5 Series (E28)[1981-1988] -> 5 Series (E34)[1987-1996] -> 5 Series (E39)[1995-2004] -> 5 Series (E60)[2003-] -> 5 Series (F10)[2010-2017] -> 5 Series (G30)[2017-2023] -> 5 Series (G60)[2023-2023]
-      EXCLUDED: 5 Series [1972-] id=m-bmw-5-series -- no succession link to any other candidate generation here
+      EXCLUDED: 5 Series [1972-] id=m-bmw-5-series -- its run [1972-ongoing] covers two or more of the other generations here and it has no succession link to the one that follows it -- either a retrospective article for a whole era (Porsche '911 (classic)') or a parallel line whose end year is missing, not a single step in this sequence
   BMW 6 Series  (4 generations, 1976–2023)
       6 Series (E24)[1976-1976] -> 6 Series (E63)[2003-] -> 6 Series (F12)[2011-2011] -> 6 Series (G32)[2017-2023]
-      EXCLUDED: 6 Series [1976-2023] id=m-bmw-6-series -- no succession link to any other candidate generation here
+      EXCLUDED: 6 Series [1976-2023] id=m-bmw-6-series -- its run [1976-2023] covers two or more of the other generations here and it has no succession link to the one that follows it -- either a retrospective article for a whole era (Porsche '911 (classic)') or a parallel line whose end year is missing, not a single step in this sequence
   BMW 7 Series  (7 generations, 1977–)
       7 Series (E23)[1977-1986] -> 7 Series (E32)[1986-1994] -> 7 Series (E38)[1994-2001] -> 7 Series (E65)[2001-2008] -> 7 Series (F01)[2008-2015] -> 7 Series (G11)[2015-2022] -> 7 Series (G70)[2022-]
   BMW 8 Series  (2 generations, 1989–)
       8 Series (E31)[1989-1999] -> 8 Series (G15)[2018-]
   BMW X1  (3 generations, 2009–)
       X1 (E84)[2009-2015] -> X1 (F48)[2015-2022] -> X1 (U11)[2022-]
-      EXCLUDED: X1 [2009-] id=m-bmw-x1 -- no succession link to any other candidate generation here
+      EXCLUDED: X1 [2009-] id=m-bmw-x1 -- its run [2009-ongoing] covers two or more of the other generations here and it has no succession link to the one that follows it -- either a retrospective article for a whole era (Porsche '911 (classic)') or a parallel line whose end year is missing, not a single step in this sequence
   BMW X3  (2 generations, 2003–)
       X3[2003-] -> X3 (G45)[2024-]
   BMW X5  (4 generations, 1999–)
       X5 (E53)[1999-2006] -> X5 (E70)[2006-2013] -> X5 (F15)[2013-2018] -> X5 (G05)[2018-]
+      EXCLUDED: X5 [1999-] id=m-bmw-x5 -- its run [1999-ongoing] covers two or more of the other generations here and it has no succession link to the one that follows it -- either a retrospective article for a whole era (Porsche '911 (classic)') or a parallel line whose end year is missing, not a single step in this sequence
       EXCLUDED: X5 (F85) [2013-2018] id=m-bmw-x5-f85 -- no succession link to any other candidate generation here
       EXCLUDED: X5 (G65) [2026-] id=m-bmw-x5-g65 -- no succession link to any other candidate generation here
-      EXCLUDED: X5 [1999-] id=m-bmw-x5 -- no succession link to any other candidate generation here
   BMW Z4  (3 generations, 2002–)
       Z4 (E85)[2002-2008] -> Z4 (E89)[2009-2016] -> Z4 (G29)[2018-]
   Chevrolet Aveo  (2 generations, 2002–2011)
       Aveo[2002-] -> Aveo (T200)[2002-2011]
-  Chevrolet Camaro  (6 generations, 1966–2023)
-      Camaro (first generation)[1966-] -> Camaro (second generation)[1970-1981] -> Camaro (third generation)[1981-] -> Camaro (fourth generation)[1993-] -> Camaro (5th gen)[2009-2015] -> Camaro (sixth generation)[2015-2023]
-      EXCLUDED: Camaro [1967-2023] id=m-chevrolet-camaro -- no succession link to any other candidate generation here
+  Chevrolet Camaro  (5 generations, 1970–2023)
+      Camaro (second generation)[1970-1981] -> Camaro (third generation)[1981-] -> Camaro (fourth generation)[1993-] -> Camaro (5th gen)[2009-2015] -> Camaro (sixth generation)[2015-2023]
+      EXCLUDED: Camaro (first generation) [1966-] id=m-chevrolet-camaro-first-generation -- its run [1966-ongoing] covers two or more of the other generations here and it has no succession link to the one that follows it -- either a retrospective article for a whole era (Porsche '911 (classic)') or a parallel line whose end year is missing, not a single step in this sequence
+      EXCLUDED: Camaro [1967-2023] id=m-chevrolet-camaro -- its run [1967-2023] covers two or more of the other generations here and it has no succession link to the one that follows it -- either a retrospective article for a whole era (Porsche '911 (classic)') or a parallel line whose end year is missing, not a single step in this sequence
   Chevrolet Corvette  (8 generations, 1953–)
       Corvette (C1)[1953-1962] -> Corvette (C2)[1963-1967] -> Corvette (C3)[1968-1982] -> Corvette (C4)[1984-] -> Corvette (C5)[1997-] -> Corvette (C6)[2005-] -> Corvette (C7)[2013-2013] -> Corvette (C8)[2020-]
-      EXCLUDED: Corvette [1953-] id=m-chevrolet-corvette -- no succession link to any other candidate generation here
+      EXCLUDED: Corvette [1953-] id=m-chevrolet-corvette -- its run [1953-ongoing] covers two or more of the other generations here and it has no succession link to the one that follows it -- either a retrospective article for a whole era (Porsche '911 (classic)') or a parallel line whose end year is missing, not a single step in this sequence
   Chevrolet Impala  (3 generations, 1958–1976)
       Impala[1958-] -> Impala (fourth generation)[1965-1970] -> Impala (fifth generation)[1970-1976]
   Chevrolet Silverado  (2 generations, 1998–2013)
@@ -70,60 +69,67 @@ CONFIRMED FAMILIES (101) -- clean, unbroken succession chain
   Chevrolet Volt  (2 generations, 2010–2019)
       Volt (first generation)[2010-2015] -> Volt (second generation)[2015-2019]
       EXCLUDED: Volt [2010-] id=m-chevrolet-volt -- no succession link to any other candidate generation here
-  Chrysler Pacifica  (2 generations, 2003–)
-      Pacifica (crossover)[2003-2007] -> Pacifica (minivan)[2016-]
-  Chrysler Town & Country  (2 generations, 1941–2016)
-      Town & Country (1941–1988)[1941-1941] -> Town & Country (minivan)[1989-2016]
   Chrysler Valiant  (13 generations, 1962–1981)
       Valiant (RV1)[1962-1962] -> Valiant (SV1)[1962-1963] -> Valiant (AP5)[1963-1965] -> Valiant (AP6)[1965-1966] -> Valiant (VC)[1966-1967] -> Valiant (VE)[1967-1969] -> Valiant (VF)[1969-1970] -> Valiant (VG)[1970-1971] -> Valiant (VH)[1971-1973] -> Valiant (VJ)[1973-1975] -> Valiant (VK)[1975-1976] -> Valiant (CL)[1976-1978] -> Valiant (CM)[1978-1981]
   Chrysler minivans  (5 generations, 1983–2020)
       minivans (S)[1983-] -> minivans (AS)[1990-] -> minivans (NS)[1995-] -> minivans (RS)[2000-] -> minivans (RT)[2007-2020]
   Daihatsu Rocky  (2 generations, 1989–)
       Rocky (F300)[1989-2002] -> Rocky (A200)[2019-]
-      EXCLUDED: Rocky [1984-] id=m-daihatsu-rocky -- no succession link to any other candidate generation here
+      EXCLUDED: Rocky [1984-] id=m-daihatsu-rocky -- its run [1984-ongoing] covers two or more of the other generations here and it has no succession link to the one that follows it -- either a retrospective article for a whole era (Porsche '911 (classic)') or a parallel line whose end year is missing, not a single step in this sequence
   Dodge Charger  (4 generations, 1966–)
       Charger (1966)[1966-1978] -> Charger (1981)[1981-1981] -> Charger (2005)[2005-2023] -> Charger (2024)[2024-]
+      EXCLUDED: Charger [1966-] id=m-dodge-charger -- its run [1966-ongoing] covers two or more of the other generations here and it has no succession link to the one that follows it -- either a retrospective article for a whole era (Porsche '911 (classic)') or a parallel line whose end year is missing, not a single step in this sequence
       EXCLUDED: Charger (1968) [1968-1970] id=m-dodge-charger-1968 -- no succession link to any other candidate generation here
       EXCLUDED: Charger (LX) [2006-2023] id=m-dodge-charger-lx -- no succession link to any other candidate generation here
-      EXCLUDED: Charger [1966-] id=m-dodge-charger -- no succession link to any other candidate generation here
   Dodge Viper  (5 generations, 1992–2017)
       Viper (SR I)[1992-1995] -> Viper (SR II)[1995-2002] -> Viper (ZB I)[2002-2006] -> Viper (ZB II)[2008-2010] -> Viper (VX I)[2013-2017]
-      EXCLUDED: Viper [1992-2017] id=m-dodge-viper -- no succession link to any other candidate generation here
+      EXCLUDED: Viper [1992-2017] id=m-dodge-viper -- its run [1992-2017] covers two or more of the other generations here and it has no succession link to the one that follows it -- either a retrospective article for a whole era (Porsche '911 (classic)') or a parallel line whose end year is missing, not a single step in this sequence
   Fiat 1100  (2 generations, 1937–1969)
       1100 (1937)[1937-1953] -> 1100[1953-1969]
   Fiat 500  (2 generations, 1957–)
       500 (1957)[1957-1975] -> 500 (2007)[2007-]
   Ford F-Series  (14 generations, 1947–)
       F-Series (first generation)[1947-] -> F-Series (second generation)[1952-1956] -> F-Series (third generation)[1956-1960] -> F-Series (fourth generation)[1960-1966] -> F-Series (fifth generation)[1966-1972] -> F-Series (sixth generation)[1972-1979] -> F-Series (seventh generation)[1979-1986] -> F-Series (eighth generation)[1986-1991] -> F-Series (ninth generation)[1991-1997] -> F-Series (tenth generation)[1996-] -> F-Series (eleventh generation)[2003-2008] -> F-Series (twelfth generation)[2008-2014] -> F-Series (thirteenth generation)[2014-] -> F-Series (fourteenth generation)[2020-]
+  Ford Falcon  (24 generations, 1960–2016)
+      Falcon (XK)[1960-1962] -> Falcon (XL)[1962-1964] -> Falcon (XM)[1964-1965] -> Falcon (XP)[1965-1966] -> Falcon (XR)[1966-1968] -> Falcon (XT)[1968-1969] -> Falcon (XW)[1969-1970] -> Falcon (XY)[1970-1972] -> Falcon (XA)[1972-1973] -> Falcon (XB)[1973-1976] -> Falcon (XC)[1976-1979] -> Falcon (XD)[1979-1982] -> Falcon (XE)[1982-1984] -> Falcon (XF)[1984-1988] -> Falcon (EA)[1988-1991] -> Falcon (EB)[1991-1993] -> Falcon (ED)[1993-1994] -> Falcon (EF)[1994-1996] -> Falcon (XH)[1996-1999] -> Falcon (AU)[1998-2002] -> Falcon (BA)[2002-2005] -> Falcon (BF)[2005-2008] -> Falcon (FG)[2008-2014] -> Falcon (FG X)[2014-2016]
+      EXCLUDED: Falcon (Argentina) [1962-1991] id=m-ford-falcon-argentina -- market-specific variant (Argentina) rather than a generation of this nameplate -- left as its own model
+      EXCLUDED: Falcon (Australia) [1960-2016] id=m-ford-falcon-australia -- market-specific variant (Australia) rather than a generation of this nameplate -- left as its own model
+      EXCLUDED: Falcon (North America) [1959-1970] id=m-ford-falcon-north-america -- market-specific variant (North America) rather than a generation of this nameplate -- left as its own model
+      EXCLUDED: Falcon (XG) [1993-1996] id=m-ford-falcon-xg -- its run [1993-1996] covers two or more of the other generations here and it has no succession link to the one that follows it -- either a retrospective article for a whole era (Porsche '911 (classic)') or a parallel line whose end year is missing, not a single step in this sequence
+      EXCLUDED: Falcon (EL) [1996-1998] id=m-ford-falcon-el -- chronologically overlaps other generations here with no direct succession link to its would-be neighbor 'Falcon (XH)' -- likely a broader retrospective/umbrella article (like Porsche '911 (classic)') or a regional/parallel-market generation running outside the mainline succession chain (like a China- or NA-only generation), rather than a discrete step in this sequence
   Ford Fiesta  (7 generations, 1976–2023)
       Fiesta Mk1[1976-1983] -> Fiesta (second generation)[1983-1989] -> Fiesta (third generation)[1989-1997] -> Fiesta (fourth generation)[1995-1995] -> Fiesta (fifth generation)[2002-2008] -> Fiesta (sixth generation)[2008-2008] -> Fiesta (seventh generation)[2017-2023]
-      EXCLUDED: Fiesta [1976-] id=m-ford-fiesta -- no succession link to any other candidate generation here
-  Ford Focus  (4 generations, 1998–)
-      Focus Mk1[1998-2004] -> Focus (second generation, North America)[2007-2010] -> Focus (third generation)[2011-2019] -> Focus (fourth generation)[2018-]
-      EXCLUDED: Focus (second generation, Europe) [2004-2010] id=m-ford-focus-second-generation-europe -- chronologically overlaps other generations here with no direct succession link to its would-be neighbor 'Focus (second generation, North America)' -- likely a broader retrospective/umbrella article (like Porsche '911 (classic)') or a regional/parallel-market generation running outside the mainline succession chain (like a China- or NA-only generation), rather than a discrete step in this sequence
+      EXCLUDED: Fiesta [1976-] id=m-ford-fiesta -- its run [1976-ongoing] covers two or more of the other generations here and it has no succession link to the one that follows it -- either a retrospective article for a whole era (Porsche '911 (classic)') or a parallel line whose end year is missing, not a single step in this sequence
+  Ford Focus  (5 generations, 1998–)
+      Focus Mk1[1998-2004] -> Focus (second generation, Europe)[2004-2010] -> Focus (second generation, North America)[2007-2010] -> Focus (third generation)[2011-2019] -> Focus (fourth generation)[2018-]
   Ford Mondeo  (5 generations, 1992–)
       Mondeo (first generation)[1992-1992] -> Mondeo[2000-2007] -> Mondeo (third generation)[2007-2007] -> Mondeo (fourth generation)[2013-2013] -> Mondeo (fifth generation)[2022-]
   Ford Mustang  (7 generations, 1964–)
       Mustang (first generation)[1964-1973] -> Mustang (second generation)[1973-1978] -> Mustang (Fox)[1979-1993] -> Mustang (fourth generation)[1993-] -> Mustang (S197)[2005-2014] -> Mustang (sixth generation)[2014-2023] -> Mustang (seventh generation)[2022-]
-      EXCLUDED: Mustang [1964-] id=m-ford-mustang -- no succession link to any other candidate generation here
+      EXCLUDED: Mustang [1964-] id=m-ford-mustang -- its run [1964-ongoing] covers two or more of the other generations here and it has no succession link to the one that follows it -- either a retrospective article for a whole era (Porsche '911 (classic)') or a parallel line whose end year is missing, not a single step in this sequence
   Ford Taurus  (6 generations, 1985–2019)
       Taurus (first generation)[1985-1985] -> Taurus (second generation)[1991-1991] -> Taurus (third generation)[1995-] -> Taurus (fourth generation)[1999-1999] -> Taurus (fifth generation)[2007-2009] -> Taurus (sixth generation)[2009-2019]
       EXCLUDED: Taurus (China) [2016-2022] id=m-ford-taurus-china -- market-specific variant (China) rather than a generation of this nameplate -- left as its own model
-      EXCLUDED: Taurus [1986-] id=m-ford-taurus -- no succession link to any other candidate generation here
+      EXCLUDED: Taurus [1986-] id=m-ford-taurus -- its run [1986-ongoing] covers two or more of the other generations here and it has no succession link to the one that follows it -- either a retrospective article for a whole era (Porsche '911 (classic)') or a parallel line whose end year is missing, not a single step in this sequence
   Ford Thunderbird  (11 generations, 1955–2005)
       Thunderbird (first generation)[1955-1957] -> Thunderbird (second generation)[1958-1960] -> Thunderbird (third generation)[1961-] -> Thunderbird (fourth generation)[1964-1966] -> Thunderbird (fifth generation)[1967-1971] -> Thunderbird (sixth generation)[1972-1976] -> Thunderbird (seventh generation)[1977-1979] -> Thunderbird (eighth generation)[1980-1982] -> Thunderbird (ninth generation)[1983-1988] -> Thunderbird (tenth generation)[1988-1988] -> Thunderbird (eleventh generation)[2002-2005]
-      EXCLUDED: Thunderbird [1955-2005] id=m-ford-thunderbird -- no succession link to any other candidate generation here
+      EXCLUDED: Thunderbird [1955-2005] id=m-ford-thunderbird -- its run [1955-2005] covers two or more of the other generations here and it has no succession link to the one that follows it -- either a retrospective article for a whole era (Porsche '911 (classic)') or a parallel line whose end year is missing, not a single step in this sequence
   Holden Caprice  (2 generations, 1990–2010)
       Caprice[1990-] -> Caprice (WM)[2006-2010]
       EXCLUDED: Caprice (VQ) [1990-1994] id=m-holden-caprice-vq -- no succession link to any other candidate generation here
   Holden Commodore  (16 generations, 1978–2020)
       Commodore (VB)[1978-1980] -> Commodore (VC)[1980-1981] -> Commodore (VH)[1981-1984] -> Commodore (VK)[1984-1986] -> Commodore (VL)[1986-1988] -> Commodore (VN)[1988-1991] -> Commodore (VP)[1991-1993] -> Commodore (VR)[1993-1995] -> Commodore (VS)[1995-1997] -> Commodore (VT)[1997-2000] -> Commodore (VX)[2000-2000] -> Commodore (VY)[2002-2004] -> Commodore (VZ)[2004-2006] -> Commodore (VE)[2006-2013] -> Commodore (VF)[2013-2017] -> Commodore (ZB)[2018-2020]
-      EXCLUDED: Commodore [1978-] id=m-holden-commodore -- chronologically overlaps other generations here with no direct succession link to its would-be neighbor 'Commodore (VB)' -- likely a broader retrospective/umbrella article (like Porsche '911 (classic)') or a regional/parallel-market generation running outside the mainline succession chain (like a China- or NA-only generation), rather than a discrete step in this sequence
+      EXCLUDED: Commodore [1978-] id=m-holden-commodore -- its run [1978-ongoing] covers two or more of the other generations here and it has no succession link to the one that follows it -- either a retrospective article for a whole era (Porsche '911 (classic)') or a parallel line whose end year is missing, not a single step in this sequence
+  Honda Accord  (4 generations, 1997–2017)
+      Accord (sixth generation)[1997-] -> Accord (Japan and Europe seventh generation)[2002-2002] -> Accord (Japan and Europe eighth generation)[2008-2008] -> Accord (ninth generation)[2012-2017]
+      EXCLUDED: Accord (North America eighth generation) [2007-] id=m-honda-accord-north-america-eighth-generation -- its run [2007-ongoing] covers two or more of the other generations here and it has no succession link to the one that follows it -- either a retrospective article for a whole era (Porsche '911 (classic)') or a parallel line whose end year is missing, not a single step in this sequence
+      EXCLUDED: Accord (North America seventh generation) [2002-] id=m-honda-accord-north-america-seventh-generation -- its run [2002-ongoing] covers two or more of the other generations here and it has no succession link to the one that follows it -- either a retrospective article for a whole era (Porsche '911 (classic)') or a parallel line whose end year is missing, not a single step in this sequence
+      EXCLUDED: Accord [1976-] id=m-honda-accord -- its run [1976-ongoing] covers two or more of the other generations here and it has no succession link to the one that follows it -- either a retrospective article for a whole era (Porsche '911 (classic)') or a parallel line whose end year is missing, not a single step in this sequence
   Honda CR-V  (5 generations, 1995–)
       CR-V[1995-] -> CR-V (third generation)[2006-2012] -> CR-V (fourth generation)[2011-2018] -> CR-V (fifth generation)[2016-2023] -> CR-V (sixth generation)[2022-]
   Honda Civic  (11 generations, 1972–)
       Civic (first generation)[1972-1979] -> Civic (second generation)[1979-1979] -> Civic (third generation)[1983-1987] -> Civic (fourth generation)[1987-1991] -> Civic (fifth generation)[1991-1995] -> Civic (sixth generation)[1995-2000] -> Civic (seventh generation)[2000-2000] -> Civic (eighth generation)[2005-2012] -> Civic (ninth generation)[2011-2017] -> Civic (tenth generation)[2015-2021] -> Civic (eleventh generation)[2021-]
-      EXCLUDED: Civic [1972-] id=m-honda-civic -- no succession link to any other candidate generation here
+      EXCLUDED: Civic [1972-] id=m-honda-civic -- its run [1972-ongoing] covers two or more of the other generations here and it has no succession link to the one that follows it -- either a retrospective article for a whole era (Porsche '911 (classic)') or a parallel line whose end year is missing, not a single step in this sequence
   Honda Fit  (2 generations, 2001–2014)
       Fit (first generation)[2001-2008] -> Fit (second generation)[2007-2014]
       EXCLUDED: Fit [2001-] id=m-honda-fit -- chronologically overlaps other generations here with no direct succession link to its would-be neighbor 'Fit (first generation)' -- likely a broader retrospective/umbrella article (like Porsche '911 (classic)') or a regional/parallel-market generation running outside the mainline succession chain (like a China- or NA-only generation), rather than a discrete step in this sequence
@@ -148,7 +154,7 @@ CONFIRMED FAMILIES (101) -- clean, unbroken succession chain
       Cherokee (SJ)[1974-1983] -> Cherokee (XJ)[1984-2001] -> Cherokee (KL)[2013-2023] -> Cherokee (KM)[2025-]
   Jeep Grand Cherokee  (4 generations, 1992–2022)
       Grand Cherokee (ZJ)[1992-1998] -> Grand Cherokee (WJ)[1998-] -> Grand Cherokee (WK)[2004-2010] -> Grand Cherokee (WK2)[2009-2022]
-      EXCLUDED: Grand Cherokee [1992-] id=m-jeep-grand-cherokee -- no succession link to any other candidate generation here
+      EXCLUDED: Grand Cherokee [1992-] id=m-jeep-grand-cherokee -- its run [1992-ongoing] covers two or more of the other generations here and it has no succession link to the one that follows it -- either a retrospective article for a whole era (Porsche '911 (classic)') or a parallel line whose end year is missing, not a single step in this sequence
   Jeep Liberty  (2 generations, 2001–)
       Liberty (KJ)[2001-2007] -> Liberty (KK)[2007-]
       EXCLUDED: Liberty [2001-2012] id=m-jeep-liberty -- no succession link to any other candidate generation here
@@ -157,7 +163,7 @@ CONFIRMED FAMILIES (101) -- clean, unbroken succession chain
       EXCLUDED: Wagoneer [1963-1993] id=m-jeep-wagoneer -- no succession link to any other candidate generation here
   Jeep Wrangler  (4 generations, 1986–)
       Wrangler (YJ)[1986-1995] -> Wrangler (TJ)[1996-2006] -> Wrangler (JK)[2006-2018] -> Wrangler (JL)[2017-]
-      EXCLUDED: Wrangler [1986-] id=m-jeep-wrangler -- no succession link to any other candidate generation here
+      EXCLUDED: Wrangler [1986-] id=m-jeep-wrangler -- its run [1986-ongoing] covers two or more of the other generations here and it has no succession link to the one that follows it -- either a retrospective article for a whole era (Porsche '911 (classic)') or a parallel line whose end year is missing, not a single step in this sequence
   Land Rover   (4 generations, 1994–)
       (P38A)[1994-2001] -> (L322)[2002-2012] -> (L405)[2012-2021] -> (L460)[2021-]
   Land Rover Defender  (2 generations, 1983–)
@@ -168,43 +174,45 @@ CONFIRMED FAMILIES (101) -- clean, unbroken succession chain
       IS[1998-] -> IS (XE20)[2005-2013]
   Mazda MX-5  (4 generations, 1989–)
       MX-5 (NA)[1989-1997] -> MX-5 (NB)[1997-2005] -> MX-5 (NC)[2005-2015] -> MX-5 (ND)[2015-]
-      EXCLUDED: MX-5 [1989-] id=m-mazda-mx-5 -- no succession link to any other candidate generation here
+      EXCLUDED: MX-5 [1989-] id=m-mazda-mx-5 -- its run [1989-ongoing] covers two or more of the other generations here and it has no succession link to the one that follows it -- either a retrospective article for a whole era (Porsche '911 (classic)') or a parallel line whose end year is missing, not a single step in this sequence
   Mazda Mazda6  (2 generations, 2002–2024)
       Mazda6[2002-2025] -> Mazda6 (third generation)[2012-2024]
   Mercedes-Benz A  (2 generations, 2012–)
       A-Class (W176)[2012-2012] -> A-Class (W177)[2018-]
-      EXCLUDED: A-Class [1997-] id=m-mercedes-benz-a-class -- no succession link to any other candidate generation here
+      EXCLUDED: A-Class [1997-] id=m-mercedes-benz-a-class -- its run [1997-ongoing] covers two or more of the other generations here and it has no succession link to the one that follows it -- either a retrospective article for a whole era (Porsche '911 (classic)') or a parallel line whose end year is missing, not a single step in this sequence
   Mercedes-Benz B  (2 generations, 2005–2018)
       B-Class[2005-] -> B-Class (W246)[2011-2018]
   Mercedes-Benz C  (5 generations, 1993–)
       C-Class (W202)[1993-] -> C-Class (W203)[2000-] -> C-Class (W204)[2007-2015] -> C-Class (W205)[2014-2021] -> C-Class (W206)[2021-]
-      EXCLUDED: C-Class [1993-] id=m-mercedes-benz-c-class -- no succession link to any other candidate generation here
+      EXCLUDED: C-Class [1993-] id=m-mercedes-benz-c-class -- its run [1993-ongoing] covers two or more of the other generations here and it has no succession link to the one that follows it -- either a retrospective article for a whole era (Porsche '911 (classic)') or a parallel line whose end year is missing, not a single step in this sequence
   Mercedes-Benz CL  (2 generations, 1999–2014)
       CL-Class (C215)[1999-2006] -> CL-Class (C216)[2006-2014]
-      EXCLUDED: CL-Class [1996-] id=m-mercedes-benz-cl-class -- no succession link to any other candidate generation here
+      EXCLUDED: CL-Class [1996-] id=m-mercedes-benz-cl-class -- its run [1996-ongoing] covers two or more of the other generations here and it has no succession link to the one that follows it -- either a retrospective article for a whole era (Porsche '911 (classic)') or a parallel line whose end year is missing, not a single step in this sequence
   Mercedes-Benz CLK  (2 generations, 1997–)
       CLK-Class (C208)[1997-] -> CLK-Class (C209)[2002-]
       EXCLUDED: CLK-Class [1997-2009] id=m-mercedes-benz-clk-class -- no succession link to any other candidate generation here
   Mercedes-Benz CLS  (3 generations, 2004–2023)
       CLS-Class (C219)[2004-2010] -> CLS-Class (C218)[2011-2017] -> CLS (C257)[2018-2023]
-      EXCLUDED: CLS [2004-] id=m-mercedes-benz-cls -- no succession link to any other candidate generation here
-  Mercedes-Benz E  (6 generations, 1984–)
-      E-Class (W124)[1984-1997] -> E-Class (W210)[1995-] -> E-Class (W211)[2002-] -> E-Class (W212)[2009-2016] -> E-Class (W213)[2016-2023] -> E-Class (W214)[2023-]
+      EXCLUDED: CLS [2004-] id=m-mercedes-benz-cls -- its run [2004-ongoing] covers two or more of the other generations here and it has no succession link to the one that follows it -- either a retrospective article for a whole era (Porsche '911 (classic)') or a parallel line whose end year is missing, not a single step in this sequence
+  Mercedes-Benz E  (5 generations, 1984–)
+      E-Class (W124)[1984-1997] -> E-Class (W210)[1995-] -> E-Class (W212)[2009-2016] -> E-Class (W213)[2016-2023] -> E-Class (W214)[2023-]
+      EXCLUDED: E-Class (W211) [2002-] id=m-mercedes-benz-e-class-w211 -- its run [2002-ongoing] covers two or more of the other generations here and it has no succession link to the one that follows it -- either a retrospective article for a whole era (Porsche '911 (classic)') or a parallel line whose end year is missing, not a single step in this sequence
       EXCLUDED: E-Class [1953-1953] id=m-mercedes-benz-e-class -- no succession link to any other candidate generation here
-      EXCLUDED: E-Class (C207) [2009-] id=m-mercedes-benz-e-class-c207 -- chronologically overlaps other generations here with no direct succession link to its would-be neighbor 'E-Class (W211)' -- likely a broader retrospective/umbrella article (like Porsche '911 (classic)') or a regional/parallel-market generation running outside the mainline succession chain (like a China- or NA-only generation), rather than a discrete step in this sequence
+      EXCLUDED: E-Class (C207) [2009-] id=m-mercedes-benz-e-class-c207 -- chronologically overlaps other generations here with no direct succession link to its would-be neighbor 'E-Class (W212)' -- likely a broader retrospective/umbrella article (like Porsche '911 (classic)') or a regional/parallel-market generation running outside the mainline succession chain (like a China- or NA-only generation), rather than a discrete step in this sequence
   Mercedes-Benz GL  (2 generations, 2006–2019)
       GL-Class (X164)[2006-2012] -> GL-Class (X166)[2012-2019]
-  Mercedes-Benz S  (6 generations, 1979–)
-      S-Class (W126)[1979-1992] -> S-Class (W140)[1991-1998] -> S-Class (W220)[1998-] -> S-Class (W221)[2005-2013] -> S-Class (W222)[2013-2020] -> S-Class (W223)[2020-]
+  Mercedes-Benz S  (5 generations, 1979–)
+      S-Class (W126)[1979-1992] -> S-Class (W140)[1991-1998] -> S-Class (W220)[1998-] -> S-Class (W221)[2005-2013] -> S-Class (W223)[2020-]
+      EXCLUDED: S-Class (W222) [2013-2020] id=m-mercedes-benz-s-class-w222 -- its run [2013-2020] covers two or more of the other generations here and it has no succession link to the one that follows it -- either a retrospective article for a whole era (Porsche '911 (classic)') or a parallel line whose end year is missing, not a single step in this sequence
+      EXCLUDED: S-Class [1972-] id=m-mercedes-benz-s-class -- its run [1972-ongoing] covers two or more of the other generations here and it has no succession link to the one that follows it -- either a retrospective article for a whole era (Porsche '911 (classic)') or a parallel line whose end year is missing, not a single step in this sequence
       EXCLUDED: S-Class (C217) [2014-2020] id=m-mercedes-benz-s-class-c217 -- no succession link to any other candidate generation here
-      EXCLUDED: S-Class [1972-] id=m-mercedes-benz-s-class -- no succession link to any other candidate generation here
   Mercedes-Benz SL  (4 generations, 1989–)
       SL-Class (R129)[1989-] -> SL-Class (R230)[2001-2011] -> SL-Class (R231)[2012-2020] -> SL (R232)[2021-]
+      EXCLUDED: SL-Class [1954-] id=m-mercedes-benz-sl-class -- its run [1954-ongoing] covers two or more of the other generations here and it has no succession link to the one that follows it -- either a retrospective article for a whole era (Porsche '911 (classic)') or a parallel line whose end year is missing, not a single step in this sequence
       EXCLUDED: SL (R129) [1989-2001] id=m-mercedes-benz-sl-r129 -- no succession link to any other candidate generation here
-      EXCLUDED: SL-Class [1954-] id=m-mercedes-benz-sl-class -- no succession link to any other candidate generation here
   Mercedes-Benz SLK  (3 generations, 1996–2020)
       SLK (R170)[1996-2004] -> SLK-Class (R171)[2004-2011] -> SLK-Class (R172)[2011-2020]
-      EXCLUDED: SLK-Class [1996-2020] id=m-mercedes-benz-slk-class -- no succession link to any other candidate generation here
+      EXCLUDED: SLK-Class [1996-2020] id=m-mercedes-benz-slk-class -- its run [1996-2020] covers two or more of the other generations here and it has no succession link to the one that follows it -- either a retrospective article for a whole era (Porsche '911 (classic)') or a parallel line whose end year is missing, not a single step in this sequence
   Mitsubishi Lancer  (2 generations, 1973–1979)
       Lancer[1973-] -> Lancer (A70)[1973-1979]
   Nissan Fairlady Z  (2 generations, 1969–1983)
@@ -218,26 +226,26 @@ CONFIRMED FAMILIES (101) -- clean, unbroken succession chain
       Firebird[1967-] -> Firebird (third generation)[1982-1992]
   Porsche 911  (7 generations, 1975–)
       911 (930)[1975-1975] -> 911 (964)[1989-1989] -> 911 (993)[1993-1998] -> 911 (996)[1997-2006] -> 911 (997)[2004-2013] -> 911 (991)[2011-2019] -> 911 (992)[2018-]
-      EXCLUDED: 911 [1963-] id=m-porsche-911 -- no succession link to any other candidate generation here
-      EXCLUDED: 911 (classic) [1964-1989] id=m-porsche-911-classic -- chronologically overlaps other generations here with no direct succession link to its would-be neighbor '911 (930)' -- likely a broader retrospective/umbrella article (like Porsche '911 (classic)') or a regional/parallel-market generation running outside the mainline succession chain (like a China- or NA-only generation), rather than a discrete step in this sequence
+      EXCLUDED: 911 (classic) [1964-1989] id=m-porsche-911-classic -- its run [1964-1989] covers two or more of the other generations here and it has no succession link to the one that follows it -- either a retrospective article for a whole era (Porsche '911 (classic)') or a parallel line whose end year is missing, not a single step in this sequence
+      EXCLUDED: 911 [1963-] id=m-porsche-911 -- its run [1963-ongoing] covers two or more of the other generations here and it has no succession link to the one that follows it -- either a retrospective article for a whole era (Porsche '911 (classic)') or a parallel line whose end year is missing, not a single step in this sequence
   Porsche Boxster and Cayman  (2 generations, 2005–2016)
       Boxster and Cayman (987)[2005-2012] -> Boxster and Cayman (981)[2012-2016]
-      EXCLUDED: Boxster and Cayman [1996-] id=m-porsche-boxster-and-cayman -- no succession link to any other candidate generation here
+      EXCLUDED: Boxster and Cayman [1996-] id=m-porsche-boxster-and-cayman -- its run [1996-ongoing] covers two or more of the other generations here and it has no succession link to the one that follows it -- either a retrospective article for a whole era (Porsche '911 (classic)') or a parallel line whose end year is missing, not a single step in this sequence
   Proton Perdana  (2 generations, 1995–2020)
       Perdana (first generation)[1995-2010] -> Perdana (second generation)[2013-2020]
   Proton Persona  (2 generations, 2007–)
       Persona (2007)[2007-2016] -> Persona (2016)[2016-]
   Proton Saga  (3 generations, 1985–)
       Saga (first generation)[1985-2008] -> Saga (second generation)[2008-2016] -> Saga (third generation)[2016-]
+      EXCLUDED: Saga [1985-] id=m-proton-saga -- its run [1985-ongoing] covers two or more of the other generations here and it has no succession link to the one that follows it -- either a retrospective article for a whole era (Porsche '911 (classic)') or a parallel line whose end year is missing, not a single step in this sequence
       EXCLUDED: Saga (fourth generation) [2025-] id=m-proton-saga-fourth-generation -- no succession link to any other candidate generation here
-      EXCLUDED: Saga [1985-] id=m-proton-saga -- no succession link to any other candidate generation here
   Rolls-Royce Corniche  (2 generations, 1971–)
       Corniche[1971-1995] -> Corniche (2000)[2000-]
   Ruf SCR  (2 generations, 1978–2018)
       SCR[1978-1978] -> SCR (2018)[2018-2018]
   Subaru Legacy  (7 generations, 1989–2025)
       Legacy (first generation)[1989-1994] -> Legacy (second generation)[1993-1999] -> Legacy (third generation)[1998-2004] -> Legacy (fourth generation)[2003-2009] -> Legacy (fifth generation)[2009-2014] -> Legacy (sixth generation)[2014-2019] -> Legacy (seventh generation)[2019-2025]
-      EXCLUDED: Legacy [1989-] id=m-subaru-legacy -- no succession link to any other candidate generation here
+      EXCLUDED: Legacy [1989-] id=m-subaru-legacy -- its run [1989-ongoing] covers two or more of the other generations here and it has no succession link to the one that follows it -- either a retrospective article for a whole era (Porsche '911 (classic)') or a parallel line whose end year is missing, not a single step in this sequence
   Tesla Roadster  (2 generations, 2008–)
       Roadster[2008-2012] -> Roadster (second generation)[2017-]
   Toyota Aurion  (2 generations, 2006–2012)
@@ -246,35 +254,35 @@ CONFIRMED FAMILIES (101) -- clean, unbroken succession chain
       Camry[1982-] -> Camry (XV10)[1991-] -> Camry (XV20)[1996-2002] -> Camry (XV30)[2001-2006] -> Camry (XV40)[2006-2011] -> Camry (XV50)[2011-2018] -> Camry (XV70)[2017-2017] -> Camry (XV80)[2023-2023]
   Toyota Corolla  (12 generations, 1966–)
       Corolla (E10)[1966-1966] -> Corolla (E20)[1970-1970] -> Corolla (E30)[1974-1981] -> Corolla (E70)[1979-1983] -> Corolla (E80)[1983-1987] -> Corolla (E90)[1987-2006] -> Corolla (E100)[1991-1991] -> Corolla (E110)[1995-2002] -> Corolla (E120)[2000-2008] -> Corolla (E140)[2006-2006] -> Corolla (E170)[2013-2022] -> Corolla (E210)[2018-]
-      EXCLUDED: Corolla [1966-] id=m-toyota-corolla -- no succession link to any other candidate generation here
-      EXCLUDED: Corolla (E160) [2012-2025] id=m-toyota-corolla-e160 -- chronologically overlaps other generations here with no direct succession link to its would-be neighbor 'Corolla (E170)' -- likely a broader retrospective/umbrella article (like Porsche '911 (classic)') or a regional/parallel-market generation running outside the mainline succession chain (like a China- or NA-only generation), rather than a discrete step in this sequence
+      EXCLUDED: Corolla (E160) [2012-2025] id=m-toyota-corolla-e160 -- its run [2012-2025] covers two or more of the other generations here and it has no succession link to the one that follows it -- either a retrospective article for a whole era (Porsche '911 (classic)') or a parallel line whose end year is missing, not a single step in this sequence
+      EXCLUDED: Corolla [1966-] id=m-toyota-corolla -- its run [1966-ongoing] covers two or more of the other generations here and it has no succession link to the one that follows it -- either a retrospective article for a whole era (Porsche '911 (classic)') or a parallel line whose end year is missing, not a single step in this sequence
   Toyota Land Cruiser  (3 generations, 1951–)
       Land Cruiser[1951-] -> Land Cruiser (J40)[1960-2001] -> Land Cruiser (J70)[1984-]
   Toyota Prius  (4 generations, 1997–2022)
       Prius (XW10)[1997-2001] -> Prius (XW20)[2003-2009] -> Prius (XW30)[2009-2015] -> Prius (XW50)[2015-2022]
-      EXCLUDED: Prius [1997-] id=m-toyota-prius -- chronologically overlaps other generations here with no direct succession link to its would-be neighbor 'Prius (XW10)' -- likely a broader retrospective/umbrella article (like Porsche '911 (classic)') or a regional/parallel-market generation running outside the mainline succession chain (like a China- or NA-only generation), rather than a discrete step in this sequence
+      EXCLUDED: Prius [1997-] id=m-toyota-prius -- its run [1997-ongoing] covers two or more of the other generations here and it has no succession link to the one that follows it -- either a retrospective article for a whole era (Porsche '911 (classic)') or a parallel line whose end year is missing, not a single step in this sequence
   Volkswagen Golf  (8 generations, 1974–)
       Golf Mk1[1974-1983] -> Golf Mk2[1983-1992] -> Golf Mk3[1991-1998] -> Golf Mk4[1997-2003] -> Golf Mk5[2003-2010] -> Golf Mk6[2008-2013] -> Golf Mk7[2012-2019] -> Golf Mk8[2019-]
-      EXCLUDED: Golf [1974-] id=m-volkswagen-golf -- no succession link to any other candidate generation here
+      EXCLUDED: Golf [1974-] id=m-volkswagen-golf -- its run [1974-ongoing] covers two or more of the other generations here and it has no succession link to the one that follows it -- either a retrospective article for a whole era (Porsche '911 (classic)') or a parallel line whose end year is missing, not a single step in this sequence
   Volkswagen Jetta  (5 generations, 1979–)
       Jetta (A1)[1979-1984] -> Jetta (A2)[1984-1992] -> Jetta (A5)[2005-2011] -> Jetta (A6)[2010-2019] -> Jetta (A7)[2018-]
       EXCLUDED: Jetta (China) [1979-] id=m-volkswagen-jetta-china -- market-specific variant (China) rather than a generation of this nameplate -- left as its own model
-      EXCLUDED: Jetta [1979-] id=m-volkswagen-jetta -- no succession link to any other candidate generation here
+      EXCLUDED: Jetta [1979-] id=m-volkswagen-jetta -- its run [1979-ongoing] covers two or more of the other generations here and it has no succession link to the one that follows it -- either a retrospective article for a whole era (Porsche '911 (classic)') or a parallel line whose end year is missing, not a single step in this sequence
   Volkswagen Passat  (8 generations, 1973–)
       Passat (B1)[1973-1980] -> Passat (B2)[1981-1981] -> Passat (B3)[1988-1993] -> Passat (B4)[1993-1993] -> Passat (B5)[1996-1996] -> Passat (B6)[2005-2011] -> Passat (B8)[2014-2022] -> Passat (B9)[2023-]
       EXCLUDED: Passat (North America and China) [2011-] id=m-volkswagen-passat-north-america-and-china -- market-specific variant (North America and China) rather than a generation of this nameplate -- left as its own model
-      EXCLUDED: Passat [1973-] id=m-volkswagen-passat -- no succession link to any other candidate generation here
+      EXCLUDED: Passat [1973-] id=m-volkswagen-passat -- its run [1973-ongoing] covers two or more of the other generations here and it has no succession link to the one that follows it -- either a retrospective article for a whole era (Porsche '911 (classic)') or a parallel line whose end year is missing, not a single step in this sequence
   Volkswagen Polo  (6 generations, 1975–)
       Polo Mk1[1975-1981] -> Polo Mk2[1981-1994] -> Polo Mk3[1994-2002] -> Polo Mk4[2001-2010] -> Polo Mk5[2009-2009] -> Polo Mk6[2017-]
-      EXCLUDED: Polo [1975-] id=m-volkswagen-polo -- no succession link to any other candidate generation here
+      EXCLUDED: Polo [1975-] id=m-volkswagen-polo -- its run [1975-ongoing] covers two or more of the other generations here and it has no succession link to the one that follows it -- either a retrospective article for a whole era (Porsche '911 (classic)') or a parallel line whose end year is missing, not a single step in this sequence
   Volkswagen Transporter  (3 generations, 1990–2024)
       Transporter (T4)[1990-2004] -> Transporter (T5)[2003-2015] -> Transporter (T6)[2015-2024]
-      EXCLUDED: Transporter [1950-] id=m-volkswagen-transporter -- no succession link to any other candidate generation here
+      EXCLUDED: Transporter [1950-] id=m-volkswagen-transporter -- its run [1950-ongoing] covers two or more of the other generations here and it has no succession link to the one that follows it -- either a retrospective article for a whole era (Porsche '911 (classic)') or a parallel line whose end year is missing, not a single step in this sequence
   Volkswagen Type 2  (2 generations, 1950–2002)
       Type 2[1950-] -> Type 2 (T3)[1979-2002]
       EXCLUDED: Type 2 (T1) [1950-1967] id=m-volkswagen-type-2-t1 -- no succession link to any other candidate generation here
 
-UNCONFIRMED (77) -- candidate group found, NOT auto-grouped, needs review
+UNCONFIRMED (78) -- candidate group found, NOT auto-grouped, needs review
   Acura Integra  (2 candidates) -- fewer than 2 chronologically-connected generations remain after pruning
       Integra [1985-] id=m-acura-integra
       Integra (2022) [2022-] id=m-acura-integra-2022
@@ -298,6 +306,10 @@ UNCONFIRMED (77) -- candidate group found, NOT auto-grouped, needs review
   Austin 12  (2 candidates) -- fewer than 2 chronologically-connected generations remain after pruning
       12 [1921-1939] id=m-austin-12
       12 (1939) [1939-1947] id=m-austin-12-1939
+  BMW 4 Series  (3 candidates) -- fewer than 2 chronologically-connected generations remain after pruning
+      4 Series (F32) [2013-2020] id=m-bmw-4-series-f32
+      4 Series [2014-] id=m-bmw-4-series
+      4 Series (G22) [2020-] id=m-bmw-4-series-g22
   BMW i3  (2 candidates) -- fewer than 2 chronologically-connected generations remain after pruning
       i3 [2013-2022] id=m-bmw-i3
       i3 (NA0) [2026-] id=m-bmw-i3-na0
@@ -323,6 +335,12 @@ UNCONFIRMED (77) -- candidate group found, NOT auto-grouped, needs review
       Tracker (Americas) [1988-1990] id=m-chevrolet-tracker-americas
       Tracker [1988-] id=m-chevrolet-tracker
       Tracker (2019) [2019-] id=m-chevrolet-tracker-2019
+  Chrysler Pacifica  (2 candidates) -- fewer than 2 chronologically-connected generations remain after pruning
+      Pacifica (crossover) [2003-2007] id=m-chrysler-pacifica-crossover
+      Pacifica (minivan) [2016-] id=m-chrysler-pacifica-minivan
+  Chrysler Town & Country  (2 candidates) -- fewer than 2 chronologically-connected generations remain after pruning
+      Town & Country (1941–1988) [1941-1941] id=m-chrysler-town-country-1941-1988
+      Town & Country (minivan) [1989-2016] id=m-chrysler-town-country-minivan
   Citroën Ami  (2 candidates) -- fewer than 2 chronologically-connected generations remain after pruning
       Ami [1961-1978] id=m-citroen-ami
       Ami (electric vehicle) [2020-] id=m-citroen-ami-electric-vehicle
@@ -352,36 +370,6 @@ UNCONFIRMED (77) -- candidate group found, NOT auto-grouped, needs review
   Ford Fairlane  (2 candidates) -- fewer than 2 chronologically-connected generations remain after pruning
       Fairlane (Americas) [1955-1970] id=m-ford-fairlane-americas
       Fairlane (Australia) [1959-2007] id=m-ford-fairlane-australia
-  Ford Falcon  (29 candidates) -- tied/ambiguous year with no direct link to disambiguate order: m-ford-falcon-ed vs m-ford-falcon-xg
-      Falcon (North America) [1959-1970] id=m-ford-falcon-north-america
-      Falcon (Australia) [1960-2016] id=m-ford-falcon-australia
-      Falcon (XK) [1960-1962] id=m-ford-falcon-xk
-      Falcon (Argentina) [1962-1991] id=m-ford-falcon-argentina
-      Falcon (XL) [1962-1964] id=m-ford-falcon-xl
-      Falcon (XM) [1964-1965] id=m-ford-falcon-xm
-      Falcon (XP) [1965-1966] id=m-ford-falcon-xp
-      Falcon (XR) [1966-1968] id=m-ford-falcon-xr
-      Falcon (XT) [1968-1969] id=m-ford-falcon-xt
-      Falcon (XW) [1969-1970] id=m-ford-falcon-xw
-      Falcon (XY) [1970-1972] id=m-ford-falcon-xy
-      Falcon (XA) [1972-1973] id=m-ford-falcon-xa
-      Falcon (XB) [1973-1976] id=m-ford-falcon-xb
-      Falcon (XC) [1976-1979] id=m-ford-falcon-xc
-      Falcon (XD) [1979-1982] id=m-ford-falcon-xd
-      Falcon (XE) [1982-1984] id=m-ford-falcon-xe
-      Falcon (XF) [1984-1988] id=m-ford-falcon-xf
-      Falcon (EA) [1988-1991] id=m-ford-falcon-ea
-      Falcon (EB) [1991-1993] id=m-ford-falcon-eb
-      Falcon (ED) [1993-1994] id=m-ford-falcon-ed
-      Falcon (XG) [1993-1996] id=m-ford-falcon-xg
-      Falcon (EF) [1994-1996] id=m-ford-falcon-ef
-      Falcon (EL) [1996-1998] id=m-ford-falcon-el
-      Falcon (XH) [1996-1999] id=m-ford-falcon-xh
-      Falcon (AU) [1998-2002] id=m-ford-falcon-au
-      Falcon (BA) [2002-2005] id=m-ford-falcon-ba
-      Falcon (BF) [2005-2008] id=m-ford-falcon-bf
-      Falcon (FG) [2008-2014] id=m-ford-falcon-fg
-      Falcon (FG X) [2014-2016] id=m-ford-falcon-fg-x
   Ford Fusion  (2 candidates) -- fewer than 2 chronologically-connected generations remain after pruning
       Fusion (Europe) [2002-2012] id=m-ford-fusion-europe
       Fusion (Americas) [2005-2020] id=m-ford-fusion-americas
@@ -415,14 +403,6 @@ UNCONFIRMED (77) -- candidate group found, NOT auto-grouped, needs review
   Ford Versailles  (2 candidates) -- fewer than 2 chronologically-connected generations remain after pruning
       Versailles (France) [1954-] id=m-ford-versailles-france
       Versailles [1991-1996] id=m-ford-versailles
-  Honda Accord  (7 candidates) -- no succession link between chronologically adjacent 'Accord' and 'Accord (sixth generation)'
-      Accord [1976-] id=m-honda-accord
-      Accord (sixth generation) [1997-] id=m-honda-accord-sixth-generation
-      Accord (Japan and Europe seventh generation) [2002-2002] id=m-honda-accord-japan-and-europe-seventh-generation
-      Accord (North America seventh generation) [2002-] id=m-honda-accord-north-america-seventh-generation
-      Accord (North America eighth generation) [2007-] id=m-honda-accord-north-america-eighth-generation
-      Accord (Japan and Europe eighth generation) [2008-2008] id=m-honda-accord-japan-and-europe-eighth-generation
-      Accord (ninth generation) [2012-2017] id=m-honda-accord-ninth-generation
   Honda Avancier  (2 candidates) -- fewer than 2 chronologically-connected generations remain after pruning
       Avancier (station wagon) [1999-2004] id=m-honda-avancier-station-wagon
       Avancier (crossover) [2016-] id=m-honda-avancier-crossover

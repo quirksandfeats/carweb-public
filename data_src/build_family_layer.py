@@ -47,6 +47,23 @@ MARKET_RE = re.compile(r"""^(?:
     | united\s+states | usa | us
 )$""", re.I | re.X)
 
+# A trailing parenthetical naming a body style, a concept, or the marque itself.
+# Same reasoning as MARKET_RE: two vehicles sharing a nameplate but built to
+# different body styles are two nameplates, not two generations of one --
+# Chrysler Pacifica "(crossover)" [2003-2007] and "(minivan)" [2016-] are
+# unrelated vehicles, as are Ford Puma "(coupe)" and "(crossover)". A concept
+# car is not a production generation at all, and "(marque)" is the company's
+# own article.
+BODY_STYLE_RE = re.compile(r"""^(?:
+      minivan | mpv | crossover | suv | coupe | coup\u00e9 | convertible
+    | cabriolet | cabrio | roadster | sedan | saloon | hatchback | liftback
+    | fastback | notchback | estate | station\s+wagon | wagon | shooting\s+brake
+    | pickup | pick-up | ute | truck | panel\s+van | van | targa | spider
+    | spyder | limousine | off-roader | microcar | quadricycle
+    | concept | concept\s+car | prototype | show\s+car
+    | electric\s+vehicle | electric\s+car | marque | automobile\s+marque
+)$""", re.I | re.X)
+
 # Anything that marks a discrete generation: an ordinal, the word "generation",
 # an Mk number, or any digit (year-disambiguated titles like "500 (2007)").
 GEN_MARKER_RE = re.compile(
@@ -91,9 +108,12 @@ def declass(base):
     return CLASS_SUFFIX_RE.sub("", base).strip() or base
 
 
-def market_variant(label):
-    """The market a label's trailing parenthetical names, if the parenthetical
-    is ONLY a market and carries no generation marker -- otherwise None.
+def non_generation_variant(label):
+    """Classify a label's trailing parenthetical as something that is NOT a
+    generation of the nameplate, returning (kind, text) -- or None if the
+    parenthetical is a generation marker, or absent.
+
+    Two kinds, same reasoning. A MARKET:
 
     "Taurus (China)" is a different car built and sold for a different market,
     not the seventh generation of the North American Taurus. DBpedia hands us a
@@ -102,21 +122,33 @@ def market_variant(label):
     (Australia)", "Odyssey (international)", "Ranger (Americas)", "Bora
     (China)". Excluding them leaves each as its own model, which is what it is.
 
+    And a BODY STYLE (or a concept, or the marque's own article): Chrysler
+    Pacifica "(crossover)" [2003-2007] and "(minivan)" [2016-] are two
+    unrelated vehicles that happen to share a nameplate, not two generations of
+    one, and the same goes for Ford Puma "(coupe)" vs "(crossover)" and Honda
+    Avancier "(station wagon)" vs "(crossover)".
+
     The generation-marker check is load-bearing in the other direction. A
-    parenthetical naming a market AND a generation is a real generation that
-    happens to be market-specific, and must NOT match here: Ford Focus's
-    "(second generation, North America)" and Honda Accord's "(North America
-    seventh generation)" are steps in a sequence, and dropping those would cost
-    the nameplate a generation it really has."""
+    parenthetical naming a market or a body style AND a generation is a real
+    generation that happens to be market- or body-specific, and must NOT match
+    here: Ford Focus's "(second generation, North America)" and Honda Accord's
+    "(North America seventh generation)" are steps in a sequence, and dropping
+    those would cost the nameplate a generation it really has."""
     m = re.search(r"\(([^)]*)\)\s*$", label)
     if not m:
         return None
     inner = m.group(1).strip()
     if not inner or GEN_MARKER_RE.search(inner):
         return None
-    # "North America and China", "Japan, Europe" -> every part must be a market
+    # "North America and China", "Japan, Europe" -> every part must qualify
     parts = [x.strip() for x in re.split(r"\s+and\s+|,|/", inner) if x.strip()]
-    return inner if parts and all(MARKET_RE.match(x) for x in parts) else None
+    if not parts:
+        return None
+    if all(MARKET_RE.match(x) for x in parts):
+        return ("market", inner)
+    if all(BODY_STYLE_RE.match(x) for x in parts):
+        return ("body style", inner)
+    return None
 
 
 # ---------------- candidate grouping ----------------
@@ -179,29 +211,40 @@ def candidate_groups(nodes):
 
 # ---------------- succession-chain validation ----------------
 
+def _retrospective_umbrella(n, others, edges):
+    """True when n's run swallows two or more of its siblings' runs AND n has no
+    succession edge to the sibling that immediately follows it.
+
+    Porsche "911 (classic)" [1964-1989] is the case. It is a retrospective
+    article covering the whole 901/912/930 era rather than one discrete
+    generation, so it contains both 930 and 964 outright, and its own harvested
+    succession edge skips past 930 straight to 964. Now that overlapping runs
+    are accepted for ordering (see try_order), nothing else would stop it being
+    filed as the 911's FIRST generation, sitting ahead of the 930 it describes.
+    Bare nameplate-overview articles land the same way when they carry an edge.
+
+    Both halves are load-bearing. Containment on its own is not enough, because
+    a real generation with a wrong end year looks identical: Toyota Corolla
+    (E90) is recorded as 1987-2006 when it actually ran to 1992, which makes it
+    appear to swallow E100 and E110. What separates them is that E90 IS linked
+    to the generation that follows it and the retrospective is not."""
+    y = n.get("year")
+    if y is None:
+        return False
+    e = n.get("end")
+    e = e if e is not None else datetime.date.today().year
+    inner = [o for o in others
+             if o["id"] != n["id"] and o.get("year") is not None and y < o["year"] <= e]
+    if len(inner) < 2:
+        return False
+    nxt = min(inner, key=lambda o: o["year"])
+    return (n["id"], nxt["id"]) not in edges
 
 
 
 
-def _clean_handover(a, b):
-    """True when a's run finishes before b's begins, with no overlap at all.
 
-    A missing succession edge between two chronologically adjacent members is
-    usually just harvest incompleteness rather than evidence that they are
-    parallel variants -- but only when their runs genuinely hand over. Jeep
-    Cherokee is the case that motivated this: SJ[1974-1983] -> XJ[1984-2001] ->
-    KL[2013-2023] -> KM[2025-] carries no harvested XJ->KL edge at all, and the
-    whole nameplate went ungrouped over it, even though nothing about that
-    ordering is in doubt -- XJ had been out of production for twelve years when
-    KL arrived, and both are otherwise linked into the chain.
 
-    Deliberately strict on two points, because overlap is the exact signal that
-    separates a sequential generation from a parallel or regional one, and
-    getting that wrong is what this entire layer exists to avoid. `a` must have
-    a known end year (a run still in production cannot have handed over to
-    anything), and the two spans must not share even a single year."""
-    a_end, b_start = a.get("end"), b.get("year")
-    return a_end is not None and b_start is not None and a_end <= b_start
 
 
 def looks_like_distinct_marques(members, succ_pairs):
@@ -263,18 +306,31 @@ def validate_chain(members, links_by_pair):
         working = [n for n in working if n.get("year") is not None]
         pruned += [(n, "missing year data, can't place it chronologically") for n in no_year]
 
-    # A market-scoped article is a different car for a different market, not a
-    # step in this nameplate's sequence -- see market_variant(). Pruned before
+    # A market- or body-style-scoped article is a different car, not a step in
+    # this nameplate's sequence -- see non_generation_variant(). Pruned before
     # the connectivity check rather than after, because DBpedia often DOES give
     # it a succession edge (that edge is what put "Taurus (China)" on the end of
     # the Taurus chain), so it would otherwise pass as connected.
-    market = [(n, market_variant(n["label"])) for n in working]
-    market = [(n, mk) for n, mk in market if mk]
-    if market:
-        drop = {n["id"] for n, _ in market}
+    variants = [(n, non_generation_variant(n["label"])) for n in working]
+    variants = [(n, kv) for n, kv in variants if kv]
+    if variants:
+        drop = {n["id"] for n, _ in variants}
         working = [n for n in working if n["id"] not in drop]
-        pruned += [(n, f"market-specific variant ({mk}) rather than a generation of this "
-                       f"nameplate -- left as its own model") for n, mk in market]
+        pruned += [(n, f"{kind}-specific variant ({text}) rather than a generation of this "
+                       f"nameplate -- left as its own model") for n, (kind, text) in variants]
+
+    # Retrospective/umbrella articles, pruned before the connectivity check for
+    # the same reason the variants above are: they usually DO carry a succession
+    # edge, so connectivity would happily wave them through.
+    umbrellas = [n for n in working if _retrospective_umbrella(n, working, edges)]
+    if umbrellas:
+        drop = {n["id"] for n in umbrellas}
+        working = [n for n in working if n["id"] not in drop]
+        pruned += [(n, f"its run [{n.get('year')}-{n.get('end') or 'ongoing'}] covers two or more of "
+                       f"the other generations here and it has no succession link to the one that "
+                       f"follows it -- either a retrospective article for a whole era (Porsche '911 "
+                       f"(classic)') or a parallel line whose end year is missing, not a single step "
+                       f"in this sequence") for n in umbrellas]
 
     connected_ids = {a for a, _ in edges} | {b for _, b in edges}
     isolates = [n for n in working if n["id"] not in connected_ids]
@@ -287,15 +343,28 @@ def validate_chain(members, links_by_pair):
         if len(items) < 2:
             return False, None, "fewer than 2 chronologically-connected generations remain after pruning"
         ordered = sorted(items, key=lambda n: (n["year"], n.get("end") or n["year"]))
+        # Distinct start years settle the order on their own, so a missing
+        # succession edge between two adjacent members is not a reason to throw
+        # the nameplate away -- the group's members are already known to be
+        # connected to each other (the isolate prune above), and what is wanted
+        # here is the ORDER of the generations that were found, not proof that
+        # the set is complete. Jeep Cherokee has no harvested XJ->KL edge at
+        # all; Volkswagen Jetta is missing A3 and A4 entirely, because VW filed
+        # those as Vento and Bora.
+        #
+        # Overlapping runs are fine too, and common: a maker routinely sells
+        # the outgoing and incoming generation alongside each other for a year
+        # or two (Golf Mk2 1983-1992 against Mk3 from 1991, BMW E36 1990-2000
+        # against E46 from 1997). Earlier start year comes first, and that is
+        # all the ordering needs.
+        #
+        # A TIED start year is the one genuinely ambiguous case -- nothing in
+        # the data says which came first -- so it still fails unless a direct
+        # succession edge settles it.
         for i in range(len(ordered) - 1):
             a, b = ordered[i], ordered[i + 1]
-            if (a["id"], b["id"]) in edges:
-                continue
-            if a["year"] == b["year"]:
+            if a["year"] == b["year"] and (a["id"], b["id"]) not in edges:
                 return False, (a, b), f"tied/ambiguous year with no direct link to disambiguate order: {a['id']} vs {b['id']}"
-            if _clean_handover(a, b):
-                continue  # see _clean_handover: gap-separated, order not in doubt
-            return False, (a, b), f"no succession link between chronologically adjacent {a['label']!r} and {b['label']!r}"
         return True, [n["id"] for n in ordered], "ok"
 
     # Retry-pruning: if the chronological-adjacency check fails on exactly one
