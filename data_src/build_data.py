@@ -48,11 +48,21 @@ errors, warnings = [], []
 # Dyna Junior [1952-4707]" are both real entries from the harvest. Anything
 # outside the plausible window is dropped to None, which the app already reads
 # as "no recorded end", rather than drawing a timeline bar into the year 5000.
+# Derived from today's date rather than hardcoded. The start-year check used a
+# literal 2026 in two places, which silently rots: from 1 January 2027 every
+# genuinely new model would have been dropped with no error, and nobody would
+# have known why the graph had stopped growing. +2 leaves room for a model year
+# announced ahead of production, which is normal for a car.
+YEAR_FLOOR = 1880
 YEAR_CEILING = datetime.date.today().year + 2
 
 
+def plausible_year(y):
+    return y is not None and YEAR_FLOOR <= y <= YEAR_CEILING
+
+
 def plausible_end(y1, y0):
-    return y1 is not None and y0 is not None and y0 <= y1 <= YEAR_CEILING
+    return plausible_year(y1) and y0 is not None and y0 <= y1
 
 def slug(s):
     s = unicodedata.normalize("NFKD", s.lower())
@@ -133,7 +143,8 @@ for (make, name, y0, y1, designers, wp, note) in MODELS:
     if make not in all_makes: errors.append(f"unknown make {make!r} for {name}")
     # database floor is 1880 (the dawn of the automobile); curated pre-1959
     # icons no longer need to reach into the 1959+ era to be included
-    if not (1880 <= y0 <= 2026): errors.append(f"odd year {y0} for {make} {name}")
+    if not plausible_year(y0):
+        errors.append(f"start year {y0} outside {YEAR_FLOOR}-{YEAR_CEILING} for {make} {name}")
     if y1 is not None and y1 < y0: errors.append(f"end<start for {make} {name}")
     elif y1 is not None and not plausible_end(y1, y0):
         errors.append(f"end year {y1} out of range for {make} {name}")
@@ -145,7 +156,7 @@ for (make, name, y0, y1, designers, wp, note) in MODELS:
 for (make, name, y0, y1, designers, wp, note) in AUTO_MODELS:
     make = canon_make(make)
     if (norm(make), norm(name)) in seen_mn or norm(wp) in seen_wp: continue
-    if not (1880 <= y0 <= 2026): continue
+    if not plausible_year(y0): continue
     if y1 is not None and not plausible_end(y1, y0):
         warnings.append(f"dropped implausible end year {y1} on {make} {name} ({y0}-)")
         y1 = None

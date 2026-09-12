@@ -529,70 +529,11 @@ UNCONFIRMED (77) -- candidate group found, NOT auto-grouped, needs review
       Superb (1934–1949) [1934-1943] id=m-skoda-superb-1934-1949
       Superb [2001-] id=m-skoda-superb
 
-NAME COLLISIONS (18) -- unrelated marques sharing a name, correctly not grouped
+NAME COLLISIONS (0) -- unrelated marques sharing a name, correctly not grouped
   Nothing to review here. Wikipedia disambiguates two different things with the
   same title using a parenthetical, so these collapse onto one empty base name,
   and no succession edge joins any of them. Listed separately so they stop
   inflating the review count above.
-  ABC  (2 unrelated articles)
-      (1906 automobile) [1905-] id=m-abc-1906-automobile
-      (1920 automobile) [1920-] id=m-abc-1920-automobile
-  Abingdon  (2 unrelated articles)
-      (1902 automobile) [1902-] id=m-abingdon-1902-automobile
-      (1922 automobile) [1922-] id=m-abingdon-1922-automobile
-  Ace  (2 unrelated articles)
-      (1913 automobile) [1913-] id=m-ace-1913-automobile
-      (1920 automobile) [1920-] id=m-ace-1920-automobile
-  Ajax  (3 unrelated articles)
-      (1906 automobile) [1906-] id=m-ajax-1906-automobile
-      (1913 automobile) [1913-] id=m-ajax-1913-automobile
-      (Nash Motors) [1925-] id=m-ajax-nash-motors
-  Alba  (3 unrelated articles)
-      (1907 automobile) [1907-] id=m-alba-1907-automobile
-      (1913 automobile) [1913-] id=m-alba-1913-automobile
-      (1952 automobile) [1952-] id=m-alba-1952-automobile
-  Allen  (2 unrelated articles)
-      (1913 Ohio automobile) [1913-] id=m-allen-1913-ohio-automobile
-      (1913 Philadelphia automobile) [1913-] id=m-allen-1913-philadelphia-automobile
-  Apollo  (2 unrelated articles)
-      (1906 automobile) [1906-] id=m-apollo-1906-automobile
-      (1910 automobile) [1910-] id=m-apollo-1910-automobile
-  Ascot  (2 unrelated articles)
-      (1914 automobile) [1914-] id=m-ascot-1914-automobile
-      (1928 automobile) [1928-] id=m-ascot-1928-automobile
-  Astra  (3 unrelated articles)
-      (1922 automobile) [1922-] id=m-astra-1922-automobile
-      (1930 automobile) [1930-] id=m-astra-1930-automobile
-      (1954 automobile) [1954-] id=m-astra-1954-automobile
-  Eureka  (2 unrelated articles)
-      (1907 automobile) [1906-] id=m-eureka-1907-automobile
-      (French automobile) [1906-] id=m-eureka-french-automobile
-  Gordon  (2 unrelated articles)
-      (1912–1916) [1912-] id=m-gordon-1912-1916
-      (1954–1958) [1954-] id=m-gordon-1954-1958
-  Hammer  (2 unrelated articles)
-      (Australian automobile) [1900-1900] id=m-hammer-australian-automobile
-      (American automobile) [1905-] id=m-hammer-american-automobile
-  Lincoln  (2 unrelated articles)
-      (1914 automobile) [1914-] id=m-lincoln-1914-automobile
-      (EL-series) [1949-] id=m-lincoln-el-series
-  Michigan  (2 unrelated articles)
-      (1903 automobile) [1903-] id=m-michigan-1903-automobile
-      (1908 automobile) [1904-] id=m-michigan-1908-automobile
-  Mini  (2 unrelated articles)
-      (Mark I) [1959-1959] id=m-mini-mark-i
-      (marque) [1959-] id=m-mini-marque
-  Queen  (2 unrelated articles)
-      (American automobile) [1902-] id=m-queen-american-automobile
-      (English automobile) [1904-] id=m-queen-english-automobile
-  Ross  (2 unrelated articles)
-      (steam automobile) [1906-] id=m-ross-steam-automobile
-      (gasoline automobile) [1915-] id=m-ross-gasoline-automobile
-  Standard  (4 unrelated articles)
-      (1904 automobile) [1901-] id=m-standard-1904-automobile
-      (Italian automobile) [1906-] id=m-standard-italian-automobile
-      (1911 automobile) [1911-] id=m-standard-1911-automobile
-      (1912 automobile) [1914-1923] id=m-standard-1912-automobile
 
 UN-SPLIT NAMEPLATE CANDIDATES (19) -- suggested by credit dates
   Not errors. A credited designer whose dates do not fit the car's span almost

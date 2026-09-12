@@ -217,6 +217,21 @@ def coinable_marque(token):
     return not any(ch.isdigit() for ch in token)
 
 
+# Words that mark a parenthetical as one of Wikipedia's disambiguators rather
+# than a generation or chassis code: "(1906 automobile)", "(French automobile)",
+# "(steam automobile)", "(Nash Motors)", "(marque)", "(vehicle)". Deliberately
+# does NOT match "(P38A)", "(Mark I)", "(EL-series)" or "(classic)".
+DISAMBIGUATOR_RE = re.compile(
+    r"\b(automobiles?|cars?|marque|vehicles?|company|motors?|truck|van|brand|"
+    r"manufacturer|coachbuilder|cyclecar|microcar|supercar|hypercar|dragster|"
+    r"roadster|revival|prototype|tractor|motorcycle)\b", re.I)
+
+# A parenthetical that is nothing but a production span -- "Gordon
+# (1912-1916)" against "Gordon (1954-1958)" -- is disambiguating two unrelated
+# cars by era, so it reads as a label the same way. Both dash characters,
+# because Wikipedia titles use an en dash and the data carries both.
+DATE_RANGE_RE = re.compile(r"^\d{4}\s*[-\u2013]\s*\d{4}$")
+
 JUNK_TITLE = re.compile(r"(List_of|Category:|Template:|_\(disambiguation\)|^Timeline|_lineup$)", re.I)
 
 def clean_designers(raw):
@@ -406,6 +421,24 @@ for t, rec in sorted(by_title.items()):
     name = rest if rest else spaced
     # strip a leading repeat of the make from name; tidy qualifiers
     name = re.sub(r"\s*\((automobile|car|sedan|SUV)\)$", "", name).strip()
+    # A name that is nothing BUT a parenthetical rendered as "AAG · (1906
+    # automobile)" on the card and as a bare "(1906 automobile)" dot on the
+    # graph. Where that parenthetical is a Wikipedia DISAMBIGUATOR -- its way of
+    # separating unrelated things that share a title -- the text inside it is
+    # the only distinguishing information there is, so promote it to the label.
+    #
+    # Restricted to disambiguators on purpose. A parenthetical naming a chassis
+    # code is not one, and stripping its brackets breaks nameplate grouping:
+    # the Range Rover generations arrive as "(P38A)", "(L322)", "(L405)" and
+    # "(L460)" under the Land Rover marque, and base_name() collapses all four
+    # to the same empty base, which is exactly what groups them into one
+    # nameplate. Rewritten to "P38A", "L322" and so on they group by nothing at
+    # all and the family dissolves -- which is what happened when this rule
+    # fired on everything.
+    if name.startswith("(") and name.endswith(")"):
+        inner = name[1:-1].strip()
+        if DISAMBIGUATOR_RE.search(inner) or DATE_RANGE_RE.match(inner):
+            name = inner or make
     if not name: continue
     if (norm(make), norm(name)) in cur_by_mn:
         title_to_ref[t] = ("cur", cur_by_mn[(norm(make), norm(name))]); continue
