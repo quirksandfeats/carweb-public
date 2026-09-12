@@ -319,9 +319,22 @@ def validate_chain(members, links_by_pair):
         pruned += [(n, f"{kind}-specific variant ({text}) rather than a generation of this "
                        f"nameplate -- left as its own model") for n, (kind, text) in variants]
 
-    # Retrospective/umbrella articles, pruned before the connectivity check for
-    # the same reason the variants above are: they usually DO carry a succession
-    # edge, so connectivity would happily wave them through.
+    connected_ids = {a for a, _ in edges} | {b for _, b in edges}
+    isolates = [n for n in working if n["id"] not in connected_ids]
+    if isolates:
+        working = [n for n in working if n["id"] in connected_ids]
+        pruned += [(n, "no succession link to any other candidate generation here") for n in isolates]
+
+    # Retrospective/umbrella articles. Run AFTER the isolate prune above, not
+    # before: a bare nameplate-overview article sitting in the candidate set
+    # inflates the containment count for everything around it, and a real
+    # generation then looks like an umbrella. BMW 4 Series is the case -- F32
+    # [2013-2020] covers both the bare '4 Series' [2014-] and G22 [2020-], so it
+    # tripped the two-sibling test and the nameplate lost its first generation.
+    # The bare article has no succession edge to anything, so the isolate prune
+    # removes it first and F32 is left covering only G22. Nothing is lost by the
+    # reorder: an umbrella that carries an edge still reaches this check, and one
+    # that carries none was already an isolate.
     umbrellas = [n for n in working if _retrospective_umbrella(n, working, edges)]
     if umbrellas:
         drop = {n["id"] for n in umbrellas}
@@ -331,12 +344,6 @@ def validate_chain(members, links_by_pair):
                        f"follows it -- either a retrospective article for a whole era (Porsche '911 "
                        f"(classic)') or a parallel line whose end year is missing, not a single step "
                        f"in this sequence") for n in umbrellas]
-
-    connected_ids = {a for a, _ in edges} | {b for _, b in edges}
-    isolates = [n for n in working if n["id"] not in connected_ids]
-    if isolates:
-        working = [n for n in working if n["id"] in connected_ids]
-        pruned += [(n, "no succession link to any other candidate generation here") for n in isolates]
 
     def try_order(items):
         """(ok, ordered_ids_or_offending_pair, reason)"""
