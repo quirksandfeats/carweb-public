@@ -4493,12 +4493,50 @@ window.CarWeb = (function () {
     // right edge (styles.css) -- reserve that plus a little breathing room
     // whenever it's actually open, and treat the remaining LEFT region as
     // the whole viewport for both fitAll and flyToSet's own centering math.
-    function panelReserve() { return (dt && !dt.hidden) ? 346 : 0; }
+    //
+    // Second real user report, from a phone: "when I search for a particular
+    // car, it zooms into it as it's supposed to but it's not within the view
+    // of the available knowledge graph window. Oftentimes it is behind the
+    // info card for the car I searched for, out of view." Same principle,
+    // wrong axis. Below 720px the detail panel is not a right-anchored card
+    // at all -- it is a bottom SHEET spanning the full width (see styles.css)
+    // -- so reserving 346px of WIDTH for it both narrowed the camera for no
+    // reason and parked the result underneath the sheet every time.
+    //
+    // Which axis to reserve is decided by measuring the panel, not by
+    // matching the breakpoint: a panel as wide as the canvas is a sheet and
+    // takes height, anything narrower is a card and takes width. One source
+    // of truth, so the CSS and this can never disagree about where the panel
+    // is.
+    function panelBox() {
+      if (!dt || dt.hidden) return null;
+      const r = dt.getBoundingClientRect();
+      if (!r.width || !r.height) return null;
+      return { r, p: canvas.parentElement.getBoundingClientRect() };
+    }
+    function panelIsSheet() {
+      const b = panelBox();
+      return !!b && b.r.width >= b.p.width - 12;
+    }
+    function panelReserve() {
+      const b = panelBox();
+      return b && !panelIsSheet() ? 346 : 0;
+    }
+    function panelReserveY() {
+      const b = panelBox();
+      if (!b || !panelIsSheet()) return 0;
+      // How much of the canvas the sheet actually covers, plus a little
+      // breathing room, capped so a nearly full-height sheet still leaves a
+      // usable strip instead of collapsing the camera onto a sliver.
+      return Math.min(Math.max(0, b.p.bottom - b.r.top) + 12, H * 0.72);
+    }
     function viewCenterX() { return Math.max(60, (W - panelReserve()) / 2); }
+    function viewCenterY() { return Math.max(60, (H - panelReserveY()) / 2); }
     function fitAll(animate) {
       const xs = d3.extent(nodes, n => n.x), ys = d3.extent(nodes, n => n.y);
-      const k = Math.min((W - panelReserve()) / (xs[1] - xs[0] + 200), H / (ys[1] - ys[0] + 200));
-      const tf = d3.zoomIdentity.translate(viewCenterX(), H / 2).scale(k)
+      const k = Math.min((W - panelReserve()) / (xs[1] - xs[0] + 200),
+                         (H - panelReserveY()) / (ys[1] - ys[0] + 200));
+      const tf = d3.zoomIdentity.translate(viewCenterX(), viewCenterY()).scale(k)
         .translate(-(xs[0] + xs[1]) / 2, -(ys[0] + ys[1]) / 2);
       const sel = d3.select(canvas);
       if (animate) sel.transition().duration(900).ease(d3.easeCubicInOut).call(zoom.transform, tf);
@@ -5118,10 +5156,11 @@ window.CarWeb = (function () {
       if (!arr.length) return;
       const xs = d3.extent(arr, n => n.x), ys = d3.extent(arr, n => n.y);
       const k = Math.max(0.4, Math.min(3.4,
-        Math.min((W - panelReserve()) / (xs[1] - xs[0] + 260), H / (ys[1] - ys[0] + 260))));
+        Math.min((W - panelReserve()) / (xs[1] - xs[0] + 260),
+                 (H - panelReserveY()) / (ys[1] - ys[0] + 260))));
       const cx = (xs[0] + xs[1]) / 2, cy = (ys[0] + ys[1]) / 2;
       if (!Number.isFinite(k) || !Number.isFinite(cx) || !Number.isFinite(cy)) return;
-      const tf = d3.zoomIdentity.translate(viewCenterX(), H / 2).scale(k).translate(-cx, -cy);
+      const tf = d3.zoomIdentity.translate(viewCenterX(), viewCenterY()).scale(k).translate(-cx, -cy);
       d3.select(canvas).transition().duration(850).ease(d3.easeCubicInOut).call(zoom.transform, tf);
     }
     function reheat(nticks) { sim.alpha(0.16); simActive = nticks; }
@@ -5215,6 +5254,14 @@ window.CarWeb = (function () {
       touch() { dirty = true; resize(); refreshPlatformsFilter(); },
       platformsOnly: () => platformsOnly, setPlatformsOnly,
       state: () => ({ t, focusSet, platformsOnly, platformsNodeIds, platformsRevealedIds }),
+      // Where the camera thinks the usable area is, given whatever shape the
+      // detail panel currently has. Exposed so the regression test can read
+      // it directly: every path that moves the camera goes through a d3
+      // transition, which a headless test cannot advance, so the transform
+      // itself is not observable there -- but its two inputs are.
+      camera: () => ({ reserveX: panelReserve(), reserveY: panelReserveY(),
+                       centerX: viewCenterX(), centerY: viewCenterY(),
+                       isSheet: panelIsSheet(), W, H }),
     };
   })();
 
@@ -5450,6 +5497,7 @@ window.CarWeb = (function () {
     },
     sim: () => sim,
     graphFocusSet: () => Graph.state().focusSet,
+    graphCamera: () => Graph.camera(),
     graphTransform: () => Graph.state().t,
   };
   return api;

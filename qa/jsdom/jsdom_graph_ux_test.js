@@ -45,7 +45,20 @@ window.HTMLCanvasElement.prototype.getContext = function () { return fakeCtx(); 
 window.requestAnimationFrame = cb => setTimeout(() => cb(Date.now()), 4);
 window.cancelAnimationFrame = id => clearTimeout(id);
 window.devicePixelRatio = 1;
-window.Element.prototype.getBoundingClientRect = () => ({ width: 1000, height: 800, top: 0, left: 0, right: 1000, bottom: 800, x: 0, y: 0 });
+// #detail needs a rect of its own, not the blanket 1000x800 every other
+// element gets here. The camera now decides WHICH axis to reserve for the
+// panel by measuring it -- a panel as wide as the canvas is the phone's
+// bottom sheet and takes height, anything narrower is the desktop card and
+// takes width (see app.js's panelIsSheet) -- so a #detail reported as
+// full-width would be read as a sheet, and the left-shift this section is
+// about would correctly not happen. These are the card's real numbers from
+// styles.css: 308px wide, 18px off the right edge, 16px from the top.
+window.Element.prototype.getBoundingClientRect = function () {
+  if (this && this.id === "detail") {
+    return { width: 308, height: 700, top: 16, left: 674, right: 982, bottom: 716, x: 674, y: 16 };
+  }
+  return { width: 1000, height: 800, top: 0, left: 0, right: 1000, bottom: 800, x: 0, y: 0 };
+};
 Object.defineProperty(window.HTMLElement.prototype, "offsetHeight", { get() { return 40; } });
 window.fetch = () => Promise.resolve({ ok: true, json: async () => ({ ok: true }) });
 window.XMLHttpRequest = function () { this.open = () => {}; this.send = () => { throw new Error("no server"); }; };
