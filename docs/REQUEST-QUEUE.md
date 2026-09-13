@@ -89,10 +89,28 @@ python3 scripts/llm_agent.py --now      # run a scan now, no job needed
 python3 scripts/llm_agent.py --targets m-chevrolet-suburban,m-jaguar-xjs
 ```
 
-Per run: `--max-scans` (default 12) caps how many nodes it checks, since each
-is a real model call; `--budget-minutes` (45) caps the scanning phase;
-`--node-timeout` (180) is how long one node gets before it is recorded as an
-error and the run moves on.
+**How much one run scans is governed by the cascade**, not by a count in the
+agent. One seed car pulls in whatever its own article names, out to serve.py's
+`CASCADE_MAX_DEPTH` — the same budget a click gets, so the agent spends the
+model the way a person does.
+
+| flag | default | what it does |
+|---|---|---|
+| `--seeds` | 1 | how many review-queue cars to start from |
+| `--cascade-depth` | serve.py's setting | overrides `CASCADE_MAX_DEPTH` for this run |
+| `--settle-seconds` | 90 | how long to let a seed's cascade finish before moving on |
+| `--budget-minutes` | 45 | wall-clock cap on the scanning phase |
+| `--node-timeout` | 180 | how long one car gets before it is logged as an error |
+
+`--settle-seconds` exists because a seed's own answer landing is not the end of
+the work: confirming a split is what kicks off the partner cascade, and those
+checks run afterwards, in the background. Stopping `serve.py` at that moment
+would cut them off mid-flight and throw away calls already paid for. The run
+waits until nothing new has been written for about nine seconds running.
+
+The summary reports all three numbers — seeds, cascade depth, and how many
+cars ended up with an entry — so "1 seed at depth 1, 7 cars now have an entry,
+5 reached by the cascade" is legible without opening anything.
 
 What one run does:
 

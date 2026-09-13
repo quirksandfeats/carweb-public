@@ -9,6 +9,12 @@ the local LLM generation pass, pushes the result, and exits.
     python3 scripts/llm_agent.py --watch   # keep waiting (for launchd/cron)
     python3 scripts/llm_agent.py --now     # run a scan immediately, no job
 
+HOW MUCH ONE RUN SCANS is governed by the CASCADE, not by a count in here.
+One seed car pulls in whatever its own article names, out to serve.py's
+CASCADE_MAX_DEPTH -- the same budget a click gets, so the agent spends the
+model the way a person does. --seeds is only how many places it starts from,
+and defaults to 1. --cascade-depth overrides the server's setting for one run.
+
 Why a queue and not a listener: the Mac has no public address and is usually
 asleep, so nothing on the internet can call it. See docs/REQUEST-QUEUE.md.
 
@@ -196,15 +202,22 @@ def port_open(port):
         return s.connect_ex(("127.0.0.1", port)) == 0
 
 
-def start_serve():
+def start_serve(cascade_depth=None):
     if port_open(PORT):
         sys.exit(f"something is already listening on :{PORT} -- stop it first, "
                  "so this script doesn't drive a server it cannot shut down")
     log("starting serve.py (it starts llama-server itself, and the model load "
         "can take a minute)")
+    env = dict(os.environ)
+    if cascade_depth is not None:
+        # serve.py owns this number and sends it down to the page on the same
+        # GET that seeds the store, so setting it here is the same lever as
+        # setting it by hand -- not a second, separately-drifting rule.
+        env["CASCADE_MAX_DEPTH"] = str(cascade_depth)
+        log(f"cascade depth for this run: {cascade_depth}")
     proc = subprocess.Popen(
         [sys.executable, os.path.join(APP, "serve.py"), str(PORT)],
-        cwd=APP, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True,
+        cwd=APP, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, env=env,
     )
     # serve.py only starts listening AFTER llama-server answers, so the port
     # opening is the model being ready -- no separate readiness check needed.
@@ -237,7 +250,7 @@ def stop_serve(proc):
 
 
 # ----------------------------------------------------------------- the pass --
-def run_pass(targets, budget_seconds, per_node_seconds):
+def run_pass(targets, budget_seconds, per_node_seconds, settle_seconds=90):
     """Drives the real UI: turn on LLM Check, open each target, wait for its
     entry to land. Opening a node with the check armed is exactly what a human
     does, and it is the code path that ships -- no second implementation to
@@ -274,6 +287,10 @@ def run_pass(targets, budget_seconds, per_node_seconds):
             raise RuntimeError("this build cannot stamp agent decisions -- refusing to "
                                "confirm anything unattributed")
 
+        depth = page.evaluate("() => window.LlmFamilies.cascadeMaxDepth()")
+        entries_before = entry_count(page)
+        log(f"cascade depth {depth}; {entries_before} cars already have an entry")
+
         for nid in targets:
             if time.time() - started > budget_seconds:
                 skipped.append(nid)
@@ -301,8 +318,49 @@ def run_pass(targets, budget_seconds, per_node_seconds):
                     break
             if not settled:
                 errors.append(f"{nid}: no result within {per_node_seconds}s")
+                continue
+            # A seed's own answer landing is NOT the end of the work. Confirming
+            # a split kicks off the partner cascade -- that is what the depth
+            # budget governs -- and those checks run in the background, after
+            # this point. Stopping serve.py here would cut them off mid-flight
+            # and lose calls already paid for. Wait until nothing new has been
+            # written for a few polls running.
+            settle_cascade(page, settle_seconds)
+
+        entries_after = entry_count(page)
         browser.close()
-    return done, errors, skipped
+    return done, errors, skipped, {
+        "depth": depth, "before": entries_before, "after": entries_after,
+        "cascaded": max(0, entries_after - entries_before - len(done)),
+    }
+
+
+def entry_count(page):
+    """Cars that have any kind of entry -- a split decision or a pending
+    re-check. The cascade's own work shows up here and nowhere else, since the
+    partners it reaches are never in the target list."""
+    return page.evaluate(
+        """() => {
+          const LF = window.LlmFamilies;
+          const a = (LF.allEntries && LF.allEntries()) || [];
+          const r = (LF.allRecheckEntries && LF.allRecheckEntries()) || [];
+          return new Set([...a, ...r].map(e => e.id || e)).size;
+        }""")
+
+
+def settle_cascade(page, settle_seconds):
+    last, stable, waited = entry_count(page), 0, 0
+    while waited < settle_seconds:
+        page.wait_for_timeout(3000)
+        waited += 3
+        now = entry_count(page)
+        if now == last:
+            stable += 1
+            if stable >= 3:          # ~9s with nothing new written
+                return
+        else:
+            log(f"  cascade still working: {now} cars have an entry")
+            last, stable = now, 0
 
 
 # ------------------------------------------------------------------- git -----
@@ -354,22 +412,26 @@ def do_job(job, args):
         # An explicit list is taken as given -- including nodes that already
         # have an entry, since "check this one again" is the whole reason to
         # name it by hand.
-        targets = [t.strip() for t in args.targets.split(",") if t.strip()][: args.max_scans]
+        targets = [t.strip() for t in args.targets.split(",") if t.strip()][: args.seeds]
     else:
-        targets = [nid for nid in review_queue_ids() if nid not in already_scanned()][: args.max_scans]
+        targets = [nid for nid in review_queue_ids() if nid not in already_scanned()][: args.seeds]
     if not targets:
         finish(jid, "done", "nothing left in the review queue to scan")
         return
 
-    log(f"{len(targets)} node(s) to scan, budget {args.budget_minutes} min")
+    log(f"{len(targets)} seed(s), budget {args.budget_minutes} min")
     proc, state, summary, detail = None, "done", "", ""
     try:
-        proc = start_serve()
-        done, errors, skipped = run_pass(targets, args.budget_minutes * 60, args.node_timeout)
+        proc = start_serve(args.cascade_depth)
+        done, errors, skipped, cascade = run_pass(
+            targets, args.budget_minutes * 60, args.node_timeout, args.settle_seconds)
         split = [nid for nid, st in done if st == "confirmed"]
         waiting = [nid for nid, st in done if st == "provisional" or (st or "").startswith("recheck")]
         nothing = [nid for nid, st in done if st in ("rejected", "none", "error")]
-        bits = [f"{len(done)} scanned"]
+        bits = [f"{len(done)} seed(s) at cascade depth {cascade['depth']}",
+                f"{cascade['after']} cars now have an entry"]
+        if cascade["cascaded"]:
+            bits.append(f"{cascade['cascaded']} reached by the cascade")
         if split:
             bits.append(f"{len(split)} split")
         if waiting:
@@ -418,8 +480,19 @@ def main():
     ap.add_argument("--now", action="store_true", help="scan immediately without waiting for a job")
     ap.add_argument("--poll-seconds", type=int, default=60)
     ap.add_argument("--wait-minutes", type=int, default=10, help="how long --once waits for a job")
-    ap.add_argument("--max-scans", type=int, default=12,
-                    help="how many nodes one run may check (each is a real model call)")
+    # How many cars a run scans is governed by the CASCADE, not by a count
+    # here: one seed pulls in whatever its own article names, out to the depth
+    # serve.py is configured for. That is the same budget a click gets, so the
+    # agent spends the model exactly the way a person does. --seeds is only how
+    # many places it starts from.
+    ap.add_argument("--seeds", type=int, default=1,
+                    help="how many review-queue cars to start from (the cascade decides "
+                         "how many get scanned from each)")
+    ap.add_argument("--cascade-depth", type=int, default=None,
+                    help="override serve.py's CASCADE_MAX_DEPTH for this run "
+                         "(default: whatever serve.py is already set to)")
+    ap.add_argument("--settle-seconds", type=int, default=90,
+                    help="how long to let a seed's cascade finish before moving on")
     ap.add_argument("--budget-minutes", type=int, default=45, help="wall-clock cap on the scanning phase")
     ap.add_argument("--node-timeout", type=int, default=180, help="seconds to wait for one node's result")
     ap.add_argument("--targets", default="", help="comma-separated node ids to scan instead of the review queue")
