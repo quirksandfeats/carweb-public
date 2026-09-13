@@ -8978,6 +8978,352 @@
     "Wayne Kady"
    ],
    "allEngineers": []
+  },
+  "m-aston-martin-db7": {
+   "status": "none",
+   "checkedAt": "2026-09-13T20:15:21.333Z",
+   "sourceTitle": "Aston Martin DB7",
+   "proposal": {
+    "hasMultipleGenerations": false,
+    "generations": [
+     {
+      "code": "XX",
+      "yearStart": 1994,
+      "yearEnd": 2004,
+      "designers": [
+       "Ian Callum",
+       "Keith Helfet"
+      ],
+      "engineers": [],
+      "wikiFile": "1999 Aston Martin DB7 Vantage.jpg",
+      "sharedPlatforms": [
+       "Jaguar XK (X100)"
+      ]
+     }
+    ]
+   },
+   "attempts": 1,
+   "feedback": [],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": false,
+     "generations": [
+      {
+       "code": "XX",
+       "yearStart": 1994,
+       "yearEnd": 2004,
+       "designers": [
+        "Ian Callum",
+        "Keith Helfet"
+       ],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Jaguar XK (X100)"
+       ]
+      }
+     ]
+    },
+    "dropped": []
+   },
+   "cascadeDiscovered": true
+  },
+  "m-wuling-starlight-s": {
+   "status": "none",
+   "checkedAt": "2026-09-13T20:16:14.726Z",
+   "sourceTitle": "Wuling Starlight S",
+   "proposal": {
+    "hasMultipleGenerations": false,
+    "generations": [
+     {
+      "code": "Starlight S",
+      "yearStart": 2024,
+      "yearEnd": null,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "Wuling Starlight S 005.jpg",
+      "sharedPlatforms": [
+       "Wuling Starlight 560",
+       "Wuling Starlight 730",
+       "Wuling Starlight",
+       "Baojun Yunhai",
+       "Baojun Xiangjing"
+      ]
+     }
+    ]
+   },
+   "attempts": 1,
+   "feedback": [],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": false,
+     "generations": [
+      {
+       "code": "Starlight S",
+       "yearStart": 2024,
+       "yearEnd": null,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Wuling Starlight 560",
+        "Wuling Starlight 730",
+        "Wuling Starlight",
+        "Baojun Yunhai",
+        "Baojun Xiangjing"
+       ]
+      }
+     ]
+    },
+    "dropped": []
+   },
+   "cascadeDiscovered": true
+  },
+  "m-jaguar-xjs": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T20:16:31.089Z",
+   "sourceTitle": "Jaguar XJS",
+   "proposal": {
+    "hasMultipleGenerations": true,
+    "generations": [
+     {
+      "code": "Pre-HE (1975–1981)",
+      "yearStart": 1975,
+      "yearEnd": 1981,
+      "designers": [
+       "Malcolm Sayer",
+       "Doug Thorpe",
+       "Jaguar design team"
+      ],
+      "engineers": [
+       "William Heynes"
+      ],
+      "wikiFile": "Jaguar XJS registered January 1978 5343cc.JPG",
+      "sharedPlatforms": []
+     },
+     {
+      "code": "HE (1981–1991)",
+      "yearStart": 1981,
+      "yearEnd": 1991,
+      "designers": [],
+      "engineers": [
+       "Michael May"
+      ],
+      "wikiFile": "1985 Jaguar XJS (15360044760).jpg",
+      "sharedPlatforms": []
+     },
+     {
+      "code": "Facelift (1991–1996)",
+      "yearStart": 1991,
+      "yearEnd": 1996,
+      "designers": [
+       "Geoff Lawson"
+      ],
+      "engineers": [],
+      "wikiFile": "1991 Jaguar XJ-S 4.0.jpg",
+      "sharedPlatforms": [
+       "Jaguar XJ40"
+      ],
+      "sharedPlatformMatches": {
+       "Jaguar XJ40": {
+        "matchId": "m-jaguar-xj-xj40",
+        "confidence": "high",
+        "reason": "The mentioned car 'Jaguar XJ40' corresponds exactly to the candidate 'Jaguar XJ (XJ40) (1986–1994)'. The XJ40 is the specific chassis code generation of the Jaguar XJ series produced during those years, and the database entry explicitly includes the XJ40 designation, confirming they are the same vehicle."
+       }
+      }
+     }
+    ]
+   },
+   "attempts": 1,
+   "feedback": [],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": true,
+     "generations": [
+      {
+       "code": "Pre-HE (1975–1981)",
+       "yearStart": 1975,
+       "yearEnd": 1981,
+       "designers": [
+        "Malcolm Sayer",
+        "Doug Thorpe",
+        "Jaguar design team"
+       ],
+       "engineers": [
+        "William Heynes"
+       ],
+       "sharedPlatforms": [
+        "Jaguar XJ (Series 1, 2, and 3)"
+       ]
+      },
+      {
+       "code": "HE (1981–1991)",
+       "yearStart": 1981,
+       "yearEnd": 1991,
+       "designers": [],
+       "engineers": [
+        "Michael May"
+       ],
+       "sharedPlatforms": []
+      },
+      {
+       "code": "Facelift (1991–1996)",
+       "yearStart": 1991,
+       "yearEnd": 1996,
+       "designers": [
+        "Geoff Lawson"
+       ],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Jaguar XJ40"
+       ]
+      }
+     ]
+    },
+    "dropped": []
+   },
+   "decidedBy": "agent",
+   "decidedAt": "2026-09-13T20:16:31.775Z",
+   "allDesigners": [
+    "Malcolm Sayer",
+    "Doug Thorpe",
+    "Jaguar design team",
+    "Geoff Lawson"
+   ],
+   "allEngineers": [
+    "William Heynes",
+    "Michael May"
+   ]
+  },
+  "m-jaguar-e-type": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T20:17:14.452Z",
+   "sourceTitle": "Jaguar E-Type",
+   "proposal": {
+    "hasMultipleGenerations": true,
+    "generations": [
+     {
+      "code": "Series 1",
+      "yearStart": 1961,
+      "yearEnd": 1968,
+      "designers": [
+       "Malcolm Sayer",
+       "William Heynes"
+      ],
+      "engineers": [
+       "R J Knight"
+      ],
+      "wikiFile": "1964 Jaguar E-Type 1.jpg",
+      "sharedPlatforms": []
+     },
+     {
+      "code": "Series 2",
+      "yearStart": 1968,
+      "yearEnd": 1971,
+      "designers": [
+       "Malcolm Sayer",
+       "William Heynes"
+      ],
+      "engineers": [
+       "R J Knight"
+      ],
+      "wikiFile": "1970 Jaguar E-Type Roadster 4.2.jpg",
+      "sharedPlatforms": [
+       "Jaguar D-Type",
+       "Jaguar XJ13"
+      ]
+     },
+     {
+      "code": "Series 3",
+      "yearStart": 1971,
+      "yearEnd": 1974,
+      "designers": [
+       "Malcolm Sayer",
+       "William Heynes"
+      ],
+      "engineers": [
+       "R J Knight"
+      ],
+      "wikiFile": "1972 Jaguar E-Type Series 3 5.3 Front.jpg",
+      "sharedPlatforms": [
+       "Jaguar D-Type",
+       "Jaguar XJ13",
+       "Guyson E12"
+      ],
+      "sharedPlatformMatches": {
+       "Guyson E12": {
+        "matchId": null,
+        "confidence": "high",
+        "reason": "The Guyson E12 is an electric sports car produced by Guyson (a British company) around 2018-2020. The Li One is an electric SUV produced by Li Auto (Chinese) starting in 2019, and the MG One is a compact SUV by MG (SAIC) starting in 2021. These are entirely different manufacturers, vehicle segments, and production eras with no shared chassis or naming relationship."
+       }
+      }
+     }
+    ]
+   },
+   "attempts": 1,
+   "feedback": [],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": true,
+     "generations": [
+      {
+       "code": "Series 1",
+       "yearStart": 1961,
+       "yearEnd": 1968,
+       "designers": [
+        "Malcolm Sayer",
+        "William Heynes"
+       ],
+       "engineers": [
+        "R J Knight"
+       ],
+       "sharedPlatforms": []
+      },
+      {
+       "code": "Series 2",
+       "yearStart": 1968,
+       "yearEnd": 1971,
+       "designers": [
+        "Malcolm Sayer",
+        "William Heynes"
+       ],
+       "engineers": [
+        "R J Knight"
+       ],
+       "sharedPlatforms": [
+        "Jaguar D-Type",
+        "Jaguar XJ13"
+       ]
+      },
+      {
+       "code": "Series 3",
+       "yearStart": 1971,
+       "yearEnd": 1974,
+       "designers": [
+        "Malcolm Sayer",
+        "William Heynes"
+       ],
+       "engineers": [
+        "R J Knight"
+       ],
+       "sharedPlatforms": [
+        "Jaguar D-Type",
+        "Jaguar XJ13",
+        "Guyson E12"
+       ]
+      }
+     ]
+    },
+    "dropped": []
+   },
+   "cascadeDiscovered": true,
+   "decidedBy": "agent",
+   "decidedAt": "2026-09-13T20:17:15.088Z",
+   "allDesigners": [
+    "Malcolm Sayer",
+    "William Heynes"
+   ],
+   "allEngineers": [
+    "R J Knight"
+   ]
   }
  },
  "relations": {
@@ -16472,12 +16818,180 @@
    "genIdB": "m-chevrolet-monte-carlo",
    "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
    "llmDiscovered": true
+  },
+  "llm-m-buick-century-third-generation|m-chevrolet-chevelle-laguna|platform": {
+   "status": "provisional",
+   "checkedAt": "2026-09-13T20:14:59.715Z",
+   "famA": "m-chevrolet-chevelle-laguna",
+   "famB": "m-buick-century",
+   "relType": "platform",
+   "codeA": "Chevelle Laguna",
+   "codeB": "Century Third generation",
+   "genIdA": "m-chevrolet-chevelle-laguna",
+   "genIdB": "llm-m-buick-century-third-generation",
+   "reason": "proposed by overlapping production years only (a shared-platform/rebadge mention was found alongside this generation's own text, but which specific generation of the OTHER nameplate it refers to was guessed from year overlap, not stated explicitly) -- please verify before accepting",
+   "llmDiscovered": true
+  },
+  "m-aston-martin-db7|m-jaguar-xk-x100|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T20:15:21.699Z",
+   "decidedAt": "2026-09-13T20:15:21.699Z",
+   "famA": "m-aston-martin-db7",
+   "famB": "fam-jaguar-xk",
+   "relType": "platform",
+   "codeA": "DB7",
+   "codeB": "XK (X100)",
+   "genIdA": "m-aston-martin-db7",
+   "genIdB": "m-jaguar-xk-x100",
+   "reason": "matched automatically (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "m-wuling-starlight-560|m-wuling-starlight-s|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T20:16:31.460Z",
+   "decidedAt": "2026-09-13T20:16:31.460Z",
+   "famA": "m-wuling-starlight-s",
+   "famB": "m-wuling-starlight-560",
+   "relType": "platform",
+   "codeA": "Starlight S",
+   "codeB": "Starlight 560",
+   "genIdA": "m-wuling-starlight-s",
+   "genIdB": "m-wuling-starlight-560",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "m-wuling-starlight|m-wuling-starlight-s|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T20:16:31.465Z",
+   "decidedAt": "2026-09-13T20:16:31.465Z",
+   "famA": "m-wuling-starlight-s",
+   "famB": "m-wuling-starlight",
+   "relType": "platform",
+   "codeA": "Starlight S",
+   "codeB": "Starlight",
+   "genIdA": "m-wuling-starlight-s",
+   "genIdB": "m-wuling-starlight",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "m-baojun-yunhai|m-wuling-starlight-s|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T20:16:31.465Z",
+   "decidedAt": "2026-09-13T20:16:31.465Z",
+   "famA": "m-wuling-starlight-s",
+   "famB": "m-baojun-yunhai",
+   "relType": "platform",
+   "codeA": "Starlight S",
+   "codeB": "Yunhai",
+   "genIdA": "m-wuling-starlight-s",
+   "genIdB": "m-baojun-yunhai",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "m-baojun-xiangjing|m-wuling-starlight-s|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T20:16:31.466Z",
+   "decidedAt": "2026-09-13T20:16:31.466Z",
+   "famA": "m-wuling-starlight-s",
+   "famB": "m-baojun-xiangjing",
+   "relType": "platform",
+   "codeA": "Starlight S",
+   "codeB": "Xiangjing",
+   "genIdA": "m-wuling-starlight-s",
+   "genIdB": "m-baojun-xiangjing",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-jaguar-xjs-facelift-1991-1996|m-jaguar-xj-xj40|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T20:16:31.809Z",
+   "decidedAt": "2026-09-13T20:16:31.809Z",
+   "famA": "m-jaguar-xjs",
+   "famB": "fam-jaguar-xj",
+   "relType": "platform",
+   "codeA": "XJS Facelift (1991–1996)",
+   "codeB": "XJ (XJ40)",
+   "genIdA": "llm-m-jaguar-xjs-facelift-1991-1996",
+   "genIdB": "m-jaguar-xj-xj40",
+   "reason": "auto-approved in the background -- the local LLM sanity check confidently identified this as the same car as \"Jaguar XJ40\" (confidence: high) -- The mentioned car 'Jaguar XJ40' corresponds exactly to the candidate 'Jaguar XJ (XJ40) (1986–1994)'. The XJ40 is the specific chassis code generation of the Jaguar XJ series produced during those years, and the database entry explicitly includes the XJ40 designation, confirming they are the same vehicle.",
+   "llmDiscovered": true,
+   "llmVerifiedDuplicate": true
+  },
+  "llm-m-jaguar-e-type-series-2|m-jaguar-d-type|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T20:17:15.113Z",
+   "decidedAt": "2026-09-13T20:17:15.113Z",
+   "famA": "m-jaguar-e-type",
+   "famB": "m-jaguar-d-type",
+   "relType": "platform",
+   "codeA": "E-Type Series 2",
+   "codeB": "D-Type",
+   "genIdA": "llm-m-jaguar-e-type-series-2",
+   "genIdB": "m-jaguar-d-type",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-jaguar-e-type-series-2|m-jaguar-xj13|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T20:17:15.114Z",
+   "decidedAt": "2026-09-13T20:17:15.114Z",
+   "famA": "m-jaguar-e-type",
+   "famB": "m-jaguar-xj13",
+   "relType": "platform",
+   "codeA": "E-Type Series 2",
+   "codeB": "XJ13",
+   "genIdA": "llm-m-jaguar-e-type-series-2",
+   "genIdB": "m-jaguar-xj13",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-jaguar-e-type-series-3|m-jaguar-d-type|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T20:17:15.120Z",
+   "decidedAt": "2026-09-13T20:17:15.120Z",
+   "famA": "m-jaguar-e-type",
+   "famB": "m-jaguar-d-type",
+   "relType": "platform",
+   "codeA": "E-Type Series 3",
+   "codeB": "D-Type",
+   "genIdA": "llm-m-jaguar-e-type-series-3",
+   "genIdB": "m-jaguar-d-type",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-jaguar-e-type-series-3|m-jaguar-xj13|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T20:17:15.121Z",
+   "decidedAt": "2026-09-13T20:17:15.121Z",
+   "famA": "m-jaguar-e-type",
+   "famB": "m-jaguar-xj13",
+   "relType": "platform",
+   "codeA": "E-Type Series 3",
+   "codeB": "XJ13",
+   "genIdA": "llm-m-jaguar-e-type-series-3",
+   "genIdB": "m-jaguar-xj13",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-jaguar-e-type-series-3|llm-related-guyson-e12|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T20:17:15.129Z",
+   "decidedAt": "2026-09-13T20:17:15.129Z",
+   "famA": "m-jaguar-e-type",
+   "famB": "llm-related-guyson-e12",
+   "relType": "platform",
+   "codeA": "E-Type Series 3",
+   "codeB": "E12",
+   "genIdA": "llm-m-jaguar-e-type-series-3",
+   "genIdB": "llm-related-guyson-e12",
+   "reason": "matched automatically -- \"Guyson E12\" was named as a related car but didn't exist anywhere in the graph yet, so it was newly created from this mention (double-checked by the local LLM sanity pass against every plausible existing car -- none matched)",
+   "llmDiscovered": true
   }
  },
  "recheck": {
   "m-mercedes-benz-g-class": {
    "status": "none",
-   "checkedAt": "2026-09-13T19:01:37.823Z",
+   "checkedAt": "2026-09-13T20:14:57.999Z",
    "sourceTitle": "Mercedes-Benz G-Class",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -16561,7 +17075,7 @@
   },
   "m-mercedes-benz-gla": {
    "status": "none",
-   "checkedAt": "2026-09-13T19:01:37.884Z",
+   "checkedAt": "2026-09-13T20:14:58.063Z",
    "sourceTitle": "Mercedes-Benz GLA",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -16664,7 +17178,7 @@
   },
   "m-mercedes-benz-cla": {
    "status": "none",
-   "checkedAt": "2026-09-13T19:01:37.930Z",
+   "checkedAt": "2026-09-13T20:14:58.109Z",
    "sourceTitle": "Mercedes-Benz CLA",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -16946,7 +17460,7 @@
   },
   "m-toyota-celica": {
    "status": "none",
-   "checkedAt": "2026-09-13T19:01:37.994Z",
+   "checkedAt": "2026-09-13T20:14:58.176Z",
    "sourceTitle": "Toyota Celica",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -17062,7 +17576,7 @@
   },
   "m-toyota-carina": {
    "status": "none",
-   "checkedAt": "2026-09-13T19:01:38.077Z",
+   "checkedAt": "2026-09-13T20:14:58.257Z",
    "sourceTitle": "Toyota Carina",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -17190,7 +17704,7 @@
   },
   "m-lexus-sc": {
    "status": "none",
-   "checkedAt": "2026-09-13T19:01:38.084Z",
+   "checkedAt": "2026-09-13T20:14:58.263Z",
    "sourceTitle": "Lexus SC",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -17839,7 +18353,7 @@
   },
   "m-seat-toledo": {
    "status": "none",
-   "checkedAt": "2026-09-13T19:01:38.167Z",
+   "checkedAt": "2026-09-13T20:14:58.342Z",
    "sourceTitle": "SEAT Toledo",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -17970,7 +18484,7 @@
   },
   "m-daren-mk-3": {
    "status": "none",
-   "checkedAt": "2026-09-13T19:01:38.179Z",
+   "checkedAt": "2026-09-13T20:14:58.354Z",
    "sourceTitle": "Daren Mk.3",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -18045,7 +18559,7 @@
   },
   "m-audi-a3-mk3": {
    "status": "none",
-   "checkedAt": "2026-09-13T19:01:38.201Z",
+   "checkedAt": "2026-09-13T20:14:58.377Z",
    "sourceTitle": "Audi A3",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -18101,7 +18615,7 @@
   },
   "m-audi-tt": {
    "status": "none",
-   "checkedAt": "2026-09-13T19:01:38.297Z",
+   "checkedAt": "2026-09-13T20:14:58.475Z",
    "sourceTitle": "Audi TT",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -18241,7 +18755,7 @@
   },
   "m-seat-leon-mk3": {
    "status": "none",
-   "checkedAt": "2026-09-13T19:01:38.358Z",
+   "checkedAt": "2026-09-13T20:14:58.536Z",
    "sourceTitle": "SEAT León",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -18355,7 +18869,7 @@
   },
   "m-volkswagen-karmann-ghia": {
    "status": "none",
-   "checkedAt": "2026-09-13T19:01:38.390Z",
+   "checkedAt": "2026-09-13T20:14:58.569Z",
    "sourceTitle": "Volkswagen Karmann Ghia",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -18405,7 +18919,7 @@
   },
   "m-porsche-panamera": {
    "status": "none",
-   "checkedAt": "2026-09-13T19:01:38.378Z",
+   "checkedAt": "2026-09-13T20:14:58.557Z",
    "sourceTitle": "Porsche Panamera",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -18471,7 +18985,7 @@
   },
   "m-subaru-forester": {
    "status": "none",
-   "checkedAt": "2026-09-13T19:01:38.435Z",
+   "checkedAt": "2026-09-13T20:14:58.613Z",
    "sourceTitle": "Subaru Forester",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -18580,7 +19094,7 @@
   },
   "m-volkswagen-touran": {
    "status": "none",
-   "checkedAt": "2026-09-13T19:01:38.457Z",
+   "checkedAt": "2026-09-13T20:14:58.636Z",
    "sourceTitle": "Volkswagen Touran",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -18630,7 +19144,7 @@
   },
   "m-chevrolet-captiva": {
    "status": "none",
-   "checkedAt": "2026-09-13T19:01:38.531Z",
+   "checkedAt": "2026-09-13T20:14:58.712Z",
    "sourceTitle": "Chevrolet Captiva",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -18735,7 +19249,7 @@
   },
   "m-isuzu-trooper": {
    "status": "none",
-   "checkedAt": "2026-09-13T19:01:38.590Z",
+   "checkedAt": "2026-09-13T20:14:58.772Z",
    "sourceTitle": "Isuzu Trooper",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -18831,7 +19345,7 @@
   },
   "m-volkswagen-tiguan": {
    "status": "none",
-   "checkedAt": "2026-09-13T19:01:38.664Z",
+   "checkedAt": "2026-09-13T20:14:58.848Z",
    "sourceTitle": "Volkswagen Tiguan",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -18944,7 +19458,7 @@
   },
   "m-chrysler-horizon": {
    "status": "none",
-   "checkedAt": "2026-09-13T19:01:38.712Z",
+   "checkedAt": "2026-09-13T20:14:58.898Z",
    "sourceTitle": "Chrysler Horizon",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -19044,7 +19558,7 @@
   },
   "m-mercury-monterey": {
    "status": "none",
-   "checkedAt": "2026-09-13T19:01:38.818Z",
+   "checkedAt": "2026-09-13T20:14:59.007Z",
    "sourceTitle": "Mercury Monterey",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -19219,7 +19733,7 @@
   },
   "m-gmc-envoy": {
    "status": "none",
-   "checkedAt": "2026-09-13T19:01:38.840Z",
+   "checkedAt": "2026-09-13T20:14:59.029Z",
    "sourceTitle": "GMC Envoy",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -19272,7 +19786,7 @@
   },
   "m-chevrolet-trailblazer": {
    "status": "none",
-   "checkedAt": "2026-09-13T19:01:38.858Z",
+   "checkedAt": "2026-09-13T20:14:59.048Z",
    "sourceTitle": "Chevrolet TrailBlazer (SUV)",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -19323,7 +19837,7 @@
   },
   "m-oldsmobile-bravada": {
    "status": "none",
-   "checkedAt": "2026-09-13T19:01:38.897Z",
+   "checkedAt": "2026-09-13T20:14:59.088Z",
    "sourceTitle": "Oldsmobile Bravada",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -19403,7 +19917,7 @@
   },
   "m-buick-lacrosse": {
    "status": "none",
-   "checkedAt": "2026-09-13T19:03:38.086Z",
+   "checkedAt": "2026-09-13T20:14:59.114Z",
    "sourceTitle": "Buick LaCrosse",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -19479,7 +19993,7 @@
   },
   "m-buick-invicta": {
    "status": "none",
-   "checkedAt": "2026-09-13T19:06:53.380Z",
+   "checkedAt": "2026-09-13T20:14:59.132Z",
    "sourceTitle": "Buick Invicta",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -19530,7 +20044,7 @@
   },
   "m-buick-century": {
    "status": "none",
-   "checkedAt": "2026-09-13T19:10:26.821Z",
+   "checkedAt": "2026-09-13T20:14:59.220Z",
    "sourceTitle": "Buick Century",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -19673,6 +20187,134 @@
        "Chevrolet Impala",
        "Chevrolet Monte Carlo"
       ]
+     }
+    ]
+   },
+   "discrepancy": null,
+   "attempts": 1,
+   "feedback": []
+  },
+  "m-jaguar-xjs": {
+   "status": "none",
+   "checkedAt": "2026-09-13T20:16:31.809Z",
+   "sourceTitle": "Jaguar XJS",
+   "proposal": {
+    "hasMultipleGenerations": true,
+    "generations": [
+     {
+      "code": "Pre-HE (1975–1981)",
+      "yearStart": 1975,
+      "yearEnd": 1981,
+      "designers": [
+       "Malcolm Sayer",
+       "Doug Thorpe",
+       "Jaguar design team"
+      ],
+      "engineers": [
+       "William Heynes"
+      ],
+      "wikiFile": "Jaguar XJS registered January 1978 5343cc.JPG",
+      "sharedPlatforms": []
+     },
+     {
+      "code": "HE (1981–1991)",
+      "yearStart": 1981,
+      "yearEnd": 1991,
+      "designers": [],
+      "engineers": [
+       "Michael May"
+      ],
+      "wikiFile": "1985 Jaguar XJS (15360044760).jpg",
+      "sharedPlatforms": []
+     },
+     {
+      "code": "Facelift (1991–1996)",
+      "yearStart": 1991,
+      "yearEnd": 1996,
+      "designers": [
+       "Geoff Lawson"
+      ],
+      "engineers": [],
+      "wikiFile": "1991 Jaguar XJ-S 4.0.jpg",
+      "sharedPlatforms": [
+       "Jaguar XJ40"
+      ],
+      "sharedPlatformMatches": {
+       "Jaguar XJ40": {
+        "matchId": "m-jaguar-xj-xj40",
+        "confidence": "high",
+        "reason": "The mentioned car 'Jaguar XJ40' corresponds exactly to the candidate 'Jaguar XJ (XJ40) (1986–1994)'. The XJ40 is the specific chassis code generation of the Jaguar XJ series produced during those years, and the database entry explicitly includes the XJ40 designation, confirming they are the same vehicle."
+       }
+      }
+     }
+    ]
+   },
+   "discrepancy": null,
+   "attempts": 1,
+   "feedback": []
+  },
+  "m-jaguar-e-type": {
+   "status": "none",
+   "checkedAt": "2026-09-13T20:17:15.130Z",
+   "sourceTitle": "Jaguar E-Type",
+   "proposal": {
+    "hasMultipleGenerations": true,
+    "generations": [
+     {
+      "code": "Series 1",
+      "yearStart": 1961,
+      "yearEnd": 1968,
+      "designers": [
+       "Malcolm Sayer",
+       "William Heynes"
+      ],
+      "engineers": [
+       "R J Knight"
+      ],
+      "wikiFile": "1964 Jaguar E-Type 1.jpg",
+      "sharedPlatforms": []
+     },
+     {
+      "code": "Series 2",
+      "yearStart": 1968,
+      "yearEnd": 1971,
+      "designers": [
+       "Malcolm Sayer",
+       "William Heynes"
+      ],
+      "engineers": [
+       "R J Knight"
+      ],
+      "wikiFile": "1970 Jaguar E-Type Roadster 4.2.jpg",
+      "sharedPlatforms": [
+       "Jaguar D-Type",
+       "Jaguar XJ13"
+      ]
+     },
+     {
+      "code": "Series 3",
+      "yearStart": 1971,
+      "yearEnd": 1974,
+      "designers": [
+       "Malcolm Sayer",
+       "William Heynes"
+      ],
+      "engineers": [
+       "R J Knight"
+      ],
+      "wikiFile": "1972 Jaguar E-Type Series 3 5.3 Front.jpg",
+      "sharedPlatforms": [
+       "Jaguar D-Type",
+       "Jaguar XJ13",
+       "Guyson E12"
+      ],
+      "sharedPlatformMatches": {
+       "Guyson E12": {
+        "matchId": null,
+        "confidence": "high",
+        "reason": "The Guyson E12 is an electric sports car produced by Guyson (a British company) around 2018-2020. The Li One is an electric SUV produced by Li Auto (Chinese) starting in 2019, and the MG One is a compact SUV by MG (SAIC) starting in 2021. These are entirely different manufacturers, vehicle segments, and production eras with no shared chassis or naming relationship."
+       }
+      }
      }
     ]
    },
@@ -21077,6 +21719,13 @@
    "year": 1932,
    "end": 1938,
    "source": "wikipedia"
+  },
+  "p-doug-thorpe": {
+   "checkedAt": "2026-09-13T20:17:16.190Z",
+   "born": null,
+   "died": null,
+   "country": null,
+   "tries": 1
   }
  },
  "userCars": {},
@@ -21181,7 +21830,8 @@
   "llm-related-isuzu-hombre": "Isuzu Hombre",
   "llm-related-oldsmobile-super-88": "Oldsmobile Super 88",
   "llm-related-oldsmobile-l-series": "Oldsmobile L-Series",
-  "llm-related-gmc-caballero": "GMC Caballero"
+  "llm-related-gmc-caballero": "GMC Caballero",
+  "llm-related-guyson-e12": "Guyson E12"
  },
  "genResearch": {
   "merge-m-volkswagen-jetta-self": {
