@@ -74,7 +74,7 @@ def name_list(label, ids, limit=5):
 
 def commit_body(split, waiting, nothing, skipped, errors):
     lines = []
-    for label, ids in (("Split and applied without review", split),
+    for label, ids in (("Split and applied without review (seeds and cascade alike)", split),
                        ("Awaiting your review", waiting),
                        ("Nothing found", nothing),
                        ("Skipped (budget, or no longer in the graph)", skipped)):
@@ -287,6 +287,7 @@ def run_pass(targets, budget_seconds, per_node_seconds, settle_seconds=300, quie
 
         depth = page.evaluate("() => window.LlmFamilies.cascadeMaxDepth()")
         entries_before = entry_count(page)
+        agent_before = agent_confirmed(page)
         log(f"cascade depth {depth}; {entries_before} cars already have an entry")
 
         for nid in targets:
@@ -341,10 +342,19 @@ def run_pass(targets, budget_seconds, per_node_seconds, settle_seconds=300, quie
             settle_cascade(page, settle_seconds, quiet_seconds)
 
         entries_after = entry_count(page)
+        # The seeds are not the only cars this run can have SPLIT. A seed's
+        # cascade confirms its partners the same way, by the same rule, and
+        # the first real run proved it: the commit named only the Buick
+        # Century while the LaCrosse and the Invicta had also been split and
+        # applied. Reporting the seeds alone is exactly the reviewability gap
+        # the decidedBy stamp exists to close, so read the stamp back rather
+        # than inferring from the target list.
+        agent_split = [i for i in agent_confirmed(page) if i not in agent_before]
         browser.close()
     return done, errors, skipped, {
         "depth": depth, "before": entries_before, "after": entries_after,
         "cascaded": max(0, entries_after - entries_before - len(done)),
+        "agent_split": agent_split,
     }
 
 
@@ -375,6 +385,17 @@ def arm_llm_check(page, browser):
     if not page.evaluate("() => CarWeb.llmCheckOn()"):
         browser.close()
         raise RuntimeError("could not arm the LLM check toggle")
+
+
+def agent_confirmed(page):
+    """Ids this session has confirmed and stamped decidedBy:"agent"."""
+    return set(page.evaluate(
+        """() => {
+          const LF = window.LlmFamilies;
+          return ((LF.allEntries && LF.allEntries()) || [])
+            .map(e => e.id)
+            .filter(id => { const x = LF.entryFor(id); return x && x.decidedBy === "agent"; });
+        }"""))
 
 
 def entry_count(page):
@@ -486,7 +507,7 @@ def do_job(job, args):
             targets, args.budget_minutes * 60, args.node_timeout,
             args.settle_seconds, args.settle_quiet)
         cascade_stats = cascade
-        split = [nid for nid, st in done if st == "confirmed"]
+        split = cascade.get("agent_split") or [nid for nid, st in done if st == "confirmed"]
         waiting = [nid for nid, st in done if st == "provisional" or (st or "").startswith("recheck")]
         nothing = [nid for nid, st in done if st in ("rejected", "none", "error")]
         bits = [f"{len(done)} seed(s) at cascade depth {cascade['depth']}",

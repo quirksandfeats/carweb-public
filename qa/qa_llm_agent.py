@@ -124,6 +124,8 @@ check("...and says where to find the agent's own marks",
       'decidedBy:"agent"' in body, body[-90:])
 check("with nothing applied it does not claim anything was",
       "Split and applied" not in agent.commit_body([], ["m-a"], [], [], []))
+check("the applied heading says it covers the cascade too, not just the seeds",
+      "seeds and cascade alike" in agent.commit_body(["m-a"], [], [], [], []))
 
 # ---- what it is allowed to commit ----
 check("only the two files the pass can write are committable",
