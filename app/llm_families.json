@@ -7588,6 +7588,154 @@
     "Bill Davis"
    ],
    "allEngineers": []
+  },
+  "m-oldsmobile-intrigue": {
+   "status": "none",
+   "checkedAt": "2026-09-13T18:45:50.882Z",
+   "sourceTitle": "Oldsmobile Intrigue",
+   "proposal": {
+    "hasMultipleGenerations": false,
+    "generations": [
+     {
+      "code": "W-body 2nd Gen",
+      "yearStart": 1997,
+      "yearEnd": 2002,
+      "designers": [
+       "Brigid O'Kane",
+       "Pete Lawlis"
+      ],
+      "engineers": [],
+      "wikiFile": "Oldsmobile-Intrigue.jpg",
+      "sharedPlatforms": [
+       "Buick Regal"
+      ]
+     }
+    ]
+   },
+   "attempts": 1,
+   "feedback": [],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": false,
+     "generations": [
+      {
+       "code": "W-body 2nd Gen",
+       "yearStart": 1997,
+       "yearEnd": 2002,
+       "designers": [
+        "Brigid O'Kane",
+        "Pete Lawlis"
+       ],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Buick Regal"
+       ]
+      }
+     ]
+    },
+    "dropped": []
+   },
+   "cascadeDiscovered": true
+  },
+  "m-chevrolet-celebrity": {
+   "status": "none",
+   "checkedAt": "2026-09-13T18:46:33.777Z",
+   "sourceTitle": "Chevrolet Celebrity",
+   "proposal": {
+    "hasMultipleGenerations": false,
+    "generations": [
+     {
+      "code": "Chevrolet Celebrity (1982–1990)",
+      "yearStart": 1982,
+      "yearEnd": 1990,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "File:1986 Chevrolet Celebrity 2.5.jpg",
+      "sharedPlatforms": [
+       "Buick Century",
+       "Oldsmobile Cutlass Ciera",
+       "Pontiac 6000"
+      ]
+     }
+    ]
+   },
+   "attempts": 1,
+   "feedback": [],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": false,
+     "generations": [
+      {
+       "code": "Chevrolet Celebrity (1982–1990)",
+       "yearStart": 1982,
+       "yearEnd": 1990,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Buick Century",
+        "Oldsmobile Cutlass Ciera",
+        "Pontiac 6000"
+       ]
+      }
+     ]
+    },
+    "dropped": []
+   },
+   "cascadeDiscovered": true
+  },
+  "m-chevrolet-chevelle-laguna": {
+   "status": "none",
+   "checkedAt": "2026-09-13T18:46:43.615Z",
+   "sourceTitle": "Chevrolet Chevelle Laguna",
+   "proposal": {
+    "hasMultipleGenerations": false,
+    "generations": [
+     {
+      "code": "Chevrolet Chevelle Laguna",
+      "yearStart": 1973,
+      "yearEnd": 1976,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "1974Laguna.JPG",
+      "sharedPlatforms": [
+       "Chevrolet Monte Carlo",
+       "Pontiac Le Mans",
+       "Pontiac Grand Am",
+       "Pontiac Grand Prix",
+       "Buick Century",
+       "Buick Regal",
+       "Oldsmobile Cutlass"
+      ]
+     }
+    ]
+   },
+   "attempts": 1,
+   "feedback": [],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": false,
+     "generations": [
+      {
+       "code": "Chevrolet Chevelle Laguna",
+       "yearStart": 1973,
+       "yearEnd": 1976,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Chevrolet Monte Carlo",
+        "Pontiac Le Mans",
+        "Pontiac Grand Am",
+        "Pontiac Grand Prix",
+        "Buick Century",
+        "Buick Regal",
+        "Oldsmobile Cutlass"
+       ]
+      }
+     ]
+    },
+    "dropped": []
+   },
+   "cascadeDiscovered": true
   }
  },
  "relations": {
@@ -14087,12 +14235,25 @@
    "genIdB": "m-saab-9-7x",
    "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
    "llmDiscovered": true
+  },
+  "llm-m-mercury-monterey-first-generation|m-mazda-cosmo|platform": {
+   "status": "provisional",
+   "checkedAt": "2026-09-13T18:45:24.553Z",
+   "famA": "m-mercury-monterey",
+   "famB": "m-mazda-cosmo",
+   "relType": "platform",
+   "codeA": "Monterey First generation",
+   "codeB": "Cosmo",
+   "genIdA": "llm-m-mercury-monterey-first-generation",
+   "genIdB": "m-mazda-cosmo",
+   "reason": "proposed from a loosely-matched shared-platform/rebadge mention (the matched nameplate name wasn't an exact match, just a substring overlap) -- please verify this is really the right car before accepting",
+   "llmDiscovered": true
   }
  },
  "recheck": {
   "m-mercedes-benz-g-class": {
    "status": "none",
-   "checkedAt": "2026-09-12T23:58:45.283Z",
+   "checkedAt": "2026-09-13T18:45:23.669Z",
    "sourceTitle": "Mercedes-Benz G-Class",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -14176,7 +14337,7 @@
   },
   "m-mercedes-benz-gla": {
    "status": "none",
-   "checkedAt": "2026-09-12T23:58:45.334Z",
+   "checkedAt": "2026-09-13T18:45:23.729Z",
    "sourceTitle": "Mercedes-Benz GLA",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -14279,7 +14440,7 @@
   },
   "m-mercedes-benz-cla": {
    "status": "none",
-   "checkedAt": "2026-09-12T23:58:45.372Z",
+   "checkedAt": "2026-09-13T18:45:23.776Z",
    "sourceTitle": "Mercedes-Benz CLA",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -14561,7 +14722,7 @@
   },
   "m-toyota-celica": {
    "status": "none",
-   "checkedAt": "2026-09-12T23:58:45.426Z",
+   "checkedAt": "2026-09-13T18:45:23.839Z",
    "sourceTitle": "Toyota Celica",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -14677,7 +14838,7 @@
   },
   "m-toyota-carina": {
    "status": "none",
-   "checkedAt": "2026-09-12T23:58:45.493Z",
+   "checkedAt": "2026-09-13T18:45:23.917Z",
    "sourceTitle": "Toyota Carina",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -14805,7 +14966,7 @@
   },
   "m-lexus-sc": {
    "status": "none",
-   "checkedAt": "2026-09-12T23:58:45.498Z",
+   "checkedAt": "2026-09-13T18:45:23.923Z",
    "sourceTitle": "Lexus SC",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -15454,7 +15615,7 @@
   },
   "m-seat-toledo": {
    "status": "none",
-   "checkedAt": "2026-09-12T23:58:45.566Z",
+   "checkedAt": "2026-09-13T18:45:24.002Z",
    "sourceTitle": "SEAT Toledo",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -15585,7 +15746,7 @@
   },
   "m-daren-mk-3": {
    "status": "none",
-   "checkedAt": "2026-09-12T23:58:45.578Z",
+   "checkedAt": "2026-09-13T18:45:24.014Z",
    "sourceTitle": "Daren Mk.3",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -15660,7 +15821,7 @@
   },
   "m-audi-a3-mk3": {
    "status": "none",
-   "checkedAt": "2026-09-12T23:58:45.596Z",
+   "checkedAt": "2026-09-13T18:45:24.035Z",
    "sourceTitle": "Audi A3",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -15716,7 +15877,7 @@
   },
   "m-audi-tt": {
    "status": "none",
-   "checkedAt": "2026-09-12T23:58:45.679Z",
+   "checkedAt": "2026-09-13T18:45:24.130Z",
    "sourceTitle": "Audi TT",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -15856,7 +16017,7 @@
   },
   "m-seat-leon-mk3": {
    "status": "none",
-   "checkedAt": "2026-09-12T23:58:45.733Z",
+   "checkedAt": "2026-09-13T18:45:24.192Z",
    "sourceTitle": "SEAT León",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -15970,7 +16131,7 @@
   },
   "m-volkswagen-karmann-ghia": {
    "status": "none",
-   "checkedAt": "2026-09-12T23:58:45.760Z",
+   "checkedAt": "2026-09-13T18:45:24.224Z",
    "sourceTitle": "Volkswagen Karmann Ghia",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -16020,7 +16181,7 @@
   },
   "m-porsche-panamera": {
    "status": "none",
-   "checkedAt": "2026-09-12T23:58:45.750Z",
+   "checkedAt": "2026-09-13T18:45:24.212Z",
    "sourceTitle": "Porsche Panamera",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -16086,7 +16247,7 @@
   },
   "m-subaru-forester": {
    "status": "none",
-   "checkedAt": "2026-09-12T23:58:45.797Z",
+   "checkedAt": "2026-09-13T18:45:24.268Z",
    "sourceTitle": "Subaru Forester",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -16195,7 +16356,7 @@
   },
   "m-volkswagen-touran": {
    "status": "none",
-   "checkedAt": "2026-09-12T23:58:45.817Z",
+   "checkedAt": "2026-09-13T18:45:24.290Z",
    "sourceTitle": "Volkswagen Touran",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -16245,7 +16406,7 @@
   },
   "m-chevrolet-captiva": {
    "status": "none",
-   "checkedAt": "2026-09-12T23:58:45.887Z",
+   "checkedAt": "2026-09-13T18:45:24.365Z",
    "sourceTitle": "Chevrolet Captiva",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -16350,7 +16511,7 @@
   },
   "m-isuzu-trooper": {
    "status": "none",
-   "checkedAt": "2026-09-12T23:58:45.941Z",
+   "checkedAt": "2026-09-13T18:45:24.423Z",
    "sourceTitle": "Isuzu Trooper",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -16446,7 +16607,7 @@
   },
   "m-volkswagen-tiguan": {
    "status": "none",
-   "checkedAt": "2026-09-12T23:58:46.007Z",
+   "checkedAt": "2026-09-13T18:45:24.496Z",
    "sourceTitle": "Volkswagen Tiguan",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -16559,7 +16720,7 @@
   },
   "m-chrysler-horizon": {
    "status": "none",
-   "checkedAt": "2026-09-12T23:58:46.050Z",
+   "checkedAt": "2026-09-13T18:45:24.545Z",
    "sourceTitle": "Chrysler Horizon",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -16659,7 +16820,7 @@
   },
   "m-mercury-monterey": {
    "status": "none",
-   "checkedAt": "2026-09-12T23:58:46.146Z",
+   "checkedAt": "2026-09-13T18:45:24.651Z",
    "sourceTitle": "Mercury Monterey",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -16834,7 +16995,7 @@
   },
   "m-gmc-envoy": {
    "status": "none",
-   "checkedAt": "2026-09-12T23:58:46.166Z",
+   "checkedAt": "2026-09-13T18:45:24.672Z",
    "sourceTitle": "GMC Envoy",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -16887,7 +17048,7 @@
   },
   "m-chevrolet-trailblazer": {
    "status": "none",
-   "checkedAt": "2026-09-12T23:58:46.182Z",
+   "checkedAt": "2026-09-13T18:45:24.690Z",
    "sourceTitle": "Chevrolet TrailBlazer (SUV)",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -16938,7 +17099,7 @@
   },
   "m-oldsmobile-bravada": {
    "status": "none",
-   "checkedAt": "2026-09-12T23:58:46.216Z",
+   "checkedAt": "2026-09-13T18:45:24.729Z",
    "sourceTitle": "Oldsmobile Bravada",
    "proposal": {
     "hasMultipleGenerations": true,
