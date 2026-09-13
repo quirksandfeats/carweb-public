@@ -10466,6 +10466,596 @@
     },
     "dropped": []
    }
+  },
+  "m-renault-duster-oroch": {
+   "status": "none",
+   "checkedAt": "2026-09-13T22:04:58.883Z",
+   "sourceTitle": "Renault Duster Oroch",
+   "proposal": {
+    "hasMultipleGenerations": false,
+    "generations": [
+     {
+      "code": "Renault Duster Oroch",
+      "yearStart": 2015,
+      "yearEnd": null,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "Renault Duster Oroch 2016 in Punta del Este 01.JPG",
+      "sharedPlatforms": [
+       "Renault Duster"
+      ],
+      "sharedPlatformMatches": {
+       "Renault Duster": {
+        "matchId": "m-dacia-duster",
+        "confidence": "high",
+        "reason": "The Dacia Duster (2010–present) is the direct successor to the Renault Duster (2009–present). After Renault sold its small-car and SUV business (Renault-Nissan Alliance's small-car division) to the Russian manufacturer Dacia in 2012, the car was rebadged and renamed the Dacia Duster. They are the exact same physical vehicle with a changed badge and brand name."
+       }
+      }
+     }
+    ]
+   },
+   "attempts": 1,
+   "feedback": [],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": false,
+     "generations": [
+      {
+       "code": "Renault Duster Oroch",
+       "yearStart": 2015,
+       "yearEnd": null,
+       "designers": [
+        "Renault Technologie Roumanie"
+       ],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Renault Duster"
+       ]
+      }
+     ]
+    },
+    "dropped": []
+   },
+   "cascadeDiscovered": true
+  },
+  "m-baojun-730": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T22:05:38.398Z",
+   "sourceTitle": "Baojun 730",
+   "proposal": {
+    "hasMultipleGenerations": true,
+    "generations": [
+     {
+      "code": "First generation",
+      "yearStart": 2014,
+      "yearEnd": 2017,
+      "designers": [
+       "Lotus"
+      ],
+      "engineers": [],
+      "wikiFile": "2015 Baojun 730 1.5L, front 8.5.18.jpg",
+      "sharedPlatforms": []
+     },
+     {
+      "code": "Second generation",
+      "yearStart": 2017,
+      "yearEnd": null,
+      "designers": [],
+      "engineers": [
+       "Aisin"
+      ],
+      "wikiFile": "Baojun 730 II China 2017-03-22.jpg",
+      "sharedPlatforms": []
+     }
+    ]
+   },
+   "attempts": 1,
+   "feedback": [],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": true,
+     "generations": [
+      {
+       "code": "First generation",
+       "yearStart": 2014,
+       "yearEnd": 2017,
+       "designers": [
+        "Lotus"
+       ],
+       "engineers": [],
+       "sharedPlatforms": []
+      },
+      {
+       "code": "Second generation",
+       "yearStart": 2017,
+       "yearEnd": null,
+       "designers": [],
+       "engineers": [
+        "Aisin"
+       ],
+       "sharedPlatforms": []
+      }
+     ]
+    },
+    "dropped": []
+   },
+   "cascadeDiscovered": true,
+   "decidedBy": "agent",
+   "decidedAt": "2026-09-13T22:05:38.399Z",
+   "allDesigners": [
+    "Lotus"
+   ],
+   "allEngineers": [
+    "Aisin"
+   ]
+  },
+  "m-dacia-bigster": {
+   "status": "none",
+   "checkedAt": "2026-09-13T22:05:43.879Z",
+   "sourceTitle": "Dacia Bigster",
+   "proposal": {
+    "hasMultipleGenerations": false,
+    "generations": [
+     {
+      "code": "R1310",
+      "yearStart": 2024,
+      "yearEnd": null,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "Dacia Bigster DSC 8686.jpg",
+      "sharedPlatforms": [
+       "Renault Boreal",
+       "Dacia Duster III",
+       "Renault Niagara",
+       "Dacia Sandero III",
+       "Dacia Jogger",
+       "Dacia Striker"
+      ],
+      "sharedPlatformMatches": {
+       "Dacia Duster III": {
+        "matchId": "m-dacia-duster",
+        "confidence": "high",
+        "reason": "The mention 'Dacia Duster III' explicitly refers to the third generation of the Dacia Duster model. The candidate 'm-dacia-duster' covers the production period '2010–present', which encompasses the third generation (launched in 2023). All other candidates are distinct model names or generations."
+       },
+       "Dacia Sandero III": {
+        "matchId": "m-dacia-sandero",
+        "confidence": "high",
+        "reason": "The mention 'Dacia Sandero III' refers to the third generation of the Dacia Sandero model. The candidate 'm-dacia-sandero' is explicitly defined with the production range '2007–present', which encompasses the production period of the Sandero III generation (launched in 2019). Since the base model name is identical and the production years overlap, this is the correct entry in the database for the mentioned vehicle."
+       }
+      }
+     }
+    ]
+   },
+   "attempts": 1,
+   "feedback": [],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": false,
+     "generations": [
+      {
+       "code": "R1310",
+       "yearStart": 2024,
+       "yearEnd": null,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Renault Boreal",
+        "Dacia Duster III",
+        "Renault Niagara",
+        "Dacia Logan III",
+        "Dacia Sandero III",
+        "Dacia Jogger",
+        "Dacia Striker"
+       ]
+      }
+     ]
+    },
+    "dropped": []
+   },
+   "cascadeDiscovered": true
+  },
+  "m-baojun-rm-5": {
+   "status": "none",
+   "checkedAt": "2026-09-13T22:06:03.346Z",
+   "sourceTitle": "Baojun RM-5",
+   "proposal": {
+    "hasMultipleGenerations": false,
+    "generations": [
+     {
+      "code": "Baojun RM-5",
+      "yearStart": 2019,
+      "yearEnd": 2021,
+      "designers": [
+       "Junkai Yang"
+      ],
+      "engineers": [],
+      "wikiFile": "Baojun RM-5 004.jpg",
+      "sharedPlatforms": [
+       "Baojun 530",
+       "Baojun 730",
+       "Baojun RC-6"
+      ]
+     }
+    ]
+   },
+   "attempts": 1,
+   "feedback": [],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": false,
+     "generations": [
+      {
+       "code": "Baojun RM-5",
+       "yearStart": 2019,
+       "yearEnd": 2021,
+       "designers": [
+        "Junkai Yang"
+       ],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Baojun 530",
+        "Baojun 730",
+        "Baojun RC-6"
+       ]
+      }
+     ]
+    },
+    "dropped": []
+   },
+   "cascadeDiscovered": true
+  },
+  "m-wuling-xingchi": {
+   "status": "none",
+   "checkedAt": "2026-09-13T22:06:25.477Z",
+   "sourceTitle": "Wuling Xingchi",
+   "proposal": {
+    "hasMultipleGenerations": false,
+    "generations": []
+   },
+   "attempts": 1,
+   "feedback": [],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": true,
+     "generations": [
+      {
+       "code": "1st gen",
+       "yearStart": 2019,
+       "yearEnd": 2022,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Baojun 510",
+        "Chevrolet Tracker (2019)"
+       ]
+      },
+      {
+       "code": "2nd gen",
+       "yearStart": 2022,
+       "yearEnd": null,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Chevrolet Aveo (310C)",
+        "Baojun RS-3",
+        "Baojun 510"
+       ]
+      }
+     ]
+    },
+    "dropped": [
+     {
+      "code": "1st gen",
+      "yearStart": 2019,
+      "yearEnd": 2022,
+      "designers": [],
+      "engineers": [],
+      "sharedPlatforms": [
+       "Baojun 510",
+       "Chevrolet Tracker (2019)"
+      ]
+     },
+     {
+      "code": "2nd gen",
+      "yearStart": 2022,
+      "yearEnd": null,
+      "designers": [],
+      "engineers": [],
+      "sharedPlatforms": [
+       "Chevrolet Aveo (310C)",
+       "Baojun RS-3",
+       "Baojun 510"
+      ]
+     }
+    ]
+   },
+   "cascadeDiscovered": true
+  },
+  "m-dacia-duster": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T22:06:38.057Z",
+   "sourceTitle": "Dacia Duster",
+   "proposal": {
+    "hasMultipleGenerations": true,
+    "generations": [
+     {
+      "code": "First generation (HS)",
+      "yearStart": 2010,
+      "yearEnd": 2022,
+      "designers": [
+       "Renault Design Central Europe",
+       "Erde Tungaa"
+      ],
+      "engineers": [],
+      "wikiFile": "Dacia Duster 1.5 dCi front 20100928.jpg",
+      "sharedPlatforms": [
+       "Dacia Logan",
+       "Dacia Sandero",
+       "Renault Duster Oroch",
+       "Renault Captur/Kaptur (HA)",
+       "Nissan Kicks (D15)"
+      ],
+      "sharedPlatformMatches": {
+       "Renault Captur/Kaptur (HA)": {
+        "matchId": "m-renault-captur",
+        "confidence": "high",
+        "reason": "The mention 'Renault Captur/Kaptur (HA)' refers to the same vehicle as the candidate 'Renault Captur (2013–present)'. 'Kaptur' is the export badge for the Captur used in markets like India, and 'HA' denotes the chassis code/generation of this specific model. The production years overlap perfectly (2013–present vs 2013–present), and the model identity is identical despite the name variation."
+       },
+       "Nissan Kicks (D15)": {
+        "matchId": "m-nissan-kicks",
+        "confidence": "high",
+        "reason": "The mention 'Nissan Kicks (D15)' refers to the first generation of the Nissan Kicks, which was produced from 2016 onwards. The candidate 'm-nissan-kicks' is labeled 'Nissan Kicks (2016–present)', matching the name, model type (compact crossover SUV), and production start year. The '(D15)' in the mention is the chassis code for this specific generation, confirming it is not a different car but the same model covered by the database entry."
+       }
+      }
+     },
+     {
+      "code": "Second generation (HM)",
+      "yearStart": 2017,
+      "yearEnd": 2024,
+      "designers": [
+       "Renault Technocentre",
+       "Renault Technologie Roumanie",
+       "Erde Tungaa",
+       "Emmanuel Klissarov"
+      ],
+      "engineers": [],
+      "wikiFile": "2018 Dacia Duster.jpg",
+      "sharedPlatforms": [
+       "Renault Arkana (Russia)",
+       "Renault Captur/Kaptur (HA)",
+       "Nissan Kicks (D15)"
+      ],
+      "sharedPlatformMatches": {
+       "Renault Arkana (Russia)": {
+        "matchId": null,
+        "confidence": "high",
+        "reason": "The mentioned car 'Renault Arkana' is a crossover SUV produced starting in 2020. None of the provided candidate IDs refer to the Renault Arkana. The closest name match is 'Renault Austral' (id: m-renault-austral), but the Austral is a distinct model launched in 2022 with different design and platform characteristics. No other candidates are remotely similar to the Arkana."
+       },
+       "Renault Captur/Kaptur (HA)": {
+        "matchId": "m-renault-captur",
+        "confidence": "high",
+        "reason": "The mention 'Renault Captur/Kaptur (HA)' refers to the same vehicle as the candidate 'Renault Captur (2013–present)'. 'Kaptur' is the export badge for the Captur used in markets like India, and 'HA' denotes the chassis code/generation of this specific model. The production years overlap perfectly (2013–present vs 2013–present), and the model identity is identical despite the name variation."
+       },
+       "Nissan Kicks (D15)": {
+        "matchId": "m-nissan-kicks",
+        "confidence": "high",
+        "reason": "The mention 'Nissan Kicks (D15)' refers to the first generation of the Nissan Kicks, which was produced from 2016 onwards. The candidate 'm-nissan-kicks' is labeled 'Nissan Kicks (2016–present)', matching the name, model type (compact crossover SUV), and production start year. The '(D15)' in the mention is the chassis code for this specific generation, confirming it is not a different car but the same model covered by the database entry."
+       }
+      }
+     },
+     {
+      "code": "Third generation (P1310)",
+      "yearStart": 2023,
+      "yearEnd": null,
+      "designers": [
+       "Eduard Grigoroiu",
+       "David Durand"
+      ],
+      "engineers": [],
+      "wikiFile": "Dacia Duster III IMG 8973.jpg",
+      "sharedPlatforms": [
+       "Nissan Tekton",
+       "Dacia Bigster",
+       "Renault Boreal",
+       "Renault Niagara",
+       "Dacia Logan",
+       "Dacia Jogger"
+      ]
+     }
+    ]
+   },
+   "attempts": 1,
+   "feedback": [],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": true,
+     "generations": [
+      {
+       "code": "First generation (HS)",
+       "yearStart": 2010,
+       "yearEnd": 2022,
+       "designers": [
+        "Renault Design Central Europe",
+        "Erde Tungaa"
+       ],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Dacia Logan",
+        "Dacia Sandero",
+        "Renault Duster Oroch",
+        "Renault Captur/Kaptur (HA)",
+        "Nissan Kicks (D15)"
+       ]
+      },
+      {
+       "code": "Second generation (HM)",
+       "yearStart": 2017,
+       "yearEnd": 2024,
+       "designers": [
+        "Renault Technocentre",
+        "Renault Technologie Roumanie",
+        "Erde Tungaa",
+        "Emmanuel Klissarov"
+       ],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Renault Arkana (Russia)",
+        "Renault Captur/Kaptur (HA)",
+        "Nissan Kicks (D15)"
+       ]
+      },
+      {
+       "code": "Third generation (P1310)",
+       "yearStart": 2023,
+       "yearEnd": null,
+       "designers": [
+        "Eduard Grigoroiu",
+        "David Durand"
+       ],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Nissan Tekton",
+        "Dacia Bigster",
+        "Renault Boreal",
+        "Renault Niagara",
+        "Dacia Logan",
+        "Dacia Sandero / Renault Kardian",
+        "Dacia Jogger"
+       ]
+      }
+     ]
+    },
+    "dropped": []
+   },
+   "decidedBy": "agent",
+   "decidedAt": "2026-09-13T22:06:38.905Z",
+   "allDesigners": [
+    "Renault Design Central Europe",
+    "Erde Tungaa",
+    "Renault Technocentre",
+    "Renault Technologie Roumanie",
+    "Emmanuel Klissarov",
+    "Eduard Grigoroiu",
+    "David Durand"
+   ],
+   "allEngineers": []
+  },
+  "m-venucia-xing": {
+   "status": "none",
+   "checkedAt": "2026-09-13T22:06:44.185Z",
+   "sourceTitle": "Venucia Xing",
+   "proposal": {
+    "hasMultipleGenerations": false,
+    "generations": [
+     {
+      "code": "Venucia Xing",
+      "yearStart": 2020,
+      "yearEnd": null,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "2020 Venucia Xing (front).jpg",
+      "sharedPlatforms": [
+       "Venucia V-Online"
+      ]
+     }
+    ]
+   },
+   "attempts": 1,
+   "feedback": [],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": false,
+     "generations": [
+      {
+       "code": "Venucia Xing",
+       "yearStart": 2020,
+       "yearEnd": null,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Venucia V-Online"
+       ]
+      }
+     ]
+    },
+    "dropped": []
+   },
+   "cascadeDiscovered": true
+  },
+  "llm-related-renault-arkana-russia": {
+   "status": "provisional",
+   "checkedAt": "2026-09-13T22:07:05.976Z",
+   "sourceTitle": "Renault Arkana (Russia)",
+   "proposal": {
+    "hasMultipleGenerations": true,
+    "generations": [
+     {
+      "code": "B0+",
+      "yearStart": 2019,
+      "yearEnd": 2022,
+      "designers": [
+       "Laurens van den Acker"
+      ],
+      "engineers": [],
+      "wikiFile": "Renault Arkana (Russia).png",
+      "sharedPlatforms": [
+       "Dacia Duster",
+       "Renault Captur"
+      ]
+     },
+     {
+      "code": "CMF-B",
+      "yearStart": 2020,
+      "yearEnd": null,
+      "designers": [
+       "David Durand"
+      ],
+      "engineers": [],
+      "wikiFile": "Renault Arkana (CMF-B) IMG 5628.jpg",
+      "sharedPlatforms": [
+       "Renault Captur",
+       "Renault Clio"
+      ]
+     }
+    ]
+   },
+   "attempts": 1,
+   "feedback": [],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": true,
+     "generations": [
+      {
+       "code": "B0+",
+       "yearStart": 2019,
+       "yearEnd": 2022,
+       "designers": [
+        "Laurens van den Acker"
+       ],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Dacia Duster",
+        "Renault Captur"
+       ]
+      },
+      {
+       "code": "CMF-B",
+       "yearStart": 2020,
+       "yearEnd": null,
+       "designers": [
+        "David Durand"
+       ],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Renault Captur",
+        "Renault Clio"
+       ]
+      }
+     ]
+    },
+    "dropped": []
+   },
+   "cascadeDiscovered": true
   }
  },
  "relations": {
@@ -18836,12 +19426,507 @@
      "Tribute Second generation (2007)"
     ]
    }
+  },
+  "m-mazda-mazda3|m-mazda-mazda6-third-generation|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T22:03:25.394Z",
+   "decidedAt": "2026-09-13T22:03:25.394Z",
+   "famA": "fam-mazda-mazda6",
+   "famB": "m-mazda-mazda3",
+   "relType": "platform",
+   "codeA": "Mazda6 (third generation)",
+   "codeB": "Mazda3",
+   "genIdA": "m-mazda-mazda6-third-generation",
+   "genIdB": "m-mazda-mazda3",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "m-mazda-cx-9|m-mazda-mazda6-third-generation|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T22:03:25.398Z",
+   "decidedAt": "2026-09-13T22:03:25.398Z",
+   "famA": "fam-mazda-mazda6",
+   "famB": "m-mazda-cx-9",
+   "relType": "platform",
+   "codeA": "Mazda6 (third generation)",
+   "codeB": "CX-9",
+   "genIdA": "m-mazda-mazda6-third-generation",
+   "genIdB": "m-mazda-cx-9",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "m-dacia-duster|m-renault-duster-oroch|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T22:04:59.347Z",
+   "decidedAt": "2026-09-13T22:04:59.347Z",
+   "famA": "m-renault-duster-oroch",
+   "famB": "m-dacia-duster",
+   "relType": "platform",
+   "codeA": "Duster Oroch",
+   "codeB": "Duster",
+   "genIdA": "m-renault-duster-oroch",
+   "genIdB": "m-dacia-duster",
+   "reason": "auto-approved in the background -- the local LLM sanity check confidently identified this as the same car as \"Renault Duster\" (confidence: high) -- The Dacia Duster (2010–present) is the direct successor to the Renault Duster (2009–present). After Renault sold its small-car and SUV business (Renault-Nissan Alliance's small-car division) to the Russian manufacturer Dacia in 2012, the car was rebadged and renamed the Dacia Duster. They are the exact same physical vehicle with a changed badge and brand name.",
+   "llmDiscovered": true,
+   "llmVerifiedDuplicate": true
+  },
+  "llm-m-baojun-730-second-generation|llm-related-wuling-almaz|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T22:05:44.106Z",
+   "decidedAt": "2026-09-13T22:05:44.106Z",
+   "famA": "llm-related-wuling-almaz",
+   "famB": "m-baojun-730",
+   "relType": "platform",
+   "codeA": "Almaz",
+   "codeB": "730 Second generation",
+   "genIdA": "llm-related-wuling-almaz",
+   "genIdB": "llm-m-baojun-730-second-generation",
+   "reason": "matched automatically -- the nameplate was named exactly in the source text, and exactly one of its generations was in production alongside this one, so that is the generation it refers to",
+   "llmDiscovered": true
+  },
+  "llm-m-baojun-730-second-generation|llm-related-mg-hector|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T22:05:44.115Z",
+   "decidedAt": "2026-09-13T22:05:44.115Z",
+   "famA": "llm-related-mg-hector",
+   "famB": "m-baojun-730",
+   "relType": "platform",
+   "codeA": "Hector",
+   "codeB": "730 Second generation",
+   "genIdA": "llm-related-mg-hector",
+   "genIdB": "llm-m-baojun-730-second-generation",
+   "reason": "matched automatically -- the nameplate was named exactly in the source text, and exactly one of its generations was in production alongside this one, so that is the generation it refers to",
+   "llmDiscovered": true
+  },
+  "m-dacia-bigster|m-renault-boreal|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T22:05:44.334Z",
+   "decidedAt": "2026-09-13T22:05:44.334Z",
+   "famA": "m-dacia-bigster",
+   "famB": "m-renault-boreal",
+   "relType": "platform",
+   "codeA": "Bigster",
+   "codeB": "Boreal",
+   "genIdA": "m-dacia-bigster",
+   "genIdB": "m-renault-boreal",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "m-dacia-bigster|m-dacia-duster|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T22:05:44.340Z",
+   "decidedAt": "2026-09-13T22:05:44.340Z",
+   "famA": "m-dacia-bigster",
+   "famB": "m-dacia-duster",
+   "relType": "platform",
+   "codeA": "Bigster",
+   "codeB": "Duster",
+   "genIdA": "m-dacia-bigster",
+   "genIdB": "m-dacia-duster",
+   "reason": "auto-approved in the background -- the local LLM sanity check confidently identified this as the same car as \"Dacia Duster III\" (confidence: high) -- The mention 'Dacia Duster III' explicitly refers to the third generation of the Dacia Duster model. The candidate 'm-dacia-duster' covers the production period '2010–present', which encompasses the third generation (launched in 2023). All other candidates are distinct model names or generations.",
+   "llmDiscovered": true,
+   "llmVerifiedDuplicate": true
+  },
+  "m-dacia-bigster|m-renault-niagara|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T22:05:44.342Z",
+   "decidedAt": "2026-09-13T22:05:44.342Z",
+   "famA": "m-dacia-bigster",
+   "famB": "m-renault-niagara",
+   "relType": "platform",
+   "codeA": "Bigster",
+   "codeB": "Niagara",
+   "genIdA": "m-dacia-bigster",
+   "genIdB": "m-renault-niagara",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "m-dacia-bigster|m-dacia-sandero|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T22:05:44.348Z",
+   "decidedAt": "2026-09-13T22:05:44.348Z",
+   "famA": "m-dacia-bigster",
+   "famB": "m-dacia-sandero",
+   "relType": "platform",
+   "codeA": "Bigster",
+   "codeB": "Sandero",
+   "genIdA": "m-dacia-bigster",
+   "genIdB": "m-dacia-sandero",
+   "reason": "auto-approved in the background -- the local LLM sanity check confidently identified this as the same car as \"Dacia Sandero III\" (confidence: high) -- The mention 'Dacia Sandero III' refers to the third generation of the Dacia Sandero model. The candidate 'm-dacia-sandero' is explicitly defined with the production range '2007–present', which encompasses the production period of the Sandero III generation (launched in 2019). Since the base model name is identical and the production years overlap, this is the correct entry in the database for the mentioned vehicle.",
+   "llmDiscovered": true,
+   "llmVerifiedDuplicate": true
+  },
+  "m-dacia-bigster|m-dacia-jogger|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T22:05:44.349Z",
+   "decidedAt": "2026-09-13T22:05:44.349Z",
+   "famA": "m-dacia-bigster",
+   "famB": "m-dacia-jogger",
+   "relType": "platform",
+   "codeA": "Bigster",
+   "codeB": "Jogger",
+   "genIdA": "m-dacia-bigster",
+   "genIdB": "m-dacia-jogger",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "m-dacia-bigster|m-dacia-striker|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T22:05:44.350Z",
+   "decidedAt": "2026-09-13T22:05:44.350Z",
+   "famA": "m-dacia-bigster",
+   "famB": "m-dacia-striker",
+   "relType": "platform",
+   "codeA": "Bigster",
+   "codeB": "Striker",
+   "genIdA": "m-dacia-bigster",
+   "genIdB": "m-dacia-striker",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "m-baojun-530|m-baojun-rm-5|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T22:06:38.524Z",
+   "decidedAt": "2026-09-13T22:06:38.524Z",
+   "famA": "m-baojun-rm-5",
+   "famB": "m-baojun-530",
+   "relType": "platform",
+   "codeA": "RM-5",
+   "codeB": "530",
+   "genIdA": "m-baojun-rm-5",
+   "genIdB": "m-baojun-530",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-baojun-730-second-generation|m-baojun-rm-5|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T22:06:38.525Z",
+   "decidedAt": "2026-09-13T22:06:38.525Z",
+   "famA": "m-baojun-rm-5",
+   "famB": "m-baojun-730",
+   "relType": "platform",
+   "codeA": "RM-5",
+   "codeB": "730 Second generation",
+   "genIdA": "m-baojun-rm-5",
+   "genIdB": "llm-m-baojun-730-second-generation",
+   "reason": "matched automatically -- the nameplate was named exactly in the source text, and exactly one of its generations was in production alongside this one, so that is the generation it refers to",
+   "llmDiscovered": true
+  },
+  "m-baojun-rc-6|m-baojun-rm-5|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T22:06:38.526Z",
+   "decidedAt": "2026-09-13T22:06:38.526Z",
+   "famA": "m-baojun-rm-5",
+   "famB": "m-baojun-rc-6",
+   "relType": "platform",
+   "codeA": "RM-5",
+   "codeB": "RC-6",
+   "genIdA": "m-baojun-rm-5",
+   "genIdB": "m-baojun-rc-6",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-dacia-duster-first-generation-hs|m-dacia-logan|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T22:06:38.926Z",
+   "decidedAt": "2026-09-13T22:06:38.926Z",
+   "famA": "m-dacia-duster",
+   "famB": "m-dacia-logan",
+   "relType": "platform",
+   "codeA": "Duster First generation (HS)",
+   "codeB": "Logan",
+   "genIdA": "llm-m-dacia-duster-first-generation-hs",
+   "genIdB": "m-dacia-logan",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-dacia-duster-first-generation-hs|m-dacia-sandero|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T22:06:38.927Z",
+   "decidedAt": "2026-09-13T22:06:38.927Z",
+   "famA": "m-dacia-duster",
+   "famB": "m-dacia-sandero",
+   "relType": "platform",
+   "codeA": "Duster First generation (HS)",
+   "codeB": "Sandero",
+   "genIdA": "llm-m-dacia-duster-first-generation-hs",
+   "genIdB": "m-dacia-sandero",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-dacia-duster-first-generation-hs|m-renault-duster-oroch|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T22:06:38.929Z",
+   "decidedAt": "2026-09-13T22:06:38.929Z",
+   "famA": "m-dacia-duster",
+   "famB": "m-renault-duster-oroch",
+   "relType": "platform",
+   "codeA": "Duster First generation (HS)",
+   "codeB": "Duster Oroch",
+   "genIdA": "llm-m-dacia-duster-first-generation-hs",
+   "genIdB": "m-renault-duster-oroch",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-dacia-duster-first-generation-hs|m-renault-captur|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T22:06:38.935Z",
+   "decidedAt": "2026-09-13T22:06:38.935Z",
+   "famA": "m-dacia-duster",
+   "famB": "m-renault-captur",
+   "relType": "platform",
+   "codeA": "Duster First generation (HS)",
+   "codeB": "Captur",
+   "genIdA": "llm-m-dacia-duster-first-generation-hs",
+   "genIdB": "m-renault-captur",
+   "reason": "auto-approved in the background -- the local LLM sanity check confidently identified this as the same car as \"Renault Captur/Kaptur (HA)\" (confidence: high) -- The mention 'Renault Captur/Kaptur (HA)' refers to the same vehicle as the candidate 'Renault Captur (2013–present)'. 'Kaptur' is the export badge for the Captur used in markets like India, and 'HA' denotes the chassis code/generation of this specific model. The production years overlap perfectly (2013–present vs 2013–present), and the model identity is identical despite the name variation.",
+   "llmDiscovered": true,
+   "llmVerifiedDuplicate": true
+  },
+  "llm-m-dacia-duster-first-generation-hs|m-nissan-kicks|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T22:06:38.943Z",
+   "decidedAt": "2026-09-13T22:06:38.943Z",
+   "famA": "m-dacia-duster",
+   "famB": "m-nissan-kicks",
+   "relType": "platform",
+   "codeA": "Duster First generation (HS)",
+   "codeB": "Kicks",
+   "genIdA": "llm-m-dacia-duster-first-generation-hs",
+   "genIdB": "m-nissan-kicks",
+   "reason": "auto-approved in the background -- the local LLM sanity check confidently identified this as the same car as \"Nissan Kicks (D15)\" (confidence: high) -- The mention 'Nissan Kicks (D15)' refers to the first generation of the Nissan Kicks, which was produced from 2016 onwards. The candidate 'm-nissan-kicks' is labeled 'Nissan Kicks (2016–present)', matching the name, model type (compact crossover SUV), and production start year. The '(D15)' in the mention is the chassis code for this specific generation, confirming it is not a different car but the same model covered by the database entry.",
+   "llmDiscovered": true,
+   "llmVerifiedDuplicate": true
+  },
+  "llm-m-dacia-duster-second-generation-hm|llm-related-renault-arkana-russia|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T22:06:38.954Z",
+   "decidedAt": "2026-09-13T22:06:38.954Z",
+   "famA": "m-dacia-duster",
+   "famB": "llm-related-renault-arkana-russia",
+   "relType": "platform",
+   "codeA": "Duster Second generation (HM)",
+   "codeB": "Arkana (Russia)",
+   "genIdA": "llm-m-dacia-duster-second-generation-hm",
+   "genIdB": "llm-related-renault-arkana-russia",
+   "reason": "matched automatically -- \"Renault Arkana (Russia)\" was named as a related car but didn't exist anywhere in the graph yet, so it was newly created from this mention (double-checked by the local LLM sanity pass against every plausible existing car -- none matched)",
+   "llmDiscovered": true
+  },
+  "llm-m-dacia-duster-second-generation-hm|m-renault-captur|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T22:06:38.960Z",
+   "decidedAt": "2026-09-13T22:06:38.960Z",
+   "famA": "m-dacia-duster",
+   "famB": "m-renault-captur",
+   "relType": "platform",
+   "codeA": "Duster Second generation (HM)",
+   "codeB": "Captur",
+   "genIdA": "llm-m-dacia-duster-second-generation-hm",
+   "genIdB": "m-renault-captur",
+   "reason": "auto-approved in the background -- the local LLM sanity check confidently identified this as the same car as \"Renault Captur/Kaptur (HA)\" (confidence: high) -- The mention 'Renault Captur/Kaptur (HA)' refers to the same vehicle as the candidate 'Renault Captur (2013–present)'. 'Kaptur' is the export badge for the Captur used in markets like India, and 'HA' denotes the chassis code/generation of this specific model. The production years overlap perfectly (2013–present vs 2013–present), and the model identity is identical despite the name variation.",
+   "llmDiscovered": true,
+   "llmVerifiedDuplicate": true
+  },
+  "llm-m-dacia-duster-second-generation-hm|m-nissan-kicks|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T22:06:38.966Z",
+   "decidedAt": "2026-09-13T22:06:38.966Z",
+   "famA": "m-dacia-duster",
+   "famB": "m-nissan-kicks",
+   "relType": "platform",
+   "codeA": "Duster Second generation (HM)",
+   "codeB": "Kicks",
+   "genIdA": "llm-m-dacia-duster-second-generation-hm",
+   "genIdB": "m-nissan-kicks",
+   "reason": "auto-approved in the background -- the local LLM sanity check confidently identified this as the same car as \"Nissan Kicks (D15)\" (confidence: high) -- The mention 'Nissan Kicks (D15)' refers to the first generation of the Nissan Kicks, which was produced from 2016 onwards. The candidate 'm-nissan-kicks' is labeled 'Nissan Kicks (2016–present)', matching the name, model type (compact crossover SUV), and production start year. The '(D15)' in the mention is the chassis code for this specific generation, confirming it is not a different car but the same model covered by the database entry.",
+   "llmDiscovered": true,
+   "llmVerifiedDuplicate": true
+  },
+  "llm-m-dacia-duster-third-generation-p1310|m-nissan-tekton|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T22:06:38.973Z",
+   "decidedAt": "2026-09-13T22:06:38.973Z",
+   "famA": "m-dacia-duster",
+   "famB": "m-nissan-tekton",
+   "relType": "platform",
+   "codeA": "Duster Third generation (P1310)",
+   "codeB": "Tekton",
+   "genIdA": "llm-m-dacia-duster-third-generation-p1310",
+   "genIdB": "m-nissan-tekton",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-dacia-duster-third-generation-p1310|m-dacia-bigster|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T22:06:38.973Z",
+   "decidedAt": "2026-09-13T22:06:38.973Z",
+   "famA": "m-dacia-duster",
+   "famB": "m-dacia-bigster",
+   "relType": "platform",
+   "codeA": "Duster Third generation (P1310)",
+   "codeB": "Bigster",
+   "genIdA": "llm-m-dacia-duster-third-generation-p1310",
+   "genIdB": "m-dacia-bigster",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-dacia-duster-third-generation-p1310|m-renault-boreal|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T22:06:38.976Z",
+   "decidedAt": "2026-09-13T22:06:38.976Z",
+   "famA": "m-dacia-duster",
+   "famB": "m-renault-boreal",
+   "relType": "platform",
+   "codeA": "Duster Third generation (P1310)",
+   "codeB": "Boreal",
+   "genIdA": "llm-m-dacia-duster-third-generation-p1310",
+   "genIdB": "m-renault-boreal",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-dacia-duster-third-generation-p1310|m-renault-niagara|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T22:06:38.978Z",
+   "decidedAt": "2026-09-13T22:06:38.978Z",
+   "famA": "m-dacia-duster",
+   "famB": "m-renault-niagara",
+   "relType": "platform",
+   "codeA": "Duster Third generation (P1310)",
+   "codeB": "Niagara",
+   "genIdA": "llm-m-dacia-duster-third-generation-p1310",
+   "genIdB": "m-renault-niagara",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-dacia-duster-third-generation-p1310|m-dacia-logan|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T22:06:38.979Z",
+   "decidedAt": "2026-09-13T22:06:38.979Z",
+   "famA": "m-dacia-duster",
+   "famB": "m-dacia-logan",
+   "relType": "platform",
+   "codeA": "Duster Third generation (P1310)",
+   "codeB": "Logan",
+   "genIdA": "llm-m-dacia-duster-third-generation-p1310",
+   "genIdB": "m-dacia-logan",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-dacia-duster-third-generation-p1310|m-dacia-jogger|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T22:06:38.980Z",
+   "decidedAt": "2026-09-13T22:06:38.980Z",
+   "famA": "m-dacia-duster",
+   "famB": "m-dacia-jogger",
+   "relType": "platform",
+   "codeA": "Duster Third generation (P1310)",
+   "codeB": "Jogger",
+   "genIdA": "llm-m-dacia-duster-third-generation-p1310",
+   "genIdB": "m-dacia-jogger",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "m-dacia-bigster|m-dacia-duster|related": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T22:07:18.517Z",
+   "decidedAt": "2026-09-13T22:07:18.517Z",
+   "autoConfirmed": true,
+   "famA": "m-dacia-duster",
+   "famB": "m-dacia-bigster",
+   "relType": "related",
+   "note": "Dacia Duster's own article says: \"…del_code = P1310 | aka = | production = December 2023 – present (Romania)<br>November 2024 – present (Turkey)<br>March 2026 – present (India) | assembly = Romania: Mioveni<br />Turkey: Bursa (Oyak-Renault)<br />India: Chennai (Renault Nissan India) | designer = Eduard Grigoroiu (head of the design team)<br />David Durand (design director) | body_style = 5-door crossover SUV | platform = Renault–Nissan CMF-B LS <br>RGMP (Renault Group Modular Platform (India) | related = Nissan Tekton<br />Dacia Bigster<br />Renault Boreal<br />Renault Niagara<br />Dacia Logan<br />Dacia Sandero / Renault Kardian<br />Dacia Jogger \n ===History of development=== The design and general technical specifications of the third generation Duster were previewed by the Bigster concept car, presented on 14 January 2021, during the Renaulution restructuring plan. \n In October 2020, Dacia confirmed that it is working on developing a replacement for the second generation Duster. It has also been reported that the ne…\" / Dacia Bigster's own article says: \"Renault Boreal<br />Dacia Duster III<br />Renault Niagara<br />Dacia Logan III<br>Dacia Sandero III<br />Dacia Jogger<br />Dacia Striker \n Renault–Nissan CMF-B LS \n {{Infobox automobile | name = Dacia Bigster | image = Dacia Bigster DSC 8686.jpg | caption = 2025 Dacia Bigster | manufacturer = Dacia (Renault) | model_code = R1310 | aka = | production = December 2024 – present | assembly = Romania: Mioveni | designer = | class = Compact crossover SUV (C) | body_style = 5-door SUV | layout = Front-engine, front-wheel-drive …\"",
+   "matchLevel": "generation",
+   "codeA": "Duster Third generation (P1310)",
+   "codeB": "Bigster",
+   "genIdA": "llm-m-dacia-duster-third-generation-p1310",
+   "genIdB": "m-dacia-bigster",
+   "reason": "matched from an explicit chassis/generation code found directly in one of the two Wikipedia articles' own text (the LLM separately agreed: The Bigster is explicitly identified in the Dacia Duster article as the concept preview for the third generation Duster (P1310), and the Bigster article lists 'Dacia Duster III' as a related model. The relationship is specific to the third generation (P1310) of the Duster, not the first or second.)",
+   "debug": {
+    "raw": {
+     "resolved": true,
+     "codeA": "Dacia Duster Third generation (P1310)",
+     "codeB": "Dacia Bigster",
+     "evidenceQuote": "The design and general technical specifications of the third generation Duster were previewed by the Bigster concept car",
+     "reason": "The Bigster is explicitly identified in the Dacia Duster article as the concept preview for the third generation Duster (P1310), and the Bigster article lists 'Dacia Duster III' as a related model. The relationship is specific to the third generation (P1310) of the Duster, not the first or second."
+    },
+    "evidenceCodeForA": "Duster Third generation (P1310)",
+    "evidenceCodeForB": null,
+    "ordinalFromNoteA": "Duster Third generation (P1310)",
+    "ordinalFromNoteB": null,
+    "ordinalBacked": true,
+    "evidenceQuote": "The design and general technical specifications of the third generation Duster were previewed by the Bigster concept car",
+    "quoteVerified": true,
+    "llmVerified": false,
+    "knowledgeBacked": false,
+    "sourceAttributed": true,
+    "citedA": "Duster Third generation (P1310)",
+    "citedB": "Bigster",
+    "citationBacked": true,
+    "quoteFabricated": false,
+    "fetchedArticleA": true,
+    "fetchedArticleB": true,
+    "availableCodesA": [
+     "Duster First generation (HS)",
+     "Duster Second generation (HM)",
+     "Duster Third generation (P1310)"
+    ],
+    "availableCodesB": [
+     "Bigster"
+    ]
+   }
+  },
+  "m-dacia-duster|m-renault-duster-oroch|related": {
+   "status": "provisional",
+   "checkedAt": "2026-09-13T22:07:28.509Z",
+   "famA": "m-dacia-duster",
+   "famB": "m-renault-duster-oroch",
+   "relType": "related",
+   "note": "Dacia Duster's own article says: \"…eneration. It is marketed as the Renault Duster in certain markets such as Latin America, Russia, Ukraine, Asia, the Middle East, South Africa, Australia and New Zealand. The first generation was rebadged and restyled as the Nissan Terrano in CIS countries and India. It was introduced in March 2010, and is the third model of the Dacia brand based on the Logan platform, after the Sandero. \n The four-door double cab pick-up was launched at the end of 2015 in South America, marketed as the Renault Duster Oroch, while the single cab Dacia Duster Pick-Up was introduced in 2020. \n ==<span class=\"anchor\" id=\"HS\"></span><span class=\"anchor\" id=\"I\"></span><span class=\"anchor\" id=\"First\"></span>First generation (HS; 2010)== {{Infobox automobile | name = First generation | image = Dacia Duster 1.5 dCi front 20100928.jpg | caption = Dacia Duster pre-facelift | manufacturer = | aka = Renault Duster<br />Nissan Terrano (India and Russia) | production = 2010–2017 <br />2012–2020 (Brazil)<br />2012–20…\" / Renault Duster Oroch's own article says: \"Renault Duster \n | related = Renault Duster \n {{Infobox automobile | name = Renault Duster Oroch | image = Renault Duster Oroch 2016 in Punta del Este 01.JPG | caption = Renault Duster Oroch (2016) | manufacturer = Renault | aka = Renault Duster Oroch (2015–2022) | production = 2015–2026 | assembly = | designer = | class = Compact pickup truck | body_style = 4-door pickup truck | layout = Front-engine, front-wheel-drive | platform = | related = Renault Duster | engine = | transmission = | wheelbase = | …\"",
+   "matchLevel": "nameplate",
+   "codeA": "Duster",
+   "codeB": "Duster Oroch",
+   "genIdA": "m-dacia-duster",
+   "genIdB": "m-renault-duster-oroch",
+   "reason": "The Dacia Duster First Generation (HS) was sold as the Renault Duster (2010-2015/2016) and subsequently as the Renault Duster Oroch (launched end of 2015) in specific markets like Latin America. The Oroch is the extended-wheelbase, double-cab variant of the same first-generation platform. The relationship is a direct sibling/rebadge of the first generation.",
+   "debug": {
+    "raw": {
+     "resolved": true,
+     "codeA": "Dacia Duster (First generation)",
+     "codeB": "Duster Oroch (2015–)",
+     "evidenceQuote": "The first generation was rebadged and restyled as the Nissan Terrano... The four-door double cab pick-up was launched at the end of 2015 in South America, marketed as the Renault Duster Oroch, while the single cab Dacia Duster Pick-Up was introduced in 2020.",
+     "reason": "The Dacia Duster First Generation (HS) was sold as the Renault Duster (2010-2015/2016) and subsequently as the Renault Duster Oroch (launched end of 2015) in specific markets like Latin America. The Oroch is the extended-wheelbase, double-cab variant of the same first-generation platform. The relationship is a direct sibling/rebadge of the first generation."
+    },
+    "evidenceCodeForA": null,
+    "evidenceCodeForB": null,
+    "ordinalFromNoteA": "Duster First generation (HS)",
+    "ordinalFromNoteB": null,
+    "ordinalBacked": false,
+    "evidenceQuote": "The first generation was rebadged and restyled as the Nissan Terrano... The four-door double cab pick-up was launched at the end of 2015 in South America, marketed as the Renault Duster Oroch, while the single cab Dacia Duster Pick-Up was introduced in 2020.",
+    "quoteVerified": false,
+    "llmVerified": false,
+    "knowledgeBacked": false,
+    "sourceAttributed": false,
+    "citedA": null,
+    "citedB": null,
+    "citationBacked": false,
+    "quoteFabricated": true,
+    "fetchedArticleA": true,
+    "fetchedArticleB": true,
+    "availableCodesA": [
+     "Duster First generation (HS)",
+     "Duster Second generation (HM)",
+     "Duster Third generation (P1310)"
+    ],
+    "availableCodesB": [
+     "Duster Oroch"
+    ]
+   }
   }
  },
  "recheck": {
   "m-mercedes-benz-g-class": {
    "status": "none",
-   "checkedAt": "2026-09-13T21:56:06.387Z",
+   "checkedAt": "2026-09-13T22:03:23.426Z",
    "sourceTitle": "Mercedes-Benz G-Class",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -18925,7 +20010,7 @@
   },
   "m-mercedes-benz-gla": {
    "status": "none",
-   "checkedAt": "2026-09-13T21:56:06.448Z",
+   "checkedAt": "2026-09-13T22:03:23.487Z",
    "sourceTitle": "Mercedes-Benz GLA",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -19028,7 +20113,7 @@
   },
   "m-mercedes-benz-cla": {
    "status": "none",
-   "checkedAt": "2026-09-13T21:56:06.493Z",
+   "checkedAt": "2026-09-13T22:03:23.534Z",
    "sourceTitle": "Mercedes-Benz CLA",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -19310,7 +20395,7 @@
   },
   "m-toyota-celica": {
    "status": "none",
-   "checkedAt": "2026-09-13T21:56:06.556Z",
+   "checkedAt": "2026-09-13T22:03:23.599Z",
    "sourceTitle": "Toyota Celica",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -19426,7 +20511,7 @@
   },
   "m-toyota-carina": {
    "status": "none",
-   "checkedAt": "2026-09-13T21:56:06.631Z",
+   "checkedAt": "2026-09-13T22:03:23.678Z",
    "sourceTitle": "Toyota Carina",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -19554,7 +20639,7 @@
   },
   "m-lexus-sc": {
    "status": "none",
-   "checkedAt": "2026-09-13T21:56:06.638Z",
+   "checkedAt": "2026-09-13T22:03:23.685Z",
    "sourceTitle": "Lexus SC",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -20203,7 +21288,7 @@
   },
   "m-seat-toledo": {
    "status": "none",
-   "checkedAt": "2026-09-13T21:56:06.715Z",
+   "checkedAt": "2026-09-13T22:03:23.767Z",
    "sourceTitle": "SEAT Toledo",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -20334,7 +21419,7 @@
   },
   "m-daren-mk-3": {
    "status": "none",
-   "checkedAt": "2026-09-13T21:56:06.728Z",
+   "checkedAt": "2026-09-13T22:03:23.780Z",
    "sourceTitle": "Daren Mk.3",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -20409,7 +21494,7 @@
   },
   "m-audi-a3-mk3": {
    "status": "none",
-   "checkedAt": "2026-09-13T21:56:06.750Z",
+   "checkedAt": "2026-09-13T22:03:23.802Z",
    "sourceTitle": "Audi A3",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -20465,7 +21550,7 @@
   },
   "m-audi-tt": {
    "status": "none",
-   "checkedAt": "2026-09-13T21:56:06.849Z",
+   "checkedAt": "2026-09-13T22:03:23.900Z",
    "sourceTitle": "Audi TT",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -20605,7 +21690,7 @@
   },
   "m-seat-leon-mk3": {
    "status": "none",
-   "checkedAt": "2026-09-13T21:56:06.910Z",
+   "checkedAt": "2026-09-13T22:03:23.963Z",
    "sourceTitle": "SEAT León",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -20719,7 +21804,7 @@
   },
   "m-volkswagen-karmann-ghia": {
    "status": "none",
-   "checkedAt": "2026-09-13T21:56:06.942Z",
+   "checkedAt": "2026-09-13T22:03:23.997Z",
    "sourceTitle": "Volkswagen Karmann Ghia",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -20769,7 +21854,7 @@
   },
   "m-porsche-panamera": {
    "status": "none",
-   "checkedAt": "2026-09-13T21:56:06.930Z",
+   "checkedAt": "2026-09-13T22:03:23.984Z",
    "sourceTitle": "Porsche Panamera",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -20835,7 +21920,7 @@
   },
   "m-subaru-forester": {
    "status": "none",
-   "checkedAt": "2026-09-13T21:56:06.987Z",
+   "checkedAt": "2026-09-13T22:03:24.043Z",
    "sourceTitle": "Subaru Forester",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -20944,7 +22029,7 @@
   },
   "m-volkswagen-touran": {
    "status": "none",
-   "checkedAt": "2026-09-13T21:56:07.009Z",
+   "checkedAt": "2026-09-13T22:03:24.066Z",
    "sourceTitle": "Volkswagen Touran",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -20994,7 +22079,7 @@
   },
   "m-chevrolet-captiva": {
    "status": "none",
-   "checkedAt": "2026-09-13T21:56:07.083Z",
+   "checkedAt": "2026-09-13T22:03:24.145Z",
    "sourceTitle": "Chevrolet Captiva",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -21099,7 +22184,7 @@
   },
   "m-isuzu-trooper": {
    "status": "none",
-   "checkedAt": "2026-09-13T21:56:07.142Z",
+   "checkedAt": "2026-09-13T22:03:24.206Z",
    "sourceTitle": "Isuzu Trooper",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -21195,7 +22280,7 @@
   },
   "m-volkswagen-tiguan": {
    "status": "none",
-   "checkedAt": "2026-09-13T21:56:07.214Z",
+   "checkedAt": "2026-09-13T22:03:24.281Z",
    "sourceTitle": "Volkswagen Tiguan",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -21308,7 +22393,7 @@
   },
   "m-chrysler-horizon": {
    "status": "none",
-   "checkedAt": "2026-09-13T21:56:07.263Z",
+   "checkedAt": "2026-09-13T22:03:24.331Z",
    "sourceTitle": "Chrysler Horizon",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -21408,7 +22493,7 @@
   },
   "m-mercury-monterey": {
    "status": "none",
-   "checkedAt": "2026-09-13T21:56:07.371Z",
+   "checkedAt": "2026-09-13T22:03:24.440Z",
    "sourceTitle": "Mercury Monterey",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -21583,7 +22668,7 @@
   },
   "m-gmc-envoy": {
    "status": "none",
-   "checkedAt": "2026-09-13T21:56:07.393Z",
+   "checkedAt": "2026-09-13T22:03:24.462Z",
    "sourceTitle": "GMC Envoy",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -21636,7 +22721,7 @@
   },
   "m-chevrolet-trailblazer": {
    "status": "none",
-   "checkedAt": "2026-09-13T21:56:07.412Z",
+   "checkedAt": "2026-09-13T22:03:24.481Z",
    "sourceTitle": "Chevrolet TrailBlazer (SUV)",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -21687,7 +22772,7 @@
   },
   "m-oldsmobile-bravada": {
    "status": "none",
-   "checkedAt": "2026-09-13T21:56:07.451Z",
+   "checkedAt": "2026-09-13T22:03:24.521Z",
    "sourceTitle": "Oldsmobile Bravada",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -21767,7 +22852,7 @@
   },
   "m-buick-lacrosse": {
    "status": "none",
-   "checkedAt": "2026-09-13T21:56:07.477Z",
+   "checkedAt": "2026-09-13T22:03:24.547Z",
    "sourceTitle": "Buick LaCrosse",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -21843,7 +22928,7 @@
   },
   "m-buick-invicta": {
    "status": "none",
-   "checkedAt": "2026-09-13T21:56:07.495Z",
+   "checkedAt": "2026-09-13T22:03:24.565Z",
    "sourceTitle": "Buick Invicta",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -21894,7 +22979,7 @@
   },
   "m-buick-century": {
    "status": "none",
-   "checkedAt": "2026-09-13T21:56:07.582Z",
+   "checkedAt": "2026-09-13T22:03:24.651Z",
    "sourceTitle": "Buick Century",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -22046,7 +23131,7 @@
   },
   "m-jaguar-xjs": {
    "status": "none",
-   "checkedAt": "2026-09-13T21:56:07.598Z",
+   "checkedAt": "2026-09-13T22:03:24.666Z",
    "sourceTitle": "Jaguar XJS",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -22105,7 +23190,7 @@
   },
   "m-jaguar-e-type": {
    "status": "none",
-   "checkedAt": "2026-09-13T21:56:07.620Z",
+   "checkedAt": "2026-09-13T22:03:24.688Z",
    "sourceTitle": "Jaguar E-Type",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -22174,7 +23259,7 @@
   },
   "m-wuling-starlight": {
    "status": "none",
-   "checkedAt": "2026-09-13T21:56:07.654Z",
+   "checkedAt": "2026-09-13T22:03:24.722Z",
    "sourceTitle": "Wuling Starlight",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -22238,7 +23323,7 @@
   },
   "m-jeep-compass": {
    "status": "none",
-   "checkedAt": "2026-09-13T21:56:07.701Z",
+   "checkedAt": "2026-09-13T22:03:24.770Z",
    "sourceTitle": "Jeep Compass",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -22322,7 +23407,7 @@
   },
   "m-mazda-tribute": {
    "status": "none",
-   "checkedAt": "2026-09-13T21:56:53.553Z",
+   "checkedAt": "2026-09-13T22:03:24.781Z",
    "sourceTitle": "Mazda Tribute",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -22359,7 +23444,7 @@
   },
   "m-mazda-cx-5": {
    "status": "none",
-   "checkedAt": "2026-09-13T21:57:41.556Z",
+   "checkedAt": "2026-09-13T22:03:24.795Z",
    "sourceTitle": "Mazda CX-5",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -22404,6 +23489,138 @@
       "wikiFile": "V08788P086.jpg",
       "sharedPlatforms": [
        "Mazda CX-50"
+      ]
+     }
+    ]
+   },
+   "discrepancy": null,
+   "attempts": 1,
+   "feedback": []
+  },
+  "m-baojun-730": {
+   "status": "none",
+   "checkedAt": "2026-09-13T22:05:38.428Z",
+   "sourceTitle": "Baojun 730",
+   "proposal": {
+    "hasMultipleGenerations": true,
+    "generations": [
+     {
+      "code": "First generation",
+      "yearStart": 2014,
+      "yearEnd": 2017,
+      "designers": [
+       "Lotus"
+      ],
+      "engineers": [],
+      "wikiFile": "2015 Baojun 730 1.5L, front 8.5.18.jpg",
+      "sharedPlatforms": []
+     },
+     {
+      "code": "Second generation",
+      "yearStart": 2017,
+      "yearEnd": null,
+      "designers": [],
+      "engineers": [
+       "Aisin"
+      ],
+      "wikiFile": "Baojun 730 II China 2017-03-22.jpg",
+      "sharedPlatforms": []
+     }
+    ]
+   },
+   "discrepancy": null,
+   "attempts": 1,
+   "feedback": []
+  },
+  "m-dacia-duster": {
+   "status": "none",
+   "checkedAt": "2026-09-13T22:06:38.980Z",
+   "sourceTitle": "Dacia Duster",
+   "proposal": {
+    "hasMultipleGenerations": true,
+    "generations": [
+     {
+      "code": "First generation (HS)",
+      "yearStart": 2010,
+      "yearEnd": 2022,
+      "designers": [
+       "Renault Design Central Europe",
+       "Erde Tungaa"
+      ],
+      "engineers": [],
+      "wikiFile": "Dacia Duster 1.5 dCi front 20100928.jpg",
+      "sharedPlatforms": [
+       "Dacia Logan",
+       "Dacia Sandero",
+       "Renault Duster Oroch",
+       "Renault Captur/Kaptur (HA)",
+       "Nissan Kicks (D15)"
+      ],
+      "sharedPlatformMatches": {
+       "Renault Captur/Kaptur (HA)": {
+        "matchId": "m-renault-captur",
+        "confidence": "high",
+        "reason": "The mention 'Renault Captur/Kaptur (HA)' refers to the same vehicle as the candidate 'Renault Captur (2013–present)'. 'Kaptur' is the export badge for the Captur used in markets like India, and 'HA' denotes the chassis code/generation of this specific model. The production years overlap perfectly (2013–present vs 2013–present), and the model identity is identical despite the name variation."
+       },
+       "Nissan Kicks (D15)": {
+        "matchId": "m-nissan-kicks",
+        "confidence": "high",
+        "reason": "The mention 'Nissan Kicks (D15)' refers to the first generation of the Nissan Kicks, which was produced from 2016 onwards. The candidate 'm-nissan-kicks' is labeled 'Nissan Kicks (2016–present)', matching the name, model type (compact crossover SUV), and production start year. The '(D15)' in the mention is the chassis code for this specific generation, confirming it is not a different car but the same model covered by the database entry."
+       }
+      }
+     },
+     {
+      "code": "Second generation (HM)",
+      "yearStart": 2017,
+      "yearEnd": 2024,
+      "designers": [
+       "Renault Technocentre",
+       "Renault Technologie Roumanie",
+       "Erde Tungaa",
+       "Emmanuel Klissarov"
+      ],
+      "engineers": [],
+      "wikiFile": "2018 Dacia Duster.jpg",
+      "sharedPlatforms": [
+       "Renault Arkana (Russia)",
+       "Renault Captur/Kaptur (HA)",
+       "Nissan Kicks (D15)"
+      ],
+      "sharedPlatformMatches": {
+       "Renault Arkana (Russia)": {
+        "matchId": null,
+        "confidence": "high",
+        "reason": "The mentioned car 'Renault Arkana' is a crossover SUV produced starting in 2020. None of the provided candidate IDs refer to the Renault Arkana. The closest name match is 'Renault Austral' (id: m-renault-austral), but the Austral is a distinct model launched in 2022 with different design and platform characteristics. No other candidates are remotely similar to the Arkana."
+       },
+       "Renault Captur/Kaptur (HA)": {
+        "matchId": "m-renault-captur",
+        "confidence": "high",
+        "reason": "The mention 'Renault Captur/Kaptur (HA)' refers to the same vehicle as the candidate 'Renault Captur (2013–present)'. 'Kaptur' is the export badge for the Captur used in markets like India, and 'HA' denotes the chassis code/generation of this specific model. The production years overlap perfectly (2013–present vs 2013–present), and the model identity is identical despite the name variation."
+       },
+       "Nissan Kicks (D15)": {
+        "matchId": "m-nissan-kicks",
+        "confidence": "high",
+        "reason": "The mention 'Nissan Kicks (D15)' refers to the first generation of the Nissan Kicks, which was produced from 2016 onwards. The candidate 'm-nissan-kicks' is labeled 'Nissan Kicks (2016–present)', matching the name, model type (compact crossover SUV), and production start year. The '(D15)' in the mention is the chassis code for this specific generation, confirming it is not a different car but the same model covered by the database entry."
+       }
+      }
+     },
+     {
+      "code": "Third generation (P1310)",
+      "yearStart": 2023,
+      "yearEnd": null,
+      "designers": [
+       "Eduard Grigoroiu",
+       "David Durand"
+      ],
+      "engineers": [],
+      "wikiFile": "Dacia Duster III IMG 8973.jpg",
+      "sharedPlatforms": [
+       "Nissan Tekton",
+       "Dacia Bigster",
+       "Renault Boreal",
+       "Renault Niagara",
+       "Dacia Logan",
+       "Dacia Jogger"
       ]
      }
     ]
@@ -23920,6 +25137,40 @@
    "died": null,
    "country": null,
    "tries": 1
+  },
+  "p-aisin": {
+   "checkedAt": "2026-09-13T22:05:56.426Z",
+   "born": null,
+   "died": null,
+   "country": "Japan",
+   "source": "wikipedia"
+  },
+  "p-lotus": {
+   "checkedAt": "2026-09-13T22:06:15.132Z",
+   "born": null,
+   "died": null,
+   "country": null,
+   "tries": 1
+  },
+  "p-renault-technocentre": {
+   "checkedAt": "2026-09-13T22:06:45.231Z",
+   "born": null,
+   "died": null,
+   "country": null,
+   "tries": 1
+  },
+  "p-renault-design-central-europe": {
+   "checkedAt": "2026-09-13T22:06:46.013Z",
+   "born": null,
+   "died": null,
+   "country": null,
+   "tries": 1
+  },
+  "llm-related-renault-arkana-russia": {
+   "checkedAt": "2026-09-13T22:06:50.958Z",
+   "year": 2019,
+   "end": 2022,
+   "source": "wikipedia"
   }
  },
  "userCars": {},
@@ -24029,7 +25280,8 @@
   "llm-related-chrysler-airflow-2027": "Chrysler Airflow (2027)",
   "llm-related-peugeot-5008-iii": "Peugeot 5008",
   "llm-related-opel-grandland-ii": "Opel Grandland",
-  "llm-related-citroen-c5-aircross-ii": "Citroën C5 Aircross"
+  "llm-related-citroen-c5-aircross-ii": "Citroën C5 Aircross",
+  "llm-related-renault-arkana-russia": "Renault Arkana (Russia)"
  },
  "genResearch": {
   "merge-m-volkswagen-jetta-self": {
