@@ -10135,6 +10135,337 @@
     "Daniele Calonaci"
    ],
    "allEngineers": []
+  },
+  "m-mazda-tribute": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T21:56:52.764Z",
+   "sourceTitle": "Mazda Tribute",
+   "proposal": {
+    "hasMultipleGenerations": true,
+    "generations": [
+     {
+      "code": "EP",
+      "yearStart": 2001,
+      "yearEnd": 2006,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "2001-2004 Mazda Tribute -- 03-21-2012.JPG",
+      "sharedPlatforms": [
+       "Ford Escape",
+       "Mercury Mariner"
+      ]
+     },
+     {
+      "code": "Second generation (2007)",
+      "yearStart": 2008,
+      "yearEnd": 2011,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "08 Mazda Tribute.jpg",
+      "sharedPlatforms": [
+       "Ford Escape",
+       "Mercury Mariner"
+      ]
+     }
+    ]
+   },
+   "attempts": 1,
+   "feedback": [],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": true,
+     "generations": [
+      {
+       "code": "EP",
+       "yearStart": 2001,
+       "yearEnd": 2006,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Ford Escape",
+        "Mercury Mariner"
+       ]
+      },
+      {
+       "code": "Second generation (2007)",
+       "yearStart": 2008,
+       "yearEnd": 2011,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Ford Escape",
+        "Mercury Mariner"
+       ]
+      }
+     ]
+    },
+    "dropped": []
+   },
+   "cascadeDiscovered": true,
+   "decidedBy": "agent",
+   "decidedAt": "2026-09-13T21:56:53.524Z",
+   "allDesigners": [],
+   "allEngineers": []
+  },
+  "m-mazda-cx-7": {
+   "status": "none",
+   "checkedAt": "2026-09-13T21:57:02.457Z",
+   "sourceTitle": "Mazda CX-7",
+   "proposal": {
+    "hasMultipleGenerations": false,
+    "generations": [
+     {
+      "code": "ER",
+      "yearStart": 2006,
+      "yearEnd": 2012,
+      "designers": [
+       "Moray Callum",
+       "Koizumi Iwao"
+      ],
+      "engineers": [],
+      "wikiFile": "2006-2009 Mazda CX-7 (ER) Luxury wagon (2010-06-17) 01.jpg",
+      "sharedPlatforms": [
+       "Ford Focus",
+       "Mazda3"
+      ]
+     }
+    ]
+   },
+   "attempts": 1,
+   "feedback": [],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": false,
+     "generations": [
+      {
+       "code": "ER",
+       "yearStart": 2006,
+       "yearEnd": 2012,
+       "designers": [
+        "Moray Callum",
+        "Koizumi Iwao"
+       ],
+       "sharedPlatforms": [
+        "Ford Focus",
+        "Mazda3"
+       ]
+      }
+     ]
+    },
+    "dropped": []
+   },
+   "cascadeDiscovered": true
+  },
+  "m-mazda-cx-5": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T21:57:40.731Z",
+   "sourceTitle": "Mazda CX-5",
+   "proposal": {
+    "hasMultipleGenerations": true,
+    "generations": [
+     {
+      "code": "KE",
+      "yearStart": 2012,
+      "yearEnd": 2017,
+      "designers": [
+       "Norihito Iwao",
+       "Masashi Nakayama"
+      ],
+      "engineers": [],
+      "wikiFile": "Mazda CX-5 2.0 SKYACTIV-G AWD Sports-Line – Frontansicht, 3. September 2012, Düsseldorf.jpg",
+      "sharedPlatforms": [
+       "Mazda3",
+       "Mazda6"
+      ]
+     },
+     {
+      "code": "KF",
+      "yearStart": 2016,
+      "yearEnd": 2025,
+      "designers": [
+       "Ikuo Maeda",
+       "Shinichi Isayama"
+      ],
+      "engineers": [],
+      "wikiFile": "2024 Mazda CX-5 2.5 S Select in Platinum Quartz Metallic, front right.jpg",
+      "sharedPlatforms": [
+       "Mazda CX-8"
+      ]
+     },
+     {
+      "code": "KM",
+      "yearStart": 2025,
+      "yearEnd": null,
+      "designers": [
+       "Takanori Tsubaki"
+      ],
+      "engineers": [],
+      "wikiFile": "V08788P086.jpg",
+      "sharedPlatforms": [
+       "Mazda CX-50"
+      ]
+     }
+    ]
+   },
+   "attempts": 1,
+   "feedback": [],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": true,
+     "generations": [
+      {
+       "code": "KE",
+       "yearStart": 2012,
+       "yearEnd": 2017,
+       "designers": [
+        "Norihito Iwao",
+        "Masashi Nakayama"
+       ],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Mazda3",
+        "Mazda6"
+       ]
+      },
+      {
+       "code": "KF",
+       "yearStart": 2016,
+       "yearEnd": 2025,
+       "designers": [
+        "Ikuo Maeda",
+        "Shinichi Isayama"
+       ],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Mazda CX-8"
+       ]
+      },
+      {
+       "code": "KM",
+       "yearStart": 2025,
+       "yearEnd": null,
+       "designers": [
+        "Takanori Tsubaki"
+       ],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Mazda CX-50"
+       ]
+      }
+     ]
+    },
+    "dropped": []
+   },
+   "decidedBy": "agent",
+   "decidedAt": "2026-09-13T21:57:41.523Z",
+   "allDesigners": [
+    "Norihito Iwao",
+    "Masashi Nakayama",
+    "Ikuo Maeda",
+    "Shinichi Isayama",
+    "Takanori Tsubaki"
+   ],
+   "allEngineers": []
+  },
+  "m-mazda-cx-4": {
+   "status": "none",
+   "checkedAt": "2026-09-13T21:57:46.427Z",
+   "sourceTitle": "Mazda CX-4",
+   "proposal": {
+    "hasMultipleGenerations": false,
+    "generations": [
+     {
+      "code": "GK",
+      "yearStart": 2016,
+      "yearEnd": 2023,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "MAZDA CX-4 China (6) (2).jpg",
+      "sharedPlatforms": [
+       "Mazda3 (BM)",
+       "Mazda CX-5 (KE)"
+      ],
+      "sharedPlatformMatches": {
+       "Mazda3 (BM)": {
+        "matchId": null,
+        "confidence": "low",
+        "reason": "The mention 'Mazda3 (BM)' refers to the Mazda3 produced from 2009 onwards (chassis code BM), whereas the candidate 'Mazda Mazda3 (2003–present)' represents the broader model history starting with the 2003 launch (chassis codes BL/BP). Since they refer to different generations/chassis codes, they are not the exact same physical car generation."
+       }
+      }
+     }
+    ]
+   },
+   "attempts": 1,
+   "feedback": [],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": false,
+     "generations": [
+      {
+       "code": "GK",
+       "yearStart": 2016,
+       "yearEnd": 2023,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Mazda3 (BM)",
+        "Mazda CX-5 (KE)"
+       ]
+      }
+     ]
+    },
+    "dropped": []
+   },
+   "cascadeDiscovered": true
+  },
+  "m-mazda-mazda6-third-generation": {
+   "status": "none",
+   "checkedAt": "2026-09-13T21:58:47.965Z",
+   "sourceTitle": "Mazda6 (third generation)",
+   "proposal": {
+    "hasMultipleGenerations": false,
+    "generations": [
+     {
+      "code": "GJ1/GL",
+      "yearStart": 2012,
+      "yearEnd": 2024,
+      "designers": [
+       "Akira Tamatani"
+      ],
+      "engineers": [],
+      "wikiFile": "Mazda6 2.0 SKYACTIV-G Center-Line (GJ) – Frontansicht, 14. April 2013, Düsseldorf.jpg",
+      "sharedPlatforms": [
+       "Mazda3",
+       "Mazda CX-5",
+       "Mazda CX-9"
+      ]
+     }
+    ]
+   },
+   "attempts": 1,
+   "feedback": [],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": false,
+     "generations": [
+      {
+       "code": "GJ1/GL",
+       "yearStart": 2012,
+       "yearEnd": 2024,
+       "designers": [
+        "Akira Tamatani"
+       ],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Mazda3",
+        "Mazda CX-5",
+        "Mazda CX-9"
+       ]
+      }
+     ]
+    },
+    "dropped": []
+   }
   }
  },
  "relations": {
@@ -12219,19 +12550,6 @@
    "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
    "llmDiscovered": true
   },
-  "llm-m-skoda-octavia-mk1-1z|m-daren-mk-3|platform": {
-   "status": "provisional",
-   "checkedAt": "2026-09-11T14:15:04.063Z",
-   "famA": "m-skoda-octavia-mk1",
-   "famB": "m-daren-mk-3",
-   "relType": "platform",
-   "codeA": "Octavia 1Z",
-   "codeB": "Mk.3",
-   "genIdA": "llm-m-skoda-octavia-mk1-1z",
-   "genIdB": "m-daren-mk-3",
-   "reason": "proposed from a loosely-matched shared-platform/rebadge mention (the matched nameplate name wasn't an exact match, just a substring overlap) -- please verify this is really the right car before accepting",
-   "llmDiscovered": true
-  },
   "llm-m-skoda-octavia-mk1-1z|m-volkswagen-passat-b6|platform": {
    "status": "confirmed",
    "checkedAt": "2026-09-11T14:15:04.068Z",
@@ -12518,19 +12836,6 @@
    "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
    "llmDiscovered": true
   },
-  "llm-m-seat-toledo-kg|m-leapmotor-a05|platform": {
-   "status": "provisional",
-   "checkedAt": "2026-09-11T14:24:21.947Z",
-   "famA": "m-seat-toledo",
-   "famB": "m-leapmotor-a05",
-   "relType": "platform",
-   "codeA": "Toledo KG",
-   "codeB": "A05",
-   "genIdA": "llm-m-seat-toledo-kg",
-   "genIdB": "m-leapmotor-a05",
-   "reason": "proposed from a loosely-matched shared-platform/rebadge mention (the matched nameplate name wasn't an exact match, just a substring overlap) -- please verify this is really the right car before accepting",
-   "llmDiscovered": true
-  },
   "llm-m-seat-toledo-kg|m-skoda-rapid-india|platform": {
    "status": "confirmed",
    "checkedAt": "2026-09-11T14:24:21.953Z",
@@ -12644,21 +12949,8 @@
    "reason": "matched automatically (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
    "llmDiscovered": true
   },
-  "llm-m-audi-a3-mk3-fourth-generation-typ-8y|m-hyundai-eon|platform": {
-   "status": "provisional",
-   "checkedAt": "2026-09-11T14:27:28.789Z",
-   "famA": "m-audi-a3-mk3",
-   "famB": "m-hyundai-eon",
-   "relType": "platform",
-   "codeA": "A3 Mk3 Fourth generation (Typ 8Y)",
-   "codeB": "Eon",
-   "genIdA": "llm-m-audi-a3-mk3-fourth-generation-typ-8y",
-   "genIdB": "m-hyundai-eon",
-   "reason": "proposed from a loosely-matched shared-platform/rebadge mention (the matched nameplate name wasn't an exact match, just a substring overlap) -- please verify this is really the right car before accepting",
-   "llmDiscovered": true
-  },
   "llm-m-audi-a3-mk3-fourth-generation-typ-8y|llm-m-skoda-octavia-mk1-nx|platform": {
-   "status": "provisional",
+   "status": "confirmed",
    "checkedAt": "2026-09-11T14:27:28.797Z",
    "famA": "m-audi-a3-mk3",
    "famB": "m-skoda-octavia-mk1",
@@ -12667,8 +12959,9 @@
    "codeB": "Octavia NX",
    "genIdA": "llm-m-audi-a3-mk3-fourth-generation-typ-8y",
    "genIdB": "llm-m-skoda-octavia-mk1-nx",
-   "reason": "proposed by overlapping production years only (a shared-platform/rebadge mention was found alongside this generation's own text, but which specific generation of the OTHER nameplate it refers to was guessed from year overlap, not stated explicitly) -- please verify before accepting",
-   "llmDiscovered": true
+   "reason": "matched automatically -- the nameplate was named exactly in the source text, and exactly one of its generations was in production alongside this one",
+   "llmDiscovered": true,
+   "decidedAt": "2026-09-13T21:56:08.743Z"
   },
   "llm-m-audi-tt-8n-mk1|llm-related-audi-a3-mk1|platform": {
    "status": "confirmed",
@@ -12758,19 +13051,6 @@
    "llmDiscovered": true,
    "llmVerifiedDuplicate": true
   },
-  "llm-m-audi-tt-8j-mk2|m-saturn-ion|platform": {
-   "status": "provisional",
-   "checkedAt": "2026-09-11T14:33:21.432Z",
-   "famA": "m-audi-tt",
-   "famB": "m-saturn-ion",
-   "relType": "platform",
-   "codeA": "TT 8J (Mk2)",
-   "codeB": "Ion",
-   "genIdA": "llm-m-audi-tt-8j-mk2",
-   "genIdB": "m-saturn-ion",
-   "reason": "proposed from a loosely-matched shared-platform/rebadge mention (the matched nameplate name wasn't an exact match, just a substring overlap) -- please verify this is really the right car before accepting",
-   "llmDiscovered": true
-  },
   "llm-m-audi-tt-8j-mk2|m-volkswagen-golf-mk5|platform": {
    "status": "confirmed",
    "checkedAt": "2026-09-11T14:33:21.434Z",
@@ -12857,7 +13137,7 @@
    "llmDiscovered": true
   },
   "llm-m-audi-a3-mk3-third-generation-typ-8v|llm-m-audi-tt-fv-8s-mk3|platform": {
-   "status": "provisional",
+   "status": "confirmed",
    "checkedAt": "2026-09-11T14:33:21.468Z",
    "famA": "m-audi-tt",
    "famB": "m-audi-a3-mk3",
@@ -12866,8 +13146,9 @@
    "codeB": "A3 Mk3 Third generation (Typ 8V)",
    "genIdA": "llm-m-audi-tt-fv-8s-mk3",
    "genIdB": "llm-m-audi-a3-mk3-third-generation-typ-8v",
-   "reason": "proposed by overlapping production years only (a shared-platform/rebadge mention was found alongside this generation's own text, but which specific generation of the OTHER nameplate it refers to was guessed from year overlap, not stated explicitly) -- please verify before accepting",
-   "llmDiscovered": true
+   "reason": "matched automatically -- the nameplate was named exactly in the source text, and exactly one of its generations was in production alongside this one",
+   "llmDiscovered": true,
+   "decidedAt": "2026-09-13T21:56:08.743Z"
   },
   "llm-m-audi-tt-fv-8s-mk3|m-seat-leon-mk3|platform": {
    "status": "confirmed",
@@ -13156,7 +13437,7 @@
    "llmVerifiedDuplicate": true
   },
   "llm-m-seat-leon-mk3-kl1-kl8|llm-m-skoda-octavia-mk1-nx|platform": {
-   "status": "provisional",
+   "status": "confirmed",
    "checkedAt": "2026-09-11T14:34:53.460Z",
    "famA": "m-seat-leon-mk3",
    "famB": "m-skoda-octavia-mk1",
@@ -13165,8 +13446,9 @@
    "codeB": "Octavia NX",
    "genIdA": "llm-m-seat-leon-mk3-kl1-kl8",
    "genIdB": "llm-m-skoda-octavia-mk1-nx",
-   "reason": "proposed by overlapping production years only (a shared-platform/rebadge mention was found alongside this generation's own text, but which specific generation of the OTHER nameplate it refers to was guessed from year overlap, not stated explicitly) -- please verify before accepting",
-   "llmDiscovered": true
+   "reason": "matched automatically -- the nameplate was named exactly in the source text, and exactly one of its generations was in production alongside this one",
+   "llmDiscovered": true,
+   "decidedAt": "2026-09-13T21:56:08.743Z"
   },
   "llm-m-audi-a3-mk3-fourth-generation-typ-8y|llm-related-skoda-octavia-mk4|platform": {
    "status": "confirmed",
@@ -13180,19 +13462,6 @@
    "genIdA": "llm-m-audi-a3-mk3-fourth-generation-typ-8y",
    "genIdB": "llm-related-skoda-octavia-mk4",
    "reason": "matched automatically -- \"Škoda Octavia Mk4\" was named as a related car but didn't exist anywhere in the graph yet, so it was newly created from this mention (double-checked by the local LLM sanity pass against every plausible existing car -- none matched)",
-   "llmDiscovered": true
-  },
-  "llm-m-audi-tt-8n-mk1|m-saturn-ion|platform": {
-   "status": "provisional",
-   "checkedAt": "2026-09-12T13:19:15.141Z",
-   "famA": "m-audi-tt",
-   "famB": "m-saturn-ion",
-   "relType": "platform",
-   "codeA": "TT 8N (Mk1)",
-   "codeB": "Ion",
-   "genIdA": "llm-m-audi-tt-8n-mk1",
-   "genIdB": "m-saturn-ion",
-   "reason": "proposed from a loosely-matched shared-platform/rebadge mention (the matched nameplate name wasn't an exact match, just a substring overlap) -- please verify this is really the right car before accepting",
    "llmDiscovered": true
   },
   "llm-m-audi-tt-8n-mk1|llm-related-seat-leon-first-generation|platform": {
@@ -13210,7 +13479,7 @@
    "llmDiscovered": true
   },
   "llm-m-audi-tt-8n-mk1|merge-m-skoda-octavia-mk1-self|platform": {
-   "status": "provisional",
+   "status": "confirmed",
    "checkedAt": "2026-09-12T13:19:15.161Z",
    "famA": "m-audi-tt",
    "famB": "m-skoda-octavia-mk1",
@@ -13219,21 +13488,9 @@
    "codeB": "Octavia Mk1",
    "genIdA": "llm-m-audi-tt-8n-mk1",
    "genIdB": "merge-m-skoda-octavia-mk1-self",
-   "reason": "proposed by overlapping production years only (a shared-platform/rebadge mention was found alongside this generation's own text, but which specific generation of the OTHER nameplate it refers to was guessed from year overlap, not stated explicitly) -- please verify before accepting",
-   "llmDiscovered": true
-  },
-  "llm-m-audi-tt-fv-8s-mk3|m-saturn-ion|platform": {
-   "status": "provisional",
-   "checkedAt": "2026-09-12T13:19:15.212Z",
-   "famA": "m-audi-tt",
-   "famB": "m-saturn-ion",
-   "relType": "platform",
-   "codeA": "TT FV/8S (Mk3)",
-   "codeB": "Ion",
-   "genIdA": "llm-m-audi-tt-fv-8s-mk3",
-   "genIdB": "m-saturn-ion",
-   "reason": "proposed from a loosely-matched shared-platform/rebadge mention (the matched nameplate name wasn't an exact match, just a substring overlap) -- please verify this is really the right car before accepting",
-   "llmDiscovered": true
+   "reason": "matched automatically -- the nameplate was named exactly in the source text, and exactly one of its generations was in production alongside this one",
+   "llmDiscovered": true,
+   "decidedAt": "2026-09-13T21:56:08.743Z"
   },
   "llm-m-seat-leon-mk3-kl1-kl8|llm-related-skoda-octavia-mk4|platform": {
    "status": "confirmed",
@@ -13250,7 +13507,7 @@
    "llmDiscovered": true
   },
   "llm-m-audi-a3-mk3-third-generation-typ-8v|llm-m-skoda-octavia-mk1-5e|platform": {
-   "status": "provisional",
+   "status": "confirmed",
    "checkedAt": "2026-09-12T13:19:15.442Z",
    "famA": "m-skoda-octavia-mk1",
    "famB": "m-audi-a3-mk3",
@@ -13259,11 +13516,12 @@
    "codeB": "A3 Mk3 Third generation (Typ 8V)",
    "genIdA": "llm-m-skoda-octavia-mk1-5e",
    "genIdB": "llm-m-audi-a3-mk3-third-generation-typ-8v",
-   "reason": "proposed by overlapping production years only (a shared-platform/rebadge mention was found alongside this generation's own text, but which specific generation of the OTHER nameplate it refers to was guessed from year overlap, not stated explicitly) -- please verify before accepting",
-   "llmDiscovered": true
+   "reason": "matched automatically -- the nameplate was named exactly in the source text, and exactly one of its generations was in production alongside this one",
+   "llmDiscovered": true,
+   "decidedAt": "2026-09-13T21:56:08.743Z"
   },
   "llm-m-audi-a3-mk3-third-generation-typ-8v|llm-m-skoda-octavia-mk1-nx|platform": {
-   "status": "provisional",
+   "status": "confirmed",
    "checkedAt": "2026-09-12T13:19:15.456Z",
    "famA": "m-skoda-octavia-mk1",
    "famB": "m-audi-a3-mk3",
@@ -13272,11 +13530,12 @@
    "codeB": "A3 Mk3 Third generation (Typ 8V)",
    "genIdA": "llm-m-skoda-octavia-mk1-nx",
    "genIdB": "llm-m-audi-a3-mk3-third-generation-typ-8v",
-   "reason": "proposed by overlapping production years only (a shared-platform/rebadge mention was found alongside this generation's own text, but which specific generation of the OTHER nameplate it refers to was guessed from year overlap, not stated explicitly) -- please verify before accepting",
-   "llmDiscovered": true
+   "reason": "matched automatically -- the nameplate was named exactly in the source text, and exactly one of its generations was in production alongside this one",
+   "llmDiscovered": true,
+   "decidedAt": "2026-09-13T21:56:08.743Z"
   },
   "llm-m-seat-leon-mk3-5f|llm-m-skoda-octavia-mk1-nx|platform": {
-   "status": "provisional",
+   "status": "confirmed",
    "checkedAt": "2026-09-12T13:19:15.461Z",
    "famA": "m-skoda-octavia-mk1",
    "famB": "m-seat-leon-mk3",
@@ -13285,8 +13544,9 @@
    "codeB": "León Mk3 5F",
    "genIdA": "llm-m-skoda-octavia-mk1-nx",
    "genIdB": "llm-m-seat-leon-mk3-5f",
-   "reason": "proposed by overlapping production years only (a shared-platform/rebadge mention was found alongside this generation's own text, but which specific generation of the OTHER nameplate it refers to was guessed from year overlap, not stated explicitly) -- please verify before accepting",
-   "llmDiscovered": true
+   "reason": "matched automatically -- the nameplate was named exactly in the source text, and exactly one of its generations was in production alongside this one",
+   "llmDiscovered": true,
+   "decidedAt": "2026-09-13T21:56:08.743Z"
   },
   "m-volkswagen-karmann-ghia|m-volkswagen-type-3|platform": {
    "status": "confirmed",
@@ -13514,19 +13774,6 @@
    "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
    "llmDiscovered": true
   },
-  "m-cupra-formentor|m-hyundai-eon|platform": {
-   "status": "provisional",
-   "checkedAt": "2026-09-12T13:19:15.560Z",
-   "famA": "m-cupra-formentor",
-   "famB": "m-hyundai-eon",
-   "relType": "platform",
-   "codeA": "Formentor",
-   "codeB": "Eon",
-   "genIdA": "m-cupra-formentor",
-   "genIdB": "m-hyundai-eon",
-   "reason": "proposed from a loosely-matched shared-platform/rebadge mention (the matched nameplate name wasn't an exact match, just a substring overlap) -- please verify this is really the right car before accepting",
-   "llmDiscovered": true
-  },
   "llm-m-volkswagen-karmann-ghia-type-34|m-volkswagen-type-3|platform": {
    "status": "confirmed",
    "checkedAt": "2026-09-12T15:57:07.916Z",
@@ -13542,7 +13789,7 @@
    "llmDiscovered": true
   },
   "llm-m-volkswagen-karmann-ghia-type-14|merge-m-volkswagen-beetle-self|platform": {
-   "status": "provisional",
+   "status": "confirmed",
    "checkedAt": "2026-09-12T15:57:16.805Z",
    "famA": "m-volkswagen-karmann-ghia",
    "famB": "m-volkswagen-beetle",
@@ -13551,11 +13798,12 @@
    "codeB": "Beetle",
    "genIdA": "llm-m-volkswagen-karmann-ghia-type-14",
    "genIdB": "merge-m-volkswagen-beetle-self",
-   "reason": "proposed by overlapping production years only (a shared-platform/rebadge mention was found alongside this generation's own text, but which specific generation of the OTHER nameplate it refers to was guessed from year overlap, not stated explicitly) -- please verify before accepting",
-   "llmDiscovered": true
+   "reason": "matched automatically -- the nameplate was named exactly in the source text, and exactly one of its generations was in production alongside this one",
+   "llmDiscovered": true,
+   "decidedAt": "2026-09-13T21:56:08.743Z"
   },
   "llm-m-volkswagen-karmann-ghia-type-14|m-volkswagen-type-3|platform": {
-   "status": "provisional",
+   "status": "confirmed",
    "checkedAt": "2026-09-12T15:57:17.078Z",
    "famA": "m-volkswagen-type-3",
    "famB": "m-volkswagen-karmann-ghia",
@@ -13564,8 +13812,9 @@
    "codeB": "Karmann Ghia Type 14",
    "genIdA": "m-volkswagen-type-3",
    "genIdB": "llm-m-volkswagen-karmann-ghia-type-14",
-   "reason": "proposed by overlapping production years only (a shared-platform/rebadge mention was found alongside this generation's own text, but which specific generation of the OTHER nameplate it refers to was guessed from year overlap, not stated explicitly) -- please verify before accepting",
-   "llmDiscovered": true
+   "reason": "matched automatically -- the nameplate was named exactly in the source text, and exactly one of its generations was in production alongside this one",
+   "llmDiscovered": true,
+   "decidedAt": "2026-09-13T21:56:08.743Z"
   },
   "llm-m-porsche-panamera-971-g2|m-bentley-continental-gt|platform": {
    "status": "confirmed",
@@ -13855,19 +14104,6 @@
    "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
    "llmDiscovered": true
   },
-  "llm-m-daren-mk-3-mk-6|llm-m-volkswagen-touran-1t|platform": {
-   "status": "provisional",
-   "checkedAt": "2026-09-12T16:43:28.443Z",
-   "famA": "m-volkswagen-touran",
-   "famB": "m-daren-mk-3",
-   "relType": "platform",
-   "codeA": "Touran 1T",
-   "codeB": "Mk.3 Mk.6",
-   "genIdA": "llm-m-volkswagen-touran-1t",
-   "genIdB": "llm-m-daren-mk-3-mk-6",
-   "reason": "proposed by overlapping production years only (a shared-platform/rebadge mention was found alongside this generation's own text, but which specific generation of the OTHER nameplate it refers to was guessed from year overlap, not stated explicitly) -- please verify before accepting",
-   "llmDiscovered": true
-  },
   "llm-m-volkswagen-touran-5t|m-volkswagen-golf-mk7|platform": {
    "status": "confirmed",
    "checkedAt": "2026-09-12T16:43:28.446Z",
@@ -13897,7 +14133,7 @@
    "llmDiscovered": true
   },
   "llm-m-volkswagen-touran-1t|m-seat-altea|platform": {
-   "status": "provisional",
+   "status": "confirmed",
    "checkedAt": "2026-09-12T16:49:36.983Z",
    "famA": "m-seat-altea",
    "famB": "m-volkswagen-touran",
@@ -13906,8 +14142,9 @@
    "codeB": "Touran 1T",
    "genIdA": "m-seat-altea",
    "genIdB": "llm-m-volkswagen-touran-1t",
-   "reason": "proposed by overlapping production years only (a shared-platform/rebadge mention was found alongside this generation's own text, but which specific generation of the OTHER nameplate it refers to was guessed from year overlap, not stated explicitly) -- please verify before accepting",
-   "llmDiscovered": true
+   "reason": "matched automatically -- the nameplate was named exactly in the source text, and exactly one of its generations was in production alongside this one",
+   "llmDiscovered": true,
+   "decidedAt": "2026-09-13T21:56:08.743Z"
   },
   "llm-m-chevrolet-captiva-c100-c140|m-opel-antara|platform": {
    "status": "confirmed",
@@ -14077,19 +14314,6 @@
    "genIdA": "llm-m-chevrolet-captiva-cn202s",
    "genIdB": "llm-related-wuling-xingguang-s",
    "reason": "matched automatically -- \"Wuling Xingguang S\" was named as a related car but didn't exist anywhere in the graph yet, so it was newly created from this mention (double-checked by the local LLM sanity pass against every plausible existing car -- none matched)",
-   "llmDiscovered": true
-  },
-  "llm-m-chevrolet-captiva-cn202s|m-saturn-ion|platform": {
-   "status": "provisional",
-   "checkedAt": "2026-09-12T16:49:46.879Z",
-   "famA": "m-chevrolet-captiva",
-   "famB": "m-saturn-ion",
-   "relType": "platform",
-   "codeA": "Captiva CN202S",
-   "codeB": "Ion",
-   "genIdA": "llm-m-chevrolet-captiva-cn202s",
-   "genIdB": "m-saturn-ion",
-   "reason": "proposed from a loosely-matched shared-platform/rebadge mention (the matched nameplate name wasn't an exact match, just a substring overlap) -- please verify this is really the right car before accepting",
    "llmDiscovered": true
   },
   "llm-m-chevrolet-captiva-cn202s|m-wuling-starlight-730|platform": {
@@ -14274,19 +14498,6 @@
    "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
    "llmDiscovered": true
   },
-  "llm-m-isuzu-trooper-first-generation|m-saturn-ion|platform": {
-   "status": "provisional",
-   "checkedAt": "2026-09-12T17:51:38.168Z",
-   "famA": "m-isuzu-trooper",
-   "famB": "m-saturn-ion",
-   "relType": "platform",
-   "codeA": "Trooper First generation",
-   "codeB": "Ion",
-   "genIdA": "llm-m-isuzu-trooper-first-generation",
-   "genIdB": "m-saturn-ion",
-   "reason": "proposed from a loosely-matched shared-platform/rebadge mention (the matched nameplate name wasn't an exact match, just a substring overlap) -- please verify this is really the right car before accepting",
-   "llmDiscovered": true
-  },
   "llm-m-isuzu-trooper-second-generation-1991|m-acura-slx|platform": {
    "status": "confirmed",
    "checkedAt": "2026-09-12T17:51:38.462Z",
@@ -14313,19 +14524,6 @@
    "genIdA": "llm-m-isuzu-trooper-second-generation-1991",
    "genIdB": "llm-related-chevrolet-trooper",
    "reason": "matched automatically -- \"Chevrolet Trooper\" was named as a related car but didn't exist anywhere in the graph yet, so it was newly created from this mention (double-checked by the local LLM sanity pass against every plausible existing car -- none matched)",
-   "llmDiscovered": true
-  },
-  "llm-m-isuzu-trooper-second-generation-1991|m-kline-kar|platform": {
-   "status": "provisional",
-   "checkedAt": "2026-09-12T17:51:38.569Z",
-   "famA": "m-isuzu-trooper",
-   "famB": "m-kline-kar",
-   "relType": "platform",
-   "codeA": "Trooper Second generation (1991)",
-   "codeB": "Kar",
-   "genIdA": "llm-m-isuzu-trooper-second-generation-1991",
-   "genIdB": "m-kline-kar",
-   "reason": "proposed from a loosely-matched shared-platform/rebadge mention (the matched nameplate name wasn't an exact match, just a substring overlap) -- please verify this is really the right car before accepting",
    "llmDiscovered": true
   },
   "llm-m-isuzu-trooper-second-generation-1991|llm-related-subaru-bighorn|platform": {
@@ -14357,7 +14555,7 @@
    "llmDiscovered": true
   },
   "llm-m-isuzu-trooper-second-generation-1991|m-isuzu-axiom|platform": {
-   "status": "provisional",
+   "status": "confirmed",
    "checkedAt": "2026-09-12T17:51:39.907Z",
    "famA": "m-isuzu-axiom",
    "famB": "m-isuzu-trooper",
@@ -14366,8 +14564,9 @@
    "codeB": "Trooper Second generation (1991)",
    "genIdA": "m-isuzu-axiom",
    "genIdB": "llm-m-isuzu-trooper-second-generation-1991",
-   "reason": "proposed by overlapping production years only (a shared-platform/rebadge mention was found alongside this generation's own text, but which specific generation of the OTHER nameplate it refers to was guessed from year overlap, not stated explicitly) -- please verify before accepting",
-   "llmDiscovered": true
+   "reason": "matched automatically -- the nameplate was named exactly in the source text, and exactly one of its generations was in production alongside this one",
+   "llmDiscovered": true,
+   "decidedAt": "2026-09-13T21:56:08.743Z"
   },
   "llm-m-volkswagen-karmann-ghia-type-34|llm-related-volkswagen-variant|platform": {
    "status": "confirmed",
@@ -14932,19 +15131,6 @@
    "genIdA": "llm-related-mg-hector",
    "genIdB": "m-baojun-rm-5",
    "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
-   "llmDiscovered": true
-  },
-  "llm-related-mg-hector|m-venucia-xing|platform": {
-   "status": "provisional",
-   "checkedAt": "2026-09-12T17:55:40.586Z",
-   "famA": "llm-related-mg-hector",
-   "famB": "m-venucia-xing",
-   "relType": "platform",
-   "codeA": "Hector",
-   "codeB": "Xing",
-   "genIdA": "llm-related-mg-hector",
-   "genIdB": "m-venucia-xing",
-   "reason": "proposed from a loosely-matched shared-platform/rebadge mention (the matched nameplate name wasn't an exact match, just a substring overlap) -- please verify this is really the right car before accepting",
    "llmDiscovered": true
   },
   "llm-related-mg-hector|m-chevrolet-equinox|platform": {
@@ -15609,19 +15795,6 @@
    "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
    "llmDiscovered": true
   },
-  "llm-m-mercury-monterey-third-generation|m-plymouth-voyager|platform": {
-   "status": "provisional",
-   "checkedAt": "2026-09-12T18:17:58.416Z",
-   "famA": "m-mercury-monterey",
-   "famB": "m-plymouth-voyager",
-   "relType": "platform",
-   "codeA": "Monterey Third generation",
-   "codeB": "Voyager",
-   "genIdA": "llm-m-mercury-monterey-third-generation",
-   "genIdB": "m-plymouth-voyager",
-   "reason": "proposed from a loosely-matched shared-platform/rebadge mention (the matched nameplate name wasn't an exact match, just a substring overlap) -- please verify this is really the right car before accepting",
-   "llmDiscovered": true
-  },
   "llm-m-mercury-monterey-third-generation|m-mercury-commuter|platform": {
    "status": "confirmed",
    "checkedAt": "2026-09-12T18:17:58.418Z",
@@ -15677,19 +15850,6 @@
    "genIdA": "llm-m-mercury-monterey-fourth-generation",
    "genIdB": "m-mercury-montclair",
    "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
-   "llmDiscovered": true
-  },
-  "llm-m-mercury-monterey-fifth-generation|m-veritas-meteor|platform": {
-   "status": "provisional",
-   "checkedAt": "2026-09-12T18:17:58.443Z",
-   "famA": "m-mercury-monterey",
-   "famB": "m-veritas-meteor",
-   "relType": "platform",
-   "codeA": "Monterey Fifth generation",
-   "codeB": "Meteor",
-   "genIdA": "llm-m-mercury-monterey-fifth-generation",
-   "genIdB": "m-veritas-meteor",
-   "reason": "proposed from a loosely-matched shared-platform/rebadge mention (the matched nameplate name wasn't an exact match, just a substring overlap) -- please verify this is really the right car before accepting",
    "llmDiscovered": true
   },
   "llm-m-mercury-monterey-fifth-generation|m-mercury-colony-park|platform": {
@@ -16200,7 +16360,7 @@
    "llmDiscovered": true
   },
   "llm-m-chevrolet-trailblazer-first-generation-kc|llm-m-gmc-envoy-second-generation|platform": {
-   "status": "provisional",
+   "status": "confirmed",
    "checkedAt": "2026-09-12T18:26:18.732Z",
    "famA": "m-chevrolet-trailblazer",
    "famB": "m-gmc-envoy",
@@ -16209,8 +16369,9 @@
    "codeB": "Envoy Second generation",
    "genIdA": "llm-m-chevrolet-trailblazer-first-generation-kc",
    "genIdB": "llm-m-gmc-envoy-second-generation",
-   "reason": "proposed by overlapping production years only (a shared-platform/rebadge mention was found alongside this generation's own text, but which specific generation of the OTHER nameplate it refers to was guessed from year overlap, not stated explicitly) -- please verify before accepting",
-   "llmDiscovered": true
+   "reason": "matched automatically -- the nameplate was named exactly in the source text, and exactly one of its generations was in production alongside this one",
+   "llmDiscovered": true,
+   "decidedAt": "2026-09-13T21:56:08.743Z"
   },
   "llm-m-chevrolet-trailblazer-first-generation-kc|m-isuzu-ascender|platform": {
    "status": "confirmed",
@@ -16371,7 +16532,7 @@
    "llmDiscovered": true
   },
   "llm-m-gmc-envoy-second-generation|llm-m-oldsmobile-bravada-third-generation|platform": {
-   "status": "provisional",
+   "status": "confirmed",
    "checkedAt": "2026-09-12T18:28:23.678Z",
    "famA": "m-oldsmobile-bravada",
    "famB": "m-gmc-envoy",
@@ -16380,8 +16541,9 @@
    "codeB": "Envoy Second generation",
    "genIdA": "llm-m-oldsmobile-bravada-third-generation",
    "genIdB": "llm-m-gmc-envoy-second-generation",
-   "reason": "proposed by overlapping production years only (a shared-platform/rebadge mention was found alongside this generation's own text, but which specific generation of the OTHER nameplate it refers to was guessed from year overlap, not stated explicitly) -- please verify before accepting",
-   "llmDiscovered": true
+   "reason": "matched automatically -- the nameplate was named exactly in the source text, and exactly one of its generations was in production alongside this one",
+   "llmDiscovered": true,
+   "decidedAt": "2026-09-13T21:56:08.743Z"
   },
   "llm-m-oldsmobile-bravada-third-generation|m-buick-rainier|platform": {
    "status": "confirmed",
@@ -16633,19 +16795,6 @@
    "genIdA": "m-buick-rainier",
    "genIdB": "m-saab-9-7x",
    "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
-   "llmDiscovered": true
-  },
-  "llm-m-mercury-monterey-first-generation|m-mazda-cosmo|platform": {
-   "status": "provisional",
-   "checkedAt": "2026-09-13T18:45:24.553Z",
-   "famA": "m-mercury-monterey",
-   "famB": "m-mazda-cosmo",
-   "relType": "platform",
-   "codeA": "Monterey First generation",
-   "codeB": "Cosmo",
-   "genIdA": "llm-m-mercury-monterey-first-generation",
-   "genIdB": "m-mazda-cosmo",
-   "reason": "proposed from a loosely-matched shared-platform/rebadge mention (the matched nameplate name wasn't an exact match, just a substring overlap) -- please verify this is really the right car before accepting",
    "llmDiscovered": true
   },
   "m-buick-regal|m-oldsmobile-intrigue|platform": {
@@ -17141,7 +17290,7 @@
    "llmDiscovered": true
   },
   "llm-m-chevrolet-trailblazer-first-generation-kc|m-chevrolet-ssr|platform": {
-   "status": "provisional",
+   "status": "confirmed",
    "checkedAt": "2026-09-13T19:10:26.401Z",
    "famA": "m-chevrolet-ssr",
    "famB": "m-chevrolet-trailblazer",
@@ -17150,8 +17299,9 @@
    "codeB": "TrailBlazer First generation (KC)",
    "genIdA": "m-chevrolet-ssr",
    "genIdB": "llm-m-chevrolet-trailblazer-first-generation-kc",
-   "reason": "proposed by overlapping production years only (a shared-platform/rebadge mention was found alongside this generation's own text, but which specific generation of the OTHER nameplate it refers to was guessed from year overlap, not stated explicitly) -- please verify before accepting",
-   "llmDiscovered": true
+   "reason": "matched automatically -- the nameplate was named exactly in the source text, and exactly one of its generations was in production alongside this one",
+   "llmDiscovered": true,
+   "decidedAt": "2026-09-13T21:56:08.743Z"
   },
   "m-wuling-starlight-560|m-wuling-starlight-730|platform": {
    "status": "confirmed",
@@ -17631,7 +17781,7 @@
    "llmDiscovered": true
   },
   "llm-m-buick-century-third-generation|m-chevrolet-chevelle-laguna|platform": {
-   "status": "provisional",
+   "status": "confirmed",
    "checkedAt": "2026-09-13T20:14:59.715Z",
    "famA": "m-chevrolet-chevelle-laguna",
    "famB": "m-buick-century",
@@ -17640,8 +17790,9 @@
    "codeB": "Century Third generation",
    "genIdA": "m-chevrolet-chevelle-laguna",
    "genIdB": "llm-m-buick-century-third-generation",
-   "reason": "proposed by overlapping production years only (a shared-platform/rebadge mention was found alongside this generation's own text, but which specific generation of the OTHER nameplate it refers to was guessed from year overlap, not stated explicitly) -- please verify before accepting",
-   "llmDiscovered": true
+   "reason": "matched automatically -- the nameplate was named exactly in the source text, and exactly one of its generations was in production alongside this one",
+   "llmDiscovered": true,
+   "decidedAt": "2026-09-13T21:56:08.743Z"
   },
   "m-aston-martin-db7|m-jaguar-xk-x100|platform": {
    "status": "confirmed",
@@ -18233,7 +18384,7 @@
    "llmDiscovered": true
   },
   "llm-m-wuling-starlight-starlight|llm-related-wuling-xingguang-s|platform": {
-   "status": "provisional",
+   "status": "confirmed",
    "checkedAt": "2026-09-13T20:25:11.226Z",
    "famA": "llm-related-wuling-xingguang-s",
    "famB": "m-wuling-starlight",
@@ -18242,8 +18393,9 @@
    "codeB": "Starlight Starlight",
    "genIdA": "llm-related-wuling-xingguang-s",
    "genIdB": "llm-m-wuling-starlight-starlight",
-   "reason": "proposed by overlapping production years only (a shared-platform/rebadge mention was found alongside this generation's own text, but which specific generation of the OTHER nameplate it refers to was guessed from year overlap, not stated explicitly) -- please verify before accepting",
-   "llmDiscovered": true
+   "reason": "matched automatically -- the nameplate was named exactly in the source text, and exactly one of its generations was in production alongside this one",
+   "llmDiscovered": true,
+   "decidedAt": "2026-09-13T21:56:08.743Z"
   },
   "llm-m-wuling-starlight-starlight-730|llm-related-wuling-starlight|platform": {
    "status": "confirmed",
@@ -18482,12 +18634,214 @@
    "genIdB": "llm-related-chrysler-airflow-2027",
    "reason": "matched automatically -- \"Chrysler Airflow (2027)\" was named as a related car but didn't exist anywhere in the graph yet, so it was newly created from this mention (double-checked by the local LLM sanity pass against every plausible existing car -- none matched)",
    "llmDiscovered": true
+  },
+  "llm-m-jeep-compass-mk49|m-fiat-tipo-2015|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T21:56:08.258Z",
+   "decidedAt": "2026-09-13T21:56:08.258Z",
+   "famA": "m-fiat-tipo-2015",
+   "famB": "m-jeep-compass",
+   "relType": "platform",
+   "codeA": "Tipo (2015)",
+   "codeB": "Compass MK49",
+   "genIdA": "m-fiat-tipo-2015",
+   "genIdB": "llm-m-jeep-compass-mk49",
+   "reason": "matched automatically -- the nameplate was named exactly in the source text, and exactly one of its generations was in production alongside this one, so that is the generation it refers to",
+   "llmDiscovered": true
+  },
+  "llm-m-mazda-tribute-ep|m-ford-escape|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T21:56:53.545Z",
+   "decidedAt": "2026-09-13T21:56:53.545Z",
+   "famA": "m-mazda-tribute",
+   "famB": "m-ford-escape",
+   "relType": "platform",
+   "codeA": "Tribute EP",
+   "codeB": "Escape",
+   "genIdA": "llm-m-mazda-tribute-ep",
+   "genIdB": "m-ford-escape",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-mazda-tribute-ep|m-mercury-mariner|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T21:56:53.547Z",
+   "decidedAt": "2026-09-13T21:56:53.547Z",
+   "famA": "m-mazda-tribute",
+   "famB": "m-mercury-mariner",
+   "relType": "platform",
+   "codeA": "Tribute EP",
+   "codeB": "Mariner",
+   "genIdA": "llm-m-mazda-tribute-ep",
+   "genIdB": "m-mercury-mariner",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-mazda-tribute-second-generation-2007|m-ford-escape|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T21:56:53.551Z",
+   "decidedAt": "2026-09-13T21:56:53.551Z",
+   "famA": "m-mazda-tribute",
+   "famB": "m-ford-escape",
+   "relType": "platform",
+   "codeA": "Tribute Second generation (2007)",
+   "codeB": "Escape",
+   "genIdA": "llm-m-mazda-tribute-second-generation-2007",
+   "genIdB": "m-ford-escape",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-mazda-tribute-second-generation-2007|m-mercury-mariner|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T21:56:53.553Z",
+   "decidedAt": "2026-09-13T21:56:53.553Z",
+   "famA": "m-mazda-tribute",
+   "famB": "m-mercury-mariner",
+   "relType": "platform",
+   "codeA": "Tribute Second generation (2007)",
+   "codeB": "Mariner",
+   "genIdA": "llm-m-mazda-tribute-second-generation-2007",
+   "genIdB": "m-mercury-mariner",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "m-mazda-cx-7|m-mazda-mazda3|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T21:57:02.883Z",
+   "decidedAt": "2026-09-13T21:57:02.883Z",
+   "famA": "m-mazda-cx-7",
+   "famB": "m-mazda-mazda3",
+   "relType": "platform",
+   "codeA": "CX-7",
+   "codeB": "Mazda3",
+   "genIdA": "m-mazda-cx-7",
+   "genIdB": "m-mazda-mazda3",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-mazda-cx-5-ke|m-mazda-mazda3|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T21:57:41.542Z",
+   "decidedAt": "2026-09-13T21:57:41.542Z",
+   "famA": "m-mazda-cx-5",
+   "famB": "m-mazda-mazda3",
+   "relType": "platform",
+   "codeA": "CX-5 KE",
+   "codeB": "Mazda3",
+   "genIdA": "llm-m-mazda-cx-5-ke",
+   "genIdB": "m-mazda-mazda3",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-mazda-cx-5-ke|m-mazda-mazda6|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T21:57:41.544Z",
+   "decidedAt": "2026-09-13T21:57:41.544Z",
+   "famA": "m-mazda-cx-5",
+   "famB": "fam-mazda-mazda6",
+   "relType": "platform",
+   "codeA": "CX-5 KE",
+   "codeB": "Mazda6",
+   "genIdA": "llm-m-mazda-cx-5-ke",
+   "genIdB": "m-mazda-mazda6",
+   "reason": "matched automatically (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-mazda-cx-5-kf|m-mazda-cx-8|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T21:57:41.550Z",
+   "decidedAt": "2026-09-13T21:57:41.550Z",
+   "famA": "m-mazda-cx-5",
+   "famB": "m-mazda-cx-8",
+   "relType": "platform",
+   "codeA": "CX-5 KF",
+   "codeB": "CX-8",
+   "genIdA": "llm-m-mazda-cx-5-kf",
+   "genIdB": "m-mazda-cx-8",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-mazda-cx-5-km|m-mazda-cx-50|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T21:57:41.555Z",
+   "decidedAt": "2026-09-13T21:57:41.555Z",
+   "famA": "m-mazda-cx-5",
+   "famB": "m-mazda-cx-50",
+   "relType": "platform",
+   "codeA": "CX-5 KM",
+   "codeB": "CX-50",
+   "genIdA": "llm-m-mazda-cx-5-km",
+   "genIdB": "m-mazda-cx-50",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-mazda-cx-5-ke|m-mazda-cx-4|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T21:58:12.398Z",
+   "decidedAt": "2026-09-13T21:58:12.398Z",
+   "famA": "m-mazda-cx-4",
+   "famB": "m-mazda-cx-5",
+   "relType": "platform",
+   "codeA": "CX-4",
+   "codeB": "CX-5 KE",
+   "genIdA": "m-mazda-cx-4",
+   "genIdB": "llm-m-mazda-cx-5-ke",
+   "reason": "matched automatically (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "m-mazda-cx-5|m-mazda-tribute|succession": {
+   "status": "none",
+   "checkedAt": "2026-09-13T21:58:31.685Z",
+   "famA": "m-mazda-cx-5",
+   "famB": "m-mazda-tribute",
+   "relType": "succession",
+   "note": "Mazda CX-5's own article says: \"{{Infobox automobile | name = Mazda CX-5 | image = 2024 Mazda CX-5 2.5 S Select in Platinum Quartz Metallic, front right.jpg | caption = Second generation CX-5 (KF; 2024) | manufacturer = Mazda | production = 2012–present | model_years = 2013–present | class = Compact crossover SUV | body_style = 5-door SUV | layout = | predecessor = }} \n == <span class=\"anchor\" id=\"first generation\"></span><span class=\"anchor\" id=\"KE\"></span> First generation (KE; 2012) == {{Infobox automobile | name = First generation | image = Mazda CX-5 …\" / Mazda Tribute's own article says: \"…neration (2007) == {{Infobox automobile |name = Second generation |image = 08 Mazda Tribute.jpg |production = January 2007 – November 2011 |model_years = 2008–2011 |assembly = Claycomo, Missouri, United States |engine = |transmission = |length = |width = |height = <br />Hybrid: <br>2008-09 FWD: <br>2010-12 FWD: }} thumb|left|Rear view In 2007 for the 2008 model year, the Tribute was significantly revamped, like its Ford Escape and Mercury Mariner siblings. Originally set to be renamed the Mazda CX-5, the vehicle kept the Tribute name. The changes were significant, but fell short of a \"clean sheet\" redesign, as the vehicles remained on the CD2 platform, and kept the existing 2.3&nbsp;L L5-VE inline-four and 3.0&nbsp;L AJ V6 engines. Visible changes included all new sheet met\"",
+   "matchLevel": null,
+   "codeA": null,
+   "codeB": null,
+   "genIdA": null,
+   "genIdB": null,
+   "reason": "The provided text confirms the Mazda Tribute's second generation (2008–2011) was originally set to be renamed the Mazda CX-5 but retained the Tribute name. However, the text explicitly states that this Tribute generation 'fell short of a clean sheet redesign' and 'remained on the CD2 platform'. The Mazda CX-5 (specifically the KE generation mentioned in the list) is known in general automotive knowledge to share the CD3 platform with the Ford Escape (which shares the CD2 platform). Therefore, the Tribute (CD2) and the CX-5 (CD3) are built on different platforms and are not a direct predecessor/successor pair in terms of platform lineage; the Tribute was a rebadged version of the Escape, while the CX-5 is a distinct successor in the Mazda lineup (often linked to the Mazda6 or Ford Escape II in different contexts, but the text provided does not link the specific generations listed to each other as a platform pair). Without a textual link or specific factual knowledge connecting a specific generation of the Tribute to a specific generation of the CX-5 as a platform successor, and given the explicit note about the platform difference (CD2 vs implied different for CX-5), the relationship cannot be resolved to specific generations from the lists provided.",
+   "debug": {
+    "raw": {
+     "resolved": false,
+     "codeA": null,
+     "codeB": null,
+     "evidenceQuote": null,
+     "reason": "The provided text confirms the Mazda Tribute's second generation (2008–2011) was originally set to be renamed the Mazda CX-5 but retained the Tribute name. However, the text explicitly states that this Tribute generation 'fell short of a clean sheet redesign' and 'remained on the CD2 platform'. The Mazda CX-5 (specifically the KE generation mentioned in the list) is known in general automotive knowledge to share the CD3 platform with the Ford Escape (which shares the CD2 platform). Therefore, the Tribute (CD2) and the CX-5 (CD3) are built on different platforms and are not a direct predecessor/successor pair in terms of platform lineage; the Tribute was a rebadged version of the Escape, while the CX-5 is a distinct successor in the Mazda lineup (often linked to the Mazda6 or Ford Escape II in different contexts, but the text provided does not link the specific generations listed to each other as a platform pair). Without a textual link or specific factual knowledge connecting a specific generation of the Tribute to a specific generation of the CX-5 as a platform successor, and given the explicit note about the platform difference (CD2 vs implied different for CX-5), the relationship cannot be resolved to specific generations from the lists provided."
+    },
+    "evidenceCodeForA": null,
+    "evidenceCodeForB": null,
+    "ordinalFromNoteA": "CX-5 KF",
+    "ordinalFromNoteB": "Tribute EP",
+    "ordinalBacked": false,
+    "evidenceQuote": null,
+    "quoteVerified": false,
+    "llmVerified": false,
+    "knowledgeBacked": false,
+    "sourceAttributed": true,
+    "citedA": null,
+    "citedB": null,
+    "citationBacked": false,
+    "quoteFabricated": false,
+    "fetchedArticleA": true,
+    "fetchedArticleB": true,
+    "availableCodesA": [
+     "CX-5 KE",
+     "CX-5 KF",
+     "CX-5 KM"
+    ],
+    "availableCodesB": [
+     "Tribute EP",
+     "Tribute Second generation (2007)"
+    ]
+   }
   }
  },
  "recheck": {
   "m-mercedes-benz-g-class": {
    "status": "none",
-   "checkedAt": "2026-09-13T20:20:57.785Z",
+   "checkedAt": "2026-09-13T21:56:06.387Z",
    "sourceTitle": "Mercedes-Benz G-Class",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -18571,7 +18925,7 @@
   },
   "m-mercedes-benz-gla": {
    "status": "none",
-   "checkedAt": "2026-09-13T20:20:57.849Z",
+   "checkedAt": "2026-09-13T21:56:06.448Z",
    "sourceTitle": "Mercedes-Benz GLA",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -18674,7 +19028,7 @@
   },
   "m-mercedes-benz-cla": {
    "status": "none",
-   "checkedAt": "2026-09-13T20:20:57.896Z",
+   "checkedAt": "2026-09-13T21:56:06.493Z",
    "sourceTitle": "Mercedes-Benz CLA",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -18956,7 +19310,7 @@
   },
   "m-toyota-celica": {
    "status": "none",
-   "checkedAt": "2026-09-13T20:20:57.963Z",
+   "checkedAt": "2026-09-13T21:56:06.556Z",
    "sourceTitle": "Toyota Celica",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -19072,7 +19426,7 @@
   },
   "m-toyota-carina": {
    "status": "none",
-   "checkedAt": "2026-09-13T20:20:58.045Z",
+   "checkedAt": "2026-09-13T21:56:06.631Z",
    "sourceTitle": "Toyota Carina",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -19200,7 +19554,7 @@
   },
   "m-lexus-sc": {
    "status": "none",
-   "checkedAt": "2026-09-13T20:20:58.052Z",
+   "checkedAt": "2026-09-13T21:56:06.638Z",
    "sourceTitle": "Lexus SC",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -19849,7 +20203,7 @@
   },
   "m-seat-toledo": {
    "status": "none",
-   "checkedAt": "2026-09-13T20:20:58.137Z",
+   "checkedAt": "2026-09-13T21:56:06.715Z",
    "sourceTitle": "SEAT Toledo",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -19980,7 +20334,7 @@
   },
   "m-daren-mk-3": {
    "status": "none",
-   "checkedAt": "2026-09-13T20:20:58.150Z",
+   "checkedAt": "2026-09-13T21:56:06.728Z",
    "sourceTitle": "Daren Mk.3",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -20055,7 +20409,7 @@
   },
   "m-audi-a3-mk3": {
    "status": "none",
-   "checkedAt": "2026-09-13T20:20:58.172Z",
+   "checkedAt": "2026-09-13T21:56:06.750Z",
    "sourceTitle": "Audi A3",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -20111,7 +20465,7 @@
   },
   "m-audi-tt": {
    "status": "none",
-   "checkedAt": "2026-09-13T20:20:58.271Z",
+   "checkedAt": "2026-09-13T21:56:06.849Z",
    "sourceTitle": "Audi TT",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -20251,7 +20605,7 @@
   },
   "m-seat-leon-mk3": {
    "status": "none",
-   "checkedAt": "2026-09-13T20:20:58.335Z",
+   "checkedAt": "2026-09-13T21:56:06.910Z",
    "sourceTitle": "SEAT León",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -20365,7 +20719,7 @@
   },
   "m-volkswagen-karmann-ghia": {
    "status": "none",
-   "checkedAt": "2026-09-13T20:20:58.368Z",
+   "checkedAt": "2026-09-13T21:56:06.942Z",
    "sourceTitle": "Volkswagen Karmann Ghia",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -20415,7 +20769,7 @@
   },
   "m-porsche-panamera": {
    "status": "none",
-   "checkedAt": "2026-09-13T20:20:58.356Z",
+   "checkedAt": "2026-09-13T21:56:06.930Z",
    "sourceTitle": "Porsche Panamera",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -20481,7 +20835,7 @@
   },
   "m-subaru-forester": {
    "status": "none",
-   "checkedAt": "2026-09-13T20:20:58.414Z",
+   "checkedAt": "2026-09-13T21:56:06.987Z",
    "sourceTitle": "Subaru Forester",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -20590,7 +20944,7 @@
   },
   "m-volkswagen-touran": {
    "status": "none",
-   "checkedAt": "2026-09-13T20:20:58.437Z",
+   "checkedAt": "2026-09-13T21:56:07.009Z",
    "sourceTitle": "Volkswagen Touran",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -20640,7 +20994,7 @@
   },
   "m-chevrolet-captiva": {
    "status": "none",
-   "checkedAt": "2026-09-13T20:20:58.512Z",
+   "checkedAt": "2026-09-13T21:56:07.083Z",
    "sourceTitle": "Chevrolet Captiva",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -20745,7 +21099,7 @@
   },
   "m-isuzu-trooper": {
    "status": "none",
-   "checkedAt": "2026-09-13T20:20:58.572Z",
+   "checkedAt": "2026-09-13T21:56:07.142Z",
    "sourceTitle": "Isuzu Trooper",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -20841,7 +21195,7 @@
   },
   "m-volkswagen-tiguan": {
    "status": "none",
-   "checkedAt": "2026-09-13T20:20:58.645Z",
+   "checkedAt": "2026-09-13T21:56:07.214Z",
    "sourceTitle": "Volkswagen Tiguan",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -20954,7 +21308,7 @@
   },
   "m-chrysler-horizon": {
    "status": "none",
-   "checkedAt": "2026-09-13T20:20:58.694Z",
+   "checkedAt": "2026-09-13T21:56:07.263Z",
    "sourceTitle": "Chrysler Horizon",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -21054,7 +21408,7 @@
   },
   "m-mercury-monterey": {
    "status": "none",
-   "checkedAt": "2026-09-13T20:20:58.800Z",
+   "checkedAt": "2026-09-13T21:56:07.371Z",
    "sourceTitle": "Mercury Monterey",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -21229,7 +21583,7 @@
   },
   "m-gmc-envoy": {
    "status": "none",
-   "checkedAt": "2026-09-13T20:20:58.822Z",
+   "checkedAt": "2026-09-13T21:56:07.393Z",
    "sourceTitle": "GMC Envoy",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -21282,7 +21636,7 @@
   },
   "m-chevrolet-trailblazer": {
    "status": "none",
-   "checkedAt": "2026-09-13T20:20:58.840Z",
+   "checkedAt": "2026-09-13T21:56:07.412Z",
    "sourceTitle": "Chevrolet TrailBlazer (SUV)",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -21333,7 +21687,7 @@
   },
   "m-oldsmobile-bravada": {
    "status": "none",
-   "checkedAt": "2026-09-13T20:20:58.880Z",
+   "checkedAt": "2026-09-13T21:56:07.451Z",
    "sourceTitle": "Oldsmobile Bravada",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -21413,7 +21767,7 @@
   },
   "m-buick-lacrosse": {
    "status": "none",
-   "checkedAt": "2026-09-13T20:20:58.906Z",
+   "checkedAt": "2026-09-13T21:56:07.477Z",
    "sourceTitle": "Buick LaCrosse",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -21489,7 +21843,7 @@
   },
   "m-buick-invicta": {
    "status": "none",
-   "checkedAt": "2026-09-13T20:20:58.925Z",
+   "checkedAt": "2026-09-13T21:56:07.495Z",
    "sourceTitle": "Buick Invicta",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -21540,7 +21894,7 @@
   },
   "m-buick-century": {
    "status": "none",
-   "checkedAt": "2026-09-13T20:20:59.015Z",
+   "checkedAt": "2026-09-13T21:56:07.582Z",
    "sourceTitle": "Buick Century",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -21692,7 +22046,7 @@
   },
   "m-jaguar-xjs": {
    "status": "none",
-   "checkedAt": "2026-09-13T20:20:59.030Z",
+   "checkedAt": "2026-09-13T21:56:07.598Z",
    "sourceTitle": "Jaguar XJS",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -21751,7 +22105,7 @@
   },
   "m-jaguar-e-type": {
    "status": "none",
-   "checkedAt": "2026-09-13T20:20:59.052Z",
+   "checkedAt": "2026-09-13T21:56:07.620Z",
    "sourceTitle": "Jaguar E-Type",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -21820,7 +22174,7 @@
   },
   "m-wuling-starlight": {
    "status": "none",
-   "checkedAt": "2026-09-13T20:23:13.057Z",
+   "checkedAt": "2026-09-13T21:56:07.654Z",
    "sourceTitle": "Wuling Starlight",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -21884,7 +22238,7 @@
   },
   "m-jeep-compass": {
    "status": "none",
-   "checkedAt": "2026-09-13T20:25:11.854Z",
+   "checkedAt": "2026-09-13T21:56:07.701Z",
    "sourceTitle": "Jeep Compass",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -21965,6 +22319,98 @@
    "discrepancy": null,
    "attempts": 1,
    "feedback": []
+  },
+  "m-mazda-tribute": {
+   "status": "none",
+   "checkedAt": "2026-09-13T21:56:53.553Z",
+   "sourceTitle": "Mazda Tribute",
+   "proposal": {
+    "hasMultipleGenerations": true,
+    "generations": [
+     {
+      "code": "EP",
+      "yearStart": 2001,
+      "yearEnd": 2006,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "2001-2004 Mazda Tribute -- 03-21-2012.JPG",
+      "sharedPlatforms": [
+       "Ford Escape",
+       "Mercury Mariner"
+      ]
+     },
+     {
+      "code": "Second generation (2007)",
+      "yearStart": 2008,
+      "yearEnd": 2011,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "08 Mazda Tribute.jpg",
+      "sharedPlatforms": [
+       "Ford Escape",
+       "Mercury Mariner"
+      ]
+     }
+    ]
+   },
+   "discrepancy": null,
+   "attempts": 1,
+   "feedback": []
+  },
+  "m-mazda-cx-5": {
+   "status": "none",
+   "checkedAt": "2026-09-13T21:57:41.556Z",
+   "sourceTitle": "Mazda CX-5",
+   "proposal": {
+    "hasMultipleGenerations": true,
+    "generations": [
+     {
+      "code": "KE",
+      "yearStart": 2012,
+      "yearEnd": 2017,
+      "designers": [
+       "Norihito Iwao",
+       "Masashi Nakayama"
+      ],
+      "engineers": [],
+      "wikiFile": "Mazda CX-5 2.0 SKYACTIV-G AWD Sports-Line – Frontansicht, 3. September 2012, Düsseldorf.jpg",
+      "sharedPlatforms": [
+       "Mazda3",
+       "Mazda6"
+      ]
+     },
+     {
+      "code": "KF",
+      "yearStart": 2016,
+      "yearEnd": 2025,
+      "designers": [
+       "Ikuo Maeda",
+       "Shinichi Isayama"
+      ],
+      "engineers": [],
+      "wikiFile": "2024 Mazda CX-5 2.5 S Select in Platinum Quartz Metallic, front right.jpg",
+      "sharedPlatforms": [
+       "Mazda CX-8"
+      ]
+     },
+     {
+      "code": "KM",
+      "yearStart": 2025,
+      "yearEnd": null,
+      "designers": [
+       "Takanori Tsubaki"
+      ],
+      "engineers": [],
+      "wikiFile": "V08788P086.jpg",
+      "sharedPlatforms": [
+       "Mazda CX-50"
+      ]
+     }
+    ]
+   },
+   "discrepancy": null,
+   "attempts": 1,
+   "feedback": []
   }
  },
  "rejectedRelations": {
@@ -21973,7 +22419,90 @@
   "m-mercedes-benz-cla|m-mercedes-benz-gla|platform": true,
   "m-mercedes-benz-b-class-w246|m-mercedes-benz-gla|related": true,
   "llm-m-isuzu-trooper-second-generation-1991|m-chrysler-horizon|platform": true,
-  "llm-m-isuzu-trooper-second-generation-1991|m-mercury-monterey|platform": true
+  "llm-m-isuzu-trooper-second-generation-1991|m-mercury-monterey|platform": true,
+  "llm-m-skoda-octavia-mk1-1z|m-daren-mk-3|platform": true,
+  "llm-m-seat-toledo-kg|m-leapmotor-a05|platform": true,
+  "llm-m-audi-a3-mk3-fourth-generation-typ-8y|m-hyundai-eon|platform": true,
+  "llm-m-audi-tt-8j-mk2|m-saturn-ion|platform": true,
+  "llm-m-audi-tt-8n-mk1|m-saturn-ion|platform": true,
+  "llm-m-audi-tt-fv-8s-mk3|m-saturn-ion|platform": true,
+  "m-cupra-formentor|m-hyundai-eon|platform": true,
+  "llm-m-daren-mk-3-mk-6|llm-m-volkswagen-touran-1t|platform": true,
+  "llm-m-chevrolet-captiva-cn202s|m-saturn-ion|platform": true,
+  "llm-m-isuzu-trooper-first-generation|m-saturn-ion|platform": true,
+  "llm-m-isuzu-trooper-second-generation-1991|m-kline-kar|platform": true,
+  "llm-related-mg-hector|m-venucia-xing|platform": true,
+  "llm-m-mercury-monterey-third-generation|m-plymouth-voyager|platform": true,
+  "llm-m-mercury-monterey-fifth-generation|m-veritas-meteor|platform": true,
+  "llm-m-mercury-monterey-first-generation|m-mazda-cosmo|platform": true,
+  "m-mazda-cx-4|m-mazda-mazda3|platform": true
+ },
+ "crossGroupRejections": {
+  "llm-m-skoda-octavia-mk1-1z|m-daren-mk-3|platform": {
+   "a": "llm-m-skoda-octavia-mk1-1z",
+   "b": "m-daren-mk-3",
+   "why": "Škoda and Daren are not part of the same company, so they cannot share a platform -- rejected without review"
+  },
+  "llm-m-seat-toledo-kg|m-leapmotor-a05|platform": {
+   "a": "llm-m-seat-toledo-kg",
+   "b": "m-leapmotor-a05",
+   "why": "SEAT and Leapmotor are not part of the same company, so they cannot share a platform -- rejected without review"
+  },
+  "llm-m-audi-a3-mk3-fourth-generation-typ-8y|m-hyundai-eon|platform": {
+   "a": "llm-m-audi-a3-mk3-fourth-generation-typ-8y",
+   "b": "m-hyundai-eon",
+   "why": "Audi and Hyundai are not part of the same company, so they cannot share a platform -- rejected without review"
+  },
+  "llm-m-audi-tt-8j-mk2|m-saturn-ion|platform": {
+   "a": "llm-m-audi-tt-8j-mk2",
+   "b": "m-saturn-ion",
+   "why": "Audi and Saturn are not part of the same company, so they cannot share a platform -- rejected without review"
+  },
+  "llm-m-audi-tt-8n-mk1|m-saturn-ion|platform": {
+   "a": "llm-m-audi-tt-8n-mk1",
+   "b": "m-saturn-ion",
+   "why": "Audi and Saturn are not part of the same company, so they cannot share a platform -- rejected without review"
+  },
+  "llm-m-audi-tt-fv-8s-mk3|m-saturn-ion|platform": {
+   "a": "llm-m-audi-tt-fv-8s-mk3",
+   "b": "m-saturn-ion",
+   "why": "Audi and Saturn are not part of the same company, so they cannot share a platform -- rejected without review"
+  },
+  "m-cupra-formentor|m-hyundai-eon|platform": {
+   "a": "m-cupra-formentor",
+   "b": "m-hyundai-eon",
+   "why": "Cupra and Hyundai are not part of the same company, so they cannot share a platform -- rejected without review"
+  },
+  "llm-m-daren-mk-3-mk-6|llm-m-volkswagen-touran-1t|platform": {
+   "a": "llm-m-volkswagen-touran-1t",
+   "b": "llm-m-daren-mk-3-mk-6",
+   "why": "Volkswagen and Daren are not part of the same company, so they cannot share a platform -- rejected without review"
+  },
+  "llm-m-isuzu-trooper-first-generation|m-saturn-ion|platform": {
+   "a": "llm-m-isuzu-trooper-first-generation",
+   "b": "m-saturn-ion",
+   "why": "Isuzu and Saturn are not part of the same company, so they cannot share a platform -- rejected without review"
+  },
+  "llm-m-isuzu-trooper-second-generation-1991|m-kline-kar|platform": {
+   "a": "llm-m-isuzu-trooper-second-generation-1991",
+   "b": "m-kline-kar",
+   "why": "Isuzu and Kline are not part of the same company, so they cannot share a platform -- rejected without review"
+  },
+  "llm-related-mg-hector|m-venucia-xing|platform": {
+   "a": "llm-related-mg-hector",
+   "b": "m-venucia-xing",
+   "why": "MG and Venucia are not part of the same company, so they cannot share a platform -- rejected without review"
+  },
+  "llm-m-mercury-monterey-third-generation|m-plymouth-voyager|platform": {
+   "a": "llm-m-mercury-monterey-third-generation",
+   "b": "m-plymouth-voyager",
+   "why": "Mercury and Plymouth are not part of the same company, so they cannot share a platform -- rejected without review"
+  },
+  "llm-m-mercury-monterey-fifth-generation|m-veritas-meteor|platform": {
+   "a": "llm-m-mercury-monterey-fifth-generation",
+   "b": "m-veritas-meteor",
+   "why": "Mercury and Veritas are not part of the same company, so they cannot share a platform -- rejected without review"
+  }
  },
  "transitive": {},
  "settings": {
