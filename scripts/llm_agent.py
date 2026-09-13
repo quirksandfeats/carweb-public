@@ -147,7 +147,10 @@ def wait_for_job(poll_seconds, give_up_after):
 
 # -------------------------------------------------------------- the targets --
 def review_queue_ids(path=None):
-    """Node ids from the family report's two review sections.
+    """Node ids from the family report's two review sections -- the "review
+    backlog", which is a different thing from the job QUEUE in Cloudflare.
+    The queue holds requests to run; the backlog is the list of cars a run
+    works through.
 
     UN-SPLIT NAMEPLATE CANDIDATES comes FIRST, and the order is the point.
     Those are the models where a credited designer's dates contradict the
@@ -531,7 +534,7 @@ def main():
     # agent spends the model exactly the way a person does. --seeds is only how
     # many places it starts from.
     ap.add_argument("--seeds", type=int, default=1,
-                    help="how many review-queue cars to start from (the cascade decides "
+                    help="how many backlog cars to start from (the cascade decides "
                          "how many get scanned from each)")
     ap.add_argument("--cascade-depth", type=int, default=None,
                     help="override serve.py's CASCADE_MAX_DEPTH for this run "

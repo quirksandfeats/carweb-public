@@ -28,6 +28,20 @@ that pushed confirmed records would quietly remove that. The agent's job ends
 at "here is what the article says"; the confirming is still yours, on the site,
 afterwards.
 
+## Two different lists, both called a queue in conversation
+
+- The **job queue** lives in Cloudflare KV and holds *requests to run* — at
+  most one at a time. `GET /api/request/status` shows it, and it is empty
+  whenever nothing has been requested.
+- The **review backlog** lives in `data_src/harvest/family_match_report.txt`
+  and is the list of *cars a run works through* — currently 186 of them. It
+  has nothing to do with Cloudflare, and `--now` uses it without touching the
+  job queue at all.
+
+A job does not name a car. It means "do a pass"; the agent chooses which cars,
+from the top of the backlog. The note you can type into the button is logged,
+not parsed.
+
 ## Routes
 
 Everything lives under `/api/request/` and nothing else is touched — in
