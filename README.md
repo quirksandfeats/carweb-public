@@ -51,6 +51,13 @@ article text before it is kept, and nothing reaches the graph without your
 confirmation. Discoveries live only in `app/llm_families.json`; delete that file
 and the layer resets to nothing, leaving the harvested graph untouched.
 
+## Requesting a scan remotely
+
+The hosted copy can ask the machine with the model on it to run a pass:
+a button on the site queues a job in a Cloudflare Worker, and
+`scripts/llm_agent.py` on that machine picks it up, runs the pass, pushes,
+and shuts itself down. See [`docs/REQUEST-QUEUE.md`](docs/REQUEST-QUEUE.md).
+
 ## Rebuilding
 
 ```bash

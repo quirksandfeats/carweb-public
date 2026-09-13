@@ -77,17 +77,67 @@ config on the Mac, so make it long and random.
 Until both exist, `/api/request/queue` answers `queue-unconfigured` and the
 button says so rather than failing.
 
-## The agent (not built yet)
+## The agent
 
-A polling script on the Mac that:
+`scripts/llm_agent.py`. Stdlib plus playwright.
 
-1. `GET /api/request/jobs` on a timer; nothing to do most of the time.
-2. On a job: `POST /api/request/claim`, start `llama-server` and `serve.py`.
-3. Drive the pass through Playwright against the real UI, reusing
-   `qa/qa_llm_families.py`'s harness — so the code path that runs is the one
-   that ships, rather than a second implementation that can drift from it.
-4. `git commit && git push` the resulting `app/llm_families.json`.
-5. `POST /api/request/done` with a one-line summary, stop `llama-server` and
-   `serve.py`, exit.
+```
+export CARWEB_AGENT_TOKEN='<the AGENT_TOKEN secret>'
+python3 scripts/llm_agent.py            # wait up to 10 min for a job, run it, exit
+python3 scripts/llm_agent.py --watch    # keep waiting (for launchd/cron)
+python3 scripts/llm_agent.py --now      # run a scan now, no job needed
+python3 scripts/llm_agent.py --targets m-chevrolet-suburban,m-jaguar-xjs
+```
 
-Nothing in step 3 confirms anything. It writes provisional records only.
+Per run: `--max-scans` (default 12) caps how many nodes it checks, since each
+is a real model call; `--budget-minutes` (45) caps the scanning phase;
+`--node-timeout` (180) is how long one node gets before it is recorded as an
+error and the run moves on.
+
+What one run does:
+
+1. `GET /api/request/jobs`, then `POST /api/request/claim`.
+2. Picks targets from `data_src/harvest/family_match_report.txt`, minus
+   anything already scanned, dismissed or awaiting a re-check.
+   **UN-SPLIT NAMEPLATE CANDIDATES first** — those are the models where a
+   credited designer's dates contradict the article's own range (Wayne Cherry
+   cannot have designed the 1933 Suburban), so there is positive evidence of
+   hidden generations. UNCONFIRMED is the weaker signal and comes second.
+3. Starts `app/serve.py`, which starts `llama-server` itself and does not
+   begin listening until the model has loaded — so the port opening *is* the
+   readiness check.
+4. Drives the real UI with Playwright: arms 🤖 LLM Check, opens each target,
+   waits for its entry to land. Opening a node with the check armed is exactly
+   what a human does, and it is the code path that ships — no second
+   implementation to drift from it.
+5. SIGTERMs `serve.py`, whose handler stops `llama-server`. That is what
+   "closes the program running locally".
+6. Commits **only** `app/llm_families.json` and `app/llm_families_data.js`,
+   and only if they moved, then pushes. Never `git add -A`: this runs
+   unattended in a working copy that may have anything else half-finished in
+   it.
+7. `POST /api/request/done` with a one-line summary, and exits.
+
+### What it confirms
+
+It drives the real UI, so it inherits the app's own rule — which is **not**
+"nothing is ever confirmed":
+
+- A plain model that turns out to hide several generations is **split and
+  applied immediately**. That is an existing deliberate decision ("if a car is
+  creating a nameplate for the first time... you do not need my approval to
+  turn it into a nameplate"), and it is most of the review queue.
+- A correction to a nameplate that **already** has a generation list stays
+  **provisional** and waits for a human, because it rewrites data someone may
+  already be relying on.
+
+Nothing in the agent widens that. Every claim still has to appear verbatim in
+the article before it is kept — the guard in `llm_families.js` runs on this
+path because this path *is* the app.
+
+### Tests
+
+`qa/qa_llm_agent.py` covers the decisions made before any model call: which
+nodes are picked, in what order, which are treated as already done, and which
+files may be committed. Pure functions over fixtures, so unlike the other
+`qa_*.py` suites it needs no browser, no server and no network.
