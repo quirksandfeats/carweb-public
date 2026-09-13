@@ -81,6 +81,20 @@ button says so rather than failing.
 
 `scripts/llm_agent.py`. Stdlib plus playwright.
 
+Homebrew's Python refuses a system-wide `pip install` (PEP 668), so playwright
+lives in a virtualenv in the repo, and the agent is run with that venv's
+python:
+
+```
+python3 -m venv .venv
+.venv/bin/pip install -q playwright
+.venv/bin/python -m playwright install chromium
+.venv/bin/python scripts/llm_agent.py --now --seeds 1
+```
+
+`serve.py` itself is stdlib only, and the agent launches it with whatever
+python is running the agent, so the venv covers both.
+
 ```
 export CARWEB_AGENT_TOKEN='<the AGENT_TOKEN secret>'
 python3 scripts/llm_agent.py            # wait up to 10 min for a job, run it, exit

@@ -47,3 +47,8 @@ testwrite.tmp
 
 # ---- rsync / iCloud partial-transfer droppings ----------------------------
 .*.??????
+
+# Local Python virtualenv for playwright (the agent and the qa/ suites need
+# it; Homebrew Python refuses a system-wide pip install under PEP 668).
+.venv/
+venv/
