@@ -12,21 +12,19 @@
   "assets": {
     "directory": "./app",
     "binding": "ASSETS"
-  }
+  },
 
-  // The request queue needs one KV namespace, and this file deliberately does
-  // NOT declare it yet: wrangler refuses to deploy against a namespace id that
-  // does not exist, so committing a placeholder would take the live site down
-  // until the namespace was created. src/worker.js answers every queue route
-  // with a plain "queue-unconfigured" until the binding appears, so this
-  // deploys and serves normally as it stands.
-  //
-  // To turn the queue on:
-  //   1. npx wrangler kv namespace create CARWEB_JOBS
-  //      (or Cloudflare dashboard → Storage & Databases → KV → Create)
-  //   2. paste the id it prints into a block here:
-  //        "kv_namespaces": [{ "binding": "JOBS", "id": "<id>" }]
-  //   3. npx wrangler secret put REQUEST_SECRET     # the button's passphrase
-  //      npx wrangler secret put AGENT_TOKEN        # the polling agent's token
-  //      (or dashboard → the Worker → Settings → Variables and Secrets)
+  // The request queue's storage. One job at a time lives under "job:pending"
+  // and the last finished one under "job:last" -- see src/worker.js.
+  "kv_namespaces": [
+    { "binding": "JOBS", "id": "0f0a2ae5a4a749c4a34d10feab0357e6" }
+  ]
+
+  // Still to set, and deliberately not in this file -- they are secrets, and
+  // this file is public:
+  //   npx wrangler secret put REQUEST_SECRET   # the button's passphrase
+  //   npx wrangler secret put AGENT_TOKEN      # the polling agent's token
+  // (or Cloudflare dashboard → the carweb Worker → Settings → Variables and
+  // Secrets → Add, type "Secret"). Until both exist the queue routes answer
+  // "queue-unconfigured" rather than failing, and the button says so.
 }

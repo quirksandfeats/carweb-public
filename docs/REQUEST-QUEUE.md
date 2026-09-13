@@ -55,36 +55,27 @@ complete jobs. Neither can do the other's job if it leaks.
 
 ## Turning it on
 
-The Worker is already deployed and already answers these routes — with
-`queue-unconfigured`, because no KV namespace is bound yet. `wrangler.jsonc`
-deliberately does not declare one: wrangler refuses to deploy against a
-namespace id that does not exist, so committing a placeholder would take the
-live site down until the namespace was created.
+The KV namespace exists (`CARWEB_JOBS`, id `0f0a2ae5a4a749c4a34d10feab0357e6`)
+and `wrangler.jsonc` binds it as `JOBS`. What is left is the two secrets, and
+they are deliberately not set from here — a secret typed into a chat is a
+secret that has been written down somewhere it shouldn't be. Generate them
+where they will be used:
 
-1. Create the namespace:
+```
+openssl rand -base64 24          # run twice, keep both values
+npx wrangler secret put REQUEST_SECRET    # the button's passphrase
+npx wrangler secret put AGENT_TOKEN       # the polling agent's token
+```
 
-   ```
-   npx wrangler kv namespace create CARWEB_JOBS
-   ```
+or Cloudflare dashboard → the `carweb` Worker → Settings → Variables and
+Secrets → Add, type **Secret**.
 
-   or Cloudflare dashboard → Storage & Databases → KV → Create.
+`REQUEST_SECRET` is the one you will type into the button, so a passphrase you
+can remember is fine. `AGENT_TOKEN` is only ever pasted into the agent's
+config on the Mac, so make it long and random.
 
-2. Add the id it prints to `wrangler.jsonc`:
-
-   ```jsonc
-   "kv_namespaces": [{ "binding": "JOBS", "id": "<id>" }]
-   ```
-
-3. Set the two secrets:
-
-   ```
-   npx wrangler secret put REQUEST_SECRET
-   npx wrangler secret put AGENT_TOKEN
-   ```
-
-   or dashboard → the Worker → Settings → Variables and Secrets.
-
-4. Redeploy. The button's status line stops saying the queue is unconfigured.
+Until both exist, `/api/request/queue` answers `queue-unconfigured` and the
+button says so rather than failing.
 
 ## The agent (not built yet)
 
