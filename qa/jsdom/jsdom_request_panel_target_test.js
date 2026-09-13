@@ -140,14 +140,18 @@ const wait = ms => new Promise(r => setTimeout(r, ms));
     $("llmrequest-status").textContent);
 
   $("llmrequest-pass").value = "a-passphrase";
-  $("llmrequest-note").value = "the 1930 entry looks wrong";
   $("llmrequest-send").click();
   await wait(120);
   t("the request carries the car's id", posted.length === 1 && posted[0].targetId === "m-testreq-alpha",
     JSON.stringify(posted));
   t("...and a readable label, so the queue can be shown without the graph",
     posted[0].targetLabel === "TestReq Alpha", posted[0].targetLabel);
-  t("...and the note", posted[0].note === "the 1930 entry looks wrong");
+  // The free-text box is gone on purpose: the only thing a request needs is
+  // which car, and an open field on a public page that ends up in a log a
+  // person reads is an invitation to test what else it can be made to say.
+  t("there is no free-text field on the page at all",
+    $("llmrequest-note") === null);
+  t("...and nothing free-text is sent", !("note" in posted[0]), JSON.stringify(posted[0]));
   t("the passphrase is cleared after sending", $("llmrequest-pass").value === "");
 
   // ---- the queue is shown, and a request can be taken back out ----------

@@ -68,6 +68,10 @@ window.LlmFamilies = (function () {
     // didn't work. This list is checked in addition to store.relations so a
     // deleted auto-discovered match stays gone for good.
     rejectedRelations: bootData.rejectedRelations || {},
+    // Why a weak proposal was auto-rejected for crossing company lines --
+    // see weakProposalRejection. Kept separately from rejectedRelations
+    // (a plain key -> true map) because rule 2 counts these.
+    crossGroupRejections: bootData.crossGroupRejections || {},
     // Transitive relationships the user has decided on -- confirmed ones
     // become real links, rejected ones must never be re-proposed. Keyed the
     // same unordered way as the proposal itself so a pair can't come back
@@ -1237,6 +1241,170 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
       if (!seen.has(k)) { seen.add(k); out.push(s); }
     });
     return out;
+  }
+
+  // ---------- who owns whom: the two auto-reject rules for weak proposals ----
+  // A shared-platform proposal that rests on nothing but a year overlap or a
+  // substring name match is the weakest thing this file produces, and 32 of
+  // them had piled up awaiting review. They fall into two groups, and the line
+  // between them is corporate ownership:
+  //
+  //   plausible   Audi TT <-> Audi A3, Škoda Octavia <-> SEAT León,
+  //               Karmann Ghia <-> Beetle, TrailBlazer <-> GMC Envoy
+  //   nonsense    Audi TT <-> Saturn Ion, Škoda Octavia <-> Daren Mk.3,
+  //               Cupra Formentor <-> Hyundai Eon, SEAT Toledo <-> Leapmotor A05
+  //
+  // Cars do not share a platform across unrelated companies. That is not a
+  // heuristic about text, it is how the industry works, and it is the one
+  // thing a substring match can never check.
+  //
+  // Deliberately includes HISTORICAL ownership -- Mazda and Volvo and Jaguar
+  // sit under Ford, Volvo also under Geely -- because Ford Escape <-> Mazda
+  // Tribute is a real shared platform and rejecting it would be worse than
+  // letting a Mercury <-> Mazda oddity through for review. A make absent from
+  // this table is UNKNOWN, not foreign: nothing is rejected on ignorance.
+  const MAKE_GROUPS = {
+    vw: ["Volkswagen", "Audi", "Škoda", "Skoda", "SEAT", "Cupra", "Porsche", "Bentley",
+         "Lamborghini", "Bugatti", "MAN", "Scania"],
+    gm: ["Chevrolet", "GMC", "Buick", "Cadillac", "Oldsmobile", "Pontiac", "Saturn",
+         "Holden", "Hummer", "Daewoo", "Vauxhall", "Opel", "Saab", "Wuling", "Baojun"],
+    stellantis: ["Chrysler", "Dodge", "Jeep", "Ram", "Fiat", "Alfa Romeo", "Lancia",
+                 "Maserati", "Abarth", "Peugeot", "Citroën", "Citroen", "DS", "Opel",
+                 "Vauxhall", "Plymouth", "Imperial", "Eagle", "Talbot", "Simca", "Leapmotor"],
+    ford: ["Ford", "Lincoln", "Mercury", "Merkur", "Mazda", "Volvo", "Jaguar",
+           "Land Rover", "Aston Martin", "Edsel"],
+    toyota: ["Toyota", "Lexus", "Daihatsu", "Scion", "Hino", "Subaru"],
+    honda: ["Honda", "Acura"],
+    "renault-nissan": ["Nissan", "Infiniti", "Datsun", "Renault", "Dacia", "Mitsubishi",
+                       "Venucia", "Samsung", "Alpine"],
+    hyundai: ["Hyundai", "Kia", "Genesis"],
+    bmw: ["BMW", "Mini", "MINI", "Rolls-Royce", "Alpina"],
+    mercedes: ["Mercedes-Benz", "Smart", "Maybach", "Mercedes-AMG", "Mercedes-Maybach"],
+    tata: ["Tata", "Jaguar", "Land Rover"],
+    geely: ["Geely", "Volvo", "Polestar", "Lotus", "Lynk & Co", "Proton", "Zeekr", "Smart"],
+    saic: ["MG", "Roewe", "Maxus", "Wuling", "Baojun", "LDV"],
+    suzuki: ["Suzuki", "Maruti Suzuki"],
+    isuzu: ["Isuzu"],
+    byd: ["BYD", "Denza", "Yangwang"],
+    chery: ["Chery", "Exeed", "Jetour", "Omoda"],
+    greatwall: ["Great Wall", "Haval", "Wey", "Ora", "Tank"],
+    changan: ["Changan", "Deepal", "Avatr"],
+    amc: ["AMC", "Rambler", "Nash", "Hudson", "Willys", "Kaiser"],
+    bl: ["Austin", "Morris", "Rover", "Triumph", "Riley", "Wolseley", "Austin-Healey", "Leyland"],
+    // Marques that were nobody's subsidiary. Listed so they come out as a
+    // KNOWN different group rather than as unknown -- a Škoda sharing a
+    // platform with a Daren kit car is exactly the kind of thing this is for.
+    independent: ["Daren", "Kline", "Veritas", "Reliant", "Bristol", "Marcos", "TVR",
+                  "Morgan", "Caterham", "Noble", "Ginetta", "Ascari", "Panoz", "Saleen",
+                  "Spyker", "Koenigsegg", "Pagani", "Rimac", "Hennessey", "Gumpert",
+                  "Wiesmann", "Artega", "Melkus", "Trabant", "Wartburg", "Tatra",
+                  "Zastava", "Yugo", "Lada", "AvtoVAZ", "GAZ", "UAZ", "ZAZ", "Moskvitch"],
+  };
+  const GROUP_OF = (() => {
+    const m = new Map();
+    for (const [group, makes] of Object.entries(MAKE_GROUPS)) {
+      // A marque can belong to several groups across its life (Volvo: Ford,
+      // then Geely), and any shared group is enough to be plausible.
+      makes.forEach(mk => {
+        const k = mk.toLowerCase();
+        if (!m.has(k)) m.set(k, new Set());
+        m.get(k).add(group);
+      });
+    }
+    return m;
+  })();
+  function groupsOfMake(make) { return GROUP_OF.get(String(make || "").trim().toLowerCase()) || null; }
+
+  // "same" | "different" | "unknown"
+  function makeRelationship(makeA, makeB) {
+    const a = String(makeA || "").trim().toLowerCase(), b = String(makeB || "").trim().toLowerCase();
+    if (!a || !b) return "unknown";
+    if (a === b) return "same";
+    const ga = groupsOfMake(a), gb = groupsOfMake(b);
+    if (!ga || !gb) return "unknown";
+    for (const g of ga) if (gb.has(g)) return "same";
+    return "different";
+  }
+
+  // Rule 2. A car that rule 1 has already thrown out twice is not unlucky, it
+  // is a bad matcher -- the Saturn Ion turned up in five unrelated proposals,
+  // which is a short common name matching as a substring, not a car that
+  // shares five platforms. Once it has earned that, its remaining weak
+  // proposals go too, including ones inside a single group.
+  const REJECTED_MATCH_LIMIT = 2;
+  function badMatchers() {
+    const count = new Map();
+    const bump = id => { if (id) count.set(id, (count.get(id) || 0) + 1); };
+    for (const info of Object.values(store.crossGroupRejections || {})) {
+      bump(info && info.a); bump(info && info.b);
+    }
+    const out = new Set();
+    count.forEach((n, id) => { if (n >= REJECTED_MATCH_LIMIT) out.add(id); });
+    return out;
+  }
+
+  // The gate itself. Applies ONLY to a proposal that would otherwise sit in
+  // the review queue -- nothing confirmed, and nothing the user has decided,
+  // is ever touched by this.
+  function weakProposalRejection(nodeA, nodeB) {
+    const rel = makeRelationship(nodeA && nodeA.make, nodeB && nodeB.make);
+    if (rel === "different") {
+      return { why: `${nodeA.make} and ${nodeB.make} are not part of the same company, ` +
+                    "so they cannot share a platform -- rejected without review",
+               cross: true };
+    }
+    const bad = badMatchers();
+    const idA = nodeA && nodeA.id, idB = nodeB && nodeB.id;
+    if (bad.has(idA) || bad.has(idB)) {
+      const who = bad.has(idA) ? nodeA : nodeB;
+      return { why: `${who.make} ${who.label} has already been rejected against ` +
+                    `${REJECTED_MATCH_LIMIT}+ unrelated marques, so it is matching on its ` +
+                    "name rather than on a real platform -- rejected without review",
+               cross: false };
+    }
+    return null;
+  }
+
+  // Recorded so rule 2 can count, and so the reason survives a reload. Keyed
+  // the same way relations are, and never deleted -- like every other decision
+  // record in this file.
+  function recordWeakRejection(key, nodeA, nodeB, why, cross) {
+    store.rejectedRelations[key] = true;
+    if (cross) {
+      store.crossGroupRejections = store.crossGroupRejections || {};
+      store.crossGroupRejections[key] = { a: nodeA && nodeA.id, b: nodeB && nodeB.id, why };
+    }
+  }
+
+  // The same two rules, applied once to proposals that were already sitting in
+  // the review queue when the rules arrived -- 32 of them, of which 13 are
+  // cars from unrelated companies. Nothing confirmed is touched, and a
+  // rejection here is the same reversible record a manual "no" writes.
+  //
+  // Runs to a fixed point: rule 2 counts rule 1's rejections, so a proposal
+  // can only become rejectable after an earlier pass has recorded enough of
+  // them.
+  function pruneWeakRelations(byId) {
+    const dropped = [];
+    for (let pass = 0; pass < 4; pass++) {
+      let changed = 0;
+      for (const [key, e] of Object.entries(store.relations)) {
+        if (!e || e.status !== "provisional" || !e.llmDiscovered) continue;
+        const a = byId.get(e.genIdA) || byId.get(e.famA);
+        const b = byId.get(e.genIdB) || byId.get(e.famB);
+        if (!a || !b) continue;
+        const veto = weakProposalRejection(a, b);
+        if (!veto) continue;
+        delete store.relations[key];
+        recordWeakRejection(key, a, b, veto.why, veto.cross);
+        dropped.push({ key, why: veto.why,
+                       a: `${a.make} ${a.label}`, b: `${b.make} ${b.label}` });
+        changed++;
+      }
+      if (!changed) break;
+    }
+    if (dropped.length) persist();
+    return dropped;
   }
 
   // ---------- hallucination guard, code half: match COMPONENTS, not one composed string ----------
@@ -3397,6 +3565,10 @@ Rules:
         // generation pair, just one generation away from a hard-coded match.
         const key = relKey(gn.id, cands[0].id, "platform");
         if (store.relations[key] || store.rejectedRelations[key]) return;
+        // Weakest proposal this file makes: a year overlap and nothing else.
+        // See weakProposalRejection for the two rules.
+        const veto1 = weakProposalRejection(gn, cands[0]);
+        if (veto1) { recordWeakRejection(key, gn, cands[0], veto1.why, veto1.cross); return; }
         store.relations[key] = {
           status: "provisional", checkedAt: new Date().toISOString(),
           famA: famId, famB: match.id, relType: "platform",
@@ -3503,6 +3675,12 @@ Rules:
       // -- still goes through ordinary review, exactly as before.
       const sanityConfident = loose && found.llmVerified && found.verifyConfidence === "high";
       const confirmed = !loose || sanityConfident;
+      // A loose (substring) match that is NOT going to be auto-confirmed is
+      // the other weak proposal. Same two rules.
+      if (!confirmed) {
+        const veto2 = weakProposalRejection(gn, match);
+        if (veto2) { recordWeakRejection(key, gn, match, veto2.why, veto2.cross); return; }
+      }
       store.relations[key] = {
         status: confirmed ? "confirmed" : "provisional",
         checkedAt: new Date().toISOString(),
@@ -7756,6 +7934,7 @@ Rules:
     // round trip.
     refreshGenerationImages,
     setDecisionSource, decisionSource: () => decisionSource,
+    pruneWeakRelations, makeRelationship, weakProposalRejection,
     parseLlmJson, codeAnchorIn, codeVerifiedIn, findGenerationImage, infoboxImageForCode,
     looksLikePlatformNotCar,
     // Exposed for the regression suite only: a persisted proposal from before

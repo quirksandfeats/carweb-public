@@ -31,6 +31,12 @@ function fakeKv() {
     async get(k, type) { const v = m.get(k); return v == null ? null : (type === "json" ? JSON.parse(v) : v); },
     async put(k, v) { m.set(k, v); },
     async delete(k) { m.delete(k); },
+    // Insertion order deliberately NOT sorted here: the Worker orders by
+    // queuedAt, and a list that came back shuffled must still come out right.
+    async list({ prefix }) {
+      const keys = [...m.keys()].filter(k => k.startsWith(prefix)).reverse();
+      return { keys: keys.map(name => ({ name })) };
+    },
   };
 }
 function fakeEnv(over) {
@@ -92,15 +98,15 @@ const bearer = tok => ({ authorization: "Bearer " + tok });
     t("...naming the car that was asked for",
       d.pending.targetId === "m-buick-century" && d.pending.targetLabel === "Buick Century",
       JSON.stringify(d.pending));
-    t("...and carrying the note", d.pending.note === "the 1930 Series 60 looks wrong", d.pending.note);
+
     const id = d.pending.id;
 
     const again = await (await worker.fetch(post("/api/request/queue", { passphrase: PASS, targetId: "m-buick-century", targetLabel: "Buick Century", note: "something else" }), env)).json();
     t("the SAME car asked for twice is one job, not two",
       again.already === true && again.queue.length === 1 && again.queue[0].id === id,
       JSON.stringify(again.queue));
-    t("...and the first request's note is not overwritten",
-      again.queue[0].note === "the 1930 Series 60 looks wrong", again.queue[0].note);
+    t("...and the first request's own timestamp survives",
+      again.queue[0].queuedAt === d.pending.queuedAt, again.queue[0].queuedAt);
 
     // The whole reason the queue became a list: two different cars are two
     // different pieces of work.
@@ -207,13 +213,79 @@ const bearer = tok => ({ authorization: "Bearer " + tok });
   {
     const env = fakeEnv();
     const old = new Date(Date.now() - 5 * 24 * 3600 * 1000).toISOString();
-    await env.JOBS.put("job:queue", JSON.stringify([
-      { id: "stale", state: "queued", queuedAt: old, targetId: "m-old" },
-      { id: "fresh", state: "queued", queuedAt: new Date().toISOString(), targetId: "m-new" },
-    ]));
+    await env.JOBS.put("job:car:m-old", JSON.stringify(
+      { id: "stale", state: "queued", queuedAt: old, targetId: "m-old" }));
+    await env.JOBS.put("job:car:m-new", JSON.stringify(
+      { id: "fresh", state: "queued", queuedAt: new Date().toISOString(), targetId: "m-new" }));
     const d = await (await worker.fetch(req("/api/request/status"), env)).json();
     t("a request older than the TTL is not offered", d.queue.length === 1 && d.queue[0].id === "fresh",
       JSON.stringify(d.queue.map(j => j.id)));
+  }
+
+  // ---- several people at once ---------------------------------------------
+  // The queue used to be one KV array, read-modify-written on every request.
+  // KV has no compare-and-swap, so two people pressing the button at the same
+  // moment both read the same list and the second write erased the first. One
+  // key per car removes the thing there was to race over.
+  {
+    const env = fakeEnv();
+    const cars = ["m-a", "m-b", "m-c", "m-d", "m-e"];
+    // Every request issued before any of them is awaited: interleaved, the
+    // way two browsers actually arrive.
+    await Promise.all(cars.map(id =>
+      worker.fetch(post("/api/request/queue", { passphrase: PASS, targetId: id, targetLabel: id }), env)));
+    const d = await (await worker.fetch(req("/api/request/status"), env)).json();
+    t("five simultaneous requests all survive -- none overwrites another",
+      d.queue.length === 5, JSON.stringify(d.queue.map(j => j.targetId)));
+    t("...and they come back oldest first",
+      d.queue.map(j => j.queuedAt).join("") ===
+      [...d.queue].sort((a, b) => String(a.queuedAt).localeCompare(String(b.queuedAt)))
+        .map(j => j.queuedAt).join(""));
+
+    // The reported case: two people asking for the same car at the same time.
+    const both = await Promise.all([
+      worker.fetch(post("/api/request/queue", { passphrase: PASS, targetId: "m-compass", targetLabel: "Jeep Compass" }), env),
+      worker.fetch(post("/api/request/queue", { passphrase: PASS, targetId: "m-compass", targetLabel: "Jeep Compass" }), env),
+    ]);
+    const after = await (await worker.fetch(req("/api/request/status"), env)).json();
+    t("the same car asked for twice at once is queued once",
+      after.queue.filter(j => j.targetId === "m-compass").length === 1,
+      JSON.stringify(after.queue.map(j => j.targetId)));
+    t("...and both askers are told it is queued rather than one getting an error",
+      both.every(r => r.status === 200));
+
+    // One person queueing several cars while already waiting on another.
+    await worker.fetch(post("/api/request/queue", { passphrase: PASS, targetId: "m-f", targetLabel: "F" }), env);
+    await worker.fetch(post("/api/request/queue", { passphrase: PASS, targetId: "m-g", targetLabel: "G" }), env);
+    const more = await (await worker.fetch(req("/api/request/status"), env)).json();
+    t("one person can queue several cars while waiting on an earlier one",
+      more.queue.length === 8, more.queue.length);
+  }
+
+  // ---- and asking again for the car being scanned right now ---------------
+  {
+    const env = fakeEnv();
+    await worker.fetch(post("/api/request/queue", { passphrase: PASS, targetId: "m-compass", targetLabel: "Jeep Compass" }), env);
+    const head = await (await worker.fetch(req("/api/request/jobs", { headers: bearer(TOKEN) }), env)).json();
+    await worker.fetch(post("/api/request/claim", { id: head.job.id }, bearer(TOKEN)), env);
+    const dup = await (await worker.fetch(post("/api/request/queue",
+      { passphrase: PASS, targetId: "m-compass", targetLabel: "Jeep Compass" }), env)).json();
+    t("asking for the car being scanned right now does not queue it again",
+      dup.already === true && dup.queue.length === 1, JSON.stringify(dup.queue));
+    t("...and it is still the one that is running", dup.queue[0].state === "running");
+  }
+
+  // ---- a label is never trusted as markup ---------------------------------
+  {
+    const env = fakeEnv();
+    const d = await (await worker.fetch(post("/api/request/queue", {
+      passphrase: PASS, targetId: "m-x",
+      targetLabel: "<img src=x onerror=alert(1)>\u0007 Jeep",
+    }), env)).json();
+    t("a label is stripped of markup and control characters before storage",
+      !/[<>\u0000-\u001f]/.test(d.queue[0].targetLabel), JSON.stringify(d.queue[0].targetLabel));
+    t("...and a free-text note is not stored at all",
+      !("note" in d.queue[0]), JSON.stringify(d.queue[0]));
   }
 
   // ---- taking a request back out -----------------------------------------

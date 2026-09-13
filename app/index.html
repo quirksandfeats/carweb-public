@@ -193,8 +193,11 @@
   </div>
   <div id="llmrequest-chosen" class="lrq-chosen" hidden></div>
 
-  <label class="lrq-label" for="llmrequest-note">Anything to add? <span>(optional)</span></label>
-  <input id="llmrequest-note" type="text" maxlength="200" placeholder="e.g. the 1930 Series 60 looks wrong" autocomplete="off">
+  <!-- There was a free-text "anything to add?" box here. Removed rather than
+       hidden: the only thing a request needs is which car, and an open text
+       field on a public page that ends up in a log a person reads is an
+       invitation to test what else it can be made to say. If it comes back it
+       should come back with an escaping and review story of its own. -->
   <label class="lrq-label" for="llmrequest-pass">Passphrase</label>
   <input id="llmrequest-pass" type="password" autocomplete="off" placeholder="required">
   <div class="lrq-actions">

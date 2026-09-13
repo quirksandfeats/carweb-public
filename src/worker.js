@@ -41,12 +41,23 @@
  *                   made before the namespace exists still serves the site.
  */
 
-// A LIST, not a single slot. The button now asks which car to scan, so two
-// requests are two different pieces of work and stacking them is the point --
-// the first version held one job because a request meant only "do a pass".
-const QUEUE_KEY = "job:queue";
+// ONE KV KEY PER CAR, not one array holding them all.
+//
+// The array was a read-modify-write, and KV has no compare-and-swap: two
+// people pressing the button at the same moment both read the list, both push
+// their own job, and whichever writes second erases the other. With a key per
+// car there is nothing to race over -- two different cars are two different
+// keys, and the same car twice is the same key, which is exactly the dedupe
+// this wants anyway. Order comes from queuedAt, not from array position.
+//
+// The cost is that listing is eventually consistent: a job written at one edge
+// can take a moment to appear in a list read at another. It does not matter
+// here -- the POST hands the request straight back to whoever made it, so they
+// see it immediately, and the agent polls.
+const JOB_PREFIX = "job:car:";
 const LAST_KEY = "job:last";
 const MAX_QUEUED = 25;
+const jobKey = targetId => JOB_PREFIX + targetId;
 // A job nobody claims should not sit in the queue forever -- the Mac may
 // simply have been off all week. Applied to the whole list: anything older
 // than this is dropped when the queue is next read.
@@ -90,7 +101,7 @@ function fresh(queue) {
 function jobView(j) {
   return j && {
     id: j.id, state: j.state, queuedAt: j.queuedAt, claimedAt: j.claimedAt || null,
-    targetId: j.targetId || null, targetLabel: j.targetLabel || "", note: j.note || "",
+    targetId: j.targetId || null, targetLabel: j.targetLabel || "",
   };
 }
 function publicView(queue, last) {
@@ -102,7 +113,7 @@ function publicView(queue, last) {
     last: last
       ? { id: last.id, state: last.state, queuedAt: last.queuedAt,
           finishedAt: last.finishedAt || null, summary: last.summary || "",
-          targetLabel: last.targetLabel || "", note: last.note || "" }
+          targetLabel: last.targetLabel || "" }
       : null,
   };
 }
@@ -118,8 +129,18 @@ export default {
                     message: "No KV namespace is bound to this Worker yet." }, 503);
     }
 
-    const getQueue = async () => fresh(await env.JOBS.get(QUEUE_KEY, "json"));
-    const putQueue = async q => await env.JOBS.put(QUEUE_KEY, JSON.stringify(q));
+    // Oldest first. Two requests made in the same second are ordered by their
+    // key, so the order is at least stable rather than arbitrary.
+    const getQueue = async () => {
+      const listed = await env.JOBS.list({ prefix: JOB_PREFIX, limit: 200 });
+      const jobs = await Promise.all(listed.keys.map(k => env.JOBS.get(k.name, "json")));
+      return fresh(jobs.filter(Boolean)).sort((a, b) =>
+        String(a.queuedAt).localeCompare(String(b.queuedAt)) ||
+        String(a.targetId).localeCompare(String(b.targetId)));
+    };
+    const putJob = async j => await env.JOBS.put(jobKey(j.targetId), JSON.stringify(j),
+                                                 { expirationTtl: JOB_TTL_SECONDS });
+    const dropJob = async j => await env.JOBS.delete(jobKey(j.targetId));
     const getLast = async () => await env.JOBS.get(LAST_KEY, "json");
 
     // ---- public: what is waiting, and where did my request get to? ----------
@@ -148,14 +169,16 @@ export default {
         return json({ ok: false, error: "no-target",
                       message: "Pick a car on the graph first." }, 400);
       }
-      const queue = await getQueue();
-      // The same car asked for twice is one piece of work. Returns the
-      // existing job rather than refusing, so a second person asking gets a
-      // useful answer instead of an error.
-      const already = queue.find(j => j.targetId === targetId);
-      if (already) {
-        return json({ ok: true, already: true, ...publicView(queue, await getLast()) });
+      // The same car asked for twice is one piece of work, whether the first
+      // request is still waiting or is being scanned right now. Read the car's
+      // own key rather than scanning the list: a key read is strongly
+      // consistent where a list is not, so two people asking for the Jeep
+      // Compass at the same moment cannot produce two Compass jobs.
+      const existing = fresh([await env.JOBS.get(jobKey(targetId), "json")])[0];
+      if (existing) {
+        return json({ ok: true, already: true, ...publicView(await getQueue(), await getLast()) });
       }
+      const queue = await getQueue();
       if (queue.length >= MAX_QUEUED) {
         return json({ ok: false, error: "queue-full",
                       message: `Already ${MAX_QUEUED} cars waiting.` }, 429);
@@ -165,12 +188,13 @@ export default {
         state: "queued",
         queuedAt: new Date().toISOString(),
         targetId,
-        targetLabel: String(body.targetLabel || "").slice(0, 120),
-        note: String(body.note || "").slice(0, 200),
+        // Shown back to every visitor, so it never carries markup or control
+        // characters. The panel escapes it as well; this is the other half.
+        targetLabel: String(body.targetLabel || "")
+          .replace(/[\u0000-\u001f<>]/g, " ").trim().slice(0, 120),
       };
-      queue.push(job);
-      await putQueue(queue);
-      return json({ ok: true, already: false, ...publicView(queue, await getLast()) });
+      await putJob(job);
+      return json({ ok: true, already: false, ...publicView([...queue, job], await getLast()) });
     }
 
     // ---- passphrase OR agent token: take something back out ----------------
@@ -196,20 +220,21 @@ export default {
         // A job already RUNNING is not cancelled from here: the agent is
         // mid-pass on it and its /done is what closes it out. Dropping it
         // would leave that result with nowhere to land.
+        const doomed = queue.filter(j => j.state !== "running");
+        await Promise.all(doomed.map(dropJob));
         const keep = queue.filter(j => j.state === "running");
-        await putQueue(keep);
-        return json({ ok: true, removed: queue.length - keep.length, ...publicView(keep, await getLast()) });
+        return json({ ok: true, removed: doomed.length, ...publicView(keep, await getLast()) });
       }
       const id = String(body.id || "").trim();
-      const idx = id ? queue.findIndex(j => j.id === id || j.targetId === id) : -1;
-      if (idx < 0) return json({ ok: false, error: "no-job" }, 404);
-      if (queue[idx].state === "running") {
+      const job = id ? queue.find(j => j.id === id || j.targetId === id) : null;
+      if (!job) return json({ ok: false, error: "no-job" }, 404);
+      if (job.state === "running") {
         return json({ ok: false, error: "running",
                       message: "That one is being scanned right now." }, 409);
       }
-      queue.splice(idx, 1);
-      await putQueue(queue);
-      return json({ ok: true, removed: 1, ...publicView(queue, await getLast()) });
+      await dropJob(job);
+      return json({ ok: true, removed: 1,
+                    ...publicView(queue.filter(j => j !== job), await getLast()) });
     }
 
     // ---- agent-only from here on -------------------------------------------
@@ -230,34 +255,31 @@ export default {
     if (path === "/api/request/claim" && request.method === "POST") {
       const body = await readJson(request);
       const queue = await getQueue();
-      const idx = body && body.id ? queue.findIndex(j => j.id === body.id) : 0;
-      if (idx < 0 || !queue.length) return json({ ok: false, error: "no-job" }, 404);
-      const job = queue[idx];
+      const job = body && body.id ? queue.find(j => j.id === body.id) : queue[0];
+      if (!job) return json({ ok: false, error: "no-job" }, 404);
       if (job.state === "running") return json({ ok: true, already: true, job });
       job.state = "running";
       job.claimedAt = new Date().toISOString();
-      await putQueue(queue);
+      await putJob(job);
       return json({ ok: true, already: false, job });
     }
 
     if (path === "/api/request/done" && request.method === "POST") {
       const body = await readJson(request) || {};
       const queue = await getQueue();
-      const idx = body.id ? queue.findIndex(j => j.id === body.id) : 0;
-      if (idx < 0 || !queue.length) return json({ ok: false, error: "no-job" }, 404);
+      const job = body.id ? queue.find(j => j.id === body.id) : queue[0];
+      if (!job) return json({ ok: false, error: "no-job" }, 404);
       const done = {
-        ...queue[idx],
+        ...job,
         state: body.state === "failed" ? "failed" : "done",
         finishedAt: new Date().toISOString(),
         summary: String(body.summary || "").slice(0, 400),
       };
-      // LAST first, then remove from the queue: a crash between the two
-      // leaves a job that can be re-claimed rather than a result nobody
-      // recorded.
+      // LAST first, then remove the job: a crash between the two leaves a job
+      // that can be re-claimed rather than a result nobody recorded.
       await env.JOBS.put(LAST_KEY, JSON.stringify(done));
-      queue.splice(idx, 1);
-      await putQueue(queue);
-      return json({ ok: true, job: done, waiting: queue.length });
+      await dropJob(job);
+      return json({ ok: true, job: done, waiting: Math.max(0, queue.length - 1) });
     }
 
     return json({ ok: false, error: "not-found" }, 404);

@@ -4199,7 +4199,6 @@ window.CarWeb = (function () {
     const carEl = document.getElementById("llmrequest-car");
     const resultsEl = document.getElementById("llmrequest-carresults");
     const chosenEl = document.getElementById("llmrequest-chosen");
-    const noteEl = document.getElementById("llmrequest-note");
     const passEl = document.getElementById("llmrequest-pass");
     const sendBtn = document.getElementById("llmrequest-send");
     const statusEl = document.getElementById("llmrequest-status");
@@ -4391,7 +4390,6 @@ window.CarWeb = (function () {
             passphrase: passEl.value,
             targetId: chosen.id,
             targetLabel: carName(chosen),
-            note: noteEl.value || "",
           }),
         });
         const d = await r.json();
@@ -4402,7 +4400,6 @@ window.CarWeb = (function () {
           return;
         }
         passEl.value = "";
-        noteEl.value = "";
         render(d);
         say(d.already ? `${carName(chosen)} was already in the queue.`
                       : `${carName(chosen)} is queued.`, "ok");
@@ -5757,6 +5754,17 @@ window.CarWeb = (function () {
       if (lgDb) lgDb.hidden = !nodes.some((n) => n.db);
       if (lgGarage) lgGarage.hidden = !nodes.some((n) => n.garage);
 
+      // Two cars from unrelated companies cannot share a platform, and a
+      // substring name match can never check that. Clears the proposals that
+      // were already queued when the rule arrived -- see
+      // llm_families.js's weakProposalRejection.
+      if (window.LlmFamilies && window.LlmFamilies.pruneWeakRelations) {
+        const dropped = window.LlmFamilies.pruneWeakRelations(byId);
+        if (dropped.length) {
+          console.info(`[carweb] dropped ${dropped.length} impossible platform proposal(s):`,
+                       dropped.map(d => `${d.a} <-> ${d.b}`));
+        }
+      }
       initGenPhotos();
       initToolsMenu();
       initLlmRequest();

@@ -37,14 +37,37 @@ stamped so it can be reviewed afterwards.
 
 ## Two different lists
 
-- The **job queue** lives in Cloudflare KV and holds *requests* — one per car,
-  up to 25, oldest first. `GET /api/request/status` returns it by car name, and
+- The **job queue** lives in Cloudflare KV as **one key per car**
+  (`job:car:<node id>`), up to 25, ordered by when each was asked for. `GET /api/request/status` returns it by car name, and
   the ⚡ Request scan panel shows the same list. Asking for a car already in
   the queue returns the existing request rather than stacking a duplicate. A
   request nobody claims for two days is dropped.
 - The **review backlog** lives in `data_src/harvest/family_match_report.txt`
   and is the list of cars `--now` works through when there is no request to
   read. Nothing to do with Cloudflare.
+
+## Several people at once
+
+The queue was one KV array, read-modify-written on every request. KV has no
+compare-and-swap, so two people pressing the button at the same moment both
+read the same list and the second write erased the first. **One key per car**
+removes the thing there was to race over: two different cars are two different
+keys, and the same car twice is the same key.
+
+That last part is also the dedupe. A car already queued — or already being
+scanned — is not queued again, whoever asks; both askers are told it is
+waiting rather than one getting an error. One person can queue as many
+different cars as they like while an earlier one is still running.
+
+Order comes from each job's `queuedAt`, not from array position, so a listing
+that comes back shuffled still reads oldest-first. The one cost is that KV
+listing is eventually consistent — a job written at one edge can take a moment
+to appear in a list read at another. It does not matter here: the POST hands
+the request straight back to whoever made it, and the agent polls.
+
+There is no free-text field. A request is a car id and a label, and the label
+is stripped of markup and control characters before it is stored as well as
+escaped when shown.
 
 ## Routes
 

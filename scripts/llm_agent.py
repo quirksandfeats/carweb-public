@@ -593,8 +593,6 @@ def do_job(job, args):
         if status != 200:
             log(f"could not claim the job ({status}); leaving it for next time")
             return
-        if job.get("note"):
-            log(f"requested: {job['note']}")
 
     if args.targets:
         # An explicit list is taken as given -- including nodes that already
@@ -755,8 +753,6 @@ def main():
             state = " (running now)" if j.get("state") == "running" else ""
             print(f"{i}. {j.get('targetLabel') or j.get('targetId')}{state}")
             print(f"   id {j.get('id')}   queued {j.get('queuedAt')}")
-            if j.get("note"):
-                print(f"   note: {j['note']}")
         last = (d or {}).get("last")
         if last:
             print(f"\nlast run: {last.get('targetLabel') or '?'} -- {last.get('state')}"
