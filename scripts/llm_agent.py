@@ -7,7 +7,11 @@ the local LLM generation pass, pushes the result, and exits.
     export CARWEB_AGENT_TOKEN='...'        # the AGENT_TOKEN secret
     python3 scripts/llm_agent.py           # wait up to 10 min for a job, run it
     python3 scripts/llm_agent.py --watch   # keep waiting (for launchd/cron)
-    python3 scripts/llm_agent.py --now     # run a scan immediately, no job
+    python3 scripts/llm_agent.py --now     # scan from the backlog, no job needed
+
+A QUEUED REQUEST NAMES ONE CAR -- someone focused it in the graph and asked
+for it -- and that car is the seed. --now has no request to read, so it takes
+the top of the review backlog instead.
 
 HOW MUCH ONE RUN SCANS is governed by the CASCADE, not by a count in here.
 One seed car pulls in whatever its own article names, out to serve.py's
@@ -560,6 +564,13 @@ def do_job(job, args):
         # have an entry, since "check this one again" is the whole reason to
         # name it by hand.
         targets = [t.strip() for t in args.targets.split(",") if t.strip()][: args.seeds]
+    elif job and job.get("targetId"):
+        # A queued request names the car. Someone stood in front of the graph,
+        # focused this one and asked for it, so it is the seed -- not the top
+        # of the backlog, and not filtered out for already having an entry,
+        # since "look at this again" is a perfectly good request.
+        targets = [job["targetId"]]
+        log(f"requested car: {job.get('targetLabel') or job['targetId']}")
     else:
         targets = [nid for nid in review_queue_ids() if nid not in already_scanned()][: args.seeds]
     if not targets:
@@ -625,7 +636,10 @@ def do_job(job, args):
 def finish(jid, state, summary):
     log(f"{state}: {summary}")
     if jid:
-        api("/api/request/done", "POST", {"id": jid, "state": state, "summary": summary})
+        _, d = api("/api/request/done", "POST", {"id": jid, "state": state, "summary": summary})
+        waiting = d.get("waiting") if isinstance(d, dict) else None
+        if waiting:
+            log(f"{waiting} more request(s) still waiting")
 
 
 def main():
@@ -691,6 +705,9 @@ def main():
         do_job(job, args)
         if not args.watch:
             return
+        # Straight back round without the poll delay: a queue with several
+        # cars in it should drain, not tick over once a minute.
+        continue
 
 
 if __name__ == "__main__":

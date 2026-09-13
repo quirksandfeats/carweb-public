@@ -176,20 +176,32 @@
     <button id="llmrequest-close" title="close">✕</button>
   </div>
   <p class="lrq-blurb">
-    This site is a static copy — the local model runs on one machine, which
-    is usually asleep. Sending a request leaves a job for it; it picks the
-    job up next time it is awake, scans for generations this graph is
-    missing, and pushes the result here. Findings arrive as
-    <em>provisional</em> and still wait for you to confirm them.
+    This site is a static copy — the local model runs on one machine, which is
+    usually asleep. Pick a car and the request waits for that machine; it reads
+    the car's Wikipedia article, looks for generations this graph is missing,
+    and pushes what it finds back here.
   </p>
-  <label class="lrq-label" for="llmrequest-note">What should it look at? <span>(optional)</span></label>
-  <input id="llmrequest-note" type="text" maxlength="200" placeholder="e.g. the 69 families in the review queue" autocomplete="off">
+
+  <label class="lrq-label" for="llmrequest-car">Car to scan</label>
+  <!-- Prefilled with whatever is open or focused in the graph, since that is
+       where you are when you decide you want it looked at. Typing searches
+       the graph the same way the main search box does. -->
+  <div class="lrq-pick">
+    <input id="llmrequest-car" type="text" autocomplete="off" spellcheck="false"
+           placeholder="search a car, or click one on the graph">
+    <div id="llmrequest-carresults" class="lrq-results" hidden></div>
+  </div>
+  <div id="llmrequest-chosen" class="lrq-chosen" hidden></div>
+
+  <label class="lrq-label" for="llmrequest-note">Anything to add? <span>(optional)</span></label>
+  <input id="llmrequest-note" type="text" maxlength="200" placeholder="e.g. the 1930 Series 60 looks wrong" autocomplete="off">
   <label class="lrq-label" for="llmrequest-pass">Passphrase</label>
   <input id="llmrequest-pass" type="password" autocomplete="off" placeholder="required">
   <div class="lrq-actions">
     <button id="llmrequest-send">Send request</button>
   </div>
   <div id="llmrequest-status" class="lrq-status"></div>
+  <div id="llmrequest-queue" class="lrq-queue"></div>
 </div>
 
 <div id="genphotos-panel" hidden>

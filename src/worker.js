@@ -14,6 +14,11 @@
  * That is also why every status this exposes is a record of what the agent
  * last said, never a live view of the machine.
  *
+ * A job names ONE CAR. The button is used from inside the graph -- you focus
+ * a nameplate or a model, ask for it to be looked at, and that is what gets
+ * scanned. A request with no car would mean "go and do something", which is
+ * not a thing anyone can act on or review afterwards.
+ *
  * Why the routes are under /api/request/ rather than /api/. app/serve.py --
  * the local Python server -- owns /api/llm-families, /api/rebuild and a dozen
  * others, and llm_families.js decides whether the whole LLM layer is
@@ -36,11 +41,15 @@
  *                   made before the namespace exists still serves the site.
  */
 
-const PENDING_KEY = "job:pending";
+// A LIST, not a single slot. The button now asks which car to scan, so two
+// requests are two different pieces of work and stacking them is the point --
+// the first version held one job because a request meant only "do a pass".
+const QUEUE_KEY = "job:queue";
 const LAST_KEY = "job:last";
+const MAX_QUEUED = 25;
 // A job nobody claims should not sit in the queue forever -- the Mac may
-// simply have been off all week, and a week-old "scan everything" is not what
-// anyone wants run when it finally wakes up.
+// simply have been off all week. Applied to the whole list: anything older
+// than this is dropped when the queue is next read.
 const JOB_TTL_SECONDS = 60 * 60 * 24 * 2;
 
 const json = (body, status = 200) =>
@@ -67,18 +76,33 @@ async function readJson(request) {
   try { return await request.json(); } catch (e) { return null; }
 }
 
-// What the button is allowed to see: enough to tell the user where their
-// request got to, and nothing that would help someone guess a secret.
-function publicView(pending, last) {
+function fresh(queue) {
+  const cutoff = Date.now() - JOB_TTL_SECONDS * 1000;
+  return (Array.isArray(queue) ? queue : []).filter(j => {
+    const t = Date.parse(j && j.queuedAt);
+    return j && j.id && (!isFinite(t) || t >= cutoff);
+  });
+}
+
+// What a visitor is allowed to see: which cars are waiting and where their own
+// request got to. Never a secret, and never an internal node id they could
+// not have seen in the graph anyway.
+function jobView(j) {
+  return j && {
+    id: j.id, state: j.state, queuedAt: j.queuedAt, claimedAt: j.claimedAt || null,
+    targetId: j.targetId || null, targetLabel: j.targetLabel || "", note: j.note || "",
+  };
+}
+function publicView(queue, last) {
+  const q = fresh(queue);
   return {
-    pending: pending
-      ? { id: pending.id, state: pending.state, queuedAt: pending.queuedAt,
-          claimedAt: pending.claimedAt || null, note: pending.note || "" }
-      : null,
+    queue: q.map(jobView),
+    // Kept for the older shape: the head of the queue is what "pending" meant.
+    pending: q.length ? jobView(q[0]) : null,
     last: last
       ? { id: last.id, state: last.state, queuedAt: last.queuedAt,
           finishedAt: last.finishedAt || null, summary: last.summary || "",
-          note: last.note || "" }
+          targetLabel: last.targetLabel || "", note: last.note || "" }
       : null,
   };
 }
@@ -94,16 +118,17 @@ export default {
                     message: "No KV namespace is bound to this Worker yet." }, 503);
     }
 
-    const getPending = async () => await env.JOBS.get(PENDING_KEY, "json");
+    const getQueue = async () => fresh(await env.JOBS.get(QUEUE_KEY, "json"));
+    const putQueue = async q => await env.JOBS.put(QUEUE_KEY, JSON.stringify(q));
     const getLast = async () => await env.JOBS.get(LAST_KEY, "json");
 
-    // ---- public: where did my request get to? --------------------------------
+    // ---- public: what is waiting, and where did my request get to? ----------
     if (path === "/api/request/status" && request.method === "GET") {
-      const [pending, last] = await Promise.all([getPending(), getLast()]);
-      return json({ ok: true, ...publicView(pending, last) });
+      const [queue, last] = await Promise.all([getQueue(), getLast()]);
+      return json({ ok: true, ...publicView(queue, last) });
     }
 
-    // ---- public (passphrase): queue a scan ------------------------------------
+    // ---- public (passphrase): ask for one car to be scanned -----------------
     if (path === "/api/request/queue" && request.method === "POST") {
       const body = await readJson(request);
       if (!body) return json({ ok: false, error: "bad-request" }, 400);
@@ -114,24 +139,41 @@ export default {
       if (!timingSafeEqual(body.passphrase, env.REQUEST_SECRET)) {
         return json({ ok: false, error: "bad-passphrase" }, 403);
       }
-      const existing = await getPending();
-      // One job at a time. Two queued scans of the same graph is one scan and
-      // one wasted wake-up, and a "running" job must never be replaced under
-      // the agent's feet.
-      if (existing) {
-        return json({ ok: true, already: true, ...publicView(existing, await getLast()) });
+      // A request names a car. That is the whole point of the button: you
+      // focus something in the graph, ask for it to be looked at, and get
+      // that back. A request with no car would be "go and do something",
+      // which is not a thing anyone can act on or review.
+      const targetId = String(body.targetId || "").trim();
+      if (!targetId || targetId.length > 200 || !/^[A-Za-z0-9._~:@+-]+$/.test(targetId)) {
+        return json({ ok: false, error: "no-target",
+                      message: "Pick a car on the graph first." }, 400);
+      }
+      const queue = await getQueue();
+      // The same car asked for twice is one piece of work. Returns the
+      // existing job rather than refusing, so a second person asking gets a
+      // useful answer instead of an error.
+      const already = queue.find(j => j.targetId === targetId);
+      if (already) {
+        return json({ ok: true, already: true, ...publicView(queue, await getLast()) });
+      }
+      if (queue.length >= MAX_QUEUED) {
+        return json({ ok: false, error: "queue-full",
+                      message: `Already ${MAX_QUEUED} cars waiting.` }, 429);
       }
       const job = {
         id: crypto.randomUUID(),
         state: "queued",
         queuedAt: new Date().toISOString(),
+        targetId,
+        targetLabel: String(body.targetLabel || "").slice(0, 120),
         note: String(body.note || "").slice(0, 200),
       };
-      await env.JOBS.put(PENDING_KEY, JSON.stringify(job), { expirationTtl: JOB_TTL_SECONDS });
-      return json({ ok: true, already: false, ...publicView(job, await getLast()) });
+      queue.push(job);
+      await putQueue(queue);
+      return json({ ok: true, already: false, ...publicView(queue, await getLast()) });
     }
 
-    // ---- agent-only from here on ---------------------------------------------
+    // ---- agent-only from here on -------------------------------------------
     const auth = request.headers.get("authorization") || "";
     const bearer = auth.startsWith("Bearer ") ? auth.slice(7) : "";
     if (!env.AGENT_TOKEN || !timingSafeEqual(bearer, env.AGENT_TOKEN)) {
@@ -139,42 +181,44 @@ export default {
     }
 
     if (path === "/api/request/jobs" && request.method === "GET") {
-      return json({ ok: true, job: await getPending() });
+      const queue = await getQueue();
+      // The head only. One job at a time is still how the agent works -- it
+      // has one model and one browser -- but the rest of the list is returned
+      // so it can log how much is waiting.
+      return json({ ok: true, job: queue[0] || null, waiting: queue.length });
     }
 
     if (path === "/api/request/claim" && request.method === "POST") {
       const body = await readJson(request);
-      const pending = await getPending();
-      if (!pending) return json({ ok: false, error: "no-job" }, 404);
-      if (body && body.id && body.id !== pending.id) {
-        return json({ ok: false, error: "stale-job", job: pending }, 409);
-      }
-      if (pending.state === "running") return json({ ok: true, already: true, job: pending });
-      pending.state = "running";
-      pending.claimedAt = new Date().toISOString();
-      await env.JOBS.put(PENDING_KEY, JSON.stringify(pending), { expirationTtl: JOB_TTL_SECONDS });
-      return json({ ok: true, already: false, job: pending });
+      const queue = await getQueue();
+      const idx = body && body.id ? queue.findIndex(j => j.id === body.id) : 0;
+      if (idx < 0 || !queue.length) return json({ ok: false, error: "no-job" }, 404);
+      const job = queue[idx];
+      if (job.state === "running") return json({ ok: true, already: true, job });
+      job.state = "running";
+      job.claimedAt = new Date().toISOString();
+      await putQueue(queue);
+      return json({ ok: true, already: false, job });
     }
 
     if (path === "/api/request/done" && request.method === "POST") {
       const body = await readJson(request) || {};
-      const pending = await getPending();
-      if (!pending) return json({ ok: false, error: "no-job" }, 404);
-      if (body.id && body.id !== pending.id) {
-        return json({ ok: false, error: "stale-job", job: pending }, 409);
-      }
+      const queue = await getQueue();
+      const idx = body.id ? queue.findIndex(j => j.id === body.id) : 0;
+      if (idx < 0 || !queue.length) return json({ ok: false, error: "no-job" }, 404);
       const done = {
-        ...pending,
+        ...queue[idx],
         state: body.state === "failed" ? "failed" : "done",
         finishedAt: new Date().toISOString(),
         summary: String(body.summary || "").slice(0, 400),
       };
-      // The finished job moves to LAST and the queue empties in that order, so
-      // a crash between the two leaves a job that can be re-claimed rather
-      // than a result that was never recorded.
+      // LAST first, then remove from the queue: a crash between the two
+      // leaves a job that can be re-claimed rather than a result nobody
+      // recorded.
       await env.JOBS.put(LAST_KEY, JSON.stringify(done));
-      await env.JOBS.delete(PENDING_KEY);
-      return json({ ok: true, job: done });
+      queue.splice(idx, 1);
+      await putQueue(queue);
+      return json({ ok: true, job: done, waiting: queue.length });
     }
 
     return json({ ok: false, error: "not-found" }, 404);

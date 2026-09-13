@@ -927,9 +927,16 @@ window.CarWeb = (function () {
     // with the toggle visibly off.
     disarmLlmCheck();
   }
+  // "A card was opened." Same subscribe-to-a-list shape as onFamilyChange /
+  // onDbFilterChange. Added for the request panel, which retargets itself when
+  // you click a different car while it is open -- so clicking around the graph
+  // and then asking for "this one" works without going back to its text box.
+  const detailListeners = [];
+  function onDetailOpen(f) { detailListeners.push(f); }
   function openDetail(n) {
     if (dtNode && dtNode !== n) switchDetailAway();
     dtNode = n;
+    detailListeners.forEach(f => { try { f(n); } catch (e) {} });
     if (window.LlmFamilies) window.LlmFamilies.setEngaged(n.id);
     dt.hidden = false;
     dt.querySelector(".dt-kicker").textContent = nodeKicker(n);
@@ -4065,21 +4072,24 @@ window.CarWeb = (function () {
   }
 
   // ---------- request-a-scan (hosted site only) ----------
-  // Real user request: "Add some kind of 'request' button on the hosted
-  // webpage that sends a request to my machine to do the local LLM search,
-  // and then automatically push the changes (and close the program running
-  // locally) once all of the LLM processing is finished."
+  // Real user request: "the user should be able to request a scan after they
+  // have focused on a particular model or nameplate in the graph. If the user
+  // clicks 'request scan' then the user should be prompted to select a
+  // particular car on the graph, or search the name and model of the car."
   //
-  // The button cannot call the machine. It has no public address and is
-  // usually asleep, so this leaves a JOB and the agent on that machine polls
-  // for it when it is awake -- which is also why every state shown here is a
+  // So a request names ONE CAR. It is prefilled from whatever is open or
+  // focused, because that is where you are standing when you decide you want
+  // something looked at, and the box searches the graph the same way the main
+  // search box does when it is not.
+  //
+  // The button cannot call the machine -- it has no public address and is
+  // usually asleep -- so this leaves a job in a Cloudflare Worker and the
+  // agent on that machine polls for it. Every state shown here is therefore a
   // record of what the agent last reported, never a live view of it. See
-  // src/worker.js for the queue and docs/REQUEST-QUEUE.md for the whole flow.
+  // src/worker.js and docs/REQUEST-QUEUE.md.
   //
   // Shown only when there is NO local server: with serve.py running you are
   // sitting at the machine and run the pass yourself from the Tools menu.
-  // That makes it the exact mirror of #toolsmenu-wrap, which is hidden in the
-  // other case.
   const LRQ_POLL_MS = 20000;
   function initLlmRequest() {
     const wrap = document.getElementById("llmrequest-wrap");
@@ -4091,11 +4101,15 @@ window.CarWeb = (function () {
 
     const dot = document.getElementById("llmrequest-dot");
     const closeBtn = document.getElementById("llmrequest-close");
+    const carEl = document.getElementById("llmrequest-car");
+    const resultsEl = document.getElementById("llmrequest-carresults");
+    const chosenEl = document.getElementById("llmrequest-chosen");
     const noteEl = document.getElementById("llmrequest-note");
     const passEl = document.getElementById("llmrequest-pass");
     const sendBtn = document.getElementById("llmrequest-send");
     const statusEl = document.getElementById("llmrequest-status");
-    let poll = null;
+    const queueEl = document.getElementById("llmrequest-queue");
+    let poll = null, chosen = null;
 
     const say = (msg, cls) => { statusEl.textContent = msg || ""; statusEl.className = "lrq-status" + (cls ? " " + cls : ""); };
     const ago = iso => {
@@ -4107,6 +4121,100 @@ window.CarWeb = (function () {
       const h = Math.round(m / 60);
       return h < 48 ? h + "h ago" : Math.round(h / 24) + " days ago";
     };
+    const carName = n => (n.type === "model" || n.type === "family") ? `${n.make} ${n.label}` : n.label;
+
+    // Only a nameplate or a model can hide generations -- a make or a person
+    // has nothing for this check to read. Mirrors LlmFamilies.isEligible /
+    // isEligibleForRecheck without duplicating their finer rules: the Worker
+    // takes the id, and the agent re-checks eligibility against the real
+    // graph when it runs.
+    const scannable = n => !!n && !n.retired && (n.type === "model" || n.type === "family");
+
+    function setChosen(n) {
+      chosen = scannable(n) ? n : null;
+      if (chosen) {
+        chosenEl.hidden = false;
+        chosenEl.innerHTML = `<span class="k">${chosen.type === "family" ? "nameplate" : "model"}</span>` +
+          `<span>${esc(carName(chosen))}</span><button title="clear">✕</button>`;
+        chosenEl.querySelector("button").onclick = () => { setChosen(null); carEl.focus(); };
+        carEl.value = "";
+      } else {
+        chosenEl.hidden = true;
+        chosenEl.innerHTML = "";
+      }
+      resultsEl.hidden = true;
+      refreshSendState();
+    }
+
+    function renderCarResults(q) {
+      const hits = (CarWeb.searchAll(q) || []).filter(scannable).slice(0, 8);
+      if (!hits.length) { resultsEl.hidden = true; resultsEl.innerHTML = ""; return; }
+      resultsEl.innerHTML = "";
+      hits.forEach(n => {
+        const b = document.createElement("button");
+        b.className = "lrq-result";
+        b.innerHTML = `<span class="t">${n.type === "family" ? "nameplate" : "model"}</span>` +
+          `<span>${esc(carName(n))}</span><span class="y">${n.year || ""}</span>`;
+        b.onclick = () => setChosen(n);
+        resultsEl.appendChild(b);
+      });
+      resultsEl.hidden = false;
+    }
+
+    function refreshSendState() {
+      const queued = !!(lastStatus && (lastStatus.queue || []).some(j => j.targetId === (chosen && chosen.id)));
+      sendBtn.disabled = !chosen || queued;
+      sendBtn.textContent = !chosen ? "Pick a car first" : (queued ? "Already requested" : "Send request");
+    }
+
+    let lastStatus = null;
+    function render(d) {
+      lastStatus = d && d.ok ? d : null;
+      if (!d || !d.ok) {
+        if (d && d.error === "queue-unconfigured") {
+          say("The queue isn't set up on this deploy yet — see docs/REQUEST-QUEUE.md.", "err");
+        }
+        dot.hidden = true;
+        queueEl.innerHTML = "";
+        refreshSendState();
+        return;
+      }
+      const q = d.queue || (d.pending ? [d.pending] : []);
+      dot.hidden = !q.length;
+
+      if (q.length) {
+        queueEl.innerHTML = `<h5>waiting (${q.length})</h5><ol>` + q.map(j =>
+          `<li${j.state === "running" ? ' class="run"' : ""}>${esc(j.targetLabel || j.targetId)}` +
+          `${j.state === "running" ? " — running now" : " — " + ago(j.queuedAt)}</li>`).join("") + "</ol>";
+      } else {
+        queueEl.innerHTML = "";
+      }
+
+      const last = d.last;
+      if (q.some(j => j.state === "running")) {
+        say("The machine is working through the queue now.", "ok");
+      } else if (q.length) {
+        say("Waiting for the machine to wake up.", "ok");
+      } else if (last && last.state === "done") {
+        say(`Last run (${last.targetLabel || "a car"}) finished ${ago(last.finishedAt)}` +
+            (last.summary ? " — " + last.summary : "") + ".");
+      } else if (last) {
+        say(`Last run (${last.targetLabel || "a car"}) failed ${ago(last.finishedAt)}` +
+            (last.summary ? " — " + last.summary : "") + ".", "err");
+      } else {
+        say("");
+      }
+      refreshSendState();
+    }
+
+    async function refresh() {
+      try {
+        const r = await fetch("/api/request/status", { cache: "no-store" });
+        render(await r.json());
+      } catch (e) {
+        dot.hidden = true;
+      }
+    }
 
     // Same fixed-position trick #toolsmenu uses, and for the same reason:
     // #topbar clips anything that extends below its own box.
@@ -4117,58 +4225,39 @@ window.CarWeb = (function () {
       panel.style.right = Math.max(0, window.innerWidth - r.right) + "px";
     }
 
-    function render(d) {
-      if (!d || !d.ok) {
-        if (d && d.error === "queue-unconfigured") {
-          say("The queue isn't set up on this deploy yet — see docs/REQUEST-QUEUE.md.", "err");
-        }
-        dot.hidden = true;
-        return;
-      }
-      const p = d.pending, last = d.last;
-      dot.hidden = !p;
-      if (p && p.state === "running") {
-        say("Running on the machine since " + ago(p.claimedAt || p.queuedAt) + ". It pushes and shuts down when it finishes.", "ok");
-      } else if (p) {
-        say("Queued " + ago(p.queuedAt) + ", waiting for the machine to wake up.", "ok");
-      } else if (last && last.state === "done") {
-        say("Last run finished " + ago(last.finishedAt) + (last.summary ? " — " + last.summary : "") + ".");
-      } else if (last) {
-        say("Last run failed " + ago(last.finishedAt) + (last.summary ? " — " + last.summary : "") + ".", "err");
-      } else {
-        say("");
-      }
-      // A job already in flight: another request would only be dropped.
-      sendBtn.disabled = !!p;
-      sendBtn.textContent = p ? "Already requested" : "Send request";
-    }
-
-    async function refresh() {
-      try {
-        const r = await fetch("/api/request/status", { cache: "no-store" });
-        render(await r.json());
-      } catch (e) {
-        // Offline, or a deploy with no Worker at all. Either way there is
-        // nothing useful to say beyond not pretending it worked.
-        dot.hidden = true;
-      }
-    }
-
     function openPanel() {
       positionPanel();
       panel.hidden = false;
       trigger.classList.add("open");
+      // Prefilled from where the user actually is: the open card first, then
+      // whatever the graph is focused on.
+      if (!chosen) {
+        const focus = graphFocusRoot();
+        setChosen(dtNode && scannable(dtNode) ? dtNode : focus);
+      }
       refresh();
       if (!poll) poll = setInterval(refresh, LRQ_POLL_MS);
-      passEl.focus();
+      (chosen ? passEl : carEl).focus();
     }
     function closePanel() {
       panel.hidden = true;
       trigger.classList.remove("open");
+      resultsEl.hidden = true;
       if (poll) { clearInterval(poll); poll = null; }
     }
 
+    function graphFocusRoot() {
+      const set = Graph.state().focusSet;
+      if (!set || !set.size) return null;
+      for (const id of set) {
+        const n = byId.get(id);
+        if (scannable(n)) return n;
+      }
+      return null;
+    }
+
     sendBtn.onclick = async () => {
+      if (!chosen) { say("Pick a car first.", "err"); carEl.focus(); return; }
       if (!passEl.value) { say("Enter the passphrase first.", "err"); passEl.focus(); return; }
       sendBtn.disabled = true;
       say("Sending…");
@@ -4176,23 +4265,43 @@ window.CarWeb = (function () {
         const r = await fetch("/api/request/queue", {
           method: "POST",
           headers: { "content-type": "application/json" },
-          body: JSON.stringify({ passphrase: passEl.value, note: noteEl.value || "" }),
+          body: JSON.stringify({
+            passphrase: passEl.value,
+            targetId: chosen.id,
+            targetLabel: carName(chosen),
+            note: noteEl.value || "",
+          }),
         });
         const d = await r.json();
-        if (d && d.error === "bad-passphrase") { say("That passphrase isn't right.", "err"); sendBtn.disabled = false; return; }
+        if (d && d.error === "bad-passphrase") { say("That passphrase isn't right.", "err"); refreshSendState(); return; }
         if (!r.ok || !d || !d.ok) {
           say(d && d.message ? d.message : "The queue didn't accept that (" + r.status + ").", "err");
-          sendBtn.disabled = false;
+          refreshSendState();
           return;
         }
         passEl.value = "";
+        noteEl.value = "";
         render(d);
-        if (d.already) say("There's already a job waiting — yours wasn't added on top of it.", "ok");
+        say(d.already ? `${carName(chosen)} was already in the queue.`
+                      : `${carName(chosen)} is queued.`, "ok");
       } catch (e) {
         say("Couldn't reach the queue.", "err");
-        sendBtn.disabled = false;
+        refreshSendState();
       }
     };
+
+    carEl.addEventListener("input", () => {
+      if (chosen) setChosen(null);
+      const q = carEl.value.trim();
+      if (q.length < 2) { resultsEl.hidden = true; return; }
+      renderCarResults(q);
+    });
+    carEl.addEventListener("keydown", e => {
+      if (e.key === "Enter") {
+        const first = resultsEl.querySelector(".lrq-result");
+        if (first) { e.preventDefault(); first.click(); }
+      }
+    });
 
     trigger.onclick = (e) => { e.stopPropagation(); if (panel.hidden) openPanel(); else closePanel(); };
     closeBtn.onclick = closePanel;
@@ -4202,8 +4311,13 @@ window.CarWeb = (function () {
     window.addEventListener("resize", () => { if (!panel.hidden) positionPanel(); });
     wrap.closest("#topbar")?.addEventListener("scroll", closePanel);
 
-    // One check at boot so the dot can show a job is already in flight
-    // without the panel ever being opened.
+    // Opening a car while the panel is up retargets the request, so clicking
+    // around the graph and then asking for "this one" works without going
+    // back to the text box.
+    onDetailOpen(n => { if (!panel.hidden && scannable(n)) setChosen(n); });
+
+    // One check at boot so the dot can show something is queued without the
+    // panel ever being opened.
     refresh();
   }
 

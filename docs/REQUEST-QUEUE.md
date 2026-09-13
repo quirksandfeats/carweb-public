@@ -8,39 +8,43 @@ So the button does not call the machine. It leaves a **job**, and the machine
 picks the job up when it is next awake.
 
 ```
-  hosted site            Cloudflare Worker + KV            the Mac
-  ───────────            ──────────────────────            ───────
-  ⚡ Request scan   ──▶   POST /api/request/queue
-                         (passphrase)      job: queued
-                                              ▲   │
-                         GET /api/request/jobs│   │   agent polls
-                                              └───┴──▶ claims it
-                                                       runs the pass
-                                                       git push
-                                                       exits
-                         POST /api/request/done ◀──────┘
-  status line       ◀──   GET /api/request/status
+  hosted site                 Cloudflare Worker + KV          the Mac
+  ───────────                 ──────────────────────          ───────
+  focus a car
+  ⚡ Request scan  ──────▶     POST /api/request/queue
+  (passphrase)                {targetId, targetLabel}
+                              job:queue  [A][B][C]
+                                            ▲    │
+                              GET /api/request/jobs│  agent polls
+                                            └────┴──▶ claims the head
+                                                      scans THAT car
+                                                      git push
+                                                      exits
+                              POST /api/request/done ◀─┘
+  queue, by car name  ◀──     GET /api/request/status
 ```
 
-Findings arrive as **provisional**. The whole point of this layer is that
-nothing enters the graph without a human confirming it, and an unattended run
-that pushed confirmed records would quietly remove that. The agent's job ends
-at "here is what the article says"; the confirming is still yours, on the site,
-afterwards.
+**A request names one car.** You focus a nameplate or a model in the graph and
+ask for it; that car is what gets scanned. The panel prefills whatever card is
+open, retargets if you click a different car while it is open, and searches
+the graph if you want a third one. A request with no car would mean "go and do
+something", which is not a thing anyone can act on or review afterwards.
 
-## Two different lists, both called a queue in conversation
+What comes back is covered under **What it confirms** below — a first-time
+nameplate split is applied without asking, a correction to an existing
+generation list waits for a human, and everything the agent confirmed is
+stamped so it can be reviewed afterwards.
 
-- The **job queue** lives in Cloudflare KV and holds *requests to run* — at
-  most one at a time. `GET /api/request/status` shows it, and it is empty
-  whenever nothing has been requested.
+## Two different lists
+
+- The **job queue** lives in Cloudflare KV and holds *requests* — one per car,
+  up to 25, oldest first. `GET /api/request/status` returns it by car name, and
+  the ⚡ Request scan panel shows the same list. Asking for a car already in
+  the queue returns the existing request rather than stacking a duplicate. A
+  request nobody claims for two days is dropped.
 - The **review backlog** lives in `data_src/harvest/family_match_report.txt`
-  and is the list of *cars a run works through* — currently 186 of them. It
-  has nothing to do with Cloudflare, and `--now` uses it without touching the
-  job queue at all.
-
-A job does not name a car. It means "do a pass"; the agent chooses which cars,
-from the top of the backlog. The note you can type into the button is logged,
-not parsed.
+  and is the list of cars `--now` works through when there is no request to
+  read. Nothing to do with Cloudflare.
 
 ## Routes
 
@@ -51,9 +55,9 @@ keeps hiding every server-only control.
 
 | Route | Auth | Who calls it |
 |---|---|---|
-| `GET /api/request/status` | none | the button, to show where a request got to |
-| `POST /api/request/queue` | passphrase in the body | the button |
-| `GET /api/request/jobs` | `Authorization: Bearer <AGENT_TOKEN>` | the agent |
+| `GET /api/request/status` | none | the panel, to list what is waiting, by car |
+| `POST /api/request/queue` | passphrase in the body | the panel; body names the car |
+| `GET /api/request/jobs` | `Authorization: Bearer <AGENT_TOKEN>` | the agent; returns the head plus how many wait |
 | `POST /api/request/claim` | bearer | the agent, before it starts |
 | `POST /api/request/done` | bearer | the agent, with a one-line summary |
 
@@ -147,7 +151,10 @@ cars ended up with an entry — so "1 seed at depth 1, 7 cars now have an entry,
 What one run does:
 
 1. `GET /api/request/jobs`, then `POST /api/request/claim`.
-2. Picks targets from `data_src/harvest/family_match_report.txt`, minus
+2. If the job names a car, that car is the seed — not the backlog, and not
+   skipped for already having an entry, since "look at this again" is a
+   perfectly good request. `--now` has no job to read, so it picks from
+   `data_src/harvest/family_match_report.txt`, minus
    anything already scanned, dismissed or awaiting a re-check.
    **UN-SPLIT NAMEPLATE CANDIDATES first** — those are the models where a
    credited designer's dates contradict the article's own range (Wayne Cherry

@@ -757,6 +757,33 @@ main{flex:1; position:relative; min-height:0}
 .lrq-check input{margin-top:2px; flex:none}
 .lrq-status.err{color:var(--accent)}
 .lrq-status.ok{color:var(--gensucc)}
+.lrq-pick{position:relative}
+.lrq-results{
+  position:absolute; top:calc(100% + 4px); left:0; right:0; max-height:210px; overflow:auto;
+  background:var(--card); border:1px solid var(--ink); box-shadow:4px 4px 0 rgba(23,20,15,.12); z-index:70;
+}
+.lrq-results[hidden]{display:none}
+.lrq-result{
+  display:flex; gap:8px; align-items:baseline; width:100%; text-align:left;
+  padding:7px 10px; border:0; border-bottom:1px solid var(--paper2);
+  background:transparent; font-family:var(--sans); font-size:12.5px; color:var(--ink); cursor:pointer;
+}
+.lrq-result:hover,.lrq-result.sel{background:var(--paper2)}
+.lrq-result .t{font-size:9px; letter-spacing:.11em; text-transform:uppercase; color:var(--muted); flex:none}
+.lrq-result .y{margin-left:auto; font-size:10.5px; color:var(--muted); flex:none}
+.lrq-chosen{
+  margin-top:6px; font-size:12px; color:var(--ink); background:var(--paper2);
+  border:1px solid var(--hairline); border-radius:6px; padding:6px 9px;
+  display:flex; gap:8px; align-items:center;
+}
+.lrq-chosen[hidden]{display:none}
+.lrq-chosen .k{font-size:9px; letter-spacing:.11em; text-transform:uppercase; color:var(--muted)}
+.lrq-chosen button{margin-left:auto; border:0; background:none; color:var(--muted); cursor:pointer; font-size:12px}
+.lrq-queue{margin-top:11px; font-size:11.5px; color:var(--ink2); line-height:1.5}
+.lrq-queue:empty{display:none}
+.lrq-queue h5{font-size:9px; letter-spacing:.13em; text-transform:uppercase; color:var(--muted); margin-bottom:4px}
+.lrq-queue ol{margin:0; padding-left:16px}
+.lrq-queue .run{color:var(--gensucc); font-weight:600}
 
 /* ---------- phone layout ----------------------------------------------------
    Real user request: "Mobile version (new UI)... It should have all features
