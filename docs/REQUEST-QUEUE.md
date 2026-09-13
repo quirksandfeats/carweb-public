@@ -58,6 +58,7 @@ keeps hiding every server-only control.
 | `GET /api/request/status` | none | the panel, to list what is waiting, by car |
 | `POST /api/request/queue` | passphrase in the body | the panel; body names the car |
 | `GET /api/request/jobs` | `Authorization: Bearer <AGENT_TOKEN>` | the agent; returns the head plus how many wait |
+| `POST /api/request/cancel` | passphrase, or bearer for `all` | withdraw a request |
 | `POST /api/request/claim` | bearer | the agent, before it starts |
 | `POST /api/request/done` | bearer | the agent, with a one-line summary |
 
@@ -94,6 +95,31 @@ config on the Mac, so make it long and random.
 
 Until both exist, `/api/request/queue` answers `queue-unconfigured` and the
 button says so rather than failing.
+
+## Changing the queue
+
+A request is a suggestion, so it can be withdrawn.
+
+- **From the site:** the ⚡ Request scan panel lists what is waiting with a ✕
+  on each one. Removing needs the passphrase, same as adding.
+- **From the machine:**
+
+  ```
+  .venv/bin/python scripts/llm_agent.py --queue                  # list
+  .venv/bin/python scripts/llm_agent.py --drop m-buick-century   # one, by car
+  .venv/bin/python scripts/llm_agent.py --drop <job id>          # one, by job
+  .venv/bin/python scripts/llm_agent.py --clear                  # all of them
+  ```
+
+- **By hand:** dashboard → Workers KV → CARWEB_JOBS → KV Pairs → `job:queue`
+  is a plain JSON array. Editing it there works and is the last resort.
+
+Two rules. **A request being scanned right now cannot be withdrawn** — the
+agent is mid-pass on it and its own `/done` is what closes it out, so dropping
+it would leave that result with nowhere to land; `--clear` leaves it in place
+too. And **emptying the whole queue needs the agent token**, not the
+passphrase: if the passphrase ever leaks, one person should not be able to
+wipe everyone else's requests in a click.
 
 ## The agent
 

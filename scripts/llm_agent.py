@@ -8,6 +8,9 @@ the local LLM generation pass, pushes the result, and exits.
     python3 scripts/llm_agent.py           # wait up to 10 min for a job, run it
     python3 scripts/llm_agent.py --watch   # keep waiting (for launchd/cron)
     python3 scripts/llm_agent.py --now     # scan from the backlog, no job needed
+    python3 scripts/llm_agent.py --queue   # what has been requested
+    python3 scripts/llm_agent.py --drop m-buick-century
+    python3 scripts/llm_agent.py --clear   # empty it
 
 A QUEUED REQUEST NAMES ONE CAR -- someone focused it in the graph and asked
 for it -- and that car is the seed. --now has no request to read, so it takes
@@ -671,10 +674,50 @@ def main():
     ap.add_argument("--targets", default="", help="comma-separated node ids to scan instead of the review backlog")
     ap.add_argument("--dry-run", action="store_true",
                     help="print what a run would scan and stop; starts nothing")
+    # Managing the queue from here rather than from the site: the site can
+    # only drop one request at a time, on purpose (see the Worker's own
+    # comment on why emptying it is agent-token-only).
+    ap.add_argument("--queue", action="store_true", help="list the queued requests and stop")
+    ap.add_argument("--drop", default="", metavar="ID_OR_CAR",
+                    help="remove one queued request, by job id or by the car's node id")
+    ap.add_argument("--clear", action="store_true",
+                    help="remove every queued request (anything already running is left alone)")
     args = ap.parse_args()
 
     if shutil.which("git") is None:
         sys.exit("git is not on PATH")
+    if args.queue or args.drop or args.clear:
+        if not TOKEN:
+            sys.exit("set CARWEB_AGENT_TOKEN to the AGENT_TOKEN secret")
+        if args.clear:
+            st, d = api("/api/request/cancel", "POST", {"all": True})
+            if st != 200:
+                sys.exit(f"could not clear the queue ({st}): {d.get('message') or d.get('error')}")
+            print(f"removed {d.get('removed', 0)} request(s)")
+        elif args.drop:
+            st, d = api("/api/request/cancel", "POST", {"id": args.drop})
+            if st != 200:
+                sys.exit(f"could not remove that ({st}): {d.get('message') or d.get('error')}")
+            print("removed 1 request")
+        else:
+            st, d = api("/api/request/status")
+            if st != 200:
+                sys.exit(f"could not read the queue ({st})")
+        q = (d or {}).get("queue") or []
+        if not q:
+            print("queue is empty")
+        for i, j in enumerate(q, 1):
+            state = " (running now)" if j.get("state") == "running" else ""
+            print(f"{i}. {j.get('targetLabel') or j.get('targetId')}{state}")
+            print(f"   id {j.get('id')}   queued {j.get('queuedAt')}")
+            if j.get("note"):
+                print(f"   note: {j['note']}")
+        last = (d or {}).get("last")
+        if last:
+            print(f"\nlast run: {last.get('targetLabel') or '?'} -- {last.get('state')}"
+                  f" -- {last.get('summary') or ''}")
+        return
+
     if args.dry_run:
         backlog = review_queue_ids()
         scanned = already_scanned()

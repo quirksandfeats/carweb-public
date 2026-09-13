@@ -173,6 +173,45 @@ export default {
       return json({ ok: true, already: false, ...publicView(queue, await getLast()) });
     }
 
+    // ---- passphrase OR agent token: take something back out ----------------
+    // Anyone who could put a car in can take that car out again -- a request
+    // is a suggestion, and being unable to withdraw one meant waiting two
+    // days for the TTL or running a scan nobody wanted any more. Emptying the
+    // WHOLE queue needs the agent token: if the passphrase ever leaks, one
+    // bad actor should not be able to wipe everyone's requests in a click.
+    if (path === "/api/request/cancel" && request.method === "POST") {
+      const body = await readJson(request) || {};
+      const authz = request.headers.get("authorization") || "";
+      const tok = authz.startsWith("Bearer ") ? authz.slice(7) : "";
+      const isAgent = !!env.AGENT_TOKEN && timingSafeEqual(tok, env.AGENT_TOKEN);
+      const knowsPass = !!env.REQUEST_SECRET && timingSafeEqual(body.passphrase, env.REQUEST_SECRET);
+      if (!isAgent && !knowsPass) return json({ ok: false, error: "bad-passphrase" }, 403);
+
+      const queue = await getQueue();
+      if (body.all) {
+        if (!isAgent) {
+          return json({ ok: false, error: "agent-only",
+                        message: "Clearing the whole queue has to be done from the machine." }, 403);
+        }
+        // A job already RUNNING is not cancelled from here: the agent is
+        // mid-pass on it and its /done is what closes it out. Dropping it
+        // would leave that result with nowhere to land.
+        const keep = queue.filter(j => j.state === "running");
+        await putQueue(keep);
+        return json({ ok: true, removed: queue.length - keep.length, ...publicView(keep, await getLast()) });
+      }
+      const id = String(body.id || "").trim();
+      const idx = id ? queue.findIndex(j => j.id === id || j.targetId === id) : -1;
+      if (idx < 0) return json({ ok: false, error: "no-job" }, 404);
+      if (queue[idx].state === "running") {
+        return json({ ok: false, error: "running",
+                      message: "That one is being scanned right now." }, 409);
+      }
+      queue.splice(idx, 1);
+      await putQueue(queue);
+      return json({ ok: true, removed: 1, ...publicView(queue, await getLast()) });
+    }
+
     // ---- agent-only from here on -------------------------------------------
     const auth = request.headers.get("authorization") || "";
     const bearer = auth.startsWith("Bearer ") ? auth.slice(7) : "";

@@ -4184,8 +4184,16 @@ window.CarWeb = (function () {
 
       if (q.length) {
         queueEl.innerHTML = `<h5>waiting (${q.length})</h5><ol>` + q.map(j =>
-          `<li${j.state === "running" ? ' class="run"' : ""}>${esc(j.targetLabel || j.targetId)}` +
-          `${j.state === "running" ? " — running now" : " — " + ago(j.queuedAt)}</li>`).join("") + "</ol>";
+          `<li${j.state === "running" ? ' class="run"' : ""}>` +
+          `<span>${esc(j.targetLabel || j.targetId)}` +
+          `${j.state === "running" ? " — running now" : " — " + ago(j.queuedAt)}</span>` +
+          // A request is a suggestion, so it has to be withdrawable. Not on
+          // the one being scanned: the agent is mid-pass on it and its own
+          // /done is what closes it out.
+          (j.state === "running" ? "" :
+            `<button class="lrq-drop" data-id="${esc(j.id)}" title="remove this request">✕</button>`) +
+          `</li>`).join("") + "</ol>";
+        queueEl.querySelectorAll(".lrq-drop").forEach(b => { b.onclick = () => drop(b.dataset.id); });
       } else {
         queueEl.innerHTML = "";
       }
@@ -4213,6 +4221,25 @@ window.CarWeb = (function () {
         render(await r.json());
       } catch (e) {
         dot.hidden = true;
+      }
+    }
+
+    async function drop(id) {
+      if (!passEl.value) { say("Enter the passphrase to remove a request.", "err"); passEl.focus(); return; }
+      say("Removing…");
+      try {
+        const r = await fetch("/api/request/cancel", {
+          method: "POST",
+          headers: { "content-type": "application/json" },
+          body: JSON.stringify({ passphrase: passEl.value, id }),
+        });
+        const d = await r.json();
+        if (d && d.error === "bad-passphrase") return say("That passphrase isn't right.", "err");
+        if (!r.ok || !d || !d.ok) return say(d && d.message ? d.message : "Couldn't remove that.", "err");
+        render(d);
+        say("Removed.", "ok");
+      } catch (e) {
+        say("Couldn't reach the queue.", "err");
       }
     }
 

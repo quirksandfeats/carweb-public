@@ -216,6 +216,51 @@ const bearer = tok => ({ authorization: "Bearer " + tok });
       JSON.stringify(d.queue.map(j => j.id)));
   }
 
+  // ---- taking a request back out -----------------------------------------
+  {
+    const env = fakeEnv();
+    for (const [id, label] of [["m-a", "Car A"], ["m-b", "Car B"], ["m-c", "Car C"]]) {
+      await worker.fetch(post("/api/request/queue", { passphrase: PASS, targetId: id, targetLabel: label }), env);
+    }
+    const nope = await worker.fetch(post("/api/request/cancel", { passphrase: "wrong", id: "m-b" }), env);
+    t("removing needs the passphrase", nope.status === 403, nope.status);
+
+    const byCar = await (await worker.fetch(post("/api/request/cancel", { passphrase: PASS, id: "m-b" }), env)).json();
+    t("a request can be withdrawn by the car's own id -- the thing a visitor knows",
+      byCar.ok && byCar.queue.map(j => j.targetId).join(",") === "m-a,m-c",
+      JSON.stringify(byCar.queue.map(j => j.targetId)));
+
+    const jobId = byCar.queue[1].id;
+    const byJob = await (await worker.fetch(post("/api/request/cancel", { passphrase: PASS, id: jobId }), env)).json();
+    t("...or by its job id", byJob.queue.map(j => j.targetId).join(",") === "m-a", JSON.stringify(byJob.queue));
+
+    const gone = await worker.fetch(post("/api/request/cancel", { passphrase: PASS, id: "m-b" }), env);
+    t("withdrawing something already gone is a plain not-found", gone.status === 404, gone.status);
+  }
+
+  // ---- the one being scanned is left alone -------------------------------
+  {
+    const env = fakeEnv();
+    await worker.fetch(post("/api/request/queue", { passphrase: PASS, targetId: "m-a", targetLabel: "Car A" }), env);
+    await worker.fetch(post("/api/request/queue", { passphrase: PASS, targetId: "m-b", targetLabel: "Car B" }), env);
+    const head = await (await worker.fetch(req("/api/request/jobs", { headers: bearer(TOKEN) }), env)).json();
+    await worker.fetch(post("/api/request/claim", { id: head.job.id }, bearer(TOKEN)), env);
+
+    const running = await worker.fetch(post("/api/request/cancel", { passphrase: PASS, id: "m-a" }), env);
+    t("a request being scanned right now cannot be withdrawn -- its result "
+      + "would have nowhere to land", running.status === 409, running.status);
+
+    const all = await worker.fetch(post("/api/request/cancel", { passphrase: PASS, all: true }), env);
+    t("emptying the whole queue is refused to a passphrase holder", all.status === 403, all.status);
+    t("...and says where it has to be done from", /from the machine/i.test((await all.json()).message || ""));
+
+    const cleared = await (await worker.fetch(
+      post("/api/request/cancel", { all: true }, bearer(TOKEN)), env)).json();
+    t("the agent token can empty it", cleared.ok && cleared.removed === 1, JSON.stringify(cleared));
+    t("...but leaves the one already running", cleared.queue.length === 1 &&
+      cleared.queue[0].state === "running", JSON.stringify(cleared.queue));
+  }
+
   // ---- a failed run is recorded as failed, not silently as done -----------
   {
     const env = fakeEnv();

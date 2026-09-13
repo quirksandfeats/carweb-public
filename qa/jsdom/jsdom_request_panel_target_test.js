@@ -31,13 +31,20 @@ window.Element.prototype.getBoundingClientRect = function () {
   return { width: 1000, height: 800, top: 0, left: 0, right: 1000, bottom: 800, x: 0, y: 0 };
 };
 Object.defineProperty(window.HTMLElement.prototype, "offsetHeight", { get() { return 40; } });
+const cancelled = [];
+let serverQueue = [];
 window.fetch = (url, opts) => {
   if (String(url).includes("/api/request/queue")) {
     posted.push(JSON.parse(opts.body));
-    return Promise.resolve({ ok: true, status: 200, json: async () => ({ ok: true, already: false, queue: [], last: null }) });
+    return Promise.resolve({ ok: true, status: 200, json: async () => ({ ok: true, already: false, queue: serverQueue, last: null }) });
+  }
+  if (String(url).includes("/api/request/cancel")) {
+    cancelled.push(JSON.parse(opts.body));
+    serverQueue = serverQueue.filter(j => j.id !== JSON.parse(opts.body).id);
+    return Promise.resolve({ ok: true, status: 200, json: async () => ({ ok: true, removed: 1, queue: serverQueue, last: null }) });
   }
   if (String(url).includes("/api/request/status")) {
-    return Promise.resolve({ ok: true, status: 200, json: async () => ({ ok: true, queue: [], last: null }) });
+    return Promise.resolve({ ok: true, status: 200, json: async () => ({ ok: true, queue: serverQueue, last: null }) });
   }
   return Promise.resolve({ ok: true, status: 200, json: async () => ({ ok: true }) });
 };
@@ -142,6 +149,37 @@ const wait = ms => new Promise(r => setTimeout(r, ms));
     posted[0].targetLabel === "TestReq Alpha", posted[0].targetLabel);
   t("...and the note", posted[0].note === "the 1930 entry looks wrong");
   t("the passphrase is cleared after sending", $("llmrequest-pass").value === "");
+
+  // ---- the queue is shown, and a request can be taken back out ----------
+  serverQueue = [
+    { id: "j1", state: "running", queuedAt: new Date().toISOString(), targetId: "m-x", targetLabel: "Car X" },
+    { id: "j2", state: "queued", queuedAt: new Date().toISOString(), targetId: "m-y", targetLabel: "Car Y" },
+  ];
+  $("llmrequest-btn").click();           // close
+  $("llmrequest-btn").click();           // reopen -> refresh
+  await wait(120);
+  const qText = $("llmrequest-queue").textContent;
+  t("the panel lists what is waiting, by car name",
+    /Car X/.test(qText) && /Car Y/.test(qText), qText);
+  t("...and marks the one being scanned", /running now/.test(qText), qText);
+
+  const drops = [...$("llmrequest-queue").querySelectorAll(".lrq-drop")];
+  t("only the ones NOT running offer a remove button -- the running one's "
+    + "result would have nowhere to land", drops.length === 1 && drops[0].dataset.id === "j2",
+    drops.map(b => b.dataset.id).join(","));
+
+  drops[0].click();
+  await wait(60);
+  t("removing without a passphrase asks for one first", cancelled.length === 0,
+    $("llmrequest-status").textContent);
+
+  $("llmrequest-pass").value = "a-passphrase";
+  [...$("llmrequest-queue").querySelectorAll(".lrq-drop")][0].click();
+  await wait(120);
+  t("with the passphrase it withdraws that request",
+    cancelled.length === 1 && cancelled[0].id === "j2", JSON.stringify(cancelled));
+  t("...and the list updates without a reload",
+    !/Car Y/.test($("llmrequest-queue").textContent), $("llmrequest-queue").textContent);
 
   console.log("\n" + fails + " failure(s)");
   process.exit(fails ? 1 : 0);

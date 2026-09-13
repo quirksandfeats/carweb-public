@@ -784,6 +784,12 @@ main{flex:1; position:relative; min-height:0}
 .lrq-queue h5{font-size:9px; letter-spacing:.13em; text-transform:uppercase; color:var(--muted); margin-bottom:4px}
 .lrq-queue ol{margin:0; padding-left:16px}
 .lrq-queue .run{color:var(--gensucc); font-weight:600}
+.lrq-queue li{display:flex; gap:6px; align-items:baseline}
+.lrq-drop{
+  margin-left:auto; border:0; background:none; color:var(--muted);
+  cursor:pointer; font-size:11px; padding:0 2px; flex:none;
+}
+.lrq-drop:hover{color:var(--accent)}
 
 /* ---------- phone layout ----------------------------------------------------
    Real user request: "Mobile version (new UI)... It should have all features
