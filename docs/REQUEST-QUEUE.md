@@ -126,7 +126,8 @@ model the way a person does.
 |---|---|---|
 | `--seeds` | 1 | how many review-queue cars to start from |
 | `--cascade-depth` | serve.py's setting | overrides `CASCADE_MAX_DEPTH` for this run |
-| `--settle-seconds` | 90 | how long to let a seed's cascade finish before moving on |
+| `--settle-seconds` | 300 | hard cap on waiting for a seed's cascade |
+| `--settle-quiet` | 60 | seconds with nothing written that counts as finished |
 | `--budget-minutes` | 45 | wall-clock cap on the scanning phase |
 | `--node-timeout` | 180 | how long one car gets before it is logged as an error |
 
@@ -134,7 +135,10 @@ model the way a person does.
 the work: confirming a split is what kicks off the partner cascade, and those
 checks run afterwards, in the background. Stopping `serve.py` at that moment
 would cut them off mid-flight and throw away calls already paid for. The run
-waits until nothing new has been written for about nine seconds running.
+waits until nothing new has been written for a full minute. Each partner
+check is a whole LLM call, so the gap between two writes is the length of a
+call -- a few seconds of quiet is the normal state mid-cascade, not the end of
+one.
 
 The summary reports all three numbers — seeds, cascade depth, and how many
 cars ended up with an entry — so "1 seed at depth 1, 7 cars now have an entry,

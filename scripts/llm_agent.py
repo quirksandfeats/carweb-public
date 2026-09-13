@@ -253,7 +253,7 @@ def stop_serve(proc):
 
 
 # ----------------------------------------------------------------- the pass --
-def run_pass(targets, budget_seconds, per_node_seconds, settle_seconds=90):
+def run_pass(targets, budget_seconds, per_node_seconds, settle_seconds=300, quiet_seconds=60):
     """Drives the real UI: turn on LLM Check, open each target, wait for its
     entry to land. Opening a node with the check armed is exactly what a human
     does, and it is the code path that ships -- no second implementation to
@@ -338,7 +338,7 @@ def run_pass(targets, budget_seconds, per_node_seconds, settle_seconds=90):
             # and lose calls already paid for. Runs even after a timeout, for
             # exactly the case above: the seed gave up but its partners were
             # still being written.
-            settle_cascade(page, settle_seconds)
+            settle_cascade(page, settle_seconds, quiet_seconds)
 
         entries_after = entry_count(page)
         browser.close()
@@ -390,19 +390,36 @@ def entry_count(page):
         }""")
 
 
-def settle_cascade(page, settle_seconds):
-    last, stable, waited = entry_count(page), 0, 0
+def settle_cascade(page, settle_seconds, quiet_seconds=60):
+    """Wait until the background partner checks have stopped writing.
+
+    How long "stopped" has to look for is the whole question, and the first
+    version got it wrong: it declared the cascade finished after 9 seconds of
+    quiet. Each partner check is a full LLM call, so the gap between one
+    entry being written and the next appearing is the length of a call --
+    tens of seconds on a 9B model. Nine seconds of quiet is therefore the
+    NORMAL state in the middle of a cascade, not the end of one, and the run
+    would have shut the model down between two partners and thrown away the
+    call already in flight.
+
+    A minute of complete silence is a real signal by that measure. The cost of
+    being wrong is asymmetric: too long only wastes idle model time, too short
+    loses work already paid for, so this errs long and settle_seconds is the
+    hard cap.
+    """
+    last, waited, quiet = entry_count(page), 0, 0
     while waited < settle_seconds:
         page.wait_for_timeout(3000)
         waited += 3
         now = entry_count(page)
         if now == last:
-            stable += 1
-            if stable >= 3:          # ~9s with nothing new written
+            quiet += 3
+            if quiet >= quiet_seconds:
                 return
         else:
             log(f"  cascade still working: {now} cars have an entry")
-            last, stable = now, 0
+            last, quiet = now, 0
+    log(f"  cascade still not quiet after {settle_seconds}s; moving on")
 
 
 # ------------------------------------------------------------------- git -----
@@ -466,7 +483,8 @@ def do_job(job, args):
     try:
         proc = start_serve(args.cascade_depth)
         done, errors, skipped, cascade = run_pass(
-            targets, args.budget_minutes * 60, args.node_timeout, args.settle_seconds)
+            targets, args.budget_minutes * 60, args.node_timeout,
+            args.settle_seconds, args.settle_quiet)
         cascade_stats = cascade
         split = [nid for nid, st in done if st == "confirmed"]
         waiting = [nid for nid, st in done if st == "provisional" or (st or "").startswith("recheck")]
@@ -539,8 +557,11 @@ def main():
     ap.add_argument("--cascade-depth", type=int, default=None,
                     help="override serve.py's CASCADE_MAX_DEPTH for this run "
                          "(default: whatever serve.py is already set to)")
-    ap.add_argument("--settle-seconds", type=int, default=90,
-                    help="how long to let a seed's cascade finish before moving on")
+    ap.add_argument("--settle-seconds", type=int, default=300,
+                    help="hard cap on waiting for a seed's cascade to finish")
+    ap.add_argument("--settle-quiet", type=int, default=60,
+                    help="how many seconds with nothing new written counts as the "
+                         "cascade being finished")
     ap.add_argument("--budget-minutes", type=int, default=45, help="wall-clock cap on the scanning phase")
     ap.add_argument("--node-timeout", type=int, default=600,
                     help="give up on one car after this many seconds with NOTHING new "
