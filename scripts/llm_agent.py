@@ -397,7 +397,8 @@ def run_pass(targets, budget_seconds, per_node_seconds, settle_seconds=300, quie
             # still being written.
             settle_cascade(page, settle_seconds, quiet_seconds)
 
-        entries_after = len(entry_rows(page))
+        rows_after = entry_rows(page)
+        entries_after = len(rows_after)
         # The seeds are not the only cars this run can have SPLIT. A seed's
         # cascade confirms its partners the same way, by the same rule, and
         # the first real run proved it: the commit named only the Buick
@@ -411,6 +412,7 @@ def run_pass(targets, budget_seconds, per_node_seconds, settle_seconds=300, quie
         "depth": depth, "before": entries_before, "after": entries_after,
         "cascaded": max(0, entries_after - entries_before - len(done)),
         "agent_split": agent_split,
+        "rows": rows_after,
     }
 
 
@@ -613,7 +615,7 @@ def do_job(job, args):
         return
 
     log(f"{len(targets)} seed(s), budget {args.budget_minutes} min")
-    proc, state, summary, detail = None, "done", "", ""
+    proc, state, summary, detail, user_summary = None, "done", "", "", ""
     try:
         proc = start_serve(args.cascade_depth)
         done, errors, skipped, cascade = run_pass(
@@ -648,24 +650,35 @@ def do_job(job, args):
         # short list goes there and the full one goes in the commit body.
         summary = ", ".join(bits) + name_list("split", split) + name_list("awaiting review", waiting)
         detail = commit_body(split, waiting, nothing, skipped, errors)
+        # What the person who pressed the button sees. They asked about ONE
+        # car; "104 cars now have an entry, 11 reached by the cascade" is a
+        # log line, not an answer. The long version stays in the terminal and
+        # in the commit, where it is actually useful.
+        if job and job.get("targetId"):
+            row = (cascade.get("rows") or {}).get(job["targetId"])
+            user_summary = describe(row) if row else "nothing found"
+        else:
+            user_summary = summary
         log(summary)
         for e in errors[:10]:
             log("  " + e)
     except Exception as e:
         state, summary = "failed", str(e)[:300]
+        user_summary = "the scan failed"
         log("FAILED: " + summary)
     finally:
         stop_serve(proc)
 
     try:
-        if push_result(summary or "no summary", detail):
-            summary += "; pushed"
+        push_result(summary or "no summary", detail)
     except Exception as e:
         state = "failed"
         summary = (summary + f"; push failed: {e}")[:380]
+        user_summary = "the scan finished but could not be published"
         log("push failed: " + str(e))
 
-    finish(jid, state, summary)
+    log(summary)
+    finish(jid, state, user_summary or summary)
 
 
 def finish(jid, state, summary):

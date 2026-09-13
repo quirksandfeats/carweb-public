@@ -96,6 +96,25 @@ config on the Mac, so make it long and random.
 Until both exist, `/api/request/queue` answers `queue-unconfigured` and the
 button says so rather than failing.
 
+## After a run: the page reloads itself
+
+The graph ships inside `data.js`, so a HEAD request for that file and a look
+at its ETag says whether the deploy underneath an open tab has moved on. When
+it has, the page saves where it was, reloads, and comes back to it.
+
+What is restored is the **focus**, not a pixel-exact camera: `goto()` re-frames
+the same car with the rules the app already uses, which is what "the same
+place" means to someone looking at it, and it stays right even though the
+layout underneath has genuinely changed — which it has, since that is the
+whole reason for the reload. The people layer, the year range, which
+nameplates were open and which card was up all come back with it. Anything
+that no longer exists (a car the scan merged or renamed) is skipped rather
+than thrown on.
+
+It waits if you are mid-gesture, only runs while the tab is visible, and only
+on the hosted build — with `serve.py` running you are the one changing the
+data, and a page that reloads itself mid-edit would be a menace.
+
 ## Changing the queue
 
 A request is a suggestion, so it can be withdrawn.

@@ -4071,6 +4071,101 @@ window.CarWeb = (function () {
     window.addEventListener("resize", () => { if (!panel.hidden) positionPanel(); });
   }
 
+  // ---------- reload when the data changes, and come back to the same place ----
+  // Real user request: "if the user scans a specific car and it gets updated
+  // with a push, can the webpage refresh and then resume in the exact same
+  // focus as it was before the page refresh, to essentially show the newly
+  // changed graph?"
+  //
+  // Two halves. Noticing: the graph ships inside data.js, so a HEAD request
+  // for that file and a look at its ETag says whether the deploy underneath
+  // this tab has moved on -- no build step, no version file, and a few bytes
+  // a minute. Coming back: what is restored is the FOCUS, not a pixel-exact
+  // camera. goto() re-frames the same car with the same rules the app already
+  // uses, which is what "the same place" means to someone looking at it, and
+  // it stays right even though the layout underneath has genuinely changed --
+  // which it has, since that is the whole reason for the reload.
+  //
+  // Hosted only. With serve.py running you are the one changing the data, and
+  // a page that reloads itself mid-edit would be a menace.
+  const VIEW_STATE_KEY = "carweb_view_state_v1";
+  const VIEW_STATE_MAX_AGE_MS = 15 * 60 * 1000;
+
+  function saveViewState() {
+    try {
+      const st = Graph.state();
+      sessionStorage.setItem(VIEW_STATE_KEY, JSON.stringify({
+        at: Date.now(),
+        view: activeView,
+        layer: layer,
+        year: [yearLo, yearHi],
+        expanded: [...expandedFamilies],
+        focus: st.focusRoot ? st.focusRoot.id : null,
+        detail: dtNode ? dtNode.id : null,
+      }));
+    } catch (e) {}   // private mode, full quota -- losing the position is not worth throwing over
+  }
+
+  function restoreViewState() {
+    let st = null;
+    try {
+      st = JSON.parse(sessionStorage.getItem(VIEW_STATE_KEY) || "null");
+      sessionStorage.removeItem(VIEW_STATE_KEY);   // one use: a later manual reload starts fresh
+    } catch (e) { return; }
+    if (!st || !st.at || Date.now() - st.at > VIEW_STATE_MAX_AGE_MS) return;
+
+    if (st.layer && st.layer !== layer) setLayer(st.layer);
+    if (Array.isArray(st.year) && st.year.length === 2) setYearRange(st.year[0], st.year[1]);
+    if (st.view && st.view !== activeView) switchView(st.view);
+    // A family that was expanded may not exist any more -- the scan that
+    // triggered this reload can have merged or renamed it -- so every id here
+    // is checked rather than trusted.
+    (st.expanded || []).forEach(id => { if (byId.get(id)) expandFamily(id); });
+    const focus = st.focus && byId.get(st.focus);
+    const detail = st.detail && byId.get(st.detail);
+    if (focus && !focus.retired) Graph.gotoNode(focus);
+    else if (detail && !detail.retired) Graph.gotoNode(detail);
+    if (detail && !detail.retired) openDetail(detail);
+  }
+
+  function initAutoRefresh() {
+    if (window.LlmFamilies && window.LlmFamilies.serverAvailable) return;
+    let stamp = null, checking = false, lastInput = Date.now();
+    const seen = () => { lastInput = Date.now(); };
+    ["pointerdown", "keydown", "wheel", "touchstart"].forEach(ev =>
+      window.addEventListener(ev, seen, { passive: true }));
+    window.addEventListener("beforeunload", saveViewState);
+
+    async function stampOf() {
+      try {
+        const r = await fetch("data.js", { method: "HEAD", cache: "no-store" });
+        return r.headers.get("etag") || r.headers.get("last-modified") || null;
+      } catch (e) { return null; }
+    }
+
+    async function check() {
+      if (checking || document.visibilityState !== "visible") return;
+      checking = true;
+      try {
+        const now = await stampOf();
+        if (!now) return;
+        if (stamp === null) { stamp = now; return; }
+        if (now === stamp) return;
+        // Don't yank the page out from under someone mid-gesture; the next
+        // tick will catch it a minute later.
+        if (Date.now() - lastInput < 8000) return;
+        saveViewState();
+        location.reload();
+      } finally { checking = false; }
+    }
+
+    check();
+    setInterval(check, 60000);
+    document.addEventListener("visibilitychange", () => {
+      if (document.visibilityState === "visible") check();
+    });
+  }
+
   // ---------- request-a-scan (hosted site only) ----------
   // Real user request: "the user should be able to request a scan after they
   // have focused on a particular model or nameplate in the graph. If the user
@@ -5425,7 +5520,7 @@ window.CarWeb = (function () {
       clearSelection() { selected = null; dirty = true; },
       touch() { dirty = true; resize(); refreshPlatformsFilter(); },
       platformsOnly: () => platformsOnly, setPlatformsOnly,
-      state: () => ({ t, focusSet, platformsOnly, platformsNodeIds, platformsRevealedIds }),
+      state: () => ({ t, focusSet, focusRoot, platformsOnly, platformsNodeIds, platformsRevealedIds }),
       // Where the camera thinks the usable area is, given whatever shape the
       // detail panel currently has. Exposed so the regression test can read
       // it directly: every path that moves the camera goes through a d3
@@ -5665,6 +5760,8 @@ window.CarWeb = (function () {
       initGenPhotos();
       initToolsMenu();
       initLlmRequest();
+      initAutoRefresh();
+      restoreViewState();
       if (window.CarWebLive) CarWebLive.start();
     },
     sim: () => sim,
