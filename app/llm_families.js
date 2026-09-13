@@ -285,6 +285,17 @@ window.LlmFamilies = (function () {
   let backgroundAllowed = false;
   function setBackgroundAllowed(v) { backgroundAllowed = !!v; }
 
+  // A manual "LLM re-check" is a person asking, deliberately, what a fresh
+  // read of this one article turns up. The loose-match drop in
+  // resolveOnePlatformMention exists to stop an automatic background pass
+  // from filing coincidences of letters nobody asked for -- that reasoning
+  // doesn't hold when somebody is sitting there waiting for the answer, so
+  // it is lifted for the duration of that single pass and whatever the read
+  // found is put in front of them as an ordinary proposal instead of being
+  // decided on their behalf. Set only by reworkRelationsForFamily, around
+  // its own loop, and always cleared in a finally.
+  let surfaceLooseMatches = false;
+
   const CASCADE_MAX_DEPTH_DEFAULT = 1;
   const cascadeMaxDepth = (() => {
     const v = bootData.__config && bootData.__config.cascadeMaxDepth;
@@ -1376,35 +1387,67 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
     }
   }
 
-  // The same two rules, applied once to proposals that were already sitting in
-  // the review queue when the rules arrived -- 32 of them, of which 13 are
-  // cars from unrelated companies. Nothing confirmed is touched, and a
-  // rejection here is the same reversible record a manual "no" writes.
+  // The same policy, applied once to proposals that were already sitting in
+  // the review queue when it arrived. 32 of them, and they sorted themselves:
   //
-  // Runs to a fixed point: rule 2 counts rule 1's rejections, so a proposal
-  // can only become rejectable after an earlier pass has recorded enough of
-  // them.
-  function pruneWeakRelations(byId) {
-    const dropped = [];
+  //   16 rested on a year overlap under an exactly-matched nameplate, and
+  //      every one is a real platform sibling -- Karmann Ghia <-> Beetle,
+  //      TrailBlazer <-> Envoy, Octavia <-> León, SSR <-> TrailBlazer.
+  //      Confirmed.
+  //   15 rested on a substring name match, and every one is nonsense --
+  //      Audi TT <-> Saturn Ion, SEAT Toledo <-> Leapmotor A05, Isuzu Trooper
+  //      <-> Kline Kar. Dropped.
+  //
+  // A stored entry does not record whether its nameplate match was loose, so
+  // the company rule stands in for it on the year-overlap side: the single
+  // bad one there (Volkswagen Touran <-> Daren Mk.3) is also the single
+  // cross-company one. Nothing confirmed is touched, and a drop is the same
+  // reversible record a manual "no" writes.
+  // The two wordings the OLD code wrote, and nothing else. Every reason
+  // string this file writes today is deliberately phrased differently (see
+  // resolveOnePlatformMention), so these two patterns match the historical
+  // backlog and can never match a proposal made after the policy landed.
+  // That matters because this runs on EVERY boot, not once: without the
+  // guard it would come back on the next reload and delete a legitimately
+  // provisional entry -- a re-check the user asked for, or a sanity-check
+  // "low confidence" result -- that is still waiting to be reviewed.
+  const LEGACY_YEAR_OVERLAP = "proposed by overlapping production years only (a shared-platform";
+  const LEGACY_SUBSTRING = "the matched nameplate name wasn't an exact match, just a substring overlap";
+
+  function resolveWeakRelations(byId) {
+    const confirmed = [], dropped = [];
     for (let pass = 0; pass < 4; pass++) {
       let changed = 0;
       for (const [key, e] of Object.entries(store.relations)) {
         if (!e || e.status !== "provisional" || !e.llmDiscovered) continue;
+        const reason = e.reason || "";
+        const yearsOnly = reason.indexOf(LEGACY_YEAR_OVERLAP) === 0;
+        const substring = reason.indexOf(LEGACY_SUBSTRING) !== -1;
+        if (!yearsOnly && !substring) continue;
         const a = byId.get(e.genIdA) || byId.get(e.famA);
         const b = byId.get(e.genIdB) || byId.get(e.famB);
         if (!a || !b) continue;
+        const name = { a: `${a.make} ${a.label}`, b: `${b.make} ${b.label}` };
         const veto = weakProposalRejection(a, b);
-        if (!veto) continue;
-        delete store.relations[key];
-        recordWeakRejection(key, a, b, veto.why, veto.cross);
-        dropped.push({ key, why: veto.why,
-                       a: `${a.make} ${a.label}`, b: `${b.make} ${b.label}` });
+        if (substring || veto) {
+          delete store.relations[key];
+          recordWeakRejection(key, a, b,
+            veto ? veto.why : "matched only as a substring of the mention text -- not a match",
+            veto ? veto.cross : false);
+          dropped.push(Object.assign({ key }, name));
+        } else {
+          e.status = "confirmed";
+          e.decidedAt = new Date().toISOString();
+          e.reason = "matched automatically -- the nameplate was named exactly in the source " +
+                     "text, and exactly one of its generations was in production alongside this one";
+          confirmed.push(Object.assign({ key }, name));
+        }
         changed++;
       }
       if (!changed) break;
     }
-    if (dropped.length) persist();
-    return dropped;
+    if (confirmed.length || dropped.length) persist();
+    return { confirmed, dropped };
   }
 
   // ---------- hallucination guard, code half: match COMPONENTS, not one composed string ----------
@@ -3353,6 +3396,32 @@ Rules:
     return m ? m[1].trim() : null;
   }
 
+  // Is a LOOSE match actually the explicit-code case wearing a loose label?
+  //
+  // findMatchingNameplate calls a match loose whenever the mention text isn't
+  // character-for-character a node's name -- which is also true of the single
+  // most informative shape a mention can take: the nameplate named in full
+  // with one of its own generation codes in parentheses right after it,
+  // "TestFordMg Qelvorash (ZG2xq)". That mention can never equal the bare
+  // label "ZG2xq", so the substring fallback is what finds it, and it comes
+  // back flagged loose even though the article stated the generation outright.
+  //
+  // This tells those apart from a real coincidence of letters (the Jeep
+  // Commander that matched a Toyota C-HR): the matched node has to be a
+  // generation of some family, the mention has to name THAT family, and the
+  // code sitting in parentheses after the name has to resolve back to this
+  // very generation. Three independent things lining up at once, not one
+  // short string turning up inside a longer one.
+  function looseMentionNamesThisGeneration(nodes, text, node) {
+    if (!node || !node.familyOf) return false;
+    const parent = nodes.find(n => n.id === node.familyOf);
+    if (!parent) return false;
+    const code = extractExplicitGenCode(text, parent);
+    if (!code) return false;
+    const hit = findGenByCode([{ id: node.id, code: node.label }], code);
+    return !!(hit && hit.id === node.id);
+  }
+
   // Given a newly-minted generation `gn` whose source text mentioned sharing
   // a platform with / being a rebadge of another nameplate, find that
   // nameplate in the graph and wire in the most specific connection the
@@ -3565,15 +3634,39 @@ Rules:
         // generation pair, just one generation away from a hard-coded match.
         const key = relKey(gn.id, cands[0].id, "platform");
         if (store.relations[key] || store.rejectedRelations[key]) return;
-        // Weakest proposal this file makes: a year overlap and nothing else.
-        // See weakProposalRejection for the two rules.
-        const veto1 = weakProposalRejection(gn, cands[0]);
-        if (veto1) { recordWeakRejection(key, gn, cands[0], veto1.why, veto1.cross); return; }
+        // Real user call: "year-overlap guess is actually fine." It holds up
+        // when the NAMEPLATE was matched exactly: the pair of cars is not in
+        // doubt, only which generation of it, and exactly one of them was in
+        // production alongside this one. A wrong generation is a much smaller
+        // error than a wrong car, and where no generation fits, the branch
+        // below falls back to the plain nameplate-level link instead.
+        //
+        // Deliberately NOT passed through weakProposalRejection here. That
+        // rule is about not trusting a match between unrelated companies, and
+        // an exactly-named car came out of the article's own platform list:
+        // Toyota Supra and BMW Z4 really do share a platform, and rejecting
+        // that pair for crossing company lines would be the rule firing on
+        // the one case it has no business judging.
+        //
+        // Reached from a SUBSTRING nameplate match it is a different animal:
+        // the guess sits on top of a match that was already a coincidence of
+        // letters, which is how a Volkswagen Touran came to be proposed
+        // against a Daren Mk.3 kit car. Those stay in review, and the company
+        // rule -- which is safe to apply here, because the pair itself is in
+        // doubt -- throws out the impossible ones first.
+        if (loose) {
+          const veto = weakProposalRejection(gn, cands[0]);
+          if (veto) { recordWeakRejection(key, gn, cands[0], veto.why, veto.cross); return; }
+        }
         store.relations[key] = {
-          status: "provisional", checkedAt: new Date().toISOString(),
+          status: loose ? "provisional" : "confirmed",
+          checkedAt: new Date().toISOString(),
+          decidedAt: loose ? undefined : new Date().toISOString(),
           famA: famId, famB: match.id, relType: "platform",
           codeA: gn.label, codeB: cands[0].label, genIdA: gn.id, genIdB: cands[0].id,
-          reason: "proposed by overlapping production years only (a shared-platform/rebadge mention was found alongside this generation's own text, but which specific generation of the OTHER nameplate it refers to was guessed from year overlap, not stated explicitly) -- please verify before accepting",
+          reason: loose
+            ? "proposed by overlapping production years only, on top of a nameplate name that only matched as a substring -- please verify this is really the right car before accepting"
+            : "matched automatically -- the nameplate was named exactly in the source text, and exactly one of its generations was in production alongside this one, so that is the generation it refers to",
           llmDiscovered: true,
         };
       } else if (!loose || found.llmVerified) {
@@ -3675,12 +3768,28 @@ Rules:
       // -- still goes through ordinary review, exactly as before.
       const sanityConfident = loose && found.llmVerified && found.verifyConfidence === "high";
       const confirmed = !loose || sanityConfident;
-      // A loose (substring) match that is NOT going to be auto-confirmed is
-      // the other weak proposal. Same two rules.
-      if (!confirmed) {
-        const veto2 = weakProposalRejection(gn, match);
-        if (veto2) { recordWeakRejection(key, gn, match, veto2.why, veto2.cross); return; }
+      // Real user call: "for a string that only matches a substring, that's
+      // correct that it's too much of a stretch and to not try to do a
+      // match." A substring hit is a short label happening to appear inside a
+      // longer mention -- the Jeep Commander (XK) that came out linked to a
+      // Toyota C-HR -- and putting that in a review queue only moves the work
+      // onto a person instead of deciding it. Dropped outright, and recorded
+      // so it is not proposed again on the next boot.
+      //
+      // Scoped to a substring match with NOTHING ELSE behind it. Where the
+      // local LLM sanity pass has actually looked at the mention and every
+      // plausible car, its verdict is a second opinion, not a coincidence of
+      // letters: "high" still auto-confirms, and "low"/"medium" is the real
+      // uncertain middle that a review queue exists for. Those still go to
+      // review, exactly as before.
+      const explicitlyNamed = loose && looseMentionNamesThisGeneration(nodes, mentionText, match);
+      if (!confirmed && !found.llmVerified && !explicitlyNamed && !surfaceLooseMatches) {
+        store.rejectedRelations[key] = true;
+        return;
       }
+      // Anything still here is an exact nameplate match, or a substring one
+      // the sanity pass has an opinion about. The unvouched substring case
+      // returned above.
       store.relations[key] = {
         status: confirmed ? "confirmed" : "provisional",
         checkedAt: new Date().toISOString(),
@@ -3695,7 +3804,9 @@ Rules:
             ? `auto-approved in the background -- the local LLM sanity check confidently identified this as the same car as "${mentionText}" (confidence: high) -- ${found.verifyReason || "no further explanation given"}`
             : found.llmVerified
               ? `flagged by the local LLM sanity check as the same car as "${mentionText}" (confidence: ${found.verifyConfidence || "unspecified"}) -- ${found.verifyReason || "no further explanation given"} -- please verify this is really the right car before accepting`
-              : "proposed from a loosely-matched shared-platform/rebadge mention (the matched nameplate name wasn't an exact match, just a substring overlap) -- please verify this is really the right car before accepting",
+              : explicitlyNamed
+                ? `proposed from a shared-platform/rebadge mention that named this nameplate together with this generation's own code ("${mentionText}") -- please verify this is really the right car before accepting`
+                : `proposed from a loosely-matched shared-platform/rebadge mention ("${mentionText}" only overlapped this car's name as a substring) -- surfaced because you asked for this re-check rather than dropped, but please verify this is really the right car before accepting`,
         llmDiscovered: true,
         llmVerifiedDuplicate: found.llmVerified || undefined,
       };
@@ -7045,7 +7156,14 @@ Rules:
         makeVariantMatches: fresh.makeVariantMatches || {},
       });
       const keysBefore = new Set(Object.keys(store.relations));
-      resolvePlatformMention(nodes, links, fam.id, gn);
+      // The person asked for this re-check, so a loose mention it turns up
+      // is surfaced for them to judge rather than dropped as an automatic
+      // pass would drop it -- see surfaceLooseMatches. Synchronous call, and
+      // the finally means the flag can never leak into an ordinary
+      // background pass even if the matcher throws.
+      surfaceLooseMatches = true;
+      try { resolvePlatformMention(nodes, links, fam.id, gn); }
+      finally { surfaceLooseMatches = false; }
       Object.keys(store.relations).forEach(k => {
         if (keysBefore.has(k)) return; // pre-existing entry, not something this pass just produced
         const e = store.relations[k];
@@ -7934,7 +8052,7 @@ Rules:
     // round trip.
     refreshGenerationImages,
     setDecisionSource, decisionSource: () => decisionSource,
-    pruneWeakRelations, makeRelationship, weakProposalRejection,
+    resolveWeakRelations, makeRelationship, weakProposalRejection,
     parseLlmJson, codeAnchorIn, codeVerifiedIn, findGenerationImage, infoboxImageForCode,
     looksLikePlatformNotCar,
     // Exposed for the regression suite only: a persisted proposal from before

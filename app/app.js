@@ -5754,15 +5754,19 @@ window.CarWeb = (function () {
       if (lgDb) lgDb.hidden = !nodes.some((n) => n.db);
       if (lgGarage) lgGarage.hidden = !nodes.some((n) => n.garage);
 
-      // Two cars from unrelated companies cannot share a platform, and a
-      // substring name match can never check that. Clears the proposals that
-      // were already queued when the rule arrived -- see
-      // llm_families.js's weakProposalRejection.
-      if (window.LlmFamilies && window.LlmFamilies.pruneWeakRelations) {
-        const dropped = window.LlmFamilies.pruneWeakRelations(byId);
-        if (dropped.length) {
-          console.info(`[carweb] dropped ${dropped.length} impossible platform proposal(s):`,
-                       dropped.map(d => `${d.a} <-> ${d.b}`));
+      // Decides the proposals that were already queued when the policy
+      // arrived: a year overlap under an exactly-matched nameplate is a real
+      // link, a substring name match is not a match at all. See
+      // llm_families.js's resolveWeakRelations.
+      if (window.LlmFamilies && window.LlmFamilies.resolveWeakRelations) {
+        const r = window.LlmFamilies.resolveWeakRelations(byId);
+        if (r.confirmed.length) {
+          console.info(`[carweb] confirmed ${r.confirmed.length} year-overlap platform link(s):`,
+                       r.confirmed.map(d => `${d.a} <-> ${d.b}`));
+        }
+        if (r.dropped.length) {
+          console.info(`[carweb] dropped ${r.dropped.length} substring/cross-company proposal(s):`,
+                       r.dropped.map(d => `${d.a} <-> ${d.b}`));
         }
       }
       initGenPhotos();

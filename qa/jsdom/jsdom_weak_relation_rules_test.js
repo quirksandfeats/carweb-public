@@ -69,51 +69,114 @@ t("...and a pair from the same marque",
 t("...and a pair it cannot judge",
   LF.weakProposalRejection(car("a", "Audi", "TT"), car("b", "Some New Brand", "X")) === null);
 
-// ---- the sweep over what was already queued -----------------------------
+// ---- deciding what was already queued -----------------------------------
+// Real user calls: "year-overlap guess is actually fine ... for a string that
+// only matches a substring, that's correct that it's too much of a stretch and
+// to not try to do a match." So the queue is not triaged, it is DECIDED: the
+// year-overlap ones are real links, the substring ones are not matches at all.
 {
-  const weak = (key, a, b) => ({
+  const weak = (key, a, b, kind) => ({
     [key]: { status: "provisional", llmDiscovered: true, relType: "platform",
              famA: a.id, famB: b.id, genIdA: a.id, genIdB: b.id,
-             codeA: a.label, codeB: b.label, reason: "proposed by overlapping production years only" },
+             codeA: a.label, codeB: b.label,
+             // The two reason strings the OLD code actually persisted, verbatim
+             // -- resolveWeakRelations matches on exactly these so it can
+             // never touch a proposal written after the policy landed (it runs
+             // on every boot, not just once).
+             reason: kind === "years"
+               ? "proposed by overlapping production years only (a shared-platform/rebadge mention was found alongside this generation's own text, but which specific generation of the OTHER nameplate it refers to was guessed from year overlap, not stated explicitly) -- please verify before accepting"
+               : "proposed from a loosely-matched shared-platform/rebadge mention (the matched nameplate name wasn't an exact match, just a substring overlap) -- please verify this is really the right car before accepting" },
   });
   const ion = car("m-saturn-ion", "Saturn", "Ion");
+  const daren = car("m-daren-mk3", "Daren", "Mk.3");
   const nodes = [
-    car("m-audi-tt", "Audi", "TT"), car("m-audi-a3", "Audi", "A3"),
-    car("m-skoda-octavia", "Škoda", "Octavia"), car("m-seat-leon", "SEAT", "León"),
-    car("m-chev-captiva", "Chevrolet", "Captiva"), car("m-isuzu-trooper", "Isuzu", "Trooper"),
-    ion,
+    car("m-vw-ghia", "Volkswagen", "Karmann Ghia"), car("m-vw-beetle", "Volkswagen", "Beetle"),
+    car("m-chev-tb", "Chevrolet", "TrailBlazer"), car("m-gmc-envoy", "GMC", "Envoy"),
+    car("m-audi-tt", "Audi", "TT"), car("m-vw-touran", "Volkswagen", "Touran"),
+    car("m-isuzu-trooper", "Isuzu", "Trooper"),
+    ion, daren,
   ];
   const rels = Object.assign({},
-    weak("m-audi-tt|m-saturn-ion|platform", nodes[0], ion),
-    weak("m-isuzu-trooper|m-saturn-ion|platform", nodes[5], ion),
-    weak("m-chev-captiva|m-saturn-ion|platform", nodes[4], ion),   // SAME company as Saturn
-    weak("m-audi-tt|m-audi-a3|platform", nodes[0], nodes[1]),
-    weak("m-skoda-octavia|m-seat-leon|platform", nodes[2], nodes[3]));
-  rels["m-confirmed|m-pair|platform"] = { status: "confirmed", llmDiscovered: true,
+    // year overlap, same company -> real links
+    weak("m-vw-ghia|m-vw-beetle|platform", nodes[0], nodes[1], "years"),
+    weak("m-chev-tb|m-gmc-envoy|platform", nodes[2], nodes[3], "years"),
+    // year overlap, but across companies -- the one bad apple in that bucket
+    weak("m-vw-touran|m-daren-mk3|platform", nodes[5], daren, "years"),
+    // substring matches -> not matches at all, whatever the companies
+    weak("m-audi-tt|m-saturn-ion|platform", nodes[4], ion, "loose"),
+    weak("m-isuzu-trooper|m-saturn-ion|platform", nodes[6], ion, "loose"));
+  rels["m-already|m-decided|platform"] = { status: "confirmed", llmDiscovered: true,
     famA: "m-audi-tt", famB: "m-saturn-ion", genIdA: "m-audi-tt", genIdB: "m-saturn-ion",
     relType: "platform" };
 
   const { LF: LF2, store } = freshLF(rels);
   const byId = new Map(nodes.map(n => [n.id, n]));
-  const dropped = LF2.pruneWeakRelations(byId);
-
+  const r = LF2.resolveWeakRelations(byId);
   const left = Object.keys(store.relations || {});
-  t("rule 1 clears the cross-company proposals", dropped.length >= 2, dropped.map(d => d.a + "<->" + d.b).join(", "));
-  t("...and rule 2 takes the Saturn Ion's REMAINING one too, inside GM, "
-    + "because it has already been rejected twice",
-    !left.includes("m-chev-captiva|m-saturn-ion|platform"), left.join(", "));
-  t("the plausible same-company pairs survive for review",
-    left.includes("m-audi-tt|m-audi-a3|platform") && left.includes("m-skoda-octavia|m-seat-leon|platform"),
-    left.join(", "));
-  t("a CONFIRMED relation is never touched, whatever the companies",
-    left.includes("m-confirmed|m-pair|platform"), left.join(", "));
-  t("every rejection is recorded, so it is not proposed again",
-    dropped.every(d => store.rejectedRelations[d.key] === true));
-  t("...and the run reports them by name, not by key",
-    dropped.every(d => /\w+ \w/.test(d.a) && /\w+ \w/.test(d.b)), JSON.stringify(dropped[0]));
+  const statusOf = k => (store.relations[k] || {}).status;
 
-  // Idempotent: nothing is left to find on a second pass.
-  t("running it again finds nothing", LF2.pruneWeakRelations(byId).length === 0);
+  t("a year overlap under an exact nameplate match becomes a real link",
+    statusOf("m-vw-ghia|m-vw-beetle|platform") === "confirmed" &&
+    statusOf("m-chev-tb|m-gmc-envoy|platform") === "confirmed",
+    JSON.stringify(r.confirmed.map(c => c.a + "<->" + c.b)));
+  t("...and stops saying 'please verify'",
+    !/verify/i.test(store.relations["m-vw-ghia|m-vw-beetle|platform"].reason),
+    store.relations["m-vw-ghia|m-vw-beetle|platform"].reason);
+
+  t("a substring match is dropped, not queued",
+    !left.includes("m-audi-tt|m-saturn-ion|platform") &&
+    !left.includes("m-isuzu-trooper|m-saturn-ion|platform"), left.join(", "));
+  t("a year overlap ACROSS companies is dropped too -- the company rule is "
+    + "what stands in for looseness there",
+    !left.includes("m-vw-touran|m-daren-mk3|platform"), left.join(", "));
+
+  t("nothing is left awaiting review", left.every(k => statusOf(k) !== "provisional"), left.join(", "));
+  t("a decision already made is never touched",
+    statusOf("m-already|m-decided|platform") === "confirmed");
+  t("every drop is recorded, so it is not proposed again",
+    r.dropped.every(d => store.rejectedRelations[d.key] === true));
+  t("both halves are reported by name", r.confirmed.length === 2 && r.dropped.length === 3,
+    `confirmed ${r.confirmed.length}, dropped ${r.dropped.length}`);
+
+  const again = LF2.resolveWeakRelations(byId);
+  t("running it again finds nothing", again.confirmed.length === 0 && again.dropped.length === 0);
+}
+
+// ---- and it only ever decides the BACKLOG -------------------------------
+// resolveWeakRelations runs on every boot, not once. A proposal written
+// AFTER the policy landed is already the product of that policy -- a
+// re-check the user asked for, or a sanity check that came back unsure --
+// and is waiting for a person to look at it. An earlier draft matched on
+// the loose phrase "overlapping production years only" alone, which would
+// have deleted exactly those on the next reload.
+{
+  const a = car("m-post-a", "Nissan", "Nova"), b = car("m-post-b", "Kline Kar", "Roadster");
+  const post = (key, reason) => ({
+    [key]: { status: "provisional", llmDiscovered: true, relType: "platform",
+             famA: a.id, famB: b.id, genIdA: a.id, genIdB: b.id,
+             codeA: a.label, codeB: b.label, reason },
+  });
+  const rels = Object.assign({},
+    post("m-post-a|m-post-b|platform",
+         "proposed by overlapping production years only, on top of a nameplate name that only "
+         + "matched as a substring -- please verify this is really the right car before accepting"),
+    post("m-post-a|m-post-c|platform",
+         'flagged by the local LLM sanity check as the same car as "Kline Kar Roadster" '
+         + "(confidence: low) -- not sure -- please verify this is really the right car before accepting"),
+    post("m-post-a|m-post-d|platform",
+         'proposed from a loosely-matched shared-platform/rebadge mention ("Kline Kar Roadster" only '
+         + "overlapped this car's name as a substring) -- surfaced because you asked for this re-check "
+         + "rather than dropped, but please verify this is really the right car before accepting"));
+
+  const { LF: LF3, store } = freshLF(rels);
+  const r = LF3.resolveWeakRelations(new Map([[a.id, a], [b.id, b]]));
+  t("a proposal written after the policy is left for the user to review",
+    Object.keys(store.relations).length === 3 &&
+    Object.values(store.relations).every(e => e.status === "provisional"),
+    Object.values(store.relations).map(e => e.status).join(", "));
+  t("...and is not reported as decided either",
+    r.confirmed.length === 0 && r.dropped.length === 0,
+    `confirmed ${r.confirmed.length}, dropped ${r.dropped.length}`);
 }
 
 console.log("\n" + fails + " failure(s)");

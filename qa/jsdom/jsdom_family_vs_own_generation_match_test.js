@@ -155,26 +155,26 @@ cw.openDetail(nameplate);
   // platform partner would get its own entry instead of colliding here.
   const key = [NAMEPLATE_ID, GEN_ID].sort().join("|") + "|platform";
   const rel = window.LlmFamilies.relationEntryFor(key);
-  check("a provisional relation entry exists, pointing at the REAL existing family", !!rel, rel);
-  check("relation entry is 'provisional' (loose match never auto-applies)", rel && rel.status === "provisional", rel);
-  check("relation entry's genIdB is the REAL existing generation node, not a new one", rel && rel.genIdB === GEN_ID, rel);
-  check("relation entry's codeB is the real generation's own label", rel && rel.codeB === "Zorquine (VJ41)", rel);
+  // What this test is FOR is the duplicate: the mention must resolve onto the
+  // existing generation node rather than minting a ghost beside it. That is
+  // unchanged.
+  //
+  // What the mention then BECOMES has changed, per the user: "for a string
+  // that only matches a substring, that's correct that it's too much of a
+  // stretch and to not try to do a match." It used to be filed as a
+  // provisional relation for review; now it is not filed at all, and is
+  // recorded so it is not proposed again. Resolving onto the right node still
+  // matters either way -- it is what stops the ghost being minted.
+  check("a substring match no longer becomes a relation awaiting review",
+        !rel || rel.status !== "provisional", rel);
+  check("...and leaves nothing behind for a human to decide",
+        !rel, JSON.stringify(rel));
 
   const ghost = cw.nodes.find(n => /zorquine/i.test(n.label || "") && n.id !== GEN_ID && n.id !== FAM_ID);
   check("no duplicate/ghost 'Zorquine (VJ41/VJ42)' node was minted", !ghost, ghost);
 
   const genFresh = cw.byId.get(GEN_ID);
   check("existing generation node's year was left untouched (not nulled out by a mint)", genFresh && genFresh.year === 2006, genFresh);
-
-  // Simulate the user clicking "Yes" on that disambiguation prompt --
-  // proves the end-to-end outcome is a real link to the EXISTING node, not
-  // just a correctly-shaped-but-inert database entry.
-  window.LlmFamilies.confirmRelation(key);
-  window.LlmFamilies.applyResolvedRelations(cw.nodes, cw.links);
-  const linkToExisting = cw.links.find(l => l.type === "platform" && l.llmResolvedKey === key &&
-    ((l.source === nameplate.id && l.target === gen.id) || (l.source === gen.id && l.target === nameplate.id) ||
-     (l.source === nameplate && l.target === gen) || (l.source === gen && l.target === nameplate)));
-  check("after confirming, a real graph link connects Vandrelish directly to the existing Zorquine (VJ41) node", !!linkToExisting, linkToExisting);
 
   console.log("\n" + (fails === 0 ? "ALL GREEN" : fails + " FAILURE(S)"));
   process.exit(fails === 0 ? 0 : 1);
