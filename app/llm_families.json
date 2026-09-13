@@ -7736,6 +7736,1248 @@
     "dropped": []
    },
    "cascadeDiscovered": true
+  },
+  "m-pontiac-6000": {
+   "status": "none",
+   "checkedAt": "2026-09-13T19:02:24.493Z",
+   "sourceTitle": "Pontiac 6000",
+   "proposal": {
+    "hasMultipleGenerations": false,
+    "generations": [
+     {
+      "code": "Pontiac 6000",
+      "yearStart": 1981,
+      "yearEnd": 1991,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "File:Pontiac 6000.jpg",
+      "sharedPlatforms": [
+       "Buick Century",
+       "Chevrolet Celebrity",
+       "Oldsmobile Cutlass Ciera"
+      ]
+     }
+    ]
+   },
+   "attempts": 1,
+   "feedback": [],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": false,
+     "generations": [
+      {
+       "code": "Pontiac 6000",
+       "yearStart": 1981,
+       "yearEnd": 1991,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Buick Century",
+        "Chevrolet Celebrity",
+        "Oldsmobile Cutlass Ciera"
+       ]
+      }
+     ]
+    },
+    "dropped": []
+   },
+   "cascadeDiscovered": true
+  },
+  "m-buick-sport-wagon": {
+   "status": "none",
+   "checkedAt": "2026-09-13T19:02:49.999Z",
+   "sourceTitle": "Buick Sport Wagon",
+   "proposal": {
+    "hasMultipleGenerations": false,
+    "generations": []
+   },
+   "attempts": 1,
+   "feedback": [],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": true,
+     "generations": [
+      {
+       "code": "1964–1967 (Series 4200/4300/44200/44400)",
+       "yearStart": 1964,
+       "yearEnd": 1967,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Pontiac Tempest",
+        "Chevrolet Chevelle Greenbrier",
+        "Oldsmobile Vista Cruiser",
+        "Oldsmobile Cutlass",
+        "Buick Skylark"
+       ]
+      },
+      {
+       "code": "1968–1969 (Series 43400/44400)",
+       "yearStart": 1968,
+       "yearEnd": 1969,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Oldsmobile Vista Cruiser",
+        "Pontiac Tempest",
+        "Chevrolet Chevelle Greenbrier",
+        "Oldsmobile Cutlass",
+        "Buick Skylark"
+       ]
+      },
+      {
+       "code": "1970–1971 (Series 43400)",
+       "yearStart": 1970,
+       "yearEnd": 1971,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Oldsmobile Vista Cruiser",
+        "Buick Skylark"
+       ]
+      },
+      {
+       "code": "1978–1980",
+       "yearStart": 1978,
+       "yearEnd": 1980,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Buick Century"
+       ]
+      }
+     ]
+    },
+    "dropped": [
+     {
+      "code": "1964–1967 (Series 4200/4300/44200/44400)",
+      "yearStart": 1964,
+      "yearEnd": 1967,
+      "designers": [],
+      "engineers": [],
+      "sharedPlatforms": [
+       "Pontiac Tempest",
+       "Chevrolet Chevelle Greenbrier",
+       "Oldsmobile Vista Cruiser",
+       "Oldsmobile Cutlass",
+       "Buick Skylark"
+      ]
+     },
+     {
+      "code": "1968–1969 (Series 43400/44400)",
+      "yearStart": 1968,
+      "yearEnd": 1969,
+      "designers": [],
+      "engineers": [],
+      "sharedPlatforms": [
+       "Oldsmobile Vista Cruiser",
+       "Pontiac Tempest",
+       "Chevrolet Chevelle Greenbrier",
+       "Oldsmobile Cutlass",
+       "Buick Skylark"
+      ]
+     },
+     {
+      "code": "1970–1971 (Series 43400)",
+      "yearStart": 1970,
+      "yearEnd": 1971,
+      "designers": [],
+      "engineers": [],
+      "sharedPlatforms": [
+       "Oldsmobile Vista Cruiser",
+       "Buick Skylark"
+      ]
+     },
+     {
+      "code": "1978–1980",
+      "yearStart": 1978,
+      "yearEnd": 1980,
+      "designers": [],
+      "engineers": [],
+      "sharedPlatforms": [
+       "Buick Century"
+      ]
+     }
+    ]
+   },
+   "cascadeDiscovered": true
+  },
+  "m-buick-lacrosse": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T19:03:37.485Z",
+   "sourceTitle": "Buick LaCrosse",
+   "proposal": {
+    "hasMultipleGenerations": true,
+    "generations": [
+     {
+      "code": "First generation",
+      "yearStart": 2005,
+      "yearEnd": 2009,
+      "designers": [
+       "Wayne Cherry",
+       "James C. Shyr"
+      ],
+      "engineers": [
+       "John Heinricy"
+      ],
+      "wikiFile": "2005-2007 Buick LaCrosse -- 03-21-2012 2.JPG",
+      "sharedPlatforms": [
+       "Chevrolet Impala",
+       "Chevrolet Monte Carlo",
+       "Pontiac Grand Prix"
+      ]
+     },
+     {
+      "code": "Second generation",
+      "yearStart": 2010,
+      "yearEnd": 2016,
+      "designers": [
+       "Michael Pevovar",
+       "Justin Thompson",
+       "Richard Duff",
+       "James C. Shyr",
+       "Jeff Nasca"
+      ],
+      "engineers": [],
+      "wikiFile": "2010 Buick LaCrosse CX in Quicksilver Metallic, Front Left, 2023-12-22.jpg",
+      "sharedPlatforms": [
+       "Cadillac XTS",
+       "Chevrolet Impala",
+       "Opel Insignia",
+       "Saab 9-5"
+      ]
+     },
+     {
+      "code": "Third generation",
+      "yearStart": 2017,
+      "yearEnd": 2023,
+      "designers": [
+       "Holt Ware",
+       "Elizabeth Wetzel"
+      ],
+      "engineers": [],
+      "wikiFile": "File:2018 Buick LaCrosse Premium AWD, Front left, 05-19-2020.jpg",
+      "sharedPlatforms": [
+       "Buick Regal",
+       "Chevrolet Impala",
+       "Opel Insignia"
+      ]
+     },
+     {
+      "code": "Fourth generation",
+      "yearStart": 2023,
+      "yearEnd": null,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "File:Buick LaCrosse IV 003.jpg",
+      "sharedPlatforms": []
+     }
+    ]
+   },
+   "attempts": 1,
+   "feedback": [],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": true,
+     "generations": [
+      {
+       "code": "First generation",
+       "yearStart": 2005,
+       "yearEnd": 2009,
+       "designers": [
+        "Wayne Cherry",
+        "James C. Shyr"
+       ],
+       "engineers": [
+        "John Heinricy"
+       ],
+       "sharedPlatforms": [
+        "Chevrolet Impala",
+        "Chevrolet Monte Carlo",
+        "Pontiac Grand Prix"
+       ]
+      },
+      {
+       "code": "Second generation",
+       "yearStart": 2010,
+       "yearEnd": 2016,
+       "designers": [
+        "Michael Pevovar",
+        "Justin Thompson",
+        "Richard Duff",
+        "James C. Shyr",
+        "Jeff Nasca"
+       ],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Cadillac XTS",
+        "Chevrolet Impala",
+        "Opel Insignia",
+        "Saab 9-5"
+       ]
+      },
+      {
+       "code": "Third generation",
+       "yearStart": 2017,
+       "yearEnd": 2023,
+       "designers": [
+        "Holt Ware",
+        "Elizabeth Wetzel"
+       ],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Buick Regal",
+        "Chevrolet Impala",
+        "Opel Insignia"
+       ]
+      },
+      {
+       "code": "Fourth generation",
+       "yearStart": 2023,
+       "yearEnd": null,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": []
+      }
+     ]
+    },
+    "dropped": []
+   },
+   "cascadeDiscovered": true,
+   "decidedBy": "agent",
+   "decidedAt": "2026-09-13T19:03:38.040Z",
+   "allDesigners": [
+    "Wayne Cherry",
+    "James C. Shyr",
+    "Michael Pevovar",
+    "Justin Thompson",
+    "Richard Duff",
+    "Jeff Nasca",
+    "Holt Ware",
+    "Elizabeth Wetzel"
+   ],
+   "allEngineers": [
+    "John Heinricy"
+   ]
+  },
+  "m-buick-invicta": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T19:06:52.788Z",
+   "sourceTitle": "Buick Invicta",
+   "proposal": {
+    "hasMultipleGenerations": true,
+    "generations": [
+     {
+      "code": "First generation",
+      "yearStart": 1959,
+      "yearEnd": 1960,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "Buick Invicta (41616041985).jpg",
+      "sharedPlatforms": [
+       "Pontiac Ventura",
+       "Oldsmobile Super 88"
+      ],
+      "sharedPlatformMatches": {
+       "Oldsmobile Super 88": {
+        "matchId": null,
+        "confidence": "high",
+        "reason": "The 'Oldsmobile Super 88' was a specific model sold by Oldsmobile between 1937 and 1948. It was not a standalone model name in the database but rather a trim level or 'series' designation of the Oldsmobile 88 (chassis code 88) or the Oldsmobile 98 (chassis code 98), often distinguished by 'Series 88' or 'Series 98' on the grille. The candidate 'm-oldsmobile-88' (Oldsmobile 88) and 'm-oldsmobile-98' (Oldsmobile 98) refer to the full-size platform models. According to the rules, 'Super' is a trim/series designation, not a different physical car or nameplate sharing the chassis. Therefore, the mention refers to the car listed as 'Oldsmobile 88' or 'Oldsmobile 98', but since the database lists them as distinct full-size models (88 and 98) and the 'Super 88' is historically the Series 88 variant (which corresponds to the chassis 88), the closest candidate is m-oldsmobile-88. However, the rule 'Two different nameplates... are NOT a match' implies that if the mention is a sub-category of the candidate, it might not be a direct 1:1 match if the database treats '88' as the full name. But more critically, 'Super 88' is often synonymous with the Series 88 which is the entry-level full size. Let's re-evaluate the 'Same physical car' rule. If the mention is 'Oldsmobile Super 88' and the DB has 'Oldsmobile 88', are they the same car? Yes, 'Super 88' is the marketing name for the Series 88. Is it the same as 'Oldsmobile 98'? No. Is it the same as 'Oldsmobile 88'? Yes. Wait, the rule says 'sharing a marque is not evidence'. It also says 'If the candidate's production years do not overlap...'. The production years of 'Oldsmobile 88' in the DB are '1949–present', which is wrong (the car was discontinued in the 70s, and the model name changed to Cutlass). The '1949–present' label for 'Oldsmobile 88' in the DB is factually incorrect for the specific '88' model which ended in 1970, replaced by Cutlass. The 'Super 88' ended in 1948. The candidate 'm-oldsmobile-88' lists '1949–present'. There is no year overlap between 'Super 88' (1937-1948) and the candidate 'Oldsmobile 88' (1949-present). Therefore, per the rule 'If the candidate's production years do not overlap... it is a DIFFERENT car', I must return null. The candidate 'm-oldsmobile-88' represents a model that does not exist in the 'Super 88' era (the era of the Super 88 is 1937-1948, the candidate starts 1949). Thus, no match."
+       }
+      }
+     },
+     {
+      "code": "Second generation",
+      "yearStart": 1961,
+      "yearEnd": 1963,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "1962 Buick Invicta convertible, fL.jpg",
+      "sharedPlatforms": [
+       "Pontiac Ventura",
+       "Oldsmobile Super 88"
+      ],
+      "sharedPlatformMatches": {
+       "Oldsmobile Super 88": {
+        "matchId": null,
+        "confidence": "high",
+        "reason": "The 'Oldsmobile Super 88' was a specific model sold by Oldsmobile between 1937 and 1948. It was not a standalone model name in the database but rather a trim level or 'series' designation of the Oldsmobile 88 (chassis code 88) or the Oldsmobile 98 (chassis code 98), often distinguished by 'Series 88' or 'Series 98' on the grille. The candidate 'm-oldsmobile-88' (Oldsmobile 88) and 'm-oldsmobile-98' (Oldsmobile 98) refer to the full-size platform models. According to the rules, 'Super' is a trim/series designation, not a different physical car or nameplate sharing the chassis. Therefore, the mention refers to the car listed as 'Oldsmobile 88' or 'Oldsmobile 98', but since the database lists them as distinct full-size models (88 and 98) and the 'Super 88' is historically the Series 88 variant (which corresponds to the chassis 88), the closest candidate is m-oldsmobile-88. However, the rule 'Two different nameplates... are NOT a match' implies that if the mention is a sub-category of the candidate, it might not be a direct 1:1 match if the database treats '88' as the full name. But more critically, 'Super 88' is often synonymous with the Series 88 which is the entry-level full size. Let's re-evaluate the 'Same physical car' rule. If the mention is 'Oldsmobile Super 88' and the DB has 'Oldsmobile 88', are they the same car? Yes, 'Super 88' is the marketing name for the Series 88. Is it the same as 'Oldsmobile 98'? No. Is it the same as 'Oldsmobile 88'? Yes. Wait, the rule says 'sharing a marque is not evidence'. It also says 'If the candidate's production years do not overlap...'. The production years of 'Oldsmobile 88' in the DB are '1949–present', which is wrong (the car was discontinued in the 70s, and the model name changed to Cutlass). The '1949–present' label for 'Oldsmobile 88' in the DB is factually incorrect for the specific '88' model which ended in 1970, replaced by Cutlass. The 'Super 88' ended in 1948. The candidate 'm-oldsmobile-88' lists '1949–present'. There is no year overlap between 'Super 88' (1937-1948) and the candidate 'Oldsmobile 88' (1949-present). Therefore, per the rule 'If the candidate's production years do not overlap... it is a DIFFERENT car', I must return null. The candidate 'm-oldsmobile-88' represents a model that does not exist in the 'Super 88' era (the era of the Super 88 is 1937-1948, the candidate starts 1949). Thus, no match."
+       }
+      }
+     }
+    ]
+   },
+   "attempts": 1,
+   "feedback": [],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": true,
+     "generations": [
+      {
+       "code": "First generation",
+       "yearStart": 1959,
+       "yearEnd": 1960,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Pontiac Ventura",
+        "Oldsmobile Super 88"
+       ]
+      },
+      {
+       "code": "Second generation",
+       "yearStart": 1961,
+       "yearEnd": 1963,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Pontiac Ventura",
+        "Oldsmobile Super 88"
+       ]
+      }
+     ]
+    },
+    "dropped": []
+   },
+   "cascadeDiscovered": true,
+   "decidedBy": "agent",
+   "decidedAt": "2026-09-13T19:06:53.344Z",
+   "allDesigners": [],
+   "allEngineers": []
+  },
+  "m-saab-9-7x": {
+   "status": "none",
+   "checkedAt": "2026-09-13T19:07:08.034Z",
+   "sourceTitle": "Saab 9-7X",
+   "proposal": {
+    "hasMultipleGenerations": false,
+    "generations": [
+     {
+      "code": "Saab 9-7X",
+      "yearStart": 2005,
+      "yearEnd": 2009,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "Saab 9-7X -- 03-19-2012.JPG",
+      "sharedPlatforms": [
+       "Buick Rainier",
+       "Chevrolet TrailBlazer",
+       "GMC Envoy",
+       "Oldsmobile Bravada",
+       "Isuzu Ascender",
+       "Chevrolet SSR"
+      ]
+     }
+    ]
+   },
+   "attempts": 1,
+   "feedback": [],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": false,
+     "generations": [
+      {
+       "code": "Saab 9-7X",
+       "yearStart": 2005,
+       "yearEnd": 2009,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Buick Rainier",
+        "Chevrolet TrailBlazer",
+        "GMC Envoy",
+        "Oldsmobile Bravada",
+        "Isuzu Ascender",
+        "Chevrolet SSR"
+       ]
+      }
+     ]
+    },
+    "dropped": []
+   },
+   "cascadeDiscovered": true
+  },
+  "m-cadillac-series-60": {
+   "status": "none",
+   "checkedAt": "2026-09-13T19:07:38.654Z",
+   "sourceTitle": "Cadillac Series 60",
+   "proposal": {
+    "hasMultipleGenerations": false,
+    "generations": [
+     {
+      "code": "Series 60",
+      "yearStart": 1936,
+      "yearEnd": 1938,
+      "designers": [
+       "Nicholas Dreystadt"
+      ],
+      "engineers": [],
+      "wikiFile": "Cadillac V8(1936), Dutch license registration AH-75-44 pic4.JPG",
+      "sharedPlatforms": [
+       "Buick Century",
+       "Buick Special",
+       "Cadillac Series 65",
+       "LaSalle (automobile)",
+       "Oldsmobile L-Series"
+      ],
+      "sharedPlatformMatches": {
+       "LaSalle (automobile)": {
+        "matchId": "m-cadillac-lasalle",
+        "confidence": "high",
+        "reason": "The mention 'LaSalle (automobile)' refers to the car produced by Cadillac from 1927 to 1940. The candidate 'm-cadillac-lasalle' is explicitly labeled 'Cadillac LaSalle' with production years listed as '1927–present'. Although the database entry incorrectly extends the production to the present day (the actual production ended in 1940), the core identity (Cadillac brand, LaSalle model, 1927 start year) matches perfectly. All other candidates are distinct unrelated marques (Chalmers, Fiat, McFarlan, etc.) and do not match the mention."
+       },
+       "Oldsmobile L-Series": {
+        "matchId": null,
+        "confidence": "high",
+        "reason": "The 'Oldsmobile L-Series' (1939–1949) is a specific mid-sized model line. While the database contains entries for 'Oldsmobile L-Series' in the International context and other Oldsmobile models with 'L' in the name (like 'Lincoln EL-series', 'Saturn L-series', or 'Oldsmobile Limited'), none of the provided candidates explicitly refer to the Oldsmobile L-Series sedan. The presence of 'Oldsmobile Limited' or 'Oldsmobile Super 88' does not constitute a match as they are distinct models. The production years of the candidates do not overlap with the specific era of the Oldsmobile L-Series in a way that confirms identity, and no candidate shares the exact name or documented chassis lineage for this specific model."
+       }
+      }
+     }
+    ]
+   },
+   "attempts": 1,
+   "feedback": [],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": false,
+     "generations": [
+      {
+       "code": "Series 60",
+       "yearStart": 1936,
+       "yearEnd": 1938,
+       "designers": [
+        "Nicholas Dreystadt"
+       ],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Buick Century",
+        "Buick Special",
+        "Cadillac Series 65",
+        "LaSalle (automobile)",
+        "Oldsmobile L-Series"
+       ]
+      }
+     ]
+    },
+    "dropped": []
+   },
+   "cascadeDiscovered": true
+  },
+  "llm-related-oldsmobile-super-88": {
+   "status": "provisional",
+   "checkedAt": "2026-09-13T19:08:52.603Z",
+   "sourceTitle": "Oldsmobile Super 88",
+   "proposal": {
+    "hasMultipleGenerations": true,
+    "generations": [
+     {
+      "code": "First generation",
+      "yearStart": 1949,
+      "yearEnd": 1953,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "File:1950 Oldsmobile Rocket 88 DE-93-36 p6.jpg",
+      "sharedPlatforms": [
+       "Buick Special",
+       "Pontiac Streamliner"
+      ]
+     },
+     {
+      "code": "Second generation",
+      "yearStart": 1954,
+      "yearEnd": 1956,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "1956 Oldsmobile Super 88 Holiday Coupe, front 5.19.19.jpg",
+      "sharedPlatforms": []
+     },
+     {
+      "code": "Third generation",
+      "yearStart": 1957,
+      "yearEnd": 1958,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "Oldsmobile '88' pic3.JPG",
+      "sharedPlatforms": [
+       "Buick Special",
+       "Pontiac Chieftain"
+      ]
+     },
+     {
+      "code": "Fourth generation",
+      "yearStart": 1959,
+      "yearEnd": 1960,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "Oldsmobile Super 88 - Flickr - Alexandre Prévot (cropped).jpg",
+      "sharedPlatforms": [
+       "Buick Lesabre",
+       "Pontiac Catalina"
+      ]
+     },
+     {
+      "code": "Fifth generation",
+      "yearStart": 1961,
+      "yearEnd": 1964,
+      "designers": [
+       "Bill Mitchell"
+      ],
+      "engineers": [],
+      "wikiFile": "1961 Oldsmobile Dynamic 88 Convertible (35232134240) (cropped).jpg",
+      "sharedPlatforms": [
+       "Buick Invicta",
+       "Buick LeSabre",
+       "Buick Wildcat",
+       "Pontiac Ventura",
+       "Pontiac Catalina",
+       "Pontiac Parisienne",
+       "Chevrolet Bel Air",
+       "Chevrolet Impala"
+      ]
+     },
+     {
+      "code": "Sixth generation",
+      "yearStart": 1965,
+      "yearEnd": 1970,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "1965 Oldsmobile Dynamic 88 (19651481130) (cropped).jpg",
+      "sharedPlatforms": [
+       "Buick LeSabre",
+       "Buick Wildcat",
+       "Pontiac Bonneville",
+       "Pontiac Catalina",
+       "Pontiac Parisienne",
+       "Chevrolet Bel Air",
+       "Chevrolet Caprice",
+       "Chevrolet Impala"
+      ]
+     },
+     {
+      "code": "Seventh generation",
+      "yearStart": 1971,
+      "yearEnd": 1976,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "1972 Oldsmobile Delta 88.jpg",
+      "sharedPlatforms": [
+       "Buick Centurion",
+       "Buick LeSabre",
+       "Pontiac Grand Ville",
+       "Pontiac Bonneville",
+       "Chevrolet Caprice",
+       "Chevrolet Impala"
+      ]
+     },
+     {
+      "code": "Eighth generation",
+      "yearStart": 1977,
+      "yearEnd": 1985,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "81delta88.jpg",
+      "sharedPlatforms": [
+       "Buick Estate",
+       "Buick LeSabre",
+       "Oldsmobile Custom Cruiser",
+       "Pontiac Bonneville",
+       "Pontiac Catalina",
+       "Pontiac Parisienne",
+       "Pontiac Safari",
+       "Chevrolet Caprice",
+       "Chevrolet Impala"
+      ]
+     },
+     {
+      "code": "Ninth generation",
+      "yearStart": 1986,
+      "yearEnd": 1991,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "Oldsmobile Eighty-Eight -- 08-28-2009.jpg",
+      "sharedPlatforms": [
+       "Buick LeSabre",
+       "Pontiac Bonneville"
+      ]
+     },
+     {
+      "code": "Tenth generation",
+      "yearStart": 1992,
+      "yearEnd": 1999,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "96-99 Oldsmobile 88 -- 12-26-2009.jpg",
+      "sharedPlatforms": [
+       "Buick LeSabre",
+       "Pontiac Bonneville"
+      ]
+     }
+    ]
+   },
+   "attempts": 1,
+   "feedback": [],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": true,
+     "generations": [
+      {
+       "code": "First generation",
+       "yearStart": 1949,
+       "yearEnd": 1953,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Buick Special",
+        "Pontiac Streamliner"
+       ]
+      },
+      {
+       "code": "Second generation",
+       "yearStart": 1954,
+       "yearEnd": 1956,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": []
+      },
+      {
+       "code": "Third generation",
+       "yearStart": 1957,
+       "yearEnd": 1958,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Buick Special",
+        "Pontiac Chieftain"
+       ]
+      },
+      {
+       "code": "Fourth generation",
+       "yearStart": 1959,
+       "yearEnd": 1960,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Buick Lesabre",
+        "Pontiac Catalina"
+       ]
+      },
+      {
+       "code": "Fifth generation",
+       "yearStart": 1961,
+       "yearEnd": 1964,
+       "designers": [
+        "Bill Mitchell"
+       ],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Buick Invicta",
+        "Buick LeSabre",
+        "Buick Wildcat",
+        "Pontiac Ventura",
+        "Pontiac Catalina",
+        "Pontiac Parisienne",
+        "Chevrolet Bel Air",
+        "Chevrolet Impala"
+       ]
+      },
+      {
+       "code": "Sixth generation",
+       "yearStart": 1965,
+       "yearEnd": 1970,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Buick LeSabre",
+        "Buick Wildcat",
+        "Pontiac Bonneville",
+        "Pontiac Catalina",
+        "Pontiac Parisienne",
+        "Chevrolet Bel Air",
+        "Chevrolet Caprice",
+        "Chevrolet Impala"
+       ]
+      },
+      {
+       "code": "Seventh generation",
+       "yearStart": 1971,
+       "yearEnd": 1976,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Buick Centurion",
+        "Buick LeSabre",
+        "Pontiac Grand Ville",
+        "Pontiac Bonneville",
+        "Chevrolet Caprice",
+        "Chevrolet Impala"
+       ]
+      },
+      {
+       "code": "Eighth generation",
+       "yearStart": 1977,
+       "yearEnd": 1985,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Buick Estate",
+        "Buick LeSabre",
+        "Oldsmobile Custom Cruiser",
+        "Pontiac Bonneville",
+        "Pontiac Catalina",
+        "Pontiac Parisienne",
+        "Pontiac Safari",
+        "Chevrolet Caprice",
+        "Chevrolet Impala"
+       ]
+      },
+      {
+       "code": "Ninth generation",
+       "yearStart": 1986,
+       "yearEnd": 1991,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Buick LeSabre",
+        "Pontiac Bonneville"
+       ]
+      },
+      {
+       "code": "Tenth generation",
+       "yearStart": 1992,
+       "yearEnd": 1999,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Buick LeSabre",
+        "Pontiac Bonneville"
+       ]
+      }
+     ]
+    },
+    "dropped": []
+   },
+   "cascadeDiscovered": true
+  },
+  "m-chevrolet-ssr": {
+   "status": "none",
+   "checkedAt": "2026-09-13T19:09:05.400Z",
+   "sourceTitle": "Chevrolet SSR",
+   "proposal": {
+    "hasMultipleGenerations": false,
+    "generations": [
+     {
+      "code": "Chevrolet SSR",
+      "yearStart": 2003,
+      "yearEnd": 2006,
+      "designers": [
+       "Brian Baker",
+       "Bill Davis",
+       "Doug Ungemach",
+       "Glen Durmisevich",
+       "Andre Hudson"
+      ],
+      "engineers": [],
+      "wikiFile": "2004 Chevrolet SSR, front left, 07-02-2023.jpg",
+      "sharedPlatforms": [
+       "Chevrolet TrailBlazer",
+       "GMC Envoy",
+       "Oldsmobile Bravada",
+       "Buick Rainier",
+       "Isuzu Ascender",
+       "Saab 9-7X"
+      ]
+     }
+    ]
+   },
+   "attempts": 1,
+   "feedback": [],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": false,
+     "generations": [
+      {
+       "code": "Chevrolet SSR",
+       "yearStart": 2003,
+       "yearEnd": 2006,
+       "designers": [
+        "Brian Baker",
+        "Bill Davis",
+        "Doug Ungemach",
+        "Glen Durmisevich",
+        "Andre Hudson"
+       ],
+       "sharedPlatforms": [
+        "Chevrolet TrailBlazer",
+        "GMC Envoy",
+        "Oldsmobile Bravada",
+        "Buick Rainier",
+        "Isuzu Ascender",
+        "Saab 9-7X"
+       ]
+      }
+     ]
+    },
+    "dropped": []
+   },
+   "cascadeDiscovered": true
+  },
+  "llm-related-oldsmobile-l-series": {
+   "status": "none",
+   "checkedAt": "2026-09-13T19:09:52.448Z",
+   "sourceTitle": "Oldsmobile L-Series",
+   "proposal": {
+    "hasMultipleGenerations": false,
+    "generations": [
+     {
+      "code": "L-Series",
+      "yearStart": 1932,
+      "yearEnd": 1938,
+      "designers": [
+       "Harley Earl"
+      ],
+      "engineers": [],
+      "wikiFile": "1934 Oldsmobile 8 Coupe (28869464782).jpg",
+      "sharedPlatforms": []
+     }
+    ]
+   },
+   "attempts": 1,
+   "feedback": [],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": false,
+     "generations": [
+      {
+       "code": "L-Series",
+       "yearStart": 1932,
+       "yearEnd": 1938,
+       "designers": [
+        "Harley Earl"
+       ],
+       "engineers": [],
+       "sharedPlatforms": []
+      }
+     ]
+    },
+    "dropped": []
+   },
+   "cascadeDiscovered": true
+  },
+  "m-wuling-starlight-730": {
+   "status": "none",
+   "checkedAt": "2026-09-13T19:10:00.930Z",
+   "sourceTitle": "Wuling Starlight 730",
+   "proposal": {
+    "hasMultipleGenerations": false,
+    "generations": [
+     {
+      "code": "Wuling Starlight 730",
+      "yearStart": 2025,
+      "yearEnd": null,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "Wuling Starlight 730 EV 005.jpg",
+      "sharedPlatforms": [
+       "Wuling Starlight 560",
+       "Wuling Starlight S",
+       "Wuling Starlight",
+       "Baojun Yunhai"
+      ]
+     }
+    ]
+   },
+   "attempts": 1,
+   "feedback": [],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": false,
+     "generations": [
+      {
+       "code": "Wuling Starlight 730",
+       "yearStart": 2025,
+       "yearEnd": null,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Wuling Starlight 560",
+        "Wuling Starlight S",
+        "Wuling Starlight",
+        "Baojun Yunhai"
+       ]
+      }
+     ]
+    },
+    "dropped": []
+   },
+   "cascadeDiscovered": true
+  },
+  "m-buick-century": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T19:10:26.065Z",
+   "sourceTitle": "Buick Century",
+   "proposal": {
+    "hasMultipleGenerations": true,
+    "generations": [
+     {
+      "code": "Series 60",
+      "yearStart": 1930,
+      "yearEnd": 1935,
+      "designers": [
+       "Harley Earl"
+      ],
+      "engineers": [],
+      "wikiFile": "Buick 68C 4-Dorrars Convertible Sedan 1933.jpg",
+      "sharedPlatforms": [
+       "McLaughlin-Buick"
+      ],
+      "sharedPlatformMatches": {
+       "McLaughlin-Buick": {
+        "matchId": null,
+        "confidence": "high",
+        "reason": "McLaughlin-Buick is a Canadian-built Buick sedan produced from 1954 to 1958 (based on the Buick Century/Special chassis). The Mercedes-Benz CLA is a compact luxury sedan produced starting in 2013. They are different eras, different manufacturers (Buick vs Mercedes-Benz), and completely different models with no shared chassis or naming relationship."
+       }
+      }
+     },
+     {
+      "code": "First generation",
+      "yearStart": 1936,
+      "yearEnd": 1942,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "Buick Century 4-Dorrars Sedan 1937.jpg",
+      "sharedPlatforms": [
+       "Cadillac Series 60",
+       "Cadillac Series 61",
+       "LaSalle",
+       "Buick Special",
+       "McLaughlin-Buick",
+       "Oldsmobile L-Series",
+       "Oldsmobile Series 70",
+       "Pontiac Streamliner Torpedo",
+       "Pontiac Streamliner"
+      ],
+      "sharedPlatformMatches": {
+       "McLaughlin-Buick": {
+        "matchId": null,
+        "confidence": "high",
+        "reason": "McLaughlin-Buick is a Canadian-built Buick sedan produced from 1954 to 1958 (based on the Buick Century/Special chassis). The Mercedes-Benz CLA is a compact luxury sedan produced starting in 2013. They are different eras, different manufacturers (Buick vs Mercedes-Benz), and completely different models with no shared chassis or naming relationship."
+       },
+       "Oldsmobile L-Series": {
+        "matchId": null,
+        "confidence": "high",
+        "reason": "The 'Oldsmobile L-Series' (1939–1949) is a specific mid-sized model line. While the database contains entries for 'Oldsmobile L-Series' in the International context and other Oldsmobile models with 'L' in the name (like 'Lincoln EL-series', 'Saturn L-series', or 'Oldsmobile Limited'), none of the provided candidates explicitly refer to the Oldsmobile L-Series sedan. The presence of 'Oldsmobile Limited' or 'Oldsmobile Super 88' does not constitute a match as they are distinct models. The production years of the candidates do not overlap with the specific era of the Oldsmobile L-Series in a way that confirms identity, and no candidate shares the exact name or documented chassis lineage for this specific model."
+       },
+       "Pontiac Streamliner Torpedo": {
+        "matchId": "m-pontiac-streamliner",
+        "confidence": "high",
+        "reason": "The mention 'Pontiac Streamliner Torpedo' refers to a specific trim or body style of the Pontiac Streamliner. The database entry 'm-pontiac-streamliner' covers the Pontiac Streamliner. Although the mention includes 'Torpedo' (a common aerodynamic term for that era, often referring to the 1942-1948 model line), the core identity is the Streamliner. The database entry 'm-pontiac-torpedo' refers to the earlier 1939-1948 model line (Pontiac Torpedo), which predates the specific 'Streamliner' naming convention used in the mention's context (often associated with the 1942-1948 period where 'Streamliner' was the primary badge name in certain markets or publications, sometimes conflated with the 'Torpedo' body type). However, given the specific phrasing 'Pontiac Streamliner Torpedo', it is most likely a specific reference to the Pontiac Streamliner model itself, potentially the 1942-1948 iteration which is the closest match to the 'Streamliner' name in the provided list, even if the 'Torpedo' suffix implies the body style. The other 'Torpedo' entry (m-pontiac-torpedo) is a different model nameplate (Pontiac Torpedo vs Pontiac Streamliner). Therefore, the match is with the Streamliner entry."
+       }
+      }
+     },
+     {
+      "code": "Second generation",
+      "yearStart": 1954,
+      "yearEnd": 1958,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "1955 Buick Century Riviera (29962314092).jpg",
+      "sharedPlatforms": [
+       "Oldsmobile 88"
+      ]
+     },
+     {
+      "code": "Third generation",
+      "yearStart": 1973,
+      "yearEnd": 1977,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "1973BuickCenturyGSlarge.JPG",
+      "sharedPlatforms": [
+       "Oldsmobile Cutlass",
+       "Pontiac LeMans",
+       "Chevrolet Chevelle"
+      ]
+     },
+     {
+      "code": "Fourth generation",
+      "yearStart": 1978,
+      "yearEnd": 1981,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "'70s Buick Century.jpg",
+      "sharedPlatforms": [
+       "Buick Regal",
+       "Oldsmobile Cutlass",
+       "Pontiac Bonneville",
+       "Pontiac Grand Am",
+       "Pontiac Grand Prix",
+       "Pontiac LeMans",
+       "Chevrolet El Camino",
+       "Chevrolet Malibu",
+       "Chevrolet Monte Carlo",
+       "GMC Caballero"
+      ],
+      "sharedPlatformMatches": {
+       "GMC Caballero": {
+        "matchId": null,
+        "confidence": "high",
+        "reason": "The GMC Caballero (1978–1987) was a mid-size car based on the Chevrolet Caprice. None of the provided candidates are the Caballero: the GMC Syclone and Typhoon are late-80s/90s sports trucks, the Envoy/Jimmy are SUVs, and the Chevette is a compact car. Production years do not overlap."
+       }
+      }
+     },
+     {
+      "code": "Fifth generation",
+      "yearStart": 1982,
+      "yearEnd": 1996,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "1984 Buick Century Limited Sedan in Silver, Front Right, 10-26-2022.jpg",
+      "sharedPlatforms": [
+       "Buick Regal",
+       "Chevrolet Celebrity",
+       "Oldsmobile Cutlass Ciera",
+       "Pontiac 6000"
+      ]
+     },
+     {
+      "code": "Sixth generation",
+      "yearStart": 1997,
+      "yearEnd": 2005,
+      "designers": [
+       "Wayne Cherry",
+       "Wayne Kady"
+      ],
+      "engineers": [],
+      "wikiFile": "2003 Buick Century Limited Package in Sterling Silver Metallic, Front Left, 05-02-2023.jpg",
+      "sharedPlatforms": [
+       "Buick Regal",
+       "Oldsmobile Intrigue",
+       "Pontiac Grand Prix",
+       "Chevrolet Impala",
+       "Chevrolet Monte Carlo"
+      ]
+     }
+    ]
+   },
+   "attempts": 1,
+   "feedback": [],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": true,
+     "generations": [
+      {
+       "code": "Series 60",
+       "yearStart": 1930,
+       "yearEnd": 1935,
+       "designers": [
+        "Harley Earl"
+       ],
+       "engineers": [],
+       "sharedPlatforms": [
+        "McLaughlin-Buick"
+       ]
+      },
+      {
+       "code": "First generation",
+       "yearStart": 1936,
+       "yearEnd": 1942,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Cadillac Series 60",
+        "Cadillac Series 61",
+        "LaSalle",
+        "Buick Special",
+        "McLaughlin-Buick",
+        "Oldsmobile L-Series",
+        "Oldsmobile Series 70",
+        "Pontiac Streamliner Torpedo",
+        "Pontiac Streamliner"
+       ]
+      },
+      {
+       "code": "Second generation",
+       "yearStart": 1954,
+       "yearEnd": 1958,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Oldsmobile 88"
+       ]
+      },
+      {
+       "code": "Third generation",
+       "yearStart": 1973,
+       "yearEnd": 1977,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Oldsmobile Cutlass",
+        "Pontiac LeMans",
+        "Chevrolet Chevelle"
+       ]
+      },
+      {
+       "code": "Fourth generation",
+       "yearStart": 1978,
+       "yearEnd": 1981,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Buick Regal",
+        "Oldsmobile Cutlass",
+        "Pontiac Bonneville",
+        "Pontiac Grand Am",
+        "Pontiac Grand Prix",
+        "Pontiac LeMans",
+        "Chevrolet El Camino",
+        "Chevrolet Malibu",
+        "Chevrolet Monte Carlo",
+        "GMC Caballero"
+       ]
+      },
+      {
+       "code": "Fifth generation",
+       "yearStart": 1982,
+       "yearEnd": 1996,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Buick Regal",
+        "Chevrolet Celebrity",
+        "Oldsmobile Cutlass Ciera",
+        "Pontiac 6000"
+       ]
+      },
+      {
+       "code": "Sixth generation",
+       "yearStart": 1997,
+       "yearEnd": 2005,
+       "designers": [
+        "Wayne Cherry",
+        "Wayne Kady"
+       ],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Buick Regal",
+        "Oldsmobile Intrigue",
+        "Pontiac Grand Prix",
+        "Chevrolet Impala",
+        "Chevrolet Monte Carlo"
+       ]
+      }
+     ]
+    },
+    "dropped": []
+   },
+   "decidedBy": "agent",
+   "decidedAt": "2026-09-13T19:10:26.713Z",
+   "allDesigners": [
+    "Harley Earl",
+    "Wayne Cherry",
+    "Wayne Kady"
+   ],
+   "allEngineers": []
   }
  },
  "relations": {
@@ -14248,12 +15490,994 @@
    "genIdB": "m-mazda-cosmo",
    "reason": "proposed from a loosely-matched shared-platform/rebadge mention (the matched nameplate name wasn't an exact match, just a substring overlap) -- please verify this is really the right car before accepting",
    "llmDiscovered": true
+  },
+  "m-buick-regal|m-oldsmobile-intrigue|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T19:01:39.367Z",
+   "decidedAt": "2026-09-13T19:01:39.367Z",
+   "famA": "m-oldsmobile-intrigue",
+   "famB": "m-buick-regal",
+   "relType": "platform",
+   "codeA": "Intrigue",
+   "codeB": "Regal",
+   "genIdA": "m-oldsmobile-intrigue",
+   "genIdB": "m-buick-regal",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "m-buick-century|m-chevrolet-celebrity|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T19:01:39.368Z",
+   "decidedAt": "2026-09-13T19:01:39.368Z",
+   "famA": "m-chevrolet-celebrity",
+   "famB": "m-buick-century",
+   "relType": "platform",
+   "codeA": "Celebrity",
+   "codeB": "Century",
+   "genIdA": "m-chevrolet-celebrity",
+   "genIdB": "m-buick-century",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "m-chevrolet-celebrity|m-oldsmobile-cutlass-ciera|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T19:01:39.370Z",
+   "decidedAt": "2026-09-13T19:01:39.370Z",
+   "famA": "m-chevrolet-celebrity",
+   "famB": "m-oldsmobile-cutlass-ciera",
+   "relType": "platform",
+   "codeA": "Celebrity",
+   "codeB": "Cutlass Ciera",
+   "genIdA": "m-chevrolet-celebrity",
+   "genIdB": "m-oldsmobile-cutlass-ciera",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "m-chevrolet-celebrity|m-pontiac-6000|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T19:01:39.372Z",
+   "decidedAt": "2026-09-13T19:01:39.372Z",
+   "famA": "m-chevrolet-celebrity",
+   "famB": "m-pontiac-6000",
+   "relType": "platform",
+   "codeA": "Celebrity",
+   "codeB": "6000",
+   "genIdA": "m-chevrolet-celebrity",
+   "genIdB": "m-pontiac-6000",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "m-chevrolet-chevelle-laguna|m-chevrolet-monte-carlo|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T19:01:39.373Z",
+   "decidedAt": "2026-09-13T19:01:39.373Z",
+   "famA": "m-chevrolet-chevelle-laguna",
+   "famB": "m-chevrolet-monte-carlo",
+   "relType": "platform",
+   "codeA": "Chevelle Laguna",
+   "codeB": "Monte Carlo",
+   "genIdA": "m-chevrolet-chevelle-laguna",
+   "genIdB": "m-chevrolet-monte-carlo",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "m-chevrolet-chevelle-laguna|m-pontiac-lemans|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T19:01:39.375Z",
+   "decidedAt": "2026-09-13T19:01:39.375Z",
+   "famA": "m-chevrolet-chevelle-laguna",
+   "famB": "m-pontiac-lemans",
+   "relType": "platform",
+   "codeA": "Chevelle Laguna",
+   "codeB": "LeMans",
+   "genIdA": "m-chevrolet-chevelle-laguna",
+   "genIdB": "m-pontiac-lemans",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "m-chevrolet-chevelle-laguna|m-pontiac-grand-am|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T19:01:39.377Z",
+   "decidedAt": "2026-09-13T19:01:39.377Z",
+   "famA": "m-chevrolet-chevelle-laguna",
+   "famB": "m-pontiac-grand-am",
+   "relType": "platform",
+   "codeA": "Chevelle Laguna",
+   "codeB": "Grand Am",
+   "genIdA": "m-chevrolet-chevelle-laguna",
+   "genIdB": "m-pontiac-grand-am",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "m-chevrolet-chevelle-laguna|m-pontiac-grand-prix|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T19:01:39.379Z",
+   "decidedAt": "2026-09-13T19:01:39.379Z",
+   "famA": "m-chevrolet-chevelle-laguna",
+   "famB": "m-pontiac-grand-prix",
+   "relType": "platform",
+   "codeA": "Chevelle Laguna",
+   "codeB": "Grand Prix",
+   "genIdA": "m-chevrolet-chevelle-laguna",
+   "genIdB": "m-pontiac-grand-prix",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "m-buick-century|m-chevrolet-chevelle-laguna|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T19:01:39.379Z",
+   "decidedAt": "2026-09-13T19:01:39.379Z",
+   "famA": "m-chevrolet-chevelle-laguna",
+   "famB": "m-buick-century",
+   "relType": "platform",
+   "codeA": "Chevelle Laguna",
+   "codeB": "Century",
+   "genIdA": "m-chevrolet-chevelle-laguna",
+   "genIdB": "m-buick-century",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "m-buick-regal|m-chevrolet-chevelle-laguna|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T19:01:39.380Z",
+   "decidedAt": "2026-09-13T19:01:39.380Z",
+   "famA": "m-chevrolet-chevelle-laguna",
+   "famB": "m-buick-regal",
+   "relType": "platform",
+   "codeA": "Chevelle Laguna",
+   "codeB": "Regal",
+   "genIdA": "m-chevrolet-chevelle-laguna",
+   "genIdB": "m-buick-regal",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "m-chevrolet-chevelle-laguna|m-oldsmobile-cutlass|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T19:01:39.382Z",
+   "decidedAt": "2026-09-13T19:01:39.382Z",
+   "famA": "m-chevrolet-chevelle-laguna",
+   "famB": "m-oldsmobile-cutlass",
+   "relType": "platform",
+   "codeA": "Chevelle Laguna",
+   "codeB": "Cutlass",
+   "genIdA": "m-chevrolet-chevelle-laguna",
+   "genIdB": "m-oldsmobile-cutlass",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-audi-tt-fv-8s-mk3|llm-related-skoda-octavia-mk2|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T19:02:50.259Z",
+   "decidedAt": "2026-09-13T19:02:50.259Z",
+   "famA": "llm-related-skoda-octavia-mk2",
+   "famB": "m-audi-tt",
+   "relType": "platform",
+   "codeA": "Octavia Mk2",
+   "codeB": "TT FV/8S (Mk3)",
+   "genIdA": "llm-related-skoda-octavia-mk2",
+   "genIdB": "llm-m-audi-tt-fv-8s-mk3",
+   "reason": "auto-approved in the background -- the local LLM sanity check confidently identified this as the same car as \"Audi TT Mk3\" (confidence: high) -- The mention 'Audi TT Mk3' refers to the third generation of the Audi TT (chassis code 8S), produced from 2014 onwards. This matches exactly with the database entry 'llm-m-audi-tt-fv-8s-mk3' which is labeled 'Audi TT FV/8S (Mk3) (2014–present)'. The 'FV/8S' designation in the database confirms it is the same chassis/generation as the Mk3.",
+   "llmDiscovered": true,
+   "llmVerifiedDuplicate": true
+  },
+  "llm-related-skoda-octavia-mk2|m-volkswagen-golf-mk7|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T19:02:50.260Z",
+   "decidedAt": "2026-09-13T19:02:50.260Z",
+   "famA": "llm-related-skoda-octavia-mk2",
+   "famB": "fam-volkswagen-golf",
+   "relType": "platform",
+   "codeA": "Octavia Mk2",
+   "codeB": "Golf Mk7",
+   "genIdA": "llm-related-skoda-octavia-mk2",
+   "genIdB": "m-volkswagen-golf-mk7",
+   "reason": "matched automatically (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "m-buick-century|m-pontiac-6000|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T19:02:50.314Z",
+   "decidedAt": "2026-09-13T19:02:50.314Z",
+   "famA": "m-pontiac-6000",
+   "famB": "m-buick-century",
+   "relType": "platform",
+   "codeA": "6000",
+   "codeB": "Century",
+   "genIdA": "m-pontiac-6000",
+   "genIdB": "m-buick-century",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "m-oldsmobile-cutlass-ciera|m-pontiac-6000|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T19:02:50.317Z",
+   "decidedAt": "2026-09-13T19:02:50.317Z",
+   "famA": "m-pontiac-6000",
+   "famB": "m-oldsmobile-cutlass-ciera",
+   "relType": "platform",
+   "codeA": "6000",
+   "codeB": "Cutlass Ciera",
+   "genIdA": "m-pontiac-6000",
+   "genIdB": "m-oldsmobile-cutlass-ciera",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-buick-lacrosse-first-generation|m-chevrolet-impala|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T19:03:38.059Z",
+   "decidedAt": "2026-09-13T19:03:38.059Z",
+   "famA": "m-buick-lacrosse",
+   "famB": "fam-chevrolet-impala",
+   "relType": "platform",
+   "codeA": "LaCrosse First generation",
+   "codeB": "Impala",
+   "genIdA": "llm-m-buick-lacrosse-first-generation",
+   "genIdB": "m-chevrolet-impala",
+   "reason": "matched automatically (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-buick-lacrosse-first-generation|m-chevrolet-monte-carlo|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T19:03:38.060Z",
+   "decidedAt": "2026-09-13T19:03:38.060Z",
+   "famA": "m-buick-lacrosse",
+   "famB": "m-chevrolet-monte-carlo",
+   "relType": "platform",
+   "codeA": "LaCrosse First generation",
+   "codeB": "Monte Carlo",
+   "genIdA": "llm-m-buick-lacrosse-first-generation",
+   "genIdB": "m-chevrolet-monte-carlo",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-buick-lacrosse-first-generation|m-pontiac-grand-prix|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T19:03:38.063Z",
+   "decidedAt": "2026-09-13T19:03:38.063Z",
+   "famA": "m-buick-lacrosse",
+   "famB": "m-pontiac-grand-prix",
+   "relType": "platform",
+   "codeA": "LaCrosse First generation",
+   "codeB": "Grand Prix",
+   "genIdA": "llm-m-buick-lacrosse-first-generation",
+   "genIdB": "m-pontiac-grand-prix",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-buick-lacrosse-second-generation|m-cadillac-xts|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T19:03:38.069Z",
+   "decidedAt": "2026-09-13T19:03:38.069Z",
+   "famA": "m-buick-lacrosse",
+   "famB": "m-cadillac-xts",
+   "relType": "platform",
+   "codeA": "LaCrosse Second generation",
+   "codeB": "XTS",
+   "genIdA": "llm-m-buick-lacrosse-second-generation",
+   "genIdB": "m-cadillac-xts",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-buick-lacrosse-second-generation|m-chevrolet-impala|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T19:03:38.069Z",
+   "decidedAt": "2026-09-13T19:03:38.069Z",
+   "famA": "m-buick-lacrosse",
+   "famB": "fam-chevrolet-impala",
+   "relType": "platform",
+   "codeA": "LaCrosse Second generation",
+   "codeB": "Impala",
+   "genIdA": "llm-m-buick-lacrosse-second-generation",
+   "genIdB": "m-chevrolet-impala",
+   "reason": "matched automatically (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-buick-lacrosse-second-generation|m-opel-insignia|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T19:03:38.071Z",
+   "decidedAt": "2026-09-13T19:03:38.071Z",
+   "famA": "m-buick-lacrosse",
+   "famB": "m-opel-insignia",
+   "relType": "platform",
+   "codeA": "LaCrosse Second generation",
+   "codeB": "Insignia",
+   "genIdA": "llm-m-buick-lacrosse-second-generation",
+   "genIdB": "m-opel-insignia",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-buick-lacrosse-second-generation|m-saab-9-5|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T19:03:38.074Z",
+   "decidedAt": "2026-09-13T19:03:38.074Z",
+   "famA": "m-buick-lacrosse",
+   "famB": "m-saab-9-5",
+   "relType": "platform",
+   "codeA": "LaCrosse Second generation",
+   "codeB": "9-5",
+   "genIdA": "llm-m-buick-lacrosse-second-generation",
+   "genIdB": "m-saab-9-5",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-buick-lacrosse-third-generation|m-buick-regal|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T19:03:38.079Z",
+   "decidedAt": "2026-09-13T19:03:38.079Z",
+   "famA": "m-buick-lacrosse",
+   "famB": "m-buick-regal",
+   "relType": "platform",
+   "codeA": "LaCrosse Third generation",
+   "codeB": "Regal",
+   "genIdA": "llm-m-buick-lacrosse-third-generation",
+   "genIdB": "m-buick-regal",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-buick-lacrosse-third-generation|m-chevrolet-impala|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T19:03:38.080Z",
+   "decidedAt": "2026-09-13T19:03:38.080Z",
+   "famA": "m-buick-lacrosse",
+   "famB": "fam-chevrolet-impala",
+   "relType": "platform",
+   "codeA": "LaCrosse Third generation",
+   "codeB": "Impala",
+   "genIdA": "llm-m-buick-lacrosse-third-generation",
+   "genIdB": "m-chevrolet-impala",
+   "reason": "matched automatically (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-buick-lacrosse-third-generation|m-opel-insignia|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T19:03:38.082Z",
+   "decidedAt": "2026-09-13T19:03:38.082Z",
+   "famA": "m-buick-lacrosse",
+   "famB": "m-opel-insignia",
+   "relType": "platform",
+   "codeA": "LaCrosse Third generation",
+   "codeB": "Insignia",
+   "genIdA": "llm-m-buick-lacrosse-third-generation",
+   "genIdB": "m-opel-insignia",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-buick-invicta-first-generation|m-pontiac-ventura|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T19:06:53.364Z",
+   "decidedAt": "2026-09-13T19:06:53.364Z",
+   "famA": "m-buick-invicta",
+   "famB": "m-pontiac-ventura",
+   "relType": "platform",
+   "codeA": "Invicta First generation",
+   "codeB": "Ventura",
+   "genIdA": "llm-m-buick-invicta-first-generation",
+   "genIdB": "m-pontiac-ventura",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-buick-invicta-first-generation|llm-related-oldsmobile-super-88|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T19:06:53.371Z",
+   "decidedAt": "2026-09-13T19:06:53.371Z",
+   "famA": "m-buick-invicta",
+   "famB": "llm-related-oldsmobile-super-88",
+   "relType": "platform",
+   "codeA": "Invicta First generation",
+   "codeB": "Super 88",
+   "genIdA": "llm-m-buick-invicta-first-generation",
+   "genIdB": "llm-related-oldsmobile-super-88",
+   "reason": "matched automatically -- \"Oldsmobile Super 88\" was named as a related car but didn't exist anywhere in the graph yet, so it was newly created from this mention (double-checked by the local LLM sanity pass against every plausible existing car -- none matched)",
+   "llmDiscovered": true
+  },
+  "llm-m-buick-invicta-second-generation|m-pontiac-ventura|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T19:06:53.377Z",
+   "decidedAt": "2026-09-13T19:06:53.377Z",
+   "famA": "m-buick-invicta",
+   "famB": "m-pontiac-ventura",
+   "relType": "platform",
+   "codeA": "Invicta Second generation",
+   "codeB": "Ventura",
+   "genIdA": "llm-m-buick-invicta-second-generation",
+   "genIdB": "m-pontiac-ventura",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-buick-invicta-second-generation|llm-related-oldsmobile-super-88|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T19:06:53.380Z",
+   "decidedAt": "2026-09-13T19:06:53.380Z",
+   "famA": "m-buick-invicta",
+   "famB": "llm-related-oldsmobile-super-88",
+   "relType": "platform",
+   "codeA": "Invicta Second generation",
+   "codeB": "Super 88",
+   "genIdA": "llm-m-buick-invicta-second-generation",
+   "genIdB": "llm-related-oldsmobile-super-88",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "m-chevrolet-ssr|m-saab-9-7x|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T19:07:38.975Z",
+   "decidedAt": "2026-09-13T19:07:38.975Z",
+   "famA": "m-saab-9-7x",
+   "famB": "m-chevrolet-ssr",
+   "relType": "platform",
+   "codeA": "9-7X",
+   "codeB": "SSR",
+   "genIdA": "m-saab-9-7x",
+   "genIdB": "m-chevrolet-ssr",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "m-buick-century|m-cadillac-series-60|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T19:07:38.975Z",
+   "decidedAt": "2026-09-13T19:07:38.975Z",
+   "famA": "m-cadillac-series-60",
+   "famB": "m-buick-century",
+   "relType": "platform",
+   "codeA": "Series 60",
+   "codeB": "Century",
+   "genIdA": "m-cadillac-series-60",
+   "genIdB": "m-buick-century",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "m-buick-special|m-cadillac-series-60|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T19:07:38.976Z",
+   "decidedAt": "2026-09-13T19:07:38.976Z",
+   "famA": "m-cadillac-series-60",
+   "famB": "m-buick-special",
+   "relType": "platform",
+   "codeA": "Series 60",
+   "codeB": "Special",
+   "genIdA": "m-cadillac-series-60",
+   "genIdB": "m-buick-special",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "m-cadillac-series-60|m-cadillac-series-65|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T19:07:38.976Z",
+   "decidedAt": "2026-09-13T19:07:38.976Z",
+   "famA": "m-cadillac-series-60",
+   "famB": "m-cadillac-series-65",
+   "relType": "platform",
+   "codeA": "Series 60",
+   "codeB": "Series 65",
+   "genIdA": "m-cadillac-series-60",
+   "genIdB": "m-cadillac-series-65",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "m-cadillac-lasalle|m-cadillac-series-60|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T19:07:38.982Z",
+   "decidedAt": "2026-09-13T19:07:38.982Z",
+   "famA": "m-cadillac-series-60",
+   "famB": "m-cadillac-lasalle",
+   "relType": "platform",
+   "codeA": "Series 60",
+   "codeB": "LaSalle",
+   "genIdA": "m-cadillac-series-60",
+   "genIdB": "m-cadillac-lasalle",
+   "reason": "auto-approved in the background -- the local LLM sanity check confidently identified this as the same car as \"LaSalle (automobile)\" (confidence: high) -- The mention 'LaSalle (automobile)' refers to the car produced by Cadillac from 1927 to 1940. The candidate 'm-cadillac-lasalle' is explicitly labeled 'Cadillac LaSalle' with production years listed as '1927–present'. Although the database entry incorrectly extends the production to the present day (the actual production ended in 1940), the core identity (Cadillac brand, LaSalle model, 1927 start year) matches perfectly. All other candidates are distinct unrelated marques (Chalmers, Fiat, McFarlan, etc.) and do not match the mention.",
+   "llmDiscovered": true,
+   "llmVerifiedDuplicate": true
+  },
+  "llm-related-oldsmobile-l-series|m-cadillac-series-60|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T19:07:38.989Z",
+   "decidedAt": "2026-09-13T19:07:38.989Z",
+   "famA": "m-cadillac-series-60",
+   "famB": "llm-related-oldsmobile-l-series",
+   "relType": "platform",
+   "codeA": "Series 60",
+   "codeB": "L-Series",
+   "genIdA": "m-cadillac-series-60",
+   "genIdB": "llm-related-oldsmobile-l-series",
+   "reason": "matched automatically -- \"Oldsmobile L-Series\" was named as a related car but didn't exist anywhere in the graph yet, so it was newly created from this mention (double-checked by the local LLM sanity pass against every plausible existing car -- none matched)",
+   "llmDiscovered": true
+  },
+  "llm-m-chevrolet-trailblazer-first-generation-kc|m-chevrolet-ssr|platform": {
+   "status": "provisional",
+   "checkedAt": "2026-09-13T19:10:26.401Z",
+   "famA": "m-chevrolet-ssr",
+   "famB": "m-chevrolet-trailblazer",
+   "relType": "platform",
+   "codeA": "SSR",
+   "codeB": "TrailBlazer First generation (KC)",
+   "genIdA": "m-chevrolet-ssr",
+   "genIdB": "llm-m-chevrolet-trailblazer-first-generation-kc",
+   "reason": "proposed by overlapping production years only (a shared-platform/rebadge mention was found alongside this generation's own text, but which specific generation of the OTHER nameplate it refers to was guessed from year overlap, not stated explicitly) -- please verify before accepting",
+   "llmDiscovered": true
+  },
+  "m-wuling-starlight-560|m-wuling-starlight-730|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T19:10:26.411Z",
+   "decidedAt": "2026-09-13T19:10:26.411Z",
+   "famA": "m-wuling-starlight-730",
+   "famB": "m-wuling-starlight-560",
+   "relType": "platform",
+   "codeA": "Starlight 730",
+   "codeB": "Starlight 560",
+   "genIdA": "m-wuling-starlight-730",
+   "genIdB": "m-wuling-starlight-560",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "m-wuling-starlight-730|m-wuling-starlight-s|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T19:10:26.414Z",
+   "decidedAt": "2026-09-13T19:10:26.414Z",
+   "famA": "m-wuling-starlight-730",
+   "famB": "m-wuling-starlight-s",
+   "relType": "platform",
+   "codeA": "Starlight 730",
+   "codeB": "Starlight S",
+   "genIdA": "m-wuling-starlight-730",
+   "genIdB": "m-wuling-starlight-s",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "m-wuling-starlight|m-wuling-starlight-730|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T19:10:26.416Z",
+   "decidedAt": "2026-09-13T19:10:26.417Z",
+   "famA": "m-wuling-starlight-730",
+   "famB": "m-wuling-starlight",
+   "relType": "platform",
+   "codeA": "Starlight 730",
+   "codeB": "Starlight",
+   "genIdA": "m-wuling-starlight-730",
+   "genIdB": "m-wuling-starlight",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "m-baojun-yunhai|m-wuling-starlight-730|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T19:10:26.417Z",
+   "decidedAt": "2026-09-13T19:10:26.417Z",
+   "famA": "m-wuling-starlight-730",
+   "famB": "m-baojun-yunhai",
+   "relType": "platform",
+   "codeA": "Starlight 730",
+   "codeB": "Yunhai",
+   "genIdA": "m-wuling-starlight-730",
+   "genIdB": "m-baojun-yunhai",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-buick-century-first-generation|m-cadillac-series-60|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T19:10:26.745Z",
+   "decidedAt": "2026-09-13T19:10:26.745Z",
+   "famA": "m-buick-century",
+   "famB": "m-cadillac-series-60",
+   "relType": "platform",
+   "codeA": "Century First generation",
+   "codeB": "Series 60",
+   "genIdA": "llm-m-buick-century-first-generation",
+   "genIdB": "m-cadillac-series-60",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-buick-century-first-generation|m-cadillac-series-61|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T19:10:26.745Z",
+   "decidedAt": "2026-09-13T19:10:26.745Z",
+   "famA": "m-buick-century",
+   "famB": "m-cadillac-series-61",
+   "relType": "platform",
+   "codeA": "Century First generation",
+   "codeB": "Series 61",
+   "genIdA": "llm-m-buick-century-first-generation",
+   "genIdB": "m-cadillac-series-61",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-buick-century-first-generation|m-cadillac-lasalle|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T19:10:26.746Z",
+   "decidedAt": "2026-09-13T19:10:26.746Z",
+   "famA": "m-buick-century",
+   "famB": "m-cadillac-lasalle",
+   "relType": "platform",
+   "codeA": "Century First generation",
+   "codeB": "LaSalle",
+   "genIdA": "llm-m-buick-century-first-generation",
+   "genIdB": "m-cadillac-lasalle",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-buick-century-first-generation|m-buick-special|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T19:10:26.746Z",
+   "decidedAt": "2026-09-13T19:10:26.746Z",
+   "famA": "m-buick-century",
+   "famB": "m-buick-special",
+   "relType": "platform",
+   "codeA": "Century First generation",
+   "codeB": "Special",
+   "genIdA": "llm-m-buick-century-first-generation",
+   "genIdB": "m-buick-special",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-buick-century-first-generation|llm-related-oldsmobile-l-series|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T19:10:26.757Z",
+   "decidedAt": "2026-09-13T19:10:26.757Z",
+   "famA": "m-buick-century",
+   "famB": "llm-related-oldsmobile-l-series",
+   "relType": "platform",
+   "codeA": "Century First generation",
+   "codeB": "L-Series",
+   "genIdA": "llm-m-buick-century-first-generation",
+   "genIdB": "llm-related-oldsmobile-l-series",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-buick-century-first-generation|m-oldsmobile-series-70|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T19:10:26.759Z",
+   "decidedAt": "2026-09-13T19:10:26.759Z",
+   "famA": "m-buick-century",
+   "famB": "m-oldsmobile-series-70",
+   "relType": "platform",
+   "codeA": "Century First generation",
+   "codeB": "Series 70",
+   "genIdA": "llm-m-buick-century-first-generation",
+   "genIdB": "m-oldsmobile-series-70",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-buick-century-first-generation|m-pontiac-streamliner|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T19:10:26.765Z",
+   "decidedAt": "2026-09-13T19:10:26.765Z",
+   "famA": "m-buick-century",
+   "famB": "m-pontiac-streamliner",
+   "relType": "platform",
+   "codeA": "Century First generation",
+   "codeB": "Streamliner",
+   "genIdA": "llm-m-buick-century-first-generation",
+   "genIdB": "m-pontiac-streamliner",
+   "reason": "auto-approved in the background -- the local LLM sanity check confidently identified this as the same car as \"Pontiac Streamliner Torpedo\" (confidence: high) -- The mention 'Pontiac Streamliner Torpedo' refers to a specific trim or body style of the Pontiac Streamliner. The database entry 'm-pontiac-streamliner' covers the Pontiac Streamliner. Although the mention includes 'Torpedo' (a common aerodynamic term for that era, often referring to the 1942-1948 model line), the core identity is the Streamliner. The database entry 'm-pontiac-torpedo' refers to the earlier 1939-1948 model line (Pontiac Torpedo), which predates the specific 'Streamliner' naming convention used in the mention's context (often associated with the 1942-1948 period where 'Streamliner' was the primary badge name in certain markets or publications, sometimes conflated with the 'Torpedo' body type). However, given the specific phrasing 'Pontiac Streamliner Torpedo', it is most likely a specific reference to the Pontiac Streamliner model itself, potentially the 1942-1948 iteration which is the closest match to the 'Streamliner' name in the provided list, even if the 'Torpedo' suffix implies the body style. The other 'Torpedo' entry (m-pontiac-torpedo) is a different model nameplate (Pontiac Torpedo vs Pontiac Streamliner). Therefore, the match is with the Streamliner entry.",
+   "llmDiscovered": true,
+   "llmVerifiedDuplicate": true
+  },
+  "llm-m-buick-century-second-generation|m-oldsmobile-88|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T19:10:26.772Z",
+   "decidedAt": "2026-09-13T19:10:26.772Z",
+   "famA": "m-buick-century",
+   "famB": "m-oldsmobile-88",
+   "relType": "platform",
+   "codeA": "Century Second generation",
+   "codeB": "88",
+   "genIdA": "llm-m-buick-century-second-generation",
+   "genIdB": "m-oldsmobile-88",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-buick-century-third-generation|m-oldsmobile-cutlass|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T19:10:26.777Z",
+   "decidedAt": "2026-09-13T19:10:26.777Z",
+   "famA": "m-buick-century",
+   "famB": "m-oldsmobile-cutlass",
+   "relType": "platform",
+   "codeA": "Century Third generation",
+   "codeB": "Cutlass",
+   "genIdA": "llm-m-buick-century-third-generation",
+   "genIdB": "m-oldsmobile-cutlass",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-buick-century-third-generation|m-pontiac-lemans|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T19:10:26.780Z",
+   "decidedAt": "2026-09-13T19:10:26.780Z",
+   "famA": "m-buick-century",
+   "famB": "m-pontiac-lemans",
+   "relType": "platform",
+   "codeA": "Century Third generation",
+   "codeB": "LeMans",
+   "genIdA": "llm-m-buick-century-third-generation",
+   "genIdB": "m-pontiac-lemans",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-buick-century-third-generation|m-chevrolet-chevelle|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T19:10:26.780Z",
+   "decidedAt": "2026-09-13T19:10:26.780Z",
+   "famA": "m-buick-century",
+   "famB": "m-chevrolet-chevelle",
+   "relType": "platform",
+   "codeA": "Century Third generation",
+   "codeB": "Chevelle",
+   "genIdA": "llm-m-buick-century-third-generation",
+   "genIdB": "m-chevrolet-chevelle",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-buick-century-fourth-generation|m-buick-regal|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T19:10:26.784Z",
+   "decidedAt": "2026-09-13T19:10:26.784Z",
+   "famA": "m-buick-century",
+   "famB": "m-buick-regal",
+   "relType": "platform",
+   "codeA": "Century Fourth generation",
+   "codeB": "Regal",
+   "genIdA": "llm-m-buick-century-fourth-generation",
+   "genIdB": "m-buick-regal",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-buick-century-fourth-generation|m-oldsmobile-cutlass|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T19:10:26.786Z",
+   "decidedAt": "2026-09-13T19:10:26.786Z",
+   "famA": "m-buick-century",
+   "famB": "m-oldsmobile-cutlass",
+   "relType": "platform",
+   "codeA": "Century Fourth generation",
+   "codeB": "Cutlass",
+   "genIdA": "llm-m-buick-century-fourth-generation",
+   "genIdB": "m-oldsmobile-cutlass",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-buick-century-fourth-generation|m-pontiac-bonneville|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T19:10:26.788Z",
+   "decidedAt": "2026-09-13T19:10:26.788Z",
+   "famA": "m-buick-century",
+   "famB": "m-pontiac-bonneville",
+   "relType": "platform",
+   "codeA": "Century Fourth generation",
+   "codeB": "Bonneville",
+   "genIdA": "llm-m-buick-century-fourth-generation",
+   "genIdB": "m-pontiac-bonneville",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-buick-century-fourth-generation|m-pontiac-grand-am|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T19:10:26.790Z",
+   "decidedAt": "2026-09-13T19:10:26.790Z",
+   "famA": "m-buick-century",
+   "famB": "m-pontiac-grand-am",
+   "relType": "platform",
+   "codeA": "Century Fourth generation",
+   "codeB": "Grand Am",
+   "genIdA": "llm-m-buick-century-fourth-generation",
+   "genIdB": "m-pontiac-grand-am",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-buick-century-fourth-generation|m-pontiac-grand-prix|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T19:10:26.792Z",
+   "decidedAt": "2026-09-13T19:10:26.792Z",
+   "famA": "m-buick-century",
+   "famB": "m-pontiac-grand-prix",
+   "relType": "platform",
+   "codeA": "Century Fourth generation",
+   "codeB": "Grand Prix",
+   "genIdA": "llm-m-buick-century-fourth-generation",
+   "genIdB": "m-pontiac-grand-prix",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-buick-century-fourth-generation|m-pontiac-lemans|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T19:10:26.794Z",
+   "decidedAt": "2026-09-13T19:10:26.794Z",
+   "famA": "m-buick-century",
+   "famB": "m-pontiac-lemans",
+   "relType": "platform",
+   "codeA": "Century Fourth generation",
+   "codeB": "LeMans",
+   "genIdA": "llm-m-buick-century-fourth-generation",
+   "genIdB": "m-pontiac-lemans",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-buick-century-fourth-generation|m-chevrolet-el-camino|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T19:10:26.795Z",
+   "decidedAt": "2026-09-13T19:10:26.795Z",
+   "famA": "m-buick-century",
+   "famB": "m-chevrolet-el-camino",
+   "relType": "platform",
+   "codeA": "Century Fourth generation",
+   "codeB": "El Camino",
+   "genIdA": "llm-m-buick-century-fourth-generation",
+   "genIdB": "m-chevrolet-el-camino",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-buick-century-fourth-generation|m-chevrolet-malibu|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T19:10:26.795Z",
+   "decidedAt": "2026-09-13T19:10:26.795Z",
+   "famA": "m-buick-century",
+   "famB": "m-chevrolet-malibu",
+   "relType": "platform",
+   "codeA": "Century Fourth generation",
+   "codeB": "Malibu",
+   "genIdA": "llm-m-buick-century-fourth-generation",
+   "genIdB": "m-chevrolet-malibu",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-buick-century-fourth-generation|m-chevrolet-monte-carlo|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T19:10:26.796Z",
+   "decidedAt": "2026-09-13T19:10:26.796Z",
+   "famA": "m-buick-century",
+   "famB": "m-chevrolet-monte-carlo",
+   "relType": "platform",
+   "codeA": "Century Fourth generation",
+   "codeB": "Monte Carlo",
+   "genIdA": "llm-m-buick-century-fourth-generation",
+   "genIdB": "m-chevrolet-monte-carlo",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-buick-century-fourth-generation|llm-related-gmc-caballero|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T19:10:26.803Z",
+   "decidedAt": "2026-09-13T19:10:26.803Z",
+   "famA": "m-buick-century",
+   "famB": "llm-related-gmc-caballero",
+   "relType": "platform",
+   "codeA": "Century Fourth generation",
+   "codeB": "Caballero",
+   "genIdA": "llm-m-buick-century-fourth-generation",
+   "genIdB": "llm-related-gmc-caballero",
+   "reason": "matched automatically -- \"GMC Caballero\" was named as a related car but didn't exist anywhere in the graph yet, so it was newly created from this mention (double-checked by the local LLM sanity pass against every plausible existing car -- none matched)",
+   "llmDiscovered": true
+  },
+  "llm-m-buick-century-fifth-generation|m-buick-regal|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T19:10:26.807Z",
+   "decidedAt": "2026-09-13T19:10:26.807Z",
+   "famA": "m-buick-century",
+   "famB": "m-buick-regal",
+   "relType": "platform",
+   "codeA": "Century Fifth generation",
+   "codeB": "Regal",
+   "genIdA": "llm-m-buick-century-fifth-generation",
+   "genIdB": "m-buick-regal",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-buick-century-fifth-generation|m-chevrolet-celebrity|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T19:10:26.807Z",
+   "decidedAt": "2026-09-13T19:10:26.807Z",
+   "famA": "m-buick-century",
+   "famB": "m-chevrolet-celebrity",
+   "relType": "platform",
+   "codeA": "Century Fifth generation",
+   "codeB": "Celebrity",
+   "genIdA": "llm-m-buick-century-fifth-generation",
+   "genIdB": "m-chevrolet-celebrity",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-buick-century-fifth-generation|m-oldsmobile-cutlass-ciera|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T19:10:26.809Z",
+   "decidedAt": "2026-09-13T19:10:26.809Z",
+   "famA": "m-buick-century",
+   "famB": "m-oldsmobile-cutlass-ciera",
+   "relType": "platform",
+   "codeA": "Century Fifth generation",
+   "codeB": "Cutlass Ciera",
+   "genIdA": "llm-m-buick-century-fifth-generation",
+   "genIdB": "m-oldsmobile-cutlass-ciera",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-buick-century-fifth-generation|m-pontiac-6000|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T19:10:26.811Z",
+   "decidedAt": "2026-09-13T19:10:26.811Z",
+   "famA": "m-buick-century",
+   "famB": "m-pontiac-6000",
+   "relType": "platform",
+   "codeA": "Century Fifth generation",
+   "codeB": "6000",
+   "genIdA": "llm-m-buick-century-fifth-generation",
+   "genIdB": "m-pontiac-6000",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-buick-century-sixth-generation|m-buick-regal|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T19:10:26.815Z",
+   "decidedAt": "2026-09-13T19:10:26.815Z",
+   "famA": "m-buick-century",
+   "famB": "m-buick-regal",
+   "relType": "platform",
+   "codeA": "Century Sixth generation",
+   "codeB": "Regal",
+   "genIdA": "llm-m-buick-century-sixth-generation",
+   "genIdB": "m-buick-regal",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-buick-century-sixth-generation|m-oldsmobile-intrigue|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T19:10:26.817Z",
+   "decidedAt": "2026-09-13T19:10:26.817Z",
+   "famA": "m-buick-century",
+   "famB": "m-oldsmobile-intrigue",
+   "relType": "platform",
+   "codeA": "Century Sixth generation",
+   "codeB": "Intrigue",
+   "genIdA": "llm-m-buick-century-sixth-generation",
+   "genIdB": "m-oldsmobile-intrigue",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-buick-century-sixth-generation|m-pontiac-grand-prix|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T19:10:26.819Z",
+   "decidedAt": "2026-09-13T19:10:26.819Z",
+   "famA": "m-buick-century",
+   "famB": "m-pontiac-grand-prix",
+   "relType": "platform",
+   "codeA": "Century Sixth generation",
+   "codeB": "Grand Prix",
+   "genIdA": "llm-m-buick-century-sixth-generation",
+   "genIdB": "m-pontiac-grand-prix",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-buick-century-sixth-generation|m-chevrolet-impala|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T19:10:26.820Z",
+   "decidedAt": "2026-09-13T19:10:26.820Z",
+   "famA": "m-buick-century",
+   "famB": "fam-chevrolet-impala",
+   "relType": "platform",
+   "codeA": "Century Sixth generation",
+   "codeB": "Impala",
+   "genIdA": "llm-m-buick-century-sixth-generation",
+   "genIdB": "m-chevrolet-impala",
+   "reason": "matched automatically (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-buick-century-sixth-generation|m-chevrolet-monte-carlo|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T19:10:26.821Z",
+   "decidedAt": "2026-09-13T19:10:26.821Z",
+   "famA": "m-buick-century",
+   "famB": "m-chevrolet-monte-carlo",
+   "relType": "platform",
+   "codeA": "Century Sixth generation",
+   "codeB": "Monte Carlo",
+   "genIdA": "llm-m-buick-century-sixth-generation",
+   "genIdB": "m-chevrolet-monte-carlo",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
   }
  },
  "recheck": {
   "m-mercedes-benz-g-class": {
    "status": "none",
-   "checkedAt": "2026-09-13T18:45:23.669Z",
+   "checkedAt": "2026-09-13T19:01:37.823Z",
    "sourceTitle": "Mercedes-Benz G-Class",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -14337,7 +16561,7 @@
   },
   "m-mercedes-benz-gla": {
    "status": "none",
-   "checkedAt": "2026-09-13T18:45:23.729Z",
+   "checkedAt": "2026-09-13T19:01:37.884Z",
    "sourceTitle": "Mercedes-Benz GLA",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -14440,7 +16664,7 @@
   },
   "m-mercedes-benz-cla": {
    "status": "none",
-   "checkedAt": "2026-09-13T18:45:23.776Z",
+   "checkedAt": "2026-09-13T19:01:37.930Z",
    "sourceTitle": "Mercedes-Benz CLA",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -14722,7 +16946,7 @@
   },
   "m-toyota-celica": {
    "status": "none",
-   "checkedAt": "2026-09-13T18:45:23.839Z",
+   "checkedAt": "2026-09-13T19:01:37.994Z",
    "sourceTitle": "Toyota Celica",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -14838,7 +17062,7 @@
   },
   "m-toyota-carina": {
    "status": "none",
-   "checkedAt": "2026-09-13T18:45:23.917Z",
+   "checkedAt": "2026-09-13T19:01:38.077Z",
    "sourceTitle": "Toyota Carina",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -14966,7 +17190,7 @@
   },
   "m-lexus-sc": {
    "status": "none",
-   "checkedAt": "2026-09-13T18:45:23.923Z",
+   "checkedAt": "2026-09-13T19:01:38.084Z",
    "sourceTitle": "Lexus SC",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -15615,7 +17839,7 @@
   },
   "m-seat-toledo": {
    "status": "none",
-   "checkedAt": "2026-09-13T18:45:24.002Z",
+   "checkedAt": "2026-09-13T19:01:38.167Z",
    "sourceTitle": "SEAT Toledo",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -15746,7 +17970,7 @@
   },
   "m-daren-mk-3": {
    "status": "none",
-   "checkedAt": "2026-09-13T18:45:24.014Z",
+   "checkedAt": "2026-09-13T19:01:38.179Z",
    "sourceTitle": "Daren Mk.3",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -15821,7 +18045,7 @@
   },
   "m-audi-a3-mk3": {
    "status": "none",
-   "checkedAt": "2026-09-13T18:45:24.035Z",
+   "checkedAt": "2026-09-13T19:01:38.201Z",
    "sourceTitle": "Audi A3",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -15877,7 +18101,7 @@
   },
   "m-audi-tt": {
    "status": "none",
-   "checkedAt": "2026-09-13T18:45:24.130Z",
+   "checkedAt": "2026-09-13T19:01:38.297Z",
    "sourceTitle": "Audi TT",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -16017,7 +18241,7 @@
   },
   "m-seat-leon-mk3": {
    "status": "none",
-   "checkedAt": "2026-09-13T18:45:24.192Z",
+   "checkedAt": "2026-09-13T19:01:38.358Z",
    "sourceTitle": "SEAT León",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -16131,7 +18355,7 @@
   },
   "m-volkswagen-karmann-ghia": {
    "status": "none",
-   "checkedAt": "2026-09-13T18:45:24.224Z",
+   "checkedAt": "2026-09-13T19:01:38.390Z",
    "sourceTitle": "Volkswagen Karmann Ghia",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -16181,7 +18405,7 @@
   },
   "m-porsche-panamera": {
    "status": "none",
-   "checkedAt": "2026-09-13T18:45:24.212Z",
+   "checkedAt": "2026-09-13T19:01:38.378Z",
    "sourceTitle": "Porsche Panamera",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -16247,7 +18471,7 @@
   },
   "m-subaru-forester": {
    "status": "none",
-   "checkedAt": "2026-09-13T18:45:24.268Z",
+   "checkedAt": "2026-09-13T19:01:38.435Z",
    "sourceTitle": "Subaru Forester",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -16356,7 +18580,7 @@
   },
   "m-volkswagen-touran": {
    "status": "none",
-   "checkedAt": "2026-09-13T18:45:24.290Z",
+   "checkedAt": "2026-09-13T19:01:38.457Z",
    "sourceTitle": "Volkswagen Touran",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -16406,7 +18630,7 @@
   },
   "m-chevrolet-captiva": {
    "status": "none",
-   "checkedAt": "2026-09-13T18:45:24.365Z",
+   "checkedAt": "2026-09-13T19:01:38.531Z",
    "sourceTitle": "Chevrolet Captiva",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -16511,7 +18735,7 @@
   },
   "m-isuzu-trooper": {
    "status": "none",
-   "checkedAt": "2026-09-13T18:45:24.423Z",
+   "checkedAt": "2026-09-13T19:01:38.590Z",
    "sourceTitle": "Isuzu Trooper",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -16607,7 +18831,7 @@
   },
   "m-volkswagen-tiguan": {
    "status": "none",
-   "checkedAt": "2026-09-13T18:45:24.496Z",
+   "checkedAt": "2026-09-13T19:01:38.664Z",
    "sourceTitle": "Volkswagen Tiguan",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -16720,7 +18944,7 @@
   },
   "m-chrysler-horizon": {
    "status": "none",
-   "checkedAt": "2026-09-13T18:45:24.545Z",
+   "checkedAt": "2026-09-13T19:01:38.712Z",
    "sourceTitle": "Chrysler Horizon",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -16820,7 +19044,7 @@
   },
   "m-mercury-monterey": {
    "status": "none",
-   "checkedAt": "2026-09-13T18:45:24.651Z",
+   "checkedAt": "2026-09-13T19:01:38.818Z",
    "sourceTitle": "Mercury Monterey",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -16995,7 +19219,7 @@
   },
   "m-gmc-envoy": {
    "status": "none",
-   "checkedAt": "2026-09-13T18:45:24.672Z",
+   "checkedAt": "2026-09-13T19:01:38.840Z",
    "sourceTitle": "GMC Envoy",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -17048,7 +19272,7 @@
   },
   "m-chevrolet-trailblazer": {
    "status": "none",
-   "checkedAt": "2026-09-13T18:45:24.690Z",
+   "checkedAt": "2026-09-13T19:01:38.858Z",
    "sourceTitle": "Chevrolet TrailBlazer (SUV)",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -17099,7 +19323,7 @@
   },
   "m-oldsmobile-bravada": {
    "status": "none",
-   "checkedAt": "2026-09-13T18:45:24.729Z",
+   "checkedAt": "2026-09-13T19:01:38.897Z",
    "sourceTitle": "Oldsmobile Bravada",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -17170,6 +19394,285 @@
         "reason": "The mention 'Chevrolet TrailBlazer (SUV)' refers to the specific model produced from 2001 to present, which corresponds exactly to the database entry 'm-chevrolet-trailblazer' (Chevrolet TrailBlazer (2001–present)). While other entries like 'Chevrolet Blazer' exist, they are distinct vehicles (the K5 SUV or the modern crossover), and 'm-chevrolet-trailblazer-2' is a duplicate or variant entry of the same primary model."
        }
       }
+     }
+    ]
+   },
+   "discrepancy": null,
+   "attempts": 1,
+   "feedback": []
+  },
+  "m-buick-lacrosse": {
+   "status": "none",
+   "checkedAt": "2026-09-13T19:03:38.086Z",
+   "sourceTitle": "Buick LaCrosse",
+   "proposal": {
+    "hasMultipleGenerations": true,
+    "generations": [
+     {
+      "code": "First generation",
+      "yearStart": 2005,
+      "yearEnd": 2009,
+      "designers": [
+       "Wayne Cherry",
+       "James C. Shyr"
+      ],
+      "engineers": [
+       "John Heinricy"
+      ],
+      "wikiFile": "2005-2007 Buick LaCrosse -- 03-21-2012 2.JPG",
+      "sharedPlatforms": [
+       "Chevrolet Impala",
+       "Chevrolet Monte Carlo",
+       "Pontiac Grand Prix"
+      ]
+     },
+     {
+      "code": "Second generation",
+      "yearStart": 2010,
+      "yearEnd": 2016,
+      "designers": [
+       "Michael Pevovar",
+       "Justin Thompson",
+       "Richard Duff",
+       "James C. Shyr",
+       "Jeff Nasca"
+      ],
+      "engineers": [],
+      "wikiFile": "2010 Buick LaCrosse CX in Quicksilver Metallic, Front Left, 2023-12-22.jpg",
+      "sharedPlatforms": [
+       "Cadillac XTS",
+       "Chevrolet Impala",
+       "Opel Insignia",
+       "Saab 9-5"
+      ]
+     },
+     {
+      "code": "Third generation",
+      "yearStart": 2017,
+      "yearEnd": 2023,
+      "designers": [
+       "Holt Ware",
+       "Elizabeth Wetzel"
+      ],
+      "engineers": [],
+      "wikiFile": "File:2018 Buick LaCrosse Premium AWD, Front left, 05-19-2020.jpg",
+      "sharedPlatforms": [
+       "Buick Regal",
+       "Chevrolet Impala",
+       "Opel Insignia"
+      ]
+     },
+     {
+      "code": "Fourth generation",
+      "yearStart": 2023,
+      "yearEnd": null,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "File:Buick LaCrosse IV 003.jpg",
+      "sharedPlatforms": []
+     }
+    ]
+   },
+   "discrepancy": null,
+   "attempts": 1,
+   "feedback": []
+  },
+  "m-buick-invicta": {
+   "status": "none",
+   "checkedAt": "2026-09-13T19:06:53.380Z",
+   "sourceTitle": "Buick Invicta",
+   "proposal": {
+    "hasMultipleGenerations": true,
+    "generations": [
+     {
+      "code": "First generation",
+      "yearStart": 1959,
+      "yearEnd": 1960,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "Buick Invicta (41616041985).jpg",
+      "sharedPlatforms": [
+       "Pontiac Ventura",
+       "Oldsmobile Super 88"
+      ],
+      "sharedPlatformMatches": {
+       "Oldsmobile Super 88": {
+        "matchId": null,
+        "confidence": "high",
+        "reason": "The 'Oldsmobile Super 88' was a specific model sold by Oldsmobile between 1937 and 1948. It was not a standalone model name in the database but rather a trim level or 'series' designation of the Oldsmobile 88 (chassis code 88) or the Oldsmobile 98 (chassis code 98), often distinguished by 'Series 88' or 'Series 98' on the grille. The candidate 'm-oldsmobile-88' (Oldsmobile 88) and 'm-oldsmobile-98' (Oldsmobile 98) refer to the full-size platform models. According to the rules, 'Super' is a trim/series designation, not a different physical car or nameplate sharing the chassis. Therefore, the mention refers to the car listed as 'Oldsmobile 88' or 'Oldsmobile 98', but since the database lists them as distinct full-size models (88 and 98) and the 'Super 88' is historically the Series 88 variant (which corresponds to the chassis 88), the closest candidate is m-oldsmobile-88. However, the rule 'Two different nameplates... are NOT a match' implies that if the mention is a sub-category of the candidate, it might not be a direct 1:1 match if the database treats '88' as the full name. But more critically, 'Super 88' is often synonymous with the Series 88 which is the entry-level full size. Let's re-evaluate the 'Same physical car' rule. If the mention is 'Oldsmobile Super 88' and the DB has 'Oldsmobile 88', are they the same car? Yes, 'Super 88' is the marketing name for the Series 88. Is it the same as 'Oldsmobile 98'? No. Is it the same as 'Oldsmobile 88'? Yes. Wait, the rule says 'sharing a marque is not evidence'. It also says 'If the candidate's production years do not overlap...'. The production years of 'Oldsmobile 88' in the DB are '1949–present', which is wrong (the car was discontinued in the 70s, and the model name changed to Cutlass). The '1949–present' label for 'Oldsmobile 88' in the DB is factually incorrect for the specific '88' model which ended in 1970, replaced by Cutlass. The 'Super 88' ended in 1948. The candidate 'm-oldsmobile-88' lists '1949–present'. There is no year overlap between 'Super 88' (1937-1948) and the candidate 'Oldsmobile 88' (1949-present). Therefore, per the rule 'If the candidate's production years do not overlap... it is a DIFFERENT car', I must return null. The candidate 'm-oldsmobile-88' represents a model that does not exist in the 'Super 88' era (the era of the Super 88 is 1937-1948, the candidate starts 1949). Thus, no match."
+       }
+      }
+     },
+     {
+      "code": "Second generation",
+      "yearStart": 1961,
+      "yearEnd": 1963,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "1962 Buick Invicta convertible, fL.jpg",
+      "sharedPlatforms": [
+       "Pontiac Ventura",
+       "Oldsmobile Super 88"
+      ],
+      "sharedPlatformMatches": {
+       "Oldsmobile Super 88": {
+        "matchId": null,
+        "confidence": "high",
+        "reason": "The 'Oldsmobile Super 88' was a specific model sold by Oldsmobile between 1937 and 1948. It was not a standalone model name in the database but rather a trim level or 'series' designation of the Oldsmobile 88 (chassis code 88) or the Oldsmobile 98 (chassis code 98), often distinguished by 'Series 88' or 'Series 98' on the grille. The candidate 'm-oldsmobile-88' (Oldsmobile 88) and 'm-oldsmobile-98' (Oldsmobile 98) refer to the full-size platform models. According to the rules, 'Super' is a trim/series designation, not a different physical car or nameplate sharing the chassis. Therefore, the mention refers to the car listed as 'Oldsmobile 88' or 'Oldsmobile 98', but since the database lists them as distinct full-size models (88 and 98) and the 'Super 88' is historically the Series 88 variant (which corresponds to the chassis 88), the closest candidate is m-oldsmobile-88. However, the rule 'Two different nameplates... are NOT a match' implies that if the mention is a sub-category of the candidate, it might not be a direct 1:1 match if the database treats '88' as the full name. But more critically, 'Super 88' is often synonymous with the Series 88 which is the entry-level full size. Let's re-evaluate the 'Same physical car' rule. If the mention is 'Oldsmobile Super 88' and the DB has 'Oldsmobile 88', are they the same car? Yes, 'Super 88' is the marketing name for the Series 88. Is it the same as 'Oldsmobile 98'? No. Is it the same as 'Oldsmobile 88'? Yes. Wait, the rule says 'sharing a marque is not evidence'. It also says 'If the candidate's production years do not overlap...'. The production years of 'Oldsmobile 88' in the DB are '1949–present', which is wrong (the car was discontinued in the 70s, and the model name changed to Cutlass). The '1949–present' label for 'Oldsmobile 88' in the DB is factually incorrect for the specific '88' model which ended in 1970, replaced by Cutlass. The 'Super 88' ended in 1948. The candidate 'm-oldsmobile-88' lists '1949–present'. There is no year overlap between 'Super 88' (1937-1948) and the candidate 'Oldsmobile 88' (1949-present). Therefore, per the rule 'If the candidate's production years do not overlap... it is a DIFFERENT car', I must return null. The candidate 'm-oldsmobile-88' represents a model that does not exist in the 'Super 88' era (the era of the Super 88 is 1937-1948, the candidate starts 1949). Thus, no match."
+       }
+      }
+     }
+    ]
+   },
+   "discrepancy": null,
+   "attempts": 1,
+   "feedback": []
+  },
+  "m-buick-century": {
+   "status": "none",
+   "checkedAt": "2026-09-13T19:10:26.821Z",
+   "sourceTitle": "Buick Century",
+   "proposal": {
+    "hasMultipleGenerations": true,
+    "generations": [
+     {
+      "code": "Series 60",
+      "yearStart": 1930,
+      "yearEnd": 1935,
+      "designers": [
+       "Harley Earl"
+      ],
+      "engineers": [],
+      "wikiFile": "Buick 68C 4-Dorrars Convertible Sedan 1933.jpg",
+      "sharedPlatforms": [
+       "McLaughlin-Buick"
+      ],
+      "sharedPlatformMatches": {
+       "McLaughlin-Buick": {
+        "matchId": null,
+        "confidence": "high",
+        "reason": "McLaughlin-Buick is a Canadian-built Buick sedan produced from 1954 to 1958 (based on the Buick Century/Special chassis). The Mercedes-Benz CLA is a compact luxury sedan produced starting in 2013. They are different eras, different manufacturers (Buick vs Mercedes-Benz), and completely different models with no shared chassis or naming relationship."
+       }
+      }
+     },
+     {
+      "code": "First generation",
+      "yearStart": 1936,
+      "yearEnd": 1942,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "Buick Century 4-Dorrars Sedan 1937.jpg",
+      "sharedPlatforms": [
+       "Cadillac Series 60",
+       "Cadillac Series 61",
+       "LaSalle",
+       "Buick Special",
+       "McLaughlin-Buick",
+       "Oldsmobile L-Series",
+       "Oldsmobile Series 70",
+       "Pontiac Streamliner Torpedo",
+       "Pontiac Streamliner"
+      ],
+      "sharedPlatformMatches": {
+       "McLaughlin-Buick": {
+        "matchId": null,
+        "confidence": "high",
+        "reason": "McLaughlin-Buick is a Canadian-built Buick sedan produced from 1954 to 1958 (based on the Buick Century/Special chassis). The Mercedes-Benz CLA is a compact luxury sedan produced starting in 2013. They are different eras, different manufacturers (Buick vs Mercedes-Benz), and completely different models with no shared chassis or naming relationship."
+       },
+       "Oldsmobile L-Series": {
+        "matchId": null,
+        "confidence": "high",
+        "reason": "The 'Oldsmobile L-Series' (1939–1949) is a specific mid-sized model line. While the database contains entries for 'Oldsmobile L-Series' in the International context and other Oldsmobile models with 'L' in the name (like 'Lincoln EL-series', 'Saturn L-series', or 'Oldsmobile Limited'), none of the provided candidates explicitly refer to the Oldsmobile L-Series sedan. The presence of 'Oldsmobile Limited' or 'Oldsmobile Super 88' does not constitute a match as they are distinct models. The production years of the candidates do not overlap with the specific era of the Oldsmobile L-Series in a way that confirms identity, and no candidate shares the exact name or documented chassis lineage for this specific model."
+       },
+       "Pontiac Streamliner Torpedo": {
+        "matchId": "m-pontiac-streamliner",
+        "confidence": "high",
+        "reason": "The mention 'Pontiac Streamliner Torpedo' refers to a specific trim or body style of the Pontiac Streamliner. The database entry 'm-pontiac-streamliner' covers the Pontiac Streamliner. Although the mention includes 'Torpedo' (a common aerodynamic term for that era, often referring to the 1942-1948 model line), the core identity is the Streamliner. The database entry 'm-pontiac-torpedo' refers to the earlier 1939-1948 model line (Pontiac Torpedo), which predates the specific 'Streamliner' naming convention used in the mention's context (often associated with the 1942-1948 period where 'Streamliner' was the primary badge name in certain markets or publications, sometimes conflated with the 'Torpedo' body type). However, given the specific phrasing 'Pontiac Streamliner Torpedo', it is most likely a specific reference to the Pontiac Streamliner model itself, potentially the 1942-1948 iteration which is the closest match to the 'Streamliner' name in the provided list, even if the 'Torpedo' suffix implies the body style. The other 'Torpedo' entry (m-pontiac-torpedo) is a different model nameplate (Pontiac Torpedo vs Pontiac Streamliner). Therefore, the match is with the Streamliner entry."
+       }
+      }
+     },
+     {
+      "code": "Second generation",
+      "yearStart": 1954,
+      "yearEnd": 1958,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "1955 Buick Century Riviera (29962314092).jpg",
+      "sharedPlatforms": [
+       "Oldsmobile 88"
+      ]
+     },
+     {
+      "code": "Third generation",
+      "yearStart": 1973,
+      "yearEnd": 1977,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "1973BuickCenturyGSlarge.JPG",
+      "sharedPlatforms": [
+       "Oldsmobile Cutlass",
+       "Pontiac LeMans",
+       "Chevrolet Chevelle"
+      ]
+     },
+     {
+      "code": "Fourth generation",
+      "yearStart": 1978,
+      "yearEnd": 1981,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "'70s Buick Century.jpg",
+      "sharedPlatforms": [
+       "Buick Regal",
+       "Oldsmobile Cutlass",
+       "Pontiac Bonneville",
+       "Pontiac Grand Am",
+       "Pontiac Grand Prix",
+       "Pontiac LeMans",
+       "Chevrolet El Camino",
+       "Chevrolet Malibu",
+       "Chevrolet Monte Carlo",
+       "GMC Caballero"
+      ],
+      "sharedPlatformMatches": {
+       "GMC Caballero": {
+        "matchId": null,
+        "confidence": "high",
+        "reason": "The GMC Caballero (1978–1987) was a mid-size car based on the Chevrolet Caprice. None of the provided candidates are the Caballero: the GMC Syclone and Typhoon are late-80s/90s sports trucks, the Envoy/Jimmy are SUVs, and the Chevette is a compact car. Production years do not overlap."
+       }
+      }
+     },
+     {
+      "code": "Fifth generation",
+      "yearStart": 1982,
+      "yearEnd": 1996,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "1984 Buick Century Limited Sedan in Silver, Front Right, 10-26-2022.jpg",
+      "sharedPlatforms": [
+       "Buick Regal",
+       "Chevrolet Celebrity",
+       "Oldsmobile Cutlass Ciera",
+       "Pontiac 6000"
+      ]
+     },
+     {
+      "code": "Sixth generation",
+      "yearStart": 1997,
+      "yearEnd": 2005,
+      "designers": [
+       "Wayne Cherry",
+       "Wayne Kady"
+      ],
+      "engineers": [],
+      "wikiFile": "2003 Buick Century Limited Package in Sterling Silver Metallic, Front Left, 05-02-2023.jpg",
+      "sharedPlatforms": [
+       "Buick Regal",
+       "Oldsmobile Intrigue",
+       "Pontiac Grand Prix",
+       "Chevrolet Impala",
+       "Chevrolet Monte Carlo"
+      ]
      }
     ]
    },
@@ -18534,6 +21037,46 @@
    "year": 1983,
    "end": 2005,
    "source": "wikipedia"
+  },
+  "p-michael-pevovar": {
+   "checkedAt": "2026-09-13T19:07:09.584Z",
+   "born": null,
+   "died": null,
+   "country": null,
+   "tries": 1
+  },
+  "p-john-heinricy": {
+   "checkedAt": "2026-09-13T19:07:11.069Z",
+   "born": 1892,
+   "died": 1964,
+   "country": "Germany",
+   "source": "llm-recall"
+  },
+  "p-jeff-nasca": {
+   "checkedAt": "2026-09-13T19:07:12.132Z",
+   "born": null,
+   "died": null,
+   "country": null,
+   "tries": 1
+  },
+  "llm-related-oldsmobile-super-88": {
+   "checkedAt": "2026-09-13T19:07:28.310Z",
+   "year": 1949,
+   "end": 1999,
+   "source": "wikipedia"
+  },
+  "p-nicholas-dreystadt": {
+   "checkedAt": "2026-09-13T19:09:42.100Z",
+   "born": null,
+   "died": null,
+   "country": null,
+   "tries": 1
+  },
+  "llm-related-oldsmobile-l-series": {
+   "checkedAt": "2026-09-13T19:09:46.342Z",
+   "year": 1932,
+   "end": 1938,
+   "source": "wikipedia"
   }
  },
  "userCars": {},
@@ -18635,7 +21178,10 @@
   "llm-related-ford-crestline-skyliner": "Ford Crestline Skyliner",
   "llm-related-ford-fairlane": "Ford Fairlane",
   "llm-related-gmc-jimmy": "GMC Jimmy",
-  "llm-related-isuzu-hombre": "Isuzu Hombre"
+  "llm-related-isuzu-hombre": "Isuzu Hombre",
+  "llm-related-oldsmobile-super-88": "Oldsmobile Super 88",
+  "llm-related-oldsmobile-l-series": "Oldsmobile L-Series",
+  "llm-related-gmc-caballero": "GMC Caballero"
  },
  "genResearch": {
   "merge-m-volkswagen-jetta-self": {
