@@ -271,12 +271,7 @@ def run_pass(targets, budget_seconds, per_node_seconds, settle_seconds=90):
             browser.close()
             raise RuntimeError("the page cannot see serve.py's API, so nothing could be saved")
 
-        if not page.evaluate("() => CarWeb.llmCheckOn()"):
-            page.click("#llmcheck")
-            page.wait_for_timeout(300)
-        if not page.evaluate("() => CarWeb.llmCheckOn()"):
-            browser.close()
-            raise RuntimeError("could not arm the LLM check toggle")
+        arm_llm_check(page, browser)
 
         # Every confirmation this run makes gets stamped decidedBy:"agent", so
         # a split nobody looked at is distinguishable afterwards from one a
@@ -333,6 +328,35 @@ def run_pass(targets, budget_seconds, per_node_seconds, settle_seconds=90):
         "depth": depth, "before": entries_before, "after": entries_after,
         "cascaded": max(0, entries_after - entries_before - len(done)),
     }
+
+
+def arm_llm_check(page, browser):
+    """Turn on 🤖 LLM Check.
+
+    It is a menu ITEM, not a top-level button: every LLM tool moved into the
+    Tools dropdown, and #toolsmenu is hidden until that dropdown is opened.
+    Clicking #llmcheck straight away therefore waits 30 seconds for an element
+    that exists, resolves, and is never visible -- which is exactly how this
+    failed the first time it was run for real.
+    """
+    if page.evaluate("() => CarWeb.llmCheckOn()"):
+        return
+    try:
+        page.click("#toolsmenu-btn", timeout=10000)
+        page.wait_for_timeout(250)
+        page.click("#llmcheck", timeout=10000)
+        page.wait_for_timeout(400)
+    except Exception as e:
+        log(f"could not click the toggle ({str(e).splitlines()[0]}); setting it directly")
+    if not page.evaluate("() => CarWeb.llmCheckOn()"):
+        # Same function the click handler calls. Reached only when the menu
+        # itself would not cooperate, so the check still runs rather than the
+        # whole job failing over a dropdown.
+        page.evaluate("() => CarWeb.setLlmCheck(true)")
+        page.wait_for_timeout(300)
+    if not page.evaluate("() => CarWeb.llmCheckOn()"):
+        browser.close()
+        raise RuntimeError("could not arm the LLM check toggle")
 
 
 def entry_count(page):

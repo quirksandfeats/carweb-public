@@ -73,6 +73,11 @@ with sync_playwright() as p:
     btnHidden = pg.evaluate("() => document.getElementById('llmcheck').hidden")
     check("LLM Check toggle button is visible (server available)", btnHidden is False)
 
+    # 🤖 LLM Check is a menu ITEM now, inside the Tools dropdown, and
+    # #toolsmenu is hidden until that dropdown is opened -- so this has to
+    # open the menu first or it waits on an invisible element.
+    pg.click("#toolsmenu-btn")
+    pg.wait_for_timeout(250)
     pg.click("#llmcheck")
     pg.wait_for_timeout(200)
     on = pg.evaluate("() => CarWeb.llmCheckOn()")
