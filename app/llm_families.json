@@ -9324,6 +9324,817 @@
    "allEngineers": [
     "R J Knight"
    ]
+  },
+  "m-fiat-toro": {
+   "status": "none",
+   "checkedAt": "2026-09-13T20:21:18.554Z",
+   "sourceTitle": "Fiat Toro",
+   "proposal": {
+    "hasMultipleGenerations": false,
+    "generations": [
+     {
+      "code": "Fiat Toro",
+      "yearStart": 2016,
+      "yearEnd": null,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "Fiat Toro 2018 in Punta del Este (front) 01.jpg",
+      "sharedPlatforms": [
+       "Ram Rampage",
+       "Fiat 500L",
+       "Fiat 500X",
+       "Jeep Renegade",
+       "Jeep Compass"
+      ]
+     }
+    ]
+   },
+   "attempts": 1,
+   "feedback": [],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": false,
+     "generations": [
+      {
+       "code": "Fiat Toro",
+       "yearStart": 2016,
+       "yearEnd": null,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Ram Rampage",
+        "Fiat 500L",
+        "Fiat 500X",
+        "Jeep Renegade",
+        "Jeep Compass"
+       ]
+      }
+     ]
+    },
+    "dropped": []
+   },
+   "cascadeDiscovered": true
+  },
+  "m-jeep-commander-2022": {
+   "status": "none",
+   "checkedAt": "2026-09-13T20:21:24.482Z",
+   "sourceTitle": "Jeep Commander (2022)",
+   "proposal": {
+    "hasMultipleGenerations": false,
+    "generations": [
+     {
+      "code": "2022",
+      "yearStart": 2022,
+      "yearEnd": null,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "2023 Jeep Commander Overland T270 (Colombia) front view.jpg",
+      "sharedPlatforms": [
+       "Jeep Compass"
+      ]
+     }
+    ]
+   },
+   "attempts": 1,
+   "feedback": [],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": false,
+     "generations": [
+      {
+       "code": "2022",
+       "yearStart": 2022,
+       "yearEnd": null,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Jeep Compass"
+       ]
+      }
+     ]
+    },
+    "dropped": []
+   },
+   "cascadeDiscovered": true
+  },
+  "m-fiat-500x": {
+   "status": "none",
+   "checkedAt": "2026-09-13T20:21:35.650Z",
+   "sourceTitle": "Fiat 500X",
+   "proposal": {
+    "hasMultipleGenerations": false,
+    "generations": [
+     {
+      "code": "Fiat 500X",
+      "yearStart": 2014,
+      "yearEnd": 2024,
+      "designers": [
+       "Danilo Tosetti",
+       "Antonella Pischedda",
+       "Fabio Ricupero",
+       "Dario Pellegrino"
+      ],
+      "engineers": [
+       "Roberto Giolito"
+      ],
+      "wikiFile": "2017 Fiat 500X POP Star Multiair 1.4 Front.jpg",
+      "sharedPlatforms": [
+       "Jeep Renegade",
+       "Fiat 500L",
+       "Jeep Compass",
+       "Fiat Toro"
+      ]
+     }
+    ]
+   },
+   "attempts": 1,
+   "feedback": [],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": false,
+     "generations": [
+      {
+       "code": "Fiat 500X",
+       "yearStart": 2014,
+       "yearEnd": 2024,
+       "designers": [
+        "Danilo Tosetti",
+        "Antonella Pischedda",
+        "Fabio Ricupero",
+        "Dario Pellegrino"
+       ],
+       "engineers": [
+        "Roberto Giolito"
+       ],
+       "sharedPlatforms": [
+        "Jeep Renegade",
+        "Fiat 500L",
+        "Jeep Compass",
+        "Fiat Toro"
+       ]
+      }
+     ]
+    },
+    "dropped": []
+   },
+   "cascadeDiscovered": true
+  },
+  "m-fiat-tipo-2015": {
+   "status": "none",
+   "checkedAt": "2026-09-13T20:21:52.475Z",
+   "sourceTitle": "Fiat Tipo (2015)",
+   "proposal": {
+    "hasMultipleGenerations": false,
+    "generations": [
+     {
+      "code": "Tipo (Type 356)",
+      "yearStart": 2015,
+      "yearEnd": null,
+      "designers": [
+       "Roberto Giolito",
+       "Alberto Dilillo",
+       "Centro Stile Fiat"
+      ],
+      "engineers": [
+       "FCA Group"
+      ],
+      "wikiFile": "Fiat Tipo Sedan Facelift Leonberg 2022 1X7A0412.jpg",
+      "sharedPlatforms": [
+       "Fiat 500L",
+       "Fiat 500X",
+       "Jeep Renegade",
+       "Jeep Compass"
+      ]
+     }
+    ]
+   },
+   "attempts": 1,
+   "feedback": [],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": false,
+     "generations": [
+      {
+       "code": "Tipo (Type 356)",
+       "yearStart": 2015,
+       "yearEnd": null,
+       "designers": [
+        "Roberto Giolito",
+        "Alberto Dilillo",
+        "Centro Stile Fiat"
+       ],
+       "engineers": [
+        "FCA Group"
+       ],
+       "sharedPlatforms": [
+        "Fiat 500L",
+        "Fiat 500X",
+        "Jeep Renegade",
+        "Jeep Compass"
+       ]
+      }
+     ]
+    },
+    "dropped": []
+   },
+   "cascadeDiscovered": true
+  },
+  "m-dodge-caliber": {
+   "status": "none",
+   "checkedAt": "2026-09-13T20:22:37.796Z",
+   "sourceTitle": "Dodge Caliber",
+   "proposal": {
+    "hasMultipleGenerations": false,
+    "generations": [
+     {
+      "code": "Caliber",
+      "yearStart": 2007,
+      "yearEnd": 2012,
+      "designers": [
+       "Mike Nicholas"
+      ],
+      "engineers": [],
+      "wikiFile": "Dodge Caliber -- 09-07-2009.jpg",
+      "sharedPlatforms": [
+       "Jeep Compass",
+       "Jeep Patriot",
+       "Mitsubishi ASX"
+      ]
+     }
+    ]
+   },
+   "attempts": 1,
+   "feedback": [],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": false,
+     "generations": [
+      {
+       "code": "Caliber",
+       "yearStart": 2007,
+       "yearEnd": 2012,
+       "designers": [
+        "Mike Nicholas"
+       ],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Jeep Compass",
+        "Jeep Patriot",
+        "Mitsubishi ASX"
+       ]
+      }
+     ]
+    },
+    "dropped": []
+   },
+   "cascadeDiscovered": true
+  },
+  "m-wuling-starlight": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T20:23:12.989Z",
+   "sourceTitle": "Wuling Starlight",
+   "proposal": {
+    "hasMultipleGenerations": true,
+    "generations": [
+     {
+      "code": "Starlight",
+      "yearStart": 2023,
+      "yearEnd": null,
+      "designers": [
+       "Gabriel Nemeth"
+      ],
+      "engineers": [],
+      "wikiFile": "Wuling Starlight S 005.jpg",
+      "sharedPlatforms": [
+       "Starlight 560",
+       "Starlight 730",
+       "Starlight S",
+       "Baojun Yunhai",
+       "Baojun Xiangjing",
+       "Starlight"
+      ],
+      "alsoCoded": [
+       "Starlight S",
+       "Starlight L"
+      ]
+     },
+     {
+      "code": "Starlight 730",
+      "yearStart": 2025,
+      "yearEnd": null,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "Wuling Starlight 730 PHEV 005.jpg",
+      "sharedPlatforms": [
+       "Starlight 560",
+       "Starlight S",
+       "Starlight",
+       "Baojun Yunhai"
+      ]
+     },
+     {
+      "code": "Starlight 560",
+      "yearStart": 2025,
+      "yearEnd": null,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "Wuling Starlight 560 001.jpg",
+      "sharedPlatforms": [
+       "Starlight 730",
+       "Starlight S",
+       "Starlight",
+       "Baojun Yunhai",
+       "Baojun Xiangjing"
+      ]
+     }
+    ]
+   },
+   "attempts": 1,
+   "feedback": [],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": true,
+     "generations": [
+      {
+       "code": "Starlight",
+       "yearStart": 2023,
+       "yearEnd": null,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Starlight 560",
+        "Starlight 730",
+        "Starlight S",
+        "Baojun Yunhai",
+        "Baojun Xiangjing"
+       ]
+      },
+      {
+       "code": "Starlight S",
+       "yearStart": 2024,
+       "yearEnd": null,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Starlight 560",
+        "Starlight 730",
+        "Starlight",
+        "Baojun Yunhai",
+        "Baojun Xiangjing"
+       ]
+      },
+      {
+       "code": "Starlight L",
+       "yearStart": 2026,
+       "yearEnd": null,
+       "designers": [
+        "Gabriel Nemeth"
+       ],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Starlight 560",
+        "Starlight 730",
+        "Starlight S",
+        "Starlight",
+        "Baojun Yunhai",
+        "Baojun Xiangjing"
+       ]
+      },
+      {
+       "code": "Starlight 730",
+       "yearStart": 2025,
+       "yearEnd": null,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Starlight 560",
+        "Starlight S",
+        "Starlight",
+        "Baojun Yunhai"
+       ]
+      },
+      {
+       "code": "Starlight 560",
+       "yearStart": 2025,
+       "yearEnd": null,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Starlight 730",
+        "Starlight S",
+        "Starlight",
+        "Baojun Yunhai",
+        "Baojun Xiangjing"
+       ]
+      }
+     ]
+    },
+    "dropped": [
+     {
+      "code": "Starlight S",
+      "yearStart": 2024,
+      "yearEnd": null,
+      "designers": [],
+      "engineers": [],
+      "sharedPlatforms": [
+       "Starlight 560",
+       "Starlight 730",
+       "Starlight",
+       "Baojun Yunhai",
+       "Baojun Xiangjing"
+      ]
+     },
+     {
+      "code": "Starlight L",
+      "yearStart": 2026,
+      "yearEnd": null,
+      "designers": [
+       "Gabriel Nemeth"
+      ],
+      "engineers": [],
+      "sharedPlatforms": [
+       "Starlight 560",
+       "Starlight 730",
+       "Starlight S",
+       "Starlight",
+       "Baojun Yunhai",
+       "Baojun Xiangjing"
+      ]
+     }
+    ]
+   },
+   "cascadeDiscovered": true,
+   "decidedBy": "agent",
+   "decidedAt": "2026-09-13T20:23:12.989Z",
+   "allDesigners": [
+    "Gabriel Nemeth"
+   ],
+   "allEngineers": []
+  },
+  "m-baojun-yunhai": {
+   "status": "none",
+   "checkedAt": "2026-09-13T20:23:45.407Z",
+   "sourceTitle": "Baojun Yunhai",
+   "proposal": {
+    "hasMultipleGenerations": false,
+    "generations": [
+     {
+      "code": "Baojun Yunhai",
+      "yearStart": 2024,
+      "yearEnd": null,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "Baojun Yunhai 007.jpg",
+      "sharedPlatforms": [
+       "Wuling Starlight 560",
+       "Wuling Starlight 730",
+       "Wuling Starlight S",
+       "Wuling Starlight",
+       "Baojun Xiangjing"
+      ]
+     }
+    ]
+   },
+   "attempts": 1,
+   "feedback": [],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": false,
+     "generations": [
+      {
+       "code": "Baojun Yunhai",
+       "yearStart": 2024,
+       "yearEnd": null,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Wuling Starlight 560",
+        "Wuling Starlight 730",
+        "Wuling Starlight S",
+        "Wuling Starlight",
+        "Baojun Xiangjing"
+       ]
+      }
+     ]
+    },
+    "dropped": []
+   },
+   "cascadeDiscovered": true
+  },
+  "m-baojun-xiangjing": {
+   "status": "none",
+   "checkedAt": "2026-09-13T20:24:05.735Z",
+   "sourceTitle": "Baojun Xiangjing",
+   "proposal": {
+    "hasMultipleGenerations": false,
+    "generations": [
+     {
+      "code": "Baojun Xiangjing",
+      "yearStart": 2024,
+      "yearEnd": null,
+      "designers": [
+       "Yutian Gao"
+      ],
+      "engineers": [],
+      "wikiFile": "Baojun Xiangjing 005.jpg",
+      "sharedPlatforms": [
+       "Wuling Starlight",
+       "Baojun Yunhai"
+      ]
+     }
+    ]
+   },
+   "attempts": 1,
+   "feedback": [],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": false,
+     "generations": [
+      {
+       "code": "Baojun Xiangjing",
+       "yearStart": 2024,
+       "yearEnd": null,
+       "designers": [
+        "Yutian Gao"
+       ],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Wuling Starlight",
+        "Baojun Yunhai"
+       ]
+      }
+     ]
+    },
+    "dropped": []
+   },
+   "cascadeDiscovered": true
+  },
+  "m-wuling-starlight-560": {
+   "status": "none",
+   "checkedAt": "2026-09-13T20:24:29.287Z",
+   "sourceTitle": "Wuling Starlight 560",
+   "proposal": {
+    "hasMultipleGenerations": false,
+    "generations": [
+     {
+      "code": "Starlight 560",
+      "yearStart": 2025,
+      "yearEnd": null,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "Wuling Starlight 560 005.jpg",
+      "sharedPlatforms": [
+       "Wuling Starlight 730",
+       "Wuling Starlight S",
+       "Wuling Starlight",
+       "Baojun Yunhai",
+       "Baojun Xiangjing",
+       "MG Hector Tomahawk"
+      ]
+     }
+    ]
+   },
+   "attempts": 1,
+   "feedback": [],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": false,
+     "generations": [
+      {
+       "code": "Starlight 560",
+       "yearStart": 2025,
+       "yearEnd": null,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Wuling Starlight 730",
+        "Wuling Starlight S",
+        "Wuling Starlight",
+        "Baojun Yunhai",
+        "Baojun Xiangjing",
+        "MG Hector Tomahawk"
+       ]
+      }
+     ]
+    },
+    "dropped": []
+   },
+   "cascadeDiscovered": true
+  },
+  "m-baojun-360": {
+   "status": "none",
+   "checkedAt": "2026-09-13T20:24:47.980Z",
+   "sourceTitle": "Baojun 360",
+   "proposal": {
+    "hasMultipleGenerations": false,
+    "generations": [
+     {
+      "code": "Baojun 360",
+      "yearStart": 2018,
+      "yearEnd": 2021,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "2018 Baojun 360 (front).jpg",
+      "sharedPlatforms": []
+     }
+    ]
+   },
+   "attempts": 1,
+   "feedback": [],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": false,
+     "generations": [
+      {
+       "code": "Baojun 360",
+       "yearStart": 2018,
+       "yearEnd": 2021,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": []
+      }
+     ]
+    },
+    "dropped": []
+   },
+   "cascadeDiscovered": true
+  },
+  "m-baojun-560": {
+   "status": "none",
+   "checkedAt": "2026-09-13T20:25:06.694Z",
+   "sourceTitle": "Baojun 560",
+   "proposal": {
+    "hasMultipleGenerations": false,
+    "generations": [
+     {
+      "code": "Baojun 560",
+      "yearStart": 2015,
+      "yearEnd": 2018,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "2016 Baojun 560 1.8L, front 8.5.18.jpg",
+      "sharedPlatforms": []
+     }
+    ]
+   },
+   "attempts": 1,
+   "feedback": [],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": false,
+     "generations": [
+      {
+       "code": "Baojun 560",
+       "yearStart": 2015,
+       "yearEnd": 2018,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": []
+      }
+     ]
+    },
+    "dropped": []
+   },
+   "cascadeDiscovered": true
+  },
+  "m-jeep-compass": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T20:25:10.997Z",
+   "sourceTitle": "Jeep Compass",
+   "proposal": {
+    "hasMultipleGenerations": true,
+    "generations": [
+     {
+      "code": "MK49",
+      "yearStart": 2006,
+      "yearEnd": 2016,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "2008 Jeep Compass (MK MY08) Limited 2.4 wagon (2015-11-11) 01.jpg",
+      "sharedPlatforms": [
+       "Dodge Caliber",
+       "Jeep Patriot",
+       "Mitsubishi ASX"
+      ]
+     },
+     {
+      "code": "MP/552",
+      "yearStart": 2016,
+      "yearEnd": null,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "2018 Jeep Compass Latitude 2.4L front 4.20.19.jpg",
+      "sharedPlatforms": [
+       "Jeep Renegade",
+       "Jeep Cherokee (KL)",
+       "Jeep Commander (2022)",
+       "Fiat 500X"
+      ]
+     },
+     {
+      "code": "J4U/J4D",
+      "yearStart": 2025,
+      "yearEnd": null,
+      "designers": [
+       "Daniele Calonaci"
+      ],
+      "engineers": [],
+      "wikiFile": "Jeep Compass Elektro Summit (III) – f 18042026.jpg",
+      "sharedPlatforms": [
+       "Peugeot 3008 III",
+       "Peugeot 5008 III",
+       "Opel Grandland II",
+       "Citroën C5 Aircross II",
+       "Chrysler Airflow (2027)"
+      ],
+      "sharedPlatformMatches": {
+       "Peugeot 3008 III": {
+        "matchId": "m-peugeot-3008",
+        "confidence": "low",
+        "reason": "The mention 'Peugeot 3008 III' refers to the third generation of the Peugeot 3008 SUV, introduced in 2023. The database candidate 'm-peugeot-3008' covers the model from 2009 to present. While the candidate represents the same model family and production period includes the current generation, the specific database entry likely aggregates all generations rather than distinguishing the 'III' (FCA 3008) specifically. However, since no other Peugeot 3008 entries exist and the mention refers to the physical car currently in the model line, it is the only plausible match, though the granularity of the generation is not explicitly separated in the candidate list."
+       },
+       "Peugeot 5008 III": {
+        "matchId": null,
+        "confidence": "high",
+        "reason": "The mentioned car is the Peugeot 5008 III, which is the current generation of the Peugeot 5008 (introduced around 2023). The candidate m-peugeot-5008 refers to the first generation (2009–present). Since the 5008 has specific generations (I, II, III), and the candidate list only contains the entry for the first generation, they represent different physical generations of the car. According to the rules, different generations with different chassis codes are different cars, so this is not a match."
+       },
+       "Opel Grandland II": {
+        "matchId": null,
+        "confidence": "high",
+        "reason": "No candidate in the provided list matches the 'Opel Grandland II'. The closest related model in the list is the 'Opel Grandland' (currently active since ~2018/2019, listed as 'm-opel-antara' is incorrect, wait, checking list again: 'm-opel-antara' is Opel Antara SUV. There is no Opel Grandland entry in the provided list. The list contains Opel Antara, not Grandland. The mention refers to a specific generation or a future/non-existent model not present in the candidates. Since the specific 'Grandland II' and even the base 'Grandland' are not in the candidate list, and no other Opel SUV fits the name description, no match can be made."
+       },
+       "Citroën C5 Aircross II": {
+        "matchId": null,
+        "confidence": "high",
+        "reason": "The mentioned car 'Citroën C5 Aircross II' refers to a second-generation model (production starting around 2022). The only matching entry in the database is 'm-citroen-c5-aircross', which refers to the first-generation C5 Aircross (2017–present). These are distinct physical vehicles with different chassis codes and generations, similar to how the C4 Aircross has a second generation (C4 X) that is not the same as the original C4 Aircross. Since the database does not contain a specific entry for the second generation, no match can be made."
+       },
+       "Chrysler Airflow (2027)": {
+        "matchId": null,
+        "confidence": "high",
+        "reason": "The mentioned car 'Chrysler Airflow (2027)' has a production year of 2027. The only existing Chrysler Airflow in the database (id: m-chrysler-airflow) was produced from 1934 to 1937. Since the production years do not overlap and no record exists of a 2027 model being a re-release or a different generation of the same nameplate, they are considered different cars for this context."
+       }
+      }
+     }
+    ]
+   },
+   "attempts": 1,
+   "feedback": [],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": true,
+     "generations": [
+      {
+       "code": "MK49",
+       "yearStart": 2006,
+       "yearEnd": 2016,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Dodge Caliber",
+        "Jeep Patriot",
+        "Mitsubishi ASX"
+       ]
+      },
+      {
+       "code": "MP/552",
+       "yearStart": 2016,
+       "yearEnd": null,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Jeep Renegade",
+        "Jeep Cherokee (KL)",
+        "Jeep Commander (2022)",
+        "Fiat 500X"
+       ]
+      },
+      {
+       "code": "J4U/J4D",
+       "yearStart": 2025,
+       "yearEnd": null,
+       "designers": [
+        "Daniele Calonaci"
+       ],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Peugeot 3008 III",
+        "Peugeot 5008 III",
+        "Opel Grandland II",
+        "Citroën C5 Aircross II",
+        "Chrysler Airflow (2027)",
+        "Dodge GLH"
+       ]
+      }
+     ]
+    },
+    "dropped": []
+   },
+   "decidedBy": "agent",
+   "decidedAt": "2026-09-13T20:25:11.783Z",
+   "allDesigners": [
+    "Daniele Calonaci"
+   ],
+   "allEngineers": []
   }
  },
  "relations": {
@@ -16986,12 +17797,697 @@
    "genIdB": "llm-related-guyson-e12",
    "reason": "matched automatically -- \"Guyson E12\" was named as a related car but didn't exist anywhere in the graph yet, so it was newly created from this mention (double-checked by the local LLM sanity pass against every plausible existing car -- none matched)",
    "llmDiscovered": true
+  },
+  "m-dodge-ram-rampage|m-fiat-toro|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T20:21:18.935Z",
+   "decidedAt": "2026-09-13T20:21:18.935Z",
+   "famA": "m-fiat-toro",
+   "famB": "m-dodge-ram-rampage",
+   "relType": "platform",
+   "codeA": "Toro",
+   "codeB": "Ram Rampage",
+   "genIdA": "m-fiat-toro",
+   "genIdB": "m-dodge-ram-rampage",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "m-fiat-500l|m-fiat-toro|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T20:21:18.936Z",
+   "decidedAt": "2026-09-13T20:21:18.936Z",
+   "famA": "m-fiat-toro",
+   "famB": "m-fiat-500l",
+   "relType": "platform",
+   "codeA": "Toro",
+   "codeB": "500L",
+   "genIdA": "m-fiat-toro",
+   "genIdB": "m-fiat-500l",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "m-fiat-500x|m-fiat-toro|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T20:21:18.937Z",
+   "decidedAt": "2026-09-13T20:21:18.937Z",
+   "famA": "m-fiat-toro",
+   "famB": "m-fiat-500x",
+   "relType": "platform",
+   "codeA": "Toro",
+   "codeB": "500X",
+   "genIdA": "m-fiat-toro",
+   "genIdB": "m-fiat-500x",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "m-fiat-toro|m-jeep-renegade|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T20:21:18.939Z",
+   "decidedAt": "2026-09-13T20:21:18.939Z",
+   "famA": "m-fiat-toro",
+   "famB": "m-jeep-renegade",
+   "relType": "platform",
+   "codeA": "Toro",
+   "codeB": "Renegade",
+   "genIdA": "m-fiat-toro",
+   "genIdB": "m-jeep-renegade",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "m-fiat-toro|m-jeep-compass|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T20:21:18.940Z",
+   "decidedAt": "2026-09-13T20:21:18.940Z",
+   "famA": "m-fiat-toro",
+   "famB": "m-jeep-compass",
+   "relType": "platform",
+   "codeA": "Toro",
+   "codeB": "Compass",
+   "genIdA": "m-fiat-toro",
+   "genIdB": "m-jeep-compass",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "m-jeep-commander-2022|m-jeep-compass|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T20:21:24.850Z",
+   "decidedAt": "2026-09-13T20:21:24.850Z",
+   "famA": "m-jeep-commander-2022",
+   "famB": "m-jeep-compass",
+   "relType": "platform",
+   "codeA": "Commander (2022)",
+   "codeB": "Compass",
+   "genIdA": "m-jeep-commander-2022",
+   "genIdB": "m-jeep-compass",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "m-fiat-500x|m-jeep-renegade|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T20:21:36.027Z",
+   "decidedAt": "2026-09-13T20:21:36.027Z",
+   "famA": "m-fiat-500x",
+   "famB": "m-jeep-renegade",
+   "relType": "platform",
+   "codeA": "500X",
+   "codeB": "Renegade",
+   "genIdA": "m-fiat-500x",
+   "genIdB": "m-jeep-renegade",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "m-fiat-500l|m-fiat-500x|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T20:21:36.028Z",
+   "decidedAt": "2026-09-13T20:21:36.028Z",
+   "famA": "m-fiat-500x",
+   "famB": "m-fiat-500l",
+   "relType": "platform",
+   "codeA": "500X",
+   "codeB": "500L",
+   "genIdA": "m-fiat-500x",
+   "genIdB": "m-fiat-500l",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "m-fiat-500x|m-jeep-compass|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T20:21:36.030Z",
+   "decidedAt": "2026-09-13T20:21:36.030Z",
+   "famA": "m-fiat-500x",
+   "famB": "m-jeep-compass",
+   "relType": "platform",
+   "codeA": "500X",
+   "codeB": "Compass",
+   "genIdA": "m-fiat-500x",
+   "genIdB": "m-jeep-compass",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "m-fiat-500l|m-fiat-tipo-2015|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T20:21:52.873Z",
+   "decidedAt": "2026-09-13T20:21:52.873Z",
+   "famA": "m-fiat-tipo-2015",
+   "famB": "m-fiat-500l",
+   "relType": "platform",
+   "codeA": "Tipo (2015)",
+   "codeB": "500L",
+   "genIdA": "m-fiat-tipo-2015",
+   "genIdB": "m-fiat-500l",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "m-fiat-500x|m-fiat-tipo-2015|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T20:21:52.874Z",
+   "decidedAt": "2026-09-13T20:21:52.874Z",
+   "famA": "m-fiat-tipo-2015",
+   "famB": "m-fiat-500x",
+   "relType": "platform",
+   "codeA": "Tipo (2015)",
+   "codeB": "500X",
+   "genIdA": "m-fiat-tipo-2015",
+   "genIdB": "m-fiat-500x",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "m-fiat-tipo-2015|m-jeep-renegade|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T20:21:52.875Z",
+   "decidedAt": "2026-09-13T20:21:52.875Z",
+   "famA": "m-fiat-tipo-2015",
+   "famB": "m-jeep-renegade",
+   "relType": "platform",
+   "codeA": "Tipo (2015)",
+   "codeB": "Renegade",
+   "genIdA": "m-fiat-tipo-2015",
+   "genIdB": "m-jeep-renegade",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "m-fiat-tipo-2015|m-jeep-compass|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T20:21:52.876Z",
+   "decidedAt": "2026-09-13T20:21:52.876Z",
+   "famA": "m-fiat-tipo-2015",
+   "famB": "m-jeep-compass",
+   "relType": "platform",
+   "codeA": "Tipo (2015)",
+   "codeB": "Compass",
+   "genIdA": "m-fiat-tipo-2015",
+   "genIdB": "m-jeep-compass",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "m-dodge-caliber|m-jeep-compass|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T20:22:38.195Z",
+   "decidedAt": "2026-09-13T20:22:38.195Z",
+   "famA": "m-dodge-caliber",
+   "famB": "m-jeep-compass",
+   "relType": "platform",
+   "codeA": "Caliber",
+   "codeB": "Compass",
+   "genIdA": "m-dodge-caliber",
+   "genIdB": "m-jeep-compass",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "m-dodge-caliber|m-jeep-patriot|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T20:22:38.196Z",
+   "decidedAt": "2026-09-13T20:22:38.196Z",
+   "famA": "m-dodge-caliber",
+   "famB": "m-jeep-patriot",
+   "relType": "platform",
+   "codeA": "Caliber",
+   "codeB": "Patriot",
+   "genIdA": "m-dodge-caliber",
+   "genIdB": "m-jeep-patriot",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "m-dodge-caliber|m-mitsubishi-asx|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T20:22:38.198Z",
+   "decidedAt": "2026-09-13T20:22:38.198Z",
+   "famA": "m-dodge-caliber",
+   "famB": "m-mitsubishi-asx",
+   "relType": "platform",
+   "codeA": "Caliber",
+   "codeB": "ASX",
+   "genIdA": "m-dodge-caliber",
+   "genIdB": "m-mitsubishi-asx",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-wuling-starlight-starlight|m-wuling-starlight-560|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T20:23:13.017Z",
+   "decidedAt": "2026-09-13T20:23:13.017Z",
+   "famA": "m-wuling-starlight",
+   "famB": "m-wuling-starlight-560",
+   "relType": "platform",
+   "codeA": "Starlight Starlight",
+   "codeB": "Starlight 560",
+   "genIdA": "llm-m-wuling-starlight-starlight",
+   "genIdB": "m-wuling-starlight-560",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-wuling-starlight-starlight|m-wuling-starlight-730|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T20:23:13.020Z",
+   "decidedAt": "2026-09-13T20:23:13.020Z",
+   "famA": "m-wuling-starlight",
+   "famB": "m-wuling-starlight-730",
+   "relType": "platform",
+   "codeA": "Starlight Starlight",
+   "codeB": "Starlight 730",
+   "genIdA": "llm-m-wuling-starlight-starlight",
+   "genIdB": "m-wuling-starlight-730",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-wuling-starlight-starlight|m-wuling-starlight-s|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T20:23:13.022Z",
+   "decidedAt": "2026-09-13T20:23:13.022Z",
+   "famA": "m-wuling-starlight",
+   "famB": "m-wuling-starlight-s",
+   "relType": "platform",
+   "codeA": "Starlight Starlight",
+   "codeB": "Starlight S",
+   "genIdA": "llm-m-wuling-starlight-starlight",
+   "genIdB": "m-wuling-starlight-s",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-wuling-starlight-starlight|m-baojun-yunhai|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T20:23:13.023Z",
+   "decidedAt": "2026-09-13T20:23:13.023Z",
+   "famA": "m-wuling-starlight",
+   "famB": "m-baojun-yunhai",
+   "relType": "platform",
+   "codeA": "Starlight Starlight",
+   "codeB": "Yunhai",
+   "genIdA": "llm-m-wuling-starlight-starlight",
+   "genIdB": "m-baojun-yunhai",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-wuling-starlight-starlight|m-baojun-xiangjing|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T20:23:13.024Z",
+   "decidedAt": "2026-09-13T20:23:13.024Z",
+   "famA": "m-wuling-starlight",
+   "famB": "m-baojun-xiangjing",
+   "relType": "platform",
+   "codeA": "Starlight Starlight",
+   "codeB": "Xiangjing",
+   "genIdA": "llm-m-wuling-starlight-starlight",
+   "genIdB": "m-baojun-xiangjing",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-wuling-starlight-starlight|m-studebaker-starlight|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T20:23:13.026Z",
+   "decidedAt": "2026-09-13T20:23:13.026Z",
+   "famA": "m-wuling-starlight",
+   "famB": "m-studebaker-starlight",
+   "relType": "platform",
+   "codeA": "Starlight Starlight",
+   "codeB": "Starlight",
+   "genIdA": "llm-m-wuling-starlight-starlight",
+   "genIdB": "m-studebaker-starlight",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-wuling-starlight-starlight-730|m-wuling-starlight-560|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T20:23:13.036Z",
+   "decidedAt": "2026-09-13T20:23:13.036Z",
+   "famA": "m-wuling-starlight",
+   "famB": "m-wuling-starlight-560",
+   "relType": "platform",
+   "codeA": "Starlight Starlight 730",
+   "codeB": "Starlight 560",
+   "genIdA": "llm-m-wuling-starlight-starlight-730",
+   "genIdB": "m-wuling-starlight-560",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-wuling-starlight-starlight-730|m-wuling-starlight-s|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T20:23:13.039Z",
+   "decidedAt": "2026-09-13T20:23:13.039Z",
+   "famA": "m-wuling-starlight",
+   "famB": "m-wuling-starlight-s",
+   "relType": "platform",
+   "codeA": "Starlight Starlight 730",
+   "codeB": "Starlight S",
+   "genIdA": "llm-m-wuling-starlight-starlight-730",
+   "genIdB": "m-wuling-starlight-s",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-wuling-starlight-starlight-730|m-studebaker-starlight|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T20:23:13.041Z",
+   "decidedAt": "2026-09-13T20:23:13.041Z",
+   "famA": "m-wuling-starlight",
+   "famB": "m-studebaker-starlight",
+   "relType": "platform",
+   "codeA": "Starlight Starlight 730",
+   "codeB": "Starlight",
+   "genIdA": "llm-m-wuling-starlight-starlight-730",
+   "genIdB": "m-studebaker-starlight",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-wuling-starlight-starlight-730|m-baojun-yunhai|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T20:23:13.042Z",
+   "decidedAt": "2026-09-13T20:23:13.042Z",
+   "famA": "m-wuling-starlight",
+   "famB": "m-baojun-yunhai",
+   "relType": "platform",
+   "codeA": "Starlight Starlight 730",
+   "codeB": "Yunhai",
+   "genIdA": "llm-m-wuling-starlight-starlight-730",
+   "genIdB": "m-baojun-yunhai",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-wuling-starlight-starlight-560|m-wuling-starlight-730|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T20:23:13.050Z",
+   "decidedAt": "2026-09-13T20:23:13.050Z",
+   "famA": "m-wuling-starlight",
+   "famB": "m-wuling-starlight-730",
+   "relType": "platform",
+   "codeA": "Starlight Starlight 560",
+   "codeB": "Starlight 730",
+   "genIdA": "llm-m-wuling-starlight-starlight-560",
+   "genIdB": "m-wuling-starlight-730",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-wuling-starlight-starlight-560|m-wuling-starlight-s|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T20:23:13.053Z",
+   "decidedAt": "2026-09-13T20:23:13.053Z",
+   "famA": "m-wuling-starlight",
+   "famB": "m-wuling-starlight-s",
+   "relType": "platform",
+   "codeA": "Starlight Starlight 560",
+   "codeB": "Starlight S",
+   "genIdA": "llm-m-wuling-starlight-starlight-560",
+   "genIdB": "m-wuling-starlight-s",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-wuling-starlight-starlight-560|m-studebaker-starlight|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T20:23:13.055Z",
+   "decidedAt": "2026-09-13T20:23:13.055Z",
+   "famA": "m-wuling-starlight",
+   "famB": "m-studebaker-starlight",
+   "relType": "platform",
+   "codeA": "Starlight Starlight 560",
+   "codeB": "Starlight",
+   "genIdA": "llm-m-wuling-starlight-starlight-560",
+   "genIdB": "m-studebaker-starlight",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-wuling-starlight-starlight-560|m-baojun-yunhai|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T20:23:13.056Z",
+   "decidedAt": "2026-09-13T20:23:13.056Z",
+   "famA": "m-wuling-starlight",
+   "famB": "m-baojun-yunhai",
+   "relType": "platform",
+   "codeA": "Starlight Starlight 560",
+   "codeB": "Yunhai",
+   "genIdA": "llm-m-wuling-starlight-starlight-560",
+   "genIdB": "m-baojun-yunhai",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-wuling-starlight-starlight-560|m-baojun-xiangjing|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T20:23:13.057Z",
+   "decidedAt": "2026-09-13T20:23:13.057Z",
+   "famA": "m-wuling-starlight",
+   "famB": "m-baojun-xiangjing",
+   "relType": "platform",
+   "codeA": "Starlight Starlight 560",
+   "codeB": "Xiangjing",
+   "genIdA": "llm-m-wuling-starlight-starlight-560",
+   "genIdB": "m-baojun-xiangjing",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-wuling-starlight-starlight|llm-related-wuling-xingguang-s|platform": {
+   "status": "provisional",
+   "checkedAt": "2026-09-13T20:25:11.226Z",
+   "famA": "llm-related-wuling-xingguang-s",
+   "famB": "m-wuling-starlight",
+   "relType": "platform",
+   "codeA": "Xingguang S",
+   "codeB": "Starlight Starlight",
+   "genIdA": "llm-related-wuling-xingguang-s",
+   "genIdB": "llm-m-wuling-starlight-starlight",
+   "reason": "proposed by overlapping production years only (a shared-platform/rebadge mention was found alongside this generation's own text, but which specific generation of the OTHER nameplate it refers to was guessed from year overlap, not stated explicitly) -- please verify before accepting",
+   "llmDiscovered": true
+  },
+  "llm-m-wuling-starlight-starlight-730|llm-related-wuling-starlight|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T20:25:11.374Z",
+   "decidedAt": "2026-09-13T20:25:11.374Z",
+   "famA": "m-wuling-starlight",
+   "famB": "llm-related-wuling-starlight",
+   "relType": "platform",
+   "codeA": "Starlight Starlight 730",
+   "codeB": "Starlight",
+   "genIdA": "llm-m-wuling-starlight-starlight-730",
+   "genIdB": "llm-related-wuling-starlight",
+   "reason": "matched automatically -- \"Wuling Starlight\" was named as a related car but didn't exist anywhere in the graph yet, so it was newly created from this mention",
+   "llmDiscovered": true
+  },
+  "m-baojun-yunhai|m-wuling-starlight-560|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T20:25:11.410Z",
+   "decidedAt": "2026-09-13T20:25:11.410Z",
+   "famA": "m-baojun-yunhai",
+   "famB": "m-wuling-starlight-560",
+   "relType": "platform",
+   "codeA": "Yunhai",
+   "codeB": "Starlight 560",
+   "genIdA": "m-baojun-yunhai",
+   "genIdB": "m-wuling-starlight-560",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "m-baojun-xiangjing|m-baojun-yunhai|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T20:25:11.419Z",
+   "decidedAt": "2026-09-13T20:25:11.419Z",
+   "famA": "m-baojun-yunhai",
+   "famB": "m-baojun-xiangjing",
+   "relType": "platform",
+   "codeA": "Yunhai",
+   "codeB": "Xiangjing",
+   "genIdA": "m-baojun-yunhai",
+   "genIdB": "m-baojun-xiangjing",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-wuling-starlight-starlight-560|llm-related-wuling-starlight|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T20:25:11.431Z",
+   "decidedAt": "2026-09-13T20:25:11.431Z",
+   "famA": "m-wuling-starlight",
+   "famB": "llm-related-wuling-starlight",
+   "relType": "platform",
+   "codeA": "Starlight Starlight 560",
+   "codeB": "Starlight",
+   "genIdA": "llm-m-wuling-starlight-starlight-560",
+   "genIdB": "llm-related-wuling-starlight",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-wuling-starlight-starlight-560|llm-related-mg-hector-tomahawk|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T20:25:11.435Z",
+   "decidedAt": "2026-09-13T20:25:11.435Z",
+   "famA": "m-wuling-starlight",
+   "famB": "llm-related-mg-hector-tomahawk",
+   "relType": "platform",
+   "codeA": "Starlight Starlight 560",
+   "codeB": "Hector Tomahawk",
+   "genIdA": "llm-m-wuling-starlight-starlight-560",
+   "genIdB": "llm-related-mg-hector-tomahawk",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-jeep-compass-mk49|m-dodge-caliber|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T20:25:11.805Z",
+   "decidedAt": "2026-09-13T20:25:11.805Z",
+   "famA": "m-jeep-compass",
+   "famB": "m-dodge-caliber",
+   "relType": "platform",
+   "codeA": "Compass MK49",
+   "codeB": "Caliber",
+   "genIdA": "llm-m-jeep-compass-mk49",
+   "genIdB": "m-dodge-caliber",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-jeep-compass-mk49|m-jeep-patriot|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T20:25:11.806Z",
+   "decidedAt": "2026-09-13T20:25:11.806Z",
+   "famA": "m-jeep-compass",
+   "famB": "m-jeep-patriot",
+   "relType": "platform",
+   "codeA": "Compass MK49",
+   "codeB": "Patriot",
+   "genIdA": "llm-m-jeep-compass-mk49",
+   "genIdB": "m-jeep-patriot",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-jeep-compass-mk49|m-mitsubishi-asx|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T20:25:11.808Z",
+   "decidedAt": "2026-09-13T20:25:11.808Z",
+   "famA": "m-jeep-compass",
+   "famB": "m-mitsubishi-asx",
+   "relType": "platform",
+   "codeA": "Compass MK49",
+   "codeB": "ASX",
+   "genIdA": "llm-m-jeep-compass-mk49",
+   "genIdB": "m-mitsubishi-asx",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-jeep-compass-mp-552|m-jeep-renegade|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T20:25:11.813Z",
+   "decidedAt": "2026-09-13T20:25:11.813Z",
+   "famA": "m-jeep-compass",
+   "famB": "m-jeep-renegade",
+   "relType": "platform",
+   "codeA": "Compass MP/552",
+   "codeB": "Renegade",
+   "genIdA": "llm-m-jeep-compass-mp-552",
+   "genIdB": "m-jeep-renegade",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-jeep-compass-mp-552|m-jeep-cherokee-kl|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T20:25:11.814Z",
+   "decidedAt": "2026-09-13T20:25:11.814Z",
+   "famA": "m-jeep-compass",
+   "famB": "fam-jeep-cherokee",
+   "relType": "platform",
+   "codeA": "Compass MP/552",
+   "codeB": "Cherokee (KL)",
+   "genIdA": "llm-m-jeep-compass-mp-552",
+   "genIdB": "m-jeep-cherokee-kl",
+   "reason": "matched automatically (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-jeep-compass-mp-552|m-jeep-commander-2022|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T20:25:11.816Z",
+   "decidedAt": "2026-09-13T20:25:11.816Z",
+   "famA": "m-jeep-compass",
+   "famB": "m-jeep-commander-2022",
+   "relType": "platform",
+   "codeA": "Compass MP/552",
+   "codeB": "Commander (2022)",
+   "genIdA": "llm-m-jeep-compass-mp-552",
+   "genIdB": "m-jeep-commander-2022",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-jeep-compass-mp-552|m-fiat-500x|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T20:25:11.817Z",
+   "decidedAt": "2026-09-13T20:25:11.817Z",
+   "famA": "m-jeep-compass",
+   "famB": "m-fiat-500x",
+   "relType": "platform",
+   "codeA": "Compass MP/552",
+   "codeB": "500X",
+   "genIdA": "llm-m-jeep-compass-mp-552",
+   "genIdB": "m-fiat-500x",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-jeep-compass-j4u-j4d|m-peugeot-3008|platform": {
+   "status": "provisional",
+   "checkedAt": "2026-09-13T20:25:11.827Z",
+   "famA": "m-jeep-compass",
+   "famB": "m-peugeot-3008",
+   "relType": "platform",
+   "codeA": "Compass J4U/J4D",
+   "codeB": "3008",
+   "genIdA": "llm-m-jeep-compass-j4u-j4d",
+   "genIdB": "m-peugeot-3008",
+   "reason": "flagged by the local LLM sanity check as the same car as \"Peugeot 3008 III\" (confidence: low) -- The mention 'Peugeot 3008 III' refers to the third generation of the Peugeot 3008 SUV, introduced in 2023. The database candidate 'm-peugeot-3008' covers the model from 2009 to present. While the candidate represents the same model family and production period includes the current generation, the specific database entry likely aggregates all generations rather than distinguishing the 'III' (FCA 3008) specifically. However, since no other Peugeot 3008 entries exist and the mention refers to the physical car currently in the model line, it is the only plausible match, though the granularity of the generation is not explicitly separated in the candidate list. -- please verify this is really the right car before accepting",
+   "llmDiscovered": true,
+   "llmVerifiedDuplicate": true
+  },
+  "llm-m-jeep-compass-j4u-j4d|llm-related-peugeot-5008-iii|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T20:25:11.834Z",
+   "decidedAt": "2026-09-13T20:25:11.834Z",
+   "famA": "m-jeep-compass",
+   "famB": "llm-related-peugeot-5008-iii",
+   "relType": "platform",
+   "codeA": "Compass J4U/J4D",
+   "codeB": "5008 III",
+   "genIdA": "llm-m-jeep-compass-j4u-j4d",
+   "genIdB": "llm-related-peugeot-5008-iii",
+   "reason": "matched automatically -- \"Peugeot 5008 III\" was named as a related car but didn't exist anywhere in the graph yet, so it was newly created from this mention (double-checked by the local LLM sanity pass against every plausible existing car -- none matched)",
+   "llmDiscovered": true
+  },
+  "llm-m-jeep-compass-j4u-j4d|llm-related-opel-grandland-ii|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T20:25:11.841Z",
+   "decidedAt": "2026-09-13T20:25:11.841Z",
+   "famA": "m-jeep-compass",
+   "famB": "llm-related-opel-grandland-ii",
+   "relType": "platform",
+   "codeA": "Compass J4U/J4D",
+   "codeB": "Grandland II",
+   "genIdA": "llm-m-jeep-compass-j4u-j4d",
+   "genIdB": "llm-related-opel-grandland-ii",
+   "reason": "matched automatically -- \"Opel Grandland II\" was named as a related car but didn't exist anywhere in the graph yet, so it was newly created from this mention (double-checked by the local LLM sanity pass against every plausible existing car -- none matched)",
+   "llmDiscovered": true
+  },
+  "llm-m-jeep-compass-j4u-j4d|llm-related-citroen-c5-aircross-ii|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T20:25:11.847Z",
+   "decidedAt": "2026-09-13T20:25:11.847Z",
+   "famA": "m-jeep-compass",
+   "famB": "llm-related-citroen-c5-aircross-ii",
+   "relType": "platform",
+   "codeA": "Compass J4U/J4D",
+   "codeB": "C5 Aircross II",
+   "genIdA": "llm-m-jeep-compass-j4u-j4d",
+   "genIdB": "llm-related-citroen-c5-aircross-ii",
+   "reason": "matched automatically -- \"Citroën C5 Aircross II\" was named as a related car but didn't exist anywhere in the graph yet, so it was newly created from this mention (double-checked by the local LLM sanity pass against every plausible existing car -- none matched)",
+   "llmDiscovered": true
+  },
+  "llm-m-jeep-compass-j4u-j4d|llm-related-chrysler-airflow-2027|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-13T20:25:11.853Z",
+   "decidedAt": "2026-09-13T20:25:11.853Z",
+   "famA": "m-jeep-compass",
+   "famB": "llm-related-chrysler-airflow-2027",
+   "relType": "platform",
+   "codeA": "Compass J4U/J4D",
+   "codeB": "Airflow (2027)",
+   "genIdA": "llm-m-jeep-compass-j4u-j4d",
+   "genIdB": "llm-related-chrysler-airflow-2027",
+   "reason": "matched automatically -- \"Chrysler Airflow (2027)\" was named as a related car but didn't exist anywhere in the graph yet, so it was newly created from this mention (double-checked by the local LLM sanity pass against every plausible existing car -- none matched)",
+   "llmDiscovered": true
   }
  },
  "recheck": {
   "m-mercedes-benz-g-class": {
    "status": "none",
-   "checkedAt": "2026-09-13T20:14:57.999Z",
+   "checkedAt": "2026-09-13T20:20:57.785Z",
    "sourceTitle": "Mercedes-Benz G-Class",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -17075,7 +18571,7 @@
   },
   "m-mercedes-benz-gla": {
    "status": "none",
-   "checkedAt": "2026-09-13T20:14:58.063Z",
+   "checkedAt": "2026-09-13T20:20:57.849Z",
    "sourceTitle": "Mercedes-Benz GLA",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -17178,7 +18674,7 @@
   },
   "m-mercedes-benz-cla": {
    "status": "none",
-   "checkedAt": "2026-09-13T20:14:58.109Z",
+   "checkedAt": "2026-09-13T20:20:57.896Z",
    "sourceTitle": "Mercedes-Benz CLA",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -17460,7 +18956,7 @@
   },
   "m-toyota-celica": {
    "status": "none",
-   "checkedAt": "2026-09-13T20:14:58.176Z",
+   "checkedAt": "2026-09-13T20:20:57.963Z",
    "sourceTitle": "Toyota Celica",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -17576,7 +19072,7 @@
   },
   "m-toyota-carina": {
    "status": "none",
-   "checkedAt": "2026-09-13T20:14:58.257Z",
+   "checkedAt": "2026-09-13T20:20:58.045Z",
    "sourceTitle": "Toyota Carina",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -17704,7 +19200,7 @@
   },
   "m-lexus-sc": {
    "status": "none",
-   "checkedAt": "2026-09-13T20:14:58.263Z",
+   "checkedAt": "2026-09-13T20:20:58.052Z",
    "sourceTitle": "Lexus SC",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -18353,7 +19849,7 @@
   },
   "m-seat-toledo": {
    "status": "none",
-   "checkedAt": "2026-09-13T20:14:58.342Z",
+   "checkedAt": "2026-09-13T20:20:58.137Z",
    "sourceTitle": "SEAT Toledo",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -18484,7 +19980,7 @@
   },
   "m-daren-mk-3": {
    "status": "none",
-   "checkedAt": "2026-09-13T20:14:58.354Z",
+   "checkedAt": "2026-09-13T20:20:58.150Z",
    "sourceTitle": "Daren Mk.3",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -18559,7 +20055,7 @@
   },
   "m-audi-a3-mk3": {
    "status": "none",
-   "checkedAt": "2026-09-13T20:14:58.377Z",
+   "checkedAt": "2026-09-13T20:20:58.172Z",
    "sourceTitle": "Audi A3",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -18615,7 +20111,7 @@
   },
   "m-audi-tt": {
    "status": "none",
-   "checkedAt": "2026-09-13T20:14:58.475Z",
+   "checkedAt": "2026-09-13T20:20:58.271Z",
    "sourceTitle": "Audi TT",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -18755,7 +20251,7 @@
   },
   "m-seat-leon-mk3": {
    "status": "none",
-   "checkedAt": "2026-09-13T20:14:58.536Z",
+   "checkedAt": "2026-09-13T20:20:58.335Z",
    "sourceTitle": "SEAT León",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -18869,7 +20365,7 @@
   },
   "m-volkswagen-karmann-ghia": {
    "status": "none",
-   "checkedAt": "2026-09-13T20:14:58.569Z",
+   "checkedAt": "2026-09-13T20:20:58.368Z",
    "sourceTitle": "Volkswagen Karmann Ghia",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -18919,7 +20415,7 @@
   },
   "m-porsche-panamera": {
    "status": "none",
-   "checkedAt": "2026-09-13T20:14:58.557Z",
+   "checkedAt": "2026-09-13T20:20:58.356Z",
    "sourceTitle": "Porsche Panamera",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -18985,7 +20481,7 @@
   },
   "m-subaru-forester": {
    "status": "none",
-   "checkedAt": "2026-09-13T20:14:58.613Z",
+   "checkedAt": "2026-09-13T20:20:58.414Z",
    "sourceTitle": "Subaru Forester",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -19094,7 +20590,7 @@
   },
   "m-volkswagen-touran": {
    "status": "none",
-   "checkedAt": "2026-09-13T20:14:58.636Z",
+   "checkedAt": "2026-09-13T20:20:58.437Z",
    "sourceTitle": "Volkswagen Touran",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -19144,7 +20640,7 @@
   },
   "m-chevrolet-captiva": {
    "status": "none",
-   "checkedAt": "2026-09-13T20:14:58.712Z",
+   "checkedAt": "2026-09-13T20:20:58.512Z",
    "sourceTitle": "Chevrolet Captiva",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -19249,7 +20745,7 @@
   },
   "m-isuzu-trooper": {
    "status": "none",
-   "checkedAt": "2026-09-13T20:14:58.772Z",
+   "checkedAt": "2026-09-13T20:20:58.572Z",
    "sourceTitle": "Isuzu Trooper",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -19345,7 +20841,7 @@
   },
   "m-volkswagen-tiguan": {
    "status": "none",
-   "checkedAt": "2026-09-13T20:14:58.848Z",
+   "checkedAt": "2026-09-13T20:20:58.645Z",
    "sourceTitle": "Volkswagen Tiguan",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -19458,7 +20954,7 @@
   },
   "m-chrysler-horizon": {
    "status": "none",
-   "checkedAt": "2026-09-13T20:14:58.898Z",
+   "checkedAt": "2026-09-13T20:20:58.694Z",
    "sourceTitle": "Chrysler Horizon",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -19558,7 +21054,7 @@
   },
   "m-mercury-monterey": {
    "status": "none",
-   "checkedAt": "2026-09-13T20:14:59.007Z",
+   "checkedAt": "2026-09-13T20:20:58.800Z",
    "sourceTitle": "Mercury Monterey",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -19733,7 +21229,7 @@
   },
   "m-gmc-envoy": {
    "status": "none",
-   "checkedAt": "2026-09-13T20:14:59.029Z",
+   "checkedAt": "2026-09-13T20:20:58.822Z",
    "sourceTitle": "GMC Envoy",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -19786,7 +21282,7 @@
   },
   "m-chevrolet-trailblazer": {
    "status": "none",
-   "checkedAt": "2026-09-13T20:14:59.048Z",
+   "checkedAt": "2026-09-13T20:20:58.840Z",
    "sourceTitle": "Chevrolet TrailBlazer (SUV)",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -19837,7 +21333,7 @@
   },
   "m-oldsmobile-bravada": {
    "status": "none",
-   "checkedAt": "2026-09-13T20:14:59.088Z",
+   "checkedAt": "2026-09-13T20:20:58.880Z",
    "sourceTitle": "Oldsmobile Bravada",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -19917,7 +21413,7 @@
   },
   "m-buick-lacrosse": {
    "status": "none",
-   "checkedAt": "2026-09-13T20:14:59.114Z",
+   "checkedAt": "2026-09-13T20:20:58.906Z",
    "sourceTitle": "Buick LaCrosse",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -19993,7 +21489,7 @@
   },
   "m-buick-invicta": {
    "status": "none",
-   "checkedAt": "2026-09-13T20:14:59.132Z",
+   "checkedAt": "2026-09-13T20:20:58.925Z",
    "sourceTitle": "Buick Invicta",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -20044,7 +21540,7 @@
   },
   "m-buick-century": {
    "status": "none",
-   "checkedAt": "2026-09-13T20:14:59.220Z",
+   "checkedAt": "2026-09-13T20:20:59.015Z",
    "sourceTitle": "Buick Century",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -20196,7 +21692,7 @@
   },
   "m-jaguar-xjs": {
    "status": "none",
-   "checkedAt": "2026-09-13T20:16:31.809Z",
+   "checkedAt": "2026-09-13T20:20:59.030Z",
    "sourceTitle": "Jaguar XJS",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -20255,7 +21751,7 @@
   },
   "m-jaguar-e-type": {
    "status": "none",
-   "checkedAt": "2026-09-13T20:17:15.130Z",
+   "checkedAt": "2026-09-13T20:20:59.052Z",
    "sourceTitle": "Jaguar E-Type",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -20313,6 +21809,154 @@
         "matchId": null,
         "confidence": "high",
         "reason": "The Guyson E12 is an electric sports car produced by Guyson (a British company) around 2018-2020. The Li One is an electric SUV produced by Li Auto (Chinese) starting in 2019, and the MG One is a compact SUV by MG (SAIC) starting in 2021. These are entirely different manufacturers, vehicle segments, and production eras with no shared chassis or naming relationship."
+       }
+      }
+     }
+    ]
+   },
+   "discrepancy": null,
+   "attempts": 1,
+   "feedback": []
+  },
+  "m-wuling-starlight": {
+   "status": "none",
+   "checkedAt": "2026-09-13T20:23:13.057Z",
+   "sourceTitle": "Wuling Starlight",
+   "proposal": {
+    "hasMultipleGenerations": true,
+    "generations": [
+     {
+      "code": "Starlight",
+      "yearStart": 2023,
+      "yearEnd": null,
+      "designers": [
+       "Gabriel Nemeth"
+      ],
+      "engineers": [],
+      "wikiFile": "Wuling Starlight S 005.jpg",
+      "sharedPlatforms": [
+       "Starlight 560",
+       "Starlight 730",
+       "Starlight S",
+       "Baojun Yunhai",
+       "Baojun Xiangjing",
+       "Starlight"
+      ],
+      "alsoCoded": [
+       "Starlight S",
+       "Starlight L"
+      ]
+     },
+     {
+      "code": "Starlight 730",
+      "yearStart": 2025,
+      "yearEnd": null,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "Wuling Starlight 730 PHEV 005.jpg",
+      "sharedPlatforms": [
+       "Starlight 560",
+       "Starlight S",
+       "Starlight",
+       "Baojun Yunhai"
+      ]
+     },
+     {
+      "code": "Starlight 560",
+      "yearStart": 2025,
+      "yearEnd": null,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "Wuling Starlight 560 001.jpg",
+      "sharedPlatforms": [
+       "Starlight 730",
+       "Starlight S",
+       "Starlight",
+       "Baojun Yunhai",
+       "Baojun Xiangjing"
+      ]
+     }
+    ]
+   },
+   "discrepancy": null,
+   "attempts": 1,
+   "feedback": []
+  },
+  "m-jeep-compass": {
+   "status": "none",
+   "checkedAt": "2026-09-13T20:25:11.854Z",
+   "sourceTitle": "Jeep Compass",
+   "proposal": {
+    "hasMultipleGenerations": true,
+    "generations": [
+     {
+      "code": "MK49",
+      "yearStart": 2006,
+      "yearEnd": 2016,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "2008 Jeep Compass (MK MY08) Limited 2.4 wagon (2015-11-11) 01.jpg",
+      "sharedPlatforms": [
+       "Dodge Caliber",
+       "Jeep Patriot",
+       "Mitsubishi ASX"
+      ]
+     },
+     {
+      "code": "MP/552",
+      "yearStart": 2016,
+      "yearEnd": null,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "2018 Jeep Compass Latitude 2.4L front 4.20.19.jpg",
+      "sharedPlatforms": [
+       "Jeep Renegade",
+       "Jeep Cherokee (KL)",
+       "Jeep Commander (2022)",
+       "Fiat 500X"
+      ]
+     },
+     {
+      "code": "J4U/J4D",
+      "yearStart": 2025,
+      "yearEnd": null,
+      "designers": [
+       "Daniele Calonaci"
+      ],
+      "engineers": [],
+      "wikiFile": "Jeep Compass Elektro Summit (III) – f 18042026.jpg",
+      "sharedPlatforms": [
+       "Peugeot 3008 III",
+       "Peugeot 5008 III",
+       "Opel Grandland II",
+       "Citroën C5 Aircross II",
+       "Chrysler Airflow (2027)"
+      ],
+      "sharedPlatformMatches": {
+       "Peugeot 3008 III": {
+        "matchId": "m-peugeot-3008",
+        "confidence": "low",
+        "reason": "The mention 'Peugeot 3008 III' refers to the third generation of the Peugeot 3008 SUV, introduced in 2023. The database candidate 'm-peugeot-3008' covers the model from 2009 to present. While the candidate represents the same model family and production period includes the current generation, the specific database entry likely aggregates all generations rather than distinguishing the 'III' (FCA 3008) specifically. However, since no other Peugeot 3008 entries exist and the mention refers to the physical car currently in the model line, it is the only plausible match, though the granularity of the generation is not explicitly separated in the candidate list."
+       },
+       "Peugeot 5008 III": {
+        "matchId": null,
+        "confidence": "high",
+        "reason": "The mentioned car is the Peugeot 5008 III, which is the current generation of the Peugeot 5008 (introduced around 2023). The candidate m-peugeot-5008 refers to the first generation (2009–present). Since the 5008 has specific generations (I, II, III), and the candidate list only contains the entry for the first generation, they represent different physical generations of the car. According to the rules, different generations with different chassis codes are different cars, so this is not a match."
+       },
+       "Opel Grandland II": {
+        "matchId": null,
+        "confidence": "high",
+        "reason": "No candidate in the provided list matches the 'Opel Grandland II'. The closest related model in the list is the 'Opel Grandland' (currently active since ~2018/2019, listed as 'm-opel-antara' is incorrect, wait, checking list again: 'm-opel-antara' is Opel Antara SUV. There is no Opel Grandland entry in the provided list. The list contains Opel Antara, not Grandland. The mention refers to a specific generation or a future/non-existent model not present in the candidates. Since the specific 'Grandland II' and even the base 'Grandland' are not in the candidate list, and no other Opel SUV fits the name description, no match can be made."
+       },
+       "Citroën C5 Aircross II": {
+        "matchId": null,
+        "confidence": "high",
+        "reason": "The mentioned car 'Citroën C5 Aircross II' refers to a second-generation model (production starting around 2022). The only matching entry in the database is 'm-citroen-c5-aircross', which refers to the first-generation C5 Aircross (2017–present). These are distinct physical vehicles with different chassis codes and generations, similar to how the C4 Aircross has a second generation (C4 X) that is not the same as the original C4 Aircross. Since the database does not contain a specific entry for the second generation, no match can be made."
+       },
+       "Chrysler Airflow (2027)": {
+        "matchId": null,
+        "confidence": "high",
+        "reason": "The mentioned car 'Chrysler Airflow (2027)' has a production year of 2027. The only existing Chrysler Airflow in the database (id: m-chrysler-airflow) was produced from 1934 to 1937. Since the production years do not overlap and no record exists of a 2027 model being a re-release or a different generation of the same nameplate, they are considered different cars for this context."
        }
       }
      }
@@ -21726,6 +23370,27 @@
    "died": null,
    "country": null,
    "tries": 1
+  },
+  "p-dario-pellegrino": {
+   "checkedAt": "2026-09-13T20:23:14.954Z",
+   "born": null,
+   "died": null,
+   "country": null,
+   "tries": 1
+  },
+  "p-alberto-dilillo": {
+   "checkedAt": "2026-09-13T20:23:16.231Z",
+   "born": null,
+   "died": null,
+   "country": null,
+   "tries": 1
+  },
+  "p-fca-group": {
+   "checkedAt": "2026-09-13T20:23:46.206Z",
+   "born": null,
+   "died": null,
+   "country": null,
+   "tries": 1
   }
  },
  "userCars": {},
@@ -21831,7 +23496,11 @@
   "llm-related-oldsmobile-super-88": "Oldsmobile Super 88",
   "llm-related-oldsmobile-l-series": "Oldsmobile L-Series",
   "llm-related-gmc-caballero": "GMC Caballero",
-  "llm-related-guyson-e12": "Guyson E12"
+  "llm-related-guyson-e12": "Guyson E12",
+  "llm-related-chrysler-airflow-2027": "Chrysler Airflow (2027)",
+  "llm-related-peugeot-5008-iii": "Peugeot 5008",
+  "llm-related-opel-grandland-ii": "Opel Grandland",
+  "llm-related-citroen-c5-aircross-ii": "Citroën C5 Aircross"
  },
  "genResearch": {
   "merge-m-volkswagen-jetta-self": {
