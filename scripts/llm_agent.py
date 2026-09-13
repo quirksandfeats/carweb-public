@@ -299,8 +299,18 @@ def run_pass(targets, budget_seconds, per_node_seconds, settle_seconds=90):
             log(f"checking {nid}")
             page.evaluate("(id) => { const n = CarWeb.byId.get(id); if (n) CarWeb.openDetail(n); }", nid)
             settled = False
-            for _ in range(int(per_node_seconds * 2)):
-                page.wait_for_timeout(500)
+            # The timeout is IDLE time, not total time. A local 9B model on a
+            # long multi-generation article can run for many minutes, and the
+            # first real run proved it: the Buick Century was cut off at a flat
+            # 180s while four of its partners had already been written -- the
+            # work was plainly in progress and the clock did not care. Any new
+            # entry appearing is proof the model is still going, so it resets
+            # the clock; the overall --budget-minutes is what actually bounds
+            # the run.
+            deadline = time.time() + per_node_seconds
+            last_count = entry_count(page)
+            while time.time() < deadline and time.time() - started < budget_seconds:
+                page.wait_for_timeout(1000)
                 state = page.evaluate(
                     """(id) => {
                       const LF = window.LlmFamilies;
@@ -311,15 +321,20 @@ def run_pass(targets, budget_seconds, per_node_seconds, settle_seconds=90):
                     settled = True
                     done.append((nid, state["status"] or ("recheck:" + state["recheck"])))
                     break
+                now = entry_count(page)
+                if now != last_count:
+                    log(f"  still working: {now} cars have an entry")
+                    last_count = now
+                    deadline = time.time() + per_node_seconds
             if not settled:
-                errors.append(f"{nid}: no result within {per_node_seconds}s")
-                continue
+                errors.append(f"{nid}: nothing written for {per_node_seconds}s, gave up on it")
             # A seed's own answer landing is NOT the end of the work. Confirming
             # a split kicks off the partner cascade -- that is what the depth
             # budget governs -- and those checks run in the background, after
             # this point. Stopping serve.py here would cut them off mid-flight
-            # and lose calls already paid for. Wait until nothing new has been
-            # written for a few polls running.
+            # and lose calls already paid for. Runs even after a timeout, for
+            # exactly the case above: the seed gave up but its partners were
+            # still being written.
             settle_cascade(page, settle_seconds)
 
         entries_after = entry_count(page)
@@ -449,6 +464,7 @@ def do_job(job, args):
         proc = start_serve(args.cascade_depth)
         done, errors, skipped, cascade = run_pass(
             targets, args.budget_minutes * 60, args.node_timeout, args.settle_seconds)
+        cascade_stats = cascade
         split = [nid for nid, st in done if st == "confirmed"]
         waiting = [nid for nid, st in done if st == "provisional" or (st or "").startswith("recheck")]
         nothing = [nid for nid, st in done if st in ("rejected", "none", "error")]
@@ -466,7 +482,12 @@ def do_job(job, args):
             bits.append(f"{len(skipped)} skipped")
         if errors:
             bits.append(f"{len(errors)} errored")
-            state = "failed" if not done else "done"
+        # A run that wrote nothing at all failed. One that timed out on its
+        # seed but still recorded four partner checks, pushed them, and left
+        # them on the site did not -- calling that "failed" sent me looking
+        # for a broken run when the actual problem was a too-short timeout.
+        if errors and not done and cascade_stats["after"] <= cascade_stats["before"]:
+            state = "failed"
         # "3 split" does not tell you WHICH three, and finding out meant
         # diffing the JSON. The queue caps a summary at 400 characters, so the
         # short list goes there and the full one goes in the commit body.
@@ -518,12 +539,31 @@ def main():
     ap.add_argument("--settle-seconds", type=int, default=90,
                     help="how long to let a seed's cascade finish before moving on")
     ap.add_argument("--budget-minutes", type=int, default=45, help="wall-clock cap on the scanning phase")
-    ap.add_argument("--node-timeout", type=int, default=180, help="seconds to wait for one node's result")
-    ap.add_argument("--targets", default="", help="comma-separated node ids to scan instead of the review queue")
+    ap.add_argument("--node-timeout", type=int, default=600,
+                    help="give up on one car after this many seconds with NOTHING new "
+                         "written; any new entry resets it")
+    ap.add_argument("--targets", default="", help="comma-separated node ids to scan instead of the review backlog")
+    ap.add_argument("--dry-run", action="store_true",
+                    help="print what a run would scan and stop; starts nothing")
     args = ap.parse_args()
 
     if shutil.which("git") is None:
         sys.exit("git is not on PATH")
+    if args.dry_run:
+        backlog = review_queue_ids()
+        scanned = already_scanned()
+        todo = [n for n in backlog if n not in scanned]
+        print(f"review backlog:      {len(backlog)} cars (from {os.path.relpath(REPORT, ROOT)})")
+        print(f"already have an entry: {len(backlog) - len(todo)}")
+        print(f"cascade depth:       serve.py's setting"
+              + (f", overridden to {args.cascade_depth} for this run" if args.cascade_depth is not None else ""))
+        print(f"\nwould start from {min(args.seeds, len(todo))} seed(s):")
+        for nid in todo[: args.seeds]:
+            print("  " + nid)
+        print("\nnext in line after that:")
+        for nid in todo[args.seeds: args.seeds + 8]:
+            print("  " + nid)
+        return
     if args.now:
         do_job(None, args)
         return
