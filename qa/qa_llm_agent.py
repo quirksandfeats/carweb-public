@@ -142,6 +142,35 @@ check("a failed check is not reported as a result",
 check("an unknown status still prints something",
       agent.describe({}) == "checked", agent.describe({}))
 
+# ---- finding the token ----
+# An export lasts one shell, so "set CARWEB_AGENT_TOKEN" came back in every
+# new terminal, and a scheduled run has no shell to have exported it in.
+orig_token_file = agent.TOKEN_FILE
+with tempfile.TemporaryDirectory() as home:
+    agent.TOKEN_FILE = os.path.join(home, ".carweb-agent-token")
+
+    os.environ["CARWEB_AGENT_TOKEN"] = "  from-the-environment  "
+    check("the environment wins when it is set, trimmed",
+          agent.read_token() == "from-the-environment", repr(agent.read_token()))
+
+    del os.environ["CARWEB_AGENT_TOKEN"]
+    check("with neither, there is no token", agent.read_token() == "", repr(agent.read_token()))
+
+    open(agent.TOKEN_FILE, "w", encoding="utf-8").write("from-the-file\n")
+    check("a token file is read, trailing newline and all",
+          agent.read_token() == "from-the-file", repr(agent.read_token()))
+
+    os.environ["CARWEB_AGENT_TOKEN"] = "from-the-environment"
+    check("...and the environment still wins over it",
+          agent.read_token() == "from-the-environment", repr(agent.read_token()))
+    del os.environ["CARWEB_AGENT_TOKEN"]
+agent.TOKEN_FILE = orig_token_file
+
+check("the token file lives outside the repo -- this repo is public",
+      not os.path.abspath(agent.TOKEN_FILE).startswith(ROOT + os.sep), agent.TOKEN_FILE)
+check("the missing-token message offers both ways",
+      "carweb-agent-token" in agent.NO_TOKEN and "CARWEB_AGENT_TOKEN" in agent.NO_TOKEN)
+
 # ---- what it is allowed to commit ----
 check("only the two files the pass can write are committable",
       agent.TRACKED == ["app/llm_families.json", "app/llm_families_data.js"], agent.TRACKED)

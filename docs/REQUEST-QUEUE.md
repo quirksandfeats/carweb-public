@@ -136,6 +136,18 @@ python3 -m venv .venv
 .venv/bin/python scripts/llm_agent.py --now --seeds 1
 ```
 
+The `AGENT_TOKEN` secret is read from `~/.carweb-agent-token`, or from
+`CARWEB_AGENT_TOKEN` if that is set. Put it in the file once:
+
+```
+printf %s 'THE_TOKEN' > ~/.carweb-agent-token && chmod 600 ~/.carweb-agent-token
+```
+
+An `export` lasts one shell, so it came back as "set CARWEB_AGENT_TOKEN" in
+every new terminal — and a scheduled run has no shell to have exported it in.
+The file is in HOME, not the repo: this repo is public, and a secret one
+`git add -A` away from being published is a secret waiting to leak.
+
 `serve.py` itself is stdlib only, and the agent launches it with whatever
 python is running the agent, so the venv covers both.
 

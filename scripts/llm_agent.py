@@ -4,7 +4,11 @@
 Picks up a scan job left by the hosted site's "⚡ Request scan" button, runs
 the local LLM generation pass, pushes the result, and exits.
 
-    export CARWEB_AGENT_TOKEN='...'        # the AGENT_TOKEN secret
+The AGENT_TOKEN secret is read from ~/.carweb-agent-token, or from
+CARWEB_AGENT_TOKEN if that is set. The file is the easier one: an export lasts
+one shell, and a scheduled run has no shell to have exported it in.
+
+    printf %s 'THE_TOKEN' > ~/.carweb-agent-token && chmod 600 ~/.carweb-agent-token
     python3 scripts/llm_agent.py           # wait up to 10 min for a job, run it
     python3 scripts/llm_agent.py --watch   # keep waiting (for launchd/cron)
     python3 scripts/llm_agent.py --now     # scan from the backlog, no job needed
@@ -62,8 +66,28 @@ REPORT = os.path.join(ROOT, "data_src", "harvest", "family_match_report.txt")
 LLM_FAMILIES = os.path.join(APP, "llm_families.json")
 
 QUEUE = os.environ.get("CARWEB_QUEUE_URL", "https://carweb.quirksandfeats.workers.dev")
-TOKEN = os.environ.get("CARWEB_AGENT_TOKEN", "")
 PORT = int(os.environ.get("CARWEB_PORT", "8077"))
+
+# The token, from the environment or from a file. An `export` lasts one shell,
+# so every new terminal met "set CARWEB_AGENT_TOKEN" again -- and a scheduled
+# run has no shell to have exported it in at all. The file lives in the HOME
+# directory, not the repo: this repo is public, and a secret one `git add -A`
+# away from being published is a secret waiting to leak.
+TOKEN_FILE = os.path.expanduser("~/.carweb-agent-token")
+
+
+def read_token():
+    tok = os.environ.get("CARWEB_AGENT_TOKEN", "").strip()
+    if tok:
+        return tok
+    try:
+        with open(TOKEN_FILE, encoding="utf-8") as f:
+            return f.read().strip()
+    except OSError:
+        return ""
+
+
+TOKEN = read_token()
 
 # Files the pass can touch. llm_families_data.js is the <script>-loadable
 # mirror serve.py regenerates on every write, so it moves with the JSON and
@@ -97,6 +121,14 @@ def commit_body(split, waiting, nothing, skipped, errors):
         lines.append("Everything under the first heading carries "
                      'decidedBy:"agent" in llm_families.json.')
     return "\n".join(lines).strip()
+
+
+NO_TOKEN = (
+    "No agent token. Either put it in a file, once:\n"
+    f"    printf %s 'YOUR_AGENT_TOKEN' > {TOKEN_FILE} && chmod 600 {TOKEN_FILE}\n"
+    "or export it for this shell:\n"
+    "    export CARWEB_AGENT_TOKEN='YOUR_AGENT_TOKEN'"
+)
 
 
 def log(msg):
@@ -688,7 +720,7 @@ def main():
         sys.exit("git is not on PATH")
     if args.queue or args.drop or args.clear:
         if not TOKEN:
-            sys.exit("set CARWEB_AGENT_TOKEN to the AGENT_TOKEN secret")
+            sys.exit(NO_TOKEN)
         if args.clear:
             st, d = api("/api/request/cancel", "POST", {"all": True})
             if st != 200:
@@ -737,7 +769,7 @@ def main():
         do_job(None, args)
         return
     if not TOKEN:
-        sys.exit("set CARWEB_AGENT_TOKEN to the AGENT_TOKEN secret")
+        sys.exit(NO_TOKEN)
 
     while True:
         job = wait_for_job(args.poll_seconds, 0 if args.watch else args.wait_minutes * 60)
