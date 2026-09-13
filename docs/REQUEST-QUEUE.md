@@ -135,6 +135,22 @@ Nothing in the agent widens that. Every claim still has to appear verbatim in
 the article before it is kept — the guard in `llm_families.js` runs on this
 path because this path *is* the app.
 
+Two things make an unattended run reviewable afterwards:
+
+- Every confirmation the agent makes is stamped `decidedBy: "agent"` in
+  `llm_families.json`, so a split nobody looked at is distinguishable from one
+  you approved. The agent refuses to confirm anything if it cannot set that
+  stamp.
+- The run **names** what it did, rather than only counting it. The commit body
+  lists every node under "Split and applied without review", "Awaiting your
+  review", "Nothing found" and "Skipped"; the queue summary carries a short
+  version, truncated to fit its 400-character cap.
+
+What the guard still cannot do: it proves the codes and years appear in the
+article, not that they are generations of *this* car. A "Related models" or
+"See also" section can supply perfectly real strings. That is the reason to
+read the first few diffs before raising `--max-scans`.
+
 ### Tests
 
 `qa/qa_llm_agent.py` covers the decisions made before any model call: which

@@ -58,6 +58,34 @@ PORT = int(os.environ.get("CARWEB_PORT", "8077"))
 TRACKED = ["app/llm_families.json", "app/llm_families_data.js"]
 
 
+def name_list(label, ids, limit=5):
+    if not ids:
+        return ""
+    shown = ", ".join(ids[:limit])
+    more = f" +{len(ids) - limit} more" if len(ids) > limit else ""
+    return f"; {label}: {shown}{more}"
+
+
+def commit_body(split, waiting, nothing, skipped, errors):
+    lines = []
+    for label, ids in (("Split and applied without review", split),
+                       ("Awaiting your review", waiting),
+                       ("Nothing found", nothing),
+                       ("Skipped (budget, or no longer in the graph)", skipped)):
+        if ids:
+            lines.append(label + ":")
+            lines += ["  " + i for i in ids]
+            lines.append("")
+    if errors:
+        lines.append("Errors:")
+        lines += ["  " + e for e in errors[:20]]
+        lines.append("")
+    if split:
+        lines.append("Everything under the first heading carries "
+                     'decidedBy:"agent" in llm_families.json.')
+    return "\n".join(lines).strip()
+
+
 def log(msg):
     print(f"[{time.strftime('%H:%M:%S')}] {msg}", flush=True)
 
@@ -237,6 +265,15 @@ def run_pass(targets, budget_seconds, per_node_seconds):
             browser.close()
             raise RuntimeError("could not arm the LLM check toggle")
 
+        # Every confirmation this run makes gets stamped decidedBy:"agent", so
+        # a split nobody looked at is distinguishable afterwards from one a
+        # human approved. Without it a bad run is archaeology.
+        page.evaluate("() => window.LlmFamilies.setDecisionSource('agent')")
+        if page.evaluate("() => window.LlmFamilies.decisionSource()") != "agent":
+            browser.close()
+            raise RuntimeError("this build cannot stamp agent decisions -- refusing to "
+                               "confirm anything unattributed")
+
         for nid in targets:
             if time.time() - started > budget_seconds:
                 skipped.append(nid)
@@ -276,7 +313,7 @@ def git(*args, check=True):
     return r.stdout.strip()
 
 
-def push_result(summary):
+def push_result(summary, detail=""):
     """Commits only the two files the pass can write, and only if they moved.
 
     Never `git add -A`: this runs unattended in a working tree that may have
@@ -290,7 +327,8 @@ def push_result(summary):
     git("add", *changed)
     subprocess.run(
         ["git", "-c", "user.name=quirksandfeats", "-c", "user.email=goldenberg.andy@gmail.com",
-         "commit", "-q", "-m", "LLM pass from a queued scan request\n\n" + summary],
+         "commit", "-q", "-m",
+         "LLM pass from a queued scan request\n\n" + summary + ("\n\n" + detail if detail else "")],
         cwd=ROOT, check=True)
     branch = git("rev-parse", "--abbrev-ref", "HEAD")
     log(f"pushing {branch}")
@@ -324,27 +362,30 @@ def do_job(job, args):
         return
 
     log(f"{len(targets)} node(s) to scan, budget {args.budget_minutes} min")
-    proc, state, summary = None, "done", ""
+    proc, state, summary, detail = None, "done", "", ""
     try:
         proc = start_serve()
         done, errors, skipped = run_pass(targets, args.budget_minutes * 60, args.node_timeout)
-        confirmed = sum(1 for _, s in done if s == "confirmed")
-        provisional = sum(1 for _, s in done if s and s.startswith("recheck")) + \
-                      sum(1 for _, s in done if s == "provisional")
-        nothing = sum(1 for _, s in done if s in ("rejected", "none", "error"))
+        split = [nid for nid, st in done if st == "confirmed"]
+        waiting = [nid for nid, st in done if st == "provisional" or (st or "").startswith("recheck")]
+        nothing = [nid for nid, st in done if st in ("rejected", "none", "error")]
         bits = [f"{len(done)} scanned"]
-        if confirmed:
-            bits.append(f"{confirmed} split")
-        if provisional:
-            bits.append(f"{provisional} awaiting your review")
+        if split:
+            bits.append(f"{len(split)} split")
+        if waiting:
+            bits.append(f"{len(waiting)} awaiting your review")
         if nothing:
-            bits.append(f"{nothing} found nothing")
+            bits.append(f"{len(nothing)} found nothing")
         if skipped:
             bits.append(f"{len(skipped)} skipped")
         if errors:
             bits.append(f"{len(errors)} errored")
             state = "failed" if not done else "done"
-        summary = ", ".join(bits)
+        # "3 split" does not tell you WHICH three, and finding out meant
+        # diffing the JSON. The queue caps a summary at 400 characters, so the
+        # short list goes there and the full one goes in the commit body.
+        summary = ", ".join(bits) + name_list("split", split) + name_list("awaiting review", waiting)
+        detail = commit_body(split, waiting, nothing, skipped, errors)
         log(summary)
         for e in errors[:10]:
             log("  " + e)
@@ -355,7 +396,7 @@ def do_job(job, args):
         stop_serve(proc)
 
     try:
-        if push_result(summary or "no summary"):
+        if push_result(summary or "no summary", detail):
             summary += "; pushed"
     except Exception as e:
         state = "failed"

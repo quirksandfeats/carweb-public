@@ -1806,8 +1806,28 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
     return p;
   }
 
+  // Who is driving this session: a person at the keyboard, or
+  // scripts/llm_agent.py working through a queued scan request.
+  //
+  // It matters because a plain model found to hide several generations is
+  // confirmed and applied WITHOUT being asked -- a deliberate decision ("if a
+  // car is creating a nameplate for the first time... you do not need my
+  // approval"), made when the only way to trigger a check was to click a car
+  // and watch what happened. An unattended run applies a dozen of those that
+  // nobody looked at, and afterwards they were indistinguishable from the
+  // ones a human approved. Stamping the decision is what makes a bad run
+  // reviewable instead of archaeology.
+  //
+  // Session-only and deliberately not persisted anywhere itself: it describes
+  // the current driver, so a reload is correctly back to "user".
+  let decisionSource = "user";
+  function setDecisionSource(src) {
+    decisionSource = src === "agent" ? "agent" : "user";
+  }
+
   function confirmNode(nodeId) {
     const e = entryFor(nodeId); if (!e) return;
+    e.decidedBy = decisionSource;
     // First time this entry is ever written to disk -- a provisional
     // proposal is kept in memory only (see checkNode/retryNode) right up
     // until this moment.
@@ -7735,6 +7755,7 @@ Rules:
     // regression tests pin down directly rather than through a whole check
     // round trip.
     refreshGenerationImages,
+    setDecisionSource, decisionSource: () => decisionSource,
     parseLlmJson, codeAnchorIn, codeVerifiedIn, findGenerationImage, infoboxImageForCode,
     looksLikePlatformNotCar,
     // Exposed for the regression suite only: a persisted proposal from before

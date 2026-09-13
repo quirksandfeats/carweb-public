@@ -106,6 +106,25 @@ with tempfile.TemporaryDirectory() as tmp:
     check("a missing or unreadable file is empty, not an error",
           agent.already_scanned(os.path.join(tmp, "nope.json")) == set())
 
+# ---- naming what changed, so "3 split" is answerable without a diff ----
+check("a short list rides along with the summary",
+      agent.name_list("split", ["m-a", "m-b"]) == "; split: m-a, m-b",
+      agent.name_list("split", ["m-a", "m-b"]))
+check("a long list is truncated, since the queue caps a summary at 400 chars",
+      agent.name_list("split", ["m-%d" % i for i in range(9)]).endswith("+4 more"),
+      agent.name_list("split", ["m-%d" % i for i in range(9)]))
+check("an empty list adds nothing", agent.name_list("split", []) == "")
+
+body = agent.commit_body(["m-chevrolet-suburban"], ["m-jaguar-xjs"], [], ["m-gone"], ["m-x: timed out"])
+check("the commit body separates what was applied from what is waiting",
+      body.index("Split and applied without review") < body.index("Awaiting your review"), body[:80])
+check("...names each one", "m-chevrolet-suburban" in body and "m-jaguar-xjs" in body)
+check("...reports skips and errors too", "m-gone" in body and "timed out" in body)
+check("...and says where to find the agent's own marks",
+      'decidedBy:"agent"' in body, body[-90:])
+check("with nothing applied it does not claim anything was",
+      "Split and applied" not in agent.commit_body([], ["m-a"], [], [], []))
+
 # ---- what it is allowed to commit ----
 check("only the two files the pass can write are committable",
       agent.TRACKED == ["app/llm_families.json", "app/llm_families_data.js"], agent.TRACKED)
