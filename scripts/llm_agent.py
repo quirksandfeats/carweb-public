@@ -286,7 +286,8 @@ def run_pass(targets, budget_seconds, per_node_seconds, settle_seconds=300, quie
                                "confirm anything unattributed")
 
         depth = page.evaluate("() => window.LlmFamilies.cascadeMaxDepth()")
-        entries_before = entry_count(page)
+        rows_before = entry_rows(page)
+        entries_before = len(rows_before)
         agent_before = agent_confirmed(page)
         log(f"cascade depth {depth}; {entries_before} cars already have an entry")
 
@@ -300,9 +301,13 @@ def run_pass(targets, budget_seconds, per_node_seconds, settle_seconds=300, quie
                 # can have been merged away or deleted since.
                 skipped.append(nid)
                 continue
-            log(f"checking {nid}")
+            name = page.evaluate(
+                "(id) => { const n = CarWeb.byId.get(id); "
+                "return n ? ((n.make ? n.make + ' ' : '') + n.label) : id; }", nid)
+            log(f"{name}  [{nid}] -- opening")
             page.evaluate("(id) => { const n = CarWeb.byId.get(id); if (n) CarWeb.openDetail(n); }", nid)
             settled = False
+            said = ""
             # The timeout is IDLE time, not total time. A local 9B model on a
             # long multi-generation article can run for many minutes, and the
             # first real run proved it: the Buick Century was cut off at a flat
@@ -312,7 +317,7 @@ def run_pass(targets, budget_seconds, per_node_seconds, settle_seconds=300, quie
             # the clock; the overall --budget-minutes is what actually bounds
             # the run.
             deadline = time.time() + per_node_seconds
-            last_count = entry_count(page)
+            last_rows = entry_rows(page)
             while time.time() < deadline and time.time() - started < budget_seconds:
                 page.wait_for_timeout(1000)
                 state = page.evaluate(
@@ -323,15 +328,27 @@ def run_pass(targets, budget_seconds, per_node_seconds, settle_seconds=300, quie
                     }""", nid)
                 if state["status"] or state["recheck"]:
                     settled = True
-                    done.append((nid, state["status"] or ("recheck:" + state["recheck"])))
+                    st = state["status"] or ("recheck:" + state["recheck"])
+                    done.append((nid, st))
+                    rows = entry_rows(page)
+                    log(f"  {name} -- {describe(rows.get(nid, {'status': st}))}")
+                    last_rows = rows
                     break
-                now = entry_count(page)
-                if now != last_count:
-                    log(f"  still working: {now} cars have an entry")
-                    last_count = now
+                # The app's own status line, echoed only when it changes -- so
+                # the terminal says what the browser would be showing rather
+                # than a bare counter.
+                act = activity(page)
+                if act and act != said:
+                    log(f"  {name} -- {act}")
+                    said = act
+                rows = entry_rows(page)
+                if len(rows) != len(last_rows):
+                    report_new(rows, last_rows, "cascade")
+                    last_rows = rows
                     deadline = time.time() + per_node_seconds
             if not settled:
                 errors.append(f"{nid}: nothing written for {per_node_seconds}s, gave up on it")
+                log(f"  {name} -- gave up, nothing written for {per_node_seconds}s")
             # A seed's own answer landing is NOT the end of the work. Confirming
             # a split kicks off the partner cascade -- that is what the depth
             # budget governs -- and those checks run in the background, after
@@ -341,7 +358,7 @@ def run_pass(targets, budget_seconds, per_node_seconds, settle_seconds=300, quie
             # still being written.
             settle_cascade(page, settle_seconds, quiet_seconds)
 
-        entries_after = entry_count(page)
+        entries_after = len(entry_rows(page))
         # The seeds are not the only cars this run can have SPLIT. A seed's
         # cascade confirms its partners the same way, by the same rule, and
         # the first real run proved it: the commit named only the Buick
@@ -398,17 +415,67 @@ def agent_confirmed(page):
         }"""))
 
 
-def entry_count(page):
-    """Cars that have any kind of entry -- a split decision or a pending
-    re-check. The cascade's own work shows up here and nowhere else, since the
-    partners it reaches are never in the target list."""
+def entry_rows(page):
+    """Every car that has an entry -- a split decision or a pending re-check --
+    with a readable name and what happened to it. The cascade's own work shows
+    up here and nowhere else, since the partners it reaches are never in the
+    target list, so this doubles as the progress signal AND as the thing that
+    lets a log line say "Buick LaCrosse" instead of "m-buick-lacrosse"."""
     return page.evaluate(
         """() => {
-          const LF = window.LlmFamilies;
-          const a = (LF.allEntries && LF.allEntries()) || [];
-          const r = (LF.allRecheckEntries && LF.allRecheckEntries()) || [];
-          return new Set([...a, ...r].map(e => e.id || e)).size;
+          const cw = window.CarWeb, LF = window.LlmFamilies;
+          const ids = new Set([
+            ...(((LF.allEntries && LF.allEntries()) || []).map(e => e.id)),
+            ...(((LF.allRecheckEntries && LF.allRecheckEntries()) || []).map(e => e.id)),
+          ]);
+          const out = {};
+          ids.forEach(id => {
+            const n = cw.byId.get(id), e = LF.entryFor(id), r = LF.recheckEntryFor(id);
+            const gens = (e && e.proposal && e.proposal.generations) || [];
+            out[id] = {
+              label: n ? ((n.make ? n.make + " " : "") + n.label) : id,
+              status: (e && e.status) || (r ? "recheck:" + r.status : null),
+              gens: gens.length,
+            };
+          });
+          return out;
         }""")
+
+
+def describe(row):
+    st, gens = row.get("status"), row.get("gens") or 0
+    if st == "confirmed":
+        return f"split into {gens} generations" if gens else "split"
+    if st == "provisional":
+        return f"{gens} generations proposed, waiting for you" if gens else "waiting for you"
+    if st and st.startswith("recheck"):
+        return "generation list re-checked, waiting for you"
+    if st == "none":
+        return "no hidden generations"
+    if st == "error":
+        return "check failed"
+    return st or "checked"
+
+
+# The app's own activity line, which is the most honest progress there is --
+# it is what a person sitting in front of the browser would be reading.
+def activity(page):
+    txt = page.evaluate(
+        """() => {
+          const el = document.querySelector('#detail .llm-status');
+          return el ? el.textContent : '';
+        }""")
+    txt = " ".join((txt or "").split())
+    for junk in ("\U0001f916", "\u2026"):
+        txt = txt.replace(junk, "")
+    txt = txt.strip(" .\u2026")
+    return txt[:60]
+
+
+def report_new(now, before, why):
+    for nid in now:
+        if nid not in before:
+            log(f"    + {now[nid]['label']} -- {describe(now[nid])}  ({why})")
 
 
 def settle_cascade(page, settle_seconds, quiet_seconds=60):
@@ -428,17 +495,17 @@ def settle_cascade(page, settle_seconds, quiet_seconds=60):
     loses work already paid for, so this errs long and settle_seconds is the
     hard cap.
     """
-    last, waited, quiet = entry_count(page), 0, 0
+    last, waited, quiet = entry_rows(page), 0, 0
     while waited < settle_seconds:
         page.wait_for_timeout(3000)
         waited += 3
-        now = entry_count(page)
-        if now == last:
+        now = entry_rows(page)
+        if len(now) == len(last):
             quiet += 3
             if quiet >= quiet_seconds:
                 return
         else:
-            log(f"  cascade still working: {now} cars have an entry")
+            report_new(now, last, "cascade")
             last, quiet = now, 0
     log(f"  cascade still not quiet after {settle_seconds}s; moving on")
 

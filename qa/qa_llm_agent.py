@@ -127,6 +127,21 @@ check("with nothing applied it does not claim anything was",
 check("the applied heading says it covers the cascade too, not just the seeds",
       "seeds and cascade alike" in agent.commit_body(["m-a"], [], [], [], []))
 
+# ---- what the terminal says while a run is going ----
+check("a split says how many generations it found",
+      agent.describe({"status": "confirmed", "gens": 7}) == "split into 7 generations",
+      agent.describe({"status": "confirmed", "gens": 7}))
+check("something waiting for review says so",
+      "waiting for you" in agent.describe({"status": "provisional", "gens": 3}))
+check("a re-check of an existing nameplate is distinguished from a fresh split",
+      agent.describe({"status": "recheck:provisional"}) != agent.describe({"status": "provisional"}))
+check("a car with nothing to find says that plainly",
+      agent.describe({"status": "none"}) == "no hidden generations")
+check("a failed check is not reported as a result",
+      agent.describe({"status": "error"}) == "check failed")
+check("an unknown status still prints something",
+      agent.describe({}) == "checked", agent.describe({}))
+
 # ---- what it is allowed to commit ----
 check("only the two files the pass can write are committable",
       agent.TRACKED == ["app/llm_families.json", "app/llm_families_data.js"], agent.TRACKED)

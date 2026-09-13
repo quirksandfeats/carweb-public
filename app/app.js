@@ -350,6 +350,20 @@ window.CarWeb = (function () {
     if (layer === "both") return true;
     return hasRole(n, layer === "designers" ? "designer" : "engineer");
   }
+  // Does some generation of this expanded family carry the same person credit
+  // as the family-level link `l`? Walked from the PERSON's adjacency, which is
+  // the short side -- a designer has a handful of cars, a family has a handful
+  // of generations, and this runs per link per frame.
+  function creditCoveredByGeneration(l) {
+    const fam = l.sn, person = l.tn;
+    if (!fam || !person || !fam.generations || !fam.generations.length) return false;
+    for (const { l: other } of adj.get(person.id) || []) {
+      if (other === l || other.retired || other.type !== l.type) continue;
+      const car = other.tn === person ? other.sn : other.tn;
+      if (car && car.familyOf === fam.id) return true;
+    }
+    return false;
+  }
   function linkInLayer(l) {
     // Real user request: "When I delete an entry (whether that's a nameplate
     // or a model or a relationship), it should also reflect that in the
@@ -377,8 +391,25 @@ window.CarWeb = (function () {
     // show a line to both the nameplate and the individual generation. Per
     // spec: the generation-level connection should win once expanded; the
     // family-level (nameplate) line only shows while collapsed.
+    //
+    // ...but only when there really IS a more specific line to take over.
+    // Real user report, on the Buick Invicta: "I see who drew them in the
+    // info card but not a link." The rule above rests on "every family
+    // mirrors its generations' designed/engineered links up to itself", and
+    // that is not true of a nameplate the LLM has just split. Its designers
+    // came from DBpedia's article about the NAMEPLATE and were never
+    // attributed to any one generation -- the minted generations carry
+    // designers: [] -- so hiding the family-level line left the card saying
+    // "drawn by Justin Thompson · Richard Duff" with no line anywhere on the
+    // canvas.
+    //
+    // Per the user's own call: "that's fine to fall back on linking the
+    // designer directly to the nameplate instead of the generation." So the
+    // specific line still wins WHEN IT EXISTS, and otherwise the credit stays
+    // drawn where it is actually known -- on the nameplate.
     if ((l.type === "designed" || l.type === "engineered") &&
-        l.sn && l.sn.type === "family" && expandedFamilies.has(l.sn.id)) {
+        l.sn && l.sn.type === "family" && expandedFamilies.has(l.sn.id) &&
+        creditCoveredByGeneration(l)) {
       return false;
     }
     // Same precedence, generalized to platform/related/succession links:

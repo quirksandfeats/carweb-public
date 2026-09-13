@@ -112,6 +112,12 @@ main{flex:1; position:relative; min-height:0}
   padding:8px 14px; border:1px solid var(--hairline); border-radius:999px; backdrop-filter:blur(2px);
 }
 .lg{display:flex; gap:6px; align-items:center}
+/* An author `display` rule beats the UA stylesheet's own [hidden]{display:none},
+   so app.js setting lg.hidden = true did nothing visible: the "in my database"
+   and "my garage" rows kept showing on the public build, describing two
+   colours nothing on screen uses. Every other hideable block in this file
+   already carries its own [hidden] rule for the same reason. */
+.lg[hidden]{display:none}
 .sw{width:11px; height:11px; border-radius:50%; display:inline-block}
 .sw-make{background:var(--ink)} .sw-model{background:var(--accent)}
 .sw-family{background:var(--accent); box-shadow:0 0 0 1.5px var(--paper), 0 0 0 3px var(--ink)}
