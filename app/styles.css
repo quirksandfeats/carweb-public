@@ -354,6 +354,16 @@ main{flex:1; position:relative; min-height:0}
 #toolsmenu-btn.open{background:var(--ink); color:var(--paper)}
 #toolsmenu-armed-dot{color:var(--llm); font-size:9px; line-height:1}
 #toolsmenu-armed-dot[hidden]{display:none}
+/* "the model is still working" -- see #llmbusy's own comment in index.html.
+   Deliberately not a button: there is nothing to click, it is there to stop
+   an idle-LOOKING page from being mistaken for an idle one. */
+#llmbusy{display:flex; align-items:center; gap:6px; font-size:11px; color:var(--llm);
+         border:1px solid var(--llm); border-radius:999px; padding:3px 10px;
+         white-space:nowrap; max-width:340px; overflow:hidden; text-overflow:ellipsis}
+#llmbusy[hidden]{display:none}
+.llmbusy-dot{font-size:8px; line-height:1; animation:llmbusy-pulse 1.4s ease-in-out infinite}
+@keyframes llmbusy-pulse{0%,100%{opacity:1} 50%{opacity:.25}}
+@media (prefers-reduced-motion:reduce){.llmbusy-dot{animation:none}}
 /* Real user report: "the tools bar is appearing behind the main viewfinder
    window." Root cause: #topbar sets overflow-y:hidden (so it can scroll
    horizontally without also picking up an unwanted vertical scrollbar --
@@ -850,6 +860,10 @@ main{flex:1; position:relative; min-height:0}
   .wm-title{font-size:18px}
   .wordmark{min-width:0}
   .tab{padding:7px 11px}
+
+  /* It has to stay readable on a phone but must never be the thing that
+     pushes the tabs onto another row -- it is a notice, not a control. */
+  #llmbusy{font-size:10px; padding:2px 8px; max-width:100%; order:99}
 
   #controlbar{padding:8px 10px; gap:8px; row-gap:8px}
   #searchbar-fixed{width:100%}

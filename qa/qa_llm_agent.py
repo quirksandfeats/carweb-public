@@ -184,6 +184,47 @@ check("it never stages the whole tree -- this runs unattended in a working "
 check("the commit carries no Claude attribution",
       "Co-Authored-By" not in src and "Claude" not in src.replace("Claude Browser", ""))
 
+# ---- knowing when a cascade is finished, and when to give up on it ---------
+# "The timeout is raised to 900, but is that timer reset to 0 whenever it's
+# processing a new car within the cascade?" It was not -- it was a TOTAL, so a
+# cascade of eight partners at two minutes each ran past it and got cut off
+# exactly like the old one-minute version did, just later. It is an idle cap
+# now, the same shape --node-timeout already has.
+settle = src.split("def settle_cascade")[1].split("def git(")[0]
+check("a car finishing puts the give-up clock back to zero",
+      "last, quiet, idle = now, 0, 0" in settle)
+check("...and so does the cascade moving on to a different car, before it has "
+      "written anything", 'working, idle = pend["names"], 0' in settle)
+check("the clock is idle time, not total time", "while idle < settle_seconds" in settle)
+check("nothing counts as quiet while the page still has work outstanding",
+      'if pend and pend["total"]:' in settle and "continue" in settle)
+check("giving up says so in terms of nothing having moved, not of a total",
+      "nothing has moved for" in settle)
+check("...and names the checks that are about to be lost",
+      "were still running and will be lost" in settle)
+check("the flag's own help says the clock resets",
+      "resets it" in src.split('"--settle-seconds"')[1][:400])
+
+# ---- what is still running when a run ends ---------------------------------
+# "the server wasn't closed automatically. I closed it when the program said
+# that the changes have been pushed. Therefore I must have been misled into
+# closing the server." serve.py only stops the llama-server it started itself,
+# and everything it had to say about that went into a pipe nobody read.
+check("serve.py's own output is relayed into this terminal, not swallowed",
+      "def _relay_output" in src and "serve.py |" in src)
+check("...on a daemon thread, so it can never hold the process open at exit",
+      "daemon=True" in src.split("def _relay_output")[1].split("def start_serve")[0])
+stop = src.split("def stop_serve")[1].split("# ------")[0]
+check("the end of a run checks whether the port was really given up",
+      "did NOT let go of" in stop)
+check("...and says plainly when llama-server is still up and why",
+      "STILL RUNNING" in stop and "left it alone" in stop)
+check("...and says so when nothing is left, rather than staying silent",
+      "nothing left running from this run" in stop)
+check("it only ever LOOKS at llama-server -- stopping it is serve.py's job",
+      "LLAMA_PORT" in src and "llama-server" not in src.split("subprocess.Popen")[1].split(")")[0])
+
+
 # ---- Ctrl+C ----------------------------------------------------------------
 # "aborting the agent with ctrl + c should gracefully close, not show a
 # keyboard interrupt message." The point is not only the missing traceback:

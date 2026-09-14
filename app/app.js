@@ -4011,6 +4011,65 @@ window.CarWeb = (function () {
   // cars.json and never touches llm_families.json) changes nothing. This
   // re-reads the source articles and recomputes only that pointer, leaving
   // every code, year, credit and confirmation exactly where it was.
+  // ---------- "the model is still working" ----------
+  // Real bug report: "I must have been misled into closing the server, since I
+  // no longer saw any new operations occur (and my power draw level went down
+  // to a normal level, which only happens when the llm stops having something
+  // to execute)."
+  //
+  // Both observations were true and both were misleading. A cascade check is
+  // one long LLM call that writes nothing until it finishes, and the partners
+  // behind it are queued, not running -- so a page with five cars still to get
+  // through looks and draws exactly like a finished one. Stopping serve.py
+  // there throws away calls already paid for, and the car that was mid-check
+  // is left as a plain model with no record that anything was ever started for
+  // it. That is how the Renault Captur ended up with no entry at all.
+  //
+  // llm_families.js already knows the answer (pendingWork -- what is in
+  // flight, what is queued behind it, what is waiting on an article lookup);
+  // this just puts it on screen for as long as it is non-empty, and names the
+  // cars so the wait is legible rather than a spinner. Polled rather than
+  // pushed: the queue advances inside promise chains all over that file, and a
+  // second's lag on a minutes-long wait costs nothing next to threading a
+  // notification through every one of them.
+  let llmBusyTimer = null;
+  function initLlmBusy() {
+    const box = document.getElementById("llmbusy");
+    const text = document.getElementById("llmbusy-text");
+    if (!box || !text) return;
+    if (llmBusyTimer) clearInterval(llmBusyTimer);
+    const LF = window.LlmFamilies;
+    if (!LF || !LF.pendingWork) return;   // older build, nothing to report
+    function name(id) {
+      const n = byId.get(id);
+      return n ? ((n.make ? n.make + " " : "") + n.label) : id;
+    }
+    function tick() {
+      let p;
+      try { p = LF.pendingWork(); } catch (e) { return; }
+      if (!p || !p.total) { box.hidden = true; return; }
+      const running = p.checks.map(name);
+      const queued = p.partners.length + p.lookups.length;
+      // The distinction is the useful part: something IS being worked on right
+      // now, and separately there are N more behind it. A bare total reads as
+      // a progress bar with no end.
+      const head = running.length
+        ? "checking " + running.slice(0, 2).join(", ") +
+          (running.length > 2 ? ` +${running.length - 2}` : "")
+        : "starting the next check";
+      text.textContent = head + (queued ? ` — ${queued} more queued` : "");
+      box.title = "Still working on: " +
+        [...running, ...p.partners.map(name), ...p.lookups.map(name)].join(", ") +
+        ". Don't stop serve.py yet — a check that is cut off is lost.";
+      box.hidden = false;
+    }
+    tick();
+    // Fast enough that the label keeps up with a cascade moving from one car
+    // to the next, cheap enough to be irrelevant: two array reads and a string
+    // compare against a graph that is already in memory.
+    llmBusyTimer = setInterval(tick, 400);
+  }
+
   function initGenPhotos() {
     const trigger = document.getElementById("genphotosbtn");
     const panel = document.getElementById("genphotos-panel");
@@ -5806,6 +5865,7 @@ window.CarWeb = (function () {
         }
       }
       initGenPhotos();
+      initLlmBusy();
       initToolsMenu();
       initLlmRequest();
       initAutoRefresh();

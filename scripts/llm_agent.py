@@ -56,6 +56,7 @@ import signal
 import socket
 import subprocess
 import sys
+import threading
 import time
 import urllib.error
 import urllib.request
@@ -67,6 +68,11 @@ LLM_FAMILIES = os.path.join(APP, "llm_families.json")
 
 QUEUE = os.environ.get("CARWEB_QUEUE_URL", "https://carweb.quirksandfeats.workers.dev")
 PORT = int(os.environ.get("CARWEB_PORT", "8077"))
+# Read the same way serve.py reads it (loopback only, same default), so "is
+# the model still up?" is asked of the right address rather than guessed. Only
+# ever used to LOOK -- nothing here starts or stops llama-server, serve.py
+# owns that.
+LLAMA_PORT = int(os.environ.get("LLAMA_PORT", "8080"))
 
 # The token, from the environment or from a file. An `export` lasts one shell,
 # so every new terminal met "set CARWEB_AGENT_TOKEN" again -- and a scheduled
@@ -309,6 +315,34 @@ def port_open(port):
         return s.connect_ex(("127.0.0.1", port)) == 0
 
 
+# Everything serve.py prints, echoed into this terminal as it arrives.
+#
+# It used to be swallowed whole: stdout was a PIPE nobody read unless serve.py
+# died during startup. That hid the two lines that matter most at the end of a
+# run -- "llama-server: already up ... (not ours, won't be stopped on exit)"
+# and "llama-server: stopping (pid N)" -- so whether the model was actually
+# going to be shut down was invisible, and so was every other thing serve.py
+# had to say while a scan was running.
+#
+# A daemon thread, so it can never hold the process open at exit, and its
+# output is prefixed to keep it distinguishable from this script's own log.
+def _relay_output(proc, tail):
+    def pump():
+        try:
+            for line in proc.stdout:
+                line = line.rstrip()
+                if not line:
+                    continue
+                tail.append(line)
+                del tail[:-40]
+                print(f"           serve.py | {line}", flush=True)
+        except Exception:
+            pass
+    t = threading.Thread(target=pump, daemon=True)
+    t.start()
+    return t
+
+
 def start_serve(cascade_depth=None):
     if port_open(PORT):
         sys.exit(f"something is already listening on :{PORT} -- stop it first, "
@@ -335,13 +369,15 @@ def start_serve(cascade_depth=None):
     # only inside it, and an Aborted let through would leave serve.py (and the
     # llama-server it just started) running with nothing holding a handle to
     # it.
+    tail = []
+    _relay_output(proc, tail)
     deadline = time.time() + 15 * 60
     try:
         while time.time() < deadline:
             if proc.poll() is not None:
-                out = (proc.stdout.read() or "").strip().splitlines()
+                time.sleep(0.3)   # let the relay thread drain the last of it
                 raise RuntimeError("serve.py exited before listening: " +
-                                   " / ".join(out[-4:] or ["no output"]))
+                                   " / ".join(tail[-4:] or ["no output"]))
             if port_open(PORT):
                 log("serve.py is up")
                 return proc
@@ -355,17 +391,39 @@ def start_serve(cascade_depth=None):
 
 
 def stop_serve(proc):
-    if proc is None or proc.poll() is not None:
+    """Stop serve.py, then say what is actually still running.
+
+    Real bug report: "the server wasn't closed automatically. I closed it when
+    the program said that the changes have been pushed. Therefore I must have
+    been misled into closing the server." Two things were hiding here. serve.py
+    only stops the llama-server IT started -- one that was already up when it
+    launched is deliberately left alone (see its start_llama_server) -- and
+    every word serve.py said about that went into a pipe nobody read. So the
+    honest thing is to check the ports afterwards and report what is left,
+    rather than printing "stopped" and letting the rest be a surprise.
+    """
+    if proc is None:
         return
-    log("stopping serve.py (SIGTERM -- its handler stops llama-server too)")
-    proc.send_signal(signal.SIGTERM)
-    try:
-        proc.wait(timeout=90)
-    except subprocess.TimeoutExpired:
-        log("serve.py did not exit in 90s; killing it")
-        proc.kill()
-        proc.wait(timeout=20)
-    log("serve.py stopped")
+    if proc.poll() is None:
+        log("stopping serve.py (SIGTERM -- its handler stops the llama-server it started)")
+        proc.send_signal(signal.SIGTERM)
+        try:
+            proc.wait(timeout=90)
+        except subprocess.TimeoutExpired:
+            log("serve.py did not exit in 90s; killing it")
+            proc.kill()
+            proc.wait(timeout=20)
+    time.sleep(0.5)   # let the relay thread print serve.py's last lines first
+    if port_open(PORT):
+        log(f"serve.py did NOT let go of :{PORT} -- something is still listening there")
+    else:
+        log("serve.py stopped")
+    if port_open(LLAMA_PORT):
+        log(f"llama-server is STILL RUNNING on :{LLAMA_PORT} -- it was already up before "
+            "this run, so serve.py left it alone. Nothing here will stop it; close it "
+            "yourself if you want the memory back.")
+    else:
+        log("llama-server is down too -- nothing left running from this run")
 
 
 # ----------------------------------------------------------------- the pass --
@@ -634,53 +692,68 @@ def pending_work(page):
 def settle_cascade(page, settle_seconds, quiet_seconds=60):
     """Wait until the background partner checks have actually stopped.
 
-    Two earlier versions of this got the "stopped" test wrong, in the same
-    way twice. The first declared the cascade finished after 9 seconds of no
-    new entries. The second raised that to a minute. Both were counting
-    STORED ENTRIES, and one check writes nothing for its whole duration -- a
-    long article on a local model runs for minutes, which is why the per-car
-    timeout is 600 seconds. A minute of no writes is the normal middle of a
-    single check.
+    Three earlier versions got the "stopped" test wrong, the first two in the
+    same way. Both counted STORED ENTRIES: one declared the cascade over after
+    9 seconds of no new ones, the next after a minute. But a check writes
+    nothing for its whole duration -- on a long article and a local model that
+    is minutes, which is why the per-car timeout is 600 seconds -- so a minute
+    of no writes is the normal middle of a single check, not the end of the
+    work.
 
     Real bug report, the Dacia Duster: its article named the Renault Captur,
-    the match was stored, and the Captur stayed a plain model with no entry
-    at all. Its check was queued and running when the browser closed. The
-    cascade had not declined it -- the run walked out on it.
+    the match was stored, and the Captur stayed a plain model with no entry at
+    all. Its check was queued and running when the browser closed. The cascade
+    had not declined it; the run walked out on it.
 
-    So the page is asked what it still has outstanding (pendingWork) instead
-    of being watched from outside. Nothing counts as quiet while any check is
-    in flight or any partner is queued behind one. settle_seconds is still
-    the hard cap, so a stuck page cannot hold a run open forever, but it is
-    now the only thing that ends the wait early.
+    So the page is asked what it still has outstanding (pendingWork) instead of
+    being watched from outside. Nothing counts as quiet while a check is in
+    flight or a partner is queued behind one.
+
+    The third mistake was this function's own clock. settle_seconds was a
+    TOTAL: a cascade of eight partners at two minutes each ran past it and got
+    cut off exactly like before, just later. It is an IDLE cap now, the same
+    shape --node-timeout already has: any progress -- an entry written, or the
+    set of cars being worked on changing -- puts it back to zero, so the cap
+    only ever fires on a page that is genuinely stuck, and a cascade that
+    keeps finishing cars keeps its licence to run. --budget-minutes is what
+    bounds the run as a whole.
     """
-    last, waited, quiet, said = entry_rows(page), 0, 0, None
-    while waited < settle_seconds:
+    last, idle, quiet, said = entry_rows(page), 0, 0, None
+    working = None
+    while idle < settle_seconds:
         page.wait_for_timeout(3000)
-        waited += 3
+        idle += 3
         now = entry_rows(page)
         if len(now) != len(last):
             report_new(now, last, "cascade")
-            last, quiet = now, 0
+            last, quiet, idle = now, 0, 0     # a car finished: real progress
         pend = pending_work(page)
         if pend and pend["total"]:
             quiet = 0
             names = ", ".join(pend["names"][:4])
             more = pend["total"] - min(4, len(pend["names"]))
             line = f"  still working on {names}" + (f" (+{more} more)" if more > 0 else "")
+            # Moving on to a different car is progress too, even before it
+            # writes anything -- otherwise a cascade whose cars each take
+            # longer than the cap would still be cut off partway through.
+            if pend["names"] != working:
+                working, idle = pend["names"], 0
             if line != said:
                 log(line)
                 said = line
             continue
+        working = None
         # pendingWork is None on a build that predates it -- fall back to the
         # old count-and-wait rather than refusing to settle at all.
         if len(now) == len(last):
             quiet += 3
             if quiet >= quiet_seconds:
                 return
-    log(f"  cascade still not quiet after {settle_seconds}s; moving on")
+    log(f"  nothing has moved for {settle_seconds}s; moving on")
     pend = pending_work(page)
     if pend and pend["total"]:
-        log(f"  {pend['total']} check(s) were still running: " + ", ".join(pend["names"][:8]))
+        log(f"  {pend['total']} check(s) were still running and will be lost: "
+            + ", ".join(pend["names"][:8]))
 
 
 # ------------------------------------------------------------------- git -----
@@ -854,7 +927,9 @@ def main():
                     help="override serve.py's CASCADE_MAX_DEPTH for this run "
                          "(default: whatever serve.py is already set to)")
     ap.add_argument("--settle-seconds", type=int, default=900,
-                    help="hard cap on waiting for a seed's cascade to finish")
+                    help="give up on a seed's cascade after this many seconds with NO "
+                         "progress at all; any car finishing, or the cascade moving on "
+                         "to a different car, resets it")
     ap.add_argument("--settle-quiet", type=int, default=60,
                     help="how many seconds with nothing new written counts as the "
                          "cascade being finished")

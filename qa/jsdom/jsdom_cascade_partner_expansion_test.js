@@ -23,6 +23,12 @@
 //    still waiting on an article lookup. The agent's settle waits on that now,
 //    so this asserts it is non-zero while the cascade is working and empty
 //    only once it genuinely is.
+//
+// 3. AND SAYING SO ON SCREEN. "I must have been misled into closing the
+//    server, since I no longer saw any new operations occur." Same silence,
+//    seen from the browser instead of the terminal: a page with five cars
+//    still to get through looks exactly like a finished one. #llmbusy names
+//    what is being worked on for as long as anything is.
 const { JSDOM } = require("jsdom");
 const fs = require("fs");
 const path = require("path");
@@ -136,6 +142,8 @@ const LF = window.LlmFamilies;
 check("the cascade budget for this run is at least one hop", LF.cascadeMaxDepth() >= 1, LF.cascadeMaxDepth());
 check("nothing is outstanding on a page nobody has asked anything of yet",
       LF.pendingWork().total === 0, JSON.stringify(LF.pendingWork()));
+const busy = window.document.getElementById("llmbusy");
+check("...and nothing claims to be working on it", busy && busy.hidden === true);
 
 cw.setLlmCheck(true);
 cw.openDetail(cw.byId.get(SEED));
@@ -144,10 +152,14 @@ cw.openDetail(cw.byId.get(SEED));
   // Catch the moment the seed is done but its partners are not: the entry
   // count has stopped moving and there is still real work running. That gap
   // is what the agent used to walk out on.
-  let sawPendingAfterSeed = false;
+  let sawPendingAfterSeed = false, sawBusyShown = false, busySaidWhat = "";
   for (let i = 0; i < 600; i++) {
     await sleep(25);
     const seed = LF.entryFor(SEED);
+    if (LF.pendingWork().total > 0 && !busy.hidden) {
+      sawBusyShown = true;
+      busySaidWhat = window.document.getElementById("llmbusy-text").textContent;
+    }
     if (seed && seed.status === "confirmed" && LF.pendingWork().total > 0) sawPendingAfterSeed = true;
     if (seed && seed.status === "confirmed" && LF.pendingWork().total === 0 &&
         PARTNERS.every(id => LF.entryFor(id))) break;
@@ -171,6 +183,13 @@ cw.openDetail(cw.byId.get(SEED));
 
   check("and once they are all done nothing is left outstanding",
         LF.pendingWork().total === 0, JSON.stringify(LF.pendingWork()));
+  check("the page said so on screen while the work was going on -- an idle-"
+        + "LOOKING page is what got serve.py stopped mid-check",
+        sawBusyShown, busySaidWhat);
+  check("...and it named a car rather than showing a bare spinner",
+        /Duskar|Capvor|Loganto|Kixby|queued|next check/.test(busySaidWhat), busySaidWhat);
+  check("...and it goes away once there is genuinely nothing left",
+        busy.hidden === true, busy.hidden + " / " + busy.textContent.trim());
   check("pendingWork names what it is waiting on, so the terminal can say so",
         Array.isArray(LF.pendingWork().checks) && Array.isArray(LF.pendingWork().partners) &&
         Array.isArray(LF.pendingWork().lookups));

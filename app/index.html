@@ -46,6 +46,13 @@
   <div id="llmrequest-wrap" hidden>
     <button id="llmrequest-btn" title="ask the machine running the local model to scan for missing generations">⚡ Request scan <span id="llmrequest-dot" hidden>●</span></button>
   </div>
+  <!-- Real bug report: "I must have been misled into closing the server,
+       since I no longer saw any new operations occur." A cascade check runs
+       for minutes and writes nothing at all while it does, so a page in the
+       middle of real work looked exactly like an idle one -- and stopping
+       serve.py there throws away calls already paid for. This says what is
+       still being worked on, for as long as anything is. -->
+  <div id="llmbusy" hidden title="the local model is still working -- don't stop serve.py yet"><span class="llmbusy-dot">●</span> <span id="llmbusy-text"></span></div>
 </header>
 
 
