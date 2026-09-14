@@ -310,6 +310,18 @@
     <button id="llmdebug-close">✕</button>
   </div>
   <p class="llmdebug-note"></p>
+  <!-- Decisions whose car is no longer in the graph. Hidden when there are
+       none, which is the normal state -- see app.js's renderOrphans and
+       llm_families.js's orphanedEntries for what counts and why. Shown right
+       at the top of this panel because it is the one thing in here that can
+       be true without anything looking wrong anywhere else. -->
+  <div class="llmdebug-section" id="llmdebug-orphans" hidden>
+    <label>Decisions pointing at cars that are gone</label>
+    <p class="llmdebug-note" id="llmdebug-orphans-note"></p>
+    <details><summary id="llmdebug-orphans-summary">show them</summary>
+      <ul id="llmdebug-orphans-list" class="llmdebug-orphans-list"></ul>
+    </details>
+  </div>
   <div class="llmdebug-section">
     <button id="llmdebug-clearall" class="llm-btn">Clear ALL checked cars</button>
   </div>

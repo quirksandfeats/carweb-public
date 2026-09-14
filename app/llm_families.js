@@ -1450,6 +1450,62 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
     return { confirmed, dropped };
   }
 
+  // ---------- decisions whose car is no longer in the graph ----------
+  // Real user question, about rebuilding often: "would there be an issue with
+  // the cars that were created with the LLM or by hand in this case?"
+  //
+  // Mostly no -- ids are derived from make and label, so a rebuild reproduces
+  // them, and everything in this store is replayed over the new bake. The one
+  // way work detaches is when the car's own IDENTITY moves under it: DBpedia
+  // renames the article or changes the manufacturer, the id changes with it,
+  // and every entry here pointing at the old id is aimed at nothing.
+  //
+  // Nothing breaks when that happens, which is the problem. A split keyed to
+  // a vanished id simply never applies, a relation with a missing endpoint is
+  // skipped, a patch is pruned -- so a nameplate you split quietly goes back
+  // to being one model and the entry sits in the file doing nothing. This
+  // counts them, so a rebuild's drift is a number you can look at instead of
+  // something you notice months later.
+  //
+  // Only the buckets where an orphan means a DECISION has stopped applying.
+  // `deletions` and `purged` are deliberately excluded: a deletion whose car
+  // is gone has got what it wanted, and reporting it as a problem would bury
+  // the real ones. genIdA/genIdB are excluded for the same reason -- those
+  // name generations this layer itself mints, which do not exist until the
+  // split they belong to is applied.
+  function orphanedEntries(byId) {
+    const out = [];
+    const nameOf = (id) => {
+      const n = byId.get(id);
+      return n ? ((n.make ? n.make + " " : "") + n.label) : id;
+    };
+    const scan = (bucket, what, labelOf) => {
+      const store_ = store[bucket] || {};
+      Object.keys(store_).forEach(id => {
+        if (byId.has(id)) return;
+        out.push({ bucket, what, id, label: (labelOf && labelOf(store_[id], id)) || id });
+      });
+    };
+    scan("families", "generation split");
+    scan("recheck", "generation-list re-check");
+    scan("wpLinks", "Wikipedia link you pasted", (v, id) => id + " → " + v);
+    scan("genResearch", "generation research");
+    scan("merges", "merge into a nameplate", v => (v && v.label) || null);
+    scan("renames", "rename", v => v && v.previousLabel && (v.previousLabel + " → " + v.label));
+    scan("unmerges", "un-merge");
+    // A relation needs BOTH its nameplate-level ends. Reported once, by key.
+    Object.keys(store.relations || {}).forEach(key => {
+      const e = store.relations[key];
+      if (!e) return;
+      const missing = [e.famA, e.famB].filter(id => id && !byId.has(id));
+      if (!missing.length) return;
+      out.push({ bucket: "relations", what: "connection you decided", id: key,
+                 label: nameOf(e.famA) + " ↔ " + nameOf(e.famB) +
+                        " (" + (e.relType || "?") + ", " + (e.status || "?") + ")" });
+    });
+    return out;
+  }
+
   // ---------- hallucination guard, code half: match COMPONENTS, not one composed string ----------
   // Real bug report (Toyota 86): the model returned a perfectly correct,
   // fully-sourced generation list -- {"code": "ZN6/ZC6 (First generation)"},
@@ -8084,6 +8140,7 @@ Rules:
     refreshGenerationImages,
     setDecisionSource, decisionSource: () => decisionSource,
     resolveWeakRelations, makeRelationship, weakProposalRejection,
+    orphanedEntries,
     parseLlmJson, codeAnchorIn, codeVerifiedIn, findGenerationImage, infoboxImageForCode,
     looksLikePlatformNotCar,
     // Exposed for the regression suite only: a persisted proposal from before

@@ -2883,7 +2883,54 @@ window.CarWeb = (function () {
       if (!n) return fallback || id;
       return n.make ? `${n.make} ${n.label}` : n.label;
     }
+    // Decisions whose car is no longer in the graph. See llm_families.js's
+    // orphanedEntries for what counts and why deletions are excluded.
+    //
+    // This exists because a rebuild is the one operation that can silently
+    // detach your work: node ids come from make and label, so a rebuild
+    // reproduces them -- but if DBpedia renames an article or changes a
+    // manufacturer, that car's id moves and every decision pointing at the old
+    // one is aimed at nothing. Nothing breaks, which is the problem: the split
+    // just stops applying, and the nameplate quietly goes back to being one
+    // model. A number you can look at after a rebuild beats noticing in a
+    // month.
+    function renderOrphans() {
+      const box = document.getElementById("llmdebug-orphans");
+      const noteEl = document.getElementById("llmdebug-orphans-note");
+      const listEl = document.getElementById("llmdebug-orphans-list");
+      const summary = document.getElementById("llmdebug-orphans-summary");
+      if (!box || !listEl || !LF.orphanedEntries) return;
+      let items = [];
+      try { items = LF.orphanedEntries(byId) || []; } catch (e) { return; }
+      box.hidden = items.length === 0;
+      if (!items.length) return;
+      if (noteEl) {
+        noteEl.textContent = items.length + (items.length === 1 ? " decision" : " decisions") +
+          " point at a car that is not in the graph any more — usually because a " +
+          "rebuild picked the car up under a different name or maker, which changes " +
+          "its id. They are doing nothing, and nothing is broken: the work is still " +
+          "recorded, it just no longer reaches a car. Re-checking the car under its " +
+          "new name re-does it; deleting the entry below clears it out.";
+      }
+      if (summary) summary.textContent = "show the " + items.length;
+      listEl.innerHTML = "";
+      items.slice(0, 200).forEach(it => {
+        const li = document.createElement("li");
+        const b = document.createElement("b");
+        b.textContent = it.what;
+        li.appendChild(b);
+        li.appendChild(document.createTextNode(" — " + it.label));
+        listEl.appendChild(li);
+      });
+      if (items.length > 200) {
+        const li = document.createElement("li");
+        li.textContent = "…and " + (items.length - 200) + " more";
+        listEl.appendChild(li);
+      }
+    }
+
     function refresh() {
+      renderOrphans();
       const genEntries = LF.allEntries();
       const recheckEntries = LF.allRecheckEntries ? LF.allRecheckEntries() : [];
       const relationEntries = LF.allRelationEntries ? LF.allRelationEntries() : [];

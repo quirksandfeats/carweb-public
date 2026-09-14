@@ -422,6 +422,15 @@ main{flex:1; position:relative; min-height:0}
 }
 #toolsmenu[hidden]{display:none}
 
+/* Decisions whose car is no longer in the graph -- see app.js's renderOrphans.
+   Deliberately plain: it is a list to read once after a rebuild, not a
+   control. */
+#llmdebug-orphans[hidden]{display:none}
+.llmdebug-orphans-list{margin:6px 0 0 16px; padding:0; font-size:11.5px;
+                       color:var(--ink2); line-height:1.6; max-height:220px; overflow-y:auto}
+.llmdebug-orphans-list li{margin:0 0 2px}
+.llmdebug-orphans-list b{font-weight:600; color:var(--ink)}
+
 /* ---------- the phone nav menu (see app.js's initPhoneNav) ---------- */
 /* Fixed for the same reason #toolsmenu is: #topbar clips whatever hangs below
    its own box. The controls moved in here keep their own styling; all this
