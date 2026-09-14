@@ -137,5 +137,55 @@ check("new person node has a degree > 0", filczer.deg > 0, filczer.deg);
 check("new person node has a radius set", typeof filczer.r === "number" && filczer.r > 0, filczer.r);
 check("new person node is visible (not hidden by layer/family logic)", cw.nodeInLayer(filczer));
 
+// ---------- where a credit came from stays visible ----------
+// Real user question: "Where does the engineer data come from? Is it truly not
+// coming from the LLM wikipedia pages at all? Does it also not come from
+// dbpedia?"
+//
+// The build-time engineers layer is hand-compiled (data_src/d_engineers.py)
+// and DBpedia contributes none of it -- harvest.py queries no engineer
+// predicate at all. But the LLM generation check reads engineers off the
+// article too, and those credits used to enter the graph indistinguishable
+// from the hand-checked ones: same list, same styling, no marker anywhere.
+// Every credit the LLM layer creates carries llmDiscovered now.
+{
+  const credits = cw.links.filter(l => (l.type === "designed" || l.type === "engineered") &&
+    (l.tn === filczer || l.tn === giugiaro) && (l.sn === g1 || l.sn === g2 || l.sn === g3 || l.sn === after));
+  check("the LLM's own person credits are marked as its own", credits.length > 0 &&
+        credits.every(l => l.llmDiscovered === true),
+        credits.filter(l => !l.llmDiscovered).length + " of " + credits.length + " unmarked");
+
+  // ...and the marker has to survive into what a person actually reads.
+  cw.openDetail(g2);
+  const rows = [...window.document.querySelectorAll(".dt-connections .dt-conn")];
+  const filczerRow = rows.find(b => b.textContent.includes("Filczer"));
+  check("the card marks a model-read credit", !!filczerRow && /🤖/.test(filczerRow.innerHTML),
+        filczerRow && filczerRow.textContent.trim());
+  check("...with a title that says what the mark means",
+        !!filczerRow && /Wikipedia article by the local model/.test(filczerRow.innerHTML));
+
+  // A hand-compiled credit from d_engineers.py must NOT be marked, or the
+  // distinction is worthless. Colin Chapman is in that table.
+  const chapman = [...cw.byId.values()].find(n => n.type === "person" && n.label === "Colin Chapman");
+  if (chapman) {
+    const curated = cw.links.filter(l => l.type === "engineered" && l.tn === chapman && !l.llmDiscovered);
+    check("a hand-compiled engineer credit is NOT marked as the model's",
+          curated.length > 0, curated.length + " unmarked Chapman credits");
+    const car = curated.length && (curated[0].sn === chapman ? curated[0].tn : curated[0].sn);
+    if (car) {
+      cw.openDetail(car);
+      const r2 = [...window.document.querySelectorAll(".dt-connections .dt-conn")]
+        .find(b => b.textContent.includes("Chapman"));
+      check("...and the card leaves it unmarked too", !!r2 && !/🤖/.test(r2.innerHTML),
+            r2 && r2.textContent.trim());
+    }
+  }
+
+  const footer = fs.readFileSync(path.join(APP, "index.html"), "utf-8");
+  check("the footer says what the mark means rather than claiming the whole "
+        + "layer is hand-verified",
+        /hand-verified, [^<]*marks a credit read by the local model/.test(footer));
+}
+
 console.log("\n" + (fails === 0 ? "ALL GREEN" : fails + " FAILURE(S)"));
 process.exit(fails === 0 ? 0 : 1);

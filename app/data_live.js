@@ -571,10 +571,49 @@ WHERE{
                 "from disk will all do this.", { noApply: true });
           return;
         }
+        // Real bug report, the third time this loop has been reported: refresh
+        // says "0 new models, 283 new connections", Apply, refresh says "1 new
+        // connection", Apply, and then 283 again -- with the connection count
+        // swinging between two values forever.
+        //
+        // Every previous round of this was diagnosed by reasoning backwards
+        // from the numbers, because the mechanism itself said nothing. It is
+        // not reproducible from the DBpedia response alone (eight cycles
+        // against the real harvest CSV, full and deliberately partial, settle
+        // after one), so the cause is in the round trip through localStorage
+        // and the boot splice -- and that is exactly the part with no output.
+        //
+        // This is the fingerprint, stated directly. A link this round found as
+        // NEW that was ALREADY sitting in the delta we had cached means the
+        // splice did not stick: it was saved, the reload was supposed to put
+        // it into the graph, and the graph came back without it. Nothing else
+        // produces that combination. Saying so turns the loop from something
+        // to be deduced into something the toast tells you, and names the
+        // usual causes rather than offering an Apply that will not hold.
+        const priorKeys = new Set();
+        for (const l of ((bootSnap && bootSnap.newLinks) || [])) {
+          priorKeys.add(lid(l.source) + "|" + lid(l.target) + "|" + l.type);
+          priorKeys.add(lid(l.target) + "|" + lid(l.source) + "|" + l.type);
+        }
+        const rediscovered = (diff.deltaLinks || []).filter(l =>
+          priorKeys.has(lid(l.source) + "|" + lid(l.target) + "|" + l.type)).length;
         bootSnap = delta; // so a THIRD refresh this same session also accumulates correctly
+        if (rediscovered) {
+          status("live · " + rediscovered + " connections keep coming back -- the saved "
+                 + "update is not being applied");
+          toast("This refresh found " + rediscovered + " connection(s) that were already "
+                + "saved from a previous one, which means Apply is not sticking: the update "
+                + "is stored, but the page comes back without it. Usually the data snapshot "
+                + "was rebuilt underneath it (the cached update only fits the bake it was "
+                + "computed against, " + (bootSnap.generated || "unknown") + "), or this "
+                + "browser is clearing site data between visits. Applying again will not "
+                + "help until that stops.", { noApply: true });
+          return;
+        }
         status("live · +" + diff.newModels + " models, +" + diff.newLinks + " connections found");
         toast("DBpedia refresh: " + diff.newModels + " new models, " + diff.newLinks +
-              " new connections" + (applicableUpdates ? ", " + applicableUpdates + " updated" : ""));
+              " new connections" + (applicableUpdates ? ", " + applicableUpdates + " updated" : "") +
+              " · " + delta.newLinks.length + " held for the next reload");
       } else {
         status(liveLabel(true));
       }

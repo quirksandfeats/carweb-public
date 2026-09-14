@@ -252,6 +252,12 @@ main{flex:1; position:relative; min-height:0}
 .dt-extract a{color:var(--accent)}
 .dt-connections{margin-top:12px; border-top:1px solid var(--hairline); padding-top:10px}
 .dt-connections h4{font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:var(--muted); margin:8px 0 4px}
+/* A person credit the local model read off a Wikipedia article, as opposed to
+   one from the hand-compiled engineers/designers tables. See app.js's
+   creditIsLlmSourced: without this the two were indistinguishable on the
+   card, which made "engineers layer hand-verified" in the footer read as a
+   claim about more than it covers. */
+.conn-llm{font-size:9px; opacity:.75; vertical-align:1px}
 .dt-conn{display:block; width:100%; text-align:left; background:none; border:0; font-family:var(--sans);
   font-size:12.5px; padding:4px 2px; cursor:pointer; color:var(--ink); border-radius:4px}
 .dt-conn:hover{background:var(--paper2)}

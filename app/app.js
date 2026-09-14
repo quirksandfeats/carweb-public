@@ -1204,6 +1204,24 @@ window.CarWeb = (function () {
     const conns = n.type === "person"
       ? personCreditedCars(n.id).map(c => ({ n: c.node, l: c.link }))
       : adj.get(n.id);
+    // Real user question: "Where does the engineer data come from? Is it truly
+    // not coming from the LLM wikipedia pages at all?"
+    //
+    // Fair question, and the honest answer was "mostly". The BUILD-time
+    // engineers layer is hand-compiled (data_src/d_engineers.py -- documented
+    // chief-engineer and project-lead attributions, which is why the footer
+    // calls it hand-verified) and DBpedia contributes none of it: harvest.py
+    // does not query any engineer predicate at all. But the LLM generation
+    // check reads designers AND engineers off the article, and those credits
+    // go into the graph the same way, as ordinary designed/engineered links.
+    //
+    // Which meant the two were indistinguishable once in: a name read off a
+    // Wikipedia paragraph by a 9B model sat in the same list, in the same
+    // style, as one that had been checked by hand. Every credit the LLM layer
+    // creates now carries llmDiscovered, and this is where that shows.
+    const creditIsLlmSourced = l => !!(l && l.llmDiscovered &&
+      (l.type === "designed" || l.type === "engineered"));
+    const llmCredited = new Set();
     conns.forEach(({ n: o, l }) => {
       if (o.retired) return;  // superseded by a nameplate generation-list override, see nodeInLayer
       // A link severed along with its deleted LLM-discovered relationship
@@ -1219,6 +1237,7 @@ window.CarWeb = (function () {
       const dir = l.sn === n ? 0 : 1;
       let verb = (verbs[l.type] || ["linked to", "linked to"])[dir];
       if (l.type === "engineered" && l.note) verb = `engineered by · ${l.note}`;
+      if (creditIsLlmSourced(l)) llmCredited.add(verb + "|" + o.id);
       (groups[verb] = groups[verb] || []).push(o);
     });
     // One car, one row. Real bug report: the Cupra Terramar's "shares platform
@@ -1241,8 +1260,11 @@ window.CarWeb = (function () {
       arr.sort((a, b) => (a.year || 0) - (b.year || 0)).forEach(o => {
         const b = document.createElement("button");
         b.className = "dt-conn";
+        const fromLlm = llmCredited.has(verb + "|" + o.id);
         b.innerHTML = `${(o.type === "model" || o.type === "family") ? o.make + " " + o.label : o.label}` +
-          ((o.type === "model" || o.type === "family") ? ` <span class="verb">${o.year}</span>` : "");
+          ((o.type === "model" || o.type === "family") ? ` <span class="verb">${o.year}</span>` : "") +
+          (fromLlm ? ` <span class="conn-llm" title="read off the Wikipedia article by the local model, not from the hand-verified engineers table">🤖</span>` : "");
+        if (fromLlm) b.classList.add("from-llm");
         b.onclick = () => api.goto(o.id);
         conn.appendChild(b);
       });

@@ -78,6 +78,15 @@ async function pageLoad(storage, opts) {
     };
   }
   window.CARDATA = baseData();
+  if (opts.noSplice) {
+    // The save worked, the splice did not. Swallowing the pushes the boot
+    // splice makes is the smallest faithful way to produce that: the delta is
+    // in storage and passes the bake check, so data_live believes it applied
+    // it, and the graph it then measures DBpedia against does not have it.
+    // merge() works on a fresh parse of PRISTINE, so its own array is normal.
+    window.CARDATA.links.push = function () { return this.length; };
+    window.CARDATA.nodes.push = function () { return this.length; };
+  }
   window.fetch = async (url) => {
     if (String(url).includes("dbpedia")) return { ok: true, text: async () => CSV };
     return { ok: true, json: async () => ({ query: { categorymembers: [] } }) };  // no wiki-recent rows
@@ -229,6 +238,37 @@ async function pageLoad(storage, opts) {
     check("...and doesn't carry the stale entries forward",
           !(stored.newNodes || []).some(n => n.id === "m-ford-ghost"),
           JSON.stringify((stored.newNodes || []).map(n => n.id)));
+  }
+
+  // ---------- and when Apply genuinely does not stick, it SAYS so ----------
+  // Real bug report, the third time this loop has been reported: refresh says
+  // "0 new models, 283 new connections", Apply, refresh says "1 new
+  // connection", Apply, then 283 again, with the connection count swinging
+  // between two values forever.
+  //
+  // Every earlier round of it was diagnosed by reasoning backwards from the
+  // numbers, because the mechanism said nothing at all -- and this one is not
+  // reproducible from the DBpedia response alone (eight cycles against the
+  // real harvest CSV, full and deliberately partial, settle after one). The
+  // fingerprint is specific though: a link found as NEW this round that was
+  // ALREADY in the delta saved last round means the save worked and the splice
+  // did not. Nothing else produces that.
+  //
+  // Simulated by keeping the saved delta in storage while handing the page a
+  // graph that never receives it -- which is what a failed splice looks like
+  // from the refresh's point of view.
+  {
+    const firstRun = await pageLoad({});
+    const saved = firstRun.storage["carweb_live_snapshot_v1"];
+    const stuck = await pageLoad({ "carweb_live_snapshot_v1": saved }, { noSplice: true });
+    check("a refresh that rediscovers its own saved connections says the "
+          + "update is not being applied",
+          /not being applied|already .*saved/.test(stuck.status + " " + stuck.toast),
+          stuck.toast || stuck.status);
+    check("...and does not offer an Apply that cannot hold", stuck.applyHidden === true,
+          "applyHidden=" + stuck.applyHidden);
+    check("...and names the bake the stored update belongs to, since a rebuild "
+          + "underneath it is the usual cause", /2026-08-27/.test(stuck.toast), stuck.toast);
   }
 
   console.log("\n" + fails + " failure(s)");

@@ -2323,6 +2323,10 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
       if (exists) continue;
       const nl = { source: ns, target: nt, type: l.type, rebound: true, reboundFrom: dupId };
       if (l.note) nl.note = l.note;
+      // A repointed credit is still the same credit, so it keeps whatever
+      // provenance the original had -- see app.js's creditIsLlmSourced for
+      // why a person credit's source has to stay distinguishable.
+      if (l.llmDiscovered) nl.llmDiscovered = true;
       if (l.llmResolved) { nl.llmResolved = true; if (l.llmResolvedKey) nl.llmResolvedKey = l.llmResolvedKey; }
       links.push(nl);
     }
@@ -4017,7 +4021,7 @@ Rules:
             const p = resolvePerson(name, role);
             if (!p) return;
             const already = links.some(l => l.source === nodeId && l.target === p.id && l.type === linkType);
-            if (!already) links.push({ source: nodeId, target: p.id, type: linkType });
+            if (!already) links.push({ source: nodeId, target: p.id, type: linkType, llmDiscovered: true });
           });
         });
         const dset = new Set(orig.designers || []);
@@ -4093,14 +4097,14 @@ Rules:
             allDesigners.add(name);
             const p = resolvePerson(name, "designer");
             if (p && !links.some(l => l.type === "designed" && l.source === nodeId && l.target === p.id)) {
-              links.push({ source: nodeId, target: p.id, type: "designed" });
+              links.push({ source: nodeId, target: p.id, type: "designed", llmDiscovered: true });
             }
           });
           (dup.engineers || []).forEach(name => {
             allEngineers.add(name);
             const p = resolvePerson(name, "engineer");
             if (p && !links.some(l => l.type === "engineered" && l.source === nodeId && l.target === p.id)) {
-              links.push({ source: nodeId, target: p.id, type: "engineered" });
+              links.push({ source: nodeId, target: p.id, type: "engineered", llmDiscovered: true });
             }
           });
         }
@@ -4182,7 +4186,7 @@ Rules:
           if (!p || seenOnThisGen.has("designed|" + p.id)) return;
           seenOnThisGen.add("designed|" + p.id);
           if (!links.some(l => l.type === "designed" && idOf(l.source) === gid && idOf(l.target) === p.id)) {
-            links.push({ source: gid, target: p.id, type: "designed" });
+            links.push({ source: gid, target: p.id, type: "designed", llmDiscovered: true });
           }
           famPersonLinks.set("designed|" + p.id, { type: "designed", personId: p.id });
         });
@@ -4191,7 +4195,7 @@ Rules:
           if (!p || seenOnThisGen.has("engineered|" + p.id)) return;
           seenOnThisGen.add("engineered|" + p.id);
           if (!links.some(l => l.type === "engineered" && idOf(l.source) === gid && idOf(l.target) === p.id)) {
-            links.push({ source: gid, target: p.id, type: "engineered" });
+            links.push({ source: gid, target: p.id, type: "engineered", llmDiscovered: true });
           }
           famPersonLinks.set("engineered|" + p.id, { type: "engineered", personId: p.id });
         });
@@ -4201,7 +4205,7 @@ Rules:
       // up to the family node too (e.g. G-Class -> Balázs Filczer), same as
       // the build-time family layer already does for build-time families.
       famPersonLinks.forEach(({ type, personId }) => {
-        links.push({ source: nodeId, target: personId, type });
+        links.push({ source: nodeId, target: personId, type, llmDiscovered: true });
       });
 
       orig.type = "family";
@@ -7689,14 +7693,14 @@ Rules:
         allDesigners.add(name);
         const p = resolvePersonNode(nodes, byId, name, "designer");
         if (p && !links.some(l => l.type === "designed" && l.source === famId && l.target === p.id)) {
-          links.push({ source: famId, target: p.id, type: "designed" });
+          links.push({ source: famId, target: p.id, type: "designed", llmDiscovered: true });
         }
       });
       (o.engineers || []).forEach(name => {
         allEngineers.add(name);
         const p = resolvePersonNode(nodes, byId, name, "engineer");
         if (p && !links.some(l => l.type === "engineered" && l.source === famId && l.target === p.id)) {
-          links.push({ source: famId, target: p.id, type: "engineered" });
+          links.push({ source: famId, target: p.id, type: "engineered", llmDiscovered: true });
         }
       });
     });
@@ -7755,14 +7759,14 @@ Rules:
             allDesigners.add(name);
             const p = resolvePersonNode(nodes, byId, name, "designer");
             if (p && !links.some(l => l.type === "designed" && l.source === famId && l.target === p.id)) {
-              links.push({ source: famId, target: p.id, type: "designed" });
+              links.push({ source: famId, target: p.id, type: "designed", llmDiscovered: true });
             }
           });
           (dup.engineers || []).forEach(name => {
             allEngineers.add(name);
             const p = resolvePersonNode(nodes, byId, name, "engineer");
             if (p && !links.some(l => l.type === "engineered" && l.source === famId && l.target === p.id)) {
-              links.push({ source: famId, target: p.id, type: "engineered" });
+              links.push({ source: famId, target: p.id, type: "engineered", llmDiscovered: true });
             }
           });
         }
@@ -7833,7 +7837,7 @@ Rules:
         if (!p || seenOnThisGen.has("designed|" + p.id)) return;
         seenOnThisGen.add("designed|" + p.id);
         if (!links.some(l => l.type === "designed" && l.source === gid && l.target === p.id)) {
-          links.push({ source: gid, target: p.id, type: "designed" });
+          links.push({ source: gid, target: p.id, type: "designed", llmDiscovered: true });
         }
         famPersonLinks.set("designed|" + p.id, { type: "designed", personId: p.id });
       });
@@ -7842,14 +7846,14 @@ Rules:
         if (!p || seenOnThisGen.has("engineered|" + p.id)) return;
         seenOnThisGen.add("engineered|" + p.id);
         if (!links.some(l => l.type === "engineered" && l.source === gid && l.target === p.id)) {
-          links.push({ source: gid, target: p.id, type: "engineered" });
+          links.push({ source: gid, target: p.id, type: "engineered", llmDiscovered: true });
         }
         famPersonLinks.set("engineered|" + p.id, { type: "engineered", personId: p.id });
       });
     });
     famPersonLinks.forEach(({ type, personId }) => {
       if (!links.some(l => l.type === type && l.source === famId && l.target === personId)) {
-        links.push({ source: famId, target: personId, type });
+        links.push({ source: famId, target: personId, type, llmDiscovered: true });
       }
     });
 
