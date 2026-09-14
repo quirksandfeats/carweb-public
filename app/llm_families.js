@@ -231,6 +231,19 @@ window.LlmFamilies = (function () {
     // could have built a family, undoes all four the same way. Keyed by the
     // nameplate's node id -> {label, unmergedAt}. See applyUnmerges.
     unmerges: bootData.unmerges || {},
+    // What the orphan prune cleared, one line per decision -- see
+    // pruneStandInOrphans and clearRenamedOrphans.
+    //
+    // Loaded back here for a reason worth spelling out: `store` is an explicit
+    // literal of known keys, and persist() POSTs the whole of it. A key that
+    // is created only when the prune has something to clear therefore exists
+    // for exactly one session -- the run that cleared something writes it, and
+    // the very next persist() on a later boot, having never created the key,
+    // writes a store without it and silently wipes the archive from the file.
+    // Caught by reading the real llm_families.json after the first boot in the
+    // wild had cleared 78 stand-in entries: they were gone, correctly, and the
+    // record of them was gone too.
+    prunedDecisions: bootData.prunedDecisions || {},
   };
 
   // Whether /api/llm-families was actually reachable at boot — if not (e.g.

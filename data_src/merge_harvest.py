@@ -6,10 +6,22 @@ Writes d_auto.py  (AUTO_MODELS, AUTO_MAKES, AUTO_DESIGNERS, SUCCESSION, RELATED)
        harvest/merge_report.txt
 Curated tables (d_models/d_people/d_links) always win on conflicts.
 """
-import csv, io, re, sys, unicodedata
+import csv, datetime, io, re, sys, unicodedata
 from collections import defaultdict, Counter
 from d_people import MAKES as CUR_MAKES, DESIGNERS as CUR_DESIGNERS
 from d_models import MODELS as CUR_MODELS
+
+# A model year one ahead of today is real: cars are announced, and get their
+# article, before they are sold. Anything past that is a data error, not a new
+# car. Real user request: "I want all of the cars, newest or old, to be
+# included, so long as the models are not later than 1 year in the future."
+#
+# Read from the clock rather than written down. The old ceiling was a literal
+# 2026, which was current when it was typed and would have started silently
+# dropping every new car the moment the year turned -- the kind of bug that
+# looks like "the harvest found nothing new".
+MAX_MODEL_YEAR = datetime.date.today().year + 1
+MIN_MODEL_YEAR = 1880
 
 H = open("harvest/carweb_dbpedia_harvest.csv", encoding="utf-8").read()
 sections = {}
@@ -148,6 +160,10 @@ MAKE_ALIAS = {
     "Rolls Royce": "Rolls-Royce", "Range Rover": "Land Rover",
     "Mini": "Mini", "MINI": "Mini", "smart": "Smart",
     "Alpine (automobile)": "Alpine", "Lada": "Lada", "AvtoVAZ": "Lada",
+    # Same company, third spelling. Reached the title space once the hyphen
+    # split above started resolving "VAZ-2101", which coined a "VAZ" marque
+    # sitting next to the Lada one it belongs in.
+    "VAZ": "Lada",
     "Ramcharger": "Dodge", "Ram": "Dodge", "Scion": "Scion",
     "Vauxhall Motors": "Vauxhall", "General Motors": "General Motors",
     "Lynk & Co": "Lynk & Co", "Lynk&Co": "Lynk & Co",
@@ -214,6 +230,82 @@ def known_make_prefix(title_spaced):
         rest = title_spaced.strip()   # keep the sub-brand in the model name
     return canon, rest
 
+# Titles whose marque is not separated from the model by a space, so
+# known_make_prefix -- which matches on "<make> " -- never sees it.
+#
+#   "MGS5 EV"  is the MG S5 EV        (marque fused to the code)
+#   "ZAZ-969"  is a ZAZ 969           (marque hyphenated to the code)
+#   "1937 Ford" is a Ford             (marque behind a leading model year)
+#
+# All three used to fall through every path in the main loop and land in the
+# unmatched report, which is where they still were: coinable_marque rightly
+# refuses to coin "MGS5" as a marque -- that was a real bug once, a marque
+# owning one model called "EV" -- but nothing then tried the obvious split.
+# Real user request: "I want all of the cars, newest or old, to be included".
+#
+# The fused shape only ever resolves to a marque that ALREADY exists, so it
+# cannot invent one; the hyphenated shape may coin one, on the same terms as
+# every other coining site (coinable_marque, so no digits in the marque half).
+# Returns (make, rest), or (None, None) to leave the title to the next path.
+# What has to be left over after a known marque for the rest of the token to
+# be a model code rather than the tail of a longer word: an optional one- or
+# two-letter series, digits, an optional suffix. "MGS5" -> "S5", "MG3" -> "3",
+# "Mini1275GT" -> "1275GT". Requiring merely a digit somewhere was too loose:
+# it read "Mazdaspeed3" as Mazda + "speed3", when Mazdaspeed is a real
+# sub-brand and the car is the Mazdaspeed3.
+MODEL_CODE_RE = re.compile(r"^[A-Za-z]{0,2}\d+[A-Za-z]{0,3}$")
+
+def split_fused_make(title_spaced):
+    head = title_spaced.split(" (")[0].split()
+    if not head: return None, None
+    tok = head[0]
+    tail = title_spaced[len(tok):].strip()
+
+    # "1937 Ford", "1957 Chevrolet": the year is the disambiguator and the
+    # marque is the next word. The year stays in the model name -- it is what
+    # the car is called, and dropping it would collide with every other Ford.
+    if YEAR_LIKE.match(tok) and len(head) > 1:
+        after = title_spaced[len(tok):].strip()
+        # known_make_prefix matches on "<make> ", so it cannot see a title
+        # whose remainder IS the make with nothing after it -- which is
+        # exactly the shape here ("1937 Ford"). Try the bare name too.
+        mk, after_mk = known_make_prefix(after)
+        if not mk:
+            cand = after.split(" (")[0].strip()
+            for m in (cand, cand.split()[0] if cand.split() else ""):
+                if m in MAKE_ALIAS: mk = MAKE_ALIAS[m]; after_mk = ""; break
+                if m in ALL_MAKES: mk = m; after_mk = ""; break
+        # The year is the model name (a "1937 Ford" IS the 1937 Ford), plus
+        # anything the title says after the marque. Returning the whole title
+        # instead gave a model called "1937 Ford" under the make Ford, which
+        # renders as "Ford 1937 Ford".
+        if mk: return mk, (tok + " " + (after_mk or "")).strip()
+
+    # "ZAZ-969", "ZIS-110": alphabetic marque, hyphen, code.
+    if "-" in tok:
+        a, _, b = tok.partition("-")
+        if a and b and len(a) >= 2 and a.isalpha() and any(ch.isdigit() for ch in b):
+            canon = MAKE_ALIAS.get(a, a)
+            if canon in ALL_MAKES or coinable_marque(a):
+                return canon, (b + " " + tail).strip()
+
+    # "MGS5 EV", "MG3": a marque we already know, with the code run onto it.
+    # Longest match wins, and the remainder must carry a digit -- otherwise
+    # this would happily read "Mini" as "Mi" + "ni" for any two-letter marque.
+    if any(ch.isdigit() for ch in tok):
+        cands = [mk for mk in list(ALL_MAKES) + list(MAKE_ALIAS)
+                 if len(mk) >= 2 and tok.lower().startswith(mk.lower())
+                 and MODEL_CODE_RE.match(tok[len(mk):])]
+        if cands:
+            mk = max(cands, key=len)
+            return MAKE_ALIAS.get(mk, mk), (tok[len(mk):] + " " + tail).strip()
+    return None, None
+
+
+# Four digits inside the range MAIN rows are accepted in: anything matching
+# this, at the start of a title, is a model year rather than a marque.
+YEAR_LIKE = re.compile(r"^(1[89]\d\d|20\d\d)$")
+
 def coinable_marque(token):
     """Whether a leading title token may be registered as a brand-new marque.
 
@@ -229,7 +321,16 @@ def coinable_marque(token):
     A rejected title falls through to the manufacturer field, and failing that
     is reported as unmatched -- which is the honest outcome, and far better
     than a bogus marque diluting a 1,130-strong make list.
+
+    A token that is ALL digits is the interesting case, and the old rule got it
+    wrong in both directions by treating every number as a year. "1937 Ford"
+    really is a year. "212 X03" is not: 212 is a Chinese marque, and refusing
+    it left the car out of the graph entirely. So the test is whether the
+    number could be a model year at all -- four digits inside the range the
+    rest of this file accepts -- rather than whether it is a number.
     """
+    if YEAR_LIKE.match(token): return False        # a leading model year
+    if token.isdigit(): return True                # a numeric marque: 212
     return not any(ch.isdigit() for ch in token)
 
 
@@ -286,7 +387,7 @@ by_title = {}
 for s, y, e, mm, dd, rr, pp, ss in main_rows:
     if JUNK_TITLE.search(s): continue
     y = int(y)
-    if y < 1880 or y > 2026: continue
+    if y < MIN_MODEL_YEAR or y > MAX_MODEL_YEAR: continue
     if s in by_title:
         prev = by_title[s]
         if y < prev["y"]: prev["y"] = y
@@ -358,6 +459,7 @@ auto_models = []     # (make, name, y0, y1, [designers], wp, note)
 auto_makes = {}      # make -> (country, founded)
 auto_designers = {}  # name -> (kind,b,d,country,note)
 unmatched_make = Counter()
+marque_only = []     # titles that are a marque article, not a car -- see below
 title_to_ref = {}    # harvest title -> ("cur",(make,name)) | ("auto",(make,name))
 
 # pass 0: count first words so recurring unknown brands can become makes
@@ -395,6 +497,13 @@ for t, rec in sorted(by_title.items()):
     if key in cur_by_wp:
         title_to_ref[t] = ("cur", cur_by_wp[key]); continue
     make, rest = known_make_prefix(spaced)
+    if not make:
+        # The three shapes with no space between marque and model -- see
+        # split_fused_make. Tried before the manufacturer field because it
+        # resolves to a KNOWN marque and the manufacturer field, for these
+        # titles, is either empty (a RECENT top-up row has none) or
+        # self-referential.
+        make, rest = split_fused_make(spaced)
     if not make:
         # try manufacturer field
         for m in rec["mm"].split("~"):
@@ -455,7 +564,17 @@ for t, rec in sorted(by_title.items()):
         inner = name[1:-1].strip()
         if DISAMBIGUATOR_RE.search(inner) or DATE_RANGE_RE.match(inner):
             name = inner or make
-    if not name: continue
+    if not name:
+        # The title was nothing but a marque and a Wikipedia disambiguator --
+        # "Geo (automobile)", "Atvidaberg (automobile)". DBpedia types the
+        # MARQUE's own article as an Automobile, so it arrives here looking
+        # like a car; stripping the qualifier leaves no model name because
+        # there is no model. Dropping it is right (the marque itself is
+        # registered from the MAKES section, with its own cars underneath it),
+        # but it was dropped silently, which is how it ended up looking like a
+        # real car the pipeline had lost.
+        marque_only.append(spaced)
+        continue
     if (norm(make), norm(name)) in cur_by_mn:
         title_to_ref[t] = ("cur", cur_by_mn[(norm(make), norm(name))]); continue
     ds = clean_designers(rec["dd"])
@@ -473,11 +592,58 @@ for t, rec in sorted(by_title.items()):
     title_to_ref[t] = ("auto", (make, name))
 
 # succession / related edges (harvest-title space -> (make,name) refs)
+#
+# The lookup used to be title_to_ref alone, and title_to_ref only holds titles
+# that had a MAIN or RECENT row of their OWN. A related car that exists solely
+# in the curated tables therefore resolved to nothing and its edge was dropped
+# in silence.
+#
+# Real example: Peugeot 108's harvest row names "Citroen_C1~Toyota_Aygo". The
+# C1 has its own row, so that edge was built; Toyota Aygo is curated (there is
+# no harvest row for it), so Peugeot 108 <-> Aygo was lost. Same for
+# "Ford_F-Series", which is the F-150's article title (Navigator <-> F-150),
+# and "Proton_GEN.2", whose curated label is spelled "Gen 2".
+#
+# So fall back to the same two curated indexes the main loop matches titles
+# against, in the same order: the article title, then make + model name. norm()
+# strips punctuation and case, which is what makes GEN.2 and "Gen 2" the same
+# car. 8 real connections, found by the live DBpedia layer and never by the
+# pipeline, which is how the gap came to light at all.
+# The auto models, indexed the same two ways the curated ones already are.
+# Needed because the SAME car is referred to under several spellings across the
+# harvest: the Proton Gen 2 arrives as "Proton_Gen_2" (its own row, so it is in
+# title_to_ref), and as "Proton_Gen-2" and "Proton_GEN.2" in other cars'
+# related fields, neither of which matched anything. norm() drops case and
+# punctuation, so all three collapse onto one key.
+auto_by_wp = {}
+auto_by_mn = {}
+for (make, name, y0, y1, ds, wp, note) in auto_models:
+    auto_by_wp.setdefault(norm(wp or f"{make} {name}"), (make, name))
+    auto_by_mn.setdefault((norm(make), norm(name)), (make, name))
+
+def ref_for_title(x):
+    if x in title_to_ref: return title_to_ref[x][1]
+    spaced = deunder(x)
+    key = norm(spaced)
+    # Curated first, exactly as the main loop prefers it.
+    if key in cur_by_wp: return cur_by_wp[key]
+    if key in auto_by_wp: return auto_by_wp[key]
+    mk, rest = known_make_prefix(spaced)
+    if not mk: mk, rest = split_fused_make(spaced)
+    if mk and rest:
+        name = re.sub(r"\s*\((automobile|car|sedan|SUV)\)$", "", rest).strip()
+        mn = (norm(mk), norm(name))
+        if mn in cur_by_mn: return cur_by_mn[mn]
+        if mn in auto_by_mn: return auto_by_mn[mn]
+    return None
+
 def refs_of(field):
     out = []
     for x in field.split("~"):
         x = x.strip()
-        if x and x in title_to_ref: out.append(title_to_ref[x][1])
+        if not x: continue
+        r = ref_for_title(x)
+        if r: out.append(r)
     return out
 
 SUCCESSION, RELATED = [], []
@@ -562,9 +728,13 @@ with open("harvest/merge_report.txt", "w", encoding="utf-8") as f:
     f.write(f"auto designers:        {len(auto_designers)}\n")
     f.write(f"succession edges:      {len(SUCCESSION)}\n")
     f.write(f"related edges:         {len(RELATED)}\n")
-    f.write(f"unmatched (no make):   {len(unmatched_make)}\n\n")
+    f.write(f"unmatched (no make):   {len(unmatched_make)}\n")
+    f.write(f"marque articles, not cars: {len(marque_only)}\n")
+    f.write(f"model year ceiling:    {MAX_MODEL_YEAR}\n\n")
     f.write("---- unmatched titles ----\n")
     for t, _ in unmatched_make.most_common(400): f.write(t + "\n")
+    f.write("\n---- marque articles (the brand is registered; there is no car here) ----\n")
+    for t in sorted(marque_only): f.write(t + "\n")
 
 print(f"auto models={len(auto_models)} makes={len(auto_makes)} designers={len(auto_designers)} "
       f"succ={len(SUCCESSION)} rel={len(RELATED)} unmatched={len(unmatched_make)}")

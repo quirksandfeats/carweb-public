@@ -197,6 +197,15 @@ check("each item says what KIND of decision it was, not just an id",
   check("what was cleared is recorded, so nothing vanishes without a trace",
         ("families|" + STANDIN) in pruned && ("wpLinks|" + STANDIN2) in pruned,
         Object.keys(pruned).join(", "));
+  // The archive is only useful if it is still there next time. `store` is a
+  // literal of known keys and persist() POSTs all of it, so a key created only
+  // when there is something to clear lives for one session and the next boot's
+  // first persist wipes it. Found in the real file after the first boot in the
+  // wild cleared 78 entries and recorded none of them.
+  check("the archive is read back out of the store at boot, so it survives a "
+        + "reload rather than being wiped by the next save",
+        /prunedDecisions:\s*bootData\.prunedDecisions/.test(
+          require("fs").readFileSync(require("path").join(APP, "llm_families.js"), "utf-8")));
   check("...keyed by bucket as well as id, since one id can hold two "
         + "different decisions",
         Object.keys(pruned).length > 0 && Object.keys(pruned).every(k => k.includes("|")),

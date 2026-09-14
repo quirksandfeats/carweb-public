@@ -174,11 +174,11 @@ CONFIRMED FAMILIES (101) -- clean, unbroken succession chain
       GS[1991-2020] -> GS (S190)[2005-2011]
   Lexus IS  (2 generations, 1998–2013)
       IS[1998-] -> IS (XE20)[2005-2013]
+  Mazda 6  (2 generations, 2002–2024)
+      6[2002-2025] -> 6 (third generation)[2012-2024]
   Mazda MX-5  (4 generations, 1989–)
       MX-5 (NA)[1989-1997] -> MX-5 (NB)[1997-2005] -> MX-5 (NC)[2005-2015] -> MX-5 (ND)[2015-]
       EXCLUDED: MX-5 [1989-] id=m-mazda-mx-5 -- no succession link to any other candidate generation here
-  Mazda Mazda6  (2 generations, 2002–2024)
-      Mazda6[2002-2025] -> Mazda6 (third generation)[2012-2024]
   Mercedes-Benz A  (2 generations, 2012–)
       A-Class (W176)[2012-2012] -> A-Class (W177)[2018-]
       EXCLUDED: A-Class [1997-] id=m-mercedes-benz-a-class -- no succession link to any other candidate generation here
