@@ -19921,12 +19921,175 @@
      "Duster Oroch"
     ]
    }
+  },
+  "m-venucia-v-online|m-venucia-xing|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-14T20:25:23.192Z",
+   "decidedAt": "2026-09-14T20:25:23.192Z",
+   "famA": "m-venucia-xing",
+   "famB": "m-venucia-v-online",
+   "relType": "platform",
+   "codeA": "Xing",
+   "codeB": "V-Online",
+   "genIdA": "m-venucia-xing",
+   "genIdB": "m-venucia-v-online",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "m-mercedes-benz-b-class-w246|m-mercedes-benz-gla|related": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-14T20:26:15.113Z",
+   "decidedAt": "2026-09-14T20:26:15.113Z",
+   "autoConfirmed": true,
+   "famA": "m-mercedes-benz-gla",
+   "famB": "m-mercedes-benz-b-class-w246",
+   "relType": "related",
+   "note": "Mercedes-Benz GLA's own article says: \"{{Infobox automobile | image = Mercedes-Benz GLA 250 e AMG Line (H 247) – f 11042021 (exposure adjusted).jpg | caption = Mercedes-Benz GLA 250 e AMG Line (H 247) | name = Mercedes-Benz GLA | manufacturer = | production = 2013–present | model_years = 2014–present | class = Subcompact luxury crossover SUV (C) | layout = | body_style = 5-door SUV }} \n ==<span class=\"anchor\" id=\"X156\"></span>First generation (X156; 2013)== {{Infobox automobile | image = Mercedes-Benz GLA 200 CDI Urban (X 156) – Frontansicht, 30. August 2014, Düss…\" / Mercedes-Benz B-Class (W246)'s own article says: \"A-Class (W176)<br />GLA-Class (X156)<br />CLA-Class (C117) \n Mercedes-Benz MFA \n {{Infobox automobile | name = Mercedes-Benz B-Class (W246) | image = Mercedes-Benz B 200 CDI Sport-Paket (W 246) – Frontansicht, 21. April 2014, Düsseldorf.jpg | caption = 2014 Mercedes-Benz B 200 CDI pre-facelift 5-door hatchback (Germany) | production = November 2011 – December 2018 | model_years = 2012–2018 | manufacturer = Daimler AG | platform = Mercedes-Benz MFA | body_style = 5-door hatchback | class = Subcompact executive car (…\"",
+   "matchLevel": "generation",
+   "codeA": "GLA X156",
+   "codeB": "B-Class (W246)",
+   "genIdA": "llm-m-mercedes-benz-gla-x156",
+   "genIdB": "m-mercedes-benz-b-class-w246",
+   "reason": "matched from an explicit chassis/generation code found directly in one of the two Wikipedia articles' own text (the LLM separately agreed: The Wikipedia article for the B-Class (W246) explicitly lists the GLA-Class (X156) in its 'Sister models' section, confirming they are sibling models. This corresponds to the GLA X156 (2013–2019) generation and the B-Class (W246) (2011–2018) generation.)",
+   "debug": {
+    "raw": {
+     "resolved": true,
+     "codeA": "GLA X156",
+     "codeB": "B-Class (W246)",
+     "evidenceQuote": "A-Class (W176)<br />GLA-Class (X156)<br />CLA-Class (C117)<br />Mercedes-Benz MFA",
+     "reason": "The Wikipedia article for the B-Class (W246) explicitly lists the GLA-Class (X156) in its 'Sister models' section, confirming they are sibling models. This corresponds to the GLA X156 (2013–2019) generation and the B-Class (W246) (2011–2018) generation."
+    },
+    "evidenceCodeForA": "X156",
+    "evidenceCodeForB": null,
+    "ordinalFromNoteA": null,
+    "ordinalFromNoteB": null,
+    "ordinalBacked": false,
+    "evidenceQuote": "A-Class (W176)<br />GLA-Class (X156)<br />CLA-Class (C117)<br />Mercedes-Benz MFA",
+    "quoteVerified": false,
+    "llmVerified": false,
+    "knowledgeBacked": false,
+    "sourceAttributed": true,
+    "citedA": "GLA X156",
+    "citedB": "B-Class (W246)",
+    "citationBacked": false,
+    "quoteFabricated": true,
+    "fetchedArticleA": true,
+    "fetchedArticleB": true,
+    "availableCodesA": [
+     "GLA X156",
+     "GLA H247",
+     "GLA H248"
+    ],
+    "availableCodesB": [
+     "B-Class (W246)"
+    ]
+   }
+  },
+  "fam-mercedes-benz-b|m-mercedes-benz-gla|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-14T20:27:51.819Z",
+   "decidedAt": "2026-09-14T20:27:51.819Z",
+   "autoConfirmed": true,
+   "famA": "m-mercedes-benz-gla",
+   "famB": "fam-mercedes-benz-b",
+   "relType": "platform",
+   "note": "Mercedes-Benz GLA's own article says: \"{{Infobox automobile | image = Mercedes-Benz GLA 250 e AMG Line (H 247) – f 11042021 (exposure adjusted).jpg | caption = Mercedes-Benz GLA 250 e AMG Line (H 247) | name = Mercedes-Benz GLA | manufacturer = | production = 2013–present | model_years = 2014–present | class = Subcompact luxury crossover SUV (C) | layout = | body_style = 5-door SUV }} \n ==<span class=\"anchor\" id=\"X156\"></span>First generation (X156; 2013)== {{Infobox automobile | image = Mercedes-Benz GLA 200 CDI Urban (X 156) – Frontansic…\" / Mercedes-Benz B's own article says: \"… ever be offered in an electric variant, though it was only available in certain states that required ZEV mandates. It was originally rebadged as the B-Class Electric Drive, but in 2017, it was renamed the B250e. \n ==<span class=\"anchor\" id=\"W247\"></span> Third generation (W247; 2018) == {{Infobox automobile | name = Third generation | image = Mercedes-Benz W247 IMG 0380.jpg | caption = | production = December 2018 – 2026 | model_years = 2019–2026 | platform = MFA2 | related = A-Class (W177)<br>GLA-Class (H247)<br>CLA-Class (C118)<br>GLB-Class (X247) | engine = | transmission = | drivetrain = Mild Hybrid <br> Plug-in hybrid (B 250 e) | battery = 15.6kWh lithium-ion (Plug-in hybrid) | wheelbase = | length = | width = | height = | weight = | assembly = | designer = Slavche Tanevski | model_code = W247 }} The third generation B-Class was launched at the Paris Motor Show on 2 October 2018. At launch, the vehicle was claimed to feature the Intelligent Drive semi-automated driving system bor…\"",
+   "matchLevel": "generation",
+   "codeA": "GLA H247",
+   "codeB": "B-Class",
+   "genIdA": "llm-m-mercedes-benz-gla-h247",
+   "genIdB": "m-mercedes-benz-b-class",
+   "reason": "matched from an explicit chassis/generation code found directly in one of the two Wikipedia articles' own text",
+   "debug": {
+    "raw": {
+     "resolved": false,
+     "codeA": null,
+     "codeB": null,
+     "evidenceQuote": null,
+     "reason": "The provided text mentions that the third-generation B-Class (W247) shares the MFA2 platform with the GLA-Class (H247). However, the code list for Car A (Mercedes-Benz GLA) contains entries for X156, H247, and H248, but does not contain an entry for the fourth generation (H247) or any other GLA variant that shares the MFA2 platform. Since the specific GLA generation known to share the platform (H247) is absent from the provided list, and no other generation in the list (X156, H248) is confirmed by the text or general knowledge to share the MFA2 platform with the listed B-Class generations, the relationship cannot be resolved using the provided constraints."
+    },
+    "evidenceCodeForA": "H247",
+    "evidenceCodeForB": "B-Class",
+    "ordinalFromNoteA": null,
+    "ordinalFromNoteB": "B-Class",
+    "ordinalBacked": true,
+    "evidenceQuote": null,
+    "quoteVerified": false,
+    "llmVerified": false,
+    "knowledgeBacked": false,
+    "sourceAttributed": false,
+    "citedA": null,
+    "citedB": null,
+    "citationBacked": false,
+    "quoteFabricated": false,
+    "fetchedArticleA": true,
+    "fetchedArticleB": true,
+    "availableCodesA": [
+     "GLA X156",
+     "GLA H247",
+     "GLA H248"
+    ],
+    "availableCodesB": [
+     "B-Class",
+     "B-Class (W246)"
+    ]
+   }
+  },
+  "fam-mercedes-benz-b|m-mercedes-benz-gla|related": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-14T20:28:01.372Z",
+   "decidedAt": "2026-09-14T20:28:01.372Z",
+   "autoConfirmed": true,
+   "famA": "m-mercedes-benz-gla",
+   "famB": "fam-mercedes-benz-b",
+   "relType": "related",
+   "note": "Mercedes-Benz GLA's own article says: \"{{Infobox automobile | image = Mercedes-Benz GLA 250 e AMG Line (H 247) – f 11042021 (exposure adjusted).jpg | caption = Mercedes-Benz GLA 250 e AMG Line (H 247) | name = Mercedes-Benz GLA | manufacturer = | production = 2013–present | model_years = 2014–present | class = Subcompact luxury crossover SUV (C) | layout = | body_style = 5-door SUV }} \n ==<span class=\"anchor\" id=\"X156\"></span>First generation (X156; 2013)== {{Infobox automobile | image = Mercedes-Benz GLA 200 CDI Urban (X 156) – Frontansic…\" / Mercedes-Benz B's own article says: \"… ever be offered in an electric variant, though it was only available in certain states that required ZEV mandates. It was originally rebadged as the B-Class Electric Drive, but in 2017, it was renamed the B250e. \n ==<span class=\"anchor\" id=\"W247\"></span> Third generation (W247; 2018) == {{Infobox automobile | name = Third generation | image = Mercedes-Benz W247 IMG 0380.jpg | caption = | production = December 2018 – 2026 | model_years = 2019–2026 | platform = MFA2 | related = A-Class (W177)<br>GLA-Class (H247)<br>CLA-Class (C118)<br>GLB-Class (X247) | engine = | transmission = | drivetrain = Mild Hybrid <br> Plug-in hybrid (B 250 e) | battery = 15.6kWh lithium-ion (Plug-in hybrid) | wheelbase = | length = | width = | height = | weight = | assembly = | designer = Slavche Tanevski | model_code = W247 }} The third generation B-Class was launched at the Paris Motor Show on 2 October 2018. At launch, the vehicle was claimed to feature the Intelligent Drive semi-automated driving system bor…\"",
+   "matchLevel": "generation",
+   "codeA": "GLA H247",
+   "codeB": "B-Class",
+   "genIdA": "llm-m-mercedes-benz-gla-h247",
+   "genIdB": "m-mercedes-benz-b-class",
+   "reason": "matched from an explicit chassis/generation code found directly in one of the two Wikipedia articles' own text (the LLM separately agreed: The Wikipedia article for the Mercedes-Benz B-Class (specifically the third generation, W247) explicitly lists the 'GLA-Class (H247)' as a related model in its infobox. The H247 corresponds to the second generation of the GLA (produced 2019–2026), which is listed in the provided code list as 'GLA H247'. The relationship is based on the shared platform (MFA2) between the B-Class W247 and the GLA H247.)",
+   "debug": {
+    "raw": {
+     "resolved": true,
+     "codeA": "GLA H247",
+     "codeB": "B-Class (W246)",
+     "evidenceQuote": "related = A-Class (W177)<br>GLA-Class (H247)<br>CLA-Class (C118)<br>GLB-Class (X247)",
+     "reason": "The Wikipedia article for the Mercedes-Benz B-Class (specifically the third generation, W247) explicitly lists the 'GLA-Class (H247)' as a related model in its infobox. The H247 corresponds to the second generation of the GLA (produced 2019–2026), which is listed in the provided code list as 'GLA H247'. The relationship is based on the shared platform (MFA2) between the B-Class W247 and the GLA H247."
+    },
+    "evidenceCodeForA": "H247",
+    "evidenceCodeForB": "B-Class",
+    "ordinalFromNoteA": null,
+    "ordinalFromNoteB": "B-Class",
+    "ordinalBacked": true,
+    "evidenceQuote": "related = A-Class (W177)<br>GLA-Class (H247)<br>CLA-Class (C118)<br>GLB-Class (X247)",
+    "quoteVerified": true,
+    "llmVerified": false,
+    "knowledgeBacked": false,
+    "sourceAttributed": true,
+    "citedA": "GLA H247",
+    "citedB": "B-Class",
+    "citationBacked": true,
+    "quoteFabricated": false,
+    "fetchedArticleA": true,
+    "fetchedArticleB": true,
+    "availableCodesA": [
+     "GLA X156",
+     "GLA H247",
+     "GLA H248"
+    ],
+    "availableCodesB": [
+     "B-Class",
+     "B-Class (W246)"
+    ]
+   }
   }
  },
  "recheck": {
   "m-mercedes-benz-g-class": {
    "status": "none",
-   "checkedAt": "2026-09-13T22:03:23.426Z",
+   "checkedAt": "2026-09-14T20:25:21.294Z",
    "sourceTitle": "Mercedes-Benz G-Class",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -20010,7 +20173,7 @@
   },
   "m-mercedes-benz-gla": {
    "status": "none",
-   "checkedAt": "2026-09-13T22:03:23.487Z",
+   "checkedAt": "2026-09-14T20:25:21.359Z",
    "sourceTitle": "Mercedes-Benz GLA",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -20113,7 +20276,7 @@
   },
   "m-mercedes-benz-cla": {
    "status": "none",
-   "checkedAt": "2026-09-13T22:03:23.534Z",
+   "checkedAt": "2026-09-14T20:25:21.404Z",
    "sourceTitle": "Mercedes-Benz CLA",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -20395,7 +20558,7 @@
   },
   "m-toyota-celica": {
    "status": "none",
-   "checkedAt": "2026-09-13T22:03:23.599Z",
+   "checkedAt": "2026-09-14T20:25:21.465Z",
    "sourceTitle": "Toyota Celica",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -20511,7 +20674,7 @@
   },
   "m-toyota-carina": {
    "status": "none",
-   "checkedAt": "2026-09-13T22:03:23.678Z",
+   "checkedAt": "2026-09-14T20:25:21.541Z",
    "sourceTitle": "Toyota Carina",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -20639,7 +20802,7 @@
   },
   "m-lexus-sc": {
    "status": "none",
-   "checkedAt": "2026-09-13T22:03:23.685Z",
+   "checkedAt": "2026-09-14T20:25:21.546Z",
    "sourceTitle": "Lexus SC",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -21288,7 +21451,7 @@
   },
   "m-seat-toledo": {
    "status": "none",
-   "checkedAt": "2026-09-13T22:03:23.767Z",
+   "checkedAt": "2026-09-14T20:25:21.619Z",
    "sourceTitle": "SEAT Toledo",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -21419,7 +21582,7 @@
   },
   "m-daren-mk-3": {
    "status": "none",
-   "checkedAt": "2026-09-13T22:03:23.780Z",
+   "checkedAt": "2026-09-14T20:25:21.633Z",
    "sourceTitle": "Daren Mk.3",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -21494,7 +21657,7 @@
   },
   "m-audi-a3-mk3": {
    "status": "none",
-   "checkedAt": "2026-09-13T22:03:23.802Z",
+   "checkedAt": "2026-09-14T20:25:21.652Z",
    "sourceTitle": "Audi A3",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -21550,7 +21713,7 @@
   },
   "m-audi-tt": {
    "status": "none",
-   "checkedAt": "2026-09-13T22:03:23.900Z",
+   "checkedAt": "2026-09-14T20:25:21.746Z",
    "sourceTitle": "Audi TT",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -21690,7 +21853,7 @@
   },
   "m-seat-leon-mk3": {
    "status": "none",
-   "checkedAt": "2026-09-13T22:03:23.963Z",
+   "checkedAt": "2026-09-14T20:25:21.811Z",
    "sourceTitle": "SEAT León",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -21804,7 +21967,7 @@
   },
   "m-volkswagen-karmann-ghia": {
    "status": "none",
-   "checkedAt": "2026-09-13T22:03:23.997Z",
+   "checkedAt": "2026-09-14T20:25:21.842Z",
    "sourceTitle": "Volkswagen Karmann Ghia",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -21854,7 +22017,7 @@
   },
   "m-porsche-panamera": {
    "status": "none",
-   "checkedAt": "2026-09-13T22:03:23.984Z",
+   "checkedAt": "2026-09-14T20:25:21.830Z",
    "sourceTitle": "Porsche Panamera",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -21920,7 +22083,7 @@
   },
   "m-subaru-forester": {
    "status": "none",
-   "checkedAt": "2026-09-13T22:03:24.043Z",
+   "checkedAt": "2026-09-14T20:25:21.883Z",
    "sourceTitle": "Subaru Forester",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -22029,7 +22192,7 @@
   },
   "m-volkswagen-touran": {
    "status": "none",
-   "checkedAt": "2026-09-13T22:03:24.066Z",
+   "checkedAt": "2026-09-14T20:25:21.902Z",
    "sourceTitle": "Volkswagen Touran",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -22079,7 +22242,7 @@
   },
   "m-chevrolet-captiva": {
    "status": "none",
-   "checkedAt": "2026-09-13T22:03:24.145Z",
+   "checkedAt": "2026-09-14T20:25:21.975Z",
    "sourceTitle": "Chevrolet Captiva",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -22184,7 +22347,7 @@
   },
   "m-isuzu-trooper": {
    "status": "none",
-   "checkedAt": "2026-09-13T22:03:24.206Z",
+   "checkedAt": "2026-09-14T20:25:22.027Z",
    "sourceTitle": "Isuzu Trooper",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -22280,7 +22443,7 @@
   },
   "m-volkswagen-tiguan": {
    "status": "none",
-   "checkedAt": "2026-09-13T22:03:24.281Z",
+   "checkedAt": "2026-09-14T20:25:22.090Z",
    "sourceTitle": "Volkswagen Tiguan",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -22393,7 +22556,7 @@
   },
   "m-chrysler-horizon": {
    "status": "none",
-   "checkedAt": "2026-09-13T22:03:24.331Z",
+   "checkedAt": "2026-09-14T20:25:22.134Z",
    "sourceTitle": "Chrysler Horizon",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -22493,7 +22656,7 @@
   },
   "m-mercury-monterey": {
    "status": "none",
-   "checkedAt": "2026-09-13T22:03:24.440Z",
+   "checkedAt": "2026-09-14T20:25:22.225Z",
    "sourceTitle": "Mercury Monterey",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -22668,7 +22831,7 @@
   },
   "m-gmc-envoy": {
    "status": "none",
-   "checkedAt": "2026-09-13T22:03:24.462Z",
+   "checkedAt": "2026-09-14T20:25:22.243Z",
    "sourceTitle": "GMC Envoy",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -22721,7 +22884,7 @@
   },
   "m-chevrolet-trailblazer": {
    "status": "none",
-   "checkedAt": "2026-09-13T22:03:24.481Z",
+   "checkedAt": "2026-09-14T20:25:22.260Z",
    "sourceTitle": "Chevrolet TrailBlazer (SUV)",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -22772,7 +22935,7 @@
   },
   "m-oldsmobile-bravada": {
    "status": "none",
-   "checkedAt": "2026-09-13T22:03:24.521Z",
+   "checkedAt": "2026-09-14T20:25:22.295Z",
    "sourceTitle": "Oldsmobile Bravada",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -22852,7 +23015,7 @@
   },
   "m-buick-lacrosse": {
    "status": "none",
-   "checkedAt": "2026-09-13T22:03:24.547Z",
+   "checkedAt": "2026-09-14T20:25:22.319Z",
    "sourceTitle": "Buick LaCrosse",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -22928,7 +23091,7 @@
   },
   "m-buick-invicta": {
    "status": "none",
-   "checkedAt": "2026-09-13T22:03:24.565Z",
+   "checkedAt": "2026-09-14T20:25:22.334Z",
    "sourceTitle": "Buick Invicta",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -22979,7 +23142,7 @@
   },
   "m-buick-century": {
    "status": "none",
-   "checkedAt": "2026-09-13T22:03:24.651Z",
+   "checkedAt": "2026-09-14T20:25:22.421Z",
    "sourceTitle": "Buick Century",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -23131,7 +23294,7 @@
   },
   "m-jaguar-xjs": {
    "status": "none",
-   "checkedAt": "2026-09-13T22:03:24.666Z",
+   "checkedAt": "2026-09-14T20:25:22.434Z",
    "sourceTitle": "Jaguar XJS",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -23190,7 +23353,7 @@
   },
   "m-jaguar-e-type": {
    "status": "none",
-   "checkedAt": "2026-09-13T22:03:24.688Z",
+   "checkedAt": "2026-09-14T20:25:22.454Z",
    "sourceTitle": "Jaguar E-Type",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -23259,7 +23422,7 @@
   },
   "m-wuling-starlight": {
    "status": "none",
-   "checkedAt": "2026-09-13T22:03:24.722Z",
+   "checkedAt": "2026-09-14T20:25:22.485Z",
    "sourceTitle": "Wuling Starlight",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -23323,7 +23486,7 @@
   },
   "m-jeep-compass": {
    "status": "none",
-   "checkedAt": "2026-09-13T22:03:24.770Z",
+   "checkedAt": "2026-09-14T20:25:22.527Z",
    "sourceTitle": "Jeep Compass",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -23407,7 +23570,7 @@
   },
   "m-mazda-tribute": {
    "status": "none",
-   "checkedAt": "2026-09-13T22:03:24.781Z",
+   "checkedAt": "2026-09-14T20:25:22.538Z",
    "sourceTitle": "Mazda Tribute",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -23444,7 +23607,7 @@
   },
   "m-mazda-cx-5": {
    "status": "none",
-   "checkedAt": "2026-09-13T22:03:24.795Z",
+   "checkedAt": "2026-09-14T20:25:22.552Z",
    "sourceTitle": "Mazda CX-5",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -23499,7 +23662,7 @@
   },
   "m-baojun-730": {
    "status": "none",
-   "checkedAt": "2026-09-13T22:05:38.428Z",
+   "checkedAt": "2026-09-14T20:25:22.556Z",
    "sourceTitle": "Baojun 730",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -23534,7 +23697,7 @@
   },
   "m-dacia-duster": {
    "status": "none",
-   "checkedAt": "2026-09-13T22:06:38.980Z",
+   "checkedAt": "2026-09-14T20:25:22.603Z",
    "sourceTitle": "Dacia Duster",
    "proposal": {
     "hasMultipleGenerations": true,
