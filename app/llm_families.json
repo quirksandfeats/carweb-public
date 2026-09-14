@@ -10854,6 +10854,143 @@
     "dropped": []
    },
    "cascadeDiscovered": true
+  },
+  "fam-mazda-6": {
+   "status": "provisional",
+   "checkedAt": "2026-09-14T21:56:36.288Z",
+   "sourceTitle": "Mazda6",
+   "proposal": {
+    "hasMultipleGenerations": true,
+    "generations": [
+     {
+      "code": "GG1 / GY",
+      "yearStart": 2002,
+      "yearEnd": 2008,
+      "designers": [
+       "Kaname Sawai",
+       "Koizumi Iwao"
+      ],
+      "engineers": [],
+      "wikiFile": "2003 Mazda 6 (GG) Classic hatchback 01.jpg",
+      "sharedPlatforms": [
+       "Ford Fusion",
+       "Mazda CX-7",
+       "Mazda CX-9",
+       "Mercury Milan",
+       "Lincoln Zephyr",
+       "Lincoln MKZ"
+      ],
+      "sharedPlatformMatches": {
+       "Ford Fusion": {
+        "matchId": null,
+        "confidence": "high",
+        "reason": "The mentioned car is the 'Ford Fusion' (a mid-size sedan), but this specific nameplate is not present in the provided candidate list. The list contains other Ford models such as the Ford Taurus, Ford Mondeo, and Ford Focus, but none are explicitly listed as the Ford Fusion, which was sold in North America from 2006 onward. While the Ford Fusion shares a platform with the Mondeo, they are distinct nameplates and cannot be conflated for a direct match without an explicit rename relationship in the data."
+       }
+      }
+     },
+     {
+      "code": "GH1 / GH2 / GZ",
+      "yearStart": 2007,
+      "yearEnd": 2012,
+      "designers": [
+       "Koichi Sato"
+      ],
+      "engineers": [],
+      "wikiFile": "Mazda 6 2.5 Sport Liftback 2009.jpg",
+      "sharedPlatforms": [
+       "Ford Edge",
+       "Ford Fusion",
+       "Lincoln MKX",
+       "Lincoln MKZ",
+       "Mazda MPV",
+       "Mazda CX-9",
+       "Mercury Milan"
+      ],
+      "sharedPlatformMatches": {
+       "Ford Fusion": {
+        "matchId": null,
+        "confidence": "high",
+        "reason": "The mentioned car is the 'Ford Fusion' (a mid-size sedan), but this specific nameplate is not present in the provided candidate list. The list contains other Ford models such as the Ford Taurus, Ford Mondeo, and Ford Focus, but none are explicitly listed as the Ford Fusion, which was sold in North America from 2006 onward. While the Ford Fusion shares a platform with the Mondeo, they are distinct nameplates and cannot be conflated for a direct match without an explicit rename relationship in the data."
+       }
+      }
+     },
+     {
+      "code": "GJ1 / GL",
+      "yearStart": 2012,
+      "yearEnd": 2024,
+      "designers": [
+       "Akira Tamatani"
+      ],
+      "engineers": [],
+      "wikiFile": "Mazda6 2.0 SKYACTIV-G Center-Line (GJ) – Frontansicht, 14. April 2013, Düsseldorf.jpg",
+      "sharedPlatforms": [
+       "Mazda3",
+       "Mazda CX-5",
+       "Mazda CX-9"
+      ]
+     }
+    ]
+   },
+   "attempts": 1,
+   "feedback": [],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": true,
+     "generations": [
+      {
+       "code": "GG1 / GY",
+       "yearStart": 2002,
+       "yearEnd": 2008,
+       "designers": [
+        "Kaname Sawai",
+        "Koizumi Iwao"
+       ],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Ford Fusion",
+        "Mazda CX-7",
+        "Mazda CX-9",
+        "Mercury Milan",
+        "Lincoln Zephyr",
+        "Lincoln MKZ"
+       ]
+      },
+      {
+       "code": "GH1 / GH2 / GZ",
+       "yearStart": 2007,
+       "yearEnd": 2012,
+       "designers": [
+        "Koichi Sato"
+       ],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Ford Edge",
+        "Ford Fusion",
+        "Lincoln MKX",
+        "Lincoln MKZ",
+        "Mazda MPV",
+        "Mazda CX-9",
+        "Mercury Milan"
+       ]
+      },
+      {
+       "code": "GJ1 / GL",
+       "yearStart": 2012,
+       "yearEnd": 2024,
+       "designers": [
+        "Akira Tamatani"
+       ],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Mazda3",
+        "Mazda CX-5",
+        "Mazda CX-9"
+       ]
+      }
+     ]
+    },
+    "dropped": []
+   }
   }
  },
  "relations": {
@@ -19786,12 +19923,160 @@
    "genIdB": "m-mazda-6",
    "reason": "matched automatically (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
    "llmDiscovered": true
+  },
+  "fam-ford-mondeo|fam-mazda-6|related": {
+   "status": "none",
+   "checkedAt": "2026-09-14T21:56:49.408Z",
+   "famA": "fam-mazda-6",
+   "famB": "fam-ford-mondeo",
+   "relType": "related",
+   "note": "Mazda 6's own article says: \"…ission = | wheelbase = {{Plainlist| *International: *North America: }} | length = {{Plainlist| *Sedan and hatchback (2007–2010): *Sedan and hatchback (2011–2012): *Wagon (2007–2010): *Wagon (2011–2012): *North America: }} | width = {{Plainlist| *International: *North America: }} | height = {{Plainlist| *Sedan and hatchback: *Wagon: }} }} The second-generation Mazda6 made its premiere at the 2007 Frankfurt Motor Show in September. It is based on the modified first-generation Mazda6 chassis which Ford also utilized as their CD3 platform. Mazda co \n === Facelift === <gallery widths=\"200\" heights=\"150\"> File:2011 Mazda6 (GH Series 2 MY10) Luxury Sports hatchback (2011-08-17) 01.jpg|Mazda 6 Sports hatchback (facelift; front) File:2011 Mazda6 (GH Series 2 MY10) Luxury Sports hatchback (2011-08-17) 02.jpg|Liftback (facelift; rear) File:2011 Mazda6 (GH Series 2 MY10) Limited sedan (2011-06-15).jpg|Sedan File:2010 Mazda6 (GH Series 2 MY10) Touring station wagon (2011-11-18) 02.jpg|Estate/statio…\" / Ford Mondeo's own article says: \"… rear legroom, and uncompetitive diesel version were addressed by a longer wheelbase and the new Duratorq diesel engine. The basic chassis and suspension design was carried over from the previous generation, which meant that the car continued its predecessor's reputation for class leading handling and ride. This Mondeo came to Mexico, replacing the North American built Ford Contour, and was sold from 2001 to 2007, whe \n Following the standard setting interior of the Volkswagen Passat (B5) in 1996, Ford paid a great deal of attention to the second generation Mondeo's interior and was the first major American manufacturer to react to the new standard set by Volkswagen. Ford dispensed with the rounded American style interior of the first generation, and developed a more sober, sophisticated, 'Germanic' design, using more expensive materials. \n This Mondeo simplified trim levels a lot, for example the UK trims had been simplified down to LX, Zetec, Zetec S, Ghia, Ghia X and ST. Despite thi…\"",
+   "matchLevel": null,
+   "codeA": null,
+   "codeB": null,
+   "genIdA": null,
+   "genIdB": null,
+   "reason": "The provided text mentions that the second-generation Mazda6 (2007–2012) is based on a modified first-generation Mazda6 chassis (CD3) which Ford utilized, but it does not specify which generation of the Ford Mondeo used this CD3 platform. Without knowing the specific Mondeo generation associated with that platform in the text, a definitive pairing cannot be established from the provided notes.",
+   "debug": {
+    "raw": {
+     "resolved": false,
+     "codeA": null,
+     "codeB": null,
+     "evidenceQuote": null,
+     "reason": "The provided text mentions that the second-generation Mazda6 (2007–2012) is based on a modified first-generation Mazda6 chassis (CD3) which Ford utilized, but it does not specify which generation of the Ford Mondeo used this CD3 platform. Without knowing the specific Mondeo generation associated with that platform in the text, a definitive pairing cannot be established from the provided notes."
+    },
+    "evidenceCodeForA": null,
+    "evidenceCodeForB": null,
+    "ordinalFromNoteA": "6 (third generation)",
+    "ordinalFromNoteB": "Mondeo",
+    "ordinalBacked": false,
+    "evidenceQuote": null,
+    "quoteVerified": false,
+    "llmVerified": false,
+    "knowledgeBacked": false,
+    "sourceAttributed": false,
+    "citedA": null,
+    "citedB": null,
+    "citationBacked": false,
+    "quoteFabricated": false,
+    "fetchedArticleA": true,
+    "fetchedArticleB": true,
+    "availableCodesA": [
+     "6",
+     "6 (third generation)"
+    ],
+    "availableCodesB": [
+     "Mondeo (first generation)",
+     "Mondeo",
+     "Mondeo (third generation)",
+     "Mondeo (fourth generation)",
+     "Mondeo (fifth generation)"
+    ]
+   }
+  },
+  "fam-mazda-6|m-mazda-cx-5|related": {
+   "status": "provisional",
+   "checkedAt": "2026-09-14T21:56:58.355Z",
+   "famA": "fam-mazda-6",
+   "famB": "m-mazda-cx-5",
+   "relType": "related",
+   "note": "Mazda 6's own article says: \"{{Infobox automobile | name = Mazda 6 | image = 2018 Mazda6 Sport NAV+ Diesel 2.2 Front.jpg | caption = | manufacturer = Mazda | aka = Mazda Atenza (Japan and China, 2002–2019) | production = | class = Mid-size car (D) | layout = | predecessor = Mazda Capella/626<br>Mazda Xedos 6 | successor = Mazda EZ-6/6e (China, Europe, Australia) }} \n The (known as the Mazda Atenza in Japan until 2019, derived from the Italian attenzione) is a mid-size sedan produced by Mazda from 2002 to 2024, replacing the long-produced Capella/626. \n …\" / Mazda CX-5's own article says: \"…5-door SUV | layout = | predecessor = }} \n == <span class=\"anchor\" id=\"first generation\"></span><span class=\"anchor\" id=\"KE\"></span> First generation (KE; 2012) == {{Infobox automobile | name = First generation | image = Mazda CX-5 2.0 SKYACTIV-G AWD Sports-Line – Frontansicht, 3. September 2012, Düsseldorf.jpg | model_code = KE | production = January 2012 – 2017 <!-- Not November 2011 as some sources erroneously report. It was still very much in pre-production then. --> | model_years = 2013–2016 | assembly = Japan: Hiroshima (Hiroshima (Mazda factory), Hiroshima (Mazda factory))<br />China: Nanjing (Changan Mazda)<br />Malaysia: Kulim (Inokom)<br />Russia: Vladivostok (Mazda Sollers)<br />Vietnam: Quảng Nam (THACO Auto) | designer = Norihito Iwao (exterior: 2009)<br />Masashi Nakayama (2009, 2010) | platform = | engine = | transmission = | wheelbase = | length = was the first Mazda vehicle to combine the company's Kodo design la \n In rapid development from 2009 to 2011 under Hideaki T…\"",
+   "matchLevel": "transitive",
+   "codeA": "6 (third generation)",
+   "codeB": "CX-5 KE",
+   "genIdA": "m-mazda-6-third-generation",
+   "genIdB": "llm-m-mazda-cx-5-ke",
+   "reason": "Answered from connections already in the graph: 6 (third generation) is connected to Mazda3, which is connected to CX-5 KE. That is the only such pairing between these two, so it settles which generations this is about. (The model itself could not tell: The provided notes do not specify which generation of the Mazda 6 or the Mazda CX-5 shares the relationship. While the Mazda 6 note mentions a predecessor (Capella/626) and the CX-5 note mentions a first generation (KE), neither note explicitly links a specific generation of the Mazda 6 to a specific generation of the CX-5 via platform sharing, rebadging, or sibling status. Without this specific link in the text or the ability to definitively map a known platform fact to the provided list entries without ambiguity, the relationship cannot be resolved for specific generations based on the given information.)",
+   "debug": {
+    "raw": {
+     "resolved": false,
+     "codeA": null,
+     "codeB": null,
+     "evidenceQuote": null,
+     "reason": "The provided notes do not specify which generation of the Mazda 6 or the Mazda CX-5 shares the relationship. While the Mazda 6 note mentions a predecessor (Capella/626) and the CX-5 note mentions a first generation (KE), neither note explicitly links a specific generation of the Mazda 6 to a specific generation of the CX-5 via platform sharing, rebadging, or sibling status. Without this specific link in the text or the ability to definitively map a known platform fact to the provided list entries without ambiguity, the relationship cannot be resolved for specific generations based on the given information."
+    },
+    "evidenceCodeForA": null,
+    "evidenceCodeForB": null,
+    "ordinalFromNoteA": null,
+    "ordinalFromNoteB": "CX-5 KE",
+    "ordinalBacked": false,
+    "evidenceQuote": null,
+    "quoteVerified": false,
+    "llmVerified": false,
+    "knowledgeBacked": false,
+    "sourceAttributed": false,
+    "citedA": null,
+    "citedB": null,
+    "citationBacked": false,
+    "quoteFabricated": false,
+    "fetchedArticleA": true,
+    "fetchedArticleB": true,
+    "availableCodesA": [
+     "6",
+     "6 (third generation)"
+    ],
+    "availableCodesB": [
+     "CX-5 KE",
+     "CX-5 KF",
+     "CX-5 KM"
+    ]
+   },
+   "transitiveVia": "m-mazda-mazda3"
+  },
+  "fam-mazda-6|m-mazda-cx-5|platform": {
+   "status": "provisional",
+   "checkedAt": "2026-09-14T21:57:13.862Z",
+   "famA": "fam-mazda-6",
+   "famB": "m-mazda-cx-5",
+   "relType": "platform",
+   "note": "Mazda 6's own article says: \"{{Infobox automobile | name = Mazda 6 | image = 2018 Mazda6 Sport NAV+ Diesel 2.2 Front.jpg | caption = | manufacturer = Mazda | aka = Mazda Atenza (Japan and China, 2002–2019) | production = | class = Mid-size car (D) | layout = | predecessor = Mazda Capella/626<br>Mazda Xedos 6 | successor = Mazda EZ-6/6e (China, Europe, Australia) }} \n The (known as the Mazda Atenza in Japan until 2019, derived from the Italian attenzione) is a mid-size sedan produced by Mazda from 2002 to 2024, replacing the long-produced Capella/626. \n …\" / Mazda CX-5's own article says: \"…5-door SUV | layout = | predecessor = }} \n == <span class=\"anchor\" id=\"first generation\"></span><span class=\"anchor\" id=\"KE\"></span> First generation (KE; 2012) == {{Infobox automobile | name = First generation | image = Mazda CX-5 2.0 SKYACTIV-G AWD Sports-Line – Frontansicht, 3. September 2012, Düsseldorf.jpg | model_code = KE | production = January 2012 – 2017 <!-- Not November 2011 as some sources erroneously report. It was still very much in pre-production then. --> | model_years = 2013–2016 | assembly = Japan: Hiroshima (Hiroshima (Mazda factory), Hiroshima (Mazda factory))<br />China: Nanjing (Changan Mazda)<br />Malaysia: Kulim (Inokom)<br />Russia: Vladivostok (Mazda Sollers)<br />Vietnam: Quảng Nam (THACO Auto) | designer = Norihito Iwao (exterior: 2009)<br />Masashi Nakayama (2009, 2010) | platform = | engine = | transmission = | wheelbase = | length = was the first Mazda vehicle to combine the company's Kodo design la \n In rapid development from 2009 to 2011 under Hideaki T…\"",
+   "matchLevel": "transitive",
+   "codeA": "6 (third generation)",
+   "codeB": "CX-5 KE",
+   "genIdA": "m-mazda-6-third-generation",
+   "genIdB": "llm-m-mazda-cx-5-ke",
+   "reason": "Answered from connections already in the graph: 6 (third generation) is connected to Mazda3, which is connected to CX-5 KE. That is the only such pairing between these two, so it settles which generations this is about. (The model itself could not tell: The provided text for the Mazda 6 and Mazda CX-5 articles does not mention a specific shared platform name (such as SKYACTIV or a specific chassis code like the Mazda3's CD3). Furthermore, the provided text does not explicitly state which generation of the Mazda 6 shares a platform with the CX-5. While it is known that the second-generation Mazda 6 (GJ) shares the SKYACTIV platform with the second-generation CX-5 (KF), the input text fails to provide the necessary evidence (platform name or generation correlation) to confirm this specific pairing based strictly on the provided notes and without making assumptions not present in the source text.)",
+   "debug": {
+    "raw": {
+     "resolved": false,
+     "codeA": null,
+     "codeB": null,
+     "evidenceQuote": null,
+     "reason": "The provided text for the Mazda 6 and Mazda CX-5 articles does not mention a specific shared platform name (such as SKYACTIV or a specific chassis code like the Mazda3's CD3). Furthermore, the provided text does not explicitly state which generation of the Mazda 6 shares a platform with the CX-5. While it is known that the second-generation Mazda 6 (GJ) shares the SKYACTIV platform with the second-generation CX-5 (KF), the input text fails to provide the necessary evidence (platform name or generation correlation) to confirm this specific pairing based strictly on the provided notes and without making assumptions not present in the source text."
+    },
+    "evidenceCodeForA": null,
+    "evidenceCodeForB": null,
+    "ordinalFromNoteA": null,
+    "ordinalFromNoteB": "CX-5 KE",
+    "ordinalBacked": false,
+    "evidenceQuote": null,
+    "quoteVerified": false,
+    "llmVerified": false,
+    "knowledgeBacked": false,
+    "sourceAttributed": true,
+    "citedA": null,
+    "citedB": null,
+    "citationBacked": false,
+    "quoteFabricated": false,
+    "fetchedArticleA": true,
+    "fetchedArticleB": true,
+    "availableCodesA": [
+     "6",
+     "6 (third generation)"
+    ],
+    "availableCodesB": [
+     "CX-5 KE",
+     "CX-5 KF",
+     "CX-5 KM"
+    ]
+   },
+   "transitiveVia": "m-mazda-mazda3"
   }
  },
  "recheck": {
   "m-mercedes-benz-g-class": {
    "status": "none",
-   "checkedAt": "2026-09-14T21:34:42.585Z",
+   "checkedAt": "2026-09-14T21:55:14.414Z",
    "sourceTitle": "Mercedes-Benz G-Class",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -19875,7 +20160,7 @@
   },
   "m-mercedes-benz-gla": {
    "status": "none",
-   "checkedAt": "2026-09-14T21:34:42.654Z",
+   "checkedAt": "2026-09-14T21:55:14.475Z",
    "sourceTitle": "Mercedes-Benz GLA",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -19978,7 +20263,7 @@
   },
   "m-mercedes-benz-cla": {
    "status": "none",
-   "checkedAt": "2026-09-14T21:34:42.703Z",
+   "checkedAt": "2026-09-14T21:55:14.522Z",
    "sourceTitle": "Mercedes-Benz CLA",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -20260,7 +20545,7 @@
   },
   "m-toyota-celica": {
    "status": "none",
-   "checkedAt": "2026-09-14T21:34:42.768Z",
+   "checkedAt": "2026-09-14T21:55:14.588Z",
    "sourceTitle": "Toyota Celica",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -20376,7 +20661,7 @@
   },
   "m-toyota-carina": {
    "status": "none",
-   "checkedAt": "2026-09-14T21:34:42.847Z",
+   "checkedAt": "2026-09-14T21:55:14.670Z",
    "sourceTitle": "Toyota Carina",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -20504,7 +20789,7 @@
   },
   "m-lexus-sc": {
    "status": "none",
-   "checkedAt": "2026-09-14T21:34:42.852Z",
+   "checkedAt": "2026-09-14T21:55:14.677Z",
    "sourceTitle": "Lexus SC",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -21153,7 +21438,7 @@
   },
   "m-seat-toledo": {
    "status": "none",
-   "checkedAt": "2026-09-14T21:34:42.927Z",
+   "checkedAt": "2026-09-14T21:55:14.759Z",
    "sourceTitle": "SEAT Toledo",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -21284,7 +21569,7 @@
   },
   "m-daren-mk-3": {
    "status": "none",
-   "checkedAt": "2026-09-14T21:34:42.940Z",
+   "checkedAt": "2026-09-14T21:55:14.771Z",
    "sourceTitle": "Daren Mk.3",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -21359,7 +21644,7 @@
   },
   "m-audi-a3-mk3": {
    "status": "none",
-   "checkedAt": "2026-09-14T21:34:42.960Z",
+   "checkedAt": "2026-09-14T21:55:14.794Z",
    "sourceTitle": "Audi A3",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -21415,7 +21700,7 @@
   },
   "m-audi-tt": {
    "status": "none",
-   "checkedAt": "2026-09-14T21:34:43.046Z",
+   "checkedAt": "2026-09-14T21:55:14.892Z",
    "sourceTitle": "Audi TT",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -21555,7 +21840,7 @@
   },
   "m-seat-leon-mk3": {
    "status": "none",
-   "checkedAt": "2026-09-14T21:34:43.103Z",
+   "checkedAt": "2026-09-14T21:55:14.954Z",
    "sourceTitle": "SEAT León",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -21669,7 +21954,7 @@
   },
   "m-volkswagen-karmann-ghia": {
    "status": "none",
-   "checkedAt": "2026-09-14T21:34:43.135Z",
+   "checkedAt": "2026-09-14T21:55:14.989Z",
    "sourceTitle": "Volkswagen Karmann Ghia",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -21719,7 +22004,7 @@
   },
   "m-porsche-panamera": {
    "status": "none",
-   "checkedAt": "2026-09-14T21:34:43.123Z",
+   "checkedAt": "2026-09-14T21:55:14.976Z",
    "sourceTitle": "Porsche Panamera",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -21785,7 +22070,7 @@
   },
   "m-subaru-forester": {
    "status": "none",
-   "checkedAt": "2026-09-14T21:34:43.177Z",
+   "checkedAt": "2026-09-14T21:55:15.035Z",
    "sourceTitle": "Subaru Forester",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -21894,7 +22179,7 @@
   },
   "m-volkswagen-touran": {
    "status": "none",
-   "checkedAt": "2026-09-14T21:34:43.198Z",
+   "checkedAt": "2026-09-14T21:55:15.058Z",
    "sourceTitle": "Volkswagen Touran",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -21944,7 +22229,7 @@
   },
   "m-chevrolet-captiva": {
    "status": "none",
-   "checkedAt": "2026-09-14T21:34:43.265Z",
+   "checkedAt": "2026-09-14T21:55:15.138Z",
    "sourceTitle": "Chevrolet Captiva",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -22049,7 +22334,7 @@
   },
   "m-isuzu-trooper": {
    "status": "none",
-   "checkedAt": "2026-09-14T21:34:43.317Z",
+   "checkedAt": "2026-09-14T21:55:15.200Z",
    "sourceTitle": "Isuzu Trooper",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -22145,7 +22430,7 @@
   },
   "m-volkswagen-tiguan": {
    "status": "none",
-   "checkedAt": "2026-09-14T21:34:43.383Z",
+   "checkedAt": "2026-09-14T21:55:15.277Z",
    "sourceTitle": "Volkswagen Tiguan",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -22258,7 +22543,7 @@
   },
   "m-chrysler-horizon": {
    "status": "none",
-   "checkedAt": "2026-09-14T21:34:43.427Z",
+   "checkedAt": "2026-09-14T21:55:15.328Z",
    "sourceTitle": "Chrysler Horizon",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -22358,7 +22643,7 @@
   },
   "m-mercury-monterey": {
    "status": "none",
-   "checkedAt": "2026-09-14T21:34:43.525Z",
+   "checkedAt": "2026-09-14T21:55:15.438Z",
    "sourceTitle": "Mercury Monterey",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -22533,7 +22818,7 @@
   },
   "m-gmc-envoy": {
    "status": "none",
-   "checkedAt": "2026-09-14T21:34:43.545Z",
+   "checkedAt": "2026-09-14T21:55:15.460Z",
    "sourceTitle": "GMC Envoy",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -22586,7 +22871,7 @@
   },
   "m-chevrolet-trailblazer": {
    "status": "none",
-   "checkedAt": "2026-09-14T21:34:43.561Z",
+   "checkedAt": "2026-09-14T21:55:15.479Z",
    "sourceTitle": "Chevrolet TrailBlazer (SUV)",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -22637,7 +22922,7 @@
   },
   "m-oldsmobile-bravada": {
    "status": "none",
-   "checkedAt": "2026-09-14T21:34:43.597Z",
+   "checkedAt": "2026-09-14T21:55:15.519Z",
    "sourceTitle": "Oldsmobile Bravada",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -22717,7 +23002,7 @@
   },
   "m-buick-lacrosse": {
    "status": "none",
-   "checkedAt": "2026-09-14T21:34:43.619Z",
+   "checkedAt": "2026-09-14T21:55:15.545Z",
    "sourceTitle": "Buick LaCrosse",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -22793,7 +23078,7 @@
   },
   "m-buick-invicta": {
    "status": "none",
-   "checkedAt": "2026-09-14T21:34:43.636Z",
+   "checkedAt": "2026-09-14T21:55:15.563Z",
    "sourceTitle": "Buick Invicta",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -22844,7 +23129,7 @@
   },
   "m-buick-century": {
    "status": "none",
-   "checkedAt": "2026-09-14T21:34:43.713Z",
+   "checkedAt": "2026-09-14T21:55:15.651Z",
    "sourceTitle": "Buick Century",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -22996,7 +23281,7 @@
   },
   "m-jaguar-xjs": {
    "status": "none",
-   "checkedAt": "2026-09-14T21:34:43.727Z",
+   "checkedAt": "2026-09-14T21:55:15.666Z",
    "sourceTitle": "Jaguar XJS",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -23055,7 +23340,7 @@
   },
   "m-jaguar-e-type": {
    "status": "none",
-   "checkedAt": "2026-09-14T21:34:43.749Z",
+   "checkedAt": "2026-09-14T21:55:15.689Z",
    "sourceTitle": "Jaguar E-Type",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -23124,7 +23409,7 @@
   },
   "m-wuling-starlight": {
    "status": "none",
-   "checkedAt": "2026-09-14T21:34:43.784Z",
+   "checkedAt": "2026-09-14T21:55:15.724Z",
    "sourceTitle": "Wuling Starlight",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -23188,7 +23473,7 @@
   },
   "m-jeep-compass": {
    "status": "none",
-   "checkedAt": "2026-09-14T21:34:43.829Z",
+   "checkedAt": "2026-09-14T21:55:15.771Z",
    "sourceTitle": "Jeep Compass",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -23272,7 +23557,7 @@
   },
   "m-mazda-tribute": {
    "status": "none",
-   "checkedAt": "2026-09-14T21:34:43.839Z",
+   "checkedAt": "2026-09-14T21:55:15.783Z",
    "sourceTitle": "Mazda Tribute",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -23309,7 +23594,7 @@
   },
   "m-mazda-cx-5": {
    "status": "none",
-   "checkedAt": "2026-09-14T21:34:43.852Z",
+   "checkedAt": "2026-09-14T21:55:15.797Z",
    "sourceTitle": "Mazda CX-5",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -23364,7 +23649,7 @@
   },
   "m-baojun-730": {
    "status": "none",
-   "checkedAt": "2026-09-14T21:34:43.857Z",
+   "checkedAt": "2026-09-14T21:55:15.803Z",
    "sourceTitle": "Baojun 730",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -23399,7 +23684,7 @@
   },
   "m-dacia-duster": {
    "status": "none",
-   "checkedAt": "2026-09-14T21:34:43.905Z",
+   "checkedAt": "2026-09-14T21:55:15.855Z",
    "sourceTitle": "Dacia Duster",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -23493,6 +23778,144 @@
    "discrepancy": null,
    "attempts": 1,
    "feedback": []
+  },
+  "fam-mazda-6": {
+   "status": "provisional",
+   "checkedAt": "2026-09-14T21:56:36.288Z",
+   "sourceTitle": "Mazda6",
+   "proposal": {
+    "hasMultipleGenerations": true,
+    "generations": [
+     {
+      "code": "GG1 / GY",
+      "yearStart": 2002,
+      "yearEnd": 2008,
+      "designers": [
+       "Kaname Sawai",
+       "Koizumi Iwao"
+      ],
+      "engineers": [],
+      "wikiFile": "2003 Mazda 6 (GG) Classic hatchback 01.jpg",
+      "sharedPlatforms": [
+       "Ford Fusion",
+       "Mazda CX-7",
+       "Mazda CX-9",
+       "Mercury Milan",
+       "Lincoln Zephyr",
+       "Lincoln MKZ"
+      ],
+      "sharedPlatformMatches": {
+       "Ford Fusion": {
+        "matchId": null,
+        "confidence": "high",
+        "reason": "The mentioned car is the 'Ford Fusion' (a mid-size sedan), but this specific nameplate is not present in the provided candidate list. The list contains other Ford models such as the Ford Taurus, Ford Mondeo, and Ford Focus, but none are explicitly listed as the Ford Fusion, which was sold in North America from 2006 onward. While the Ford Fusion shares a platform with the Mondeo, they are distinct nameplates and cannot be conflated for a direct match without an explicit rename relationship in the data."
+       }
+      }
+     },
+     {
+      "code": "GH1 / GH2 / GZ",
+      "yearStart": 2007,
+      "yearEnd": 2012,
+      "designers": [
+       "Koichi Sato"
+      ],
+      "engineers": [],
+      "wikiFile": "Mazda 6 2.5 Sport Liftback 2009.jpg",
+      "sharedPlatforms": [
+       "Ford Edge",
+       "Ford Fusion",
+       "Lincoln MKX",
+       "Lincoln MKZ",
+       "Mazda MPV",
+       "Mazda CX-9",
+       "Mercury Milan"
+      ],
+      "sharedPlatformMatches": {
+       "Ford Fusion": {
+        "matchId": null,
+        "confidence": "high",
+        "reason": "The mentioned car is the 'Ford Fusion' (a mid-size sedan), but this specific nameplate is not present in the provided candidate list. The list contains other Ford models such as the Ford Taurus, Ford Mondeo, and Ford Focus, but none are explicitly listed as the Ford Fusion, which was sold in North America from 2006 onward. While the Ford Fusion shares a platform with the Mondeo, they are distinct nameplates and cannot be conflated for a direct match without an explicit rename relationship in the data."
+       }
+      }
+     },
+     {
+      "code": "GJ1 / GL",
+      "yearStart": 2012,
+      "yearEnd": 2024,
+      "designers": [
+       "Akira Tamatani"
+      ],
+      "engineers": [],
+      "wikiFile": "Mazda6 2.0 SKYACTIV-G Center-Line (GJ) – Frontansicht, 14. April 2013, Düsseldorf.jpg",
+      "sharedPlatforms": [
+       "Mazda3",
+       "Mazda CX-5",
+       "Mazda CX-9"
+      ]
+     }
+    ]
+   },
+   "discrepancy": "an existing \"generation\" here (6) is really just the bare nameplate itself, not a distinct generation",
+   "attempts": 1,
+   "feedback": [],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": true,
+     "generations": [
+      {
+       "code": "GG1 / GY",
+       "yearStart": 2002,
+       "yearEnd": 2008,
+       "designers": [
+        "Kaname Sawai",
+        "Koizumi Iwao"
+       ],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Ford Fusion",
+        "Mazda CX-7",
+        "Mazda CX-9",
+        "Mercury Milan",
+        "Lincoln Zephyr",
+        "Lincoln MKZ"
+       ]
+      },
+      {
+       "code": "GH1 / GH2 / GZ",
+       "yearStart": 2007,
+       "yearEnd": 2012,
+       "designers": [
+        "Koichi Sato"
+       ],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Ford Edge",
+        "Ford Fusion",
+        "Lincoln MKX",
+        "Lincoln MKZ",
+        "Mazda MPV",
+        "Mazda CX-9",
+        "Mercury Milan"
+       ]
+      },
+      {
+       "code": "GJ1 / GL",
+       "yearStart": 2012,
+       "yearEnd": 2024,
+       "designers": [
+        "Akira Tamatani"
+       ],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Mazda3",
+        "Mazda CX-5",
+        "Mazda CX-9"
+       ]
+      }
+     ]
+    },
+    "dropped": []
+   }
   }
  },
  "rejectedRelations": {
