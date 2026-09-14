@@ -10991,6 +10991,1779 @@
     },
     "dropped": []
    }
+  },
+  "llm-related-lincoln-premiere": {
+   "status": "provisional",
+   "checkedAt": "2026-09-14T22:59:13.370Z",
+   "sourceTitle": "Lincoln Premiere",
+   "proposal": {
+    "hasMultipleGenerations": true,
+    "generations": [
+     {
+      "code": "First generation",
+      "yearStart": 1956,
+      "yearEnd": 1957,
+      "designers": [
+       "Bill Schmidt"
+      ],
+      "engineers": [],
+      "wikiFile": "1957 Lincoln Premiere - Flickr - skinnylawyer.jpg",
+      "sharedPlatforms": [
+       "Lincoln Capri",
+       "Mercury Montclair"
+      ]
+     },
+     {
+      "code": "Second generation",
+      "yearStart": 1958,
+      "yearEnd": 1960,
+      "designers": [
+       "John Najjar"
+      ],
+      "engineers": [],
+      "wikiFile": "File:Continental Quiz (7810905240).jpg",
+      "sharedPlatforms": [
+       "Lincoln Mark series",
+       "Lincoln Capri"
+      ]
+     }
+    ]
+   },
+   "attempts": 1,
+   "feedback": [],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": true,
+     "generations": [
+      {
+       "code": "First generation",
+       "yearStart": 1956,
+       "yearEnd": 1957,
+       "designers": [
+        "Bill Schmidt"
+       ],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Lincoln Capri",
+        "Mercury Montclair"
+       ]
+      },
+      {
+       "code": "Second generation",
+       "yearStart": 1958,
+       "yearEnd": 1960,
+       "designers": [
+        "John Najjar"
+       ],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Lincoln Mark series",
+        "Lincoln Capri"
+       ]
+      }
+     ]
+    },
+    "dropped": []
+   },
+   "cascadeDiscovered": true
+  },
+  "llm-related-lincoln-h-series": {
+   "status": "provisional",
+   "checkedAt": "2026-09-14T22:59:45.120Z",
+   "sourceTitle": "Lincoln H-series",
+   "proposal": {
+    "hasMultipleGenerations": true,
+    "generations": [
+     {
+      "code": "Lincoln-Zephyr",
+      "yearStart": 1936,
+      "yearEnd": 1942,
+      "designers": [
+       "Bob Gregorie",
+       "Eugene Turenne"
+      ],
+      "engineers": [
+       "John Tjaarda"
+      ],
+      "wikiFile": "1937 Lincoln Zephyr (7463941374) (cropped).jpg",
+      "sharedPlatforms": [
+       "Lincoln Continental"
+      ]
+     },
+     {
+      "code": "Lincoln H-series",
+      "yearStart": 1946,
+      "yearEnd": 1948,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "'48 Lincoln V12 (A&W St. Leonard).JPG",
+      "sharedPlatforms": [
+       "Lincoln Continental"
+      ]
+     }
+    ]
+   },
+   "attempts": 1,
+   "feedback": [],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": true,
+     "generations": [
+      {
+       "code": "Lincoln-Zephyr",
+       "yearStart": 1936,
+       "yearEnd": 1942,
+       "designers": [
+        "Bob Gregorie",
+        "Eugene Turenne"
+       ],
+       "engineers": [
+        "John Tjaarda"
+       ],
+       "sharedPlatforms": [
+        "Lincoln Continental"
+       ]
+      },
+      {
+       "code": "Lincoln H-series",
+       "yearStart": 1946,
+       "yearEnd": 1948,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Lincoln Continental"
+       ]
+      }
+     ]
+    },
+    "dropped": []
+   },
+   "cascadeDiscovered": true
+  },
+  "m-lincoln-lincoln-zephyr": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-14T22:59:50.081Z",
+   "sourceTitle": "Lincoln-Zephyr",
+   "proposal": {
+    "hasMultipleGenerations": true,
+    "generations": [
+     {
+      "code": "Lincoln-Zephyr",
+      "yearStart": 1936,
+      "yearEnd": 1942,
+      "designers": [
+       "Eugene Turenne \"Bob\" Gregorie",
+       "Edsel Ford",
+       "John Tjaarda"
+      ],
+      "engineers": [],
+      "wikiFile": "1937 Lincoln Zephyr (7463941374) (cropped).jpg",
+      "sharedPlatforms": [
+       "Lincoln Continental"
+      ]
+     },
+     {
+      "code": "H-series",
+      "yearStart": 1946,
+      "yearEnd": 1948,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "'48 Lincoln V12 (A&W St. Leonard).JPG",
+      "sharedPlatforms": []
+     }
+    ]
+   },
+   "attempts": 1,
+   "feedback": [],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": true,
+     "generations": [
+      {
+       "code": "Lincoln-Zephyr",
+       "yearStart": 1936,
+       "yearEnd": 1942,
+       "designers": [
+        "Eugene Turenne \"Bob\" Gregorie",
+        "Edsel Ford",
+        "John Tjaarda"
+       ],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Lincoln Continental"
+       ]
+      },
+      {
+       "code": "H-series",
+       "yearStart": 1946,
+       "yearEnd": 1948,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": []
+      }
+     ]
+    },
+    "dropped": []
+   },
+   "cascadeDiscovered": true,
+   "decidedBy": "user",
+   "decidedAt": "2026-09-14T22:59:50.099Z",
+   "allDesigners": [
+    "Eugene Turenne \"Bob\" Gregorie",
+    "Edsel Ford",
+    "John Tjaarda"
+   ],
+   "allEngineers": []
+  },
+  "m-lincoln-capri": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-14T23:03:04.438Z",
+   "sourceTitle": "Lincoln Capri",
+   "proposal": {
+    "hasMultipleGenerations": true,
+    "generations": [
+     {
+      "code": "Generation I",
+      "yearStart": 1952,
+      "yearEnd": 1955,
+      "designers": [
+       "Bill Schmidt"
+      ],
+      "engineers": [],
+      "wikiFile": "File:Lincoln Capri manufactured 1953 5211cc.jpg",
+      "sharedPlatforms": [
+       "Lincoln Cosmopolitan",
+       "Lincoln Custom",
+       "Mercury Monterey",
+       "Ford Crestline"
+      ],
+      "sharedPlatformMatches": {
+       "Lincoln Cosmopolitan": {
+        "matchId": null,
+        "confidence": "high",
+        "reason": "The 'Lincoln Cosmopolitan' was a distinct 1967–1972 model produced by Lincoln-Mercury based on the Ford Galaxie platform. None of the provided candidates (which list various Lincoln Continentals, Town Cars, Navigators, or unrelated models like the Mazda Cosmo) correspond to the Cosmopolitan. The production years of the Cosmopolitan (1967–1972) do not align with the specific named generations or models in the list that cover those years (e.g., Mark IV/Mark V were distinct nameplates, not the Cosmopolitan)."
+       },
+       "Ford Crestline": {
+        "matchId": null,
+        "confidence": "high",
+        "reason": "The 'Ford Crestline' was a luxury car marketed by Ford in the UK (1951–1962) and Australia (1957–1963), essentially a rebadged version of the Ford Consul or Ford Zephyr (specifically the Consul Super/Zephyr). None of the provided candidates match this specific vehicle: 'Ford Consul' is a separate entry, 'Ford Country Squire' was a variant of the Country Sedan, and no other candidate represents the Crestline nameplate or the specific chassis/generation associated with it."
+       }
+      }
+     },
+     {
+      "code": "Generation II",
+      "yearStart": 1956,
+      "yearEnd": 1957,
+      "designers": [
+       "Bill Schmidt"
+      ],
+      "engineers": [],
+      "wikiFile": "1956 Lincoln Capri.jpg",
+      "sharedPlatforms": [
+       "Lincoln Premiere",
+       "Mercury Montclair"
+      ]
+     },
+     {
+      "code": "Generation III",
+      "yearStart": 1958,
+      "yearEnd": 1959,
+      "designers": [
+       "John Najjar"
+      ],
+      "engineers": [],
+      "wikiFile": "Lincoln Capri Sedan 1953.jpg",
+      "sharedPlatforms": [
+       "Lincoln Mark series",
+       "Lincoln Premiere"
+      ]
+     }
+    ]
+   },
+   "attempts": 1,
+   "feedback": [],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": true,
+     "generations": [
+      {
+       "code": "Generation I",
+       "yearStart": 1952,
+       "yearEnd": 1955,
+       "designers": [
+        "Bill Schmidt"
+       ],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Lincoln Cosmopolitan",
+        "Lincoln Custom",
+        "Mercury Monterey",
+        "Ford Crestline"
+       ]
+      },
+      {
+       "code": "Generation II",
+       "yearStart": 1956,
+       "yearEnd": 1957,
+       "designers": [
+        "Bill Schmidt"
+       ],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Lincoln Premiere",
+        "Mercury Montclair"
+       ]
+      },
+      {
+       "code": "Generation III",
+       "yearStart": 1958,
+       "yearEnd": 1959,
+       "designers": [
+        "John Najjar"
+       ],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Lincoln Mark series",
+        "Lincoln Premiere"
+       ]
+      }
+     ]
+    },
+    "dropped": []
+   },
+   "cascadeDiscovered": true,
+   "decidedBy": "user",
+   "decidedAt": "2026-09-14T23:03:04.470Z",
+   "allDesigners": [
+    "Bill Schmidt",
+    "John Najjar"
+   ],
+   "allEngineers": []
+  },
+  "m-ford-continental-mark-ii": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-14T23:04:41.934Z",
+   "sourceTitle": "Continental Mark II",
+   "proposal": {
+    "hasMultipleGenerations": true,
+    "generations": [
+     {
+      "code": "Mark II",
+      "yearStart": 1956,
+      "yearEnd": 1957,
+      "designers": [
+       "John Reinhart"
+      ],
+      "engineers": [],
+      "wikiFile": "1956 Continental Mark II - midnight blue - fvr.jpg",
+      "sharedPlatforms": [
+       "Lincoln Futura"
+      ],
+      "sharedPlatformMatches": {
+       "Lincoln Futura": {
+        "matchId": null,
+        "confidence": "high",
+        "reason": "The 'Lincoln Futura' (1954–1955) is a one-off concept car designed by Raymond Loewy for Lincoln. None of the provided candidates refer to this specific concept; they all represent production models or different generations of the Lincoln Continental, Capri, or other unrelated Lincoln nameplates. The production years of the candidates also largely do not overlap with the 1950s timeframe of the concept."
+       }
+      }
+     },
+     {
+      "code": "Mark III",
+      "yearStart": 1969,
+      "yearEnd": 1971,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "1960 Lincoln Continental -- 10-02-2009.jpg",
+      "sharedPlatforms": [
+       "Ford Thunderbird"
+      ]
+     },
+     {
+      "code": "Mark IV",
+      "yearStart": 1972,
+      "yearEnd": 1976,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "57 Continental Mark II (7810973532).jpg",
+      "sharedPlatforms": [
+       "Ford Thunderbird"
+      ]
+     },
+     {
+      "code": "Mark V",
+      "yearStart": 1977,
+      "yearEnd": 1980,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "Continental Quiz (6087969018).jpg",
+      "sharedPlatforms": [
+       "Ford Thunderbird"
+      ]
+     },
+     {
+      "code": "Mark VI",
+      "yearStart": 1980,
+      "yearEnd": 1983,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "1981 Lincoln Continental Mark VI (29739268016).jpg",
+      "sharedPlatforms": []
+     },
+     {
+      "code": "Mark VII",
+      "yearStart": 1984,
+      "yearEnd": 1988,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "Lincoln-Continental-Mark-VII.jpg",
+      "sharedPlatforms": [
+       "Ford Thunderbird",
+       "Mercury Cougar"
+      ]
+     },
+     {
+      "code": "Mark VIII",
+      "yearStart": 1993,
+      "yearEnd": 1998,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "93 Lincoln Mark VIII (9674876061).jpg",
+      "sharedPlatforms": [
+       "Ford Thunderbird",
+       "Mercury Cougar"
+      ]
+     }
+    ]
+   },
+   "attempts": 1,
+   "feedback": [],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": true,
+     "generations": [
+      {
+       "code": "Mark II",
+       "yearStart": 1956,
+       "yearEnd": 1957,
+       "designers": [
+        "John Reinhart"
+       ],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Lincoln Futura"
+       ]
+      },
+      {
+       "code": "Mark III",
+       "yearStart": 1969,
+       "yearEnd": 1971,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Ford Thunderbird"
+       ]
+      },
+      {
+       "code": "Mark IV",
+       "yearStart": 1972,
+       "yearEnd": 1976,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Ford Thunderbird"
+       ]
+      },
+      {
+       "code": "Mark V",
+       "yearStart": 1977,
+       "yearEnd": 1980,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Ford Thunderbird"
+       ]
+      },
+      {
+       "code": "Mark VI",
+       "yearStart": 1980,
+       "yearEnd": 1983,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Ford Panther platform"
+       ]
+      },
+      {
+       "code": "Mark VII",
+       "yearStart": 1984,
+       "yearEnd": 1988,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Ford Fox platform",
+        "Ford Thunderbird",
+        "Mercury Cougar"
+       ]
+      },
+      {
+       "code": "Mark VIII",
+       "yearStart": 1993,
+       "yearEnd": 1998,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Ford Thunderbird",
+        "Mercury Cougar"
+       ]
+      }
+     ]
+    },
+    "dropped": []
+   },
+   "cascadeDiscovered": true,
+   "decidedBy": "user",
+   "decidedAt": "2026-09-14T23:04:41.934Z",
+   "allDesigners": [
+    "John Reinhart"
+   ],
+   "allEngineers": []
+  },
+  "m-mercury-marquis": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-14T23:05:52.500Z",
+   "sourceTitle": "Mercury Marquis",
+   "proposal": {
+    "hasMultipleGenerations": true,
+    "generations": [
+     {
+      "code": "First generation",
+      "yearStart": 1967,
+      "yearEnd": 1968,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "1968 Mercury Marquis cropped.jpg",
+      "sharedPlatforms": [
+       "Mercury Monterey",
+       "Mercury Park Lane Brougham",
+       "Ford LTD",
+       "Meteor Montego/LeMoyne"
+      ],
+      "sharedPlatformMatches": {
+       "Mercury Park Lane Brougham": {
+        "matchId": null,
+        "confidence": "high",
+        "reason": "The mentioned car is the Mercury Park Lane, a full-size sedan produced by Mercury from 1952 to 1991. The mention specifies the 'Brougham' trim. In the candidate list, 'm-mercury-colony-park' refers to the Mercury Colony Park, a separate, smaller compact model (not related to the Park Lane). While the names share 'Park', the models are distinct. The 'm-mercury-grand-marquis' is the correct full-size sedan that succeeded the Park Lane after the Park Lane was discontinued in 1991, but the specific model 'Park Lane' is not present in the candidate list. Therefore, no candidate matches the specific car mentioned."
+       },
+       "Meteor Montego/LeMoyne": {
+        "matchId": "m-austin-montego",
+        "confidence": "high",
+        "reason": "The 'Meteor Montego' was a specific model introduced by Austin (a subsidiary of British Leyland) in the UK in 1984. It was an export version of the Austin Montego, which was sold as the Ford Sierra in other markets. The name 'Meteor' was used in the UK for this specific model generation to distinguish it or due to regional naming conventions, while it is commonly known internationally as the Austin Montego or Ford Sierra. The years 1984–1995 match the production run of the Austin Montego (Sierra based). The other candidates refer to different cars: Mercury Montego is a North American Mercury model from a different era/platform context (or confused with the Ford Montego), Veritas Meteor is a 1950s French car, and Volkswagen Gol is a completely different vehicle."
+       }
+      }
+     },
+     {
+      "code": "Second generation",
+      "yearStart": 1969,
+      "yearEnd": 1978,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "1972 Mercury Marquis Brougham 2-door Hardtop, front right (Hershey 2019).jpg",
+      "sharedPlatforms": [
+       "Mercury Grand Marquis",
+       "Mercury Monterey",
+       "Mercury Colony Park",
+       "Ford LTD",
+       "Meteor LeMoyne",
+       "Meteor"
+      ],
+      "sharedPlatformMatches": {
+       "Meteor LeMoyne": {
+        "matchId": null,
+        "confidence": "low",
+        "reason": "The mention 'Meteor LeMoyne' refers to a specific trim or generation (typically 1955-1956) of the Mercury Meteor, whereas the candidate 'Veritas Meteor' refers to a different manufacturer (Veritas) that produced cars in 1951-1954. There is no evidence that the Veritas Meteor was renamed to 'Meteor LeMoyne' or that they share the same chassis/generation."
+       }
+      }
+     },
+     {
+      "code": "Third generation",
+      "yearStart": 1979,
+      "yearEnd": 1982,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "1980 Mercury Marquis sedan.jpg",
+      "sharedPlatforms": [
+       "Lincoln Continental Mark VI",
+       "Mercury Grand Marquis",
+       "Mercury Colony Park",
+       "Ford LTD"
+      ]
+     },
+     {
+      "code": "Fourth generation",
+      "yearStart": 1983,
+      "yearEnd": 1986,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "1983 Mercury Marquis.jpg",
+      "sharedPlatforms": [
+       "Mercury Cougar",
+       "Ford LTD",
+       "Ford Thunderbird",
+       "Lincoln Continental",
+       "Lincoln Continental Mark VII"
+      ]
+     }
+    ]
+   },
+   "attempts": 1,
+   "feedback": [],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": true,
+     "generations": [
+      {
+       "code": "First generation",
+       "yearStart": 1967,
+       "yearEnd": 1968,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Mercury Monterey",
+        "Mercury Park Lane Brougham",
+        "Ford LTD",
+        "Meteor Montego/LeMoyne"
+       ]
+      },
+      {
+       "code": "Second generation",
+       "yearStart": 1969,
+       "yearEnd": 1978,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Mercury Grand Marquis",
+        "Mercury Monterey",
+        "Mercury Colony Park",
+        "Ford LTD",
+        "Meteor LeMoyne",
+        "Meteor"
+       ]
+      },
+      {
+       "code": "Third generation",
+       "yearStart": 1979,
+       "yearEnd": 1982,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Lincoln Continental Mark VI",
+        "Mercury Grand Marquis",
+        "Mercury Colony Park",
+        "Ford LTD"
+       ]
+      },
+      {
+       "code": "Fourth generation",
+       "yearStart": 1983,
+       "yearEnd": 1986,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Mercury Cougar",
+        "Ford LTD",
+        "Ford Thunderbird",
+        "Lincoln Continental",
+        "Lincoln Continental Mark VII"
+       ]
+      }
+     ]
+    },
+    "dropped": []
+   },
+   "cascadeDiscovered": true,
+   "decidedBy": "user",
+   "decidedAt": "2026-09-14T23:05:52.500Z",
+   "allDesigners": [],
+   "allEngineers": []
+  },
+  "m-mercury-grand-marquis": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-14T23:07:11.614Z",
+   "sourceTitle": "Mercury Grand Marquis",
+   "proposal": {
+    "hasMultipleGenerations": true,
+    "generations": [
+     {
+      "code": "1975–1978",
+      "yearStart": 1975,
+      "yearEnd": 1978,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "1978 Mercury Grand Marquis 4-Door Pillared Hardtop in Midnight Blue, Front Left, 08-02-2023.jpg",
+      "sharedPlatforms": [
+       "Mercury Colony Park",
+       "Ford LTD",
+       "Ford Country Squire",
+       "Lincoln Continental"
+      ]
+     },
+     {
+      "code": "First generation",
+      "yearStart": 1979,
+      "yearEnd": 1991,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "File:1983 Mercury Grand Marquis LS 2-Door.jpg",
+      "sharedPlatforms": [
+       "Mercury Colony Park",
+       "Ford LTD Crown Victoria",
+       "Ford Country Squire",
+       "Lincoln Town Car",
+       "Lincoln Continental"
+      ]
+     },
+     {
+      "code": "EN53",
+      "yearStart": 1992,
+      "yearEnd": 1997,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "1997 Mercury Grand Marquis GS, front left, 06-07-2024.jpg",
+      "sharedPlatforms": [
+       "Ford Crown Victoria",
+       "Ford Police Interceptor",
+       "Lincoln Town Car"
+      ],
+      "sharedPlatformMatches": {
+       "Ford Police Interceptor": {
+        "matchId": "m-ford-crown-victoria-police-interceptor",
+        "confidence": "high",
+        "reason": "The mentioned 'Ford Police Interceptor' refers to the specific police variant of the Ford Crown Victoria, known as the Ford Crown Victoria Police Interceptor (CVPI). This matches the candidate 'm-ford-crown-victoria-police-interceptor' which covers the production years 1992–2011, the exact era for this specific police vehicle."
+       }
+      }
+     },
+     {
+      "code": "EN114",
+      "yearStart": 1998,
+      "yearEnd": 2002,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "1998-2002 Mercury Grand Marquis -- 09-27-2010 1.jpg",
+      "sharedPlatforms": [
+       "Ford Crown Victoria",
+       "Ford Police Interceptor",
+       "Lincoln Town Car"
+      ],
+      "sharedPlatformMatches": {
+       "Ford Police Interceptor": {
+        "matchId": "m-ford-crown-victoria-police-interceptor",
+        "confidence": "high",
+        "reason": "The mentioned 'Ford Police Interceptor' refers to the specific police variant of the Ford Crown Victoria, known as the Ford Crown Victoria Police Interceptor (CVPI). This matches the candidate 'm-ford-crown-victoria-police-interceptor' which covers the production years 1992–2011, the exact era for this specific police vehicle."
+       }
+      }
+     },
+     {
+      "code": "Fourth generation",
+      "yearStart": 2003,
+      "yearEnd": 2011,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "2005 Mercury Grand Marquis 30th Anniversary Edition -- 06-02-2011.jpg",
+      "sharedPlatforms": [
+       "Mercury Marauder",
+       "Ford Crown Victoria",
+       "Ford Police Interceptor",
+       "Lincoln Town Car"
+      ],
+      "sharedPlatformMatches": {
+       "Ford Police Interceptor": {
+        "matchId": "m-ford-crown-victoria-police-interceptor",
+        "confidence": "high",
+        "reason": "The mentioned 'Ford Police Interceptor' refers to the specific police variant of the Ford Crown Victoria, known as the Ford Crown Victoria Police Interceptor (CVPI). This matches the candidate 'm-ford-crown-victoria-police-interceptor' which covers the production years 1992–2011, the exact era for this specific police vehicle."
+       }
+      }
+     }
+    ]
+   },
+   "attempts": 1,
+   "feedback": [],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": true,
+     "generations": [
+      {
+       "code": "1975–1978",
+       "yearStart": 1975,
+       "yearEnd": 1978,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Mercury Colony Park",
+        "Ford LTD",
+        "Ford Country Squire",
+        "Lincoln Continental"
+       ]
+      },
+      {
+       "code": "First generation",
+       "yearStart": 1979,
+       "yearEnd": 1991,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Mercury Colony Park",
+        "Ford LTD Crown Victoria",
+        "Ford Country Squire",
+        "Lincoln Town Car",
+        "Lincoln Continental"
+       ]
+      },
+      {
+       "code": "EN53",
+       "yearStart": 1992,
+       "yearEnd": 1997,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Ford Crown Victoria",
+        "Ford Police Interceptor",
+        "Lincoln Town Car"
+       ]
+      },
+      {
+       "code": "EN114",
+       "yearStart": 1998,
+       "yearEnd": 2002,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Ford Crown Victoria",
+        "Ford Police Interceptor",
+        "Lincoln Town Car"
+       ]
+      },
+      {
+       "code": "Fourth generation",
+       "yearStart": 2003,
+       "yearEnd": 2011,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Mercury Marauder",
+        "Ford Crown Victoria",
+        "Ford Police Interceptor",
+        "Lincoln Town Car"
+       ]
+      }
+     ]
+    },
+    "dropped": []
+   },
+   "cascadeDiscovered": true,
+   "decidedBy": "user",
+   "decidedAt": "2026-09-14T23:07:11.614Z",
+   "allDesigners": [],
+   "allEngineers": []
+  },
+  "m-lincoln-mark-series": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-14T23:09:31.078Z",
+   "sourceTitle": "Lincoln Mark series",
+   "proposal": {
+    "hasMultipleGenerations": true,
+    "generations": [
+     {
+      "code": "Mark II",
+      "yearStart": 1956,
+      "yearEnd": 1957,
+      "designers": [
+       "John Reinhart"
+      ],
+      "engineers": [
+       "Gordon Buehrig",
+       "Harley Copp"
+      ],
+      "wikiFile": "Continental Mark II (14334281500).jpg",
+      "sharedPlatforms": [
+       "Lincoln Futura"
+      ],
+      "sharedPlatformMatches": {
+       "Lincoln Futura": {
+        "matchId": null,
+        "confidence": "high",
+        "reason": "The Lincoln Futura is a 1955 concept car based on the Lincoln Continental (1955–1956), but it is not a production model sold to the public. None of the candidate entries represent a concept car or specifically the 'Futura' nameplate; they refer to various production Lincoln models (Continental, Mark series, etc.) or other unrelated Lincoln models. Therefore, no candidate matches the specific car mentioned."
+       }
+      }
+     },
+     {
+      "code": "Mark III (1958–1960)",
+      "yearStart": 1958,
+      "yearEnd": 1960,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "1960 Lincoln Continental -- 10-02-2009.jpg",
+      "sharedPlatforms": [
+       "Ford Thunderbird (second generation)",
+       "Lincoln Capri",
+       "Lincoln Premiere"
+      ]
+     },
+     {
+      "code": "Mark III",
+      "yearStart": 1969,
+      "yearEnd": 1971,
+      "designers": [
+       "Gene Bordinat"
+      ],
+      "engineers": [],
+      "wikiFile": "1956 Continental Mark II - midnight blue - fvr.jpg",
+      "sharedPlatforms": [
+       "Ford Thunderbird (fifth generation)"
+      ]
+     },
+     {
+      "code": "Mark IV",
+      "yearStart": 1972,
+      "yearEnd": 1976,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "1969 Lincoln Continetal Mark III (27056856370) (cropped).jpg",
+      "sharedPlatforms": [
+       "Ford Thunderbird (sixth generation)"
+      ]
+     },
+     {
+      "code": "Mark V",
+      "yearStart": 1977,
+      "yearEnd": 1979,
+      "designers": [
+       "Gene Bordinat"
+      ],
+      "engineers": [],
+      "wikiFile": "1975 Lincoln Continental Mark IV, Dutch licence registration 21-YB-60 p1.JPG",
+      "sharedPlatforms": [
+       "Lincoln Continental Mark IV",
+       "Ford Thunderbird (1972–1976)"
+      ],
+      "sharedPlatformMatches": {
+       "Ford Thunderbird (1972–1976)": {
+        "matchId": null,
+        "confidence": "high",
+        "reason": "The mentioned car is the 4th generation Ford Thunderbird (1972–1976). The only Thunderbird candidates in the list are 'm-ford-thunderbird' and 'fam-ford-thunderbird', which both cover the entire production history from 1955 to 2005, implying they represent the entire lineage (all generations) rather than specifically the 1972–1976 model. Additionally, the specific 1972–1976 generation was marketed under the 'Ford Elite' name in some markets (candidate 'm-ford-elite'), but the mention explicitly says 'Ford Thunderbird'. Without a candidate specifically labeled for the 1972–1976 generation (e.g., 'Ford Thunderbird (1972–1976)' or 'Ford Elite (1972–1976)'), a precise match cannot be confirmed."
+       }
+      }
+     },
+     {
+      "code": "Mark VI",
+      "yearStart": 1980,
+      "yearEnd": 1983,
+      "designers": [
+       "John Aiken"
+      ],
+      "engineers": [],
+      "wikiFile": "1981 Lincoln Continental Mark VI (29739268016).jpg",
+      "sharedPlatforms": []
+     },
+     {
+      "code": "Mark VII",
+      "yearStart": 1984,
+      "yearEnd": 1992,
+      "designers": [
+       "Jeff Teague"
+      ],
+      "engineers": [],
+      "wikiFile": "Lincoln-Continental-Mark-VII.jpg",
+      "sharedPlatforms": [
+       "Ford Mustang (third generation)",
+       "Ford Thunderbird (ninth generation)",
+       "Mercury Cougar"
+      ],
+      "sharedPlatformMatches": {
+       "Ford Mustang (third generation)": {
+        "matchId": "m-ford-mustang-fox",
+        "confidence": "high",
+        "reason": "The Ford Mustang third generation is specifically known as the 'Fox Body' Mustang, produced from 1979 to 1993. The candidate 'm-ford-mustang-fox' explicitly identifies this specific generation and covers the exact same production years, confirming they are the same physical car."
+       }
+      }
+     },
+     {
+      "code": "Mark VIII",
+      "yearStart": 1993,
+      "yearEnd": 1998,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "93 Lincoln Mark VIII (9674876061).jpg",
+      "sharedPlatforms": [
+       "Ford Thunderbird (tenth generation)"
+      ]
+     }
+    ]
+   },
+   "attempts": 1,
+   "feedback": [],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": true,
+     "generations": [
+      {
+       "code": "Mark II",
+       "yearStart": 1956,
+       "yearEnd": 1957,
+       "designers": [
+        "John Reinhart"
+       ],
+       "engineers": [
+        "Gordon Buehrig",
+        "Harley Copp"
+       ],
+       "sharedPlatforms": [
+        "Lincoln Futura"
+       ]
+      },
+      {
+       "code": "Mark III (1958–1960)",
+       "yearStart": 1958,
+       "yearEnd": 1960,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Ford Thunderbird (second generation)",
+        "Lincoln Capri",
+        "Lincoln Premiere"
+       ]
+      },
+      {
+       "code": "Mark III",
+       "yearStart": 1969,
+       "yearEnd": 1971,
+       "designers": [
+        "Gene Bordinat"
+       ],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Ford Thunderbird (fifth generation)",
+        "Lincoln Continental (fourth generation)",
+        "Imperial (third generation)"
+       ]
+      },
+      {
+       "code": "Mark IV",
+       "yearStart": 1972,
+       "yearEnd": 1976,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Ford Thunderbird (sixth generation)"
+       ]
+      },
+      {
+       "code": "Mark V",
+       "yearStart": 1977,
+       "yearEnd": 1979,
+       "designers": [
+        "Gene Bordinat"
+       ],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Lincoln Continental Mark IV",
+        "Ford Thunderbird (1972–1976)"
+       ]
+      },
+      {
+       "code": "Mark VI",
+       "yearStart": 1980,
+       "yearEnd": 1983,
+       "designers": [
+        "John Aiken"
+       ],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Lincoln Continental (sixth generation)",
+        "Lincoln Town Car (first generation)",
+        "Ford Panther platform"
+       ]
+      },
+      {
+       "code": "Mark VII",
+       "yearStart": 1984,
+       "yearEnd": 1992,
+       "designers": [
+        "Jeff Teague"
+       ],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Ford Fox platform",
+        "Ford Mustang (third generation)",
+        "Ford Thunderbird (ninth generation)",
+        "Mercury Cougar"
+       ]
+      },
+      {
+       "code": "Mark VIII",
+       "yearStart": 1993,
+       "yearEnd": 1998,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Ford Thunderbird (tenth generation)",
+        "Mercury Cougar (seventh generation)"
+       ]
+      }
+     ]
+    },
+    "dropped": []
+   },
+   "cascadeDiscovered": true,
+   "decidedBy": "user",
+   "decidedAt": "2026-09-14T23:09:31.078Z",
+   "allDesigners": [
+    "John Reinhart",
+    "Gene Bordinat",
+    "John Aiken",
+    "Jeff Teague"
+   ],
+   "allEngineers": [
+    "Gordon Buehrig",
+    "Harley Copp"
+   ]
+  },
+  "m-mercury-cougar": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-14T23:12:42.518Z",
+   "sourceTitle": "Mercury Cougar",
+   "proposal": {
+    "hasMultipleGenerations": true,
+    "generations": [
+     {
+      "code": "First generation (1967–1970)",
+      "yearStart": 1967,
+      "yearEnd": 1970,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "1967 Mercury Cougar, front right, 06-15-2024.jpg",
+      "sharedPlatforms": [
+       "Ford Mustang (first generation)"
+      ]
+     },
+     {
+      "code": "Second generation (1971–1973)",
+      "yearStart": 1971,
+      "yearEnd": 1973,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "1971 Mercury Cougar.jpg",
+      "sharedPlatforms": [
+       "Ford Mustang (first generation)"
+      ]
+     },
+     {
+      "code": "Third generation (1974–1976)",
+      "yearStart": 1974,
+      "yearEnd": 1976,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "Mercury Cougar XR-7 2-Door Hardtop.jpg",
+      "sharedPlatforms": [
+       "Ford Torino",
+       "Ford Elite",
+       "Mercury Montego"
+      ]
+     },
+     {
+      "code": "Fourth generation (1977–1979)",
+      "yearStart": 1977,
+      "yearEnd": 1979,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "1979 Mercury Cougar XR-7, front right.jpg",
+      "sharedPlatforms": [
+       "Ford LTD II",
+       "Ford Thunderbird (seventh generation)"
+      ]
+     },
+     {
+      "code": "Fifth generation (1980–1982)",
+      "yearStart": 1980,
+      "yearEnd": 1982,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "RedMercuryCougarSide.jpg",
+      "sharedPlatforms": [
+       "Ford Granada (North America)",
+       "Ford Fairmont",
+       "Mercury Zephyr",
+       "Ford Thunderbird (eighth generation)",
+       "Lincoln Continental",
+       "Continental/Lincoln Mark VII"
+      ],
+      "sharedPlatformMatches": {
+       "Mercury Zephyr": {
+        "matchId": "m-ford-zephyr",
+        "confidence": "high",
+        "reason": "The 'Ford Zephyr' was a model produced by the British Motor Corporation (BMC) and Ford of Europe. After the acquisition of British Motor Corporation by Ford in 1961, Ford utilized the Zephyr nameplate for the 'Mercury Zephyr', a model sold exclusively in the UK market (as Ford of Europe had no presence in North America where Mercury was sold). The Ford Zephyr production years (1951–1972) overlap with the period when the Mercury Zephyr was sold (late 1950s to 1974). The other candidates are either North American-only models that never bore the Zephyr name or are distinct models entirely."
+       },
+       "Continental/Lincoln Mark VII": {
+        "matchId": null,
+        "confidence": "high",
+        "reason": "The mentioned car is the 'Continental/Lincoln Mark VII', a specific luxury car produced by Ford/Lincoln (1970-1972). The candidate list contains a 'Bentley Mark V', 'Bentley Mark VI', 'Jaguar Mark V', 'Jaguar Mark VII', and 'Lotus Mark VI'. The 'Bentley Mark VII' and 'Jaguar Mark VII' are different cars (Bentley and Jaguar respectively, and the Jaguar Mark VII is from 1950-1956, not matching the Lincoln era). The 'Lincoln Continental' candidates refer to the full-sized sedan line, not the specific 'Mark VII' model name which denotes a specific generation of the Lincoln Continental (or the separate Mark VII sedan). No candidate represents the Lincoln/Lincoln Mark VII specifically; the closest is the generic Lincoln Continental line, but the specific 'Mark VII' designation and generation do not map to the provided candidates which are either different marque's 'Mark VII' or a generic Lincoln line entry without the 'Mark VII' specificity."
+       }
+      },
+      "makeVariantMatches": {
+       "Continental/Lincoln Mark VII": {
+        "matchId": "mk-lincoln",
+        "makeGuessWords": 2,
+        "reason": "The text 'Continental/Lincoln Mark VII' refers to the Lincoln Mark VII, where Lincoln is the manufacturer and Continental is the bodybuilder. 'Lincoln' matches the database entry 'Lincoln (United States)' with id 'mk-lincoln'."
+       }
+      }
+     },
+     {
+      "code": "Sixth generation (1983–1988)",
+      "yearStart": 1983,
+      "yearEnd": 1988,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "87-88 Mercury Cougar.jpg",
+      "sharedPlatforms": [
+       "Mercury Marquis",
+       "Ford Thunderbird (ninth generation)",
+       "Ford LTD (Americas)",
+       "Continental Mark VII",
+       "Lincoln Continental"
+      ]
+     },
+     {
+      "code": "Seventh generation (1989–1997)",
+      "yearStart": 1989,
+      "yearEnd": 1997,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "1997 Mercury Cougar XR7 in Vibrant White Clearcoat, Front Left, 11-06-2022.jpg",
+      "sharedPlatforms": [
+       "Ford Thunderbird",
+       "Lincoln Mark VIII"
+      ]
+     },
+     {
+      "code": "Eighth generation (1999–2002)",
+      "yearStart": 1999,
+      "yearEnd": 2002,
+      "designers": [
+       "Darrell Behmer"
+      ],
+      "engineers": [],
+      "wikiFile": "2001-2002 Mercury Cougar -- 03-30-2011.jpg",
+      "sharedPlatforms": [
+       "Ford Mondeo (first generation)",
+       "Ford Contour",
+       "Mercury Mystique",
+       "Ford Cougar"
+      ],
+      "sharedPlatformMatches": {
+       "Ford Contour": {
+        "matchId": null,
+        "confidence": "high",
+        "reason": "The Ford Contour is a distinct model from the Ford Taurus and Ford Probe. Although they share a platform (the Fox platform, similar to the Mustang SVO/Probe), they are separate nameplates and not a rename or badge-engineered version of each other. The Contour was produced from 1995 to 2000, which does not overlap with the production years of the most similar candidate, the Ford Taurus (1986–1991) in this list. Therefore, no candidate in the database refers to the Ford Contour."
+       },
+       "Mercury Mystique": {
+        "matchId": null,
+        "confidence": "high",
+        "reason": "The Mercury Mystique (produced 1991–1996) is a compact car based on the Ford Taurus/Ford Crown Victoria platform. None of the provided candidates refer to the Mystique or any car sharing that specific nameplate or generation during that era. The closest candidates (Marquis, Grand Marquis, Capri, Mariner) are distinct models with different names, body styles, and production timelines that do not overlap as a rename or export variant of the Mystique."
+       }
+      }
+     }
+    ]
+   },
+   "attempts": 1,
+   "feedback": [],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": true,
+     "generations": [
+      {
+       "code": "First generation (1967–1970)",
+       "yearStart": 1967,
+       "yearEnd": 1970,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Ford Mustang (first generation)"
+       ]
+      },
+      {
+       "code": "Second generation (1971–1973)",
+       "yearStart": 1971,
+       "yearEnd": 1973,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Ford Mustang (first generation)"
+       ]
+      },
+      {
+       "code": "Third generation (1974–1976)",
+       "yearStart": 1974,
+       "yearEnd": 1976,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Ford Torino",
+        "Ford Elite",
+        "Mercury Montego"
+       ]
+      },
+      {
+       "code": "Fourth generation (1977–1979)",
+       "yearStart": 1977,
+       "yearEnd": 1979,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Ford LTD II",
+        "Ford Thunderbird (seventh generation)"
+       ]
+      },
+      {
+       "code": "Fifth generation (1980–1982)",
+       "yearStart": 1980,
+       "yearEnd": 1982,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Ford Granada (North America)",
+        "Ford Fairmont",
+        "Mercury Zephyr",
+        "Ford Thunderbird (eighth generation)",
+        "Lincoln Continental",
+        "Continental/Lincoln Mark VII"
+       ]
+      },
+      {
+       "code": "Sixth generation (1983–1988)",
+       "yearStart": 1983,
+       "yearEnd": 1988,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Mercury Marquis",
+        "Ford Thunderbird (ninth generation)",
+        "Ford LTD (Americas)",
+        "Continental Mark VII",
+        "Lincoln Continental"
+       ]
+      },
+      {
+       "code": "Seventh generation (1989–1997)",
+       "yearStart": 1989,
+       "yearEnd": 1997,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Ford Thunderbird",
+        "Lincoln Mark VIII"
+       ]
+      },
+      {
+       "code": "Eighth generation (1999–2002)",
+       "yearStart": 1999,
+       "yearEnd": 2002,
+       "designers": [
+        "Darrell Behmer"
+       ],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Ford Mondeo (first generation)",
+        "Ford Contour",
+        "Mercury Mystique",
+        "Ford Cougar"
+       ]
+      }
+     ]
+    },
+    "dropped": []
+   },
+   "cascadeDiscovered": true,
+   "decidedBy": "user",
+   "decidedAt": "2026-09-14T23:12:42.518Z",
+   "allDesigners": [
+    "Darrell Behmer"
+   ],
+   "allEngineers": []
+  },
+  "m-mercury-sable": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-14T23:15:00.807Z",
+   "sourceTitle": "Mercury Sable",
+   "proposal": {
+    "hasMultipleGenerations": true,
+    "generations": [
+     {
+      "code": "First generation",
+      "yearStart": 1985,
+      "yearEnd": 1991,
+      "designers": [
+       "Jack Telnack"
+      ],
+      "engineers": [],
+      "wikiFile": "1988 Mercury Sable GS Sedan in Medium Cabernet, Front Left, 07-08-2023.jpg",
+      "sharedPlatforms": [
+       "Ford Taurus (first generation)",
+       "Lincoln Continental",
+       "Kia Sable"
+      ],
+      "sharedPlatformMatches": {
+       "Kia Sable": {
+        "matchId": null,
+        "confidence": "high",
+        "reason": "The mentioned car 'Kia Sable' (produced 1998–2010 in Korea) is not listed in the provided candidates. While the Kia Sable was known as the 'Kia Cerato' in many international markets, the database entry 'm-kia-cerato' lacks production years for the Sable-era (1998–2002), which implies it represents the later generation (2003–2024) sold in markets like the US (Forte) or Europe. Without a candidate explicitly covering the 1998–2010 timeframe or clearly identifying the specific generation associated with the 'Sable' nameplate, no match can be made."
+       }
+      }
+     },
+     {
+      "code": "Second generation",
+      "yearStart": 1991,
+      "yearEnd": 1995,
+      "designers": [
+       "Jack Telnack"
+      ],
+      "engineers": [],
+      "wikiFile": "1995 Mercury Sable GS sedan, front left, 04-11-2021.jpg",
+      "sharedPlatforms": [
+       "Ford Taurus (second generation)",
+       "Lincoln Continental",
+       "Ford Windstar"
+      ]
+     },
+     {
+      "code": "Third generation",
+      "yearStart": 1995,
+      "yearEnd": 1999,
+      "designers": [
+       "Jack Telnack"
+      ],
+      "engineers": [],
+      "wikiFile": "96-97 Mercury Sable.jpg",
+      "sharedPlatforms": [
+       "Ford Taurus (third generation)",
+       "Lincoln Continental",
+       "Ford Windstar"
+      ]
+     },
+     {
+      "code": "Fourth generation",
+      "yearStart": 2000,
+      "yearEnd": 2005,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "00-03 Mercury Sable GS sedan.jpg",
+      "sharedPlatforms": [
+       "Ford Taurus (fourth generation)",
+       "Lincoln Continental"
+      ]
+     },
+     {
+      "code": "Fifth generation",
+      "yearStart": 2007,
+      "yearEnd": 2009,
+      "designers": [
+       "J Mays"
+      ],
+      "engineers": [],
+      "wikiFile": "2008 Mercury Sable Premier.jpg",
+      "sharedPlatforms": [
+       "Lincoln MKS",
+       "Volvo S60",
+       "Volvo XC90",
+       "Ford Taurus (fifth generation)",
+       "Ford Taurus X",
+       "Ford Flex"
+      ],
+      "sharedPlatformMatches": {
+       "Ford Taurus X": {
+        "matchId": null,
+        "confidence": "high",
+        "reason": "The Ford Taurus X is a distinct model (a crossover SUV produced 2007–2009) and is not listed in the provided candidates. The only candidate with 'Taurus' in the name refers to the standard Ford Taurus sedan (produced 1985–2019). Although they share the name, they are different vehicles with different body styles, chassis codes, and production timelines."
+       }
+      }
+     }
+    ]
+   },
+   "attempts": 1,
+   "feedback": [],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": true,
+     "generations": [
+      {
+       "code": "First generation",
+       "yearStart": 1985,
+       "yearEnd": 1991,
+       "designers": [
+        "Jack Telnack"
+       ],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Ford Taurus (first generation)",
+        "Lincoln Continental",
+        "Kia Sable"
+       ]
+      },
+      {
+       "code": "Second generation",
+       "yearStart": 1991,
+       "yearEnd": 1995,
+       "designers": [
+        "Jack Telnack"
+       ],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Ford Taurus (second generation)",
+        "Lincoln Continental",
+        "Ford Windstar"
+       ]
+      },
+      {
+       "code": "Third generation",
+       "yearStart": 1995,
+       "yearEnd": 1999,
+       "designers": [
+        "Jack Telnack"
+       ],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Ford Taurus (third generation)",
+        "Lincoln Continental",
+        "Ford Windstar"
+       ]
+      },
+      {
+       "code": "Fourth generation",
+       "yearStart": 2000,
+       "yearEnd": 2005,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Ford Taurus (fourth generation)",
+        "Lincoln Continental"
+       ]
+      },
+      {
+       "code": "Fifth generation",
+       "yearStart": 2007,
+       "yearEnd": 2009,
+       "designers": [
+        "J Mays"
+       ],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Lincoln MKS",
+        "Volvo S60",
+        "Volvo XC90",
+        "Ford Taurus (fifth generation)",
+        "Ford Taurus X",
+        "Ford Flex"
+       ]
+      }
+     ]
+    },
+    "dropped": []
+   },
+   "cascadeDiscovered": true,
+   "decidedBy": "user",
+   "decidedAt": "2026-09-14T23:15:00.807Z",
+   "allDesigners": [
+    "Jack Telnack",
+    "J Mays"
+   ],
+   "allEngineers": []
+  },
+  "m-ford-windstar": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-14T23:15:51.570Z",
+   "sourceTitle": "Ford Windstar",
+   "proposal": {
+    "hasMultipleGenerations": true,
+    "generations": [
+     {
+      "code": "First generation (1995–1998)",
+      "yearStart": 1995,
+      "yearEnd": 1998,
+      "designers": [
+       "Camilo Pardo",
+       "Jack Telnack"
+      ],
+      "engineers": [],
+      "wikiFile": "1st Ford Windstar.jpg",
+      "sharedPlatforms": [
+       "Ford Taurus",
+       "Lincoln Continental",
+       "Mercury Sable"
+      ]
+     },
+     {
+      "code": "Second generation (1999–2003)",
+      "yearStart": 1999,
+      "yearEnd": 2003,
+      "designers": [
+       "Moray Callum"
+      ],
+      "engineers": [],
+      "wikiFile": "99-00 Ford Windstar LX.jpg",
+      "sharedPlatforms": []
+     },
+     {
+      "code": "Third generation (Ford Freestar; 2004–2007)",
+      "yearStart": 2004,
+      "yearEnd": 2007,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "2004 Ford Freestar SE, front 3.11.20.jpg",
+      "sharedPlatforms": []
+     }
+    ]
+   },
+   "attempts": 1,
+   "feedback": [],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": true,
+     "generations": [
+      {
+       "code": "First generation (1995–1998)",
+       "yearStart": 1995,
+       "yearEnd": 1998,
+       "designers": [
+        "Camilo Pardo",
+        "Jack Telnack"
+       ],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Ford Taurus",
+        "Lincoln Continental",
+        "Mercury Sable"
+       ]
+      },
+      {
+       "code": "Second generation (1999–2003)",
+       "yearStart": 1999,
+       "yearEnd": 2003,
+       "designers": [
+        "Moray Callum"
+       ],
+       "engineers": [],
+       "sharedPlatforms": []
+      },
+      {
+       "code": "Third generation (Ford Freestar; 2004–2007)",
+       "yearStart": 2004,
+       "yearEnd": 2007,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": []
+      }
+     ]
+    },
+    "dropped": []
+   },
+   "cascadeDiscovered": true,
+   "decidedBy": "user",
+   "decidedAt": "2026-09-14T23:15:51.570Z",
+   "allDesigners": [
+    "Camilo Pardo",
+    "Jack Telnack",
+    "Moray Callum"
+   ],
+   "allEngineers": []
+  },
+  "m-lincoln-mkz": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-14T23:16:18.210Z",
+   "sourceTitle": "Lincoln MKZ",
+   "proposal": {
+    "hasMultipleGenerations": true,
+    "generations": [
+     {
+      "code": "First generation (2006)",
+      "yearStart": 2006,
+      "yearEnd": 2012,
+      "designers": [
+       "Darrell Behmer",
+       "Peter Horbury"
+      ],
+      "engineers": [],
+      "wikiFile": "Lincoln MKZ.jpg",
+      "sharedPlatforms": [
+       "Ford Fusion (Americas)",
+       "Mercury Milan",
+       "Mazda 6"
+      ]
+     },
+     {
+      "code": "Second generation (2013)",
+      "yearStart": 2013,
+      "yearEnd": 2020,
+      "designers": [
+       "Max Wolff",
+       "Soo Kang"
+      ],
+      "engineers": [],
+      "wikiFile": "2016 Lincoln MKZ 2.0L AWD front 4.22.19.jpg",
+      "sharedPlatforms": [
+       "Ford Fusion (Americas)",
+       "Ford Mondeo (fourth generation)",
+       "Lincoln Continental"
+      ]
+     }
+    ]
+   },
+   "attempts": 1,
+   "feedback": [],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": true,
+     "generations": [
+      {
+       "code": "First generation (2006)",
+       "yearStart": 2006,
+       "yearEnd": 2012,
+       "designers": [
+        "Darrell Behmer",
+        "Peter Horbury"
+       ],
+       "sharedPlatforms": [
+        "Ford Fusion (Americas)",
+        "Mercury Milan",
+        "Mazda 6"
+       ]
+      },
+      {
+       "code": "Second generation (2013)",
+       "yearStart": 2013,
+       "yearEnd": 2020,
+       "designers": [
+        "Max Wolff",
+        "Soo Kang"
+       ],
+       "sharedPlatforms": [
+        "Ford Fusion (Americas)",
+        "Ford Mondeo (fourth generation)",
+        "Lincoln Continental",
+        "Ford Taurus (seventh generation)"
+       ]
+      }
+     ]
+    },
+    "dropped": []
+   },
+   "cascadeDiscovered": true,
+   "decidedBy": "user",
+   "decidedAt": "2026-09-14T23:16:18.210Z",
+   "allDesigners": [
+    "Darrell Behmer",
+    "Peter Horbury",
+    "Max Wolff",
+    "Soo Kang"
+   ],
+   "allEngineers": []
   }
  },
  "relations": {
@@ -20255,12 +22028,1700 @@
    "genIdB": "m-mazda-cx-9",
    "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
    "llmDiscovered": true
+  },
+  "llm-m-lincoln-continental-first-generation|m-lincoln-lincoln-zephyr|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-14T22:58:45.306Z",
+   "decidedAt": "2026-09-14T22:58:45.306Z",
+   "famA": "m-lincoln-continental",
+   "famB": "m-lincoln-lincoln-zephyr",
+   "relType": "platform",
+   "codeA": "Continental First generation",
+   "codeB": "Lincoln-Zephyr",
+   "genIdA": "llm-m-lincoln-continental-first-generation",
+   "genIdB": "m-lincoln-lincoln-zephyr",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-lincoln-continental-first-generation|llm-related-lincoln-h-series|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-14T22:58:45.315Z",
+   "decidedAt": "2026-09-14T22:58:45.315Z",
+   "famA": "m-lincoln-continental",
+   "famB": "llm-related-lincoln-h-series",
+   "relType": "platform",
+   "codeA": "Continental First generation",
+   "codeB": "H-series",
+   "genIdA": "llm-m-lincoln-continental-first-generation",
+   "genIdB": "llm-related-lincoln-h-series",
+   "reason": "matched automatically -- \"Lincoln H-series\" was named as a related car but didn't exist anywhere in the graph yet, so it was newly created from this mention (double-checked by the local LLM sanity pass against every plausible existing car -- none matched)",
+   "llmDiscovered": true
+  },
+  "llm-m-lincoln-continental-third-generation|llm-related-lincoln-premiere|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-14T22:58:45.329Z",
+   "decidedAt": "2026-09-14T22:58:45.329Z",
+   "famA": "m-lincoln-continental",
+   "famB": "llm-related-lincoln-premiere",
+   "relType": "platform",
+   "codeA": "Continental Third generation",
+   "codeB": "Premiere",
+   "genIdA": "llm-m-lincoln-continental-third-generation",
+   "genIdB": "llm-related-lincoln-premiere",
+   "reason": "matched automatically -- \"Lincoln Premiere\" was named as a related car but didn't exist anywhere in the graph yet, so it was newly created from this mention (double-checked by the local LLM sanity pass against every plausible existing car -- none matched)",
+   "llmDiscovered": true
+  },
+  "llm-m-lincoln-continental-third-generation|m-lincoln-capri|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-14T22:58:45.331Z",
+   "decidedAt": "2026-09-14T22:58:45.331Z",
+   "famA": "m-lincoln-continental",
+   "famB": "m-lincoln-capri",
+   "relType": "platform",
+   "codeA": "Continental Third generation",
+   "codeB": "Capri",
+   "genIdA": "llm-m-lincoln-continental-third-generation",
+   "genIdB": "m-lincoln-capri",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-lincoln-continental-fourth-generation|m-ford-thunderbird|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-14T22:58:45.336Z",
+   "decidedAt": "2026-09-14T22:58:45.336Z",
+   "famA": "m-lincoln-continental",
+   "famB": "fam-ford-thunderbird",
+   "relType": "platform",
+   "codeA": "Continental Fourth generation",
+   "codeB": "Thunderbird",
+   "genIdA": "llm-m-lincoln-continental-fourth-generation",
+   "genIdB": "m-ford-thunderbird",
+   "reason": "matched automatically (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-lincoln-continental-fifth-generation|llm-related-ford-ltd|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-14T22:58:45.346Z",
+   "decidedAt": "2026-09-14T22:58:45.346Z",
+   "famA": "m-lincoln-continental",
+   "famB": "llm-related-ford-ltd",
+   "relType": "platform",
+   "codeA": "Continental Fifth generation",
+   "codeB": "LTD",
+   "genIdA": "llm-m-lincoln-continental-fifth-generation",
+   "genIdB": "llm-related-ford-ltd",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-lincoln-continental-fifth-generation|m-mercury-marquis|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-14T22:58:45.347Z",
+   "decidedAt": "2026-09-14T22:58:45.347Z",
+   "famA": "m-lincoln-continental",
+   "famB": "m-mercury-marquis",
+   "relType": "platform",
+   "codeA": "Continental Fifth generation",
+   "codeB": "Marquis",
+   "genIdA": "llm-m-lincoln-continental-fifth-generation",
+   "genIdB": "m-mercury-marquis",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-lincoln-continental-sixth-generation|llm-related-ford-ltd|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-14T22:58:45.352Z",
+   "decidedAt": "2026-09-14T22:58:45.352Z",
+   "famA": "m-lincoln-continental",
+   "famB": "llm-related-ford-ltd",
+   "relType": "platform",
+   "codeA": "Continental Sixth generation",
+   "codeB": "LTD",
+   "genIdA": "llm-m-lincoln-continental-sixth-generation",
+   "genIdB": "llm-related-ford-ltd",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-lincoln-continental-sixth-generation|m-mercury-grand-marquis|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-14T22:58:45.353Z",
+   "decidedAt": "2026-09-14T22:58:45.353Z",
+   "famA": "m-lincoln-continental",
+   "famB": "m-mercury-grand-marquis",
+   "relType": "platform",
+   "codeA": "Continental Sixth generation",
+   "codeB": "Grand Marquis",
+   "genIdA": "llm-m-lincoln-continental-sixth-generation",
+   "genIdB": "m-mercury-grand-marquis",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-lincoln-continental-seventh-generation|m-lincoln-mark-series|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-14T22:58:45.360Z",
+   "decidedAt": "2026-09-14T22:58:45.360Z",
+   "famA": "m-lincoln-continental",
+   "famB": "m-lincoln-mark-series",
+   "relType": "platform",
+   "codeA": "Continental Seventh generation",
+   "codeB": "Mark series",
+   "genIdA": "llm-m-lincoln-continental-seventh-generation",
+   "genIdB": "m-lincoln-mark-series",
+   "reason": "auto-approved in the background -- the local LLM sanity check confidently identified this as the same car as \"Lincoln Mark VII\" (confidence: high) -- The 'Lincoln Mark VII' is a specific model within the 'Lincoln Mark series' produced by Lincoln from 1955 to 1960 (specifically 1955-1956 for the VII). While the candidate list provides a general entry for the series ('m-lincoln-mark-series'), it is the only entry that accurately covers the production era and naming convention of the mentioned car, unlike the other candidates which refer to different marques (Bentley, Jaguar, Lotus) or different Lincoln models with non-overlapping production years.",
+   "llmDiscovered": true,
+   "llmVerifiedDuplicate": true
+  },
+  "llm-m-lincoln-continental-seventh-generation|m-ford-thunderbird|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-14T22:58:45.361Z",
+   "decidedAt": "2026-09-14T22:58:45.361Z",
+   "famA": "m-lincoln-continental",
+   "famB": "fam-ford-thunderbird",
+   "relType": "platform",
+   "codeA": "Continental Seventh generation",
+   "codeB": "Thunderbird",
+   "genIdA": "llm-m-lincoln-continental-seventh-generation",
+   "genIdB": "m-ford-thunderbird",
+   "reason": "matched automatically (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-lincoln-continental-seventh-generation|m-mercury-cougar|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-14T22:58:45.365Z",
+   "decidedAt": "2026-09-14T22:58:45.365Z",
+   "famA": "m-lincoln-continental",
+   "famB": "m-mercury-cougar",
+   "relType": "platform",
+   "codeA": "Continental Seventh generation",
+   "codeB": "Cougar",
+   "genIdA": "llm-m-lincoln-continental-seventh-generation",
+   "genIdB": "m-mercury-cougar",
+   "reason": "auto-approved in the background -- the local LLM sanity check confidently identified this as the same car as \"Mercury Cougar XR7\" (confidence: high) -- The mention 'Mercury Cougar XR7' refers to the Mercury Cougar model, specifically a trim level (XR7) produced from 1967 to 1970. The candidate 'm-mercury-cougar' is labeled 'Mercury Cougar (1967–present)' and covers the correct production start year and model name. The 'XR7' is a high-performance trim, not a distinct model requiring a separate entry, and the long production range in the candidate label accommodates the 1967–1970 era of the XR7.",
+   "llmDiscovered": true,
+   "llmVerifiedDuplicate": true
+  },
+  "llm-m-lincoln-continental-eighth-generation|m-ford-taurus|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-14T22:58:45.368Z",
+   "decidedAt": "2026-09-14T22:58:45.368Z",
+   "famA": "m-lincoln-continental",
+   "famB": "fam-ford-taurus",
+   "relType": "platform",
+   "codeA": "Continental Eighth generation",
+   "codeB": "Taurus",
+   "genIdA": "llm-m-lincoln-continental-eighth-generation",
+   "genIdB": "m-ford-taurus",
+   "reason": "matched automatically (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-lincoln-continental-eighth-generation|m-mercury-sable|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-14T22:58:45.368Z",
+   "decidedAt": "2026-09-14T22:58:45.368Z",
+   "famA": "m-lincoln-continental",
+   "famB": "m-mercury-sable",
+   "relType": "platform",
+   "codeA": "Continental Eighth generation",
+   "codeB": "Sable",
+   "genIdA": "llm-m-lincoln-continental-eighth-generation",
+   "genIdB": "m-mercury-sable",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-lincoln-continental-eighth-generation|m-ford-windstar|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-14T22:58:45.369Z",
+   "decidedAt": "2026-09-14T22:58:45.369Z",
+   "famA": "m-lincoln-continental",
+   "famB": "m-ford-windstar",
+   "relType": "platform",
+   "codeA": "Continental Eighth generation",
+   "codeB": "Windstar",
+   "genIdA": "llm-m-lincoln-continental-eighth-generation",
+   "genIdB": "m-ford-windstar",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-lincoln-continental-ninth-generation|m-ford-taurus|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-14T22:58:45.372Z",
+   "decidedAt": "2026-09-14T22:58:45.372Z",
+   "famA": "m-lincoln-continental",
+   "famB": "fam-ford-taurus",
+   "relType": "platform",
+   "codeA": "Continental Ninth generation",
+   "codeB": "Taurus",
+   "genIdA": "llm-m-lincoln-continental-ninth-generation",
+   "genIdB": "m-ford-taurus",
+   "reason": "matched automatically (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-lincoln-continental-ninth-generation|m-mercury-sable|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-14T22:58:45.372Z",
+   "decidedAt": "2026-09-14T22:58:45.372Z",
+   "famA": "m-lincoln-continental",
+   "famB": "m-mercury-sable",
+   "relType": "platform",
+   "codeA": "Continental Ninth generation",
+   "codeB": "Sable",
+   "genIdA": "llm-m-lincoln-continental-ninth-generation",
+   "genIdB": "m-mercury-sable",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-lincoln-continental-ninth-generation|m-ford-windstar|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-14T22:58:45.373Z",
+   "decidedAt": "2026-09-14T22:58:45.373Z",
+   "famA": "m-lincoln-continental",
+   "famB": "m-ford-windstar",
+   "relType": "platform",
+   "codeA": "Continental Ninth generation",
+   "codeB": "Windstar",
+   "genIdA": "llm-m-lincoln-continental-ninth-generation",
+   "genIdB": "m-ford-windstar",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-lincoln-continental-tenth-generation|m-lincoln-mkz|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-14T22:58:45.377Z",
+   "decidedAt": "2026-09-14T22:58:45.377Z",
+   "famA": "m-lincoln-continental",
+   "famB": "m-lincoln-mkz",
+   "relType": "platform",
+   "codeA": "Continental Tenth generation",
+   "codeB": "MKZ",
+   "genIdA": "llm-m-lincoln-continental-tenth-generation",
+   "genIdB": "m-lincoln-mkz",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-lincoln-continental-tenth-generation|m-ford-mondeo|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-14T22:58:45.381Z",
+   "decidedAt": "2026-09-14T22:58:45.381Z",
+   "famA": "m-lincoln-continental",
+   "famB": "fam-ford-mondeo",
+   "relType": "platform",
+   "codeA": "Continental Tenth generation",
+   "codeB": "Mondeo",
+   "genIdA": "llm-m-lincoln-continental-tenth-generation",
+   "genIdB": "m-ford-mondeo",
+   "reason": "matched automatically (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-lincoln-continental-tenth-generation|m-ford-taurus|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-14T22:58:45.381Z",
+   "decidedAt": "2026-09-14T22:58:45.381Z",
+   "famA": "m-lincoln-continental",
+   "famB": "fam-ford-taurus",
+   "relType": "platform",
+   "codeA": "Continental Tenth generation",
+   "codeB": "Taurus",
+   "genIdA": "llm-m-lincoln-continental-tenth-generation",
+   "genIdB": "m-ford-taurus",
+   "reason": "matched automatically (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-lincoln-continental-first-generation|llm-m-lincoln-lincoln-zephyr-lincoln-zephyr|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-14T22:59:50.855Z",
+   "decidedAt": "2026-09-14T22:59:50.855Z",
+   "famA": "m-lincoln-lincoln-zephyr",
+   "famB": "m-lincoln-continental",
+   "relType": "platform",
+   "codeA": "Lincoln-Zephyr Lincoln-Zephyr",
+   "codeB": "Continental First generation",
+   "genIdA": "llm-m-lincoln-lincoln-zephyr-lincoln-zephyr",
+   "genIdB": "llm-m-lincoln-continental-first-generation",
+   "reason": "matched automatically -- the nameplate was named exactly in the source text, and exactly one of its generations was in production alongside this one, so that is the generation it refers to",
+   "llmDiscovered": true
+  },
+  "llm-m-lincoln-capri-generation-i|m-lincoln-custom|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-14T23:03:06.004Z",
+   "decidedAt": "2026-09-14T23:03:06.004Z",
+   "famA": "m-lincoln-capri",
+   "famB": "m-lincoln-custom",
+   "relType": "platform",
+   "codeA": "Capri Generation I",
+   "codeB": "Custom",
+   "genIdA": "llm-m-lincoln-capri-generation-i",
+   "genIdB": "m-lincoln-custom",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-lincoln-capri-generation-i|llm-related-ford-crestline|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-14T23:03:06.665Z",
+   "decidedAt": "2026-09-14T23:03:06.665Z",
+   "famA": "m-lincoln-capri",
+   "famB": "llm-related-ford-crestline",
+   "relType": "platform",
+   "codeA": "Capri Generation I",
+   "codeB": "Crestline",
+   "genIdA": "llm-m-lincoln-capri-generation-i",
+   "genIdB": "llm-related-ford-crestline",
+   "reason": "matched automatically -- \"Ford Crestline\" was named as a related car but didn't exist anywhere in the graph yet, so it was newly created from this mention (double-checked by the local LLM sanity pass against every plausible existing car -- none matched)",
+   "llmDiscovered": true
+  },
+  "llm-m-lincoln-capri-generation-ii|llm-related-lincoln-premiere|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-14T23:03:07.583Z",
+   "decidedAt": "2026-09-14T23:03:07.584Z",
+   "famA": "m-lincoln-capri",
+   "famB": "llm-related-lincoln-premiere",
+   "relType": "platform",
+   "codeA": "Capri Generation II",
+   "codeB": "Premiere",
+   "genIdA": "llm-m-lincoln-capri-generation-ii",
+   "genIdB": "llm-related-lincoln-premiere",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-lincoln-capri-generation-ii|m-mercury-montclair|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-14T23:03:07.686Z",
+   "decidedAt": "2026-09-14T23:03:07.688Z",
+   "famA": "m-lincoln-capri",
+   "famB": "m-mercury-montclair",
+   "relType": "platform",
+   "codeA": "Capri Generation II",
+   "codeB": "Montclair",
+   "genIdA": "llm-m-lincoln-capri-generation-ii",
+   "genIdB": "m-mercury-montclair",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-lincoln-capri-generation-iii|m-lincoln-mark-series|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-14T23:03:07.842Z",
+   "decidedAt": "2026-09-14T23:03:07.842Z",
+   "famA": "m-lincoln-capri",
+   "famB": "m-lincoln-mark-series",
+   "relType": "platform",
+   "codeA": "Capri Generation III",
+   "codeB": "Mark series",
+   "genIdA": "llm-m-lincoln-capri-generation-iii",
+   "genIdB": "m-lincoln-mark-series",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-lincoln-capri-generation-iii|llm-related-lincoln-premiere|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-14T23:03:07.869Z",
+   "decidedAt": "2026-09-14T23:03:07.869Z",
+   "famA": "m-lincoln-capri",
+   "famB": "llm-related-lincoln-premiere",
+   "relType": "platform",
+   "codeA": "Capri Generation III",
+   "codeB": "Premiere",
+   "genIdA": "llm-m-lincoln-capri-generation-iii",
+   "genIdB": "llm-related-lincoln-premiere",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-ford-continental-mark-ii-mark-iii|m-ford-thunderbird|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-14T23:04:41.961Z",
+   "decidedAt": "2026-09-14T23:04:41.961Z",
+   "famA": "m-ford-continental-mark-ii",
+   "famB": "fam-ford-thunderbird",
+   "relType": "platform",
+   "codeA": "Continental Mark II Mark III",
+   "codeB": "Thunderbird",
+   "genIdA": "llm-m-ford-continental-mark-ii-mark-iii",
+   "genIdB": "m-ford-thunderbird",
+   "reason": "matched automatically (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-ford-continental-mark-ii-mark-iv|m-ford-thunderbird|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-14T23:04:41.964Z",
+   "decidedAt": "2026-09-14T23:04:41.964Z",
+   "famA": "m-ford-continental-mark-ii",
+   "famB": "fam-ford-thunderbird",
+   "relType": "platform",
+   "codeA": "Continental Mark II Mark IV",
+   "codeB": "Thunderbird",
+   "genIdA": "llm-m-ford-continental-mark-ii-mark-iv",
+   "genIdB": "m-ford-thunderbird",
+   "reason": "matched automatically (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-ford-continental-mark-ii-mark-v|m-ford-thunderbird|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-14T23:04:41.967Z",
+   "decidedAt": "2026-09-14T23:04:41.967Z",
+   "famA": "m-ford-continental-mark-ii",
+   "famB": "fam-ford-thunderbird",
+   "relType": "platform",
+   "codeA": "Continental Mark II Mark V",
+   "codeB": "Thunderbird",
+   "genIdA": "llm-m-ford-continental-mark-ii-mark-v",
+   "genIdB": "m-ford-thunderbird",
+   "reason": "matched automatically (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-ford-continental-mark-ii-mark-vii|m-ford-thunderbird|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-14T23:04:41.972Z",
+   "decidedAt": "2026-09-14T23:04:41.972Z",
+   "famA": "m-ford-continental-mark-ii",
+   "famB": "fam-ford-thunderbird",
+   "relType": "platform",
+   "codeA": "Continental Mark II Mark VII",
+   "codeB": "Thunderbird",
+   "genIdA": "llm-m-ford-continental-mark-ii-mark-vii",
+   "genIdB": "m-ford-thunderbird",
+   "reason": "matched automatically (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-ford-continental-mark-ii-mark-vii|m-mercury-cougar|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-14T23:04:41.974Z",
+   "decidedAt": "2026-09-14T23:04:41.974Z",
+   "famA": "m-ford-continental-mark-ii",
+   "famB": "m-mercury-cougar",
+   "relType": "platform",
+   "codeA": "Continental Mark II Mark VII",
+   "codeB": "Cougar",
+   "genIdA": "llm-m-ford-continental-mark-ii-mark-vii",
+   "genIdB": "m-mercury-cougar",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-ford-continental-mark-ii-mark-viii|m-ford-thunderbird|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-14T23:04:41.977Z",
+   "decidedAt": "2026-09-14T23:04:41.977Z",
+   "famA": "m-ford-continental-mark-ii",
+   "famB": "fam-ford-thunderbird",
+   "relType": "platform",
+   "codeA": "Continental Mark II Mark VIII",
+   "codeB": "Thunderbird",
+   "genIdA": "llm-m-ford-continental-mark-ii-mark-viii",
+   "genIdB": "m-ford-thunderbird",
+   "reason": "matched automatically (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-ford-continental-mark-ii-mark-viii|m-mercury-cougar|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-14T23:04:41.978Z",
+   "decidedAt": "2026-09-14T23:04:41.978Z",
+   "famA": "m-ford-continental-mark-ii",
+   "famB": "m-mercury-cougar",
+   "relType": "platform",
+   "codeA": "Continental Mark II Mark VIII",
+   "codeB": "Cougar",
+   "genIdA": "llm-m-ford-continental-mark-ii-mark-viii",
+   "genIdB": "m-mercury-cougar",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-mercury-marquis-first-generation|llm-m-mercury-monterey-sixth-generation|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-14T23:05:52.512Z",
+   "decidedAt": "2026-09-14T23:05:52.512Z",
+   "famA": "m-mercury-marquis",
+   "famB": "m-mercury-monterey",
+   "relType": "platform",
+   "codeA": "Marquis First generation",
+   "codeB": "Monterey Sixth generation",
+   "genIdA": "llm-m-mercury-marquis-first-generation",
+   "genIdB": "llm-m-mercury-monterey-sixth-generation",
+   "reason": "matched automatically -- the nameplate was named exactly in the source text, and exactly one of its generations was in production alongside this one, so that is the generation it refers to",
+   "llmDiscovered": true
+  },
+  "llm-m-mercury-marquis-first-generation|llm-related-mercury-park-lane-brougham|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-14T23:05:52.519Z",
+   "decidedAt": "2026-09-14T23:05:52.519Z",
+   "famA": "m-mercury-marquis",
+   "famB": "llm-related-mercury-park-lane-brougham",
+   "relType": "platform",
+   "codeA": "Marquis First generation",
+   "codeB": "Park Lane Brougham",
+   "genIdA": "llm-m-mercury-marquis-first-generation",
+   "genIdB": "llm-related-mercury-park-lane-brougham",
+   "reason": "matched automatically -- \"Mercury Park Lane Brougham\" was named as a related car but didn't exist anywhere in the graph yet, so it was newly created from this mention (double-checked by the local LLM sanity pass against every plausible existing car -- none matched)",
+   "llmDiscovered": true
+  },
+  "llm-m-mercury-marquis-first-generation|llm-related-ford-ltd|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-14T23:05:52.522Z",
+   "decidedAt": "2026-09-14T23:05:52.522Z",
+   "famA": "m-mercury-marquis",
+   "famB": "llm-related-ford-ltd",
+   "relType": "platform",
+   "codeA": "Marquis First generation",
+   "codeB": "LTD",
+   "genIdA": "llm-m-mercury-marquis-first-generation",
+   "genIdB": "llm-related-ford-ltd",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-mercury-marquis-first-generation|m-austin-montego|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-14T23:05:52.527Z",
+   "decidedAt": "2026-09-14T23:05:52.527Z",
+   "famA": "m-mercury-marquis",
+   "famB": "m-austin-montego",
+   "relType": "platform",
+   "codeA": "Marquis First generation",
+   "codeB": "Montego",
+   "genIdA": "llm-m-mercury-marquis-first-generation",
+   "genIdB": "m-austin-montego",
+   "reason": "auto-approved in the background -- the local LLM sanity check confidently identified this as the same car as \"Meteor Montego/LeMoyne\" (confidence: high) -- The 'Meteor Montego' was a specific model introduced by Austin (a subsidiary of British Leyland) in the UK in 1984. It was an export version of the Austin Montego, which was sold as the Ford Sierra in other markets. The name 'Meteor' was used in the UK for this specific model generation to distinguish it or due to regional naming conventions, while it is commonly known internationally as the Austin Montego or Ford Sierra. The years 1984–1995 match the production run of the Austin Montego (Sierra based). The other candidates refer to different cars: Mercury Montego is a North American Mercury model from a different era/platform context (or confused with the Ford Montego), Veritas Meteor is a 1950s French car, and Volkswagen Gol is a completely different vehicle.",
+   "llmDiscovered": true,
+   "llmVerifiedDuplicate": true
+  },
+  "llm-m-mercury-marquis-second-generation|m-mercury-grand-marquis|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-14T23:05:52.532Z",
+   "decidedAt": "2026-09-14T23:05:52.532Z",
+   "famA": "m-mercury-marquis",
+   "famB": "m-mercury-grand-marquis",
+   "relType": "platform",
+   "codeA": "Marquis Second generation",
+   "codeB": "Grand Marquis",
+   "genIdA": "llm-m-mercury-marquis-second-generation",
+   "genIdB": "m-mercury-grand-marquis",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-mercury-marquis-second-generation|llm-m-mercury-monterey-seventh-generation|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-14T23:05:52.535Z",
+   "decidedAt": "2026-09-14T23:05:52.535Z",
+   "famA": "m-mercury-marquis",
+   "famB": "m-mercury-monterey",
+   "relType": "platform",
+   "codeA": "Marquis Second generation",
+   "codeB": "Monterey Seventh generation",
+   "genIdA": "llm-m-mercury-marquis-second-generation",
+   "genIdB": "llm-m-mercury-monterey-seventh-generation",
+   "reason": "matched automatically -- the nameplate was named exactly in the source text, and exactly one of its generations was in production alongside this one, so that is the generation it refers to",
+   "llmDiscovered": true
+  },
+  "llm-m-mercury-marquis-second-generation|m-mercury-colony-park|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-14T23:05:52.536Z",
+   "decidedAt": "2026-09-14T23:05:52.536Z",
+   "famA": "m-mercury-marquis",
+   "famB": "m-mercury-colony-park",
+   "relType": "platform",
+   "codeA": "Marquis Second generation",
+   "codeB": "Colony Park",
+   "genIdA": "llm-m-mercury-marquis-second-generation",
+   "genIdB": "m-mercury-colony-park",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-mercury-marquis-second-generation|llm-related-ford-ltd|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-14T23:05:52.539Z",
+   "decidedAt": "2026-09-14T23:05:52.539Z",
+   "famA": "m-mercury-marquis",
+   "famB": "llm-related-ford-ltd",
+   "relType": "platform",
+   "codeA": "Marquis Second generation",
+   "codeB": "LTD",
+   "genIdA": "llm-m-mercury-marquis-second-generation",
+   "genIdB": "llm-related-ford-ltd",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-mercury-marquis-third-generation|m-lincoln-continental-mark-vi|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-14T23:05:52.551Z",
+   "decidedAt": "2026-09-14T23:05:52.551Z",
+   "famA": "m-mercury-marquis",
+   "famB": "m-lincoln-continental",
+   "relType": "platform",
+   "codeA": "Marquis Third generation",
+   "codeB": "Continental Mark VI",
+   "genIdA": "llm-m-mercury-marquis-third-generation",
+   "genIdB": "m-lincoln-continental-mark-vi",
+   "reason": "matched automatically (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-mercury-marquis-third-generation|m-mercury-grand-marquis|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-14T23:05:52.552Z",
+   "decidedAt": "2026-09-14T23:05:52.552Z",
+   "famA": "m-mercury-marquis",
+   "famB": "m-mercury-grand-marquis",
+   "relType": "platform",
+   "codeA": "Marquis Third generation",
+   "codeB": "Grand Marquis",
+   "genIdA": "llm-m-mercury-marquis-third-generation",
+   "genIdB": "m-mercury-grand-marquis",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-mercury-marquis-third-generation|m-mercury-colony-park|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-14T23:05:52.554Z",
+   "decidedAt": "2026-09-14T23:05:52.554Z",
+   "famA": "m-mercury-marquis",
+   "famB": "m-mercury-colony-park",
+   "relType": "platform",
+   "codeA": "Marquis Third generation",
+   "codeB": "Colony Park",
+   "genIdA": "llm-m-mercury-marquis-third-generation",
+   "genIdB": "m-mercury-colony-park",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-mercury-marquis-third-generation|llm-related-ford-ltd|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-14T23:05:52.556Z",
+   "decidedAt": "2026-09-14T23:05:52.556Z",
+   "famA": "m-mercury-marquis",
+   "famB": "llm-related-ford-ltd",
+   "relType": "platform",
+   "codeA": "Marquis Third generation",
+   "codeB": "LTD",
+   "genIdA": "llm-m-mercury-marquis-third-generation",
+   "genIdB": "llm-related-ford-ltd",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-mercury-marquis-fourth-generation|m-mercury-cougar|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-14T23:05:52.560Z",
+   "decidedAt": "2026-09-14T23:05:52.560Z",
+   "famA": "m-mercury-marquis",
+   "famB": "m-mercury-cougar",
+   "relType": "platform",
+   "codeA": "Marquis Fourth generation",
+   "codeB": "Cougar",
+   "genIdA": "llm-m-mercury-marquis-fourth-generation",
+   "genIdB": "m-mercury-cougar",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-mercury-marquis-fourth-generation|llm-related-ford-ltd|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-14T23:05:52.562Z",
+   "decidedAt": "2026-09-14T23:05:52.562Z",
+   "famA": "m-mercury-marquis",
+   "famB": "llm-related-ford-ltd",
+   "relType": "platform",
+   "codeA": "Marquis Fourth generation",
+   "codeB": "LTD",
+   "genIdA": "llm-m-mercury-marquis-fourth-generation",
+   "genIdB": "llm-related-ford-ltd",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-mercury-marquis-fourth-generation|m-ford-thunderbird|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-14T23:05:52.563Z",
+   "decidedAt": "2026-09-14T23:05:52.563Z",
+   "famA": "m-mercury-marquis",
+   "famB": "fam-ford-thunderbird",
+   "relType": "platform",
+   "codeA": "Marquis Fourth generation",
+   "codeB": "Thunderbird",
+   "genIdA": "llm-m-mercury-marquis-fourth-generation",
+   "genIdB": "m-ford-thunderbird",
+   "reason": "matched automatically (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-lincoln-continental-seventh-generation|llm-m-mercury-marquis-fourth-generation|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-14T23:05:52.565Z",
+   "decidedAt": "2026-09-14T23:05:52.565Z",
+   "famA": "m-mercury-marquis",
+   "famB": "m-lincoln-continental",
+   "relType": "platform",
+   "codeA": "Marquis Fourth generation",
+   "codeB": "Continental Seventh generation",
+   "genIdA": "llm-m-mercury-marquis-fourth-generation",
+   "genIdB": "llm-m-lincoln-continental-seventh-generation",
+   "reason": "matched automatically -- the nameplate was named exactly in the source text, and exactly one of its generations was in production alongside this one, so that is the generation it refers to",
+   "llmDiscovered": true
+  },
+  "llm-m-mercury-marquis-fourth-generation|m-lincoln-continental-mark-vii|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-14T23:05:52.567Z",
+   "decidedAt": "2026-09-14T23:05:52.567Z",
+   "famA": "m-mercury-marquis",
+   "famB": "m-lincoln-continental",
+   "relType": "platform",
+   "codeA": "Marquis Fourth generation",
+   "codeB": "Continental Mark VII",
+   "genIdA": "llm-m-mercury-marquis-fourth-generation",
+   "genIdB": "m-lincoln-continental-mark-vii",
+   "reason": "matched automatically (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-mercury-grand-marquis-1975-1978|m-mercury-colony-park|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-14T23:07:11.627Z",
+   "decidedAt": "2026-09-14T23:07:11.627Z",
+   "famA": "m-mercury-grand-marquis",
+   "famB": "m-mercury-colony-park",
+   "relType": "platform",
+   "codeA": "Grand Marquis 1975–1978",
+   "codeB": "Colony Park",
+   "genIdA": "llm-m-mercury-grand-marquis-1975-1978",
+   "genIdB": "m-mercury-colony-park",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-mercury-grand-marquis-1975-1978|llm-related-ford-ltd|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-14T23:07:11.630Z",
+   "decidedAt": "2026-09-14T23:07:11.630Z",
+   "famA": "m-mercury-grand-marquis",
+   "famB": "llm-related-ford-ltd",
+   "relType": "platform",
+   "codeA": "Grand Marquis 1975–1978",
+   "codeB": "LTD",
+   "genIdA": "llm-m-mercury-grand-marquis-1975-1978",
+   "genIdB": "llm-related-ford-ltd",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-mercury-grand-marquis-1975-1978|m-ford-country-squire|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-14T23:07:11.632Z",
+   "decidedAt": "2026-09-14T23:07:11.632Z",
+   "famA": "m-mercury-grand-marquis",
+   "famB": "m-ford-country-squire",
+   "relType": "platform",
+   "codeA": "Grand Marquis 1975–1978",
+   "codeB": "Country Squire",
+   "genIdA": "llm-m-mercury-grand-marquis-1975-1978",
+   "genIdB": "m-ford-country-squire",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-lincoln-continental-fifth-generation|llm-m-mercury-grand-marquis-1975-1978|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-14T23:07:11.634Z",
+   "decidedAt": "2026-09-14T23:07:11.634Z",
+   "famA": "m-mercury-grand-marquis",
+   "famB": "m-lincoln-continental",
+   "relType": "platform",
+   "codeA": "Grand Marquis 1975–1978",
+   "codeB": "Continental Fifth generation",
+   "genIdA": "llm-m-mercury-grand-marquis-1975-1978",
+   "genIdB": "llm-m-lincoln-continental-fifth-generation",
+   "reason": "matched automatically -- the nameplate was named exactly in the source text, and exactly one of its generations was in production alongside this one, so that is the generation it refers to",
+   "llmDiscovered": true
+  },
+  "llm-m-mercury-grand-marquis-first-generation|m-mercury-colony-park|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-14T23:07:11.639Z",
+   "decidedAt": "2026-09-14T23:07:11.639Z",
+   "famA": "m-mercury-grand-marquis",
+   "famB": "m-mercury-colony-park",
+   "relType": "platform",
+   "codeA": "Grand Marquis First generation",
+   "codeB": "Colony Park",
+   "genIdA": "llm-m-mercury-grand-marquis-first-generation",
+   "genIdB": "m-mercury-colony-park",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-mercury-grand-marquis-first-generation|m-ford-ltd-crown-victoria|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-14T23:07:11.640Z",
+   "decidedAt": "2026-09-14T23:07:11.640Z",
+   "famA": "m-mercury-grand-marquis",
+   "famB": "m-ford-ltd-crown-victoria",
+   "relType": "platform",
+   "codeA": "Grand Marquis First generation",
+   "codeB": "LTD Crown Victoria",
+   "genIdA": "llm-m-mercury-grand-marquis-first-generation",
+   "genIdB": "m-ford-ltd-crown-victoria",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-mercury-grand-marquis-first-generation|m-ford-country-squire|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-14T23:07:11.640Z",
+   "decidedAt": "2026-09-14T23:07:11.640Z",
+   "famA": "m-mercury-grand-marquis",
+   "famB": "m-ford-country-squire",
+   "relType": "platform",
+   "codeA": "Grand Marquis First generation",
+   "codeB": "Country Squire",
+   "genIdA": "llm-m-mercury-grand-marquis-first-generation",
+   "genIdB": "m-ford-country-squire",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-mercury-grand-marquis-first-generation|m-lincoln-town-car|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-14T23:07:11.642Z",
+   "decidedAt": "2026-09-14T23:07:11.642Z",
+   "famA": "m-mercury-grand-marquis",
+   "famB": "m-lincoln-town-car",
+   "relType": "platform",
+   "codeA": "Grand Marquis First generation",
+   "codeB": "Town Car",
+   "genIdA": "llm-m-mercury-grand-marquis-first-generation",
+   "genIdB": "m-lincoln-town-car",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-mercury-grand-marquis-en53|m-ford-crown-victoria|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-14T23:07:11.648Z",
+   "decidedAt": "2026-09-14T23:07:11.648Z",
+   "famA": "m-mercury-grand-marquis",
+   "famB": "m-ford-crown-victoria",
+   "relType": "platform",
+   "codeA": "Grand Marquis EN53",
+   "codeB": "Crown Victoria",
+   "genIdA": "llm-m-mercury-grand-marquis-en53",
+   "genIdB": "m-ford-crown-victoria",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-mercury-grand-marquis-en53|m-ford-crown-victoria-police-interceptor|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-14T23:07:11.653Z",
+   "decidedAt": "2026-09-14T23:07:11.653Z",
+   "famA": "m-mercury-grand-marquis",
+   "famB": "m-ford-crown-victoria-police-interceptor",
+   "relType": "platform",
+   "codeA": "Grand Marquis EN53",
+   "codeB": "Crown Victoria Police Interceptor",
+   "genIdA": "llm-m-mercury-grand-marquis-en53",
+   "genIdB": "m-ford-crown-victoria-police-interceptor",
+   "reason": "auto-approved in the background -- the local LLM sanity check confidently identified this as the same car as \"Ford Police Interceptor\" (confidence: high) -- The mentioned 'Ford Police Interceptor' refers to the specific police variant of the Ford Crown Victoria, known as the Ford Crown Victoria Police Interceptor (CVPI). This matches the candidate 'm-ford-crown-victoria-police-interceptor' which covers the production years 1992–2011, the exact era for this specific police vehicle.",
+   "llmDiscovered": true,
+   "llmVerifiedDuplicate": true
+  },
+  "llm-m-mercury-grand-marquis-en53|m-lincoln-town-car|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-14T23:07:11.654Z",
+   "decidedAt": "2026-09-14T23:07:11.654Z",
+   "famA": "m-mercury-grand-marquis",
+   "famB": "m-lincoln-town-car",
+   "relType": "platform",
+   "codeA": "Grand Marquis EN53",
+   "codeB": "Town Car",
+   "genIdA": "llm-m-mercury-grand-marquis-en53",
+   "genIdB": "m-lincoln-town-car",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-mercury-grand-marquis-en114|m-ford-crown-victoria|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-14T23:07:11.657Z",
+   "decidedAt": "2026-09-14T23:07:11.657Z",
+   "famA": "m-mercury-grand-marquis",
+   "famB": "m-ford-crown-victoria",
+   "relType": "platform",
+   "codeA": "Grand Marquis EN114",
+   "codeB": "Crown Victoria",
+   "genIdA": "llm-m-mercury-grand-marquis-en114",
+   "genIdB": "m-ford-crown-victoria",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-mercury-grand-marquis-en114|m-ford-crown-victoria-police-interceptor|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-14T23:07:11.662Z",
+   "decidedAt": "2026-09-14T23:07:11.662Z",
+   "famA": "m-mercury-grand-marquis",
+   "famB": "m-ford-crown-victoria-police-interceptor",
+   "relType": "platform",
+   "codeA": "Grand Marquis EN114",
+   "codeB": "Crown Victoria Police Interceptor",
+   "genIdA": "llm-m-mercury-grand-marquis-en114",
+   "genIdB": "m-ford-crown-victoria-police-interceptor",
+   "reason": "auto-approved in the background -- the local LLM sanity check confidently identified this as the same car as \"Ford Police Interceptor\" (confidence: high) -- The mentioned 'Ford Police Interceptor' refers to the specific police variant of the Ford Crown Victoria, known as the Ford Crown Victoria Police Interceptor (CVPI). This matches the candidate 'm-ford-crown-victoria-police-interceptor' which covers the production years 1992–2011, the exact era for this specific police vehicle.",
+   "llmDiscovered": true,
+   "llmVerifiedDuplicate": true
+  },
+  "llm-m-mercury-grand-marquis-en114|m-lincoln-town-car|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-14T23:07:11.664Z",
+   "decidedAt": "2026-09-14T23:07:11.664Z",
+   "famA": "m-mercury-grand-marquis",
+   "famB": "m-lincoln-town-car",
+   "relType": "platform",
+   "codeA": "Grand Marquis EN114",
+   "codeB": "Town Car",
+   "genIdA": "llm-m-mercury-grand-marquis-en114",
+   "genIdB": "m-lincoln-town-car",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-mercury-grand-marquis-fourth-generation|m-mercury-marauder|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-14T23:07:11.667Z",
+   "decidedAt": "2026-09-14T23:07:11.667Z",
+   "famA": "m-mercury-grand-marquis",
+   "famB": "m-mercury-marauder",
+   "relType": "platform",
+   "codeA": "Grand Marquis Fourth generation",
+   "codeB": "Marauder",
+   "genIdA": "llm-m-mercury-grand-marquis-fourth-generation",
+   "genIdB": "m-mercury-marauder",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-mercury-grand-marquis-fourth-generation|m-ford-crown-victoria|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-14T23:07:11.668Z",
+   "decidedAt": "2026-09-14T23:07:11.668Z",
+   "famA": "m-mercury-grand-marquis",
+   "famB": "m-ford-crown-victoria",
+   "relType": "platform",
+   "codeA": "Grand Marquis Fourth generation",
+   "codeB": "Crown Victoria",
+   "genIdA": "llm-m-mercury-grand-marquis-fourth-generation",
+   "genIdB": "m-ford-crown-victoria",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-mercury-grand-marquis-fourth-generation|m-ford-crown-victoria-police-interceptor|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-14T23:07:11.673Z",
+   "decidedAt": "2026-09-14T23:07:11.673Z",
+   "famA": "m-mercury-grand-marquis",
+   "famB": "m-ford-crown-victoria-police-interceptor",
+   "relType": "platform",
+   "codeA": "Grand Marquis Fourth generation",
+   "codeB": "Crown Victoria Police Interceptor",
+   "genIdA": "llm-m-mercury-grand-marquis-fourth-generation",
+   "genIdB": "m-ford-crown-victoria-police-interceptor",
+   "reason": "auto-approved in the background -- the local LLM sanity check confidently identified this as the same car as \"Ford Police Interceptor\" (confidence: high) -- The mentioned 'Ford Police Interceptor' refers to the specific police variant of the Ford Crown Victoria, known as the Ford Crown Victoria Police Interceptor (CVPI). This matches the candidate 'm-ford-crown-victoria-police-interceptor' which covers the production years 1992–2011, the exact era for this specific police vehicle.",
+   "llmDiscovered": true,
+   "llmVerifiedDuplicate": true
+  },
+  "llm-m-mercury-grand-marquis-fourth-generation|m-lincoln-town-car|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-14T23:07:11.674Z",
+   "decidedAt": "2026-09-14T23:07:11.674Z",
+   "famA": "m-mercury-grand-marquis",
+   "famB": "m-lincoln-town-car",
+   "relType": "platform",
+   "codeA": "Grand Marquis Fourth generation",
+   "codeB": "Town Car",
+   "genIdA": "llm-m-mercury-grand-marquis-fourth-generation",
+   "genIdB": "m-lincoln-town-car",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-lincoln-mark-series-mark-iii-1958-1960|m-ford-thunderbird-second-generation|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-14T23:09:31.100Z",
+   "decidedAt": "2026-09-14T23:09:31.100Z",
+   "famA": "m-lincoln-mark-series",
+   "famB": "fam-ford-thunderbird",
+   "relType": "platform",
+   "codeA": "Mark series Mark III (1958–1960)",
+   "codeB": "Thunderbird (second generation)",
+   "genIdA": "llm-m-lincoln-mark-series-mark-iii-1958-1960",
+   "genIdB": "m-ford-thunderbird-second-generation",
+   "reason": "matched automatically (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-lincoln-capri-generation-iii|llm-m-lincoln-mark-series-mark-iii-1958-1960|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-14T23:09:31.103Z",
+   "decidedAt": "2026-09-14T23:09:31.103Z",
+   "famA": "m-lincoln-mark-series",
+   "famB": "m-lincoln-capri",
+   "relType": "platform",
+   "codeA": "Mark series Mark III (1958–1960)",
+   "codeB": "Capri Generation III",
+   "genIdA": "llm-m-lincoln-mark-series-mark-iii-1958-1960",
+   "genIdB": "llm-m-lincoln-capri-generation-iii",
+   "reason": "matched automatically -- the nameplate was named exactly in the source text, and exactly one of its generations was in production alongside this one, so that is the generation it refers to",
+   "llmDiscovered": true
+  },
+  "llm-m-lincoln-mark-series-mark-iii-1958-1960|llm-related-lincoln-premiere|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-14T23:09:31.105Z",
+   "decidedAt": "2026-09-14T23:09:31.105Z",
+   "famA": "m-lincoln-mark-series",
+   "famB": "llm-related-lincoln-premiere",
+   "relType": "platform",
+   "codeA": "Mark series Mark III (1958–1960)",
+   "codeB": "Premiere",
+   "genIdA": "llm-m-lincoln-mark-series-mark-iii-1958-1960",
+   "genIdB": "llm-related-lincoln-premiere",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-lincoln-mark-series-mark-iii|m-ford-thunderbird-fifth-generation|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-14T23:09:31.108Z",
+   "decidedAt": "2026-09-14T23:09:31.108Z",
+   "famA": "m-lincoln-mark-series",
+   "famB": "fam-ford-thunderbird",
+   "relType": "platform",
+   "codeA": "Mark series Mark III",
+   "codeB": "Thunderbird (fifth generation)",
+   "genIdA": "llm-m-lincoln-mark-series-mark-iii",
+   "genIdB": "m-ford-thunderbird-fifth-generation",
+   "reason": "matched automatically (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-lincoln-mark-series-mark-iv|m-ford-thunderbird-sixth-generation|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-14T23:09:31.112Z",
+   "decidedAt": "2026-09-14T23:09:31.112Z",
+   "famA": "m-lincoln-mark-series",
+   "famB": "fam-ford-thunderbird",
+   "relType": "platform",
+   "codeA": "Mark series Mark IV",
+   "codeB": "Thunderbird (sixth generation)",
+   "genIdA": "llm-m-lincoln-mark-series-mark-iv",
+   "genIdB": "m-ford-thunderbird-sixth-generation",
+   "reason": "matched automatically (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-lincoln-mark-series-mark-v|m-lincoln-continental-mark-iv|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-14T23:09:31.116Z",
+   "decidedAt": "2026-09-14T23:09:31.116Z",
+   "famA": "m-lincoln-mark-series",
+   "famB": "m-lincoln-continental",
+   "relType": "platform",
+   "codeA": "Mark series Mark V",
+   "codeB": "Continental Mark IV",
+   "genIdA": "llm-m-lincoln-mark-series-mark-v",
+   "genIdB": "m-lincoln-continental-mark-iv",
+   "reason": "matched automatically (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-lincoln-mark-series-mark-v|llm-related-ford-thunderbird-1972-1976|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-14T23:09:31.122Z",
+   "decidedAt": "2026-09-14T23:09:31.122Z",
+   "famA": "m-lincoln-mark-series",
+   "famB": "llm-related-ford-thunderbird-1972-1976",
+   "relType": "platform",
+   "codeA": "Mark series Mark V",
+   "codeB": "Thunderbird (1972–1976)",
+   "genIdA": "llm-m-lincoln-mark-series-mark-v",
+   "genIdB": "llm-related-ford-thunderbird-1972-1976",
+   "reason": "matched automatically -- \"Ford Thunderbird (1972–1976)\" was named as a related car but didn't exist anywhere in the graph yet, so it was newly created from this mention (double-checked by the local LLM sanity pass against every plausible existing car -- none matched)",
+   "llmDiscovered": true
+  },
+  "llm-m-lincoln-mark-series-mark-vii|m-ford-mustang-fox|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-14T23:09:31.133Z",
+   "decidedAt": "2026-09-14T23:09:31.133Z",
+   "famA": "m-lincoln-mark-series",
+   "famB": "fam-ford-mustang",
+   "relType": "platform",
+   "codeA": "Mark series Mark VII",
+   "codeB": "Mustang (Fox)",
+   "genIdA": "llm-m-lincoln-mark-series-mark-vii",
+   "genIdB": "m-ford-mustang-fox",
+   "reason": "auto-approved in the background -- the local LLM sanity check confidently identified this as the same car as \"Ford Mustang (third generation)\" (confidence: high) -- The Ford Mustang third generation is specifically known as the 'Fox Body' Mustang, produced from 1979 to 1993. The candidate 'm-ford-mustang-fox' explicitly identifies this specific generation and covers the exact same production years, confirming they are the same physical car.",
+   "llmDiscovered": true,
+   "llmVerifiedDuplicate": true
+  },
+  "llm-m-lincoln-mark-series-mark-vii|m-ford-thunderbird-ninth-generation|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-14T23:09:31.134Z",
+   "decidedAt": "2026-09-14T23:09:31.134Z",
+   "famA": "m-lincoln-mark-series",
+   "famB": "fam-ford-thunderbird",
+   "relType": "platform",
+   "codeA": "Mark series Mark VII",
+   "codeB": "Thunderbird (ninth generation)",
+   "genIdA": "llm-m-lincoln-mark-series-mark-vii",
+   "genIdB": "m-ford-thunderbird-ninth-generation",
+   "reason": "matched automatically (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-lincoln-mark-series-mark-vii|m-mercury-cougar|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-14T23:09:31.135Z",
+   "decidedAt": "2026-09-14T23:09:31.135Z",
+   "famA": "m-lincoln-mark-series",
+   "famB": "m-mercury-cougar",
+   "relType": "platform",
+   "codeA": "Mark series Mark VII",
+   "codeB": "Cougar",
+   "genIdA": "llm-m-lincoln-mark-series-mark-vii",
+   "genIdB": "m-mercury-cougar",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-lincoln-mark-series-mark-viii|m-ford-thunderbird-tenth-generation|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-14T23:09:31.138Z",
+   "decidedAt": "2026-09-14T23:09:31.138Z",
+   "famA": "m-lincoln-mark-series",
+   "famB": "fam-ford-thunderbird",
+   "relType": "platform",
+   "codeA": "Mark series Mark VIII",
+   "codeB": "Thunderbird (tenth generation)",
+   "genIdA": "llm-m-lincoln-mark-series-mark-viii",
+   "genIdB": "m-ford-thunderbird-tenth-generation",
+   "reason": "matched automatically (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-mercury-cougar-first-generation-1967-1970|m-ford-mustang-first-generation|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-14T23:12:42.533Z",
+   "decidedAt": "2026-09-14T23:12:42.533Z",
+   "famA": "m-mercury-cougar",
+   "famB": "fam-ford-mustang",
+   "relType": "platform",
+   "codeA": "Cougar First generation (1967–1970)",
+   "codeB": "Mustang (first generation)",
+   "genIdA": "llm-m-mercury-cougar-first-generation-1967-1970",
+   "genIdB": "m-ford-mustang-first-generation",
+   "reason": "matched automatically (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-mercury-cougar-second-generation-1971-1973|m-ford-mustang-first-generation|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-14T23:12:42.537Z",
+   "decidedAt": "2026-09-14T23:12:42.537Z",
+   "famA": "m-mercury-cougar",
+   "famB": "fam-ford-mustang",
+   "relType": "platform",
+   "codeA": "Cougar Second generation (1971–1973)",
+   "codeB": "Mustang (first generation)",
+   "genIdA": "llm-m-mercury-cougar-second-generation-1971-1973",
+   "genIdB": "m-ford-mustang-first-generation",
+   "reason": "matched automatically (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-mercury-cougar-third-generation-1974-1976|m-ford-torino|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-14T23:12:42.540Z",
+   "decidedAt": "2026-09-14T23:12:42.540Z",
+   "famA": "m-mercury-cougar",
+   "famB": "m-ford-torino",
+   "relType": "platform",
+   "codeA": "Cougar Third generation (1974–1976)",
+   "codeB": "Torino",
+   "genIdA": "llm-m-mercury-cougar-third-generation-1974-1976",
+   "genIdB": "m-ford-torino",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-mercury-cougar-third-generation-1974-1976|m-ford-elite|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-14T23:12:42.541Z",
+   "decidedAt": "2026-09-14T23:12:42.541Z",
+   "famA": "m-mercury-cougar",
+   "famB": "m-ford-elite",
+   "relType": "platform",
+   "codeA": "Cougar Third generation (1974–1976)",
+   "codeB": "Elite",
+   "genIdA": "llm-m-mercury-cougar-third-generation-1974-1976",
+   "genIdB": "m-ford-elite",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-mercury-cougar-third-generation-1974-1976|m-mercury-montego|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-14T23:12:42.543Z",
+   "decidedAt": "2026-09-14T23:12:42.543Z",
+   "famA": "m-mercury-cougar",
+   "famB": "m-mercury-montego",
+   "relType": "platform",
+   "codeA": "Cougar Third generation (1974–1976)",
+   "codeB": "Montego",
+   "genIdA": "llm-m-mercury-cougar-third-generation-1974-1976",
+   "genIdB": "m-mercury-montego",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-mercury-cougar-fourth-generation-1977-1979|m-ford-ltd-ii|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-14T23:12:42.546Z",
+   "decidedAt": "2026-09-14T23:12:42.546Z",
+   "famA": "m-mercury-cougar",
+   "famB": "m-ford-ltd-ii",
+   "relType": "platform",
+   "codeA": "Cougar Fourth generation (1977–1979)",
+   "codeB": "LTD II",
+   "genIdA": "llm-m-mercury-cougar-fourth-generation-1977-1979",
+   "genIdB": "m-ford-ltd-ii",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-mercury-cougar-fourth-generation-1977-1979|m-ford-thunderbird-seventh-generation|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-14T23:12:42.547Z",
+   "decidedAt": "2026-09-14T23:12:42.547Z",
+   "famA": "m-mercury-cougar",
+   "famB": "fam-ford-thunderbird",
+   "relType": "platform",
+   "codeA": "Cougar Fourth generation (1977–1979)",
+   "codeB": "Thunderbird (seventh generation)",
+   "genIdA": "llm-m-mercury-cougar-fourth-generation-1977-1979",
+   "genIdB": "m-ford-thunderbird-seventh-generation",
+   "reason": "matched automatically (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-mercury-cougar-fifth-generation-1980-1982|m-ford-granada-north-america|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-14T23:12:42.550Z",
+   "decidedAt": "2026-09-14T23:12:42.550Z",
+   "famA": "m-mercury-cougar",
+   "famB": "m-ford-granada-north-america",
+   "relType": "platform",
+   "codeA": "Cougar Fifth generation (1980–1982)",
+   "codeB": "Granada (North America)",
+   "genIdA": "llm-m-mercury-cougar-fifth-generation-1980-1982",
+   "genIdB": "m-ford-granada-north-america",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-mercury-cougar-fifth-generation-1980-1982|m-ford-fairmont|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-14T23:12:42.551Z",
+   "decidedAt": "2026-09-14T23:12:42.551Z",
+   "famA": "m-mercury-cougar",
+   "famB": "m-ford-fairmont",
+   "relType": "platform",
+   "codeA": "Cougar Fifth generation (1980–1982)",
+   "codeB": "Fairmont",
+   "genIdA": "llm-m-mercury-cougar-fifth-generation-1980-1982",
+   "genIdB": "m-ford-fairmont",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-mercury-cougar-fifth-generation-1980-1982|m-ford-zephyr|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-14T23:12:42.556Z",
+   "decidedAt": "2026-09-14T23:12:42.556Z",
+   "famA": "m-mercury-cougar",
+   "famB": "m-ford-zephyr",
+   "relType": "platform",
+   "codeA": "Cougar Fifth generation (1980–1982)",
+   "codeB": "Zephyr",
+   "genIdA": "llm-m-mercury-cougar-fifth-generation-1980-1982",
+   "genIdB": "m-ford-zephyr",
+   "reason": "auto-approved in the background -- the local LLM sanity check confidently identified this as the same car as \"Mercury Zephyr\" (confidence: high) -- The 'Ford Zephyr' was a model produced by the British Motor Corporation (BMC) and Ford of Europe. After the acquisition of British Motor Corporation by Ford in 1961, Ford utilized the Zephyr nameplate for the 'Mercury Zephyr', a model sold exclusively in the UK market (as Ford of Europe had no presence in North America where Mercury was sold). The Ford Zephyr production years (1951–1972) overlap with the period when the Mercury Zephyr was sold (late 1950s to 1974). The other candidates are either North American-only models that never bore the Zephyr name or are distinct models entirely.",
+   "llmDiscovered": true,
+   "llmVerifiedDuplicate": true
+  },
+  "llm-m-mercury-cougar-fifth-generation-1980-1982|m-ford-thunderbird-eighth-generation|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-14T23:12:42.557Z",
+   "decidedAt": "2026-09-14T23:12:42.557Z",
+   "famA": "m-mercury-cougar",
+   "famB": "fam-ford-thunderbird",
+   "relType": "platform",
+   "codeA": "Cougar Fifth generation (1980–1982)",
+   "codeB": "Thunderbird (eighth generation)",
+   "genIdA": "llm-m-mercury-cougar-fifth-generation-1980-1982",
+   "genIdB": "m-ford-thunderbird-eighth-generation",
+   "reason": "matched automatically (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-mercury-cougar-fifth-generation-1980-1982|llm-related-lincoln-vii|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-14T23:12:42.567Z",
+   "decidedAt": "2026-09-14T23:12:42.567Z",
+   "famA": "m-mercury-cougar",
+   "famB": "llm-related-lincoln-vii",
+   "relType": "platform",
+   "codeA": "Cougar Fifth generation (1980–1982)",
+   "codeB": "VII",
+   "genIdA": "llm-m-mercury-cougar-fifth-generation-1980-1982",
+   "genIdB": "llm-related-lincoln-vii",
+   "reason": "matched automatically -- \"Continental/Lincoln Mark VII\" was named as a related car but didn't exist anywhere in the graph yet, so it was newly created from this mention (double-checked by the local LLM sanity pass against every plausible existing car -- none matched)",
+   "llmDiscovered": true
+  },
+  "llm-m-mercury-cougar-sixth-generation-1983-1988|llm-m-mercury-marquis-fourth-generation|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-14T23:12:42.571Z",
+   "decidedAt": "2026-09-14T23:12:42.571Z",
+   "famA": "m-mercury-cougar",
+   "famB": "m-mercury-marquis",
+   "relType": "platform",
+   "codeA": "Cougar Sixth generation (1983–1988)",
+   "codeB": "Marquis Fourth generation",
+   "genIdA": "llm-m-mercury-cougar-sixth-generation-1983-1988",
+   "genIdB": "llm-m-mercury-marquis-fourth-generation",
+   "reason": "matched automatically -- the nameplate was named exactly in the source text, and exactly one of its generations was in production alongside this one, so that is the generation it refers to",
+   "llmDiscovered": true
+  },
+  "llm-m-mercury-cougar-sixth-generation-1983-1988|m-ford-thunderbird-ninth-generation|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-14T23:12:42.572Z",
+   "decidedAt": "2026-09-14T23:12:42.572Z",
+   "famA": "m-mercury-cougar",
+   "famB": "fam-ford-thunderbird",
+   "relType": "platform",
+   "codeA": "Cougar Sixth generation (1983–1988)",
+   "codeB": "Thunderbird (ninth generation)",
+   "genIdA": "llm-m-mercury-cougar-sixth-generation-1983-1988",
+   "genIdB": "m-ford-thunderbird-ninth-generation",
+   "reason": "matched automatically (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-mercury-cougar-sixth-generation-1983-1988|m-ford-ltd-americas|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-14T23:12:42.573Z",
+   "decidedAt": "2026-09-14T23:12:42.573Z",
+   "famA": "m-mercury-cougar",
+   "famB": "m-ford-ltd-americas",
+   "relType": "platform",
+   "codeA": "Cougar Sixth generation (1983–1988)",
+   "codeB": "LTD (Americas)",
+   "genIdA": "llm-m-mercury-cougar-sixth-generation-1983-1988",
+   "genIdB": "m-ford-ltd-americas",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-mercury-cougar-sixth-generation-1983-1988|m-lincoln-continental-mark-vii|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-14T23:12:42.574Z",
+   "decidedAt": "2026-09-14T23:12:42.574Z",
+   "famA": "m-mercury-cougar",
+   "famB": "m-lincoln-continental",
+   "relType": "platform",
+   "codeA": "Cougar Sixth generation (1983–1988)",
+   "codeB": "Continental Mark VII",
+   "genIdA": "llm-m-mercury-cougar-sixth-generation-1983-1988",
+   "genIdB": "m-lincoln-continental-mark-vii",
+   "reason": "matched automatically (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-mercury-cougar-seventh-generation-1989-1997|m-ford-thunderbird|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-14T23:12:42.580Z",
+   "decidedAt": "2026-09-14T23:12:42.580Z",
+   "famA": "m-mercury-cougar",
+   "famB": "fam-ford-thunderbird",
+   "relType": "platform",
+   "codeA": "Cougar Seventh generation (1989–1997)",
+   "codeB": "Thunderbird",
+   "genIdA": "llm-m-mercury-cougar-seventh-generation-1989-1997",
+   "genIdB": "m-ford-thunderbird",
+   "reason": "matched automatically (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-mercury-cougar-seventh-generation-1989-1997|m-lincoln-mark-viii|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-14T23:12:42.581Z",
+   "decidedAt": "2026-09-14T23:12:42.581Z",
+   "famA": "m-mercury-cougar",
+   "famB": "m-lincoln-continental",
+   "relType": "platform",
+   "codeA": "Cougar Seventh generation (1989–1997)",
+   "codeB": "Mark VIII",
+   "genIdA": "llm-m-mercury-cougar-seventh-generation-1989-1997",
+   "genIdB": "m-lincoln-mark-viii",
+   "reason": "matched automatically (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-mercury-cougar-eighth-generation-1999-2002|m-ford-mondeo-first-generation|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-14T23:12:42.584Z",
+   "decidedAt": "2026-09-14T23:12:42.584Z",
+   "famA": "m-mercury-cougar",
+   "famB": "fam-ford-mondeo",
+   "relType": "platform",
+   "codeA": "Cougar Eighth generation (1999–2002)",
+   "codeB": "Mondeo (first generation)",
+   "genIdA": "llm-m-mercury-cougar-eighth-generation-1999-2002",
+   "genIdB": "m-ford-mondeo-first-generation",
+   "reason": "matched automatically (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-mercury-cougar-eighth-generation-1999-2002|llm-related-ford-contour|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-14T23:12:42.590Z",
+   "decidedAt": "2026-09-14T23:12:42.590Z",
+   "famA": "m-mercury-cougar",
+   "famB": "llm-related-ford-contour",
+   "relType": "platform",
+   "codeA": "Cougar Eighth generation (1999–2002)",
+   "codeB": "Contour",
+   "genIdA": "llm-m-mercury-cougar-eighth-generation-1999-2002",
+   "genIdB": "llm-related-ford-contour",
+   "reason": "matched automatically -- \"Ford Contour\" was named as a related car but didn't exist anywhere in the graph yet, so it was newly created from this mention (double-checked by the local LLM sanity pass against every plausible existing car -- none matched)",
+   "llmDiscovered": true
+  },
+  "llm-m-mercury-cougar-eighth-generation-1999-2002|llm-related-mercury-mystique|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-14T23:12:42.595Z",
+   "decidedAt": "2026-09-14T23:12:42.595Z",
+   "famA": "m-mercury-cougar",
+   "famB": "llm-related-mercury-mystique",
+   "relType": "platform",
+   "codeA": "Cougar Eighth generation (1999–2002)",
+   "codeB": "Mystique",
+   "genIdA": "llm-m-mercury-cougar-eighth-generation-1999-2002",
+   "genIdB": "llm-related-mercury-mystique",
+   "reason": "matched automatically -- \"Mercury Mystique\" was named as a related car but didn't exist anywhere in the graph yet, so it was newly created from this mention (double-checked by the local LLM sanity pass against every plausible existing car -- none matched)",
+   "llmDiscovered": true
+  },
+  "llm-m-mercury-cougar-eighth-generation-1999-2002|m-ford-cougar|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-14T23:12:42.596Z",
+   "decidedAt": "2026-09-14T23:12:42.596Z",
+   "famA": "m-mercury-cougar",
+   "famB": "m-ford-cougar",
+   "relType": "platform",
+   "codeA": "Cougar Eighth generation (1999–2002)",
+   "codeB": "Cougar",
+   "genIdA": "llm-m-mercury-cougar-eighth-generation-1999-2002",
+   "genIdB": "m-ford-cougar",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-mercury-sable-first-generation|m-ford-taurus-first-generation|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-14T23:15:00.824Z",
+   "decidedAt": "2026-09-14T23:15:00.824Z",
+   "famA": "m-mercury-sable",
+   "famB": "fam-ford-taurus",
+   "relType": "platform",
+   "codeA": "Sable First generation",
+   "codeB": "Taurus (first generation)",
+   "genIdA": "llm-m-mercury-sable-first-generation",
+   "genIdB": "m-ford-taurus-first-generation",
+   "reason": "matched automatically (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-mercury-sable-first-generation|llm-related-kia-sable|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-14T23:15:00.833Z",
+   "decidedAt": "2026-09-14T23:15:00.833Z",
+   "famA": "m-mercury-sable",
+   "famB": "llm-related-kia-sable",
+   "relType": "platform",
+   "codeA": "Sable First generation",
+   "codeB": "Sable",
+   "genIdA": "llm-m-mercury-sable-first-generation",
+   "genIdB": "llm-related-kia-sable",
+   "reason": "matched automatically -- \"Kia Sable\" was named as a related car but didn't exist anywhere in the graph yet, so it was newly created from this mention (double-checked by the local LLM sanity pass against every plausible existing car -- none matched)",
+   "llmDiscovered": true
+  },
+  "llm-m-mercury-sable-second-generation|m-ford-taurus-second-generation|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-14T23:15:00.838Z",
+   "decidedAt": "2026-09-14T23:15:00.838Z",
+   "famA": "m-mercury-sable",
+   "famB": "fam-ford-taurus",
+   "relType": "platform",
+   "codeA": "Sable Second generation",
+   "codeB": "Taurus (second generation)",
+   "genIdA": "llm-m-mercury-sable-second-generation",
+   "genIdB": "m-ford-taurus-second-generation",
+   "reason": "matched automatically (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-mercury-sable-second-generation|m-ford-windstar|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-14T23:15:00.841Z",
+   "decidedAt": "2026-09-14T23:15:00.841Z",
+   "famA": "m-mercury-sable",
+   "famB": "m-ford-windstar",
+   "relType": "platform",
+   "codeA": "Sable Second generation",
+   "codeB": "Windstar",
+   "genIdA": "llm-m-mercury-sable-second-generation",
+   "genIdB": "m-ford-windstar",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-mercury-sable-third-generation|m-ford-taurus-third-generation|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-14T23:15:00.845Z",
+   "decidedAt": "2026-09-14T23:15:00.845Z",
+   "famA": "m-mercury-sable",
+   "famB": "fam-ford-taurus",
+   "relType": "platform",
+   "codeA": "Sable Third generation",
+   "codeB": "Taurus (third generation)",
+   "genIdA": "llm-m-mercury-sable-third-generation",
+   "genIdB": "m-ford-taurus-third-generation",
+   "reason": "matched automatically (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-lincoln-continental-ninth-generation|llm-m-mercury-sable-third-generation|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-14T23:15:00.847Z",
+   "decidedAt": "2026-09-14T23:15:00.847Z",
+   "famA": "m-mercury-sable",
+   "famB": "m-lincoln-continental",
+   "relType": "platform",
+   "codeA": "Sable Third generation",
+   "codeB": "Continental Ninth generation",
+   "genIdA": "llm-m-mercury-sable-third-generation",
+   "genIdB": "llm-m-lincoln-continental-ninth-generation",
+   "reason": "matched automatically -- the nameplate was named exactly in the source text, and exactly one of its generations was in production alongside this one, so that is the generation it refers to",
+   "llmDiscovered": true
+  },
+  "llm-m-mercury-sable-third-generation|m-ford-windstar|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-14T23:15:00.848Z",
+   "decidedAt": "2026-09-14T23:15:00.848Z",
+   "famA": "m-mercury-sable",
+   "famB": "m-ford-windstar",
+   "relType": "platform",
+   "codeA": "Sable Third generation",
+   "codeB": "Windstar",
+   "genIdA": "llm-m-mercury-sable-third-generation",
+   "genIdB": "m-ford-windstar",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-mercury-sable-fourth-generation|m-ford-taurus-fourth-generation|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-14T23:15:00.851Z",
+   "decidedAt": "2026-09-14T23:15:00.851Z",
+   "famA": "m-mercury-sable",
+   "famB": "fam-ford-taurus",
+   "relType": "platform",
+   "codeA": "Sable Fourth generation",
+   "codeB": "Taurus (fourth generation)",
+   "genIdA": "llm-m-mercury-sable-fourth-generation",
+   "genIdB": "m-ford-taurus-fourth-generation",
+   "reason": "matched automatically (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-lincoln-continental-ninth-generation|llm-m-mercury-sable-fourth-generation|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-14T23:15:00.853Z",
+   "decidedAt": "2026-09-14T23:15:00.853Z",
+   "famA": "m-mercury-sable",
+   "famB": "m-lincoln-continental",
+   "relType": "platform",
+   "codeA": "Sable Fourth generation",
+   "codeB": "Continental Ninth generation",
+   "genIdA": "llm-m-mercury-sable-fourth-generation",
+   "genIdB": "llm-m-lincoln-continental-ninth-generation",
+   "reason": "matched automatically -- the nameplate was named exactly in the source text, and exactly one of its generations was in production alongside this one, so that is the generation it refers to",
+   "llmDiscovered": true
+  },
+  "llm-m-mercury-sable-fifth-generation|m-lincoln-mks|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-14T23:15:00.857Z",
+   "decidedAt": "2026-09-14T23:15:00.857Z",
+   "famA": "m-mercury-sable",
+   "famB": "m-lincoln-mks",
+   "relType": "platform",
+   "codeA": "Sable Fifth generation",
+   "codeB": "MKS",
+   "genIdA": "llm-m-mercury-sable-fifth-generation",
+   "genIdB": "m-lincoln-mks",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-mercury-sable-fifth-generation|m-volvo-s60|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-14T23:15:00.859Z",
+   "decidedAt": "2026-09-14T23:15:00.859Z",
+   "famA": "m-mercury-sable",
+   "famB": "m-volvo-s60",
+   "relType": "platform",
+   "codeA": "Sable Fifth generation",
+   "codeB": "S60",
+   "genIdA": "llm-m-mercury-sable-fifth-generation",
+   "genIdB": "m-volvo-s60",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-mercury-sable-fifth-generation|m-volvo-xc90|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-14T23:15:00.859Z",
+   "decidedAt": "2026-09-14T23:15:00.859Z",
+   "famA": "m-mercury-sable",
+   "famB": "m-volvo-xc90",
+   "relType": "platform",
+   "codeA": "Sable Fifth generation",
+   "codeB": "XC90",
+   "genIdA": "llm-m-mercury-sable-fifth-generation",
+   "genIdB": "m-volvo-xc90",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-mercury-sable-fifth-generation|m-ford-taurus-fifth-generation|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-14T23:15:00.860Z",
+   "decidedAt": "2026-09-14T23:15:00.860Z",
+   "famA": "m-mercury-sable",
+   "famB": "fam-ford-taurus",
+   "relType": "platform",
+   "codeA": "Sable Fifth generation",
+   "codeB": "Taurus (fifth generation)",
+   "genIdA": "llm-m-mercury-sable-fifth-generation",
+   "genIdB": "m-ford-taurus-fifth-generation",
+   "reason": "matched automatically (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-mercury-sable-fifth-generation|llm-related-ford-taurus-x|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-14T23:15:00.865Z",
+   "decidedAt": "2026-09-14T23:15:00.865Z",
+   "famA": "m-mercury-sable",
+   "famB": "llm-related-ford-taurus-x",
+   "relType": "platform",
+   "codeA": "Sable Fifth generation",
+   "codeB": "Taurus X",
+   "genIdA": "llm-m-mercury-sable-fifth-generation",
+   "genIdB": "llm-related-ford-taurus-x",
+   "reason": "matched automatically -- \"Ford Taurus X\" was named as a related car but didn't exist anywhere in the graph yet, so it was newly created from this mention (double-checked by the local LLM sanity pass against every plausible existing car -- none matched)",
+   "llmDiscovered": true
+  },
+  "llm-m-mercury-sable-fifth-generation|m-ford-flex|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-14T23:15:00.866Z",
+   "decidedAt": "2026-09-14T23:15:00.866Z",
+   "famA": "m-mercury-sable",
+   "famB": "m-ford-flex",
+   "relType": "platform",
+   "codeA": "Sable Fifth generation",
+   "codeB": "Flex",
+   "genIdA": "llm-m-mercury-sable-fifth-generation",
+   "genIdB": "m-ford-flex",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-ford-windstar-first-generation-1995-1998|m-ford-taurus|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-14T23:15:51.581Z",
+   "decidedAt": "2026-09-14T23:15:51.581Z",
+   "famA": "m-ford-windstar",
+   "famB": "fam-ford-taurus",
+   "relType": "platform",
+   "codeA": "Windstar First generation (1995–1998)",
+   "codeB": "Taurus",
+   "genIdA": "llm-m-ford-windstar-first-generation-1995-1998",
+   "genIdB": "m-ford-taurus",
+   "reason": "matched automatically (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-ford-windstar-first-generation-1995-1998|llm-m-lincoln-continental-ninth-generation|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-14T23:15:51.583Z",
+   "decidedAt": "2026-09-14T23:15:51.583Z",
+   "famA": "m-ford-windstar",
+   "famB": "m-lincoln-continental",
+   "relType": "platform",
+   "codeA": "Windstar First generation (1995–1998)",
+   "codeB": "Continental Ninth generation",
+   "genIdA": "llm-m-ford-windstar-first-generation-1995-1998",
+   "genIdB": "llm-m-lincoln-continental-ninth-generation",
+   "reason": "matched automatically -- the nameplate was named exactly in the source text, and exactly one of its generations was in production alongside this one, so that is the generation it refers to",
+   "llmDiscovered": true
   }
  },
  "recheck": {
   "m-mercedes-benz-g-class": {
    "status": "none",
-   "checkedAt": "2026-09-14T21:58:38.115Z",
+   "checkedAt": "2026-09-14T22:51:00.272Z",
    "sourceTitle": "Mercedes-Benz G-Class",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -20344,7 +23805,7 @@
   },
   "m-mercedes-benz-gla": {
    "status": "none",
-   "checkedAt": "2026-09-14T21:58:38.182Z",
+   "checkedAt": "2026-09-14T22:51:00.319Z",
    "sourceTitle": "Mercedes-Benz GLA",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -20447,7 +23908,7 @@
   },
   "m-mercedes-benz-cla": {
    "status": "none",
-   "checkedAt": "2026-09-14T21:58:38.222Z",
+   "checkedAt": "2026-09-14T22:51:00.356Z",
    "sourceTitle": "Mercedes-Benz CLA",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -20729,7 +24190,7 @@
   },
   "m-toyota-celica": {
    "status": "none",
-   "checkedAt": "2026-09-14T21:58:38.278Z",
+   "checkedAt": "2026-09-14T22:51:00.409Z",
    "sourceTitle": "Toyota Celica",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -20845,7 +24306,7 @@
   },
   "m-toyota-carina": {
    "status": "none",
-   "checkedAt": "2026-09-14T21:58:38.352Z",
+   "checkedAt": "2026-09-14T22:51:00.471Z",
    "sourceTitle": "Toyota Carina",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -20973,7 +24434,7 @@
   },
   "m-lexus-sc": {
    "status": "none",
-   "checkedAt": "2026-09-14T21:58:38.358Z",
+   "checkedAt": "2026-09-14T22:51:00.477Z",
    "sourceTitle": "Lexus SC",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -21622,7 +25083,7 @@
   },
   "m-seat-toledo": {
    "status": "none",
-   "checkedAt": "2026-09-14T21:58:38.435Z",
+   "checkedAt": "2026-09-14T22:51:00.539Z",
    "sourceTitle": "SEAT Toledo",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -21753,7 +25214,7 @@
   },
   "m-daren-mk-3": {
    "status": "none",
-   "checkedAt": "2026-09-14T21:58:38.448Z",
+   "checkedAt": "2026-09-14T22:51:00.552Z",
    "sourceTitle": "Daren Mk.3",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -21828,7 +25289,7 @@
   },
   "m-audi-a3-mk3": {
    "status": "none",
-   "checkedAt": "2026-09-14T21:58:38.467Z",
+   "checkedAt": "2026-09-14T22:51:00.570Z",
    "sourceTitle": "Audi A3",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -21884,7 +25345,7 @@
   },
   "m-audi-tt": {
    "status": "none",
-   "checkedAt": "2026-09-14T21:58:38.556Z",
+   "checkedAt": "2026-09-14T22:51:00.643Z",
    "sourceTitle": "Audi TT",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -22024,7 +25485,7 @@
   },
   "m-seat-leon-mk3": {
    "status": "none",
-   "checkedAt": "2026-09-14T21:58:38.612Z",
+   "checkedAt": "2026-09-14T22:51:00.690Z",
    "sourceTitle": "SEAT León",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -22138,7 +25599,7 @@
   },
   "m-volkswagen-karmann-ghia": {
    "status": "none",
-   "checkedAt": "2026-09-14T21:58:38.641Z",
+   "checkedAt": "2026-09-14T22:51:00.715Z",
    "sourceTitle": "Volkswagen Karmann Ghia",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -22188,7 +25649,7 @@
   },
   "m-porsche-panamera": {
    "status": "none",
-   "checkedAt": "2026-09-14T21:58:38.631Z",
+   "checkedAt": "2026-09-14T22:51:00.705Z",
    "sourceTitle": "Porsche Panamera",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -22254,7 +25715,7 @@
   },
   "m-subaru-forester": {
    "status": "none",
-   "checkedAt": "2026-09-14T21:58:38.680Z",
+   "checkedAt": "2026-09-14T22:51:00.749Z",
    "sourceTitle": "Subaru Forester",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -22363,7 +25824,7 @@
   },
   "m-volkswagen-touran": {
    "status": "none",
-   "checkedAt": "2026-09-14T21:58:38.700Z",
+   "checkedAt": "2026-09-14T22:51:00.767Z",
    "sourceTitle": "Volkswagen Touran",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -22413,7 +25874,7 @@
   },
   "m-chevrolet-captiva": {
    "status": "none",
-   "checkedAt": "2026-09-14T21:58:38.770Z",
+   "checkedAt": "2026-09-14T22:51:00.827Z",
    "sourceTitle": "Chevrolet Captiva",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -22518,7 +25979,7 @@
   },
   "m-isuzu-trooper": {
    "status": "none",
-   "checkedAt": "2026-09-14T21:58:38.823Z",
+   "checkedAt": "2026-09-14T22:51:00.874Z",
    "sourceTitle": "Isuzu Trooper",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -22614,7 +26075,7 @@
   },
   "m-volkswagen-tiguan": {
    "status": "none",
-   "checkedAt": "2026-09-14T21:58:38.887Z",
+   "checkedAt": "2026-09-14T22:51:00.935Z",
    "sourceTitle": "Volkswagen Tiguan",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -22727,7 +26188,7 @@
   },
   "m-chrysler-horizon": {
    "status": "none",
-   "checkedAt": "2026-09-14T21:58:38.932Z",
+   "checkedAt": "2026-09-14T22:51:00.975Z",
    "sourceTitle": "Chrysler Horizon",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -22827,7 +26288,7 @@
   },
   "m-mercury-monterey": {
    "status": "none",
-   "checkedAt": "2026-09-14T21:58:39.029Z",
+   "checkedAt": "2026-09-14T22:51:01.063Z",
    "sourceTitle": "Mercury Monterey",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -23002,7 +26463,7 @@
   },
   "m-gmc-envoy": {
    "status": "none",
-   "checkedAt": "2026-09-14T21:58:39.048Z",
+   "checkedAt": "2026-09-14T22:51:01.081Z",
    "sourceTitle": "GMC Envoy",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -23055,7 +26516,7 @@
   },
   "m-chevrolet-trailblazer": {
    "status": "none",
-   "checkedAt": "2026-09-14T21:58:39.066Z",
+   "checkedAt": "2026-09-14T22:51:01.096Z",
    "sourceTitle": "Chevrolet TrailBlazer (SUV)",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -23106,7 +26567,7 @@
   },
   "m-oldsmobile-bravada": {
    "status": "none",
-   "checkedAt": "2026-09-14T21:58:39.103Z",
+   "checkedAt": "2026-09-14T22:51:01.128Z",
    "sourceTitle": "Oldsmobile Bravada",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -23186,7 +26647,7 @@
   },
   "m-buick-lacrosse": {
    "status": "none",
-   "checkedAt": "2026-09-14T21:58:39.125Z",
+   "checkedAt": "2026-09-14T22:51:01.148Z",
    "sourceTitle": "Buick LaCrosse",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -23262,7 +26723,7 @@
   },
   "m-buick-invicta": {
    "status": "none",
-   "checkedAt": "2026-09-14T21:58:39.141Z",
+   "checkedAt": "2026-09-14T22:51:01.163Z",
    "sourceTitle": "Buick Invicta",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -23313,7 +26774,7 @@
   },
   "m-buick-century": {
    "status": "none",
-   "checkedAt": "2026-09-14T21:58:39.217Z",
+   "checkedAt": "2026-09-14T22:51:01.236Z",
    "sourceTitle": "Buick Century",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -23465,7 +26926,7 @@
   },
   "m-jaguar-xjs": {
    "status": "none",
-   "checkedAt": "2026-09-14T21:58:39.229Z",
+   "checkedAt": "2026-09-14T22:51:01.249Z",
    "sourceTitle": "Jaguar XJS",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -23524,7 +26985,7 @@
   },
   "m-jaguar-e-type": {
    "status": "none",
-   "checkedAt": "2026-09-14T21:58:39.248Z",
+   "checkedAt": "2026-09-14T22:51:01.268Z",
    "sourceTitle": "Jaguar E-Type",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -23593,7 +27054,7 @@
   },
   "m-wuling-starlight": {
    "status": "none",
-   "checkedAt": "2026-09-14T21:58:39.277Z",
+   "checkedAt": "2026-09-14T22:51:01.298Z",
    "sourceTitle": "Wuling Starlight",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -23657,7 +27118,7 @@
   },
   "m-jeep-compass": {
    "status": "none",
-   "checkedAt": "2026-09-14T21:58:39.319Z",
+   "checkedAt": "2026-09-14T22:51:01.338Z",
    "sourceTitle": "Jeep Compass",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -23741,7 +27202,7 @@
   },
   "m-mazda-tribute": {
    "status": "none",
-   "checkedAt": "2026-09-14T21:58:39.328Z",
+   "checkedAt": "2026-09-14T22:51:01.347Z",
    "sourceTitle": "Mazda Tribute",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -23778,7 +27239,7 @@
   },
   "m-mazda-cx-5": {
    "status": "none",
-   "checkedAt": "2026-09-14T21:58:39.340Z",
+   "checkedAt": "2026-09-14T22:51:01.358Z",
    "sourceTitle": "Mazda CX-5",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -23833,7 +27294,7 @@
   },
   "m-baojun-730": {
    "status": "none",
-   "checkedAt": "2026-09-14T21:58:39.345Z",
+   "checkedAt": "2026-09-14T22:51:01.363Z",
    "sourceTitle": "Baojun 730",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -23868,7 +27329,7 @@
   },
   "m-dacia-duster": {
    "status": "none",
-   "checkedAt": "2026-09-14T21:58:39.389Z",
+   "checkedAt": "2026-09-14T22:51:01.402Z",
    "sourceTitle": "Dacia Duster",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -24101,6 +27562,1217 @@
     "dropped": []
    },
    "appliedAt": "2026-09-14T21:59:05.409Z"
+  },
+  "m-lincoln-continental": {
+   "status": "applied",
+   "checkedAt": "2026-09-14T22:57:38.511Z",
+   "sourceTitle": "Lincoln Continental",
+   "proposal": {
+    "hasMultipleGenerations": true,
+    "generations": [
+     {
+      "code": "First generation",
+      "yearStart": 1940,
+      "yearEnd": 1948,
+      "designers": [
+       "Bob Gregorie"
+      ],
+      "engineers": [],
+      "wikiFile": "1988 Lincoln Town Car (base), front left.jpg",
+      "sharedPlatforms": [
+       "Lincoln-Zephyr",
+       "Lincoln Zephyr",
+       "Lincoln H-series"
+      ],
+      "sharedPlatformMatches": {
+       "Lincoln H-series": {
+        "matchId": null,
+        "confidence": "high",
+        "reason": "No exact match found. The Lincoln H-series is an all-electric SUV concept announced by Lincoln in 2022 (often referred to as the Lincoln E-Concept). None of the provided candidates correspond to this specific vehicle; the closest name is the Rely H-series (a completely different manufacturer and era) or the Lincoln EL-series (which is a distinct historical model name)."
+       }
+      }
+     },
+     {
+      "code": "Second generation",
+      "yearStart": 1956,
+      "yearEnd": 1957,
+      "designers": [
+       "Bill Schmidt",
+       "John Reinhart"
+      ],
+      "engineers": [
+       "Gordon Buehrig",
+       "Harley Copp"
+      ],
+      "wikiFile": "1990 Lincoln Town Car base, front right.jpg",
+      "sharedPlatforms": []
+     },
+     {
+      "code": "Third generation",
+      "yearStart": 1958,
+      "yearEnd": 1960,
+      "designers": [
+       "John Najjar",
+       "Elwood Engel",
+       "Don Delarossa"
+      ],
+      "engineers": [],
+      "wikiFile": "98-02 Lincoln Town Car Cartier.jpg",
+      "sharedPlatforms": [
+       "Lincoln Premiere",
+       "Lincoln Capri"
+      ],
+      "sharedPlatformMatches": {
+       "Lincoln Premiere": {
+        "matchId": null,
+        "confidence": "high",
+        "reason": "The 'Lincoln Premiere' (introduced in 1985) is a distinct full-size sedan developed by Lincoln on the Mark V platform. While it shares the same chassis code (L131) with the 'Lincoln Versailles' (1977–1980), they are different physical models with different body styles (sedan vs. limousine) and overlapping but not identical production runs that define them as separate nameplates. The database contains 'Lincoln Versailles', but 'Lincoln Premiere' is not merely a synonym or export name for the Versailles; it was a separate model in Lincoln's lineup, particularly in markets where the Versailles was not sold or alongside it."
+       }
+      }
+     },
+     {
+      "code": "Fourth generation",
+      "yearStart": 1961,
+      "yearEnd": 1969,
+      "designers": [
+       "Elwood Engel"
+      ],
+      "engineers": [],
+      "wikiFile": "1964 Lincoln Continental Convertible (35311876713) (cropped).jpg",
+      "sharedPlatforms": [
+       "Ford Thunderbird",
+       "Continental Mark III"
+      ],
+      "sharedPlatformMatches": {
+       "Continental Mark III": {
+        "matchId": "m-ford-continental-mark-ii",
+        "confidence": "low",
+        "reason": "The mention 'Continental Mark III' refers to a specific luxury car by Rolls-Royce (1963–1968), whereas the candidate 'm-ford-continental-mark-ii' refers to a Ford model. While 'Continental Mark' is a naming convention used by multiple manufacturers, the specific 'Mark III' designation for Rolls-Royce/Bentley does not match the Ford model provided, which is explicitly the 'Mark II' and belongs to a different marque. None of the other candidates are a match."
+       }
+      }
+     },
+     {
+      "code": "Fifth generation",
+      "yearStart": 1970,
+      "yearEnd": 1979,
+      "designers": [
+       "Buzz Grisinger"
+      ],
+      "engineers": [],
+      "wikiFile": "Lincoln Continental (13241720114) (cropped).jpg",
+      "sharedPlatforms": [
+       "Ford LTD",
+       "Mercury Marquis"
+      ]
+     },
+     {
+      "code": "Sixth generation",
+      "yearStart": 1980,
+      "yearEnd": 1980,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "1980 Lincoln Continental Coupe, front right (Hershey 2019).jpg",
+      "sharedPlatforms": [
+       "Ford LTD",
+       "Mercury Grand Marquis"
+      ]
+     },
+     {
+      "code": "Seventh generation",
+      "yearStart": 1982,
+      "yearEnd": 1987,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "82LincolnContinental.jpg",
+      "sharedPlatforms": [
+       "Lincoln Mark VII",
+       "Ford Thunderbird",
+       "Mercury Cougar XR7"
+      ],
+      "sharedPlatformMatches": {
+       "Lincoln Mark VII": {
+        "matchId": "m-lincoln-mark-series",
+        "confidence": "high",
+        "reason": "The 'Lincoln Mark VII' is a specific model within the 'Lincoln Mark series' produced by Lincoln from 1955 to 1960 (specifically 1955-1956 for the VII). While the candidate list provides a general entry for the series ('m-lincoln-mark-series'), it is the only entry that accurately covers the production era and naming convention of the mentioned car, unlike the other candidates which refer to different marques (Bentley, Jaguar, Lotus) or different Lincoln models with non-overlapping production years."
+       },
+       "Mercury Cougar XR7": {
+        "matchId": "m-mercury-cougar",
+        "confidence": "high",
+        "reason": "The mention 'Mercury Cougar XR7' refers to the Mercury Cougar model, specifically a trim level (XR7) produced from 1967 to 1970. The candidate 'm-mercury-cougar' is labeled 'Mercury Cougar (1967–present)' and covers the correct production start year and model name. The 'XR7' is a high-performance trim, not a distinct model requiring a separate entry, and the long production range in the candidate label accommodates the 1967–1970 era of the XR7."
+       }
+      }
+     },
+     {
+      "code": "Eighth generation",
+      "yearStart": 1988,
+      "yearEnd": 1994,
+      "designers": [
+       "Jack Telnack"
+      ],
+      "engineers": [],
+      "wikiFile": "A 1991 Lincoln Continental.jpg",
+      "sharedPlatforms": [
+       "Ford Taurus",
+       "Mercury Sable",
+       "Ford Windstar"
+      ]
+     },
+     {
+      "code": "Ninth generation",
+      "yearStart": 1995,
+      "yearEnd": 2002,
+      "designers": [
+       "Fritz Mayhew"
+      ],
+      "engineers": [],
+      "wikiFile": "1995-1997 Lincoln Continental -- 11-26-2011.jpg",
+      "sharedPlatforms": [
+       "Ford Taurus",
+       "Mercury Sable",
+       "Ford Windstar"
+      ]
+     },
+     {
+      "code": "Tenth generation",
+      "yearStart": 2017,
+      "yearEnd": null,
+      "designers": [
+       "Max Wolff",
+       "David Woodhouse"
+      ],
+      "engineers": [
+       "Michael Celentino"
+      ],
+      "wikiFile": "2019 Lincoln Continental \"Select\", front 10.29.19.jpg",
+      "sharedPlatforms": [
+       "Lincoln MKZ",
+       "Ford Fusion",
+       "Ford Mondeo",
+       "Ford Taurus"
+      ],
+      "sharedPlatformMatches": {
+       "Ford Fusion": {
+        "matchId": null,
+        "confidence": "high",
+        "reason": "The mention 'Ford Fusion' refers to the Ford Fusion sedan produced primarily from 2006 to 2020. None of the provided candidate cars correspond to the Ford Fusion. While some candidates are Ford sedans (like the Ford Taurus or Ford Mondeo), they are distinct model lines with different chassis codes and production histories. The Ford Fusion is not listed among the candidates."
+       }
+      }
+     }
+    ]
+   },
+   "discrepancy": "an existing \"generation\" here (Continental) is really just the bare nameplate itself, not a distinct generation",
+   "attempts": 1,
+   "feedback": [],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": true,
+     "generations": [
+      {
+       "code": "First generation",
+       "yearStart": 1940,
+       "yearEnd": 1948,
+       "designers": [
+        "Bob Gregorie"
+       ],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Lincoln-Zephyr",
+        "Lincoln Zephyr",
+        "Lincoln H-series"
+       ]
+      },
+      {
+       "code": "Second generation",
+       "yearStart": 1956,
+       "yearEnd": 1957,
+       "designers": [
+        "Bill Schmidt",
+        "John Reinhart"
+       ],
+       "engineers": [
+        "Gordon Buehrig",
+        "Harley Copp"
+       ],
+       "sharedPlatforms": []
+      },
+      {
+       "code": "Third generation",
+       "yearStart": 1958,
+       "yearEnd": 1960,
+       "designers": [
+        "John Najjar",
+        "Elwood Engel",
+        "Don Delarossa"
+       ],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Lincoln Premiere",
+        "Lincoln Capri"
+       ]
+      },
+      {
+       "code": "Fourth generation",
+       "yearStart": 1961,
+       "yearEnd": 1969,
+       "designers": [
+        "Elwood Engel"
+       ],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Ford Thunderbird",
+        "Continental Mark III"
+       ]
+      },
+      {
+       "code": "Fifth generation",
+       "yearStart": 1970,
+       "yearEnd": 1979,
+       "designers": [
+        "Buzz Grisinger"
+       ],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Ford LTD",
+        "Mercury Marquis"
+       ]
+      },
+      {
+       "code": "Sixth generation",
+       "yearStart": 1980,
+       "yearEnd": 1980,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Ford LTD",
+        "Mercury Grand Marquis"
+       ]
+      },
+      {
+       "code": "Seventh generation",
+       "yearStart": 1982,
+       "yearEnd": 1987,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Lincoln Mark VII",
+        "Ford Thunderbird",
+        "Mercury Cougar XR7"
+       ]
+      },
+      {
+       "code": "Eighth generation",
+       "yearStart": 1988,
+       "yearEnd": 1994,
+       "designers": [
+        "Jack Telnack"
+       ],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Ford Taurus",
+        "Mercury Sable",
+        "Ford Windstar"
+       ]
+      },
+      {
+       "code": "Ninth generation",
+       "yearStart": 1995,
+       "yearEnd": 2002,
+       "designers": [
+        "Fritz Mayhew"
+       ],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Ford Taurus",
+        "Mercury Sable",
+        "Ford Windstar"
+       ]
+      },
+      {
+       "code": "Tenth generation",
+       "yearStart": 2017,
+       "yearEnd": null,
+       "designers": [
+        "Max Wolff",
+        "David Woodhouse"
+       ],
+       "engineers": [
+        "Michael Celentino"
+       ],
+       "sharedPlatforms": [
+        "Lincoln MKZ",
+        "Ford Fusion",
+        "Ford Mondeo",
+        "Ford Taurus"
+       ]
+      }
+     ]
+    },
+    "dropped": []
+   },
+   "manualRecheck": true,
+   "generationDiff": {
+    "addedCodes": [
+     "First generation",
+     "Second generation",
+     "Third generation",
+     "Fourth generation",
+     "Fifth generation",
+     "Sixth generation",
+     "Seventh generation",
+     "Eighth generation",
+     "Ninth generation",
+     "Tenth generation"
+    ],
+    "removedIds": [
+     "m-lincoln-continental-mark-i",
+     "merge-m-lincoln-continental-self",
+     "m-lincoln-continental-mark-iv",
+     "m-lincoln-continental-mark-v",
+     "m-lincoln-continental-mark-vi",
+     "m-lincoln-continental-mark-vii",
+     "m-lincoln-mark-viii"
+    ]
+   },
+   "peopleAdded": [],
+   "appliedAt": "2026-09-14T22:58:45.387Z"
+  },
+  "m-lincoln-lincoln-zephyr": {
+   "status": "none",
+   "checkedAt": "2026-09-14T22:59:51.601Z",
+   "sourceTitle": "Lincoln-Zephyr",
+   "proposal": {
+    "hasMultipleGenerations": true,
+    "generations": [
+     {
+      "code": "Lincoln-Zephyr",
+      "yearStart": 1936,
+      "yearEnd": 1942,
+      "designers": [
+       "Eugene Turenne \"Bob\" Gregorie",
+       "Edsel Ford",
+       "John Tjaarda"
+      ],
+      "engineers": [],
+      "wikiFile": "1937 Lincoln Zephyr (7463941374) (cropped).jpg",
+      "sharedPlatforms": [
+       "Lincoln Continental"
+      ]
+     },
+     {
+      "code": "H-series",
+      "yearStart": 1946,
+      "yearEnd": 1948,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "'48 Lincoln V12 (A&W St. Leonard).JPG",
+      "sharedPlatforms": []
+     }
+    ]
+   },
+   "discrepancy": null,
+   "attempts": 1,
+   "feedback": []
+  },
+  "m-lincoln-capri": {
+   "status": "none",
+   "checkedAt": "2026-09-14T23:03:07.872Z",
+   "sourceTitle": "Lincoln Capri",
+   "proposal": {
+    "hasMultipleGenerations": true,
+    "generations": [
+     {
+      "code": "Generation I",
+      "yearStart": 1952,
+      "yearEnd": 1955,
+      "designers": [
+       "Bill Schmidt"
+      ],
+      "engineers": [],
+      "wikiFile": "File:Lincoln Capri manufactured 1953 5211cc.jpg",
+      "sharedPlatforms": [
+       "Lincoln Cosmopolitan",
+       "Lincoln Custom",
+       "Mercury Monterey",
+       "Ford Crestline"
+      ],
+      "sharedPlatformMatches": {
+       "Lincoln Cosmopolitan": {
+        "matchId": null,
+        "confidence": "high",
+        "reason": "The 'Lincoln Cosmopolitan' was a distinct 1967–1972 model produced by Lincoln-Mercury based on the Ford Galaxie platform. None of the provided candidates (which list various Lincoln Continentals, Town Cars, Navigators, or unrelated models like the Mazda Cosmo) correspond to the Cosmopolitan. The production years of the Cosmopolitan (1967–1972) do not align with the specific named generations or models in the list that cover those years (e.g., Mark IV/Mark V were distinct nameplates, not the Cosmopolitan)."
+       },
+       "Ford Crestline": {
+        "matchId": null,
+        "confidence": "high",
+        "reason": "The 'Ford Crestline' was a luxury car marketed by Ford in the UK (1951–1962) and Australia (1957–1963), essentially a rebadged version of the Ford Consul or Ford Zephyr (specifically the Consul Super/Zephyr). None of the provided candidates match this specific vehicle: 'Ford Consul' is a separate entry, 'Ford Country Squire' was a variant of the Country Sedan, and no other candidate represents the Crestline nameplate or the specific chassis/generation associated with it."
+       }
+      }
+     },
+     {
+      "code": "Generation II",
+      "yearStart": 1956,
+      "yearEnd": 1957,
+      "designers": [
+       "Bill Schmidt"
+      ],
+      "engineers": [],
+      "wikiFile": "1956 Lincoln Capri.jpg",
+      "sharedPlatforms": [
+       "Lincoln Premiere",
+       "Mercury Montclair"
+      ]
+     },
+     {
+      "code": "Generation III",
+      "yearStart": 1958,
+      "yearEnd": 1959,
+      "designers": [
+       "John Najjar"
+      ],
+      "engineers": [],
+      "wikiFile": "Lincoln Capri Sedan 1953.jpg",
+      "sharedPlatforms": [
+       "Lincoln Mark series",
+       "Lincoln Premiere"
+      ]
+     }
+    ]
+   },
+   "discrepancy": null,
+   "attempts": 1,
+   "feedback": []
+  },
+  "m-ford-continental-mark-ii": {
+   "status": "none",
+   "checkedAt": "2026-09-14T23:04:41.978Z",
+   "sourceTitle": "Continental Mark II",
+   "proposal": {
+    "hasMultipleGenerations": true,
+    "generations": [
+     {
+      "code": "Mark II",
+      "yearStart": 1956,
+      "yearEnd": 1957,
+      "designers": [
+       "John Reinhart"
+      ],
+      "engineers": [],
+      "wikiFile": "1956 Continental Mark II - midnight blue - fvr.jpg",
+      "sharedPlatforms": [
+       "Lincoln Futura"
+      ],
+      "sharedPlatformMatches": {
+       "Lincoln Futura": {
+        "matchId": null,
+        "confidence": "high",
+        "reason": "The 'Lincoln Futura' (1954–1955) is a one-off concept car designed by Raymond Loewy for Lincoln. None of the provided candidates refer to this specific concept; they all represent production models or different generations of the Lincoln Continental, Capri, or other unrelated Lincoln nameplates. The production years of the candidates also largely do not overlap with the 1950s timeframe of the concept."
+       }
+      }
+     },
+     {
+      "code": "Mark III",
+      "yearStart": 1969,
+      "yearEnd": 1971,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "1960 Lincoln Continental -- 10-02-2009.jpg",
+      "sharedPlatforms": [
+       "Ford Thunderbird"
+      ]
+     },
+     {
+      "code": "Mark IV",
+      "yearStart": 1972,
+      "yearEnd": 1976,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "57 Continental Mark II (7810973532).jpg",
+      "sharedPlatforms": [
+       "Ford Thunderbird"
+      ]
+     },
+     {
+      "code": "Mark V",
+      "yearStart": 1977,
+      "yearEnd": 1980,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "Continental Quiz (6087969018).jpg",
+      "sharedPlatforms": [
+       "Ford Thunderbird"
+      ]
+     },
+     {
+      "code": "Mark VI",
+      "yearStart": 1980,
+      "yearEnd": 1983,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "1981 Lincoln Continental Mark VI (29739268016).jpg",
+      "sharedPlatforms": []
+     },
+     {
+      "code": "Mark VII",
+      "yearStart": 1984,
+      "yearEnd": 1988,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "Lincoln-Continental-Mark-VII.jpg",
+      "sharedPlatforms": [
+       "Ford Thunderbird",
+       "Mercury Cougar"
+      ]
+     },
+     {
+      "code": "Mark VIII",
+      "yearStart": 1993,
+      "yearEnd": 1998,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "93 Lincoln Mark VIII (9674876061).jpg",
+      "sharedPlatforms": [
+       "Ford Thunderbird",
+       "Mercury Cougar"
+      ]
+     }
+    ]
+   },
+   "discrepancy": null,
+   "attempts": 1,
+   "feedback": []
+  },
+  "m-mercury-marquis": {
+   "status": "none",
+   "checkedAt": "2026-09-14T23:05:52.567Z",
+   "sourceTitle": "Mercury Marquis",
+   "proposal": {
+    "hasMultipleGenerations": true,
+    "generations": [
+     {
+      "code": "First generation",
+      "yearStart": 1967,
+      "yearEnd": 1968,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "1968 Mercury Marquis cropped.jpg",
+      "sharedPlatforms": [
+       "Mercury Monterey",
+       "Mercury Park Lane Brougham",
+       "Ford LTD",
+       "Meteor Montego/LeMoyne"
+      ],
+      "sharedPlatformMatches": {
+       "Mercury Park Lane Brougham": {
+        "matchId": null,
+        "confidence": "high",
+        "reason": "The mentioned car is the Mercury Park Lane, a full-size sedan produced by Mercury from 1952 to 1991. The mention specifies the 'Brougham' trim. In the candidate list, 'm-mercury-colony-park' refers to the Mercury Colony Park, a separate, smaller compact model (not related to the Park Lane). While the names share 'Park', the models are distinct. The 'm-mercury-grand-marquis' is the correct full-size sedan that succeeded the Park Lane after the Park Lane was discontinued in 1991, but the specific model 'Park Lane' is not present in the candidate list. Therefore, no candidate matches the specific car mentioned."
+       },
+       "Meteor Montego/LeMoyne": {
+        "matchId": "m-austin-montego",
+        "confidence": "high",
+        "reason": "The 'Meteor Montego' was a specific model introduced by Austin (a subsidiary of British Leyland) in the UK in 1984. It was an export version of the Austin Montego, which was sold as the Ford Sierra in other markets. The name 'Meteor' was used in the UK for this specific model generation to distinguish it or due to regional naming conventions, while it is commonly known internationally as the Austin Montego or Ford Sierra. The years 1984–1995 match the production run of the Austin Montego (Sierra based). The other candidates refer to different cars: Mercury Montego is a North American Mercury model from a different era/platform context (or confused with the Ford Montego), Veritas Meteor is a 1950s French car, and Volkswagen Gol is a completely different vehicle."
+       }
+      }
+     },
+     {
+      "code": "Second generation",
+      "yearStart": 1969,
+      "yearEnd": 1978,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "1972 Mercury Marquis Brougham 2-door Hardtop, front right (Hershey 2019).jpg",
+      "sharedPlatforms": [
+       "Mercury Grand Marquis",
+       "Mercury Monterey",
+       "Mercury Colony Park",
+       "Ford LTD",
+       "Meteor LeMoyne",
+       "Meteor"
+      ],
+      "sharedPlatformMatches": {
+       "Meteor LeMoyne": {
+        "matchId": null,
+        "confidence": "low",
+        "reason": "The mention 'Meteor LeMoyne' refers to a specific trim or generation (typically 1955-1956) of the Mercury Meteor, whereas the candidate 'Veritas Meteor' refers to a different manufacturer (Veritas) that produced cars in 1951-1954. There is no evidence that the Veritas Meteor was renamed to 'Meteor LeMoyne' or that they share the same chassis/generation."
+       }
+      }
+     },
+     {
+      "code": "Third generation",
+      "yearStart": 1979,
+      "yearEnd": 1982,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "1980 Mercury Marquis sedan.jpg",
+      "sharedPlatforms": [
+       "Lincoln Continental Mark VI",
+       "Mercury Grand Marquis",
+       "Mercury Colony Park",
+       "Ford LTD"
+      ]
+     },
+     {
+      "code": "Fourth generation",
+      "yearStart": 1983,
+      "yearEnd": 1986,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "1983 Mercury Marquis.jpg",
+      "sharedPlatforms": [
+       "Mercury Cougar",
+       "Ford LTD",
+       "Ford Thunderbird",
+       "Lincoln Continental",
+       "Lincoln Continental Mark VII"
+      ]
+     }
+    ]
+   },
+   "discrepancy": null,
+   "attempts": 1,
+   "feedback": []
+  },
+  "m-mercury-grand-marquis": {
+   "status": "none",
+   "checkedAt": "2026-09-14T23:07:11.674Z",
+   "sourceTitle": "Mercury Grand Marquis",
+   "proposal": {
+    "hasMultipleGenerations": true,
+    "generations": [
+     {
+      "code": "1975–1978",
+      "yearStart": 1975,
+      "yearEnd": 1978,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "1978 Mercury Grand Marquis 4-Door Pillared Hardtop in Midnight Blue, Front Left, 08-02-2023.jpg",
+      "sharedPlatforms": [
+       "Mercury Colony Park",
+       "Ford LTD",
+       "Ford Country Squire",
+       "Lincoln Continental"
+      ]
+     },
+     {
+      "code": "First generation",
+      "yearStart": 1979,
+      "yearEnd": 1991,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "File:1983 Mercury Grand Marquis LS 2-Door.jpg",
+      "sharedPlatforms": [
+       "Mercury Colony Park",
+       "Ford LTD Crown Victoria",
+       "Ford Country Squire",
+       "Lincoln Town Car",
+       "Lincoln Continental"
+      ]
+     },
+     {
+      "code": "EN53",
+      "yearStart": 1992,
+      "yearEnd": 1997,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "1997 Mercury Grand Marquis GS, front left, 06-07-2024.jpg",
+      "sharedPlatforms": [
+       "Ford Crown Victoria",
+       "Ford Police Interceptor",
+       "Lincoln Town Car"
+      ],
+      "sharedPlatformMatches": {
+       "Ford Police Interceptor": {
+        "matchId": "m-ford-crown-victoria-police-interceptor",
+        "confidence": "high",
+        "reason": "The mentioned 'Ford Police Interceptor' refers to the specific police variant of the Ford Crown Victoria, known as the Ford Crown Victoria Police Interceptor (CVPI). This matches the candidate 'm-ford-crown-victoria-police-interceptor' which covers the production years 1992–2011, the exact era for this specific police vehicle."
+       }
+      }
+     },
+     {
+      "code": "EN114",
+      "yearStart": 1998,
+      "yearEnd": 2002,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "1998-2002 Mercury Grand Marquis -- 09-27-2010 1.jpg",
+      "sharedPlatforms": [
+       "Ford Crown Victoria",
+       "Ford Police Interceptor",
+       "Lincoln Town Car"
+      ],
+      "sharedPlatformMatches": {
+       "Ford Police Interceptor": {
+        "matchId": "m-ford-crown-victoria-police-interceptor",
+        "confidence": "high",
+        "reason": "The mentioned 'Ford Police Interceptor' refers to the specific police variant of the Ford Crown Victoria, known as the Ford Crown Victoria Police Interceptor (CVPI). This matches the candidate 'm-ford-crown-victoria-police-interceptor' which covers the production years 1992–2011, the exact era for this specific police vehicle."
+       }
+      }
+     },
+     {
+      "code": "Fourth generation",
+      "yearStart": 2003,
+      "yearEnd": 2011,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "2005 Mercury Grand Marquis 30th Anniversary Edition -- 06-02-2011.jpg",
+      "sharedPlatforms": [
+       "Mercury Marauder",
+       "Ford Crown Victoria",
+       "Ford Police Interceptor",
+       "Lincoln Town Car"
+      ],
+      "sharedPlatformMatches": {
+       "Ford Police Interceptor": {
+        "matchId": "m-ford-crown-victoria-police-interceptor",
+        "confidence": "high",
+        "reason": "The mentioned 'Ford Police Interceptor' refers to the specific police variant of the Ford Crown Victoria, known as the Ford Crown Victoria Police Interceptor (CVPI). This matches the candidate 'm-ford-crown-victoria-police-interceptor' which covers the production years 1992–2011, the exact era for this specific police vehicle."
+       }
+      }
+     }
+    ]
+   },
+   "discrepancy": null,
+   "attempts": 1,
+   "feedback": []
+  },
+  "m-lincoln-mark-series": {
+   "status": "none",
+   "checkedAt": "2026-09-14T23:09:31.138Z",
+   "sourceTitle": "Lincoln Mark series",
+   "proposal": {
+    "hasMultipleGenerations": true,
+    "generations": [
+     {
+      "code": "Mark II",
+      "yearStart": 1956,
+      "yearEnd": 1957,
+      "designers": [
+       "John Reinhart"
+      ],
+      "engineers": [
+       "Gordon Buehrig",
+       "Harley Copp"
+      ],
+      "wikiFile": "Continental Mark II (14334281500).jpg",
+      "sharedPlatforms": [
+       "Lincoln Futura"
+      ],
+      "sharedPlatformMatches": {
+       "Lincoln Futura": {
+        "matchId": null,
+        "confidence": "high",
+        "reason": "The Lincoln Futura is a 1955 concept car based on the Lincoln Continental (1955–1956), but it is not a production model sold to the public. None of the candidate entries represent a concept car or specifically the 'Futura' nameplate; they refer to various production Lincoln models (Continental, Mark series, etc.) or other unrelated Lincoln models. Therefore, no candidate matches the specific car mentioned."
+       }
+      }
+     },
+     {
+      "code": "Mark III (1958–1960)",
+      "yearStart": 1958,
+      "yearEnd": 1960,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "1960 Lincoln Continental -- 10-02-2009.jpg",
+      "sharedPlatforms": [
+       "Ford Thunderbird (second generation)",
+       "Lincoln Capri",
+       "Lincoln Premiere"
+      ]
+     },
+     {
+      "code": "Mark III",
+      "yearStart": 1969,
+      "yearEnd": 1971,
+      "designers": [
+       "Gene Bordinat"
+      ],
+      "engineers": [],
+      "wikiFile": "1956 Continental Mark II - midnight blue - fvr.jpg",
+      "sharedPlatforms": [
+       "Ford Thunderbird (fifth generation)"
+      ]
+     },
+     {
+      "code": "Mark IV",
+      "yearStart": 1972,
+      "yearEnd": 1976,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "1969 Lincoln Continetal Mark III (27056856370) (cropped).jpg",
+      "sharedPlatforms": [
+       "Ford Thunderbird (sixth generation)"
+      ]
+     },
+     {
+      "code": "Mark V",
+      "yearStart": 1977,
+      "yearEnd": 1979,
+      "designers": [
+       "Gene Bordinat"
+      ],
+      "engineers": [],
+      "wikiFile": "1975 Lincoln Continental Mark IV, Dutch licence registration 21-YB-60 p1.JPG",
+      "sharedPlatforms": [
+       "Lincoln Continental Mark IV",
+       "Ford Thunderbird (1972–1976)"
+      ],
+      "sharedPlatformMatches": {
+       "Ford Thunderbird (1972–1976)": {
+        "matchId": null,
+        "confidence": "high",
+        "reason": "The mentioned car is the 4th generation Ford Thunderbird (1972–1976). The only Thunderbird candidates in the list are 'm-ford-thunderbird' and 'fam-ford-thunderbird', which both cover the entire production history from 1955 to 2005, implying they represent the entire lineage (all generations) rather than specifically the 1972–1976 model. Additionally, the specific 1972–1976 generation was marketed under the 'Ford Elite' name in some markets (candidate 'm-ford-elite'), but the mention explicitly says 'Ford Thunderbird'. Without a candidate specifically labeled for the 1972–1976 generation (e.g., 'Ford Thunderbird (1972–1976)' or 'Ford Elite (1972–1976)'), a precise match cannot be confirmed."
+       }
+      }
+     },
+     {
+      "code": "Mark VI",
+      "yearStart": 1980,
+      "yearEnd": 1983,
+      "designers": [
+       "John Aiken"
+      ],
+      "engineers": [],
+      "wikiFile": "1981 Lincoln Continental Mark VI (29739268016).jpg",
+      "sharedPlatforms": []
+     },
+     {
+      "code": "Mark VII",
+      "yearStart": 1984,
+      "yearEnd": 1992,
+      "designers": [
+       "Jeff Teague"
+      ],
+      "engineers": [],
+      "wikiFile": "Lincoln-Continental-Mark-VII.jpg",
+      "sharedPlatforms": [
+       "Ford Mustang (third generation)",
+       "Ford Thunderbird (ninth generation)",
+       "Mercury Cougar"
+      ],
+      "sharedPlatformMatches": {
+       "Ford Mustang (third generation)": {
+        "matchId": "m-ford-mustang-fox",
+        "confidence": "high",
+        "reason": "The Ford Mustang third generation is specifically known as the 'Fox Body' Mustang, produced from 1979 to 1993. The candidate 'm-ford-mustang-fox' explicitly identifies this specific generation and covers the exact same production years, confirming they are the same physical car."
+       }
+      }
+     },
+     {
+      "code": "Mark VIII",
+      "yearStart": 1993,
+      "yearEnd": 1998,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "93 Lincoln Mark VIII (9674876061).jpg",
+      "sharedPlatforms": [
+       "Ford Thunderbird (tenth generation)"
+      ]
+     }
+    ]
+   },
+   "discrepancy": null,
+   "attempts": 1,
+   "feedback": []
+  },
+  "m-mercury-cougar": {
+   "status": "none",
+   "checkedAt": "2026-09-14T23:12:42.597Z",
+   "sourceTitle": "Mercury Cougar",
+   "proposal": {
+    "hasMultipleGenerations": true,
+    "generations": [
+     {
+      "code": "First generation (1967–1970)",
+      "yearStart": 1967,
+      "yearEnd": 1970,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "1967 Mercury Cougar, front right, 06-15-2024.jpg",
+      "sharedPlatforms": [
+       "Ford Mustang (first generation)"
+      ]
+     },
+     {
+      "code": "Second generation (1971–1973)",
+      "yearStart": 1971,
+      "yearEnd": 1973,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "1971 Mercury Cougar.jpg",
+      "sharedPlatforms": [
+       "Ford Mustang (first generation)"
+      ]
+     },
+     {
+      "code": "Third generation (1974–1976)",
+      "yearStart": 1974,
+      "yearEnd": 1976,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "Mercury Cougar XR-7 2-Door Hardtop.jpg",
+      "sharedPlatforms": [
+       "Ford Torino",
+       "Ford Elite",
+       "Mercury Montego"
+      ]
+     },
+     {
+      "code": "Fourth generation (1977–1979)",
+      "yearStart": 1977,
+      "yearEnd": 1979,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "1979 Mercury Cougar XR-7, front right.jpg",
+      "sharedPlatforms": [
+       "Ford LTD II",
+       "Ford Thunderbird (seventh generation)"
+      ]
+     },
+     {
+      "code": "Fifth generation (1980–1982)",
+      "yearStart": 1980,
+      "yearEnd": 1982,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "RedMercuryCougarSide.jpg",
+      "sharedPlatforms": [
+       "Ford Granada (North America)",
+       "Ford Fairmont",
+       "Mercury Zephyr",
+       "Ford Thunderbird (eighth generation)",
+       "Lincoln Continental",
+       "Continental/Lincoln Mark VII"
+      ],
+      "sharedPlatformMatches": {
+       "Mercury Zephyr": {
+        "matchId": "m-ford-zephyr",
+        "confidence": "high",
+        "reason": "The 'Ford Zephyr' was a model produced by the British Motor Corporation (BMC) and Ford of Europe. After the acquisition of British Motor Corporation by Ford in 1961, Ford utilized the Zephyr nameplate for the 'Mercury Zephyr', a model sold exclusively in the UK market (as Ford of Europe had no presence in North America where Mercury was sold). The Ford Zephyr production years (1951–1972) overlap with the period when the Mercury Zephyr was sold (late 1950s to 1974). The other candidates are either North American-only models that never bore the Zephyr name or are distinct models entirely."
+       },
+       "Continental/Lincoln Mark VII": {
+        "matchId": null,
+        "confidence": "high",
+        "reason": "The mentioned car is the 'Continental/Lincoln Mark VII', a specific luxury car produced by Ford/Lincoln (1970-1972). The candidate list contains a 'Bentley Mark V', 'Bentley Mark VI', 'Jaguar Mark V', 'Jaguar Mark VII', and 'Lotus Mark VI'. The 'Bentley Mark VII' and 'Jaguar Mark VII' are different cars (Bentley and Jaguar respectively, and the Jaguar Mark VII is from 1950-1956, not matching the Lincoln era). The 'Lincoln Continental' candidates refer to the full-sized sedan line, not the specific 'Mark VII' model name which denotes a specific generation of the Lincoln Continental (or the separate Mark VII sedan). No candidate represents the Lincoln/Lincoln Mark VII specifically; the closest is the generic Lincoln Continental line, but the specific 'Mark VII' designation and generation do not map to the provided candidates which are either different marque's 'Mark VII' or a generic Lincoln line entry without the 'Mark VII' specificity."
+       }
+      },
+      "makeVariantMatches": {
+       "Continental/Lincoln Mark VII": {
+        "matchId": "mk-lincoln",
+        "makeGuessWords": 2,
+        "reason": "The text 'Continental/Lincoln Mark VII' refers to the Lincoln Mark VII, where Lincoln is the manufacturer and Continental is the bodybuilder. 'Lincoln' matches the database entry 'Lincoln (United States)' with id 'mk-lincoln'."
+       }
+      }
+     },
+     {
+      "code": "Sixth generation (1983–1988)",
+      "yearStart": 1983,
+      "yearEnd": 1988,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "87-88 Mercury Cougar.jpg",
+      "sharedPlatforms": [
+       "Mercury Marquis",
+       "Ford Thunderbird (ninth generation)",
+       "Ford LTD (Americas)",
+       "Continental Mark VII",
+       "Lincoln Continental"
+      ]
+     },
+     {
+      "code": "Seventh generation (1989–1997)",
+      "yearStart": 1989,
+      "yearEnd": 1997,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "1997 Mercury Cougar XR7 in Vibrant White Clearcoat, Front Left, 11-06-2022.jpg",
+      "sharedPlatforms": [
+       "Ford Thunderbird",
+       "Lincoln Mark VIII"
+      ]
+     },
+     {
+      "code": "Eighth generation (1999–2002)",
+      "yearStart": 1999,
+      "yearEnd": 2002,
+      "designers": [
+       "Darrell Behmer"
+      ],
+      "engineers": [],
+      "wikiFile": "2001-2002 Mercury Cougar -- 03-30-2011.jpg",
+      "sharedPlatforms": [
+       "Ford Mondeo (first generation)",
+       "Ford Contour",
+       "Mercury Mystique",
+       "Ford Cougar"
+      ],
+      "sharedPlatformMatches": {
+       "Ford Contour": {
+        "matchId": null,
+        "confidence": "high",
+        "reason": "The Ford Contour is a distinct model from the Ford Taurus and Ford Probe. Although they share a platform (the Fox platform, similar to the Mustang SVO/Probe), they are separate nameplates and not a rename or badge-engineered version of each other. The Contour was produced from 1995 to 2000, which does not overlap with the production years of the most similar candidate, the Ford Taurus (1986–1991) in this list. Therefore, no candidate in the database refers to the Ford Contour."
+       },
+       "Mercury Mystique": {
+        "matchId": null,
+        "confidence": "high",
+        "reason": "The Mercury Mystique (produced 1991–1996) is a compact car based on the Ford Taurus/Ford Crown Victoria platform. None of the provided candidates refer to the Mystique or any car sharing that specific nameplate or generation during that era. The closest candidates (Marquis, Grand Marquis, Capri, Mariner) are distinct models with different names, body styles, and production timelines that do not overlap as a rename or export variant of the Mystique."
+       }
+      }
+     }
+    ]
+   },
+   "discrepancy": null,
+   "attempts": 1,
+   "feedback": []
+  },
+  "m-mercury-sable": {
+   "status": "none",
+   "checkedAt": "2026-09-14T23:15:00.866Z",
+   "sourceTitle": "Mercury Sable",
+   "proposal": {
+    "hasMultipleGenerations": true,
+    "generations": [
+     {
+      "code": "First generation",
+      "yearStart": 1985,
+      "yearEnd": 1991,
+      "designers": [
+       "Jack Telnack"
+      ],
+      "engineers": [],
+      "wikiFile": "1988 Mercury Sable GS Sedan in Medium Cabernet, Front Left, 07-08-2023.jpg",
+      "sharedPlatforms": [
+       "Ford Taurus (first generation)",
+       "Lincoln Continental",
+       "Kia Sable"
+      ],
+      "sharedPlatformMatches": {
+       "Kia Sable": {
+        "matchId": null,
+        "confidence": "high",
+        "reason": "The mentioned car 'Kia Sable' (produced 1998–2010 in Korea) is not listed in the provided candidates. While the Kia Sable was known as the 'Kia Cerato' in many international markets, the database entry 'm-kia-cerato' lacks production years for the Sable-era (1998–2002), which implies it represents the later generation (2003–2024) sold in markets like the US (Forte) or Europe. Without a candidate explicitly covering the 1998–2010 timeframe or clearly identifying the specific generation associated with the 'Sable' nameplate, no match can be made."
+       }
+      }
+     },
+     {
+      "code": "Second generation",
+      "yearStart": 1991,
+      "yearEnd": 1995,
+      "designers": [
+       "Jack Telnack"
+      ],
+      "engineers": [],
+      "wikiFile": "1995 Mercury Sable GS sedan, front left, 04-11-2021.jpg",
+      "sharedPlatforms": [
+       "Ford Taurus (second generation)",
+       "Lincoln Continental",
+       "Ford Windstar"
+      ]
+     },
+     {
+      "code": "Third generation",
+      "yearStart": 1995,
+      "yearEnd": 1999,
+      "designers": [
+       "Jack Telnack"
+      ],
+      "engineers": [],
+      "wikiFile": "96-97 Mercury Sable.jpg",
+      "sharedPlatforms": [
+       "Ford Taurus (third generation)",
+       "Lincoln Continental",
+       "Ford Windstar"
+      ]
+     },
+     {
+      "code": "Fourth generation",
+      "yearStart": 2000,
+      "yearEnd": 2005,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "00-03 Mercury Sable GS sedan.jpg",
+      "sharedPlatforms": [
+       "Ford Taurus (fourth generation)",
+       "Lincoln Continental"
+      ]
+     },
+     {
+      "code": "Fifth generation",
+      "yearStart": 2007,
+      "yearEnd": 2009,
+      "designers": [
+       "J Mays"
+      ],
+      "engineers": [],
+      "wikiFile": "2008 Mercury Sable Premier.jpg",
+      "sharedPlatforms": [
+       "Lincoln MKS",
+       "Volvo S60",
+       "Volvo XC90",
+       "Ford Taurus (fifth generation)",
+       "Ford Taurus X",
+       "Ford Flex"
+      ],
+      "sharedPlatformMatches": {
+       "Ford Taurus X": {
+        "matchId": null,
+        "confidence": "high",
+        "reason": "The Ford Taurus X is a distinct model (a crossover SUV produced 2007–2009) and is not listed in the provided candidates. The only candidate with 'Taurus' in the name refers to the standard Ford Taurus sedan (produced 1985–2019). Although they share the name, they are different vehicles with different body styles, chassis codes, and production timelines."
+       }
+      }
+     }
+    ]
+   },
+   "discrepancy": null,
+   "attempts": 1,
+   "feedback": []
+  },
+  "m-ford-windstar": {
+   "status": "none",
+   "checkedAt": "2026-09-14T23:15:51.590Z",
+   "sourceTitle": "Ford Windstar",
+   "proposal": {
+    "hasMultipleGenerations": true,
+    "generations": [
+     {
+      "code": "First generation (1995–1998)",
+      "yearStart": 1995,
+      "yearEnd": 1998,
+      "designers": [
+       "Camilo Pardo",
+       "Jack Telnack"
+      ],
+      "engineers": [],
+      "wikiFile": "1st Ford Windstar.jpg",
+      "sharedPlatforms": [
+       "Ford Taurus",
+       "Lincoln Continental",
+       "Mercury Sable"
+      ]
+     },
+     {
+      "code": "Second generation (1999–2003)",
+      "yearStart": 1999,
+      "yearEnd": 2003,
+      "designers": [
+       "Moray Callum"
+      ],
+      "engineers": [],
+      "wikiFile": "99-00 Ford Windstar LX.jpg",
+      "sharedPlatforms": []
+     },
+     {
+      "code": "Third generation (Ford Freestar; 2004–2007)",
+      "yearStart": 2004,
+      "yearEnd": 2007,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "2004 Ford Freestar SE, front 3.11.20.jpg",
+      "sharedPlatforms": []
+     }
+    ]
+   },
+   "discrepancy": null,
+   "attempts": 1,
+   "feedback": []
   }
  },
  "rejectedRelations": {
@@ -24127,7 +28799,14 @@
   "llm-m-mercury-monterey-first-generation|m-mazda-cosmo|platform": true,
   "m-mazda-cx-4|m-mazda-mazda3|platform": true,
   "llm-fam-mazda-6-gg1-gy|m-saturn-ion|platform": true,
-  "llm-fam-mazda-6-gh1-gh2-gz|m-saturn-ion|platform": true
+  "llm-fam-mazda-6-gh1-gh2-gz|m-saturn-ion|platform": true,
+  "llm-m-lincoln-continental-tenth-generation|m-saturn-ion|platform": true,
+  "llm-m-lincoln-capri-generation-i|m-mazda-cosmo|platform": true,
+  "llm-m-ford-continental-mark-ii-mark-ii|m-ford-futura|platform": true,
+  "llm-m-lincoln-continental-fourth-generation|m-ford-continental-mark-ii|platform": true,
+  "m-ford-continental-mark-ii|m-lincoln-continental|platform": true,
+  "llm-m-mercury-marquis-second-generation|m-veritas-meteor|platform": true,
+  "llm-m-lincoln-mark-series-mark-ii|m-ford-futura|platform": true
  },
  "crossGroupRejections": {
   "llm-m-skoda-octavia-mk1-1z|m-daren-mk-3|platform": {
@@ -24230,7 +28909,8 @@
   "resolved:fam-mazda-6|m-mazda-cx-5|related": true,
   "resolved:fam-mazda-6|m-mazda-cx-5|platform": true,
   "relnone:fam-ford-mondeo|fam-mazda-6|related": true,
-  "applied:fam-mazda-6": true
+  "applied:fam-mazda-6": true,
+  "applied:m-lincoln-continental": true
  },
  "mintedFacts": {
   "llm-related-puch-g": {
@@ -25650,6 +30330,95 @@
    "year": 2019,
    "end": 2022,
    "source": "wikipedia"
+  },
+  "p-don-delarossa": {
+   "checkedAt": "2026-09-14T22:58:47.106Z",
+   "born": null,
+   "died": null,
+   "country": null,
+   "tries": 1
+  },
+  "llm-related-lincoln-h-series": {
+   "checkedAt": "2026-09-14T22:59:25.347Z",
+   "year": 1936,
+   "end": 1942,
+   "source": "wikipedia"
+  },
+  "p-harley-copp": {
+   "checkedAt": "2026-09-14T23:00:17.981Z",
+   "born": 1927,
+   "died": 2020,
+   "country": "United Kingdom",
+   "source": "llm-recall"
+  },
+  "p-eugene-turenne-bob-gregorie": {
+   "checkedAt": "2026-09-14T23:00:19.182Z",
+   "born": 1911,
+   "died": 2002,
+   "country": "United States",
+   "source": "llm-recall"
+  },
+  "p-john-tjaarda": {
+   "checkedAt": "2026-09-14T23:00:21.258Z",
+   "born": 1897,
+   "died": 1962,
+   "country": "Netherlands",
+   "source": "wikipedia"
+  },
+  "llm-related-ford-crestline": {
+   "checkedAt": "2026-09-14T23:04:02.690Z",
+   "year": 1952,
+   "end": 1954,
+   "source": "wikipedia"
+  },
+  "llm-related-mercury-park-lane-brougham": {
+   "checkedAt": "2026-09-14T23:05:58.093Z",
+   "year": 1958,
+   "end": 1968,
+   "source": "wikipedia"
+  },
+  "p-gene-bordinat": {
+   "checkedAt": "2026-09-14T23:09:32.641Z",
+   "born": 1951,
+   "died": null,
+   "country": "United States",
+   "source": "llm-recall"
+  },
+  "llm-related-ford-thunderbird-1972-1976": {
+   "checkedAt": "2026-09-14T23:09:34.143Z",
+   "year": 1972,
+   "end": 1976,
+   "source": "llm-recall"
+  },
+  "llm-related-ford-contour": {
+   "checkedAt": "2026-09-14T23:12:52.123Z",
+   "year": 1993,
+   "end": 2001,
+   "source": "wikipedia"
+  },
+  "llm-related-mercury-mystique": {
+   "checkedAt": "2026-09-14T23:13:00.553Z",
+   "year": 1993,
+   "end": 2001,
+   "source": "wikipedia"
+  },
+  "llm-related-lincoln-vii": {
+   "checkedAt": "2026-09-14T23:13:01.555Z",
+   "year": 1939,
+   "end": 1947,
+   "source": "llm-recall"
+  },
+  "llm-related-ford-taurus-x": {
+   "checkedAt": "2026-09-14T23:15:07.416Z",
+   "year": 2008,
+   "end": 2009,
+   "source": "wikipedia"
+  },
+  "llm-related-kia-sable": {
+   "checkedAt": "2026-09-14T23:15:08.369Z",
+   "year": 1995,
+   "end": 2008,
+   "source": "llm-recall"
   }
  },
  "userCars": {},
@@ -25691,7 +30460,9 @@
   "llm-related-peugeot-5008-iii": "Peugeot 5008",
   "llm-related-opel-grandland-ii": "Opel Grandland",
   "llm-related-citroen-c5-aircross-ii": "Citroën C5 Aircross",
-  "llm-related-renault-arkana-russia": "Renault Arkana (Russia)"
+  "llm-related-renault-arkana-russia": "Renault Arkana (Russia)",
+  "llm-related-lincoln-premiere": "Lincoln Premiere",
+  "llm-related-lincoln-h-series": "Lincoln H-series"
  },
  "genResearch": {
   "merge-m-volkswagen-jetta-self": {
@@ -25818,6 +30589,17 @@
     "m-skoda-octavia-mk3"
    ],
    "mergedAt": "2026-09-11T14:11:03.724Z"
+  },
+  "m-lincoln-continental": {
+   "memberIds": [
+    "m-lincoln-continental-mark-i",
+    "m-lincoln-continental-mark-iv",
+    "m-lincoln-continental-mark-v",
+    "m-lincoln-continental-mark-vi",
+    "m-lincoln-continental-mark-vii",
+    "m-lincoln-mark-viii"
+   ],
+   "mergedAt": "2026-09-14T22:54:04.071Z"
   }
  },
  "deletions": {},
