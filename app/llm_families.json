@@ -10265,55 +10265,6 @@
    },
    "cascadeDiscovered": true
   },
-  "m-mazda-mazda6-third-generation": {
-   "status": "none",
-   "checkedAt": "2026-09-13T21:58:47.965Z",
-   "sourceTitle": "Mazda6 (third generation)",
-   "proposal": {
-    "hasMultipleGenerations": false,
-    "generations": [
-     {
-      "code": "GJ1/GL",
-      "yearStart": 2012,
-      "yearEnd": 2024,
-      "designers": [
-       "Akira Tamatani"
-      ],
-      "engineers": [],
-      "wikiFile": "Mazda6 2.0 SKYACTIV-G Center-Line (GJ) – Frontansicht, 14. April 2013, Düsseldorf.jpg",
-      "sharedPlatforms": [
-       "Mazda3",
-       "Mazda CX-5",
-       "Mazda CX-9"
-      ]
-     }
-    ]
-   },
-   "attempts": 1,
-   "feedback": [],
-   "debug": {
-    "raw": {
-     "hasMultipleGenerations": false,
-     "generations": [
-      {
-       "code": "GJ1/GL",
-       "yearStart": 2012,
-       "yearEnd": 2024,
-       "designers": [
-        "Akira Tamatani"
-       ],
-       "engineers": [],
-       "sharedPlatforms": [
-        "Mazda3",
-        "Mazda CX-5",
-        "Mazda CX-9"
-       ]
-      }
-     ]
-    },
-    "dropped": []
-   }
-  },
   "m-renault-duster-oroch": {
    "status": "none",
    "checkedAt": "2026-09-13T22:04:58.883Z",
@@ -19073,20 +19024,6 @@
    "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
    "llmDiscovered": true
   },
-  "llm-m-mazda-cx-5-ke|m-mazda-mazda6|platform": {
-   "status": "confirmed",
-   "checkedAt": "2026-09-13T21:57:41.544Z",
-   "decidedAt": "2026-09-13T21:57:41.544Z",
-   "famA": "m-mazda-cx-5",
-   "famB": "fam-mazda-mazda6",
-   "relType": "platform",
-   "codeA": "CX-5 KE",
-   "codeB": "Mazda6",
-   "genIdA": "llm-m-mazda-cx-5-ke",
-   "genIdB": "m-mazda-mazda6",
-   "reason": "matched automatically (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
-   "llmDiscovered": true
-  },
   "llm-m-mazda-cx-5-kf|m-mazda-cx-8|platform": {
    "status": "confirmed",
    "checkedAt": "2026-09-13T21:57:41.550Z",
@@ -19176,34 +19113,6 @@
      "Tribute Second generation (2007)"
     ]
    }
-  },
-  "m-mazda-mazda3|m-mazda-mazda6-third-generation|platform": {
-   "status": "confirmed",
-   "checkedAt": "2026-09-13T22:03:25.394Z",
-   "decidedAt": "2026-09-13T22:03:25.394Z",
-   "famA": "fam-mazda-mazda6",
-   "famB": "m-mazda-mazda3",
-   "relType": "platform",
-   "codeA": "Mazda6 (third generation)",
-   "codeB": "Mazda3",
-   "genIdA": "m-mazda-mazda6-third-generation",
-   "genIdB": "m-mazda-mazda3",
-   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
-   "llmDiscovered": true
-  },
-  "m-mazda-cx-9|m-mazda-mazda6-third-generation|platform": {
-   "status": "confirmed",
-   "checkedAt": "2026-09-13T22:03:25.398Z",
-   "decidedAt": "2026-09-13T22:03:25.398Z",
-   "famA": "fam-mazda-mazda6",
-   "famB": "m-mazda-cx-9",
-   "relType": "platform",
-   "codeA": "Mazda6 (third generation)",
-   "codeB": "CX-9",
-   "genIdA": "m-mazda-mazda6-third-generation",
-   "genIdB": "m-mazda-cx-9",
-   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
-   "llmDiscovered": true
   },
   "m-dacia-duster|m-renault-duster-oroch|platform": {
    "status": "confirmed",
@@ -19863,12 +19772,26 @@
    "genIdB": "m-volkswagen-bora",
    "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
    "llmDiscovered": true
+  },
+  "llm-m-mazda-cx-5-ke|m-mazda-6|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-14T21:34:43.843Z",
+   "decidedAt": "2026-09-14T21:34:43.843Z",
+   "famA": "m-mazda-cx-5",
+   "famB": "fam-mazda-6",
+   "relType": "platform",
+   "codeA": "CX-5 KE",
+   "codeB": "6",
+   "genIdA": "llm-m-mazda-cx-5-ke",
+   "genIdB": "m-mazda-6",
+   "reason": "matched automatically (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
   }
  },
  "recheck": {
   "m-mercedes-benz-g-class": {
    "status": "none",
-   "checkedAt": "2026-09-14T21:07:27.425Z",
+   "checkedAt": "2026-09-14T21:34:42.585Z",
    "sourceTitle": "Mercedes-Benz G-Class",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -19952,7 +19875,7 @@
   },
   "m-mercedes-benz-gla": {
    "status": "none",
-   "checkedAt": "2026-09-14T21:07:27.490Z",
+   "checkedAt": "2026-09-14T21:34:42.654Z",
    "sourceTitle": "Mercedes-Benz GLA",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -20055,7 +19978,7 @@
   },
   "m-mercedes-benz-cla": {
    "status": "none",
-   "checkedAt": "2026-09-14T21:07:27.534Z",
+   "checkedAt": "2026-09-14T21:34:42.703Z",
    "sourceTitle": "Mercedes-Benz CLA",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -20337,7 +20260,7 @@
   },
   "m-toyota-celica": {
    "status": "none",
-   "checkedAt": "2026-09-14T21:07:27.597Z",
+   "checkedAt": "2026-09-14T21:34:42.768Z",
    "sourceTitle": "Toyota Celica",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -20453,7 +20376,7 @@
   },
   "m-toyota-carina": {
    "status": "none",
-   "checkedAt": "2026-09-14T21:07:27.667Z",
+   "checkedAt": "2026-09-14T21:34:42.847Z",
    "sourceTitle": "Toyota Carina",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -20581,7 +20504,7 @@
   },
   "m-lexus-sc": {
    "status": "none",
-   "checkedAt": "2026-09-14T21:07:27.673Z",
+   "checkedAt": "2026-09-14T21:34:42.852Z",
    "sourceTitle": "Lexus SC",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -21230,7 +21153,7 @@
   },
   "m-seat-toledo": {
    "status": "none",
-   "checkedAt": "2026-09-14T21:07:27.741Z",
+   "checkedAt": "2026-09-14T21:34:42.927Z",
    "sourceTitle": "SEAT Toledo",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -21361,7 +21284,7 @@
   },
   "m-daren-mk-3": {
    "status": "none",
-   "checkedAt": "2026-09-14T21:07:27.753Z",
+   "checkedAt": "2026-09-14T21:34:42.940Z",
    "sourceTitle": "Daren Mk.3",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -21436,7 +21359,7 @@
   },
   "m-audi-a3-mk3": {
    "status": "none",
-   "checkedAt": "2026-09-14T21:07:27.771Z",
+   "checkedAt": "2026-09-14T21:34:42.960Z",
    "sourceTitle": "Audi A3",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -21492,7 +21415,7 @@
   },
   "m-audi-tt": {
    "status": "none",
-   "checkedAt": "2026-09-14T21:07:27.855Z",
+   "checkedAt": "2026-09-14T21:34:43.046Z",
    "sourceTitle": "Audi TT",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -21632,7 +21555,7 @@
   },
   "m-seat-leon-mk3": {
    "status": "none",
-   "checkedAt": "2026-09-14T21:07:27.908Z",
+   "checkedAt": "2026-09-14T21:34:43.103Z",
    "sourceTitle": "SEAT León",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -21746,7 +21669,7 @@
   },
   "m-volkswagen-karmann-ghia": {
    "status": "none",
-   "checkedAt": "2026-09-14T21:07:27.937Z",
+   "checkedAt": "2026-09-14T21:34:43.135Z",
    "sourceTitle": "Volkswagen Karmann Ghia",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -21796,7 +21719,7 @@
   },
   "m-porsche-panamera": {
    "status": "none",
-   "checkedAt": "2026-09-14T21:07:27.926Z",
+   "checkedAt": "2026-09-14T21:34:43.123Z",
    "sourceTitle": "Porsche Panamera",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -21862,7 +21785,7 @@
   },
   "m-subaru-forester": {
    "status": "none",
-   "checkedAt": "2026-09-14T21:07:27.975Z",
+   "checkedAt": "2026-09-14T21:34:43.177Z",
    "sourceTitle": "Subaru Forester",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -21971,7 +21894,7 @@
   },
   "m-volkswagen-touran": {
    "status": "none",
-   "checkedAt": "2026-09-14T21:07:27.995Z",
+   "checkedAt": "2026-09-14T21:34:43.198Z",
    "sourceTitle": "Volkswagen Touran",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -22021,7 +21944,7 @@
   },
   "m-chevrolet-captiva": {
    "status": "none",
-   "checkedAt": "2026-09-14T21:07:28.063Z",
+   "checkedAt": "2026-09-14T21:34:43.265Z",
    "sourceTitle": "Chevrolet Captiva",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -22126,7 +22049,7 @@
   },
   "m-isuzu-trooper": {
    "status": "none",
-   "checkedAt": "2026-09-14T21:07:28.116Z",
+   "checkedAt": "2026-09-14T21:34:43.317Z",
    "sourceTitle": "Isuzu Trooper",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -22222,7 +22145,7 @@
   },
   "m-volkswagen-tiguan": {
    "status": "none",
-   "checkedAt": "2026-09-14T21:07:28.182Z",
+   "checkedAt": "2026-09-14T21:34:43.383Z",
    "sourceTitle": "Volkswagen Tiguan",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -22335,7 +22258,7 @@
   },
   "m-chrysler-horizon": {
    "status": "none",
-   "checkedAt": "2026-09-14T21:07:28.226Z",
+   "checkedAt": "2026-09-14T21:34:43.427Z",
    "sourceTitle": "Chrysler Horizon",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -22435,7 +22358,7 @@
   },
   "m-mercury-monterey": {
    "status": "none",
-   "checkedAt": "2026-09-14T21:07:28.319Z",
+   "checkedAt": "2026-09-14T21:34:43.525Z",
    "sourceTitle": "Mercury Monterey",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -22610,7 +22533,7 @@
   },
   "m-gmc-envoy": {
    "status": "none",
-   "checkedAt": "2026-09-14T21:07:28.338Z",
+   "checkedAt": "2026-09-14T21:34:43.545Z",
    "sourceTitle": "GMC Envoy",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -22663,7 +22586,7 @@
   },
   "m-chevrolet-trailblazer": {
    "status": "none",
-   "checkedAt": "2026-09-14T21:07:28.355Z",
+   "checkedAt": "2026-09-14T21:34:43.561Z",
    "sourceTitle": "Chevrolet TrailBlazer (SUV)",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -22714,7 +22637,7 @@
   },
   "m-oldsmobile-bravada": {
    "status": "none",
-   "checkedAt": "2026-09-14T21:07:28.390Z",
+   "checkedAt": "2026-09-14T21:34:43.597Z",
    "sourceTitle": "Oldsmobile Bravada",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -22794,7 +22717,7 @@
   },
   "m-buick-lacrosse": {
    "status": "none",
-   "checkedAt": "2026-09-14T21:07:28.413Z",
+   "checkedAt": "2026-09-14T21:34:43.619Z",
    "sourceTitle": "Buick LaCrosse",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -22870,7 +22793,7 @@
   },
   "m-buick-invicta": {
    "status": "none",
-   "checkedAt": "2026-09-14T21:07:28.429Z",
+   "checkedAt": "2026-09-14T21:34:43.636Z",
    "sourceTitle": "Buick Invicta",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -22921,7 +22844,7 @@
   },
   "m-buick-century": {
    "status": "none",
-   "checkedAt": "2026-09-14T21:07:28.505Z",
+   "checkedAt": "2026-09-14T21:34:43.713Z",
    "sourceTitle": "Buick Century",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -23073,7 +22996,7 @@
   },
   "m-jaguar-xjs": {
    "status": "none",
-   "checkedAt": "2026-09-14T21:07:28.519Z",
+   "checkedAt": "2026-09-14T21:34:43.727Z",
    "sourceTitle": "Jaguar XJS",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -23132,7 +23055,7 @@
   },
   "m-jaguar-e-type": {
    "status": "none",
-   "checkedAt": "2026-09-14T21:07:28.539Z",
+   "checkedAt": "2026-09-14T21:34:43.749Z",
    "sourceTitle": "Jaguar E-Type",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -23201,7 +23124,7 @@
   },
   "m-wuling-starlight": {
    "status": "none",
-   "checkedAt": "2026-09-14T21:07:28.569Z",
+   "checkedAt": "2026-09-14T21:34:43.784Z",
    "sourceTitle": "Wuling Starlight",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -23265,7 +23188,7 @@
   },
   "m-jeep-compass": {
    "status": "none",
-   "checkedAt": "2026-09-14T21:07:28.611Z",
+   "checkedAt": "2026-09-14T21:34:43.829Z",
    "sourceTitle": "Jeep Compass",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -23349,7 +23272,7 @@
   },
   "m-mazda-tribute": {
    "status": "none",
-   "checkedAt": "2026-09-14T21:07:28.621Z",
+   "checkedAt": "2026-09-14T21:34:43.839Z",
    "sourceTitle": "Mazda Tribute",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -23386,7 +23309,7 @@
   },
   "m-mazda-cx-5": {
    "status": "none",
-   "checkedAt": "2026-09-14T21:07:28.634Z",
+   "checkedAt": "2026-09-14T21:34:43.852Z",
    "sourceTitle": "Mazda CX-5",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -23441,7 +23364,7 @@
   },
   "m-baojun-730": {
    "status": "none",
-   "checkedAt": "2026-09-14T21:07:28.639Z",
+   "checkedAt": "2026-09-14T21:34:43.857Z",
    "sourceTitle": "Baojun 730",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -23476,7 +23399,7 @@
   },
   "m-dacia-duster": {
    "status": "none",
-   "checkedAt": "2026-09-14T21:07:28.686Z",
+   "checkedAt": "2026-09-14T21:34:43.905Z",
    "sourceTitle": "Dacia Duster",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -25382,5 +25305,31 @@
    "purgedAt": "2026-09-12T13:25:52.352Z"
   }
  },
- "unmerges": {}
+ "unmerges": {},
+ "prunedDecisions": {
+  "families|m-mazda-mazda6-third-generation": {
+   "what": "generation split",
+   "label": "m-mazda-mazda6-third-generation",
+   "prunedAt": "2026-09-14T21:35:17.875Z",
+   "byHand": true
+  },
+  "relations|llm-m-mazda-cx-5-ke|m-mazda-mazda6|platform": {
+   "what": "connection you decided",
+   "label": "Mazda CX-5 ↔ fam-mazda-mazda6 (platform, confirmed)",
+   "prunedAt": "2026-09-14T21:35:17.875Z",
+   "byHand": true
+  },
+  "relations|m-mazda-mazda3|m-mazda-mazda6-third-generation|platform": {
+   "what": "connection you decided",
+   "label": "fam-mazda-mazda6 ↔ Mazda Mazda3 (platform, confirmed)",
+   "prunedAt": "2026-09-14T21:35:17.875Z",
+   "byHand": true
+  },
+  "relations|m-mazda-cx-9|m-mazda-mazda6-third-generation|platform": {
+   "what": "connection you decided",
+   "label": "fam-mazda-mazda6 ↔ Mazda CX-9 (platform, confirmed)",
+   "prunedAt": "2026-09-14T21:35:17.875Z",
+   "byHand": true
+  }
+ }
 }
