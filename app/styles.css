@@ -977,17 +977,33 @@ main{flex:1; position:relative; min-height:0}
     scrollbar-width:none; -webkit-overflow-scrolling:touch;
   }
   #legend::-webkit-scrollbar,.legend-style::-webkit-scrollbar{display:none}
-  /* Below the fold-away button rather than behind it. .legend-style is the
-     other views' copy, which has no button, so it keeps the top edge. */
-  #legend{top:42px}
-  .legend-style{top:8px}
+  /* Real user request: "the key opening should open to the left of the key
+     button, not below it, as it wastes screen real estate further than
+     necessary." So it shares the button's row and grows leftwards from it,
+     instead of claiming a second band across the top of the graph. The right
+     inset clears the button itself (about 62px of uppercase "KEY ▴" plus its
+     own 8px gutter). .legend-style is the other views' copy, which has no
+     button beside it and so keeps the full width. */
+  #legend{top:8px; right:78px}
+  .legend-style{top:8px; right:8px}
   .lg{flex:none; white-space:nowrap}
 
   #graphhint{display:none}
   /* Top-left, opposite the zoom control, NOT the bottom: the detail sheet
      owns the bottom of the canvas, and Clear focus sitting under it was
      unreachable at exactly the moment you want it -- a card is open. */
-  #clearfocus{top:52px; left:8px; right:auto; bottom:auto; padding:8px 14px; font-size:11.5px}
+  /* Real user report, with a screenshot of the two overlapping: "my suggestion
+     is that the 'release focus' is reactive to whether or not the legend is
+     appearing there, and stays as far to the top left of the knowledge graph
+     window as possible... when the legend is absent. When the legend is
+     present, it should be below the legend."
+     
+     Done with a sibling selector rather than a class toggled from JS: the
+     legend is a real element that is really hidden or not, #clearfocus
+     follows it in the same parent, and CSS can read that directly -- so the
+     two cannot drift out of step the way a manually-synced class would. */
+  #clearfocus{top:8px; left:8px; right:auto; bottom:auto; padding:8px 14px; font-size:11.5px}
+  #legend:not([hidden]) ~ #clearfocus{top:46px}
 
   /* Real user request: "I don't need a zoom in/out bar for the mobile phone
      since it is clear that the user can do so themselves with their fingers."

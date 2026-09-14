@@ -132,6 +132,32 @@ function boot(isPhone, legendHeight) {
   btn.onclick();
   check("and it opens again", legend.hidden === false);
 
+  // ---------- the legend and release focus must not sit on top of each other ----------
+  // Real user report, with a screenshot of exactly that: "the key and the
+  // release focus buttons look like the attached image. Clearly they're not
+  // supposed to overlap."
+  {
+    const phoneCss2 = css.slice(css.indexOf("@media (max-width:720px)"));
+    const lg = /#legend\{([^}]*)\}/.exec(phoneCss2);
+    check("the legend opens leftward from the KEY button, sharing its row rather "
+          + "than claiming a second band", !!lg && /top:\s*8px/.test(lg[1]) && /right:\s*\d+px/.test(lg[1]),
+          lg && lg[1].trim());
+    const inset = lg && /right:\s*(\d+)px/.exec(lg[1]);
+    check("...clearing the button itself rather than running under it",
+          !!inset && +inset[1] > 40, inset && inset[1] + "px");
+    const cf = /#clearfocus\{([^}]*)\}/.exec(phoneCss2);
+    check("release focus sits at the very top left when the legend is away",
+          !!cf && /top:\s*8px/.test(cf[1]) && /left:\s*8px/.test(cf[1]), cf && cf[1].trim());
+    check("...and drops below it when the legend is there, driven by the legend "
+          + "itself rather than a class someone has to remember to set",
+          /#legend:not\(\[hidden\]\)\s*~\s*#clearfocus\{[^}]*top:\s*4\dpx/.test(phoneCss2));
+    // The two must not claim the same strip. The legend's row ends at 8+~30;
+    // release focus starts below that only while the legend is shown.
+    const shifted = /#legend:not\(\[hidden\]\)\s*~\s*#clearfocus\{[^}]*top:\s*(\d+)px/.exec(phoneCss2);
+    check("...far enough below to clear it", !!shifted && +shifted[1] >= 40,
+          shifted && shifted[1] + "px");
+  }
+
   // ---------- 4. no zoom slider ----------
   const phoneCss = css.slice(css.indexOf("@media (max-width:720px)"));
   const zoom = /#zoomslider-wrap\{([^}]*)\}/.exec(phoneCss);

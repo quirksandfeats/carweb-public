@@ -63,10 +63,15 @@ window.CarWebLive = (function () {
   // which loses it on the next boot and starts the same wheel turning again.
   const BAKED_FIELDS = new Map(window.CARDATA.nodes.map(
     n => [n.id, { end: n.end, designers: (n.designers || []).length }]));
+  // A link endpoint as either a plain id or a whole node. `lid` below is the
+  // same function for code that runs after boot; this copy exists because the
+  // splice runs at the very top of this file, before that one is declared.
+  const idOfEndpoint = v => (v && typeof v === "object" && v.id) ? v.id : v;
   const BAKED_LINK_KEYS = new Set();
   for (const l of window.CARDATA.links) {
-    BAKED_LINK_KEYS.add(l.source + "|" + l.target + "|" + l.type);
-    BAKED_LINK_KEYS.add(l.target + "|" + l.source + "|" + l.type);
+    const s0 = idOfEndpoint(l.source), t0 = idOfEndpoint(l.target);
+    BAKED_LINK_KEYS.add(s0 + "|" + t0 + "|" + l.type);
+    BAKED_LINK_KEYS.add(t0 + "|" + s0 + "|" + l.type);
   }
 
   let bootSnap = null;
@@ -117,13 +122,21 @@ window.CarWebLive = (function () {
           window.CARDATA.nodes.push(n); byId.set(n.id, n); if (n.wp) byWp.set(norm(n.wp), n);
           spliced++;
         }
-        for (const l of snap.newLinks) {
-          const key = l.source + "|" + l.target + "|" + l.type;
+        for (const raw of snap.newLinks) {
+          // Tolerate an endpoint written as a whole node rather than an id.
+          // buildDelta no longer produces that (see its own comment on the
+          // loop it caused), but a browser that ran an older build has one
+          // of those deltas sitting in storage right now, and it should
+          // recover on the next load rather than on the next refresh.
+          const sid = idOfEndpoint(raw.source), tid = idOfEndpoint(raw.target);
+          if (!sid || !tid) continue;
+          const key = sid + "|" + tid + "|" + raw.type;
           if (linkSet.has(key)) continue;
-          if (!byId.has(l.source) || !byId.has(l.target)) continue; // an endpoint didn't survive the rebuild -- drop it, don't dangle
+          if (!byId.has(sid) || !byId.has(tid)) continue; // an endpoint didn't survive the rebuild -- drop it, don't dangle
+          const l = Object.assign({}, raw, { source: sid, target: tid });
           window.CARDATA.links.push(l);
           linkSet.add(key);
-          linkSet.add(l.target + "|" + l.source + "|" + l.type);
+          linkSet.add(tid + "|" + sid + "|" + raw.type);
           spliced++;
         }
         // field-level patches onto EXISTING nodes -- fills gaps only, never
@@ -516,10 +529,49 @@ WHERE{
     }
     [newNodes, newLinks] = prune(newNodes, newLinks);
     updates = pruneUpdates(updates);
+    // THE loop. Reported three times, and this is what it was.
+    //
+    // The boot splice pushes the delta's own link objects into
+    // CARDATA.links. app.js's d3 force simulation then replaces every link's
+    // `source`/`target` STRING id with a live node OBJECT, in place -- on
+    // those very objects, because the splice pushed the objects themselves
+    // rather than copies. bootSnap still holds them, so by the time a later
+    // refresh saves an updated delta, half its links describe their endpoints
+    // as whole nodes.
+    //
+    // JSON.stringify then writes those nodes out inline: a 29KB delta became
+    // 367KB, on its way to the quota. Worse, the next boot's splice tests
+    // `byId.has(l.source)` against an object, which is never true, so it
+    // dropped every one of them -- silently, the skip being the same one a
+    // link with a genuinely missing endpoint takes. The graph came back
+    // without them, merge rediscovered them, and round and round: the count
+    // swinging between two values, the delta growing each time.
+    //
+    // It survived three earlier fixes to this file because none of them
+    // reproduced with app.js loaded, and app.js is the only thing that
+    // mutates those objects.
+    //
+    // So nothing is written in d3's shape. Endpoints back to plain ids, and
+    // the simulation's own bookkeeping (x/y/vx/vy/index, added to spliced
+    // NODES the same way) left out, which is what keeps the delta the size of
+    // what was discovered rather than the size of the layout.
+    const SIM_FIELDS = ["x", "y", "vx", "vy", "index", "fx", "fy", "sn", "tn", "r", "deg"];
+    const flatLink = l => {
+      const out = {};
+      for (const k in l) if (SIM_FIELDS.indexOf(k) < 0) out[k] = l[k];
+      out.source = lid(l.source); out.target = lid(l.target);
+      return out;
+    };
+    const flatNode = n => {
+      const out = {};
+      for (const k in n) if (SIM_FIELDS.indexOf(k) < 0) out[k] = n[k];
+      return out;
+    };
     // generated: which bake of data.js this was computed against. See the
     // compatibility check at the top of this file.
     return { version, generated: window.CARDATA.meta.generated,
-             savedAt: Date.now(), newNodes, newLinks, updates };
+             savedAt: Date.now(), newNodes: newNodes.map(flatNode),
+             newLinks: newLinks.map(flatLink), updates };
   }
 
   // ---------- refresh orchestration ----------
