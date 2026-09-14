@@ -2012,7 +2012,35 @@ window.CarWeb = (function () {
   function reapplyLiveLayer() {
     if (!window.CarWebLive || !window.CarWebLive.applyToOverlay) return;
     try {
-      if (window.CarWebLive.applyToOverlay()) { refreshYearFilter(); Graph.touch(); }
+      // applyToOverlay does two different things: it fills empty fields on
+      // cars that are already in the graph (harmless), and it PUSHES the
+      // deferred connections onto the links array. That second half is a
+      // structural change, and it has to go through the same wiring every
+      // other live mutation does.
+      //
+      // Real user report -- "the graph no longer responds whatsoever, almost
+      // as if the entire program bricked itself... absolutely nothing
+      // happens other than the card for the car showing up". Exactly that:
+      // a pushed link arrives with its endpoints as id STRINGS and no
+      // sn/tn, because nothing indexed it. d3's link force resolves ids to
+      // node objects once, at initialize, so a link pushed afterwards is
+      // still a string when the next tick tries to write velocity to it:
+      //   TypeError: Cannot create property 'vx' on string 'm-...'
+      // thrown inside sim.tick(), every frame, forever. The render loop
+      // catches it and skips the frame, so the canvas freezes silently --
+      // while the detail card, which is plain DOM, keeps working. Hence
+      // "only the card shows up".
+      //
+      // It needed a delta holding a deferred connection to show, i.e. one
+      // whose far end is a car the local model made, which is why it only
+      // appeared after an Apply.
+      const nodesBefore = nodes.length, linksBefore = links.length;
+      if (!window.CarWebLive.applyToOverlay()) return;
+      if (nodes.length !== nodesBefore || links.length !== linksBefore) {
+        spliceIntoIndexes(nodesBefore, linksBefore);
+        buildSim();   // the arrays changed shape -- the forces must see them
+      }
+      refreshYearFilter(); Graph.touch();
     } catch (e) { console.warn("CarWeb: live-layer patches could not be applied", e); }
   }
 
@@ -5190,6 +5218,22 @@ window.CarWeb = (function () {
   let sim;
   function buildSim() {
     nodes.forEach(seedNewNode);
+    // Second line of defence for the freeze described in reapplyLiveLayer.
+    // d3's link force resolves every endpoint up front and THROWS on one it
+    // cannot find, which unwinds out of here and leaves no usable simulation
+    // at all -- one malformed entry anywhere in the array and the canvas is
+    // dead. Drop those instead, and say so.
+    const unresolvable = [];
+    for (let i = links.length - 1; i >= 0; i--) {
+      const l = links[i];
+      const s0 = l && (typeof l.source === "string" ? l.source : l.source && l.source.id);
+      const t0 = l && (typeof l.target === "string" ? l.target : l.target && l.target.id);
+      if (!l || !byId.get(s0) || !byId.get(t0)) { unresolvable.push(l); links.splice(i, 1); }
+    }
+    if (unresolvable.length) {
+      console.warn(`CarWeb: dropped ${unresolvable.length} link(s) the graph has no endpoint for`,
+                   unresolvable.slice(0, 5));
+    }
     sim = d3.forceSimulation(nodes)
       .force("link", d3.forceLink(links).id(d => d.id)
         .distance(l => l.type === "made" ? 60 : (l.type === "designed" || l.type === "engineered") ? 110
