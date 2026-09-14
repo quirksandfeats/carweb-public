@@ -4745,6 +4745,138 @@ window.CarWeb = (function () {
     refresh();
   }
 
+  // ---------- phone layout: the wordmark is the menu ----------
+  // Real user request: "the UI for the mobile version is still a bit
+  // cluttered... At the top left, there should be the title 'The Car Web'. I
+  // want this to also act as a clickable icon, which then presents a dropdown
+  // to the user. Within this dropdown, there should be the page selection,
+  // followed by the people selection, followed by the shared platforms
+  // toggle, followed by the year range selection (it should live here now),
+  // followed by the 'Request Scan' button... At the top right, there should be
+  // space now for the search bar."
+  //
+  // The controls are MOVED, not copied. A second year slider or a second set
+  // of view tabs would be two things to keep in step, and every one of these
+  // already has its handlers wired by the time this runs -- appendChild keeps
+  // them, so nothing has to be re-bound and there is still exactly one of
+  // each in the page. Their original position is recorded so a window that
+  // grows past the breakpoint (a rotated tablet, a resized desktop window)
+  // puts them straight back.
+  //
+  // Driven by the same 720px breakpoint the stylesheet uses, read through
+  // matchMedia rather than duplicated as a number here.
+  const PHONE_MQ = "(max-width:720px)";
+  function initPhoneNav() {
+    const trigger = document.getElementById("navmenu-btn");
+    const menu = document.getElementById("navmenu");
+    const header = document.getElementById("topbar");
+    const searchWrap = document.getElementById("searchbar-fixed");
+    if (!trigger || !menu || !header) return;
+    // In the order asked for.
+    const MOVES = ["viewtabs", "layertoggle", "platformsonly", "yearfilter", "llmrequest-wrap"];
+    const home = new Map();   // id -> [parent, nextSibling] as the page shipped it
+    [...MOVES, "searchbar-fixed"].forEach(id => {
+      const el = document.getElementById(id);
+      if (el && el.parentElement) home.set(id, [el.parentElement, el.nextSibling]);
+    });
+
+    function toPhone() {
+      MOVES.forEach(id => { const el = document.getElementById(id); if (el) menu.appendChild(el); });
+      // The search goes to the top right of the header, which on a phone is
+      // the only thing left in it besides the title.
+      if (searchWrap) header.appendChild(searchWrap);
+      document.body.classList.add("phone-nav");
+    }
+    function toWide() {
+      closeMenu();
+      [...MOVES, "searchbar-fixed"].forEach(id => {
+        const el = document.getElementById(id), at = home.get(id);
+        if (el && at && at[0]) at[0].insertBefore(el, at[1] && at[1].parentElement === at[0] ? at[1] : null);
+      });
+      document.body.classList.remove("phone-nav");
+    }
+
+    function positionMenu() {
+      const r = trigger.getBoundingClientRect();
+      menu.style.top = (r.bottom + 6) + "px";
+      menu.style.left = Math.max(6, r.left) + "px";
+    }
+    function closeMenu() {
+      menu.hidden = true;
+      trigger.classList.remove("open");
+      trigger.setAttribute("aria-expanded", "false");
+    }
+    function openMenu() {
+      positionMenu();
+      menu.hidden = false;
+      trigger.classList.add("open");
+      trigger.setAttribute("aria-expanded", "true");
+    }
+    trigger.onclick = (e) => {
+      e.stopPropagation();
+      if (menu.hidden) openMenu(); else closeMenu();
+    };
+    // Same convention as the Tools dropdown: a click outside both closes it,
+    // but a click on a control INSIDE it must not -- picking a year or a
+    // people layer is something you do several of in a row.
+    document.addEventListener("click", (e) => {
+      if (menu.hidden) return;
+      if (menu.contains(e.target) || trigger.contains(e.target)) return;
+      closeMenu();
+    });
+    document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeMenu(); });
+    // Switching view is the one thing in here that replaces what you are
+    // looking at, so it closes the menu behind itself.
+    menu.addEventListener("click", (e) => {
+      if (e.target && e.target.classList && e.target.classList.contains("tab")) closeMenu();
+    });
+    window.addEventListener("resize", () => { if (!menu.hidden) positionMenu(); });
+
+    const mq = window.matchMedia ? window.matchMedia(PHONE_MQ) : null;
+    const sync = () => { if (mq && mq.matches) toPhone(); else toWide(); };
+    sync();
+    if (mq && mq.addEventListener) mq.addEventListener("change", sync);
+  }
+
+  // ---------- phone layout: the legend folds away ----------
+  // Open by default so the colours are explained on a first visit, then
+  // remembered -- once you know what a dashed line means, reclaiming that
+  // strip of canvas on every load is the point of the button.
+  function initLegendToggle() {
+    const btn = document.getElementById("legendtoggle");
+    const legend = document.getElementById("legend");
+    if (!btn || !legend) return;
+    const KEY = "cw-legend-open";
+    let open = true;
+    try { if (localStorage.getItem(KEY) === "0") open = false; } catch (e) {}
+    function apply() {
+      legend.hidden = !open;
+      btn.setAttribute("aria-expanded", open ? "true" : "false");
+      btn.classList.toggle("open", open);
+      btn.textContent = open ? "key ▴" : "key ▾";
+      // The camera measures the legend (legendReserveY), so a fold changes
+      // where the middle of the visible area is -- tell it to look again.
+      Graph.touch();
+    }
+    btn.onclick = () => {
+      open = !open;
+      try { localStorage.setItem(KEY, open ? "1" : "0"); } catch (e) {}
+      apply();
+    };
+    const mq = window.matchMedia ? window.matchMedia(PHONE_MQ) : null;
+    const sync = () => {
+      const phone = !!(mq && mq.matches);
+      btn.hidden = !phone;
+      // A wide screen shows the legend as one strip that costs nothing, so it
+      // is always open there whatever the remembered phone setting.
+      legend.hidden = phone ? !open : false;
+      if (phone) apply();
+      else Graph.touch();
+    };
+    sync();
+    if (mq && mq.addEventListener) mq.addEventListener("change", sync);
+  }
+
   function initToolsMenu() {
     const wrap = document.getElementById("toolsmenu-wrap");
     const trigger = document.getElementById("toolsmenu-btn");
@@ -4901,7 +5033,28 @@ window.CarWeb = (function () {
   const YEAR_NODES = nodes.filter(n => (n.type === "model" || n.type === "family") && n.year != null);
   const DATA_MIN_YEAR = YEAR_NODES.length ? Math.min(...YEAR_NODES.map(n => n.year)) : 1900;
   const DATA_MAX_YEAR = YEAR_NODES.length ? Math.max(...YEAR_NODES.map(n => n.year)) : new Date().getFullYear();
-  let yearLo = Math.max(DATA_MIN_YEAR, 2000), yearHi = DATA_MAX_YEAR;
+  // Real user request: "for the default year range, it should initially
+  // include all years. Make sure this is true for all versions (computer
+  // version or mobile version)."
+  //
+  // It opened at 2000 to keep the first paint light, which meant the graph
+  // silently withheld most of itself until you noticed the slider and dragged
+  // it -- a filter nobody asked for, presented as the whole dataset.
+  //
+  // Everything, then, on a first visit; and after that whatever range was last
+  // set, so a deliberate choice survives a reload instead of being re-widened
+  // every time. Stored per browser, guarded because localStorage throws in
+  // private mode, and clamped to the data's own span in case a rebuild moved
+  // the bounds under a remembered value.
+  const YEAR_RANGE_KEY = "cw-year-range";
+  let yearLo = DATA_MIN_YEAR, yearHi = DATA_MAX_YEAR;
+  try {
+    const saved = (localStorage.getItem(YEAR_RANGE_KEY) || "").split(",").map(Number);
+    if (saved.length === 2 && saved.every(Number.isFinite) && saved[0] <= saved[1]) {
+      yearLo = Math.max(DATA_MIN_YEAR, Math.min(saved[0], DATA_MAX_YEAR));
+      yearHi = Math.min(DATA_MAX_YEAR, Math.max(saved[1], yearLo));
+    }
+  } catch (e) { /* private mode -- the full range is the right default anyway */ }
   let yearFilterSet = null; // Set of currently-in-range node ids; recomputed on slider change
   const yearFilterListeners = [];
 
@@ -4937,6 +5090,8 @@ window.CarWeb = (function () {
     hi = Math.min(DATA_MAX_YEAR, Math.max(lo, hi));
     if (lo === yearLo && hi === yearHi) return;
     yearLo = lo; yearHi = hi;
+    // Remembered so a deliberate range survives a reload -- see YEAR_RANGE_KEY.
+    try { localStorage.setItem(YEAR_RANGE_KEY, yearLo + "," + yearHi); } catch (e) {}
     refreshYearFilter();
   }
   // Explicit navigation (search, a connection link, Six Degrees) shouldn't
@@ -5121,12 +5276,48 @@ window.CarWeb = (function () {
       // usable strip instead of collapsing the camera onto a sliver.
       return Math.min(Math.max(0, b.p.bottom - b.r.top) + 12, H * 0.72);
     }
+    // What the legend covers at the TOP of the canvas. Real user request, for
+    // the collapsible phone legend: "if it is closed, then there is now more
+    // screen space for the knowledge graph. This should be considered when
+    // determining where the 'center' of the viewable image is, so that when
+    // searching for a car or selecting it, the main car being focused is in
+    // the correct part of the viewable window."
+    //
+    // The detail sheet already did this from the bottom (panelReserveY). The
+    // legend is the mirror image and had no equivalent, so a car focused with
+    // the legend open landed under it. Measured rather than assumed, for the
+    // same reason the sheet is: an open legend, a closed one and no legend at
+    // all are three different heights, and whichever it is right now is the
+    // one the camera has to aim around.
+    //
+    // Scoped to the phone layout (body.phone-nav, set by initPhoneNav). On a
+    // wide screen the legend is a short strip in the top-left corner with the
+    // whole canvas around it -- reserving a band across the full width for it
+    // would push the camera down for no reason, and nobody asked for the
+    // desktop centre to move. The phone legend is a full-width bar that
+    // genuinely covers the top of the graph, which is the case this is for.
+    function legendReserveY() {
+      if (!document.body.classList.contains("phone-nav")) return 0;
+      const lg = document.getElementById("legend");
+      if (!lg || lg.hidden) return 0;
+      const r = lg.getBoundingClientRect();
+      if (!r.height) return 0;
+      const p = canvas.parentElement.getBoundingClientRect();
+      return Math.min(Math.max(0, r.bottom - p.top) + 10, H * 0.5);
+    }
     function viewCenterX() { return Math.max(60, (W - panelReserve()) / 2); }
-    function viewCenterY() { return Math.max(60, (H - panelReserveY()) / 2); }
+    // Centre of the band actually left visible: the legend eats into the top,
+    // the detail sheet into the bottom. Averaging the two edges is what puts
+    // the focused car in the middle of what you can SEE rather than the middle
+    // of the canvas.
+    function viewCenterY() {
+      const top = legendReserveY(), bottom = panelReserveY();
+      return Math.max(60, top + (H - top - bottom) / 2);
+    }
     function fitAll(animate) {
       const xs = d3.extent(nodes, n => n.x), ys = d3.extent(nodes, n => n.y);
       const k = Math.min((W - panelReserve()) / (xs[1] - xs[0] + 200),
-                         (H - panelReserveY()) / (ys[1] - ys[0] + 200));
+                         (H - panelReserveY() - legendReserveY()) / (ys[1] - ys[0] + 200));
       const tf = d3.zoomIdentity.translate(viewCenterX(), viewCenterY()).scale(k)
         .translate(-(xs[0] + xs[1]) / 2, -(ys[0] + ys[1]) / 2);
       const sel = d3.select(canvas);
@@ -5870,7 +6061,7 @@ window.CarWeb = (function () {
       const xs = d3.extent(arr, n => n.x), ys = d3.extent(arr, n => n.y);
       const k = Math.max(0.4, Math.min(3.4,
         Math.min((W - panelReserve()) / (xs[1] - xs[0] + 260),
-                 (H - panelReserveY()) / (ys[1] - ys[0] + 260))));
+                 (H - panelReserveY() - legendReserveY()) / (ys[1] - ys[0] + 260))));
       const cx = (xs[0] + xs[1]) / 2, cy = (ys[0] + ys[1]) / 2;
       if (!Number.isFinite(k) || !Number.isFinite(cx) || !Number.isFinite(cy)) return;
       const tf = d3.zoomIdentity.translate(viewCenterX(), viewCenterY()).scale(k).translate(-cx, -cy);
@@ -5973,6 +6164,7 @@ window.CarWeb = (function () {
       // transition, which a headless test cannot advance, so the transform
       // itself is not observable there -- but its two inputs are.
       camera: () => ({ reserveX: panelReserve(), reserveY: panelReserveY(),
+                       reserveTop: legendReserveY(),
                        centerX: viewCenterX(), centerY: viewCenterY(),
                        isSheet: panelIsSheet(), W, H }),
       // Draw one frame, now, instead of waiting for the render loop's next
@@ -6236,6 +6428,8 @@ window.CarWeb = (function () {
       }
       initGenPhotos();
       initLlmBusy();
+      initPhoneNav();
+      initLegendToggle();
       initToolsMenu();
       initLlmRequest();
       initAutoRefresh();

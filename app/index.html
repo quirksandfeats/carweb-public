@@ -11,10 +11,18 @@
 </head>
 <body>
 <header id="topbar">
-  <div class="wordmark">
+  <!-- On a phone the wordmark is the menu. Real user request: "at the top
+       left, there should be the title 'The Car Web'. I want this to also act
+       as a clickable icon, which then presents a dropdown to the user."
+       #navmenu is filled at boot by moving the REAL controls into it (see
+       app.js's initPhoneNav) rather than by duplicating them, so there is
+       still one view-tab row, one people toggle and one year slider in the
+       page, with their existing handlers. On a wide screen the controls stay
+       in the bar and this button is not shown at all. -->
+  <button class="wordmark" id="navmenu-btn" aria-expanded="false" aria-controls="navmenu">
     <span class="wm-title">The Car Web</span>
     <span class="wm-sub">makes · models · the people behind them, 1886–today</span>
-  </div>
+  </button>
   <nav id="viewtabs" role="tablist">
     <button class="tab active" data-view="graph" role="tab">Graph</button>
     <button class="tab" data-view="timeline" role="tab">Timeline</button>
@@ -65,11 +73,11 @@
     <div id="searchresults" hidden></div>
   </div>
   <div id="yearfilter" title="show only makes/models with a production year overlapping this range">
-    <span id="yf-lo-label" class="yf-label">2000</span>
+    <span id="yf-lo-label" class="yf-label">1886</span>
     <div class="yf-track">
       <div class="yf-track-base"></div>
       <div id="yf-range-bar" class="yf-range-bar"></div>
-      <input type="range" id="yf-lo" min="1886" max="2026" value="2000" step="1">
+      <input type="range" id="yf-lo" min="1886" max="2026" value="1886" step="1">
       <input type="range" id="yf-hi" min="1886" max="2026" value="2026" step="1">
     </div>
     <span id="yf-hi-label" class="yf-label">2026</span>
@@ -80,6 +88,14 @@
   <!-- GRAPH -->
   <section id="view-graph" class="view active">
     <canvas id="graphcanvas"></canvas>
+    <!-- Real user request: "a little dropdown should be right below this,
+         which is a toggle-able legend. If the legend is opened then it takes
+         up more space on the screen. If it is closed, then there is now more
+         screen space for the knowledge graph." Phone only -- on a wide screen
+         the legend is a single strip that costs nothing, so it stays open and
+         this button is hidden. The camera reads whichever height it currently
+         has; see app.js's legendReserveY. -->
+    <button id="legendtoggle" hidden aria-expanded="true" aria-controls="legend">key</button>
     <div id="legend">
       <span class="lg"><i class="sw sw-make"></i>make</span>
       <span class="lg"><i class="sw sw-model"></i>model</span>
@@ -234,6 +250,15 @@
   </div>
   <div id="genphotos-status" class="lrq-status"></div>
 </div>
+
+<!-- The phone nav dropdown. Fixed, like #toolsmenu just below and for the
+     same reason: #topbar clips anything extending past its own box (see its
+     overflow-y CSS comment), whatever the z-index. Empty in the markup --
+     app.js's initPhoneNav moves the real controls into it. Deliberately NOT
+     between the header and #controlbar: they are adjacent on purpose so the
+     search dropdown can hang off the bar, and a fixed element gains nothing
+     from sitting there. -->
+<div id="navmenu" role="menu" hidden></div>
 
 <div id="toolsmenu" role="menu" hidden>
   <button id="llmcheck" class="toolsmenu-item" role="menuitem" title="when you open a car, ask a local LLM whether its Wikipedia article hides multiple generations DBpedia didn't split out" hidden>🤖 LLM Check</button>

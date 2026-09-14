@@ -43,7 +43,13 @@ body{
 #topbar::-webkit-scrollbar{height:6px}
 #topbar::-webkit-scrollbar-thumb{background:var(--hairline); border-radius:3px}
 #topbar::-webkit-scrollbar-track{background:transparent}
-.wordmark{display:flex; flex-direction:column; line-height:1.05; min-width:150px; flex-shrink:0}
+/* A <button> now (it is the phone menu's trigger -- see app.js's
+   initPhoneNav), so the browser's button chrome has to go. On a wide screen it
+   is not interactive at all: the controls are in the bar where you can see
+   them, so there is nothing for it to open. */
+.wordmark{display:flex; flex-direction:column; line-height:1.05; min-width:150px; flex-shrink:0;
+          background:none; border:0; padding:0; margin:0; text-align:left; color:inherit;
+          font:inherit; cursor:default}
 .wm-title{font-family:var(--serif); font-weight:600; font-size:23px; letter-spacing:.01em; font-variation-settings:"opsz" 60}
 /* The subtitle line is the single widest thing in this bar (a long uppercase
    phrase with heavy letter-spacing) and purely decorative -- hidden by
@@ -118,6 +124,11 @@ main{flex:1; position:relative; min-height:0}
    colours nothing on screen uses. Every other hideable block in this file
    already carries its own [hidden] rule for the same reason. */
 .lg[hidden]{display:none}
+/* And the legend as a whole, for exactly the same reason the row does: its own
+   display:flex above outranks the UA stylesheet's [hidden]{display:none}, so
+   the fold-away button (see app.js's initLegendToggle) would set .hidden and
+   nothing at all would happen. */
+#legend[hidden]{display:none}
 .sw{width:11px; height:11px; border-radius:50%; display:inline-block}
 .sw-make{background:var(--ink)} .sw-model{background:var(--accent)}
 .sw-family{background:var(--accent); box-shadow:0 0 0 1.5px var(--paper), 0 0 0 3px var(--ink)}
@@ -410,6 +421,27 @@ main{flex:1; position:relative; min-height:0}
   display:flex; flex-direction:column; padding:6px;
 }
 #toolsmenu[hidden]{display:none}
+
+/* ---------- the phone nav menu (see app.js's initPhoneNav) ---------- */
+/* Fixed for the same reason #toolsmenu is: #topbar clips whatever hangs below
+   its own box. The controls moved in here keep their own styling; all this
+   does is stack them and give them room, which the request explicitly allows
+   ("these options can take up as much screen space as necessary"). */
+#navmenu{
+  position:fixed; z-index:50; display:flex; flex-direction:column; gap:12px;
+  padding:14px; width:min(340px, calc(100vw - 12px));
+  max-height:calc(100vh - 78px); overflow-y:auto;
+  background:var(--card); border:1px solid var(--ink); box-shadow:6px 6px 0 rgba(23,20,15,.13);
+}
+#navmenu[hidden]{display:none}
+/* Each control gets the full width of the panel and lays itself out along it,
+   rather than keeping the compact shape it needs when squeezed into a bar. */
+#navmenu > *{flex:none; width:100%; max-width:100%}
+#navmenu #viewtabs,#navmenu #layertoggle{display:flex; width:100%}
+#navmenu #viewtabs .tab,#navmenu #layertoggle button{flex:1 1 0; padding-block:10px}
+#navmenu #platformsonly,#navmenu #llmrequest-btn{width:100%; justify-content:center; padding-block:10px}
+#navmenu #yearfilter{width:100%}
+#navmenu #llmrequest-wrap{position:static}
 .toolsmenu-item{
   font-family:var(--sans); font-size:12.5px; font-weight:500; text-align:left;
   padding:9px 12px; border:0; border-radius:6px; background:transparent; color:var(--ink2); cursor:pointer;
@@ -877,10 +909,34 @@ main{flex:1; position:relative; min-height:0}
 }
 
 @media (max-width:720px){
-  #topbar{padding:8px 10px 7px; gap:8px}
+  /* The phone header is two things: the title (which is the menu) on the left,
+     and the search box on the right. Everything else has moved into the menu
+     -- see app.js's initPhoneNav for why they are moved rather than copied. */
+  #topbar{padding:8px 10px 7px; gap:10px; overflow:visible}
   .wm-title{font-size:18px}
-  .wordmark{min-width:0}
+  .wordmark{min-width:0; cursor:pointer; display:flex; flex-direction:row; align-items:center; gap:5px}
+  /* The affordance. Without it a title that happens to be tappable is just a
+     title, and nobody taps it. */
+  .wordmark::after{content:"▾"; font-size:11px; color:var(--muted); font-family:var(--sans)}
+  .wordmark.open::after{content:"▴"}
   .tab{padding:7px 11px}
+
+  /* Search takes the rest of the row. */
+  body.phone-nav #topbar #searchbar-fixed{flex:1 1 auto; min-width:0; margin-left:auto}
+  /* The control bar is empty once the search and the year slider have moved
+     into the header and the menu -- so it would otherwise be a stripe of
+     padding between the header and the graph. */
+  body.phone-nav #controlbar{display:none}
+
+  /* The legend's fold-away button, tucked under the search it sits below. */
+  #legendtoggle{
+    position:absolute; top:8px; right:8px; z-index:12;
+    font-family:var(--sans); font-size:10.5px; font-weight:600; letter-spacing:.08em;
+    text-transform:uppercase; padding:6px 11px; border:1px solid var(--ink);
+    border-radius:999px; background:var(--card); color:var(--ink2); cursor:pointer;
+  }
+  #legendtoggle[hidden]{display:none}
+
 
   /* It has to stay readable on a phone but must never be the thing that
      pushes the tabs onto another row -- it is a notice, not a control. */
@@ -915,12 +971,16 @@ main{flex:1; position:relative; min-height:0}
 
   /* Full-width strip that scrolls instead of clipping. */
   #legend,.legend-style{
-    left:8px; right:8px; top:8px; gap:13px; font-size:10.5px;
+    left:8px; right:8px; gap:13px; font-size:10.5px;
     padding:6px 11px; border-radius:13px;
     justify-content:flex-start; overflow-x:auto; overflow-y:hidden;
     scrollbar-width:none; -webkit-overflow-scrolling:touch;
   }
   #legend::-webkit-scrollbar,.legend-style::-webkit-scrollbar{display:none}
+  /* Below the fold-away button rather than behind it. .legend-style is the
+     other views' copy, which has no button, so it keeps the top edge. */
+  #legend{top:42px}
+  .legend-style{top:8px}
   .lg{flex:none; white-space:nowrap}
 
   #graphhint{display:none}
@@ -929,13 +989,11 @@ main{flex:1; position:relative; min-height:0}
      unreachable at exactly the moment you want it -- a card is open. */
   #clearfocus{top:52px; left:8px; right:auto; bottom:auto; padding:8px 14px; font-size:11.5px}
 
-  /* Top-right, clear of the bottom sheet. */
-  #zoomslider-wrap{
-    left:auto; right:8px; top:52px; bottom:auto;
-    padding:0 9px; height:34px; gap:6px;
-  }
-  #zoomslider-wrap button{width:24px; height:24px; font-size:14px}
-  #zoomslider{width:88px}
+  /* Real user request: "I don't need a zoom in/out bar for the mobile phone
+     since it is clear that the user can do so themselves with their fingers."
+     Pinch already does everything it did, and it was sitting exactly where the
+     search box and the legend button now go. */
+  #zoomslider-wrap{display:none}
 
   /* Real user report: "the title card seems to take up way too much space,
      almost 50% of all screen real-estate. I want that it's taking even less

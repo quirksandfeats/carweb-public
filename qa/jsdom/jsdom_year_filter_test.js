@@ -49,7 +49,12 @@ const cw = window.CarWeb;
 // ---------- default range ----------
 const r0 = cw.yearRange();
 console.log("data year range:", JSON.stringify(r0));
-check("default lower bound is 2000", r0.lo === 2000, r0.lo);
+// Real user request: "for the default year range, it should initially include
+// all years. Make sure this is true for all versions (computer version or
+// mobile version)." It opened at 2000 to keep the first paint light, which
+// meant the graph withheld most of itself behind a filter nobody had set.
+check("the default lower bound is the earliest year the data has, not a filter "
+      + "nobody asked for", r0.lo === r0.min, `${r0.lo} vs ${r0.min}`);
 check("default upper bound is the data's max/present year", r0.hi === r0.max, `${r0.hi} vs ${r0.max}`);
 
 // ---------- build a small synthetic neighborhood: make -> family -> 2 generations, + a designer ----------
