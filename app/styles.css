@@ -881,8 +881,28 @@ main{flex:1; position:relative; min-height:0}
   #llmbusy{font-size:10px; padding:2px 8px; max-width:100%; order:99}
 
   #controlbar{padding:8px 10px; gap:8px; row-gap:8px}
-  #searchbar-fixed{width:100%}
-  #search{width:100%; padding:9px 14px}
+  /* Real user report: "the phone version zooms into the context of where the
+     keyboard is... everything then becomes slightly zoomed in after clicking
+     on the search bar to type, and the user has to manually zoom out again."
+     
+     Not a focus effect of this app's -- it is Mobile Safari's own rule: a
+     focused text field whose font-size is under 16px makes the browser zoom
+     the whole PAGE in so the text is legible, and it does not zoom back out
+     when the field is blurred. The search box was 13.5px, so every search
+     left the view magnified.
+     
+     Fixed by giving the fields 16px on a phone rather than by pinning the
+     viewport with maximum-scale, which would also take away pinch-zoom on the
+     page -- and a graph is the last thing to take pinch-zoom away from. 16px
+     is the threshold exactly, so the type is as small as it can be without
+     the zoom coming back.
+     
+     Applies to every text field, not just the search one: the same thing
+     happens in Add Car, Modify Car and the request-scan passphrase box. The
+     id selector is repeated because #search's own font-size would otherwise
+     outrank the attribute selector. */
+  input[type="text"],input[type="password"],input:not([type]),textarea,select{font-size:16px}
+  #search{width:100%; padding:9px 14px; font-size:16px}
   #searchresults{width:100%; left:0; right:0}
   #yearfilter{width:100%; padding:7px 12px; gap:8px}
   .yf-track{flex:1 1 auto; width:auto; min-width:0}

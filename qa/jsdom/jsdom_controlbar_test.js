@@ -123,6 +123,31 @@ check("search still returns results from the new control-bar location", !results
   check("and so does Escape", blurred > before3, blurred);
 }
 
+// ---------- typing must not leave the view magnified ----------
+// Real user report: "the phone version zooms into the context of where the
+// keyboard is... everything then becomes slightly zoomed in after clicking on
+// the search bar to type, and the user has to manually zoom out again."
+//
+// Mobile Safari zooms the whole page in whenever a focused text field is under
+// 16px, and does not zoom back out afterwards. So the threshold is the test:
+// every text field a phone can focus has to be at least 16px, and it has to be
+// done that way rather than with maximum-scale on the viewport, which would
+// take pinch-zoom away from the graph itself.
+{
+  const css = fs.readFileSync(path.join(APP, "styles.css"), "utf-8");
+  const phone = css.slice(css.indexOf("@media (max-width:720px)"));
+  const searchRule = /#search\{([^}]*)\}/.exec(phone);
+  const size = searchRule && /font-size:\s*([\d.]+)px/.exec(searchRule[1]);
+  check("the phone search box is at least 16px, the size below which Safari zooms",
+        !!size && parseFloat(size[1]) >= 16, size && size[1] + "px");
+  check("...and so is every other text field, not just that one",
+        /input\[type="text"\][^{]*\{[^}]*font-size:\s*16px/.test(phone));
+  const meta = fs.readFileSync(path.join(APP, "index.html"), "utf-8");
+  const vp = /<meta name="viewport"[^>]*>/.exec(meta)[0];
+  check("...and pinch-zoom is NOT disabled to achieve it -- the graph needs it",
+        !/maximum-scale|user-scalable\s*=\s*no/.test(vp), vp);
+}
+
 // ---------- how much of a phone screen the card gets ----------
 // Two reports, in opposite directions, and the cap has to sit between them.
 // First: "the title card seems to take up way too much space, almost 50% of
