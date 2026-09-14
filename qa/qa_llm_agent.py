@@ -10,8 +10,11 @@ which is also why this suite (unlike the other qa_*.py files) runs anywhere.
 import importlib.util
 import json
 import os
+import signal
+import subprocess
 import sys
 import tempfile
+import time
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 spec = importlib.util.spec_from_file_location("llm_agent", os.path.join(ROOT, "scripts", "llm_agent.py"))
@@ -180,6 +183,71 @@ check("it never stages the whole tree -- this runs unattended in a working "
       '"add", "-A"' not in src and '"add", "."' not in src)
 check("the commit carries no Claude attribution",
       "Co-Authored-By" not in src and "Claude" not in src.replace("Claude Browser", ""))
+
+# ---- Ctrl+C ----------------------------------------------------------------
+# "aborting the agent with ctrl + c should gracefully close, not show a
+# keyboard interrupt message." The point is not only the missing traceback:
+# this run owns a headless browser, a serve.py that owns llama-server with a
+# multi-GB model resident, and a job the queue has marked running. Anything
+# left behind blocks the next run's port and leaves the site showing a scan
+# that never ends.
+check("an interrupt is an ordinary exception, not a bare KeyboardInterrupt",
+      issubclass(agent.Aborted, Exception) and not issubclass(agent.Aborted, KeyboardInterrupt))
+check("nothing is being stopped before one arrives",
+      agent.STOPPING is False and agent.CLEANING is False)
+check("the browser is closed on every exit from the pass, not only a clean one",
+      "finally:" in src.split("def run_pass")[1].split("def _run_pass_in")[0])
+check("serve.py is stopped even when the interrupt lands during the model load",
+      "except BaseException:" in src.split("def start_serve")[1].split("def stop_serve")[0])
+check("--watch does not take the next job after an interrupt",
+      "if STOPPING:" in src.split("def do_job")[1].split("def finish")[0])
+check("what was already found is still pushed, not thrown away",
+      "already paid for in model time" in src)
+
+# The handler itself, exercised rather than read.
+_saved = (agent.STOPPING, agent.CLEANING, agent._extra_interrupts)
+try:
+    raised = False
+    try:
+        agent._on_signal(signal.SIGINT, None)
+    except agent.Aborted:
+        raised = True
+    check("the first interrupt raises, so every finally gets to run", raised)
+    check("...and records that a stop is under way", agent.STOPPING is True)
+
+    agent.begin_cleanup()
+    check("cleanup is marked once a stop is under way", agent.CLEANING is True)
+    agent._on_signal(signal.SIGINT, None)
+    check("a second interrupt during cleanup does NOT unwind it -- that would "
+          "strand llama-server and the claimed job", agent._extra_interrupts == 1)
+finally:
+    agent.STOPPING, agent.CLEANING, agent._extra_interrupts = _saved
+
+# A normal finish stays interruptible: begin_cleanup only latches once a stop
+# is already under way, so a slow stop_serve after a successful run can still
+# be cut short the graceful way rather than being uninterruptible.
+agent.begin_cleanup()
+check("a clean run's shutdown is still interruptible", agent.CLEANING is False)
+
+# End to end, for real: start the script, let it settle into a blocking wait,
+# press Ctrl+C, and read what a person would actually see. --watch against an
+# unreachable queue parks in wait_for_job's poll sleep, which needs no model,
+# no browser and no reachable network -- the same blocking shape a real run
+# spends nearly all its time in.
+env = dict(os.environ, CARWEB_QUEUE_URL="http://127.0.0.1:9", CARWEB_AGENT_TOKEN="test-token")
+proc = subprocess.Popen(
+    [sys.executable, os.path.join(ROOT, "scripts", "llm_agent.py"), "--watch", "--poll-seconds", "30"],
+    stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, env=env)
+time.sleep(3)
+interrupted = proc.poll() is None
+proc.send_signal(signal.SIGINT)
+out, _ = proc.communicate(timeout=60)
+check("it was still waiting when the interrupt arrived", interrupted, out[-300:])
+check("Ctrl+C prints no traceback", "Traceback" not in out, out[-300:])
+check("...and no bare KeyboardInterrupt", "KeyboardInterrupt" not in out, out[-300:])
+check("...it says it is stopping, in words", "stopping, keeping whatever" in out, out[-300:])
+check("...and exits 130, the conventional interrupted code", proc.returncode == 130, proc.returncode)
+
 
 print()
 print("ALL GREEN" if not fails else "FAILURES: " + str(fails))

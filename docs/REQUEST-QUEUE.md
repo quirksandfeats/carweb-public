@@ -210,19 +210,36 @@ model the way a person does.
 |---|---|---|
 | `--seeds` | 1 | how many review-queue cars to start from |
 | `--cascade-depth` | serve.py's setting | overrides `CASCADE_MAX_DEPTH` for this run |
-| `--settle-seconds` | 300 | hard cap on waiting for a seed's cascade |
-| `--settle-quiet` | 60 | seconds with nothing written that counts as finished |
+| `--settle-seconds` | 900 | hard cap on waiting for a seed's cascade |
+| `--settle-quiet` | 60 | fallback only: quiet that counts as finished when the page cannot report |
 | `--budget-minutes` | 45 | wall-clock cap on the scanning phase |
-| `--node-timeout` | 180 | how long one car gets before it is logged as an error |
+| `--node-timeout` | 600 | idle seconds one car gets before it is logged as an error |
 
 `--settle-seconds` exists because a seed's own answer landing is not the end of
 the work: confirming a split is what kicks off the partner cascade, and those
 checks run afterwards, in the background. Stopping `serve.py` at that moment
-would cut them off mid-flight and throw away calls already paid for. The run
-waits until nothing new has been written for a full minute. Each partner
-check is a whole LLM call, so the gap between two writes is the length of a
-call -- a few seconds of quiet is the normal state mid-cascade, not the end of
-one.
+cuts them off mid-flight and throws away calls already paid for.
+
+The run used to decide the cascade was over by watching the number of stored
+entries stop changing. That is wrong, and the Dacia Duster is the case that
+proved it: its article named the Renault Captur, the match was stored, and the
+Captur stayed a plain model with no entry at all -- its check was queued and
+running when the browser closed. One check writes **nothing** for its whole
+duration, and on a long article that is minutes, which is why `--node-timeout`
+is 600 seconds. A minute of no writes is the normal middle of a single check.
+
+So the page is asked instead. `LlmFamilies.pendingWork()` reports the checks in
+flight, the partners queued behind them and the article lookups a newly-minted
+car is waiting on, and the run treats nothing as quiet while any of those is
+non-zero -- naming them in the terminal as it waits. `--settle-seconds` is the
+hard cap, so a stuck page cannot hold a run open forever, and `--settle-quiet`
+is only the fallback for a page too old to answer.
+
+**Stopping it.** Ctrl+C closes down in order: the headless browser, then
+`serve.py` (whose own handler stops `llama-server`), then whatever was already
+found is committed and pushed and the queue is told the run did not finish.
+Press it again and it says what it is still closing; a third press gives up on
+the clean shutdown and exits. No traceback either way; the exit code is 130.
 
 The summary reports all three numbers — seeds, cascade depth, and how many
 cars ended up with an entry — so "1 seed at depth 1, 7 cars now have an entry,

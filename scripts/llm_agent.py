@@ -135,6 +135,71 @@ def log(msg):
     print(f"[{time.strftime('%H:%M:%S')}] {msg}", flush=True)
 
 
+# --------------------------------------------------------------- stopping ----
+# Real user request: "aborting the agent with ctrl + c should gracefully close,
+# not show a keyboard interrupt message. I want to make sure that everything
+# closes gracefully and correctly."
+#
+# Ctrl+C used to surface as a KeyboardInterrupt traceback out of whatever
+# blocking call happened to be running, which is ugly and, worse, is not the
+# whole story: this run owns a headless browser, a serve.py that owns
+# llama-server (a multi-GB model resident in memory), and a job the queue has
+# marked "running". Left behind, the model stays loaded and the job stays
+# claimed, so the next run refuses to start on a port that is still in use and
+# the site keeps showing a scan that never finishes.
+#
+# So an interrupt is turned into an ordinary exception instead. It unwinds
+# through the same `finally` blocks a normal finish uses -- close the browser,
+# SIGTERM serve.py, push whatever was already written, tell the queue -- and
+# the process exits 130 with one line of explanation and no traceback.
+#
+# Pressing it again while that is happening is a real thing people do, so it
+# is answered rather than ignored: the second press says what is still going
+# on, and the third gives up on the cleanup and exits immediately.
+class Aborted(Exception):
+    """Ctrl+C (or SIGTERM), raised where it can be caught and cleaned up after."""
+
+
+STOPPING = False      # an interrupt has been seen
+CLEANING = False      # ...and we are now in the shutdown path, where raising again would strand things
+_extra_interrupts = 0
+
+
+def _on_signal(signum, frame):
+    global STOPPING, _extra_interrupts
+    name = "SIGTERM" if signum == signal.SIGTERM else "Ctrl+C"
+    if CLEANING or STOPPING:
+        _extra_interrupts += 1
+        if _extra_interrupts >= 2:
+            log("giving up on a clean shutdown -- exiting now (llama-server may "
+                "still be running; check with: lsof -i :%d)" % PORT)
+            os._exit(130)
+        log("still closing down -- press Ctrl+C again to force it")
+        return
+    STOPPING = True
+    # Deliberately not a list of what is being shut down: at this point that
+    # depends entirely on how far the run had got, and naming a browser and a
+    # model that were never started reads as a lie. The things that do get
+    # closed announce themselves as they go (stop_serve says so by name).
+    log(f"{name} -- stopping, keeping whatever has already been found")
+    raise Aborted()
+
+
+def install_signal_handlers():
+    signal.signal(signal.SIGINT, _on_signal)
+    signal.signal(signal.SIGTERM, _on_signal)
+
+
+def begin_cleanup():
+    """Once an interrupt has been seen, a LATER one must not unwind anything --
+    it would abandon the shutdown half done, which is the exact mess this is
+    for. A normal finish is left interruptible, so a slow stop_serve can still
+    be cut short the graceful way."""
+    global CLEANING
+    if STOPPING:
+        CLEANING = True
+
+
 # ---------------------------------------------------------------- the queue --
 def api(path, method="GET", body=None, timeout=30):
     req = urllib.request.Request(
@@ -263,16 +328,28 @@ def start_serve(cascade_depth=None):
     )
     # serve.py only starts listening AFTER llama-server answers, so the port
     # opening is the model being ready -- no separate readiness check needed.
+    #
+    # Loading a multi-GB model is the longest wait in the whole run and the
+    # most natural moment to change your mind, so the interrupt is caught HERE
+    # rather than by the caller: until this function returns, `proc` exists
+    # only inside it, and an Aborted let through would leave serve.py (and the
+    # llama-server it just started) running with nothing holding a handle to
+    # it.
     deadline = time.time() + 15 * 60
-    while time.time() < deadline:
-        if proc.poll() is not None:
-            out = (proc.stdout.read() or "").strip().splitlines()
-            raise RuntimeError("serve.py exited before listening: " +
-                               " / ".join(out[-4:] or ["no output"]))
-        if port_open(PORT):
-            log("serve.py is up")
-            return proc
-        time.sleep(1)
+    try:
+        while time.time() < deadline:
+            if proc.poll() is not None:
+                out = (proc.stdout.read() or "").strip().splitlines()
+                raise RuntimeError("serve.py exited before listening: " +
+                                   " / ".join(out[-4:] or ["no output"]))
+            if port_open(PORT):
+                log("serve.py is up")
+                return proc
+            time.sleep(1)
+    except BaseException:
+        begin_cleanup()
+        stop_serve(proc)
+        raise
     stop_serve(proc)
     raise RuntimeError("serve.py never started listening within 15 minutes")
 
@@ -304,23 +381,39 @@ def run_pass(targets, budget_seconds, per_node_seconds, settle_seconds=300, quie
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=True,
                                     args=["--no-sandbox", "--disable-gpu", "--disable-dev-shm-usage"])
+        # Every exit from here on closes the browser, an interrupt included --
+        # a headless Chromium left running holds the page (and its pending
+        # fetches to llama-server) open behind the shutdown. See Aborted.
+        try:
+            return _run_pass_in(browser, targets, budget_seconds, per_node_seconds,
+                                settle_seconds, quiet_seconds, done, errors, skipped, started)
+        finally:
+            begin_cleanup()
+            try:
+                browser.close()
+            except Exception:
+                pass
+
+
+def _run_pass_in(browser, targets, budget_seconds, per_node_seconds,
+                 settle_seconds, quiet_seconds, done, errors, skipped, started):
         page = browser.new_page(viewport={"width": 1440, "height": 900})
         page.on("pageerror", lambda e: errors.append("pageerror: " + str(e)[:200]))
         page.goto(f"http://localhost:{PORT}/index.html", wait_until="domcontentloaded", timeout=60000)
         page.wait_for_timeout(3000)
 
         if not page.evaluate("() => !!(window.LlmFamilies && window.LlmFamilies.serverAvailable)"):
-            browser.close()
+            # run_pass's finally closes the browser on every exit, this one
+            # included -- see its comment.
             raise RuntimeError("the page cannot see serve.py's API, so nothing could be saved")
 
-        arm_llm_check(page, browser)
+        arm_llm_check(page)
 
         # Every confirmation this run makes gets stamped decidedBy:"agent", so
         # a split nobody looked at is distinguishable afterwards from one a
         # human approved. Without it a bad run is archaeology.
         page.evaluate("() => window.LlmFamilies.setDecisionSource('agent')")
         if page.evaluate("() => window.LlmFamilies.decisionSource()") != "agent":
-            browser.close()
             raise RuntimeError("this build cannot stamp agent decisions -- refusing to "
                                "confirm anything unattributed")
 
@@ -407,8 +500,7 @@ def run_pass(targets, budget_seconds, per_node_seconds, settle_seconds=300, quie
         # the decidedBy stamp exists to close, so read the stamp back rather
         # than inferring from the target list.
         agent_split = [i for i in agent_confirmed(page) if i not in agent_before]
-        browser.close()
-    return done, errors, skipped, {
+        return done, errors, skipped, {
         "depth": depth, "before": entries_before, "after": entries_after,
         "cascaded": max(0, entries_after - entries_before - len(done)),
         "agent_split": agent_split,
@@ -416,7 +508,7 @@ def run_pass(targets, budget_seconds, per_node_seconds, settle_seconds=300, quie
     }
 
 
-def arm_llm_check(page, browser):
+def arm_llm_check(page):
     """Turn on 🤖 LLM Check.
 
     It is a menu ITEM, not a top-level button: every LLM tool moved into the
@@ -441,7 +533,6 @@ def arm_llm_check(page, browser):
         page.evaluate("() => CarWeb.setLlmCheck(true)")
         page.wait_for_timeout(300)
     if not page.evaluate("() => CarWeb.llmCheckOn()"):
-        browser.close()
         raise RuntimeError("could not arm the LLM check toggle")
 
 
@@ -519,36 +610,77 @@ def report_new(now, before, why):
             log(f"    + {now[nid]['label']} -- {describe(now[nid])}  ({why})")
 
 
+def pending_work(page):
+    """What the page still has outstanding: checks in flight, partners queued
+    behind them, article lookups a newly-minted car is waiting on. The app
+    reports this directly (see llm_families.js's pendingWork) rather than it
+    being guessed from how fast entries are appearing."""
+    try:
+        return page.evaluate(
+            """() => {
+              const LF = window.LlmFamilies;
+              const p = LF && LF.pendingWork ? LF.pendingWork() : null;
+              if (!p) return null;
+              const cw = window.CarWeb;
+              const name = id => { const n = cw.byId.get(id);
+                return n ? ((n.make ? n.make + " " : "") + n.label) : id; };
+              return { total: p.total,
+                       names: [...p.checks, ...p.partners, ...p.lookups].map(name) };
+            }""")
+    except Exception:
+        return None
+
+
 def settle_cascade(page, settle_seconds, quiet_seconds=60):
-    """Wait until the background partner checks have stopped writing.
+    """Wait until the background partner checks have actually stopped.
 
-    How long "stopped" has to look for is the whole question, and the first
-    version got it wrong: it declared the cascade finished after 9 seconds of
-    quiet. Each partner check is a full LLM call, so the gap between one
-    entry being written and the next appearing is the length of a call --
-    tens of seconds on a 9B model. Nine seconds of quiet is therefore the
-    NORMAL state in the middle of a cascade, not the end of one, and the run
-    would have shut the model down between two partners and thrown away the
-    call already in flight.
+    Two earlier versions of this got the "stopped" test wrong, in the same
+    way twice. The first declared the cascade finished after 9 seconds of no
+    new entries. The second raised that to a minute. Both were counting
+    STORED ENTRIES, and one check writes nothing for its whole duration -- a
+    long article on a local model runs for minutes, which is why the per-car
+    timeout is 600 seconds. A minute of no writes is the normal middle of a
+    single check.
 
-    A minute of complete silence is a real signal by that measure. The cost of
-    being wrong is asymmetric: too long only wastes idle model time, too short
-    loses work already paid for, so this errs long and settle_seconds is the
-    hard cap.
+    Real bug report, the Dacia Duster: its article named the Renault Captur,
+    the match was stored, and the Captur stayed a plain model with no entry
+    at all. Its check was queued and running when the browser closed. The
+    cascade had not declined it -- the run walked out on it.
+
+    So the page is asked what it still has outstanding (pendingWork) instead
+    of being watched from outside. Nothing counts as quiet while any check is
+    in flight or any partner is queued behind one. settle_seconds is still
+    the hard cap, so a stuck page cannot hold a run open forever, but it is
+    now the only thing that ends the wait early.
     """
-    last, waited, quiet = entry_rows(page), 0, 0
+    last, waited, quiet, said = entry_rows(page), 0, 0, None
     while waited < settle_seconds:
         page.wait_for_timeout(3000)
         waited += 3
         now = entry_rows(page)
+        if len(now) != len(last):
+            report_new(now, last, "cascade")
+            last, quiet = now, 0
+        pend = pending_work(page)
+        if pend and pend["total"]:
+            quiet = 0
+            names = ", ".join(pend["names"][:4])
+            more = pend["total"] - min(4, len(pend["names"]))
+            line = f"  still working on {names}" + (f" (+{more} more)" if more > 0 else "")
+            if line != said:
+                log(line)
+                said = line
+            continue
+        # pendingWork is None on a build that predates it -- fall back to the
+        # old count-and-wait rather than refusing to settle at all.
         if len(now) == len(last):
             quiet += 3
             if quiet >= quiet_seconds:
                 return
-        else:
-            report_new(now, last, "cascade")
-            last, quiet = now, 0
     log(f"  cascade still not quiet after {settle_seconds}s; moving on")
+    pend = pending_work(page)
+    if pend and pend["total"]:
+        log(f"  {pend['total']} check(s) were still running: " + ", ".join(pend["names"][:8]))
 
 
 # ------------------------------------------------------------------- git -----
@@ -660,11 +792,22 @@ def do_job(job, args):
         log(summary)
         for e in errors[:10]:
             log("  " + e)
+    except Aborted:
+        # Ctrl+C. The work already written to llm_families.json is real and
+        # already paid for in model time, so it is still pushed below -- the
+        # only difference from a normal finish is that the run is reported as
+        # not having completed, and the car may still have partners nobody
+        # looked at.
+        state = "failed"
+        summary = ("stopped by hand before it finished" +
+                   (f"; {summary}" if summary else ""))[:380]
+        user_summary = "the scan was stopped before it finished"
     except Exception as e:
         state, summary = "failed", str(e)[:300]
         user_summary = "the scan failed"
         log("FAILED: " + summary)
     finally:
+        begin_cleanup()
         stop_serve(proc)
 
     try:
@@ -677,6 +820,11 @@ def do_job(job, args):
 
     log(summary)
     finish(jid, state, user_summary or summary)
+    # --watch would otherwise take the next job off the queue and start all
+    # over again: do_job swallowed the interrupt so it could still push and
+    # report, which means main() has to be told the run is over.
+    if STOPPING:
+        raise Aborted()
 
 
 def finish(jid, state, summary):
@@ -705,7 +853,7 @@ def main():
     ap.add_argument("--cascade-depth", type=int, default=None,
                     help="override serve.py's CASCADE_MAX_DEPTH for this run "
                          "(default: whatever serve.py is already set to)")
-    ap.add_argument("--settle-seconds", type=int, default=300,
+    ap.add_argument("--settle-seconds", type=int, default=900,
                     help="hard cap on waiting for a seed's cascade to finish")
     ap.add_argument("--settle-quiet", type=int, default=60,
                     help="how many seconds with nothing new written counts as the "
@@ -795,4 +943,17 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    install_signal_handlers()
+    try:
+        main()
+    except Aborted:
+        # Everything that needed closing has closed by the time this is
+        # reached -- do_job's own finally stops serve.py, run_pass's closes
+        # the browser. All that is left is to say so and use the conventional
+        # interrupted exit code, with no traceback.
+        log("stopped")
+        sys.exit(130)
+    except KeyboardInterrupt:
+        # Only reachable in the sliver between the interpreter starting and
+        # the handler being installed. Same ending, still no traceback.
+        sys.exit(130)

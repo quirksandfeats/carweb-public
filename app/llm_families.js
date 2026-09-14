@@ -2885,6 +2885,32 @@ Rules:
       .then(() => { partnerCheckScheduled.delete(node.id); notifyFactsUpdate(); });
   }
 
+  // ---------- "is there still LLM work outstanding?" ----------
+  // Real bug report, the Dacia Duster: its article named the Renault Captur,
+  // the match was made and stored, and the Captur was left a plain model --
+  // no generations, no entry, nothing. The cascade had not refused it. It was
+  // queued, it was running, and the agent shut the browser and llama-server
+  // down underneath it.
+  //
+  // The agent decided a cascade was "finished" by watching the number of
+  // stored entries stop changing for a minute. But ONE check writes nothing
+  // at all for its entire duration, and a long article on a local model runs
+  // for minutes -- which is why the per-car timeout is 600s. A minute of no
+  // writes is therefore the normal middle of a single check, not the end of
+  // the work, and every partner still queued behind it died with the page.
+  //
+  // Counting is not a good enough signal, so this reports the truth directly:
+  // the checks actually in flight, the partners queued behind them, and the
+  // article lookups a minted car is waiting on. Nothing is "quiet" while any
+  // of these is non-zero. Ids rather than a bare count so the terminal can
+  // name what it is waiting for.
+  function pendingWork() {
+    const checks = [...inFlight.keys()];
+    const partners = [...partnerCheckScheduled].filter(id => !inFlight.has(id));
+    const lookups = [...wpLookupScheduled];
+    return { checks, partners, lookups, total: checks.length + partners.length + lookups.length };
+  }
+
   // ---------- public: replay every manually-pasted Wikipedia link ----------
   // Companion to applyUserCars' own replay pattern (see its comment) --
   // wpLinks only ever records the resolved title string, never a whole
@@ -7986,6 +8012,7 @@ Rules:
     // minting/splicing. See schedulePartnerCheck's own comment for the Honda
     // Odyssey / Acura MDX report this closes.
     onSplitReady: f => splitListeners.push(f),
+    pendingWork,
     // The single gate every background scheduler consults -- app.js drives it
     // from the 🤖 LLM Check toggle. See setBackgroundAllowed's own comment.
     setBackgroundAllowed,

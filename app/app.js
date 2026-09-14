@@ -625,13 +625,49 @@ window.CarWeb = (function () {
   const expandedFamilies = new Set();
   const familyListeners = [];
   function isFamilyExpanded(id) { return expandedFamilies.has(id); }
-  function layoutGenerationsLine(fam) {
+  // Real user request: "Instead of a line of generations connected to one
+  // another nearby the nameplate node, the generations should exist 'around'
+  // the nameplate name, kind of like a radial, to somewhat separate it from
+  // looking like the cars that it's connected to/related to."
+  //
+  // The line read as a chain of separate cars hanging off the nameplate --
+  // the same shape a platform sibling or a successor makes -- so expanding a
+  // nameplate looked like discovering five new neighbours rather than opening
+  // one car up. A ring centred on the nameplate says "these ARE it" instead:
+  // the nameplate sits inside its own generations, and nothing else in this
+  // graph is drawn that way.
+  //
+  // Laid out over n+1 slots rather than n, leaving one slot of the ring
+  // empty. That is what keeps the succession chain readable: with the full
+  // circle divided n ways, two generations land diametrically opposite each
+  // other and the predecessor/successor line between them runs straight
+  // through the nameplate node in the middle. With a gap, consecutive
+  // generations are always neighbours on the rim, so every succession line
+  // is a short chord around the outside and the chain reads first to last
+  // around the arc. The arc is centred on straight up, so the first
+  // generation starts on the left and the newest ends on the right.
+  //
+  // The radius grows with the count so the spacing along the rim stays
+  // roughly what the old line used between neighbours -- an eight-generation
+  // nameplate gets a wider ring rather than eight nodes crammed onto a small
+  // one.
+  function layoutGenerationsRadial(fam) {
     const gens = (fam.generations || []).map(id => byId.get(id)).filter(Boolean);
-    const GAP = 78;
-    const x0 = fam.x - (gens.length - 1) * GAP / 2;
+    if (!gens.length) return;
+    const GAP = 78, R_MIN = 56;
+    if (gens.length === 1) {
+      gens[0].x = gens[0].fx = fam.x;
+      gens[0].y = gens[0].fy = fam.y - R_MIN;
+      return;
+    }
+    const slots = gens.length + 1;
+    const step = (Math.PI * 2) / slots;
+    const R = Math.max(R_MIN, (GAP * slots) / (Math.PI * 2));
+    const start = -Math.PI / 2 - ((gens.length - 1) * step) / 2;
     gens.forEach((g, i) => {
-      g.x = g.fx = x0 + i * GAP;
-      g.y = g.fy = fam.y;
+      const a = start + i * step;
+      g.x = g.fx = fam.x + Math.cos(a) * R;
+      g.y = g.fy = fam.y + Math.sin(a) * R;
     });
   }
   function unpinGenerations(fam) {
@@ -644,7 +680,7 @@ window.CarWeb = (function () {
     if (expandedFamilies.has(famId)) return;
     expandedFamilies.add(famId);
     const fam = byId.get(famId);
-    if (fam) layoutGenerationsLine(fam);
+    if (fam) layoutGenerationsRadial(fam);
     familyListeners.forEach(f => f(famId, true));
   }
   function collapseFamily(famId) {
