@@ -7246,6 +7246,47 @@ Rules:
     return { addedFresh, removedOld };
   }
 
+  // Whether a nameplate's pending cross-check only ADDS generations: every
+  // generation already on the nameplate is still in Wikipedia's list, and
+  // Wikipedia names at least one more.
+  //
+  // Real user request: "If the llm looks at a nameplate and finds from the
+  // wikipedia that there are more generations than currently listed, then
+  // automatically accept those changes and do not need to ask for my manual
+  // approval."
+  //
+  // Scoped deliberately to that one shape. applyFamilyOverride can also
+  // RETIRE generations, and a re-check that drops one is either the model
+  // misreading the article or a real editorial change -- both worth a human
+  // look, and neither what was asked for. So a diff with anything in
+  // removedOld still waits, as does a diff that changes nothing. The matching
+  // is applyFamilyOverride's own code-normalised pairing (via
+  // diffGenerationCodes), so "W463" still recognises "G-Class (W463)" and a
+  // pure reformatting of an existing generation is not mistaken for a new one.
+  function additiveRecheck(famId, genNodes, nodes) {
+    const entry = recheckEntryFor(famId);
+    if (!entry || entry.status !== "provisional") return null;
+    const fresh = (entry.proposal && entry.proposal.generations) || [];
+    if (!fresh.length) return null;
+    const { addedFresh, removedOld } = diffGenerationCodes(genNodes, fresh);
+    if (removedOld.length || !addedFresh.length) return null;
+    // "Adds a generation" has a second shape that is not purely additive at
+    // all: applyFamilyOverride does not always MINT the new generation. If the
+    // car already exists somewhere else in the graph -- a never-grouped
+    // standalone, or a generation under a different family -- it absorbs that
+    // node and retires it (see findDuplicateGeneration/supersedeStandalone).
+    // The Mercedes-Benz SL-Class R107 is the case on record. Nothing is lost
+    // when that happens, but a car does disappear from where it was, and
+    // deciding that is exactly the kind of call the user asked to keep.
+    if (nodes) {
+      const fam = nodes.find(n => n.id === famId);
+      const absorbs = addedFresh.some(g =>
+        !!findDuplicateGeneration(nodes, g.code, famId, fam && fam.make, fam && fam.label));
+      if (absorbs) return null;
+    }
+    return { added: addedFresh.map(g => g.code), had: (genNodes || []).length, now: fresh.length };
+  }
+
   // ---------- manual "LLM re-check": relation side ----------
   // Real user request: "...it should also be able to perform an 'LLM
   // re-check' in case the user has accidentally accepted or declined some
@@ -8238,6 +8279,7 @@ Rules:
     refreshGenerationImages,
     setDecisionSource, decisionSource: () => decisionSource,
     resolveWeakRelations, makeRelationship, weakProposalRejection,
+    additiveRecheck, diffGenerationCodes,
     orphanedEntries, orphanKind, pruneStandInOrphans, clearRenamedOrphans,
     // The archive both of those write to. `store` is a shallow copy of the
     // seeded object, so a NEW top-level key on it is not visible through

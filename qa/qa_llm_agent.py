@@ -291,6 +291,64 @@ check("...it says it is stopping, in words", "stopping, keeping whatever" in out
 check("...and exits 130, the conventional interrupted code", proc.returncode == 130, proc.returncode)
 
 
+# ---- how much of serve.py's output reaches the terminal ----
+# Real user report: "I liked it how it was before, where it was telling me the
+# higher level information regarding which car was being checked, current
+# operations, etc... without showing an active ping of tokens per second and
+# other messages that are not necessary specifically for the agent but are only
+# necessary for serve.py (for debugging essentially)."
+#
+# A drop list rather than a keep list, so an unrecognised line -- which is what
+# a real problem looks like -- is never the thing that gets swallowed.
+NOISE = [
+    '127.0.0.1 - "GET /index.html HTTP/1.1" 200 -',
+    '127.0.0.1 - "POST /api/llm/chat HTTP/1.1" 200 -',
+    "[req-1] qwen3.5-9b-mtp: starting -- Mazda 6 \u00b7 split",
+    "[req-1] Mazda 6 \u00b7 split -- 246 tok in 46.6s (5.3 tok/s so far)...",
+    "[req-1] Mazda 6 \u00b7 split -- done, 401 tok in 50.7s wall (39.1 tok/s generation)",
+    "db layer: disabled (set CARWEB_DB_LAYER=1 to enable)",
+    "llama-server: starting (log: ../llama_logs/llama-server-8080.log)...",
+    "llama-server: model=unsloth/Qwen3.5-9B-MTP-GGUF:UD-Q4_K_XL",
+    "llama-server: MTP speculative decoding ON (--spec-type draft-mtp)",
+    "llama-server: model cache dir = /x/llama_model_cache",
+    "llama-server: up, loading the model...",
+    "llama-server: ready (took 5.0s)",
+    "llama-server: stopping (pid 35894)",
+    "llama-server target: http://127.0.0.1:8080  (model: qwen3.5-9b-mtp)",
+    "llm_families.json:   /x/app/llm_families.json",
+    "The Car Web \u2014 serving /x/app at http://localhost:8077/index.html",
+]
+PROBLEMS = [
+    "Traceback (most recent call last):",
+    "llama-server: FAILED to start -- see the log",
+    "OSError: [Errno 48] Address already in use",
+    "Exception in thread Thread-1",
+    "warn: something nobody has written a rule for yet",
+]
+for line in NOISE:
+    check("filtered out of the scan log: " + line[:46], agent._is_serve_noise(line), line)
+for line in PROBLEMS:
+    check("still reaches the terminal: " + line[:46], not agent._is_serve_noise(line), line)
+check("--verbose exists, so the full stream is still one flag away",
+      "--verbose" in open(os.path.join(ROOT, "scripts", "llm_agent.py"), encoding="utf-8").read())
+
+
+# ---- the app's own activity line ----
+class _FakePage:
+    def __init__(self, txt): self.txt = txt
+    def evaluate(self, *a, **k): return self.txt
+
+long_line = "\U0001f916 cross-checking this nameplate's generations against Wikipedia\u2026"
+got = agent.activity(_FakePage(long_line))
+check("the activity line drops the robot and the ellipsis",
+      "\U0001f916" not in got and not got.endswith("\u2026"), got)
+check("...and is not cut in the middle of a word",
+      not got.endswith("Wikipedi"), got)
+really_long = _FakePage("a " * 80)
+cut = agent.activity(really_long)
+check("...but a genuinely long line is still bounded", len(cut) <= 66, len(cut))
+
+
 print()
 print("ALL GREEN" if not fails else "FAILURES: " + str(fails))
 sys.exit(1 if fails else 0)

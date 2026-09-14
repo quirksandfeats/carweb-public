@@ -959,8 +959,21 @@ main{flex:1; position:relative; min-height:0}
      Applies to every text field, not just the search one: the same thing
      happens in Add Car, Modify Car and the request-scan passphrase box. The
      id selector is repeated because #search's own font-size would otherwise
-     outrank the attribute selector. */
-  input[type="text"],input[type="password"],input:not([type]),textarea,select{font-size:16px}
+     outrank the attribute selector.
+
+     ...which is exactly what this rule got wrong everywhere else. Real user
+     report, about the scan panel: "Tapping on them zooms the phone in more.
+     Fix this like you did the main search for the search box of the car."
+     The comment above already CLAIMED to cover that box; it did not, because
+     `#llmrequest-panel input[type="text"]` carries an id and outranks a bare
+     attribute selector no matter which one comes later. Five other panels had
+     the same shape (.sd-pick, .llmpg-pick, .llmpg-textarea, #llmdebug-select,
+     .dp-select), so listing them one by one would only last until the next
+     panel. !important is the right tool here precisely because this is not a
+     design choice competing with other design choices -- it is a platform
+     workaround that has to win against every rule, including ones not written
+     yet. */
+  input[type="text"],input[type="password"],input:not([type]),textarea,select{font-size:16px !important}
   #search{width:100%; padding:9px 14px; font-size:16px}
   #searchresults{width:100%; left:0; right:0}
   #yearfilter{width:100%; padding:7px 12px; gap:8px}

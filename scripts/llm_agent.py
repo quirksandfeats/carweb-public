@@ -326,7 +326,40 @@ def port_open(port):
 #
 # A daemon thread, so it can never hold the process open at exit, and its
 # output is prefixed to keep it distinguishable from this script's own log.
-def _relay_output(proc, tail):
+# serve.py narrates every HTTP request and every token the model produces.
+# That is the right amount of detail when you are debugging serve.py and far
+# too much when you are watching a scan: a single car buried some forty lines
+# of "[req-1] Mazda 6 . split -- 246 tok in 46.6s" under itself, and the
+# agent's own per-car lines were lost in it.
+#
+# Real user report: "I liked it how it was before, where it was telling me the
+# higher level information regarding which car was being checked, current
+# operations, etc... without showing an active ping of tokens per second and
+# other messages that are not necessary specifically for the agent but are only
+# necessary for serve.py (for debugging essentially)."
+#
+# So this is a DROP list rather than a keep list, on purpose. Everything known
+# to be routine narration is filtered; anything else -- a traceback, a warning,
+# a line no one has seen before -- still comes through, because the failure
+# mode of a keep list is silence about the one thing that mattered. The full
+# stream, filtered or not, still goes into `tail`, which is what start_serve
+# prints if serve.py never comes up. --verbose relays the lot.
+SERVE_NOISE = [
+    re.compile(r'^\d+\.\d+\.\d+\.\d+ - "'),      # HTTP access log
+    re.compile(r"^\[req-\d+\]"),                    # per-request token progress
+    re.compile(r"^llama-server: (starting|model=|MTP |model cache|up,|ready|stopping)"),
+    re.compile(r"^db layer:"),
+    re.compile(r"^llama-server target:"),
+    re.compile(r"^llm_families\.json:"),
+    re.compile(r"^The Car Web \S* ?serving"),
+]
+
+
+def _is_serve_noise(line):
+    return any(rx.search(line) for rx in SERVE_NOISE)
+
+
+def _relay_output(proc, tail, verbose=False):
     def pump():
         try:
             for line in proc.stdout:
@@ -335,7 +368,8 @@ def _relay_output(proc, tail):
                     continue
                 tail.append(line)
                 del tail[:-40]
-                print(f"           serve.py | {line}", flush=True)
+                if verbose or not _is_serve_noise(line):
+                    print(f"           serve.py | {line}", flush=True)
         except Exception:
             pass
     t = threading.Thread(target=pump, daemon=True)
@@ -343,7 +377,7 @@ def _relay_output(proc, tail):
     return t
 
 
-def start_serve(cascade_depth=None):
+def start_serve(cascade_depth=None, verbose=False):
     if port_open(PORT):
         sys.exit(f"something is already listening on :{PORT} -- stop it first, "
                  "so this script doesn't drive a server it cannot shut down")
@@ -370,7 +404,7 @@ def start_serve(cascade_depth=None):
     # llama-server it just started) running with nothing holding a handle to
     # it.
     tail = []
-    _relay_output(proc, tail)
+    _relay_output(proc, tail, verbose)
     deadline = time.time() + 15 * 60
     try:
         while time.time() < deadline:
@@ -659,7 +693,12 @@ def activity(page):
     for junk in ("\U0001f916", "\u2026"):
         txt = txt.replace(junk, "")
     txt = txt.strip(" .\u2026")
-    return txt[:60]
+    # Cut on a word boundary. A flat slice produced lines ending "against
+    # Wikipedi", which reads like the app crashed mid-sentence.
+    if len(txt) <= 64:
+        return txt
+    cut = txt[:64].rsplit(" ", 1)[0]
+    return (cut or txt[:64]) + "\u2026"
 
 
 def report_new(now, before, why):
@@ -820,7 +859,7 @@ def do_job(job, args):
     log(f"{len(targets)} seed(s), budget {args.budget_minutes} min")
     proc, state, summary, detail, user_summary = None, "done", "", "", ""
     try:
-        proc = start_serve(args.cascade_depth)
+        proc = start_serve(args.cascade_depth, verbose=getattr(args, "verbose", False))
         done, errors, skipped, cascade = run_pass(
             targets, args.budget_minutes * 60, args.node_timeout,
             args.settle_seconds, args.settle_quiet)
@@ -943,6 +982,9 @@ def main():
     # Managing the queue from here rather than from the site: the site can
     # only drop one request at a time, on purpose (see the Worker's own
     # comment on why emptying it is agent-token-only).
+    ap.add_argument("--verbose", action="store_true",
+                    help="relay serve.py's full output (HTTP requests, per-token "
+                         "generation progress) instead of just the scan's own lines")
     ap.add_argument("--queue", action="store_true", help="list the queued requests and stop")
     ap.add_argument("--drop", default="", metavar="ID_OR_CAR",
                     help="remove one queued request, by job id or by the car's node id")

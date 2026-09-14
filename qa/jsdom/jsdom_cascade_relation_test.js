@@ -54,6 +54,26 @@ window.fetch = (url, opts) => {
     const body = JSON.parse(opts.body);
     const msgText = JSON.stringify(body.messages);
     if (msgText.includes("You extract car production-generation data")) {
+      // X3 is already a nameplate, so opening it ALSO runs the generation
+      // cross-check against its own article -- a different question from the
+      // cascade check on X4, and one this stub used to answer with X4's
+      // generation list because it never looked at which car was being asked
+      // about. Harmless while every discrepancy waited for a human; now that
+      // a cross-check which only ADDS generations applies itself, that stray
+      // answer gave X3 a second, invented generation and the relation had two
+      // candidates to disambiguate between instead of one. Answer for the car
+      // actually being asked about, the way Wikipedia would.
+      if (/TestBMW X3|X3 \(G01\)/.test(msgText)) {
+        return Promise.resolve({
+          ok: true,
+          json: async () => ({ choices: [{ message: { content: JSON.stringify({
+            hasMultipleGenerations: true,
+            generations: [
+              { code: "G01", yearStart: 2017, yearEnd: null, designers: [], engineers: [], sharedPlatform: null },
+            ],
+          }) } }] }),
+        });
+      }
       // Generation-extraction call -- this is the cascade check on X4.
       return Promise.resolve({
         ok: true,

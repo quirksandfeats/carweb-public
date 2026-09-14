@@ -200,5 +200,41 @@ function boot(isPhone, legendHeight) {
         /id="yf-lo"[^>]*value="1886"/.test(markup));
 }
 
+// ---------- 6. no field left that Mobile Safari will zoom into ----------
+// Real user report, about the Request-scan panel: "Tapping on them zooms the
+// phone in more. Fix this like you did the main search for the search box of
+// the car." The phone rule was already there and had never applied to those
+// boxes: `#llmrequest-panel input[type="text"]` carries an id and outranks a
+// bare attribute selector regardless of order. Five other panels had the same
+// shape, so this checks the rule can actually win rather than checking that
+// today's six offenders happen to be listed.
+{
+  const css = fs.readFileSync(path.join(APP, "styles.css"), "utf-8");
+  const phoneAt = css.indexOf('input[type="text"],input[type="password"],input:not([type]),textarea,select{font-size:16px');
+  check("the phone still forces 16px on every text field", phoneAt > 0);
+  check("...and does it with enough weight to beat an id-scoped panel rule, "
+        + "which is what left the scan boxes at 13px",
+        /input\[type="text"\],input\[type="password"\],input:not\(\[type\]\),textarea,select\{font-size:16px !important\}/
+          .test(css));
+
+  // Every rule anywhere that sets a font-size on a field: anything under 16px
+  // is only safe because the rule above overrides it, so if that !important
+  // ever comes off, this is the list that starts zooming again.
+  const risky = [];
+  const head = css.slice(0, phoneAt);
+  const re = /([^{}]+)\{([^{}]*)\}/g;
+  let m;
+  while ((m = re.exec(head))) {
+    const sel = m[1].trim(), body = m[2];
+    if (!/font-size/.test(body)) continue;
+    if (!/\b(input|textarea|select)\b/.test(sel)) continue;
+    const size = parseFloat((body.match(/font-size:\s*([\d.]+)px/) || [])[1]);
+    if (size && size < 16) risky.push(sel.split(",")[0].trim() + " @" + size + "px");
+  }
+  check("the fields the user actually reported are among the ones that rule "
+        + "has to override", risky.some(r => r.indexOf("#llmrequest-panel") === 0),
+        risky.join(" | "));
+}
+
 console.log("\n" + (fails === 0 ? "ALL GREEN" : fails + " FAILURE(S)"));
 process.exit(fails === 0 ? 0 : 1);

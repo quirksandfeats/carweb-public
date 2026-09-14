@@ -1745,6 +1745,12 @@ window.CarWeb = (function () {
       disengageLlmCheckFor(fam.id); // same auto-disengage as the plain-model check above -- see its comment
       return;
     }
+    // A cross-check that only ADDS generations is applied without asking --
+    // see llm_families.js's additiveRecheck for why only that shape.
+    if (entry.status === "provisional" && autoAcceptAdditiveRecheck(fam)) {
+      if (dtNode === fam) renderLlmCheck(fam);
+      return;
+    }
     if (entry.status === "provisional") return renderFamilyDiscrepancy(el, fam, entry);
     // In practice familyCheckTarget (above) always hands checkFamily SOME
     // wp guess (a bare sibling generation's article, or a plain "make
@@ -1840,6 +1846,26 @@ window.CarWeb = (function () {
   // appended to nodes/links, so the simplest correct response is to
   // recompute every index from scratch rather than trying to patch them
   // incrementally — this is a rare, deliberate user action, not a hot path.
+  // Real user request: "If the llm looks at a nameplate and finds from the
+  // wikipedia that there are more generations than currently listed, then
+  // automatically accept those changes and do not need to ask for my manual
+  // approval." Goes through the same confirm path a click would, so the
+  // indexes, the simulation and the "Applied" state are all handled the one
+  // way. Returns whether it applied. A diff that also drops a generation is
+  // left alone -- that is not "more generations than currently listed", and
+  // retiring one deserves a human.
+  function autoAcceptAdditiveRecheck(fam) {
+    if (!window.LlmFamilies || !window.LlmFamilies.additiveRecheck) return false;
+    let verdict = null;
+    try { verdict = window.LlmFamilies.additiveRecheck(fam.id, currentGenNodes(fam), nodes); }
+    catch (e) { return false; }
+    if (!verdict) return false;
+    applyFamilyOverrideConfirm(fam);
+    console.info(`[carweb] ${fam.make ? fam.make + " " : ""}${fam.label}: Wikipedia lists ` +
+                 `${verdict.now} generations where this had ${verdict.had} — applied without asking ` +
+                 `(added ${verdict.added.join(", ")})`);
+    return true;
+  }
   function applyFamilyOverrideConfirm(fam) {
     window.LlmFamilies.applyFamilyOverride(fam.id, nodes, links);
     // Real gap found while adding multi-relation support: applyFamilyOverride
@@ -6560,6 +6586,21 @@ window.CarWeb = (function () {
           console.info(`[carweb] dropped ${r.dropped.length} substring/cross-company proposal(s):`,
                        r.dropped.map(d => `${d.a} <-> ${d.b}`));
         }
+      }
+      // Any additive cross-check that was stored but never applied -- a
+      // session that ran the check with the panel open and then closed the
+      // tab, or one from before this rule existed. Same verdict, same confirm
+      // path; idempotent, because applying flips the entry to "applied" and
+      // additiveRecheck only ever looks at "provisional" ones.
+      if (window.LlmFamilies && window.LlmFamilies.allRecheckEntries) {
+        try {
+          window.LlmFamilies.allRecheckEntries()
+            .filter(e => e.status === "provisional")
+            .forEach(e => {
+              const fam = byId.get(e.id);
+              if (fam && fam.type === "family") autoAcceptAdditiveRecheck(fam);
+            });
+        } catch (e) { console.warn("CarWeb: could not apply pending cross-checks", e); }
       }
       // Stand-in orphans, cleared automatically. Has to run HERE, after every
       // overlay pass above has minted whatever it mints: "not in the graph"
