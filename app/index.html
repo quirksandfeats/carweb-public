@@ -614,15 +614,9 @@
 
 <footer id="colophon">
   <span>Data: <a href="https://www.dbpedia.org" target="_blank" rel="noopener">DBpedia</a> + <a href="https://en.wikipedia.org" target="_blank" rel="noopener">Wikipedia</a>, engineers layer hand-verified, 🤖 marks a credit read by the local model · images fetched live from Wikimedia Commons · built with D3 · this graph is licensed <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a> · <a href="https://github.com/quirksandfeats/carweb-public" target="_blank" rel="noopener">source</a></span>
-  <span id="datastatus" title="live data status"></span>
+  <span id="datastatus"></span>
   <span id="counts"></span>
 </footer>
-
-<div id="livetoast" hidden>
-  <span id="livetoast-msg"></span>
-  <button id="livetoast-apply">Apply</button>
-  <button id="livetoast-dismiss">✕</button>
-</div>
 
 <script src="d3.min.js"></script>
 <script src="data.js"></script>
@@ -658,38 +652,6 @@
   })();
 </script>
 <script src="llm_families.js"></script>
-<script src="live_layer_data.js"></script>
-<script>
-  // The DBpedia live layer, seeded exactly like LLM_FAMILIES just above and
-  // for the same reasons: synchronous so data_live.js can splice it before
-  // app.js builds its indexes, serve.py first (live and writable), the
-  // `<script>` mirror second (read-only, but it is how these cars reach a
-  // file:// reader and the hosted build once it is committed).
-  //
-  // Real user request: "I want that whenever there is a new change in dbpedia,
-  // that the change gets added to my dataset as well, and without needing to
-  // do a full rebuild but to simply add the missing data where it's missing."
-  // Before this the findings only ever reached localStorage -- one browser,
-  // one device, gone with the site data.
-  (function () {
-    try {
-      var xhr = new XMLHttpRequest();
-      xhr.open("GET", "/api/live-layer", false);
-      xhr.send(null);
-      if (xhr.status === 200) {
-        var data = JSON.parse(xhr.responseText);
-        data.__serverAvailable = true;
-        window.LIVE_LAYER = data;
-        return;
-      }
-    } catch (e) { /* file://, or no serve.py -- fall through to the static mirror */ }
-    window.LIVE_LAYER = Object.assign(
-      { newNodes: [], newLinks: [], updates: {} },
-      window.LIVE_LAYER_STATIC, { __serverAvailable: false }
-    );
-  })();
-</script>
-<script src="data_live.js"></script>
 <script src="app.js"></script>
 <script src="timeline.js"></script>
 <script src="sixdeg.js"></script>

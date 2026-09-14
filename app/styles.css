@@ -756,18 +756,6 @@ main{flex:1; position:relative; min-height:0}
 
 /* ---------- live data ---------- */
 #datastatus{white-space:nowrap}
-#livetoast[hidden]{display:none}
-#livetoast{
-  position:fixed; bottom:52px; left:50%; transform:translateX(-50%); z-index:80;
-  display:flex; gap:12px; align-items:center; background:var(--ink); color:var(--paper);
-  padding:11px 16px; border-radius:8px; box-shadow:6px 6px 0 rgba(23,20,15,.2); font-size:12.5px;
-}
-#livetoast button{
-  font-family:var(--sans); font-size:12px; font-weight:600; border:0; border-radius:5px;
-  padding:6px 12px; cursor:pointer; background:var(--accent); color:#fff;
-}
-#livetoast #livetoast-dismiss{background:transparent; color:var(--muted); padding:6px 4px}
-
 /* Real user request: "all of the buttons... fit on a standard laptop
    screen, but only once the window gets smaller, that it can be scrollable
    left to right." Every topbar item's base size (above) is already the
@@ -1081,14 +1069,4 @@ main{flex:1; position:relative; min-height:0}
   }
   #colophon > span{max-width:100%}
   #counts{order:-1; color:var(--ink2); font-weight:600}
-
-  /* A centred auto-width toast is wider than the screen and loses its own
-     buttons off the edges. Full-width, sitting directly on the footer. */
-  #livetoast{
-    left:8px; right:8px; bottom:8px; transform:none;
-    flex-wrap:wrap; gap:8px; padding:10px 12px; font-size:12px;
-  }
-  #livetoast-msg{flex:1 1 100%}
-  #livetoast button{padding:7px 14px}
-  #livetoast #livetoast-dismiss{margin-left:auto}
 }

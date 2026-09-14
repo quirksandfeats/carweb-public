@@ -106,26 +106,6 @@ LLM_FAMILIES_DATA_JS_PATH = os.path.join(DIR, "llm_families_data.js")
 # full story on what this file is and why it exists. Same directory and
 # same read/write-lock pattern as llm_families.json just above.
 DB_MATCH_OVERRIDES_PATH = os.path.join(DIR, "db_match_overrides.json")
-# The DBpedia live layer. Real user request: "I want that whenever there is a
-# new change in dbpedia, that the change gets added to my dataset as well, and
-# without needing to do a full rebuild but to simply add the missing data where
-# it's missing."
-#
-# data_live.js has always found those changes; it just had nowhere durable to
-# put them. It kept them in the browser's localStorage, which meant they lived
-# in one browser on one device, never reached the repo, and were lost the
-# moment site data was cleared.
-#
-# So they get a file, on exactly the same terms as llm_families.json: an
-# OVERLAY replayed over the baked data at boot, never a rewrite of cars.json.
-# That is what makes it safe -- data_src/rebuild.sh regenerates cars.json from
-# a fresh harvest through the curated pipeline and cannot clobber this, and
-# this cannot corrupt the bake. A later rebuild absorbs these cars properly
-# (through merge_harvest.py and build_data.py, with the make aliasing and junk
-# filtering the live merge does not have), after which the overlay's own
-# pruning drops whatever is now redundant.
-LIVE_LAYER_PATH = os.path.join(DIR, "live_layer.json")
-LIVE_LAYER_DATA_JS_PATH = os.path.join(DIR, "live_layer_data.js")
 
 # ---------- llama-server lifecycle (start/stop the local process) ----------
 # ---- THE one place to change/select the model (nothing else in this
@@ -330,11 +310,11 @@ LLAMA_CACHE_DIR = os.environ.get("LLAMA_CACHE", os.path.join(DIR, "..", "llama_m
 # Real user request: a button that rebuilds data.js from scratch, so the
 # snapshot date becomes today rather than whenever the file was last baked.
 #
-# This is NOT the same thing as the live DBpedia refresh in data_live.js.
-# That one patches newly-discovered cars into the graph in the browser and
-# leaves data.js alone -- which is exactly why its "built <date>" label never
-# moved. Re-stamping that date means genuinely re-running the harvest and
-# re-baking the file, which is what data_src/rebuild.sh already does.
+# This is now the ONLY way new DBpedia data enters the graph. There used to be
+# a live refresh in the browser that patched newly-discovered cars in and left
+# data.js alone -- which is why its "built <date>" label never moved. It was
+# removed: a second write path that had to reconcile against the bake, the LLM
+# overlay and hand edits forever, to find what a rebuild finds anyway.
 #
 # It takes minutes and needs the internet, so it can't be a plain blocking
 # request: the browser would time out long before it finished. Started in a
@@ -702,49 +682,6 @@ def write_db_match_overrides(data):
         os.replace(tmp, DB_MATCH_OVERRIDES_PATH)
 
 
-# Same race-guard reasoning as _llm_families_lock, for the live layer.
-_live_layer_lock = threading.Lock()
-LIVE_LAYER_EMPTY = {"newNodes": [], "newLinks": [], "updates": {}}
-
-
-def read_live_layer():
-    with _live_layer_lock:
-        if not os.path.exists(LIVE_LAYER_PATH):
-            return dict(LIVE_LAYER_EMPTY)
-        try:
-            with open(LIVE_LAYER_PATH, "r", encoding="utf-8") as f:
-                data = json.load(f)
-            if not isinstance(data, dict):
-                return dict(LIVE_LAYER_EMPTY)
-            for k, v in LIVE_LAYER_EMPTY.items():
-                data.setdefault(k, type(v)())
-            return data
-        except (json.JSONDecodeError, OSError):
-            return dict(LIVE_LAYER_EMPTY)
-
-
-def write_live_layer(data):
-    with _live_layer_lock:
-        tmp = LIVE_LAYER_PATH + ".tmp"
-        with open(tmp, "w", encoding="utf-8") as f:
-            # sort_keys, and data_live.js sorts the arrays before sending: this
-            # file is committed, and two machines both refreshing produce a git
-            # conflict in it. In discovery order every line looks moved and the
-            # conflict cannot be read; in a fixed order the diff is the cars
-            # that genuinely differ.
-            json.dump(data, f, ensure_ascii=False, indent=1, sort_keys=True)
-        os.replace(tmp, LIVE_LAYER_PATH)
-        # The `<script>`-loadable mirror, for the same reason llm_families_data.js
-        # exists: a double-clicked index.html cannot fetch() local JSON, and the
-        # hosted build has no serve.py to fetch it from either -- so this file is
-        # how these cars reach every other reader once it is committed.
-        js_tmp = LIVE_LAYER_DATA_JS_PATH + ".tmp"
-        with open(js_tmp, "w", encoding="utf-8") as f:
-            f.write("window.LIVE_LAYER_STATIC = " +
-                    json.dumps(data, ensure_ascii=False, sort_keys=True) + ";\n")
-        os.replace(js_tmp, LIVE_LAYER_DATA_JS_PATH)
-
-
 class Handler(http.server.SimpleHTTPRequestHandler):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, directory=DIR, **kwargs)
@@ -790,8 +727,6 @@ class Handler(http.server.SimpleHTTPRequestHandler):
             payload["__config"] = {"cascadeMaxDepth": CASCADE_MAX_DEPTH,
                                    "transitiveMaxHops": TRANSITIVE_MAX_HOPS}
             return self._json(200, payload)
-        if self.path == "/api/live-layer":
-            return self._json(200, read_live_layer())
         if self.path == "/api/db-match-overrides":
             return self._json(200, read_db_match_overrides())
         if self.path == "/api/rebuild":
@@ -829,21 +764,6 @@ class Handler(http.server.SimpleHTTPRequestHandler):
             if not isinstance(data, dict) or "families" not in data:
                 return self._json(400, {"error": "expected {\"families\": {...}}"})
             write_llm_families(data)
-            return self._json(200, {"ok": True})
-
-        if self.path == "/api/live-layer":
-            # data_live.js POSTs the FULL layer every time -- read-modify-write
-            # on the client, the same contract /api/llm-families uses, for the
-            # same reason: one writer, no merge logic duplicated server-side.
-            length = int(self.headers.get("Content-Length", 0))
-            try:
-                data = json.loads(self.rfile.read(length) or b"{}")
-            except json.JSONDecodeError:
-                return self._json(400, {"error": "invalid JSON body"})
-            if not isinstance(data, dict) or not isinstance(data.get("newLinks"), list) \
-                    or not isinstance(data.get("newNodes"), list):
-                return self._json(400, {"error": "expected {\"newNodes\": [...], \"newLinks\": [...]}"})
-            write_live_layer(data)
             return self._json(200, {"ok": True})
 
         if self.path == "/api/db-match-overrides":
@@ -1133,9 +1053,6 @@ def _handle_sigterm(signum, frame):
 
 def main():
     port = int(sys.argv[1]) if len(sys.argv) > 1 else 8077
-    # Same as llm_families just below: make sure the mirror exists and matches,
-    # so a file:// reader and the hosted build see what this session has.
-    write_live_layer(read_live_layer())
     if not os.path.exists(LLM_FAMILIES_PATH):
         write_llm_families({"families": {}})
     else:

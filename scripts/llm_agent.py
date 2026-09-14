@@ -98,12 +98,7 @@ TOKEN = read_token()
 # Files the pass can touch. llm_families_data.js is the <script>-loadable
 # mirror serve.py regenerates on every write, so it moves with the JSON and
 # has to be committed alongside it or a plain file:// open goes stale.
-# app/live_layer.json is the DBpedia live layer (see app/data_live.js). A
-# refresh writes it through serve.py, and without it in this list a scan's push
-# would leave it sitting uncommitted -- the findings on disk but not published,
-# which is the same "I applied it and nothing happened" it was built to end.
-TRACKED = ["app/llm_families.json", "app/llm_families_data.js",
-           "app/live_layer.json", "app/live_layer_data.js"]
+TRACKED = ["app/llm_families.json", "app/llm_families_data.js"]
 
 
 def name_list(label, ids, limit=5):

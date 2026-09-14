@@ -2005,43 +2005,24 @@ window.CarWeb = (function () {
     if (unwired) console.warn(`CarWeb: skipped ${unwired} link(s) with an unresolvable endpoint while splicing in a live change`);
     return unwired;
   }
-  // The live layer's patches and deferred links, re-run after the graph has
-  // gained cars mid-session. data_live.js cannot place anything aimed at a car
-  // the local model creates during a scan -- that car did not exist when it
-  // ran, and did not exist at boot either. Idempotent, so this only ever adds.
-  function reapplyLiveLayer() {
-    if (!window.CarWebLive || !window.CarWebLive.applyToOverlay) return;
+  // The footer's data line. The DBpedia live layer used to own this element
+  // and wrote its own status into it; with the layer gone, the only thing
+  // worth saying here is which bake the page is showing -- and that matters,
+  // because initAutoRefresh reloads the page when a new one lands.
+  function setDataStatus() {
+    const el = document.getElementById("datastatus");
+    if (!el || !DATA.meta) return;
+    el.textContent = "snapshot \u00b7 built " + DATA.meta.generated;
+    el.title = "the build this page was generated from";
+  }
+  // The live layer kept its findings in localStorage between reloads. Nothing
+  // reads them now, so give the quota back rather than leaving two dead keys
+  // in every browser that ever ran a refresh.
+  function dropLiveLayerStorage() {
     try {
-      // applyToOverlay does two different things: it fills empty fields on
-      // cars that are already in the graph (harmless), and it PUSHES the
-      // deferred connections onto the links array. That second half is a
-      // structural change, and it has to go through the same wiring every
-      // other live mutation does.
-      //
-      // Real user report -- "the graph no longer responds whatsoever, almost
-      // as if the entire program bricked itself... absolutely nothing
-      // happens other than the card for the car showing up". Exactly that:
-      // a pushed link arrives with its endpoints as id STRINGS and no
-      // sn/tn, because nothing indexed it. d3's link force resolves ids to
-      // node objects once, at initialize, so a link pushed afterwards is
-      // still a string when the next tick tries to write velocity to it:
-      //   TypeError: Cannot create property 'vx' on string 'm-...'
-      // thrown inside sim.tick(), every frame, forever. The render loop
-      // catches it and skips the frame, so the canvas freezes silently --
-      // while the detail card, which is plain DOM, keeps working. Hence
-      // "only the card shows up".
-      //
-      // It needed a delta holding a deferred connection to show, i.e. one
-      // whose far end is a car the local model made, which is why it only
-      // appeared after an Apply.
-      const nodesBefore = nodes.length, linksBefore = links.length;
-      if (!window.CarWebLive.applyToOverlay()) return;
-      if (nodes.length !== nodesBefore || links.length !== linksBefore) {
-        spliceIntoIndexes(nodesBefore, linksBefore);
-        buildSim();   // the arrays changed shape -- the forces must see them
-      }
-      refreshYearFilter(); Graph.touch();
-    } catch (e) { console.warn("CarWeb: live-layer patches could not be applied", e); }
+      localStorage.removeItem("carweb_live_snapshot_v1");
+      localStorage.removeItem("carweb_live_checked_v1");
+    } catch (e) { /* private window, or storage blocked -- nothing to clean up */ }
   }
 
   function applyLlmConfirmSilent(n) {
@@ -2803,9 +2784,6 @@ window.CarWeb = (function () {
     if (links.length === linksBefore && nodes.length === nodesBefore) return; // nothing new -- skip the rest of the refresh work
     spliceIntoIndexes(nodesBefore, linksBefore);
     if (nodes.length !== nodesBefore) buildSim(); // new node(s) -- sim must be reinitialized over the larger arrays
-    // A car that has just come into existence may be the missing endpoint for
-    // something DBpedia told us about. See reapplyLiveLayer.
-    reapplyLiveLayer();
     refreshYearFilter();
     indexMirrorReplacements();
     Graph.refreshFocus();
@@ -5218,11 +5196,12 @@ window.CarWeb = (function () {
   let sim;
   function buildSim() {
     nodes.forEach(seedNewNode);
-    // Second line of defence for the freeze described in reapplyLiveLayer.
     // d3's link force resolves every endpoint up front and THROWS on one it
     // cannot find, which unwinds out of here and leaves no usable simulation
     // at all -- one malformed entry anywhere in the array and the canvas is
-    // dead. Drop those instead, and say so.
+    // dead, silently, because the render loop catches its own exceptions and
+    // just skips the frame. That is how a single bad connection from the old
+    // DBpedia live layer froze the whole graph. Drop those instead, and say so.
     const unresolvable = [];
     for (let i = links.length - 1; i >= 0; i--) {
       const l = links[i];
@@ -6539,14 +6518,8 @@ window.CarWeb = (function () {
       initLlmRequest();
       initAutoRefresh();
       restoreViewState();
-      // The live layer's field patches, a second time, now that the LLM layer
-      // and hand-added cars are actually in the graph. data_live.js runs
-      // before this file, so a patch aimed at a car the local model created
-      // could not possibly land on its first attempt -- the car did not exist
-      // yet. Idempotent (every branch fills an empty field only), so this can
-      // only add. See data_live.js's applyPatches.
-      reapplyLiveLayer();
-      if (window.CarWebLive) CarWebLive.start();
+      setDataStatus();
+      dropLiveLayerStorage();
     },
     sim: () => sim,
     graphFocusSet: () => Graph.state().focusSet,

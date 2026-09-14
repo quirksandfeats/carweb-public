@@ -29,32 +29,41 @@ Want the LLM generation-check feature (below)? Run `python3 app/serve.py`
 instead and open `http://localhost:8077/index.html` — everything else works
 identically either way.
 
-## Live data (new)
+## Live data (removed)
 
-The app boots instantly from its local snapshot, then — on every page load —
-queries the **DBpedia SPARQL API** (plus the live Wikipedia category API for the
-newest model years) directly from your browser. If anything new is found you get
-a one-click **Apply** toast; the status chip in the footer shows the data state
-(click it to force a refresh). Offline? You just keep the last snapshot.
+There used to be a browser-side live refresh: every page load queried the
+DBpedia SPARQL API and the Wikipedia category API directly, offered a one-click
+**Apply** toast for anything new, and kept the delta in `localStorage` — later
+in a committed overlay file replayed over the bake, so the findings reached the
+repo instead of dying with one browser's site data.
 
-`app/data_live.js` persists what it finds to `localStorage` so the next boot
-starts from it without re-querying — but only the **delta** (the brand-new
-nodes/links, plus a small `{end year, designers}` patch map for existing
-nodes), never the whole multi-MB dataset. That distinction mattered in
-practice: an earlier version persisted the *entire* merged snapshot on every
-refresh, which silently exceeded Safari's (much tighter than Chrome's)
-localStorage quota — the write just failed there, so the cache never actually
-stuck and the same "diff" kept reappearing on every load. It also had no way
-to re-apply a field-level update (like a newly-discovered production-end
-year) onto a node that already existed, so even on Chrome an "N updated"
-count never resolved to 0. The delta is tens of KB, comfortably inside every
-browser's quota, and the boot-time splice now applies its patch map to
-matching existing nodes — see `jsdom_live_splice_test.js` for the full
-regression coverage of both fixes.
+It is gone. Not because it did not work — it did — but because it was a second
+write path into the graph, and a second write path has to reconcile against
+everything the first one already owns: the bake, the LLM overlay's splits and
+merges, deletions and renames, and hand-added cars. Each of those produced its
+own bug. A nameplate's end year corrupted by a `MIN` where the harvest uses
+`MAX`. Two nodes claiming the same Wikipedia article. Merges and deletions
+quietly undone on the next boot. A refresh loop where the count swung between
+two values forever, because d3's force simulation rewrites link endpoints in
+place and the saved delta was holding those very objects. And finally a frozen
+canvas: a deferred connection pushed onto the links array without being
+indexed, so `sim.tick()` threw on every frame — "the graph no longer responds
+whatsoever, almost as if the entire program bricked itself".
 
-The hand-curated layers (chief engineers, platform groups, the verified core) are
-never touched by a live refresh — DBpedia has no chief-engineer data at all, which
-is why that layer is compiled and verified by hand.
+All of that to find what `data_src/rebuild.sh` finds anyway, through the
+curated pipeline, with the make aliasing and junk filtering the live merge
+never had. So the rebuild is now the only way new DBpedia data enters the
+graph: run it when you want fresher data, and `initAutoRefresh` (in
+`app/app.js`) reloads any open page once the new `data.js` lands. The footer
+says which bake you are looking at.
+
+Removed with it: the refresh layer script and its overlay file (plus the
+`<script>` mirror), serve.py's live-layer endpoint, the Apply toast, and the
+five jsdom tests that existed only to cover this layer. The history is in git.
+
+The hand-curated layers (chief engineers, platform groups, the verified core) were
+never touched by a live refresh anyway — DBpedia has no chief-engineer data at all,
+which is why that layer is compiled and verified by hand.
 
 ## The people layer toggle (new)
 
@@ -1571,8 +1580,6 @@ never get crowded out as more toggles/buttons land in the top bar over time.
   fallback; re-running `bash data_src/rebuild.sh --no-harvest` picks up the
   fix without a fresh network harvest.
 - `app/cars.json` / `app/data.js` — the canonical snapshot (with baked layout).
-- `app/data_live.js` — the live DBpedia/Wikipedia refresh layer (see "Live
-  data" above for its delta-based localStorage persistence).
 - `app/db_photos/` — thumbnail photos (~480px wide) copied in from the Car Database
   by the My Database build step; referenced by relative path so `file://` can load them.
 - `app/db_pages/` — auto-generated magazine-style HTML overview pages: one per
@@ -1673,13 +1680,12 @@ mirror links. (The key separator is a literal `|`: node ids are slugs, so it
 can't appear inside one and collapse two distinct pairs.)
 
 `qa/jsdom/` holds a growing suite of headless jsdom regression tests
-(`jsdom_*_test.js`, 77 files as of this writing) covering every feature above
+(`jsdom_*_test.js`, 95 files as of this writing) covering every feature above
 end-to-end without needing a real browser — boots the real `app.js` +
-`llm_families.js` + `data_live.js` against a stubbed DOM/localStorage/fetch
+`llm_families.js` against a stubbed DOM/localStorage/fetch
 and asserts on real app state. See each file's header comment for exactly
 what it guards against (several exist specifically to pin down a bug that
-actually shipped once — e.g. `jsdom_live_splice_test.js` for the Safari/
-Chrome live-refresh recurrence, `jsdom_family_link_precedence_test.js` for
+actually shipped once — e.g. `jsdom_family_link_precedence_test.js` for
 designer/engineer link duplication on expand, `jsdom_fact_backfill_test.js`
 for the year/bio "big attempt" backfill on a newly-minted car or person —
 see "LLM generation check" above). The four newest:
@@ -1809,6 +1815,6 @@ relative to its own location, so they run from anywhere:
 ```
 cd qa/jsdom
 npm install jsdom --no-save   # only if node_modules/jsdom isn't already here (it's vendored in)
-node jsdom_live_splice_test.js        # run one
+node jsdom_phone_nav_test.js         # run one
 for f in jsdom_*_test.js; do node "$f" || echo "FAILED: $f"; done   # run all
 ```
