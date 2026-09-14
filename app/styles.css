@@ -230,7 +230,22 @@ main{flex:1; position:relative; min-height:0}
 #detail-close{position:absolute; top:10px; right:10px; border:0; background:none; font-size:14px; cursor:pointer; color:var(--muted)}
 .dt-kicker{font-size:10px; letter-spacing:.16em; text-transform:uppercase; color:var(--accent); font-weight:600}
 .dt-title{font-family:var(--serif); font-size:25px; font-weight:600; line-height:1.08; margin:4px 0 10px}
-.dt-imgwrap{margin:0 -18px; height:150px; background-size:cover; background-position:center; display:none}
+/* Real user report: "the size of the thumbnail picture within the card
+   information always seems cut off rather than being a regular, more
+   standardized size and view of the thumbnail."
+
+   It was a fixed 150px-tall band filled with background-size:cover, so every
+   photo was cropped to whatever 150px of it happened to fit -- and since
+   these come straight off Wikimedia Commons at wildly different aspect
+   ratios, that landed anywhere from a whole car to a close-up of one wheel
+   arch. `contain` in a fixed 16:9 frame instead: the box is always the same
+   shape and size, and the whole photo is always inside it, letterboxed
+   against the card's own paper rather than cropped. */
+.dt-imgwrap{
+  margin:0 -18px; aspect-ratio:16/9; display:none;
+  background-size:contain; background-position:center; background-repeat:no-repeat;
+  background-color:var(--paper2); border-block:1px solid var(--hairline);
+}
 .dt-imgwrap.show{display:block}
 .dt-meta{font-size:12.5px; color:var(--ink2); line-height:1.5; margin-top:10px}
 .dt-extract{font-size:12.5px; line-height:1.55; margin-top:10px; color:var(--ink2)}
@@ -907,15 +922,25 @@ main{flex:1; position:relative; min-height:0}
      content, and the camera reads the sheet's real height (panelReserveY), so
      a shorter card also means the car you just opened is centred in more of
      the screen rather than less. */
+  /* 68% was too much -- the card was half the screen. 30% was too little:
+     "currently the web viewer is far too little space for the info card for
+     the car", and the screenshot showed it cut off mid-sentence, one line
+     into the description. 45% is the middle that actually works: the photo,
+     the maker line, the credits and a few lines of text without scrolling,
+     and the graph still owns the larger half of the screen. The camera reads
+     the sheet's real height (panelReserveY), so it re-centres to match
+     whatever this is. */
   #detail{
     top:auto; left:0; right:0; bottom:0; width:auto;
-    max-height:30%; padding:12px 14px 16px;
+    max-height:45%; padding:12px 14px 16px;
     border-left:0; border-right:0; border-bottom:0;
     border-radius:14px 14px 0 0;
     box-shadow:0 -6px 22px rgba(23,20,15,.18);
   }
-  .dt-imgwrap{margin:0 -14px; height:72px}
-  .dt-title{font-size:18px}
+  /* Same 16:9 frame as everywhere else, but capped so that on a short phone
+     the photo cannot take the whole card and leave no room for the words. */
+  .dt-imgwrap{margin:0 -14px; max-height:26vh}
+  .dt-title{font-size:19px}
   .dt-kicker{font-size:9.5px}
   #detail-close{top:6px; right:8px; font-size:16px; padding:5px 9px}
 

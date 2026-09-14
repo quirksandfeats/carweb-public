@@ -681,6 +681,58 @@ window.CarWeb = (function () {
   // stays under the simulation's control while its generations do not, so the
   // first reheat after expanding drags the centre out from inside its own
   // ring.
+  // Which way round should the ring face? Real user request: "try your best
+  // to have as little crossover of edges as possible, to make the entire
+  // graph seem more cleaned up... right now the jumble of edges looks like
+  // they're crossing over each other more than they necessarily need to."
+  //
+  // The order around the ring is fixed -- oldest to newest, that is what makes
+  // the succession chain readable -- but the ORIENTATION is free, and it is
+  // most of the mess. A generation whose platform siblings all sit to the
+  // south-west, placed on the north-east of the ring, drags its edges right
+  // across the whole bubble and through everyone else's.
+  //
+  // So the whole ring is rotated as one piece, keeping the order, to whichever
+  // angle puts each generation closest to the cars it actually connects to.
+  // Shorter external edges is a good proxy for fewer crossings and a much
+  // cheaper thing to compute than crossings themselves: two edges that barely
+  // leave their endpoints have little opportunity to cross anything.
+  //
+  // Squared distance rather than distance, deliberately: it punishes the one
+  // generation dragged right across the graph far harder than it rewards
+  // shaving a few pixels off several short edges, and that long edge is what
+  // actually crosses things.
+  const RING_ROTATIONS = 24;
+  function bestRingRotation(fam, gens, step, R) {
+    // Where each generation's own outside connections are, relative to the
+    // nameplate. Anything inside the family (its own generations, the
+    // nameplate) is skipped: those edges are the ring's own and are drawn as
+    // arcs along it, so they cannot be improved by turning it.
+    const own = new Set(gens.map(g => g.id));
+    own.add(fam.id);
+    const partners = gens.map(g => (adj.get(g.id) || [])
+      .map(({ n }) => n)
+      .filter(n => n && !own.has(n.id) && Number.isFinite(n.x) && Number.isFinite(n.y))
+      .map(n => ({ x: n.x - fam.x, y: n.y - fam.y })));
+    if (!partners.some(list => list.length)) return null;   // nothing outside to face; keep the default
+    let best = null, bestCost = Infinity;
+    for (let t = 0; t < RING_ROTATIONS; t++) {
+      const rot = (t / RING_ROTATIONS) * Math.PI * 2;
+      let cost = 0;
+      for (let i = 0; i < gens.length; i++) {
+        if (!partners[i].length) continue;
+        const a = rot + i * step;
+        const gx = Math.cos(a) * R, gy = Math.sin(a) * R;
+        for (const p of partners[i]) {
+          const dx = gx - p.x, dy = gy - p.y;
+          cost += dx * dx + dy * dy;
+        }
+      }
+      if (cost < bestCost) { bestCost = cost; best = rot; }
+    }
+    return best;
+  }
+
   function layoutGenerationsRadial(fam) {
     const gens = (fam.generations || []).map(id => byId.get(id)).filter(Boolean);
     if (!gens.length) return;
@@ -693,9 +745,14 @@ window.CarWeb = (function () {
     const slots = ringSlots(gens.length);
     const step = (Math.PI * 2) / slots;
     const R = ringRadius(gens.length);
-    const start = -Math.PI / 2 - ((gens.length - 1) * step) / 2;
+    // The fallback when there is nothing outside to face: the arc centred on
+    // straight up, so the oldest generation starts on the left and the newest
+    // ends on the right.
+    const plain = -Math.PI / 2 - ((gens.length - 1) * step) / 2;
+    const start = bestRingRotation(fam, gens, step, R);
+    const base = start == null ? plain : start;
     gens.forEach((g, i) => {
-      const a = start + i * step;
+      const a = base + i * step;
       g.x = g.fx = fam.x + Math.cos(a) * R;
       g.y = g.fy = fam.y + Math.sin(a) * R;
     });
@@ -746,19 +803,60 @@ window.CarWeb = (function () {
     });
   }
   // The same rule as a force, so a reheat cannot walk anything back inside.
-  function ringClearanceForce(alpha) {
+  //
+  // Real bug report, with a screenshot: "it still seems to have some cars that
+  // are within the concentric circle, especially when there are so many cars
+  // that are associated with a particular nameplate." Exactly the case that
+  // breaks a polite version of this. The first attempt nudged velocities, and
+  // it was in a tug of war it could not win: every platform sibling is joined
+  // to the nameplate by a link the layout wants to be 46px long, and the
+  // clearance circle round a seven-generation ring is 125px. The link force
+  // pulls inward on every tick, this pushed outward on every tick, and they
+  // settled somewhere in between -- inside the bubble. More siblings, more
+  // inward pull, which is why the crowded nameplates looked worst.
+  //
+  // So it does not negotiate. A node inside the circle is placed ON it, and
+  // the part of its velocity heading further in is dropped so it does not
+  // simply dive back next tick. Same shape as d3's own collision force, which
+  // moves nodes rather than asking them: an overlap is not a preference to be
+  // weighed against other preferences, and neither is this.
+  function ringClearanceForce() {
     if (!expandedFamilies.size) return;
     eachRing(ring => {
       nodes.forEach(n => {
         if (n === ring.fam || ring.gens.has(n.id)) return;
+        // Pinned: it belongs to some other ring, which has its own claim on
+        // where it is. Two overlapping rings is a layout problem, not a
+        // licence to drag someone else's generations around.
         if (n.fx != null || n.fy != null) return;
         if (!Number.isFinite(n.x) || !Number.isFinite(n.y)) return;
-        const dx = n.x - ring.x, dy = n.y - ring.y;
-        const d = Math.hypot(dx, dy);
-        if (d >= ring.clear || d < 0.001) return;
-        const push = (ring.clear - d) * alpha * 0.8;
-        n.vx += (dx / d) * push;
-        n.vy += (dy / d) * push;
+        let dx = n.x - ring.x, dy = n.y - ring.y;
+        let d = Math.hypot(dx, dy);
+        // Where this node is about to BE, not where it is. d3 runs every
+        // force first and only then moves each node by its velocity, so a
+        // clamp that only looks at the current position is always one step
+        // behind: a node sitting just outside with a strong pull inward is
+        // untouched here and is then carried straight through the rim by the
+        // integration step, which is how cars kept turning up a few pixels
+        // inside the bubble even with a hard clamp. Predicting with the full
+        // velocity (d3 damps it before applying) over-estimates the step
+        // slightly, which errs on the side of keeping the bubble clean.
+        const vx = n.vx || 0, vy = n.vy || 0;
+        const ndx = dx + vx, ndy = dy + vy;
+        if (d >= ring.clear && Math.hypot(ndx, ndy) >= ring.clear) return;
+        if (d < 0.001) {   // exactly on the centre: pick a direction rather than dividing by zero
+          const a = Math.random() * Math.PI * 2;
+          dx = Math.cos(a); dy = Math.sin(a); d = 1;
+        }
+        const ux = dx / d, uy = dy / d;
+        if (d < ring.clear) {
+          n.x = ring.x + ux * ring.clear;
+          n.y = ring.y + uy * ring.clear;
+        }
+        // Drop the inward part of the velocity; keep whatever is tangential,
+        // so a node slides around the rim instead of juddering against it.
+        const inward = vx * ux + vy * uy;
+        if (inward < 0) { n.vx = vx - inward * ux; n.vy = vy - inward * uy; }
       });
     });
   }
@@ -5862,6 +5960,11 @@ window.CarWeb = (function () {
       // around it, a straight line) is to ask for a frame and record what the
       // canvas context was told to do.
       drawNow() { draw(); },
+      // Advance the simulation by hand. Exposed for the regression suite: a
+      // headless test has no animation frames, so the render loop never ticks,
+      // and "does this still hold once the layout has been allowed to fight
+      // back" is only answerable by running the forces.
+      simTick(n) { for (let i = 0; i < (n || 1); i++) sim.tick(); dirty = true; },
     };
   })();
 
@@ -6121,6 +6224,11 @@ window.CarWeb = (function () {
     graphFocusSet: () => Graph.state().focusSet,
     graphCamera: () => Graph.camera(),
     graphDrawNow: () => Graph.drawNow(),
+    simTick: n => Graph.simTick(n),
+    // The same reinitialize-over-the-current-arrays call every live graph
+    // mutation already makes (see applyLlmConfirmSilent and friends). Exposed
+    // so a test can add a node or a link and have the forces actually see it.
+    rebuildSim: () => buildSim(),
     graphTransform: () => Graph.state().t,
   };
   return api;

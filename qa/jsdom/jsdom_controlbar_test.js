@@ -123,20 +123,41 @@ check("search still returns results from the new control-bar location", !results
   check("and so does Escape", blurred > before3, blurred);
 }
 
-// ---------- the card is a strip on a phone, not half the screen ----------
-// Real user report: "the title card seems to take up way too much space,
-// almost 50% of all screen real-estate. I want that it's taking even less
-// space, maybe about 20-30% of the screen."
+// ---------- how much of a phone screen the card gets ----------
+// Two reports, in opposite directions, and the cap has to sit between them.
+// First: "the title card seems to take up way too much space, almost 50% of
+// all screen real-estate" -- it was 68%. Then, at 30%: "currently the web
+// viewer is far too little space for the info card for the car", with a
+// screenshot of the description cut off one line in.
 {
   const css = fs.readFileSync(path.join(APP, "styles.css"), "utf-8");
   const phone = css.slice(css.indexOf("@media (max-width:720px)"));
   const detail = phone.slice(phone.indexOf("#detail{"), phone.indexOf("#detail-close"));
   const cap = /max-height:\s*(\d+)%/.exec(detail);
-  check("the phone detail sheet is capped in the 20-30% band the request asked for",
-        !!cap && +cap[1] >= 20 && +cap[1] <= 30, cap && cap[1] + "%");
-  const img = /\.dt-imgwrap\{[^}]*height:\s*(\d+)px/.exec(phone);
-  check("...and its photo is small enough to fit inside that", !!img && +img[1] <= 90,
-        img && img[1] + "px");
+  check("the phone card gets a useful amount of the screen without taking half of it",
+        !!cap && +cap[1] >= 38 && +cap[1] <= 50, cap && cap[1] + "%");
+}
+
+// ---------- the thumbnail is a standard frame, not a random crop ----------
+// Real user report: "the size of the thumbnail picture within the card
+// information always seems cut off rather than being a regular, more
+// standardized size and view of the thumbnail." These come off Wikimedia
+// Commons at every aspect ratio there is, so a fixed-height band filled with
+// `cover` cropped each one differently -- sometimes to a wheel arch.
+{
+  const css = fs.readFileSync(path.join(APP, "styles.css"), "utf-8");
+  const img = css.slice(css.indexOf(".dt-imgwrap{"), css.indexOf(".dt-imgwrap.show"));
+  check("the photo frame is a fixed aspect ratio, so every card's is the same shape",
+        /aspect-ratio:\s*16\s*\/\s*9/.test(img), img.replace(/\s+/g, " ").slice(0, 120));
+  check("...and the whole photo is shown inside it rather than cropped to fill it",
+        /background-size:\s*contain/.test(img) && !/background-size:\s*cover/.test(img));
+  check("...without tiling when it does not fill the frame",
+        /background-repeat:\s*no-repeat/.test(img));
+  check("...and no fixed pixel height is left to fight the ratio",
+        !/[^-]height:\s*\d+px/.test(img), img.replace(/\s+/g, " ").slice(0, 160));
+  const phoneImg = /\.dt-imgwrap\{([^}]*)\}/.exec(css.slice(css.indexOf("@media (max-width:720px)")));
+  check("on a phone it is capped so the photo cannot crowd out the words",
+        !!phoneImg && /max-height:/.test(phoneImg[1]), phoneImg && phoneImg[1].trim());
 }
 
 // ---------- 1880-floor data extension ----------

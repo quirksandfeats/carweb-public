@@ -279,6 +279,86 @@ function ringOf(fam) {
         made && made.map(o => o[0]).join(">"));
 }
 
+// ---------- and it holds through a reheat, not just at the moment of expanding ----------
+// Real bug report, with a screenshot: "it still seems to have some cars that
+// are within the concentric circle, especially when there are so many cars
+// that are associated with a particular nameplate."
+//
+// The first version of the clearance nudged velocities, and it was in a tug
+// of war it could not win: every platform sibling is joined to the nameplate
+// by a link the layout wants to be 46px long, while the clearance circle
+// round a seven-generation ring is 125px. Both forces ran on every tick and
+// they settled somewhere in between -- inside the bubble. More siblings meant
+// more inward pull, which is exactly why the crowded nameplates looked worst.
+//
+// So: give the intruder the strongest inward pull the app has, run the
+// simulation, and check it is still outside afterwards.
+{
+  const ring = cw.ringOf(five.id);
+  const intruder = cw.byId.get(INTRUDER);
+  // A platform link straight to the nameplate at the centre -- the 46px one.
+  cw.links.push({ source: INTRUDER, target: five.id, type: "platform",
+                  sn: intruder, tn: cw.byId.get(five.id) });
+  cw.rebuildSim();                                    // so the forces actually see that link
+  intruder.x = ring.x + 4; intruder.y = ring.y + 4;   // drop it right in the middle
+  intruder.vx = intruder.vy = 0;
+  cw.simTick(60);
+  const d = Math.hypot(intruder.x - ring.x, intruder.y - ring.y);
+  check("a car pulled hard toward the centre still ends up outside the bubble",
+        d >= ring.clear - 0.001, d.toFixed(1) + " vs clearance " + ring.clear.toFixed(1));
+  check("...and the nameplate has not been dragged off its own centre by the fight",
+        cw.byId.get(five.id).x === 400 && cw.byId.get(five.id).y === 250);
+  const stillIn = cw.nodes.filter(n => n !== ring.fam && !ring.gens.has(n.id) &&
+    Number.isFinite(n.x) && Math.hypot(n.x - ring.x, n.y - ring.y) < ring.clear - 0.001);
+  check("...and neither has anything else crept back in", stillIn.length === 0,
+        stillIn.slice(0, 4).map(n => n.id).join(", "));
+}
+
+// ---------- the ring faces the cars it connects to ----------
+// "try your best to have as little crossover of edges as possible... right now
+// the jumble of edges looks like they're crossing over each other more than
+// they necessarily need to."
+//
+// The ORDER around the ring is fixed (oldest to newest, which is what makes
+// the succession chain readable) but the orientation is free, and it is most
+// of the mess: a generation whose partners all sit west, placed on the east of
+// the ring, drags its edge straight across the bubble and through everyone
+// else's. The whole ring turns as one piece to the angle that puts each
+// generation nearest its own partners.
+{
+  const fam = cw.byId.get(two.id);
+  const gens = two.gens.map(id => cw.byId.get(id));
+  // Give the FIRST generation a partner far to the west. Turning the ring so
+  // that generation faces west is the only way to shorten that edge, and the
+  // order has to survive the turn.
+  const FAR = "m-test-rad-farwest";
+  DATA.nodes.push({ id: FAR, type: "model", label: "FarWest", make: "TestRadial", year: 1990, end: 2000 });
+  cw.nodes.push({ id: FAR, type: "model", label: "FarWest", make: "TestRadial",
+                  year: 1990, end: 2000, x: 400 - 900, y: 250, r: 4, deg: 1 });
+  const farNode = cw.nodes[cw.nodes.length - 1];
+  cw.byId.set(FAR, farNode);
+  cw.adj.set(FAR, []);
+  const link = { source: gens[0].id, target: FAR, type: "platform", sn: gens[0], tn: farNode };
+  cw.links.push(link);
+  cw.adj.get(gens[0].id).push({ n: farNode, l: link });
+  cw.adj.get(FAR).push({ n: gens[0], l: link });
+
+  cw.collapseFamily(two.id);
+  fam.x = 400; fam.y = 250;
+  cw.expandFamily(two.id);
+  const g0 = cw.byId.get(two.gens[0]), g1 = cw.byId.get(two.gens[1]);
+  check("the generation with a far-off partner is turned toward it",
+        g0.x < fam.x, "gen1 x " + g0.x.toFixed(1) + " vs centre " + fam.x);
+  check("...and it really is the nearer of the two to that partner",
+        Math.hypot(g0.x - farNode.x, g0.y - farNode.y) <
+        Math.hypot(g1.x - farNode.x, g1.y - farNode.y));
+  const r2 = cw.ringOf(two.id);
+  check("...without breaking the ring: both are still on it",
+        [g0, g1].every(g => Math.abs(Math.hypot(g.x - r2.x, g.y - r2.y) - r2.r) < 0.001));
+  check("...and still adjacent, so the succession chain still reads around the rim",
+        Math.hypot(g1.x - g0.x, g1.y - g0.y) < r2.r * 2 - 0.001);
+}
+
 // ---------- the succession lines still exist and still draw ----------
 {
   const links = cw.links.filter(l => l.type === "gensucc" &&
