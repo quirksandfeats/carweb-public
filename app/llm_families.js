@@ -1473,6 +1473,29 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
   // the real ones. genIdA/genIdB are excluded for the same reason -- those
   // name generations this layer itself mints, which do not exist until the
   // split they belong to is applied.
+  //
+  // Two quite different things end up orphaned, and lumping them together is
+  // what made the report confusing. Real user report: "I figured that if i
+  // re-scanned the mercedes GLA nameplate, that the entry would disappear from
+  // the list. I guess I am still confused about what these cars actually
+  // represent."
+  //
+  //   "stand-in" -- an llm-related-/llm-make- id. Not a car at all: a
+  //     placeholder minted by mintRelatedNode when an article named a car the
+  //     graph did not have, so the connection had something to attach to.
+  //     Once the real car exists the mention resolves to IT, the placeholder
+  //     is never minted again, and everything filed under the placeholder's
+  //     id is stranded. Re-checking the real car cannot clear it: the new
+  //     entry is filed under the real id and never touches the old one. So
+  //     these get pruned automatically -- see pruneStandInOrphans.
+  //
+  //   "renamed" -- a real car whose id moved, because DBpedia renamed the
+  //     article or changed the manufacturer and the next rebuild picked it up
+  //     under the new name. THIS is the one worth keeping and looking at: the
+  //     car still exists, the work still applies to it, and re-checking it
+  //     under its current name redoes the decision.
+  const STAND_IN_ID = /^llm-(?:related|make)-/;
+  function orphanKind(id) { return STAND_IN_ID.test(String(id || "")) ? "stand-in" : "renamed"; }
   function orphanedEntries(byId) {
     const out = [];
     const nameOf = (id) => {
@@ -1483,7 +1506,8 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
       const store_ = store[bucket] || {};
       Object.keys(store_).forEach(id => {
         if (byId.has(id)) return;
-        out.push({ bucket, what, id, label: (labelOf && labelOf(store_[id], id)) || id });
+        out.push({ bucket, what, id, kind: orphanKind(id),
+                   label: (labelOf && labelOf(store_[id], id)) || id });
       });
     };
     scan("families", "generation split");
@@ -1499,11 +1523,72 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
       if (!e) return;
       const missing = [e.famA, e.famB].filter(id => id && !byId.has(id));
       if (!missing.length) return;
-      out.push({ bucket: "relations", what: "connection you decided", id: key,
+      // A connection is only a stand-in case if EVERY end that went missing
+      // was a placeholder. One real renamed car in it makes it worth keeping.
+      const kind = missing.every(id => orphanKind(id) === "stand-in") ? "stand-in" : "renamed";
+      out.push({ bucket: "relations", what: "connection you decided", id: key, kind,
                  label: nameOf(e.famA) + " ↔ " + nameOf(e.famB) +
                         " (" + (e.relType || "?") + ", " + (e.status || "?") + ")" });
     });
     return out;
+  }
+
+  // Clear the stand-in orphans. Real user question: "Why doesn't it simply
+  // delete the orphans automatically? Is there a good reason for this?" For
+  // the renamed kind, yes -- some of those decisions are hand-entered (a
+  // pasted link, a rename, a merge), a bad rebuild can make a real car vanish
+  // for one boot and come back on the next run, and if the id ever resolves
+  // again the work reattaches for free. Deleting on that guess is destructive
+  // for no gain, since an inert entry costs nothing but bytes.
+  //
+  // None of that applies to a stand-in. It is not a car, nothing about it is
+  // hand-entered, and no amount of re-checking will ever reach it. So these
+  // go, on every boot, without asking.
+  //
+  // What is left behind is a one-line record per id rather than nothing: the
+  // bulky part (a whole generation proposal, a research blob) is what was
+  // worth reclaiming, and a stand-in CAN in principle be minted again if the
+  // real car later leaves the graph -- in which case the worst case should be
+  // "re-scan it", not "wonder what used to be here".
+  function pruneStandInOrphans(byId) {
+    const dead = orphanedEntries(byId).filter(it => it.kind === "stand-in");
+    if (!dead.length) return { cleared: 0, entries: [] };
+    store.prunedDecisions = store.prunedDecisions || {};
+    const now = new Date().toISOString();
+    let n = 0;
+    dead.forEach(it => {
+      const bucket = store[it.bucket];
+      if (!bucket || !(it.id in bucket)) return;
+      delete bucket[it.id];
+      // Keyed by bucket too: the same id can hold a split AND a pasted link,
+      // and those are separate decisions, separately cleared.
+      store.prunedDecisions[it.bucket + "|" + it.id] =
+        { what: it.what, label: it.label, prunedAt: now };
+      n++;
+    });
+    if (n) persist();
+    return { cleared: n, entries: dead };
+  }
+
+  // The renamed orphans, cleared on purpose because the user asked -- the
+  // panel offers it as one button rather than making them delete 80 rows by
+  // hand. Same archive record, for the same reason.
+  function clearRenamedOrphans(byId) {
+    const dead = orphanedEntries(byId).filter(it => it.kind === "renamed");
+    if (!dead.length) return { cleared: 0 };
+    store.prunedDecisions = store.prunedDecisions || {};
+    const now = new Date().toISOString();
+    let n = 0;
+    dead.forEach(it => {
+      const bucket = store[it.bucket];
+      if (!bucket || !(it.id in bucket)) return;
+      delete bucket[it.id];
+      store.prunedDecisions[it.bucket + "|" + it.id] =
+        { what: it.what, label: it.label, prunedAt: now, byHand: true };
+      n++;
+    });
+    if (n) persist();
+    return { cleared: n };
   }
 
   // ---------- hallucination guard, code half: match COMPONENTS, not one composed string ----------
@@ -8140,7 +8225,11 @@ Rules:
     refreshGenerationImages,
     setDecisionSource, decisionSource: () => decisionSource,
     resolveWeakRelations, makeRelationship, weakProposalRejection,
-    orphanedEntries,
+    orphanedEntries, orphanKind, pruneStandInOrphans, clearRenamedOrphans,
+    // The archive both of those write to. `store` is a shallow copy of the
+    // seeded object, so a NEW top-level key on it is not visible through
+    // window.LLM_FAMILIES -- read it through here.
+    prunedDecisions: () => store.prunedDecisions || {},
     parseLlmJson, codeAnchorIn, codeVerifiedIn, findGenerationImage, infoboxImageForCode,
     looksLikePlatformNotCar,
     // Exposed for the regression suite only: a persisted proposal from before

@@ -12,6 +12,18 @@
 // is pruned. So a nameplate you split quietly goes back to being one model and
 // the entry sits in the file doing nothing. This is the count that makes a
 // rebuild's drift visible.
+//
+// The second half of this file is the follow-up report: "I figured that if i
+// re-scanned the mercedes GLA nameplate, that the entry would disappear from
+// the list. I guess I am still confused about what these cars actually
+// represent." It never would have. Those entries were filed under an
+// llm-related- PLACEHOLDER -- a stand-in minted when an article named a car
+// the graph did not have -- and once the real car exists, nothing re-checks
+// the placeholder and nothing reaches it. Two different situations wearing one
+// explanation, so: the placeholder kind is classified apart and cleared
+// automatically at boot, the renamed kind is kept and now says what it
+// actually is, and there is one button to throw the rest away instead of the
+// per-row delete the old copy promised and never had.
 const { JSDOM } = require("jsdom");
 const fs = require("fs");
 const path = require("path");
@@ -82,6 +94,22 @@ window.LLM_FAMILIES = {
   deletions: { [GONE]: { kind: "model", label: "TestOrph Vanished", cascadeIds: [] } },
   purged: { [GONE]: true },
 };
+// The stand-ins: decisions filed under a placeholder that was minted for a car
+// the graph did not have at the time. Exactly the shape of the real report --
+// a split, a pasted Wikipedia link, and a connection whose missing end is the
+// placeholder. Seeded BEFORE boot, because boot is what clears them.
+const STANDIN = "llm-related-testorph-standin";
+const STANDIN2 = "llm-related-testorph-gla-class-x156";
+const STANDIN_MAKE = "llm-make-testorphan";
+window.LLM_FAMILIES.families[STANDIN] = { status: "confirmed", proposal: { generations: [] } };
+window.LLM_FAMILIES.wpLinks[STANDIN2] = "TestOrph GLA-Class (X156)";
+window.LLM_FAMILIES.renames[STANDIN_MAKE] = { label: "TestOrphan", previousLabel: "TestOrph", kind: "make" };
+window.LLM_FAMILIES.relations["e|f|platform"] =
+  { status: "confirmed", famA: STANDIN, famB: STANDIN2, relType: "platform" };
+// One end a placeholder, the other a real car that was renamed away: worth
+// keeping, because half of it is still actionable.
+window.LLM_FAMILIES.relations["g|h|platform"] =
+  { status: "confirmed", famA: STANDIN, famB: GONE, relType: "platform" };
 load("llm_families.js");
 load("app.js");
 load("timeline.js");
@@ -128,30 +156,99 @@ check("each item says what KIND of decision it was, not just an id",
   const list = window.document.getElementById("llmdebug-orphans-list");
   window.document.getElementById("llmdebugbtn").onclick();
   check("the LLM Debug panel shows the count", box && box.hidden === false);
-  check("...says how many and what it means", /point at a car that is not in the graph/.test(note.textContent),
-        note.textContent.slice(0, 60));
+  check("...says how many and what it means", /decisions point at a car whose id has moved/.test(note.textContent),
+        note.textContent.slice(0, 70));
+  check("...explains WHY a rename detaches the work, since that is the whole "
+        + "mechanism", /id is built from a car's make and label/.test(note.textContent));
+  check("...and covers the other way an id moves: a nameplate this layer minted "
+        + "itself, whose split changed", /split behind it changes/.test(note.textContent));
   check("...says nothing is broken, because nothing is",
         /nothing is broken/.test(note.textContent));
   check("...and says how to deal with it", /[Rr]e-check/.test(note.textContent));
+  check("...and no longer claims the placeholder story, which is what sent the "
+        + "user re-scanning a car this list was never about",
+        !/different name or maker/.test(note.textContent));
   check("...and lists them", list.children.length === items.length,
         list.children.length + " rows for " + items.length + " items");
 }
 
-// ---------- with a clean store it stays out of the way ----------
+// ---------- the two kinds, and the automatic half ----------
 {
-  const before = window.document.getElementById("llmdebug-orphans").hidden;
-  // Emptied through the store directly: the panel's own delete paths resolve a
-  // node first, and the whole point of these entries is that there is no node.
+  check("a placeholder id is classified as a stand-in", LF.orphanKind(STANDIN) === "stand-in",
+        LF.orphanKind(STANDIN));
+  check("...an invented marque too", LF.orphanKind(STANDIN_MAKE) === "stand-in",
+        LF.orphanKind(STANDIN_MAKE));
+  check("a real car's id is classified as renamed", LF.orphanKind(GONE) === "renamed",
+        LF.orphanKind(GONE));
+
   const st = window.LLM_FAMILIES;
-  [GONE, GONE2].forEach(id => {
-    ["families", "recheck", "wpLinks", "genResearch", "merges", "renames", "unmerges"]
-      .forEach(b => { if (st[b]) delete st[b][id]; });
-  });
-  delete st.relations["a|b|platform"];
-  check("(sanity) it was showing before", before === false);
-  const still = LF.orphanedEntries(cw.byId);
-  check("with nothing orphaned, there is nothing to report", still.length === 0,
-        still.map(i => i.bucket).join(", "));
+  check("boot cleared the split filed under a placeholder", !(STANDIN in st.families));
+  check("...the pasted link too", !(STANDIN2 in st.wpLinks));
+  check("...and the invented marque's rename", !(STANDIN_MAKE in st.renames));
+  check("...and a connection whose every missing end was a placeholder",
+        !("e|f|platform" in st.relations));
+  check("but NOT a connection that still has a real renamed car in it",
+        "g|h|platform" in st.relations);
+  check("and not one single decision about a real car",
+        (GONE in st.families) && (GONE2 in st.wpLinks) && (GONE in st.merges),
+        Object.keys(st.families).join(","));
+
+  const pruned = LF.prunedDecisions();
+  check("what was cleared is recorded, so nothing vanishes without a trace",
+        ("families|" + STANDIN) in pruned && ("wpLinks|" + STANDIN2) in pruned,
+        Object.keys(pruned).join(", "));
+  check("...keyed by bucket as well as id, since one id can hold two "
+        + "different decisions",
+        Object.keys(pruned).length > 0 && Object.keys(pruned).every(k => k.includes("|")),
+        Object.keys(pruned).length + " archived");
+
+  check("nothing of the stand-in kind is left to report",
+        LF.orphanedEntries(cw.byId).every(i => i.kind !== "stand-in"));
+  check("running the prune again finds nothing -- it is not re-deleting or "
+        + "re-recording on every boot",
+        LF.pruneStandInOrphans(cw.byId).cleared === 0);
+}
+
+// ---------- the one button that clears the rest ----------
+// The old copy told the user to delete the entry "below". There was no delete
+// control of any kind, and 80 rows would have been absurd one at a time.
+{
+  const box = window.document.getElementById("llmdebug-orphans");
+  const btn = window.document.getElementById("orphans-clear");
+  const yes = window.document.getElementById("orphans-clear-confirm");
+  const no = window.document.getElementById("orphans-clear-cancel");
+  const say = window.document.getElementById("orphans-clear-status");
+  const n = LF.orphanedEntries(cw.byId).length;
+
+  check("(sanity) it was showing before", box.hidden === false);
+  check("there is a delete control at all, and it says how many", !!btn && btn.textContent.includes(String(n)),
+        btn && btn.textContent);
+  check("...and it is not armed until it is clicked", yes.hidden === true);
+
+  btn.onclick();
+  check("clicking it asks first, rather than deleting completed work on one click",
+        yes.hidden === false && no.hidden === false);
+  check("...and warns that hand-typed decisions are the part that cannot be redone",
+        /typed yourself/.test(say.textContent), say.textContent.slice(0, 80));
+
+  no.onclick();
+  check("cancelling deletes nothing", LF.orphanedEntries(cw.byId).length === n &&
+        yes.hidden === true, LF.orphanedEntries(cw.byId).length + " vs " + n);
+
+  btn.onclick(); yes.onclick();
+  const left = LF.orphanedEntries(cw.byId);
+  check("confirming clears the whole list", left.length === 0,
+        left.map(i => i.bucket + ":" + i.id).join(", "));
+  check("...and the section takes itself away", box.hidden === true);
+  check("...and says what it did", /deleted \d+ decision/.test(say.textContent),
+        say.textContent);
+
+  const st = window.LLM_FAMILIES;
+  check("the cleared decisions are archived like the automatic ones",
+        Object.keys(LF.prunedDecisions()).some(k => k === "families|" + GONE),
+        Object.keys(LF.prunedDecisions()).length + " archived");
+  check("and a decision about a car that IS here was never touched",
+        "m-test-orph-present" in st.families && "m-test-orph-present" in st.wpLinks);
 }
 
 console.log("\n" + (fails === 0 ? "ALL GREEN" : fails + " FAILURE(S)"));

@@ -2900,23 +2900,42 @@ window.CarWeb = (function () {
     // just stops applying, and the nameplate quietly goes back to being one
     // model. A number you can look at after a rebuild beats noticing in a
     // month.
+    //
+    // Only the RENAMED kind is listed. The placeholder kind is gone by the
+    // time this runs (pruneStandInOrphans, from boot) -- and listing the two
+    // together under one explanation is what made this panel actively
+    // misleading: "I figured that if i re-scanned the mercedes GLA nameplate,
+    // that the entry would disappear from the list", which for a placeholder
+    // it never would. The old copy also offered a per-row delete that has
+    // never existed; there is one button now, and it says what it deletes.
     function renderOrphans() {
       const box = document.getElementById("llmdebug-orphans");
       const noteEl = document.getElementById("llmdebug-orphans-note");
       const listEl = document.getElementById("llmdebug-orphans-list");
       const summary = document.getElementById("llmdebug-orphans-summary");
       if (!box || !listEl || !LF.orphanedEntries) return;
-      let items = [];
-      try { items = LF.orphanedEntries(byId) || []; } catch (e) { return; }
+      let all = [];
+      try { all = LF.orphanedEntries(byId) || []; } catch (e) { return; }
+      // Anything still classed "stand-in" here means the boot prune could not
+      // run (an older store, or it threw) -- list it rather than hide it, but
+      // the copy below is written for the renamed kind, which is the one a
+      // person can actually act on.
+      const items = all.filter(it => it.kind !== "stand-in");
       box.hidden = items.length === 0;
       if (!items.length) return;
       if (noteEl) {
-        noteEl.textContent = items.length + (items.length === 1 ? " decision" : " decisions") +
-          " point at a car that is not in the graph any more — usually because a " +
-          "rebuild picked the car up under a different name or maker, which changes " +
-          "its id. They are doing nothing, and nothing is broken: the work is still " +
-          "recorded, it just no longer reaches a car. Re-checking the car under its " +
-          "new name re-does it; deleting the entry below clears it out.";
+        const one = items.length === 1;
+        noteEl.textContent = items.length + (one ? " decision points" : " decisions point") +
+          " at a car whose id has moved. An id is built from a car's make and " +
+          "label, so when DBpedia renames the article or changes the manufacturer, " +
+          "the next rebuild picks the car up under a new id and the decision is left " +
+          "aimed at the old one — and for a nameplate or generation this layer " +
+          "created itself, the same happens when the split behind it changes. The " +
+          "car still exists and nothing is broken: the work simply stopped applying, " +
+          "so a nameplate you split is a plain model again. Re-checking " +
+          (one ? "that car" : "those cars") + " under " + (one ? "its" : "their") +
+          " current name redoes the work; the button below throws " +
+          (one ? "it" : "them") + " away instead.";
       }
       if (summary) summary.textContent = "show the " + items.length;
       listEl.innerHTML = "";
@@ -2933,6 +2952,38 @@ window.CarWeb = (function () {
         li.textContent = "…and " + (items.length - 200) + " more";
         listEl.appendChild(li);
       }
+      wireOrphanClear(items.length);
+    }
+    // One button for the whole list. Two-step, like the rebuild button, since
+    // it throws away completed work -- including decisions typed by hand.
+    function wireOrphanClear(count) {
+      const btn = document.getElementById("orphans-clear");
+      const yes = document.getElementById("orphans-clear-confirm");
+      const no = document.getElementById("orphans-clear-cancel");
+      const say = document.getElementById("orphans-clear-status");
+      if (!btn || !yes || !no || !LF.clearRenamedOrphans) return;
+      const armed = on => { btn.hidden = on; yes.hidden = !on; no.hidden = !on; };
+      armed(false);
+      if (say) say.textContent = "";
+      btn.textContent = "Delete " + (count === 1 ? "it" : "all " + count) + "…";
+      btn.onclick = () => {
+        armed(true);
+        if (say) {
+          say.textContent = "This deletes " + (count === 1 ? "this decision" : "these " + count +
+            " decisions") + " for good. Re-checking the car later redoes the work, " +
+            "but any Wikipedia link or rename you typed yourself is gone. Continue?";
+        }
+      };
+      no.onclick = () => { armed(false); if (say) say.textContent = ""; };
+      yes.onclick = () => {
+        let r = { cleared: 0 };
+        try { r = LF.clearRenamedOrphans(byId) || r; }
+        catch (e) { if (say) say.textContent = "could not delete them: " + e.message; return; }
+        armed(false);
+        renderOrphans();
+        if (say) say.textContent = "deleted " + r.cleared +
+          (r.cleared === 1 ? " decision" : " decisions");
+      };
     }
 
     function refresh() {
@@ -6509,6 +6560,21 @@ window.CarWeb = (function () {
           console.info(`[carweb] dropped ${r.dropped.length} substring/cross-company proposal(s):`,
                        r.dropped.map(d => `${d.a} <-> ${d.b}`));
         }
+      }
+      // Stand-in orphans, cleared automatically. Has to run HERE, after every
+      // overlay pass above has minted whatever it mints: "not in the graph"
+      // asked any earlier would be true of cars that are merely not created
+      // yet, and this deletes what it finds. See llm_families.js's
+      // pruneStandInOrphans for which kind is cleared and which is kept.
+      if (window.LlmFamilies && window.LlmFamilies.pruneStandInOrphans) {
+        try {
+          const p = window.LlmFamilies.pruneStandInOrphans(byId);
+          if (p.cleared) {
+            console.info(`[carweb] cleared ${p.cleared} decision(s) filed under a placeholder ` +
+                         "car that no longer exists:",
+                         p.entries.map(e => `${e.what} — ${e.id}`));
+          }
+        } catch (e) { console.warn("CarWeb: could not clear stand-in orphans", e); }
       }
       initGenPhotos();
       initLlmBusy();

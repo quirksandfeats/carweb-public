@@ -314,13 +314,22 @@
        none, which is the normal state -- see app.js's renderOrphans and
        llm_families.js's orphanedEntries for what counts and why. Shown right
        at the top of this panel because it is the one thing in here that can
-       be true without anything looking wrong anywhere else. -->
+       be true without anything looking wrong anywhere else.
+       Only the RENAMED kind reaches this list: the placeholder kind is
+       cleared automatically at boot, since re-checking can never reach it.
+       See llm_families.js's pruneStandInOrphans. -->
   <div class="llmdebug-section" id="llmdebug-orphans" hidden>
-    <label>Decisions pointing at cars that are gone</label>
+    <label>Decisions pointing at cars that were renamed</label>
     <p class="llmdebug-note" id="llmdebug-orphans-note"></p>
     <details><summary id="llmdebug-orphans-summary">show them</summary>
       <ul id="llmdebug-orphans-list" class="llmdebug-orphans-list"></ul>
     </details>
+    <div class="llmdebug-row">
+      <button id="orphans-clear" class="llm-btn">Delete them all…</button>
+      <button id="orphans-clear-confirm" class="llm-btn dp-delete-btn" hidden>Yes, delete</button>
+      <button id="orphans-clear-cancel" class="llm-btn" hidden>Cancel</button>
+    </div>
+    <p class="llmdebug-note" id="orphans-clear-status"></p>
   </div>
   <div class="llmdebug-section">
     <button id="llmdebug-clearall" class="llm-btn">Clear ALL checked cars</button>
