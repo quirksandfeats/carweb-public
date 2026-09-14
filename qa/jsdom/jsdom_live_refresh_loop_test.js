@@ -138,7 +138,7 @@ async function pageLoad(storage, opts) {
   // ---- the loop the user actually hit: the delta can't be stored ----------
   const blocked = await pageLoad({}, { blockWrites: true });
   check("a delta that can't be saved says so instead of failing silently",
-        /wouldn't store|couldn't save/i.test(blocked.toast), blocked.toast);
+        /couldn't (be stored|save)/i.test(blocked.toast), blocked.toast);
   check("...and does NOT offer an Apply button that cannot work",
         blocked.applyHidden === true, "applyHidden=" + blocked.applyHidden);
 

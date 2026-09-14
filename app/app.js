@@ -6434,6 +6434,17 @@ window.CarWeb = (function () {
       initLlmRequest();
       initAutoRefresh();
       restoreViewState();
+      // The live layer's field patches, a second time, now that the LLM layer
+      // and hand-added cars are actually in the graph. data_live.js runs
+      // before this file, so a patch aimed at a car the local model created
+      // could not possibly land on its first attempt -- the car did not exist
+      // yet. Idempotent (every branch fills an empty field only), so this can
+      // only add. See data_live.js's applyPatches.
+      if (window.CarWebLive && window.CarWebLive.applyToOverlay) {
+        try {
+          if (window.CarWebLive.applyToOverlay()) { refreshYearFilter(); Graph.touch(); }
+        } catch (e) { console.warn("CarWeb: live-layer patches could not be applied", e); }
+      }
       if (window.CarWebLive) CarWebLive.start();
     },
     sim: () => sim,
