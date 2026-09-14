@@ -51,6 +51,16 @@ function csv() {
   rows.push('"Ford_Nameplate","1970","1978","Ford","","","",""');
   // A placeholder whose name matches an article ANOTHER car already claims.
   rows.push('"Ford_Contested","2001","2009","Ford","","","",""');
+  // A car the user merged away into a nameplate. DBpedia still has it.
+  rows.push('"Ford_Mergedaway","1980","1989","Ford","","","",""');
+  // A car the user deleted outright.
+  rows.push('"Ford_Deleted","1985","1990","Ford","","","",""');
+  // A car the user renamed. It has no Wikipedia link, so only its old name
+  // can find it.
+  rows.push('"Ford_Oldname","1975","1982","Ford","","","",""');
+  // A harvested car whose DBpedia row says it is related to a car the local
+  // model created. That connection used to be dropped with no trace.
+  rows.push('"Ford_Filler_Rel","2003","","Ford","","Ford_Modelled","",""');
   // Genuinely new: in DBpedia, nowhere in the graph.
   rows.push('"Ford_Brandnew","2024","","Ford","","","",""');
   return rows.join("\n");
@@ -96,6 +106,15 @@ function overlayCars() {
       wp: null, year: null, end: null, designers: [], llmCreatedNode: true },
     { id: "llm-ford-contested-other", type: "model", label: "Something Else", make: "Ford",
       wp: "Ford Contested", year: 2001, end: null, designers: [], llmCreatedNode: true },
+    // Merged away into a nameplate: retired, pointing at its replacement.
+    { id: "llm-ford-mergedaway", type: "model", label: "Mergedaway", make: "Ford",
+      wp: "Ford Mergedaway", year: 1980, end: null, designers: [],
+      llmCreatedNode: true, retired: true, supersededBy: "llm-ford-merge-target" },
+    { id: "llm-ford-merge-target", type: "model", label: "Merge Target", make: "Ford",
+      wp: null, year: null, end: null, designers: [], llmCreatedNode: true },
+    // Renamed, with no Wikipedia link -- only the old name can find it.
+    { id: "llm-ford-renamed", type: "model", label: "Newname", make: "Ford",
+      wp: null, year: null, end: null, designers: [], llmCreatedNode: true },
   ];
 }
 
@@ -115,6 +134,16 @@ async function load(opts) {
   global.window = window; global.document = window.document;
   for (const k in (opts.storage || {})) window.localStorage.setItem(k, opts.storage[k]);
   window.CARDATA = baked();
+  // Decisions the user has made, which DBpedia must not walk back. index.html
+  // seeds this before data_live.js runs, so it is readable there.
+  window.LLM_FAMILIES = {
+    families: {},
+    deletions: opts.withOverlay
+      ? { "m-ford-deleted": { kind: "model", label: "Ford Deleted", cascadeIds: [] } } : {},
+    renames: opts.withOverlay
+      ? { "llm-ford-renamed": { label: "Newname", previousLabel: "Oldname", kind: "model" } } : {},
+    purged: {}, __serverAvailable: false,
+  };
 
   // serve.py, or not. The synchronous XHR is how data_live writes the layer.
   const posted = [];
@@ -138,19 +167,26 @@ async function load(opts) {
     if (String(url).includes("dbpedia")) return { ok: true, text: async () => CSV };
     return { ok: true, json: async () => ({ query: { categorymembers: [] } }) };
   };
-  window.eval(SRC);
+  if (opts.tinyCap) {
+    // Shrink the cap rather than building a megabyte of fixture.
+    window.eval(SRC.replace("const MAX_LAYER_BYTES = 1024 * 1024;", "const MAX_LAYER_BYTES = 200;"));
+  } else {
+    window.eval(SRC);
+  }
 
   // app.js's job: the other layers arrive now, not before.
   if (opts.withOverlay) {
     overlayCars().forEach(n => window.CARDATA.nodes.push(n));
     window.CarWebLive.applyToOverlay();
   }
-  await window.CarWebLive.refresh();
+  window.CarWebLive.start();                   // sets the boot status line
+  const status = window.document.getElementById("datastatus").textContent;
+  if (!opts.noRefresh) await window.CarWebLive.refresh();
   if (opts.withOverlay) window.CarWebLive.applyToOverlay();  // as boot() does, after a refresh too
 
   const byId = new Map(window.CARDATA.nodes.map(n => [n.id, n]));
   return {
-    window, posted, layerFile, byId,
+    window, posted, layerFile, byId, status,
     nodes: window.CARDATA.nodes,
     ls: window.localStorage.getItem("carweb_live_snapshot_v1"),
     toast: window.document.getElementById("livetoast-msg").textContent,
@@ -274,6 +310,106 @@ async function load(opts) {
     check("...and the name-only lookalike is left untouched",
           !contested.year && !contested.end && !contested.designers.length,
           contested.year + "/" + contested.end + "/" + contested.designers.length);
+  }
+
+  // ---------- decisions the user has made are not walked back ----------
+  {
+    const r = await load({ server: true, withOverlay: true });
+    const layer = r.posted[r.posted.length - 1];
+    const minted = new Set(layer.newNodes.map(n => n.wp));
+
+    // A merge retires the car it merged away. Skipping retired nodes meant
+    // DBpedia could not see it and minted it again -- so the merge had to be
+    // redone after every refresh, which is work silently undone.
+    check("a car merged away is recognised, not minted again",
+          !minted.has("Ford Mergedaway"), [...minted].join(", "));
+    // One VISIBLE copy. The retired node keeps the article title too --
+    // supersedeStandalone copies it onto the replacement rather than moving
+    // it, and a retired node is hidden everywhere -- so the pair sharing it
+    // is normal. What must not exist is a third, freshly minted one.
+    check("...and the graph still holds exactly one visible copy of it",
+          r.nodes.filter(n => n.wp === "Ford Mergedaway" && !n.retired).length === 1,
+          r.nodes.filter(n => n.wp === "Ford Mergedaway")
+            .map(n => n.id + (n.retired ? " (retired)" : "")).join(", "));
+    // The replacement is a bare placeholder, so it may take the data -- the
+    // point of following supersededBy rather than just ignoring the match.
+    const target = r.byId.get("llm-ford-merge-target");
+    check("...and its replacement is the one that gets the row's data",
+          target.wp === "Ford Mergedaway" && target.year === 1980, target.wp + " / " + target.year);
+
+    // A deletion hides the car, so re-adding it looks harmless -- but the
+    // layer then grows a node it re-adds on every boot for the deletion to
+    // cancel again, forever.
+    check("a car the user deleted is not re-added", !minted.has("Ford Deleted"),
+          [...minted].join(", "));
+
+    // A rename changes the label byName matches on, so the old name has to be
+    // indexed too or DBpedia mints a duplicate.
+    check("a renamed car is found by the name DBpedia still uses",
+          !minted.has("Ford Oldname"), [...minted].join(", "));
+    const renamed = r.byId.get("llm-ford-renamed");
+    check("...and is patched rather than duplicated",
+          renamed.year === 1975 && renamed.end === 1982,
+          renamed.year + "-" + renamed.end);
+    check("...and keeps the name you gave it", renamed.label === "Newname", renamed.label);
+  }
+
+  // ---------- a relation to a model-created car is kept ----------
+  // It cannot be spliced at boot -- that car does not exist until app.js has
+  // run -- so it is marked deferred and placed by applyToOverlay.
+  {
+    const r = await load({ server: true, withOverlay: true });
+    const layer = r.posted[r.posted.length - 1];
+    const rel = layer.newLinks.filter(l =>
+      (l.source === "llm-ford-modelled" || l.target === "llm-ford-modelled") && l.type === "related");
+    check("a connection DBpedia states to a model-created car is kept, not dropped",
+          rel.length === 1, rel.length + " found");
+    check("...and marked as needing the later pass", rel.length && rel[0].deferred === true,
+          rel.length && JSON.stringify(rel[0]));
+    // It cannot be placed on the run that FOUND it: the harvested end is a
+    // car this same refresh just minted, and a minted car only enters the
+    // graph on the next boot's splice. So the next load is where both ends
+    // exist and the edge appears.
+    const ownIds = l => [l.source, l.target].map(e => (e && e.id) || e);
+    check("...and not placed yet on the run that found it -- neither end is in "
+          + "the graph until the next load",
+          r.window.CARDATA.links.filter(l => l.type === "related" &&
+            ownIds(l).includes("llm-ford-modelled")).length === 0);
+
+    const next = await load({ server: true, layer, withOverlay: true });
+    const live = next.window.CARDATA.links.filter(l => l.type === "related" &&
+      ownIds(l).includes("llm-ford-modelled"));
+    check("...and really is in the graph on the next load", live.length === 1,
+          live.length + " in the graph");
+    // Twice must not mean two edges.
+    next.window.CarWebLive.applyToOverlay();
+    const again = next.window.CARDATA.links.filter(l => l.type === "related" &&
+      ownIds(l).includes("llm-ford-modelled"));
+    check("...and running that pass again adds nothing", again.length === 1, again.length);
+  }
+
+  // ---------- a stale layer says so instead of going quiet ----------
+  {
+    const first = await load({ server: true });
+    const stale = Object.assign({}, first.posted[0], { generated: "2020-01-01" });
+    const r = await load({ server: true, layer: stale, noRefresh: true });
+    check("a layer from an earlier build is not applied",
+          r.nodes.filter(n => n.wp === "Ford Brandnew").length === 0);
+    check("...and the status line says so, naming the build it belongs to",
+          /not being applied/.test(r.status) && /2020-01-01/.test(r.status), r.status);
+  }
+
+  // ---------- and it will not grow without limit ----------
+  // live_layer_data.js is loaded by a blocking script on every page load, so
+  // its size is first-paint cost for every visitor.
+  {
+    const r = await load({ server: true, tinyCap: true });
+    check("past the cap the refresh refuses to grow the layer",
+          r.posted.length === 0, r.posted.length + " post(s)");
+    check("...and says to run a rebuild, which absorbs them properly",
+          /[Rr]ebuild/.test(r.toast), r.toast.slice(0, 90));
+    check("...and offers no Apply, since nothing was stored",
+          r.window.document.getElementById("livetoast-apply").hidden === true);
   }
 
   // ---------- and the patches survive a reload ----------

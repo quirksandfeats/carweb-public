@@ -2005,6 +2005,17 @@ window.CarWeb = (function () {
     if (unwired) console.warn(`CarWeb: skipped ${unwired} link(s) with an unresolvable endpoint while splicing in a live change`);
     return unwired;
   }
+  // The live layer's patches and deferred links, re-run after the graph has
+  // gained cars mid-session. data_live.js cannot place anything aimed at a car
+  // the local model creates during a scan -- that car did not exist when it
+  // ran, and did not exist at boot either. Idempotent, so this only ever adds.
+  function reapplyLiveLayer() {
+    if (!window.CarWebLive || !window.CarWebLive.applyToOverlay) return;
+    try {
+      if (window.CarWebLive.applyToOverlay()) { refreshYearFilter(); Graph.touch(); }
+    } catch (e) { console.warn("CarWeb: live-layer patches could not be applied", e); }
+  }
+
   function applyLlmConfirmSilent(n) {
     const nodesBefore = nodes.length, linksBefore = links.length;
     window.LlmFamilies.applyConfirmed(nodes, links);
@@ -2764,6 +2775,9 @@ window.CarWeb = (function () {
     if (links.length === linksBefore && nodes.length === nodesBefore) return; // nothing new -- skip the rest of the refresh work
     spliceIntoIndexes(nodesBefore, linksBefore);
     if (nodes.length !== nodesBefore) buildSim(); // new node(s) -- sim must be reinitialized over the larger arrays
+    // A car that has just come into existence may be the missing endpoint for
+    // something DBpedia told us about. See reapplyLiveLayer.
+    reapplyLiveLayer();
     refreshYearFilter();
     indexMirrorReplacements();
     Graph.refreshFocus();
@@ -6440,11 +6454,7 @@ window.CarWeb = (function () {
       // could not possibly land on its first attempt -- the car did not exist
       // yet. Idempotent (every branch fills an empty field only), so this can
       // only add. See data_live.js's applyPatches.
-      if (window.CarWebLive && window.CarWebLive.applyToOverlay) {
-        try {
-          if (window.CarWebLive.applyToOverlay()) { refreshYearFilter(); Graph.touch(); }
-        } catch (e) { console.warn("CarWeb: live-layer patches could not be applied", e); }
-      }
+      reapplyLiveLayer();
       if (window.CarWebLive) CarWebLive.start();
     },
     sim: () => sim,

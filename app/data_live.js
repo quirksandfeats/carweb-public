@@ -16,6 +16,14 @@ window.CarWebLive = (function () {
   const LS_TS = "carweb_live_checked_v1";
   const THROTTLE_MS = 10 * 60 * 1000;      // don't re-query more than every 10 min
   const MAX_NEW = 900;                      // sanity cap per refresh
+  // ...and a cap on the ACCUMULATED layer, which MAX_NEW says nothing about.
+  // live_layer_data.js is loaded by a blocking <script> on every page load,
+  // phones and the hosted build included, so its size is first-paint cost for
+  // every visitor. Past this it stops growing and says to run a rebuild --
+  // which is the right answer anyway: a layer this big means a lot of cars
+  // are missing from the bake, and the rebuild puts them there properly,
+  // through the curated pipeline and with a baked layout.
+  const MAX_LAYER_BYTES = 1024 * 1024;
 
   // ---------- boot-time snapshot splice (runs synchronously, before app.js) ----------
   // History: v1 was a wholesale swap (adopt-or-discard the whole cached
@@ -203,11 +211,19 @@ window.CarWebLive = (function () {
   // than deleted: unlike localStorage this is a file in the repo, and the
   // rebuild that made it stale is also the thing that absorbed its cars --
   // the next refresh rewrites it against the new bake anyway.
-  let layerSpliced = 0;
+  let layerSpliced = 0, layerStale = false;
   if (LIVE && fitsThisBake(LIVE)) {
     try { layerSpliced = spliceDelta(LIVE); } catch (e) {
       console.warn("CarWeb: the live layer could not be applied", e);
     }
+  } else if (LIVE && ((LIVE.newNodes || []).length || (LIVE.newLinks || []).length)) {
+    // It has cars in it and it does not fit this bake, so it is doing nothing
+    // at all -- and until now nothing said so. The file sits in the repo
+    // looking live while the graph ignores it, and if the rebuild's curated
+    // pipeline happened to reject any of those cars they are simply gone
+    // until the next refresh finds them again. Said out loud, in the status
+    // line, rather than left to be discovered.
+    layerStale = true;
   }
 
   try {
@@ -278,7 +294,14 @@ window.CarWebLive = (function () {
   const status = txt => { const el = document.getElementById("datastatus"); if (el) el.textContent = txt; };
 
   // ---------- the live queries ----------
-  const Q_MAIN = `SELECT ?s ?y (MIN(?ey) AS ?e)
+  // MAX, not MIN. DBpedia holds one dbo:productionEndYear per generation or
+  // variant on a nameplate-wide article, so MIN is the end of the car's FIRST
+  // generation -- which for anything still in production reads as "this died
+  // decades ago". harvest.py was changed to MAX for exactly this reason (see
+  // its own comment, which works through the cases); this query is a copy of
+  // that one and never got the same change, so the live layer reported
+  // systematically earlier end years than a rebuild did for the same car.
+  const Q_MAIN = `SELECT ?s ?y (MAX(?ey) AS ?e)
 (GROUP_CONCAT(DISTINCT ?mf;separator="~") AS ?mm)
 (GROUP_CONCAT(DISTINCT ?dn;separator="~") AS ?dd)
 (GROUP_CONCAT(DISTINCT ?rl;separator="~") AS ?rr)
@@ -347,24 +370,72 @@ WHERE{
   // because they are not the same kind of thing: a node here is not part of
   // the delta and must never be pushed into it -- it already exists, owned by
   // another layer. All this can do is recognise it and patch it.
-  function liveIndex() {
+  // Decisions the user has made about cars, which DBpedia must not walk back.
+  // Read straight off window.LLM_FAMILIES, which index.html seeds before this
+  // file runs.
+  function userDecisions() {
+    const st = (typeof window !== "undefined" && window.LLM_FAMILIES) || {};
+    const gone = new Set();
+    // Deleted, or deleted-for-good. A deletion record hides the car, so
+    // re-adding it looks harmless -- but the layer then grows a node it will
+    // re-add on every boot, and the deletion has to keep cancelling it
+    // forever. Better not to re-add it.
+    for (const id in (st.deletions || {})) {
+      gone.add(id);
+      (st.deletions[id].cascadeIds || []).forEach(c => gone.add(c));
+    }
+    for (const id in (st.purged || {})) gone.add(id);
+    // What a car used to be called, so a rename cannot make DBpedia think it
+    // is a different car. Only matters for one with no Wikipedia link (a link
+    // survives a rename and is matched first), which is exactly the minted
+    // placeholder case.
+    const formerLabels = new Map();   // node id -> previous label
+    for (const id in (st.renames || {})) {
+      const prev = st.renames[id] && st.renames[id].previousLabel;
+      if (prev) formerLabels.set(id, prev);
+    }
+    return { gone, formerLabels };
+  }
+
+  function liveIndex(decisions) {
     const byWp = new Map(), byName = new Map(), byId = new Map();
     const live = (typeof window !== "undefined" && window.CARDATA && window.CARDATA.nodes) || [];
+    const put = (map, k, n) => { if (k && !map.has(k)) map.set(k, n); };
     for (const n of live) {
-      if (!n || n.retired) continue;
+      if (!n) continue;
       byId.set(n.id, n);
-      if (n.wp) byWp.set(norm(n.wp), n);
+      // Retired nodes are indexed too, deliberately.
+      //
+      // A merge retires the car it merged away. Skipping those meant DBpedia
+      // could not see it, minted it again as a brand-new node, and the merge
+      // had to be done over after every refresh -- work silently undone, which
+      // is the worst thing this layer could do. Recognised now; the caller
+      // follows supersededBy to whatever replaced it, and either patches that
+      // or leaves it be.
+      if (n.wp) put(byWp, norm(n.wp), n);
       // By name as well, because the case that matters most has no link to
       // match on: a placeholder is minted precisely BECAUSE nothing was known
       // about the car, so `wp` is null and an index keyed on it cannot see it.
       // "<make> <label>" is the same shape a DBpedia title takes once
       // underscores are gone, which is what makes them comparable at all.
       if ((n.type === "model" || n.type === "family") && n.make && n.label) {
-        const k = norm(n.make + " " + n.label);
-        if (k && !byName.has(k)) byName.set(k, n);
+        put(byName, norm(n.make + " " + n.label), n);
+        const former = decisions && decisions.formerLabels.get(n.id);
+        if (former) put(byName, norm(n.make + " " + former), n);
       }
     }
     return { byWp, byName, byId };
+  }
+  // A retired node stands in for whatever replaced it. Followed one hop at a
+  // time with a guard, since a chain of merges can in principle point onward.
+  function followRetired(node, byId) {
+    let n = node, hops = 0;
+    while (n && n.retired && n.supersededBy && hops++ < 8) {
+      const next = byId.get(n.supersededBy);
+      if (!next || next === n) break;
+      n = next;
+    }
+    return n;
   }
   // Created by the local model or typed in by hand, as opposed to harvested or
   // hand-compiled. Same predicate llm_families.js's isHardData uses, inverted.
@@ -377,7 +448,8 @@ WHERE{
 
   function merge(data, mainRows, recentRows) {
     const nodes = data.nodes, links = data.links;
-    const LIVE_IDX = liveIndex();
+    const DECIDED = userDecisions();
+    const LIVE_IDX = liveIndex(DECIDED);
     const byWp = new Map(), byId = new Map(), makeByLabel = new Map(), personByNorm = new Map();
     for (const n of nodes) {
       byId.set(n.id, n);
@@ -389,13 +461,22 @@ WHERE{
     // delta accumulators -- what actually needs to persist to localStorage.
     // Kept tiny on purpose: full nodes/links snapshot is MBs, this is KBs.
     const deltaNodes = [], deltaLinks = [], deltaUpdates = {};
-    const addLink = (s, t, type, note) => {
+    const addLink = (s, t, type, note, deferred) => {
       const k1 = s + "|" + t + "|" + type, k2 = t + "|" + s + "|" + type;
       if (linkSet.has(k1) || linkSet.has(k2)) return false;
       linkSet.add(k1);
       const l = { source: s, target: t, type };
       if (note) l.note = note;
-      links.push(l); deltaLinks.push(l); return true;
+      // One endpoint belongs to a layer applied after this file runs, so the
+      // boot splice cannot place it -- see pass 2 and applyToOverlay.
+      if (deferred) l.deferred = true;
+      deltaLinks.push(l);
+      // A deferred link's endpoint is not in `nodes`, so it must not go into
+      // the working copy: the rest of this function would treat it as a real
+      // neighbour and the delta would end up describing a graph that does not
+      // exist. The delta entry is the whole contribution.
+      if (!deferred) links.push(l);
+      return true;
     };
     // brand list from the graph itself (longest-prefix match)
     const brands = [...makeByLabel.keys()].concat(Object.keys(MAKE_ALIAS)).sort((a, b) => b.length - a.length);
@@ -430,6 +511,9 @@ WHERE{
 
     let newModels = 0, newLinks = 0, updated = 0;
     const pendingRel = [];
+    // Cars owned by another layer that a row has resolved onto. Every edge
+    // touching one of these can only be applied after app.js has run.
+    const softIds = new Set();
 
     function upsert(title, y, e, mm, dd) {
       if (JUNK.test(title)) return null;
@@ -455,8 +539,15 @@ WHERE{
       }
       // Not in the baked copy -- but it may exist in a layer this file cannot
       // see. See liveIndex for why, and for the duplicate this prevents.
-      const already = LIVE_IDX.byWp.get(key) || LIVE_IDX.byName.get(key);
+      let already = LIVE_IDX.byWp.get(key) || LIVE_IDX.byName.get(key);
       if (already) {
+        // Merged away: the car that replaced it is the one to talk about.
+        already = followRetired(already, LIVE_IDX.byId);
+        // Still retired with nothing beyond it, or deleted outright: the user
+        // has said this car should not be in the graph. Recognising it is the
+        // whole point -- it stops DBpedia minting a fresh copy -- and there is
+        // nothing further to do.
+        if (already.retired || DECIDED.gone.has(already.id)) return null;
         // A NAMEPLATE is recognised (so it is not minted a second time) and
         // then left entirely alone.
         //
@@ -485,7 +576,13 @@ WHERE{
         // matching all key off it, and each would pick whichever it saw
         // first. The node stays anonymous rather than becoming a second
         // claimant.
-        if (!already.wp && !LIVE_IDX.byWp.has(key) && !byWp.has(key)) patch.wp = spaced;
+        // A RETIRED node does not count as a claimant. It is the car that was
+        // merged away, so the article belongs to whatever replaced it -- which
+        // is the node being patched here. Counting it would leave the
+        // replacement permanently anonymous.
+        const claimant = LIVE_IDX.byWp.get(key) || byWp.get(key);
+        const claimed = !!claimant && !claimant.retired && claimant.id !== already.id;
+        if (!already.wp && !claimed) patch.wp = spaced;
         if (y && (blank || !already.year)) patch.year = y;
         if (e && (blank || !already.end)) patch.end = e;
         if (dd && (blank || !already.designers || !already.designers.length)) {
@@ -496,11 +593,11 @@ WHERE{
           updated++;
           deltaUpdates[already.id] = Object.assign(deltaUpdates[already.id] || {}, patch);
         }
-        // Deliberately returns null rather than the node: `already` belongs to
-        // another layer and is not in `nodes`, so handing it back would let
-        // pass 2 hang relation edges off a node this delta does not contain.
-        // The patch is the whole contribution.
-        return null;
+        // Handed back, so the relations DBpedia states on this car's own row
+        // are kept as well -- not just the ones pointing at it. It is not in
+        // `nodes`, so every edge involving it is marked deferred; see pass 2.
+        softIds.add(already.id);
+        return already;
       }
       if (y < 1959 || y > new Date().getFullYear() + 2) return null;
       let [make, rest] = splitTitle(spaced);
@@ -521,6 +618,10 @@ WHERE{
       let base = "m-" + slug(make) + "-" + slug(rest || spaced);
       let id = base, i = 2;
       while (byId.has(id)) id = base + "-" + (i++);
+      // The id this car would get is deterministic, so a car deleted once
+      // stays deleted: minting it again would put a node in the layer that
+      // gets re-added on every boot for the deletion record to cancel again.
+      if (DECIDED.gone.has(id)) return null;
       n = { id, type: "model", label: rest || spaced, make, year: y,
             end: e || null, designers: [], wp: spaced, auto: true, live: true };
       nodes.push(n); deltaNodes.push(n); byId.set(id, n); byWp.set(key, n);
@@ -538,24 +639,59 @@ WHERE{
       if (r.length < 8) continue;
       const [s, y, e, mm, dd, rr, pp, ss] = r;
       const n = upsert(s, +y, e ? +e : null, mm, dd);
-      if (n && n.type === "model") pendingRel.push([n, rr, pp, ss]);
+      // A nameplate is allowed here only when it came back from the soft path
+      // -- it is a real endpoint for a coarse relation, which app.js's own
+      // disambiguation flow later resolves down to a generation pair.
+      if (n && (n.type === "model" || (n.type === "family" && softIds.has(n.id)))) {
+        pendingRel.push([n, rr, pp, ss]);
+      }
       if (newModels > MAX_NEW) throw new Error("suspicious refresh: too many new models");
     }
     for (const [title, y] of recentRows) upsert(title.replace(/ /g, "_"), +y, null, "", "");
-    // pass 2: model↔model edges (both endpoints must exist)
+    // pass 2: model<->model edges.
+    //
+    // The other endpoint is looked up in the baked copy first and then, if
+    // that misses, among the cars the other layers own. Without the second
+    // lookup a connection DBpedia states between a harvested car and one the
+    // local model created was dropped on the floor with no trace -- and those
+    // are the interesting ones, since a car the model went and found is
+    // exactly the kind that is not in the bake yet.
+    //
+    // An edge to one of those is marked `deferred`, because it cannot be
+    // spliced at boot: this file runs before app.js applies the LLM layer, so
+    // at splice time that endpoint does not exist yet and the guard against
+    // dangling links correctly refuses it. applyToOverlay adds them once it
+    // does. Followed through a merge, and skipped for a car the user deleted,
+    // on the same terms as everything else here.
+    const otherEnd = (t) => {
+      const k = t && norm(deunder(t));
+      if (!k) return null;
+      const own = byWp.get(k);
+      if (own) return { node: own, deferred: false };
+      let soft = LIVE_IDX.byWp.get(k) || LIVE_IDX.byName.get(k);
+      if (!soft) return null;
+      soft = followRetired(soft, LIVE_IDX.byId);
+      if (soft.retired || DECIDED.gone.has(soft.id)) return null;
+      if (soft.type !== "model" && soft.type !== "family") return null;
+      return { node: soft, deferred: true };
+    };
+    const relate = (from, t, type, reverse) => {
+      const found = otherEnd(t);
+      if (!found || found.node.id === from.id) return;
+      // A nameplate is a legitimate endpoint for a coarse relation -- app.js's
+      // own disambiguation flow exists to resolve one down to a generation
+      // pair later -- but a person or a make is not.
+      if (found.node.type !== "model" && found.node.type !== "family") return;
+      const a = reverse ? found.node.id : from.id;
+      const b = reverse ? from.id : found.node.id;
+      // Either end being owned by another layer defers the whole edge.
+      const deferred = found.deferred || softIds.has(from.id);
+      if (addLink(a, b, type, null, deferred)) newLinks++;
+    };
     for (const [n, rr, pp, ss] of pendingRel) {
-      for (const t of (ss || "").split("~")) {
-        const o = t && byWp.get(norm(deunder(t)));
-        if (o && o.type === "model" && o.id !== n.id && addLink(n.id, o.id, "succession")) newLinks++;
-      }
-      for (const t of (pp || "").split("~")) {
-        const o = t && byWp.get(norm(deunder(t)));
-        if (o && o.type === "model" && o.id !== n.id && addLink(o.id, n.id, "succession")) newLinks++;
-      }
-      for (const t of (rr || "").split("~")) {
-        const o = t && byWp.get(norm(deunder(t)));
-        if (o && o.type === "model" && o.id !== n.id && addLink(n.id, o.id, "related")) newLinks++;
-      }
+      for (const t of (ss || "").split("~")) relate(n, t, "succession", false);
+      for (const t of (pp || "").split("~")) relate(n, t, "succession", true);
+      for (const t of (rr || "").split("~")) relate(n, t, "related", false);
     }
     return { newModels, newLinks, updated, deltaNodes, deltaLinks, deltaUpdates };
   }
@@ -745,11 +881,20 @@ WHERE{
       for (const k in n) if (SIM_FIELDS.indexOf(k) < 0) out[k] = n[k];
       return out;
     };
+    // Sorted, so the file is stable between writes. Two machines both
+    // refreshing produce two versions of the same file, and a git conflict in
+    // a JSON blob whose entries are in discovery order is not reviewable by
+    // hand -- every line looks moved. In a fixed order the diff is the cars
+    // that actually differ, and a conflict can be resolved by reading it.
+    // serve.py sorts the object keys for the same reason.
+    const byKey = (f) => (a, b) => (f(a) < f(b) ? -1 : f(a) > f(b) ? 1 : 0);
+    newNodes = newNodes.map(flatNode).sort(byKey(n => n.id));
+    newLinks = newLinks.map(flatLink)
+      .sort(byKey(l => l.source + "|" + l.target + "|" + l.type));
     // generated: which bake of data.js this was computed against. See the
     // compatibility check at the top of this file.
     return { version, generated: window.CARDATA.meta.generated,
-             savedAt: Date.now(), newNodes: newNodes.map(flatNode),
-             newLinks: newLinks.map(flatLink), updates };
+             savedAt: Date.now(), newNodes, newLinks, updates };
   }
 
   // ---------- refresh orchestration ----------
@@ -785,6 +930,23 @@ WHERE{
         // infinite loop with no error message anywhere. If we can't save
         // it, say so, and don't offer an Apply that cannot work.
         let saved = true, saveErr = "", toFile = false;
+        // The accumulated cap -- see MAX_LAYER_BYTES. Refused rather than
+        // trimmed: dropping some of the cars to fit would be an arbitrary
+        // choice about which of your data to lose, and a layer this big means
+        // the answer is a rebuild, which absorbs all of them properly.
+        const bytes = JSON.stringify(delta).length;
+        if (layerWritable && bytes > MAX_LAYER_BYTES) {
+          status("live · the live layer is full (" + Math.round(bytes / 1024) +
+                 "KB) -- run a rebuild to absorb it");
+          toast("There are enough cars in live_layer.json now (" +
+                Math.round(bytes / 1024) + "KB) that it is worth folding them into the " +
+                "dataset properly. Every visitor loads this file before the graph draws, " +
+                "so it is not somewhere to keep growing. Run \u201cRebuild all data from " +
+                "scratch\u201d in Tools: it re-harvests these cars through the curated " +
+                "pipeline, with a baked layout, and clears the layer. Nothing is lost in " +
+                "the meantime -- this refresh just was not saved.", { noApply: true });
+          return;
+        }
         if (layerWritable) {
           // The shared home. Synchronous on purpose: the toast that follows
           // offers Apply, which reloads, and a reload that raced the write
@@ -906,7 +1068,16 @@ WHERE{
   //
   // Show both, clearly labelled as the different things they are.
   function bootLabel() {
-    const baked = "snapshot · built " + window.CARDATA.meta.generated + (usingCache ? " + local updates" : "");
+    // A layer that belongs to an older bake is inert, and saying so is the
+    // whole point -- see layerStale. Put first, because it means the graph is
+    // NOT showing what the file in the repo contains.
+    if (layerStale) {
+      return "snapshot · built " + window.CARDATA.meta.generated +
+             " · live_layer.json is from an earlier build (" + (LIVE.generated || "unknown") +
+             ") and is not being applied — refresh to rebuild it";
+    }
+    const baked = "snapshot · built " + window.CARDATA.meta.generated +
+                  (layerSpliced ? " + live layer" : "") + (usingCache ? " + local updates" : "");
     let last = 0;
     try { last = +(localStorage.getItem(LS_TS) || 0); } catch (e) {}
     if (!last) return baked;
@@ -946,8 +1117,41 @@ WHERE{
       const byId = new Map();
       for (const n of window.CARDATA.nodes) byId.set(n.id, n);
       let n = 0;
-      if (LIVE && fitsThisBake(LIVE)) n += applyPatches(LIVE.updates, byId);
-      if (bootSnap) n += applyPatches(bootSnap.updates, byId);
+      const sources = [];
+      if (LIVE && fitsThisBake(LIVE)) sources.push(LIVE);
+      if (bootSnap) sources.push(bootSnap);
+      for (const src of sources) n += applyPatches(src.updates, byId);
+      // The deferred links: a connection DBpedia states between a harvested
+      // car and one the local model or Add Car created. It could not be
+      // placed at boot -- that endpoint did not exist yet -- so it is placed
+      // here, once it does. Same dedupe as the boot splice, so calling this
+      // more than once adds nothing twice.
+      const linkSet = new Set();
+      for (const l of window.CARDATA.links) {
+        const a = idOfEndpoint(l.source), b = idOfEndpoint(l.target);
+        linkSet.add(a + "|" + b + "|" + l.type);
+        linkSet.add(b + "|" + a + "|" + l.type);
+      }
+      for (const src of sources) {
+        for (const raw of (src.newLinks || [])) {
+          if (!raw.deferred) continue;   // the ordinary ones went in at boot
+          const sid = idOfEndpoint(raw.source), tid = idOfEndpoint(raw.target);
+          if (!sid || !tid) continue;
+          const key = sid + "|" + tid + "|" + raw.type;
+          if (linkSet.has(key)) continue;
+          const sn = byId.get(sid), tn = byId.get(tid);
+          if (!sn || !tn || sn.retired || tn.retired) continue;
+          window.CARDATA.links.push(Object.assign({}, raw, { source: sid, target: tid }));
+          linkSet.add(key);
+          linkSet.add(tid + "|" + sid + "|" + raw.type);
+          n++;
+        }
+      }
+      if (n) {
+        window.CARDATA.meta.counts = window.CARDATA.meta.counts || {};
+        window.CARDATA.meta.counts.nodes = window.CARDATA.nodes.length;
+        window.CARDATA.meta.counts.links = window.CARDATA.links.length;
+      }
       return n;
     },
   };

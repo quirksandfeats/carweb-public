@@ -1,1 +1,1 @@
-window.LIVE_LAYER_STATIC = {"newNodes": [], "newLinks": [], "updates": {}};
+window.LIVE_LAYER_STATIC = {"newLinks": [], "newNodes": [], "updates": {}};

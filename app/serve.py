@@ -727,7 +727,12 @@ def write_live_layer(data):
     with _live_layer_lock:
         tmp = LIVE_LAYER_PATH + ".tmp"
         with open(tmp, "w", encoding="utf-8") as f:
-            json.dump(data, f, ensure_ascii=False, indent=1)
+            # sort_keys, and data_live.js sorts the arrays before sending: this
+            # file is committed, and two machines both refreshing produce a git
+            # conflict in it. In discovery order every line looks moved and the
+            # conflict cannot be read; in a fixed order the diff is the cars
+            # that genuinely differ.
+            json.dump(data, f, ensure_ascii=False, indent=1, sort_keys=True)
         os.replace(tmp, LIVE_LAYER_PATH)
         # The `<script>`-loadable mirror, for the same reason llm_families_data.js
         # exists: a double-clicked index.html cannot fetch() local JSON, and the
@@ -735,7 +740,8 @@ def write_live_layer(data):
         # how these cars reach every other reader once it is committed.
         js_tmp = LIVE_LAYER_DATA_JS_PATH + ".tmp"
         with open(js_tmp, "w", encoding="utf-8") as f:
-            f.write("window.LIVE_LAYER_STATIC = " + json.dumps(data, ensure_ascii=False) + ";\n")
+            f.write("window.LIVE_LAYER_STATIC = " +
+                    json.dumps(data, ensure_ascii=False, sort_keys=True) + ";\n")
         os.replace(js_tmp, LIVE_LAYER_DATA_JS_PATH)
 
 
