@@ -457,7 +457,18 @@ WHERE{
       // see. See liveIndex for why, and for the duplicate this prevents.
       const already = LIVE_IDX.byWp.get(key) || LIVE_IDX.byName.get(key);
       if (already) {
-        if (already.type !== "model" && already.type !== "family") return null;
+        // A NAMEPLATE is recognised (so it is not minted a second time) and
+        // then left entirely alone.
+        //
+        // Its years are not its own: backfillGenerationEnds derives them from
+        // its generations, and it is deliberately open-ended while the newest
+        // generation still is. This query asks DBpedia for MIN(productionEndYear)
+        // over the article, which for a multi-generation nameplate is the end
+        // of its FIRST generation -- so patching that in would close a car
+        // that is still on sale, with a date from decades ago, and do it after
+        // the backfill has already run and cannot correct it. Its designers
+        // are a roll-up of its generations' for the same reason.
+        if (already.type !== "model") return null;
         // Hand-compiled data is never touched, by this or any other route.
         if (!isSoftNode(already) && !already.auto) return null;
         const patch = {};
@@ -468,7 +479,13 @@ WHERE{
         // was minted so an edge had somewhere to point, and there is no
         // information to lose, so DBpedia's version takes the slot.
         const blank = !already.wp && hasNoData(already);
-        if (!already.wp) patch.wp = spaced;             // pure gain either way: it names the article
+        // Naming the article is pure gain -- unless some OTHER car already
+        // claims it. Two nodes with the same `wp` is a quiet mess: the
+        // thumbnail fetch, findMatchingNameplate and the next refresh's own
+        // matching all key off it, and each would pick whichever it saw
+        // first. The node stays anonymous rather than becoming a second
+        // claimant.
+        if (!already.wp && !LIVE_IDX.byWp.has(key) && !byWp.has(key)) patch.wp = spaced;
         if (y && (blank || !already.year)) patch.year = y;
         if (e && (blank || !already.end)) patch.end = e;
         if (dd && (blank || !already.designers || !already.designers.length)) {

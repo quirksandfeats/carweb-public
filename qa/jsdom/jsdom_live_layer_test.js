@@ -46,6 +46,11 @@ function csv() {
   rows.push('"Ford_Placeholder","1998","2007","Ford","Bram Tolliver","","",""');
   // A car typed in by hand, with its own link and its own year already.
   rows.push('"Ford_Handtyped","1990","1999","Ford","Cerys Nolan","","",""');
+  // A nameplate the model split, still in production. DBpedia's MIN() end
+  // year for the article is its FIRST generation's, decades ago.
+  rows.push('"Ford_Nameplate","1970","1978","Ford","","","",""');
+  // A placeholder whose name matches an article ANOTHER car already claims.
+  rows.push('"Ford_Contested","2001","2009","Ford","","","",""');
   // Genuinely new: in DBpedia, nowhere in the graph.
   rows.push('"Ford_Brandnew","2024","","Ford","","","",""');
   return rows.join("\n");
@@ -77,6 +82,20 @@ function overlayCars() {
     // Typed in by hand, with a link and a year of its own.
     { id: "usercar-ford-handtyped", type: "model", label: "Handtyped", make: "Ford",
       wp: "Ford Handtyped", year: 1990, end: null, designers: [], userAdded: true },
+    // A nameplate the model split. Still in production, so end is null on
+    // purpose -- backfillGenerationEnds owns that, derived from generations.
+    { id: "llm-ford-nameplate", type: "family", label: "Nameplate", make: "Ford",
+      wp: "Ford Nameplate", year: 1970, end: null, designers: [],
+      generations: ["llm-ford-nameplate-g1"], llmCreatedNode: true },
+    { id: "llm-ford-nameplate-g1", type: "model", label: "Gen1", make: "Ford",
+      wp: null, year: 1970, end: null, designers: [], familyOf: "llm-ford-nameplate",
+      llmCreatedNode: true },
+    // A placeholder with no link of its own, whose make+label happens to name
+    // an article a DIFFERENT car in the graph already claims.
+    { id: "llm-ford-contested", type: "model", label: "Contested", make: "Ford",
+      wp: null, year: null, end: null, designers: [], llmCreatedNode: true },
+    { id: "llm-ford-contested-other", type: "model", label: "Something Else", make: "Ford",
+      wp: "Ford Contested", year: 2001, end: null, designers: [], llmCreatedNode: true },
   ];
 }
 
@@ -212,6 +231,49 @@ async function load(opts) {
     const filler = r.byId.get("m-ford-filler-5");
     check("a harvested car with no end year in DBpedia is left alone",
           filler.end === null, filler.end);
+  }
+
+  // ---------- a nameplate is recognised, then left alone ----------
+  // Its years are not its own: backfillGenerationEnds derives them from its
+  // generations, and it is open-ended on purpose while the newest one is. This
+  // query asks DBpedia for MIN(productionEndYear), which for a multi-
+  // generation article is the end of the FIRST generation -- so patching it in
+  // would close a car that is still on sale, with a date from decades ago, and
+  // do it after the backfill has run and cannot correct it.
+  {
+    const r = await load({ server: true, withOverlay: true });
+    const fam = r.byId.get("llm-ford-nameplate");
+    check("a nameplate still in production is NOT closed by DBpedia's earliest "
+          + "end year", fam.end === null, fam.end);
+    check("...and is still not minted a second time",
+          r.nodes.filter(n => n.wp === "Ford Nameplate").length === 1,
+          r.nodes.filter(n => n.wp === "Ford Nameplate").length + " nodes");
+    const layer = r.posted[r.posted.length - 1];
+    check("...and carries no patch at all", !layer.updates["llm-ford-nameplate"],
+          JSON.stringify(layer.updates["llm-ford-nameplate"] || null));
+  }
+
+  // ---------- two cars must never claim the same article ----------
+  {
+    const r = await load({ server: true, withOverlay: true });
+    const contested = r.byId.get("llm-ford-contested");
+    const owner = r.byId.get("llm-ford-contested-other");
+    check("a placeholder is not given a Wikipedia link another car already has",
+          !contested.wp, contested.wp);
+    check("...and the car that already had it keeps it", owner.wp === "Ford Contested", owner.wp);
+    check("...so exactly one node claims that article",
+          r.nodes.filter(n => n.wp === "Ford Contested").length === 1,
+          r.nodes.filter(n => n.wp === "Ford Contested").length + " claimants");
+    // And the row's data goes to the car that OWNS the article, not to the
+    // one that merely shares its name: the link index is consulted before the
+    // name index, so identity beats coincidence. The placeholder is left
+    // completely alone, which is the right answer -- nothing actually
+    // established that it is this car.
+    check("...the article's owner is the one that gets the row's data",
+          owner.end === 2009, owner.end);
+    check("...and the name-only lookalike is left untouched",
+          !contested.year && !contested.end && !contested.designers.length,
+          contested.year + "/" + contested.end + "/" + contested.designers.length);
   }
 
   // ---------- and the patches survive a reload ----------

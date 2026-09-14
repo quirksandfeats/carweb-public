@@ -175,8 +175,10 @@ check("the missing-token message offers both ways",
       "carweb-agent-token" in agent.NO_TOKEN and "CARWEB_AGENT_TOKEN" in agent.NO_TOKEN)
 
 # ---- what it is allowed to commit ----
-check("only the two files the pass can write are committable",
-      agent.TRACKED == ["app/llm_families.json", "app/llm_families_data.js"], agent.TRACKED)
+check("only the files the pass can write are committable -- the LLM layer and "
+      "the DBpedia live layer, both with their script mirrors",
+      agent.TRACKED == ["app/llm_families.json", "app/llm_families_data.js",
+                        "app/live_layer.json", "app/live_layer_data.js"], agent.TRACKED)
 src = open(os.path.join(ROOT, "scripts", "llm_agent.py"), encoding="utf-8").read()
 check("it never stages the whole tree -- this runs unattended in a working "
       "copy that may have anything else half-finished in it",
