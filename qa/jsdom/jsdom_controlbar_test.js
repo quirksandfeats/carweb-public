@@ -84,6 +84,61 @@ input.dispatchEvent(new window.Event("input"));
 const results = doc.getElementById("searchresults");
 check("search still returns results from the new control-bar location", !results.hidden);
 
+// ---------- picking a car puts the keyboard away ----------
+// Real user request: "if possible, I want that once I enter a car or select a
+// car from the search bar, that the keyboard automatically goes away."
+//
+// A phone keyboard is up for exactly as long as the input has focus, and
+// picking a result does not take focus away by itself -- the result rows call
+// preventDefault on mousedown precisely so the input KEEPS focus long enough
+// for the click to register. So focus has to be given up on purpose.
+{
+  let blurred = 0;
+  input.addEventListener("blur", () => blurred++);
+  input.focus();
+  input.value = "Corvette";
+  input.dispatchEvent(new window.Event("input"));
+  const rows = [...doc.querySelectorAll("#searchresults .sr-row, #searchresults > div")];
+  check("there is a result row to pick", rows.length > 0, rows.length);
+  const before = blurred;
+  rows[0].onmousedown({ preventDefault() {} });
+  check("picking a result gives up focus, so the keyboard goes away",
+        blurred > before, blurred);
+  check("...and the result list closes with it", results.hidden);
+
+  input.focus();
+  input.value = "Corvette";
+  input.dispatchEvent(new window.Event("input"));
+  const before2 = blurred;
+  input.dispatchEvent(Object.assign(new window.Event("keydown"), { key: "Enter" }));
+  check("pressing Enter does the same", blurred > before2, blurred);
+
+  // Escape is a dismissal too -- closing the list while leaving a keyboard
+  // covering half the screen would be the same complaint with extra steps.
+  input.focus();
+  input.value = "Corvette";
+  input.dispatchEvent(new window.Event("input"));
+  const before3 = blurred;
+  input.dispatchEvent(Object.assign(new window.Event("keydown"), { key: "Escape" }));
+  check("and so does Escape", blurred > before3, blurred);
+}
+
+// ---------- the card is a strip on a phone, not half the screen ----------
+// Real user report: "the title card seems to take up way too much space,
+// almost 50% of all screen real-estate. I want that it's taking even less
+// space, maybe about 20-30% of the screen."
+{
+  const css = fs.readFileSync(path.join(APP, "styles.css"), "utf-8");
+  const phone = css.slice(css.indexOf("@media (max-width:720px)"));
+  const detail = phone.slice(phone.indexOf("#detail{"), phone.indexOf("#detail-close"));
+  const cap = /max-height:\s*(\d+)%/.exec(detail);
+  check("the phone detail sheet is capped in the 20-30% band the request asked for",
+        !!cap && +cap[1] >= 20 && +cap[1] <= 30, cap && cap[1] + "%");
+  const img = /\.dt-imgwrap\{[^}]*height:\s*(\d+)px/.exec(phone);
+  check("...and its photo is small enough to fit inside that", !!img && +img[1] <= 90,
+        img && img[1] + "px");
+}
+
 // ---------- 1880-floor data extension ----------
 const r = window.CarWeb.yearRange();
 check("data now reaches back before 1900 (1880-floor extension)", r.min < 1900, r.min);

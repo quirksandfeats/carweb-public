@@ -896,16 +896,28 @@ main{flex:1; position:relative; min-height:0}
   #zoomslider-wrap button{width:24px; height:24px; font-size:14px}
   #zoomslider{width:88px}
 
+  /* Real user report: "the title card seems to take up way too much space,
+     almost 50% of all screen real-estate. I want that it's taking even less
+     space, maybe about 20-30% of the screen."
+
+     68% was the cap, and the card reached it easily -- the photo alone was
+     132px of it. The cap is 30% now, with the photo roughly halved, so a card
+     opens as a strip along the bottom and the graph above it stays the thing
+     you are looking at. Nothing is lost: the card still scrolls to all of its
+     content, and the camera reads the sheet's real height (panelReserveY), so
+     a shorter card also means the car you just opened is centred in more of
+     the screen rather than less. */
   #detail{
     top:auto; left:0; right:0; bottom:0; width:auto;
-    max-height:68%; padding:16px 14px 20px;
+    max-height:30%; padding:12px 14px 16px;
     border-left:0; border-right:0; border-bottom:0;
     border-radius:14px 14px 0 0;
     box-shadow:0 -6px 22px rgba(23,20,15,.18);
   }
-  .dt-imgwrap{margin:0 -14px; height:132px}
-  .dt-title{font-size:21px}
-  #detail-close{top:8px; right:8px; font-size:17px; padding:6px 10px}
+  .dt-imgwrap{margin:0 -14px; height:72px}
+  .dt-title{font-size:18px}
+  .dt-kicker{font-size:9.5px}
+  #detail-close{top:6px; right:8px; font-size:16px; padding:5px 9px}
 
   #tl-controls{left:10px; right:10px; top:10px; gap:8px; flex-wrap:wrap}
   .tl-year{font-size:28px; min-width:0}

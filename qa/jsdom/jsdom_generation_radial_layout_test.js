@@ -25,10 +25,54 @@ function check(name, cond, extra) {
   console.log((cond ? "PASS " : "FAIL ") + name + (extra !== undefined ? " -- " + extra : ""));
   if (!cond) fails++;
 }
+// A recording context. Everything still no-ops, but the calls that decide
+// what an edge LOOKS like are written down, because "the succession line is
+// an arc along the rim" is not observable any other way in a headless test.
+const drawn = [];
 function fakeCtx() {
   const noop = () => {};
-  const h = { measureText: () => ({ width: 10 }) };
+  const h = {
+    measureText: () => ({ width: 10 }),
+    beginPath: () => drawn.push(["begin"]),
+    moveTo: (x, y) => drawn.push(["moveTo", x, y]),
+    lineTo: (x, y) => drawn.push(["lineTo", x, y]),
+    arc: (x, y, r, a1, a2, ccw) => drawn.push(["arc", x, y, r, a1, a2, ccw]),
+    quadraticCurveTo: (cx, cy, x, y) => drawn.push(["quad", cx, cy, x, y]),
+    stroke: () => drawn.push(["stroke"]),
+  };
   return new Proxy(h, { get(t, k) { return k in t ? t[k] : noop; }, set() { return true; } });
+}
+// The path a single stroke was built from: everything between the beginPath
+// that precedes it and the stroke itself.
+function strokes() {
+  const out = [];
+  let cur = null;
+  for (const op of drawn) {
+    if (op[0] === "begin") { cur = []; continue; }
+    if (op[0] === "stroke") { if (cur) out.push(cur); cur = null; continue; }
+    if (cur) cur.push(op);
+  }
+  return out;
+}
+// The stroke for one specific edge: it has to START at one endpoint and END
+// at the other. Matching the start alone is not enough -- a node with several
+// edges produces several strokes that all begin in the same place, and the
+// first of them is whichever happened to come earlier in the link array.
+function endOf(op) {
+  if (op[0] === "quad") return [op[3], op[4]];      // control point, then destination
+  if (op[0] === "arc") {
+    const [, cx, cy, r, , a2] = op;
+    return [cx + Math.cos(a2) * r, cy + Math.sin(a2) * r];
+  }
+  return [op[1], op[2]];
+}
+function strokeBetween(a, b) {
+  const near = (p, n) => Math.hypot(p[0] - n.x, p[1] - n.y) < 0.5;
+  return strokes().find(sp => {
+    if (sp.length < 2 || sp[0][0] !== "moveTo") return false;
+    const from = [sp[0][1], sp[0][2]], to = endOf(sp[sp.length - 1]);
+    return (near(from, a) && near(to, b)) || (near(from, b) && near(to, a));
+  });
 }
 
 const dom = new JSDOM(html, { url: "http://localhost:8077/index.html", runScripts: "outside-only" });
@@ -73,6 +117,21 @@ const five = nameplate("five", 5);
 const two = nameplate("two", 2);
 const one = nameplate("one", 1);
 
+// Two things that must be pushed out of / bent around the five-generation
+// bubble: a car parked right where the ring is about to appear, and an edge
+// between two cars on opposite sides of it whose straight line would cut
+// through the middle.
+const INTRUDER = "m-test-rad-intruder", WEST = "m-test-rad-west", EAST = "m-test-rad-east";
+DATA.nodes.push(
+  { id: INTRUDER, type: "model", label: "Intruder", make: "TestRadial", year: 1990, end: 2000 },
+  { id: WEST, type: "model", label: "West", make: "TestRadial", year: 1990, end: 2000 },
+  { id: EAST, type: "model", label: "East", make: "TestRadial", year: 1990, end: 2000 });
+DATA.links.push(
+  { source: INTRUDER, target: MK, type: "made" },
+  { source: WEST, target: MK, type: "made" },
+  { source: EAST, target: MK, type: "made" },
+  { source: WEST, target: EAST, type: "platform" });
+
 window.LLM_FAMILIES = { families: {}, relations: {}, recheck: {}, __serverAvailable: false };
 loadScript("llm_families.js");
 loadScript("app.js");
@@ -90,6 +149,11 @@ function ringOf(fam) {
   const gens = fam.gens.map(id => cw.byId.get(id));
   return { f, gens, d: gens.map(g => Math.hypot(g.x - f.x, g.y - f.y)) };
 }
+// Park the three outsiders around the five-generation nameplate's centre
+// BEFORE it is expanded: the intruder right on top of it, and the other two
+// straddling it so the edge between them runs through the middle.
+[[INTRUDER, 400 + 8, 250 - 5], [WEST, 400 - 400, 250], [EAST, 400 + 400, 250]]
+  .forEach(([id, x, y]) => { const n = cw.byId.get(id); n.x = x; n.y = y; n.fx = null; n.fy = null; });
 
 // ---------- five generations: a real ring ----------
 {
@@ -127,6 +191,92 @@ function ringOf(fam) {
   const far = Math.hypot(gens[4].x - gens[0].x, gens[4].y - gens[0].y);
   check("consecutive generations are adjacent on the rim, first to last around it",
         step < far, step.toFixed(1) + " vs " + far.toFixed(1));
+}
+
+// ---------- the nameplate stays in the middle ----------
+// "I want to make sure that the nameplate is always fixed in the center
+// around the generations. This means when I expand the nameplate, the graph
+// should also re-organize itself so that this always occurs." Without the pin
+// the nameplate is the one node in the picture the simulation can still move,
+// so the first reheat drags the centre out from inside its own ring.
+{
+  const f = cw.byId.get(five.id);
+  check("the nameplate is pinned while it is expanded", f.fx === 400 && f.fy === 250,
+        f.fx + "," + f.fy);
+  const ring = cw.ringOf(five.id);
+  check("...and the ring geometry is reported from that same centre",
+        ring && ring.x === f.x && ring.y === f.y && ring.r > 40, ring && [ring.x, ring.y, ring.r].join(","));
+  check("...with a clearance circle wider than the ring itself",
+        ring.clear > ring.r, ring.clear.toFixed(1) + " vs " + ring.r.toFixed(1));
+}
+
+// ---------- nothing else is inside the bubble ----------
+// "I want no other cars or models or anything to be coming between the space
+// of the nameplates and its generations... making it look like a proper
+// bubble."
+{
+  const ring = cw.ringOf(five.id);
+  const intruder = cw.byId.get(INTRUDER);
+  const d = Math.hypot(intruder.x - ring.x, intruder.y - ring.y);
+  check("a car sitting where the ring appears is moved out past it",
+        d >= ring.clear - 0.001, d.toFixed(1) + " vs clearance " + ring.clear.toFixed(1));
+  const inside = cw.nodes.filter(n => n !== ring.fam && !ring.gens.has(n.id) &&
+    Number.isFinite(n.x) && Math.hypot(n.x - ring.x, n.y - ring.y) < ring.clear - 0.001);
+  check("...and nothing at all is left inside it", inside.length === 0,
+        inside.slice(0, 4).map(n => n.id).join(", "));
+  // The generations themselves are of course inside the clearance circle --
+  // they are the ring. Proving they were not evicted along with everyone else.
+  check("the generations are still exactly on the rim",
+        five.gens.every(id => Math.abs(Math.hypot(cw.byId.get(id).x - ring.x,
+                                                  cw.byId.get(id).y - ring.y) - ring.r) < 0.001));
+}
+
+// ---------- and neither is anything drawn ----------
+{
+  cw.graphDrawNow();
+  const ring = cw.ringOf(five.id);
+  const gens = five.gens.map(id => cw.byId.get(id));
+
+  // 1. The succession lines follow the rim.
+  const sp = strokeBetween(gens[0], gens[1]);
+  check("a predecessor/successor line is drawn as an arc, not a straight line",
+        !!sp && sp.some(op => op[0] === "arc"), sp && sp.map(o => o[0]).join(">"));
+  const arc = sp && sp.find(op => op[0] === "arc");
+  check("...on the generations' own circle, so it follows their curvature",
+        !!arc && Math.abs(arc[1] - ring.x) < 0.5 && Math.abs(arc[2] - ring.y) < 0.5 &&
+        Math.abs(arc[3] - ring.r) < 0.5, arc && arc.slice(1, 4).map(v => v.toFixed(1)).join(","));
+  check("...the short way round, never the long way through the far side",
+        !!arc && Math.abs(((arc[5] - arc[4]) + Math.PI * 3) % (Math.PI * 2) - Math.PI) <= Math.PI / 2 + 0.001,
+        arc && (arc[5] - arc[4]).toFixed(3));
+
+  // 2. An unrelated edge that would cut across is bowed around it.
+  const west = cw.byId.get(WEST), east = cw.byId.get(EAST);
+  const crossing = strokeBetween(west, east);
+  check("an unrelated edge that would cross the bubble is curved around it",
+        !!crossing && crossing.some(op => op[0] === "quad"),
+        crossing && crossing.map(o => o[0]).join(">"));
+  const q = crossing && crossing.find(op => op[0] === "quad");
+  if (q) {
+    // Sample the quadratic and check every point of it clears the circle.
+    const p0 = crossing[0];
+    let worst = Infinity;
+    for (let t = 0; t <= 1.0001; t += 0.02) {
+      const mt = 1 - t;
+      const x = mt * mt * p0[1] + 2 * mt * t * q[1] + t * t * q[3];
+      const y = mt * mt * p0[2] + 2 * mt * t * q[2] + t * t * q[4];
+      worst = Math.min(worst, Math.hypot(x - ring.x, y - ring.y));
+    }
+    check("...and the whole curve really does stay outside it",
+          worst >= ring.r, worst.toFixed(1) + " vs ring radius " + ring.r.toFixed(1));
+  }
+
+  // 3. The stated exception: an edge that starts at the nameplate itself has
+  //    to leave from the centre, so it is left alone.
+  const made = strokeBetween(cw.byId.get(five.id), cw.byId.get(MK));
+  check("an edge from the nameplate itself is left straight -- it begins at "
+        + "the centre, so there is nothing to bend it around",
+        !!made && made.every(op => op[0] === "moveTo" || op[0] === "lineTo"),
+        made && made.map(o => o[0]).join(">"));
 }
 
 // ---------- the succession lines still exist and still draw ----------

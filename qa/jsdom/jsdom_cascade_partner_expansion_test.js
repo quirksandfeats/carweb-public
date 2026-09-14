@@ -153,8 +153,8 @@ cw.openDetail(cw.byId.get(SEED));
   // count has stopped moving and there is still real work running. That gap
   // is what the agent used to walk out on.
   let sawPendingAfterSeed = false, sawBusyShown = false, busySaidWhat = "";
-  for (let i = 0; i < 600; i++) {
-    await sleep(25);
+  for (let i = 0; i < 3000; i++) {
+    await sleep(20);
     const seed = LF.entryFor(SEED);
     if (LF.pendingWork().total > 0 && !busy.hidden) {
       sawBusyShown = true;
@@ -188,6 +188,9 @@ cw.openDetail(cw.byId.get(SEED));
         sawBusyShown, busySaidWhat);
   check("...and it named a car rather than showing a bare spinner",
         /Duskar|Capvor|Loganto|Kixby|queued|next check/.test(busySaidWhat), busySaidWhat);
+  // The label is on a timer rather than a notification (see initLlmBusy), so
+  // it can be up to one tick stale -- give it a couple before asking.
+  for (let i = 0; i < 20 && !busy.hidden; i++) await sleep(100);
   check("...and it goes away once there is genuinely nothing left",
         busy.hidden === true, busy.hidden + " / " + busy.textContent.trim());
   check("pendingWork names what it is waiting on, so the terminal can say so",

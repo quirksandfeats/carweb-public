@@ -625,6 +625,33 @@ window.CarWeb = (function () {
   const expandedFamilies = new Set();
   const familyListeners = [];
   function isFamilyExpanded(id) { return expandedFamilies.has(id); }
+  // How big the ring is, for a given number of generations. Shared, because
+  // three separate things need the same answer and a second copy would drift:
+  // the layout that places them, the force that keeps everything else out of
+  // the circle, and the edge drawing that has to bend around it.
+  //
+  // Spacing along the rim stays roughly what the old straight line used
+  // between neighbours, so an eight-generation nameplate gets a wider ring
+  // rather than eight nodes crammed onto a small one.
+  const RING_GAP = 78, RING_MIN = 56, RING_CLEARANCE = 26;
+  function ringSlots(count) { return count + 1; }
+  function ringRadius(count) {
+    if (count <= 1) return RING_MIN;
+    return Math.max(RING_MIN, (RING_GAP * ringSlots(count)) / (Math.PI * 2));
+  }
+  // The ring of an expanded family, or null. `r` is where the generations
+  // sit; `clear` is the circle nothing else may be inside.
+  function ringOf(famId) {
+    if (!expandedFamilies.has(famId)) return null;
+    const fam = byId.get(famId);
+    if (!fam || !Number.isFinite(fam.x) || !Number.isFinite(fam.y)) return null;
+    const gens = (fam.generations || []).filter(id => byId.has(id));
+    if (!gens.length) return null;
+    const r = ringRadius(gens.length);
+    return { fam, gens: new Set(gens), x: fam.x, y: fam.y, r, clear: r + RING_CLEARANCE };
+  }
+  function eachRing(f) { expandedFamilies.forEach(id => { const ring = ringOf(id); if (ring) f(ring); }); }
+
   // Real user request: "Instead of a line of generations connected to one
   // another nearby the nameplate node, the generations should exist 'around'
   // the nameplate name, kind of like a radial, to somewhat separate it from
@@ -643,26 +670,29 @@ window.CarWeb = (function () {
   // other and the predecessor/successor line between them runs straight
   // through the nameplate node in the middle. With a gap, consecutive
   // generations are always neighbours on the rim, so every succession line
-  // is a short chord around the outside and the chain reads first to last
-  // around the arc. The arc is centred on straight up, so the first
-  // generation starts on the left and the newest ends on the right.
+  // is a short arc around the outside and the chain reads first to last
+  // around it. The arc is centred on straight up, so the first generation
+  // starts on the left and the newest ends on the right.
   //
-  // The radius grows with the count so the spacing along the rim stays
-  // roughly what the old line used between neighbours -- an eight-generation
-  // nameplate gets a wider ring rather than eight nodes crammed onto a small
-  // one.
+  // The nameplate itself is pinned too -- real user request: "I want to make
+  // sure that the nameplate is always fixed in the center around the
+  // generations. This means when I expand the nameplate, the graph should
+  // also re-organize itself so that this always occurs." Without the pin it
+  // stays under the simulation's control while its generations do not, so the
+  // first reheat after expanding drags the centre out from inside its own
+  // ring.
   function layoutGenerationsRadial(fam) {
     const gens = (fam.generations || []).map(id => byId.get(id)).filter(Boolean);
     if (!gens.length) return;
-    const GAP = 78, R_MIN = 56;
+    fam.fx = fam.x; fam.fy = fam.y;
     if (gens.length === 1) {
       gens[0].x = gens[0].fx = fam.x;
-      gens[0].y = gens[0].fy = fam.y - R_MIN;
+      gens[0].y = gens[0].fy = fam.y - RING_MIN;
       return;
     }
-    const slots = gens.length + 1;
+    const slots = ringSlots(gens.length);
     const step = (Math.PI * 2) / slots;
-    const R = Math.max(R_MIN, (GAP * slots) / (Math.PI * 2));
+    const R = ringRadius(gens.length);
     const start = -Math.PI / 2 - ((gens.length - 1) * step) / 2;
     gens.forEach((g, i) => {
       const a = start + i * step;
@@ -671,16 +701,76 @@ window.CarWeb = (function () {
     });
   }
   function unpinGenerations(fam) {
+    fam.fx = null; fam.fy = null;
     (fam.generations || []).forEach(id => {
       const g = byId.get(id);
       if (g) { g.fx = null; g.fy = null; }
     });
   }
+
+  // Real user request: "I want no other cars or models or anything to be
+  // coming between the space of the nameplates and its generations. All car
+  // nodes should be connected from the outside of the ring, which leaves
+  // clean empty space in between the nameplate and its generations, making it
+  // look like a proper 'bubble'."
+  //
+  // Two halves. This is the positional one: anything that is not the
+  // nameplate or one of its own generations is moved out past the rim, as a
+  // hard shove at the moment of expanding (so the bubble is clean on the very
+  // first frame, not once a simulation settles) and again as a force below
+  // (so it stays clean through any later reheat). Once nothing else is inside
+  // the circle, an edge from an outside car to a generation necessarily
+  // arrives from outside, which is the rest of what was asked for.
+  //
+  // Pinned nodes are left alone: they belong to some other ring, which has
+  // its own claim on where they are. Two overlapping rings is a layout
+  // problem, not a licence to drag someone else's generations around.
+  //
+  // The other half -- edges that would cut across the circle -- is in the
+  // renderer, since bending a line is a drawing decision, not a position.
+  function clearRing(ring) {
+    if (!ring) return;
+    nodes.forEach(n => {
+      if (n === ring.fam || ring.gens.has(n.id)) return;
+      if (n.fx != null || n.fy != null) return;
+      if (!Number.isFinite(n.x) || !Number.isFinite(n.y)) return;
+      let dx = n.x - ring.x, dy = n.y - ring.y;
+      let d = Math.hypot(dx, dy);
+      if (d >= ring.clear) return;
+      if (d < 0.001) {   // sitting exactly on the centre: pick a direction rather than dividing by zero
+        const a = Math.random() * Math.PI * 2;
+        dx = Math.cos(a); dy = Math.sin(a); d = 1;
+      }
+      n.x = ring.x + (dx / d) * ring.clear;
+      n.y = ring.y + (dy / d) * ring.clear;
+    });
+  }
+  // The same rule as a force, so a reheat cannot walk anything back inside.
+  function ringClearanceForce(alpha) {
+    if (!expandedFamilies.size) return;
+    eachRing(ring => {
+      nodes.forEach(n => {
+        if (n === ring.fam || ring.gens.has(n.id)) return;
+        if (n.fx != null || n.fy != null) return;
+        if (!Number.isFinite(n.x) || !Number.isFinite(n.y)) return;
+        const dx = n.x - ring.x, dy = n.y - ring.y;
+        const d = Math.hypot(dx, dy);
+        if (d >= ring.clear || d < 0.001) return;
+        const push = (ring.clear - d) * alpha * 0.8;
+        n.vx += (dx / d) * push;
+        n.vy += (dy / d) * push;
+      });
+    });
+  }
+
   function expandFamily(famId) {
     if (expandedFamilies.has(famId)) return;
     expandedFamilies.add(famId);
     const fam = byId.get(famId);
-    if (fam) layoutGenerationsRadial(fam);
+    if (fam) {
+      layoutGenerationsRadial(fam);
+      clearRing(ringOf(famId));
+    }
     familyListeners.forEach(f => f(famId, true));
   }
   function collapseFamily(famId) {
@@ -4646,14 +4736,32 @@ window.CarWeb = (function () {
   }
   const searchInput = document.getElementById("search");
   const searchResults = document.getElementById("searchresults");
+  // Real user request: "once I enter a car or select a car from the search
+  // bar, that the keyboard automatically goes away."
+  //
+  // A phone keyboard stays up for as long as the input has focus, and picking
+  // a result does not by itself take focus away -- the result row calls
+  // preventDefault on mousedown precisely so the input KEEPS focus long
+  // enough for the click to land. So it has to be given up explicitly, and at
+  // the one moment it is certainly finished with: a car has been chosen and
+  // the camera is flying to it, behind half a screen of keyboard.
+  //
+  // Unconditional rather than width-gated: on a desktop, blurring an input
+  // you have just finished using is invisible, and a media query here would
+  // be a second, quietly-drifting definition of "is this a phone".
+  function dismissSearch() {
+    searchResults.hidden = true;
+    if (typeof searchInput.blur === "function") searchInput.blur();
+  }
   searchInput.addEventListener("input", () => renderResults(searchResults, searchAll(searchInput.value), n => {
-    searchResults.hidden = true; searchInput.value = (n.type === "model" || n.type === "family") ? `${n.make} ${n.label}` : n.label;
+    searchInput.value = (n.type === "model" || n.type === "family") ? `${n.make} ${n.label}` : n.label;
+    dismissSearch();
     api.goto(n.id);
   }));
   searchInput.addEventListener("blur", () => setTimeout(() => searchResults.hidden = true, 150));
   searchInput.addEventListener("keydown", e => {
-    if (e.key === "Enter") { const r = searchAll(searchInput.value); if (r.length) { searchResults.hidden = true; api.goto(r[0].id); } }
-    if (e.key === "Escape") searchResults.hidden = true;
+    if (e.key === "Enter") { const r = searchAll(searchInput.value); if (r.length) { dismissSearch(); api.goto(r[0].id); } }
+    if (e.key === "Escape") dismissSearch();
   });
 
   // ---------- Graph-only year-range filter ----------
@@ -4758,6 +4866,10 @@ window.CarWeb = (function () {
       .force("collide", d3.forceCollide(d => d.r + 2.5).iterations(1))
       .force("x", d3.forceX(0).strength(0.018))
       .force("y", d3.forceY(0).strength(0.026))
+      // Keeps an expanded nameplate's bubble empty -- see ringClearanceForce.
+      // A no-op (one Set size check) whenever nothing is expanded, which is
+      // the overwhelmingly common case.
+      .force("ringclear", ringClearanceForce)
       .stop();
     if (DATA.meta.layout !== "precomputed") { for (let i = 0; i < 300; i++) sim.tick(); }
   }
@@ -5109,6 +5221,127 @@ window.CarWeb = (function () {
       return Math.max(0.1, Math.min(1, (k - MIN_K) / (0.85 - MIN_K)));
     }
 
+    // ---------- edges around an expanded nameplate's bubble ----------
+    // Real user request, two parts of the same picture:
+    //
+    //   "the lines connecting previous generation to next generation to be
+    //    curved as well, so that it somewhat follows the curvature of the
+    //    actual generations going 'around' the nameplate"
+    //
+    //   "try not to have any of the edges go through the center of this
+    //    circle as well, for cleanliness, unless absolutely necessary. An
+    //    exception to this rule is if the connection edge must come from the
+    //    nameplate itself and none of the models"
+    //
+    // Both are answered by asking one question per edge: does this edge have
+    // any business being inside a ring? A succession between two generations
+    // of the same nameplate does -- it belongs to the ring, so it is drawn ON
+    // it, as a real arc at the generations' own radius. Anything else does
+    // not, so it is bowed around the outside. And an edge that starts at the
+    // nameplate itself is the stated exception: it begins at the centre, so
+    // there is no bending it out, and it is left straight.
+
+    // The succession arc: same centre and radius as the generations, going
+    // the short way round, so it lies exactly along the rim they sit on.
+    // Rebuilt once per frame (see draw), never per edge: ringOf allocates a
+    // Set of generation ids, and doing that ten thousand times a frame is the
+    // difference between free and a visible stall.
+    let frameRings = [], frameRingById = new Map();
+    function refreshFrameRings() {
+      frameRings = [];
+      frameRingById = new Map();
+      if (!expandedFamilies.size) return;
+      expandedFamilies.forEach(id => {
+        const ring = ringOf(id);
+        if (!ring) return;
+        frameRings.push(ring);
+        frameRingById.set(id, ring);
+      });
+    }
+
+    function genSuccArc(l) {
+      const a = l.sn, b = l.tn;
+      if (!a.familyOf || a.familyOf !== b.familyOf) return false;
+      const ring = frameRingById.get(a.familyOf);
+      if (!ring) return false;
+      const ra = Math.hypot(a.x - ring.x, a.y - ring.y);
+      const rb = Math.hypot(b.x - ring.x, b.y - ring.y);
+      // Only while they really are on the ring. A generation being dragged,
+      // or a frame caught mid-relayout, falls back to a straight line rather
+      // than drawing an arc through empty space.
+      if (Math.abs(ra - rb) > 1 || Math.abs(ra - ring.r) > 1) return false;
+      let a1 = Math.atan2(a.y - ring.y, a.x - ring.x);
+      let a2 = Math.atan2(b.y - ring.y, b.x - ring.x);
+      let delta = a2 - a1;
+      while (delta > Math.PI) delta -= Math.PI * 2;
+      while (delta < -Math.PI) delta += Math.PI * 2;
+      ctx.arc(ring.x, ring.y, ring.r, a1, a1 + delta, delta < 0);
+      return true;
+    }
+
+    // Does the straight segment a->b pass inside this circle? Standard
+    // point-to-segment distance against the centre; `t` is where the nearest
+    // point falls along the segment, which is also the place to push the
+    // curve away from.
+    function segmentEntersCircle(a, b, ring) {
+      const vx = b.x - a.x, vy = b.y - a.y;
+      const len2 = vx * vx + vy * vy;
+      if (len2 < 1e-6) return null;
+      let t = ((ring.x - a.x) * vx + (ring.y - a.y) * vy) / len2;
+      t = Math.max(0, Math.min(1, t));
+      const px = a.x + vx * t, py = a.y + vy * t;
+      const d = Math.hypot(ring.x - px, ring.y - py);
+      if (d >= ring.clear) return null;
+      return { t, d, px, py };
+    }
+
+    // Bow the edge around the ring it would otherwise cut through. The
+    // control point goes on the far side of the circle from its centre,
+    // pushed out past the rim, so the quadratic passes outside it. Only the
+    // WORST offender is corrected: an edge crossing two rings at once is
+    // vanishingly rare, and chaining curves for it would bend the line into
+    // something less legible than the straight one it replaced.
+    function bowAroundRings(l) {
+      let worst = null;
+      for (const ring of frameRings) {
+        // An endpoint sitting on or inside this ring belongs to it -- a
+        // generation on the rim, or the nameplate at the centre. Those edges
+        // are supposed to touch it.
+        if (l.sn === ring.fam || l.tn === ring.fam) continue;
+        if (ring.gens.has(l.sn.id) || ring.gens.has(l.tn.id)) continue;
+        const hit = segmentEntersCircle(l.sn, l.tn, ring);
+        if (hit && (!worst || hit.d < worst.hit.d)) worst = { ring, hit };
+      }
+      if (!worst) return false;
+      const { ring, hit } = worst;
+      // Direction from the centre out through the closest point on the
+      // segment. A segment aimed straight at the centre has no such
+      // direction, so take the perpendicular instead -- either side is as
+      // good as the other.
+      let ux = hit.px - ring.x, uy = hit.py - ring.y;
+      let d = Math.hypot(ux, uy);
+      if (d < 0.001) {
+        ux = -(l.tn.y - l.sn.y); uy = l.tn.x - l.sn.x;
+        d = Math.hypot(ux, uy) || 1;
+      }
+      // A quadratic sits about halfway to its control point at the midpoint,
+      // so aim twice as far out as the curve actually needs to go.
+      const want = ring.clear + 10;
+      const cx = ring.x + (ux / d) * (want * 2 - hit.d);
+      const cy = ring.y + (uy / d) * (want * 2 - hit.d);
+      ctx.quadraticCurveTo(cx, cy, l.tn.x, l.tn.y);
+      return true;
+    }
+
+    function pathForLink(l) {
+      ctx.moveTo(l.sn.x, l.sn.y);
+      if (frameRings.length) {
+        if (l.type === "gensucc" && genSuccArc(l)) return;
+        if (bowAroundRings(l)) return;
+      }
+      ctx.lineTo(l.tn.x, l.tn.y);
+    }
+
     function draw() {
       ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
       ctx.clearRect(0, 0, W, H);
@@ -5116,6 +5349,7 @@ window.CarWeb = (function () {
       const k = t.k;
       const aSet = activeSet();
       const edgeScale = aSet ? 1 : edgeZoomScale(k);
+      refreshFrameRings();
 
       // edges
       for (const l of links) {
@@ -5133,7 +5367,7 @@ window.CarWeb = (function () {
         const on = (!aSet || (aSet.has(l.sn.id) && aSet.has(l.tn.id)));
         let alpha = (on ? 1 : 0.045) * (on ? edgeScale : 1);
         ctx.beginPath();
-        ctx.moveTo(l.sn.x, l.sn.y); ctx.lineTo(l.tn.x, l.tn.y);
+        pathForLink(l);
         if (l.type === "platform") {
           ctx.strokeStyle = C.accent; ctx.globalAlpha = alpha * 0.75;
           ctx.lineWidth = 1.9 / k; ctx.setLineDash([5 / k, 4 / k]);
@@ -5621,6 +5855,13 @@ window.CarWeb = (function () {
       camera: () => ({ reserveX: panelReserve(), reserveY: panelReserveY(),
                        centerX: viewCenterX(), centerY: viewCenterY(),
                        isSheet: panelIsSheet(), W, H }),
+      // Draw one frame, now, instead of waiting for the render loop's next
+      // requestAnimationFrame. Exposed for the regression suite: a headless
+      // test has no animation frames at all, so the only way to assert what
+      // an edge is actually DRAWN as (an arc along the rim, a curve bowed
+      // around it, a straight line) is to ask for a frame and record what the
+      // canvas context was told to do.
+      drawNow() { draw(); },
     };
   })();
 
@@ -5695,6 +5936,10 @@ window.CarWeb = (function () {
     layer: () => layer, setLayer, onLayerChange: f => layerListeners.push(f),
     dbFilterOn: () => dbFilterOn, setDbFilter, onDbFilterChange: f => dbFilterListeners.push(f),
     isFamilyExpanded, expandFamily, collapseFamily, onFamilyChange: f => familyListeners.push(f),
+    // The geometry of an expanded nameplate's bubble -- where its generations
+    // sit and the circle nothing else may enter. Exposed for the regression
+    // suite, which has to be able to check that nothing is inside it.
+    ringOf,
     llmCheckOn: () => llmCheckOn, setLlmCheck,
     yearRange: () => ({ lo: yearLo, hi: yearHi, min: DATA_MIN_YEAR, max: DATA_MAX_YEAR }),
     setYearRange, onYearFilterChange: f => yearFilterListeners.push(f), passesYearFilter,
@@ -5875,6 +6120,7 @@ window.CarWeb = (function () {
     sim: () => sim,
     graphFocusSet: () => Graph.state().focusSet,
     graphCamera: () => Graph.camera(),
+    graphDrawNow: () => Graph.drawNow(),
     graphTransform: () => Graph.state().t,
   };
   return api;
