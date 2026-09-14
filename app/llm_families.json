@@ -5084,88 +5084,6 @@
    "error": "llama.cpp returned something that isn't JSON: {\"hasMultipleGenerations\": false, \"generations\": [{\"code\": \"Saturn Ion\", \"yearStart\": 2003, \"yearEnd\": 2007, \"designers\": [], \"engineers\": [], \"sharedPlatforms\"",
    "attempts": 1
   },
-  "llm-related-volkswagen-1500": {
-   "status": "none",
-   "checkedAt": "2026-09-12T17:57:55.561Z",
-   "sourceTitle": "Volkswagen 1500",
-   "proposal": {
-    "hasMultipleGenerations": false,
-    "generations": [
-     {
-      "code": "Volkswagen 1500",
-      "yearStart": null,
-      "yearEnd": null,
-      "designers": [],
-      "engineers": [],
-      "wikiFile": null,
-      "sharedPlatforms": []
-     }
-    ]
-   },
-   "attempts": 1,
-   "feedback": [],
-   "debug": {
-    "raw": {
-     "hasMultipleGenerations": false,
-     "generations": [
-      {
-       "code": "Volkswagen 1500",
-       "yearStart": null,
-       "yearEnd": null,
-       "designers": [],
-       "engineers": [],
-       "sharedPlatforms": []
-      }
-     ]
-    },
-    "dropped": []
-   },
-   "cascadeDiscovered": true
-  },
-  "llm-related-dodge-1500": {
-   "status": "none",
-   "checkedAt": "2026-09-12T17:57:56.138Z",
-   "sourceTitle": "Dodge 1500",
-   "proposal": {
-    "hasMultipleGenerations": false,
-    "generations": [
-     {
-      "code": "Hillman Avenger",
-      "yearStart": 1970,
-      "yearEnd": 1981,
-      "designers": [
-       "Roy Axe",
-       "Tim Fry"
-      ],
-      "engineers": [],
-      "wikiFile": "Hillman Avenger GL 1970.jpg",
-      "sharedPlatforms": []
-     }
-    ]
-   },
-   "attempts": 1,
-   "feedback": [],
-   "debug": {
-    "raw": {
-     "hasMultipleGenerations": false,
-     "generations": [
-      {
-       "code": "Hillman Avenger",
-       "yearStart": 1970,
-       "yearEnd": 1981,
-       "designers": [
-        "Roy Axe",
-        "Tim Fry"
-       ],
-       "engineers": [],
-       "sharedPlatforms": []
-      }
-     ]
-    },
-    "dropped": []
-   },
-   "cascadeDiscovered": true
-  },
   "m-volkswagen-tiguan": {
    "status": "confirmed",
    "checkedAt": "2026-09-12T18:01:42.367Z",
@@ -6356,77 +6274,6 @@
        "engineers": [],
        "sharedPlatforms": [
         "Lincoln Capri",
-        "Mercury Custom"
-       ]
-      }
-     ]
-    },
-    "dropped": []
-   },
-   "cascadeDiscovered": true
-  },
-  "llm-related-lincoln-cosmopolitan": {
-   "status": "provisional",
-   "checkedAt": "2026-09-12T18:23:08.059Z",
-   "sourceTitle": "Lincoln Cosmopolitan",
-   "proposal": {
-    "hasMultipleGenerations": true,
-    "generations": [
-     {
-      "code": "First generation",
-      "yearStart": 1949,
-      "yearEnd": 1951,
-      "designers": [
-       "Eugene T. \"Bob\" Gregorie"
-      ],
-      "engineers": [],
-      "wikiFile": "Lincoln Cosmopolitan 1949.jpg",
-      "sharedPlatforms": []
-     },
-     {
-      "code": "Second generation",
-      "yearStart": 1952,
-      "yearEnd": 1954,
-      "designers": [
-       "Bill Schmidt"
-      ],
-      "engineers": [],
-      "wikiFile": "Lincoln Cosmopolitan 1954.jpg",
-      "sharedPlatforms": [
-       "Lincoln Capri",
-       "Mercury Monterey",
-       "Mercury Custom"
-      ]
-     }
-    ]
-   },
-   "attempts": 1,
-   "feedback": [],
-   "debug": {
-    "raw": {
-     "hasMultipleGenerations": true,
-     "generations": [
-      {
-       "code": "First generation",
-       "yearStart": 1949,
-       "yearEnd": 1951,
-       "designers": [
-        "Eugene T. \"Bob\" Gregorie"
-       ],
-       "engineers": [],
-       "sharedPlatforms": []
-      },
-      {
-       "code": "Second generation",
-       "yearStart": 1952,
-       "yearEnd": 1954,
-       "designers": [
-        "Bill Schmidt"
-       ],
-       "engineers": [],
-       "sharedPlatforms": [
-        "Lincoln Capri",
-        "Mercury Monterey",
         "Mercury Custom"
        ]
       }
@@ -13355,20 +13202,6 @@
    "reason": "matched automatically (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
    "llmDiscovered": true
   },
-  "llm-m-seat-toledo-1m|m-volkswagen-bora|platform": {
-   "status": "confirmed",
-   "checkedAt": "2026-09-11T14:24:21.916Z",
-   "decidedAt": "2026-09-11T14:24:21.916Z",
-   "famA": "m-seat-toledo",
-   "famB": "fam-volkswagen-bora",
-   "relType": "platform",
-   "codeA": "Toledo 1M",
-   "codeB": "Bora",
-   "genIdA": "llm-m-seat-toledo-1m",
-   "genIdB": "m-volkswagen-bora",
-   "reason": "matched automatically (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
-   "llmDiscovered": true
-  },
   "llm-m-seat-toledo-5p|m-volkswagen-jetta-a5|platform": {
    "status": "confirmed",
    "checkedAt": "2026-09-11T14:24:21.928Z",
@@ -13712,20 +13545,6 @@
    "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
    "llmDiscovered": true
   },
-  "llm-m-audi-tt-8j-mk2|llm-related-skoda-octavia-second-generation|platform": {
-   "status": "confirmed",
-   "checkedAt": "2026-09-11T14:33:21.459Z",
-   "decidedAt": "2026-09-11T14:33:21.459Z",
-   "famA": "m-audi-tt",
-   "famB": "llm-related-skoda-octavia-second-generation",
-   "relType": "platform",
-   "codeA": "TT 8J (Mk2)",
-   "codeB": "Octavia (Second Generation)",
-   "genIdA": "llm-m-audi-tt-8j-mk2",
-   "genIdB": "llm-related-skoda-octavia-second-generation",
-   "reason": "matched automatically -- \"Škoda Octavia (Second Generation)\" was named as a related car but didn't exist anywhere in the graph yet, so it was newly created from this mention (double-checked by the local LLM sanity pass against every plausible existing car -- none matched)",
-   "llmDiscovered": true
-  },
   "llm-m-audi-a3-mk3-third-generation-typ-8v|llm-m-audi-tt-fv-8s-mk3|platform": {
    "status": "confirmed",
    "checkedAt": "2026-09-11T14:33:21.468Z",
@@ -13770,20 +13589,6 @@
    "llmDiscovered": true,
    "llmVerifiedDuplicate": true
   },
-  "llm-m-audi-tt-fv-8s-mk3|llm-related-skoda-octavia-third-generation|platform": {
-   "status": "confirmed",
-   "checkedAt": "2026-09-11T14:33:21.482Z",
-   "decidedAt": "2026-09-11T14:33:21.482Z",
-   "famA": "m-audi-tt",
-   "famB": "llm-related-skoda-octavia-third-generation",
-   "relType": "platform",
-   "codeA": "TT FV/8S (Mk3)",
-   "codeB": "Octavia (Third Generation)",
-   "genIdA": "llm-m-audi-tt-fv-8s-mk3",
-   "genIdB": "llm-related-skoda-octavia-third-generation",
-   "reason": "matched automatically -- \"Škoda Octavia (Third Generation)\" was named as a related car but didn't exist anywhere in the graph yet, so it was newly created from this mention",
-   "llmDiscovered": true
-  },
   "llm-m-seat-leon-mk3-1m|llm-related-audi-a3-mk1|platform": {
    "status": "confirmed",
    "checkedAt": "2026-09-11T14:34:53.398Z",
@@ -13824,20 +13629,6 @@
    "codeB": "Golf Mk4",
    "genIdA": "llm-m-seat-leon-mk3-1m",
    "genIdB": "m-volkswagen-golf-mk4",
-   "reason": "matched automatically (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
-   "llmDiscovered": true
-  },
-  "llm-m-seat-leon-mk3-1m|m-volkswagen-bora|platform": {
-   "status": "confirmed",
-   "checkedAt": "2026-09-11T14:34:53.408Z",
-   "decidedAt": "2026-09-11T14:34:53.408Z",
-   "famA": "m-seat-leon-mk3",
-   "famB": "fam-volkswagen-bora",
-   "relType": "platform",
-   "codeA": "León Mk3 1M",
-   "codeB": "Bora",
-   "genIdA": "llm-m-seat-leon-mk3-1m",
-   "genIdB": "m-volkswagen-bora",
    "reason": "matched automatically (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
    "llmDiscovered": true
   },
@@ -15173,34 +14964,6 @@
    "llmDiscovered": true,
    "llmVerifiedDuplicate": true
   },
-  "llm-related-dodge-1500|llm-related-volkswagen-variant|platform": {
-   "status": "confirmed",
-   "checkedAt": "2026-09-12T17:51:39.988Z",
-   "decidedAt": "2026-09-12T17:51:39.988Z",
-   "famA": "llm-related-volkswagen-variant",
-   "famB": "llm-related-dodge-1500",
-   "relType": "platform",
-   "codeA": "Variant",
-   "codeB": "1500",
-   "genIdA": "llm-related-volkswagen-variant",
-   "genIdB": "llm-related-dodge-1500",
-   "reason": "matched automatically -- \"Dodge 1500\" was named as a related car but didn't exist anywhere in the graph yet, so it was newly created from this mention (double-checked by the local LLM sanity pass against every plausible existing car -- none matched)",
-   "llmDiscovered": true
-  },
-  "llm-related-volkswagen-1500|llm-related-volkswagen-variant|platform": {
-   "status": "confirmed",
-   "checkedAt": "2026-09-12T17:51:40.005Z",
-   "decidedAt": "2026-09-12T17:51:40.005Z",
-   "famA": "llm-related-volkswagen-variant",
-   "famB": "llm-related-volkswagen-1500",
-   "relType": "platform",
-   "codeA": "Variant",
-   "codeB": "1500",
-   "genIdA": "llm-related-volkswagen-variant",
-   "genIdB": "llm-related-volkswagen-1500",
-   "reason": "matched automatically -- \"Volkswagen 1500\" was named as a related car but didn't exist anywhere in the graph yet, so it was newly created from this mention (double-checked by the local LLM sanity pass against every plausible existing car -- none matched)",
-   "llmDiscovered": true
-  },
   "llm-related-mg-hector-tomahawk|m-wuling-starlight-730|platform": {
    "status": "confirmed",
    "checkedAt": "2026-09-12T17:51:40.011Z",
@@ -16215,20 +15978,6 @@
    "genIdA": "m-hyundai-eon",
    "genIdB": "m-kia-picanto",
    "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
-   "llmDiscovered": true
-  },
-  "llm-m-mercury-monterey-first-generation|llm-related-lincoln-cosmopolitan|platform": {
-   "status": "confirmed",
-   "checkedAt": "2026-09-12T18:17:58.371Z",
-   "decidedAt": "2026-09-12T18:17:58.371Z",
-   "famA": "m-mercury-monterey",
-   "famB": "llm-related-lincoln-cosmopolitan",
-   "relType": "platform",
-   "codeA": "Monterey First generation",
-   "codeB": "Cosmopolitan",
-   "genIdA": "llm-m-mercury-monterey-first-generation",
-   "genIdB": "llm-related-lincoln-cosmopolitan",
-   "reason": "matched automatically -- \"Lincoln Cosmopolitan\" was named as a related car but didn't exist anywhere in the graph yet, so it was newly created from this mention (double-checked by the local LLM sanity pass against every plausible existing car -- none matched)",
    "llmDiscovered": true
   },
   "llm-m-mercury-monterey-first-generation|m-lincoln-capri|platform": {
@@ -20089,7 +19838,7 @@
  "recheck": {
   "m-mercedes-benz-g-class": {
    "status": "none",
-   "checkedAt": "2026-09-14T20:25:21.294Z",
+   "checkedAt": "2026-09-14T20:52:30.435Z",
    "sourceTitle": "Mercedes-Benz G-Class",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -20173,7 +19922,7 @@
   },
   "m-mercedes-benz-gla": {
    "status": "none",
-   "checkedAt": "2026-09-14T20:25:21.359Z",
+   "checkedAt": "2026-09-14T20:52:30.509Z",
    "sourceTitle": "Mercedes-Benz GLA",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -20276,7 +20025,7 @@
   },
   "m-mercedes-benz-cla": {
    "status": "none",
-   "checkedAt": "2026-09-14T20:25:21.404Z",
+   "checkedAt": "2026-09-14T20:52:30.566Z",
    "sourceTitle": "Mercedes-Benz CLA",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -20558,7 +20307,7 @@
   },
   "m-toyota-celica": {
    "status": "none",
-   "checkedAt": "2026-09-14T20:25:21.465Z",
+   "checkedAt": "2026-09-14T20:52:30.632Z",
    "sourceTitle": "Toyota Celica",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -20674,7 +20423,7 @@
   },
   "m-toyota-carina": {
    "status": "none",
-   "checkedAt": "2026-09-14T20:25:21.541Z",
+   "checkedAt": "2026-09-14T20:52:30.720Z",
    "sourceTitle": "Toyota Carina",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -20802,7 +20551,7 @@
   },
   "m-lexus-sc": {
    "status": "none",
-   "checkedAt": "2026-09-14T20:25:21.546Z",
+   "checkedAt": "2026-09-14T20:52:30.725Z",
    "sourceTitle": "Lexus SC",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -21451,7 +21200,7 @@
   },
   "m-seat-toledo": {
    "status": "none",
-   "checkedAt": "2026-09-14T20:25:21.619Z",
+   "checkedAt": "2026-09-14T20:52:30.804Z",
    "sourceTitle": "SEAT Toledo",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -21582,7 +21331,7 @@
   },
   "m-daren-mk-3": {
    "status": "none",
-   "checkedAt": "2026-09-14T20:25:21.633Z",
+   "checkedAt": "2026-09-14T20:52:30.819Z",
    "sourceTitle": "Daren Mk.3",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -21657,7 +21406,7 @@
   },
   "m-audi-a3-mk3": {
    "status": "none",
-   "checkedAt": "2026-09-14T20:25:21.652Z",
+   "checkedAt": "2026-09-14T20:52:30.839Z",
    "sourceTitle": "Audi A3",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -21713,7 +21462,7 @@
   },
   "m-audi-tt": {
    "status": "none",
-   "checkedAt": "2026-09-14T20:25:21.746Z",
+   "checkedAt": "2026-09-14T20:52:30.934Z",
    "sourceTitle": "Audi TT",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -21853,7 +21602,7 @@
   },
   "m-seat-leon-mk3": {
    "status": "none",
-   "checkedAt": "2026-09-14T20:25:21.811Z",
+   "checkedAt": "2026-09-14T20:52:30.996Z",
    "sourceTitle": "SEAT León",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -21967,7 +21716,7 @@
   },
   "m-volkswagen-karmann-ghia": {
    "status": "none",
-   "checkedAt": "2026-09-14T20:25:21.842Z",
+   "checkedAt": "2026-09-14T20:52:31.027Z",
    "sourceTitle": "Volkswagen Karmann Ghia",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -22017,7 +21766,7 @@
   },
   "m-porsche-panamera": {
    "status": "none",
-   "checkedAt": "2026-09-14T20:25:21.830Z",
+   "checkedAt": "2026-09-14T20:52:31.016Z",
    "sourceTitle": "Porsche Panamera",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -22083,7 +21832,7 @@
   },
   "m-subaru-forester": {
    "status": "none",
-   "checkedAt": "2026-09-14T20:25:21.883Z",
+   "checkedAt": "2026-09-14T20:52:31.069Z",
    "sourceTitle": "Subaru Forester",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -22192,7 +21941,7 @@
   },
   "m-volkswagen-touran": {
    "status": "none",
-   "checkedAt": "2026-09-14T20:25:21.902Z",
+   "checkedAt": "2026-09-14T20:52:31.090Z",
    "sourceTitle": "Volkswagen Touran",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -22242,7 +21991,7 @@
   },
   "m-chevrolet-captiva": {
    "status": "none",
-   "checkedAt": "2026-09-14T20:25:21.975Z",
+   "checkedAt": "2026-09-14T20:52:31.162Z",
    "sourceTitle": "Chevrolet Captiva",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -22347,7 +22096,7 @@
   },
   "m-isuzu-trooper": {
    "status": "none",
-   "checkedAt": "2026-09-14T20:25:22.027Z",
+   "checkedAt": "2026-09-14T20:52:31.216Z",
    "sourceTitle": "Isuzu Trooper",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -22443,7 +22192,7 @@
   },
   "m-volkswagen-tiguan": {
    "status": "none",
-   "checkedAt": "2026-09-14T20:25:22.090Z",
+   "checkedAt": "2026-09-14T20:52:31.281Z",
    "sourceTitle": "Volkswagen Tiguan",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -22556,7 +22305,7 @@
   },
   "m-chrysler-horizon": {
    "status": "none",
-   "checkedAt": "2026-09-14T20:25:22.134Z",
+   "checkedAt": "2026-09-14T20:52:31.322Z",
    "sourceTitle": "Chrysler Horizon",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -22656,7 +22405,7 @@
   },
   "m-mercury-monterey": {
    "status": "none",
-   "checkedAt": "2026-09-14T20:25:22.225Z",
+   "checkedAt": "2026-09-14T20:52:31.409Z",
    "sourceTitle": "Mercury Monterey",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -22831,7 +22580,7 @@
   },
   "m-gmc-envoy": {
    "status": "none",
-   "checkedAt": "2026-09-14T20:25:22.243Z",
+   "checkedAt": "2026-09-14T20:52:31.427Z",
    "sourceTitle": "GMC Envoy",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -22884,7 +22633,7 @@
   },
   "m-chevrolet-trailblazer": {
    "status": "none",
-   "checkedAt": "2026-09-14T20:25:22.260Z",
+   "checkedAt": "2026-09-14T20:52:31.442Z",
    "sourceTitle": "Chevrolet TrailBlazer (SUV)",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -22935,7 +22684,7 @@
   },
   "m-oldsmobile-bravada": {
    "status": "none",
-   "checkedAt": "2026-09-14T20:25:22.295Z",
+   "checkedAt": "2026-09-14T20:52:31.474Z",
    "sourceTitle": "Oldsmobile Bravada",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -23015,7 +22764,7 @@
   },
   "m-buick-lacrosse": {
    "status": "none",
-   "checkedAt": "2026-09-14T20:25:22.319Z",
+   "checkedAt": "2026-09-14T20:52:31.495Z",
    "sourceTitle": "Buick LaCrosse",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -23091,7 +22840,7 @@
   },
   "m-buick-invicta": {
    "status": "none",
-   "checkedAt": "2026-09-14T20:25:22.334Z",
+   "checkedAt": "2026-09-14T20:52:31.509Z",
    "sourceTitle": "Buick Invicta",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -23142,7 +22891,7 @@
   },
   "m-buick-century": {
    "status": "none",
-   "checkedAt": "2026-09-14T20:25:22.421Z",
+   "checkedAt": "2026-09-14T20:52:31.580Z",
    "sourceTitle": "Buick Century",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -23294,7 +23043,7 @@
   },
   "m-jaguar-xjs": {
    "status": "none",
-   "checkedAt": "2026-09-14T20:25:22.434Z",
+   "checkedAt": "2026-09-14T20:52:31.593Z",
    "sourceTitle": "Jaguar XJS",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -23353,7 +23102,7 @@
   },
   "m-jaguar-e-type": {
    "status": "none",
-   "checkedAt": "2026-09-14T20:25:22.454Z",
+   "checkedAt": "2026-09-14T20:52:31.612Z",
    "sourceTitle": "Jaguar E-Type",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -23422,7 +23171,7 @@
   },
   "m-wuling-starlight": {
    "status": "none",
-   "checkedAt": "2026-09-14T20:25:22.485Z",
+   "checkedAt": "2026-09-14T20:52:31.642Z",
    "sourceTitle": "Wuling Starlight",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -23486,7 +23235,7 @@
   },
   "m-jeep-compass": {
    "status": "none",
-   "checkedAt": "2026-09-14T20:25:22.527Z",
+   "checkedAt": "2026-09-14T20:52:31.680Z",
    "sourceTitle": "Jeep Compass",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -23570,7 +23319,7 @@
   },
   "m-mazda-tribute": {
    "status": "none",
-   "checkedAt": "2026-09-14T20:25:22.538Z",
+   "checkedAt": "2026-09-14T20:52:31.689Z",
    "sourceTitle": "Mazda Tribute",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -23607,7 +23356,7 @@
   },
   "m-mazda-cx-5": {
    "status": "none",
-   "checkedAt": "2026-09-14T20:25:22.552Z",
+   "checkedAt": "2026-09-14T20:52:31.701Z",
    "sourceTitle": "Mazda CX-5",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -23662,7 +23411,7 @@
   },
   "m-baojun-730": {
    "status": "none",
-   "checkedAt": "2026-09-14T20:25:22.556Z",
+   "checkedAt": "2026-09-14T20:52:31.706Z",
    "sourceTitle": "Baojun 730",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -23697,7 +23446,7 @@
   },
   "m-dacia-duster": {
    "status": "none",
-   "checkedAt": "2026-09-14T20:25:22.603Z",
+   "checkedAt": "2026-09-14T20:52:31.748Z",
    "sourceTitle": "Dacia Duster",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -25338,77 +25087,11 @@
  },
  "userCars": {},
  "wpLinks": {
-  "llm-related-mercedes-benz-gla-class-x156": "Mercedes-Benz GLA-Class (X156)",
-  "llm-related-maserati-grancabrio": "Maserati GranCabrio",
-  "llm-related-ford-maverick": "Ford Maverick",
-  "llm-related-nissan-terrano-wd21": "Nissan Terrano II",
-  "llm-related-nissan-d21-pickup": "Nissan Navara",
-  "llm-related-acmat-altv": "ACMAT ALTV",
-  "llm-related-nissan-paladin": "Nissan Paladin",
-  "llm-related-dongfeng-oting": "Dongfeng Oting",
-  "llm-related-giad-pickup": "Giad Auto",
-  "llm-related-bhamo-pickup": "Nissan Navara",
-  "llm-related-toyota-vista": "Toyota Vista",
-  "llm-related-pontiac-g5": "Pontiac G5",
   "merge-m-volkswagen-jetta-self": "Jetta",
-  "llm-related-new-jetta": "Volkswagen Jetta",
-  "llm-related-sterling-marque": "Sterling (marque)",
-  "llm-related-honda-145": "Honda 145",
-  "llm-related-rover-600": "Rover 600",
-  "llm-related-honda-rafaga": "Honda Rafaga",
-  "llm-related-honda-saber": "Honda Saber",
-  "llm-related-daewoo-arcadia": "Daewoo Arcadia",
-  "llm-related-bedford-kb": "Bedford KB",
-  "llm-related-foton-sup": "Foton SUP",
-  "llm-related-honda-tourmaster": "Honda Tourmaster",
-  "llm-related-holden-lincah": "Holden Lincah",
-  "llm-related-vauxhall-brava": "Vauxhall Brava",
-  "llm-related-opel-campo": "Opel Campo",
-  "llm-related-chevrolet-t-series": "Chevrolet T-Series",
-  "llm-related-jiangling-baodian": "JMC Baodian",
-  "llm-related-winnerway-zh6500": "Isuzu Faster",
-  "llm-related-gmc-invader": "GMC Sprint",
-  "llm-related-jinbei-jindian": "Isuzu Faster",
-  "llm-related-jiangling-hunter": "Ling Cage",
-  "llm-related-honda-cb": "Honda CB",
-  "llm-related-bmw-ukl": "BMW UKL platform",
-  "llm-related-dacia-spring": "Dacia Spring",
-  "llm-related-renault-city": "Renault City",
-  "llm-related-forthing-t1": "Forthing",
-  "llm-related-dongfeng-aeolus-ex1": "Renault Kwid",
-  "llm-related-dorcen-e20": "Dorcen E20",
-  "llm-related-el-finn": "The Road to El Dorado",
-  "llm-related-elaris-dyo": "Elaris",
-  "llm-related-dacia-spring-electric": "Dacia Spring Electric",
   "m-jaguar-xe": "Jaguar XE",
-  "llm-related-ford-cd132-platform": "Ford CD132 platform",
-  "llm-related-mazda-ge-platform": "Ford CDW27 platform",
-  "llm-related-ford-fusion-energi": "Ford Fusion Energi",
-  "llm-related-ford-cd4-platform": "Ford CD4 platform",
   "llm-related-ford-ltd": "Ford LTD",
-  "llm-related-lincoln-premiere": "Lincoln Premiere",
   "m-aston-martin-vantage-2018": "Aston Martin Vantage (2018)",
-  "llm-related-mercedes-gt": "Mercedes GT",
-  "llm-related-ford-c1-platform": "Ford C1 platform",
-  "llm-related-ford-eucd-platform": "Ford EUCD platform",
-  "llm-related-general-motors-gamma-platform": "General Motors Gamma platform",
-  "llm-related-chevrolet-viva": "Chevrolet Viva",
-  "llm-related-chevrolet-astra": "Chevrolet Astra",
-  "llm-related-daren-mk-4": "Daren Mk.3",
-  "llm-related-volkswagen-tiguan-allspace": "Volkswagen Tiguan Allspace",
-  "llm-related-skoda-kodiaq-mk2": "Škoda Kodiaq",
-  "llm-related-volkswagen-tayron-mk2": "Volkswagen Tayron Mk2",
-  "llm-related-mini-moke": "Mini Moke",
-  "llm-related-jerboa-sp": "Jerboa SP",
-  "llm-related-ginetta-g12": "Ginetta G12",
-  "llm-related-fini-ms-6": "Ɛ̃fini MS-6",
-  "llm-fam-mazda-mazda6-gg1-gy": "Gy",
   "llm-related-puch-g": "Puch G",
-  "llm-related-peugeot-p4-vltt": "Peugeot P4",
-  "llm-related-volkswagen-golf-gti": "Volkswagen Golf GTI",
-  "llm-related-opel-combo": "Opel Combo",
-  "llm-related-chevrolet-vectra": "Chevrolet Vectra",
-  "llm-related-isuzu-oasis": "Isuzu Oasis",
   "llm-related-audi-a3-mk2": "Volkswagen Group A platform",
   "llm-related-seat-leon-mk1": "SEAT León Mk1",
   "llm-related-audi-a3-mk1": "Audi A3",
@@ -25422,8 +25105,6 @@
   "llm-related-mg-hector-tomahawk": "Wuling Starlight 560",
   "llm-related-chevrolet-trooper": "Chevrolet Trooper",
   "llm-related-subaru-bighorn": "Subaru Bighorn",
-  "llm-related-volkswagen-1500": "Volkswagen 1500",
-  "llm-related-dodge-1500": "Dodge 1500",
   "llm-related-sanjiu-3-nine-trooper": "Isuzu Trooper",
   "llm-related-chevrolet-captiva-ev": "Chevrolet Captiva",
   "llm-related-seat-salsa-emocion-concept": "SEAT Salsa",
@@ -25431,7 +25112,6 @@
   "llm-related-plymouth-scamp": "Plymouth Scamp",
   "llm-related-plymouth-turismo": "Plymouth Turismo",
   "llm-related-skoda-octavia-mk2": "Škoda Octavia",
-  "llm-related-lincoln-cosmopolitan": "Lincoln Cosmopolitan",
   "llm-related-ford-crestline-skyliner": "Ford Crestline Skyliner",
   "llm-related-ford-fairlane": "Ford Fairlane",
   "llm-related-gmc-jimmy": "GMC Jimmy",
@@ -25518,40 +25198,6 @@
      ]
     },
     "dropped": []
-   }
-  },
-  "llm-fam-mazda-mazda6-gg1-gy": {
-   "status": "done",
-   "checkedAt": "2026-08-27T15:50:27.674Z",
-   "sourceTitle": "Gy",
-   "upgradedArticle": "Gy",
-   "relatedTexts": [],
-   "newRelationKeys": [],
-   "peopleAdded": [],
-   "debug": {
-    "raw": {
-     "hasMultipleGenerations": false,
-     "generations": [
-      {
-       "code": "Mazda Mazda6 GG1 / GY",
-       "yearStart": null,
-       "yearEnd": null,
-       "designers": [],
-       "engineers": [],
-       "sharedPlatforms": []
-      }
-     ]
-    },
-    "dropped": [
-     {
-      "code": "Mazda Mazda6 GG1 / GY",
-      "yearStart": null,
-      "yearEnd": null,
-      "designers": [],
-      "engineers": [],
-      "sharedPlatforms": []
-     }
-    ]
    }
   }
  },
@@ -25706,5 +25352,411 @@
    "purgedAt": "2026-09-12T13:25:52.352Z"
   }
  },
- "unmerges": {}
+ "unmerges": {},
+ "prunedDecisions": {
+  "families|llm-related-volkswagen-1500": {
+   "what": "generation split",
+   "label": "llm-related-volkswagen-1500",
+   "prunedAt": "2026-09-14T20:52:32.724Z"
+  },
+  "families|llm-related-dodge-1500": {
+   "what": "generation split",
+   "label": "llm-related-dodge-1500",
+   "prunedAt": "2026-09-14T20:52:32.724Z"
+  },
+  "families|llm-related-lincoln-cosmopolitan": {
+   "what": "generation split",
+   "label": "llm-related-lincoln-cosmopolitan",
+   "prunedAt": "2026-09-14T20:52:32.724Z"
+  },
+  "wpLinks|llm-related-mercedes-benz-gla-class-x156": {
+   "what": "Wikipedia link you pasted",
+   "label": "llm-related-mercedes-benz-gla-class-x156 → Mercedes-Benz GLA-Class (X156)",
+   "prunedAt": "2026-09-14T20:52:32.724Z"
+  },
+  "wpLinks|llm-related-maserati-grancabrio": {
+   "what": "Wikipedia link you pasted",
+   "label": "llm-related-maserati-grancabrio → Maserati GranCabrio",
+   "prunedAt": "2026-09-14T20:52:32.724Z"
+  },
+  "wpLinks|llm-related-ford-maverick": {
+   "what": "Wikipedia link you pasted",
+   "label": "llm-related-ford-maverick → Ford Maverick",
+   "prunedAt": "2026-09-14T20:52:32.724Z"
+  },
+  "wpLinks|llm-related-nissan-terrano-wd21": {
+   "what": "Wikipedia link you pasted",
+   "label": "llm-related-nissan-terrano-wd21 → Nissan Terrano II",
+   "prunedAt": "2026-09-14T20:52:32.724Z"
+  },
+  "wpLinks|llm-related-nissan-d21-pickup": {
+   "what": "Wikipedia link you pasted",
+   "label": "llm-related-nissan-d21-pickup → Nissan Navara",
+   "prunedAt": "2026-09-14T20:52:32.724Z"
+  },
+  "wpLinks|llm-related-acmat-altv": {
+   "what": "Wikipedia link you pasted",
+   "label": "llm-related-acmat-altv → ACMAT ALTV",
+   "prunedAt": "2026-09-14T20:52:32.724Z"
+  },
+  "wpLinks|llm-related-nissan-paladin": {
+   "what": "Wikipedia link you pasted",
+   "label": "llm-related-nissan-paladin → Nissan Paladin",
+   "prunedAt": "2026-09-14T20:52:32.724Z"
+  },
+  "wpLinks|llm-related-dongfeng-oting": {
+   "what": "Wikipedia link you pasted",
+   "label": "llm-related-dongfeng-oting → Dongfeng Oting",
+   "prunedAt": "2026-09-14T20:52:32.724Z"
+  },
+  "wpLinks|llm-related-giad-pickup": {
+   "what": "Wikipedia link you pasted",
+   "label": "llm-related-giad-pickup → Giad Auto",
+   "prunedAt": "2026-09-14T20:52:32.724Z"
+  },
+  "wpLinks|llm-related-bhamo-pickup": {
+   "what": "Wikipedia link you pasted",
+   "label": "llm-related-bhamo-pickup → Nissan Navara",
+   "prunedAt": "2026-09-14T20:52:32.724Z"
+  },
+  "wpLinks|llm-related-toyota-vista": {
+   "what": "Wikipedia link you pasted",
+   "label": "llm-related-toyota-vista → Toyota Vista",
+   "prunedAt": "2026-09-14T20:52:32.724Z"
+  },
+  "wpLinks|llm-related-pontiac-g5": {
+   "what": "Wikipedia link you pasted",
+   "label": "llm-related-pontiac-g5 → Pontiac G5",
+   "prunedAt": "2026-09-14T20:52:32.724Z"
+  },
+  "wpLinks|llm-related-new-jetta": {
+   "what": "Wikipedia link you pasted",
+   "label": "llm-related-new-jetta → Volkswagen Jetta",
+   "prunedAt": "2026-09-14T20:52:32.724Z"
+  },
+  "wpLinks|llm-related-sterling-marque": {
+   "what": "Wikipedia link you pasted",
+   "label": "llm-related-sterling-marque → Sterling (marque)",
+   "prunedAt": "2026-09-14T20:52:32.724Z"
+  },
+  "wpLinks|llm-related-honda-145": {
+   "what": "Wikipedia link you pasted",
+   "label": "llm-related-honda-145 → Honda 145",
+   "prunedAt": "2026-09-14T20:52:32.724Z"
+  },
+  "wpLinks|llm-related-rover-600": {
+   "what": "Wikipedia link you pasted",
+   "label": "llm-related-rover-600 → Rover 600",
+   "prunedAt": "2026-09-14T20:52:32.724Z"
+  },
+  "wpLinks|llm-related-honda-rafaga": {
+   "what": "Wikipedia link you pasted",
+   "label": "llm-related-honda-rafaga → Honda Rafaga",
+   "prunedAt": "2026-09-14T20:52:32.724Z"
+  },
+  "wpLinks|llm-related-honda-saber": {
+   "what": "Wikipedia link you pasted",
+   "label": "llm-related-honda-saber → Honda Saber",
+   "prunedAt": "2026-09-14T20:52:32.724Z"
+  },
+  "wpLinks|llm-related-daewoo-arcadia": {
+   "what": "Wikipedia link you pasted",
+   "label": "llm-related-daewoo-arcadia → Daewoo Arcadia",
+   "prunedAt": "2026-09-14T20:52:32.724Z"
+  },
+  "wpLinks|llm-related-bedford-kb": {
+   "what": "Wikipedia link you pasted",
+   "label": "llm-related-bedford-kb → Bedford KB",
+   "prunedAt": "2026-09-14T20:52:32.724Z"
+  },
+  "wpLinks|llm-related-foton-sup": {
+   "what": "Wikipedia link you pasted",
+   "label": "llm-related-foton-sup → Foton SUP",
+   "prunedAt": "2026-09-14T20:52:32.724Z"
+  },
+  "wpLinks|llm-related-honda-tourmaster": {
+   "what": "Wikipedia link you pasted",
+   "label": "llm-related-honda-tourmaster → Honda Tourmaster",
+   "prunedAt": "2026-09-14T20:52:32.724Z"
+  },
+  "wpLinks|llm-related-holden-lincah": {
+   "what": "Wikipedia link you pasted",
+   "label": "llm-related-holden-lincah → Holden Lincah",
+   "prunedAt": "2026-09-14T20:52:32.724Z"
+  },
+  "wpLinks|llm-related-vauxhall-brava": {
+   "what": "Wikipedia link you pasted",
+   "label": "llm-related-vauxhall-brava → Vauxhall Brava",
+   "prunedAt": "2026-09-14T20:52:32.724Z"
+  },
+  "wpLinks|llm-related-opel-campo": {
+   "what": "Wikipedia link you pasted",
+   "label": "llm-related-opel-campo → Opel Campo",
+   "prunedAt": "2026-09-14T20:52:32.724Z"
+  },
+  "wpLinks|llm-related-chevrolet-t-series": {
+   "what": "Wikipedia link you pasted",
+   "label": "llm-related-chevrolet-t-series → Chevrolet T-Series",
+   "prunedAt": "2026-09-14T20:52:32.724Z"
+  },
+  "wpLinks|llm-related-jiangling-baodian": {
+   "what": "Wikipedia link you pasted",
+   "label": "llm-related-jiangling-baodian → JMC Baodian",
+   "prunedAt": "2026-09-14T20:52:32.724Z"
+  },
+  "wpLinks|llm-related-winnerway-zh6500": {
+   "what": "Wikipedia link you pasted",
+   "label": "llm-related-winnerway-zh6500 → Isuzu Faster",
+   "prunedAt": "2026-09-14T20:52:32.724Z"
+  },
+  "wpLinks|llm-related-gmc-invader": {
+   "what": "Wikipedia link you pasted",
+   "label": "llm-related-gmc-invader → GMC Sprint",
+   "prunedAt": "2026-09-14T20:52:32.724Z"
+  },
+  "wpLinks|llm-related-jinbei-jindian": {
+   "what": "Wikipedia link you pasted",
+   "label": "llm-related-jinbei-jindian → Isuzu Faster",
+   "prunedAt": "2026-09-14T20:52:32.724Z"
+  },
+  "wpLinks|llm-related-jiangling-hunter": {
+   "what": "Wikipedia link you pasted",
+   "label": "llm-related-jiangling-hunter → Ling Cage",
+   "prunedAt": "2026-09-14T20:52:32.724Z"
+  },
+  "wpLinks|llm-related-honda-cb": {
+   "what": "Wikipedia link you pasted",
+   "label": "llm-related-honda-cb → Honda CB",
+   "prunedAt": "2026-09-14T20:52:32.724Z"
+  },
+  "wpLinks|llm-related-bmw-ukl": {
+   "what": "Wikipedia link you pasted",
+   "label": "llm-related-bmw-ukl → BMW UKL platform",
+   "prunedAt": "2026-09-14T20:52:32.724Z"
+  },
+  "wpLinks|llm-related-dacia-spring": {
+   "what": "Wikipedia link you pasted",
+   "label": "llm-related-dacia-spring → Dacia Spring",
+   "prunedAt": "2026-09-14T20:52:32.724Z"
+  },
+  "wpLinks|llm-related-renault-city": {
+   "what": "Wikipedia link you pasted",
+   "label": "llm-related-renault-city → Renault City",
+   "prunedAt": "2026-09-14T20:52:32.724Z"
+  },
+  "wpLinks|llm-related-forthing-t1": {
+   "what": "Wikipedia link you pasted",
+   "label": "llm-related-forthing-t1 → Forthing",
+   "prunedAt": "2026-09-14T20:52:32.724Z"
+  },
+  "wpLinks|llm-related-dongfeng-aeolus-ex1": {
+   "what": "Wikipedia link you pasted",
+   "label": "llm-related-dongfeng-aeolus-ex1 → Renault Kwid",
+   "prunedAt": "2026-09-14T20:52:32.724Z"
+  },
+  "wpLinks|llm-related-dorcen-e20": {
+   "what": "Wikipedia link you pasted",
+   "label": "llm-related-dorcen-e20 → Dorcen E20",
+   "prunedAt": "2026-09-14T20:52:32.724Z"
+  },
+  "wpLinks|llm-related-el-finn": {
+   "what": "Wikipedia link you pasted",
+   "label": "llm-related-el-finn → The Road to El Dorado",
+   "prunedAt": "2026-09-14T20:52:32.724Z"
+  },
+  "wpLinks|llm-related-elaris-dyo": {
+   "what": "Wikipedia link you pasted",
+   "label": "llm-related-elaris-dyo → Elaris",
+   "prunedAt": "2026-09-14T20:52:32.724Z"
+  },
+  "wpLinks|llm-related-dacia-spring-electric": {
+   "what": "Wikipedia link you pasted",
+   "label": "llm-related-dacia-spring-electric → Dacia Spring Electric",
+   "prunedAt": "2026-09-14T20:52:32.724Z"
+  },
+  "wpLinks|llm-related-ford-cd132-platform": {
+   "what": "Wikipedia link you pasted",
+   "label": "llm-related-ford-cd132-platform → Ford CD132 platform",
+   "prunedAt": "2026-09-14T20:52:32.724Z"
+  },
+  "wpLinks|llm-related-mazda-ge-platform": {
+   "what": "Wikipedia link you pasted",
+   "label": "llm-related-mazda-ge-platform → Ford CDW27 platform",
+   "prunedAt": "2026-09-14T20:52:32.724Z"
+  },
+  "wpLinks|llm-related-ford-fusion-energi": {
+   "what": "Wikipedia link you pasted",
+   "label": "llm-related-ford-fusion-energi → Ford Fusion Energi",
+   "prunedAt": "2026-09-14T20:52:32.724Z"
+  },
+  "wpLinks|llm-related-ford-cd4-platform": {
+   "what": "Wikipedia link you pasted",
+   "label": "llm-related-ford-cd4-platform → Ford CD4 platform",
+   "prunedAt": "2026-09-14T20:52:32.724Z"
+  },
+  "wpLinks|llm-related-lincoln-premiere": {
+   "what": "Wikipedia link you pasted",
+   "label": "llm-related-lincoln-premiere → Lincoln Premiere",
+   "prunedAt": "2026-09-14T20:52:32.724Z"
+  },
+  "wpLinks|llm-related-mercedes-gt": {
+   "what": "Wikipedia link you pasted",
+   "label": "llm-related-mercedes-gt → Mercedes GT",
+   "prunedAt": "2026-09-14T20:52:32.724Z"
+  },
+  "wpLinks|llm-related-ford-c1-platform": {
+   "what": "Wikipedia link you pasted",
+   "label": "llm-related-ford-c1-platform → Ford C1 platform",
+   "prunedAt": "2026-09-14T20:52:32.724Z"
+  },
+  "wpLinks|llm-related-ford-eucd-platform": {
+   "what": "Wikipedia link you pasted",
+   "label": "llm-related-ford-eucd-platform → Ford EUCD platform",
+   "prunedAt": "2026-09-14T20:52:32.724Z"
+  },
+  "wpLinks|llm-related-general-motors-gamma-platform": {
+   "what": "Wikipedia link you pasted",
+   "label": "llm-related-general-motors-gamma-platform → General Motors Gamma platform",
+   "prunedAt": "2026-09-14T20:52:32.724Z"
+  },
+  "wpLinks|llm-related-chevrolet-viva": {
+   "what": "Wikipedia link you pasted",
+   "label": "llm-related-chevrolet-viva → Chevrolet Viva",
+   "prunedAt": "2026-09-14T20:52:32.724Z"
+  },
+  "wpLinks|llm-related-chevrolet-astra": {
+   "what": "Wikipedia link you pasted",
+   "label": "llm-related-chevrolet-astra → Chevrolet Astra",
+   "prunedAt": "2026-09-14T20:52:32.724Z"
+  },
+  "wpLinks|llm-related-daren-mk-4": {
+   "what": "Wikipedia link you pasted",
+   "label": "llm-related-daren-mk-4 → Daren Mk.3",
+   "prunedAt": "2026-09-14T20:52:32.724Z"
+  },
+  "wpLinks|llm-related-volkswagen-tiguan-allspace": {
+   "what": "Wikipedia link you pasted",
+   "label": "llm-related-volkswagen-tiguan-allspace → Volkswagen Tiguan Allspace",
+   "prunedAt": "2026-09-14T20:52:32.724Z"
+  },
+  "wpLinks|llm-related-skoda-kodiaq-mk2": {
+   "what": "Wikipedia link you pasted",
+   "label": "llm-related-skoda-kodiaq-mk2 → Škoda Kodiaq",
+   "prunedAt": "2026-09-14T20:52:32.724Z"
+  },
+  "wpLinks|llm-related-volkswagen-tayron-mk2": {
+   "what": "Wikipedia link you pasted",
+   "label": "llm-related-volkswagen-tayron-mk2 → Volkswagen Tayron Mk2",
+   "prunedAt": "2026-09-14T20:52:32.724Z"
+  },
+  "wpLinks|llm-related-mini-moke": {
+   "what": "Wikipedia link you pasted",
+   "label": "llm-related-mini-moke → Mini Moke",
+   "prunedAt": "2026-09-14T20:52:32.724Z"
+  },
+  "wpLinks|llm-related-jerboa-sp": {
+   "what": "Wikipedia link you pasted",
+   "label": "llm-related-jerboa-sp → Jerboa SP",
+   "prunedAt": "2026-09-14T20:52:32.724Z"
+  },
+  "wpLinks|llm-related-ginetta-g12": {
+   "what": "Wikipedia link you pasted",
+   "label": "llm-related-ginetta-g12 → Ginetta G12",
+   "prunedAt": "2026-09-14T20:52:32.724Z"
+  },
+  "wpLinks|llm-related-fini-ms-6": {
+   "what": "Wikipedia link you pasted",
+   "label": "llm-related-fini-ms-6 → Ɛ̃fini MS-6",
+   "prunedAt": "2026-09-14T20:52:32.724Z"
+  },
+  "wpLinks|llm-related-peugeot-p4-vltt": {
+   "what": "Wikipedia link you pasted",
+   "label": "llm-related-peugeot-p4-vltt → Peugeot P4",
+   "prunedAt": "2026-09-14T20:52:32.724Z"
+  },
+  "wpLinks|llm-related-volkswagen-golf-gti": {
+   "what": "Wikipedia link you pasted",
+   "label": "llm-related-volkswagen-golf-gti → Volkswagen Golf GTI",
+   "prunedAt": "2026-09-14T20:52:32.724Z"
+  },
+  "wpLinks|llm-related-opel-combo": {
+   "what": "Wikipedia link you pasted",
+   "label": "llm-related-opel-combo → Opel Combo",
+   "prunedAt": "2026-09-14T20:52:32.724Z"
+  },
+  "wpLinks|llm-related-chevrolet-vectra": {
+   "what": "Wikipedia link you pasted",
+   "label": "llm-related-chevrolet-vectra → Chevrolet Vectra",
+   "prunedAt": "2026-09-14T20:52:32.724Z"
+  },
+  "wpLinks|llm-related-isuzu-oasis": {
+   "what": "Wikipedia link you pasted",
+   "label": "llm-related-isuzu-oasis → Isuzu Oasis",
+   "prunedAt": "2026-09-14T20:52:32.724Z"
+  },
+  "wpLinks|llm-related-volkswagen-1500": {
+   "what": "Wikipedia link you pasted",
+   "label": "llm-related-volkswagen-1500 → Volkswagen 1500",
+   "prunedAt": "2026-09-14T20:52:32.724Z"
+  },
+  "wpLinks|llm-related-dodge-1500": {
+   "what": "Wikipedia link you pasted",
+   "label": "llm-related-dodge-1500 → Dodge 1500",
+   "prunedAt": "2026-09-14T20:52:32.724Z"
+  },
+  "wpLinks|llm-related-lincoln-cosmopolitan": {
+   "what": "Wikipedia link you pasted",
+   "label": "llm-related-lincoln-cosmopolitan → Lincoln Cosmopolitan",
+   "prunedAt": "2026-09-14T20:52:32.724Z"
+  },
+  "relations|llm-m-audi-tt-8j-mk2|llm-related-skoda-octavia-second-generation|platform": {
+   "what": "connection you decided",
+   "label": "Audi TT ↔ llm-related-skoda-octavia-second-generation (platform, confirmed)",
+   "prunedAt": "2026-09-14T20:52:32.724Z"
+  },
+  "relations|llm-m-audi-tt-fv-8s-mk3|llm-related-skoda-octavia-third-generation|platform": {
+   "what": "connection you decided",
+   "label": "Audi TT ↔ llm-related-skoda-octavia-third-generation (platform, confirmed)",
+   "prunedAt": "2026-09-14T20:52:32.724Z"
+  },
+  "relations|llm-related-dodge-1500|llm-related-volkswagen-variant|platform": {
+   "what": "connection you decided",
+   "label": "Volkswagen Variant ↔ llm-related-dodge-1500 (platform, confirmed)",
+   "prunedAt": "2026-09-14T20:52:32.724Z"
+  },
+  "relations|llm-related-volkswagen-1500|llm-related-volkswagen-variant|platform": {
+   "what": "connection you decided",
+   "label": "Volkswagen Variant ↔ llm-related-volkswagen-1500 (platform, confirmed)",
+   "prunedAt": "2026-09-14T20:52:32.724Z"
+  },
+  "relations|llm-m-mercury-monterey-first-generation|llm-related-lincoln-cosmopolitan|platform": {
+   "what": "connection you decided",
+   "label": "Mercury Monterey ↔ llm-related-lincoln-cosmopolitan (platform, confirmed)",
+   "prunedAt": "2026-09-14T20:52:32.724Z"
+  },
+  "wpLinks|llm-fam-mazda-mazda6-gg1-gy": {
+   "what": "Wikipedia link you pasted",
+   "label": "llm-fam-mazda-mazda6-gg1-gy → Gy",
+   "prunedAt": "2026-09-14T20:52:58.985Z",
+   "byHand": true
+  },
+  "genResearch|llm-fam-mazda-mazda6-gg1-gy": {
+   "what": "generation research",
+   "label": "llm-fam-mazda-mazda6-gg1-gy",
+   "prunedAt": "2026-09-14T20:52:58.985Z",
+   "byHand": true
+  },
+  "relations|llm-m-seat-toledo-1m|m-volkswagen-bora|platform": {
+   "what": "connection you decided",
+   "label": "SEAT Toledo ↔ fam-volkswagen-bora (platform, confirmed)",
+   "prunedAt": "2026-09-14T20:52:58.985Z",
+   "byHand": true
+  },
+  "relations|llm-m-seat-leon-mk3-1m|m-volkswagen-bora|platform": {
+   "what": "connection you decided",
+   "label": "SEAT León Mk3 ↔ fam-volkswagen-bora (platform, confirmed)",
+   "prunedAt": "2026-09-14T20:52:58.985Z",
+   "byHand": true
+  }
+ }
 }
