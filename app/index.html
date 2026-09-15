@@ -177,6 +177,11 @@
     <div class="dt-db"></div>
     <div class="dt-extract"></div>
     <div class="dt-generations"></div>
+    <!-- Powertrain: on a car, the engines it ran; on an engine, its variants,
+         the cars it went into and the button that reads its article. Sits
+         above the LLM check because on an engine node it IS the card. See
+         app.js's renderPowertrain. -->
+    <div class="dt-power"></div>
     <div class="dt-llmcheck"></div>
     <div class="dt-relations"></div>
     <div class="dt-connections"></div>
@@ -290,6 +295,9 @@
        refreshGenerationImages. -->
   <button id="genphotosbtn" class="toolsmenu-item" role="menuitem" title="re-read the source articles and fill in the per-generation photos, without re-running the model" hidden>🖼 Refresh Generation Photos</button>
   <button id="addcarbtn" class="toolsmenu-item" role="menuitem" title="add a specific make/model to the graph by hand" hidden>➕ Add Car</button>
+  <!-- The powertrain layer's own entry point. Reads an engine's article: its
+       variants, and every car it went into. See app.js's scanEngine. -->
+  <button id="addenginebtn" class="toolsmenu-item" role="menuitem" title="read an engine's Wikipedia article: its variants, and the cars it went into" hidden>⚙ Add Engine</button>
   <!-- Real user request: "in the 'Tools' Section there should also be a
        'Modify Existing Car' button which lets the user modify the wikipedia
        link or ask for a particular request with the LLM, like potentially

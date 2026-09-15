@@ -1033,6 +1033,12 @@ window.CarWeb = (function () {
     return `${start}–${end}`;
   }
   function nodeKicker(n) {
+    if (n.type === "engine") {
+      const vars = (n.variants || []).length;
+      return "engine" + (vars ? " · " + vars + " variant" + (vars === 1 ? "" : "s")
+                              : n.unresearched ? " · not read yet" : "");
+    }
+    if (n.type === "enginevar") return "engine variant";
     if (n.type === "family") return (n.garage ? "my garage · " : "") + "nameplate · " + n.generations.length + " generations";
     if (n.type === "model") return (n.garage ? "my garage · " : n.heritage ? "heritage · " : "") + n.year;
     if (n.type === "make") return "marque" + (n.country ? " · " + n.country : "");
@@ -1187,6 +1193,168 @@ window.CarWeb = (function () {
   // and then asking for "this one" works without going back to its text box.
   const detailListeners = [];
   function onDetailOpen(f) { detailListeners.push(f); }
+  // ---------- the powertrain block on a detail card ----------
+  // On a car: which engines it ran, and a way into each. On an engine: its
+  // spec card, its variants, the cars it reached, and the button that reads
+  // its article. Real user request: "The user can also now search for
+  // individual engines (or, they can 'add a new engine' to the graph), and
+  // have the LLM look through it."
+  function powertrainEdgesFor(node) {
+    const out = [];
+    const idOf = e => (typeof e === "string" ? e : e && e.id);
+    for (const l of links) {
+      if (l.retired || l.type !== "fitted") continue;
+      // Matched by id first. sn/tn are set by spliceIntoIndexes, and this has
+      // to be right in the window before that runs -- a card that silently
+      // listed no engines would look exactly like a car that had none.
+      const sid = idOf(l.source), tid = idOf(l.target);
+      if (sid !== node.id && tid !== node.id) continue;
+      const s = byId.get(sid) || l.sn;
+      const t = byId.get(tid) || l.tn;
+      if (!s || !t) continue;
+      if (s === node) out.push({ other: t, l });
+      else if (t === node) out.push({ other: s, l });
+    }
+    return out;
+  }
+  function engineOfVariant(n) { return n && n.engineOf ? byId.get(n.engineOf) : null; }
+
+  function renderPowertrain(n) {
+    const box = dt.querySelector(".dt-power");
+    if (!box) return;
+    box.innerHTML = "";
+    const LFam = window.LlmFamilies;
+    if (!LFam || !LFam.checkEngine) return;
+
+    const row = (label, sub, onclick, cls) => {
+      const b = document.createElement("button");
+      b.className = "dt-conn" + (cls ? " " + cls : "");
+      b.innerHTML = `${esc(label)}${sub ? ` <span class="verb">${esc(sub)}</span>` : ""}`;
+      if (onclick) b.onclick = onclick; else b.disabled = true;
+      box.appendChild(b);
+      return b;
+    };
+    const head = text => {
+      const h = document.createElement("h4"); h.textContent = text; box.appendChild(h); return h;
+    };
+
+    if (isPowertrain(n)) {
+      const eng = n.type === "enginevar" ? engineOfVariant(n) : n;
+      const entry = eng && LFam.engineEntryFor ? LFam.engineEntryFor(eng.id) : null;
+      if (n.type === "enginevar" && eng) {
+        head("Engine");
+        row(eng.label, "variant of", () => api.goto(eng.id));
+      }
+      if (n.type === "engine") {
+        const specs = [n.configuration, n.displacement, fmtYearRun(n.year, n.end)]
+          .filter(Boolean).join(" · ");
+        if (specs) {
+          const p = document.createElement("p");
+          p.className = "dt-power-specs";
+          p.textContent = specs;
+          box.appendChild(p);
+        }
+        const vars = (n.variants || []).map(id => byId.get(id)).filter(Boolean);
+        if (vars.length) {
+          head("Variants");
+          vars.forEach(v => row(v.label, null, () => api.goto(v.id), "dt-gen"));
+        }
+      }
+      // On an engine, roll the variants up. The applications belong to the
+      // variants -- that is where the article puts them -- so an engine's own
+      // card was reporting "Fitted to 1 car" while its three variants held
+      // nineteen between them.
+      const sources = n.type === "engine"
+        ? [n].concat((n.variants || []).map(id => byId.get(id)).filter(Boolean))
+        : [n];
+      const fitted = [];
+      const seenCar = new Set();
+      sources.forEach(src => {
+        powertrainEdgesFor(src).filter(e => !isPowertrain(e.other)).forEach(e => {
+          const key = e.other.id + "|" + (e.l.yearStart || "") + "|" + (e.l.yearEnd || "");
+          if (seenCar.has(key)) return;
+          seenCar.add(key);
+          fitted.push(Object.assign({ via: src === n ? null : src }, e));
+        });
+      });
+      if (fitted.length) {
+        head(fitted.length === 1 ? "Fitted to 1 car" : `Fitted to ${fitted.length} cars`);
+        fitted.sort((a, b) => (a.l.yearStart || 0) - (b.l.yearStart || 0));
+        fitted.forEach(({ other, l, via }) => {
+          const run = fmtYearRun(l.yearStart, l.yearEnd);
+          row(`${other.make ? other.make + " " : ""}${other.label}`,
+              [run, via ? via.label : null, l.note].filter(Boolean).join(" · "),
+              () => api.goto(other.id));
+        });
+      }
+      // The scan. An engine that arrived as a mention has no article read yet,
+      // which is exactly the state this button exists for.
+      if (n.type === "engine") {
+        const wrap = document.createElement("div");
+        wrap.className = "llm-actions";
+        const btn = document.createElement("button");
+        btn.className = "llm-btn";
+        const unread = !entry || entry.status !== "confirmed";
+        btn.textContent = unread ? "Read this engine's article" : "Read it again";
+        btn.onclick = () => scanEngine(n.wp || n.label, btn);
+        wrap.appendChild(btn);
+        box.appendChild(wrap);
+        const note = document.createElement("div");
+        note.className = "llmdebug-note dt-power-note";
+        note.textContent = unread
+          ? "Named by a car that was checked. Nothing has read its own article yet — "
+            + "doing that finds its variants and every car it went into."
+          : "Read on " + String((entry && entry.checkedAt) || "").slice(0, 10) + ".";
+        box.appendChild(note);
+      }
+      return;
+    }
+
+    // An ordinary car.
+    const engines = powertrainEdgesFor(n).filter(e => isPowertrain(e.other));
+    if (!engines.length) return;
+    head(engines.length === 1 ? "Engine" : "Engines");
+    engines.forEach(({ other, l }) => {
+      const eng = other.type === "enginevar" ? engineOfVariant(other) : other;
+      const sub = [other.type === "enginevar" ? other.label : null,
+                   fmtYearRun(l.yearStart, l.yearEnd),
+                   (eng && eng.unresearched) ? "not read yet" : null].filter(Boolean).join(" · ");
+      row(eng ? eng.label : other.label, sub, () => api.goto(other.id));
+    });
+  }
+
+  // Read an engine article and put what it finds in the graph. The only place
+  // in the UI that reaches the network for this layer.
+  function scanEngine(title, btn) {
+    const LFam = window.LlmFamilies;
+    if (!LFam || !LFam.checkEngine || !title) return;
+    if (btn) { btn.disabled = true; btn.textContent = "reading…"; }
+    const nodesBefore = nodes.length, linksBefore = links.length;
+    LFam.checkEngine(title, nodes, links, { mintCars: true }).then(r => {
+      if (r && r.status === "not-an-engine") {
+        if (btn) { btn.disabled = false; btn.textContent = "Read this engine's article"; }
+        window.alert(`"${title}" is not an engine article.`);
+        return;
+      }
+      if (!r || r.status !== "confirmed") {
+        if (btn) { btn.disabled = false; btn.textContent = "Try again"; }
+        console.warn("CarWeb: engine scan failed", r);
+        return;
+      }
+      spliceIntoIndexes(nodesBefore, linksBefore);
+      if (nodes.length !== nodesBefore) buildSim();
+      if (window.CarWebPower) window.CarWebPower.invalidate();
+      refreshCounts();
+      Graph.touch();
+      const eng = r.engine || byId.get(r.id);
+      if (eng) { dtNode = null; openDetail(eng); }
+      console.info(`[carweb] read ${title}: ${r.variants} variant(s), ${r.fitted} car(s)`);
+    }).catch(e => {
+      if (btn) { btn.disabled = false; btn.textContent = "Try again"; }
+      console.warn("CarWeb: engine scan threw", e);
+    });
+  }
+
   function openDetail(n) {
     if (dtNode && dtNode !== n) switchDetailAway();
     dtNode = n;
@@ -1210,6 +1378,7 @@ window.CarWeb = (function () {
       if (w && w.extract) ex.innerHTML = w.extract.split(". ").slice(0, 2).join(". ") +
         (w.url ? `. <a href="${w.url}" target="_blank" rel="noopener">Wikipedia ↗</a>` : "");
     });
+    renderPowertrain(n);
     const genWrap = dt.querySelector(".dt-generations");
     genWrap.innerHTML = "";
     if (n.type === "family" && n.generations && n.generations.length) {
@@ -1231,9 +1400,13 @@ window.CarWeb = (function () {
     // raw adjacency exactly as before; the collapse is only ever meaningful
     // from the person's side, since it's the person node that carries both
     // the generation-level link and its family-level mirror at once.
+    // `|| []` because adj only holds what has been spliced into it, and a
+    // node can legitimately be in the graph a moment before it is indexed --
+    // an engine recorded mid-scan is the case. Without it, opening that card
+    // threw and took the whole panel with it.
     const conns = n.type === "person"
       ? personCreditedCars(n.id).map(c => ({ n: c.node, l: c.link }))
-      : adj.get(n.id);
+      : (adj.get(n.id) || []);
     // Real user question: "Where does the engineer data come from? Is it truly
     // not coming from the LLM wikipedia pages at all?"
     //
@@ -3477,6 +3650,31 @@ window.CarWeb = (function () {
   // branch) does all of "determines whether it's a nameplate, finds the
   // generations, designers, platforms" for free; nothing here needs to
   // duplicate any of that discovery logic itself.
+  // "Add Engine": the one place a scan can be started for an engine nothing
+  // has mentioned yet. Takes a name or a Wikipedia URL, because engine
+  // articles are titled inconsistently enough ("BMW N55", "Mercedes-Benz M256
+  // engine") that guessing is worse than asking.
+  function initAddEnginePanel() {
+    const LFam = window.LlmFamilies;
+    const btn = document.getElementById("addenginebtn");
+    if (!btn || !LFam) return;
+    btn.hidden = !LFam.serverAvailable;   // reading an article needs serve.py, same as every other scan
+    btn.onclick = () => {
+      const menu = document.getElementById("toolsmenu");
+      if (menu) menu.hidden = true;
+      const typed = window.prompt(
+        "Engine to read — a name or a Wikipedia link.\n\n" +
+        "e.g.  Mercedes-Benz M256 engine\n      BMW N55\n" +
+        "      https://en.wikipedia.org/wiki/Mercedes-Benz_M256_engine");
+      const raw = String(typed || "").trim();
+      if (!raw) return;
+      const title = (LFam.titleFromWikipediaUrl && /^https?:/i.test(raw))
+        ? LFam.titleFromWikipediaUrl(raw) : raw;
+      if (!title) { window.alert("That doesn't look like a Wikipedia link."); return; }
+      scanEngine(title, null);
+    };
+  }
+
   function initAddCarPanel() {
     const LF = window.LlmFamilies;
     const btn = document.getElementById("addcarbtn");
@@ -6309,6 +6507,14 @@ window.CarWeb = (function () {
     }
 
     function gotoNode(n) {
+      // An engine is not in this graph at all (see nodeInLayer), so focusing
+      // it would fly the camera to an empty patch of canvas. Its home is the
+      // Powertrain view; go there and open its card.
+      if (isPowertrain(n)) {
+        switchView("power");
+        openDetail(n);
+        return;
+      }
       focusOn(n); // focusOn expands n's own family itself -- see its comment
     }
 
@@ -6623,6 +6829,7 @@ window.CarWeb = (function () {
       initLlmPlaygroundPanel();
       initUnconfirmedRelPanel();
       initAddCarPanel();
+      initAddEnginePanel();
       initModifyCarPanel();
       initDeletePanel();
       initRebuildPanel();
@@ -6719,6 +6926,7 @@ window.CarWeb = (function () {
     // so a test can add a node or a link and have the forces actually see it.
     rebuildSim: () => buildSim(),
     isPowertrain, powertrainLinkTypes: () => POWERTRAIN_LINKS,
+    scanEngine, renderPowertrain, recordEnginesLive,
     graphTransform: () => Graph.state().t,
   };
   return api;
