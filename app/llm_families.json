@@ -13404,6 +13404,989 @@
     "Erich Waxenberger"
    ],
    "allEngineers": []
+  },
+  "m-chrysler-300c": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T21:16:35.644Z",
+   "sourceTitle": "Chrysler 300",
+   "proposal": {
+    "hasMultipleGenerations": true,
+    "generations": [
+     {
+      "code": "First generation (LX)",
+      "yearStart": 2004,
+      "yearEnd": 2010,
+      "designers": [
+       "Ralph Gilles",
+       "Freeman Thomas",
+       "Tom Gale"
+      ],
+      "engineers": [],
+      "wikiFile": "Chrysler 300C .jpg",
+      "sharedPlatforms": [
+       "Dodge Charger",
+       "Dodge Challenger",
+       "Dodge Magnum",
+       "Mercedes-Benz E-Class"
+      ],
+      "sharedPlatformMatches": {
+       "Dodge Challenger": {
+        "matchId": "m-dodge-challenger-2008",
+        "confidence": "high",
+        "reason": "The mention 'Dodge Challenger' refers to the modern muscle car reintroduced by Dodge in 2008 and produced continuously through 2023 (and beyond). This matches the specific production run (2008–2023) listed for the candidate 'm-dodge-challenger-2008', which is the current and primary generation of the Dodge Challenger. The other candidate 'm-dodge-challenger-1970' refers to the original 1970-1974 model, which is a different, discontinued generation."
+       }
+      }
+     },
+     {
+      "code": "Second generation (LD)",
+      "yearStart": 2010,
+      "yearEnd": null,
+      "designers": [
+       "Lou Gasevski"
+      ],
+      "engineers": [],
+      "wikiFile": "Chrysler 300 C LD Bright White (8) (cropped).jpg",
+      "sharedPlatforms": [
+       "Dodge Charger",
+       "Dodge Challenger",
+       "Mercedes-Benz E-Class"
+      ],
+      "sharedPlatformMatches": {
+       "Dodge Challenger": {
+        "matchId": "m-dodge-challenger-2008",
+        "confidence": "high",
+        "reason": "The mention 'Dodge Challenger' refers to the modern muscle car reintroduced by Dodge in 2008 and produced continuously through 2023 (and beyond). This matches the specific production run (2008–2023) listed for the candidate 'm-dodge-challenger-2008', which is the current and primary generation of the Dodge Challenger. The other candidate 'm-dodge-challenger-1970' refers to the original 1970-1974 model, which is a different, discontinued generation."
+       }
+      }
+     }
+    ]
+   },
+   "attempts": 1,
+   "feedback": [],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": true,
+     "generations": [
+      {
+       "code": "First generation (LX)",
+       "yearStart": 2004,
+       "yearEnd": 2010,
+       "designers": [
+        "Ralph Gilles",
+        "Freeman Thomas",
+        "Tom Gale"
+       ],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Dodge Charger",
+        "Dodge Challenger",
+        "Dodge Magnum",
+        "Mercedes-Benz E-Class"
+       ]
+      },
+      {
+       "code": "Second generation (LD)",
+       "yearStart": 2010,
+       "yearEnd": null,
+       "designers": [
+        "Lou Gasevski"
+       ],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Dodge Charger",
+        "Dodge Challenger",
+        "Mercedes-Benz E-Class"
+       ]
+      }
+     ]
+    },
+    "dropped": []
+   },
+   "cascadeDiscovered": true,
+   "decidedBy": "user",
+   "decidedAt": "2026-09-15T21:16:35.644Z",
+   "allDesigners": [
+    "Ralph Gilles",
+    "Freeman Thomas",
+    "Tom Gale",
+    "Lou Gasevski"
+   ],
+   "allEngineers": []
+  },
+  "m-dodge-charger-lx": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T21:18:33.366Z",
+   "sourceTitle": "Dodge Charger (LX/LD)",
+   "proposal": {
+    "hasMultipleGenerations": true,
+    "generations": [
+     {
+      "code": "LX",
+      "yearStart": 2005,
+      "yearEnd": 2010,
+      "designers": [
+       "Ralph Gilles",
+       "Freeman Thomas"
+      ],
+      "engineers": [],
+      "wikiFile": "2007 Dodge Charger SRT8 Super Bee.jpg",
+      "sharedPlatforms": [
+       "Chrysler 300",
+       "Dodge Challenger",
+       "Dodge Magnum",
+       "Mercedes-Benz E-Class (W211)"
+      ],
+      "sharedPlatformMatches": {
+       "Chrysler 300": {
+        "matchId": "m-chrysler-300c",
+        "confidence": "high",
+        "reason": "The mention 'Chrysler 300' is the standard short name for the 'Chrysler 300C' (and later dropped the 'C'), which is the specific model name listed in the database (id: m-chrysler-300c). The production years (2004–present) align with the modern Chrysler 300 sedan, distinguishing it from the older Chrysler 300M (1998–2003) or unrelated models sharing the number '300'."
+       },
+       "Dodge Challenger": {
+        "matchId": "m-dodge-challenger-2008",
+        "confidence": "high",
+        "reason": "The mention 'Dodge Challenger' refers to the modern muscle car reintroduced by Dodge in 2008, which is the only current-production Challenger in the candidate list. The 1970 model (m-dodge-challenger-1970) is a distinct, historical generation. The Huanghai Challenger is a Chinese re-badge and not the same car."
+       }
+      }
+     },
+     {
+      "code": "LD",
+      "yearStart": 2010,
+      "yearEnd": 2023,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "Dodge Charger SE.jpg",
+      "sharedPlatforms": [
+       "Chrysler 300",
+       "Dodge Challenger",
+       "Dodge Challenger (2008)"
+      ],
+      "sharedPlatformMatches": {
+       "Chrysler 300": {
+        "matchId": "m-chrysler-300c",
+        "confidence": "high",
+        "reason": "The mention 'Chrysler 300' is the standard short name for the 'Chrysler 300C' (and later dropped the 'C'), which is the specific model name listed in the database (id: m-chrysler-300c). The production years (2004–present) align with the modern Chrysler 300 sedan, distinguishing it from the older Chrysler 300M (1998–2003) or unrelated models sharing the number '300'."
+       },
+       "Dodge Challenger": {
+        "matchId": "m-dodge-challenger-2008",
+        "confidence": "high",
+        "reason": "The mention 'Dodge Challenger' refers to the modern muscle car reintroduced by Dodge in 2008, which is the only current-production Challenger in the candidate list. The 1970 model (m-dodge-challenger-1970) is a distinct, historical generation. The Huanghai Challenger is a Chinese re-badge and not the same car."
+       }
+      }
+     }
+    ]
+   },
+   "attempts": 1,
+   "feedback": [],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": true,
+     "generations": [
+      {
+       "code": "LX",
+       "yearStart": 2005,
+       "yearEnd": 2010,
+       "designers": [
+        "Ralph Gilles",
+        "Freeman Thomas"
+       ],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Chrysler 300",
+        "Dodge Challenger",
+        "Dodge Magnum",
+        "Mercedes-Benz E-Class (W211)"
+       ]
+      },
+      {
+       "code": "LD",
+       "yearStart": 2010,
+       "yearEnd": 2023,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Chrysler 300",
+        "Dodge Challenger",
+        "Dodge Challenger (2008)"
+       ]
+      }
+     ]
+    },
+    "dropped": []
+   },
+   "cascadeDiscovered": true,
+   "decidedBy": "user",
+   "decidedAt": "2026-09-15T21:18:33.367Z",
+   "allDesigners": [
+    "Ralph Gilles",
+    "Freeman Thomas"
+   ],
+   "allEngineers": []
+  },
+  "m-dodge-magnum": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T21:20:18.927Z",
+   "sourceTitle": "Dodge Magnum",
+   "proposal": {
+    "hasMultipleGenerations": true,
+    "generations": [
+     {
+      "code": "B-body",
+      "yearStart": 1978,
+      "yearEnd": 1979,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "1978 Dodge Magnum XE in Red, front left (Lime Rock).jpg",
+      "sharedPlatforms": [
+       "Chrysler Cordoba",
+       "Dodge Charger",
+       "Dodge Monaco",
+       "Plymouth Fury",
+       "Chrysler 300 (1979)"
+      ],
+      "sharedPlatformMatches": {
+       "Chrysler 300 (1979)": {
+        "matchId": "m-chrysler-300m",
+        "confidence": "low",
+        "reason": "The mention 'Chrysler 300 (1979)' refers to a specific model year. While the database contains 'Chrysler 300M' (1998–2003), which shares the name '300', the production years do not overlap. The 1979 model is likely the Chrysler 300M's predecessor in the US market (often just called 'Chrysler 300' or 'New Yorker 300' in that era) or a different variant entirely, but none of the specific candidates match the '300' nameplate for the year 1979. The candidate 'm-chrysler-300m' is the closest in naming but fails the strict rule regarding disjoint production eras."
+       }
+      }
+     },
+     {
+      "code": "A-body",
+      "yearStart": 1979,
+      "yearEnd": 1981,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "S MLB v F f 226076004 2268.jpg",
+      "sharedPlatforms": [
+       "Dodge Dart"
+      ]
+     },
+     {
+      "code": "M-body",
+      "yearStart": 1981,
+      "yearEnd": 1982,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "Dodge Magum 1981 (9).jpg",
+      "sharedPlatforms": [
+       "Dodge Diplomat",
+       "Plymouth Gran Fury",
+       "Chrysler LeBaron",
+       "Plymouth Caravelle Salon"
+      ],
+      "sharedPlatformMatches": {
+       "Plymouth Caravelle Salon": {
+        "matchId": null,
+        "confidence": "high",
+        "reason": "The 'Plymouth Caravelle Salon' was a station wagon body style (Salon) produced by Plymouth in the late 1950s and early 1960s (approx. 1957–1962), typically based on the Plymouth Valiant or Savoy platforms. The candidate 'm-plymouth-caravelle' refers to a modern concept car from 1983. The production years do not overlap, and they are distinct vehicles (one is a vintage production wagon, the other a modern concept). Therefore, they are not the same car."
+       }
+      }
+     },
+     {
+      "code": "K-body",
+      "yearStart": 1983,
+      "yearEnd": 1988,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "Mexican Chrysler Magnum 1983-1988.jpg",
+      "sharedPlatforms": [
+       "Dodge 400",
+       "Dodge Aries",
+       "Plymouth Caravelle"
+      ]
+     },
+     {
+      "code": "LX platform",
+      "yearStart": 2005,
+      "yearEnd": 2008,
+      "designers": [
+       "Ralph Gilles",
+       "Freeman Thomas"
+      ],
+      "engineers": [],
+      "wikiFile": "05-07 Dodge Magnum SXT.jpg",
+      "sharedPlatforms": [
+       "Chrysler 300",
+       "Dodge Charger",
+       "Mercedes-Benz E-Class (W211)"
+      ],
+      "sharedPlatformMatches": {
+       "Chrysler 300": {
+        "matchId": "m-chrysler-300c",
+        "confidence": "high",
+        "reason": "The mention 'Chrysler 300' is the standard short name for the 'Chrysler 300C' (and later dropped the 'C'), which is the specific model name listed in the database (id: m-chrysler-300c). The production years (2004–present) align with the modern Chrysler 300 sedan, distinguishing it from the older Chrysler 300M (1998–2003) or unrelated models sharing the number '300'."
+       }
+      }
+     }
+    ]
+   },
+   "attempts": 1,
+   "feedback": [],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": true,
+     "generations": [
+      {
+       "code": "B-body",
+       "yearStart": 1978,
+       "yearEnd": 1979,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Chrysler Cordoba",
+        "Dodge Charger",
+        "Dodge Monaco",
+        "Plymouth Fury",
+        "Chrysler 300 (1979)"
+       ]
+      },
+      {
+       "code": "A-body",
+       "yearStart": 1979,
+       "yearEnd": 1981,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Dodge Dart"
+       ]
+      },
+      {
+       "code": "M-body",
+       "yearStart": 1981,
+       "yearEnd": 1982,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Dodge Diplomat",
+        "Plymouth Gran Fury",
+        "Chrysler LeBaron",
+        "Plymouth Caravelle Salon"
+       ]
+      },
+      {
+       "code": "K-body",
+       "yearStart": 1983,
+       "yearEnd": 1988,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Dodge 400",
+        "Dodge Aries",
+        "Plymouth Caravelle"
+       ]
+      },
+      {
+       "code": "LX platform",
+       "yearStart": 2005,
+       "yearEnd": 2008,
+       "designers": [
+        "Ralph Gilles",
+        "Freeman Thomas"
+       ],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Chrysler 300",
+        "Dodge Charger",
+        "Mercedes-Benz E-Class (W211)"
+       ]
+      }
+     ]
+    },
+    "dropped": []
+   },
+   "cascadeDiscovered": true,
+   "decidedBy": "user",
+   "decidedAt": "2026-09-15T21:20:18.927Z",
+   "allDesigners": [
+    "Ralph Gilles",
+    "Freeman Thomas"
+   ],
+   "allEngineers": []
+  },
+  "m-mercedes-benz-mercedes-amg-gt-4-door-coupe": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T21:20:57.490Z",
+   "sourceTitle": "Mercedes-AMG GT 4-Door Coupé",
+   "proposal": {
+    "hasMultipleGenerations": true,
+    "generations": [
+     {
+      "code": "X290",
+      "yearStart": 2018,
+      "yearEnd": 2026,
+      "designers": [
+       "Balázs Filczer"
+      ],
+      "engineers": [],
+      "wikiFile": "Mercedes-Benz AMG GT 63S (51750035016) (cropped).jpg",
+      "sharedPlatforms": [
+       "Mercedes-Benz E-Class (W213)",
+       "Mercedes-Benz CLS-Class (C257)"
+      ],
+      "sharedPlatformMatches": {
+       "Mercedes-Benz CLS-Class (C257)": {
+        "matchId": "m-mercedes-benz-cls-c257",
+        "confidence": "high",
+        "reason": "The mention explicitly includes the chassis code C257, which directly matches the identifier for the candidate 'm-mercedes-benz-cls-c257'. The production years (2018–2023) also align perfectly with the third generation of the Mercedes-Benz CLS."
+       }
+      }
+     },
+     {
+      "code": "C590",
+      "yearStart": 2026,
+      "yearEnd": null,
+      "designers": [
+       "Mark Fetherston"
+      ],
+      "engineers": [],
+      "wikiFile": "Mercedes-AMG Concept GT XX IAA 2025 DSC 1872.jpg",
+      "sharedPlatforms": []
+     }
+    ]
+   },
+   "attempts": 1,
+   "feedback": [],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": true,
+     "generations": [
+      {
+       "code": "X290",
+       "yearStart": 2018,
+       "yearEnd": 2026,
+       "designers": [
+        "Balázs Filczer"
+       ],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Mercedes-Benz E-Class (W213)",
+        "Mercedes-Benz CLS-Class (C257)"
+       ]
+      },
+      {
+       "code": "C590",
+       "yearStart": 2026,
+       "yearEnd": null,
+       "designers": [
+        "Mark Fetherston"
+       ],
+       "engineers": [],
+       "sharedPlatforms": []
+      }
+     ]
+    },
+    "dropped": []
+   },
+   "cascadeDiscovered": true,
+   "decidedBy": "user",
+   "decidedAt": "2026-09-15T21:20:57.490Z",
+   "allDesigners": [
+    "Balázs Filczer",
+    "Mark Fetherston"
+   ],
+   "allEngineers": []
+  },
+  "m-mercedes-benz-cle": {
+   "status": "none",
+   "checkedAt": "2026-09-15T21:21:10.243Z",
+   "sourceTitle": "Mercedes-Benz CLE",
+   "proposal": {
+    "hasMultipleGenerations": false,
+    "generations": [
+     {
+      "code": "C236 / A236",
+      "yearStart": 2023,
+      "yearEnd": null,
+      "designers": [
+       "Balázs Filczer"
+      ],
+      "engineers": [],
+      "wikiFile": "Mercedes-Benz CLE 200 Coupé AMG Line (C 236) – f 21012024.jpg",
+      "sharedPlatforms": [
+       "Mercedes-Benz C-Class (W206)",
+       "Mercedes-Benz E-Class (W214)"
+      ]
+     }
+    ]
+   },
+   "attempts": 1,
+   "feedback": [],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": false,
+     "generations": [
+      {
+       "code": "C236 / A236",
+       "yearStart": 2023,
+       "yearEnd": null,
+       "designers": [
+        "Balázs Filczer"
+       ],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Mercedes-Benz C-Class (W206)",
+        "Mercedes-Benz E-Class (W214)"
+       ]
+      }
+     ]
+    },
+    "dropped": []
+   },
+   "cascadeDiscovered": true
+  },
+  "llm-related-chrysler-pentastar-engine": {
+   "status": "none",
+   "checkedAt": "2026-09-15T21:23:29.679Z",
+   "sourceTitle": "Chrysler Pentastar engine",
+   "proposal": {
+    "hasMultipleGenerations": false,
+    "generations": [
+     {
+      "code": "Pentastar",
+      "yearStart": 2010,
+      "yearEnd": null,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "Jeep Wrangler Unlimited Sport engine.jpg",
+      "sharedPlatforms": []
+     }
+    ]
+   },
+   "attempts": 1,
+   "feedback": [],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": false,
+     "generations": [
+      {
+       "code": "Pentastar",
+       "yearStart": 2010,
+       "yearEnd": null,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": []
+      }
+     ]
+    },
+    "dropped": []
+   },
+   "cascadeDiscovered": true
+  },
+  "m-mercedes-benz-gle": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T21:24:43.493Z",
+   "sourceTitle": "Mercedes-Benz GLE",
+   "proposal": {
+    "hasMultipleGenerations": true,
+    "generations": [
+     {
+      "code": "W163",
+      "yearStart": 1997,
+      "yearEnd": 2004,
+      "designers": [
+       "Bruno Sacco",
+       "Peter Pfeiffer",
+       "Peter Arcadipane"
+      ],
+      "engineers": [],
+      "wikiFile": "2000 Mercedes-Benz ML 320 (W 163 MY00) wagon (2010-09-23) 01.jpg",
+      "sharedPlatforms": [
+       "SsangYong Rexton"
+      ],
+      "sharedPlatformMatches": {
+       "SsangYong Rexton": {
+        "matchId": "m-kgm-rexton",
+        "confidence": "high",
+        "reason": "The SsangYong Rexton was sold under the KGM brand name as the KGM Rexton during the same production period (2001–present). This is a known rebranding/ownership change of the exact same vehicle model."
+       }
+      }
+     },
+     {
+      "code": "W164",
+      "yearStart": 2005,
+      "yearEnd": 2011,
+      "designers": [
+       "Andreas Deufel",
+       "Holger Hutzenlaub",
+       "Steve Mattin"
+      ],
+      "engineers": [],
+      "wikiFile": "2007 Mercedes-Benz ML 320 CDI (W 164 MY08) Luxury wagon (2011-11-18) 01.jpg",
+      "sharedPlatforms": [
+       "Mercedes-Benz GL-Class (X164)",
+       "Mercedes-Benz R-Class"
+      ]
+     },
+     {
+      "code": "W166/C292",
+      "yearStart": 2011,
+      "yearEnd": 2019,
+      "designers": [
+       "Emiel Burki"
+      ],
+      "engineers": [],
+      "wikiFile": "Mercedes-Benz ML 350 BlueTEC 4MATIC (W 166) – Frontansicht, 8. September 2013, Bösensell.jpg",
+      "sharedPlatforms": [
+       "Mercedes-Benz GL-Class (X166)",
+       "Dodge Durango (WD)",
+       "Jeep Grand Cherokee (WK2)"
+      ],
+      "sharedPlatformMatches": {
+       "Dodge Durango (WD)": {
+        "matchId": "m-dodge-durango",
+        "confidence": "high",
+        "reason": "The mentioned car 'Dodge Durango (WD)' refers to the third generation of the Dodge Durango, produced from 2011 to 2023. The candidate 'm-dodge-durango' covers the production history '1997–present', which fully encompasses the WD generation. The other candidates are different models (e.g., Ford Durango, Dodge Charger, etc.) or specific generations that do not match the WD era."
+       }
+      }
+     },
+     {
+      "code": "W167/C167",
+      "yearStart": 2018,
+      "yearEnd": null,
+      "designers": [
+       "Robert Lešnik",
+       "Balázs Filczer",
+       "Michael Frei"
+      ],
+      "engineers": [],
+      "wikiFile": "2020 Mercedes-Benz GLE 350 4Matic front 6.16.19.jpg",
+      "sharedPlatforms": [
+       "Mercedes-Benz GLS (X167)"
+      ]
+     }
+    ]
+   },
+   "attempts": 1,
+   "feedback": [],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": true,
+     "generations": [
+      {
+       "code": "W163",
+       "yearStart": 1997,
+       "yearEnd": 2004,
+       "designers": [
+        "Bruno Sacco",
+        "Peter Pfeiffer",
+        "Peter Arcadipane"
+       ],
+       "engineers": [],
+       "sharedPlatforms": [
+        "SsangYong Rexton"
+       ]
+      },
+      {
+       "code": "W164",
+       "yearStart": 2005,
+       "yearEnd": 2011,
+       "designers": [
+        "Andreas Deufel",
+        "Holger Hutzenlaub",
+        "Steve Mattin"
+       ],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Mercedes-Benz GL-Class (X164)",
+        "Mercedes-Benz R-Class"
+       ]
+      },
+      {
+       "code": "W166/C292",
+       "yearStart": 2011,
+       "yearEnd": 2019,
+       "designers": [
+        "Emiel Burki"
+       ],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Mercedes-Benz GL-Class (X166)",
+        "Dodge Durango (WD)",
+        "Jeep Grand Cherokee (WK2)"
+       ]
+      },
+      {
+       "code": "W167/C167",
+       "yearStart": 2018,
+       "yearEnd": null,
+       "designers": [
+        "Robert Lešnik",
+        "Balázs Filczer",
+        "Michael Frei"
+       ],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Mercedes-Benz GLS (X167)"
+       ]
+      }
+     ]
+    },
+    "dropped": []
+   },
+   "cascadeDiscovered": true,
+   "decidedBy": "user",
+   "decidedAt": "2026-09-15T21:24:43.494Z",
+   "allDesigners": [
+    "Bruno Sacco",
+    "Peter Pfeiffer",
+    "Peter Arcadipane",
+    "Andreas Deufel",
+    "Holger Hutzenlaub",
+    "Steve Mattin",
+    "Emiel Burki",
+    "Robert Lešnik",
+    "Balázs Filczer",
+    "Michael Frei"
+   ],
+   "allEngineers": []
+  },
+  "m-mercedes-benz-glk-class": {
+   "status": "error",
+   "checkedAt": "2026-09-15T21:25:04.824Z",
+   "error": "llama.cpp returned something that isn't JSON: {\"hasMultipleGenerations\": false, \"generations\": [{\"code\": \"X204\", \"yearStart\": 2008, \"yearEnd\": 2015, \"designers\": [], \"engineers\": [], \"sharedPlatforms\": [\"Me",
+   "attempts": 1
+  },
+  "m-mercedes-benz-r-class": {
+   "status": "none",
+   "checkedAt": "2026-09-15T21:25:50.744Z",
+   "sourceTitle": "Mercedes-Benz R-Class",
+   "proposal": {
+    "hasMultipleGenerations": false,
+    "generations": [
+     {
+      "code": "W251 / V251",
+      "yearStart": 2004,
+      "yearEnd": 2017,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "2010 Mercedes-Benz R350L Grand Edition CDi Automatic 3.0 Front.jpg",
+      "sharedPlatforms": [
+       "Mercedes-Benz M-Class",
+       "Mercedes-Benz GL-Class",
+       "SsangYong Rodius"
+      ],
+      "sharedPlatformMatches": {
+       "Mercedes-Benz M-Class": {
+        "matchId": null,
+        "confidence": "high",
+        "reason": "The mentioned car 'Mercedes-Benz M-Class' is a specific SUV model (produced roughly 1997–2011). The provided candidate list contains various Mercedes-Benz models (A-Class, C-Class, E-Class, S-Class, G-Class, CL/CLS, GL/SLK/SL, etc.), but none of them are the M-Class. While the M-Class was later renamed to the GLE or is related to the ML-Class, it does not appear under a different name in the provided list. The GL-Class and CL-Class are distinct models. Therefore, there is no match."
+       },
+       "Mercedes-Benz GL-Class": {
+        "matchId": "m-mercedes-benz-gl-class-x164",
+        "confidence": "high",
+        "reason": "The mention 'Mercedes-Benz GL-Class' refers to the SUV line that existed from 2006 to 2019. The candidate m-mercedes-benz-gl-class-x164 covers the exact same model name and the primary production era (2006–2012) associated with the original GL-Class generation before the name change to GLC in 2015. It is the only candidate that matches the specific 'GL-Class' nomenclature and era."
+       }
+      }
+     }
+    ]
+   },
+   "attempts": 1,
+   "feedback": [],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": false,
+     "generations": [
+      {
+       "code": "W251/V251",
+       "yearStart": 2004,
+       "yearEnd": 2017,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Mercedes-Benz M-Class",
+        "Mercedes-Benz GL-Class",
+        "SsangYong Rodius"
+       ]
+      }
+     ]
+    },
+    "dropped": [
+     {
+      "code": "W251/V251",
+      "yearStart": 2004,
+      "yearEnd": 2017,
+      "designers": [],
+      "engineers": [],
+      "sharedPlatforms": [
+       "Mercedes-Benz M-Class",
+       "Mercedes-Benz GL-Class",
+       "SsangYong Rodius"
+      ]
+     }
+    ]
+   },
+   "cascadeDiscovered": true
+  },
+  "m-mercedes-benz-e-class-c207": {
+   "status": "none",
+   "checkedAt": "2026-09-15T21:26:03.580Z",
+   "sourceTitle": "Mercedes-Benz E-Class (C207)",
+   "proposal": {
+    "hasMultipleGenerations": false,
+    "generations": [
+     {
+      "code": "C207/A207",
+      "yearStart": 2009,
+      "yearEnd": 2017,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "2011 Mercedes-Benz E250 Sport CDi BlueEFFICIENCY Coupe 2.1 Front.jpg",
+      "sharedPlatforms": [
+       "Mercedes-Benz C-Class (W204)",
+       "Mercedes-Benz E-Class (W212)"
+      ]
+     }
+    ]
+   },
+   "attempts": 1,
+   "feedback": [],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": false,
+     "generations": [
+      {
+       "code": "C207/A207",
+       "yearStart": 2009,
+       "yearEnd": 2017,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Mercedes-Benz C-Class (W204)",
+        "Mercedes-Benz E-Class (W212)"
+       ]
+      }
+     ]
+    },
+    "dropped": []
+   },
+   "cascadeDiscovered": true
+  },
+  "m-mercedes-benz-glc": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T21:26:44.796Z",
+   "sourceTitle": "Mercedes-Benz GLC",
+   "proposal": {
+    "hasMultipleGenerations": true,
+    "generations": [
+     {
+      "code": "X253/C253/V253",
+      "yearStart": 2015,
+      "yearEnd": 2022,
+      "designers": [
+       "Michael Frei",
+       "Robert Lešnik"
+      ],
+      "engineers": [],
+      "wikiFile": "2018 Mercedes-Benz GLC 250 Urban Edition 4MATIC 2.0 Front.jpg",
+      "sharedPlatforms": [
+       "Mercedes-Benz EQC",
+       "Mercedes-Benz C-Class (W205)"
+      ]
+     },
+     {
+      "code": "X254/C254/V254",
+      "yearStart": 2022,
+      "yearEnd": null,
+      "designers": [
+       "Bastian Baudy"
+      ],
+      "engineers": [],
+      "wikiFile": "Mercedes-Benz X254 400e 1X7A6270.jpg",
+      "sharedPlatforms": [
+       "Mercedes-Benz C-Class (W206)"
+      ]
+     }
+    ]
+   },
+   "attempts": 1,
+   "feedback": [],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": true,
+     "generations": [
+      {
+       "code": "X253/C253/V253",
+       "yearStart": 2015,
+       "yearEnd": 2022,
+       "designers": [
+        "Michael Frei",
+        "Robert Lešnik"
+       ],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Mercedes-Benz EQC",
+        "Mercedes-Benz C-Class (W205)"
+       ]
+      },
+      {
+       "code": "X254/C254/V254",
+       "yearStart": 2022,
+       "yearEnd": null,
+       "designers": [
+        "Bastian Baudy"
+       ],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Mercedes-Benz C-Class (W206)"
+       ]
+      }
+     ]
+    },
+    "dropped": []
+   },
+   "cascadeDiscovered": true,
+   "decidedBy": "user",
+   "decidedAt": "2026-09-15T21:26:44.796Z",
+   "allDesigners": [
+    "Michael Frei",
+    "Robert Lešnik",
+    "Bastian Baudy"
+   ],
+   "allEngineers": []
+  },
+  "m-baic-bj90": {
+   "status": "none",
+   "checkedAt": "2026-09-15T21:26:50.816Z",
+   "sourceTitle": "BAIC BJ90",
+   "proposal": {
+    "hasMultipleGenerations": false,
+    "generations": [
+     {
+      "code": "BAIC BJ90",
+      "yearStart": 2016,
+      "yearEnd": 2023,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "Beijing BJ90 IMG004.jpg",
+      "sharedPlatforms": [
+       "Mercedes-Benz GL-Class (X166)"
+      ]
+     }
+    ]
+   },
+   "attempts": 1,
+   "feedback": [],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": false,
+     "generations": [
+      {
+       "code": "BAIC BJ90",
+       "yearStart": 2016,
+       "yearEnd": 2023,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Mercedes-Benz GL-Class (X166)"
+       ]
+      }
+     ]
+    },
+    "dropped": []
+   },
+   "cascadeDiscovered": true
   }
  },
  "relations": {
@@ -25602,7 +26585,7 @@
    }
   },
   "llm-m-mercedes-benz-e-class-w110|m-mercedes-benz-e-class|related": {
-   "status": "provisional",
+   "status": "confirmed",
    "checkedAt": "2026-09-15T10:29:07.138Z",
    "famA": "m-mercedes-benz-e-class",
    "famB": "llm-m-mercedes-benz-e-class-w110",
@@ -25653,7 +26636,8 @@
     "availableCodesB": [
      "E-Class W110"
     ]
-   }
+   },
+   "decidedAt": "2026-09-15T21:09:53.666Z"
   },
   "fam-mercedes-benz-c|m-mercedes-benz-e-class|related": {
    "status": "confirmed",
@@ -25771,12 +26755,836 @@
      "SL (R232)"
     ]
    }
+  },
+  "llm-m-mercedes-benz-e-class-w114-w115|llm-m-mercedes-benz-w108-w109-second-series|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T21:09:40.435Z",
+   "decidedAt": "2026-09-15T21:09:40.435Z",
+   "famA": "m-mercedes-benz-e-class",
+   "famB": "m-mercedes-benz-w108-w109",
+   "relType": "platform",
+   "codeA": "E-Class W114/W115",
+   "codeB": "W108/W109 Second Series",
+   "genIdA": "llm-m-mercedes-benz-e-class-w114-w115",
+   "genIdB": "llm-m-mercedes-benz-w108-w109-second-series",
+   "reason": "matched automatically -- the nameplate was named exactly in the source text, and exactly one of its generations was in production alongside this one, so that is the generation it refers to",
+   "llmDiscovered": true
+  },
+  "m-mercedes-benz-w105|m-mercedes-benz-w120-w121|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T21:09:40.801Z",
+   "decidedAt": "2026-09-15T21:09:40.801Z",
+   "famA": "m-mercedes-benz-w105",
+   "famB": "m-mercedes-benz-w120-w121",
+   "relType": "platform",
+   "codeA": "W105",
+   "codeB": "W120/W121",
+   "genIdA": "m-mercedes-benz-w105",
+   "genIdB": "m-mercedes-benz-w120-w121",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "m-mercedes-benz-w105|m-mercedes-benz-w128|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T21:09:40.805Z",
+   "decidedAt": "2026-09-15T21:09:40.805Z",
+   "famA": "m-mercedes-benz-w105",
+   "famB": "m-mercedes-benz-w128",
+   "relType": "platform",
+   "codeA": "W105",
+   "codeB": "W128",
+   "genIdA": "m-mercedes-benz-w105",
+   "genIdB": "m-mercedes-benz-w128",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-related-mercedes-benz-w120|m-dongfeng-ca71|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T21:09:40.813Z",
+   "decidedAt": "2026-09-15T21:09:40.813Z",
+   "famA": "m-dongfeng-ca71",
+   "famB": "llm-related-mercedes-benz-w120",
+   "relType": "platform",
+   "codeA": "CA71",
+   "codeB": "W120",
+   "genIdA": "m-dongfeng-ca71",
+   "genIdB": "llm-related-mercedes-benz-w120",
+   "reason": "matched automatically -- \"Mercedes-Benz W120\" was named as a related car but didn't exist anywhere in the graph yet, so it was newly created from this mention (double-checked by the local LLM sanity pass against every plausible existing car -- none matched)",
+   "llmDiscovered": true
+  },
+  "m-dongfeng-ca71|m-simca-vedette|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T21:09:40.815Z",
+   "decidedAt": "2026-09-15T21:09:40.815Z",
+   "famA": "m-dongfeng-ca71",
+   "famB": "m-simca-vedette",
+   "relType": "platform",
+   "codeA": "CA71",
+   "codeB": "Vedette",
+   "genIdA": "m-dongfeng-ca71",
+   "genIdB": "m-simca-vedette",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-mercedes-benz-e-class-w211|m-mercedes-benz-clk-class-c209|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T21:15:04.705Z",
+   "decidedAt": "2026-09-15T21:15:04.705Z",
+   "famA": "m-mercedes-benz-e-class",
+   "famB": "fam-mercedes-benz-clk",
+   "relType": "platform",
+   "codeA": "E-Class W211",
+   "codeB": "CLK-Class (C209)",
+   "genIdA": "llm-m-mercedes-benz-e-class-w211",
+   "genIdB": "m-mercedes-benz-clk-class-c209",
+   "reason": "matched automatically (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-mercedes-benz-e-class-w211|m-mercedes-benz-cls-class-c219|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T21:15:04.714Z",
+   "decidedAt": "2026-09-15T21:15:04.714Z",
+   "famA": "m-mercedes-benz-e-class",
+   "famB": "fam-mercedes-benz-cls",
+   "relType": "platform",
+   "codeA": "E-Class W211",
+   "codeB": "CLS-Class (C219)",
+   "genIdA": "llm-m-mercedes-benz-e-class-w211",
+   "genIdB": "m-mercedes-benz-cls-class-c219",
+   "reason": "matched automatically (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-mercedes-benz-e-class-w211|m-chrysler-300c|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T21:15:04.758Z",
+   "decidedAt": "2026-09-15T21:15:04.758Z",
+   "famA": "m-mercedes-benz-e-class",
+   "famB": "m-chrysler-300c",
+   "relType": "platform",
+   "codeA": "E-Class W211",
+   "codeB": "300C",
+   "genIdA": "llm-m-mercedes-benz-e-class-w211",
+   "genIdB": "m-chrysler-300c",
+   "reason": "auto-approved in the background -- the local LLM sanity check confidently identified this as the same car as \"Chrysler 300\" (confidence: high) -- The mention 'Chrysler 300' refers to the full-size rear-wheel drive sedan produced from 2004 onwards. In the provided database, 'm-chrysler-300c' (Chrysler 300C, 2004–2023) represents this specific model. The 'C' suffix was used on the nameplate in the early years (2004–2010) to denote the 300C trim level or to distinguish it from the 'Chrysler 300M' (1998–2003) and earlier 300 models, but the car is widely known and categorized as the 'Chrysler 300'. Other candidates like the Chrysler 300M are distinct generations, and the others listed are unrelated models.",
+   "llmDiscovered": true,
+   "llmVerifiedDuplicate": true
+  },
+  "llm-m-mercedes-benz-e-class-w211|m-dodge-charger-lx|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T21:15:04.802Z",
+   "decidedAt": "2026-09-15T21:15:04.802Z",
+   "famA": "m-mercedes-benz-e-class",
+   "famB": "m-dodge-charger-lx",
+   "relType": "platform",
+   "codeA": "E-Class W211",
+   "codeB": "Charger (LX)",
+   "genIdA": "llm-m-mercedes-benz-e-class-w211",
+   "genIdB": "m-dodge-charger-lx",
+   "reason": "auto-approved in the background -- the local LLM sanity check confidently identified this as the same car as \"Dodge Charger (LX/LD)\" (confidence: high) -- The mention 'Dodge Charger (LX/LD)' explicitly references the 'LX' chassis generation. The candidate 'm-dodge-charger-lx' corresponds to the Dodge Charger LX (2006–2023), which is the exact same model generation. The LD notation often refers to the luxury trim or the specific platform generation code associated with the LX in certain contexts, but 'LX' is the definitive identifier present in both the mention and the candidate.",
+   "llmDiscovered": true,
+   "llmVerifiedDuplicate": true
+  },
+  "llm-m-mercedes-benz-e-class-w211|m-dodge-magnum|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T21:15:04.809Z",
+   "decidedAt": "2026-09-15T21:15:04.809Z",
+   "famA": "m-mercedes-benz-e-class",
+   "famB": "m-dodge-magnum",
+   "relType": "platform",
+   "codeA": "E-Class W211",
+   "codeB": "Magnum",
+   "genIdA": "llm-m-mercedes-benz-e-class-w211",
+   "genIdB": "m-dodge-magnum",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-mercedes-benz-e-class-w211|llm-m-ssangyong-chairman-chairman-h|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T21:15:04.861Z",
+   "decidedAt": "2026-09-15T21:15:04.861Z",
+   "famA": "m-mercedes-benz-e-class",
+   "famB": "m-ssangyong-chairman",
+   "relType": "platform",
+   "codeA": "E-Class W211",
+   "codeB": "Chairman Chairman H",
+   "genIdA": "llm-m-mercedes-benz-e-class-w211",
+   "genIdB": "llm-m-ssangyong-chairman-chairman-h",
+   "reason": "auto-approved in the background -- the local LLM sanity check confidently identified this as the same car as \"SsangYong Chairman (Second generation)\" (confidence: high) -- The mention specifies the 'Second generation' of the SsangYong Chairman. In the provided candidates, the id 'llm-m-ssangyong-chairman-chairman-h' refers to the 'Chairman H' model, which is the specific designation for the second generation of the Chairman (produced 1997–2014). The standard 'Ssangyong Chairman' entry (1997–2017) covers the first generation (Chairman S) and potentially the transition, but the 'Chairman H' variant is the distinct second generation model mentioned.",
+   "llmDiscovered": true,
+   "llmVerifiedDuplicate": true
+  },
+  "llm-m-chrysler-300c-first-generation-lx|m-dodge-charger|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T21:16:35.656Z",
+   "decidedAt": "2026-09-15T21:16:35.656Z",
+   "famA": "m-chrysler-300c",
+   "famB": "fam-dodge-charger",
+   "relType": "platform",
+   "codeA": "300C First generation (LX)",
+   "codeB": "Charger",
+   "genIdA": "llm-m-chrysler-300c-first-generation-lx",
+   "genIdB": "m-dodge-charger",
+   "reason": "matched automatically (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-chrysler-300c-first-generation-lx|m-dodge-challenger-2008|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T21:16:35.662Z",
+   "decidedAt": "2026-09-15T21:16:35.662Z",
+   "famA": "m-chrysler-300c",
+   "famB": "m-dodge-challenger-2008",
+   "relType": "platform",
+   "codeA": "300C First generation (LX)",
+   "codeB": "Challenger (2008)",
+   "genIdA": "llm-m-chrysler-300c-first-generation-lx",
+   "genIdB": "m-dodge-challenger-2008",
+   "reason": "auto-approved in the background -- the local LLM sanity check confidently identified this as the same car as \"Dodge Challenger\" (confidence: high) -- The mention 'Dodge Challenger' refers to the modern muscle car reintroduced by Dodge in 2008 and produced continuously through 2023 (and beyond). This matches the specific production run (2008–2023) listed for the candidate 'm-dodge-challenger-2008', which is the current and primary generation of the Dodge Challenger. The other candidate 'm-dodge-challenger-1970' refers to the original 1970-1974 model, which is a different, discontinued generation.",
+   "llmDiscovered": true,
+   "llmVerifiedDuplicate": true
+  },
+  "llm-m-chrysler-300c-first-generation-lx|m-dodge-magnum|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T21:16:35.662Z",
+   "decidedAt": "2026-09-15T21:16:35.662Z",
+   "famA": "m-chrysler-300c",
+   "famB": "m-dodge-magnum",
+   "relType": "platform",
+   "codeA": "300C First generation (LX)",
+   "codeB": "Magnum",
+   "genIdA": "llm-m-chrysler-300c-first-generation-lx",
+   "genIdB": "m-dodge-magnum",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-chrysler-300c-second-generation-ld|m-dodge-charger|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T21:16:35.670Z",
+   "decidedAt": "2026-09-15T21:16:35.670Z",
+   "famA": "m-chrysler-300c",
+   "famB": "fam-dodge-charger",
+   "relType": "platform",
+   "codeA": "300C Second generation (LD)",
+   "codeB": "Charger",
+   "genIdA": "llm-m-chrysler-300c-second-generation-ld",
+   "genIdB": "m-dodge-charger",
+   "reason": "matched automatically (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-chrysler-300c-second-generation-ld|m-dodge-challenger-2008|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T21:16:35.677Z",
+   "decidedAt": "2026-09-15T21:16:35.677Z",
+   "famA": "m-chrysler-300c",
+   "famB": "m-dodge-challenger-2008",
+   "relType": "platform",
+   "codeA": "300C Second generation (LD)",
+   "codeB": "Challenger (2008)",
+   "genIdA": "llm-m-chrysler-300c-second-generation-ld",
+   "genIdB": "m-dodge-challenger-2008",
+   "reason": "auto-approved in the background -- the local LLM sanity check confidently identified this as the same car as \"Dodge Challenger\" (confidence: high) -- The mention 'Dodge Challenger' refers to the modern muscle car reintroduced by Dodge in 2008 and produced continuously through 2023 (and beyond). This matches the specific production run (2008–2023) listed for the candidate 'm-dodge-challenger-2008', which is the current and primary generation of the Dodge Challenger. The other candidate 'm-dodge-challenger-1970' refers to the original 1970-1974 model, which is a different, discontinued generation.",
+   "llmDiscovered": true,
+   "llmVerifiedDuplicate": true
+  },
+  "llm-m-chrysler-300c-second-generation-ld|m-mercedes-benz-e-class-w212|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T21:16:35.679Z",
+   "decidedAt": "2026-09-15T21:16:35.679Z",
+   "famA": "m-chrysler-300c",
+   "famB": "m-mercedes-benz-e-class",
+   "relType": "platform",
+   "codeA": "300C Second generation (LD)",
+   "codeB": "E-Class (W212)",
+   "genIdA": "llm-m-chrysler-300c-second-generation-ld",
+   "genIdB": "m-mercedes-benz-e-class-w212",
+   "reason": "matched automatically -- the nameplate was named exactly in the source text, and exactly one of its generations was in production alongside this one, so that is the generation it refers to",
+   "llmDiscovered": true
+  },
+  "m-mercedes-benz-c-class-w204|m-mercedes-benz-e-class-w212|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T21:16:40.267Z",
+   "decidedAt": "2026-09-15T21:16:40.267Z",
+   "famA": "m-mercedes-benz-e-class",
+   "famB": "fam-mercedes-benz-c",
+   "relType": "platform",
+   "codeA": "E-Class (W212)",
+   "codeB": "C-Class (W204)",
+   "genIdA": "m-mercedes-benz-e-class-w212",
+   "genIdB": "m-mercedes-benz-c-class-w204",
+   "reason": "matched automatically (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "m-mercedes-benz-cls-class-c218|m-mercedes-benz-e-class-w212|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T21:16:40.268Z",
+   "decidedAt": "2026-09-15T21:16:40.268Z",
+   "famA": "m-mercedes-benz-e-class",
+   "famB": "fam-mercedes-benz-cls",
+   "relType": "platform",
+   "codeA": "E-Class (W212)",
+   "codeB": "CLS-Class (C218)",
+   "genIdA": "m-mercedes-benz-e-class-w212",
+   "genIdB": "m-mercedes-benz-cls-class-c218",
+   "reason": "matched automatically (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "m-mercedes-benz-e-class-c207|m-mercedes-benz-e-class-w212|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T21:16:40.274Z",
+   "decidedAt": "2026-09-15T21:16:40.274Z",
+   "famA": "m-mercedes-benz-e-class",
+   "famB": "m-mercedes-benz-e-class-c207",
+   "relType": "platform",
+   "codeA": "E-Class (W212)",
+   "codeB": "E-Class (C207)",
+   "genIdA": "m-mercedes-benz-e-class-w212",
+   "genIdB": "m-mercedes-benz-e-class-c207",
+   "reason": "auto-approved in the background -- the local LLM sanity check confidently identified this as the same car as \"Mercedes-Benz E-Class (C207/A207)\" (confidence: high) -- The mention explicitly includes the chassis codes 'C207/A207'. The candidate 'm-mercedes-benz-e-class-c207' contains the exact matching chassis code 'C207' and the same model name 'Mercedes-Benz E-Class'. The production years (2009–present) align with the C207 generation, which replaced the W211 and was succeeded by the W213.",
+   "llmDiscovered": true,
+   "llmVerifiedDuplicate": true
+  },
+  "m-mercedes-benz-c-class-w205|m-mercedes-benz-e-class-w213|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T21:18:22.130Z",
+   "decidedAt": "2026-09-15T21:18:22.130Z",
+   "famA": "m-mercedes-benz-e-class",
+   "famB": "fam-mercedes-benz-c",
+   "relType": "platform",
+   "codeA": "E-Class (W213)",
+   "codeB": "C-Class (W205)",
+   "genIdA": "m-mercedes-benz-e-class-w213",
+   "genIdB": "m-mercedes-benz-c-class-w205",
+   "reason": "matched automatically (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "m-mercedes-benz-cls-c257|m-mercedes-benz-e-class-w213|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T21:18:22.170Z",
+   "decidedAt": "2026-09-15T21:18:22.170Z",
+   "famA": "m-mercedes-benz-e-class",
+   "famB": "fam-mercedes-benz-cls",
+   "relType": "platform",
+   "codeA": "E-Class (W213)",
+   "codeB": "CLS (C257)",
+   "genIdA": "m-mercedes-benz-e-class-w213",
+   "genIdB": "m-mercedes-benz-cls-c257",
+   "reason": "auto-approved in the background -- the local LLM sanity check confidently identified this as the same car as \"Mercedes-Benz CLS-Class (C257)\" (confidence: high) -- The mention explicitly includes the chassis code 'C257', which corresponds exactly to the entry 'Mercedes-Benz CLS (C257) (2018–2023)' in the candidate list. The production years also overlap perfectly.",
+   "llmDiscovered": true,
+   "llmVerifiedDuplicate": true
+  },
+  "m-mercedes-benz-e-class-w213|m-mercedes-benz-mercedes-amg-gt-4-door-coupe|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T21:18:22.184Z",
+   "decidedAt": "2026-09-15T21:18:22.184Z",
+   "famA": "m-mercedes-benz-e-class",
+   "famB": "m-mercedes-benz-mercedes-amg-gt-4-door-coupe",
+   "relType": "platform",
+   "codeA": "E-Class (W213)",
+   "codeB": "Mercedes-AMG GT 4-Door Coupé",
+   "genIdA": "m-mercedes-benz-e-class-w213",
+   "genIdB": "m-mercedes-benz-mercedes-amg-gt-4-door-coupe",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-dodge-charger-lx-lx|m-dodge-challenger-2008|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T21:18:33.540Z",
+   "decidedAt": "2026-09-15T21:18:33.540Z",
+   "famA": "m-dodge-charger-lx",
+   "famB": "m-dodge-challenger-2008",
+   "relType": "platform",
+   "codeA": "Charger (LX) LX",
+   "codeB": "Challenger (2008)",
+   "genIdA": "llm-m-dodge-charger-lx-lx",
+   "genIdB": "m-dodge-challenger-2008",
+   "reason": "auto-approved in the background -- the local LLM sanity check confidently identified this as the same car as \"Dodge Challenger\" (confidence: high) -- The mention 'Dodge Challenger' refers to the modern muscle car reintroduced by Dodge in 2008, which is the only current-production Challenger in the candidate list. The 1970 model (m-dodge-challenger-1970) is a distinct, historical generation. The Huanghai Challenger is a Chinese re-badge and not the same car.",
+   "llmDiscovered": true,
+   "llmVerifiedDuplicate": true
+  },
+  "llm-m-dodge-charger-lx-lx|m-dodge-magnum|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T21:18:33.542Z",
+   "decidedAt": "2026-09-15T21:18:33.542Z",
+   "famA": "m-dodge-charger-lx",
+   "famB": "m-dodge-magnum",
+   "relType": "platform",
+   "codeA": "Charger (LX) LX",
+   "codeB": "Magnum",
+   "genIdA": "llm-m-dodge-charger-lx-lx",
+   "genIdB": "m-dodge-magnum",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-dodge-charger-lx-lx|m-mercedes-benz-e-class-w211|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T21:18:33.547Z",
+   "decidedAt": "2026-09-15T21:18:33.547Z",
+   "famA": "m-dodge-charger-lx",
+   "famB": "m-mercedes-benz-e-class-w211",
+   "relType": "platform",
+   "codeA": "Charger (LX) LX",
+   "codeB": "E-Class (W211)",
+   "genIdA": "llm-m-dodge-charger-lx-lx",
+   "genIdB": "m-mercedes-benz-e-class-w211",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-dodge-charger-lx-ld|m-dodge-challenger-2008|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T21:18:33.610Z",
+   "decidedAt": "2026-09-15T21:18:33.610Z",
+   "famA": "m-dodge-charger-lx",
+   "famB": "m-dodge-challenger-2008",
+   "relType": "platform",
+   "codeA": "Charger (LX) LD",
+   "codeB": "Challenger (2008)",
+   "genIdA": "llm-m-dodge-charger-lx-ld",
+   "genIdB": "m-dodge-challenger-2008",
+   "reason": "auto-approved in the background -- the local LLM sanity check confidently identified this as the same car as \"Dodge Challenger\" (confidence: high) -- The mention 'Dodge Challenger' refers to the modern muscle car reintroduced by Dodge in 2008, which is the only current-production Challenger in the candidate list. The 1970 model (m-dodge-challenger-1970) is a distinct, historical generation. The Huanghai Challenger is a Chinese re-badge and not the same car.",
+   "llmDiscovered": true,
+   "llmVerifiedDuplicate": true
+  },
+  "m-mercedes-benz-c-class-w206|m-mercedes-benz-e-class-w214|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T21:19:55.986Z",
+   "decidedAt": "2026-09-15T21:19:55.986Z",
+   "famA": "m-mercedes-benz-e-class",
+   "famB": "fam-mercedes-benz-c",
+   "relType": "platform",
+   "codeA": "E-Class (W214)",
+   "codeB": "C-Class (W206)",
+   "genIdA": "m-mercedes-benz-e-class-w214",
+   "genIdB": "m-mercedes-benz-c-class-w206",
+   "reason": "matched automatically (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "m-mercedes-benz-e-class-w214|m-mercedes-benz-s-class-w223|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T21:19:55.988Z",
+   "decidedAt": "2026-09-15T21:19:55.988Z",
+   "famA": "m-mercedes-benz-e-class",
+   "famB": "fam-mercedes-benz-s",
+   "relType": "platform",
+   "codeA": "E-Class (W214)",
+   "codeB": "S-Class (W223)",
+   "genIdA": "m-mercedes-benz-e-class-w214",
+   "genIdB": "m-mercedes-benz-s-class-w223",
+   "reason": "matched automatically (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "m-mercedes-benz-cle|m-mercedes-benz-e-class-w214|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T21:19:55.994Z",
+   "decidedAt": "2026-09-15T21:19:55.994Z",
+   "famA": "m-mercedes-benz-e-class",
+   "famB": "m-mercedes-benz-cle",
+   "relType": "platform",
+   "codeA": "E-Class (W214)",
+   "codeB": "CLE",
+   "genIdA": "m-mercedes-benz-e-class-w214",
+   "genIdB": "m-mercedes-benz-cle",
+   "reason": "auto-approved in the background -- the local LLM sanity check confidently identified this as the same car as \"Mercedes-Benz CLE (C236/A236)\" (confidence: high) -- The mention 'Mercedes-Benz CLE (C236/A236)' refers to the specific generation of the Mercedes-Benz CLE, identified by the chassis codes C236 (saloon) and A236 (coupe). The candidate 'Mercedes-Benz CLE (2023–present)' corresponds to the exact same model, which is the current production generation of this nameplate launched in 2023. The inclusion of chassis codes in the mention confirms it is not a confusion with the older CL-Class or other models sharing the 'CLE' acronym, and the candidate correctly represents this specific car.",
+   "llmDiscovered": true,
+   "llmVerifiedDuplicate": true
+  },
+  "llm-m-dodge-magnum-b-body|m-chrysler-cordoba|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T21:20:18.945Z",
+   "decidedAt": "2026-09-15T21:20:18.945Z",
+   "famA": "m-dodge-magnum",
+   "famB": "m-chrysler-cordoba",
+   "relType": "platform",
+   "codeA": "Magnum B-body",
+   "codeB": "Cordoba",
+   "genIdA": "llm-m-dodge-magnum-b-body",
+   "genIdB": "m-chrysler-cordoba",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-dodge-magnum-b-body|m-dodge-charger|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T21:20:18.946Z",
+   "decidedAt": "2026-09-15T21:20:18.946Z",
+   "famA": "m-dodge-magnum",
+   "famB": "fam-dodge-charger",
+   "relType": "platform",
+   "codeA": "Magnum B-body",
+   "codeB": "Charger",
+   "genIdA": "llm-m-dodge-magnum-b-body",
+   "genIdB": "m-dodge-charger",
+   "reason": "matched automatically (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-dodge-magnum-b-body|m-dodge-monaco|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T21:20:18.946Z",
+   "decidedAt": "2026-09-15T21:20:18.946Z",
+   "famA": "m-dodge-magnum",
+   "famB": "m-dodge-monaco",
+   "relType": "platform",
+   "codeA": "Magnum B-body",
+   "codeB": "Monaco",
+   "genIdA": "llm-m-dodge-magnum-b-body",
+   "genIdB": "m-dodge-monaco",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-dodge-magnum-b-body|m-plymouth-fury|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T21:20:18.948Z",
+   "decidedAt": "2026-09-15T21:20:18.948Z",
+   "famA": "m-dodge-magnum",
+   "famB": "m-plymouth-fury",
+   "relType": "platform",
+   "codeA": "Magnum B-body",
+   "codeB": "Fury",
+   "genIdA": "llm-m-dodge-magnum-b-body",
+   "genIdB": "m-plymouth-fury",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-dodge-magnum-b-body|m-chrysler-300m|platform": {
+   "status": "provisional",
+   "checkedAt": "2026-09-15T21:20:18.955Z",
+   "famA": "m-dodge-magnum",
+   "famB": "m-chrysler-300m",
+   "relType": "platform",
+   "codeA": "Magnum B-body",
+   "codeB": "300M",
+   "genIdA": "llm-m-dodge-magnum-b-body",
+   "genIdB": "m-chrysler-300m",
+   "reason": "flagged by the local LLM sanity check as the same car as \"Chrysler 300 (1979)\" (confidence: low) -- The mention 'Chrysler 300 (1979)' refers to a specific model year. While the database contains 'Chrysler 300M' (1998–2003), which shares the name '300', the production years do not overlap. The 1979 model is likely the Chrysler 300M's predecessor in the US market (often just called 'Chrysler 300' or 'New Yorker 300' in that era) or a different variant entirely, but none of the specific candidates match the '300' nameplate for the year 1979. The candidate 'm-chrysler-300m' is the closest in naming but fails the strict rule regarding disjoint production eras. -- please verify this is really the right car before accepting",
+   "llmDiscovered": true,
+   "llmVerifiedDuplicate": true
+  },
+  "llm-m-dodge-magnum-a-body|m-dodge-dart|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T21:20:18.959Z",
+   "decidedAt": "2026-09-15T21:20:18.959Z",
+   "famA": "m-dodge-magnum",
+   "famB": "m-dodge-dart",
+   "relType": "platform",
+   "codeA": "Magnum A-body",
+   "codeB": "Dart",
+   "genIdA": "llm-m-dodge-magnum-a-body",
+   "genIdB": "m-dodge-dart",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-dodge-magnum-m-body|m-dodge-diplomat|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T21:20:18.963Z",
+   "decidedAt": "2026-09-15T21:20:18.963Z",
+   "famA": "m-dodge-magnum",
+   "famB": "m-dodge-diplomat",
+   "relType": "platform",
+   "codeA": "Magnum M-body",
+   "codeB": "Diplomat",
+   "genIdA": "llm-m-dodge-magnum-m-body",
+   "genIdB": "m-dodge-diplomat",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-dodge-magnum-m-body|m-plymouth-gran-fury|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T21:20:18.965Z",
+   "decidedAt": "2026-09-15T21:20:18.965Z",
+   "famA": "m-dodge-magnum",
+   "famB": "m-plymouth-gran-fury",
+   "relType": "platform",
+   "codeA": "Magnum M-body",
+   "codeB": "Gran Fury",
+   "genIdA": "llm-m-dodge-magnum-m-body",
+   "genIdB": "m-plymouth-gran-fury",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-dodge-magnum-m-body|m-chrysler-lebaron|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T21:20:18.965Z",
+   "decidedAt": "2026-09-15T21:20:18.965Z",
+   "famA": "m-dodge-magnum",
+   "famB": "m-chrysler-lebaron",
+   "relType": "platform",
+   "codeA": "Magnum M-body",
+   "codeB": "LeBaron",
+   "genIdA": "llm-m-dodge-magnum-m-body",
+   "genIdB": "m-chrysler-lebaron",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-dodge-magnum-m-body|llm-related-plymouth-caravelle-salon|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T21:20:18.973Z",
+   "decidedAt": "2026-09-15T21:20:18.973Z",
+   "famA": "m-dodge-magnum",
+   "famB": "llm-related-plymouth-caravelle-salon",
+   "relType": "platform",
+   "codeA": "Magnum M-body",
+   "codeB": "Caravelle Salon",
+   "genIdA": "llm-m-dodge-magnum-m-body",
+   "genIdB": "llm-related-plymouth-caravelle-salon",
+   "reason": "matched automatically -- \"Plymouth Caravelle Salon\" was named as a related car but didn't exist anywhere in the graph yet, so it was newly created from this mention (double-checked by the local LLM sanity pass against every plausible existing car -- none matched)",
+   "llmDiscovered": true
+  },
+  "llm-m-dodge-magnum-k-body|m-dodge-400|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T21:20:18.976Z",
+   "decidedAt": "2026-09-15T21:20:18.976Z",
+   "famA": "m-dodge-magnum",
+   "famB": "m-dodge-400",
+   "relType": "platform",
+   "codeA": "Magnum K-body",
+   "codeB": "400",
+   "genIdA": "llm-m-dodge-magnum-k-body",
+   "genIdB": "m-dodge-400",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-dodge-magnum-k-body|m-dodge-aries|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T21:20:18.976Z",
+   "decidedAt": "2026-09-15T21:20:18.976Z",
+   "famA": "m-dodge-magnum",
+   "famB": "m-dodge-aries",
+   "relType": "platform",
+   "codeA": "Magnum K-body",
+   "codeB": "Aries",
+   "genIdA": "llm-m-dodge-magnum-k-body",
+   "genIdB": "m-dodge-aries",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-dodge-magnum-k-body|m-plymouth-caravelle|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T21:20:18.978Z",
+   "decidedAt": "2026-09-15T21:20:18.978Z",
+   "famA": "m-dodge-magnum",
+   "famB": "m-plymouth-caravelle",
+   "relType": "platform",
+   "codeA": "Magnum K-body",
+   "codeB": "Caravelle",
+   "genIdA": "llm-m-dodge-magnum-k-body",
+   "genIdB": "m-plymouth-caravelle",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-chrysler-300c-first-generation-lx|llm-m-dodge-magnum-lx-platform|platform": {
+   "status": "provisional",
+   "checkedAt": "2026-09-15T21:20:18.987Z",
+   "famA": "m-dodge-magnum",
+   "famB": "m-chrysler-300c",
+   "relType": "platform",
+   "codeA": "Magnum LX platform",
+   "codeB": "300C First generation (LX)",
+   "genIdA": "llm-m-dodge-magnum-lx-platform",
+   "genIdB": "llm-m-chrysler-300c-first-generation-lx",
+   "reason": "proposed by overlapping production years only, on top of a nameplate name that only matched as a substring -- please verify this is really the right car before accepting",
+   "llmDiscovered": true
+  },
+  "llm-m-dodge-magnum-lx-platform|m-dodge-charger|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T21:20:18.987Z",
+   "decidedAt": "2026-09-15T21:20:18.987Z",
+   "famA": "m-dodge-magnum",
+   "famB": "fam-dodge-charger",
+   "relType": "platform",
+   "codeA": "Magnum LX platform",
+   "codeB": "Charger",
+   "genIdA": "llm-m-dodge-magnum-lx-platform",
+   "genIdB": "m-dodge-charger",
+   "reason": "matched automatically (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-dodge-magnum-lx-platform|m-mercedes-benz-e-class-w211|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T21:20:18.989Z",
+   "decidedAt": "2026-09-15T21:20:18.989Z",
+   "famA": "m-dodge-magnum",
+   "famB": "m-mercedes-benz-e-class-w211",
+   "relType": "platform",
+   "codeA": "Magnum LX platform",
+   "codeB": "E-Class (W211)",
+   "genIdA": "llm-m-dodge-magnum-lx-platform",
+   "genIdB": "m-mercedes-benz-e-class-w211",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-mercedes-benz-mercedes-amg-gt-4-door-coupe-x290|m-mercedes-benz-e-class-w213|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T21:20:57.504Z",
+   "decidedAt": "2026-09-15T21:20:57.504Z",
+   "famA": "m-mercedes-benz-mercedes-amg-gt-4-door-coupe",
+   "famB": "m-mercedes-benz-e-class",
+   "relType": "platform",
+   "codeA": "Mercedes-AMG GT 4-Door Coupé X290",
+   "codeB": "E-Class (W213)",
+   "genIdA": "llm-m-mercedes-benz-mercedes-amg-gt-4-door-coupe-x290",
+   "genIdB": "m-mercedes-benz-e-class-w213",
+   "reason": "matched automatically (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-mercedes-benz-mercedes-amg-gt-4-door-coupe-x290|m-mercedes-benz-cls-c257|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T21:20:57.509Z",
+   "decidedAt": "2026-09-15T21:20:57.509Z",
+   "famA": "m-mercedes-benz-mercedes-amg-gt-4-door-coupe",
+   "famB": "fam-mercedes-benz-cls",
+   "relType": "platform",
+   "codeA": "Mercedes-AMG GT 4-Door Coupé X290",
+   "codeB": "CLS (C257)",
+   "genIdA": "llm-m-mercedes-benz-mercedes-amg-gt-4-door-coupe-x290",
+   "genIdB": "m-mercedes-benz-cls-c257",
+   "reason": "auto-approved in the background -- the local LLM sanity check confidently identified this as the same car as \"Mercedes-Benz CLS-Class (C257)\" (confidence: high) -- The mention explicitly includes the chassis code C257, which directly matches the identifier for the candidate 'm-mercedes-benz-cls-c257'. The production years (2018–2023) also align perfectly with the third generation of the Mercedes-Benz CLS.",
+   "llmDiscovered": true,
+   "llmVerifiedDuplicate": true
+  },
+  "llm-m-mercedes-benz-gle-w163|m-kgm-rexton|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T21:24:43.513Z",
+   "decidedAt": "2026-09-15T21:24:43.513Z",
+   "famA": "m-mercedes-benz-gle",
+   "famB": "m-kgm-rexton",
+   "relType": "platform",
+   "codeA": "GLE W163",
+   "codeB": "Rexton",
+   "genIdA": "llm-m-mercedes-benz-gle-w163",
+   "genIdB": "m-kgm-rexton",
+   "reason": "auto-approved in the background -- the local LLM sanity check confidently identified this as the same car as \"SsangYong Rexton\" (confidence: high) -- The SsangYong Rexton was sold under the KGM brand name as the KGM Rexton during the same production period (2001–present). This is a known rebranding/ownership change of the exact same vehicle model.",
+   "llmDiscovered": true,
+   "llmVerifiedDuplicate": true
+  },
+  "llm-m-mercedes-benz-gle-w164|m-mercedes-benz-gl-class-x164|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T21:24:43.519Z",
+   "decidedAt": "2026-09-15T21:24:43.519Z",
+   "famA": "m-mercedes-benz-gle",
+   "famB": "fam-mercedes-benz-gl",
+   "relType": "platform",
+   "codeA": "GLE W164",
+   "codeB": "GL-Class (X164)",
+   "genIdA": "llm-m-mercedes-benz-gle-w164",
+   "genIdB": "m-mercedes-benz-gl-class-x164",
+   "reason": "matched automatically (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-mercedes-benz-gle-w164|m-mercedes-benz-r-class|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T21:24:43.520Z",
+   "decidedAt": "2026-09-15T21:24:43.521Z",
+   "famA": "m-mercedes-benz-gle",
+   "famB": "m-mercedes-benz-r-class",
+   "relType": "platform",
+   "codeA": "GLE W164",
+   "codeB": "R-Class",
+   "genIdA": "llm-m-mercedes-benz-gle-w164",
+   "genIdB": "m-mercedes-benz-r-class",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-mercedes-benz-gle-w166-c292|m-mercedes-benz-gl-class-x166|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T21:24:43.526Z",
+   "decidedAt": "2026-09-15T21:24:43.526Z",
+   "famA": "m-mercedes-benz-gle",
+   "famB": "fam-mercedes-benz-gl",
+   "relType": "platform",
+   "codeA": "GLE W166/C292",
+   "codeB": "GL-Class (X166)",
+   "genIdA": "llm-m-mercedes-benz-gle-w166-c292",
+   "genIdB": "m-mercedes-benz-gl-class-x166",
+   "reason": "matched automatically (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-mercedes-benz-gle-w166-c292|m-dodge-durango|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T21:24:43.532Z",
+   "decidedAt": "2026-09-15T21:24:43.532Z",
+   "famA": "m-mercedes-benz-gle",
+   "famB": "m-dodge-durango",
+   "relType": "platform",
+   "codeA": "GLE W166/C292",
+   "codeB": "Durango",
+   "genIdA": "llm-m-mercedes-benz-gle-w166-c292",
+   "genIdB": "m-dodge-durango",
+   "reason": "auto-approved in the background -- the local LLM sanity check confidently identified this as the same car as \"Dodge Durango (WD)\" (confidence: high) -- The mentioned car 'Dodge Durango (WD)' refers to the third generation of the Dodge Durango, produced from 2011 to 2023. The candidate 'm-dodge-durango' covers the production history '1997–present', which fully encompasses the WD generation. The other candidates are different models (e.g., Ford Durango, Dodge Charger, etc.) or specific generations that do not match the WD era.",
+   "llmDiscovered": true,
+   "llmVerifiedDuplicate": true
+  },
+  "llm-m-mercedes-benz-gle-w166-c292|m-jeep-grand-cherokee-wk2|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T21:24:43.534Z",
+   "decidedAt": "2026-09-15T21:24:43.534Z",
+   "famA": "m-mercedes-benz-gle",
+   "famB": "fam-jeep-grand-cherokee",
+   "relType": "platform",
+   "codeA": "GLE W166/C292",
+   "codeB": "Grand Cherokee (WK2)",
+   "genIdA": "llm-m-mercedes-benz-gle-w166-c292",
+   "genIdB": "m-jeep-grand-cherokee-wk2",
+   "reason": "matched automatically (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-mercedes-benz-gle-w167-c167|m-mercedes-benz-gls-x167|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T21:24:43.538Z",
+   "decidedAt": "2026-09-15T21:24:43.538Z",
+   "famA": "m-mercedes-benz-gle",
+   "famB": "m-mercedes-benz-gls-x167",
+   "relType": "platform",
+   "codeA": "GLE W167/C167",
+   "codeB": "GLS (X167)",
+   "genIdA": "llm-m-mercedes-benz-gle-w167-c167",
+   "genIdB": "m-mercedes-benz-gls-x167",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-mercedes-benz-glc-x253-c253-v253|m-mercedes-benz-eqc|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T21:26:44.811Z",
+   "decidedAt": "2026-09-15T21:26:44.811Z",
+   "famA": "m-mercedes-benz-glc",
+   "famB": "m-mercedes-benz-eqc",
+   "relType": "platform",
+   "codeA": "GLC X253/C253/V253",
+   "codeB": "EQC",
+   "genIdA": "llm-m-mercedes-benz-glc-x253-c253-v253",
+   "genIdB": "m-mercedes-benz-eqc",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-mercedes-benz-glc-x253-c253-v253|m-mercedes-benz-c-class-w205|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T21:26:44.813Z",
+   "decidedAt": "2026-09-15T21:26:44.813Z",
+   "famA": "m-mercedes-benz-glc",
+   "famB": "fam-mercedes-benz-c",
+   "relType": "platform",
+   "codeA": "GLC X253/C253/V253",
+   "codeB": "C-Class (W205)",
+   "genIdA": "llm-m-mercedes-benz-glc-x253-c253-v253",
+   "genIdB": "m-mercedes-benz-c-class-w205",
+   "reason": "matched automatically (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-mercedes-benz-glc-x254-c254-v254|m-mercedes-benz-c-class-w206|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T21:26:44.818Z",
+   "decidedAt": "2026-09-15T21:26:44.818Z",
+   "famA": "m-mercedes-benz-glc",
+   "famB": "fam-mercedes-benz-c",
+   "relType": "platform",
+   "codeA": "GLC X254/C254/V254",
+   "codeB": "C-Class (W206)",
+   "genIdA": "llm-m-mercedes-benz-glc-x254-c254-v254",
+   "genIdB": "m-mercedes-benz-c-class-w206",
+   "reason": "matched automatically (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
   }
  },
  "recheck": {
   "m-mercedes-benz-g-class": {
    "status": "none",
-   "checkedAt": "2026-09-15T10:09:22.429Z",
+   "checkedAt": "2026-09-15T21:09:38.575Z",
    "sourceTitle": "Mercedes-Benz G-Class",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -25860,7 +27668,7 @@
   },
   "m-mercedes-benz-gla": {
    "status": "none",
-   "checkedAt": "2026-09-15T10:09:22.473Z",
+   "checkedAt": "2026-09-15T21:09:38.621Z",
    "sourceTitle": "Mercedes-Benz GLA",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -25963,7 +27771,7 @@
   },
   "m-mercedes-benz-cla": {
    "status": "none",
-   "checkedAt": "2026-09-15T10:09:22.511Z",
+   "checkedAt": "2026-09-15T21:09:38.655Z",
    "sourceTitle": "Mercedes-Benz CLA",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -26245,7 +28053,7 @@
   },
   "m-toyota-celica": {
    "status": "none",
-   "checkedAt": "2026-09-15T10:09:22.561Z",
+   "checkedAt": "2026-09-15T21:09:38.704Z",
    "sourceTitle": "Toyota Celica",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -26361,7 +28169,7 @@
   },
   "m-toyota-carina": {
    "status": "none",
-   "checkedAt": "2026-09-15T10:09:22.621Z",
+   "checkedAt": "2026-09-15T21:09:38.766Z",
    "sourceTitle": "Toyota Carina",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -26489,7 +28297,7 @@
   },
   "m-lexus-sc": {
    "status": "none",
-   "checkedAt": "2026-09-15T10:09:22.626Z",
+   "checkedAt": "2026-09-15T21:09:38.771Z",
    "sourceTitle": "Lexus SC",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -27138,7 +28946,7 @@
   },
   "m-seat-toledo": {
    "status": "none",
-   "checkedAt": "2026-09-15T10:09:22.689Z",
+   "checkedAt": "2026-09-15T21:09:38.834Z",
    "sourceTitle": "SEAT Toledo",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -27269,7 +29077,7 @@
   },
   "m-daren-mk-3": {
    "status": "none",
-   "checkedAt": "2026-09-15T10:09:22.701Z",
+   "checkedAt": "2026-09-15T21:09:38.847Z",
    "sourceTitle": "Daren Mk.3",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -27344,7 +29152,7 @@
   },
   "m-audi-a3-mk3": {
    "status": "none",
-   "checkedAt": "2026-09-15T10:09:22.717Z",
+   "checkedAt": "2026-09-15T21:09:38.863Z",
    "sourceTitle": "Audi A3",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -27400,7 +29208,7 @@
   },
   "m-audi-tt": {
    "status": "none",
-   "checkedAt": "2026-09-15T10:09:22.791Z",
+   "checkedAt": "2026-09-15T21:09:38.939Z",
    "sourceTitle": "Audi TT",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -27540,7 +29348,7 @@
   },
   "m-seat-leon-mk3": {
    "status": "none",
-   "checkedAt": "2026-09-15T10:09:22.838Z",
+   "checkedAt": "2026-09-15T21:09:38.989Z",
    "sourceTitle": "SEAT León",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -27654,7 +29462,7 @@
   },
   "m-volkswagen-karmann-ghia": {
    "status": "none",
-   "checkedAt": "2026-09-15T10:09:22.863Z",
+   "checkedAt": "2026-09-15T21:09:39.016Z",
    "sourceTitle": "Volkswagen Karmann Ghia",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -27704,7 +29512,7 @@
   },
   "m-porsche-panamera": {
    "status": "none",
-   "checkedAt": "2026-09-15T10:09:22.854Z",
+   "checkedAt": "2026-09-15T21:09:39.006Z",
    "sourceTitle": "Porsche Panamera",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -27770,7 +29578,7 @@
   },
   "m-subaru-forester": {
    "status": "none",
-   "checkedAt": "2026-09-15T10:09:22.899Z",
+   "checkedAt": "2026-09-15T21:09:39.051Z",
    "sourceTitle": "Subaru Forester",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -27879,7 +29687,7 @@
   },
   "m-volkswagen-touran": {
    "status": "none",
-   "checkedAt": "2026-09-15T10:09:22.917Z",
+   "checkedAt": "2026-09-15T21:09:39.068Z",
    "sourceTitle": "Volkswagen Touran",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -27929,7 +29737,7 @@
   },
   "m-chevrolet-captiva": {
    "status": "none",
-   "checkedAt": "2026-09-15T10:09:22.974Z",
+   "checkedAt": "2026-09-15T21:09:39.127Z",
    "sourceTitle": "Chevrolet Captiva",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -28034,7 +29842,7 @@
   },
   "m-isuzu-trooper": {
    "status": "none",
-   "checkedAt": "2026-09-15T10:09:23.022Z",
+   "checkedAt": "2026-09-15T21:09:39.174Z",
    "sourceTitle": "Isuzu Trooper",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -28130,7 +29938,7 @@
   },
   "m-volkswagen-tiguan": {
    "status": "none",
-   "checkedAt": "2026-09-15T10:09:23.082Z",
+   "checkedAt": "2026-09-15T21:09:39.232Z",
    "sourceTitle": "Volkswagen Tiguan",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -28243,7 +30051,7 @@
   },
   "m-chrysler-horizon": {
    "status": "none",
-   "checkedAt": "2026-09-15T10:09:23.122Z",
+   "checkedAt": "2026-09-15T21:09:39.268Z",
    "sourceTitle": "Chrysler Horizon",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -28343,7 +30151,7 @@
   },
   "m-mercury-monterey": {
    "status": "none",
-   "checkedAt": "2026-09-15T10:09:23.210Z",
+   "checkedAt": "2026-09-15T21:09:39.352Z",
    "sourceTitle": "Mercury Monterey",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -28518,7 +30326,7 @@
   },
   "m-gmc-envoy": {
    "status": "none",
-   "checkedAt": "2026-09-15T10:09:23.229Z",
+   "checkedAt": "2026-09-15T21:09:39.368Z",
    "sourceTitle": "GMC Envoy",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -28571,7 +30379,7 @@
   },
   "m-chevrolet-trailblazer": {
    "status": "none",
-   "checkedAt": "2026-09-15T10:09:23.244Z",
+   "checkedAt": "2026-09-15T21:09:39.383Z",
    "sourceTitle": "Chevrolet TrailBlazer (SUV)",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -28622,7 +30430,7 @@
   },
   "m-oldsmobile-bravada": {
    "status": "none",
-   "checkedAt": "2026-09-15T10:09:23.275Z",
+   "checkedAt": "2026-09-15T21:09:39.419Z",
    "sourceTitle": "Oldsmobile Bravada",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -28702,7 +30510,7 @@
   },
   "m-buick-lacrosse": {
    "status": "none",
-   "checkedAt": "2026-09-15T10:09:23.296Z",
+   "checkedAt": "2026-09-15T21:09:39.441Z",
    "sourceTitle": "Buick LaCrosse",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -28778,7 +30586,7 @@
   },
   "m-buick-invicta": {
    "status": "none",
-   "checkedAt": "2026-09-15T10:09:23.312Z",
+   "checkedAt": "2026-09-15T21:09:39.457Z",
    "sourceTitle": "Buick Invicta",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -28829,7 +30637,7 @@
   },
   "m-buick-century": {
    "status": "none",
-   "checkedAt": "2026-09-15T10:09:23.384Z",
+   "checkedAt": "2026-09-15T21:09:39.532Z",
    "sourceTitle": "Buick Century",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -28981,7 +30789,7 @@
   },
   "m-jaguar-xjs": {
    "status": "none",
-   "checkedAt": "2026-09-15T10:09:23.397Z",
+   "checkedAt": "2026-09-15T21:09:39.545Z",
    "sourceTitle": "Jaguar XJS",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -29040,7 +30848,7 @@
   },
   "m-jaguar-e-type": {
    "status": "none",
-   "checkedAt": "2026-09-15T10:09:23.415Z",
+   "checkedAt": "2026-09-15T21:09:39.564Z",
    "sourceTitle": "Jaguar E-Type",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -29109,7 +30917,7 @@
   },
   "m-wuling-starlight": {
    "status": "none",
-   "checkedAt": "2026-09-15T10:09:23.445Z",
+   "checkedAt": "2026-09-15T21:09:39.595Z",
    "sourceTitle": "Wuling Starlight",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -29173,7 +30981,7 @@
   },
   "m-jeep-compass": {
    "status": "none",
-   "checkedAt": "2026-09-15T10:09:23.484Z",
+   "checkedAt": "2026-09-15T21:09:39.635Z",
    "sourceTitle": "Jeep Compass",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -29257,7 +31065,7 @@
   },
   "m-mazda-tribute": {
    "status": "none",
-   "checkedAt": "2026-09-15T10:09:23.493Z",
+   "checkedAt": "2026-09-15T21:09:39.644Z",
    "sourceTitle": "Mazda Tribute",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -29294,7 +31102,7 @@
   },
   "m-mazda-cx-5": {
    "status": "none",
-   "checkedAt": "2026-09-15T10:09:23.504Z",
+   "checkedAt": "2026-09-15T21:09:39.655Z",
    "sourceTitle": "Mazda CX-5",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -29349,7 +31157,7 @@
   },
   "m-baojun-730": {
    "status": "none",
-   "checkedAt": "2026-09-15T10:09:23.509Z",
+   "checkedAt": "2026-09-15T21:09:39.660Z",
    "sourceTitle": "Baojun 730",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -29384,7 +31192,7 @@
   },
   "m-dacia-duster": {
    "status": "none",
-   "checkedAt": "2026-09-15T10:09:23.549Z",
+   "checkedAt": "2026-09-15T21:09:39.702Z",
    "sourceTitle": "Dacia Duster",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -29993,7 +31801,7 @@
   },
   "m-lincoln-lincoln-zephyr": {
    "status": "none",
-   "checkedAt": "2026-09-15T10:09:23.555Z",
+   "checkedAt": "2026-09-15T21:09:39.709Z",
    "sourceTitle": "Lincoln-Zephyr",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -30030,7 +31838,7 @@
   },
   "m-lincoln-capri": {
    "status": "none",
-   "checkedAt": "2026-09-15T10:09:23.585Z",
+   "checkedAt": "2026-09-15T21:09:39.740Z",
    "sourceTitle": "Lincoln Capri",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -30099,7 +31907,7 @@
   },
   "m-ford-continental-mark-ii": {
    "status": "none",
-   "checkedAt": "2026-09-15T10:09:23.612Z",
+   "checkedAt": "2026-09-15T21:09:39.768Z",
    "sourceTitle": "Continental Mark II",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -30198,7 +32006,7 @@
   },
   "m-mercury-marquis": {
    "status": "none",
-   "checkedAt": "2026-09-15T10:09:23.659Z",
+   "checkedAt": "2026-09-15T21:09:39.821Z",
    "sourceTitle": "Mercury Marquis",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -30289,7 +32097,7 @@
   },
   "m-mercury-grand-marquis": {
    "status": "none",
-   "checkedAt": "2026-09-15T10:09:23.702Z",
+   "checkedAt": "2026-09-15T21:09:39.868Z",
    "sourceTitle": "Mercury Grand Marquis",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -30392,7 +32200,7 @@
   },
   "m-lincoln-mark-series": {
    "status": "none",
-   "checkedAt": "2026-09-15T10:09:23.743Z",
+   "checkedAt": "2026-09-15T21:09:39.916Z",
    "sourceTitle": "Lincoln Mark series",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -30530,7 +32338,7 @@
   },
   "m-mercury-cougar": {
    "status": "none",
-   "checkedAt": "2026-09-15T10:09:23.798Z",
+   "checkedAt": "2026-09-15T21:09:39.980Z",
    "sourceTitle": "Mercury Cougar",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -30680,7 +32488,7 @@
   },
   "m-mercury-sable": {
    "status": "none",
-   "checkedAt": "2026-09-15T10:09:23.835Z",
+   "checkedAt": "2026-09-15T21:09:40.021Z",
    "sourceTitle": "Mercury Sable",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -30782,7 +32590,7 @@
   },
   "m-ford-windstar": {
    "status": "none",
-   "checkedAt": "2026-09-15T10:09:23.846Z",
+   "checkedAt": "2026-09-15T21:09:40.032Z",
    "sourceTitle": "Ford Windstar",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -30831,7 +32639,7 @@
   },
   "m-lincoln-mkz": {
    "status": "none",
-   "checkedAt": "2026-09-15T10:09:23.858Z",
+   "checkedAt": "2026-09-15T21:09:40.045Z",
    "sourceTitle": "Lincoln MKZ",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -30876,7 +32684,7 @@
   },
   "m-mercedes-benz-e-class": {
    "status": "applied",
-   "checkedAt": "2026-09-15T10:14:10.806Z",
+   "checkedAt": "2026-09-15T21:12:05.370Z",
    "sourceTitle": "Mercedes-Benz E-Class",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -30910,8 +32718,9 @@
       "sharedPlatformMatches": {
        "Mercedes-Benz E-Class": {
         "matchId": null,
-        "confidence": "high",
-        "reason": "No candidate in the provided list corresponds to the Mercedes-Benz E-Class. The list contains many other Mercedes-Benz models (A-Class, C-Class, CLS, etc.), but the specific entry for the E-Class is missing."
+        "confidence": "low",
+        "reason": "rejected: the local model claimed \"Mercedes-Benz E-Class\" is another name for Mercedes-Benz E-Class (C207) (2009–) — but the two names have nothing in common beyond the marque, and that car's production doesn't overlap the 1961–1968 generation this mention came from, so they can't be the same vehicle under two names. (A car reusing an older car's platform is a different claim, and isn't affected by this check.) Its stated reasoning was: The mention 'Mercedes-Benz E-Class' corresponds to the current generation model, which is officially designated as the W213. The candidate 'm-mercedes-benz-e-class-c207' is labeled with the C207 chassis code, which is incorrect for the E-Class (C207 is the chassis for the Mercedes-Benz CL-Class). However, the model name 'Mercedes-Benz E-Class' matches the candidate's primary name. Despite the chassis code error in the candidate data (likely a database entry error confusing C207 with W213), the model name and the fact that no other E-Class candidate exists make this the only possible match for the generic mention, assuming the mention refers to the current or recent models represented by the candidate entry despite the typo.",
+        "rejectedMatchId": "m-mercedes-benz-e-class-c207"
        }
       }
      },
@@ -30946,8 +32755,9 @@
       "sharedPlatformMatches": {
        "Mercedes-Benz E-Class": {
         "matchId": null,
-        "confidence": "high",
-        "reason": "No candidate in the provided list corresponds to the Mercedes-Benz E-Class. The list contains many other Mercedes-Benz models (A-Class, C-Class, CLS, etc.), but the specific entry for the E-Class is missing."
+        "confidence": "low",
+        "reason": "rejected: the local model claimed \"Mercedes-Benz E-Class\" is another name for Mercedes-Benz E-Class (C207) (2009–) — but the two names have nothing in common beyond the marque, and that car's production doesn't overlap the 1975–1986 generation this mention came from, so they can't be the same vehicle under two names. (A car reusing an older car's platform is a different claim, and isn't affected by this check.) Its stated reasoning was: The mention 'Mercedes-Benz E-Class' corresponds to the current generation model, which is officially designated as the W213. The candidate 'm-mercedes-benz-e-class-c207' is labeled with the C207 chassis code, which is incorrect for the E-Class (C207 is the chassis for the Mercedes-Benz CL-Class). However, the model name 'Mercedes-Benz E-Class' matches the candidate's primary name. Despite the chassis code error in the candidate data (likely a database entry error confusing C207 with W213), the model name and the fact that no other E-Class candidate exists make this the only possible match for the generic mention, assuming the mention refers to the current or recent models represented by the candidate entry despite the typo.",
+        "rejectedMatchId": "m-mercedes-benz-e-class-c207"
        }
       }
      },
@@ -30970,8 +32780,9 @@
       "sharedPlatformMatches": {
        "Mercedes-Benz E-Class": {
         "matchId": null,
-        "confidence": "high",
-        "reason": "No candidate in the provided list corresponds to the Mercedes-Benz E-Class. The list contains many other Mercedes-Benz models (A-Class, C-Class, CLS, etc.), but the specific entry for the E-Class is missing."
+        "confidence": "low",
+        "reason": "rejected: the local model claimed \"Mercedes-Benz E-Class\" is another name for Mercedes-Benz E-Class (C207) (2009–) — but the two names have nothing in common beyond the marque, and that car's production doesn't overlap the 1984–1997 generation this mention came from, so they can't be the same vehicle under two names. (A car reusing an older car's platform is a different claim, and isn't affected by this check.) Its stated reasoning was: The mention 'Mercedes-Benz E-Class' corresponds to the current generation model, which is officially designated as the W213. The candidate 'm-mercedes-benz-e-class-c207' is labeled with the C207 chassis code, which is incorrect for the E-Class (C207 is the chassis for the Mercedes-Benz CL-Class). However, the model name 'Mercedes-Benz E-Class' matches the candidate's primary name. Despite the chassis code error in the candidate data (likely a database entry error confusing C207 with W213), the model name and the fact that no other E-Class candidate exists make this the only possible match for the generic mention, assuming the mention refers to the current or recent models represented by the candidate entry despite the typo.",
+        "rejectedMatchId": "m-mercedes-benz-e-class-c207"
        }
       }
      },
@@ -31010,7 +32821,7 @@
      {
       "code": "W213",
       "yearStart": 2016,
-      "yearEnd": null,
+      "yearEnd": 2023,
       "designers": [],
       "engineers": [],
       "wikiFile": "Mercedes-AMG E 53 (W213) FL IMG 3965.jpg",
@@ -31030,6 +32841,158 @@
    "discrepancy": "an existing \"generation\" here (E-Class) is really just the bare nameplate itself, not a distinct generation",
    "attempts": 1,
    "feedback": [],
+   "engines": [
+    {
+     "title": "Mercedes-Benz M121 engine",
+     "name": "M121",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz OM621 engine",
+     "name": "OM621",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz M121 engine",
+     "name": "M121 BIX",
+     "variant": "M121_BIX"
+    },
+    {
+     "title": "Mercedes-Benz M180 engine",
+     "name": "M180",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz M115 engine",
+     "name": "M115",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz M114 engine",
+     "name": "M114",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz M110 engine",
+     "name": "M110",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz M130 engine",
+     "name": "M130",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz OM617 engine",
+     "name": "OM617",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz M115 engine",
+     "name": "M115 V20",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz M102 engine",
+     "name": "M102 V20",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz M115 engine",
+     "name": "M115 V23",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz M102 engine",
+     "name": "M102 E23",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz M123 engine",
+     "name": "M123",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz M102 engine",
+     "name": "M102",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz M111 engine",
+     "name": "M111",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz M103 engine",
+     "name": "M103",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz M104 engine",
+     "name": "M104",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz M119 engine",
+     "name": "M119",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz OM601 engine",
+     "name": "OM601",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz OM602 engine",
+     "name": "OM602",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz OM605 engine",
+     "name": "OM605",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz OM603 engine",
+     "name": "OM603",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz OM606 engine",
+     "name": "OM606",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz M112 engine",
+     "name": "M112",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz M113 engine",
+     "name": "M113",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz OM604 engine",
+     "name": "OM604",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz OM611 engine",
+     "name": "OM611",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz OM612 engine",
+     "name": "OM612",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz OM613 engine",
+     "name": "OM613",
+     "variant": null
+    }
+   ],
    "debug": {
     "raw": {
      "hasMultipleGenerations": true,
@@ -31134,7 +33097,7 @@
       {
        "code": "W213",
        "yearStart": 2016,
-       "yearEnd": null,
+       "yearEnd": 2023,
        "designers": [],
        "engineers": [],
        "sharedPlatforms": []
@@ -31152,47 +33115,19 @@
     "dropped": []
    },
    "manualRecheck": true,
+   "engineScansCleared": 0,
    "generationDiff": {
-    "addedCodes": [
-     "W120/W121",
-     "W110",
-     "W114/W115",
-     "W123"
-    ],
+    "addedCodes": [],
     "removedIds": [
-     "merge-m-mercedes-benz-e-class-self",
-     "m-mercedes-benz-500-e",
-     "m-mercedes-benz-e-class-c207",
-     "m-mercedes-benz-e63-amg-v8-supercar"
+     "llm-related-mercedes-benz-e-class"
     ]
    },
-   "peopleAdded": [
-    {
-     "generation": "E-Class (W124)",
-     "role": "engineer",
-     "name": "Hans Scherenberg"
-    },
-    {
-     "generation": "E-Class (W124)",
-     "role": "engineer",
-     "name": "Werner Breitschwerdt"
-    },
-    {
-     "generation": "E-Class (W210)",
-     "role": "designer",
-     "name": "Steve Mattin"
-    },
-    {
-     "generation": "E-Class (W210)",
-     "role": "designer",
-     "name": "Bruno Sacco"
-    }
-   ],
-   "appliedAt": "2026-09-15T10:14:29.274Z"
+   "peopleAdded": [],
+   "appliedAt": "2026-09-15T21:12:13.456Z"
   },
   "m-ssangyong-chairman": {
    "status": "none",
-   "checkedAt": "2026-09-15T10:15:20.475Z",
+   "checkedAt": "2026-09-15T21:09:40.056Z",
    "sourceTitle": "SsangYong Chairman",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -31234,7 +33169,7 @@
   },
   "m-mercedes-benz-w180": {
    "status": "none",
-   "checkedAt": "2026-09-15T10:15:37.282Z",
+   "checkedAt": "2026-09-15T21:09:40.068Z",
    "sourceTitle": "Mercedes-Benz W180",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -31272,7 +33207,7 @@
   },
   "m-mercedes-benz-w108-w109": {
    "status": "none",
-   "checkedAt": "2026-09-15T10:16:23.550Z",
+   "checkedAt": "2026-09-15T21:09:40.083Z",
    "sourceTitle": "Mercedes-Benz W108/W109",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -31307,6 +33242,410 @@
        "Mercedes-Benz W113",
        "Mercedes-Benz W111",
        "Mercedes-Benz W112"
+      ]
+     }
+    ]
+   },
+   "discrepancy": null,
+   "attempts": 1,
+   "feedback": []
+  },
+  "m-chrysler-300c": {
+   "status": "none",
+   "checkedAt": "2026-09-15T21:16:35.680Z",
+   "sourceTitle": "Chrysler 300",
+   "proposal": {
+    "hasMultipleGenerations": true,
+    "generations": [
+     {
+      "code": "First generation (LX)",
+      "yearStart": 2004,
+      "yearEnd": 2010,
+      "designers": [
+       "Ralph Gilles",
+       "Freeman Thomas",
+       "Tom Gale"
+      ],
+      "engineers": [],
+      "wikiFile": "Chrysler 300C .jpg",
+      "sharedPlatforms": [
+       "Dodge Charger",
+       "Dodge Challenger",
+       "Dodge Magnum",
+       "Mercedes-Benz E-Class"
+      ],
+      "sharedPlatformMatches": {
+       "Dodge Challenger": {
+        "matchId": "m-dodge-challenger-2008",
+        "confidence": "high",
+        "reason": "The mention 'Dodge Challenger' refers to the modern muscle car reintroduced by Dodge in 2008 and produced continuously through 2023 (and beyond). This matches the specific production run (2008–2023) listed for the candidate 'm-dodge-challenger-2008', which is the current and primary generation of the Dodge Challenger. The other candidate 'm-dodge-challenger-1970' refers to the original 1970-1974 model, which is a different, discontinued generation."
+       }
+      }
+     },
+     {
+      "code": "Second generation (LD)",
+      "yearStart": 2010,
+      "yearEnd": null,
+      "designers": [
+       "Lou Gasevski"
+      ],
+      "engineers": [],
+      "wikiFile": "Chrysler 300 C LD Bright White (8) (cropped).jpg",
+      "sharedPlatforms": [
+       "Dodge Charger",
+       "Dodge Challenger",
+       "Mercedes-Benz E-Class"
+      ],
+      "sharedPlatformMatches": {
+       "Dodge Challenger": {
+        "matchId": "m-dodge-challenger-2008",
+        "confidence": "high",
+        "reason": "The mention 'Dodge Challenger' refers to the modern muscle car reintroduced by Dodge in 2008 and produced continuously through 2023 (and beyond). This matches the specific production run (2008–2023) listed for the candidate 'm-dodge-challenger-2008', which is the current and primary generation of the Dodge Challenger. The other candidate 'm-dodge-challenger-1970' refers to the original 1970-1974 model, which is a different, discontinued generation."
+       }
+      }
+     }
+    ]
+   },
+   "discrepancy": null,
+   "attempts": 1,
+   "feedback": []
+  },
+  "m-dodge-charger-lx": {
+   "status": "none",
+   "checkedAt": "2026-09-15T21:18:33.611Z",
+   "sourceTitle": "Dodge Charger (LX/LD)",
+   "proposal": {
+    "hasMultipleGenerations": true,
+    "generations": [
+     {
+      "code": "LX",
+      "yearStart": 2005,
+      "yearEnd": 2010,
+      "designers": [
+       "Ralph Gilles",
+       "Freeman Thomas"
+      ],
+      "engineers": [],
+      "wikiFile": "2007 Dodge Charger SRT8 Super Bee.jpg",
+      "sharedPlatforms": [
+       "Chrysler 300",
+       "Dodge Challenger",
+       "Dodge Magnum",
+       "Mercedes-Benz E-Class (W211)"
+      ],
+      "sharedPlatformMatches": {
+       "Chrysler 300": {
+        "matchId": "m-chrysler-300c",
+        "confidence": "high",
+        "reason": "The mention 'Chrysler 300' is the standard short name for the 'Chrysler 300C' (and later dropped the 'C'), which is the specific model name listed in the database (id: m-chrysler-300c). The production years (2004–present) align with the modern Chrysler 300 sedan, distinguishing it from the older Chrysler 300M (1998–2003) or unrelated models sharing the number '300'."
+       },
+       "Dodge Challenger": {
+        "matchId": "m-dodge-challenger-2008",
+        "confidence": "high",
+        "reason": "The mention 'Dodge Challenger' refers to the modern muscle car reintroduced by Dodge in 2008, which is the only current-production Challenger in the candidate list. The 1970 model (m-dodge-challenger-1970) is a distinct, historical generation. The Huanghai Challenger is a Chinese re-badge and not the same car."
+       }
+      }
+     },
+     {
+      "code": "LD",
+      "yearStart": 2010,
+      "yearEnd": 2023,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "Dodge Charger SE.jpg",
+      "sharedPlatforms": [
+       "Chrysler 300",
+       "Dodge Challenger",
+       "Dodge Challenger (2008)"
+      ],
+      "sharedPlatformMatches": {
+       "Chrysler 300": {
+        "matchId": "m-chrysler-300c",
+        "confidence": "high",
+        "reason": "The mention 'Chrysler 300' is the standard short name for the 'Chrysler 300C' (and later dropped the 'C'), which is the specific model name listed in the database (id: m-chrysler-300c). The production years (2004–present) align with the modern Chrysler 300 sedan, distinguishing it from the older Chrysler 300M (1998–2003) or unrelated models sharing the number '300'."
+       },
+       "Dodge Challenger": {
+        "matchId": "m-dodge-challenger-2008",
+        "confidence": "high",
+        "reason": "The mention 'Dodge Challenger' refers to the modern muscle car reintroduced by Dodge in 2008, which is the only current-production Challenger in the candidate list. The 1970 model (m-dodge-challenger-1970) is a distinct, historical generation. The Huanghai Challenger is a Chinese re-badge and not the same car."
+       }
+      }
+     }
+    ]
+   },
+   "discrepancy": null,
+   "attempts": 1,
+   "feedback": []
+  },
+  "m-dodge-magnum": {
+   "status": "none",
+   "checkedAt": "2026-09-15T21:20:18.990Z",
+   "sourceTitle": "Dodge Magnum",
+   "proposal": {
+    "hasMultipleGenerations": true,
+    "generations": [
+     {
+      "code": "B-body",
+      "yearStart": 1978,
+      "yearEnd": 1979,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "1978 Dodge Magnum XE in Red, front left (Lime Rock).jpg",
+      "sharedPlatforms": [
+       "Chrysler Cordoba",
+       "Dodge Charger",
+       "Dodge Monaco",
+       "Plymouth Fury",
+       "Chrysler 300 (1979)"
+      ],
+      "sharedPlatformMatches": {
+       "Chrysler 300 (1979)": {
+        "matchId": "m-chrysler-300m",
+        "confidence": "low",
+        "reason": "The mention 'Chrysler 300 (1979)' refers to a specific model year. While the database contains 'Chrysler 300M' (1998–2003), which shares the name '300', the production years do not overlap. The 1979 model is likely the Chrysler 300M's predecessor in the US market (often just called 'Chrysler 300' or 'New Yorker 300' in that era) or a different variant entirely, but none of the specific candidates match the '300' nameplate for the year 1979. The candidate 'm-chrysler-300m' is the closest in naming but fails the strict rule regarding disjoint production eras."
+       }
+      }
+     },
+     {
+      "code": "A-body",
+      "yearStart": 1979,
+      "yearEnd": 1981,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "S MLB v F f 226076004 2268.jpg",
+      "sharedPlatforms": [
+       "Dodge Dart"
+      ]
+     },
+     {
+      "code": "M-body",
+      "yearStart": 1981,
+      "yearEnd": 1982,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "Dodge Magum 1981 (9).jpg",
+      "sharedPlatforms": [
+       "Dodge Diplomat",
+       "Plymouth Gran Fury",
+       "Chrysler LeBaron",
+       "Plymouth Caravelle Salon"
+      ],
+      "sharedPlatformMatches": {
+       "Plymouth Caravelle Salon": {
+        "matchId": null,
+        "confidence": "high",
+        "reason": "The 'Plymouth Caravelle Salon' was a station wagon body style (Salon) produced by Plymouth in the late 1950s and early 1960s (approx. 1957–1962), typically based on the Plymouth Valiant or Savoy platforms. The candidate 'm-plymouth-caravelle' refers to a modern concept car from 1983. The production years do not overlap, and they are distinct vehicles (one is a vintage production wagon, the other a modern concept). Therefore, they are not the same car."
+       }
+      }
+     },
+     {
+      "code": "K-body",
+      "yearStart": 1983,
+      "yearEnd": 1988,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "Mexican Chrysler Magnum 1983-1988.jpg",
+      "sharedPlatforms": [
+       "Dodge 400",
+       "Dodge Aries",
+       "Plymouth Caravelle"
+      ]
+     },
+     {
+      "code": "LX platform",
+      "yearStart": 2005,
+      "yearEnd": 2008,
+      "designers": [
+       "Ralph Gilles",
+       "Freeman Thomas"
+      ],
+      "engineers": [],
+      "wikiFile": "05-07 Dodge Magnum SXT.jpg",
+      "sharedPlatforms": [
+       "Chrysler 300",
+       "Dodge Charger",
+       "Mercedes-Benz E-Class (W211)"
+      ],
+      "sharedPlatformMatches": {
+       "Chrysler 300": {
+        "matchId": "m-chrysler-300c",
+        "confidence": "high",
+        "reason": "The mention 'Chrysler 300' is the standard short name for the 'Chrysler 300C' (and later dropped the 'C'), which is the specific model name listed in the database (id: m-chrysler-300c). The production years (2004–present) align with the modern Chrysler 300 sedan, distinguishing it from the older Chrysler 300M (1998–2003) or unrelated models sharing the number '300'."
+       }
+      }
+     }
+    ]
+   },
+   "discrepancy": null,
+   "attempts": 1,
+   "feedback": []
+  },
+  "m-mercedes-benz-mercedes-amg-gt-4-door-coupe": {
+   "status": "none",
+   "checkedAt": "2026-09-15T21:20:57.512Z",
+   "sourceTitle": "Mercedes-AMG GT 4-Door Coupé",
+   "proposal": {
+    "hasMultipleGenerations": true,
+    "generations": [
+     {
+      "code": "X290",
+      "yearStart": 2018,
+      "yearEnd": 2026,
+      "designers": [
+       "Balázs Filczer"
+      ],
+      "engineers": [],
+      "wikiFile": "Mercedes-Benz AMG GT 63S (51750035016) (cropped).jpg",
+      "sharedPlatforms": [
+       "Mercedes-Benz E-Class (W213)",
+       "Mercedes-Benz CLS-Class (C257)"
+      ],
+      "sharedPlatformMatches": {
+       "Mercedes-Benz CLS-Class (C257)": {
+        "matchId": "m-mercedes-benz-cls-c257",
+        "confidence": "high",
+        "reason": "The mention explicitly includes the chassis code C257, which directly matches the identifier for the candidate 'm-mercedes-benz-cls-c257'. The production years (2018–2023) also align perfectly with the third generation of the Mercedes-Benz CLS."
+       }
+      }
+     },
+     {
+      "code": "C590",
+      "yearStart": 2026,
+      "yearEnd": null,
+      "designers": [
+       "Mark Fetherston"
+      ],
+      "engineers": [],
+      "wikiFile": "Mercedes-AMG Concept GT XX IAA 2025 DSC 1872.jpg",
+      "sharedPlatforms": []
+     }
+    ]
+   },
+   "discrepancy": null,
+   "attempts": 1,
+   "feedback": []
+  },
+  "m-mercedes-benz-gle": {
+   "status": "none",
+   "checkedAt": "2026-09-15T21:24:43.539Z",
+   "sourceTitle": "Mercedes-Benz GLE",
+   "proposal": {
+    "hasMultipleGenerations": true,
+    "generations": [
+     {
+      "code": "W163",
+      "yearStart": 1997,
+      "yearEnd": 2004,
+      "designers": [
+       "Bruno Sacco",
+       "Peter Pfeiffer",
+       "Peter Arcadipane"
+      ],
+      "engineers": [],
+      "wikiFile": "2000 Mercedes-Benz ML 320 (W 163 MY00) wagon (2010-09-23) 01.jpg",
+      "sharedPlatforms": [
+       "SsangYong Rexton"
+      ],
+      "sharedPlatformMatches": {
+       "SsangYong Rexton": {
+        "matchId": "m-kgm-rexton",
+        "confidence": "high",
+        "reason": "The SsangYong Rexton was sold under the KGM brand name as the KGM Rexton during the same production period (2001–present). This is a known rebranding/ownership change of the exact same vehicle model."
+       }
+      }
+     },
+     {
+      "code": "W164",
+      "yearStart": 2005,
+      "yearEnd": 2011,
+      "designers": [
+       "Andreas Deufel",
+       "Holger Hutzenlaub",
+       "Steve Mattin"
+      ],
+      "engineers": [],
+      "wikiFile": "2007 Mercedes-Benz ML 320 CDI (W 164 MY08) Luxury wagon (2011-11-18) 01.jpg",
+      "sharedPlatforms": [
+       "Mercedes-Benz GL-Class (X164)",
+       "Mercedes-Benz R-Class"
+      ]
+     },
+     {
+      "code": "W166/C292",
+      "yearStart": 2011,
+      "yearEnd": 2019,
+      "designers": [
+       "Emiel Burki"
+      ],
+      "engineers": [],
+      "wikiFile": "Mercedes-Benz ML 350 BlueTEC 4MATIC (W 166) – Frontansicht, 8. September 2013, Bösensell.jpg",
+      "sharedPlatforms": [
+       "Mercedes-Benz GL-Class (X166)",
+       "Dodge Durango (WD)",
+       "Jeep Grand Cherokee (WK2)"
+      ],
+      "sharedPlatformMatches": {
+       "Dodge Durango (WD)": {
+        "matchId": "m-dodge-durango",
+        "confidence": "high",
+        "reason": "The mentioned car 'Dodge Durango (WD)' refers to the third generation of the Dodge Durango, produced from 2011 to 2023. The candidate 'm-dodge-durango' covers the production history '1997–present', which fully encompasses the WD generation. The other candidates are different models (e.g., Ford Durango, Dodge Charger, etc.) or specific generations that do not match the WD era."
+       }
+      }
+     },
+     {
+      "code": "W167/C167",
+      "yearStart": 2018,
+      "yearEnd": null,
+      "designers": [
+       "Robert Lešnik",
+       "Balázs Filczer",
+       "Michael Frei"
+      ],
+      "engineers": [],
+      "wikiFile": "2020 Mercedes-Benz GLE 350 4Matic front 6.16.19.jpg",
+      "sharedPlatforms": [
+       "Mercedes-Benz GLS (X167)"
+      ]
+     }
+    ]
+   },
+   "discrepancy": null,
+   "attempts": 1,
+   "feedback": []
+  },
+  "m-mercedes-benz-glc": {
+   "status": "none",
+   "checkedAt": "2026-09-15T21:26:44.818Z",
+   "sourceTitle": "Mercedes-Benz GLC",
+   "proposal": {
+    "hasMultipleGenerations": true,
+    "generations": [
+     {
+      "code": "X253/C253/V253",
+      "yearStart": 2015,
+      "yearEnd": 2022,
+      "designers": [
+       "Michael Frei",
+       "Robert Lešnik"
+      ],
+      "engineers": [],
+      "wikiFile": "2018 Mercedes-Benz GLC 250 Urban Edition 4MATIC 2.0 Front.jpg",
+      "sharedPlatforms": [
+       "Mercedes-Benz EQC",
+       "Mercedes-Benz C-Class (W205)"
+      ]
+     },
+     {
+      "code": "X254/C254/V254",
+      "yearStart": 2022,
+      "yearEnd": null,
+      "designers": [
+       "Bastian Baudy"
+      ],
+      "engineers": [],
+      "wikiFile": "Mercedes-Benz X254 400e 1X7A6270.jpg",
+      "sharedPlatforms": [
+       "Mercedes-Benz C-Class (W206)"
       ]
      }
     ]
@@ -31456,7 +33795,23 @@
   "relnone:m-mercedes-benz-e-class|m-mercedes-benz-w180|related": true,
   "relnone:m-mercedes-benz-e-class|m-mercedes-benz-w180|platform": true,
   "resolved:fam-mercedes-benz-cls|m-mercedes-benz-e-class|related": true,
-  "resolved:m-mercedes-benz-e-class|m-ssangyong-chairman|platform": true
+  "resolved:m-mercedes-benz-e-class|m-ssangyong-chairman|platform": true,
+  "relnone:llm-m-mercedes-benz-e-class-w123|m-mercedes-benz-e-class|related": true,
+  "relerror:fam-mercedes-benz-clk|m-mercedes-benz-e-class|related": true,
+  "relnone:fam-mercedes-benz-sl|m-mercedes-benz-e-class|related": true,
+  "relnone:m-mercedes-benz-e-class|m-mercedes-benz-w108-w109|related": true,
+  "resolved:m-mercedes-benz-e-class|m-mercedes-benz-e-class-w124|related": true,
+  "resolved:m-mercedes-benz-e-class|m-mercedes-benz-e-class|related": true,
+  "resolved:fam-mercedes-benz-clk|m-mercedes-benz-e-class|succession": true,
+  "resolved:fam-mercedes-benz-c|m-mercedes-benz-e-class|related": true,
+  "resolved:m-mercedes-benz-e-class|m-ssangyong-chairman|related": true,
+  "resolved:m-mercedes-benz-e-class|m-mercedes-benz-e-class|succession": true,
+  "resolved:fam-mercedes-benz-clk|m-mercedes-benz-e-class|platform": true,
+  "resolved:m-mercedes-benz-e-class|m-mercedes-benz-w108-w109|platform": true,
+  "resolved:llm-m-mercedes-benz-e-class-w110|m-mercedes-benz-e-class|related": true,
+  "genresearch:llm-m-mercedes-benz-e-class-w211": true,
+  "deeprecheck:m-mercedes-benz-e-class": true,
+  "none:llm-related-chrysler-pentastar-engine": true
  },
  "mintedFacts": {
   "llm-related-puch-g": {
@@ -32985,6 +35340,32 @@
    "died": null,
    "country": null,
    "tries": 1
+  },
+  "p-lou-gasevski": {
+   "checkedAt": "2026-09-15T21:16:41.806Z",
+   "born": 1940,
+   "died": null,
+   "country": "United States",
+   "source": "llm-recall"
+  },
+  "p-1-200-engineers": {
+   "checkedAt": "2026-09-15T21:18:35.022Z",
+   "born": null,
+   "died": null,
+   "country": null,
+   "tries": 1
+  },
+  "llm-related-plymouth-caravelle-salon": {
+   "checkedAt": "2026-09-15T21:20:26.397Z",
+   "year": 1985,
+   "end": 1988,
+   "source": "wikipedia"
+  },
+  "llm-related-chrysler-pentastar-engine": {
+   "checkedAt": "2026-09-15T21:23:22.118Z",
+   "year": 2010,
+   "end": null,
+   "source": "wikipedia"
   }
  },
  "userCars": {},
@@ -33029,7 +35410,9 @@
   "llm-related-renault-arkana-russia": "Renault Arkana (Russia)",
   "llm-related-lincoln-premiere": "Lincoln Premiere",
   "llm-related-lincoln-h-series": "Lincoln H-series",
-  "llm-related-mercedes-benz-e-class": "Mercedes-Benz E-Class"
+  "llm-related-mercedes-benz-e-class": "Mercedes-Benz E-Class",
+  "llm-m-mercedes-benz-e-class-w110": "W110",
+  "llm-related-chrysler-pentastar-engine": "Chrysler Pentastar engine"
  },
  "genResearch": {
   "merge-m-volkswagen-jetta-self": {
@@ -33098,6 +35481,765 @@
         "Aston Martin DBS Superleggera",
         "Aston Martin DBX",
         "Mercedes-AMG GT"
+       ]
+      }
+     ]
+    },
+    "dropped": []
+   }
+  },
+  "llm-m-mercedes-benz-e-class-w120-w121": {
+   "status": "done",
+   "checkedAt": "2026-09-15T21:12:25.295Z",
+   "sourceTitle": "Mercedes-Benz W120/W121",
+   "upgradedArticle": null,
+   "relatedTexts": [
+    "Mercedes-Benz W105",
+    "Mercedes-Benz W180",
+    "Mercedes-Benz W128",
+    "Dongfeng CA71"
+   ],
+   "newRelationKeys": [],
+   "peopleAdded": [],
+   "engines": [],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": false,
+     "generations": [
+      {
+       "code": "W120/W121",
+       "yearStart": 1953,
+       "yearEnd": 1962,
+       "designers": [
+        "Karl Wilfert"
+       ],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Mercedes-Benz W105",
+        "Mercedes-Benz W180",
+        "Mercedes-Benz W128",
+        "Dongfeng CA71"
+       ]
+      }
+     ]
+    },
+    "dropped": []
+   }
+  },
+  "llm-m-mercedes-benz-e-class-w110": {
+   "status": "done",
+   "checkedAt": "2026-09-15T21:12:27.786Z",
+   "sourceTitle": "W110",
+   "upgradedArticle": "W110",
+   "relatedTexts": [],
+   "newRelationKeys": [],
+   "peopleAdded": [],
+   "engines": [],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": false,
+     "generations": [
+      {
+       "code": "Mercedes-Benz E-Class W110",
+       "yearStart": null,
+       "yearEnd": null,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": []
+      }
+     ]
+    },
+    "dropped": [
+     {
+      "code": "Mercedes-Benz E-Class W110",
+      "yearStart": null,
+      "yearEnd": null,
+      "designers": [],
+      "engineers": [],
+      "sharedPlatforms": []
+     }
+    ]
+   }
+  },
+  "llm-m-mercedes-benz-e-class-w114-w115": {
+   "status": "done",
+   "checkedAt": "2026-09-15T21:12:43.489Z",
+   "sourceTitle": "Mercedes-Benz W114/W115",
+   "upgradedArticle": null,
+   "relatedTexts": [
+    "Mercedes-Benz W108/W109"
+   ],
+   "newRelationKeys": [],
+   "peopleAdded": [],
+   "engines": [
+    {
+     "title": "Mercedes-Benz M115 engine",
+     "name": "M115",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz M180 engine",
+     "name": "M180",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz M114 engine",
+     "name": "M114",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz M110 engine",
+     "name": "M110",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz M130 engine",
+     "name": "M130",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz OM617 engine",
+     "name": "OM617",
+     "variant": null
+    }
+   ],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": false,
+     "generations": [
+      {
+       "code": "W114/W115",
+       "yearStart": 1968,
+       "yearEnd": 1976,
+       "designers": [
+        "Paul Bracq"
+       ],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Mercedes-Benz W108/W109"
+       ]
+      }
+     ]
+    },
+    "dropped": []
+   }
+  },
+  "llm-m-mercedes-benz-e-class-w123": {
+   "status": "done",
+   "checkedAt": "2026-09-15T21:12:59.715Z",
+   "sourceTitle": "Mercedes-Benz W123",
+   "upgradedArticle": null,
+   "relatedTexts": [
+    "Mercedes-Benz E-Class"
+   ],
+   "newRelationKeys": [],
+   "peopleAdded": [],
+   "engines": [
+    {
+     "title": "Mercedes-Benz M115 engine",
+     "name": "M115 V20",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz M102 engine",
+     "name": "M102 V20",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz M115 engine",
+     "name": "M115 V23",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz M102 engine",
+     "name": "M102 E23",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz M123 engine",
+     "name": "M123",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz M110 engine",
+     "name": "M110",
+     "variant": null
+    }
+   ],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": false,
+     "generations": [
+      {
+       "code": "W123",
+       "yearStart": 1975,
+       "yearEnd": 1986,
+       "designers": [
+        "Friedrich Geiger"
+       ],
+       "engineers": [
+        "Hans Scherenberg"
+       ],
+       "sharedPlatforms": [
+        "Mercedes-Benz E-Class"
+       ]
+      }
+     ],
+     "sharedPlatforms": [
+      "Mercedes-Benz E-Class"
+     ]
+    },
+    "dropped": []
+   }
+  },
+  "m-mercedes-benz-e-class-w124": {
+   "status": "done",
+   "checkedAt": "2026-09-15T21:13:32.812Z",
+   "sourceTitle": "Mercedes-Benz W124",
+   "upgradedArticle": null,
+   "relatedTexts": [
+    "Mercedes-Benz E-Class",
+    "Ssangyong Chairman"
+   ],
+   "newRelationKeys": [],
+   "peopleAdded": [
+    {
+     "role": "designer",
+     "name": "Joseph Gallitzendörfer"
+    },
+    {
+     "role": "designer",
+     "name": "Peter Pfeiffer"
+    }
+   ],
+   "engines": [
+    {
+     "title": "Mercedes-Benz M102 engine",
+     "name": "M102",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz M111 engine",
+     "name": "M111",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz M103 engine",
+     "name": "M103",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz M104 engine",
+     "name": "M104",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz M119 engine",
+     "name": "M119",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz OM601 engine",
+     "name": "OM601",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz OM602 engine",
+     "name": "OM602",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz OM605 engine",
+     "name": "OM605",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz OM603 engine",
+     "name": "OM603",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz OM606 engine",
+     "name": "OM606",
+     "variant": null
+    }
+   ],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": false,
+     "generations": [
+      {
+       "code": "W124",
+       "yearStart": 1985,
+       "yearEnd": 1997,
+       "designers": [
+        "Joseph Gallitzendörfer",
+        "Peter Pfeiffer",
+        "Bruno Sacco"
+       ],
+       "engineers": [
+        "Hans Scherenberg",
+        "Werner Breitschwerdt"
+       ],
+       "sharedPlatforms": [
+        "Mercedes-Benz E-Class",
+        "Ssangyong Chairman"
+       ]
+      }
+     ]
+    },
+    "dropped": []
+   }
+  },
+  "m-mercedes-benz-e-class-w210": {
+   "status": "done",
+   "checkedAt": "2026-09-15T21:13:58.863Z",
+   "sourceTitle": "Mercedes-Benz E-Class (W210)",
+   "upgradedArticle": null,
+   "relatedTexts": [
+    "Mercedes-Benz CLK-Class (C208)"
+   ],
+   "newRelationKeys": [],
+   "peopleAdded": [],
+   "engines": [
+    {
+     "title": "Mercedes-Benz M111 engine",
+     "name": "M111",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz M104 engine",
+     "name": "M104",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz M112 engine",
+     "name": "M112",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz M119 engine",
+     "name": "M119",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz M113 engine",
+     "name": "M113",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz OM604 engine",
+     "name": "OM604",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz OM611 engine",
+     "name": "OM611",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz OM605 engine",
+     "name": "OM605",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz OM612 engine",
+     "name": "OM612",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz OM602 engine",
+     "name": "OM602",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz OM606 engine",
+     "name": "OM606",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz OM613 engine",
+     "name": "OM613",
+     "variant": null
+    }
+   ],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": false,
+     "generations": [
+      {
+       "code": "W210",
+       "yearStart": 1994,
+       "yearEnd": 2003,
+       "designers": [
+        "Steve Mattin",
+        "Bruno Sacco"
+       ],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Mercedes-Benz CLK-Class (C208)"
+       ]
+      }
+     ]
+    },
+    "dropped": []
+   }
+  },
+  "llm-m-mercedes-benz-e-class-w211": {
+   "status": "done",
+   "checkedAt": "2026-09-15T21:15:04.898Z",
+   "sourceTitle": "Mercedes-Benz E-Class (W211)",
+   "upgradedArticle": null,
+   "relatedTexts": [
+    "Mercedes-Benz CLK-Class (C209)",
+    "Mercedes-Benz CLS-Class (C219)",
+    "Chrysler 300",
+    "Dodge Charger (LX/LD)",
+    "Dodge Magnum",
+    "SsangYong Chairman (Second generation)"
+   ],
+   "newRelationKeys": [
+    "llm-m-mercedes-benz-e-class-w211|m-mercedes-benz-clk-class-c209|platform",
+    "llm-m-mercedes-benz-e-class-w211|m-mercedes-benz-cls-class-c219|platform",
+    "llm-m-mercedes-benz-e-class-w211|m-chrysler-300c|platform",
+    "llm-m-mercedes-benz-e-class-w211|m-dodge-charger-lx|platform",
+    "llm-m-mercedes-benz-e-class-w211|m-dodge-magnum|platform",
+    "llm-m-mercedes-benz-e-class-w211|llm-m-ssangyong-chairman-chairman-h|platform"
+   ],
+   "peopleAdded": [],
+   "engines": [
+    {
+     "title": "Mercedes-Benz M271 engine",
+     "name": "M271",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz M112 engine",
+     "name": "M112",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz M272 engine",
+     "name": "M272",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz M113 engine",
+     "name": "M113",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz M273 engine",
+     "name": "M273",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz M156 engine",
+     "name": "M156",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz OM646 engine",
+     "name": "OM646",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz OM647 engine",
+     "name": "OM647",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz OM642 engine",
+     "name": "OM642",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz OM648 engine",
+     "name": "OM648",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz OM628 engine",
+     "name": "OM628",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz OM629 engine",
+     "name": "OM629",
+     "variant": null
+    }
+   ],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": false,
+     "generations": [
+      {
+       "code": "W211",
+       "yearStart": 2002,
+       "yearEnd": 2009,
+       "designers": [
+        "Hartmut Sinkwitz"
+       ],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Mercedes-Benz CLK-Class (C209)",
+        "Mercedes-Benz CLS-Class (C219)",
+        "Chrysler 300",
+        "Dodge Charger (LX/LD)",
+        "Dodge Magnum",
+        "SsangYong Chairman (Second generation)"
+       ]
+      }
+     ]
+    },
+    "dropped": []
+   }
+  },
+  "m-mercedes-benz-e-class-w212": {
+   "status": "done",
+   "checkedAt": "2026-09-15T21:16:40.277Z",
+   "sourceTitle": "Mercedes-Benz E-Class (W212)",
+   "upgradedArticle": null,
+   "relatedTexts": [
+    "Mercedes-Benz C-Class (W204)",
+    "Mercedes-Benz CLS-Class (C218)",
+    "Mercedes-Benz E-Class (C207/A207)"
+   ],
+   "newRelationKeys": [
+    "m-mercedes-benz-c-class-w204|m-mercedes-benz-e-class-w212|platform",
+    "m-mercedes-benz-cls-class-c218|m-mercedes-benz-e-class-w212|platform",
+    "m-mercedes-benz-e-class-c207|m-mercedes-benz-e-class-w212|platform"
+   ],
+   "peopleAdded": [],
+   "engines": [
+    {
+     "title": "Mercedes-Benz M270/M274 engine",
+     "name": "M274",
+     "variant": "M274 DE16 LA"
+    },
+    {
+     "title": "Mercedes-Benz M271 engine",
+     "name": "M271",
+     "variant": "DE18 LA (M271Evo, 271.8XX)"
+    },
+    {
+     "title": "Mercedes-Benz M272 engine",
+     "name": "M272",
+     "variant": "E30"
+    },
+    {
+     "title": "Mercedes-Benz M276 engine",
+     "name": "M276",
+     "variant": "DE30 LA"
+    },
+    {
+     "title": "Mercedes-Benz M278 engine",
+     "name": "M278",
+     "variant": "M278"
+    },
+    {
+     "title": "Mercedes-Benz M273 engine",
+     "name": "M273",
+     "variant": "E55"
+    },
+    {
+     "title": "Mercedes-Benz M157 engine",
+     "name": "M157",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz M156 engine",
+     "name": "M156",
+     "variant": "M156"
+    },
+    {
+     "title": "Mercedes-Benz OM651 engine",
+     "name": "OM651",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz OM642 engine",
+     "name": "OM642",
+     "variant": null
+    }
+   ],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": false,
+     "generations": [
+      {
+       "code": "W212",
+       "yearStart": 2009,
+       "yearEnd": 2016,
+       "designers": [
+        "Thomas Stopka",
+        "Michael Frei"
+       ],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Mercedes-Benz C-Class (W204)",
+        "Mercedes-Benz CLS-Class (C218)",
+        "Mercedes-Benz E-Class (C207/A207)"
+       ]
+      }
+     ]
+    },
+    "dropped": []
+   }
+  },
+  "m-mercedes-benz-e-class-w213": {
+   "status": "done",
+   "checkedAt": "2026-09-15T21:18:22.193Z",
+   "sourceTitle": "Mercedes-Benz E-Class (W213)",
+   "upgradedArticle": null,
+   "relatedTexts": [
+    "Mercedes-Benz C-Class (W205)",
+    "Mercedes-Benz CLS-Class (C257)",
+    "Mercedes-AMG GT 4-Door Coupé"
+   ],
+   "newRelationKeys": [
+    "m-mercedes-benz-c-class-w205|m-mercedes-benz-e-class-w213|platform",
+    "m-mercedes-benz-cls-c257|m-mercedes-benz-e-class-w213|platform",
+    "m-mercedes-benz-e-class-w213|m-mercedes-benz-mercedes-amg-gt-4-door-coupe|platform"
+   ],
+   "peopleAdded": [
+    {
+     "role": "engineer",
+     "name": "1,200 engineers"
+    }
+   ],
+   "engines": [
+    {
+     "title": "Mercedes-Benz M260/M264 engine",
+     "name": "M264",
+     "variant": "M264 E15 DEH LA"
+    },
+    {
+     "title": "Mercedes-Benz M270/M274 engine",
+     "name": "M274",
+     "variant": "M274 DE16 LA"
+    },
+    {
+     "title": "Mercedes-Benz M256 engine",
+     "name": "M256",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz M276 engine",
+     "name": "M276",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz M176/M177/M178 engine",
+     "name": "M177",
+     "variant": "M177"
+    },
+    {
+     "title": "Mercedes-Benz M139 engine",
+     "name": "M139",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz OM654 engine",
+     "name": "OM654",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz OM656 engine",
+     "name": "OM656",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz OM642 engine",
+     "name": "OM642",
+     "variant": null
+    }
+   ],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": false,
+     "generations": [
+      {
+       "code": "W213",
+       "yearStart": 2016,
+       "yearEnd": 2023,
+       "designers": [
+        "Drummond Jacoy",
+        "Robert Lešnik"
+       ],
+       "engineers": [
+        "1,200 engineers"
+       ],
+       "sharedPlatforms": [
+        "Mercedes-Benz C-Class (W205)",
+        "Mercedes-Benz CLS-Class (C257)",
+        "Mercedes-AMG GT 4-Door Coupé"
+       ]
+      }
+     ]
+    },
+    "dropped": []
+   }
+  },
+  "m-mercedes-benz-e-class-w214": {
+   "status": "done",
+   "checkedAt": "2026-09-15T21:19:56.001Z",
+   "sourceTitle": "Mercedes-Benz E-Class (W214)",
+   "upgradedArticle": null,
+   "relatedTexts": [
+    "Mercedes-Benz C-Class (W206)",
+    "Mercedes-Benz S-Class (W223)",
+    "Mercedes-Benz CLE (C236/A236)"
+   ],
+   "newRelationKeys": [
+    "m-mercedes-benz-c-class-w206|m-mercedes-benz-e-class-w214|platform",
+    "m-mercedes-benz-e-class-w214|m-mercedes-benz-s-class-w223|platform",
+    "m-mercedes-benz-cle|m-mercedes-benz-e-class-w214|platform"
+   ],
+   "peopleAdded": [],
+   "engines": [
+    {
+     "title": "Mercedes-Benz M254 engine",
+     "name": "M 254",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz M256 engine",
+     "name": "M 256",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz OM654 engine",
+     "name": "OM 654",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz OM656 engine",
+     "name": "OM 656",
+     "variant": null
+    }
+   ],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": false,
+     "generations": [
+      {
+       "code": "W214",
+       "yearStart": 2023,
+       "yearEnd": null,
+       "designers": [
+        "Gorden Wagener",
+        "Michael Frei",
+        "Robert Lešnik",
+        "Bastian Baudy",
+        "Torben Ewe",
+        "Andreas Franke"
+       ],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Mercedes-Benz C-Class (W206)",
+        "Mercedes-Benz S-Class (W223)",
+        "Mercedes-Benz CLE (C236/A236)"
        ]
       }
      ]
@@ -33280,8 +36422,991 @@
   }
  },
  "unmerges": {},
- "engines": {},
+ "engines": {
+  "eng-mercedes-benz-m276": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T21:23:15.904Z",
+   "sourceTitle": "Mercedes-Benz M276 engine",
+   "article": {
+    "name": "Mercedes-Benz M276 DE35",
+    "shortName": "M276",
+    "manufacturer": "Mercedes-Benz",
+    "production": "2010–2018",
+    "configuration": "Naturally aspirated 60° V6",
+    "displacement": "3498 cc",
+    "predecessor": "Mercedes-Benz M272",
+    "successor": "M276 DE30LA",
+    "variants": [],
+    "applications": [
+     {
+      "target": "Chrysler Pentastar engine",
+      "display": "Chrysler Pentastar engine",
+      "text": "The M276 engine is not related to the Chrysler Pentastar engine except for the 60-degree angle, despite that it was developed while Chrysler was still owned by Daimler AG. This can be seen in its 60 degree vee–angle, as opposed to the 90-degree angle of its M272 predecessor. The 60 degree vee–angle eliminates the need for a balance shaft, improving refinement while reducing mechanical complexity. None of the parts are shared at all.",
+      "yearStart": null,
+      "yearEnd": null,
+      "note": null
+     },
+     {
+      "target": "Mercedes-Benz S-Class (W221)",
+      "display": "W221 S 350/S 350 4MATIC",
+      "text": "2011–2013 W221 S 350/S 350 4MATIC",
+      "yearStart": 2011,
+      "yearEnd": 2013,
+      "note": null
+     },
+     {
+      "target": "Mercedes-Benz E-Class (W212)",
+      "display": "W212 E 300 BlueEFFICIENCY/E 300 BlueEFFICIENCY 4MATIC",
+      "text": "2011–2014 W212 E 300 BlueEFFICIENCY/E 300 BlueEFFICIENCY 4MATIC",
+      "yearStart": 2011,
+      "yearEnd": 2014,
+      "note": null
+     },
+     {
+      "target": "Mercedes-Benz CLS-Class (W218)",
+      "display": "W218 CLS 350 BlueEFFICIENCY",
+      "text": "2011–2014 W218 CLS 350 BlueEFFICIENCY",
+      "yearStart": 2011,
+      "yearEnd": 2014,
+      "note": null
+     },
+     {
+      "target": "Mercedes-Benz C-Class (W204)",
+      "display": "W204 C 350 / C 350 4MATIC",
+      "text": "2011–2014 W204 C 350 / C 350 4MATIC",
+      "yearStart": 2011,
+      "yearEnd": 2014,
+      "note": null
+     },
+     {
+      "target": "Mercedes-Benz C-Class (W204)",
+      "display": "W204 C 350 BlueEFFICIENCY / C 350 BlueEFFICIENCY 4MATIC",
+      "text": "2011–2014 W204 C 350 BlueEFFICIENCY / C 350 BlueEFFICIENCY 4MATIC",
+      "yearStart": 2011,
+      "yearEnd": 2014,
+      "note": null
+     },
+     {
+      "target": "Mercedes-Benz C-Class (W204)",
+      "display": "W204 C 300 4MATIC (US/Canada)",
+      "text": "2012–2014 W204 C 300 4MATIC (US/Canada)",
+      "yearStart": 2012,
+      "yearEnd": 2014,
+      "note": null
+     },
+     {
+      "target": "Mercedes-Benz E-Class (W212)",
+      "display": "W212 E 350 BlueEFFICIENCY / E 350 BlueEFFICIENCY 4MATIC",
+      "text": "2012–2016 W212 E 350 BlueEFFICIENCY / E 350 BlueEFFICIENCY 4MATIC",
+      "yearStart": 2012,
+      "yearEnd": 2016,
+      "note": null
+     },
+     {
+      "target": "Mercedes-Benz E-Class (W212)",
+      "display": "W212 E 400 HYBRID",
+      "text": "2012–2016 W212 E 400 HYBRID",
+      "yearStart": 2012,
+      "yearEnd": 2016,
+      "note": null
+     },
+     {
+      "target": "Mercedes-Benz M-Class",
+      "display": "W166 ML 350 BlueEFFICIENCY 4MATIC",
+      "text": "2012–2015 W166 ML 350 BlueEFFICIENCY 4MATIC",
+      "yearStart": 2012,
+      "yearEnd": 2015,
+      "note": null
+     },
+     {
+      "target": "Mercedes-Benz GLE-Class",
+      "display": "W166 GLE 350 / GLE 350 4MATIC",
+      "text": "2015–2018 W166 GLE 350 / GLE 350 4MATIC",
+      "yearStart": 2015,
+      "yearEnd": 2018,
+      "note": null
+     },
+     {
+      "target": "Mercedes-Benz GLK-Class",
+      "display": "X204 GLK 350 4MATIC BlueEfficiency",
+      "text": "2012–2015 X204 GLK 350 4MATIC BlueEfficiency",
+      "yearStart": 2012,
+      "yearEnd": 2015,
+      "note": null
+     },
+     {
+      "target": "Mercedes-Benz GLK-Class",
+      "display": "X204 GLK 350",
+      "text": "2013–2015 X204 GLK 350",
+      "yearStart": 2013,
+      "yearEnd": 2015,
+      "note": null
+     },
+     {
+      "target": "Mercedes-Benz R-Class",
+      "display": "W251 R 350 4MATIC BlueEfficiency",
+      "text": "2012–2014 W251 R 350 4MATIC BlueEfficiency",
+      "yearStart": 2012,
+      "yearEnd": 2014,
+      "note": null
+     },
+     {
+      "target": "Mercedes-Benz S-Class (W222)",
+      "display": "W222 S 400 HYBRID",
+      "text": "2013–2017 W222 S 400 HYBRID",
+      "yearStart": 2013,
+      "yearEnd": 2017,
+      "note": null
+     },
+     {
+      "target": "Mercedes-Benz SLK-Class (R172)",
+      "display": "R172 SLK 350 BlueEFFICIENCY",
+      "text": "2011–2015 R172 SLK 350 BlueEFFICIENCY",
+      "yearStart": 2011,
+      "yearEnd": 2015,
+      "note": null
+     },
+     {
+      "target": "IHI Corporation",
+      "display": "IHI",
+      "text": "With a reduced bore and stroke at 88 x 82.1 mm and reduced compression ratio at 10.7:1, DE 30 LA is turbocharged with twin IHI turbochargers for 245 kW at 5,250–6,000rpm and 480 Nm of torque at 1,600–4,000rpm and weighs in at 179.2&nbsp;kg DIN. This engine was introduced on 2013 C400(W205), and used for E400 Coupe 4Matic, ML(GLE)400 4Matic, E450 4Matic, CLS450, S450, S500e and other models.",
+      "yearStart": null,
+      "yearEnd": null,
+      "note": null
+     },
+     {
+      "target": "Mercedes-Benz E-Class (W212)",
+      "display": "W212 E 400/E 400 4MATIC",
+      "text": "2013–2014 W212 E 400/E 400 4MATIC",
+      "yearStart": 2013,
+      "yearEnd": 2014,
+      "note": null
+     },
+     {
+      "target": "Mercedes-Benz E-Class (C207)",
+      "display": "C207 E 400",
+      "text": "2013–2017 C207 E 400",
+      "yearStart": 2013,
+      "yearEnd": 2017,
+      "note": null
+     },
+     {
+      "target": "Mercedes-Benz S-Class (W222)",
+      "display": "W222 S 400 & S 320 (China)",
+      "text": "2014–2020 W222 S 400 & S 320 (China)",
+      "yearStart": 2014,
+      "yearEnd": 2020,
+      "note": null
+     },
+     {
+      "target": "Mercedes-Benz GL-Class (X166)",
+      "display": "X166 GL 400 / GLS 450",
+      "text": "2014–2019 X166 GL 400 / GLS 450",
+      "yearStart": 2014,
+      "yearEnd": 2019,
+      "note": null
+     },
+     {
+      "target": "Mercedes-Benz CLS-Class (C218)",
+      "display": "C218 CLS 400",
+      "text": "2014–2017 C218 CLS 400",
+      "yearStart": 2014,
+      "yearEnd": 2017,
+      "note": null
+     },
+     {
+      "target": "Mercedes-Benz S-Class (W222)",
+      "display": "W222 S 500 PLUG–IN HYBRID",
+      "text": "2014–2017 W222 S 500 PLUG–IN HYBRID",
+      "yearStart": 2014,
+      "yearEnd": 2017,
+      "note": null
+     },
+     {
+      "target": "Mercedes-Benz CLS-Class (W218)",
+      "display": "W218 CLS 400/CLS 400 4MATIC",
+      "text": "2014–2015 W218 CLS 400/CLS 400 4MATIC",
+      "yearStart": 2014,
+      "yearEnd": 2015,
+      "note": null
+     },
+     {
+      "target": "Mercedes-Benz M-Class",
+      "display": "W166 AMG GLE 43 4MATIC",
+      "text": "2015–2019 W166 AMG GLE 43 4MATIC",
+      "yearStart": 2015,
+      "yearEnd": 2019,
+      "note": null
+     },
+     {
+      "target": "Mercedes-Benz C-Class (W205)",
+      "display": "W205 C 400 4MATIC",
+      "text": "2015–2021 W205 C 400 4MATIC",
+      "yearStart": 2015,
+      "yearEnd": 2021,
+      "note": null
+     },
+     {
+      "target": "Mercedes-Benz GLC-Class",
+      "display": "X253 AMG GLC 43 4MATIC",
+      "text": "2015–2022 X253 AMG GLC 43 4MATIC",
+      "yearStart": 2015,
+      "yearEnd": 2022,
+      "note": null
+     },
+     {
+      "target": "Mercedes-Benz C-Class (W205)",
+      "display": "W205 C 450 AMG 4MATIC",
+      "text": "2015–2017 W205 C 450 AMG 4MATIC",
+      "yearStart": 2015,
+      "yearEnd": 2017,
+      "note": null
+     },
+     {
+      "target": "Mercedes-Benz M-Class",
+      "display": "W166 ML 400 / GLE 400 4MATIC",
+      "text": "2015–2017 W166 ML 400 / GLE 400 4MATIC",
+      "yearStart": 2015,
+      "yearEnd": 2017,
+      "note": null
+     },
+     {
+      "target": "BAIC BJ90",
+      "display": "BAIC BJ90",
+      "text": "2016–2023 BAIC BJ90 (an SUV from Chinese brand BAIC based on the second generation Mercedes-Benz GL-Class)",
+      "yearStart": 2016,
+      "yearEnd": 2023,
+      "note": null
+     },
+     {
+      "target": "Mercedes-Benz M-Class",
+      "display": "W166 GLE 450 AMG 4MATIC",
+      "text": "2016–2017 W166 GLE 450 AMG 4MATIC",
+      "yearStart": 2016,
+      "yearEnd": 2017,
+      "note": null
+     },
+     {
+      "target": "Mercedes-Benz M-Class",
+      "display": "W166 GLE 500 e / GLE 550 e (US) 4MATIC",
+      "text": "2016–2018 W166 GLE 500 e / GLE 550 e (US) 4MATIC",
+      "yearStart": 2016,
+      "yearEnd": 2018,
+      "note": null
+     },
+     {
+      "target": "Mercedes-Benz C-Class (W205)",
+      "display": "W205 AMG C 43 4MATIC",
+      "text": "2016–2021 W205 AMG C 43 4MATIC",
+      "yearStart": 2016,
+      "yearEnd": 2021,
+      "note": null
+     },
+     {
+      "target": "Mercedes-Benz E-Class (W213)",
+      "display": "W213 E 400 4MATIC",
+      "text": "2016–2018 W213 E 400 4MATIC",
+      "yearStart": 2016,
+      "yearEnd": 2018,
+      "note": null
+     },
+     {
+      "target": "Mercedes-Benz E-Class (W213)",
+      "display": "W213 AMG E 43 4MATIC",
+      "text": "2016–2018 W213 AMG E 43 4MATIC",
+      "yearStart": 2016,
+      "yearEnd": 2018,
+      "note": null
+     },
+     {
+      "target": "Mercedes-Benz S-Class (W222)",
+      "display": "W222 S 580 e",
+      "text": "2018–2020 W222 S 580 e",
+      "yearStart": 2018,
+      "yearEnd": 2020,
+      "note": null
+     },
+     {
+      "target": "Mercedes-Benz E-Class (W213)",
+      "display": "W213 E 450 4MATIC",
+      "text": "2019–2020 W213 E 450 4MATIC",
+      "yearStart": 2019,
+      "yearEnd": 2020,
+      "note": null
+     },
+     {
+      "target": "Mercedes-Benz SL-Class (R231)",
+      "display": "R231 SL 400",
+      "text": "2014-2020 R231 SL 400",
+      "yearStart": 2014,
+      "yearEnd": 2020,
+      "note": null
+     },
+     {
+      "target": "Mercedes-Benz SL-Class (R231)",
+      "display": "R231 SL 450",
+      "text": "2017-2020 R231 SL 450",
+      "yearStart": 2017,
+      "yearEnd": 2020,
+      "note": null
+     },
+     {
+      "target": "Mercedes-Benz SLC-Class (R172)",
+      "display": "R172 AMG SLC 43",
+      "text": "2016–2018 R172 AMG SLC 43 (362hp version)",
+      "yearStart": 2016,
+      "yearEnd": 2018,
+      "note": null
+     },
+     {
+      "target": "Mercedes-Benz S-Class (W222)",
+      "display": "W222 S 400 4MATIC",
+      "text": "2015–2017 W222 S 400 4MATIC",
+      "yearStart": 2015,
+      "yearEnd": 2017,
+      "note": null
+     },
+     {
+      "target": "Mercedes-Benz CLS-Class (C218)",
+      "display": "C218 CLS 400/CLS 400 4MATIC",
+      "text": "2015–2017 C218 CLS 400/CLS 400 4MATIC",
+      "yearStart": 2015,
+      "yearEnd": 2017,
+      "note": null
+     },
+     {
+      "target": "Mercedes-Benz S-Class (W222)",
+      "display": "W222 Maybach S 400 4MATIC",
+      "text": "2015–2017 W222 Maybach S 400 4MATIC",
+      "yearStart": 2015,
+      "yearEnd": 2017,
+      "note": null
+     }
+    ]
+   },
+   "resolved": [
+    [
+     "Chrysler Pentastar engine",
+     "Chrysler Pentastar engine"
+    ],
+    [
+     "Mercedes-Benz S-Class (W221)",
+     "Mercedes-Benz S-Class (W221)"
+    ],
+    [
+     "Mercedes-Benz E-Class (W212)",
+     "Mercedes-Benz E-Class (W212)"
+    ],
+    [
+     "Mercedes-Benz CLS-Class (W218)",
+     "Mercedes-Benz CLS-Class (C218)"
+    ],
+    [
+     "Mercedes-Benz C-Class (W204)",
+     "Mercedes-Benz C-Class (W204)"
+    ],
+    [
+     "Mercedes-Benz M-Class",
+     "Mercedes-Benz GLE"
+    ],
+    [
+     "Mercedes-Benz GLE-Class",
+     "Mercedes-Benz GLE"
+    ],
+    [
+     "Mercedes-Benz GLK-Class",
+     "Mercedes-Benz GLK-Class"
+    ],
+    [
+     "Mercedes-Benz R-Class",
+     "Mercedes-Benz R-Class"
+    ],
+    [
+     "Mercedes-Benz S-Class (W222)",
+     "Mercedes-Benz S-Class (W222)"
+    ],
+    [
+     "Mercedes-Benz SLK-Class (R172)",
+     "Mercedes-Benz SLK-Class (R172)"
+    ],
+    [
+     "IHI Corporation",
+     "IHI Corporation"
+    ],
+    [
+     "Mercedes-Benz E-Class (C207)",
+     "Mercedes-Benz E-Class (C207)"
+    ],
+    [
+     "Mercedes-Benz GL-Class (X166)",
+     "Mercedes-Benz GL-Class (X166)"
+    ],
+    [
+     "Mercedes-Benz CLS-Class (C218)",
+     "Mercedes-Benz CLS-Class (C218)"
+    ],
+    [
+     "Mercedes-Benz C-Class (W205)",
+     "Mercedes-Benz C-Class (W205)"
+    ],
+    [
+     "Mercedes-Benz GLC-Class",
+     "Mercedes-Benz GLC"
+    ],
+    [
+     "BAIC BJ90",
+     "BAIC BJ90"
+    ],
+    [
+     "Mercedes-Benz E-Class (W213)",
+     "Mercedes-Benz E-Class (W213)"
+    ],
+    [
+     "Mercedes-Benz SL-Class (R231)",
+     "Mercedes-Benz SL-Class (R231)"
+    ],
+    [
+     "Mercedes-Benz SLC-Class (R172)",
+     "Mercedes-Benz SLK-Class (R172)"
+    ]
+   ]
+  }
+ },
  "engineMerges": {},
+ "engineScans": {
+  "llm-m-mercedes-benz-e-class-w120-w121": {
+   "checkedAt": "2026-09-15T21:12:05.859Z",
+   "sourceTitle": "Mercedes-Benz W120/W121",
+   "engines": []
+  },
+  "llm-m-mercedes-benz-e-class-w110": {
+   "checkedAt": "2026-09-15T21:12:06.156Z",
+   "sourceTitle": "Mercedes-Benz W110",
+   "engines": [
+    {
+     "title": "Mercedes-Benz M121 engine",
+     "name": "M121",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz OM621 engine",
+     "name": "OM621",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz M121 engine",
+     "name": "M121 BIX",
+     "variant": "M121_BIX"
+    },
+    {
+     "title": "Mercedes-Benz M180 engine",
+     "name": "M180",
+     "variant": null
+    }
+   ]
+  },
+  "llm-m-mercedes-benz-e-class-w114-w115": {
+   "checkedAt": "2026-09-15T21:12:06.478Z",
+   "sourceTitle": "Mercedes-Benz W114/W115",
+   "engines": [
+    {
+     "title": "Mercedes-Benz M115 engine",
+     "name": "M115",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz M180 engine",
+     "name": "M180",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz M114 engine",
+     "name": "M114",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz M110 engine",
+     "name": "M110",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz M130 engine",
+     "name": "M130",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz OM617 engine",
+     "name": "OM617",
+     "variant": null
+    }
+   ]
+  },
+  "llm-m-mercedes-benz-e-class-w123": {
+   "checkedAt": "2026-09-15T21:12:06.878Z",
+   "sourceTitle": "Mercedes-Benz W123",
+   "engines": [
+    {
+     "title": "Mercedes-Benz M115 engine",
+     "name": "M115 V20",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz M102 engine",
+     "name": "M102 V20",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz M115 engine",
+     "name": "M115 V23",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz M102 engine",
+     "name": "M102 E23",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz M123 engine",
+     "name": "M123",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz M110 engine",
+     "name": "M110",
+     "variant": null
+    }
+   ]
+  },
+  "m-mercedes-benz-e-class-w124": {
+   "checkedAt": "2026-09-15T21:12:07.322Z",
+   "sourceTitle": "Mercedes-Benz W124",
+   "engines": [
+    {
+     "title": "Mercedes-Benz M102 engine",
+     "name": "M102",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz M111 engine",
+     "name": "M111",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz M103 engine",
+     "name": "M103",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz M104 engine",
+     "name": "M104",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz M119 engine",
+     "name": "M119",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz OM601 engine",
+     "name": "OM601",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz OM602 engine",
+     "name": "OM602",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz OM605 engine",
+     "name": "OM605",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz OM603 engine",
+     "name": "OM603",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz OM606 engine",
+     "name": "OM606",
+     "variant": null
+    }
+   ]
+  },
+  "llm-related-mercedes-benz-e-class": {
+   "checkedAt": "2026-09-15T21:12:07.331Z",
+   "sourceTitle": null,
+   "status": "no-article",
+   "engines": []
+  },
+  "m-mercedes-benz-e-class-w210": {
+   "checkedAt": "2026-09-15T21:12:07.733Z",
+   "sourceTitle": "Mercedes-Benz E-Class (W210)",
+   "engines": [
+    {
+     "title": "Mercedes-Benz M111 engine",
+     "name": "M111",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz M104 engine",
+     "name": "M104",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz M112 engine",
+     "name": "M112",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz M119 engine",
+     "name": "M119",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz M113 engine",
+     "name": "M113",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz OM604 engine",
+     "name": "OM604",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz OM611 engine",
+     "name": "OM611",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz OM605 engine",
+     "name": "OM605",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz OM612 engine",
+     "name": "OM612",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz OM602 engine",
+     "name": "OM602",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz OM606 engine",
+     "name": "OM606",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz OM613 engine",
+     "name": "OM613",
+     "variant": null
+    }
+   ]
+  },
+  "llm-m-mercedes-benz-e-class-w211": {
+   "checkedAt": "2026-09-15T21:12:08.087Z",
+   "sourceTitle": "Mercedes-Benz E-Class (W211)",
+   "engines": [
+    {
+     "title": "Mercedes-Benz M271 engine",
+     "name": "M271",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz M112 engine",
+     "name": "M112",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz M272 engine",
+     "name": "M272",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz M113 engine",
+     "name": "M113",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz M273 engine",
+     "name": "M273",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz M156 engine",
+     "name": "M156",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz OM646 engine",
+     "name": "OM646",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz OM647 engine",
+     "name": "OM647",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz OM642 engine",
+     "name": "OM642",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz OM648 engine",
+     "name": "OM648",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz OM628 engine",
+     "name": "OM628",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz OM629 engine",
+     "name": "OM629",
+     "variant": null
+    }
+   ]
+  },
+  "m-mercedes-benz-e-class-w212": {
+   "checkedAt": "2026-09-15T21:12:08.291Z",
+   "sourceTitle": "Mercedes-Benz E-Class (W212)",
+   "engines": [
+    {
+     "title": "Mercedes-Benz M270/M274 engine",
+     "name": "M274",
+     "variant": "M274 DE16 LA"
+    },
+    {
+     "title": "Mercedes-Benz M271 engine",
+     "name": "M271",
+     "variant": "DE18 LA (M271Evo, 271.8XX)"
+    },
+    {
+     "title": "Mercedes-Benz M272 engine",
+     "name": "M272",
+     "variant": "E30"
+    },
+    {
+     "title": "Mercedes-Benz M276 engine",
+     "name": "M276",
+     "variant": "DE30 LA"
+    },
+    {
+     "title": "Mercedes-Benz M278 engine",
+     "name": "M278",
+     "variant": "M278"
+    },
+    {
+     "title": "Mercedes-Benz M273 engine",
+     "name": "M273",
+     "variant": "E55"
+    },
+    {
+     "title": "Mercedes-Benz M157 engine",
+     "name": "M157",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz M156 engine",
+     "name": "M156",
+     "variant": "M156"
+    },
+    {
+     "title": "Mercedes-Benz OM651 engine",
+     "name": "OM651",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz OM642 engine",
+     "name": "OM642",
+     "variant": null
+    }
+   ]
+  },
+  "m-mercedes-benz-e-class-w213": {
+   "checkedAt": "2026-09-15T21:12:08.634Z",
+   "sourceTitle": "Mercedes-Benz E-Class (W213)",
+   "engines": [
+    {
+     "title": "Mercedes-Benz M260/M264 engine",
+     "name": "M264",
+     "variant": "M264 E15 DEH LA"
+    },
+    {
+     "title": "Mercedes-Benz M270/M274 engine",
+     "name": "M274",
+     "variant": "M274 DE16 LA"
+    },
+    {
+     "title": "Mercedes-Benz M256 engine",
+     "name": "M256",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz M276 engine",
+     "name": "M276",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz M176/M177/M178 engine",
+     "name": "M177",
+     "variant": "M177"
+    },
+    {
+     "title": "Mercedes-Benz M139 engine",
+     "name": "M139",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz OM654 engine",
+     "name": "OM654",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz OM656 engine",
+     "name": "OM656",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz OM642 engine",
+     "name": "OM642",
+     "variant": null
+    }
+   ]
+  },
+  "m-mercedes-benz-e-class-w214": {
+   "checkedAt": "2026-09-15T21:12:08.833Z",
+   "sourceTitle": "Mercedes-Benz E-Class (W214)",
+   "engines": [
+    {
+     "title": "Mercedes-Benz M254 engine",
+     "name": "M 254",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz M256 engine",
+     "name": "M 256",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz OM654 engine",
+     "name": "OM 654",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz OM656 engine",
+     "name": "OM 656",
+     "variant": null
+    }
+   ]
+  },
+  "llm-m-chrysler-300c-first-generation-lx": {
+   "checkedAt": "2026-09-15T21:16:36.346Z",
+   "sourceTitle": null,
+   "status": "no-article",
+   "engines": []
+  },
+  "llm-m-chrysler-300c-second-generation-ld": {
+   "checkedAt": "2026-09-15T21:16:36.347Z",
+   "sourceTitle": null,
+   "status": "no-article",
+   "engines": []
+  },
+  "llm-m-dodge-charger-lx-lx": {
+   "checkedAt": "2026-09-15T21:18:36.250Z",
+   "sourceTitle": null,
+   "status": "no-article",
+   "engines": []
+  },
+  "llm-m-dodge-charger-lx-ld": {
+   "checkedAt": "2026-09-15T21:18:36.251Z",
+   "sourceTitle": null,
+   "status": "no-article",
+   "engines": []
+  },
+  "llm-m-dodge-magnum-b-body": {
+   "checkedAt": "2026-09-15T21:20:19.649Z",
+   "sourceTitle": null,
+   "status": "no-article",
+   "engines": []
+  },
+  "llm-m-dodge-magnum-a-body": {
+   "checkedAt": "2026-09-15T21:20:19.649Z",
+   "sourceTitle": null,
+   "status": "no-article",
+   "engines": []
+  },
+  "llm-m-dodge-magnum-m-body": {
+   "checkedAt": "2026-09-15T21:20:19.650Z",
+   "sourceTitle": null,
+   "status": "no-article",
+   "engines": []
+  },
+  "llm-m-dodge-magnum-k-body": {
+   "checkedAt": "2026-09-15T21:20:19.650Z",
+   "sourceTitle": null,
+   "status": "no-article",
+   "engines": []
+  },
+  "llm-m-dodge-magnum-lx-platform": {
+   "checkedAt": "2026-09-15T21:20:19.650Z",
+   "sourceTitle": null,
+   "status": "no-article",
+   "engines": []
+  },
+  "llm-m-mercedes-benz-mercedes-amg-gt-4-door-coupe-x290": {
+   "checkedAt": "2026-09-15T21:20:57.840Z",
+   "sourceTitle": null,
+   "status": "no-article",
+   "engines": []
+  },
+  "llm-m-mercedes-benz-mercedes-amg-gt-4-door-coupe-c590": {
+   "checkedAt": "2026-09-15T21:20:57.840Z",
+   "sourceTitle": null,
+   "status": "no-article",
+   "engines": []
+  },
+  "llm-m-mercedes-benz-gle-w163": {
+   "checkedAt": "2026-09-15T21:24:44.314Z",
+   "sourceTitle": null,
+   "status": "no-article",
+   "engines": []
+  },
+  "llm-m-mercedes-benz-gle-w164": {
+   "checkedAt": "2026-09-15T21:24:44.315Z",
+   "sourceTitle": null,
+   "status": "no-article",
+   "engines": []
+  },
+  "llm-m-mercedes-benz-gle-w166-c292": {
+   "checkedAt": "2026-09-15T21:24:44.315Z",
+   "sourceTitle": null,
+   "status": "no-article",
+   "engines": []
+  },
+  "llm-m-mercedes-benz-gle-w167-c167": {
+   "checkedAt": "2026-09-15T21:24:44.315Z",
+   "sourceTitle": null,
+   "status": "no-article",
+   "engines": []
+  },
+  "llm-m-mercedes-benz-glc-x253-c253-v253": {
+   "checkedAt": "2026-09-15T21:26:45.137Z",
+   "sourceTitle": null,
+   "status": "no-article",
+   "engines": []
+  },
+  "llm-m-mercedes-benz-glc-x254-c254-v254": {
+   "checkedAt": "2026-09-15T21:26:45.137Z",
+   "sourceTitle": null,
+   "status": "no-article",
+   "engines": []
+  }
+ },
  "prunedDecisions": {
   "families|m-mazda-mazda6-third-generation": {
    "what": "generation split",
