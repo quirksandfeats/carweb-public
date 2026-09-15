@@ -56,6 +56,9 @@ function seed(DATA) {
   DATA.nodes.push({ id: "mk-testreq", type: "make", label: "TestReq", year: 1950 });
   DATA.nodes.push({ id: "m-testreq-alpha", type: "model", label: "Alpha", make: "TestReq", year: 1970, end: 1980, designers: [], engineers: [] });
   DATA.nodes.push({ id: "m-testreq-beta", type: "model", label: "Beta", make: "TestReq", year: 1985, end: 1995, designers: [], engineers: [] });
+  // An engine, reachable from the same panel.
+  DATA.nodes.push({ id: "eng-testreq-zz1", type: "engine", label: "ZZ1", wp: "TestReq ZZ1 engine",
+                    unresearched: true, variants: [] });
   DATA.nodes.push({ id: "p-testreq-person", type: "person", kind: "person", label: "Alpha Person", roles: ["designer"], born: 1930, died: null, country: null, wp: null });
   DATA.links.push({ source: "m-testreq-alpha", target: "mk-testreq", type: "made" });
   DATA.links.push({ source: "m-testreq-beta", target: "mk-testreq", type: "made" });
@@ -108,7 +111,7 @@ const wait = ms => new Promise(r => setTimeout(r, ms));
   await wait(30);
   t("clearing leaves nothing chosen and says so on the button",
     $("llmrequest-chosen").hidden && $("llmrequest-send").disabled &&
-    $("llmrequest-send").textContent === "Pick a car first",
+    $("llmrequest-send").textContent === "Pick a car or engine first",
     $("llmrequest-send").textContent);
 
   const car = $("llmrequest-car");
@@ -184,6 +187,48 @@ const wait = ms => new Promise(r => setTimeout(r, ms));
     cancelled.length === 1 && cancelled[0].id === "j2", JSON.stringify(cancelled));
   t("...and the list updates without a reload",
     !/Car Y/.test($("llmrequest-queue").textContent), $("llmrequest-queue").textContent);
+
+  // ---------- an engine is a legitimate target, and the only way to ask ----------
+  // Real user request: "The 'Request Scan' button should once again be the
+  // only button that allows the user to do a scan of an existing entry,
+  // including for engines. Therefore, the web user should not have access to
+  // 'read this engine's article' or 'Merge another engine in'. This should
+  // only be available within serve.py."
+  {
+    const eng = window.CarWeb.byId.get("eng-testreq-zz1");
+    window.CarWeb.openDetail(eng);
+    const power = window.document.querySelector(".dt-power");
+    const btns = [...power.querySelectorAll("button")].map(b => b.textContent);
+    t("no local server: the engine card offers no read-the-article button",
+      !btns.some(b => /Read this engine|Read it again/.test(b)), btns.join(" | "));
+    t("...and no merge button either",
+      !btns.some(b => /Merge another engine/.test(b)), btns.join(" | "));
+    t("...it points at Request scan instead",
+      /Request scan/.test(power.textContent), power.textContent.slice(-80));
+
+    const carEl = $("llmrequest-car");
+    carEl.value = "ZZ1";
+    carEl.dispatchEvent(new window.Event("input", { bubbles: true }));
+    await wait(50);
+    const hits = [...$("llmrequest-carresults").querySelectorAll(".lrq-result")];
+    t("searching the panel finds the engine", hits.length > 0 && /ZZ1/.test(hits[0].textContent),
+      hits.map(h => h.textContent).join(" | "));
+    t("...labelled as an engine, not a model", /engine/.test(hits[0].textContent),
+      hits[0].textContent);
+    hits[0].click();
+    await wait(30);
+    t("...and it can be chosen", /ZZ1/.test($("llmrequest-chosen").textContent),
+      $("llmrequest-chosen").textContent);
+    t("...with the send button armed", $("llmrequest-send").disabled === false,
+      $("llmrequest-send").textContent);
+    const before = posted.length;
+    $("llmrequest-pass").value = "a-passphrase";
+    $("llmrequest-send").click();
+    await wait(120);
+    t("...and the request names the engine's own id",
+      posted.length === before + 1 && posted[posted.length - 1].targetId === "eng-testreq-zz1",
+      JSON.stringify(posted[posted.length - 1] || null));
+  }
 
   console.log("\n" + fails + " failure(s)");
   process.exit(fails ? 1 : 0);

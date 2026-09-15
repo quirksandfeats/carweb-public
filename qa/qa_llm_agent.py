@@ -349,6 +349,22 @@ cut = agent.activity(really_long)
 check("...but a genuinely long line is still bounded", len(cut) <= 66, len(cut))
 
 
+# ---- a queued request can name an engine ----
+# Real user request: "The 'Request Scan' button should once again be the only
+# button that allows the user to do a scan of an existing entry, including for
+# engines." An engine is not checked the way a car is -- no generations to
+# split -- so a queued engine used to be opened and then waited on until the
+# per-node timeout, every time.
+pass_src = src.split("def _run_pass_in")[1]
+check("the pass asks what kind of node each target is",
+      "return n ? n.type : null" in pass_src)
+check("...and reads an engine's article instead of checking it for generations",
+      'kind == "engine"' in pass_src and "CarWeb.scanEngine(" in pass_src)
+check("...waiting on the engine's own entry, so the wait can end",
+      "engineEntryFor" in pass_src and 'state["engine"]' in pass_src)
+check("a car is still opened exactly as before",
+      "CarWeb.openDetail(n); }\", nid)" in pass_src)
+
 print()
 print("ALL GREEN" if not fails else "FAILURES: " + str(fails))
 sys.exit(1 if fails else 0)

@@ -528,8 +528,22 @@ def _run_pass_in(browser, targets, budget_seconds, per_node_seconds,
             name = page.evaluate(
                 "(id) => { const n = CarWeb.byId.get(id); "
                 "return n ? ((n.make ? n.make + ' ' : '') + n.label) : id; }", nid)
-            log(f"{name}  [{nid}] -- opening")
-            page.evaluate("(id) => { const n = CarWeb.byId.get(id); if (n) CarWeb.openDetail(n); }", nid)
+            kind = page.evaluate(
+                "(id) => { const n = CarWeb.byId.get(id); return n ? n.type : null; }", nid)
+            # Real user request: "The 'Request Scan' button should once again be
+            # the only button that allows the user to do a scan of an existing
+            # entry, including for engines." An engine is not checked the way a
+            # car is -- there are no generations to split -- so the queue used
+            # to accept one and then sit there until the per-node timeout.
+            # Reading its article is the equivalent pass: variants, and every
+            # car each variant went into.
+            log(f"{name}  [{nid}] -- opening" + (" (engine)" if kind == "engine" else ""))
+            if kind == "engine":
+                page.evaluate(
+                    "(id) => { const n = CarWeb.byId.get(id); if (!n) return; "
+                    "CarWeb.openDetail(n); CarWeb.scanEngine(n.wp || n.label); }", nid)
+            else:
+                page.evaluate("(id) => { const n = CarWeb.byId.get(id); if (n) CarWeb.openDetail(n); }", nid)
             settled = False
             said = ""
             # The timeout is IDLE time, not total time. A local 9B model on a
@@ -548,11 +562,14 @@ def _run_pass_in(browser, targets, budget_seconds, per_node_seconds,
                     """(id) => {
                       const LF = window.LlmFamilies;
                       const e = LF.entryFor(id), r = LF.recheckEntryFor(id);
-                      return { status: (e && e.status) || null, recheck: (r && r.status) || null };
+                      const g = LF.engineEntryFor ? LF.engineEntryFor(id) : null;
+                      return { status: (e && e.status) || null, recheck: (r && r.status) || null,
+                               engine: (g && g.status) || null };
                     }""", nid)
-                if state["status"] or state["recheck"]:
+                if state["status"] or state["recheck"] or state["engine"]:
                     settled = True
-                    st = state["status"] or ("recheck:" + state["recheck"])
+                    st = (state["status"] or state["engine"]
+                          or ("recheck:" + state["recheck"]))
                     done.append((nid, st))
                     rows = entry_rows(page)
                     log(f"  {name} -- {describe(rows.get(nid, {'status': st}))}")

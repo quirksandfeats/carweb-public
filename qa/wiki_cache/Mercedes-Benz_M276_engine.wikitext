@@ -1,0 +1,136 @@
+{{Infobox automobile engine
+|name=Mercedes-Benz M276 DE35
+|image=Mercedes-Benz Motor 276 Typ S 400 Hybrid.JPG
+|manufacturer=[[Mercedes-Benz]]
+|production=2010–2018
+|configuration= [[Naturally aspirated]] 60° [[V6 engine|V6]]
+|valvetrain=[[DOHC]] with [[Variable valve timing|VVT]]
+|fueltype=[[Gasoline]]
+|fuelsystem=[[Gasoline direct injection|Direct injected]]
+|coolingsystem=[[Radiator (engine cooling)|Water cooled]]
+|oilsystem= [[Wet sump]]
+|predecessor=[[Mercedes-Benz M272 engine|Mercedes-Benz M272]]
+|successor=M276 DE30LA
+|block=[[Aluminum]]
+|head=Aluminum
+|displacement={{convert|3498|cc|L|1|abbr=on|order=flip}}
+|bore={{convert|92.9|mm|2|abbr=on}}
+|stroke={{convert|86|mm|2|abbr=on}}
+|power={{convert|248-302|hp|kW PS|0|abbr=on}}
+|torque={{convert|340-370|Nm|lbft|0|abbr=on}}
+}}
+{{Infobox automobile engine
+|name=Mercedes-Benz M276 DE30LA
+|manufacturer=[[Daimler AG]]
+|production=2013-2023
+|configuration=[[Turbocharger|Turbocharged]] 60° [[V6 engine|V6]]
+|turbocharger = [[Twin-turbo]]
+|valvetrain=[[DOHC]] with [[Variable valve timing|VVT]]
+|fueltype=[[Gasoline]]
+|fuelsystem=[[Gasoline direct injection|Direct injected]]
+|predecessor=M276 DE35
+|successor=M276 DELA35 (DE35AL)<br >[[Mercedes-Benz M256 engine|M256]]
+|block=Aluminum
+|head=Aluminum
+|displacement={{convert|2996|cc|L|1|abbr=on|order=flip}}
+|bore={{convert|88|mm|2|abbr=on}}
+|stroke={{convert|82.1|mm|2|abbr=on}}
+|power={{convert|328-385|hp|kW PS|0|abbr=on}}(DELA30-DE30AL)
+|torque={{convert|480-521|Nm|lbft|0|abbr=on}}(DELA30-DE30AL)
+}}
+
+The Mercedes-Benz '''M276''' engine is a [[gasoline direct injection]] [[Car|automotive]] [[piston]] [[V6 engine]].<ref name="m276name">[http://www.canadiandriver.com/2010/08/10/feature-mercedes%E2%80%99-new-v-engine-family.htm?page=all Mercedes' New V Engine Family]</ref>
+
+The M276 engine is not related to the [[Chrysler Pentastar engine]] except for the 60-degree angle, despite that it was developed while Chrysler was still owned by Daimler AG. This can be seen in its 60 degree vee–angle, as opposed to the 90-degree angle of its [[Mercedes-Benz M272 engine|M272]] predecessor. The 60 degree vee–angle eliminates the need for a [[balance shaft]], improving refinement while reducing mechanical complexity. None of the parts are shared at all.<ref name="m276name"/><ref>{{cite web | url=http://life.nationalpost.com/2012/07/30/road-test-2012-mercedes-benz-e350-is-beautiful-and-bold/ | archive-url=https://archive.today/20130130040855/http://life.nationalpost.com/2012/07/30/road-test-2012-mercedes-benz-e350-is-beautiful-and-bold/ | url-status=dead | archive-date=January 30, 2013 | title=National Post }}</ref>
+
+The M276 engine features an aluminum engine block with Nanoslide cylinder coating and dual overhead camshafts with independent [[variable valve timing]] on 12 intake and 12 exhaust valves and a new 2–stage timing chain arrangement. The M276 also includes direct injection with [[Piezoelectricity|piezo–electrically]] controlled injectors for 2 to 3 sprays per intake stroke in normal operation,<ref name="m276fuelecon" /> multi–spark ignition that creates up to 4 sparks per cycle,<ref name="m276fuelecon" /> and the demand–controlled fuel pump, water pump, oil pump and alternator<ref name="m276fuelecon" /> that reduce [[Internal combustion engine#Parasitic_loss|parasitic load]]s.
+
+The first spray of fuel injection creates the base lean burn mixture in the intake cycle, while the later spray(s), up to 4 more times in combustion cycle in difficult conditions for a clean burn, control when and where the ignition starts and how the burn propagates in stratified charge fashion.<ref name="m276fuelecon" /> In combination with a new smaller and more efficient Variable Valve Timing mechanism on all 4 camshafts, the precise combustion control allows a quicker and smoother re–start of the engine for the [[stop-start system|stop–start system]].  This VVT can alter cam timing up to 40 crank degrees with a higher speed than before, and enables limiting the intake charge combined with a normal combustion stroke, thus making the operating process an [[Atkinson cycle]] in partial throttle conditions for better [[fuel efficiency]].<ref name="m276dim" />  These features are also shared with Mercedes' [[Mercedes-Benz M278 engine|M278]] V8 engine, announced at the same time.<ref name="m276name"/>
+
+Mercedes–Benz claims that the new engine, in conjunction with the demand–controlled ancillaries and the stop–start system, can produce up to a 24% improvement in fuel economy while increasing power and torque over the M272.<ref name="m276fuelecon">{{Cite web|url=https://emercedesbenz.com/autos/mercedes-benz/s-class/mercedes-benz-new-v6-and-v8-engines-are-more-powerful-and-more-efficient/|title=Mercedes-Benz New V6 and V8 Engines are More Powerful and More Efficient &#124; eMercedesBenz|first=Jim|last=Davis|website=emercedesbenz.com|accessdate=18 December 2023}}</ref> This efficiency improvement led to the various models with this engine being labeled with '''Blue Efficiency''' moniker.
+
+Retaining most of the above characteristics, turbocharged smaller displacement DELA 30 variant was introduced in 2013 for C400 (W205) and subsequently offered on other models without the name Blue Efficiency.
+
+For 2014 CLS400, a turbocharged larger displacement variant named DELA 35 came out to the market with a lower boost of {{convert|0.7|bar|psi|abbr=on}} compared to {{convert|1.8|bar|psi|abbr=on}} of DELA30 resulting in the same power and torque ratings at a lower fuel consumption.<ref name=DELA35>{{cite web | url=https://www.autoevolution.com/news/mercedes-benz-quietly-introduces-all-new-v6-engine-on-cls-facelift-82786.html | title=Mercedes-Benz Quietly Introduces All-New V6 Engine on CLS Facelift | date=20 June 2014 }}</ref>
+
+In 2015, a higher boost and a slightly lower compression ratio (10.5:1) were used to create a DE30LA version for AMG models, and is used for many AMG and Mercedes–Benz vehicles since.
+
+{{anchor|DE 35|DE35}}
+
+==DE35==
+Three variants of the naturally aspirated M276 DE 35 engine were produced in 2010–2017 with a displacement of {{convert|3498|cc|L|1|abbr=on|order=flip}}, bore and stroke of {{convert|92.9 x 86|mm|2|abbr=on}}. Output of the first variant introduced on 2011 C350 BlueEfficiency with 12.2:1 compression ratio is {{convert|215|kW|PS hp|0|abbr=on}} at 6400&nbsp;rpm with {{convert|365|Nm|lbft|0|abbr=on}} of torque at 3000–5100&nbsp;rpm.<ref>{{cite web | url=https://www.ultimatespecs.com/car-specs/Mercedes-Benz/14053/Mercedes-Benz-W204-Class-C-350-CGI-BlueEFFICIENCY-Berlina.html | title=Mercedes Benz W204 Class C 350 CGI BlueEFFICIENCY Berlina Technical Specs, Dimensions }}</ref>
+
+Output of the second variant with 12.2:1 compression ratio is {{convert|225|kW|PS hp|0|abbr=on}} at 6500&nbsp;rpm with {{convert|370|Nm|lbft|0|abbr=on}} of torque at 3500–5250&nbsp;rpm. S350, CLS350, ML350, E350, R350, C350 and GLK350 models received this higher output version from 2011 to 2015.<ref name="m276dim">{{usurped|1=[https://web.archive.org/web/20100920081441/http://www.autoholiks.com/2010/05/official-new-v6-and-v8-engine-family-from-mercedes-benz/ Official: 2011 New V6 and V8 engine family From Mercedes Benz {{!}} Autoholiks]}}</ref>  S400h hybrid model used this engine from 2012 to 2017 in combination with an electric motor in between the engine and torque converter.
+
+A detuned version of this engine was introduced on C300, and used also by E300 and S300 from model year 2013 to 2015, producing {{convert|248|hp|kW PS|0|abbr=on}} and {{convert|251|lbft|Nm|0|abbr=on}} of torque.<ref name="m276name" />
+
+=== Applications ===
+* 2011–2013 [[Mercedes-Benz S-Class (W221)|W221 S 350/S 350 4MATIC]]
+* 2011–2014 [[Mercedes-Benz E-Class (W212)|W212 E 300 BlueEFFICIENCY/E 300 BlueEFFICIENCY 4MATIC]]
+* 2011–2014 [[Mercedes-Benz CLS-Class (W218)|W218 CLS 350 BlueEFFICIENCY]]
+* 2011–2014 [[Mercedes-Benz C-Class (W204)#W204 facelift (2011–2014)|W204 C 350 / C 350 4MATIC]]
+* 2011–2014 [[Mercedes-Benz C-Class (W204)#W204 facelift (2012-2014)|W204 C 350 BlueEFFICIENCY / C 350 BlueEFFICIENCY 4MATIC]]
+* 2012–2014 [[Mercedes-Benz C-Class (W204)#W204 facelift (2012-2014)|W204 C 300 4MATIC (US/Canada)]]
+* 2012–2016 [[Mercedes-Benz E-Class (W212)|W212 E 350 BlueEFFICIENCY / E 350 BlueEFFICIENCY 4MATIC]]
+* 2012–2016 [[Mercedes-Benz E-Class (W212)|W212 E 400 HYBRID]]
+* 2012–2015 [[Mercedes-Benz M-Class#Third generation (W166; 2011–2019)|W166 ML 350 BlueEFFICIENCY 4MATIC]]
+* 2015–2018 [[Mercedes-Benz GLE-Class#Third generation (W166; 2012–2018)|W166 GLE 350 / GLE 350 4MATIC]]
+* 2012–2015 [[Mercedes-Benz GLK-Class|X204 GLK 350 4MATIC BlueEfficiency]]
+* 2013–2015 [[Mercedes-Benz GLK-Class|X204 GLK 350]]
+* 2012–2014 [[Mercedes-Benz R-Class|W251 R 350 4MATIC BlueEfficiency]]
+* 2013–2017 [[Mercedes-Benz S-Class (W222)|W222 S 400 HYBRID]]
+* 2011–2015 [[Mercedes-Benz SLK-Class (R172)|R172 SLK 350 BlueEFFICIENCY]]
+
+{{anchor|DE 30 LA|DE30LA}}
+
+==DE30 LA==
+With a reduced bore and stroke at {{convert|88 x 82.1|mm|2|abbr=on}} and reduced compression ratio at 10.7:1, '''DE 30 LA''' is turbocharged with twin [[IHI Corporation|IHI]] turbochargers for {{convert|245|kW|hp PS|0|abbr=on}} at 5,250–6,000rpm and {{convert|480|Nm|lbft|0|abbr=on}} of torque at 1,600–4,000rpm and weighs in at 179.2&nbsp;kg DIN.<ref>{{Cite web|url=https://www.germanboost.com/showthread.php?44145-Best-Mercedes-tuning-value-A-preview-of-the-330-horsepower-Mercedes-M276-DELA-30-Twin-Turbo-3-0-liter-V6-going-into-the-W205-C205-C400|title=Best Mercedes tuning value|website=germanboost.com}} {{dead link|date=December 2023}}</ref> This engine was introduced on 2013 C400(W205), and used for E400 Coupe 4Matic, ML(GLE)400 4Matic, E450 4Matic, CLS450, S450, S500e and other models.
+
+For 2015–2016, a higher output version is also offered with {{convert|362|hp|kW PS|0|abbr=on}} and {{convert|384|lbft|Nm|0|abbr=on}} on higher boost and 10.5:1 compression ratio for C450 AMG and GLE450 AMG. This engine powers 2017–on AMG SLC43, AMG C43 and AMG GLE43,<ref>{{cite web|author=Sichao Chen |url=http://youwheel.com/home/2016/01/15/the-demise-of-amg-sport-2017-mercedes-amg-slc43/ |title=The Demise of AMG Sport: 2017 Mercedes-AMG SLC43 &#124; YouWheel - Your Car Expert |publisher=YouWheel |date=2016-01-15 |accessdate=2022-05-17}}</ref> as well as 2018–2020 E450 4Matic,<ref>{{cite web | url=https://www.ultimatespecs.com/car-specs/Mercedes-Benz/114199/Mercedes-Benz-E-Class-Estate-(W213)-450-4MATIC.html | title=Mercedes Benz e Class Estate (W213) 450 4MATIC Technical Specs, Dimensions }}</ref> S560e<ref>{{cite web| url = https://www.autocar.co.uk/car-review/mercedes-benz/s-class/first-drives/mercedes-benz-s-class-s560e-2018-review| title = Mercedes-Benz S-Class S560 e plug-in hybrid 2018 review {{!}} Autocar}}</ref> and other models.
+
+For 2018–2021, another higher output version is offered with {{convert|385|hp|kW PS|0|abbr=on}} and {{convert|384|lbft|Nm|0|abbr=on}} on higher boost.
+
+=== Applications ===
+* 2013–2014 [[Mercedes-Benz E-Class (W212)|W212 E 400/E 400 4MATIC]]
+* 2013–2017 [[Mercedes-Benz E-Class (C207)|C207 E 400]]
+* 2014–2020 [[Mercedes-Benz S-Class (W222)|W222 S 400 & S 320 (China)]]
+* 2014–2019 [[Mercedes-Benz GL-Class (X166)|X166 GL 400 / GLS 450]]
+* 2014–2017 [[Mercedes-Benz CLS-Class (C218)|C218 CLS 400]]
+* 2014–2017 [[Mercedes-Benz S-Class (W222)|W222 S 500 PLUG–IN HYBRID]]
+* 2014–2015 [[Mercedes-Benz CLS-Class (W218)|W218 CLS 400/CLS 400 4MATIC]]
+* 2015–2019 [[Mercedes-Benz M-Class|W166 AMG GLE 43 4MATIC]]
+* 2015–2021 [[Mercedes-Benz C-Class (W205)|W205 C 400 4MATIC]]
+* 2015–2022 [[Mercedes-Benz GLC-Class|X253 AMG GLC 43 4MATIC]]
+* 2015–2017 [[Mercedes-Benz C-Class (W205)|W205 C 450 AMG 4MATIC]]
+* 2015–2017 [[Mercedes-Benz M-Class|W166 ML 400 / GLE 400 4MATIC]]
+* 2016–2023 [[BAIC BJ90]] (an SUV from Chinese brand BAIC based on the second generation Mercedes-Benz GL-Class)
+* 2016–2017 [[Mercedes-Benz M-Class|W166 GLE 450 AMG 4MATIC]]
+* 2016–2018 [[Mercedes-Benz M-Class|W166 GLE 500 e / GLE 550 e (US) 4MATIC]]
+* 2016–2021 [[Mercedes-Benz C-Class (W205)|W205 AMG C 43 4MATIC]]
+* 2016–2018 [[Mercedes-Benz E-Class (W213)|W213 E 400 4MATIC]]
+* 2016–2018 [[Mercedes-Benz E-Class (W213)|W213 AMG E 43 4MATIC]]
+* 2018–2020 [[Mercedes-Benz S-Class (W222)|W222 S 580 e]]
+* 2019–2020 [[Mercedes-Benz E-Class (W213)|W213 E 450 4MATIC]]
+* 2014-2020 [[Mercedes-Benz SL-Class (R231)|R231 SL 400]]
+* 2017-2020 [[Mercedes-Benz SL-Class (R231)|R231 SL 450]]
+* 2016–2018 [[Mercedes-Benz SLC-Class (R172)|R172 AMG SLC 43]] (362hp version)
+* 2019–2020 [[Mercedes-Benz SLC-Class (R172)|R172 AMG SLC 43]] (385hp version)
+{{anchor|DE 35 LA|DE35LA}}
+
+==DE35 LA==
+The same bore and stroke of the normally aspirated DE 35 ({{convert|92.9 x 86|mm|2|abbr=on}}) are used for this turbocharged version, with a lower boost level than the DE 30 LA on the same twin turbocharged format using a different model IHI turbocharger. While the power and torque remained the same, this larger displacement lower boost model yields a lower fuel consumption than the M276 DE 30 LA.<ref name=DELA35 />
+Sometimes called '''DE 35 LA''', this engine was offered on S400, CLS400, E400 4Matic (up to 2018) and Maybach S400 4Matic models up to 2017.
+
+=== Applications ===
+* 2015–2017 [[Mercedes-Benz S-Class (W222)|W222 S 400 4MATIC]]
+* 2015–2016 [[Mercedes-Benz E-Class (W212)|W212 E 400/E 400 4MATIC]]
+* 2015–2017 [[Mercedes-Benz CLS-Class (C218)|C218 CLS 400/CLS 400 4MATIC]]
+* 2017–2018 [[Mercedes-Benz E-Class (W213)|W213 E 400 4MATIC]]
+* 2015–2017 [[Mercedes-Benz S-Class (W222)|W222 Maybach S 400 4MATIC]]
+
+==References==
+{{reflist}}
+
+[[Category:Mercedes-Benz engines|M276]]
+[[Category:V6 engines]]
+[[Category:Gasoline engines by model]]

@@ -1324,7 +1324,17 @@ window.CarWeb = (function () {
       }
       // The scan. An engine that arrived as a mention has no article read yet,
       // which is exactly the state this button exists for.
-      if (n.type === "engine") {
+      // Real user request: "The 'Request Scan' button should once again be the
+      // only button that allows the user to do a scan of an existing entry,
+      // including for engines. Therefore, the web user should not have access
+      // to 'read this engine's article' or 'Merge another engine in'. This
+      // should only be available within serve.py."
+      //
+      // They were the only LLM controls in this file not gated this way, so on
+      // the hosted site they offered work that had nowhere to run and nothing
+      // to save to. Reading an engine's article from the web goes through the
+      // request queue now, same as a car.
+      if (n.type === "engine" && LFam.serverAvailable) {
         const wrap = document.createElement("div");
         wrap.className = "llm-actions";
         const btn = document.createElement("button");
@@ -1359,6 +1369,14 @@ window.CarWeb = (function () {
         note.textContent = unread
           ? "Named by a car that was checked. Nothing has read its own article yet — "
             + "doing that finds its variants and every car it went into."
+          : "Read on " + String((entry && entry.checkedAt) || "").slice(0, 10) + ".";
+        box.appendChild(note);
+      } else if (n.type === "engine") {
+        const note = document.createElement("div");
+        note.className = "llmdebug-note dt-power-note";
+        note.textContent = isEngineUnread(n)
+          ? "Named by a car that was checked. Nothing has read its own article yet — "
+            + "use ⚡ Request scan to have the machine read it."
           : "Read on " + String((entry && entry.checkedAt) || "").slice(0, 10) + ".";
         box.appendChild(note);
       }
@@ -5203,13 +5221,19 @@ window.CarWeb = (function () {
     // isEligibleForRecheck without duplicating their finer rules: the Worker
     // takes the id, and the agent re-checks eligibility against the real
     // graph when it runs.
-    const scannable = n => !!n && !n.retired && (n.type === "model" || n.type === "family");
+    // Engines included, per "including for engines": the agent knows how to
+    // read an engine's article (see scripts/llm_agent.py), and this is now the
+    // only way to ask for one from the web.
+    const scannable = n => !!n && !n.retired &&
+      (n.type === "model" || n.type === "family" || n.type === "engine");
+    const kindOf = n => n && n.type === "family" ? "nameplate"
+                      : n && n.type === "engine" ? "engine" : "model";
 
     function setChosen(n) {
       chosen = scannable(n) ? n : null;
       if (chosen) {
         chosenEl.hidden = false;
-        chosenEl.innerHTML = `<span class="k">${chosen.type === "family" ? "nameplate" : "model"}</span>` +
+        chosenEl.innerHTML = `<span class="k">${kindOf(chosen)}</span>` +
           `<span>${esc(carName(chosen))}</span><button title="clear">✕</button>`;
         chosenEl.querySelector("button").onclick = () => { setChosen(null); carEl.focus(); };
         carEl.value = "";
@@ -5228,7 +5252,7 @@ window.CarWeb = (function () {
       hits.forEach(n => {
         const b = document.createElement("button");
         b.className = "lrq-result";
-        b.innerHTML = `<span class="t">${n.type === "family" ? "nameplate" : "model"}</span>` +
+        b.innerHTML = `<span class="t">${kindOf(n)}</span>` +
           `<span>${esc(carName(n))}</span><span class="y">${n.year || ""}</span>`;
         b.onclick = () => setChosen(n);
         resultsEl.appendChild(b);
@@ -5239,7 +5263,8 @@ window.CarWeb = (function () {
     function refreshSendState() {
       const queued = !!(lastStatus && (lastStatus.queue || []).some(j => j.targetId === (chosen && chosen.id)));
       sendBtn.disabled = !chosen || queued;
-      sendBtn.textContent = !chosen ? "Pick a car first" : (queued ? "Already requested" : "Send request");
+      sendBtn.textContent = !chosen ? "Pick a car or engine first"
+                          : (queued ? "Already requested" : "Send request");
     }
 
     let lastStatus = null;

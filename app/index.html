@@ -151,15 +151,26 @@
        here changes what the Graph, Timeline or Six Degrees tabs show. See
        powertrain.js. -->
   <section id="view-power" class="view">
-    <div id="pt-bar">
-      <span id="pt-counts" class="pt-counts"></span>
-      <span class="pt-key">
-        <b class="pt-dot pt-eng"></b> engine
-        <b class="pt-dot pt-var"></b> variant
-        <b class="pt-dot pt-car"></b> car
-      </span>
-    </div>
     <canvas id="ptcanvas"></canvas>
+    <!-- Real user request: "The Powertrain tab should function exactly the
+         same, have the same UI queues, and everything as the Graph Tab.
+         Currently it doesnt, and makes it look inconsistent with the style."
+         So this is the Graph view's own furniture, reusing its classes rather
+         than a parallel set: the same legend pill (.legend-style), the same
+         hint line, the same zoom control, the same hover card. -->
+    <div id="pt-legend" class="legend-style">
+      <span class="lg"><i class="sw sw-pt-eng"></i>engine</span>
+      <span class="lg"><i class="sw sw-pt-var"></i>variant</span>
+      <span class="lg"><i class="sw sw-pt-car"></i>car / generation</span>
+      <span class="lg"><i class="sw sw-pt-fitted"></i>fitted to</span>
+      <span class="lg"><span id="pt-counts" class="pt-counts"></span></span>
+    </div>
+    <div id="pt-hint">click&nbsp;·&nbsp;open its card&ensp;/&ensp;drag&nbsp;·&nbsp;pan&ensp;/&ensp;scroll&nbsp;·&nbsp;zoom&ensp;/&ensp;esc&nbsp;·&nbsp;close</div>
+    <div id="ptzoom-wrap" title="zoom">
+      <button id="ptzoom-out" title="zoom out">–</button>
+      <input type="range" id="ptzoom" min="0" max="100" value="0" step="1" aria-label="zoom">
+      <button id="ptzoom-in" title="zoom in">+</button>
+    </div>
   </section>
 
   <!-- detail panel -- lives inside <main> (not the page body) so its

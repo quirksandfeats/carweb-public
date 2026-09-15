@@ -703,6 +703,19 @@ class Handler(http.server.SimpleHTTPRequestHandler):
     def log_message(self, fmt, *args):
         sys.stderr.write("%s - %s\n" % (self.address_string(), fmt % args))
 
+    def end_headers(self):
+        # SimpleHTTPRequestHandler sends Last-Modified and no Cache-Control at
+        # all, which lets a browser cache app.js, styles.css and data.js
+        # heuristically -- for however long it feels like. Real user report:
+        # "for some reason the serve.py webview doesn't display anything, but
+        # only the actual online web-hosted page does." The hosted build is
+        # served by a Worker that sets its own headers; this one was handing
+        # back yesterday's files, so a fix could be live on the public site
+        # and invisible on the machine it was written on. This is a local
+        # development server -- it should never be the stale one.
+        self.send_header("Cache-Control", "no-store, must-revalidate")
+        super().end_headers()
+
     def _json(self, status, payload):
         # Real bug report: a slow/failed llama-server call (this is most
         # often hit by the /api/llm/chat 502 path below) can take long

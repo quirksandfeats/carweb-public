@@ -7751,15 +7751,21 @@ Rules:
     line = line.replace(/<ref[^>]*\/?>[\s\S]*?<\/ref>|<ref[^>]*\/>/gi, "")
                .replace(/\{\{\s*(?:citation needed|cn)[^{}]*\}\}/gi, "")
                .replace(/\[\[\s*(?:File|Image)\s*:[^\]]*\]\]/gi, "");
-    const link = line.match(/\[\[([^\]|#]+)(?:#[^\]|]*)?(?:\|([^\]]*))?\]\]/);
+    const link = line.match(/\[\[([^\]|#]+)(?:#([^\]|]*))?(?:\|([^\]]*))?\]\]/);
     if (!link) return null;
     const target = link[1].trim();
-    const display = (link[2] || link[1]).trim();
+    // The M276 links to the GLE-Class umbrella article and points at the
+    // SECTION for the generation it means: "[[Mercedes-Benz GLE-Class#Third
+    // generation (W166; 2012-2018)|W166 GLE 350]]". Thrown away before this,
+    // which is a chassis code lost for nothing.
+    const anchor = (link[2] || "").trim();
+    const display = (link[3] || link[1]).trim();
     if (!target || /^(?:File|Image|Category)\s*:/i.test(target)) return null;
     const ys = APP_YEARS_RE.exec(line);
     const note = (line.match(/\(([^()]*only[^()]*)\)/i) || [])[1] || null;
     return {
       target,
+      anchor: anchor || null,
       display: display.replace(/\s+/g, " ").trim(),
       // BMW keeps the trim OUTSIDE the link ("[[...|F10/F11/F07]] 535i"), so
       // the whole line's plain text is kept too: it is what says which car,
@@ -7791,15 +7797,57 @@ Rules:
 
   // The engine's own variants, as sections. `name` is its short name ("M256",
   // "N55") -- a heading has to carry it to count.
+  // Which headings in an engine article name a VARIANT.
+  //
+  // This used to require the heading to start with the engine's own code,
+  // because the M256's do: "=== M256 E30 DEH LA GR ===". Real user report:
+  // "In some cases, multiple engine variants of the same engine exist within
+  // the wikipedia page. Example: .../Mercedes-Benz_M276_engine." That article
+  // names its three variants "==DE35==", "==DE30 LA==" and "==DE35 LA==" --
+  // level 2, and the engine code appears nowhere in them -- so every one was
+  // skipped and the engine reported as having none.
+  //
+  // So the test is the SHAPE of a designation rather than a prefix: all-caps
+  // tokens carrying a number, and short. Checked against the real articles in
+  // qa/wiki_cache: it takes M276's DE35 / DE30 LA / DE35 LA, M256's four
+  // "M256 E.. DEH LA .." headings and the N55's N55B30M0 / N55HP / N55B30T0,
+  // and leaves alone "Applications", "Models", "Design", "References",
+  // "Alpina", "272 kW version" and the N55 article's "S55 engine" -- which is
+  // a different engine sharing the page, not a variant of this one.
+  const ENGINE_HEAD_STOP = new Set(["applications", "models", "versions", "variants",
+    "references", "notes", "see also", "external links", "design", "history",
+    "specifications", "overview", "gallery", "engines"]);
+  const VARIANT_CODE_RE = /^[A-Z][A-Z0-9]*(?:[ ./+-][A-Z0-9]+)*$/;
+  function looksLikeVariantHeading(title) {
+    const t = String(title || "").replace(/\s+/g, " ").trim();
+    if (!t || t.length > 44) return false;
+    if (ENGINE_HEAD_STOP.has(norm(t))) return false;
+    if (/[()]/.test(t)) return false;        // "Third generation (W166; 2011)" is not a designation
+    if (!/\d/.test(t)) return false;         // every real one carries a number
+    return VARIANT_CODE_RE.test(t);
+  }
   function engineVariants(wikitext, name) {
     const key = norm(name || "");
     const secs = wikitextSections(wikitext);
-    const out = [];
-    for (const sec of secs) {
+    const hits = secs.filter(sec => {
       const t = norm(sec.title);
-      if (!key || !t.startsWith(key) || t === key) continue;
-      out.push({ code: sec.title.replace(/\s+/g, " ").trim(),
-                 applications: engineApplications(sec.body) });
+      if (looksLikeVariantHeading(sec.title)) return true;
+      return !!key && t.startsWith(key) && t !== key;
+    });
+    // A matched section that CONTAINS another matched section is that one's
+    // parent, not a variant of its own -- counting both would attach the
+    // inner section's applications twice, once at each level.
+    const inner = hits.filter(a => hits.some(b => b !== a && b.at > a.at && b.at < a.stop));
+    const out = [];
+    for (const sec of hits) {
+      if (inner.indexOf(sec) >= 0) continue;
+      const title = sec.title.replace(/\s+/g, " ").trim();
+      // "DE35" on its own says nothing about which engine; the article's own
+      // prose calls it "the M276 DE 35". Prefixed so the variant reads as
+      // what it is, here and in a merge.
+      const code = (key && !norm(title).startsWith(key) && name)
+        ? (name + " " + title) : title;
+      out.push({ code, applications: engineApplications(sec.body) });
     }
     return out;
   }
@@ -7873,17 +7921,50 @@ Rules:
   // Resolve one application entry to a car already in the graph. Returns the
   // node, or null if nothing matches -- minting is the caller's business,
   // since only it knows whether this engine is allowed to create cars.
+  // Chassis codes as Wikipedia writes them: W213, C207, X167, R172, A207,
+  // V167, BJ90. Two or three letters and three digits, or the reverse.
+  const CHASSIS_CODE_RE = /\b(?:[A-Z]{1,3}\d{3}[A-Z]?|\d{3}[A-Z]{1,3})\b/g;
+  function chassisCodesIn(text) {
+    const out = [];
+    const src = String(text || "");
+    let m;
+    CHASSIS_CODE_RE.lastIndex = 0;
+    while ((m = CHASSIS_CODE_RE.exec(src))) { if (out.indexOf(m[0]) < 0) out.push(m[0]); }
+    return out;
+  }
+  // Standing user rule: "Always prioritize showing only the generations
+  // instead of the full model if possible." An application can land on a
+  // nameplate and still say which generation it means -- the M276 names
+  // sixteen cars that way, "[[Mercedes-Benz M-Class|W166 AMG GLE 43 4MATIC]]"
+  // and "[[Mercedes-Benz GLE-Class#Third generation (W166; 2012-2018)|...]]"
+  // -- so the code stated in the link text or its section anchor is used to
+  // step down one level rather than hanging the engine off the whole
+  // nameplate. planEngineEdgesWith's own per-nameplate rule cannot do this:
+  // it can only prefer a generation among nodes something already resolved to.
+  function stepDownToGeneration(fam, app, byId) {
+    if (!fam || fam.type !== "family") return null;
+    const gens = (fam.generations || []).map(id => byId.get(id)).filter(g => g && !g.retired);
+    if (!gens.length) return null;
+    const codes = chassisCodesIn(app && app.anchor).concat(chassisCodesIn(app && app.display));
+    for (const c of codes) {
+      const k = norm(c);
+      const hit = gens.find(g => norm(g.label).indexOf(k) >= 0);
+      if (hit) return hit;
+    }
+    return null;
+  }
   function carForApplication(app, byId, byWp, resolvedTitle) {
     const wp = resolvedTitle || app.target;
     const hit = byWp.get(norm(wp));
-    if (hit) return hit;
+    if (hit) return stepDownToGeneration(hit, app, byId) || hit;
     // The display text is the only place the car's name exists when the link
     // points at a company (the M256's Austro-Daimler Bergmeister). Try it as
     // "<make> <model>" against what is already here before giving up.
     const spaced = String(app.display || "").replace(/\s+/g, " ").trim();
     if (!spaced) return null;
     const byLabel = byWp.get(norm(spaced));
-    return byLabel || null;
+    if (byLabel) return stepDownToGeneration(byLabel, app, byId) || byLabel;
+    return null;
   }
 
   // The whole set of edges one engine should have, with the generation rule
@@ -8774,7 +8855,7 @@ Rules:
       // Headings carry anchors and italics: "<span class="anchor" id="A4">
       // </span>Fourth generation (Mk4/A4, ''Typ'' 1J; 1997)".
       const title = h.raw.replace(/<[^>]*>/g, "").replace(/'{2,}/g, "").trim();
-      out.push({ title, level: h.level, body: wikitext.slice(h.end, stop) });
+      out.push({ title, level: h.level, body: wikitext.slice(h.end, stop), at: h.at, stop });
     });
     return out;
   }
@@ -9569,7 +9650,7 @@ Rules:
     wikitextSections, hatnoteArticle, proseArticle, sectionForCode,
     isEngineArticle, engineInfobox, engineVariants, engineApplications,
     parseApplicationLine, readEngineArticle,
-    engineIdFor, engineVariantIdFor, nameplateOfCar, planEngineEdges,
+    engineIdFor, engineVariantIdFor, nameplateOfCar, planEngineEdges, planEngineEdgesWith,
     engineNodeFrom, applyEngineArticle, applyEngineArticleWith,
     carNameFromApplication, resolveApplicationTitles,
     checkEngine, applyEngines, engineEntryFor, allEngineEntries, deleteEngineEntry,

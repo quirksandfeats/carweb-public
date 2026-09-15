@@ -205,15 +205,59 @@ window.CarWebPower = (function () {
     return best;
   }
 
+  // The Graph view's own controls, not a parallel set of them. Real user
+  // request: "The Powertrain tab should function exactly the same, have the
+  // same UI queues, and everything as the Graph Tab. Currently it doesnt, and
+  // makes it look inconsistent with the style." So: the same hover card, the
+  // same zoom slider behaviour (log scale, same limits, same +/- step), the
+  // same grab cursor, the same Esc.
+  const K_MIN = 0.15, K_MAX = 6;
+  let zoom = null, sliderEl = null;
+  function kToSliderVal(k) { return Math.round(100 * Math.log(k / K_MIN) / Math.log(K_MAX / K_MIN)); }
+  function sliderValToK(v) { return K_MIN * Math.pow(K_MAX / K_MIN, v / 100); }
+  function syncSlider() {
+    if (!sliderEl) return;
+    const v = String(kToSliderVal(t.k));
+    if (sliderEl.value !== v) sliderEl.value = v;
+  }
+  function zoomTo(k, animMs) {
+    if (!zoom) return;
+    k = Math.max(K_MIN, Math.min(K_MAX, k));
+    const sel = d3.select(canvas);
+    if (animMs) sel.transition().duration(animMs).call(zoom.scaleTo, k, [W / 2, H / 2]);
+    else sel.call(zoom.scaleTo, k, [W / 2, H / 2]);
+  }
+
   function wire() {
-    const zoom = d3.zoom().scaleExtent([0.15, 6]).on("zoom", ev => { t = ev.transform; schedule(); });
+    zoom = d3.zoom().scaleExtent([K_MIN, K_MAX])
+      .on("zoom", ev => { t = ev.transform; syncSlider(); schedule(); });
     d3.select(canvas).call(zoom);
+    sliderEl = document.getElementById("ptzoom");
+    if (sliderEl) sliderEl.addEventListener("input", () => zoomTo(sliderValToK(+sliderEl.value)));
+    const inBtn = document.getElementById("ptzoom-in"), outBtn = document.getElementById("ptzoom-out");
+    if (inBtn) inBtn.onclick = () => zoomTo(t.k * 1.5, 200);
+    if (outBtn) outBtn.onclick = () => zoomTo(t.k / 1.5, 200);
     canvas.addEventListener("mousemove", ev => {
       const r = canvas.getBoundingClientRect();
       const n = at(ev.clientX - r.left, ev.clientY - r.top);
-      if (n !== hoverN) { hoverN = n; canvas.style.cursor = n ? "pointer" : "default"; schedule(); }
+      if (n !== hoverN) {
+        hoverN = n;
+        canvas.style.cursor = n ? "pointer" : "";
+        schedule();
+      }
+      // Re-positioned on every move while over a node, exactly as the Graph
+      // view does it, so the card tracks the pointer instead of sticking
+      // where it first appeared.
+      const cw = CW();
+      if (n && cw && cw.showHover) cw.showHover(n, ev.clientX, ev.clientY);
+      else if (cw && cw.hideHover) cw.hideHover();
     });
-    canvas.addEventListener("mouseleave", () => { hoverN = null; schedule(); });
+    canvas.addEventListener("mouseleave", () => {
+      hoverN = null;
+      const cw = CW();
+      if (cw && cw.hideHover) cw.hideHover();
+      schedule();
+    });
     canvas.addEventListener("click", ev => {
       const r = canvas.getBoundingClientRect();
       const n = at(ev.clientX - r.left, ev.clientY - r.top);
@@ -221,7 +265,15 @@ window.CarWebPower = (function () {
       if (n) CW().openDetail(n);
       schedule();
     });
-    window.addEventListener("resize", () => { if (canvas.offsetParent) { resize(); draw(); } });
+    window.addEventListener("keydown", ev => {
+      if (ev.key !== "Escape" || !canvas.offsetParent) return;
+      selected = null; hoverN = null;
+      const cw = CW();
+      if (cw && cw.hideHover) cw.hideHover();
+      if (cw && cw.closeDetail) cw.closeDetail();
+      schedule();
+    });
+    window.addEventListener("resize", () => { if (canvas.offsetParent) { resize(); fit(); draw(); } });
   }
 
   return {
@@ -233,14 +285,21 @@ window.CarWebPower = (function () {
     },
     // Called whenever this layer gains something, so the view is never stale
     // behind a scan that happened while another tab was open.
-    invalidate() { built = false; if (canvas && canvas.offsetParent) { build(); fit(); draw(); } },
+    invalidate() { built = false; if (canvas && canvas.offsetParent) { build(); fit(); syncSlider(); draw(); } },
     activate() {
       if (!canvas) return;
       resize();
       build();
       fit();
+      syncSlider();
       draw();
     },
+    // Where this view has actually laid its nodes out, and the camera looking
+    // at them. Exposed for the regression suite, which has to be able to aim
+    // a real pointer event at a real node -- the same reason app.js exposes
+    // ringOf.
+    positions() { return simNodes.map(p => ({ id: p.id, x: p.x, y: p.y })); },
+    transform() { return t; },
     counts() {
       const got = collect();
       return {

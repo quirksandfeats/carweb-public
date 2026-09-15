@@ -109,8 +109,8 @@ body{
 main{flex:1; position:relative; min-height:0}
 .view{position:absolute; inset:0; visibility:hidden}
 .view.active{visibility:visible}
-#graphcanvas,#sdcanvas{position:absolute; inset:0; width:100%; height:100%; display:block; cursor:grab}
-#graphcanvas:active{cursor:grabbing}
+#graphcanvas,#sdcanvas,#ptcanvas{position:absolute; inset:0; width:100%; height:100%; display:block; cursor:grab}
+#graphcanvas:active,#ptcanvas:active{cursor:grabbing}
 
 #legend,.legend-style{
   position:absolute; left:22px; top:16px; display:flex; gap:16px; align-items:center;
@@ -141,7 +141,7 @@ main{flex:1; position:relative; min-height:0}
 .sw-db{background:var(--accent); border:2.5px solid var(--db-gold); width:9px; height:9px}
 .sw-garage{background:transparent; border:2px dashed var(--ink)}
 
-#graphhint{
+#graphhint,#pt-hint{
   position:absolute; bottom:14px; left:50%; transform:translateX(-50%);
   font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); white-space:nowrap;
 }
@@ -160,19 +160,19 @@ main{flex:1; position:relative; min-height:0}
    Graph-view overlay: #legend/search live top-left, #graphhint is bottom-
    CENTER, #clearfocus is top-right, #detail is right-anchored) keeps it
    reachable regardless of what's open. ---------- */
-#zoomslider-wrap{
+#zoomslider-wrap,#ptzoom-wrap{
   position:absolute; left:22px; bottom:20px; z-index:5;
   display:flex; flex-direction:row; align-items:center; gap:8px;
   background:var(--card); border:1px solid var(--hairline); border-radius:999px;
   padding:0 12px; height:38px; box-shadow:0 2px 10px rgba(0,0,0,.08);
 }
-#zoomslider-wrap button{
+#zoomslider-wrap button,#ptzoom-wrap button{
   width:26px; height:26px; border-radius:50%; border:1px solid var(--hairline);
   background:var(--paper); color:var(--ink); font-size:15px; line-height:1; font-family:var(--sans);
   cursor:pointer; display:flex; align-items:center; justify-content:center; flex:none;
 }
-#zoomslider-wrap button:hover{background:var(--hover, var(--hairline))}
-#zoomslider{
+#zoomslider-wrap button:hover,#ptzoom-wrap button:hover{background:var(--hover, var(--hairline))}
+#zoomslider,#ptzoom{
   width:140px; height:18px; margin:0; cursor:pointer; accent-color:var(--ink); flex:none;
 }
 
@@ -1019,7 +1019,7 @@ main{flex:1; position:relative; min-height:0}
      since it is clear that the user can do so themselves with their fingers."
      Pinch already does everything it did, and it was sitting exactly where the
      search box and the legend button now go. */
-  #zoomslider-wrap{display:none}
+  #zoomslider-wrap,#ptzoom-wrap{display:none}
 
   /* Real user report: "the title card seems to take up way too much space,
      almost 50% of all screen real-estate. I want that it's taking even less
@@ -1092,28 +1092,13 @@ main{flex:1; position:relative; min-height:0}
    into a band nobody could see: the tab reported "47 engines - 25 cars - 110
    fitted" over a blank page. Keep it absolute so the canvas fills the view. */
 #view-power{position:absolute; inset:0}
-#ptcanvas{position:absolute; inset:0; width:100%; height:100%; display:block}
-#pt-bar{
-  position:absolute; top:14px; left:22px; right:22px; z-index:20;
-  display:flex; align-items:center; gap:16px; flex-wrap:wrap;
-  font-family:var(--sans); font-size:11.5px; color:var(--ink2); pointer-events:none;
-}
-.pt-counts{font-weight:600; color:var(--ink)}
-/* The car card's engine list, folded away by default off the Powertrain tab
-   -- a car with a dozen engines pushed the rest of the card off the bottom. */
-.dt-power-fold > summary{
-  cursor:pointer; font-family:var(--sans); font-size:10.5px; letter-spacing:.06em;
-  text-transform:uppercase; color:var(--muted); margin:10px 0 4px; list-style:none;
-}
-.dt-power-fold > summary::-webkit-details-marker{display:none}
-.dt-power-fold > summary::after{content:" ▸"; color:var(--hairline)}
-.dt-power-fold[open] > summary::after{content:" ▾"}
-.dt-power-fold > summary:hover{color:var(--ink)}
-.pt-key{display:flex; align-items:center; gap:10px; color:var(--muted)}
-.pt-dot{width:9px; height:9px; border-radius:50%; display:inline-block; margin-right:3px; vertical-align:-1px}
-.pt-eng{background:var(--accent)}
-.pt-var{background:var(--accent2)}
-.pt-car{background:transparent; border:1.2px solid var(--ink)}
+#pt-legend{z-index:20}
+#pt-legend[hidden]{display:none}
+.pt-counts{font-weight:600; color:var(--ink); font-variant-numeric:tabular-nums}
+.sw-pt-eng{background:var(--accent)}
+.sw-pt-var{background:var(--accent2)}
+.sw-pt-car{background:transparent; border:2px solid var(--ink)}
+.sw-pt-fitted{width:22px; height:0; border-top:1.6px dashed var(--hairline); border-radius:0}
 @media (max-width:760px){
   #pt-bar{top:8px; left:10px; right:10px; gap:10px; font-size:11px}
   .pt-key{gap:8px}

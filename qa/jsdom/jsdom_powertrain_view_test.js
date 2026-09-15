@@ -148,5 +148,57 @@ const applied = LF.applyEngineArticleWith(article, "Mercedes-Benz M256 engine",
         shared.every(n => DATA.nodes.indexOf(n) >= 0));
 }
 
+// ---------- 6. it looks and behaves like the Graph tab ----------
+// Real user request: "The Powertrain tab should function exactly the same,
+// have the same UI queues, and everything as the Graph Tab. Currently it
+// doesnt, and makes it look inconsistent with the style." It had a bespoke
+// bar, no hover card, no zoom control and no hint line -- so this checks it
+// reuses the Graph view's own furniture rather than a parallel copy of it.
+{
+  const doc = window.document;
+  const css = fs.readFileSync(path.join(APP, "styles.css"), "utf-8");
+
+  const legend = doc.getElementById("pt-legend");
+  check("the counts and key sit in the Graph view's own legend pill",
+        !!legend && legend.classList.contains("legend-style"),
+        legend && legend.className);
+  check("...with a swatch per thing on screen, as the Graph legend has",
+        legend && legend.querySelectorAll(".lg .sw").length >= 4,
+        legend && legend.querySelectorAll(".lg .sw").length);
+  check("the hint line is styled by the same rule as the Graph's",
+        /#graphhint,#pt-hint\{/.test(css) && !!doc.getElementById("pt-hint"));
+  check("the canvas is styled by the same rule as the Graph's",
+        /#graphcanvas,#sdcanvas,#ptcanvas\{/.test(css));
+  check("the zoom control is the Graph's, markup and CSS",
+        !!doc.getElementById("ptzoom") && !!doc.getElementById("ptzoom-in") &&
+        !!doc.getElementById("ptzoom-out") && /#zoomslider-wrap,#ptzoom-wrap\{/.test(css));
+  check("...and it is hidden on a phone, exactly as the Graph's is",
+        /#zoomslider-wrap,#ptzoom-wrap\{display:none\}/.test(
+          css.slice(css.indexOf("@media (max-width:720px)"))));
+
+  // The hover card. Aimed at a real node through the view's own layout, so
+  // this is the same code path a pointer takes, not a call to showHover.
+  cw.switchView("power");
+  PT.activate();
+  const eng = DATA.nodes.find(n => n.type === "engine");
+  const pos = PT.positions().find(p => p.id === eng.id);
+  const t = PT.transform();
+  const at = t.apply([pos.x, pos.y]);
+  const canvas = doc.getElementById("ptcanvas");
+  const hc = doc.getElementById("hovercard");
+  check("(precondition) the engine is laid out in this view", !!pos, pos && JSON.stringify(pos));
+  canvas.dispatchEvent(new window.MouseEvent("mousemove", {
+    clientX: at[0], clientY: at[1], bubbles: true }));
+  check("hovering an engine raises the same hover card the Graph uses",
+        hc.hidden === false && hc.querySelector(".hc-title").textContent === eng.label,
+        hc.hidden + " / " + hc.querySelector(".hc-title").textContent);
+  check("...with the same kicker the Graph would show",
+        hc.querySelector(".hc-kicker").textContent === cw.nodeKicker(eng),
+        hc.querySelector(".hc-kicker").textContent);
+  canvas.dispatchEvent(new window.MouseEvent("mouseleave", { bubbles: true }));
+  check("...and it goes away on the way out", hc.hidden === true);
+  cw.switchView("graph");
+}
+
 console.log("\n" + (fails === 0 ? "ALL GREEN" : fails + " FAILURE(S)"));
 process.exit(fails === 0 ? 0 : 1);

@@ -13936,44 +13936,6 @@
    },
    "cascadeDiscovered": true
   },
-  "llm-related-chrysler-pentastar-engine": {
-   "status": "none",
-   "checkedAt": "2026-09-15T21:23:29.679Z",
-   "sourceTitle": "Chrysler Pentastar engine",
-   "proposal": {
-    "hasMultipleGenerations": false,
-    "generations": [
-     {
-      "code": "Pentastar",
-      "yearStart": 2010,
-      "yearEnd": null,
-      "designers": [],
-      "engineers": [],
-      "wikiFile": "Jeep Wrangler Unlimited Sport engine.jpg",
-      "sharedPlatforms": []
-     }
-    ]
-   },
-   "attempts": 1,
-   "feedback": [],
-   "debug": {
-    "raw": {
-     "hasMultipleGenerations": false,
-     "generations": [
-      {
-       "code": "Pentastar",
-       "yearStart": 2010,
-       "yearEnd": null,
-       "designers": [],
-       "engineers": [],
-       "sharedPlatforms": []
-      }
-     ]
-    },
-    "dropped": []
-   },
-   "cascadeDiscovered": true
-  },
   "m-mercedes-benz-gle": {
    "status": "confirmed",
    "checkedAt": "2026-09-15T21:24:43.493Z",
@@ -27579,12 +27541,96 @@
    "genIdB": "m-mercedes-benz-c-class-w206",
    "reason": "matched automatically (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
    "llmDiscovered": true
+  },
+  "m-mercedes-benz-c-class-w206|m-mercedes-benz-cle|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T21:43:08.504Z",
+   "decidedAt": "2026-09-15T21:43:08.504Z",
+   "famA": "m-mercedes-benz-cle",
+   "famB": "fam-mercedes-benz-c",
+   "relType": "platform",
+   "codeA": "CLE",
+   "codeB": "C-Class (W206)",
+   "genIdA": "m-mercedes-benz-cle",
+   "genIdB": "m-mercedes-benz-c-class-w206",
+   "reason": "matched automatically (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-mercedes-benz-cla-c117|m-mercedes-benz-r-class|platform": {
+   "status": "provisional",
+   "checkedAt": "2026-09-15T21:43:08.511Z",
+   "famA": "m-mercedes-benz-r-class",
+   "famB": "m-mercedes-benz-cla",
+   "relType": "platform",
+   "codeA": "R-Class",
+   "codeB": "CLA C117",
+   "genIdA": "m-mercedes-benz-r-class",
+   "genIdB": "llm-m-mercedes-benz-cla-c117",
+   "reason": "proposed by overlapping production years only, on top of a nameplate name that only matched as a substring -- please verify this is really the right car before accepting",
+   "llmDiscovered": true
+  },
+  "m-mercedes-benz-gl-class-x164|m-mercedes-benz-r-class|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T21:43:08.516Z",
+   "decidedAt": "2026-09-15T21:43:08.516Z",
+   "famA": "m-mercedes-benz-r-class",
+   "famB": "fam-mercedes-benz-gl",
+   "relType": "platform",
+   "codeA": "R-Class",
+   "codeB": "GL-Class (X164)",
+   "genIdA": "m-mercedes-benz-r-class",
+   "genIdB": "m-mercedes-benz-gl-class-x164",
+   "reason": "auto-approved in the background -- the local LLM sanity check confidently identified this as the same car as \"Mercedes-Benz GL-Class\" (confidence: high) -- The mention 'Mercedes-Benz GL-Class' refers to the SUV line that existed from 2006 to 2019. The candidate m-mercedes-benz-gl-class-x164 covers the exact same model name and the primary production era (2006–2012) associated with the original GL-Class generation before the name change to GLC in 2015. It is the only candidate that matches the specific 'GL-Class' nomenclature and era.",
+   "llmDiscovered": true,
+   "llmVerifiedDuplicate": true
+  },
+  "m-mercedes-benz-r-class|m-ssangyong-rodius|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T21:43:08.518Z",
+   "decidedAt": "2026-09-15T21:43:08.518Z",
+   "famA": "m-mercedes-benz-r-class",
+   "famB": "m-ssangyong-rodius",
+   "relType": "platform",
+   "codeA": "R-Class",
+   "codeB": "Rodius",
+   "genIdA": "m-mercedes-benz-r-class",
+   "genIdB": "m-ssangyong-rodius",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "m-mercedes-benz-c-class-w204|m-mercedes-benz-e-class-c207|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T21:43:08.519Z",
+   "decidedAt": "2026-09-15T21:43:08.519Z",
+   "famA": "m-mercedes-benz-e-class-c207",
+   "famB": "fam-mercedes-benz-c",
+   "relType": "platform",
+   "codeA": "E-Class (C207)",
+   "codeB": "C-Class (W204)",
+   "genIdA": "m-mercedes-benz-e-class-c207",
+   "genIdB": "m-mercedes-benz-c-class-w204",
+   "reason": "matched automatically (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "m-baic-bj90|m-mercedes-benz-gl-class-x166|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T21:43:08.522Z",
+   "decidedAt": "2026-09-15T21:43:08.522Z",
+   "famA": "m-baic-bj90",
+   "famB": "fam-mercedes-benz-gl",
+   "relType": "platform",
+   "codeA": "BJ90",
+   "codeB": "GL-Class (X166)",
+   "genIdA": "m-baic-bj90",
+   "genIdB": "m-mercedes-benz-gl-class-x166",
+   "reason": "matched automatically (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
   }
  },
  "recheck": {
   "m-mercedes-benz-g-class": {
    "status": "none",
-   "checkedAt": "2026-09-15T21:09:38.575Z",
+   "checkedAt": "2026-09-15T21:43:05.997Z",
    "sourceTitle": "Mercedes-Benz G-Class",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -27668,7 +27714,7 @@
   },
   "m-mercedes-benz-gla": {
    "status": "none",
-   "checkedAt": "2026-09-15T21:09:38.621Z",
+   "checkedAt": "2026-09-15T21:43:06.043Z",
    "sourceTitle": "Mercedes-Benz GLA",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -27771,7 +27817,7 @@
   },
   "m-mercedes-benz-cla": {
    "status": "none",
-   "checkedAt": "2026-09-15T21:09:38.655Z",
+   "checkedAt": "2026-09-15T21:43:06.080Z",
    "sourceTitle": "Mercedes-Benz CLA",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -28053,7 +28099,7 @@
   },
   "m-toyota-celica": {
    "status": "none",
-   "checkedAt": "2026-09-15T21:09:38.704Z",
+   "checkedAt": "2026-09-15T21:43:06.128Z",
    "sourceTitle": "Toyota Celica",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -28169,7 +28215,7 @@
   },
   "m-toyota-carina": {
    "status": "none",
-   "checkedAt": "2026-09-15T21:09:38.766Z",
+   "checkedAt": "2026-09-15T21:43:06.190Z",
    "sourceTitle": "Toyota Carina",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -28297,7 +28343,7 @@
   },
   "m-lexus-sc": {
    "status": "none",
-   "checkedAt": "2026-09-15T21:09:38.771Z",
+   "checkedAt": "2026-09-15T21:43:06.195Z",
    "sourceTitle": "Lexus SC",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -28946,7 +28992,7 @@
   },
   "m-seat-toledo": {
    "status": "none",
-   "checkedAt": "2026-09-15T21:09:38.834Z",
+   "checkedAt": "2026-09-15T21:43:06.259Z",
    "sourceTitle": "SEAT Toledo",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -29077,7 +29123,7 @@
   },
   "m-daren-mk-3": {
    "status": "none",
-   "checkedAt": "2026-09-15T21:09:38.847Z",
+   "checkedAt": "2026-09-15T21:43:06.272Z",
    "sourceTitle": "Daren Mk.3",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -29152,7 +29198,7 @@
   },
   "m-audi-a3-mk3": {
    "status": "none",
-   "checkedAt": "2026-09-15T21:09:38.863Z",
+   "checkedAt": "2026-09-15T21:43:06.289Z",
    "sourceTitle": "Audi A3",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -29208,7 +29254,7 @@
   },
   "m-audi-tt": {
    "status": "none",
-   "checkedAt": "2026-09-15T21:09:38.939Z",
+   "checkedAt": "2026-09-15T21:43:06.366Z",
    "sourceTitle": "Audi TT",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -29348,7 +29394,7 @@
   },
   "m-seat-leon-mk3": {
    "status": "none",
-   "checkedAt": "2026-09-15T21:09:38.989Z",
+   "checkedAt": "2026-09-15T21:43:06.415Z",
    "sourceTitle": "SEAT León",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -29462,7 +29508,7 @@
   },
   "m-volkswagen-karmann-ghia": {
    "status": "none",
-   "checkedAt": "2026-09-15T21:09:39.016Z",
+   "checkedAt": "2026-09-15T21:43:06.440Z",
    "sourceTitle": "Volkswagen Karmann Ghia",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -29512,7 +29558,7 @@
   },
   "m-porsche-panamera": {
    "status": "none",
-   "checkedAt": "2026-09-15T21:09:39.006Z",
+   "checkedAt": "2026-09-15T21:43:06.431Z",
    "sourceTitle": "Porsche Panamera",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -29578,7 +29624,7 @@
   },
   "m-subaru-forester": {
    "status": "none",
-   "checkedAt": "2026-09-15T21:09:39.051Z",
+   "checkedAt": "2026-09-15T21:43:06.475Z",
    "sourceTitle": "Subaru Forester",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -29687,7 +29733,7 @@
   },
   "m-volkswagen-touran": {
    "status": "none",
-   "checkedAt": "2026-09-15T21:09:39.068Z",
+   "checkedAt": "2026-09-15T21:43:06.492Z",
    "sourceTitle": "Volkswagen Touran",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -29737,7 +29783,7 @@
   },
   "m-chevrolet-captiva": {
    "status": "none",
-   "checkedAt": "2026-09-15T21:09:39.127Z",
+   "checkedAt": "2026-09-15T21:43:06.551Z",
    "sourceTitle": "Chevrolet Captiva",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -29842,7 +29888,7 @@
   },
   "m-isuzu-trooper": {
    "status": "none",
-   "checkedAt": "2026-09-15T21:09:39.174Z",
+   "checkedAt": "2026-09-15T21:43:06.597Z",
    "sourceTitle": "Isuzu Trooper",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -29938,7 +29984,7 @@
   },
   "m-volkswagen-tiguan": {
    "status": "none",
-   "checkedAt": "2026-09-15T21:09:39.232Z",
+   "checkedAt": "2026-09-15T21:43:06.654Z",
    "sourceTitle": "Volkswagen Tiguan",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -30051,7 +30097,7 @@
   },
   "m-chrysler-horizon": {
    "status": "none",
-   "checkedAt": "2026-09-15T21:09:39.268Z",
+   "checkedAt": "2026-09-15T21:43:06.693Z",
    "sourceTitle": "Chrysler Horizon",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -30151,7 +30197,7 @@
   },
   "m-mercury-monterey": {
    "status": "none",
-   "checkedAt": "2026-09-15T21:09:39.352Z",
+   "checkedAt": "2026-09-15T21:43:06.772Z",
    "sourceTitle": "Mercury Monterey",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -30326,7 +30372,7 @@
   },
   "m-gmc-envoy": {
    "status": "none",
-   "checkedAt": "2026-09-15T21:09:39.368Z",
+   "checkedAt": "2026-09-15T21:43:06.788Z",
    "sourceTitle": "GMC Envoy",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -30379,7 +30425,7 @@
   },
   "m-chevrolet-trailblazer": {
    "status": "none",
-   "checkedAt": "2026-09-15T21:09:39.383Z",
+   "checkedAt": "2026-09-15T21:43:06.802Z",
    "sourceTitle": "Chevrolet TrailBlazer (SUV)",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -30430,7 +30476,7 @@
   },
   "m-oldsmobile-bravada": {
    "status": "none",
-   "checkedAt": "2026-09-15T21:09:39.419Z",
+   "checkedAt": "2026-09-15T21:43:06.832Z",
    "sourceTitle": "Oldsmobile Bravada",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -30510,7 +30556,7 @@
   },
   "m-buick-lacrosse": {
    "status": "none",
-   "checkedAt": "2026-09-15T21:09:39.441Z",
+   "checkedAt": "2026-09-15T21:43:06.851Z",
    "sourceTitle": "Buick LaCrosse",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -30586,7 +30632,7 @@
   },
   "m-buick-invicta": {
    "status": "none",
-   "checkedAt": "2026-09-15T21:09:39.457Z",
+   "checkedAt": "2026-09-15T21:43:06.865Z",
    "sourceTitle": "Buick Invicta",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -30637,7 +30683,7 @@
   },
   "m-buick-century": {
    "status": "none",
-   "checkedAt": "2026-09-15T21:09:39.532Z",
+   "checkedAt": "2026-09-15T21:43:06.929Z",
    "sourceTitle": "Buick Century",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -30789,7 +30835,7 @@
   },
   "m-jaguar-xjs": {
    "status": "none",
-   "checkedAt": "2026-09-15T21:09:39.545Z",
+   "checkedAt": "2026-09-15T21:43:06.942Z",
    "sourceTitle": "Jaguar XJS",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -30848,7 +30894,7 @@
   },
   "m-jaguar-e-type": {
    "status": "none",
-   "checkedAt": "2026-09-15T21:09:39.564Z",
+   "checkedAt": "2026-09-15T21:43:06.959Z",
    "sourceTitle": "Jaguar E-Type",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -30917,7 +30963,7 @@
   },
   "m-wuling-starlight": {
    "status": "none",
-   "checkedAt": "2026-09-15T21:09:39.595Z",
+   "checkedAt": "2026-09-15T21:43:06.988Z",
    "sourceTitle": "Wuling Starlight",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -30981,7 +31027,7 @@
   },
   "m-jeep-compass": {
    "status": "none",
-   "checkedAt": "2026-09-15T21:09:39.635Z",
+   "checkedAt": "2026-09-15T21:43:07.024Z",
    "sourceTitle": "Jeep Compass",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -31065,7 +31111,7 @@
   },
   "m-mazda-tribute": {
    "status": "none",
-   "checkedAt": "2026-09-15T21:09:39.644Z",
+   "checkedAt": "2026-09-15T21:43:07.033Z",
    "sourceTitle": "Mazda Tribute",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -31102,7 +31148,7 @@
   },
   "m-mazda-cx-5": {
    "status": "none",
-   "checkedAt": "2026-09-15T21:09:39.655Z",
+   "checkedAt": "2026-09-15T21:43:07.044Z",
    "sourceTitle": "Mazda CX-5",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -31157,7 +31203,7 @@
   },
   "m-baojun-730": {
    "status": "none",
-   "checkedAt": "2026-09-15T21:09:39.660Z",
+   "checkedAt": "2026-09-15T21:43:07.048Z",
    "sourceTitle": "Baojun 730",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -31192,7 +31238,7 @@
   },
   "m-dacia-duster": {
    "status": "none",
-   "checkedAt": "2026-09-15T21:09:39.702Z",
+   "checkedAt": "2026-09-15T21:43:07.097Z",
    "sourceTitle": "Dacia Duster",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -31801,7 +31847,7 @@
   },
   "m-lincoln-lincoln-zephyr": {
    "status": "none",
-   "checkedAt": "2026-09-15T21:09:39.709Z",
+   "checkedAt": "2026-09-15T21:43:07.104Z",
    "sourceTitle": "Lincoln-Zephyr",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -31838,7 +31884,7 @@
   },
   "m-lincoln-capri": {
    "status": "none",
-   "checkedAt": "2026-09-15T21:09:39.740Z",
+   "checkedAt": "2026-09-15T21:43:07.136Z",
    "sourceTitle": "Lincoln Capri",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -31907,7 +31953,7 @@
   },
   "m-ford-continental-mark-ii": {
    "status": "none",
-   "checkedAt": "2026-09-15T21:09:39.768Z",
+   "checkedAt": "2026-09-15T21:43:07.167Z",
    "sourceTitle": "Continental Mark II",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -32006,7 +32052,7 @@
   },
   "m-mercury-marquis": {
    "status": "none",
-   "checkedAt": "2026-09-15T21:09:39.821Z",
+   "checkedAt": "2026-09-15T21:43:07.221Z",
    "sourceTitle": "Mercury Marquis",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -32097,7 +32143,7 @@
   },
   "m-mercury-grand-marquis": {
    "status": "none",
-   "checkedAt": "2026-09-15T21:09:39.868Z",
+   "checkedAt": "2026-09-15T21:43:07.270Z",
    "sourceTitle": "Mercury Grand Marquis",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -32200,7 +32246,7 @@
   },
   "m-lincoln-mark-series": {
    "status": "none",
-   "checkedAt": "2026-09-15T21:09:39.916Z",
+   "checkedAt": "2026-09-15T21:43:07.317Z",
    "sourceTitle": "Lincoln Mark series",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -32338,7 +32384,7 @@
   },
   "m-mercury-cougar": {
    "status": "none",
-   "checkedAt": "2026-09-15T21:09:39.980Z",
+   "checkedAt": "2026-09-15T21:43:07.381Z",
    "sourceTitle": "Mercury Cougar",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -32488,7 +32534,7 @@
   },
   "m-mercury-sable": {
    "status": "none",
-   "checkedAt": "2026-09-15T21:09:40.021Z",
+   "checkedAt": "2026-09-15T21:43:07.422Z",
    "sourceTitle": "Mercury Sable",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -32590,7 +32636,7 @@
   },
   "m-ford-windstar": {
    "status": "none",
-   "checkedAt": "2026-09-15T21:09:40.032Z",
+   "checkedAt": "2026-09-15T21:43:07.433Z",
    "sourceTitle": "Ford Windstar",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -32639,7 +32685,7 @@
   },
   "m-lincoln-mkz": {
    "status": "none",
-   "checkedAt": "2026-09-15T21:09:40.045Z",
+   "checkedAt": "2026-09-15T21:43:07.446Z",
    "sourceTitle": "Lincoln MKZ",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -33127,7 +33173,7 @@
   },
   "m-ssangyong-chairman": {
    "status": "none",
-   "checkedAt": "2026-09-15T21:09:40.056Z",
+   "checkedAt": "2026-09-15T21:43:07.457Z",
    "sourceTitle": "SsangYong Chairman",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -33169,7 +33215,7 @@
   },
   "m-mercedes-benz-w180": {
    "status": "none",
-   "checkedAt": "2026-09-15T21:09:40.068Z",
+   "checkedAt": "2026-09-15T21:43:07.470Z",
    "sourceTitle": "Mercedes-Benz W180",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -33207,7 +33253,7 @@
   },
   "m-mercedes-benz-w108-w109": {
    "status": "none",
-   "checkedAt": "2026-09-15T21:09:40.083Z",
+   "checkedAt": "2026-09-15T21:43:07.485Z",
    "sourceTitle": "Mercedes-Benz W108/W109",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -33252,7 +33298,7 @@
   },
   "m-chrysler-300c": {
    "status": "none",
-   "checkedAt": "2026-09-15T21:16:35.680Z",
+   "checkedAt": "2026-09-15T21:43:07.507Z",
    "sourceTitle": "Chrysler 300",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -33312,7 +33358,7 @@
   },
   "m-dodge-charger-lx": {
    "status": "none",
-   "checkedAt": "2026-09-15T21:18:33.611Z",
+   "checkedAt": "2026-09-15T21:43:07.535Z",
    "sourceTitle": "Dodge Charger (LX/LD)",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -33379,7 +33425,7 @@
   },
   "m-dodge-magnum": {
    "status": "none",
-   "checkedAt": "2026-09-15T21:20:18.990Z",
+   "checkedAt": "2026-09-15T21:43:07.576Z",
    "sourceTitle": "Dodge Magnum",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -33482,7 +33528,7 @@
   },
   "m-mercedes-benz-mercedes-amg-gt-4-door-coupe": {
    "status": "none",
-   "checkedAt": "2026-09-15T21:20:57.512Z",
+   "checkedAt": "2026-09-15T21:43:07.587Z",
    "sourceTitle": "Mercedes-AMG GT 4-Door Coupé",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -33527,7 +33573,7 @@
   },
   "m-mercedes-benz-gle": {
    "status": "none",
-   "checkedAt": "2026-09-15T21:24:43.539Z",
+   "checkedAt": "2026-09-15T21:43:07.617Z",
    "sourceTitle": "Mercedes-Benz GLE",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -33615,7 +33661,7 @@
   },
   "m-mercedes-benz-glc": {
    "status": "none",
-   "checkedAt": "2026-09-15T21:26:44.818Z",
+   "checkedAt": "2026-09-15T21:43:07.627Z",
    "sourceTitle": "Mercedes-Benz GLC",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -35411,8 +35457,7 @@
   "llm-related-lincoln-premiere": "Lincoln Premiere",
   "llm-related-lincoln-h-series": "Lincoln H-series",
   "llm-related-mercedes-benz-e-class": "Mercedes-Benz E-Class",
-  "llm-m-mercedes-benz-e-class-w110": "W110",
-  "llm-related-chrysler-pentastar-engine": "Chrysler Pentastar engine"
+  "llm-m-mercedes-benz-e-class-w110": "W110"
  },
  "genResearch": {
   "merge-m-volkswagen-jetta-self": {
@@ -37431,6 +37476,16 @@
    "label": "fam-mazda-mazda6 ↔ Mazda CX-9 (platform, confirmed)",
    "prunedAt": "2026-09-14T21:35:17.875Z",
    "byHand": true
+  },
+  "families|llm-related-chrysler-pentastar-engine": {
+   "what": "generation split",
+   "label": "llm-related-chrysler-pentastar-engine",
+   "prunedAt": "2026-09-15T21:43:09.070Z"
+  },
+  "wpLinks|llm-related-chrysler-pentastar-engine": {
+   "what": "Wikipedia link you pasted",
+   "label": "llm-related-chrysler-pentastar-engine → Chrysler Pentastar engine",
+   "prunedAt": "2026-09-15T21:43:09.070Z"
   }
  }
 }
