@@ -65,9 +65,13 @@ window.CarWeb = (function () {
   if (window.LlmFamilies && window.LlmFamilies.applyEngines) {
     try {
       const r = window.LlmFamilies.applyEngines(nodes, links);
-      if (r.engines) {
-        console.info(`[carweb] powertrain: ${r.engines} engine(s), ${r.variants} variant(s), ` +
-                     `${r.fitted} fitted connection(s)`);
+      // Plus every engine a checked car merely NAMED -- recorded when that car
+      // was checked, never followed. These arrive unresearched, which is what
+      // the Powertrain view shows as a bare engine with no variants.
+      const m = window.LlmFamilies.applyEngineMentions(nodes, links);
+      if (r.engines || m.engines) {
+        console.info(`[carweb] powertrain: ${r.engines} engine(s) read, ${r.variants} variant(s), ` +
+                     `${m.engines} mentioned but unread, ${r.fitted + m.fitted} fitted connection(s)`);
       }
     } catch (e) { console.warn("CarWeb: could not replay the powertrain layer", e); }
   }
@@ -2077,6 +2081,25 @@ window.CarWeb = (function () {
     } catch (e) { /* private window, or storage blocked -- nothing to clean up */ }
   }
 
+  // Engines a freshly-checked car named, into the graph now rather than at the
+  // next reload. Idempotent, so calling it after every check costs a pass over
+  // the stored entries and nothing else. spliceIntoIndexes matters here even
+  // though none of this is drawn: byId is what buildSim tests a link against,
+  // and an engine node missing from it would see its own edges deleted.
+  function recordEnginesLive() {
+    const LFam = window.LlmFamilies;
+    if (!LFam || !LFam.applyEngineMentions) return;
+    const nodesBefore = nodes.length, linksBefore = links.length;
+    let r = null;
+    try { r = LFam.applyEngineMentions(nodes, links); }
+    catch (e) { console.warn("CarWeb: could not record engine mentions", e); return; }
+    if (!r || (!r.engines && !r.fitted)) return;
+    spliceIntoIndexes(nodesBefore, linksBefore);
+    if (window.CarWebPower) window.CarWebPower.invalidate();
+    console.info(`[carweb] powertrain: noted ${r.engines} engine(s) and ${r.fitted} connection(s) ` +
+                 "from the car just checked");
+  }
+
   function applyLlmConfirmSilent(n) {
     const nodesBefore = nodes.length, linksBefore = links.length;
     window.LlmFamilies.applyConfirmed(nodes, links);
@@ -2847,6 +2870,7 @@ window.CarWeb = (function () {
   // own single-generation platform mention takes effect immediately, not
   // just on next reload), then re-renders if the panel is still on this car.
   function afterLlmCheck(n) {
+    recordEnginesLive();
     applySharedPlatformLive();
     if (dtNode === n) renderLlmCheck(n);
   }
@@ -5281,7 +5305,7 @@ window.CarWeb = (function () {
   // short local reheats when focusing, never a full 7k-node layout in the page.
   function seedNewNode(n) {
     if (n.x !== undefined) return;
-    const near = adj.get(n.id).map(a => a.n).filter(m => m.x !== undefined);
+    const near = (adj.get(n.id) || []).map(a => a.n).filter(m => m.x !== undefined);
     if (near.length) {
       n.x = near.reduce((s, m) => s + m.x, 0) / near.length + (Math.random() - .5) * 90;
       n.y = near.reduce((s, m) => s + m.y, 0) / near.length + (Math.random() - .5) * 90;
@@ -5298,7 +5322,6 @@ window.CarWeb = (function () {
 
   let sim;
   function buildSim() {
-    nodes.forEach(seedNewNode);
     // d3's link force resolves every endpoint up front and THROWS on one it
     // cannot find, which unwinds out of here and leaves no usable simulation
     // at all -- one malformed entry anywhere in the array and the canvas is
@@ -5310,14 +5333,34 @@ window.CarWeb = (function () {
       const l = links[i];
       const s0 = l && (typeof l.source === "string" ? l.source : l.source && l.source.id);
       const t0 = l && (typeof l.target === "string" ? l.target : l.target && l.target.id);
+      // A powertrain edge is not this simulation's business and is never
+      // handed to it, so it cannot be the malformed entry this guard exists
+      // for -- and deleting one would quietly empty the Powertrain view. Its
+      // endpoints are also not guaranteed to be in byId at this moment: an
+      // engine recorded mid-session is indexed by recordEnginesLive a step
+      // later, and being early is not a reason to destroy it.
+      if (l && POWERTRAIN_LINKS.has(l.type)) continue;
       if (!l || !byId.get(s0) || !byId.get(t0)) { unresolvable.push(l); links.splice(i, 1); }
     }
     if (unresolvable.length) {
       console.warn(`CarWeb: dropped ${unresolvable.length} link(s) the graph has no endpoint for`,
                    unresolvable.slice(0, 5));
     }
-    sim = d3.forceSimulation(nodes)
-      .force("link", d3.forceLink(links).id(d => d.id)
+    // The powertrain layer is kept out of the physics as well as out of the
+    // drawing. An engine node is invisible either way, but a simulated one
+    // still pushes cars around and every fitted edge still pulls two of them
+    // together -- which would move the main graph's layout, and "the main
+    // graph is untouched" has to mean the positions too, not just what is
+    // drawn. Filtered here rather than in the forces, so nothing downstream
+    // has to know.
+    const simNodes = nodes.filter(n => !isPowertrain(n));
+    const simLinks = links.filter(l => !POWERTRAIN_LINKS.has(l.type));
+    // Seeded here rather than over every node: a node the simulation does not
+    // hold has no position to seed, and seedNewNode reads its neighbours out
+    // of adj, which a powertrain node has no business being in.
+    simNodes.forEach(seedNewNode);
+    sim = d3.forceSimulation(simNodes)
+      .force("link", d3.forceLink(simLinks).id(d => d.id)
         .distance(l => l.type === "made" ? 60 : (l.type === "designed" || l.type === "engineered") ? 110
                  : (l.type === "succession" || l.type === "gensucc") ? 34 : 46)
         .strength(l => l.type === "made" ? 0.55 : (l.type === "designed" || l.type === "engineered") ? 0.08
