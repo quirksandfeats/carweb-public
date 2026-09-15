@@ -1,0 +1,239 @@
+{{Infobox engine
+| name = Mercedes-Benz M176/M177/M178
+| image = Mercedes-Benz M178 BR190.jpg
+| manufacturer = [[Mercedes-AMG]]
+| production = 2014–present
+| predecessor = [[Mercedes-Benz M278 engine|Mercedes-Benz M278 / M157 engine]] (4.7&nbsp;L & 5.5&nbsp;L)<br />[[Mercedes-Benz M152 engine]]<br />[[Mercedes-Benz M156 engine]]
+| successor = 
+| configuration = 90° [[V8 engine|V8]]
+| displacement = {{convert|3982|cc|L cuin|1|abbr=on|order=flip}}
+| bore = {{convert|83|mm|in|2|abbr=on}}
+| stroke = {{convert|92|mm|in|2|abbr=on}}
+| block = Cast-aluminium, closed deck
+| head = 
+| valvetrain = [[DOHC]] [[Multi-valve#Four valves|4 valves]] x cyl.
+| compression = 10.5:1
+| supercharger = BorgWarner e-Booster (EQ Boost; 2019—present)
+| turbocharger = [[BorgWarner]] [[twin-turbo]]s
+| fuelsystem = [[Gasoline direct injection|Direct injection]]
+| management = 
+| fueltype = [[Gasoline]]
+| oilsystem = {{unbulleted list|'''M176''' and '''M177:''' [[Wet sump]]|'''M178:''' [[Dry sump]]}}
+| coolingsystem = [[Radiator (engine cooling)|Water-cooled]]
+| idle = 
+| redline = 7,200&nbsp;rpm
+| power = {{convert|340|-|551.5|kW|PS hp|0|abbr=on}}
+| specpower = 
+| torque = {{convert|600|-|900|Nm|lbft|0|abbr=on}}
+| length = 
+| width = 
+| height = 
+| diameter = 
+| weight = {{convert|209|kg|lb|abbr=on}}
+| emissions level = 
+| emissions control = 
+}}
+
+The '''M176/M177/M178''' is a [[petrol]] [[V8 engine]] range designed by [[Mercedes-AMG]], replacing the [[Mercedes-Benz M278 engine|M278]] and [[Mercedes-Benz M157 engine|M157 engines]], and is based on the [[Mercedes-Benz M133 engine|M133 engine]].<ref>{{cite web|url=https://www.autoevolution.com/news/mercedes-amg-gt-m178-engine-specs-unveiled-videophoto-gallery-82472.html |title=Mercedes-AMG GT M178 Engine Specs Unveiled |first=Alex |last=Oagana |work=Auto Evolution |date=13 June 2014}}</ref>
+
+The engine has two [[BorgWarner]] [[turbocharger]]s positioned between the two [[cylinder head]]s in a [[Hot vee turbocharged engine|"hot-V" configuration]]. The fuel injection system uses [[Bosch (company)|Bosch's]] new [[Piezoelectricity|piezo-electric]] direct fuel injectors that deliver five squirts of fuel per combustion cycle.<ref>{{cite web|url=https://www.caranddriver.com/news/a15361914/in-depth-with-the-2016-mercedes-amg-gts-new-v-8-so-long-natural-aspiration-hello-twin-turbos/ |title=In-Depth With the 2016 Mercedes-AMG GT's New V-8: So Long, Natural Aspiration—Hello, Twin Turbos! |date=2 July 2014 |work=Car and Driver |first=Don |last=Sherman}}</ref>
+
+The M176 engines are mostly assembled by machine with some components assembled by technicians at [[Untertürkheim]] manufacturing center outside Stuttgart. The M177 and M178 are individually assembled by the technicians in "one man, one engine" principle at the AMG manufacturing center in [[Affalterbach]].<ref>{{cite web|url= http://blog.mercedes-benz-passion.com/2016/10/mercedes-benz-bringt-2017-neue-generation-von-vier-und-sechszylinder-reihenmotoren-bei-benzin-und-diesel-auf-den-markt/ |title=Ab 2017 neue Generation von 4- und 6-Zylinder Reihenmotoren bei Benzin und Diesel |accessdate=18 May 2021 |first=Philipp |last=Deppe |work=mbPassion |date=28 October 2016 }}</ref>
+
+== M176 ==
+The M176 version debuted in 2015 for the Mercedes-Benz G 500/G 550 and G 500 4x4<sup>2</sup>. In 2019, M176 was equipped with EQ Boost mild hybrid 48V electrical system, producing additional output {{convert|16|kW|PS|0|abbr=on}} and {{convert|250|Nm|lbft|0|abbr=on}} of torque.<ref>{{cite web|url=https://media.daimler.com/marsMediaSite/en/instance/ko/The-new-V8-with-48V-ISG-Excitement-on-velvet-paws.xhtml?oid=43613231 |title=The new V8 with 48V ISG: Excitement on velvet paws |accessdate=18 May 2021 |work=Daimler AG Media}}</ref> This mild hybrid system was fitted to GLE 580 4MATIC and GLS 580 4MATIC. The M176 engine with EQ Boost has been upgraded in 2021 for S 580 4MATIC with increased output for petrol engine ({{convert|370|kW|PS bhp|abbr=on|0}}) and decreased output for EQ Boost ({{convert|15|kW|PS|0|abbr=on}}).
+
+=== Applications ===
+{| class="wikitable"
+!Model!!Years
+|-
+|[[Mercedes-Benz G-Class#G-Class W463, first generation (1990–2018)|Mercedes-Benz G 500/G 550 and G 500 4×4² (W463, first generation)]]
+|2015–2018
+|-
+|[[Mercedes-Benz S-Class (W222)|Mercedes-Benz S 560/S 560 4MATIC (W222/V222)]]
+|2017–2020
+|-
+|[[Mercedes-Benz S-Class (W222)|Mercedes-Maybach S 560/S 560 4MATIC (X222)]]
+|2017–2020
+|-
+|[[Mercedes-Benz S-Class (C217)|Mercedes-Benz S 560 Coupe & Cabrio (C217)]] 
+|2017–2020
+|-
+|[[Mercedes-Benz G-Class#G-Class W463, second generation (2018–present)|Mercedes-Benz G 500/G 550 (W463, second generation)]]
+|2018–2024
+|-
+|[[Mercedes-Benz M-Class#Fourth generation (W167/V167; 2019)|Mercedes-Benz GLE 580 4MATIC (W167/V167)]]
+|2019–
+|-
+|[[Mercedes-Benz GLS-Class (X167)|Mercedes-Benz GLS 580 4MATIC (X167)]]
+|2019–
+|-
+|[[Mercedes-Benz S-Class (W223)|Mercedes-Benz S 580 4MATIC (W223/V223)]]
+|2021–
+|-
+|[[Mercedes-Benz S-Class (W223)|Mercedes-Maybach S 580 4MATIC (without EQ Boost) (Z223)]]
+|2021–
+|-
+|[[BAIC BJ90]]
+|2017–
+|-
+|}
+
+== M177 ==
+The M177 was the first variation released in the Mercedes-AMG C63.<ref>{{cite web|url=http://www.auto-motor-und-sport.de/news/mercedes-c63-amg-auf-dem-autosalon-in-paris-2014-die-power-versionen-der-neuen-c-klasse-5098003.html |title=Die Power-Versionen der neuen C-Klasse |date=1 October 2014 |first=Andreas |last=Haupt |work=auto motor und sport |lang=de}}</ref> In contrast to the M178, this version of the engine uses wet-sump lubrication. In the C63 and GLC63 applications, the turbos are single-scrolled, whereas in E63 and S63 are twin-scrolled and different exhaust manifold. The twin-scroll application also features cylinder deactivation.<ref>{{Cite web|url=https://www.caranddriver.com/flipbook/omg-amg-we-go-inside-mercedes-amg-headquarters-in-affalterbach |title=OMG AMG: We Go Inside Mercedes-AMG Headquarters in Affalterbach |work=Car and Driver |first=Clifford |last=Atiyeh |date=6 December 2017}}</ref>
+
+As part of the agreement with Mercedes-AMG since 2013, [[Aston Martin]] installs the M177 engines in the [[Aston Martin DB11|DB11 V8 and DB11 Volante (2017–)]], [[Aston Martin V8 Vantage (2018)|Vantage (2018–)]], [[Aston Martin DBX|DBX (2021–)]] and [[Aston Martin DB12|DB12 (2023–)]].<ref>{{cite web |last=Kew |first=Ollie |title=Aston Martin to use Mercedes AMG V8 engines (2013) |url=https://www.carmagazine.co.uk/car-news/industry-news/aston-martin/aston-martin-to-use-mercedes-amg-v8-engines-2013/ |work=CAR Magazine |date=25 July 2013}}</ref><ref>{{cite web |last=Edelstein |first=Stephen |title=Germany and England bury the hatchet: Aston Martin and Mercedes-Benz finalize partnership |url=https://www.digitaltrends.com/cars/aston-martin-daimler-formally-announce-partnership/ |website=Digital Trends |date=25 July 2013}}</ref><ref>{{cite web|last=Hayward |first=Matthew |title=V8 advantage – Aston Martin launches 'more affordable' V8 DB11 grand tourer |url=https://www.telegraph.co.uk/cars/news/v8-advantage-aston-martin-launches-affordable-v8-db11-grand/ |work=The Telegraph |date=28 June 2017}}</ref><ref>{{Cite news|url=https://www.autoevolution.com/news/2019-aston-martin-vantage-drifting-teaser-is-slow-motion-goodness-121723.html|title=2019 Aston Martin Vantage Drifting Teaser Is Slow-Motion Goodness |last=Panait |first=Mircea |date=16 November 2017 |work=autoevolution}}</ref>
+
+In late 2019, the 48V system used in the M176 was added to the M177 engines for extra performance, improved fuel consumption, and reduced emission output.<ref>{{cite web|url=https://www.autocar.co.uk/car-news/new-cars/new-mercedes-amg-gle-63-s-coupe-revealed-603bhp |title=New Mercedes-AMG GLE 63 S Coupe revealed with 603bhp
+|work=Autocar |first=James |last=Attwood |date=18 February 2020}}</ref>
+
+In 2026,an updated version of the M177 called the M177 Evo was launched. it uses a flat plane crank and meets euro 7 standards. 
+
+=== Applications ===
+{| class="wikitable"
+!Model!!Years
+|-
+|[[Mercedes-Benz C-Class (W205)|Mercedes-AMG C 63 and C 63 S (W205)]]
+|2015–2021
+|-
+|[[Mercedes-Benz E-Class (W213)|Mercedes-AMG E 63 4MATIC+ and E 63 S 4MATIC+ (W213)]]
+|2016–2022
+|-
+|[[Mercedes-Benz S-Class (C217)|Mercedes-AMG S 63 Coupe 4MATIC (C217) and S 63 Cabriolet 4MATIC (A217)]]
+|2018–2020
+|-
+|[[Mercedes-Benz S-Class (W222)|Mercedes-AMG S 63 4MATIC and S 63 (W222/V222)]]
+|2017–2020
+|-
+|[[Mercedes-AMG GT 4-Door Coupé|Mercedes-AMG GT 63 4MATIC+, GT 63 S 4MATIC+, and GT 63 S E Performance (X290)]]
+|2018–2026
+|-
+|[[Mercedes-Benz G-Class#W463|Mercedes-AMG G 63 (W463, second generation)]]
+|2019–2024
+|-
+|[[Mercedes-Benz GLC#X253|Mercedes-AMG GLC 63 4MATIC, GLC 63 4MATIC Coupé, GLC 63 S 4MATIC, and GLC 63 S 4MATIC Coupé (X253)]]
+|2018–2022
+|-
+|[[Mercedes-Benz GLE#W167|Mercedes-AMG GLE 63 4MATIC+ and 63 S 4MATIC+ (X167) with ISG)]]
+|2020–
+|-
+|[[Mercedes-Benz GLS-Class (X167)|Mercedes-AMG GLS 63 4MATIC+ (X167) with ISG]] 
+|2020–
+|-
+|[[Mercedes-Benz GLS-Class (X167)|Mercedes-Maybach GLS 600 (X167) with ISG]]
+|2020–
+|-
+|[[Mercedes-AMG SL-Class (R232)|Mercedes-AMG SL 55 4MATIC+, SL 63 4MATIC+ (R232)]]
+|2022–
+|-
+|[[Mercedes-Benz S-Class (W223)|Mercedes-AMG S 63 E Performance (W223)]]
+|2022–
+|-
+|[https://fr.wikipedia.org/wiki/Mercedes-AMG_PureSpeed Mercedes-AMG PureSpeed]
+|2024-
+|-
+|[[Brabus Rocket#Brabus Rocket 900 "ONE OF TEN" (2020 – )|Brabus Rocket 900 "ONE OF TEN"]] (enlarged to 4.4 L)
+|2020–
+|-
+|[[Aston Martin DB11|Aston Martin DB11 V8 and DB11 Volante]]
+|2017–2023
+|-
+|[[Aston Martin Vantage (2018)|Aston Martin Vantage V8]], [[Aston Martin Vantage (2018)|Vantage F1 Edition]] and [[Aston Martin Vantage (2018)|Vantage AMR 59]]
+|2018–
+|-
+|[[Aston Martin DBX|Aston Martin DBX V8 and DBX707]]
+|2021–
+|-
+|[[Aston Martin DB12]]
+|2023–
+|-
+|}
+
+== M178 ==
+The M178 is the second variation in the family, geared toward higher performance and motorsport. The {{convert|340|and|375|kW|PS hp|0|abbr=on}} versions were introduced in Mercedes-AMG GT (C190).
+=== Specifications ===
+*'''Cylinder arrangement''' V8
+*'''Cylinder angle''' 90°
+*'''Cylinder block alloy''' Cast aluminum, closed deck
+*'''Cylinder head alloy''' Cast aluminum, zirconium alloy
+*'''Valves per cylinder''' 4 ([[DOHC]])
+*'''Variable valve timing''' Camshaft adjustment on both the inlet and outlet side
+*'''Displacement''' {{convert|3982|cc|L cuin|1|abbr=on}}
+*'''Bore x stroke''' {{convert|83x92|mm|in|2|abbr=on}}
+*'''Cylinder spacing''' {{convert|90|mm|in|2|abbr=on}}
+*'''Compression ratio''' 10.5:1
+*'''Output''' {{convert|375|kW|PS hp|0|abbr=on}} at 6,250 rpm ['''Output per liter''' {{convert|94.2|kW|PS hp|1|abbr=on}}]
+*'''Maximum torque''' {{convert|650|Nm|lbft|0|abbr=on}} at 1750 – 4750 rpm ['''Torque per liter''' {{convert|163.2|Nm|lbft|1|abbr=on}}]
+*'''Maximum engine speed''' 7,200 rpm
+*'''Maximum charge pressure''' {{convert|1.2|bar|psi|abbr=on}}
+*'''Peak engine pressure''' {{convert|130|bar|psi|abbr=on}}
+*'''Air delivery''' Forced induction, 2x [[twin scroll]] turbochargers spinning to 186,000 rpm with electronically controlled blow-off valves
+*'''Fuel delivery''' Electronically controlled direct petrol injection with spray-guided combustion, fully variable, fuel pressure {{convert|100|-|200|bar|psi|abbr=on}}
+*'''Coolant delivery''' 3 phase thermostat, timing chain driven water pump rated {{convert|420|L|USgal impgal}} /min flow
+*'''Oil delivery''' {{convert|9|L|USgal impgal}} oil, dry-sump, via two-stage controlled suction pump ({{convert|250|L|USgal impgal}} /min), a pressure pump and a {{convert|12|L|USgal impgal}} external oil tank
+*'''Oil cooling''' External engine oil cooler in the front
+*'''Charged air cooling''' Indirect air/water [[Intercooler|intercooling]], cooling {{convert|140|°C|°F|abbr=on}} charged air to 25 °C (77 °F) above outside temperature under full load
+*'''Engine weight (dry)''' {{convert|209|kg|lb|abbr=on}}
+*'''Emissions standard''' Euro 6
+*'''NEDC combined consumption''' Under {{convert|10|L|USgal impgal}} /{{convert|100|km|mi|abbr=on}}
+
+=== Applications ===
+{| class="wikitable"
+!Model!!Years!!Power!!Torque
+|-
+|rowspan="2"|Mercedes-AMG GT (C190)
+|03/2015–03/2017
+|{{convert|340|kW|PS hp|0|abbr=on}} at 6,000 rpm 
+|{{convert|600|Nm|lbft|0|abbr=on}} at 1,600–5,000 rpm
+|-
+|07/2017–07/2020
+|{{convert|350|kW|PS hp|0|abbr=on}} at 6,000 rpm 
+|{{convert|630|Nm|lbft|0|abbr=on}} at 1,700–5,000 rpm
+|-
+|rowspan="3"|Mercedes-AMG GT S (C190)
+|03/2015–03/2017
+|{{convert|375|kW|PS hp|0|abbr=on}} at 6,250 rpm
+|{{convert|650|Nm|lbft|0|abbr=on}} at 1,750–4,750 rpm
+|-
+|rowspan="2"|03/2017–07/2020
+|{{convert|384|kW|PS hp|0|abbr=on}} at 6,250 rpm
+|{{convert|670|Nm|lbft|0|abbr=on}} at 1,800–5,000 rpm
+|-
+|{{convert|390|kW|PS hp|0|abbr=on}} at 5,500–6,750 rpm 
+|{{convert|670|Nm|lbft|0|abbr=on}} at 2,100–5,250 rpm
+|-
+|Mercedes-AMG GT C (C190)
+|03/2017–09/2022
+|{{convert|410|kW|PS hp|0|abbr=on}} at 5,750–6,750 rpm
+|{{convert|680|Nm|lbft|0|abbr=on}} at 1,900–5,750 rpm
+|-
+|Mercedes-AMG GT R (C190)
+|03/2017–12/2020
+|{{convert|430|kW|PS hp|0|abbr=on}} at 6,250 rpm
+|{{convert|700|Nm|lbft|0|abbr=on}} at 1,900–5,500 rpm
+|-
+|Mercedes-AMG GT Black Series (C190) (Engine Code M178 LS2)
+|07/2020–02/2022
+|{{convert|537|kW|PS hp|0|abbr=on}} at 6,700–6,900 rpm
+|{{convert|800|Nm|lbft|0|abbr=on}} at 2,000–6,000 rpm
+|-
+|Mercedes-AMG GT Track Series (C190) (Engine Code M178 LS2)
+|03/2022-09/2022
+|{{convert|540|kW|PS hp|0|abbr=on}} at 6,700–6,900 rpm
+|{{convert|850|Nm|lbft|0|abbr=on}} at 2,000–6,000 rpm
+|-
+|[[Aston Martin Valhalla]] (Engine Code M178 LS2)
+|2023–
+|{{convert|609|kW|PS hp|0|abbr=on}} 
+|                      
+|}
+
+== See also ==
+[[List of Mercedes-Benz engines]]
+
+== References ==
+{{Reflist}}
+
+[[Category:Mercedes-Benz engines]]
+[[Category:V8 engines]]
+[[Category:Gasoline engines by model]]

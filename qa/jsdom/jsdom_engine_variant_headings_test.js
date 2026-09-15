@@ -36,6 +36,7 @@ function fakeCtx() {
 const M276 = fs.readFileSync(path.join(CACHE, "Mercedes-Benz_M276_engine.wikitext"), "utf-8");
 const M256 = fs.readFileSync(path.join(CACHE, "Mercedes-Benz_M256_engine.wikitext"), "utf-8");
 const N55 = fs.readFileSync(path.join(CACHE, "BMW_N55.wikitext"), "utf-8");
+const M17X = fs.readFileSync(path.join(CACHE, "Mercedes-Benz_M176_M177_M178_engine.wikitext"), "utf-8");
 
 const dom = new JSDOM(html, { url: "http://localhost:8077/index.html", runScripts: "outside-only" });
 const { window } = dom;
@@ -96,7 +97,7 @@ const DATA = window.CARDATA;
   // to include its descendants.
   check("...read out of each variant's own Applications sub-section",
         read.variants[0].applications.length === 15 &&
-        read.variants[1].applications.length === 24 &&
+        read.variants[1].applications.length === 23 &&
         read.variants[2].applications.length === 5,
         read.variants.map(v => v.applications.length).join(","));
   check("...and they are different cars per variant, not the same list thrice",
@@ -155,6 +156,50 @@ const DATA = window.CARDATA;
   check("no edge is left hanging off a nameplate that named a generation",
         !planned.some(p => p.node.id === FAM_ML || p.node.id === FAM_GLE),
         planned.filter(p => p.node.type === "family").map(p => p.node.id).join(","));
+}
+
+// ---------- 5. one article, three engines ----------
+// Real user report: reading the M177 failed outright with '"Mercedes-Benz
+// M177 engine" is not an engine article.' Two separate reasons, both real:
+// the page uses {{Infobox engine}} rather than {{Infobox automobile engine}},
+// and it documents the M176, M177 and M178 together, one section each, with
+// "Mercedes-Benz M177 engine" redirecting into it. "In this case, the LLM
+// should search explicitly for the single engine that it is referring to, in
+// this case the M177."
+{
+  check("the page is recognised as an engine article at all", LF.isEngineArticle(M17X));
+
+  const m177 = LF.readEngineArticle(M17X, "Mercedes-Benz M177 engine");
+  check("asking for the M177 does not return its two siblings as variants",
+        !m177.variants.some(v => /M176|M178/.test(v.code)),
+        m177.variants.map(v => v.code).join(" | ") || "(none)");
+  // Its applications are a wikitable of Model | Years, not the bulleted list
+  // every other engine page here uses -- and a bare "|" line was skipped on
+  // purpose, as table furniture.
+  check("its applications are read out of the wikitable", m177.applications.length >= 17,
+        m177.applications.length);
+  check("...with the years out of their own cell, not the head of the line",
+        m177.applications.some(a => a.yearStart === 2015 && a.yearEnd === 2021),
+        JSON.stringify(m177.applications[0] || null));
+  check("...scoped to the M177's own table",
+        m177.applications.some(a => /Aston Martin DB12/.test(a.display)) &&
+        !m177.applications.some(a => /BAIC BJ90|Maybach S 560/.test(a.display)),
+        m177.applications.map(a => a.display).slice(0, 3).join(" | "));
+
+  const m176 = LF.readEngineArticle(M17X, "Mercedes-Benz M176 engine");
+  check("asking for the M176 reads the M176's table instead",
+        m176.applications.some(a => /BAIC BJ90/.test(a.display)) &&
+        !m176.applications.some(a => /Aston Martin/.test(a.display)),
+        m176.applications.length + ": " + m176.applications.map(a => a.display).slice(0, 2).join(" | "));
+  check("...and they are genuinely different lists",
+        m176.applications.length !== m177.applications.length,
+        m176.applications.length + " vs " + m177.applications.length);
+
+  // Asked for the combined page itself, there is no one engine to scope to,
+  // so all three read as what they look like: sections of one article.
+  const whole = LF.readEngineArticle(M17X, "Mercedes-Benz M176/M177/M178 engine");
+  check("asked for the page itself, the three engines come back as its parts",
+        whole.variants.length === 3, whole.variants.map(v => v.code).join(" | "));
 }
 
 console.log("\n" + (fails === 0 ? "ALL GREEN" : fails + " FAILURE(S)"));

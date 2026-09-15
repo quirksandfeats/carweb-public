@@ -145,19 +145,21 @@ const doc = window.document;
         specsEls.length === 0, specsEls.length);
 }
 
-// ---------- 2c. the Powertrain canvas actually has room to draw ----------
+// ---------- 2c. the Powertrain tab draws on the Graph's own canvas ----------
 // Real bug report, with a screenshot: the tab read "47 engines · 0 variants ·
-// 25 cars · 110 fitted" over a completely blank page. #view-power set
-// position:relative, which overrode .view's own "position:absolute; inset:0"
-// -- so the section collapsed to the height of its bar and #ptcanvas, at
-// inset:0 inside it, became a ~40px strip behind that bar. jsdom does no
-// layout, so this is checked where the bug actually lived.
+// 25 cars · 110 fitted" over a completely blank page, because #view-power set
+// position:relative and overrode .view's own "position:absolute; inset:0" --
+// the section collapsed to the height of its bar and #ptcanvas, at inset:0
+// inside it, became a ~40px strip behind it. There is no second section or
+// canvas to get wrong any more: the Powertrain tab is the Graph view with
+// app.js's graphMode flipped (see jsdom_powertrain_view_test.js).
 {
   const css = fs.readFileSync(path.join(APP, "styles.css"), "utf-8");
-  const rule = (css.match(/#view-power\s*\{([^}]*)\}/) || [])[1] || "";
-  check("the powertrain view is positioned to fill its container",
-        /position\s*:\s*absolute/.test(rule) && /inset\s*:\s*0/.test(rule), rule.trim());
-  check("...and the canvas fills the view", /#ptcanvas\s*\{[^}]*inset\s*:\s*0/.test(css));
+  check("there is no separate powertrain section or canvas to size wrongly",
+        !/#view-power|#ptcanvas/.test(css) &&
+        !doc.getElementById("view-power") && !doc.getElementById("ptcanvas"));
+  check("the Graph's canvas, which both layers draw on, fills its view",
+        /#graphcanvas[^{]*\{[^}]*inset\s*:\s*0/.test(css));
 }
 
 // ---------- 3. an engine's own card ----------
@@ -184,10 +186,17 @@ const doc = window.document;
   const eng = DATA.nodes.find(n => n.type === "engine" && n.label === "M256");
   cw.switchView("graph");
   cw.goto(eng.id);
-  check("clicking through to an engine switches to the Powertrain view",
-        doc.getElementById("view-power").classList.contains("active"));
-  check("...rather than flying the main graph to an empty patch of canvas",
-        [...(cw.graphFocusSet() || [])].length === 0);
+  check("clicking through to an engine switches to the Powertrain layer",
+        cw.graphMode() === "power", cw.graphMode());
+  check("...with the Powertrain tab marked active",
+        doc.querySelector('#viewtabs .tab[data-view="power"]').classList.contains("active"));
+  // ...and then focuses it there, exactly as the main layer focuses a
+  // nameplate: opened, with its own neighbourhood highlighted. It used to
+  // just open the card and stop, because the engine was in no graph at all.
+  check("...and focuses it there rather than flying to an empty canvas",
+        [...(cw.graphFocusSet() || [])].indexOf(eng.id) >= 0,
+        [...(cw.graphFocusSet() || [])].length);
+  cw.switchView("graph");
 }
 
 // ---------- 5. reading it ----------

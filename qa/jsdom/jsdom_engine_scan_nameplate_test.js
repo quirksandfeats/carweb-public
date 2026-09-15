@@ -147,9 +147,7 @@ const DATA = window.CARDATA;
           /Engines/.test(box.textContent) && /M256/.test(box.textContent),
           box.textContent.slice(0, 90));
 
-    window.CarWebPower.init();
-    window.CarWebPower.activate();
-    const c = window.CarWebPower.counts();
+    const c = cw.powertrainCounts();
     check("the Powertrain tab no longer says nothing is scanned",
           c.engines === 9 && c.cars >= 1, JSON.stringify(c));
     cw.switchView("power");

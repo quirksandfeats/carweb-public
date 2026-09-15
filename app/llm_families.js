@@ -7688,7 +7688,12 @@ Rules:
   //     "=== 272 kW version ===", "=== Alpina ===", and an entire SECOND
   //     engine ("== S55 engine =="). Requiring the heading to carry the
   //     engine's own name keeps all three out without a list of exceptions.
-  const ENGINE_INFOBOX_RE = /\{\{\s*Infobox\s+automobile\s+engine\b/i;
+  // Real user report: reading the M177 failed with '"Mercedes-Benz M177
+  // engine" is not an engine article.' It is one -- it just uses
+  // "{{Infobox engine}}" rather than "{{Infobox automobile engine}}". Both
+  // are current on Wikipedia and neither redirects to the other, so requiring
+  // the longer name rejected a real engine page outright.
+  const ENGINE_INFOBOX_RE = /\{\{\s*Infobox\s+(?:automobile\s+)?engine\b/i;
 
   function isEngineArticle(wikitext) { return ENGINE_INFOBOX_RE.test(String(wikitext || "")); }
 
@@ -7745,6 +7750,10 @@ Rules:
 
   // One "* 2020-present [[Target|Display]] (note)" line.
   const APP_YEARS_RE = /(\d{4})\s*[-–—]\s*(\d{4}|present|Present)?/;
+  // The same years, but at the HEAD of the line, which is where an
+  // application states them -- past any bullet, and past a leading image.
+  const APP_LINE_RE =
+    /^\s*(?:\[\[\s*(?:File|Image)\s*:[^\]]*\]\]\s*)*(?:[*#:]+\s*)?(?:\[\[[^\]]*\]\]\s*)?\d{4}\s*[-–—]/;
   function parseApplicationLine(raw) {
     let line = String(raw || "");
     if (!line.trim()) return null;
@@ -7777,6 +7786,45 @@ Rules:
     };
   }
 
+  // Applications as a TABLE. Real user example, the M176/M177/M178 page: each
+  // engine's "=== Applications ===" section is a wikitable of Model | Years
+  // rather than the bulleted "* 2011-2013 [[...]]" the M256 and M276 use, so
+  // every row was skipped by the line reader below -- deliberately, since a
+  // bare "|" line is usually table furniture rather than an entry.
+  //
+  // The year is in its own cell here, not at the head of the line, so it
+  // cannot come from the same regex; it is read per cell.
+  const TABLE_YEARS_RE = /^\s*(\d{4})(?:\s*[-\u2013\u2014/]\s*(\d{2,4}|present)?)?\s*$/i;
+  function engineTableApplications(body) {
+    const out = [];
+    const seen = new Set();
+    const tables = String(body || "").match(/\{\|[\s\S]*?\n\|\}/g) || [];
+    for (const tbl of tables) {
+      for (const row of tbl.split(/\n\|-+[^\n]*/)) {
+        // Cells break on a new line starting with | or !, or on an inline
+        // "||" / "!!". A link's own "[[a|b]]" pipe is inside brackets and
+        // never at either of those positions.
+        const cells = row.split(/\n\s*[|!]|\|\||!!/)
+                         .map(c => c.replace(/^\s*[|!]+/, "").trim())
+                         .filter(Boolean);
+        const linkCell = cells.find(c => /\[\[/.test(c));
+        if (!linkCell) continue;
+        const e = parseApplicationLine(linkCell);
+        if (!e) continue;
+        const yearCell = cells.find(c => TABLE_YEARS_RE.test(c));
+        if (yearCell) {
+          const m = TABLE_YEARS_RE.exec(yearCell);
+          e.yearStart = Number(m[1]);
+          e.yearEnd = m[2] && /^\d{4}$/.test(m[2]) ? Number(m[2]) : null;
+        }
+        const key = norm(e.target) + "|" + norm(e.display);
+        if (seen.has(key)) continue;
+        seen.add(key);
+        out.push(e);
+      }
+    }
+    return out;
+  }
   function engineApplications(body) {
     const src = String(body || "").replace(/<!--[\s\S]*?-->/g, "");
     const out = [];
@@ -7784,7 +7832,14 @@ Rules:
     src.split(/\n/).forEach(line => {
       if (!/\[\[/.test(line)) return;
       if (/^\s*[!|]/.test(line)) return;          // a wikitable row, not an application
-      if (!APP_YEARS_RE.test(line)) return;       // every real entry opens with a year
+      // A real entry OPENS with its years -- "* 2011-2014 [[...]]" -- allowing
+      // for a bullet that was eaten by an image glued to the front of the
+      // line, which the M256's own CLS 450 entry is. Requiring the years
+      // merely to appear SOMEWHERE let prose through: the M177's paragraph
+      // "As part of the agreement with Mercedes-AMG since 2013, Aston Martin
+      // installs the M177 engines in the DB11 V8 and DB11 Volante (2017-)..."
+      // parsed as an application fitted to Aston Martin the company in 2017.
+      if (!APP_LINE_RE.test(line)) return;
       const e = parseApplicationLine(line);
       if (!e) return;
       const key = norm(e.target) + "|" + norm(e.display);
@@ -7792,6 +7847,16 @@ Rules:
       seen.add(key);
       out.push(e);
     });
+    // Both shapes, because one article can use both -- the M178's section has
+    // a specifications table AND an applications table. Bullets are the more
+    // precise form where both exist, so the table only fills in what they did
+    // not already name.
+    for (const e of engineTableApplications(src)) {
+      const key = norm(e.target) + "|" + norm(e.display);
+      if (seen.has(key)) continue;
+      seen.add(key);
+      out.push(e);
+    }
     return out;
   }
 
@@ -7825,6 +7890,19 @@ Rules:
     if (/[()]/.test(t)) return false;        // "Third generation (W166; 2011)" is not a designation
     if (!/\d/.test(t)) return false;         // every real one carries a number
     return VARIANT_CODE_RE.test(t);
+  }
+  // The section of a multi-engine article that IS the engine asked for.
+  function engineSectionFor(wikitext, short) {
+    const key = norm(short || "");
+    if (!key) return null;
+    let best = null;
+    for (const sec of wikitextSections(wikitext)) {
+      if (norm(sec.title) !== key) continue;
+      // Shallowest match wins: "== M177 ==" is the engine; a deeper heading
+      // repeating the code is something inside it.
+      if (!best || sec.level < best.level) best = sec;
+    }
+    return best;
   }
   function engineVariants(wikitext, name) {
     const key = norm(name || "");
@@ -7865,11 +7943,25 @@ Rules:
       .replace(/\s+engines?$/i, "")
       .replace(/^[A-Z][A-Za-z-]*\s+(?=[A-Za-z]{0,2}\d)/, "")
       .trim();
-    const variants = engineVariants(wikitext, short);
+    // Real user report: "It seems that because this is a wikipedia page for
+    // more than one engine, it thinks it's wrong. In this case, the LLM should
+    // search explicitly for the single engine that it is referring to, in this
+    // case the M177."
+    //
+    // Mercedes-Benz M176/M177/M178 is one article covering three engines, one
+    // "== M177 ==" section each, and "Mercedes-Benz M177 engine" redirects
+    // into it. Read whole, the M177 would come back with its two siblings as
+    // its own variants and all three application tables merged into one list.
+    // So when the article has a section named exactly what was asked for,
+    // THAT section is the article: its sub-headings are the variants and its
+    // tables are the applications.
+    const scope = engineSectionFor(wikitext, short);
+    const body = scope ? scope.body : wikitext;
+    const variants = engineVariants(body, short);
     // No variant sections at all still means applications -- they just sit in
     // the article body. Same fallback the nameplate side uses for a car that
     // turns out to have only one generation.
-    const loose = variants.length ? [] : engineApplications(wikitext);
+    const loose = variants.length ? [] : engineApplications(body);
     return {
       name: stripEngineMarkup(info.name || name || ""),
       shortName: short,

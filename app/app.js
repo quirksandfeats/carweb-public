@@ -7,6 +7,9 @@ window.CarWeb = (function () {
     muted: "#8a7f6c", hairline: "#d9cfbc", accent: "#c2451d",
     designer: "#34586e", engineer: "#9a6b2f", heritage: "#9c8b6d",
     dbGold: "#b3891f", gensucc: "#2f7d5c",
+    // The powertrain layer's second accent, for an engine variant -- the
+    // same --accent2 the legend's swatch uses.
+    engvar: "#c98b2e",
   };
 
   // ---------- data ----------
@@ -366,6 +369,92 @@ window.CarWeb = (function () {
   const POWERTRAIN_NODES = new Set(["engine", "enginevar"]);
   const POWERTRAIN_LINKS = new Set(["fitted", "enginegen", "enginesucc"]);
   function isPowertrain(n) { return !!n && POWERTRAIN_NODES.has(n.type); }
+  // Real user request, twice: "The Powertrain tab should function exactly the
+  // same, have the same UI queues, and everything as the Graph Tab... I
+  // repeat, I want exactly the same behavior, UI, node behavior, etc.. as the
+  // graph tab view. It should look virtually identical."
+  //
+  // It cannot be identical while it is a second renderer -- that is what kept
+  // drifting: its own forces, no radial ring, no force fields, every car on
+  // screen at once. So it is not one any more. The Powertrain tab IS the
+  // Graph, drawn from the same canvas, sim, hover card, focus, ring layout and
+  // zoom, with this one flag deciding which layer nodeInLayer/linkInLayer
+  // admit. powertrain.js is gone.
+  //
+  // The shapes line up one-for-one, which is what makes it work: an engine is
+  // a nameplate, its variants are that nameplate's generations, and the cars
+  // it was fitted to are the neighbours you reach by opening it.
+  let graphMode = "main";
+  const isPowerMode = () => graphMode === "power";
+  function isHub(n) { return !!n && (n.type === "family" || n.type === "engine"); }
+  function childIdsOf(n) {
+    if (!n) return [];
+    if (n.type === "family") return n.generations || [];
+    if (n.type === "engine") return n.variants || [];
+    return [];
+  }
+  function parentIdOf(n) {
+    if (!n) return null;
+    if (n.type === "model") return n.familyOf || null;
+    if (n.type === "enginevar") return n.engineOf || null;
+    return null;
+  }
+  // Which cars are on screen in the powertrain layer: those an OPEN engine
+  // reaches, and no others. Same rule as a nameplate's generations -- "I want
+  // that the car models associated with the engines only appear once I have
+  // clicked on a particular engine" -- so it uses the same expandedFamilies
+  // set rather than a second notion of open.
+  //
+  // Memoised because nodeInLayer runs per node per frame and this walks the
+  // link array; invalidated wherever expansion or the arrays change.
+  // A link's endpoint, resolved even when the graph is mid-mutation. byId is
+  // filled by spliceIntoIndexes, which runs a step AFTER the nodes are pushed
+  // -- and a layer that silently showed nothing in that window would look
+  // exactly like a scan that found nothing, which is the bug the old
+  // powertrain renderer carried a comment about. Falls back to the node array.
+  let arrayIndex = null, arrayIndexLen = -1;
+  function endOf(l, which) {
+    const direct = which === "source" ? l.sn : l.tn;
+    if (direct) return direct;
+    const raw = l[which];
+    const id = typeof raw === "string" ? raw : (raw && raw.id);
+    if (!id) return null;
+    const hit = byId.get(id);
+    if (hit) return hit;
+    if (arrayIndexLen !== nodes.length) {
+      arrayIndex = new Map(nodes.map(n => [n.id, n]));
+      arrayIndexLen = nodes.length;
+    }
+    return arrayIndex.get(id) || null;
+  }
+  let powerVis = null;
+  function invalidatePowerVis() { powerVis = null; }
+  function powerSets() {
+    if (powerVis) return powerVis;
+    const shown = new Set(), reached = new Set();
+    for (const l of links) {
+      if (l.retired || l.type !== "fitted") continue;
+      const a = endOf(l, "source"), b = endOf(l, "target");
+      if (!a || !b) continue;
+      const eng = isPowertrain(a) ? a : isPowertrain(b) ? b : null;
+      if (!eng) continue;
+      const car = eng === a ? b : a;
+      if (!car || isPowertrain(car) || car.retired) continue;
+      reached.add(car.id);
+      const hubId = eng.type === "enginevar" ? eng.engineOf : eng.id;
+      if (hubId && expandedFamilies.has(hubId)) shown.add(car.id);
+    }
+    powerVis = { shown, reached };
+    return powerVis;
+  }
+  // Drawn: only the cars an open engine reaches.
+  function powerVisibleCars() { return powerSets().shown; }
+  // Simulated: every car any engine reaches, open or not -- exactly as a
+  // collapsed nameplate's generations stay in the main layer's simulation.
+  // The alternative throws: d3's link force resolves both endpoints up front
+  // and a fitted edge to a car the simulation does not hold is a hard
+  // "node not found" that leaves no usable sim at all.
+  function powerSimCars() { return powerSets().reached; }
   function nodeInLayer(n) {
     // Retired by a user-confirmed nameplate generation-list override (see
     // llm_families.js's applyFamilyOverride) -- superseded by a fresh
@@ -378,6 +467,15 @@ window.CarWeb = (function () {
     // untouched, same nodes, same counts, same layout. This is the single
     // choke point that makes that true for the graph, the timeline, six
     // degrees, the search and the footer counts at once.
+    if (isPowerMode()) {
+      // Engines always; a variant once its engine is open, exactly as a
+      // generation appears once its nameplate is; a car once something it is
+      // fitted to is open. Nobody else -- no makes, no designers.
+      if (n.type === "engine") return true;
+      if (n.type === "enginevar") return expandedFamilies.has(n.engineOf);
+      if (n.type === "model" || n.type === "family") return powerVisibleCars().has(n.id);
+      return false;
+    }
     if (isPowertrain(n)) return false;
     if (n.type === "model" && n.familyOf && !expandedFamilies.has(n.familyOf)) return false;
     if (!isPerson(n)) return true;
@@ -414,6 +512,13 @@ window.CarWeb = (function () {
     // the same way nodeInLayer's own `n.retired` check already does for
     // nodes. Checked first, since it overrides every rule below.
     if (l.retired) return false;
+    if (isPowerMode()) {
+      if (!POWERTRAIN_LINKS.has(l.type)) return false;
+      // Both ends have to be on screen, or a fitted edge would be drawn to a
+      // car that is not there yet -- same reason the main layer hides a
+      // family-level credit link while its generation carries it.
+      return nodeInLayer(l.sn) && nodeInLayer(l.tn);
+    }
     if (POWERTRAIN_LINKS.has(l.type)) return false;   // see isPowertrain
     if (l.type === "designed" && (layer === "engineers" || layer === "none")) return false;
     if (l.type === "engineered" && (layer === "designers" || layer === "none")) return false;
@@ -681,7 +786,7 @@ window.CarWeb = (function () {
     if (!expandedFamilies.has(famId)) return null;
     const fam = byId.get(famId);
     if (!fam || !Number.isFinite(fam.x) || !Number.isFinite(fam.y)) return null;
-    const gens = (fam.generations || []).filter(id => byId.has(id));
+    const gens = childIdsOf(fam).filter(id => byId.has(id));
     if (!gens.length) return null;
     const r = ringRadius(gens.length);
     return { fam, gens: new Set(gens), x: fam.x, y: fam.y, r, clear: r + RING_CLEARANCE };
@@ -770,7 +875,7 @@ window.CarWeb = (function () {
   }
 
   function layoutGenerationsRadial(fam) {
-    const gens = (fam.generations || []).map(id => byId.get(id)).filter(Boolean);
+    const gens = childIdsOf(fam).map(id => byId.get(id)).filter(Boolean);
     if (!gens.length) return;
     fam.fx = fam.x; fam.fy = fam.y;
     if (gens.length === 1) {
@@ -795,7 +900,7 @@ window.CarWeb = (function () {
   }
   function unpinGenerations(fam) {
     fam.fx = null; fam.fy = null;
-    (fam.generations || []).forEach(id => {
+    childIdsOf(fam).forEach(id => {
       const g = byId.get(id);
       if (g) { g.fx = null; g.fy = null; }
     });
@@ -900,6 +1005,7 @@ window.CarWeb = (function () {
   function expandFamily(famId) {
     if (expandedFamilies.has(famId)) return;
     expandedFamilies.add(famId);
+    invalidatePowerVis();
     const fam = byId.get(famId);
     if (fam) {
       layoutGenerationsRadial(fam);
@@ -910,6 +1016,7 @@ window.CarWeb = (function () {
   function collapseFamily(famId) {
     if (!expandedFamilies.has(famId)) return;
     expandedFamilies.delete(famId);
+    invalidatePowerVis();
     const fam = byId.get(famId);
     if (fam) unpinGenerations(fam);
     familyListeners.forEach(f => f(famId, false));
@@ -1439,7 +1546,7 @@ window.CarWeb = (function () {
     const r = window.LlmFamilies.mergeEngines(primary.id, [hit.id], nodes, links);
     if (!r.ok) { window.alert(r.error || "could not merge those"); return; }
     spliceIntoIndexes(nodesBefore, linksBefore);
-    if (window.CarWebPower) window.CarWebPower.invalidate();
+    powertrainChanged();
     dtNode = null; openDetail(primary);
     console.info(`[carweb] merged ${hit.label} into ${primary.label}; ${r.variants} variant(s) now`);
   }
@@ -1469,7 +1576,7 @@ window.CarWeb = (function () {
       }
       spliceIntoIndexes(nodesBefore, linksBefore);
       if (nodes.length !== nodesBefore) buildSim();
-      if (window.CarWebPower) window.CarWebPower.invalidate();
+      powertrainChanged();
       refreshCounts();
       Graph.touch();
       const eng = r.engine || byId.get(r.id);
@@ -2536,7 +2643,7 @@ window.CarWeb = (function () {
     catch (e) { console.warn("CarWeb: could not record engine mentions", e); return; }
     if (!r || (!r.engines && !r.fitted)) return;
     spliceIntoIndexes(nodesBefore, linksBefore);
-    if (window.CarWebPower) window.CarWebPower.invalidate();
+    powertrainChanged();
     console.info(`[carweb] powertrain: noted ${r.engines} engine(s) and ${r.fitted} connection(s) ` +
                  "from the car just checked");
   }
@@ -2562,7 +2669,7 @@ window.CarWeb = (function () {
         return;
       }
       spliceIntoIndexes(nodesBefore, linksBefore);
-      if (window.CarWebPower) window.CarWebPower.invalidate();
+      powertrainChanged();
       if (dtNode === node || (dtNode && dtNode.familyOf === node.id)) renderPowertrain(dtNode);
       Graph.touch();
       console.info(`[carweb] powertrain: ${r.engines} engine(s) and ${r.fitted} connection(s) ` +
@@ -5860,8 +5967,24 @@ window.CarWeb = (function () {
     // graph is untouched" has to mean the positions too, not just what is
     // drawn. Filtered here rather than in the forces, so nothing downstream
     // has to know.
-    const simNodes = nodes.filter(n => !isPowertrain(n));
-    const simLinks = links.filter(l => !POWERTRAIN_LINKS.has(l.type));
+    // In the powertrain layer it is the main graph that sits out instead --
+    // same reasoning in reverse, so each layer's positions are its own and
+    // neither pushes the other around.
+    const simNodes = isPowerMode()
+      ? nodes.filter(n => isPowertrain(n) || powerSimCars().has(n.id))
+      : nodes.filter(n => !isPowertrain(n));
+    // Both endpoints have to be nodes this simulation actually holds. A
+    // fitted edge can legitimately name a car that is not in the graph -- the
+    // article listed it and nothing minted it -- and the prune above
+    // deliberately spares powertrain edges, so they are filtered here
+    // instead. d3's link force resolves endpoints up front and a missing one
+    // is a hard "node not found" that leaves no usable simulation at all.
+    const simIds = new Set(simNodes.map(n => n.id));
+    const simLinks = isPowerMode()
+      ? links.filter(l => POWERTRAIN_LINKS.has(l.type) &&
+          simIds.has(typeof l.source === "string" ? l.source : l.source && l.source.id) &&
+          simIds.has(typeof l.target === "string" ? l.target : l.target && l.target.id))
+      : links.filter(l => !POWERTRAIN_LINKS.has(l.type));
     // Seeded here rather than over every node: a node the simulation does not
     // hold has no position to seed, and seedNewNode reads its neighbours out
     // of adj, which a powertrain node has no business being in.
@@ -6218,6 +6341,10 @@ window.CarWeb = (function () {
     // exception to nodeInLayer's collapsed-family gate -- see
     // computePlatformsFilter's "pass 2" comment for why.
     function inGraphView(n) {
+      // The year slider and the platforms filter are main-layer controls (the
+      // slider is hidden on this tab), and an engine has no year at all -- so
+      // in the powertrain layer nodeInLayer is the whole answer.
+      if (isPowerMode()) return nodeInLayer(n);
       if (nodeInLayer(n)) return passesYearFilter(n) && (!platformsOnly || platformsNodeIds.has(n.id));
       if (platformsOnly && !n.retired && platformsRevealedIds.has(n.id)) return passesYearFilter(n) && platformsNodeIds.has(n.id);
       return false;
@@ -6401,7 +6528,10 @@ window.CarWeb = (function () {
 
       // edges
       for (const l of links) {
-        if (l.type === "generation") continue;  // structural family->generation link, not drawn
+        // Structural hub->child links, not drawn: the radial ring is what
+        // shows that relationship, for an engine's variants exactly as for a
+        // nameplate's generations.
+        if (l.type === "generation" || l.type === "enginegen") continue;
         // A link whose endpoints aren't resolved (or aren't laid out) yet --
         // possible for a frame or two right after a live LLM mutation splices
         // new nodes in -- would otherwise reach ctx.moveTo(undefined) and
@@ -6425,6 +6555,14 @@ window.CarWeb = (function () {
         } else if (l.type === "succession") {
           ctx.strokeStyle = C.ink2; ctx.globalAlpha = alpha * 0.3;
           ctx.lineWidth = 1.2 / k; ctx.setLineDash([]);
+        } else if (l.type === "fitted") {
+          // An engine into a car: the powertrain layer's ordinary connection,
+          // drawn as the main layer draws "made".
+          ctx.strokeStyle = C.ink2; ctx.globalAlpha = alpha * 0.4;
+          ctx.lineWidth = 1.1 / k; ctx.setLineDash([]);
+        } else if (l.type === "enginesucc") {
+          ctx.strokeStyle = C.gensucc; ctx.globalAlpha = alpha * 0.8;
+          ctx.lineWidth = 1.6 / k; ctx.setLineDash([]);
         } else if (l.type === "gensucc") {
           // generation-to-generation succession within the SAME nameplate
           // (e.g. G-Class W463 -> W464 -> W465) -- a solid, more saturated
@@ -6468,6 +6606,16 @@ window.CarWeb = (function () {
           ctx.beginPath(); ctx.arc(n.x, n.y, r + 1.8 / k, 0, 2 * Math.PI);
           ctx.lineWidth = 1.1 / k; ctx.strokeStyle = C.ink; ctx.stroke();
           drawDbGarageRings(n, r, k);
+        } else if (n.type === "engine") {
+          // An engine is a nameplate here, so it is drawn as one -- including
+          // the expandable ring, which is what says it opens.
+          ctx.beginPath(); ctx.arc(n.x, n.y, r, 0, 2 * Math.PI);
+          ctx.fillStyle = C.accent; ctx.fill();
+          ctx.beginPath(); ctx.arc(n.x, n.y, r + 1.8 / k, 0, 2 * Math.PI);
+          ctx.lineWidth = 1.1 / k; ctx.strokeStyle = C.ink; ctx.stroke();
+        } else if (n.type === "enginevar") {
+          ctx.beginPath(); ctx.arc(n.x, n.y, r, 0, 2 * Math.PI);
+          ctx.fillStyle = C.engvar; ctx.fill();
         } else {
           ctx.beginPath(); ctx.arc(n.x, n.y, r, 0, 2 * Math.PI);
           ctx.fillStyle = C.card; ctx.fill();
@@ -6580,8 +6728,8 @@ window.CarWeb = (function () {
     // renders them at ~0.01 alpha either way, but that reads as "missing").
     function neighborhoodForFocus(n) {
       const set = neighborhood(n.id);
-      if (n.type === "family") {
-        (n.generations || []).forEach(gid => neighborhood(gid, set));
+      if (isHub(n)) {
+        childIdsOf(n).forEach(gid => neighborhood(gid, set));
       } else if (n.type === "make") {
         // Real user request: "if i click on the company name (mark) itself,
         // i also want it to show the shared platforms/relations to other
@@ -6731,7 +6879,7 @@ window.CarWeb = (function () {
       // Focusing a specific generation implies opening its nameplate; done
       // here rather than in gotoNode so it survives the collapse just above
       // regardless of which entry point got us here.
-      if (n.familyOf) expandForFocus(n.familyOf);
+      if (parentIdOf(n)) expandForFocus(parentIdOf(n));
       ensureYearVisible(n); // explicit navigation always wins over the slider
       ensureMakeRangeVisible(n); // ...and for a make, that means its whole model range -- see above
       revealRelatedFor(n);       // ...and every related car, without needing a second click
@@ -6740,7 +6888,7 @@ window.CarWeb = (function () {
       // shouldn't silently no-op; turn the filter off rather than fly the
       // camera to an empty patch of canvas.
       if (platformsOnly && !platformsNodeIds.has(n.id)) setPlatformsOnly(false);
-      if (n.type === "family") expandForFocus(n.id);
+      if (isHub(n)) expandForFocus(n.id);
       focusRoot = n; selected = n;
       focusSet = neighborhoodForFocus(n);
       document.getElementById("clearfocus").hidden = false;
@@ -6816,14 +6964,13 @@ window.CarWeb = (function () {
     }
 
     function gotoNode(n) {
-      // An engine is not in this graph at all (see nodeInLayer), so focusing
-      // it would fly the camera to an empty patch of canvas. Its home is the
-      // Powertrain view; go there and open its card.
-      if (isPowertrain(n)) {
-        switchView("power");
-        openDetail(n);
-        return;
-      }
+      // An engine lives in the powertrain layer, so go to that layer first --
+      // focusing it in the main one would fly the camera to an empty patch of
+      // canvas. After the switch it is focused exactly like anything else,
+      // because the two layers are the same graph. The reverse too: clicking
+      // a car from an engine's card takes you back to the main layer.
+      if (isPowertrain(n) && !isPowerMode()) switchView("power");
+      else if (!isPowertrain(n) && isPowerMode() && !nodeInLayer(n)) switchView("graph");
       focusOn(n); // focusOn expands n's own family itself -- see its comment
     }
 
@@ -6899,6 +7046,10 @@ window.CarWeb = (function () {
 
     return {
       init, gotoNode, focusPair, clearFocus, refreshFocus,
+      // Re-frame the camera on whatever is on screen now. Needed when the
+      // layer changes under it (see switchView): the powertrain layer's forty
+      // nodes sit nowhere near the main graph's six thousand.
+      refit(anim) { fitAll(!!anim); },
       clearSelection() { selected = null; dirty = true; },
       touch() { dirty = true; resize(); refreshPlatformsFilter(); },
       platformsOnly: () => platformsOnly, setPlatformsOnly,
@@ -6930,31 +7081,76 @@ window.CarWeb = (function () {
   // ---------- view switching ----------
   const views = { graph: null, timeline: null, sixdeg: null };
   let activeView = "graph";
+  // Both the Graph and the Powertrain tab show the SAME section, canvas and
+  // renderer -- they differ only in which layer is on screen. See graphMode.
+  const GRAPH_VIEWS = { graph: "main", power: "power" };
+  function powertrainCounts() {
+    let engines = 0, variants = 0, fitted = 0;
+    const cars = new Set();
+    for (const n of nodes) {
+      if (n.retired) continue;
+      if (n.type === "engine") engines++;
+      else if (n.type === "enginevar") variants++;
+    }
+    for (const l of links) {
+      if (l.retired || l.type !== "fitted") continue;
+      const a = endOf(l, "source"), b = endOf(l, "target");
+      if (!a || !b || a.retired || b.retired) continue;
+      fitted++;
+      cars.add(isPowertrain(a) ? b.id : a.id);
+    }
+    return { engines, variants, cars: cars.size, fitted };
+  }
+  // Something in the powertrain layer changed -- an engine read, a mention
+  // recorded, a merge. Was CarWebPower.invalidate() back when that layer had
+  // its own renderer; now it is the same graph, so it is the same refresh
+  // every other live mutation does.
+  function powertrainChanged() {
+    invalidatePowerVis();
+    refreshPowertrainLegend();
+    if (isPowerMode()) { buildSim(); Graph.touch(); }
+  }
+  function refreshPowertrainLegend() {
+    const el = document.getElementById("pt-counts");
+    if (!el) return;
+    const c = powertrainCounts();
+    el.textContent = c.engines
+      ? `${c.engines} engine${c.engines === 1 ? "" : "s"} · ${c.variants} variant${c.variants === 1 ? "" : "s"} · ` +
+        `${c.cars} car${c.cars === 1 ? "" : "s"} · ${c.fitted} fitted`
+      : "nothing scanned yet";
+  }
   function switchView(name) {
     if (name === activeView) return;
+    const prevMode = graphMode;
     activeView = name;
+    graphMode = GRAPH_VIEWS[name] || "main";
+    // The Graph section is what both graph-layer tabs show; the tab strip
+    // still highlights whichever one was asked for.
+    const section = GRAPH_VIEWS[name] ? "graph" : name;
     document.querySelectorAll(".tab").forEach(b => b.classList.toggle("active", b.dataset.view === name));
-    document.querySelectorAll(".view").forEach(v => v.classList.toggle("active", v.id === "view-" + name));
+    document.querySelectorAll(".view").forEach(v => v.classList.toggle("active", v.id === "view-" + section));
     const yf = document.getElementById("yearfilter");
     if (yf) yf.style.display = name === "graph" ? "" : "none";
+    const mainLegend = document.getElementById("legend");
+    const ptLegend = document.getElementById("pt-legend");
+    if (mainLegend) mainLegend.hidden = isPowerMode();
+    if (ptLegend) ptLegend.hidden = !isPowerMode();
     hideHover();
     switchDetailAway();
     if (window.LlmFamilies) window.LlmFamilies.setEngaged(null);
     dt.hidden = true; dtNode = null;
     if (name === "timeline") CarWebTimeline.activate();
     if (name === "sixdeg") CarWebSix.activate();
-    if (name === "power" && window.CarWebPower) {
-      CarWebPower.activate();
-      const el = document.getElementById("pt-counts");
-      if (el) {
-        const c = CarWebPower.counts();
-        el.textContent = c.engines
-          ? `${c.engines} engine${c.engines === 1 ? "" : "s"} · ${c.variants} variant${c.variants === 1 ? "" : "s"} · ` +
-            `${c.cars} car${c.cars === 1 ? "" : "s"} · ${c.fitted} fitted`
-          : "nothing scanned yet";
-      }
+    if (isPowerMode()) refreshPowertrainLegend();
+    // Changing layer changes which nodes the simulation holds, so it is
+    // rebuilt and re-framed -- the same thing a live mutation does.
+    if (GRAPH_VIEWS[name] && prevMode !== graphMode) {
+      invalidatePowerVis();
+      Graph.clearFocus();
+      buildSim();
+      Graph.refit(false);
     }
-    if (name === "graph") Graph.touch();
+    if (GRAPH_VIEWS[name]) Graph.touch();
   }
   document.querySelectorAll(".tab").forEach(b => b.onclick = () => switchView(b.dataset.view));
 
@@ -6991,6 +7187,9 @@ window.CarWeb = (function () {
     let conns = 0;
     for (const l of links) {
       if (l.retired || l.type === "generation") continue; // structural hub links aren't a "connection" between two cars
+      // The footer describes the main graph, which the powertrain layer is
+      // deliberately not part of -- "same nodes, same counts, same layout".
+      if (POWERTRAIN_LINKS.has(l.type)) continue;
       const sn = l.sn || byId.get(typeof l.source === "string" ? l.source : (l.source && l.source.id));
       const tn = l.tn || byId.get(typeof l.target === "string" ? l.target : (l.target && l.target.id));
       if (!sn || !tn || sn.retired || tn.retired) continue;
@@ -7006,6 +7205,8 @@ window.CarWeb = (function () {
     C, nodes, links, byId, adj, wiki, searchAll, renderResults,
     showHover, positionHover, hideHover, openDetail, nodeKicker, nodeMeta,
     nodeInLayer, linkInLayer, personRoleWord, hasRole, isPerson,
+    // The powertrain layer, which is this same graph with graphMode flipped.
+    graphMode: () => graphMode, powertrainCounts, isPowertrain,
     layer: () => layer, setLayer, onLayerChange: f => layerListeners.push(f),
     dbFilterOn: () => dbFilterOn, setDbFilter, onDbFilterChange: f => dbFilterListeners.push(f),
     isFamilyExpanded, expandFamily, collapseFamily, onFamilyChange: f => familyListeners.push(f),
@@ -7045,7 +7246,6 @@ window.CarWeb = (function () {
       Graph.init();
       CarWebTimeline.init();
       CarWebSix.init();
-      if (window.CarWebPower) CarWebPower.init();
       refreshCounts();
       document.querySelectorAll("#layertoggle button").forEach(b =>
         b.onclick = () => setLayer(b.dataset.layer));
@@ -7226,6 +7426,9 @@ window.CarWeb = (function () {
       dropLiveLayerStorage();
     },
     sim: () => sim,
+    // The Graph itself. Exposed for the regression suite, which now drives
+    // both layers through it -- there is no second renderer to drive.
+    Graph,
     graphFocusSet: () => Graph.state().focusSet,
     graphCamera: () => Graph.camera(),
     graphDrawNow: () => Graph.drawNow(),
@@ -7234,6 +7437,11 @@ window.CarWeb = (function () {
     // mutation already makes (see applyLlmConfirmSilent and friends). Exposed
     // so a test can add a node or a link and have the forces actually see it.
     rebuildSim: () => buildSim(),
+    // Wire nodes/links appended since those counts into byId/adj -- the same
+    // call every live mutation makes. Exposed so a test that pushes nodes
+    // directly (an engine article applied by hand) can put the graph in the
+    // state the real code path leaves it in, rather than a half-indexed one.
+    spliceIntoIndexes,
     isPowertrain, powertrainLinkTypes: () => POWERTRAIN_LINKS,
     scanEngine, renderPowertrain, recordEnginesLive, mergeEnginePrompt, scanEnginesLive,
     graphTransform: () => Graph.state().t,

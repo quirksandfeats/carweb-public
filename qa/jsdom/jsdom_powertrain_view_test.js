@@ -44,7 +44,12 @@ global.window = window; global.document = window.document;
 
 const ev = f => window.eval(fs.readFileSync(path.join(APP, f), "utf-8"));
 const srcs = [...html.matchAll(/<script src="([^"]+)"><\/script>/g)].map(m => m[1]);
-check("the view's script is loaded by the page", srcs.indexOf("powertrain.js") >= 0, srcs.join(" "));
+// Real user request, twice over: "I repeat, I want exactly the same behavior,
+// UI, node behavior, etc.. as the graph tab view. It should look virtually
+// identical." There is no second renderer any anymore -- that is what kept
+// drifting -- so there is no powertrain.js to load.
+check("there is no separate powertrain renderer to drift from the Graph's",
+      srcs.indexOf("powertrain.js") < 0, srcs.join(" "));
 for (const f of srcs) {
   if (f === "llm_families.js") {
     window.LLM_FAMILIES = { families: {}, relations: {}, recheck: {}, __serverAvailable: true };
@@ -54,39 +59,55 @@ for (const f of srcs) {
 const cw = window.CarWeb;
 cw.boot();
 const LF = window.LlmFamilies;
-const PT = window.CarWebPower;
 const DATA = window.CARDATA;
 
-// ---------- 1. the tab exists and is separate ----------
+// ---------- 1. the tab shows the Graph view, in its powertrain layer ----------
 {
-  const tabs = [...window.document.querySelectorAll("#viewtabs .tab")].map(b => b.dataset.view);
+  const doc = window.document;
+  const tabs = [...doc.querySelectorAll("#viewtabs .tab")].map(b => b.dataset.view);
   check("a Powertrain tab sits alongside the others", tabs.indexOf("power") >= 0, tabs.join(", "));
-  check("...with its own view container and canvas",
-        !!window.document.getElementById("view-power") && !!window.document.getElementById("ptcanvas"));
-}
+  check("there is no separate powertrain view container", !doc.getElementById("view-power"));
+  check("...nor a second canvas", !doc.getElementById("ptcanvas"));
 
-// ---------- 2. before anything is scanned ----------
-{
-  PT.init();
-  const c = PT.counts();
-  check("an unscanned graph has no powertrain in it", c.engines === 0 && c.fitted === 0,
-        JSON.stringify(c));
   cw.switchView("power");
-  check("...and the view says so rather than drawing an empty canvas",
-        /nothing scanned/.test(window.document.getElementById("pt-counts").textContent),
-        window.document.getElementById("pt-counts").textContent);
+  check("the Powertrain tab shows the Graph's own view",
+        doc.getElementById("view-graph").classList.contains("active"));
+  check("...with the Powertrain tab marked active, not the Graph one",
+        doc.querySelector('#viewtabs .tab[data-view="power"]').classList.contains("active") &&
+        !doc.querySelector('#viewtabs .tab[data-view="graph"]').classList.contains("active"));
+  check("...and the layer flipped", cw.graphMode() === "power", cw.graphMode());
+  check("the Graph's legend gives way to the powertrain one",
+        doc.getElementById("legend").hidden === true &&
+        doc.getElementById("pt-legend").hidden === false);
+  check("...which is the same legend pill, not a second kind of bar",
+        doc.getElementById("pt-legend").classList.contains("legend-style"));
+  check("the year slider is put away, as on every non-Graph tab",
+        doc.getElementById("yearfilter").style.display === "none");
+  check("nothing is scanned yet, and it says so",
+        /nothing scanned/.test(doc.getElementById("pt-counts").textContent),
+        doc.getElementById("pt-counts").textContent);
   cw.switchView("graph");
+  check("switching back restores the Graph's legend",
+        doc.getElementById("legend").hidden === false &&
+        doc.getElementById("pt-legend").hidden === true);
+  check("...and the main layer", cw.graphMode() === "main", cw.graphMode());
 }
 
-// ---------- 3. the main graph, before and after ----------
+// ---------- 2. the main graph, before and after ----------
 const countsBefore = window.document.getElementById("counts").textContent;
 const visibleNodesBefore = DATA.nodes.filter(n => cw.nodeInLayer(n)).length;
 const visibleLinksBefore = DATA.links.filter(l => cw.linkInLayer(l)).length;
 
 const M256 = fs.readFileSync(path.join(CACHE, "Mercedes-Benz_M256_engine.wikitext"), "utf-8");
 const article = LF.readEngineArticle(M256, "M256");
+const nodesBefore = DATA.nodes.length, linksBefore = DATA.links.length;
 const applied = LF.applyEngineArticleWith(article, "Mercedes-Benz M256 engine",
                                           DATA.nodes, DATA.links, new Map(), {});
+// What scanEngine does next, and every other live mutation: index what was
+// just pushed. Without it the graph is half-built -- nodes in the array, in
+// no index -- which is not a state the app is ever in.
+cw.spliceIntoIndexes(nodesBefore, linksBefore);
+cw.rebuildSim();
 
 {
   check("the engine really did go into the shared node array",
@@ -115,31 +136,70 @@ const applied = LF.applyEngineArticleWith(article, "Mercedes-Benz M256 engine",
   check("...and an ordinary car is not", !cw.isPowertrain(DATA.nodes.find(n => n.type === "model")));
 }
 
-// ---------- 4. what the view gathers ----------
+// ---------- 3. the layer, and what it shows when ----------
+// Real user request: "I also want that the car models associated with the
+// engines only appear once I have clicked on a particular engine, similar to
+// how I do so for the 'graph' tab view." Which is the nameplate rule exactly,
+// so it IS the nameplate rule -- the same expandedFamilies set, the same
+// radial ring, the same click.
 {
-  PT.activate();
-  const c = PT.counts();
-  check("the view finds the engine", c.engines === 1, JSON.stringify(c));
-  check("...its three variants", c.variants === 3, c.variants);
-  check("...the cars it reaches", c.cars > 0, c.cars);
-  check("...and the connections between them", c.fitted > 0, c.fitted);
-  check("it does NOT drag in every other car in the graph",
-        c.cars < 60, c.cars + " cars for one engine");
-
+  const eng = applied.engine;
   cw.switchView("power");
+  cw.rebuildSim();
+  const c = cw.powertrainCounts();
+  check("the layer knows what is in it",
+        c.engines === 1 && c.variants === 3 && c.fitted > 0, JSON.stringify(c));
   const bar = window.document.getElementById("pt-counts").textContent;
-  check("the bar reports what is there", /1 engine/.test(bar) && /3 variants/.test(bar), bar);
-  check("...and the view is the active one",
-        window.document.getElementById("view-power").classList.contains("active"));
+  check("the legend reports it", /1 engine/.test(bar) && /3 variants/.test(bar), bar);
+
+  check("shut, the engine is on screen", cw.nodeInLayer(eng));
+  check("...and nothing else is -- no variants",
+        DATA.nodes.filter(n => n.type === "enginevar" && cw.nodeInLayer(n)).length === 0);
+  check("...and no cars, which is the whole point",
+        DATA.nodes.filter(n => (n.type === "model" || n.type === "family") && cw.nodeInLayer(n)).length === 0,
+        DATA.nodes.filter(n => (n.type === "model" || n.type === "family") && cw.nodeInLayer(n)).length);
+  check("...nor a designer or a make from the other layer",
+        DATA.nodes.filter(n => cw.nodeInLayer(n) && (n.type === "person" || n.type === "make")).length === 0);
+
+  // Clicking is what focusOn does, and focusOn is what the canvas click
+  // handler calls -- for an engine exactly as for a nameplate.
+  cw.Graph.gotoNode(eng);
+  check("clicking the engine opens it", cw.isFamilyExpanded(eng.id));
+  check("...its variants appear", DATA.nodes.filter(n => n.type === "enginevar" && cw.nodeInLayer(n)).length === 3,
+        DATA.nodes.filter(n => n.type === "enginevar" && cw.nodeInLayer(n)).length);
+  const carsOpen = DATA.nodes.filter(n => (n.type === "model" || n.type === "family") && cw.nodeInLayer(n));
+  check("...and so do the cars it was fitted to", carsOpen.length > 0, carsOpen.length);
+  check("...only those, not the rest of the graph", carsOpen.length < 60, carsOpen.length);
+
+  // The ring: the same geometry a nameplate's generations get, because it is
+  // the same function.
+  const ring = cw.ringOf(eng.id);
+  check("the variants are laid out on a radial ring around the engine", !!ring,
+        ring && JSON.stringify({ r: Math.round(ring.r), n: ring.gens.size }));
+  check("...one slot per variant", ring && ring.gens.size === 3, ring && ring.gens.size);
+  const onRim = [...ring.gens].map(id => cw.byId.get(id))
+    .every(v => Math.abs(Math.hypot(v.x - ring.x, v.y - ring.y) - ring.r) < 1.5);
+  check("...actually sitting on it", onRim,
+        [...ring.gens].map(id => { const v = cw.byId.get(id);
+          return Math.hypot(v.x - ring.x, v.y - ring.y).toFixed(1); }).join(", "));
+
+  // The force fields. Same clearRing/keep-out forces as the main layer, so a
+  // car pulled at the engine still ends up outside its bubble.
+  const car = carsOpen[0];
+  car.x = ring.x + 3; car.y = ring.y + 3; car.vx = car.vy = 0;
+  cw.simTick(60);
+  const d = Math.hypot(car.x - ring.x, car.y - ring.y);
+  check("a car dropped inside the engine's bubble is pushed back out",
+        d >= ring.clear - 0.001, d.toFixed(1) + " vs clearance " + ring.clear.toFixed(1));
+
+  cw.Graph.clearFocus();
   cw.switchView("graph");
-  check("switching back leaves the graph active",
-        window.document.getElementById("view-graph").classList.contains("active"));
 }
 
-// ---------- 5. cars are shared, not copied ----------
+// ---------- 4. cars are shared, not copied ----------
 {
   const fitted = DATA.links.filter(l => l.type === "fitted");
-  const carIds = new Set(fitted.map(l => l.target));
+  const carIds = new Set(fitted.map(l => typeof l.target === "string" ? l.target : l.target.id));
   const shared = [...carIds].map(id => DATA.nodes.find(n => n.id === id)).filter(Boolean);
   check("every car an engine reaches is a node the main graph already had",
         shared.every(n => n.type === "model" || n.type === "family"),
@@ -148,46 +208,29 @@ const applied = LF.applyEngineArticleWith(article, "Mercedes-Benz M256 engine",
         shared.every(n => DATA.nodes.indexOf(n) >= 0));
 }
 
-// ---------- 6. it looks and behaves like the Graph tab ----------
-// Real user request: "The Powertrain tab should function exactly the same,
-// have the same UI queues, and everything as the Graph Tab. Currently it
-// doesnt, and makes it look inconsistent with the style." It had a bespoke
-// bar, no hover card, no zoom control and no hint line -- so this checks it
-// reuses the Graph view's own furniture rather than a parallel copy of it.
+// ---------- 5. every piece of furniture is the Graph's own ----------
 {
   const doc = window.document;
   const css = fs.readFileSync(path.join(APP, "styles.css"), "utf-8");
+  check("the canvas is the Graph's", !!doc.getElementById("graphcanvas"));
+  check("the hint line is the Graph's", !!doc.getElementById("graphhint"));
+  check("the zoom control is the Graph's", !!doc.getElementById("zoomslider"));
+  check("the release-focus button is the Graph's", !!doc.getElementById("clearfocus"));
+  check("no parallel powertrain furniture is left behind",
+        !doc.getElementById("ptzoom") && !doc.getElementById("pt-hint") &&
+        !/#ptcanvas|#view-power|#pt-bar/.test(css));
 
-  const legend = doc.getElementById("pt-legend");
-  check("the counts and key sit in the Graph view's own legend pill",
-        !!legend && legend.classList.contains("legend-style"),
-        legend && legend.className);
-  check("...with a swatch per thing on screen, as the Graph legend has",
-        legend && legend.querySelectorAll(".lg .sw").length >= 4,
-        legend && legend.querySelectorAll(".lg .sw").length);
-  check("the hint line is styled by the same rule as the Graph's",
-        /#graphhint,#pt-hint\{/.test(css) && !!doc.getElementById("pt-hint"));
-  check("the canvas is styled by the same rule as the Graph's",
-        /#graphcanvas,#sdcanvas,#ptcanvas\{/.test(css));
-  check("the zoom control is the Graph's, markup and CSS",
-        !!doc.getElementById("ptzoom") && !!doc.getElementById("ptzoom-in") &&
-        !!doc.getElementById("ptzoom-out") && /#zoomslider-wrap,#ptzoom-wrap\{/.test(css));
-  check("...and it is hidden on a phone, exactly as the Graph's is",
-        /#zoomslider-wrap,#ptzoom-wrap\{display:none\}/.test(
-          css.slice(css.indexOf("@media (max-width:720px)"))));
-
-  // The hover card. Aimed at a real node through the view's own layout, so
-  // this is the same code path a pointer takes, not a call to showHover.
+  // The hover card, driven through the Graph's own canvas: the same pointer
+  // path a person takes.
   cw.switchView("power");
-  PT.activate();
   const eng = DATA.nodes.find(n => n.type === "engine");
-  const pos = PT.positions().find(p => p.id === eng.id);
-  const t = PT.transform();
-  const at = t.apply([pos.x, pos.y]);
-  const canvas = doc.getElementById("ptcanvas");
+  cw.Graph.gotoNode(eng);
+  cw.graphDrawNow();
+  const t = cw.Graph.state().t;
+  const at = t.apply([eng.x, eng.y]);
+  const canvas = doc.getElementById("graphcanvas");
   const hc = doc.getElementById("hovercard");
-  check("(precondition) the engine is laid out in this view", !!pos, pos && JSON.stringify(pos));
-  canvas.dispatchEvent(new window.MouseEvent("mousemove", {
+  canvas.dispatchEvent(new window.MouseEvent("pointermove", {
     clientX: at[0], clientY: at[1], bubbles: true }));
   check("hovering an engine raises the same hover card the Graph uses",
         hc.hidden === false && hc.querySelector(".hc-title").textContent === eng.label,
@@ -195,7 +238,7 @@ const applied = LF.applyEngineArticleWith(article, "Mercedes-Benz M256 engine",
   check("...with the same kicker the Graph would show",
         hc.querySelector(".hc-kicker").textContent === cw.nodeKicker(eng),
         hc.querySelector(".hc-kicker").textContent);
-  canvas.dispatchEvent(new window.MouseEvent("mouseleave", { bubbles: true }));
+  canvas.dispatchEvent(new window.MouseEvent("pointerleave", { bubbles: true }));
   check("...and it goes away on the way out", hc.hidden === true);
   cw.switchView("graph");
 }

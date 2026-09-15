@@ -160,7 +160,7 @@ function boot(isPhone, legendHeight) {
 
   // ---------- 4. no zoom slider ----------
   const phoneCss = css.slice(css.indexOf("@media (max-width:720px)"));
-  const zoom = /#zoomslider-wrap,#ptzoom-wrap\{([^}]*)\}/.exec(phoneCss);
+  const zoom = /#zoomslider-wrap\{([^}]*)\}/.exec(phoneCss);
   check("the zoom slider is gone on a phone -- pinch already does it",
         !!zoom && /display:none/.test(zoom[1]), zoom && zoom[1].trim());
 }

@@ -1,7 +1,7 @@
 :root{
   --paper:#f6f1e7; --paper2:#efe8d9; --card:#fffdf7;
   --ink:#17140f; --ink2:#4a4335; --muted:#8a7f6c; --hairline:#d9cfbc;
-  --accent:#c2451d; --accent2:#e8b9a5;
+  --accent:#c2451d; --accent2:#e8b9a5; --engvar:#c98b2e;
   --designer:#34586e; --designer2:#bccdd6;
   --engineer:#9a6b2f; --engineer2:#e3cfae;
   --db-gold:#b3891f; --db-gold2:#ecdcaf;
@@ -109,8 +109,8 @@ body{
 main{flex:1; position:relative; min-height:0}
 .view{position:absolute; inset:0; visibility:hidden}
 .view.active{visibility:visible}
-#graphcanvas,#sdcanvas,#ptcanvas{position:absolute; inset:0; width:100%; height:100%; display:block; cursor:grab}
-#graphcanvas:active,#ptcanvas:active{cursor:grabbing}
+#graphcanvas,#sdcanvas{position:absolute; inset:0; width:100%; height:100%; display:block; cursor:grab}
+#graphcanvas:active{cursor:grabbing}
 
 #legend,.legend-style{
   position:absolute; left:22px; top:16px; display:flex; gap:16px; align-items:center;
@@ -141,7 +141,7 @@ main{flex:1; position:relative; min-height:0}
 .sw-db{background:var(--accent); border:2.5px solid var(--db-gold); width:9px; height:9px}
 .sw-garage{background:transparent; border:2px dashed var(--ink)}
 
-#graphhint,#pt-hint{
+#graphhint{
   position:absolute; bottom:14px; left:50%; transform:translateX(-50%);
   font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); white-space:nowrap;
 }
@@ -160,19 +160,19 @@ main{flex:1; position:relative; min-height:0}
    Graph-view overlay: #legend/search live top-left, #graphhint is bottom-
    CENTER, #clearfocus is top-right, #detail is right-anchored) keeps it
    reachable regardless of what's open. ---------- */
-#zoomslider-wrap,#ptzoom-wrap{
+#zoomslider-wrap{
   position:absolute; left:22px; bottom:20px; z-index:5;
   display:flex; flex-direction:row; align-items:center; gap:8px;
   background:var(--card); border:1px solid var(--hairline); border-radius:999px;
   padding:0 12px; height:38px; box-shadow:0 2px 10px rgba(0,0,0,.08);
 }
-#zoomslider-wrap button,#ptzoom-wrap button{
+#zoomslider-wrap button{
   width:26px; height:26px; border-radius:50%; border:1px solid var(--hairline);
   background:var(--paper); color:var(--ink); font-size:15px; line-height:1; font-family:var(--sans);
   cursor:pointer; display:flex; align-items:center; justify-content:center; flex:none;
 }
-#zoomslider-wrap button:hover,#ptzoom-wrap button:hover{background:var(--hover, var(--hairline))}
-#zoomslider,#ptzoom{
+#zoomslider-wrap button:hover{background:var(--hover, var(--hairline))}
+#zoomslider{
   width:140px; height:18px; margin:0; cursor:pointer; accent-color:var(--ink); flex:none;
 }
 
@@ -1019,7 +1019,7 @@ main{flex:1; position:relative; min-height:0}
      since it is clear that the user can do so themselves with their fingers."
      Pinch already does everything it did, and it was sitting exactly where the
      search box and the legend button now go. */
-  #zoomslider-wrap,#ptzoom-wrap{display:none}
+  #zoomslider-wrap{display:none}
 
   /* Real user report: "the title card seems to take up way too much space,
      almost 50% of all screen real-estate. I want that it's taking even less
@@ -1084,25 +1084,17 @@ main{flex:1; position:relative; min-height:0}
   #counts{order:-1; color:var(--ink2); font-weight:600}
 }
 
-/* ---------- powertrain view (see powertrain.js) ---------- */
-/* NOT position:relative. That overrode .view's own "position:absolute;
-   inset:0", so this section collapsed to the height of its own bar -- and
-   #ptcanvas, absolutely positioned to inset:0 inside it, became a ~40px
-   strip hidden behind that bar. The whole graph was being drawn, correctly,
-   into a band nobody could see: the tab reported "47 engines - 25 cars - 110
-   fitted" over a blank page. Keep it absolute so the canvas fills the view. */
-#view-power{position:absolute; inset:0}
-#pt-legend{z-index:20}
+/* ---------- the powertrain layer's legend ----------
+   There is no powertrain VIEW any more: the Powertrain tab shows the Graph
+   view, drawn by the same renderer with app.js's graphMode flipped, so every
+   other rule this layer needs -- canvas, hover card, zoom slider, hint line,
+   legend pill -- is the Graph's own, unchanged. Only the swatches differ. */
 #pt-legend[hidden]{display:none}
 .pt-counts{font-weight:600; color:var(--ink); font-variant-numeric:tabular-nums}
-.sw-pt-eng{background:var(--accent)}
-.sw-pt-var{background:var(--accent2)}
-.sw-pt-car{background:transparent; border:2px solid var(--ink)}
-.sw-pt-fitted{width:22px; height:0; border-top:1.6px dashed var(--hairline); border-radius:0}
-@media (max-width:760px){
-  #pt-bar{top:8px; left:10px; right:10px; gap:10px; font-size:11px}
-  .pt-key{gap:8px}
-}
+.sw-pt-eng{background:var(--accent); box-shadow:0 0 0 1.5px var(--paper), 0 0 0 3px var(--ink)}
+.sw-pt-var{background:var(--engvar)}
+.sw-pt-car{background:var(--accent)}
+.sw-pt-fitted{width:22px; height:0; border-top:1.4px solid var(--ink2); border-radius:0; opacity:.55}
 
 /* The powertrain block on a detail card (see app.js's renderPowertrain). */
 .dt-power:empty{display:none}
