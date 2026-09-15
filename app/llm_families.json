@@ -12764,6 +12764,646 @@
     "Soo Kang"
    ],
    "allEngineers": []
+  },
+  "llm-related-mercedes-benz-e-class": {
+   "status": "provisional",
+   "checkedAt": "2026-09-15T10:15:04.133Z",
+   "sourceTitle": "Mercedes-Benz E-Class",
+   "proposal": {
+    "hasMultipleGenerations": true,
+    "generations": [
+     {
+      "code": "W120/W121",
+      "yearStart": 1953,
+      "yearEnd": 1962,
+      "designers": [
+       "Karl Wilfert"
+      ],
+      "engineers": [],
+      "wikiFile": "Mercedes 190D (W121).jpg",
+      "sharedPlatforms": [
+       "Mercedes-Benz W105",
+       "Mercedes-Benz W180",
+       "Mercedes-Benz W128",
+       "Dongfeng CA71"
+      ]
+     },
+     {
+      "code": "W110",
+      "yearStart": 1961,
+      "yearEnd": 1968,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "W110.jpg",
+      "sharedPlatforms": []
+     },
+     {
+      "code": "W114/W115",
+      "yearStart": 1968,
+      "yearEnd": 1976,
+      "designers": [
+       "Paul Bracq"
+      ],
+      "engineers": [],
+      "wikiFile": "Mercedes-Benz 220D, circa 1974, Schaffen Diest, Fly-Drive 2013.JPG",
+      "sharedPlatforms": [
+       "Mercedes-Benz W108/W109"
+      ]
+     },
+     {
+      "code": "W123",
+      "yearStart": 1975,
+      "yearEnd": 1986,
+      "designers": [
+       "Friedrich Geiger",
+       "Bruno Sacco"
+      ],
+      "engineers": [
+       "Hans Scherenberg"
+      ],
+      "wikiFile": "1982 Mercedes-Benz 230E Automatic.jpg",
+      "sharedPlatforms": [
+       "Mercedes-Benz E-Class"
+      ]
+     },
+     {
+      "code": "W124",
+      "yearStart": 1984,
+      "yearEnd": 1997,
+      "designers": [
+       "Bruno Sacco"
+      ],
+      "engineers": [
+       "Hans Scherenberg",
+       "Werner Breitschwerdt"
+      ],
+      "wikiFile": "Mercedes-Benz W214 1X7A1841.jpg",
+      "sharedPlatforms": [
+       "Mercedes-Benz E-Class",
+       "Ssangyong Chairman"
+      ]
+     },
+     {
+      "code": "W210",
+      "yearStart": 1994,
+      "yearEnd": 2003,
+      "designers": [
+       "Steve Mattin",
+       "Bruno Sacco"
+      ],
+      "engineers": [],
+      "wikiFile": "Mercedes-Benz W210 front 20080809.jpg",
+      "sharedPlatforms": [
+       "Mercedes-Benz CLK-Class (C208)"
+      ]
+     },
+     {
+      "code": "W211",
+      "yearStart": 2001,
+      "yearEnd": 2009,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "2006 Mercedes-Benz E 500 (W 211 MY07) Avantgarde sedan (2015-07-09) 01.jpg",
+      "sharedPlatforms": []
+     },
+     {
+      "code": "W212",
+      "yearStart": 2009,
+      "yearEnd": 2016,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "94-95 Mercedes-Benz E-Class sedan.jpg",
+      "sharedPlatforms": []
+     },
+     {
+      "code": "W213",
+      "yearStart": 2016,
+      "yearEnd": null,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "Mercedes-AMG E 53 (W213) FL IMG 3965.jpg",
+      "sharedPlatforms": []
+     },
+     {
+      "code": "W214",
+      "yearStart": 2023,
+      "yearEnd": null,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "Mercedes-Benz E 200 d AMG Line (W 214) – f 05072025.jpg",
+      "sharedPlatforms": []
+     }
+    ]
+   },
+   "attempts": 1,
+   "feedback": [],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": true,
+     "generations": [
+      {
+       "code": "W120/W121",
+       "yearStart": 1953,
+       "yearEnd": 1962,
+       "designers": [
+        "Karl Wilfert"
+       ],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Mercedes-Benz W105",
+        "Mercedes-Benz W180",
+        "Mercedes-Benz W128",
+        "Dongfeng CA71"
+       ]
+      },
+      {
+       "code": "W110",
+       "yearStart": 1961,
+       "yearEnd": 1968,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": []
+      },
+      {
+       "code": "W114/W115",
+       "yearStart": 1968,
+       "yearEnd": 1976,
+       "designers": [
+        "Paul Bracq"
+       ],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Mercedes-Benz W108/W109"
+       ]
+      },
+      {
+       "code": "W123",
+       "yearStart": 1975,
+       "yearEnd": 1986,
+       "designers": [
+        "Friedrich Geiger",
+        "Bruno Sacco"
+       ],
+       "engineers": [
+        "Hans Scherenberg"
+       ],
+       "sharedPlatforms": [
+        "Mercedes-Benz E-Class"
+       ]
+      },
+      {
+       "code": "W124",
+       "yearStart": 1984,
+       "yearEnd": 1997,
+       "designers": [
+        "Bruno Sacco"
+       ],
+       "engineers": [
+        "Hans Scherenberg",
+        "Werner Breitschwerdt"
+       ],
+       "sharedPlatforms": [
+        "Mercedes-Benz E-Class",
+        "Ssangyong Chairman"
+       ]
+      },
+      {
+       "code": "W210",
+       "yearStart": 1994,
+       "yearEnd": 2003,
+       "designers": [
+        "Steve Mattin",
+        "Bruno Sacco"
+       ],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Mercedes-Benz CLK-Class (C208)"
+       ]
+      },
+      {
+       "code": "W211",
+       "yearStart": 2001,
+       "yearEnd": 2009,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": []
+      },
+      {
+       "code": "W212",
+       "yearStart": 2009,
+       "yearEnd": 2016,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": []
+      },
+      {
+       "code": "W213",
+       "yearStart": 2016,
+       "yearEnd": null,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": []
+      },
+      {
+       "code": "W214",
+       "yearStart": 2023,
+       "yearEnd": null,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": []
+      }
+     ]
+    },
+    "dropped": []
+   },
+   "cascadeDiscovered": true
+  },
+  "m-ssangyong-chairman": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T10:15:20.456Z",
+   "sourceTitle": "SsangYong Chairman",
+   "proposal": {
+    "hasMultipleGenerations": true,
+    "generations": [
+     {
+      "code": "Chairman H",
+      "yearStart": 1997,
+      "yearEnd": 2014,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "00 SsangYong Chairman 500s.jpg",
+      "sharedPlatforms": [
+       "Mercedes-Benz W124"
+      ],
+      "sharedPlatformMatches": {
+       "Mercedes-Benz W124": {
+        "matchId": "m-mercedes-benz-e-class-w124",
+        "confidence": "high",
+        "reason": "The mention 'Mercedes-Benz W124' refers to the specific chassis code of the Mercedes-Benz E-Class produced from 1984 to 1997. The candidate 'm-mercedes-benz-e-class-w124' explicitly identifies this exact model and generation with the matching chassis code W124 and production years (1984–1997)."
+       }
+      }
+     },
+     {
+      "code": "Chairman W",
+      "yearStart": 2008,
+      "yearEnd": 2017,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "20111014 ssangyong new chairman w 1.jpg",
+      "sharedPlatforms": [
+       "Mercedes-Benz E-Class (W211)"
+      ]
+     }
+    ]
+   },
+   "attempts": 1,
+   "feedback": [],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": true,
+     "generations": [
+      {
+       "code": "Chairman H",
+       "yearStart": 1997,
+       "yearEnd": 2014,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Mercedes-Benz W124"
+       ]
+      },
+      {
+       "code": "Chairman W",
+       "yearStart": 2008,
+       "yearEnd": 2017,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Mercedes-Benz E-Class (W211)"
+       ]
+      }
+     ]
+    },
+    "dropped": []
+   },
+   "cascadeDiscovered": true,
+   "decidedBy": "user",
+   "decidedAt": "2026-09-15T10:15:20.456Z",
+   "allDesigners": [],
+   "allEngineers": []
+  },
+  "m-mercedes-benz-w105": {
+   "status": "none",
+   "checkedAt": "2026-09-15T10:15:27.549Z",
+   "sourceTitle": "Mercedes-Benz W105",
+   "proposal": {
+    "hasMultipleGenerations": false,
+    "generations": [
+     {
+      "code": "W105",
+      "yearStart": 1956,
+      "yearEnd": 1959,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "Mercedes-Benz 219 (ret) am 15.06.2007.jpg",
+      "sharedPlatforms": [
+       "Mercedes-Benz W120/W121",
+       "Mercedes-Benz W180",
+       "Mercedes-Benz W128"
+      ]
+     }
+    ]
+   },
+   "attempts": 1,
+   "feedback": [],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": false,
+     "generations": [
+      {
+       "code": "W105",
+       "yearStart": 1956,
+       "yearEnd": 1959,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Mercedes-Benz W120/W121",
+        "Mercedes-Benz W180",
+        "Mercedes-Benz W128"
+       ]
+      }
+     ]
+    },
+    "dropped": []
+   },
+   "cascadeDiscovered": true
+  },
+  "m-mercedes-benz-w180": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T10:15:37.263Z",
+   "sourceTitle": "Mercedes-Benz W180",
+   "proposal": {
+    "hasMultipleGenerations": true,
+    "generations": [
+     {
+      "code": "220 a (W180 I)",
+      "yearStart": 1954,
+      "yearEnd": 1956,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "Mercedes-Benz W180 220S Classic-Days 2022 DSC 0004.jpg",
+      "sharedPlatforms": [
+       "Mercedes-Benz W120/W121"
+      ]
+     },
+     {
+      "code": "220 S (W180 II)",
+      "yearStart": 1956,
+      "yearEnd": 1959,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "Mercedes-Benz W180 220S Classic-Days 2022 DSC 0004.jpg",
+      "sharedPlatforms": [
+       "Mercedes-Benz W120/W121",
+       "Shanghai SH760",
+       "Mercedes-Benz W105",
+       "Mercedes-Benz W128"
+      ]
+     }
+    ]
+   },
+   "attempts": 1,
+   "feedback": [],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": true,
+     "generations": [
+      {
+       "code": "220 a (W180 I)",
+       "yearStart": 1954,
+       "yearEnd": 1956,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Mercedes-Benz W120/W121"
+       ]
+      },
+      {
+       "code": "220 S (W180 II)",
+       "yearStart": 1956,
+       "yearEnd": 1959,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Mercedes-Benz W120/W121",
+        "Shanghai SH760",
+        "Mercedes-Benz W105",
+        "Mercedes-Benz W128"
+       ]
+      }
+     ]
+    },
+    "dropped": []
+   },
+   "cascadeDiscovered": true,
+   "decidedBy": "user",
+   "decidedAt": "2026-09-15T10:15:37.263Z",
+   "allDesigners": [],
+   "allEngineers": []
+  },
+  "m-mercedes-benz-w128": {
+   "status": "none",
+   "checkedAt": "2026-09-15T10:15:43.178Z",
+   "sourceTitle": "Mercedes-Benz W128",
+   "proposal": {
+    "hasMultipleGenerations": false,
+    "generations": [
+     {
+      "code": "W128",
+      "yearStart": 1958,
+      "yearEnd": 1960,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "W128 220SE (cropped).JPG",
+      "sharedPlatforms": [
+       "Mercedes-Benz W105",
+       "Mercedes-Benz W180"
+      ]
+     }
+    ]
+   },
+   "attempts": 1,
+   "feedback": [],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": false,
+     "generations": [
+      {
+       "code": "W128",
+       "yearStart": 1958,
+       "yearEnd": 1960,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Mercedes-Benz W105",
+        "Mercedes-Benz W180"
+       ]
+      }
+     ]
+    },
+    "dropped": []
+   },
+   "cascadeDiscovered": true
+  },
+  "m-dongfeng-ca71": {
+   "status": "none",
+   "checkedAt": "2026-09-15T10:16:04.582Z",
+   "sourceTitle": "Dongfeng CA71",
+   "proposal": {
+    "hasMultipleGenerations": false,
+    "generations": [
+     {
+      "code": "CA71",
+      "yearStart": 1958,
+      "yearEnd": 1961,
+      "designers": [
+       "Shi Qihe"
+      ],
+      "engineers": [
+       "Hu Tongxun"
+      ],
+      "wikiFile": "File:Dongfeng CA71 display.jpg",
+      "sharedPlatforms": [
+       "Mercedes-Benz W120",
+       "Simca Vedette"
+      ],
+      "sharedPlatformMatches": {
+       "Mercedes-Benz W120": {
+        "matchId": null,
+        "confidence": "high",
+        "reason": "The mentioned car 'Mercedes-Benz W120' (produced 1947–1955) is a distinct pre-war/post-war sedan model. None of the candidates listed correspond to the W120 chassis; they refer to different generations (e.g., W123, W124, W126) or different model lines (e.g., G-Class, S-Class, SL)."
+       }
+      }
+     }
+    ]
+   },
+   "attempts": 1,
+   "feedback": [],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": false,
+     "generations": [
+      {
+       "code": "CA71",
+       "yearStart": 1958,
+       "yearEnd": 1961,
+       "designers": [
+        "Shi Qihe"
+       ],
+       "engineers": [
+        "Hu Tongxun"
+       ],
+       "sharedPlatforms": [
+        "Mercedes-Benz W120",
+        "Simca Vedette"
+       ]
+      }
+     ]
+    },
+    "dropped": []
+   },
+   "cascadeDiscovered": true
+  },
+  "m-mercedes-benz-w108-w109": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T10:16:23.522Z",
+   "sourceTitle": "Mercedes-Benz W108/W109",
+   "proposal": {
+    "hasMultipleGenerations": true,
+    "generations": [
+     {
+      "code": "First Series",
+      "yearStart": 1965,
+      "yearEnd": 1967,
+      "designers": [
+       "Paul Bracq",
+       "Friedrich Geiger"
+      ],
+      "engineers": [],
+      "wikiFile": "Mercedes Benz 250 SE 1967 (19133257326).jpg",
+      "sharedPlatforms": [
+       "Mercedes-Benz W113",
+       "Mercedes-Benz W111",
+       "Mercedes-Benz W112"
+      ]
+     },
+     {
+      "code": "Second Series",
+      "yearStart": 1968,
+      "yearEnd": 1972,
+      "designers": [
+       "Paul Bracq",
+       "Erich Waxenberger"
+      ],
+      "engineers": [],
+      "wikiFile": "W108.Jpg",
+      "sharedPlatforms": [
+       "Mercedes-Benz W113",
+       "Mercedes-Benz W111",
+       "Mercedes-Benz W112"
+      ]
+     }
+    ]
+   },
+   "attempts": 1,
+   "feedback": [],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": true,
+     "generations": [
+      {
+       "code": "First Series",
+       "yearStart": 1965,
+       "yearEnd": 1967,
+       "designers": [
+        "Paul Bracq",
+        "Friedrich Geiger"
+       ],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Mercedes-Benz W113",
+        "Mercedes-Benz W111",
+        "Mercedes-Benz W112"
+       ]
+      },
+      {
+       "code": "Second Series",
+       "yearStart": 1968,
+       "yearEnd": 1972,
+       "designers": [
+        "Paul Bracq",
+        "Erich Waxenberger"
+       ],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Mercedes-Benz W113",
+        "Mercedes-Benz W111",
+        "Mercedes-Benz W112"
+       ]
+      }
+     ]
+    },
+    "dropped": []
+   },
+   "cascadeDiscovered": true,
+   "decidedBy": "user",
+   "decidedAt": "2026-09-15T10:16:23.522Z",
+   "allDesigners": [
+    "Paul Bracq",
+    "Friedrich Geiger",
+    "Erich Waxenberger"
+   ],
+   "allEngineers": []
   }
  },
  "relations": {
@@ -23716,12 +24356,1427 @@
    "genIdB": "llm-m-lincoln-continental-ninth-generation",
    "reason": "matched automatically -- the nameplate was named exactly in the source text, and exactly one of its generations was in production alongside this one, so that is the generation it refers to",
    "llmDiscovered": true
+  },
+  "llm-m-lincoln-mkz-first-generation-2006|m-ford-fusion-americas|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T10:09:23.849Z",
+   "decidedAt": "2026-09-15T10:09:23.849Z",
+   "famA": "m-lincoln-mkz",
+   "famB": "m-ford-fusion-americas",
+   "relType": "platform",
+   "codeA": "MKZ First generation (2006)",
+   "codeB": "Fusion (Americas)",
+   "genIdA": "llm-m-lincoln-mkz-first-generation-2006",
+   "genIdB": "m-ford-fusion-americas",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-lincoln-mkz-first-generation-2006|m-mercury-milan|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T10:09:23.850Z",
+   "decidedAt": "2026-09-15T10:09:23.850Z",
+   "famA": "m-lincoln-mkz",
+   "famB": "m-mercury-milan",
+   "relType": "platform",
+   "codeA": "MKZ First generation (2006)",
+   "codeB": "Milan",
+   "genIdA": "llm-m-lincoln-mkz-first-generation-2006",
+   "genIdB": "m-mercury-milan",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-lincoln-mkz-first-generation-2006|m-mazda-6|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T10:09:23.851Z",
+   "decidedAt": "2026-09-15T10:09:23.851Z",
+   "famA": "m-lincoln-mkz",
+   "famB": "fam-mazda-6",
+   "relType": "platform",
+   "codeA": "MKZ First generation (2006)",
+   "codeB": "6",
+   "genIdA": "llm-m-lincoln-mkz-first-generation-2006",
+   "genIdB": "m-mazda-6",
+   "reason": "matched automatically (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-lincoln-mkz-second-generation-2013|m-ford-fusion-americas|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T10:09:23.855Z",
+   "decidedAt": "2026-09-15T10:09:23.855Z",
+   "famA": "m-lincoln-mkz",
+   "famB": "m-ford-fusion-americas",
+   "relType": "platform",
+   "codeA": "MKZ Second generation (2013)",
+   "codeB": "Fusion (Americas)",
+   "genIdA": "llm-m-lincoln-mkz-second-generation-2013",
+   "genIdB": "m-ford-fusion-americas",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-lincoln-mkz-second-generation-2013|m-ford-mondeo-fourth-generation|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T10:09:23.855Z",
+   "decidedAt": "2026-09-15T10:09:23.855Z",
+   "famA": "m-lincoln-mkz",
+   "famB": "fam-ford-mondeo",
+   "relType": "platform",
+   "codeA": "MKZ Second generation (2013)",
+   "codeB": "Mondeo (fourth generation)",
+   "genIdA": "llm-m-lincoln-mkz-second-generation-2013",
+   "genIdB": "m-ford-mondeo-fourth-generation",
+   "reason": "matched automatically (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-fam-mazda-6-gg1-gy|llm-m-lincoln-mkz-first-generation-2006|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T10:09:24.062Z",
+   "decidedAt": "2026-09-15T10:09:24.062Z",
+   "famA": "fam-mazda-6",
+   "famB": "m-lincoln-mkz",
+   "relType": "platform",
+   "codeA": "6 GG1 / GY",
+   "codeB": "MKZ First generation (2006)",
+   "genIdA": "llm-fam-mazda-6-gg1-gy",
+   "genIdB": "llm-m-lincoln-mkz-first-generation-2006",
+   "reason": "matched automatically -- the nameplate was named exactly in the source text, and exactly one of its generations was in production alongside this one, so that is the generation it refers to",
+   "llmDiscovered": true
+  },
+  "llm-fam-mazda-6-gh1-gh2-gz|llm-m-lincoln-mkz-first-generation-2006|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T10:09:24.074Z",
+   "decidedAt": "2026-09-15T10:09:24.074Z",
+   "famA": "fam-mazda-6",
+   "famB": "m-lincoln-mkz",
+   "relType": "platform",
+   "codeA": "6 GH1 / GH2 / GZ",
+   "codeB": "MKZ First generation (2006)",
+   "genIdA": "llm-fam-mazda-6-gh1-gh2-gz",
+   "genIdB": "llm-m-lincoln-mkz-first-generation-2006",
+   "reason": "matched automatically -- the nameplate was named exactly in the source text, and exactly one of its generations was in production alongside this one, so that is the generation it refers to",
+   "llmDiscovered": true
+  },
+  "llm-m-lincoln-capri-generation-iii|llm-m-lincoln-continental-third-generation|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T10:09:24.110Z",
+   "decidedAt": "2026-09-15T10:09:24.110Z",
+   "famA": "m-lincoln-continental",
+   "famB": "m-lincoln-capri",
+   "relType": "platform",
+   "codeA": "Continental Third generation",
+   "codeB": "Capri Generation III",
+   "genIdA": "llm-m-lincoln-continental-third-generation",
+   "genIdB": "llm-m-lincoln-capri-generation-iii",
+   "reason": "matched automatically -- the nameplate was named exactly in the source text, and exactly one of its generations was in production alongside this one, so that is the generation it refers to",
+   "llmDiscovered": true
+  },
+  "llm-m-ford-continental-mark-ii-mark-iii|llm-m-lincoln-continental-fourth-generation|platform": {
+   "status": "provisional",
+   "checkedAt": "2026-09-15T10:09:24.120Z",
+   "famA": "m-lincoln-continental",
+   "famB": "m-ford-continental-mark-ii",
+   "relType": "platform",
+   "codeA": "Continental Fourth generation",
+   "codeB": "Continental Mark II Mark III",
+   "genIdA": "llm-m-lincoln-continental-fourth-generation",
+   "genIdB": "llm-m-ford-continental-mark-ii-mark-iii",
+   "reason": "proposed by overlapping production years only, on top of a nameplate name that only matched as a substring -- please verify this is really the right car before accepting",
+   "llmDiscovered": true
+  },
+  "llm-m-lincoln-continental-sixth-generation|llm-m-mercury-grand-marquis-first-generation|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T10:09:24.133Z",
+   "decidedAt": "2026-09-15T10:09:24.133Z",
+   "famA": "m-lincoln-continental",
+   "famB": "m-mercury-grand-marquis",
+   "relType": "platform",
+   "codeA": "Continental Sixth generation",
+   "codeB": "Grand Marquis First generation",
+   "genIdA": "llm-m-lincoln-continental-sixth-generation",
+   "genIdB": "llm-m-mercury-grand-marquis-first-generation",
+   "reason": "matched automatically -- the nameplate was named exactly in the source text, and exactly one of its generations was in production alongside this one, so that is the generation it refers to",
+   "llmDiscovered": true
+  },
+  "llm-m-lincoln-continental-tenth-generation|llm-m-lincoln-mkz-second-generation-2013|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T10:09:24.159Z",
+   "decidedAt": "2026-09-15T10:09:24.159Z",
+   "famA": "m-lincoln-continental",
+   "famB": "m-lincoln-mkz",
+   "relType": "platform",
+   "codeA": "Continental Tenth generation",
+   "codeB": "MKZ Second generation (2013)",
+   "genIdA": "llm-m-lincoln-continental-tenth-generation",
+   "genIdB": "llm-m-lincoln-mkz-second-generation-2013",
+   "reason": "matched automatically -- the nameplate was named exactly in the source text, and exactly one of its generations was in production alongside this one, so that is the generation it refers to",
+   "llmDiscovered": true
+  },
+  "llm-m-lincoln-capri-generation-i|llm-related-ford-crestline-skyliner|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T10:09:24.324Z",
+   "decidedAt": "2026-09-15T10:09:24.324Z",
+   "famA": "llm-related-ford-crestline-skyliner",
+   "famB": "m-lincoln-capri",
+   "relType": "platform",
+   "codeA": "Crestline Skyliner",
+   "codeB": "Capri Generation I",
+   "genIdA": "llm-related-ford-crestline-skyliner",
+   "genIdB": "llm-m-lincoln-capri-generation-i",
+   "reason": "matched automatically -- the nameplate was named exactly in the source text, and exactly one of its generations was in production alongside this one, so that is the generation it refers to",
+   "llmDiscovered": true
+  },
+  "llm-related-mercedes-benz-e-class|m-mercedes-benz-e-class-w124|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T10:14:10.816Z",
+   "decidedAt": "2026-09-15T10:14:10.816Z",
+   "famA": "m-mercedes-benz-e-class",
+   "famB": "llm-related-mercedes-benz-e-class",
+   "relType": "platform",
+   "codeA": "E-Class (W124)",
+   "codeB": "E-Class",
+   "genIdA": "m-mercedes-benz-e-class-w124",
+   "genIdB": "llm-related-mercedes-benz-e-class",
+   "reason": "matched automatically -- \"Mercedes-Benz E-Class\" was named as a related car but didn't exist anywhere in the graph yet, so it was newly created from this mention (double-checked by the local LLM sanity pass against every plausible existing car -- none matched)",
+   "llmDiscovered": true
+  },
+  "m-mercedes-benz-e-class-w124|m-ssangyong-chairman|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T10:14:10.819Z",
+   "decidedAt": "2026-09-15T10:14:10.819Z",
+   "famA": "m-mercedes-benz-e-class",
+   "famB": "m-ssangyong-chairman",
+   "relType": "platform",
+   "codeA": "E-Class (W124)",
+   "codeB": "Chairman",
+   "genIdA": "m-mercedes-benz-e-class-w124",
+   "genIdB": "m-ssangyong-chairman",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "m-mercedes-benz-clk-class-c208|m-mercedes-benz-e-class-w210|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T10:14:10.821Z",
+   "decidedAt": "2026-09-15T10:14:10.821Z",
+   "famA": "m-mercedes-benz-e-class",
+   "famB": "fam-mercedes-benz-clk",
+   "relType": "platform",
+   "codeA": "E-Class (W210)",
+   "codeB": "CLK-Class (C208)",
+   "genIdA": "m-mercedes-benz-e-class-w210",
+   "genIdB": "m-mercedes-benz-clk-class-c208",
+   "reason": "matched automatically (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-mercedes-benz-e-class-w120-w121|m-mercedes-benz-w105|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T10:14:29.223Z",
+   "decidedAt": "2026-09-15T10:14:29.223Z",
+   "famA": "m-mercedes-benz-e-class",
+   "famB": "m-mercedes-benz-w105",
+   "relType": "platform",
+   "codeA": "E-Class W120/W121",
+   "codeB": "W105",
+   "genIdA": "llm-m-mercedes-benz-e-class-w120-w121",
+   "genIdB": "m-mercedes-benz-w105",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-mercedes-benz-e-class-w120-w121|m-mercedes-benz-w180|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T10:14:29.226Z",
+   "decidedAt": "2026-09-15T10:14:29.226Z",
+   "famA": "m-mercedes-benz-e-class",
+   "famB": "m-mercedes-benz-w180",
+   "relType": "platform",
+   "codeA": "E-Class W120/W121",
+   "codeB": "W180",
+   "genIdA": "llm-m-mercedes-benz-e-class-w120-w121",
+   "genIdB": "m-mercedes-benz-w180",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-mercedes-benz-e-class-w120-w121|m-mercedes-benz-w128|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T10:14:29.228Z",
+   "decidedAt": "2026-09-15T10:14:29.228Z",
+   "famA": "m-mercedes-benz-e-class",
+   "famB": "m-mercedes-benz-w128",
+   "relType": "platform",
+   "codeA": "E-Class W120/W121",
+   "codeB": "W128",
+   "genIdA": "llm-m-mercedes-benz-e-class-w120-w121",
+   "genIdB": "m-mercedes-benz-w128",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-mercedes-benz-e-class-w120-w121|m-dongfeng-ca71|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T10:14:29.229Z",
+   "decidedAt": "2026-09-15T10:14:29.229Z",
+   "famA": "m-mercedes-benz-e-class",
+   "famB": "m-dongfeng-ca71",
+   "relType": "platform",
+   "codeA": "E-Class W120/W121",
+   "codeB": "CA71",
+   "genIdA": "llm-m-mercedes-benz-e-class-w120-w121",
+   "genIdB": "m-dongfeng-ca71",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-mercedes-benz-e-class-w110|llm-related-mercedes-benz-e-class|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T10:14:29.239Z",
+   "decidedAt": "2026-09-15T10:14:29.239Z",
+   "famA": "m-mercedes-benz-e-class",
+   "famB": "llm-related-mercedes-benz-e-class",
+   "relType": "platform",
+   "codeA": "E-Class W110",
+   "codeB": "E-Class",
+   "genIdA": "llm-m-mercedes-benz-e-class-w110",
+   "genIdB": "llm-related-mercedes-benz-e-class",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-mercedes-benz-e-class-w114-w115|m-mercedes-benz-w108-w109|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T10:14:29.246Z",
+   "decidedAt": "2026-09-15T10:14:29.246Z",
+   "famA": "m-mercedes-benz-e-class",
+   "famB": "m-mercedes-benz-w108-w109",
+   "relType": "platform",
+   "codeA": "E-Class W114/W115",
+   "codeB": "W108/W109",
+   "genIdA": "llm-m-mercedes-benz-e-class-w114-w115",
+   "genIdB": "m-mercedes-benz-w108-w109",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-mercedes-benz-e-class-w123|llm-related-mercedes-benz-e-class|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T10:14:29.253Z",
+   "decidedAt": "2026-09-15T10:14:29.253Z",
+   "famA": "m-mercedes-benz-e-class",
+   "famB": "llm-related-mercedes-benz-e-class",
+   "relType": "platform",
+   "codeA": "E-Class W123",
+   "codeB": "E-Class",
+   "genIdA": "llm-m-mercedes-benz-e-class-w123",
+   "genIdB": "llm-related-mercedes-benz-e-class",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-ssangyong-chairman-chairman-h|m-mercedes-benz-e-class-w124|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T10:15:20.471Z",
+   "decidedAt": "2026-09-15T10:15:20.471Z",
+   "famA": "m-ssangyong-chairman",
+   "famB": "m-mercedes-benz-e-class",
+   "relType": "platform",
+   "codeA": "Chairman Chairman H",
+   "codeB": "E-Class (W124)",
+   "genIdA": "llm-m-ssangyong-chairman-chairman-h",
+   "genIdB": "m-mercedes-benz-e-class-w124",
+   "reason": "auto-approved in the background -- the local LLM sanity check confidently identified this as the same car as \"Mercedes-Benz W124\" (confidence: high) -- The mention 'Mercedes-Benz W124' refers to the specific chassis code of the Mercedes-Benz E-Class produced from 1984 to 1997. The candidate 'm-mercedes-benz-e-class-w124' explicitly identifies this exact model and generation with the matching chassis code W124 and production years (1984–1997).",
+   "llmDiscovered": true,
+   "llmVerifiedDuplicate": true
+  },
+  "llm-m-ssangyong-chairman-chairman-w|m-mercedes-benz-e-class-w211|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T10:15:20.475Z",
+   "decidedAt": "2026-09-15T10:15:20.475Z",
+   "famA": "m-ssangyong-chairman",
+   "famB": "m-mercedes-benz-e-class",
+   "relType": "platform",
+   "codeA": "Chairman Chairman W",
+   "codeB": "E-Class (W211)",
+   "genIdA": "llm-m-ssangyong-chairman-chairman-w",
+   "genIdB": "m-mercedes-benz-e-class-w211",
+   "reason": "matched automatically (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-mercedes-benz-w180-220-a-w180-i|m-mercedes-benz-w120-w121|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T10:15:37.274Z",
+   "decidedAt": "2026-09-15T10:15:37.274Z",
+   "famA": "m-mercedes-benz-w180",
+   "famB": "m-mercedes-benz-w120-w121",
+   "relType": "platform",
+   "codeA": "W180 220 a (W180 I)",
+   "codeB": "W120/W121",
+   "genIdA": "llm-m-mercedes-benz-w180-220-a-w180-i",
+   "genIdB": "m-mercedes-benz-w120-w121",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-mercedes-benz-w180-220-s-w180-ii|m-mercedes-benz-w120-w121|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T10:15:37.278Z",
+   "decidedAt": "2026-09-15T10:15:37.278Z",
+   "famA": "m-mercedes-benz-w180",
+   "famB": "m-mercedes-benz-w120-w121",
+   "relType": "platform",
+   "codeA": "W180 220 S (W180 II)",
+   "codeB": "W120/W121",
+   "genIdA": "llm-m-mercedes-benz-w180-220-s-w180-ii",
+   "genIdB": "m-mercedes-benz-w120-w121",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-mercedes-benz-w180-220-s-w180-ii|m-shanghai-sh760|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T10:15:37.279Z",
+   "decidedAt": "2026-09-15T10:15:37.279Z",
+   "famA": "m-mercedes-benz-w180",
+   "famB": "m-shanghai-sh760",
+   "relType": "platform",
+   "codeA": "W180 220 S (W180 II)",
+   "codeB": "SH760",
+   "genIdA": "llm-m-mercedes-benz-w180-220-s-w180-ii",
+   "genIdB": "m-shanghai-sh760",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-mercedes-benz-w180-220-s-w180-ii|m-mercedes-benz-w105|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T10:15:37.281Z",
+   "decidedAt": "2026-09-15T10:15:37.281Z",
+   "famA": "m-mercedes-benz-w180",
+   "famB": "m-mercedes-benz-w105",
+   "relType": "platform",
+   "codeA": "W180 220 S (W180 II)",
+   "codeB": "W105",
+   "genIdA": "llm-m-mercedes-benz-w180-220-s-w180-ii",
+   "genIdB": "m-mercedes-benz-w105",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-mercedes-benz-w180-220-s-w180-ii|m-mercedes-benz-w128|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T10:15:37.282Z",
+   "decidedAt": "2026-09-15T10:15:37.282Z",
+   "famA": "m-mercedes-benz-w180",
+   "famB": "m-mercedes-benz-w128",
+   "relType": "platform",
+   "codeA": "W180 220 S (W180 II)",
+   "codeB": "W128",
+   "genIdA": "llm-m-mercedes-benz-w180-220-s-w180-ii",
+   "genIdB": "m-mercedes-benz-w128",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-mercedes-benz-w108-w109-first-series|m-mercedes-benz-w113|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T10:16:23.536Z",
+   "decidedAt": "2026-09-15T10:16:23.536Z",
+   "famA": "m-mercedes-benz-w108-w109",
+   "famB": "m-mercedes-benz-w113",
+   "relType": "platform",
+   "codeA": "W108/W109 First Series",
+   "codeB": "W113",
+   "genIdA": "llm-m-mercedes-benz-w108-w109-first-series",
+   "genIdB": "m-mercedes-benz-w113",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-mercedes-benz-w108-w109-first-series|m-mercedes-benz-w111|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T10:16:23.538Z",
+   "decidedAt": "2026-09-15T10:16:23.538Z",
+   "famA": "m-mercedes-benz-w108-w109",
+   "famB": "m-mercedes-benz-w111",
+   "relType": "platform",
+   "codeA": "W108/W109 First Series",
+   "codeB": "W111",
+   "genIdA": "llm-m-mercedes-benz-w108-w109-first-series",
+   "genIdB": "m-mercedes-benz-w111",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-mercedes-benz-w108-w109-first-series|m-mercedes-benz-w112|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T10:16:23.540Z",
+   "decidedAt": "2026-09-15T10:16:23.540Z",
+   "famA": "m-mercedes-benz-w108-w109",
+   "famB": "m-mercedes-benz-w112",
+   "relType": "platform",
+   "codeA": "W108/W109 First Series",
+   "codeB": "W112",
+   "genIdA": "llm-m-mercedes-benz-w108-w109-first-series",
+   "genIdB": "m-mercedes-benz-w112",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-mercedes-benz-w108-w109-second-series|m-mercedes-benz-w113|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T10:16:23.545Z",
+   "decidedAt": "2026-09-15T10:16:23.545Z",
+   "famA": "m-mercedes-benz-w108-w109",
+   "famB": "m-mercedes-benz-w113",
+   "relType": "platform",
+   "codeA": "W108/W109 Second Series",
+   "codeB": "W113",
+   "genIdA": "llm-m-mercedes-benz-w108-w109-second-series",
+   "genIdB": "m-mercedes-benz-w113",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-mercedes-benz-w108-w109-second-series|m-mercedes-benz-w111|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T10:16:23.547Z",
+   "decidedAt": "2026-09-15T10:16:23.547Z",
+   "famA": "m-mercedes-benz-w108-w109",
+   "famB": "m-mercedes-benz-w111",
+   "relType": "platform",
+   "codeA": "W108/W109 Second Series",
+   "codeB": "W111",
+   "genIdA": "llm-m-mercedes-benz-w108-w109-second-series",
+   "genIdB": "m-mercedes-benz-w111",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-mercedes-benz-w108-w109-second-series|m-mercedes-benz-w112|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T10:16:23.549Z",
+   "decidedAt": "2026-09-15T10:16:23.549Z",
+   "famA": "m-mercedes-benz-w108-w109",
+   "famB": "m-mercedes-benz-w112",
+   "relType": "platform",
+   "codeA": "W108/W109 Second Series",
+   "codeB": "W112",
+   "genIdA": "llm-m-mercedes-benz-w108-w109-second-series",
+   "genIdB": "m-mercedes-benz-w112",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "m-mercedes-benz-e-class|m-ssangyong-chairman|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T10:19:23.894Z",
+   "decidedAt": "2026-09-15T10:19:23.894Z",
+   "autoConfirmed": true,
+   "famA": "m-mercedes-benz-e-class",
+   "famB": "m-ssangyong-chairman",
+   "relType": "platform",
+   "note": "Ssangyong Chairman's own article says: \"… is a full-size luxury car that was manufactured by South Korean automaker SsangYong from 1997 to 2017. The original model was renamed Chairman H in 2008, with a new model introduced in the same year and designated Chairman W. \n == History == On release to the South Korean market in 1997, the chairman was a high-end executive sedan. Its manufacturer, SsangYong, was best known for SUVs and RVs, and the chairman has been its only sedan. The first generation chairman was built on the Mercedes-Benz E-Class (W124) platform, but styled more like a modernized W140 S-Class. Coincidentally, the design also foretold that of the upcoming Mercedes-Benz S-Class (W220), which led to some consternation at the German company. Mercedes-Benz requested that Ssangyong redesign the car to make it look less like a Mercedes-Benz and to refrain from selling it in developed export markets such as Europe and the United States. \n == <span class=\"anchor\" id=\"H\"></span> First generation (Chairman H; 1997–2011) == …\"",
+   "matchLevel": "generation",
+   "codeA": "E-Class (W124)",
+   "codeB": "Chairman Chairman H",
+   "genIdA": "m-mercedes-benz-e-class-w124",
+   "genIdB": "llm-m-ssangyong-chairman-chairman-h",
+   "reason": "matched from an explicit chassis/generation code found directly in one of the two Wikipedia articles' own text (the LLM separately agreed: The note explicitly states that the first generation of the Ssangyong Chairman (which corresponds to Chairman Chairman H in the provided list) was built on the Mercedes-Benz E-Class (W124) platform, matching the specific generation code in Car A's list.)",
+   "debug": {
+    "raw": {
+     "resolved": true,
+     "codeA": "E-Class (W124)",
+     "codeB": "Chairman Chairman H",
+     "evidenceQuote": "The first generation chairman was built on the Mercedes-Benz E-Class (W124) platform",
+     "reason": "The note explicitly states that the first generation of the Ssangyong Chairman (which corresponds to Chairman Chairman H in the provided list) was built on the Mercedes-Benz E-Class (W124) platform, matching the specific generation code in Car A's list."
+    },
+    "evidenceCodeForA": "W124",
+    "evidenceCodeForB": null,
+    "ordinalFromNoteA": null,
+    "ordinalFromNoteB": "Chairman Chairman H",
+    "ordinalBacked": true,
+    "evidenceQuote": "The first generation chairman was built on the Mercedes-Benz E-Class (W124) platform",
+    "quoteVerified": true,
+    "llmVerified": true,
+    "knowledgeBacked": false,
+    "sourceAttributed": true,
+    "citedA": "E-Class (W124)",
+    "citedB": "Chairman Chairman H",
+    "citationBacked": true,
+    "quoteFabricated": false,
+    "fetchedArticleA": true,
+    "fetchedArticleB": true,
+    "availableCodesA": [
+     "E-Class W120/W121",
+     "E-Class W110",
+     "E-Class W114/W115",
+     "E-Class W123",
+     "E-Class (W124)",
+     "E-Class (W210)",
+     "E-Class (W211)",
+     "E-Class (W212)",
+     "E-Class (W213)",
+     "E-Class (W214)"
+    ],
+    "availableCodesB": [
+     "Chairman Chairman H",
+     "Chairman Chairman W"
+    ]
+   }
+  },
+  "fam-mercedes-benz-cls|m-mercedes-benz-e-class|related": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T10:19:48.331Z",
+   "decidedAt": "2026-09-15T10:19:48.331Z",
+   "autoConfirmed": true,
+   "famA": "m-mercedes-benz-e-class",
+   "famB": "fam-mercedes-benz-cls",
+   "relType": "related",
+   "note": "Mercedes-Benz E-Class's own article says: \"{{Infobox automobile | image = Mercedes-Benz W214 1X7A1841.jpg | name = Mercedes-Benz E-Class | caption = | manufacturer = | production = E-Class nomenclature adopted in July 1993 | class = Executive car (E) | layout = Front-engine, rear-wheel-drive or all-wheel-drive | predecessor = Mercedes-Benz W124 (pre-facelift models, 1984–1993) }} \n Before 1993, the E suffix in Mercedes-Benz model names referred to Einspritzmotor (German for fuel injection engine) when in the early 1970s fuel injection began to proliferate beyond its u…\" / Mercedes-Benz CLS's own article says: \"{{Infobox automobile | name = Mercedes-Benz CLS | image = Mercedes-AMG CLS 53 1X7A6800.jpg | manufacturer = | production = 2003–2023 | class = Executive car (E) | body_style = | layout = | caption = Mercedes-AMG CLS 53 (C257) }} \n The original model was a four-door Sedan (car) based on the Mercedes E-Class platform, marketed as a four door coupé. An estate (shooting brake) model was later added to the model range with the second generation CLS. All models are available as a high performance AMG variant, although it wasn't until the second generation CLS that 4MATIC all-wheel drive was offered. \n The CLS range is positioned between the E-Class and the S-Class within the Mercedes model range, and models tend to be less practical than the E-Class it is based on. It primarily competes with oth…\"",
+   "matchLevel": "generation",
+   "codeA": "E-Class (W214)",
+   "codeB": "CLS-Class (C218)",
+   "genIdA": "m-mercedes-benz-e-class-w214",
+   "genIdB": "m-mercedes-benz-cls-class-c218",
+   "reason": "matched from an explicit chassis/generation code found directly in one of the two Wikipedia articles' own text (the LLM separately agreed: The text states the original CLS (first generation, C219/C218) was based on the Mercedes E-Class platform. The first generation E-Class produced during the CLS's lifespan (2004-2011 for C219/C218, 2009-2016 for W212) that shares this specific E-Class platform lineage is the W212, which succeeded the W210 and ran concurrently with the C218 CLS. The C219 CLS was built on the W211 platform, but the W212 E-Class is the generation explicitly associated with the 'second generation' mention in the context of the platform evolution described, or more accurately, the W212 is the specific E-Class generation listed in the codeA that corresponds to the C218 CLS generation (2011-2017) which is the primary pairing often cited for the 'based on E-Class platform' relationship in the context of the W212's introduction coinciding with the C218's debut. However, strictly following the text 'original model... based on E-Class platform', the C218 (second gen CLS) is definitely based on the W212 (second gen E-Class) platform. The code list for E-Class has W212 (2009-2016) and C218 is in the CLS list as CLS-Class (C218) (2011-2017). The relationship holds for these specific generations.)",
+   "debug": {
+    "raw": {
+     "resolved": true,
+     "codeA": "E-Class (W212)",
+     "codeB": "CLS-Class (C218)",
+     "evidenceQuote": "The original model was a four-door Sedan (car) based on the Mercedes E-Class platform, marketed as a four door coupé. An estate (shooting brake) model was later added to the model range with the second generation CLS.",
+     "reason": "The text states the original CLS (first generation, C219/C218) was based on the Mercedes E-Class platform. The first generation E-Class produced during the CLS's lifespan (2004-2011 for C219/C218, 2009-2016 for W212) that shares this specific E-Class platform lineage is the W212, which succeeded the W210 and ran concurrently with the C218 CLS. The C219 CLS was built on the W211 platform, but the W212 E-Class is the generation explicitly associated with the 'second generation' mention in the context of the platform evolution described, or more accurately, the W212 is the specific E-Class generation listed in the codeA that corresponds to the C218 CLS generation (2011-2017) which is the primary pairing often cited for the 'based on E-Class platform' relationship in the context of the W212's introduction coinciding with the C218's debut. However, strictly following the text 'original model... based on E-Class platform', the C218 (second gen CLS) is definitely based on the W212 (second gen E-Class) platform. The code list for E-Class has W212 (2009-2016) and C218 is in the CLS list as CLS-Class (C218) (2011-2017). The relationship holds for these specific generations."
+    },
+    "evidenceCodeForA": "W214",
+    "evidenceCodeForB": null,
+    "ordinalFromNoteA": null,
+    "ordinalFromNoteB": "CLS",
+    "ordinalBacked": false,
+    "evidenceQuote": "The original model was a four-door Sedan (car) based on the Mercedes E-Class platform, marketed as a four door coupé. An estate (shooting brake) model was later added to the model range with the second generation CLS.",
+    "quoteVerified": true,
+    "llmVerified": false,
+    "knowledgeBacked": true,
+    "sourceAttributed": false,
+    "citedA": null,
+    "citedB": null,
+    "citationBacked": false,
+    "quoteFabricated": false,
+    "fetchedArticleA": true,
+    "fetchedArticleB": true,
+    "availableCodesA": [
+     "E-Class W120/W121",
+     "E-Class W110",
+     "E-Class W114/W115",
+     "E-Class W123",
+     "E-Class (W124)",
+     "E-Class (W210)",
+     "E-Class (W211)",
+     "E-Class (W212)",
+     "E-Class (W213)",
+     "E-Class (W214)"
+    ],
+    "availableCodesB": [
+     "CLS-Class (C219)",
+     "CLS",
+     "CLS-Class (C218)",
+     "CLS (C257)"
+    ]
+   }
+  },
+  "m-mercedes-benz-e-class|m-mercedes-benz-w180|platform": {
+   "status": "none",
+   "checkedAt": "2026-09-15T10:19:58.439Z",
+   "famA": "m-mercedes-benz-e-class",
+   "famB": "m-mercedes-benz-w180",
+   "relType": "platform",
+   "note": "Mercedes-Benz E-Class's own article says: \"{{Infobox automobile | image = Mercedes-Benz W214 1X7A1841.jpg | name = Mercedes-Benz E-Class | caption = | manufacturer = | production = E-Class nomenclature adopted in July 1993 | class = Executive car (E) | layout = Front-engine, rear-wheel-drive or all-wheel-drive | predecessor = Mercedes-Benz W124 (pre-facelift models, 1984–1993) }} \n Before 1993, the E suffix in Mercedes-Benz model names referred to Einspritzmotor (German for fuel injection engine) when in the early 1970s fuel injection began to proliferate beyond its u…\" / Mercedes-Benz W180's own article says: \"Mercedes-Benz W120/W121 Shanghai SH760 — 180 & 190 <br />Mercedes-Benz W105 — 219<br />Mercedes-Benz W128 — 220SE \n {| class=\"wikitable\" |+ Technical data Mercedes-Benz W180 (Manufacturer's figures except where stated) |- ! style=\"width:25%;\"|Mercedes-Benz ! style=\"width:25%;\"|220 a (W180 I) ! style=\"width:25%;\"|220 S (W180 II) ! style=\"width:25%;\"|220 S Convertible/Coupé (W180 II) |- style=\"background:#eee;\" | Produced:&nbsp; || style=\"text-align:center;\"|1954–1956 || style=\"text-align:center;\"…\"",
+   "matchLevel": null,
+   "codeA": null,
+   "codeB": null,
+   "genIdA": null,
+   "genIdB": null,
+   "reason": "The provided text mentions that the E-Class predecessor is the W124 (1984–1993), but does not establish a shared platform relationship between the E-Class and the Mercedes-Benz W180. The W180 was produced from 1954–1959, while the earliest E-Class generation listed (W120/W121) started production in 1953 but the nameplate 'E-Class' was adopted in July 1993. Even if the W120/W121 is considered the first E-Class, the W180 is a luxury sedan/saloon from the pre-war era (produced 1954-1959), whereas the E-Class lineage (W120-W121) is distinct. There is no evidence in the provided text or general knowledge that these specific generations share a platform.",
+   "debug": {
+    "raw": {
+     "resolved": false,
+     "codeA": null,
+     "codeB": null,
+     "evidenceQuote": null,
+     "reason": "The provided text mentions that the E-Class predecessor is the W124 (1984–1993), but does not establish a shared platform relationship between the E-Class and the Mercedes-Benz W180. The W180 was produced from 1954–1959, while the earliest E-Class generation listed (W120/W121) started production in 1953 but the nameplate 'E-Class' was adopted in July 1993. Even if the W120/W121 is considered the first E-Class, the W180 is a luxury sedan/saloon from the pre-war era (produced 1954-1959), whereas the E-Class lineage (W120-W121) is distinct. There is no evidence in the provided text or general knowledge that these specific generations share a platform."
+    },
+    "evidenceCodeForA": null,
+    "evidenceCodeForB": null,
+    "ordinalFromNoteA": null,
+    "ordinalFromNoteB": null,
+    "ordinalBacked": false,
+    "evidenceQuote": null,
+    "quoteVerified": false,
+    "llmVerified": false,
+    "knowledgeBacked": false,
+    "sourceAttributed": false,
+    "citedA": null,
+    "citedB": null,
+    "citationBacked": false,
+    "quoteFabricated": false,
+    "fetchedArticleA": true,
+    "fetchedArticleB": true,
+    "availableCodesA": [
+     "E-Class W120/W121",
+     "E-Class W110",
+     "E-Class W114/W115",
+     "E-Class W123",
+     "E-Class (W124)",
+     "E-Class (W210)",
+     "E-Class (W211)",
+     "E-Class (W212)",
+     "E-Class (W213)",
+     "E-Class (W214)"
+    ],
+    "availableCodesB": [
+     "W180 220 a (W180 I)",
+     "W180 220 S (W180 II)"
+    ]
+   }
+  },
+  "m-mercedes-benz-e-class|m-mercedes-benz-w180|related": {
+   "status": "none",
+   "checkedAt": "2026-09-15T10:20:13.663Z",
+   "famA": "m-mercedes-benz-e-class",
+   "famB": "m-mercedes-benz-w180",
+   "relType": "related",
+   "note": "Mercedes-Benz E-Class's own article says: \"{{Infobox automobile | image = Mercedes-Benz W214 1X7A1841.jpg | name = Mercedes-Benz E-Class | caption = | manufacturer = | production = E-Class nomenclature adopted in July 1993 | class = Executive car (E) | layout = Front-engine, rear-wheel-drive or all-wheel-drive | predecessor = Mercedes-Benz W124 (pre-facelift models, 1984–1993) }} \n Before 1993, the E suffix in Mercedes-Benz model names referred to Einspritzmotor (German for fuel injection engine) when in the early 1970s fuel injection began to proliferate beyond its u…\" / Mercedes-Benz W180's own article says: \"Mercedes-Benz W120/W121 Shanghai SH760 — 180 & 190 <br />Mercedes-Benz W105 — 219<br />Mercedes-Benz W128 — 220SE \n {| class=\"wikitable\" |+ Technical data Mercedes-Benz W180 (Manufacturer's figures except where stated) |- ! style=\"width:25%;\"|Mercedes-Benz ! style=\"width:25%;\"|220 a (W180 I) ! style=\"width:25%;\"|220 S (W180 II) ! style=\"width:25%;\"|220 S Convertible/Coupé (W180 II) |- style=\"background:#eee;\" | Produced:&nbsp; || style=\"text-align:center;\"|1954–1956 || style=\"text-align:center;\"…\"",
+   "matchLevel": null,
+   "codeA": null,
+   "codeB": null,
+   "genIdA": null,
+   "genIdB": null,
+   "reason": "The provided text states that the E-Class nomenclature was adopted in July 1993, meaning earlier models (like the W120/W121, W110, W114/W115) were not officially named 'E-Class' but used the 'E' designation for fuel injection. The W180 (produced 1954-1959) predates the official E-Class nameplate entirely. While the W180 shares the same car series/chassis platform as the W120/W121, the relationship description ('rebadge or sister/sibling') and the specific note provided do not establish a link between the 'E-Class' nameplate (which implies the post-1993 models or specifically the W123/W124 era where the 'E' stood for Executive) and the W180. The W180 is a separate series (W180 series) that became the basis for the W120 series, but the text does not confirm they are 'related' under the strict definition of a rebadge or sister model in the context of the nameplate 'E-Class' versus 'W180' as presented. Furthermore, the note explicitly defines the predecessor of the E-Class as the W124, not the W180, and the text for the W180 lists the W120, W105, and W128 as related, not the W180 itself to the E-Class nameplate specifically.",
+   "debug": {
+    "raw": {
+     "resolved": false,
+     "codeA": null,
+     "codeB": null,
+     "evidenceQuote": null,
+     "reason": "The provided text states that the E-Class nomenclature was adopted in July 1993, meaning earlier models (like the W120/W121, W110, W114/W115) were not officially named 'E-Class' but used the 'E' designation for fuel injection. The W180 (produced 1954-1959) predates the official E-Class nameplate entirely. While the W180 shares the same car series/chassis platform as the W120/W121, the relationship description ('rebadge or sister/sibling') and the specific note provided do not establish a link between the 'E-Class' nameplate (which implies the post-1993 models or specifically the W123/W124 era where the 'E' stood for Executive) and the W180. The W180 is a separate series (W180 series) that became the basis for the W120 series, but the text does not confirm they are 'related' under the strict definition of a rebadge or sister model in the context of the nameplate 'E-Class' versus 'W180' as presented. Furthermore, the note explicitly defines the predecessor of the E-Class as the W124, not the W180, and the text for the W180 lists the W120, W105, and W128 as related, not the W180 itself to the E-Class nameplate specifically."
+    },
+    "evidenceCodeForA": null,
+    "evidenceCodeForB": null,
+    "ordinalFromNoteA": null,
+    "ordinalFromNoteB": null,
+    "ordinalBacked": false,
+    "evidenceQuote": null,
+    "quoteVerified": false,
+    "llmVerified": false,
+    "knowledgeBacked": false,
+    "sourceAttributed": false,
+    "citedA": null,
+    "citedB": null,
+    "citationBacked": false,
+    "quoteFabricated": false,
+    "fetchedArticleA": true,
+    "fetchedArticleB": true,
+    "availableCodesA": [
+     "E-Class W120/W121",
+     "E-Class W110",
+     "E-Class W114/W115",
+     "E-Class W123",
+     "E-Class (W124)",
+     "E-Class (W210)",
+     "E-Class (W211)",
+     "E-Class (W212)",
+     "E-Class (W213)",
+     "E-Class (W214)"
+    ],
+    "availableCodesB": [
+     "W180 220 a (W180 I)",
+     "W180 220 S (W180 II)"
+    ]
+   }
+  },
+  "fam-mercedes-benz-clk|m-mercedes-benz-e-class|related": {
+   "status": "error",
+   "checkedAt": "2026-09-15T10:23:31.906Z",
+   "error": "llama.cpp returned something that isn't JSON: {\n\"resolved\": true,\n\"codeA\": \"E-Class (W212)\",\n\"codeB\": \"CLK-Class (C209)\",\n\"evidenceQuote\": \"From 1997 to 2009, the equivalent coupe and convertible were sold "
+  },
+  "m-mercedes-benz-e-class|m-mercedes-benz-e-class|related": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T10:23:45.465Z",
+   "decidedAt": "2026-09-15T10:23:45.465Z",
+   "autoConfirmed": true,
+   "famA": "m-mercedes-benz-e-class",
+   "famB": "m-mercedes-benz-e-class",
+   "relType": "related",
+   "note": "Mercedes-Benz E-Class's own article says: \"{{Infobox automobile | image = Mercedes-Benz W214 1X7A1841.jpg | name = Mercedes-Benz E-Class | caption = | manufacturer = | production = E-Class nomenclature adopted in July 1993 | class = Executive car (E) | layout = Front-engine, rear-wheel-drive or all-wheel-drive | predecessor = Mercedes-Benz W124 (pre-facelift models, 1984–1993) }} \n Before 1993, the E suffix in Mercedes-Benz model names referred to Einspritzmotor (German for fuel injection engine) when in the early 1970s fuel injection began to proliferate beyond its upper-tier luxury and sporting models. By the launch of …\" / Mercedes-Benz E-Class's own article says: \"{{Infobox automobile | image = Mercedes-Benz W214 1X7A1841.jpg | name = Mercedes-Benz E-Class | caption = | manufacturer = | production = E-Class nomenclature adopted in July 1993 | class = Executive car (E) | layout = Front-engine, rear-wheel-drive or all-wheel-drive | predecessor = Mercedes-Benz W124 (pre-facelift models, 1984–1993) }} \n Before 1993, the E suffix in Mercedes-Benz model names referred to Einspritzmotor (German for fuel injection engine) when in the early 1970s fuel injection began to proliferate beyond its upper-tier luxury and sporting models. By the launch of …\"",
+   "matchLevel": "generation",
+   "codeA": "E-Class W114/W115",
+   "codeB": "E-Class W114/W115",
+   "genIdA": "llm-m-mercedes-benz-e-class-w114-w115",
+   "genIdB": "llm-m-mercedes-benz-e-class-w114-w115",
+   "reason": "matched from an explicit chassis/generation code found directly in one of the two Wikipedia articles' own text",
+   "debug": {
+    "raw": {
+     "resolved": false,
+     "codeA": null,
+     "codeB": null,
+     "evidenceQuote": null,
+     "reason": "The provided note is identical for both entries and states that the 'E-Class' nomenclature was adopted in July 1993, designating W124 pre-facelift models (1984–1993) as the predecessor. This defines a naming convention change and a generational succession within the Mercedes-Benz E-Class lineage. It does not describe a relationship (rebadge, sister model, or shared platform) between Car A and Car B as distinct nameplates. Since both 'Car A' and 'Car B' are explicitly listed as 'Mercedes-Benz E-Class', the prompt implies a relationship between the nameplate and itself across generations. However, the standard definition of 'related (rebadge/sister)' requires two different nameplates (e.g., BMW 3 Series and Mini). Furthermore, the text does not claim that specific generations of the E-Class share a platform with each other in the way sibling models do; they are sequential generations. Without a distinct second nameplate or a claim of shared platform/chassis between two specific generations labeled as 'related', the relationship cannot be resolved based on the provided text or standard automotive classification rules."
+    },
+    "evidenceCodeForA": "E-Class W114/W115",
+    "evidenceCodeForB": "E-Class W114/W115",
+    "ordinalFromNoteA": null,
+    "ordinalFromNoteB": null,
+    "ordinalBacked": false,
+    "evidenceQuote": null,
+    "quoteVerified": false,
+    "llmVerified": false,
+    "knowledgeBacked": false,
+    "sourceAttributed": false,
+    "citedA": null,
+    "citedB": null,
+    "citationBacked": false,
+    "quoteFabricated": false,
+    "fetchedArticleA": true,
+    "fetchedArticleB": true,
+    "availableCodesA": [
+     "E-Class W120/W121",
+     "E-Class W110",
+     "E-Class W114/W115",
+     "E-Class W123",
+     "E-Class (W124)",
+     "E-Class (W210)",
+     "E-Class (W211)",
+     "E-Class (W212)",
+     "E-Class (W213)",
+     "E-Class (W214)"
+    ],
+    "availableCodesB": [
+     "E-Class W120/W121",
+     "E-Class W110",
+     "E-Class W114/W115",
+     "E-Class W123",
+     "E-Class (W124)",
+     "E-Class (W210)",
+     "E-Class (W211)",
+     "E-Class (W212)",
+     "E-Class (W213)",
+     "E-Class (W214)"
+    ]
+   }
+  },
+  "fam-mercedes-benz-clk|m-mercedes-benz-e-class|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T10:23:55.882Z",
+   "decidedAt": "2026-09-15T10:23:55.882Z",
+   "autoConfirmed": true,
+   "famA": "m-mercedes-benz-e-class",
+   "famB": "fam-mercedes-benz-clk",
+   "relType": "platform",
+   "note": "Mercedes-Benz E-Class's own article says: \"…he model line is referred to officially as the E-Class (or E-Klasse). All generations of the E-Class have offered either rear-wheel drive or Mercedes' 4Matic four-wheel drive system. \n The E-Class is Mercedes-Benz' best-selling model, with more than 16 million sold by 2023. The first E-Class series was originally available as four-door sedan (car), five-door estate, two-door coupe and two-door convertible. From 1997 to 2009, the equivalent coupe and convertible were sold under the Mercedes-Benz CLK-Class nameplate; which was based on the mechanical underpinnings of the smaller C-Class while borrowing the styling and some powertrains from the E-Class, a trend continued with the C207 E-Class coupe/convertible which was sold parallel to the W212 E-Class sedan/wagon. With the latest incarnation of the E-Class released for the 2017 model year, all body styles share the same W213 platform. \n == History == Although the E-Class nomenclature was adopted in July 1993 for the second facelift of t…\" / Mercedes-Benz CLK's own article says: \"{{Infobox automobile | name = Mercedes-Benz CLK-Class | image = CLK 209 (Cabriolet).jpg | manufacturer = | production = 1996–2009 | class = | body_style = | layout = Front-engine, rear-wheel-drive | predecessor = Mercedes-Benz E-Class (C124/A124) | successor = Mercedes-Benz E-Class (C207/A207) }} \n Prior to the CLK-Class, the Mercedes E-Class included a Coupé alongside the saloon/wagon. In 2010, Mercedes changed the CLK-Class nameplate to the Mercedes-Benz E-Class (C207); nonetheless this E-Class Coupe/Cabriolet is still based upon the C-Class platform while borrowing the brand and styling/design from the E-Class saloon/wagon. Then for the 2017-2023 model years, the Mercedes Mercedes-Benz E-Class (W213)#Coupé and Cabr…\"",
+   "matchLevel": "generation",
+   "codeA": "E-Class (W212)",
+   "codeB": "CLK-Class (C209)",
+   "genIdA": "m-mercedes-benz-e-class-w212",
+   "genIdB": "m-mercedes-benz-clk-class-c209",
+   "reason": "matched from an explicit chassis/generation code found directly in one of the two Wikipedia articles' own text (the LLM separately agreed: The CLK-Class C209 (produced 2002–2009) shares its platform with the Mercedes-Benz E-Class W212 (produced 2009–2016). The W212 chassis was the final iteration of the E-Class to utilize the Mercedes-Benz C-Class platform (M272/M274 engines and CLS/W204 architecture), which was the exact same platform used for the CLK-Class C209. The W213 (introduced in 2013) moved to a new platform, ending the relationship with the CLK lineage.)",
+   "debug": {
+    "raw": {
+     "resolved": true,
+     "codeA": "E-Class (W212)",
+     "codeB": "CLK-Class (C209)",
+     "evidenceQuote": "From 1997 to 2009, the equivalent coupe and convertible were sold under the Mercedes-Benz CLK-Class nameplate; which was based on the mechanical underpinnings of the smaller C-Class while borrowing the styling and some powertrains from the E-Class, a trend continued with the C207 E-Class coupe/convertible which was sold parallel to the W212 E-Class sedan/wagon.",
+     "reason": "The CLK-Class C209 (produced 2002–2009) shares its platform with the Mercedes-Benz E-Class W212 (produced 2009–2016). The W212 chassis was the final iteration of the E-Class to utilize the Mercedes-Benz C-Class platform (M272/M274 engines and CLS/W204 architecture), which was the exact same platform used for the CLK-Class C209. The W213 (introduced in 2013) moved to a new platform, ending the relationship with the CLK lineage."
+    },
+    "evidenceCodeForA": "C124/A124",
+    "evidenceCodeForB": null,
+    "ordinalFromNoteA": null,
+    "ordinalFromNoteB": null,
+    "ordinalBacked": false,
+    "evidenceQuote": "From 1997 to 2009, the equivalent coupe and convertible were sold under the Mercedes-Benz CLK-Class nameplate; which was based on the mechanical underpinnings of the smaller C-Class while borrowing the styling and some powertrains from the E-Class, a trend continued with the C207 E-Class coupe/convertible which was sold parallel to the W212 E-Class sedan/wagon.",
+    "quoteVerified": true,
+    "llmVerified": false,
+    "knowledgeBacked": false,
+    "sourceAttributed": false,
+    "citedA": null,
+    "citedB": null,
+    "citationBacked": false,
+    "quoteFabricated": false,
+    "fetchedArticleA": true,
+    "fetchedArticleB": true,
+    "availableCodesA": [
+     "E-Class W120/W121",
+     "E-Class W110",
+     "E-Class W114/W115",
+     "E-Class W123",
+     "E-Class (W124)",
+     "E-Class (W210)",
+     "E-Class (W211)",
+     "E-Class (W212)",
+     "E-Class (W213)",
+     "E-Class (W214)"
+    ],
+    "availableCodesB": [
+     "CLK-Class (C208)",
+     "CLK-Class (C209)"
+    ]
+   }
+  },
+  "m-mercedes-benz-e-class|m-mercedes-benz-e-class|succession": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T10:24:09.194Z",
+   "decidedAt": "2026-09-15T10:24:09.194Z",
+   "autoConfirmed": true,
+   "famA": "m-mercedes-benz-e-class",
+   "famB": "m-mercedes-benz-e-class",
+   "relType": "succession",
+   "note": "Mercedes-Benz E-Class's own article says: \"{{Infobox automobile | image = Mercedes-Benz W214 1X7A1841.jpg | name = Mercedes-Benz E-Class | caption = | manufacturer = | production = E-Class nomenclature adopted in July 1993 | class = Executive car (E) | layout = Front-engine, rear-wheel-drive or all-wheel-drive | predecessor = Mercedes-Benz W124 (pre-facelift models, 1984–1993) }} \n Before 1993, the E suffix in Mercedes-Benz model names referred to Einspritzmotor (German for fuel injection engine) when in the early 1970s fuel injection began to proliferate beyond its upper-tier luxury and sporting models. By the launch of …\" / Mercedes-Benz E-Class's own article says: \"{{Infobox automobile | image = Mercedes-Benz W214 1X7A1841.jpg | name = Mercedes-Benz E-Class | caption = | manufacturer = | production = E-Class nomenclature adopted in July 1993 | class = Executive car (E) | layout = Front-engine, rear-wheel-drive or all-wheel-drive | predecessor = Mercedes-Benz W124 (pre-facelift models, 1984–1993) }} \n Before 1993, the E suffix in Mercedes-Benz model names referred to Einspritzmotor (German for fuel injection engine) when in the early 1970s fuel injection began to proliferate beyond its upper-tier luxury and sporting models. By the launch of …\"",
+   "matchLevel": "generation",
+   "codeA": "E-Class W114/W115",
+   "codeB": "E-Class W114/W115",
+   "genIdA": "llm-m-mercedes-benz-e-class-w114-w115",
+   "genIdB": "llm-m-mercedes-benz-e-class-w114-w115",
+   "reason": "matched from an explicit chassis/generation code found directly in one of the two Wikipedia articles' own text",
+   "debug": {
+    "raw": {
+     "resolved": false,
+     "codeA": null,
+     "codeB": null,
+     "evidenceQuote": null,
+     "reason": "The provided code lists contain identical entries for both Car A and Car B (Mercedes-Benz E-Class), meaning there are no distinct generations to compare for a predecessor/successor relationship between two different nameplates. Furthermore, the note only identifies the predecessor of the current model (W214) as the W124 (a previous generation of the same nameplate), rather than establishing a relationship between two different nameplates. No specific generation pairing between different nameplates can be resolved."
+    },
+    "evidenceCodeForA": "E-Class W114/W115",
+    "evidenceCodeForB": "E-Class W114/W115",
+    "ordinalFromNoteA": null,
+    "ordinalFromNoteB": null,
+    "ordinalBacked": false,
+    "evidenceQuote": null,
+    "quoteVerified": false,
+    "llmVerified": false,
+    "knowledgeBacked": false,
+    "sourceAttributed": false,
+    "citedA": null,
+    "citedB": null,
+    "citationBacked": false,
+    "quoteFabricated": false,
+    "fetchedArticleA": true,
+    "fetchedArticleB": true,
+    "availableCodesA": [
+     "E-Class W120/W121",
+     "E-Class W110",
+     "E-Class W114/W115",
+     "E-Class W123",
+     "E-Class (W124)",
+     "E-Class (W210)",
+     "E-Class (W211)",
+     "E-Class (W212)",
+     "E-Class (W213)",
+     "E-Class (W214)"
+    ],
+    "availableCodesB": [
+     "E-Class W120/W121",
+     "E-Class W110",
+     "E-Class W114/W115",
+     "E-Class W123",
+     "E-Class (W124)",
+     "E-Class (W210)",
+     "E-Class (W211)",
+     "E-Class (W212)",
+     "E-Class (W213)",
+     "E-Class (W214)"
+    ]
+   }
+  },
+  "llm-m-mercedes-benz-e-class-w123|m-mercedes-benz-e-class|related": {
+   "status": "none",
+   "checkedAt": "2026-09-15T10:24:19.321Z",
+   "famA": "m-mercedes-benz-e-class",
+   "famB": "llm-m-mercedes-benz-e-class-w123",
+   "relType": "related",
+   "note": "Mercedes-Benz E-Class's own article says: \"{{Infobox automobile | image = Mercedes-Benz W214 1X7A1841.jpg | name = Mercedes-Benz E-Class | caption = | manufacturer = | production = E-Class nomenclature adopted in July 1993 | class = Executive car (E) | layout = Front-engine, rear-wheel-drive or all-wheel-drive | predecessor = Mercedes-Benz W124 (pre-facelift models, 1984–1993) }} \n Before 1993, the E suffix in Mercedes-Benz model names referred to Einspritzmotor (German for fuel injection engine) when in the early 1970s fuel injection began to proliferate beyond its u…\" / Mercedes-Benz E-Class W123's own article says: \"Mercedes-Benz E-Class \n {{Infobox automobile | image = 1984 Mercedes-Benz 280E Sedan (cropped).jpg | caption = 1984 Mercedes-Benz 280 E (W123) | name = Mercedes-Benz W123 | manufacturer = Daimler-Benz | related = Mercedes-Benz E-Class | production = November 1975 – January 1986 <br/> 2,696,915 built <br/> 4-door: 2,375,410<br/> Coupé: 99,884 <br/> Estate: 199,517 <br/> Limousine: 13,700 <br/> Chassis: 1,353 <br/> LWB chassis: 7,020 | assembly = {{ubl |West Germany: Sindelfingen; Stuttgart; Bremen |South Afric…\"",
+   "matchLevel": null,
+   "codeA": null,
+   "codeB": null,
+   "genIdA": null,
+   "genIdB": null,
+   "reason": "The note for the Mercedes-Benz E-Class (Car A) identifies the W124 as the predecessor to the W210 (adopted in 1993). However, the provided list for Car A does not contain an entry for the 'Mercedes-Benz E-Class (W124)' generation, which is the specific generation referenced as the predecessor. The W124 is a distinct generation (1984–1997) and cannot be mapped to the available list entries (which start at the W114/W115 or jump to the W210). The note for Car B only confirms the model name relationship without specifying a generation pairing that matches the available codes for Car A. Since the specific generation named in the evidence (W124) is absent from Car A's list, the relationship cannot be resolved using the provided codes.",
+   "debug": {
+    "raw": {
+     "resolved": false,
+     "codeA": null,
+     "codeB": null,
+     "evidenceQuote": null,
+     "reason": "The note for the Mercedes-Benz E-Class (Car A) identifies the W124 as the predecessor to the W210 (adopted in 1993). However, the provided list for Car A does not contain an entry for the 'Mercedes-Benz E-Class (W124)' generation, which is the specific generation referenced as the predecessor. The W124 is a distinct generation (1984–1997) and cannot be mapped to the available list entries (which start at the W114/W115 or jump to the W210). The note for Car B only confirms the model name relationship without specifying a generation pairing that matches the available codes for Car A. Since the specific generation named in the evidence (W124) is absent from Car A's list, the relationship cannot be resolved using the provided codes."
+    },
+    "evidenceCodeForA": null,
+    "evidenceCodeForB": null,
+    "ordinalFromNoteA": null,
+    "ordinalFromNoteB": null,
+    "ordinalBacked": false,
+    "evidenceQuote": null,
+    "quoteVerified": false,
+    "llmVerified": false,
+    "knowledgeBacked": false,
+    "sourceAttributed": false,
+    "citedA": null,
+    "citedB": null,
+    "citationBacked": false,
+    "quoteFabricated": false,
+    "fetchedArticleA": true,
+    "fetchedArticleB": true,
+    "availableCodesA": [
+     "E-Class W120/W121",
+     "E-Class W110",
+     "E-Class W114/W115",
+     "E-Class W123",
+     "E-Class (W124)",
+     "E-Class (W210)",
+     "E-Class (W211)",
+     "E-Class (W212)",
+     "E-Class (W213)",
+     "E-Class (W214)"
+    ],
+    "availableCodesB": [
+     "E-Class W123"
+    ]
+   }
+  },
+  "m-mercedes-benz-e-class|m-ssangyong-chairman|related": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T10:24:23.515Z",
+   "decidedAt": "2026-09-15T10:24:23.515Z",
+   "autoConfirmed": true,
+   "famA": "m-mercedes-benz-e-class",
+   "famB": "m-ssangyong-chairman",
+   "relType": "related",
+   "note": "Ssangyong Chairman's own article says: \"… is a full-size luxury car that was manufactured by South Korean automaker SsangYong from 1997 to 2017. The original model was renamed Chairman H in 2008, with a new model introduced in the same year and designated Chairman W. \n == History == On release to the South Korean market in 1997, the chairman was a high-end executive sedan. Its manufacturer, SsangYong, was best known for SUVs and RVs, and the chairman has been its only sedan. The first generation chairman was built on the Mercedes-Benz E-Class (W124) platform, but styled more like a modernized W140 S-Class. Coincidentally, the design also foretold that of the upcoming Mercedes-Benz S-Class (W220), which led to some consternation at the German company. Mercedes-Benz requested that Ssangyong redesign the car to make it look less like a Mercedes-Benz and to refrain from selling it in developed export markets such as Europe and the United States. \n == <span class=\"anchor\" id=\"H\"></span> First generation (Chairman H; 1997–2011) == …\"",
+   "matchLevel": "generation",
+   "codeA": "E-Class (W124)",
+   "codeB": "Chairman Chairman H",
+   "genIdA": "m-mercedes-benz-e-class-w124",
+   "genIdB": "llm-m-ssangyong-chairman-chairman-h",
+   "reason": "matched from an explicit chassis/generation code found directly in one of the two Wikipedia articles' own text (the LLM separately agreed: The note explicitly states that the first generation of the Ssangyong Chairman (Chairman H, 1997-2011) was built on the Mercedes-Benz E-Class (W124) platform.)",
+   "debug": {
+    "raw": {
+     "resolved": true,
+     "codeA": "E-Class (W124)",
+     "codeB": "Chairman Chairman H",
+     "evidenceQuote": "The first generation chairman was built on the Mercedes-Benz E-Class (W124) platform",
+     "reason": "The note explicitly states that the first generation of the Ssangyong Chairman (Chairman H, 1997-2011) was built on the Mercedes-Benz E-Class (W124) platform."
+    },
+    "evidenceCodeForA": "W124",
+    "evidenceCodeForB": null,
+    "ordinalFromNoteA": null,
+    "ordinalFromNoteB": "Chairman Chairman H",
+    "ordinalBacked": true,
+    "evidenceQuote": "The first generation chairman was built on the Mercedes-Benz E-Class (W124) platform",
+    "quoteVerified": true,
+    "llmVerified": true,
+    "knowledgeBacked": false,
+    "sourceAttributed": true,
+    "citedA": "E-Class (W124)",
+    "citedB": "Chairman Chairman H",
+    "citationBacked": true,
+    "quoteFabricated": false,
+    "fetchedArticleA": true,
+    "fetchedArticleB": true,
+    "availableCodesA": [
+     "E-Class W120/W121",
+     "E-Class W110",
+     "E-Class W114/W115",
+     "E-Class W123",
+     "E-Class (W124)",
+     "E-Class (W210)",
+     "E-Class (W211)",
+     "E-Class (W212)",
+     "E-Class (W213)",
+     "E-Class (W214)"
+    ],
+    "availableCodesB": [
+     "Chairman Chairman H",
+     "Chairman Chairman W"
+    ]
+   }
+  },
+  "m-mercedes-benz-e-class|m-mercedes-benz-e-class-w124|related": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T10:24:30.534Z",
+   "decidedAt": "2026-09-15T10:24:30.534Z",
+   "autoConfirmed": true,
+   "famA": "m-mercedes-benz-e-class",
+   "famB": "m-mercedes-benz-e-class-w124",
+   "relType": "related",
+   "note": "Mercedes-Benz E-Class's own article says: \"{{Infobox automobile | image = Mercedes-Benz W214 1X7A1841.jpg | name = Mercedes-Benz E-Class | caption = | manufacturer = | production = E-Class nomenclature adopted in July 1993 | class = Executive car (E) | layout = Front-engine, rear-wheel-drive or all-wheel-drive | predecessor = Mercedes-Benz W124 (pre-facelift models, 1984–1993) }} \n Before 1993, the E suffix in Mercedes-Benz model names referred to Einspritzmotor (German for fuel injection engine) when in the early 1970s fuel injection began to proliferate beyond its u…\" / Mercedes-Benz E-Class (W124)'s own article says: \"Mercedes-Benz E-Class <br /> Ssangyong Chairman \n {{Infobox automobile | name = Mercedes-Benz W124 | image = 1988 Mercedes-Benz 300d Diesel Automatic 3.0 Front.jpg | caption = | manufacturer = Daimler-Benz | production = {{ubl | Sedan: January 1985 &ndash; August 1995 | (2,213,140 ex.) | Estate: October 1985 &ndash; February 1996 | (333,227 ex.) | Coupé: April 1987 &ndash; March 1996 | (141,498 ex.) | Cabriolet: March 1992 &ndash; July 1997 | (33,952 ex.) | Total: 2,721,817 ex., excluding commercial chassis }…\"",
+   "matchLevel": "generation",
+   "codeA": "E-Class (W124)",
+   "codeB": "E-Class (W124)",
+   "genIdA": "m-mercedes-benz-e-class-w124",
+   "genIdB": "m-mercedes-benz-e-class-w124",
+   "reason": "auto-approved: the model attributed this to one of the two Wikipedia articles and named Mercedes-Benz E-Class → E-Class (W124) and Mercedes-Benz E-Class (W124) → E-Class (W124), which is a generation from that car's own real code list, in an asserted (not disclaimed) clause: The note explicitly identifies the Mercedes-Benz W124 as the predecessor to the later E-Class generations (starting with nomenclature adoption in July 1993), establishing a direct lineage. The W124 generation (1984–1997) is the specific model referenced. Both code lists contain an entry for 'E-Class (W124)' which corresponds to this generation.",
+   "debug": {
+    "raw": {
+     "resolved": true,
+     "codeA": "E-Class (W124)",
+     "codeB": "E-Class (W124)",
+     "evidenceQuote": "predecessor = Mercedes-Benz W124 (pre-facelift models, 1984–1993)",
+     "reason": "The note explicitly identifies the Mercedes-Benz W124 as the predecessor to the later E-Class generations (starting with nomenclature adoption in July 1993), establishing a direct lineage. The W124 generation (1984–1997) is the specific model referenced. Both code lists contain an entry for 'E-Class (W124)' which corresponds to this generation."
+    },
+    "evidenceCodeForA": null,
+    "evidenceCodeForB": null,
+    "ordinalFromNoteA": null,
+    "ordinalFromNoteB": null,
+    "ordinalBacked": false,
+    "evidenceQuote": "predecessor = Mercedes-Benz W124 (pre-facelift models, 1984–1993)",
+    "quoteVerified": true,
+    "llmVerified": false,
+    "knowledgeBacked": false,
+    "sourceAttributed": true,
+    "citedA": "E-Class (W124)",
+    "citedB": "E-Class (W124)",
+    "citationBacked": true,
+    "quoteFabricated": false,
+    "fetchedArticleA": true,
+    "fetchedArticleB": true,
+    "availableCodesA": [
+     "E-Class W120/W121",
+     "E-Class W110",
+     "E-Class W114/W115",
+     "E-Class W123",
+     "E-Class (W124)",
+     "E-Class (W210)",
+     "E-Class (W211)",
+     "E-Class (W212)",
+     "E-Class (W213)",
+     "E-Class (W214)"
+    ],
+    "availableCodesB": [
+     "E-Class (W124)"
+    ]
+   }
+  },
+  "m-mercedes-benz-e-class|m-mercedes-benz-w108-w109|related": {
+   "status": "none",
+   "checkedAt": "2026-09-15T10:24:51.114Z",
+   "famA": "m-mercedes-benz-e-class",
+   "famB": "m-mercedes-benz-w108-w109",
+   "relType": "related",
+   "note": "Mercedes-Benz E-Class's own article says: \"… the more contemporary pre-1993 models among the predecessors . \n The preceding Ponton and Fintail generations are even more difficult to differentiate, as the top end six-cylinder models and the entry four cylinder diesels were literally built on the same body. Adding to this complication were the 'inter-class' models such as the lineup of the W105 219, W111 220 and W110 230 which replaced each other from 1956 until 1968, and the W111 230S which was produced in parallel with the new generation W108/W109 from 1965 until 1968. Both six cylinder models would eventually become a permanent fixture in the /8 (230.6 and 250, later 230.6 and 280) W123 (250 and 280) and W124 (260 and 300, later 280 and 320). \n === 1993 re-branding === To further complicate matters, the 1972-1993 Sonderklasse label was not limited to the W116 and W126 sedans, but also the R107 and R129 SL roadsters, the C107 and C126 coupes. Even the W100 limousine was listed among the S-Class . The unnamed mid-range would see …\" / Mercedes-Benz W108/W109's own article says: \"W&thinsp;113<br>W&thinsp;111/W&thinsp;112 (2-door models) \n == First Series (1965–1967) == \n == Second Series (1968–1972) == \n In 1968, at the Brussels Motor Show in January for Europe and the Chicago Auto Show in February for the United States Mercedes-Benz unveiled the new executive W&thinsp;114/W&thinsp;115 \"/8\" (Stroke Eight); () models. Also designed by Paul Bracq, they closely mimicked the W&thinsp;108 and W&thinsp;109 models, completing the marque's transition to its corporate style, which began with the two door W&thinsp;111 models in 1961. Mechanically, however, they rode on chassis and platform of a clean-sheet design, and were slotted below the W&thinsp;108 and W&thinsp;109 models to replace the now archaic W&thinsp;110 and …\"",
+   "matchLevel": null,
+   "codeA": null,
+   "codeB": null,
+   "genIdA": null,
+   "genIdB": null,
+   "reason": "While the note mentions that the W108/W109 (Car B) and W111/W112 (Car A predecessors) shared a design language and that the W111 230S was produced parallel to the W108/W109, it does not explicitly state they were 'related' as sister/sibling models or that they shared a platform/chassis. The text clarifies that the subsequent W114/W115 were built on a 'clean-sheet design' replacing the W108/W109, and while the W114/W115 are the specific generation in the provided list that replaced the W108/W109, the text does not assert a 'related' relationship (like rebadge or shared platform) between the specific 'E-Class W114/W115' entry and the 'W108/W109' entry beyond their sequential existence and visual mimicry. The prompt requires identifying specific generations where the 'related' label applies based on evidence of sisterhood or rebadging, which is not substantiated for the specific code pairings provided in the lists (the text links W108/W109 to W111/W112, but W111/W112 is not in Car A's provided list; W114/W115 is in Car A's list, but the text says it replaced W108/W109 on a clean sheet rather than being a direct rebadge/sibling of the W108/W109 itself). Therefore, no specific generation pair in the provided lists can be confidently identified as the 'related' pair described.",
+   "debug": {
+    "raw": {
+     "resolved": false,
+     "codeA": null,
+     "codeB": null,
+     "evidenceQuote": null,
+     "reason": "While the note mentions that the W108/W109 (Car B) and W111/W112 (Car A predecessors) shared a design language and that the W111 230S was produced parallel to the W108/W109, it does not explicitly state they were 'related' as sister/sibling models or that they shared a platform/chassis. The text clarifies that the subsequent W114/W115 were built on a 'clean-sheet design' replacing the W108/W109, and while the W114/W115 are the specific generation in the provided list that replaced the W108/W109, the text does not assert a 'related' relationship (like rebadge or shared platform) between the specific 'E-Class W114/W115' entry and the 'W108/W109' entry beyond their sequential existence and visual mimicry. The prompt requires identifying specific generations where the 'related' label applies based on evidence of sisterhood or rebadging, which is not substantiated for the specific code pairings provided in the lists (the text links W108/W109 to W111/W112, but W111/W112 is not in Car A's provided list; W114/W115 is in Car A's list, but the text says it replaced W108/W109 on a clean sheet rather than being a direct rebadge/sibling of the W108/W109 itself). Therefore, no specific generation pair in the provided lists can be confidently identified as the 'related' pair described."
+    },
+    "evidenceCodeForA": null,
+    "evidenceCodeForB": null,
+    "ordinalFromNoteA": null,
+    "ordinalFromNoteB": null,
+    "ordinalBacked": false,
+    "evidenceQuote": null,
+    "quoteVerified": false,
+    "llmVerified": false,
+    "knowledgeBacked": false,
+    "sourceAttributed": true,
+    "citedA": "E-Class W114/W115",
+    "citedB": null,
+    "citationBacked": false,
+    "quoteFabricated": false,
+    "fetchedArticleA": true,
+    "fetchedArticleB": true,
+    "availableCodesA": [
+     "E-Class W120/W121",
+     "E-Class W110",
+     "E-Class W114/W115",
+     "E-Class W123",
+     "E-Class (W124)",
+     "E-Class (W210)",
+     "E-Class (W211)",
+     "E-Class (W212)",
+     "E-Class (W213)",
+     "E-Class (W214)"
+    ],
+    "availableCodesB": [
+     "W108/W109 First Series",
+     "W108/W109 Second Series"
+    ]
+   }
+  },
+  "m-mercedes-benz-e-class|m-mercedes-benz-w108-w109|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T10:25:26.655Z",
+   "decidedAt": "2026-09-15T10:25:26.655Z",
+   "autoConfirmed": true,
+   "famA": "m-mercedes-benz-e-class",
+   "famB": "m-mercedes-benz-w108-w109",
+   "relType": "platform",
+   "note": "Mercedes-Benz E-Class's own article says: \"… the more contemporary pre-1993 models among the predecessors . \n The preceding Ponton and Fintail generations are even more difficult to differentiate, as the top end six-cylinder models and the entry four cylinder diesels were literally built on the same body. Adding to this complication were the 'inter-class' models such as the lineup of the W105 219, W111 220 and W110 230 which replaced each other from 1956 until 1968, and the W111 230S which was produced in parallel with the new generation W108/W109 from 1965 until 1968. Both six cylinder models would eventually become a permanent fixture in the /8 (230.6 and 250, later 230.6 and 280) W123 (250 and 280) and W124 (260 and 300, later 280 and 320). \n === 1993 re-branding === To further complicate matters, the 1972-1993 Sonderklasse label was not limited to the W116 and W126 sedans, but also the R107 and R129 SL roadsters, the C107 and C126 coupes. Even the W100 limousine was listed among the S-Class . The unnamed mid-range would see …\" / Mercedes-Benz W108/W109's own article says: \"W&thinsp;113<br>W&thinsp;111/W&thinsp;112 (2-door models) \n == First Series (1965–1967) == \n == Second Series (1968–1972) == \n In 1968, at the Brussels Motor Show in January for Europe and the Chicago Auto Show in February for the United States Mercedes-Benz unveiled the new executive W&thinsp;114/W&thinsp;115 \"/8\" (Stroke Eight); () models. Also designed by Paul Bracq, they closely mimicked the W&thinsp;108 and W&thinsp;109 models, completing the marque's transition to its corporate style, which began with the two door W&thinsp;111 models in 1961. Mechanically, however, they rode on chassis and platform of a clean-sheet design, and were slotted below the W&thinsp;108 and W&thinsp;109 models to replace the now archaic W&thinsp;110 and …\"",
+   "matchLevel": "generation",
+   "codeA": "E-Class W110",
+   "codeB": "W108/W109 Second Series",
+   "genIdA": "llm-m-mercedes-benz-e-class-w110",
+   "genIdB": "llm-m-mercedes-benz-w108-w109-second-series",
+   "reason": "auto-approved from concretely-named, well-established knowledge -- no literal quote, but a specific fact is named rather than a vague similarity: Real-world knowledge and the provided text confirm that the Mercedes-Benz W110 (E-Class) and the Mercedes-Benz W108/W109 First Series (1965–1967) shared the same body/chassis platform ('literally built on the same body'). The subsequent W108/W109 Second Series introduced in 1968 used a 'clean-sheet design'. Therefore, the relationship applies to E-Class W110 and W108/W109 First Series.",
+   "debug": {
+    "raw": {
+     "resolved": true,
+     "codeA": "E-Class W110",
+     "codeB": "W108/W109 Second Series",
+     "evidenceQuote": "Adding to this complication were the 'inter-class' models such as the lineup of the W105 219, W111 220 and W110 230 which replaced each other from 1956 until 1968, and the W111 230S which was produced in parallel with the new generation W108/W109 from 1965 until 1968. Both six cylinder models would eventually become a permanent fixture in ... W123 ... and W124 ...",
+     "reason": "Real-world knowledge and the provided text confirm that the Mercedes-Benz W110 (E-Class) and the Mercedes-Benz W108/W109 First Series (1965–1967) shared the same body/chassis platform ('literally built on the same body'). The subsequent W108/W109 Second Series introduced in 1968 used a 'clean-sheet design'. Therefore, the relationship applies to E-Class W110 and W108/W109 First Series."
+    },
+    "evidenceCodeForA": null,
+    "evidenceCodeForB": null,
+    "ordinalFromNoteA": null,
+    "ordinalFromNoteB": null,
+    "ordinalBacked": false,
+    "evidenceQuote": "Adding to this complication were the 'inter-class' models such as the lineup of the W105 219, W111 220 and W110 230 which replaced each other from 1956 until 1968, and the W111 230S which was produced in parallel with the new generation W108/W109 from 1965 until 1968. Both six cylinder models would eventually become a permanent fixture in ... W123 ... and W124 ...",
+    "quoteVerified": false,
+    "llmVerified": false,
+    "knowledgeBacked": true,
+    "sourceAttributed": false,
+    "citedA": null,
+    "citedB": null,
+    "citationBacked": false,
+    "quoteFabricated": true,
+    "fetchedArticleA": true,
+    "fetchedArticleB": true,
+    "availableCodesA": [
+     "E-Class W120/W121",
+     "E-Class W110",
+     "E-Class W114/W115",
+     "E-Class W123",
+     "E-Class (W124)",
+     "E-Class (W210)",
+     "E-Class (W211)",
+     "E-Class (W212)",
+     "E-Class (W213)",
+     "E-Class (W214)"
+    ],
+    "availableCodesB": [
+     "W108/W109 First Series",
+     "W108/W109 Second Series"
+    ]
+   }
+  },
+  "fam-mercedes-benz-clk|m-mercedes-benz-e-class|succession": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T10:25:43.775Z",
+   "decidedAt": "2026-09-15T10:25:43.775Z",
+   "autoConfirmed": true,
+   "famA": "m-mercedes-benz-e-class",
+   "famB": "fam-mercedes-benz-clk",
+   "relType": "succession",
+   "note": "Mercedes-Benz E-Class's own article says: \"…he model line is referred to officially as the E-Class (or E-Klasse). All generations of the E-Class have offered either rear-wheel drive or Mercedes' 4Matic four-wheel drive system. \n The E-Class is Mercedes-Benz' best-selling model, with more than 16 million sold by 2023. The first E-Class series was originally available as four-door sedan (car), five-door estate, two-door coupe and two-door convertible. From 1997 to 2009, the equivalent coupe and convertible were sold under the Mercedes-Benz CLK-Class nameplate; which was based on the mechanical underpinnings of the smaller C-Class while borrowing the styling and some powertrains from the E-Class, a trend continued with the C207 E-Class coupe/convertible which was sold parallel to the W212 E-Class sedan/wagon. With the latest incarnation of the E-Class released for the 2017 model year, all body styles share the same W213 platform. \n == History == Although the E-Class nomenclature was adopted in July 1993 for the second facelift of t…\" / Mercedes-Benz CLK's own article says: \"{{Infobox automobile | name = Mercedes-Benz CLK-Class | image = CLK 209 (Cabriolet).jpg | manufacturer = | production = 1996–2009 | class = | body_style = | layout = Front-engine, rear-wheel-drive | predecessor = Mercedes-Benz E-Class (C124/A124) | successor = Mercedes-Benz E-Class (C207/A207) }} \n Prior to the CLK-Class, the Mercedes E-Class included a Coupé alongside the saloon/wagon. In 2010, Mercedes changed the CLK-Class nameplate to the Mercedes-Benz E-Class (C207); nonetheless this E-Class Coupe/Cabriolet is still based upon the C-Class platform while borrowing the brand and styling/design from the E-Class saloon/wagon. Then for the 2017-2023 model years, the Mercedes Mercedes-Benz E-Class (W213)#Coupé and Cabr…\"",
+   "matchLevel": "nameplate",
+   "codeA": "E-Class",
+   "codeB": "CLK-Class (C208)",
+   "genIdA": "m-mercedes-benz-e-class",
+   "genIdB": "m-mercedes-benz-clk-class-c208",
+   "reason": "matched from an explicit chassis/generation code found directly in one of the two Wikipedia articles' own text (the LLM separately agreed: The CLK infobox explicitly lists the predecessor as 'Mercedes-Benz E-Class (C124/A124)'. The C124/A124 corresponds to the Mercedes-Benz E-Class W123 (1975–1986) and the 1984–1997 generation (often grouped in infoboxes under the W123 code or as the successor to the W123). The successor listed is C207/A207, which corresponds to the CLK-Class (C209). The relationship of predecessor/successor applies to the transition from the W123 era (and the subsequent W124/C124 coupe era) to the C208/C209 CLK era. Specifically, the C124/A124 is mechanically related to the W123 platform (sharing the 4.5L V8 etc.) and is the direct predecessor to the C208/C209 in the lineage of coupe-only E-Class derivatives before becoming the main E-Class coupe in 2010. The code list entry 'E-Class (W123)' is the appropriate match for the W124/C124 generation in this context as it represents that specific chassis era in the provided list.)",
+   "debug": {
+    "raw": {
+     "resolved": true,
+     "codeA": "E-Class (W123) (1975–1986)",
+     "codeB": "CLK-Class (C208) (1997–2002)",
+     "evidenceQuote": "predecessor = Mercedes-Benz E-Class (C124/A124) ... successor = Mercedes-Benz E-Class (C207/A207)",
+     "reason": "The CLK infobox explicitly lists the predecessor as 'Mercedes-Benz E-Class (C124/A124)'. The C124/A124 corresponds to the Mercedes-Benz E-Class W123 (1975–1986) and the 1984–1997 generation (often grouped in infoboxes under the W123 code or as the successor to the W123). The successor listed is C207/A207, which corresponds to the CLK-Class (C209). The relationship of predecessor/successor applies to the transition from the W123 era (and the subsequent W124/C124 coupe era) to the C208/C209 CLK era. Specifically, the C124/A124 is mechanically related to the W123 platform (sharing the 4.5L V8 etc.) and is the direct predecessor to the C208/C209 in the lineage of coupe-only E-Class derivatives before becoming the main E-Class coupe in 2010. The code list entry 'E-Class (W123)' is the appropriate match for the W124/C124 generation in this context as it represents that specific chassis era in the provided list."
+    },
+    "evidenceCodeForA": "C124/A124",
+    "evidenceCodeForB": null,
+    "ordinalFromNoteA": null,
+    "ordinalFromNoteB": null,
+    "ordinalBacked": false,
+    "evidenceQuote": "predecessor = Mercedes-Benz E-Class (C124/A124) ... successor = Mercedes-Benz E-Class (C207/A207)",
+    "quoteVerified": false,
+    "llmVerified": false,
+    "knowledgeBacked": true,
+    "sourceAttributed": true,
+    "citedA": "E-Class W123",
+    "citedB": "CLK-Class (C209)",
+    "citationBacked": false,
+    "quoteFabricated": true,
+    "fetchedArticleA": true,
+    "fetchedArticleB": true,
+    "availableCodesA": [
+     "E-Class W120/W121",
+     "E-Class W110",
+     "E-Class W114/W115",
+     "E-Class W123",
+     "E-Class (W124)",
+     "E-Class (W210)",
+     "E-Class (W211)",
+     "E-Class (W212)",
+     "E-Class (W213)",
+     "E-Class (W214)"
+    ],
+    "availableCodesB": [
+     "CLK-Class (C208)",
+     "CLK-Class (C209)"
+    ]
+   }
+  },
+  "llm-m-mercedes-benz-e-class-w110|m-mercedes-benz-e-class|related": {
+   "status": "provisional",
+   "checkedAt": "2026-09-15T10:29:07.138Z",
+   "famA": "m-mercedes-benz-e-class",
+   "famB": "llm-m-mercedes-benz-e-class-w110",
+   "relType": "related",
+   "note": "Mercedes-Benz E-Class's own article says: \"{{Infobox automobile | image = Mercedes-Benz W214 1X7A1841.jpg | name = Mercedes-Benz E-Class | caption = | manufacturer = | production = E-Class nomenclature adopted in July 1993 | class = Executive car (E) | layout = Front-engine, rear-wheel-drive or all-wheel-drive | predecessor = Mercedes-Benz W124 (pre-facelift models, 1984–1993) }} \n Before 1993, the E suffix in Mercedes-Benz model names referred to Einspritzmotor (German for fuel injection engine) when in the early 1970s fuel injection began to proliferate beyond its u…\" / Mercedes-Benz E-Class W110's own article says: \"Mercedes-Benz E-Class \n {{Infobox automobile |image = 1965 Mercedes-Benz 190 D sedan -- 03-16-2012.JPG |caption = Mercedes-Benz 190Dc (W110) |name = Mercedes-Benz W110 |manufacturer = Daimler-Benz |production = |assembly = |predecessor = Mercedes-Benz W120/W121 |successor = Mercedes-Benz W114/W115 |class = Executive car (E) |layout = FR layout |related = Mercedes-Benz E-Class |wheelbase = |weight = |length = |width = |height = }} \n The Mercedes-Benz W110 and the six-cylinder W111 were the first series of Merc…\"",
+   "matchLevel": "generation",
+   "codeA": "E-Class W110",
+   "codeB": "E-Class W110",
+   "genIdA": "llm-m-mercedes-benz-e-class-w110",
+   "genIdB": "llm-m-mercedes-benz-e-class-w110",
+   "reason": "The relationship is identity; the W110 is the only entry in Car B's list and it is explicitly listed as a predecessor/related model in Car A's entry. The note from Car A confirms the W124 is the predecessor to the 1993 E-class nomenclature, confirming the W110 is part of the lineage leading to the modern W214. Since the W110 is the same chassis in both lists, the relationship applies to that specific generation.",
+   "debug": {
+    "raw": {
+     "resolved": true,
+     "codeA": "E-Class W110 (1961–1968)",
+     "codeB": "E-Class W110 (1961–1968)",
+     "evidenceQuote": "predecessor = Mercedes-Benz W124 (pre-facelift models, 1984–1993)",
+     "reason": "The relationship is identity; the W110 is the only entry in Car B's list and it is explicitly listed as a predecessor/related model in Car A's entry. The note from Car A confirms the W124 is the predecessor to the 1993 E-class nomenclature, confirming the W110 is part of the lineage leading to the modern W214. Since the W110 is the same chassis in both lists, the relationship applies to that specific generation."
+    },
+    "evidenceCodeForA": null,
+    "evidenceCodeForB": null,
+    "ordinalFromNoteA": null,
+    "ordinalFromNoteB": null,
+    "ordinalBacked": false,
+    "evidenceQuote": "predecessor = Mercedes-Benz W124 (pre-facelift models, 1984–1993)",
+    "quoteVerified": true,
+    "llmVerified": false,
+    "knowledgeBacked": false,
+    "sourceAttributed": false,
+    "citedA": null,
+    "citedB": null,
+    "citationBacked": false,
+    "quoteFabricated": false,
+    "fetchedArticleA": true,
+    "fetchedArticleB": true,
+    "availableCodesA": [
+     "E-Class W120/W121",
+     "E-Class W110",
+     "E-Class W114/W115",
+     "E-Class W123",
+     "E-Class (W124)",
+     "E-Class (W210)",
+     "E-Class (W211)",
+     "E-Class (W212)",
+     "E-Class (W213)",
+     "E-Class (W214)"
+    ],
+    "availableCodesB": [
+     "E-Class W110"
+    ]
+   }
+  },
+  "fam-mercedes-benz-c|m-mercedes-benz-e-class|related": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T10:31:13.829Z",
+   "decidedAt": "2026-09-15T10:31:13.829Z",
+   "autoConfirmed": true,
+   "famA": "m-mercedes-benz-e-class",
+   "famB": "fam-mercedes-benz-c",
+   "relType": "related",
+   "note": "Mercedes-Benz E-Class's own article says: \"{{Infobox automobile | image = Mercedes-Benz W214 1X7A1841.jpg | name = Mercedes-Benz E-Class | caption = | manufacturer = | production = E-Class nomenclature adopted in July 1993 | class = Executive car (E) | layout = Front-engine, rear-wheel-drive or all-wheel-drive | predecessor = Mercedes-Benz W124 (pre-facelift models, 1984–1993) }} \n Before 1993, the E suffix in Mercedes-Benz model names referred to Einspritzmotor (German for fuel injection engine) when in the early 1970s fuel injection began to proliferate beyond its uppe…\" / Mercedes-Benz C's own article says: \"…\"></span> First generation (W202; 1993) == \n In May 1993, the first generation W202 C-Class was introduced as a replacement for the 190. The first C-Class (W202) sedan was manufactured in August 1992. The C-Class sedan was the company's entry-level model up until 1997 when Mercedes launched the A-Class. Styling themes were carried over from the previous W201 series, but the new series had a smoother and rounder design than the last generation of compact Mercedes, with styling cues from the W124 E-Class (short, high trunk and taller tail lights), W140 S-Class (front end), and R129 SL-Class (headlights). \n == <span class=\"anchor\" id=\"W203\"></span><span class=\"anchor\" id=\"S203\"></span><span class=\"anchor\" id=\"CL203\"></span><span class=\"anchor\" id=\"W203 (2000)\"></span> Second generation (W203; 2000) == \n The second generation C-Class was introduced in March 2000 while production began in March 1999. The sedan debuted with a range of inline-four and V6 petrol engines and inline-four and -fi…\"",
+   "matchLevel": "nameplate",
+   "codeA": "E-Class",
+   "codeB": "C-Class (W202)",
+   "genIdA": "m-mercedes-benz-e-class",
+   "genIdB": "m-mercedes-benz-c-class-w202",
+   "reason": "matched from an explicit chassis/generation code found directly in one of the two Wikipedia articles' own text",
+   "debug": {
+    "raw": {
+     "resolved": false,
+     "codeA": null,
+     "codeB": null,
+     "evidenceQuote": null,
+     "reason": "The provided notes and general knowledge indicate that the Mercedes-Benz E-Class and C-Class are distinct model lines (Executive vs. Compact/Entry-level) that often share platforms but are not rebadged versions of each other. The notes describe the E-Class's predecessor as the W124 and the C-Class's first generation as a replacement for the 190, with no specific generation-to-generation 'sibling' or 'rebadge' relationship identified. While they may share platforms (e.g., W212 E-Class and W205 C-Class share the MRA platform), the prompt requires identifying a specific generation pair that represents a 'rebadge or sister/sibling model' relationship. No such specific generation pairing exists between these two nameplates; they are related by market segment and platform sharing, not by being the same car under different names or direct siblings in the way the prompt implies (like a Vitz/Yaris or Focus/Scion xB relationship). Therefore, no specific generation can be resolved as the 'related' pair based on the criteria."
+    },
+    "evidenceCodeForA": "short",
+    "evidenceCodeForB": "C-Class (W202)",
+    "ordinalFromNoteA": null,
+    "ordinalFromNoteB": "C-Class (W202)",
+    "ordinalBacked": true,
+    "evidenceQuote": null,
+    "quoteVerified": false,
+    "llmVerified": false,
+    "knowledgeBacked": false,
+    "sourceAttributed": false,
+    "citedA": null,
+    "citedB": null,
+    "citationBacked": false,
+    "quoteFabricated": false,
+    "fetchedArticleA": true,
+    "fetchedArticleB": true,
+    "availableCodesA": [
+     "E-Class W120/W121",
+     "E-Class W110",
+     "E-Class W114/W115",
+     "E-Class W123",
+     "E-Class (W124)",
+     "E-Class (W210)",
+     "E-Class (W211)",
+     "E-Class (W212)",
+     "E-Class (W213)",
+     "E-Class (W214)"
+    ],
+    "availableCodesB": [
+     "C-Class (W202)",
+     "C-Class (W203)",
+     "C-Class (W204)",
+     "C-Class (W205)",
+     "C-Class (W206)"
+    ]
+   }
+  },
+  "fam-mercedes-benz-sl|m-mercedes-benz-e-class|related": {
+   "status": "none",
+   "checkedAt": "2026-09-15T10:31:32.578Z",
+   "famA": "m-mercedes-benz-e-class",
+   "famB": "fam-mercedes-benz-sl",
+   "relType": "related",
+   "note": "Mercedes-Benz E-Class's own article says: \"…0 230 which replaced each other from 1956 until 1968, and the W111 230S which was produced in parallel with the new generation W108/W109 from 1965 until 1968. Both six cylinder models would eventually become a permanent fixture in the /8 (230.6 and 250, later 230.6 and 280) W123 (250 and 280) and W124 (260 and 300, later 280 and 320). \n === 1993 re-branding === To further complicate matters, the 1972-1993 Sonderklasse label was not limited to the W116 and W126 sedans, but also the R107 and R129 SL roadsters, the C107 and C126 coupes. Even the W100 limousine was listed among the S-Class . The unnamed mid-range would see itself balloon when in addition to the standard family of sedans it would be filled with coupes (W114 - 1969), estates (S123 - 1978), compact cars (W201 - 1982), high performance halo cars (190E 2.3-16; 500E) 4x4 off-roaders (W463 - 1989) and cabriolets (A124 - 1992). \n == First generation (W124; 1993) == \n thumb|Mercedes-Benz W124 (sedan) The \"E-Class\" name first appear…\" / Mercedes-Benz SL's own article says: \"{{infobox automobile | name = Mercedes-Benz SL | image = Mercedes-AMG SL 43 IMG 8050.jpg | caption = Mercedes-Benz SL43 (Mercedes-Benz SL-Class (R232)) | manufacturer = | aka = Mercedes-AMG SL-Class (R232) (2022–present) | production = 1954–present | assembly = | class = Sports car/Grand tourer (S) | body_style = | layout = | predecessor = }} \n Mercedes-Benz used Sport Leicht and Super Leicht interchangeably until 2017 when a chance discovery in its corporate archive clarified the abbreviation stood for \"Super Leicht\". \n ==W…\"",
+   "matchLevel": null,
+   "codeA": null,
+   "codeB": null,
+   "genIdA": null,
+   "genIdB": null,
+   "reason": "The provided notes do not establish a specific generational relationship between the E-Class and SL-Class. The E-Class note describes the R129 SL as a 'Sonderklasse' model sold alongside the E-Class/W126 during the 1982–1993 era, which is an optional trim/branding variant (S-Class/Sonderklasse) rather than a platform-sharing generation relationship or a direct sister model. The SL's note mentions the R129 but does not link it to a specific E-Class generation as a shared platform or sibling. Without explicit mention of a shared chassis/platform code or a defined 'sister model' relationship between specific generations in the text, and lacking sufficient external confidence to override the ambiguity of the provided snippets, the relationship cannot be resolved to specific generations based on the given evidence.",
+   "debug": {
+    "raw": {
+     "resolved": false,
+     "codeA": null,
+     "codeB": null,
+     "evidenceQuote": null,
+     "reason": "The provided notes do not establish a specific generational relationship between the E-Class and SL-Class. The E-Class note describes the R129 SL as a 'Sonderklasse' model sold alongside the E-Class/W126 during the 1982–1993 era, which is an optional trim/branding variant (S-Class/Sonderklasse) rather than a platform-sharing generation relationship or a direct sister model. The SL's note mentions the R129 but does not link it to a specific E-Class generation as a shared platform or sibling. Without explicit mention of a shared chassis/platform code or a defined 'sister model' relationship between specific generations in the text, and lacking sufficient external confidence to override the ambiguity of the provided snippets, the relationship cannot be resolved to specific generations based on the given evidence."
+    },
+    "evidenceCodeForA": null,
+    "evidenceCodeForB": null,
+    "ordinalFromNoteA": null,
+    "ordinalFromNoteB": null,
+    "ordinalBacked": false,
+    "evidenceQuote": null,
+    "quoteVerified": false,
+    "llmVerified": false,
+    "knowledgeBacked": false,
+    "sourceAttributed": false,
+    "citedA": null,
+    "citedB": null,
+    "citationBacked": false,
+    "quoteFabricated": false,
+    "fetchedArticleA": true,
+    "fetchedArticleB": true,
+    "availableCodesA": [
+     "E-Class W120/W121",
+     "E-Class W110",
+     "E-Class W114/W115",
+     "E-Class W123",
+     "E-Class (W124)",
+     "E-Class (W210)",
+     "E-Class (W211)",
+     "E-Class (W212)",
+     "E-Class (W213)",
+     "E-Class (W214)"
+    ],
+    "availableCodesB": [
+     "SL-Class (R129)",
+     "SL-Class (R230)",
+     "SL-Class (R231)",
+     "SL (R232)"
+    ]
+   }
   }
  },
  "recheck": {
   "m-mercedes-benz-g-class": {
    "status": "none",
-   "checkedAt": "2026-09-14T22:51:00.272Z",
+   "checkedAt": "2026-09-15T10:09:22.429Z",
    "sourceTitle": "Mercedes-Benz G-Class",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -23805,7 +25860,7 @@
   },
   "m-mercedes-benz-gla": {
    "status": "none",
-   "checkedAt": "2026-09-14T22:51:00.319Z",
+   "checkedAt": "2026-09-15T10:09:22.473Z",
    "sourceTitle": "Mercedes-Benz GLA",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -23908,7 +25963,7 @@
   },
   "m-mercedes-benz-cla": {
    "status": "none",
-   "checkedAt": "2026-09-14T22:51:00.356Z",
+   "checkedAt": "2026-09-15T10:09:22.511Z",
    "sourceTitle": "Mercedes-Benz CLA",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -24190,7 +26245,7 @@
   },
   "m-toyota-celica": {
    "status": "none",
-   "checkedAt": "2026-09-14T22:51:00.409Z",
+   "checkedAt": "2026-09-15T10:09:22.561Z",
    "sourceTitle": "Toyota Celica",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -24306,7 +26361,7 @@
   },
   "m-toyota-carina": {
    "status": "none",
-   "checkedAt": "2026-09-14T22:51:00.471Z",
+   "checkedAt": "2026-09-15T10:09:22.621Z",
    "sourceTitle": "Toyota Carina",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -24434,7 +26489,7 @@
   },
   "m-lexus-sc": {
    "status": "none",
-   "checkedAt": "2026-09-14T22:51:00.477Z",
+   "checkedAt": "2026-09-15T10:09:22.626Z",
    "sourceTitle": "Lexus SC",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -25083,7 +27138,7 @@
   },
   "m-seat-toledo": {
    "status": "none",
-   "checkedAt": "2026-09-14T22:51:00.539Z",
+   "checkedAt": "2026-09-15T10:09:22.689Z",
    "sourceTitle": "SEAT Toledo",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -25214,7 +27269,7 @@
   },
   "m-daren-mk-3": {
    "status": "none",
-   "checkedAt": "2026-09-14T22:51:00.552Z",
+   "checkedAt": "2026-09-15T10:09:22.701Z",
    "sourceTitle": "Daren Mk.3",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -25289,7 +27344,7 @@
   },
   "m-audi-a3-mk3": {
    "status": "none",
-   "checkedAt": "2026-09-14T22:51:00.570Z",
+   "checkedAt": "2026-09-15T10:09:22.717Z",
    "sourceTitle": "Audi A3",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -25345,7 +27400,7 @@
   },
   "m-audi-tt": {
    "status": "none",
-   "checkedAt": "2026-09-14T22:51:00.643Z",
+   "checkedAt": "2026-09-15T10:09:22.791Z",
    "sourceTitle": "Audi TT",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -25485,7 +27540,7 @@
   },
   "m-seat-leon-mk3": {
    "status": "none",
-   "checkedAt": "2026-09-14T22:51:00.690Z",
+   "checkedAt": "2026-09-15T10:09:22.838Z",
    "sourceTitle": "SEAT León",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -25599,7 +27654,7 @@
   },
   "m-volkswagen-karmann-ghia": {
    "status": "none",
-   "checkedAt": "2026-09-14T22:51:00.715Z",
+   "checkedAt": "2026-09-15T10:09:22.863Z",
    "sourceTitle": "Volkswagen Karmann Ghia",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -25649,7 +27704,7 @@
   },
   "m-porsche-panamera": {
    "status": "none",
-   "checkedAt": "2026-09-14T22:51:00.705Z",
+   "checkedAt": "2026-09-15T10:09:22.854Z",
    "sourceTitle": "Porsche Panamera",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -25715,7 +27770,7 @@
   },
   "m-subaru-forester": {
    "status": "none",
-   "checkedAt": "2026-09-14T22:51:00.749Z",
+   "checkedAt": "2026-09-15T10:09:22.899Z",
    "sourceTitle": "Subaru Forester",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -25824,7 +27879,7 @@
   },
   "m-volkswagen-touran": {
    "status": "none",
-   "checkedAt": "2026-09-14T22:51:00.767Z",
+   "checkedAt": "2026-09-15T10:09:22.917Z",
    "sourceTitle": "Volkswagen Touran",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -25874,7 +27929,7 @@
   },
   "m-chevrolet-captiva": {
    "status": "none",
-   "checkedAt": "2026-09-14T22:51:00.827Z",
+   "checkedAt": "2026-09-15T10:09:22.974Z",
    "sourceTitle": "Chevrolet Captiva",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -25979,7 +28034,7 @@
   },
   "m-isuzu-trooper": {
    "status": "none",
-   "checkedAt": "2026-09-14T22:51:00.874Z",
+   "checkedAt": "2026-09-15T10:09:23.022Z",
    "sourceTitle": "Isuzu Trooper",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -26075,7 +28130,7 @@
   },
   "m-volkswagen-tiguan": {
    "status": "none",
-   "checkedAt": "2026-09-14T22:51:00.935Z",
+   "checkedAt": "2026-09-15T10:09:23.082Z",
    "sourceTitle": "Volkswagen Tiguan",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -26188,7 +28243,7 @@
   },
   "m-chrysler-horizon": {
    "status": "none",
-   "checkedAt": "2026-09-14T22:51:00.975Z",
+   "checkedAt": "2026-09-15T10:09:23.122Z",
    "sourceTitle": "Chrysler Horizon",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -26288,7 +28343,7 @@
   },
   "m-mercury-monterey": {
    "status": "none",
-   "checkedAt": "2026-09-14T22:51:01.063Z",
+   "checkedAt": "2026-09-15T10:09:23.210Z",
    "sourceTitle": "Mercury Monterey",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -26463,7 +28518,7 @@
   },
   "m-gmc-envoy": {
    "status": "none",
-   "checkedAt": "2026-09-14T22:51:01.081Z",
+   "checkedAt": "2026-09-15T10:09:23.229Z",
    "sourceTitle": "GMC Envoy",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -26516,7 +28571,7 @@
   },
   "m-chevrolet-trailblazer": {
    "status": "none",
-   "checkedAt": "2026-09-14T22:51:01.096Z",
+   "checkedAt": "2026-09-15T10:09:23.244Z",
    "sourceTitle": "Chevrolet TrailBlazer (SUV)",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -26567,7 +28622,7 @@
   },
   "m-oldsmobile-bravada": {
    "status": "none",
-   "checkedAt": "2026-09-14T22:51:01.128Z",
+   "checkedAt": "2026-09-15T10:09:23.275Z",
    "sourceTitle": "Oldsmobile Bravada",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -26647,7 +28702,7 @@
   },
   "m-buick-lacrosse": {
    "status": "none",
-   "checkedAt": "2026-09-14T22:51:01.148Z",
+   "checkedAt": "2026-09-15T10:09:23.296Z",
    "sourceTitle": "Buick LaCrosse",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -26723,7 +28778,7 @@
   },
   "m-buick-invicta": {
    "status": "none",
-   "checkedAt": "2026-09-14T22:51:01.163Z",
+   "checkedAt": "2026-09-15T10:09:23.312Z",
    "sourceTitle": "Buick Invicta",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -26774,7 +28829,7 @@
   },
   "m-buick-century": {
    "status": "none",
-   "checkedAt": "2026-09-14T22:51:01.236Z",
+   "checkedAt": "2026-09-15T10:09:23.384Z",
    "sourceTitle": "Buick Century",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -26926,7 +28981,7 @@
   },
   "m-jaguar-xjs": {
    "status": "none",
-   "checkedAt": "2026-09-14T22:51:01.249Z",
+   "checkedAt": "2026-09-15T10:09:23.397Z",
    "sourceTitle": "Jaguar XJS",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -26985,7 +29040,7 @@
   },
   "m-jaguar-e-type": {
    "status": "none",
-   "checkedAt": "2026-09-14T22:51:01.268Z",
+   "checkedAt": "2026-09-15T10:09:23.415Z",
    "sourceTitle": "Jaguar E-Type",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -27054,7 +29109,7 @@
   },
   "m-wuling-starlight": {
    "status": "none",
-   "checkedAt": "2026-09-14T22:51:01.298Z",
+   "checkedAt": "2026-09-15T10:09:23.445Z",
    "sourceTitle": "Wuling Starlight",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -27118,7 +29173,7 @@
   },
   "m-jeep-compass": {
    "status": "none",
-   "checkedAt": "2026-09-14T22:51:01.338Z",
+   "checkedAt": "2026-09-15T10:09:23.484Z",
    "sourceTitle": "Jeep Compass",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -27202,7 +29257,7 @@
   },
   "m-mazda-tribute": {
    "status": "none",
-   "checkedAt": "2026-09-14T22:51:01.347Z",
+   "checkedAt": "2026-09-15T10:09:23.493Z",
    "sourceTitle": "Mazda Tribute",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -27239,7 +29294,7 @@
   },
   "m-mazda-cx-5": {
    "status": "none",
-   "checkedAt": "2026-09-14T22:51:01.358Z",
+   "checkedAt": "2026-09-15T10:09:23.504Z",
    "sourceTitle": "Mazda CX-5",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -27294,7 +29349,7 @@
   },
   "m-baojun-730": {
    "status": "none",
-   "checkedAt": "2026-09-14T22:51:01.363Z",
+   "checkedAt": "2026-09-15T10:09:23.509Z",
    "sourceTitle": "Baojun 730",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -27329,7 +29384,7 @@
   },
   "m-dacia-duster": {
    "status": "none",
-   "checkedAt": "2026-09-14T22:51:01.402Z",
+   "checkedAt": "2026-09-15T10:09:23.549Z",
    "sourceTitle": "Dacia Duster",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -27938,7 +29993,7 @@
   },
   "m-lincoln-lincoln-zephyr": {
    "status": "none",
-   "checkedAt": "2026-09-14T22:59:51.601Z",
+   "checkedAt": "2026-09-15T10:09:23.555Z",
    "sourceTitle": "Lincoln-Zephyr",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -27975,7 +30030,7 @@
   },
   "m-lincoln-capri": {
    "status": "none",
-   "checkedAt": "2026-09-14T23:03:07.872Z",
+   "checkedAt": "2026-09-15T10:09:23.585Z",
    "sourceTitle": "Lincoln Capri",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -28044,7 +30099,7 @@
   },
   "m-ford-continental-mark-ii": {
    "status": "none",
-   "checkedAt": "2026-09-14T23:04:41.978Z",
+   "checkedAt": "2026-09-15T10:09:23.612Z",
    "sourceTitle": "Continental Mark II",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -28143,7 +30198,7 @@
   },
   "m-mercury-marquis": {
    "status": "none",
-   "checkedAt": "2026-09-14T23:05:52.567Z",
+   "checkedAt": "2026-09-15T10:09:23.659Z",
    "sourceTitle": "Mercury Marquis",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -28234,7 +30289,7 @@
   },
   "m-mercury-grand-marquis": {
    "status": "none",
-   "checkedAt": "2026-09-14T23:07:11.674Z",
+   "checkedAt": "2026-09-15T10:09:23.702Z",
    "sourceTitle": "Mercury Grand Marquis",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -28337,7 +30392,7 @@
   },
   "m-lincoln-mark-series": {
    "status": "none",
-   "checkedAt": "2026-09-14T23:09:31.138Z",
+   "checkedAt": "2026-09-15T10:09:23.743Z",
    "sourceTitle": "Lincoln Mark series",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -28475,7 +30530,7 @@
   },
   "m-mercury-cougar": {
    "status": "none",
-   "checkedAt": "2026-09-14T23:12:42.597Z",
+   "checkedAt": "2026-09-15T10:09:23.798Z",
    "sourceTitle": "Mercury Cougar",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -28625,7 +30680,7 @@
   },
   "m-mercury-sable": {
    "status": "none",
-   "checkedAt": "2026-09-14T23:15:00.866Z",
+   "checkedAt": "2026-09-15T10:09:23.835Z",
    "sourceTitle": "Mercury Sable",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -28727,7 +30782,7 @@
   },
   "m-ford-windstar": {
    "status": "none",
-   "checkedAt": "2026-09-14T23:15:51.590Z",
+   "checkedAt": "2026-09-15T10:09:23.846Z",
    "sourceTitle": "Ford Windstar",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -28767,6 +30822,492 @@
       "engineers": [],
       "wikiFile": "2004 Ford Freestar SE, front 3.11.20.jpg",
       "sharedPlatforms": []
+     }
+    ]
+   },
+   "discrepancy": null,
+   "attempts": 1,
+   "feedback": []
+  },
+  "m-lincoln-mkz": {
+   "status": "none",
+   "checkedAt": "2026-09-15T10:09:23.858Z",
+   "sourceTitle": "Lincoln MKZ",
+   "proposal": {
+    "hasMultipleGenerations": true,
+    "generations": [
+     {
+      "code": "First generation (2006)",
+      "yearStart": 2006,
+      "yearEnd": 2012,
+      "designers": [
+       "Darrell Behmer",
+       "Peter Horbury"
+      ],
+      "engineers": [],
+      "wikiFile": "Lincoln MKZ.jpg",
+      "sharedPlatforms": [
+       "Ford Fusion (Americas)",
+       "Mercury Milan",
+       "Mazda 6"
+      ]
+     },
+     {
+      "code": "Second generation (2013)",
+      "yearStart": 2013,
+      "yearEnd": 2020,
+      "designers": [
+       "Max Wolff",
+       "Soo Kang"
+      ],
+      "engineers": [],
+      "wikiFile": "2016 Lincoln MKZ 2.0L AWD front 4.22.19.jpg",
+      "sharedPlatforms": [
+       "Ford Fusion (Americas)",
+       "Ford Mondeo (fourth generation)",
+       "Lincoln Continental"
+      ]
+     }
+    ]
+   },
+   "discrepancy": null,
+   "attempts": 1,
+   "feedback": []
+  },
+  "m-mercedes-benz-e-class": {
+   "status": "applied",
+   "checkedAt": "2026-09-15T10:14:10.806Z",
+   "sourceTitle": "Mercedes-Benz E-Class",
+   "proposal": {
+    "hasMultipleGenerations": true,
+    "generations": [
+     {
+      "code": "W120/W121",
+      "yearStart": 1953,
+      "yearEnd": 1962,
+      "designers": [
+       "Karl Wilfert"
+      ],
+      "engineers": [],
+      "wikiFile": "Mercedes 190D (W121).jpg",
+      "sharedPlatforms": [
+       "Mercedes-Benz W105",
+       "Mercedes-Benz W180",
+       "Mercedes-Benz W128",
+       "Dongfeng CA71"
+      ]
+     },
+     {
+      "code": "W110",
+      "yearStart": 1961,
+      "yearEnd": 1968,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "W110.jpg",
+      "sharedPlatforms": [
+       "Mercedes-Benz E-Class"
+      ],
+      "sharedPlatformMatches": {
+       "Mercedes-Benz E-Class": {
+        "matchId": null,
+        "confidence": "high",
+        "reason": "No candidate in the provided list corresponds to the Mercedes-Benz E-Class. The list contains many other Mercedes-Benz models (A-Class, C-Class, CLS, etc.), but the specific entry for the E-Class is missing."
+       }
+      }
+     },
+     {
+      "code": "W114/W115",
+      "yearStart": 1968,
+      "yearEnd": 1976,
+      "designers": [
+       "Paul Bracq"
+      ],
+      "engineers": [],
+      "wikiFile": "Mercedes-Benz 220D, circa 1974, Schaffen Diest, Fly-Drive 2013.JPG",
+      "sharedPlatforms": [
+       "Mercedes-Benz W108/W109"
+      ]
+     },
+     {
+      "code": "W123",
+      "yearStart": 1975,
+      "yearEnd": 1986,
+      "designers": [
+       "Friedrich Geiger",
+       "Bruno Sacco"
+      ],
+      "engineers": [
+       "Hans Scherenberg"
+      ],
+      "wikiFile": "1982 Mercedes-Benz 230E Automatic.jpg",
+      "sharedPlatforms": [
+       "Mercedes-Benz E-Class"
+      ],
+      "sharedPlatformMatches": {
+       "Mercedes-Benz E-Class": {
+        "matchId": null,
+        "confidence": "high",
+        "reason": "No candidate in the provided list corresponds to the Mercedes-Benz E-Class. The list contains many other Mercedes-Benz models (A-Class, C-Class, CLS, etc.), but the specific entry for the E-Class is missing."
+       }
+      }
+     },
+     {
+      "code": "W124",
+      "yearStart": 1984,
+      "yearEnd": 1997,
+      "designers": [
+       "Bruno Sacco"
+      ],
+      "engineers": [
+       "Hans Scherenberg",
+       "Werner Breitschwerdt"
+      ],
+      "wikiFile": "Mercedes-Benz W214 1X7A1841.jpg",
+      "sharedPlatforms": [
+       "Mercedes-Benz E-Class",
+       "Ssangyong Chairman"
+      ],
+      "sharedPlatformMatches": {
+       "Mercedes-Benz E-Class": {
+        "matchId": null,
+        "confidence": "high",
+        "reason": "No candidate in the provided list corresponds to the Mercedes-Benz E-Class. The list contains many other Mercedes-Benz models (A-Class, C-Class, CLS, etc.), but the specific entry for the E-Class is missing."
+       }
+      }
+     },
+     {
+      "code": "W210",
+      "yearStart": 1994,
+      "yearEnd": 2003,
+      "designers": [
+       "Steve Mattin",
+       "Bruno Sacco"
+      ],
+      "engineers": [],
+      "wikiFile": "Mercedes-Benz W210 front 20080809.jpg",
+      "sharedPlatforms": [
+       "Mercedes-Benz CLK-Class (C208)"
+      ]
+     },
+     {
+      "code": "W211",
+      "yearStart": 2001,
+      "yearEnd": 2009,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "2006 Mercedes-Benz E 500 (W 211 MY07) Avantgarde sedan (2015-07-09) 01.jpg",
+      "sharedPlatforms": []
+     },
+     {
+      "code": "W212",
+      "yearStart": 2009,
+      "yearEnd": 2016,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "94-95 Mercedes-Benz E-Class sedan.jpg",
+      "sharedPlatforms": []
+     },
+     {
+      "code": "W213",
+      "yearStart": 2016,
+      "yearEnd": null,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "Mercedes-AMG E 53 (W213) FL IMG 3965.jpg",
+      "sharedPlatforms": []
+     },
+     {
+      "code": "W214",
+      "yearStart": 2023,
+      "yearEnd": null,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "Mercedes-Benz E 200 d AMG Line (W 214) – f 05072025.jpg",
+      "sharedPlatforms": []
+     }
+    ]
+   },
+   "discrepancy": "an existing \"generation\" here (E-Class) is really just the bare nameplate itself, not a distinct generation",
+   "attempts": 1,
+   "feedback": [],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": true,
+     "generations": [
+      {
+       "code": "W120/W121",
+       "yearStart": 1953,
+       "yearEnd": 1962,
+       "designers": [
+        "Karl Wilfert"
+       ],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Mercedes-Benz W105",
+        "Mercedes-Benz W180",
+        "Mercedes-Benz W128",
+        "Dongfeng CA71"
+       ]
+      },
+      {
+       "code": "W110",
+       "yearStart": 1961,
+       "yearEnd": 1968,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Mercedes-Benz E-Class"
+       ]
+      },
+      {
+       "code": "W114/W115",
+       "yearStart": 1968,
+       "yearEnd": 1976,
+       "designers": [
+        "Paul Bracq"
+       ],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Mercedes-Benz W108/W109"
+       ]
+      },
+      {
+       "code": "W123",
+       "yearStart": 1975,
+       "yearEnd": 1986,
+       "designers": [
+        "Friedrich Geiger",
+        "Bruno Sacco"
+       ],
+       "engineers": [
+        "Hans Scherenberg"
+       ],
+       "sharedPlatforms": [
+        "Mercedes-Benz E-Class"
+       ]
+      },
+      {
+       "code": "W124",
+       "yearStart": 1984,
+       "yearEnd": 1997,
+       "designers": [
+        "Bruno Sacco"
+       ],
+       "engineers": [
+        "Hans Scherenberg",
+        "Werner Breitschwerdt"
+       ],
+       "sharedPlatforms": [
+        "Mercedes-Benz E-Class",
+        "Ssangyong Chairman"
+       ]
+      },
+      {
+       "code": "W210",
+       "yearStart": 1994,
+       "yearEnd": 2003,
+       "designers": [
+        "Steve Mattin",
+        "Bruno Sacco"
+       ],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Mercedes-Benz CLK-Class (C208)"
+       ]
+      },
+      {
+       "code": "W211",
+       "yearStart": 2001,
+       "yearEnd": 2009,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": []
+      },
+      {
+       "code": "W212",
+       "yearStart": 2009,
+       "yearEnd": 2016,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": []
+      },
+      {
+       "code": "W213",
+       "yearStart": 2016,
+       "yearEnd": null,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": []
+      },
+      {
+       "code": "W214",
+       "yearStart": 2023,
+       "yearEnd": null,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": []
+      }
+     ]
+    },
+    "dropped": []
+   },
+   "manualRecheck": true,
+   "generationDiff": {
+    "addedCodes": [
+     "W120/W121",
+     "W110",
+     "W114/W115",
+     "W123"
+    ],
+    "removedIds": [
+     "merge-m-mercedes-benz-e-class-self",
+     "m-mercedes-benz-500-e",
+     "m-mercedes-benz-e-class-c207",
+     "m-mercedes-benz-e63-amg-v8-supercar"
+    ]
+   },
+   "peopleAdded": [
+    {
+     "generation": "E-Class (W124)",
+     "role": "engineer",
+     "name": "Hans Scherenberg"
+    },
+    {
+     "generation": "E-Class (W124)",
+     "role": "engineer",
+     "name": "Werner Breitschwerdt"
+    },
+    {
+     "generation": "E-Class (W210)",
+     "role": "designer",
+     "name": "Steve Mattin"
+    },
+    {
+     "generation": "E-Class (W210)",
+     "role": "designer",
+     "name": "Bruno Sacco"
+    }
+   ],
+   "appliedAt": "2026-09-15T10:14:29.274Z"
+  },
+  "m-ssangyong-chairman": {
+   "status": "none",
+   "checkedAt": "2026-09-15T10:15:20.475Z",
+   "sourceTitle": "SsangYong Chairman",
+   "proposal": {
+    "hasMultipleGenerations": true,
+    "generations": [
+     {
+      "code": "Chairman H",
+      "yearStart": 1997,
+      "yearEnd": 2014,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "00 SsangYong Chairman 500s.jpg",
+      "sharedPlatforms": [
+       "Mercedes-Benz W124"
+      ],
+      "sharedPlatformMatches": {
+       "Mercedes-Benz W124": {
+        "matchId": "m-mercedes-benz-e-class-w124",
+        "confidence": "high",
+        "reason": "The mention 'Mercedes-Benz W124' refers to the specific chassis code of the Mercedes-Benz E-Class produced from 1984 to 1997. The candidate 'm-mercedes-benz-e-class-w124' explicitly identifies this exact model and generation with the matching chassis code W124 and production years (1984–1997)."
+       }
+      }
+     },
+     {
+      "code": "Chairman W",
+      "yearStart": 2008,
+      "yearEnd": 2017,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "20111014 ssangyong new chairman w 1.jpg",
+      "sharedPlatforms": [
+       "Mercedes-Benz E-Class (W211)"
+      ]
+     }
+    ]
+   },
+   "discrepancy": null,
+   "attempts": 1,
+   "feedback": []
+  },
+  "m-mercedes-benz-w180": {
+   "status": "none",
+   "checkedAt": "2026-09-15T10:15:37.282Z",
+   "sourceTitle": "Mercedes-Benz W180",
+   "proposal": {
+    "hasMultipleGenerations": true,
+    "generations": [
+     {
+      "code": "220 a (W180 I)",
+      "yearStart": 1954,
+      "yearEnd": 1956,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "Mercedes-Benz W180 220S Classic-Days 2022 DSC 0004.jpg",
+      "sharedPlatforms": [
+       "Mercedes-Benz W120/W121"
+      ]
+     },
+     {
+      "code": "220 S (W180 II)",
+      "yearStart": 1956,
+      "yearEnd": 1959,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "Mercedes-Benz W180 220S Classic-Days 2022 DSC 0004.jpg",
+      "sharedPlatforms": [
+       "Mercedes-Benz W120/W121",
+       "Shanghai SH760",
+       "Mercedes-Benz W105",
+       "Mercedes-Benz W128"
+      ]
+     }
+    ]
+   },
+   "discrepancy": null,
+   "attempts": 1,
+   "feedback": []
+  },
+  "m-mercedes-benz-w108-w109": {
+   "status": "none",
+   "checkedAt": "2026-09-15T10:16:23.550Z",
+   "sourceTitle": "Mercedes-Benz W108/W109",
+   "proposal": {
+    "hasMultipleGenerations": true,
+    "generations": [
+     {
+      "code": "First Series",
+      "yearStart": 1965,
+      "yearEnd": 1967,
+      "designers": [
+       "Paul Bracq",
+       "Friedrich Geiger"
+      ],
+      "engineers": [],
+      "wikiFile": "Mercedes Benz 250 SE 1967 (19133257326).jpg",
+      "sharedPlatforms": [
+       "Mercedes-Benz W113",
+       "Mercedes-Benz W111",
+       "Mercedes-Benz W112"
+      ]
+     },
+     {
+      "code": "Second Series",
+      "yearStart": 1968,
+      "yearEnd": 1972,
+      "designers": [
+       "Paul Bracq",
+       "Erich Waxenberger"
+      ],
+      "engineers": [],
+      "wikiFile": "W108.Jpg",
+      "sharedPlatforms": [
+       "Mercedes-Benz W113",
+       "Mercedes-Benz W111",
+       "Mercedes-Benz W112"
+      ]
      }
     ]
    },
@@ -28910,7 +31451,12 @@
   "resolved:fam-mazda-6|m-mazda-cx-5|platform": true,
   "relnone:fam-ford-mondeo|fam-mazda-6|related": true,
   "applied:fam-mazda-6": true,
-  "applied:m-lincoln-continental": true
+  "applied:m-lincoln-continental": true,
+  "applied:m-mercedes-benz-e-class": true,
+  "relnone:m-mercedes-benz-e-class|m-mercedes-benz-w180|related": true,
+  "relnone:m-mercedes-benz-e-class|m-mercedes-benz-w180|platform": true,
+  "resolved:fam-mercedes-benz-cls|m-mercedes-benz-e-class|related": true,
+  "resolved:m-mercedes-benz-e-class|m-ssangyong-chairman|platform": true
  },
  "mintedFacts": {
   "llm-related-puch-g": {
@@ -30419,6 +32965,26 @@
    "year": 1995,
    "end": 2008,
    "source": "llm-recall"
+  },
+  "p-werner-breitschwerdt": {
+   "checkedAt": "2026-09-15T10:14:12.489Z",
+   "born": null,
+   "died": null,
+   "country": null,
+   "tries": 1
+  },
+  "llm-related-mercedes-benz-e-class": {
+   "checkedAt": "2026-09-15T10:14:40.524Z",
+   "year": 1993,
+   "end": null,
+   "source": "wikipedia"
+  },
+  "p-karl-wilfert": {
+   "checkedAt": "2026-09-15T10:15:05.231Z",
+   "born": null,
+   "died": null,
+   "country": null,
+   "tries": 1
   }
  },
  "userCars": {},
@@ -30462,7 +33028,8 @@
   "llm-related-citroen-c5-aircross-ii": "Citroën C5 Aircross",
   "llm-related-renault-arkana-russia": "Renault Arkana (Russia)",
   "llm-related-lincoln-premiere": "Lincoln Premiere",
-  "llm-related-lincoln-h-series": "Lincoln H-series"
+  "llm-related-lincoln-h-series": "Lincoln H-series",
+  "llm-related-mercedes-benz-e-class": "Mercedes-Benz E-Class"
  },
  "genResearch": {
   "merge-m-volkswagen-jetta-self": {
@@ -30600,6 +33167,17 @@
     "m-lincoln-mark-viii"
    ],
    "mergedAt": "2026-09-14T22:54:04.071Z"
+  },
+  "m-mercedes-benz-e-class": {
+   "memberIds": [
+    "fam-mercedes-benz-e",
+    "m-mercedes-benz-e-class-w124",
+    "m-mercedes-benz-e-class-w210",
+    "m-mercedes-benz-e-class-w212",
+    "m-mercedes-benz-e63-amg-v8-supercar",
+    "m-mercedes-benz-e-class-w213"
+   ],
+   "mergedAt": "2026-09-15T10:12:07.852Z"
   }
  },
  "deletions": {},
@@ -30702,6 +33280,8 @@
   }
  },
  "unmerges": {},
+ "engines": {},
+ "engineMerges": {},
  "prunedDecisions": {
   "families|m-mazda-mazda6-third-generation": {
    "what": "generation split",
