@@ -14863,6 +14863,237 @@
     "dropped": []
    },
    "cascadeDiscovered": true
+  },
+  "m-mercedes-benz-s-class-c217": {
+   "status": "none",
+   "checkedAt": "2026-09-15T22:56:03.998Z",
+   "sourceTitle": "Mercedes-Benz S-Class (C217)",
+   "proposal": {
+    "hasMultipleGenerations": false,
+    "generations": [
+     {
+      "code": "C217/A217",
+      "yearStart": 2014,
+      "yearEnd": 2020,
+      "designers": [
+       "Robert Lešnik"
+      ],
+      "engineers": [],
+      "wikiFile": "2015 Mercedes-Benz S550 4MATIC coupe with Sport package, front right, 05-06-2024.jpg",
+      "sharedPlatforms": [
+       "Mercedes-Benz S-Class (W222)"
+      ]
+     }
+    ]
+   },
+   "attempts": 1,
+   "feedback": [],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": false,
+     "generations": [
+      {
+       "code": "C217/A217",
+       "yearStart": 2014,
+       "yearEnd": 2020,
+       "designers": [
+        "Robert Lešnik"
+       ],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Mercedes-Benz S-Class (W222)"
+       ]
+      }
+     ]
+    },
+    "dropped": []
+   },
+   "cascadeDiscovered": true
+  },
+  "m-mercedes-benz-gls-x167": {
+   "status": "none",
+   "checkedAt": "2026-09-15T22:56:53.670Z",
+   "sourceTitle": "Mercedes-Benz GLS (X167)",
+   "proposal": {
+    "hasMultipleGenerations": false,
+    "generations": [
+     {
+      "code": "X167",
+      "yearStart": 2019,
+      "yearEnd": null,
+      "designers": [
+       "Balázs Filczer"
+      ],
+      "engineers": [],
+      "wikiFile": "Mercedes-Benz X167 IMG 5259.jpg",
+      "sharedPlatforms": [
+       "Mercedes-Benz GLE (W167)"
+      ],
+      "sharedPlatformMatches": {
+       "Mercedes-Benz GLE (W167)": {
+        "matchId": "m-mercedes-benz-gle",
+        "confidence": "high",
+        "reason": "The mention 'Mercedes-Benz GLE (W167)' refers to the third-generation GLE produced from 2019 onwards. The database entry 'm-mercedes-benz-gle' covers 'Mercedes-Benz GLE (1997–present)', which includes the W167 generation. Since the W167 is the specific chassis code for the current generation of the GLE mentioned, they are the same car."
+       }
+      }
+     }
+    ]
+   },
+   "attempts": 1,
+   "feedback": [],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": false,
+     "generations": [
+      {
+       "code": "X167",
+       "yearStart": 2019,
+       "yearEnd": null,
+       "designers": [
+        "Balázs Filczer"
+       ],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Mercedes-Benz GLE (W167)"
+       ]
+      }
+     ]
+    },
+    "dropped": []
+   },
+   "cascadeDiscovered": true
+  },
+  "m-aston-martin-db11": {
+   "status": "none",
+   "checkedAt": "2026-09-15T22:57:07.857Z",
+   "sourceTitle": "Aston Martin DB11",
+   "proposal": {
+    "hasMultipleGenerations": false,
+    "generations": [
+     {
+      "code": "DB11",
+      "yearStart": 2016,
+      "yearEnd": 2023,
+      "designers": [
+       "Marek Reichman"
+      ],
+      "engineers": [],
+      "wikiFile": "Aston Martin DB11 AMR 1X7A0202.jpg",
+      "sharedPlatforms": [
+       "Aston Martin DBS Superleggera",
+       "Aston Martin Vantage (2018)"
+      ]
+     }
+    ]
+   },
+   "attempts": 1,
+   "feedback": [],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": false,
+     "generations": [
+      {
+       "code": "DB11",
+       "yearStart": 2016,
+       "yearEnd": 2023,
+       "designers": [
+        "Marek Reichman"
+       ],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Aston Martin DBS Superleggera",
+        "Aston Martin Vantage (2018)"
+       ]
+      }
+     ]
+    },
+    "dropped": []
+   },
+   "cascadeDiscovered": true
+  },
+  "m-aston-martin-dbx": {
+   "status": "none",
+   "checkedAt": "2026-09-15T22:57:16.944Z",
+   "sourceTitle": "Aston Martin DBX",
+   "proposal": {
+    "hasMultipleGenerations": false,
+    "generations": [
+     {
+      "code": "DBX",
+      "yearStart": 2020,
+      "yearEnd": null,
+      "designers": [
+       "Marek Reichman"
+      ],
+      "engineers": [],
+      "wikiFile": "File:2021 Aston Martin DBX in Midnight Blue, front left.jpg",
+      "sharedPlatforms": []
+     }
+    ]
+   },
+   "attempts": 1,
+   "feedback": [],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": false,
+     "generations": [
+      {
+       "code": "DBX",
+       "yearStart": 2020,
+       "yearEnd": null,
+       "designers": [
+        "Marek Reichman"
+       ],
+       "engineers": [],
+       "sharedPlatforms": []
+      }
+     ]
+    },
+    "dropped": []
+   },
+   "cascadeDiscovered": true
+  },
+  "m-aston-martin-db12": {
+   "status": "none",
+   "checkedAt": "2026-09-15T22:57:23.802Z",
+   "sourceTitle": "Aston Martin DB12",
+   "proposal": {
+    "hasMultipleGenerations": false,
+    "generations": [
+     {
+      "code": "AM572",
+      "yearStart": 2023,
+      "yearEnd": null,
+      "designers": [
+       "Marek Reichman"
+      ],
+      "engineers": [],
+      "wikiFile": "Aston Martin DB12 1X7A1921.jpg",
+      "sharedPlatforms": []
+     }
+    ]
+   },
+   "attempts": 1,
+   "feedback": [],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": false,
+     "generations": [
+      {
+       "code": "AM572",
+       "yearStart": 2023,
+       "yearEnd": null,
+       "designers": [
+        "Marek Reichman"
+       ],
+       "engineers": [],
+       "sharedPlatforms": []
+      }
+     ]
+    },
+    "dropped": []
+   },
+   "cascadeDiscovered": true
   }
  },
  "relations": {
@@ -28380,12 +28611,182 @@
    "reason": "auto-approved in the background -- the local LLM sanity check confidently identified this as the same car as \"Mazda 121\" (confidence: high) -- The 'Mazda 121' was the specific nameplate used for the Mazda Familia (specifically the GD/GK generation) in the South Korean and South American markets. The database entry 'm-mazda-familia' covers the entire production history (1963–2003), which includes the era and model corresponding to the Mazda 121, making it the correct match despite the different regional naming convention.",
    "llmDiscovered": true,
    "llmVerifiedDuplicate": true
+  },
+  "llm-m-mercedes-benz-w108-w109-second-series|llm-related-mercedes-benz-w114|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T22:53:27.232Z",
+   "decidedAt": "2026-09-15T22:53:27.232Z",
+   "famA": "llm-related-mercedes-benz-w114",
+   "famB": "m-mercedes-benz-w108-w109",
+   "relType": "platform",
+   "codeA": "W114",
+   "codeB": "W108/W109 Second Series",
+   "genIdA": "llm-related-mercedes-benz-w114",
+   "genIdB": "llm-m-mercedes-benz-w108-w109-second-series",
+   "reason": "matched automatically -- the nameplate was named exactly in the source text, and exactly one of its generations was in production alongside this one, so that is the generation it refers to",
+   "llmDiscovered": true
+  },
+  "llm-related-mercedes-benz-w186|llm-related-mercedes-benz-w194|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T22:53:27.237Z",
+   "decidedAt": "2026-09-15T22:53:27.237Z",
+   "famA": "llm-related-mercedes-benz-w194",
+   "famB": "llm-related-mercedes-benz-w186",
+   "relType": "platform",
+   "codeA": "W194",
+   "codeB": "W186",
+   "genIdA": "llm-related-mercedes-benz-w194",
+   "genIdB": "llm-related-mercedes-benz-w186",
+   "reason": "matched automatically -- \"Mercedes-Benz W186\" was named as a related car but didn't exist anywhere in the graph yet, so it was newly created from this mention (double-checked by the local LLM sanity pass against every plausible existing car -- none matched)",
+   "llmDiscovered": true
+  },
+  "llm-related-mercedes-benz-w188|llm-related-mercedes-benz-w194|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T22:53:27.242Z",
+   "decidedAt": "2026-09-15T22:53:27.242Z",
+   "famA": "llm-related-mercedes-benz-w194",
+   "famB": "llm-related-mercedes-benz-w188",
+   "relType": "platform",
+   "codeA": "W194",
+   "codeB": "W188",
+   "genIdA": "llm-related-mercedes-benz-w194",
+   "genIdB": "llm-related-mercedes-benz-w188",
+   "reason": "matched automatically -- \"Mercedes-Benz W188\" was named as a related car but didn't exist anywhere in the graph yet, so it was newly created from this mention (double-checked by the local LLM sanity pass against every plausible existing car -- none matched)",
+   "llmDiscovered": true
+  },
+  "llm-related-mercedes-benz-w120|m-mercedes-benz-190-sl|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T22:53:27.247Z",
+   "decidedAt": "2026-09-15T22:53:27.247Z",
+   "famA": "m-mercedes-benz-190-sl",
+   "famB": "llm-related-mercedes-benz-w120",
+   "relType": "platform",
+   "codeA": "190 SL",
+   "codeB": "W120",
+   "genIdA": "m-mercedes-benz-190-sl",
+   "genIdB": "llm-related-mercedes-benz-w120",
+   "reason": "auto-approved in the background -- the local LLM sanity check confidently identified this as the same car as \"Mercedes-Benz W120/121\" (confidence: high) -- The mention 'Mercedes-Benz W120/121' refers to the Postwar Mercedes-Benz series, where the W120 and W121 are the chassis codes for the same vehicle line (Mercedes-Benz 180/170/220/230/260). The candidate 'Mercedes-Benz W120' explicitly references the correct chassis code and represents the same physical car generation, whereas all other candidates refer to different chassis codes, models, or production eras.",
+   "llmDiscovered": true,
+   "llmVerifiedDuplicate": true
+  },
+  "m-mercedes-benz-w110|m-mercedes-benz-w111|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T22:53:27.248Z",
+   "decidedAt": "2026-09-15T22:53:27.248Z",
+   "famA": "m-mercedes-benz-w111",
+   "famB": "m-mercedes-benz-w110",
+   "relType": "platform",
+   "codeA": "W111",
+   "codeB": "W110",
+   "genIdA": "m-mercedes-benz-w111",
+   "genIdB": "m-mercedes-benz-w110",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "m-mercedes-benz-w111|m-mercedes-benz-w112|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T22:53:27.249Z",
+   "decidedAt": "2026-09-15T22:53:27.249Z",
+   "famA": "m-mercedes-benz-w111",
+   "famB": "m-mercedes-benz-w112",
+   "relType": "platform",
+   "codeA": "W111",
+   "codeB": "W112",
+   "genIdA": "m-mercedes-benz-w111",
+   "genIdB": "m-mercedes-benz-w112",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "m-mercedes-benz-w111|m-mercedes-benz-w113|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T22:53:27.251Z",
+   "decidedAt": "2026-09-15T22:53:27.251Z",
+   "famA": "m-mercedes-benz-w111",
+   "famB": "m-mercedes-benz-w113",
+   "relType": "platform",
+   "codeA": "W111",
+   "codeB": "W113",
+   "genIdA": "m-mercedes-benz-w111",
+   "genIdB": "m-mercedes-benz-w113",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "m-mercedes-benz-w112|m-mercedes-benz-w113|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T22:53:27.254Z",
+   "decidedAt": "2026-09-15T22:53:27.254Z",
+   "famA": "m-mercedes-benz-w112",
+   "famB": "m-mercedes-benz-w113",
+   "relType": "platform",
+   "codeA": "W112",
+   "codeB": "W113",
+   "genIdA": "m-mercedes-benz-w112",
+   "genIdB": "m-mercedes-benz-w113",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "m-porsche-911-991|m-ruf-rtr|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T22:53:27.259Z",
+   "decidedAt": "2026-09-15T22:53:27.259Z",
+   "famA": "m-ruf-rtr",
+   "famB": "fam-porsche-911",
+   "relType": "platform",
+   "codeA": "RTR",
+   "codeB": "911 (991)",
+   "genIdA": "m-ruf-rtr",
+   "genIdB": "m-porsche-911-991",
+   "reason": "auto-approved in the background -- the local LLM sanity check confidently identified this as the same car as \"Porsche 991\" (confidence: high) -- The mention 'Porsche 991' is the widely used chassis code designation for the fifth generation of the Porsche 911, produced from 2011 to 2019. This corresponds exactly to the candidate 'm-porsche-911-991' labeled as 'Porsche 911 (991) (2011–2019)'.",
+   "llmDiscovered": true,
+   "llmVerifiedDuplicate": true
+  },
+  "m-mercedes-benz-s-class-c217|m-mercedes-benz-s-class-w222|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T22:57:33.664Z",
+   "decidedAt": "2026-09-15T22:57:33.664Z",
+   "famA": "m-mercedes-benz-s-class-c217",
+   "famB": "fam-mercedes-benz-s",
+   "relType": "platform",
+   "codeA": "S-Class (C217)",
+   "codeB": "S-Class (W222)",
+   "genIdA": "m-mercedes-benz-s-class-c217",
+   "genIdB": "m-mercedes-benz-s-class-w222",
+   "reason": "matched automatically (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "m-aston-martin-db11|m-aston-martin-dbs-superleggera|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T22:57:33.669Z",
+   "decidedAt": "2026-09-15T22:57:33.669Z",
+   "famA": "m-aston-martin-db11",
+   "famB": "m-aston-martin-dbs-superleggera",
+   "relType": "platform",
+   "codeA": "DB11",
+   "codeB": "DBS Superleggera",
+   "genIdA": "m-aston-martin-db11",
+   "genIdB": "m-aston-martin-dbs-superleggera",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "m-aston-martin-db11|m-aston-martin-vantage-2018|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T22:57:33.670Z",
+   "decidedAt": "2026-09-15T22:57:33.670Z",
+   "famA": "m-aston-martin-db11",
+   "famB": "fam-aston-martin-vantage",
+   "relType": "platform",
+   "codeA": "DB11",
+   "codeB": "Vantage (2018)",
+   "genIdA": "m-aston-martin-db11",
+   "genIdB": "m-aston-martin-vantage-2018",
+   "reason": "matched automatically (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
   }
  },
  "recheck": {
   "m-mercedes-benz-g-class": {
    "status": "none",
-   "checkedAt": "2026-09-15T22:12:27.378Z",
+   "checkedAt": "2026-09-15T22:57:31.001Z",
    "sourceTitle": "Mercedes-Benz G-Class",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -28469,7 +28870,7 @@
   },
   "m-mercedes-benz-gla": {
    "status": "none",
-   "checkedAt": "2026-09-15T22:12:27.424Z",
+   "checkedAt": "2026-09-15T22:57:31.045Z",
    "sourceTitle": "Mercedes-Benz GLA",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -28572,7 +28973,7 @@
   },
   "m-mercedes-benz-cla": {
    "status": "none",
-   "checkedAt": "2026-09-15T22:12:27.461Z",
+   "checkedAt": "2026-09-15T22:57:31.078Z",
    "sourceTitle": "Mercedes-Benz CLA",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -28854,7 +29255,7 @@
   },
   "m-toyota-celica": {
    "status": "none",
-   "checkedAt": "2026-09-15T22:12:27.512Z",
+   "checkedAt": "2026-09-15T22:57:31.127Z",
    "sourceTitle": "Toyota Celica",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -28970,7 +29371,7 @@
   },
   "m-toyota-carina": {
    "status": "none",
-   "checkedAt": "2026-09-15T22:12:27.574Z",
+   "checkedAt": "2026-09-15T22:57:31.186Z",
    "sourceTitle": "Toyota Carina",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -29098,7 +29499,7 @@
   },
   "m-lexus-sc": {
    "status": "none",
-   "checkedAt": "2026-09-15T22:12:27.579Z",
+   "checkedAt": "2026-09-15T22:57:31.191Z",
    "sourceTitle": "Lexus SC",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -29747,7 +30148,7 @@
   },
   "m-seat-toledo": {
    "status": "none",
-   "checkedAt": "2026-09-15T22:12:27.643Z",
+   "checkedAt": "2026-09-15T22:57:31.251Z",
    "sourceTitle": "SEAT Toledo",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -29878,7 +30279,7 @@
   },
   "m-daren-mk-3": {
    "status": "none",
-   "checkedAt": "2026-09-15T22:12:27.655Z",
+   "checkedAt": "2026-09-15T22:57:31.261Z",
    "sourceTitle": "Daren Mk.3",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -29953,7 +30354,7 @@
   },
   "m-audi-a3-mk3": {
    "status": "none",
-   "checkedAt": "2026-09-15T22:12:27.672Z",
+   "checkedAt": "2026-09-15T22:57:31.278Z",
    "sourceTitle": "Audi A3",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -30009,7 +30410,7 @@
   },
   "m-audi-tt": {
    "status": "none",
-   "checkedAt": "2026-09-15T22:12:27.745Z",
+   "checkedAt": "2026-09-15T22:57:31.349Z",
    "sourceTitle": "Audi TT",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -30149,7 +30550,7 @@
   },
   "m-seat-leon-mk3": {
    "status": "none",
-   "checkedAt": "2026-09-15T22:12:27.795Z",
+   "checkedAt": "2026-09-15T22:57:31.395Z",
    "sourceTitle": "SEAT León",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -30263,7 +30664,7 @@
   },
   "m-volkswagen-karmann-ghia": {
    "status": "none",
-   "checkedAt": "2026-09-15T22:12:27.820Z",
+   "checkedAt": "2026-09-15T22:57:31.420Z",
    "sourceTitle": "Volkswagen Karmann Ghia",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -30313,7 +30714,7 @@
   },
   "m-porsche-panamera": {
    "status": "none",
-   "checkedAt": "2026-09-15T22:12:27.811Z",
+   "checkedAt": "2026-09-15T22:57:31.411Z",
    "sourceTitle": "Porsche Panamera",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -30379,7 +30780,7 @@
   },
   "m-subaru-forester": {
    "status": "none",
-   "checkedAt": "2026-09-15T22:12:27.855Z",
+   "checkedAt": "2026-09-15T22:57:31.454Z",
    "sourceTitle": "Subaru Forester",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -30488,7 +30889,7 @@
   },
   "m-volkswagen-touran": {
    "status": "none",
-   "checkedAt": "2026-09-15T22:12:27.873Z",
+   "checkedAt": "2026-09-15T22:57:31.472Z",
    "sourceTitle": "Volkswagen Touran",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -30538,7 +30939,7 @@
   },
   "m-chevrolet-captiva": {
    "status": "none",
-   "checkedAt": "2026-09-15T22:12:27.931Z",
+   "checkedAt": "2026-09-15T22:57:31.531Z",
    "sourceTitle": "Chevrolet Captiva",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -30643,7 +31044,7 @@
   },
   "m-isuzu-trooper": {
    "status": "none",
-   "checkedAt": "2026-09-15T22:12:27.979Z",
+   "checkedAt": "2026-09-15T22:57:31.579Z",
    "sourceTitle": "Isuzu Trooper",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -30739,7 +31140,7 @@
   },
   "m-volkswagen-tiguan": {
    "status": "none",
-   "checkedAt": "2026-09-15T22:12:28.041Z",
+   "checkedAt": "2026-09-15T22:57:31.640Z",
    "sourceTitle": "Volkswagen Tiguan",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -30852,7 +31253,7 @@
   },
   "m-chrysler-horizon": {
    "status": "none",
-   "checkedAt": "2026-09-15T22:12:28.082Z",
+   "checkedAt": "2026-09-15T22:57:31.679Z",
    "sourceTitle": "Chrysler Horizon",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -30952,7 +31353,7 @@
   },
   "m-mercury-monterey": {
    "status": "none",
-   "checkedAt": "2026-09-15T22:12:28.172Z",
+   "checkedAt": "2026-09-15T22:57:31.764Z",
    "sourceTitle": "Mercury Monterey",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -31127,7 +31528,7 @@
   },
   "m-gmc-envoy": {
    "status": "none",
-   "checkedAt": "2026-09-15T22:12:28.190Z",
+   "checkedAt": "2026-09-15T22:57:31.782Z",
    "sourceTitle": "GMC Envoy",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -31180,7 +31581,7 @@
   },
   "m-chevrolet-trailblazer": {
    "status": "none",
-   "checkedAt": "2026-09-15T22:12:28.205Z",
+   "checkedAt": "2026-09-15T22:57:31.797Z",
    "sourceTitle": "Chevrolet TrailBlazer (SUV)",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -31231,7 +31632,7 @@
   },
   "m-oldsmobile-bravada": {
    "status": "none",
-   "checkedAt": "2026-09-15T22:12:28.237Z",
+   "checkedAt": "2026-09-15T22:57:31.828Z",
    "sourceTitle": "Oldsmobile Bravada",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -31311,7 +31712,7 @@
   },
   "m-buick-lacrosse": {
    "status": "none",
-   "checkedAt": "2026-09-15T22:12:28.257Z",
+   "checkedAt": "2026-09-15T22:57:31.849Z",
    "sourceTitle": "Buick LaCrosse",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -31387,7 +31788,7 @@
   },
   "m-buick-invicta": {
    "status": "none",
-   "checkedAt": "2026-09-15T22:12:28.272Z",
+   "checkedAt": "2026-09-15T22:57:31.864Z",
    "sourceTitle": "Buick Invicta",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -31438,7 +31839,7 @@
   },
   "m-buick-century": {
    "status": "none",
-   "checkedAt": "2026-09-15T22:12:28.344Z",
+   "checkedAt": "2026-09-15T22:57:31.937Z",
    "sourceTitle": "Buick Century",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -31590,7 +31991,7 @@
   },
   "m-jaguar-xjs": {
    "status": "none",
-   "checkedAt": "2026-09-15T22:12:28.356Z",
+   "checkedAt": "2026-09-15T22:57:31.949Z",
    "sourceTitle": "Jaguar XJS",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -31649,7 +32050,7 @@
   },
   "m-jaguar-e-type": {
    "status": "none",
-   "checkedAt": "2026-09-15T22:12:28.374Z",
+   "checkedAt": "2026-09-15T22:57:31.969Z",
    "sourceTitle": "Jaguar E-Type",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -31718,7 +32119,7 @@
   },
   "m-wuling-starlight": {
    "status": "none",
-   "checkedAt": "2026-09-15T22:12:28.404Z",
+   "checkedAt": "2026-09-15T22:57:31.998Z",
    "sourceTitle": "Wuling Starlight",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -31782,7 +32183,7 @@
   },
   "m-jeep-compass": {
    "status": "none",
-   "checkedAt": "2026-09-15T22:12:28.442Z",
+   "checkedAt": "2026-09-15T22:57:32.038Z",
    "sourceTitle": "Jeep Compass",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -31866,7 +32267,7 @@
   },
   "m-mazda-tribute": {
    "status": "none",
-   "checkedAt": "2026-09-15T22:12:28.451Z",
+   "checkedAt": "2026-09-15T22:57:32.047Z",
    "sourceTitle": "Mazda Tribute",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -31903,7 +32304,7 @@
   },
   "m-mazda-cx-5": {
    "status": "none",
-   "checkedAt": "2026-09-15T22:12:28.462Z",
+   "checkedAt": "2026-09-15T22:57:32.059Z",
    "sourceTitle": "Mazda CX-5",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -31958,7 +32359,7 @@
   },
   "m-baojun-730": {
    "status": "none",
-   "checkedAt": "2026-09-15T22:12:28.466Z",
+   "checkedAt": "2026-09-15T22:57:32.064Z",
    "sourceTitle": "Baojun 730",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -31993,7 +32394,7 @@
   },
   "m-dacia-duster": {
    "status": "none",
-   "checkedAt": "2026-09-15T22:12:28.504Z",
+   "checkedAt": "2026-09-15T22:57:32.107Z",
    "sourceTitle": "Dacia Duster",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -32602,7 +33003,7 @@
   },
   "m-lincoln-lincoln-zephyr": {
    "status": "none",
-   "checkedAt": "2026-09-15T22:12:28.511Z",
+   "checkedAt": "2026-09-15T22:57:32.113Z",
    "sourceTitle": "Lincoln-Zephyr",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -32639,7 +33040,7 @@
   },
   "m-lincoln-capri": {
    "status": "none",
-   "checkedAt": "2026-09-15T22:12:28.540Z",
+   "checkedAt": "2026-09-15T22:57:32.144Z",
    "sourceTitle": "Lincoln Capri",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -32708,7 +33109,7 @@
   },
   "m-ford-continental-mark-ii": {
    "status": "none",
-   "checkedAt": "2026-09-15T22:12:28.568Z",
+   "checkedAt": "2026-09-15T22:57:32.172Z",
    "sourceTitle": "Continental Mark II",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -32807,7 +33208,7 @@
   },
   "m-mercury-marquis": {
    "status": "none",
-   "checkedAt": "2026-09-15T22:12:28.615Z",
+   "checkedAt": "2026-09-15T22:57:32.225Z",
    "sourceTitle": "Mercury Marquis",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -32898,7 +33299,7 @@
   },
   "m-mercury-grand-marquis": {
    "status": "none",
-   "checkedAt": "2026-09-15T22:12:28.658Z",
+   "checkedAt": "2026-09-15T22:57:32.270Z",
    "sourceTitle": "Mercury Grand Marquis",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -33001,7 +33402,7 @@
   },
   "m-lincoln-mark-series": {
    "status": "none",
-   "checkedAt": "2026-09-15T22:12:28.700Z",
+   "checkedAt": "2026-09-15T22:57:32.312Z",
    "sourceTitle": "Lincoln Mark series",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -33139,7 +33540,7 @@
   },
   "m-mercury-cougar": {
    "status": "none",
-   "checkedAt": "2026-09-15T22:12:28.754Z",
+   "checkedAt": "2026-09-15T22:57:32.369Z",
    "sourceTitle": "Mercury Cougar",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -33289,7 +33690,7 @@
   },
   "m-mercury-sable": {
    "status": "none",
-   "checkedAt": "2026-09-15T22:12:28.791Z",
+   "checkedAt": "2026-09-15T22:57:32.410Z",
    "sourceTitle": "Mercury Sable",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -33391,7 +33792,7 @@
   },
   "m-ford-windstar": {
    "status": "none",
-   "checkedAt": "2026-09-15T22:12:28.800Z",
+   "checkedAt": "2026-09-15T22:57:32.419Z",
    "sourceTitle": "Ford Windstar",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -33440,7 +33841,7 @@
   },
   "m-lincoln-mkz": {
    "status": "none",
-   "checkedAt": "2026-09-15T22:12:28.812Z",
+   "checkedAt": "2026-09-15T22:57:32.432Z",
    "sourceTitle": "Lincoln MKZ",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -33928,7 +34329,7 @@
   },
   "m-ssangyong-chairman": {
    "status": "none",
-   "checkedAt": "2026-09-15T22:12:28.821Z",
+   "checkedAt": "2026-09-15T22:57:32.442Z",
    "sourceTitle": "SsangYong Chairman",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -33970,7 +34371,7 @@
   },
   "m-mercedes-benz-w180": {
    "status": "none",
-   "checkedAt": "2026-09-15T22:12:28.832Z",
+   "checkedAt": "2026-09-15T22:57:32.454Z",
    "sourceTitle": "Mercedes-Benz W180",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -34008,7 +34409,7 @@
   },
   "m-mercedes-benz-w108-w109": {
    "status": "none",
-   "checkedAt": "2026-09-15T22:12:28.845Z",
+   "checkedAt": "2026-09-15T22:57:32.467Z",
    "sourceTitle": "Mercedes-Benz W108/W109",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -34053,7 +34454,7 @@
   },
   "m-chrysler-300c": {
    "status": "none",
-   "checkedAt": "2026-09-15T22:12:28.865Z",
+   "checkedAt": "2026-09-15T22:57:32.488Z",
    "sourceTitle": "Chrysler 300",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -34113,7 +34514,7 @@
   },
   "m-dodge-charger-lx": {
    "status": "none",
-   "checkedAt": "2026-09-15T22:12:28.891Z",
+   "checkedAt": "2026-09-15T22:57:32.515Z",
    "sourceTitle": "Dodge Charger (LX/LD)",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -34180,7 +34581,7 @@
   },
   "m-dodge-magnum": {
    "status": "none",
-   "checkedAt": "2026-09-15T22:12:28.927Z",
+   "checkedAt": "2026-09-15T22:57:32.552Z",
    "sourceTitle": "Dodge Magnum",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -34283,7 +34684,7 @@
   },
   "m-mercedes-benz-mercedes-amg-gt-4-door-coupe": {
    "status": "none",
-   "checkedAt": "2026-09-15T22:12:28.937Z",
+   "checkedAt": "2026-09-15T22:57:32.563Z",
    "sourceTitle": "Mercedes-AMG GT 4-Door Coupé",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -34328,7 +34729,7 @@
   },
   "m-mercedes-benz-gle": {
    "status": "none",
-   "checkedAt": "2026-09-15T22:12:28.964Z",
+   "checkedAt": "2026-09-15T22:57:32.591Z",
    "sourceTitle": "Mercedes-Benz GLE",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -34416,7 +34817,7 @@
   },
   "m-mercedes-benz-glc": {
    "status": "none",
-   "checkedAt": "2026-09-15T22:12:28.974Z",
+   "checkedAt": "2026-09-15T22:57:32.600Z",
    "sourceTitle": "Mercedes-Benz GLC",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -34819,7 +35220,7 @@
   },
   "m-mazda-121": {
    "status": "none",
-   "checkedAt": "2026-09-15T22:22:38.249Z",
+   "checkedAt": "2026-09-15T22:57:32.637Z",
    "sourceTitle": "Mazda 121",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -36671,6 +37072,12 @@
    "year": 1939,
    "end": 1940,
    "source": "llm-recall"
+  },
+  "llm-related-brabus-rocket-900-one-of-ten": {
+   "checkedAt": "2026-09-15T22:56:05.699Z",
+   "year": 2017,
+   "end": 2018,
+   "source": "llm-recall"
   }
  },
  "userCars": {},
@@ -37935,6 +38342,11 @@
    "label": "Nissan Fairlady Z (240Z)",
    "kind": "model",
    "purgedAt": "2026-09-12T13:25:52.352Z"
+  },
+  "eng-mercedes-benz-m177": {
+   "label": "M177",
+   "kind": "engine",
+   "purgedAt": "2026-09-15T22:58:43.888Z"
   }
  },
  "unmerges": {},
@@ -38447,6 +38859,243 @@
     [
      "Mercedes-Benz SLC-Class (R172)",
      "Mercedes-Benz SLK-Class (R172)"
+    ]
+   ]
+  },
+  "eng-mercedes-benz-m176-m177-m178": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T22:55:48.300Z",
+   "sourceTitle": "Mercedes-Benz M176/M177/M178 engine",
+   "article": {
+    "name": "Mercedes-Benz M176/M177/M178",
+    "shortName": "M177",
+    "manufacturer": "Mercedes-AMG",
+    "production": "2014–present",
+    "configuration": "90° V8",
+    "displacement": "3982 cc",
+    "predecessor": "Mercedes-Benz M278 / M157 engine (4.7&nbsp;L & 5.5&nbsp;L) Mercedes-Benz M152 engine Mercedes-Benz M156 engine",
+    "successor": "",
+    "variants": [],
+    "applications": [
+     {
+      "target": "Mercedes-Benz C-Class (W205)",
+      "anchor": null,
+      "display": "Mercedes-AMG C 63 and C 63 S (W205)",
+      "text": "Mercedes-AMG C 63 and C 63 S (W205)",
+      "yearStart": 2015,
+      "yearEnd": 2021,
+      "note": null
+     },
+     {
+      "target": "Mercedes-Benz E-Class (W213)",
+      "anchor": null,
+      "display": "Mercedes-AMG E 63 4MATIC+ and E 63 S 4MATIC+ (W213)",
+      "text": "Mercedes-AMG E 63 4MATIC+ and E 63 S 4MATIC+ (W213)",
+      "yearStart": 2016,
+      "yearEnd": 2022,
+      "note": null
+     },
+     {
+      "target": "Mercedes-Benz S-Class (C217)",
+      "anchor": null,
+      "display": "Mercedes-AMG S 63 Coupe 4MATIC (C217) and S 63 Cabriolet 4MATIC (A217)",
+      "text": "Mercedes-AMG S 63 Coupe 4MATIC (C217) and S 63 Cabriolet 4MATIC (A217)",
+      "yearStart": 2018,
+      "yearEnd": 2020,
+      "note": null
+     },
+     {
+      "target": "Mercedes-Benz S-Class (W222)",
+      "anchor": null,
+      "display": "Mercedes-AMG S 63 4MATIC and S 63 (W222/V222)",
+      "text": "Mercedes-AMG S 63 4MATIC and S 63 (W222/V222)",
+      "yearStart": 2017,
+      "yearEnd": 2020,
+      "note": null
+     },
+     {
+      "target": "Mercedes-AMG GT 4-Door Coupé",
+      "anchor": null,
+      "display": "Mercedes-AMG GT 63 4MATIC+, GT 63 S 4MATIC+, and GT 63 S E Performance (X290)",
+      "text": "Mercedes-AMG GT 63 4MATIC+, GT 63 S 4MATIC+, and GT 63 S E Performance (X290)",
+      "yearStart": 2018,
+      "yearEnd": 2026,
+      "note": null
+     },
+     {
+      "target": "Mercedes-Benz G-Class",
+      "anchor": "W463",
+      "display": "Mercedes-AMG G 63 (W463, second generation)",
+      "text": "Mercedes-AMG G 63 (W463, second generation)",
+      "yearStart": 2019,
+      "yearEnd": 2024,
+      "note": null
+     },
+     {
+      "target": "Mercedes-Benz GLC",
+      "anchor": "X253",
+      "display": "Mercedes-AMG GLC 63 4MATIC, GLC 63 4MATIC Coupé, GLC 63 S 4MATIC, and GLC 63 S 4MATIC Coupé (X253)",
+      "text": "Mercedes-AMG GLC 63 4MATIC, GLC 63 4MATIC Coupé, GLC 63 S 4MATIC, and GLC 63 S 4MATIC Coupé (X253)",
+      "yearStart": 2018,
+      "yearEnd": 2022,
+      "note": null
+     },
+     {
+      "target": "Mercedes-Benz GLE",
+      "anchor": "W167",
+      "display": "Mercedes-AMG GLE 63 4MATIC+ and 63 S 4MATIC+ (X167) with ISG)",
+      "text": "Mercedes-AMG GLE 63 4MATIC+ and 63 S 4MATIC+ (X167) with ISG)",
+      "yearStart": 2020,
+      "yearEnd": null,
+      "note": null
+     },
+     {
+      "target": "Mercedes-Benz GLS-Class (X167)",
+      "anchor": null,
+      "display": "Mercedes-AMG GLS 63 4MATIC+ (X167) with ISG",
+      "text": "Mercedes-AMG GLS 63 4MATIC+ (X167) with ISG",
+      "yearStart": 2020,
+      "yearEnd": null,
+      "note": null
+     },
+     {
+      "target": "Mercedes-Benz GLS-Class (X167)",
+      "anchor": null,
+      "display": "Mercedes-Maybach GLS 600 (X167) with ISG",
+      "text": "Mercedes-Maybach GLS 600 (X167) with ISG",
+      "yearStart": 2020,
+      "yearEnd": null,
+      "note": null
+     },
+     {
+      "target": "Mercedes-AMG SL-Class (R232)",
+      "anchor": null,
+      "display": "Mercedes-AMG SL 55 4MATIC+, SL 63 4MATIC+ (R232)",
+      "text": "Mercedes-AMG SL 55 4MATIC+, SL 63 4MATIC+ (R232)",
+      "yearStart": 2022,
+      "yearEnd": null,
+      "note": null
+     },
+     {
+      "target": "Mercedes-Benz S-Class (W223)",
+      "anchor": null,
+      "display": "Mercedes-AMG S 63 E Performance (W223)",
+      "text": "Mercedes-AMG S 63 E Performance (W223)",
+      "yearStart": 2022,
+      "yearEnd": null,
+      "note": null
+     },
+     {
+      "target": "Brabus Rocket",
+      "anchor": "Brabus Rocket 900 \"ONE OF TEN\" (2020 – )",
+      "display": "Brabus Rocket 900 \"ONE OF TEN\"",
+      "text": "Brabus Rocket 900 \"ONE OF TEN\" (enlarged to 4.4 L)",
+      "yearStart": 2020,
+      "yearEnd": null,
+      "note": null
+     },
+     {
+      "target": "Aston Martin DB11",
+      "anchor": null,
+      "display": "Aston Martin DB11 V8 and DB11 Volante",
+      "text": "Aston Martin DB11 V8 and DB11 Volante",
+      "yearStart": 2017,
+      "yearEnd": 2023,
+      "note": null
+     },
+     {
+      "target": "Aston Martin Vantage (2018)",
+      "anchor": null,
+      "display": "Aston Martin Vantage V8",
+      "text": "Aston Martin Vantage V8, Vantage F1 Edition and Vantage AMR 59",
+      "yearStart": 2018,
+      "yearEnd": null,
+      "note": null
+     },
+     {
+      "target": "Aston Martin DBX",
+      "anchor": null,
+      "display": "Aston Martin DBX V8 and DBX707",
+      "text": "Aston Martin DBX V8 and DBX707",
+      "yearStart": 2021,
+      "yearEnd": null,
+      "note": null
+     },
+     {
+      "target": "Aston Martin DB12",
+      "anchor": null,
+      "display": "Aston Martin DB12",
+      "text": "Aston Martin DB12",
+      "yearStart": 2023,
+      "yearEnd": null,
+      "note": null
+     }
+    ]
+   },
+   "resolved": [
+    [
+     "Mercedes-Benz C-Class (W205)",
+     "Mercedes-Benz C-Class (W205)"
+    ],
+    [
+     "Mercedes-Benz E-Class (W213)",
+     "Mercedes-Benz E-Class (W213)"
+    ],
+    [
+     "Mercedes-Benz S-Class (C217)",
+     "Mercedes-Benz S-Class (C217)"
+    ],
+    [
+     "Mercedes-Benz S-Class (W222)",
+     "Mercedes-Benz S-Class (W222)"
+    ],
+    [
+     "Mercedes-AMG GT 4-Door Coupé",
+     "Mercedes-AMG GT 4-Door Coupé"
+    ],
+    [
+     "Mercedes-Benz G-Class",
+     "Mercedes-Benz G-Class"
+    ],
+    [
+     "Mercedes-Benz GLC",
+     "Mercedes-Benz GLC"
+    ],
+    [
+     "Mercedes-Benz GLE",
+     "Mercedes-Benz GLE"
+    ],
+    [
+     "Mercedes-Benz GLS-Class (X167)",
+     "Mercedes-Benz GLS (X167)"
+    ],
+    [
+     "Mercedes-AMG SL-Class (R232)",
+     "Mercedes-Benz SL (R232)"
+    ],
+    [
+     "Mercedes-Benz S-Class (W223)",
+     "Mercedes-Benz S-Class (W223)"
+    ],
+    [
+     "Brabus Rocket",
+     "Brabus Rocket"
+    ],
+    [
+     "Aston Martin DB11",
+     "Aston Martin DB11"
+    ],
+    [
+     "Aston Martin Vantage (2018)",
+     "Aston Martin Vantage (2018)"
+    ],
+    [
+     "Aston Martin DBX",
+     "Aston Martin DBX"
+    ],
+    [
+     "Aston Martin DB12",
+     "Aston Martin DB12"
     ]
    ]
   }
@@ -39217,6 +39866,16 @@
    "what": "Wikipedia link you pasted",
    "label": "llm-related-chrysler-pentastar-engine → Chrysler Pentastar engine",
    "prunedAt": "2026-09-15T21:43:09.070Z"
+  },
+  "families|llm-related-brabus-rocket-900-one-of-ten": {
+   "what": "generation split",
+   "label": "llm-related-brabus-rocket-900-one-of-ten",
+   "prunedAt": "2026-09-15T22:57:34.160Z"
+  },
+  "wpLinks|llm-related-brabus-rocket-900-one-of-ten": {
+   "what": "Wikipedia link you pasted",
+   "label": "llm-related-brabus-rocket-900-one-of-ten → Brabus Rocket",
+   "prunedAt": "2026-09-15T22:57:34.160Z"
   }
  }
 }
