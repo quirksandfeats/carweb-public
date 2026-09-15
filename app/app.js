@@ -1993,6 +1993,13 @@ window.CarWeb = (function () {
         if (dtNode === fam) renderLlmCheck(fam);
         if (res && res.status === "no-wiki-link") row.innerHTML = `<div class="llm-status llm-error">No Wikipedia link on file for this nameplate to re-check against.</div>`;
         if (res && res.status === "unavailable") row.innerHTML = `<div class="llm-status llm-error">Local LLM server isn't reachable right now.</div>`;
+        // The powertrain half. forceRecheckFamily has just dropped this
+        // nameplate's stored engine-scan records (see clearEngineScansFor),
+        // so this genuinely re-reads each generation's article rather than
+        // skipping every one already scanned -- which is why a re-check used
+        // to come back with no engines at all.
+        recordEnginesLive();
+        scanEnginesLive(fam);
         // The depth-1 half: expand every directly-related car into its own
         // generations (checking it if it has never been checked) and match
         // generation-to-generation. Same call the ordinary detail-panel render

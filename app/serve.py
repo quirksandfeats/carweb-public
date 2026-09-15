@@ -278,6 +278,20 @@ LLAMA_CTX_PER_REQUEST = int(os.environ.get("LLAMA_CTX_PER_REQUEST", "131072"))
 # time instead of all at once, which changes what this timeout actually
 # means (time between chunks, not time for the whole response).
 LLAMA_TIMEOUT = float(os.environ.get("LLAMA_TIMEOUT", "600"))
+# Hard ceiling on how many tokens one call may generate. Real incident: a
+# single yes/no platform-relation question ("Mercedes-Benz E-Class (C207) <->
+# Mercedes-Benz C") ran for 874 seconds and 32,060 tokens before being killed
+# by hand -- the model had stopped answering and started looping, and nothing
+# anywhere would ever have stopped it. Every real answer this app asks for is
+# a small JSON object; the largest legitimate one (a many-generation split
+# with designers and engineers) measures in the hundreds of tokens, so this
+# is roughly 5x the worst real case and still ends a runaway in under a
+# minute. Applied only when the caller didn't set its own limit.
+LLAMA_MAX_TOKENS = int(os.environ.get("LLAMA_MAX_TOKENS", "3000"))
+# When a call passes this many tokens it is already far outside anything this
+# app legitimately asks for, so the live line says so rather than looking
+# like ordinary slow progress.
+LLAMA_RUNAWAY_TOKENS = int(os.environ.get("LLAMA_RUNAWAY_TOKENS", "1200"))
 # How long to wait for llama-server to become ready at startup. Generous by
 # default because, unlike Ollama's separate `ollama pull` step, llama.cpp's
 # `-hf` flag downloads the model AS PART OF startup the first time you ever
@@ -799,6 +813,26 @@ class Handler(http.server.SimpleHTTPRequestHandler):
                 print(f"db-match-overrides: saved, but refresh_db_layer() raised -- {e}", file=sys.stderr)
             return self._json(200, {"ok": True})
 
+        # Real user confusion, worth fixing rather than explaining: this
+        # terminal only ever showed llama.cpp calls, because those are the
+        # only thing that comes through this proxy. Everything else the app
+        # does -- reading a Wikipedia article, scanning a generation's
+        # infobox for engines, applying a split -- happens browser-to-
+        # Wikipedia and left no trace here at all, so a long model call
+        # looked like the only thing happening while several other passes
+        # ran invisibly alongside it. This endpoint is how the page says
+        # what it is doing; it stores nothing and answers immediately.
+        if self.path == "/api/note":
+            length = int(self.headers.get("Content-Length", 0))
+            try:
+                note = json.loads(self.rfile.read(length) or b"{}")
+            except json.JSONDecodeError:
+                return self._json(400, {"error": "invalid JSON body"})
+            text = " ".join(str(note.get("text", "")).split())[:200]
+            if text:
+                _print_live("[app] " + text)
+            return self._json(200, {"ok": True})
+
         if self.path == "/api/llm/chat":
             length = int(self.headers.get("Content-Length", 0))
             raw_body = self.rfile.read(length)
@@ -830,6 +864,10 @@ class Handler(http.server.SimpleHTTPRequestHandler):
                 return self._json(400, {"error": "expected a JSON object body"})
             chat_req["model"] = LLAMA_MODEL_ALIAS
             chat_req["stream"] = True
+            # See LLAMA_MAX_TOKENS: without a ceiling, a model that stops
+            # answering and starts looping generates until someone notices.
+            if not chat_req.get("max_tokens"):
+                chat_req["max_tokens"] = LLAMA_MAX_TOKENS
             # Real user request: "for the terminal, I want it to be a bit more
             # descriptive than just counting the tokens used and the number of
             # tokens per second. I want a short brief description of what
@@ -889,6 +927,7 @@ class Handler(http.server.SimpleHTTPRequestHandler):
             content_parts = []
             n_chunks = 0
             final_timings = None
+            finish_reason = None
             last_print_t = t0
             LIVE_PRINT_INTERVAL = 0.5  # seconds -- avoid spamming the terminal on a fast model
 
@@ -923,6 +962,8 @@ class Handler(http.server.SimpleHTTPRequestHandler):
                             if piece:
                                 content_parts.append(piece)
                                 n_chunks += 1
+                            if choices[0].get("finish_reason"):
+                                finish_reason = choices[0]["finish_reason"]
                         # llama.cpp puts the full timing breakdown on the
                         # LAST chunk only (confirmed against llama.cpp's own
                         # maintainers: intermediate chunks carry just the
@@ -935,7 +976,12 @@ class Handler(http.server.SimpleHTTPRequestHandler):
                         if now - last_print_t >= LIVE_PRINT_INTERVAL and n_chunks > 0:
                             elapsed = now - t0
                             live_tps = n_chunks / elapsed if elapsed > 0 else 0.0
-                            _print_live(f"[{req_id}] {short_purpose} -- {n_chunks} tok in {elapsed:.1f}s ({live_tps:.1f} tok/s so far)...")
+                            # Same line, but it stops reading like healthy
+                            # progress once the count is well past anything
+                            # this app ever legitimately asks for.
+                            tail = (f" -- OVERLONG, will be cut off at {chat_req['max_tokens']}"
+                                    if n_chunks > LLAMA_RUNAWAY_TOKENS else "...")
+                            _print_live(f"[{req_id}] {short_purpose} -- {n_chunks} tok in {elapsed:.1f}s ({live_tps:.1f} tok/s so far){tail}")
                             last_print_t = now
             except (urllib.error.URLError, TimeoutError, OSError) as e:
                 self._json(502, {
@@ -954,7 +1000,17 @@ class Handler(http.server.SimpleHTTPRequestHandler):
             # fall back to the wall-clock figure if the final chunk's
             # timings never showed up for some reason, so this line always
             # prints something rather than silently skipping the summary.
-            if final_timings and "predicted_per_second" in final_timings:
+            # A call the ceiling had to cut short did not answer the
+            # question -- the client will see truncated JSON and record an
+            # error. Said plainly here, because the alternative is a summary
+            # line that looks exactly like a successful one.
+            cut_off = finish_reason == "length"
+            if cut_off:
+                live_tps = n_chunks / elapsed if elapsed > 0 else 0.0
+                _print_live(f"[{req_id}] {short_purpose} -- CUT OFF at the {chat_req['max_tokens']}-token "
+                            f"ceiling after {elapsed:.1f}s ({live_tps:.1f} tok/s); the model was looping, "
+                            "not answering. Nothing was learned from this call.")
+            elif final_timings and "predicted_per_second" in final_timings:
                 final_tps = final_timings["predicted_per_second"]
                 final_n = final_timings.get("predicted_n", n_chunks)
                 _print_live(f"[{req_id}] {short_purpose} -- done, {final_n} tok in {elapsed:.1f}s wall ({final_tps:.1f} tok/s generation)")

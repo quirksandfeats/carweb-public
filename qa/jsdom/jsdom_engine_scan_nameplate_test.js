@@ -172,6 +172,38 @@ const DATA = window.CARDATA;
           LF.engineScanEntryFor(G213).sourceTitle);
   }
 
+  // ---------- 6. ...but a deliberate re-check really does do it again ----------
+  // Second half of the same bug report: "sometimes when doing an LLM re-check,
+  // it doesn't actually do a full re-check. For example, I tried to do so with
+  // the E Class nameplate that didn't have the new engine data, so running the
+  // llm re-check, I hoped it would be there. However, it wasn't."
+  //
+  // Section 5's "reads nothing again" is what made it a no-op: every
+  // generation already scanned is skipped, and a generation whose article was
+  // briefly unreachable had a miss recorded that is deliberately sticky. The
+  // re-check is the escape hatch, so it has to drop those records first.
+  {
+    const fam = cw.byId.get(FAM);
+    check("(precondition) the W212's miss is on file and would be skipped forever",
+          LF.engineScanEntryFor(G212) && LF.engineScanEntryFor(G212).status === "unreadable",
+          LF.engineScanEntryFor(G212) && LF.engineScanEntryFor(G212).status);
+
+    const cleared = LF.clearEngineScansFor(fam, [cw.byId.get(G212), cw.byId.get(G213)]);
+    check("a re-check forgets what every generation's scan concluded", cleared === 3, cleared);
+    check("...including the sticky miss", !LF.engineScanEntryFor(G212));
+
+    const askedBefore = asked.length;
+    const r = await LF.scanEnginesFor(fam, DATA.nodes, DATA.links);
+    check("...so the articles are genuinely read again", r.scanned >= 2 && asked.length > askedBefore,
+          r.scanned + " scanned, " + (asked.length - askedBefore) + " fetched");
+    check("...and the engines are still found", LF.engineScanEntryFor(G213).engines.length === 9,
+          LF.engineScanEntryFor(G213).engines.length);
+    check("...without duplicating a single node", DATA.nodes.filter(n => n.type === "engine").length === 9,
+          DATA.nodes.filter(n => n.type === "engine").length);
+    check("...or a single connection", DATA.links.filter(l => l.type === "fitted").length === 9,
+          DATA.links.filter(l => l.type === "fitted").length);
+  }
+
   console.log("\n" + (fails === 0 ? "ALL GREEN" : fails + " FAILURE(S)"));
   process.exit(fails === 0 ? 0 : 1);
 })();

@@ -436,6 +436,23 @@ window.LlmFamilies = (function () {
     }
   }
 
+  // Say what the page is doing, in serve.py's terminal. Everything in this
+  // file except the model calls goes browser-to-Wikipedia and so left no
+  // trace there at all -- which made a single slow model call look like the
+  // only thing happening while several other passes ran invisibly beside it.
+  // Fire-and-forget on purpose: a note that does not arrive must never delay
+  // or fail the work it describes.
+  function note(text) {
+    if (!serverAvailable || !text) return;
+    try {
+      fetch("/api/note", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ text: String(text) }),
+      }).catch(() => {});
+    } catch (e) { /* nothing here is worth interrupting for */ }
+  }
+
   // ---------- Wikipedia: fetch wikitext, pull just the infobox + headings ----------
   // Full articles can run 60-80k+ characters (Mercedes G-Class did); feeding
   // that whole thing to a 7B local model is slow and mostly noise. The
@@ -7551,6 +7568,13 @@ Rules:
     }
     const flightKey = "recheck:" + fam.id;
     if (inFlight.has(flightKey)) return inFlight.get(flightKey);
+    // "Re-check the whole car from scratch" has to include the powertrain
+    // side, and the engine scan's own records are what would otherwise make
+    // it a no-op: every generation already scanned is skipped, misses
+    // included. See clearEngineScansFor.
+    const engineScansCleared = clearEngineScansFor(fam, genNodes);
+    note(`re-check: ${fam.label} from scratch -- forgetting ${engineScansCleared} stored ` +
+         "engine scan(s) and every earlier rejection, so both get rediscovered");
     const p = (async () => {
       try {
         const { wp, wikitext, clean, raw, dropped } = await runCheck(fam, null, null, undefined, nodes);
@@ -7564,6 +7588,7 @@ Rules:
           engines: engineMentions(wikitext),
           debug: { raw, dropped },
           manualRecheck: true,
+          engineScansCleared,
           generationDiff: { addedCodes: addedFresh.map(g => g.code), removedIds: removedOld.map(o => o.id) },
         };
         store.recheck[fam.id] = entry;
@@ -8573,6 +8598,26 @@ Rules:
   // which article that is.
   function engineScanEntryFor(id) { return store.engineScans[id] || null; }
 
+  // Forget what a car's engine scan concluded, so the next scan genuinely
+  // goes and reads the article again. A recorded "no-article" or
+  // "unreadable" miss is deliberately sticky -- without that, every check of
+  // a nameplate pays several fetches to reach the same dead end forever (see
+  // scanEnginesFor). The cost is that a miss recorded while an article was
+  // briefly unreachable, or before anyone had written it, is permanent, and
+  // a plain re-check silently skips that car. An explicit 🔄 LLM Re-check is
+  // the escape hatch, exactly as it already is for a deleted relationship's
+  // permanent suppression (see clearRejectionsFor).
+  function clearEngineScansFor(node, genNodes) {
+    if (!node) return 0;
+    const ids = [node.id].concat((genNodes || []).map(g => g && g.id).filter(Boolean),
+                                 (node.generations || []));
+    let n = 0;
+    for (const id of new Set(ids)) {
+      if (store.engineScans[id]) { delete store.engineScans[id]; n++; }
+    }
+    return n;
+  }
+
   // Which article to read a car's engines out of. For a generation that is
   // its own article, not the nameplate's: a minted generation inherits the
   // nameplate's `wp` (see applyFamilyOverride), so reading gen.wp would fetch
@@ -8617,8 +8662,12 @@ Rules:
     // The nameplate's own article, read ONCE for the whole pass: it is what
     // says where each generation's article is, and fetching it per generation
     // would be the same page six times.
+    const pending = targets.filter(c => c && !c.retired && !store.engineScans[c.id]);
+    if (!pending.length) return out;
+    note(`powertrain: reading engines for ${node.label} -- ` +
+         `${pending.length} article(s) to check (no model call, infobox only)`);
     let famWikitext = null;
-    if (fam && fam.wp && targets.some(c => c && !store.engineScans[c.id])) {
+    if (fam && fam.wp) {
       try { famWikitext = (await fetchArticleDigest(fam.wp)).wikitext; } catch (e) { famWikitext = null; }
     }
     for (const car of targets) {
@@ -8635,6 +8684,7 @@ Rules:
         store.engineScans[car.id] = {
           checkedAt: new Date().toISOString(), sourceTitle: null, status: "no-article", engines: [],
         };
+        note(`powertrain: ${car.label} -- no article of its own to read engines from`);
         out.scanned++; out.skipped++;
         continue;
       }
@@ -8649,6 +8699,7 @@ Rules:
           checkedAt: new Date().toISOString(), sourceTitle: title,
           status: "unreadable", engines: [],
         };
+        note(`powertrain: ${car.label} -- could not read "${title}"`);
         out.scanned++; out.skipped++;
         continue;
       }
@@ -8656,6 +8707,7 @@ Rules:
       store.engineScans[car.id] = {
         checkedAt: new Date().toISOString(), sourceTitle: title, engines: hits,
       };
+      note(`powertrain: ${car.label} -- ${hits.length} engine(s) in "${title}"`);
       // Worth keeping even when the article named no engine: it is also the
       // generation's own page, which is a better link than the nameplate's.
       if (title && (!car.wp || (fam && fam.wp && norm(car.wp) === norm(fam.wp)))) {
@@ -8667,6 +8719,8 @@ Rules:
       out.engines += r.engines; out.fitted += r.fitted;
     }
     if (out.scanned) await persist();
+    note(`powertrain: ${node.label} done -- ${out.engines} engine(s), ` +
+         `${out.fitted} connection(s) from ${out.scanned} article(s)`);
     return out;
   }
 
@@ -9520,6 +9574,7 @@ Rules:
     carNameFromApplication, resolveApplicationTitles,
     checkEngine, applyEngines, engineEntryFor, allEngineEntries, deleteEngineEntry,
     scheduleEngineCascade, scanEnginesFor, engineScanEntryFor, engineArticleFor,
+    clearEngineScansFor,
     mergeEngines, undoEngineMerge, allEngineMerges, applyEngineMerges,
     engineMentions, recordEngineMentions, recordEngineMentionsFrom, applyEngineMentions,
     looksLikeEngineArticleTitle, engineIdFromTitle,
