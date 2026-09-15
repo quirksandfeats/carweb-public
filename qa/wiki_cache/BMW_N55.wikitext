@@ -1,0 +1,185 @@
+{{Short description|BMW engine manufactured from 2009 to 2021}}
+{{Infobox automobile engine
+| name = BMW N55
+| image = BMW N55 engine 2013.jpg
+| manufacturer = 
+| production = 2009–2021
+| configuration = [[Straight-six engine|Straight-6]]
+| displacement ={{convert|2979|cc|L|1|order=flip|abbr=on}}
+| bore = {{convert|84|mm|in|1|abbr=on}}
+| head = Aluminium
+| stroke = {{convert|89.6|mm|in|1|abbr=on}}
+| block = Aluminium
+| valvetrain = [[Overhead_camshaft#Dual_overhead_camshaft|DOHC]], with [[variable valve timing|VVT]] & [[variable valve lift|VVL]]
+| timing = Chain
+| compression = 10.2:1
+| redline = 7,000 RPM
+| turbocharger = Single [[BorgWarner]] [[Turbocharger#Twin-scroll|twin-scroll]] with [[Intercooler]]
+| management = Bosch MEVD 17.2
+| fueltype = [[Petrol engine|Petrol]]
+| predecessor = [[BMW N54]]
+| successor = [[BMW B58]]
+}}
+
+The '''BMW N55''' is a turbocharged straight-six petrol (gasoline) engine that began production in 2009. The N55 replaced the [[BMW N54]] engine and was introduced in the [[BMW 5 Series Gran Turismo|F07 5 Series Gran Turismo]].
+
+The N55 was [[BMW]]'s first straight-six engine to use a [[twin-scroll turbocharger]]. It also won three straight [[Ward's 10 Best Engines]] awards in 2011–2013.<ref>{{cite web|title=Ward's 10 Best Engines Winners, 1995–2012|url=https://wardsintelligence.informa.com/WI023238/|website=[[Ward's|wardsintelligence.informa.com]]|date=5 January 2012|access-date=21 December 2021|archive-url=https://web.archive.org/web/20120311095404/http://wardsauto.com/datasheet/wards-10-best-engines-winners-1995-2012|archive-date=11 March 2012|url-status=dead}}</ref>
+
+Following the introduction of the [[BMW B58]] engine in 2015, the N55 began to be phased out.<ref>{{cite web|title=BMW University Technical Training- B58 Engine|url=http://s3.bimmerfile.com.s3.amazonaws.com/wp-content/uploads/2015/09/BMW_B58_Engine.pdf|website=Bimmerfile.com}}</ref>
+
+The [[#S55|BMW S55]] engine is a high performance version of the N55 made by [[BMW M GmbH]], which is used by the [[BMW M3#F80 M3 M3|F80 M3]], [[BMW M4#F82 M4|F82 M4]] and [[BMW M2#BMW M2 Competition|F87 M2 Competition/CS]].
+
+== Design ==
+The main differences between the N55 and its N54 predecessor are the use of a single turbocharger, the addition of Valvetronic and the type of fuel injectors. Whilst the N54 used a twin-turbo arrangement, the newer N55 uses only a single twin scroll turbocharger.<ref name=automedia>{{Cite web |author=Ryan ZumMallen |url=http://www.automedia.com/Blog/Post/Pop-The-Hood-Inside-the-Innovative-N55-Engine-in-the-BMW-335i.aspx |title=Pop The Hood: Inside the Innovative N55 Engine in the BMW 335i |website=Automedia.com |access-date=2012-08-13 |archive-date=2012-08-04 |archive-url=https://web.archive.org/web/20120804203223/http://www.automedia.com/Blog/Post/Pop-The-Hood-Inside-the-Innovative-N55-Engine-in-the-BMW-335i.aspx |url-status=dead }}</ref><ref>{{Cite web|url=http://www.motorauthority.com/news/1033297_bmw-unveils-single-turbo-n55-six-cylinder-engine-for-new-5-series-gt |title=BMW unveils single turbo N55 six-cylinder engine for new 5-series GT |website=Motorauthority.com|date=26 May 2009 }}</ref> [[Valvetronic]] (variable valve lift)<ref name="wardsauto1"/> is claimed to improve throttle response, low-rev torque, exhaust emissions and to reduce fuel consumption by 15%.<ref>{{cite web|title=BMW N54 and N55 Six Cylinder Turbocharged Engines|url=http://www.unixnerd.demon.co.uk/n54.html|website=Unixnerd.demon.co.uk|access-date=20 December 2017|archive-date=20 February 2020|archive-url=https://web.archive.org/web/20200220005506/http://www.unixnerd.demon.co.uk/n54.html|url-status=dead}}</ref><ref name="wardsauto1">{{Cite web|url=https://www.wardsauto.com/news-analysis/bmw-s-newest-i-6-better-not-bigger|title=BMW's Newest I-6 Better, Not Bigger |website=Wardsauto.com}}</ref><ref name="caranddriver.com">{{Cite web|url=http://www.caranddriver.com/reviews/car/10q2/2011_bmw_335i_sedan-first_drive_review |title=2011 BMW 335i Sedan |website=Caranddriver.com}}</ref> The [[gasoline direct injection|direct injection]] system uses solenoid-type injectors, instead of the piezo-type fuel injectors used by its N54 predecessor. The piezo injectors were more expensive and BMW decided they were not worthwhile outside of Europe, because the potential benefits of lean-burn operation could not be fully realised.<ref name="wardsauto1"/>
+
+The exhaust manifold design, called ''Cylinder-bank Comprehensive Manifold (CCM)'' by BMW, aims to reduce the pressure fluctuations to reduce throttle lag and exhaust back-pressure.<ref>{{Cite web|url=http://www.bimmerfile.com/2009/05/01/exclusive-the-new-m-motor-in-depth/ |title=The NEW ///M Motor in Depth |website=Bimmerfile.com|date=May 2009 }}</ref> The twin-scroll turbocharger uses 2 sets of exhaust duct to turn 1 turbine wheel, with cylinders 1–3 and 4–6.<ref>{{cite web|title=Turbocharging Technology (F30) |url=http://www.kneb.net/bmw/F30/08_Turbocharging%20Technology.pdf |website=Kneb.net |url-status=dead |archive-url=https://web.archive.org/web/20150615011535/http://www.kneb.net/bmw/F30/08_Turbocharging%20Technology.pdf |archive-date=2015-06-15 }}</ref> The [[engine management system]] is Bosch MEVD 17.2, and compatible fuels are ROZ (RON) 91–98 octane (minimum RON 95 is recommended),<ref>{{cite web|title=F30 powertrain |url=http://prodcds.bmwuniversity.com/library/bmw/Technician/Technical%20Training%202011/ST1113%20F30%20Complete%20Vehicle/02_F30%20Powertrain.pdf |website=bmwuniversity.com |url-status=dead |archive-url=https://web.archive.org/web/20140603225157/http://prodcds.bmwuniversity.com/library/bmw/Technician/Technical%20Training%202011/ST1113%20F30%20Complete%20Vehicle/02_F30%20Powertrain.pdf |archive-date=2014-06-03 }}</ref><ref>{{cite web|title=Engine Electronics IPO's (F01-02) |url=http://www.kneb.net/bmw/F01-02/02_Engine%20Electronics%20IPOs.pdf |website=Kneb.net |url-status=dead |archive-url=https://web.archive.org/web/20140603225215/http://www.kneb.net/bmw/F01-02/02_Engine%20Electronics%20IPOs.pdf |archive-date=2014-06-03 }}</ref> 
+
+The [[compression ratio]] is 10.2:1, the [[bore (engine)|bore]] is {{convert|84.0|mm|in|abbr=on}}, the [[stroke (engine)|stroke]] is {{convert|89.6|mm|in|abbr=on}} and the displacement is {{convert|2979|cc|cuin|1|abbr=on}}, all of which are unchanged from its predecessor, the N54.
+
+== Versions ==
+{|class="wikitable sortable" style="text-align: center;"
+|-
+!Version !! Power!!Torque!!Redline!! Years
+|-
+|N55B30M0 ||{{convert|225|kW|bhp|0|abbr=on}} <br /> at 5,700–5,800 rpm ||{{convert|400|Nm|lbft|0|abbr=on}} <br /> at 1,200–5,000 rpm || rowspan="9" | 7,000 rpm || 2009–2019
+|-
+|N55B30 ||{{convert|235|kW|bhp|0|abbr=on}} <br /> at 4,505–6,000 rpm || rowspan="3" |{{convert|450|Nm|lbft|0|abbr=on}} <br /> at 1,300–4,500 rpm ||2011–present
+|-
+|N55B30O0 ||{{convert|240|kW|bhp|0|abbr=on}} <br /> at 4,505–6,000 rpm ||2014–2016
+|-
+|N55HP ||{{convert|250|kW|bhp|0|abbr=on}} <br /> at 4,505–6,000 rpm ||2013–2015
+|-
+|rowspan=2|N55B30T0 ||{{convert|265|kW|bhp|0|abbr=on}} <br /> at 5,255–6,000 rpm ||{{convert|465|Nm|lbft|0|abbr=on}} <br /> at 1,350–5,250 rpm || rowspan="2" |2015–present
+|-
+|{{convert|272|kW|bhp|0|abbr=on}} <br /> at 6,500 rpm ||{{convert|500|Nm|lbft|0|abbr=on}} <br /> at 1,450–4750 rpm 
+|-
+| rowspan="3"|Alpina ||{{convert|301|kW|bhp|0|abbr=on}} <br /> at 5,500–6,250 rpm ||{{convert|600|Nm|lbft|0|abbr=on}} at <br /> 3,000–4,000 rpm ||2013–2017
+|-
+|{{convert|324|kW|bhp|0|abbr=on}} <br /> at 5,500–6250 rpm |||{{convert|660|Nm|lbft|0|abbr=on}} at <br /> 3,000–4,000 rpm ||2017–present
+|-
+|{{convert|332|kW|bhp|0|abbr=on}} <br /> at 5,500–6,250 rpm || {{convert|680|Nm|lbft|0|abbr=on}} at <br /> 3,000–4,500 rpm || 2018–present
+|}
+
+=== N55B30M0 ===
+Applications:
+* 2009–2017 [[BMW 5 Series (F10)|F10/F11/F07]] 535i
+* 2010–2013 [[BMW 3 Series (E90)|E90/E91/E92/E93]] 335i
+* 2010–2013 [[BMW 1 Series (E87)|E82/E88]] 135i 
+* 2010–2017 [[BMW F25|F25]] X3 xDrive35i
+* 2011–2013 [[BMW X5 (E70)|E70]] X5 xDrive 35i 
+* 2011–2015 [[BMW 3 Series (F30)|F30/F34/F31]] 335i
+* 2011–2014 [[BMW E71|E71]] X6 xDrive 35i
+* 2012–2015 [[BMW E84|E84]] X1 xDrive35i 
+* 2013–2016 [[BMW 4 Series (F32)|F32/F33/F36]] 435i
+* 2014–2018 [[BMW F15|F15]] X5 xDrive 35i
+* 2014–2019 [[BMW F16|F16]] X6 xDrive35i
+* 2014–2016 [[BMW X4 (F26)|F26]] X4 xDrive 35i
+
+=== N55B30 ===
+Applications:
+* 2011–2018 [[BMW 6 Series (F06/F12/F13)|F06/F12/F13]] 640i<ref>{{Cite web |url=http://blog.caranddriver.com/six-cylinder-2012-bmw-640i-coupe-priced-from-74475-convertible-from-81975/ |title=Six-Cylinder 2012 BMW 640i Coupe Priced from $74,475, Convertible from $81,975 |publisher=Blog.caranddriver.com |access-date=2011-09-24 |archive-date=2011-09-25 |archive-url=https://web.archive.org/web/20110925004150/http://blog.caranddriver.com/six-cylinder-2012-bmw-640i-coupe-priced-from-74475-convertible-from-81975/ |url-status=dead }}</ref>
+* 2012–2013 [[BMW 1 Series (E87)|E82/E88]] 135is<ref>{{Cite web|url=http://www.bmwusa.com/Standard/Content/Vehicles/2013/1/135isCoupe/default.aspx?from=/Standard/Content/Vehicles/2013/1/135isCoupeRD.aspx&return=/Standard/Content/Vehicles/2013/1/135isCoupeRD.aspx/ |title=BMW 135is Coupe – Model Overview|website=Bmwusa.com}}</ref>
+* 2012–2015 [[BMW 1 Series (F20)|F20/F21]] M135i<ref>{{Cite web|url=http://www.autoblog.com/2012/07/24/2012-bmw-m135i-first-drive-review/ |title=2012 BMW M135i |website=Autoblog.com|date=24 July 2012 }}</ref><ref>{{Cite web|url=http://www.ausmotive.com/2012/07/16/bmws-m135i-is-much-better-than-it-looks.html |title=BMW's M135i is much better than it looks |website=Ausmotive.com}}</ref>
+* 2012–2015 [[BMW 7 Series (F01)|F01/F02]] 740i/Li
+
+=== N55B30O0 ===
+Applications:
+* 2013–2016 [[BMW 2 Series (F22)|F22/F23]] M235i
+* 2015–2016 [[BMW 1 Series (F20)|F20/F21]] M135i LCI
+
+=== N55HP ===
+Applications:
+* 2013–2015 [[BMW F30|F30]] ActiveHybrid 3
+* 2011–2016 [[BMW F10|F10]] ActiveHybrid 5
+
+=== N55B30T0 ===
+Applications:
+* 2016–2018 [[BMW M2|F87]] M2 — {{convert|272|kW|bhp|0|abbr=on}}
+* 2015–2018 [[BMW X4#First generation (F26; 2014)|F26]] X4 M40i — {{convert|265|kW|bhp|0|abbr=on}}
+
+=== 272 kW version ===
+The N55B30T0 uses multiple internal components adapted from the S55 as well as other upgrades to the engine internals. The pistons, forged rods, rod bearings, and oil management systems are all adapted from the S55 engine. Other upgrades to the engine internals include a forged crankshaft and cast-iron cylinder liners.
+
+=== Alpina ===
+Biturbo engine by [[Alpina]] based on the N55B30M0. The crankcase is of a different design and specially cast by BMW for Alpina.<ref>{{Cite news|url=http://www.motoring.com.au/the-alpina-philosophy-105210|title=The Alpina philosophy – motoring.com.au|last=Gratton|first=Ken|date=2016-12-23|newspaper=motoring.com.au|language=en-US|access-date=2016-12-24}}</ref>
+
+==== 301 kW version ====
+The N55R20A is Alpina's initial version of the N55, producing {{convert|301|kW|bhp|0|abbr=on}}. The twin turbocharger system of the N54B30 is used, replacing the twin-scroll charging system originally applied.
+
+Applications:
+* 2013–2017 [[Alpina B3 (F30)|Alpina F30 B3]] Bi-Turbo<ref>{{Cite web|url=http://rvcs-prodweb.dot.gov.au/perl/47254_1126450_RVD_20Apr2015083100.cmd|title=Road Vehicle Descriptor (RVD1)|website=rvcs-prodweb.dot.gov.au|access-date=2016-11-24|archive-date=2016-11-25|archive-url=https://web.archive.org/web/20161125045214/http://rvcs-prodweb.dot.gov.au/perl/47254_1126450_RVD_20Apr2015083100.cmd|url-status=dead}}</ref>
+* 2013–2017 [[Alpina B4|Alpina F33/F34 B4]] Bi-Turbo
+
+==== 324 kW version ====
+Applications:
+* 2017–present Alpina F30/F31 B3 S Bi-Turbo
+* 2017–present Alpina F32/F33 B4 S Bi-Turbo
+
+==== 332 kW version ====
+Application:
+
+* 2018–present [[Alpina B4#B4 S Edition 99|Alpina F32/F33 B4]] S Bi-Turbo Edition 99
+
+==<span class="anchor" id="S55"></span>S55 engine==
+{{Infobox automobile engine
+|name           =BMW S55 engine
+|image          =2014 Washington Auto Show (12140974934).jpg
+|configuration  =[[Straight-six engine|Straight-6]]
+|displacement   ={{convert|2979|cc|cuin|0|abbr=on|lk=on}}
+| bore = {{convert|84|mm|abbr=on|lk=on}}
+| stroke = {{convert|89.6|mm|abbr=on}}
+|block          =Aluminium
+|valvetrain     =[[Overhead_camshaft#Dual_overhead_camshaft|DOHC]], with [[variable valve timing|VVT]] & [[variable valve lift|VVL]]
+| redline = 7,600 RPM
+|turbocharger   = [[Twin-turbo]]
+|fueltype       =[[Petrol engine|Petrol]]
+|predecessor    =[[BMW M54#S55|BMW S54]]
+|successor      =[[BMW B58#S58|BMW S58]]
+}}
+
+The S55 engine is the high-performance engine developed from the N55 by BMW M. It was introduced in the [[BMW_M3#F80_M3|F80 M3]] and [[BMW_M4#F82_M4|F82 M4]] replacing the [[BMW S65]] naturally aspirated V8 engine used in the previous generation M3 and was later used in the [[BMW M2#BMW M2 Competition|F87 M2 Competition/CS]].
+
+Differences compared with the N55 include a closed-deck engine block, lightweight crankshaft, different crankshaft bearings, strengthened pistons/rods, different springs/valve material, twin turbos, twin fuel pumps, active exhaust, revised cooling system and intercoolers.<ref>{{cite web|title=F80 M3 / F82 M4 Complete Technical Docs (With S55 Engine Guide)|url=http://f80.bimmerpost.com/forums/showthread.php?t=1015603|website=Bimmerpost.com}}</ref><ref>{{cite web|title=Meet The New S55 Engine|url=http://www.bmwblog.com/2013/09/25/meet-new-s55-engine/|website=Bmwblog.com|date=25 September 2013 }}</ref>
+
+=== {{convert|205|kW|bhp|0|abbr=on}} – {{convert|268|kW|bhp|0|abbr=on}} version ===
+Applications:
+* 2020–2021 [[BMW 2 Series (F22)|F87]] M2 CS Racing<ref>{{Cite news|url=https://www.autodevot.com/2020/02/bmw-m2-cs-racing-north-american-debut-24-hours-daytona/|title=BMW M2 CS Racing makes its North American debut|work=autodevot.com|access-date=2020-02-02|language=en}}</ref>
+
+=== {{convert|302|kW|bhp|0|abbr=on}}, {{Convert|550|Nm|lbft|abbr=on}} version ===
+Applications:
+* 2019–2021 [[BMW M2#BMW M2 Competition|F87]] M2 Competition<ref>{{Cite news|url=https://www.motormag.com.au/news/1804/bmw-m2-competition-specs-leaked|title=BMW M2 Competition specs leaked|work=MotorMag.com.au|access-date=2018-04-10|language=en}}</ref>
+
+=== {{convert|317|kW|bhp|0|abbr=on}} version ===
+Applications:
+* 2014–2018 [[BMW F80|F80]] M3<ref name=":0">{{cite web|title=2013 BMW M3 F80 specifications|url=http://www.carfolio.com/specifications/models/car/?car=359381|website=Carfolio.com|access-date=21 July 2017}}</ref>
+* 2014–2020 [[BMW F82|F82/F83]] M4
+=== {{convert|331|kW|bhp|0|abbr=on}} version ===
+Applications:
+* 2016–2018 [[BMW F80|F80]] M3 with Competition package<ref>{{cite web|url=https://www.bmw.com.au/bmw-cars/m-series/2017-m3-sedan|title=BMW M3 Sedan – BMW Australia|website=Bmw.com.au|access-date=30 May 2018|archive-date=2 May 2018|archive-url=https://web.archive.org/web/20180502230611/https://www.bmw.com.au/bmw-cars/m-series/2017-m3-sedan|url-status=dead}}</ref>
+* 2016–2020 [[BMW F82|F82/F83]] M4 with Competition package<ref>{{cite web|url=https://www.bmw.com.au/bmw-cars/m-series/2017-m4-coupe|title=BMW M4 Coupé – BMW Australia|website=Bmw.com.au|access-date=30 May 2018|archive-date=2 May 2018|archive-url=https://web.archive.org/web/20180502213719/https://www.bmw.com.au/bmw-cars/m-series/2017-m4-coupe|url-status=dead}}</ref>
+*2020–2021 [[BMW M2#M2 CS|F87]] M2 CS<ref>{{Cite web|url=https://bimmerlife.com/2019/11/06/444-horsepower-m2-cs-can-be-had-with-3-pedals/|title=444-Horsepower M2 CS Can Be Had With 3 Pedals|date=2019-11-06|website=BimmerLife|language=en-US|access-date=2019-12-31}}</ref>
+
+=== {{convert|338|kW|bhp|0|abbr=on}} version ===
+Applications:
+* 2018 [[BMW F80|F80]] M3 CS<ref name=":0" />
+* 2017–2020 [[BMW F82|F82]] M4 CS
+
+=== {{convert|368|kW|hp|0|abbr=on}} version ===
+This version produces {{convert|368|kW|hp|0|abbr=on}} and {{convert|600|Nm|lbft|0|abbr=on}},<ref>{{cite web|title=2015 BMW M4 GTS specifications|url=https://www.carfolio.com/specifications/models/car/?car=440011|website=Carfolio.com|access-date=30 December 2017}}</ref> due to the use of a [[Water injection (engine)|water injection]] system. Three water injectors are used to lower the temperature of the air in the intake manifold, allowing the boost pressure to be increased from {{convert|17.2|psi|bar|abbr=on}} to {{convert|21.6|psi|bar|abbr=on}}.<ref>{{cite web|title=First Drive Review – 2016 BMW M4 GTS|url=https://www.caranddriver.com/reviews/2016-bmw-m4-gts-drive-review|website=Caranddriver.com|access-date=30 December 2017}}</ref><ref>{{cite web|title=The 2016 BMW M4 GTS is a street-legal water-injected track monster, and it's coming to the US|url=http://autoweek.com/article/car-news/just-add-water-2016-bmw-m4-gts-street-legal-water-injected-track-monster-and-its|website=Autoweek.com|access-date=30 December 2017}}</ref>
+
+Applications:
+* 2015–2016 [[BMW F82|F82]] M4 GTS
+* 2017 F82 M4 DTM Champion Edition<ref>{{cite web |title=BMW M4 DTM Champion Edition marking Marco Wittmann's 2016 DTM championship title. |url=https://www.press.bmwgroup.com/global/article/detail/T0264938EN/bmw-m4-dtm-champion-edition-marking-marco-wittmann%E2%80%99s-2016-dtm-championship-title?language=en |website=BMW PressClub Global |access-date=31 October 2019}}</ref>
+
+==See also==
+* [[List of BMW engines]]
+
+==References==
+{{Reflist}}
+
+{{BMW automotive petrol engines: 2000s to 2010s}}
+
+[[Category:BMW engines|N55]]
+[[Category:Products introduced in 2009]]
+[[Category:Straight-six engines]]
+[[Category:Gasoline engines by model]]

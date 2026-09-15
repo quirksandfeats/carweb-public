@@ -7586,6 +7586,172 @@ Rules:
   // generation already uses; a guess that just redirects back to the
   // nameplate overview page is no upgrade at all (see fetchArticleDigest's
   // resolvedTitle).
+  // ---------- engines: reading an engine article ----------
+  // Real user request: "the link to, for example, the engine M256 contains
+  // information about the variants of that motor - this should be like the
+  // 'nameplate' equivalent for the main page, but now we use the engines and
+  // transmissions as the 'nameplates'. M256 also contains information about
+  // the cars which contain these engines."
+  //
+  // Written against the real Mercedes-Benz M256 and BMW N55 articles, which
+  // agree on shape: an {{Infobox automobile engine}}, a table of variants with
+  // power/torque/years, then one sub-section per variant whose body is a
+  // bulleted list of the cars that got it. What they disagree about is
+  // everything else, and the disagreements are the whole job:
+  //
+  //   - The link target is not always the car. The M256's
+  //     "[[Austro-Daimler|Austro Daimler Bergmeister PHEV]]" points at the
+  //     COMPANY; the car's name is only in the display text. Matching on the
+  //     target alone would wire an engine to a manufacturer article.
+  //   - The target often carries a section anchor:
+  //     "[[Mercedes-Benz S-Class (W223)#Technical data|S 400 L/S 450 L]]".
+  //   - One M256 entry is not a bullet at all: an image got glued to the front
+  //     of the line, so "[[File:IAA 2021...]]2018-2023 [[...CLS-Class
+  //     (C257)|...]]" has no "*" and opens with a File link.
+  //   - One entry is commented out with <!-- --> and must stay out.
+  //   - Not every sub-heading is a variant. The N55 article also has
+  //     "=== 272 kW version ===", "=== Alpina ===", and an entire SECOND
+  //     engine ("== S55 engine =="). Requiring the heading to carry the
+  //     engine's own name keeps all three out without a list of exceptions.
+  const ENGINE_INFOBOX_RE = /\{\{\s*Infobox\s+automobile\s+engine\b/i;
+
+  function isEngineArticle(wikitext) { return ENGINE_INFOBOX_RE.test(String(wikitext || "")); }
+
+  // The infobox as a plain field map. Brace-counted, because a field value
+  // routinely contains {{convert}} and a naive split on "|" tears it apart.
+  function engineInfobox(wikitext) {
+    const src = String(wikitext || "");
+    const m = ENGINE_INFOBOX_RE.exec(src);
+    if (!m) return null;
+    let i = m.index + 2, depth = 1;
+    while (i < src.length && depth > 0) {
+      if (src.startsWith("{{", i)) { depth++; i += 2; continue; }
+      if (src.startsWith("}}", i)) { depth--; i += 2; continue; }
+      i++;
+    }
+    const body = src.slice(m.index + m[0].length, i - 2);
+    const out = {};
+    let depth2 = 0, buf = "";
+    const push = () => {
+      const eq = buf.indexOf("=");
+      if (eq > 0) out[buf.slice(0, eq).trim().toLowerCase()] = buf.slice(eq + 1).trim();
+      buf = "";
+    };
+    for (let k = 0; k < body.length; k++) {
+      const two = body.substr(k, 2);
+      if (two === "{{" || two === "[[") { depth2++; buf += two; k++; continue; }
+      if (two === "}}" || two === "]]") { depth2--; buf += two; k++; continue; }
+      if (body[k] === "|" && depth2 <= 0) { push(); continue; }
+      buf += body[k];
+    }
+    push();
+    return out;
+  }
+
+  function stripEngineMarkup(s) {
+    return String(s || "")
+      .replace(/<ref[^>]*\/?>[\s\S]*?<\/ref>|<ref[^>]*\/>/gi, "")
+      .replace(/\[\[\s*(?:File|Image)\s*:[^\]]*\]\]/gi, "")
+      // {{convert}} and {{cvt}} carry the actual number, so they are unwrapped
+      // rather than dropped: an infobox is mostly these, and stripping them
+      // wholesale left a displacement field reading "<br/>".
+      .replace(/\{\{\s*c(?:onvert|vt)\s*\|([^{}]*)\}\}/gi, (m0, args) => {
+        const parts = args.split("|").map(x => x.trim()).filter(x => x && !/=/.test(x));
+        return parts.length >= 2 ? parts[0] + " " + parts[1] : (parts[0] || "");
+      })
+      .replace(/\{\{[^{}]*\}\}/g, "")
+      .replace(/\[\[([^\]|]+)(?:\|([^\]]+))?\]\]/g, (m0, t, d) => d || t)
+      .replace(/<[^>]+>/g, " ")
+      .replace(/'{2,}/g, "")
+      .replace(/^[*#:;\s]+/, "")
+      .replace(/\s+/g, " ")
+      .trim();
+  }
+
+  // One "* 2020-present [[Target|Display]] (note)" line.
+  const APP_YEARS_RE = /(\d{4})\s*[-–—]\s*(\d{4}|present|Present)?/;
+  function parseApplicationLine(raw) {
+    let line = String(raw || "");
+    if (!line.trim()) return null;
+    line = line.replace(/<ref[^>]*\/?>[\s\S]*?<\/ref>|<ref[^>]*\/>/gi, "")
+               .replace(/\{\{\s*(?:citation needed|cn)[^{}]*\}\}/gi, "")
+               .replace(/\[\[\s*(?:File|Image)\s*:[^\]]*\]\]/gi, "");
+    const link = line.match(/\[\[([^\]|#]+)(?:#[^\]|]*)?(?:\|([^\]]*))?\]\]/);
+    if (!link) return null;
+    const target = link[1].trim();
+    const display = (link[2] || link[1]).trim();
+    if (!target || /^(?:File|Image|Category)\s*:/i.test(target)) return null;
+    const ys = APP_YEARS_RE.exec(line);
+    const note = (line.match(/\(([^()]*only[^()]*)\)/i) || [])[1] || null;
+    return {
+      target,
+      display: display.replace(/\s+/g, " ").trim(),
+      // BMW keeps the trim OUTSIDE the link ("[[...|F10/F11/F07]] 535i"), so
+      // the whole line's plain text is kept too: it is what says which car,
+      // in the cases where the target is only a company.
+      text: stripEngineMarkup(line),
+      yearStart: ys ? Number(ys[1]) : null,
+      yearEnd: ys && ys[2] && /^\d/.test(ys[2]) ? Number(ys[2]) : null,
+      note: note ? note.trim() : null,
+    };
+  }
+
+  function engineApplications(body) {
+    const src = String(body || "").replace(/<!--[\s\S]*?-->/g, "");
+    const out = [];
+    const seen = new Set();
+    src.split(/\n/).forEach(line => {
+      if (!/\[\[/.test(line)) return;
+      if (/^\s*[!|]/.test(line)) return;          // a wikitable row, not an application
+      if (!APP_YEARS_RE.test(line)) return;       // every real entry opens with a year
+      const e = parseApplicationLine(line);
+      if (!e) return;
+      const key = norm(e.target) + "|" + norm(e.display);
+      if (seen.has(key)) return;
+      seen.add(key);
+      out.push(e);
+    });
+    return out;
+  }
+
+  // The engine's own variants, as sections. `name` is its short name ("M256",
+  // "N55") -- a heading has to carry it to count.
+  function engineVariants(wikitext, name) {
+    const key = norm(name || "");
+    const secs = wikitextSections(wikitext);
+    const out = [];
+    for (const sec of secs) {
+      const t = norm(sec.title);
+      if (!key || !t.startsWith(key) || t === key) continue;
+      out.push({ code: sec.title.replace(/\s+/g, " ").trim(),
+                 applications: engineApplications(sec.body) });
+    }
+    return out;
+  }
+
+  // The whole article, in the shape the engine layer stores.
+  function readEngineArticle(wikitext, name) {
+    const info = engineInfobox(wikitext) || {};
+    const short = String(name || info.name || "").replace(/^[A-Z][A-Za-z-]*\s+(?=[A-Z]\d)/, "").trim();
+    const variants = engineVariants(wikitext, short);
+    // No variant sections at all still means applications -- they just sit in
+    // the article body. Same fallback the nameplate side uses for a car that
+    // turns out to have only one generation.
+    const loose = variants.length ? [] : engineApplications(wikitext);
+    return {
+      name: stripEngineMarkup(info.name || name || ""),
+      shortName: short,
+      manufacturer: stripEngineMarkup(info.manufacturer || ""),
+      production: stripEngineMarkup(info.production || ""),
+      configuration: stripEngineMarkup(info.configuration || ""),
+      displacement: stripEngineMarkup(info.displacement || ""),
+      predecessor: stripEngineMarkup(info.predecessor || ""),
+      successor: stripEngineMarkup(info.successor || ""),
+      variants,
+      applications: loose,
+    };
+  }
+
   // ---------- reading the link a generation's own section points at ----------
   // Real user request: "not all the info about each generation exists within
   // this page, but there are links in each of the sections where the
@@ -8422,6 +8588,8 @@ Rules:
     // The section-reading half of the generation-article lookup, exposed so
     // the suite can drive it against real cached wikitext without a network.
     wikitextSections, hatnoteArticle, proseArticle, sectionForCode,
+    isEngineArticle, engineInfobox, engineVariants, engineApplications,
+    parseApplicationLine, readEngineArticle,
     articleFromNameplateSection, findGenerationArticle,
     orphanedEntries, orphanKind, pruneStandInOrphans, clearRenamedOrphans,
     // The archive both of those write to. `store` is a shallow copy of the

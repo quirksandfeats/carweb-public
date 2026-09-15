@@ -16,10 +16,15 @@
 //     Mk4" and every shape the guesser tries looks like "Volkswagen Golf
 //     (Mk4)".
 //
-//   Mercedes-Benz E-Class -- no hatnotes at all; the per-generation article
-//     is linked from prose, surrounded by links to 4Matic, catalytic
-//     converters and Motor Trend awards. Here the guesser is the one that
-//     works, because those articles ARE named "Mercedes-Benz E-Class (W213)".
+//   Mercedes-Benz E-Class -- the article this feature was asked for. It uses
+//     lowercase {{main|...}}, puts an image in front of one of them, and in
+//     the W212's case states the article one level down, in a sub-section,
+//     with nothing on the generation heading itself.
+//
+// A prose fallback exists for sections that state nothing, and is tested on a
+// written-out shape rather than a real article, because neither cached
+// nameplate needs it -- which is itself the finding: stating the article is
+// the norm, and guessing at title shapes was only ever a workaround.
 //
 // So this pins down: the stated link wins where there is one, an unrelated
 // link is never followed, and neither path is allowed to return something
@@ -46,9 +51,11 @@ function fakeCtx() {
 const GOLF = fs.readFileSync(path.join(CACHE, "Volkswagen_Golf.wikitext"), "utf-8");
 const GCLASS = fs.readFileSync(path.join(CACHE, "Mercedes-Benz_G-Class.wikitext"), "utf-8");
 
-// The E-Class shape, written out as wikitext because the cache has no
-// hatnote-free umbrella in it: generation headings, prose links to the real
-// article, and plenty of links that are not it.
+const ECLASS_REAL = fs.readFileSync(path.join(CACHE, "Mercedes-Benz_E-Class.wikitext"), "utf-8");
+
+// A hatnote-free umbrella, written out because no real cached article is one:
+// generation headings, prose links to the real article, and plenty of links
+// that are not it.
 const ECLASS = [
   "{{Infobox automobile\n| name = Mercedes-Benz E-Class\n}}",
   "The E-Class is an executive car.",
@@ -135,7 +142,42 @@ const LF = window.LlmFamilies;
         !!ev2 && LF.hatnoteArticle(ev2.body) === null, ev2 && LF.hatnoteArticle(ev2.body));
 }
 
-// ---------- 3. prose, with the distractors the user warned about ----------
+// ---------- 3. the real E-Class, which states every one of them ----------
+{
+  const w213 = LF.sectionForCode(ECLASS_REAL, "W213");
+  check("the real E-Class names its W213 article outright",
+        w213 && LF.hatnoteArticle(w213.body) === "Mercedes-Benz E-Class (W213)",
+        w213 && LF.hatnoteArticle(w213.body));
+  check("...lowercase {{main}} counts the same as {{Main article}}",
+        /\{\{main\|/.test(w213.body), w213.body.slice(0, 80));
+
+  // An image sits in front of this one, on the same line.
+  const w120 = LF.sectionForCode(ECLASS_REAL, "W120");
+  check("a hatnote behind an image is still found",
+        w120 && LF.hatnoteArticle(w120.body) === "Mercedes-Benz W120/W121",
+        w120 && LF.hatnoteArticle(w120.body));
+
+  // The W212 heading states nothing; its "Sedan and wagon (W212)"
+  // sub-section is what carries the hatnote.
+  const w212 = LF.sectionForCode(ECLASS_REAL, "W212");
+  check("a generation that states its article one level down is still read",
+        w212 && LF.hatnoteArticle(w212.body) === "Mercedes-Benz E-Class (W212)",
+        w212 && LF.hatnoteArticle(w212.body));
+  check("...and the level-2 heading is the one that owns the code, not the "
+        + "sub-section", w212 && /Fourth generation/.test(w212.title), w212 && w212.title);
+
+  const w214 = LF.sectionForCode(ECLASS_REAL, "W214");
+  check("the newest generation resolves too",
+        w214 && LF.hatnoteArticle(w214.body) === "Mercedes-Benz E-Class (W214)",
+        w214 && LF.hatnoteArticle(w214.body));
+
+  // "1993 re-branding" is a section with no code; nothing should match it.
+  check("a section that is not a generation matches no code",
+        LF.sectionForCode(ECLASS_REAL, "re-branding") === null ||
+        !/^1993/.test((LF.sectionForCode(ECLASS_REAL, "W999") || {}).title || ""));
+}
+
+// ---------- 4. prose, with the distractors the user warned about ----------
 {
   const sec = LF.sectionForCode(ECLASS, "W213");
   check("the W213 section is found", !!sec, sec && sec.title);
@@ -160,7 +202,7 @@ const LF = window.LlmFamilies;
         LF.proseArticle(sec.body, "BMW", "W213") === null);
 }
 
-// ---------- 4. end to end, through the real lookup ----------
+// ---------- 5. end to end, through the real lookup ----------
 (async () => {
   asked.length = 0;
   const golfMk4 = { label: "Golf Mk4", make: "Volkswagen", wp: "Volkswagen Golf" };

@@ -1,0 +1,98 @@
+{{Infobox automobile engine
+| name = Mercedes-Benz M256
+| image = Mercedes M256 engine.png
+| manufacturer = [[Mercedes-Benz]]
+| aka = 
+| production = 2017–present
+| configuration = [[Straight-six engine|Straight-six]]
+| displacement = {{convert|2498|cc|L|1|order=flip|abbr=on}}<br/>{{convert|2999|cc|L|1|order=flip|abbr=on}}
+| bore = {{cvt|83|mm|2}}
+| stroke = {{cvt|77|mm|2}}<br/>{{cvt|92.4|mm|2}}
+| block = [[Aluminium alloy]]
+| head = Aluminium alloy
+| valvetrain = [[DOHC]] [[Multi-valve#Four valves|4 valves]] x cyl
+| compression = 10.5:1
+| supercharger = BorgWarner eBooster
+| turbocharger = Single-turbo twin-scroll
+| fuelsystem = [[Gasoline direct injection|Direct injection]]
+| management = 
+| fueltype = [[Petrol engine|Petrol]]
+| oilsystem = [[Dry sump]]. Oil supplied by [[Petronas]]
+| coolingsystem = [[Radiator (engine cooling)|Water cooled]]
+| power = {{convert|230-320|kW|PS|0|abbr=on}}
+| specpower = 
+| torque = {{convert|450-520|Nm|lbft|0|abbr=on}}
+| length = 
+| width = 
+| height = 
+| diameter = 
+| weight = 
+| predecessor = [[Mercedes-Benz M276 engine|Mercedes-Benz M276]]
+| successor = 
+}}
+
+The Mercedes-Benz '''M256''' engine is a [[turbocharger|turbocharged]] [[straight-six engine]] produced since 2017, when it was first introduced on the [[Mercedes-Benz S-Class (W222)|W222 S 450]].<ref>{{Cite web|url=http://www.motortrend.com/cars/mercedes-benz/s-class/2018/2018-mercedes-benz-s500-european-spec-first-drive-review/|title=2018 Mercedes-Benz S500 European-Spec First Drive: Ice, Ice Baby. Too Cool, Too Cool|website=MotorTrend|date=19 July 2017|access-date=2018-07-03}}</ref> It replaces the previous [[Mercedes-Benz M276 engine|M276 V6 engine]],<ref>{{Cite news|url=https://www.motor1.com/news/227616/mercedes-phases-out-v6-engines/|title=Mercedes To Phase Out V6 Engines In Favor Of Straight-Sixes|work=Motor1.com|access-date=2018-07-03|language=en}}</ref> and is Mercedes' first petrol-powered straight-six engine since the [[Mercedes-Benz M104 engine|M104 engine]].<ref>{{Cite web|url=https://www.marklines.com/en/report_all/rep1752_201808|title=Mercedes-Benz M256 inline 6-cylinder gasoline engine - MarkLines Automotive Industry Portal}}</ref>
+
+== Design ==
+The M256 shares a modular design with other [[Straight-four engine|inline-four]] and [[V8 engine]]s, which are all {{convert|500|cc|abbr=on}} per cylinder.<ref>{{Cite news|url=http://autoweek.com/article/technology/why-mercedes-new-inline-six-matters-even-if-no-one-sure-when-well-see-it|title=Why Mercedes' new inline six matters, even if no one is sure when we'll see it|work=Autoweek|access-date=2018-07-03}}</ref> It uses an aluminium alloy block with [[overhead camshaft|dual overhead camshafts]] and has [[Multi-valve#Four valves|4 valves]] per cylinder.<ref>{{Cite news|url=http://www.automobilemag.com/news/first-drive-2018-mercedes-benz-s-class/|title=First Drive: 2018 Mercedes-Benz S-Class {{!}} Automobile Magazine|date=2017-07-18|work=Automobile Magazine|access-date=2018-07-03|language=en-US}}</ref> The M256 uses a 48V electrical system to operate a [[BorgWarner]] [[electric supercharger]],<ref>{{Cite magazine|url=https://www.wired.com/2017/04/little-fan-fixes-turbochargers-biggest-problem/ |first1=Alex |last1=Davies |title=This Little Fan Could Fix the Turbocharger's Biggest Problem—And Make Cars Way More Efficient|magazine=WIRED|access-date=2018-07-03|language=en-US}}</ref> which can spin up to 70,000 rpm to reduce turbo lag.<ref>{{Cite news|url=https://www.caranddriver.com/news/nine-things-you-must-know-about-the-new-mercedes-inline-six|title=Nine Things You Must Know about the New Mercedes Inline-Six|work=Car and Driver|access-date=2018-07-03|language=en}}</ref> In the S 500's G variant engine, an integrated starter [[alternator (automotive)|alternator]] also provides up to {{convert|16|kW|PS|0|abbr=on}} and {{convert|250|Nm|lbft|0|abbr=on}} of boost, and replaces the drive belts by managing the water pump and air conditioning; allowing for a smaller and lighter engine.<ref>{{Cite news|url=https://www.roadandtrack.com/new-cars/car-technology/news/a31366/mercedes-benz-m256-inline-six/|title=Why Mercedes-Benz Is Going All In on Straight-Sixes|date=2016-11-01|work=Road & Track|access-date=2018-07-03|language=en-US}}</ref>
+
+== Models ==
+Engine output excluding the additional 48V system boost available on the S 500:<ref>{{Cite web |last=Kuruvilla |first=George |title=Everything you need to know about the all-new 2021 Mercedes-Benz S-Class |url=https://www.khaleejtimes.com/drivers-seat/everything-you-need-to-know-about-the-all-new-2021-mercedes-benz-s-class |access-date=2022-12-18 |website=Khaleej Times |language=en}}</ref>
+{| class="wikitable sortable" style="text-align: center;"
+!Engine
+!Power
+!Torque
+!Years
+|-
+|M256 E25 <br> DEH LA GR
+|{{convert|230|kW|PS hp|0|abbr=on}} - {{convert|270|kW|PS hp|0|abbr=on}} <br> at 5,500–6,100 rpm
+|{{convert|450|Nm|lbft|0|abbr=on}} <br> at 1,600–4,000 rpm
+| rowspan="1" |2021–
+|-
+|M256 E30 <br> DEH LA GR
+|{{convert|270|kW|PS hp|0|abbr=on}} <br> at 5,500–6,100 rpm
+|{{convert|500|Nm|lbft|0|abbr=on}} <br> at 1,600–4,000 rpm
+| rowspan="3" |2017–
+|-
+|M256 E30 <br> DEH LA G
+|{{convert|320|kW|PS hp|0|abbr=on}} <br> at 5,900–6,100 rpm
+|{{convert|520|Nm|lbft|0|abbr=on}} <br> at 1,800–5,500 rpm
+|}
+
+=== M256 E25 DEH LA GR ===
+* 2021-present [[Mercedes-Benz S-Class (W223)#Technical data|S 400 L/S 450 L]] (China only)
+* 2021-present [[Mercedes GLE#Fourth generation (W167/C167; 2018)|GLE 450/GLS 450]] (China only)
+
+=== M256 E30 DEH LA GR ===
+* 2017–2020 [[Mercedes-Benz S-Class (W222)|W222 S 450 / S 450 4MATIC]] (European models only)<ref>{{Cite news|url=https://www.caranddriver.com/reviews/2018-mercedes-benz-s450-first-drive-review|title=2018 Mercedes-Benz S 450|work=Car and Driver|access-date=2018-07-03|language=en}}</ref>
+[[File:IAA 2021, Munich (IAA10148).jpg|thumb|Partial cutaway of an M256 engine ]]2018–2023 [[Mercedes-Benz CLS-Class (C257)|C257 CLS 450 / CLS 450 4MATIC]]<ref>{{Cite news|url=https://www.drive.com.au/new-car-reviews/2018-mercedes-benz-cls-review-116389|title=2018 Mercedes-Benz CLS review - Mercedes-Benz's new CLS from the passenger seat|last=Kable|first=Greg|date=2017-11-19|work=Drive|access-date=2018-07-03|language=en-US}}</ref>
+* 2019–present [[Mercedes-AMG GT 4-Door Coupé|X290 AMG GT 43 / GT 43 4MATIC+]]
+* 2019–present [[Mercedes-AMG GT 4-Door Coupé|X290 AMG GT 50 / GT 50 4MATIC+]] (China only)
+* 2019–present [[Mercedes-Benz M-Class|V167 GLE 450 4MATIC]]
+* 2019–present [[Mercedes-Benz GLS-Class (X167)|X167 GLS 450 4MATIC]]
+* 2019–present [[Austro-Daimler|Austro Daimler Bergmeister PHEV]]{{Citation needed|date=October 2024}}
+* 2020–present [[Mercedes-Benz E-Class (W213)|W213 E 450 4MATIC]]
+* 2023–present [[Mercedes-Benz E-Class (W214)|W214 E 450 4MATIC]]
+* 2021–present [[Mercedes-Benz S-Class (W223)|W223 S 450 4MATIC]]
+* 2021–present [[Mercedes-Benz S-Class (W223)|W223 S 580 e 4MATIC]]
+
+=== M256 E30 DEH LA G ===
+* 2017–2020 [[Mercedes-Benz S-Class (W222)|W222 S 500]]<ref>{{Cite news|url=https://www.autoevolution.com/news/aston-martin-straight-6-engine-could-come-back-thanks-to-mercedes-benz-120452.html|title=Aston Martin Straight-6 Engine Could Come Back Thanks To Mercedes-Benz|last=Panait|first=Mircea|date=2017-09-16|work=autoevolution|access-date=2018-07-03|language=en-us}}</ref>
+* 2018–2023 [[Mercedes-Benz E-Class (W213)|W213 E 53 4MATIC+]]<ref>{{Cite news|url=https://www.roadandtrack.com/car-shows/detroit-auto-show/a14794662/2019-mercedes-amg-cls53-e53-specs-photos-info/|title=The 2019 Mercedes CLS53 and E53 Bring Straight-Sixes Back to AMG|date=2018-01-15|work=Road & Track|access-date=2018-07-03|language=en-US}}</ref>
+* 2018–2023 [[Mercedes-Benz CLS-Class (C257)|C257 CLS 53 4MATIC+]]<ref>{{Cite news|url=https://www.motor1.com/news/227200/mercedes-amg-cls53-e53-debut-detroit/|title=Hot Hybrids: Mercedes Launches Electrified AMG 53 Range|work=Motor1.com|access-date=2018-07-03|language=en}}</ref>
+* 2018–present [[Mercedes-AMG GT 4-Door Coupé|X290 AMG GT 53 4MATIC+]]<ref>{{Cite web|url=https://www.autocar.co.uk/car-news/new-cars/630bhp-mercedes-amg-gt-4-door-coup%C3%A9-edition-1-version-confirmed|title=630bhp Mercedes-AMG GT 4-door Coupé: Edition 1 version confirmed {{!}} Autocar|website=www.autocar.co.uk|language=en|access-date=2018-07-03}}</ref>
+* 2020–present [[Mercedes-Benz GLE-Class|V167 GLE 53 4MATIC]]
+* 2021–present [[Mercedes-Benz S-Class (W223)|W223 S 500 4MATIC]]
+* 2021–present [[Aston Martin DBX|Aston Martin DBX Straight-Six]]
+* 2024–present [[Mercedes-Benz CLE|CLE 53 AMG]]
+<!--* 2024–present [[Mercedes-Benz E-Class (W214)|Mercedes-AMG E63 S E-Performance]]-->
+
+== References ==
+{{reflist|30em}}
+
+== External links ==
+* [http://media.daimler.com/marsMediaSite/en/instance/ko/New-six-cylinder-petrol-engine-M-256-Fascinating-48-V-drive.xhtml?oid=14315791 Press release]
+
+[[Category:Mercedes-Benz engines]]
+[[Category:Straight-six engines]]
+[[Category:Gasoline engines by model]]

@@ -1,0 +1,395 @@
+{{Short description|German executive car}}
+{{Infobox automobile
+| image = Mercedes-Benz W214 1X7A1841.jpg
+| name = Mercedes-Benz E-Class
+| caption = 
+| manufacturer = {{ubl
+  | [[Daimler-Benz]] (1993–1998)
+  | [[DaimlerChrysler]] (1998–2007)
+  | [[Daimler AG]] (2007–2022)
+  | [[Mercedes-Benz Group]] (2022–present)
+}}
+| production = E-Class nomenclature adopted in July 1993
+| class = [[Executive car]] ([[E-segment|E]])
+| layout = [[Front-engine, rear-wheel-drive]] or [[Front-engine, all-wheel-drive|all-wheel-drive]]
+| predecessor = [[Mercedes-Benz W124]] (pre-facelift models, 1984–1993)
+}}
+
+The '''Mercedes-Benz E-Class''' is a range of [[executive car]]s manufactured by German automaker [[Mercedes-Benz]] in various engine and body configurations. Produced since September 1953, the E-Class falls as a midrange in the Mercedes line-up, and has been marketed worldwide across five generations.
+
+Before 1993, the ''E'' suffix in Mercedes-Benz model names referred to ''Einspritzmotor'' (German for [[fuel injection engine]]) when in the early 1970s fuel injection began to proliferate beyond its upper-tier luxury and sporting models. By the launch of the facelifted [[Mercedes-Benz W124|W124]] in 1993 fuel injection was ubiquitous in Mercedes engines, and the ''E'' was adopted as a prefix (i.e., E 220). The model line is referred to officially as the ''E-Class'' (or ''E-Klasse''). All generations of the E-Class have offered either [[rear-wheel drive]] or Mercedes' [[4Matic]] [[four-wheel drive]] system.
+
+The E-Class is Mercedes-Benz' best-selling model, with more than 16 million sold by 2023.<ref>{{Cite web |date=2023-04-25 |title=A bridge between tradition and digitalization: the new E-Class |url=http://media.mbusa.com/releases/a-bridge-between-tradition-and-digitalization-the-new-e-class |access-date=2026-03-25 |website=MBUSA Newsroom |language=en}}</ref> The first E-Class series was originally available as four-door [[sedan (car)|sedan]], five-door [[station wagon|estate]], two-door coupe and two-door convertible. From 1997 to 2009, the equivalent coupe and convertible were sold under the [[Mercedes-Benz CLK-Class]] nameplate; which was based on the mechanical underpinnings of the smaller C-Class while borrowing the styling and some powertrains from the E-Class, a trend continued with the C207 E-Class coupe/convertible which was sold parallel to the W212 E-Class sedan/wagon. With the latest incarnation of the E-Class released for the 2017 model year, all body styles share the same W213 platform.<ref>{{cite web|url=http://www.roadandtrack.com/new-cars/first-drives/a32939/2018-mercedes-e400-coupe-first-drive/|title=The 2018 Mercedes E400 Coupe Is a Modern Take On an Old Formula|date=15 March 2017|access-date=16 March 2017|archive-date=17 March 2017|archive-url=https://web.archive.org/web/20170317054728/http://www.roadandtrack.com/new-cars/first-drives/a32939/2018-mercedes-e400-coupe-first-drive/|url-status=live}}</ref>
+
+Due to the E-Class's size and durability, it has filled many market segments, from personal cars to frequently serving as [[Mercedes-Benz taxicab|taxis]] in European countries, as well special-purpose vehicles (e.g., police or ambulance modifications) from the factory.<ref>{{cite web |url=http://www.mercedes-benz.de/content/germany/mpc/mpc_germany_website/de/home_mpc/sonderfahrzeuge0/home/products/branch-solutions/taxi0/e-klasse.html |title=Mercedes-Benz Deutschland – Sonderfahrzeuge – Taxi – E-Klasse |access-date=2008-08-05 |publisher=[[Daimler AG]] |language=de |archive-url=https://web.archive.org/web/20080917033105/http://www.mercedes-benz.de/content/germany/mpc/mpc_germany_website/de/home_mpc/sonderfahrzeuge0/home/products/branch-solutions/taxi0/e-klasse.html |archive-date=2008-09-17 |url-status=dead }}</ref> In November 2020, the W213 E-Class was awarded the 2021 Motor Trend Car of the Year award, a first for Mercedes-Benz.<ref>{{Cite web|date=2020-11-16|title=The Mercedes-Benz E-Class Is the 2021 MotorTrend Car of the Year|url=https://www.motortrend.com/cars/mercedes-benz/e-class/2021/mercedes-benz-e-class-2021-car-of-the-year/|access-date=2020-11-20|website=MotorTrend|language=en|archive-date=2021-06-19|archive-url=https://web.archive.org/web/20210619142814/https://www.motortrend.com/cars/mercedes-benz/e-class/2021/mercedes-benz-e-class-2021-car-of-the-year/|url-status=live}}</ref>
+
+== History ==
+Although the E-Class nomenclature was adopted in July 1993 for the second facelift of the [[Mercedes-Benz W124]] as part of the company's wider rebranding programme that allocated all of its products into ''Classes'', the product line of the mid-range cars traces decades before. Officially Mercedes-Benz recognising<ref>{{Cite web |title=www.mercedes-benz.com The history of the E-Class |url=https://www.mercedes-benz.com/en/innovation/milestones/mercedes-benz-vehicles/the-history-of-the-e-class/}}</ref> the importance of pre-WWII cars such as the [[Mercedes-Benz W15|W15 170]], the [[Mercedes-Benz W21|W21 200]] and in particular the Diesel powered [[Mercedes-Benz 260 D|W138 260D]], retroactively applies the E-Class to 1946 <ref>{{Cite web |title=E-Class Saloons and predecessors |url=https://mercedes-benz-publicarchive.com/marsClassic/en/instance/ko/E-Class-Saloons-and-predecessors.xhtml?oid=5068 |access-date=2026-01-28 |website=marsClassic |language=en}}</ref> when post WWII production was restarted on the [[Mercedes-Benz W136|W136 170V]] model, with passenger cars deliveries commencing July of 1947. Whilst many publications support this position <ref>{{Cite web |last=Gnaticov |first=Cristian |date=2020-08-22 |title=Mercedes-Benz E-Class History From 1926 To 2020: The Tale Of The Essential Executive Car |url=https://www.carscoops.com/2020/08/mercedes-benz-e-class-history-from-1926-to-2020-the-tale-of-the-essential-executive-car/ |access-date=2026-01-28 |website=Carscoops |language=en}}</ref><ref>{{Cite web |last=Oagana |first=Alex |title=MERCEDES BENZ E-Klasse and predecessors - All Models by Year (1946-Present) - Specs, Pictures & History |url=https://www.autoevolution.com/mercedes-benz/e-klasse-and-predecessors/ |access-date=2026-01-28 |website=autoevolution |language=en}}</ref> others choose one of the more contemporary pre-1993 models among the predecessors <ref>{{Cite web |last=Motozite |date=2024-06-24 |title=Luxury Car Chronicles- Part 2: The Evolution of the E-Class |url=https://www.motozite.com/blog/luxury-car-chronicles-part-2-the-evolution-of-the-mercedes-benz-e-class/ |access-date=2026-01-28 |website=Motozite |language=en-US}}</ref><ref>{{Cite web |last=Gershom |first=Stephen Neil |date=2024-03-22 |title=Mercedes-Benz E-Class History, Generations & More Details |url=https://www.dubicars.com/news/mercedes-benz-e-class-history-generations-more-details.html |access-date=2026-01-28 |website=DubiCars - New and Used Cars |language=en-US}}</ref><ref>{{Cite web |title=WheelsAge |url=https://www.autowp.ru/mercedes-benz/e-klasse |access-date=2026-01-28 |website=www.autowp.ru}}</ref>.  
+
+The reason for this debate is that from as early as 1949 and until the early 1980s Mercedes-Benz production was centred on two distinct product lines of passenger cars based on their prestige. Differing primarily in the wheelbase, interior furnishing, external finish and the engines, the E-Class predecessors being represented by four cylinder engines, whilst the S-Class predecessors would be of eight cylinder motors. Six cylinder engines would often be shared. 
+
+De jure this separation took place in 1972, when the premium range was officially branded as the ''Sonderklasse'' and this was continued up until July 1993. The lower tier did not have its own brand, but was commonly referred to as the mid-range<ref name=":0">{{Cite web |title=Press-information IAA 1975 (E) |url=https://oudemercedesbrochures-nl.translate.goog/Press_IAA_1975engels.html?_x_tr_sl=de&_x_tr_tl=en&_x_tr_hl=en-US&_x_tr_pto=wapp |access-date=2026-01-28 |website=oudemercedesbrochures-nl.translate.goog}}</ref> and the medium class (''Mittlere klasse''<ref>{{Cite web |title=Intro W124 Scheinwerfer 6-1984 (D) |url=https://oudemercedesbrochures.nl/W124_Scheinwerfer_0684duits.html |access-date=2026-01-28 |website=oudemercedesbrochures.nl}}</ref>). What complicates the matter is that before 1972 and up until 1985 cars in both classes shared the same chassis, body shell, platform and much of the underpinnings. Whilst the 1972 separation coincided with the launch of the [[Mercedes-Benz W116|W116 S-Class]], it was amid production of the [[Mercedes-Benz W114|W114/W115 'Stroke-8']] which has been in production for four years since 1968, making it, in view of some <ref>{{Cite web|title=History Of The Mercedes E-Class Told In 10 Iconic Models|url=https://carbuzz.com/features/history-of-the-mercedes-e-class-told-in-10-iconic-models/|website=CarBuzz|date=2023-04-26|access-date=2026-01-29|language=en|first=Jarryd|last=Neves}}</ref> the first true E-Class predecessor.  
+
+The preceding Ponton and Fintail generations are even more difficult to differentiate, as the top end six-cylinder models and the entry four cylinder diesels were literally built on the same body. Adding to this complication were the 'inter-class' models such as the lineup of the [[Mercedes-Benz W105|W105 219]], [[Mercedes-Benz W111|W111 220]] and [[Mercedes-Benz W110|W110 230]] which replaced each other from 1956 until 1968, and the W111 230S which was produced in parallel with the new generation [[Mercedes-Benz W108/W109|W108/W109]] from 1965 until 1968. Both six cylinder models would eventually become a permanent fixture in the /8 (230.6 and 250, later 230.6 and 280) W123 (250 and 280) and W124 (260 and 300, later 280 and 320).    
+
+=== W120 (1953) ===
+[[File:Mercedes 190D (W121).jpg|thumb|Mercedes 190D (W120)]]{{main|Mercedes-Benz W120/W121}}
+
+The first modern midsize Mercedes was the [[Mercedes-Benz W120|W120 'Ponton' 180]] of 1953 and was produced until 1962. Sharing its engineering with the [[Mercedes-Benz R121|R121]] 190 SL of 1955, the Ponton was a stylish sedan with a [[Straight-four engine|four-cylinder engine]]. An [[OHC]] engine [[Mercedes-Benz W121|W121 190]] appeared in 1956 along with a six-cylinder [[Mercedes-Benz W105]].
+
+{{clear}}
+
+=== W110 (1961) ===
+{{main|Mercedes-Benz W110}}
+
+[[File:W110.jpg|thumb|Mercedes Benz (W110)]]
+
+Mercedes added tailfins to both the new [[Mercedes-Benz W110|W110 'Fintail' 190]] of 1962. In the 1965 230 model a [[Straight-6]] engine appeared for the first time, and the four-cylinder engine grew in displacement.
+{{clear}}
+
+=== W114, W115 (1968) ===
+{{main|Mercedes-Benz W114/W115}}
+
+[[File:Mercedes-Benz 220D, circa 1974, Schaffen Diest, Fly-Drive 2013.JPG|thumb|Mercedes-Benz (W115)]]
+
+The midsize Mercedes was redesigned in 1968 as the [[Mercedes-Benz W114|W114/W115 'Stroke-8']]. This time, the 6-cylinder models (The W114s) were most prevalent, with the W115 line making up the bottom of the company's offerings with four- and [[Straight-5|five-cylinder]] power. A [[coupé]] body joined the line-up in 1969, and was the first mid-range Mercedes to be offered with the [[D-Jetronic]] fuel injection.
+{{clear}}
+=== W123 (1975) ===
+{{main|Mercedes-Benz W123}}
+
+[[File:1982 Mercedes-Benz 230E Automatic.jpg|thumb|Mercedes-Benz (W123)]]
+
+The popular [[Mercedes-Benz W123|W123]] quickly became a best-seller on its launch in 1976. Especially in [[Diesel engine|diesel powered]] 240D and 300D guises, the cars enhanced the company's reputation for product quality. Over 2.6 million were produced until the end of production in 1986. Saloon/Sedan, Coupé, and Estate body configurations were offered.
+
+=== W124 (1984) ===
+{{main|Mercedes-Benz W124}}
+
+The [[Mercedes-Benz W124|W124]] was presented in November 1984, with production commencing in January the following year. During its production it introduced many new features like the [[4Matic]] all-wheel drive, [[DOHC]] cylinder heads and emission control with [[Catalytic converter]]s, [[Diesel particulate filter]]s and [[Exhaust gas recirculation]]. A special mention is the top end [[Mercedes-Benz 500 E|500E]] performance vehicle co-built by [[Porsche]]. It was the third car to inherit the company's new design theme since the late 1970s, following the flagship [[Mercedes-Benz W126|W126]] and compact [[Mercedes-Benz W201|W201]].
+
+Similar to its predecessors, the W124 also offered a coupé and estate body styles. A cabriolet (internally A124) was also available from 1992.
+
+=== 1993 re-branding ===
+To further complicate matters, the 1972-1993 ''Sonderklasse'' label was not limited to the W116 and W126 sedans, but also the R107 and R129 SL roadsters, the C107 and C126 coupes. Even the W100 limousine was listed among the S-Class <ref name=":0" />. The unnamed mid-range would see itself balloon when in addition to the standard family of sedans it would be filled with coupes (W114 - 1969), estates (S123 - 1978), compact cars (W201 - 1982), high performance halo cars (190E 2.3-16; 500E) 4x4 off-roaders (W463 - 1989) and cabriolets (A124 - 1992). 
+
+Since 1972 Mercedes-Benz had two distinct product lines. The S-class premiere range, represented by the W116 and W126 sedans and the W107 and R129 two-door range; and the standard range (W114, W115, W123 and W124). This was then joined by the compact W201 190 series from 1982. The S (''Sonder'') suffix literally translates as "special" and is used in German language to denote a premium or more luxurious product. The nomenclature was loosely based on engine displacement. As a result, the hierarchy consisted of a set number of numerical series, across the engines shared within each series. Suffixes would further elaborate on specifics deemed necessary, be it the fuel system e.g. D – Diesel, E ''– Einspritz'' (injection); the body type: C – coupé, T – ''Transport'' (estate); or the car application: SL – sports; G – ''Gelände,'' off-road. Sometimes a combination of several suffices would be used. This made marketing increasingly difficult and very confusing. For example, the W201 was limited to being called 190 series, with engine fitment indicated by a separate number for displacement, e.g. the 190D 2.5 and 190E 2.6. Meanwhile, the W124, sharing these same engines would be named simply as the 250D and 260E, while the W463 and W126 also featuring one of these motors would be called the 250GD and 260SE respectively.
+
+In spring 1993 Mercedes-Benz released the successor to the W201, and unlike the 190, which was initially seen as a sporty car appealing to the younger generation, the [[Mercedes-Benz C-Class (W202)|W202]] was to be a fully fledged automobile for all age groups, with a range of engines and trims. For this Mercedes-Benz opted to create a third, entry, Compact or [[Mercedes-Benz C-Class|C-Class]] range. To prevent confusion with the Coupé suffix, the Class letter now preceded the displacement, e.g. "C180". Particulars of the engine's fuel system would be written out on the boot - Diesel, Turbodiesel. Petrol engines were by now all fuel injected and thus the E for ''Einspritzung'' suffix was deemed redundant.
+
+In the first months of the W202's production, the branding was deemed successful and in August the whole range underwent a major re-branding creating several new Classes. In some cases, like on the W140 S-Class this was a formality of having the S suffix now become a prefix. The R129 SL became the SL-Class and this coincided with changing several engines and thus models. The G-wagen also became the G-class, and this made marketing easier as it allowed to bridge between the privately sold W463 and the commercially sold W461 models. This left only the W124 remaining in the unnamed Mercedes-Benz standard range.
+
+As all of the petrol engines were now all fuel injected, and remaining the most commonly sold versions (particularly the 220E and 320E series), this made the E-suffix the most predominant on the W124. For this reason, Mercedes-Benz opted to re-christen its mid-range as the E-class and the models underwent the same re-badging as others.
+
+== First generation (W124; 1993) ==
+
+{{main|Mercedes-Benz W124}}
+
+[[File:94-95 Mercedes-Benz E-Class sedan.jpg|thumb|Mercedes-Benz W124 (sedan)]]
+The "E-Class" name first appeared with the facelifted [[Mercedes-Benz W124|W124]] in August 1993 for Europe and in September for 1994 model year for export into the United States. The W124 was introduced in 1984 but continued with the older naming convention until 1993 when all Mercedes-Benz models switched to a new system, e.g. E 320 instead of 320 E. Sedan (W124), Coupé (C124), Convertible (A124), and Estate (S124) body configurations were offered. Sedans were built through 1995, estates and coupes through 1996 and cabriolets finished in 1997.
+
+{{clear}}
+
+== Second generation (W210; 1995) ==
+{{main|Mercedes-Benz E-Class (W210)}}
+
+[[File:Mercedes-Benz W210 front 20080809.jpg|thumb|Mercedes-Benz W210]]
+The [[Mercedes-Benz E-Class (W210)|W210]] E-Class launched in January 1995.
+
+The W210 made major changes compared to the earlier version of the E-class, including four large oval headlights, which gave Mercedes an updated image intended to attract more younger buyers and women. The new E-Class was {{convert|1.6|in|cm|abbr=on}} longer and {{convert|2.3|in|cm|abbr=on}} wider and offered significantly more interior room but was still considered mid-size.<ref>{{cite news|url=https://www.motortrend.com/cars/mercedes-benz/e-class/1996/1996-mercedes-benz-e-class/|title=1996 Mercedes-Benz E-Class - Roadtest|last=Paul|first=Rik|work=[[Motor Trend]]|date=January 1, 1996|access-date=August 20, 2020|archive-date=November 18, 2018|archive-url=https://web.archive.org/web/20181118102045/https://www.motortrend.com/cars/mercedes-benz/e-class/1996/1996-mercedes-benz-e-class/|url-status=live}}</ref><ref>{{cite web|url=https://consumerguide.com/used/1996-02-mercedes-benz-e-class/|title=1996-02 Mercedes-Benz E-Class|work=consumerguide.com|date=22 July 2014|access-date=August 20, 2020|archive-date=March 17, 2019|archive-url=https://web.archive.org/web/20190317014947/http://consumerguide.com/used/1996-02-mercedes-benz-e-class/|url-status=live}}</ref>
+
+In September 1999, the W210 E-class was facelifted. This included visual, mechanical, and quality improvements over the earlier versions.
+
+The Mercedes-Benz E-Class was ''[[Motor Trend]]''{{'}}s [[Import Car of the Year]] for 1996.
+
+While the W210 sedan was replaced by the W211 in 2002, the wagon version continued to be sold until March 2003 when the S211 wagon returned the S210 wagon.
+
+== Third generation (W211; 2001) ==
+{{main|Mercedes-Benz E-Class (W211)}}
+
+[[File:2006 Mercedes-Benz E 500 (W 211 MY07) Avantgarde sedan (2015-07-09) 01.jpg|thumb|Mercedes-Benz W211]]
+Launched in 2002, the [[Mercedes-Benz E-Class (W211)|W211]] E-Class was another evolution of the previous model.
+
+The W211-based [[Mercedes-Benz CLS-Class (W219)|C219 CLS-Class]] 4-door coupe was introduced as a niche model in 2005, primarily to attract a younger demographic.
+
+The W211 E-Class was facelifted in June 2006 for the 2007 [[model year]] to address quality and technical issues raised by earlier models, [[Sensotronic]] was dropped, while [[precrash system|Pre-Safe]] (w/o brake support) was made standard. The largest factory-built engine in the E-class range is the E500, which had its engine size increased from 5 liters to 5.5 liters in 2006 along with the facelift. There are also AMG models badged E55 and E63, [[Mercedes-AMG|AMG]] as well as other tuning house installations.
+
+== Fourth generation (W212; 2009) ==
+
+=== Sedan and wagon (W212) ===
+{{main|Mercedes-Benz E-Class (W212)}}
+[[File:2009 Mercedes-Benz E 250 CGI (W 212) Avantgarde sedan (2010-07-05).jpg|thumb|Mercedes-Benz E 250 (W212)]]
+The [[Mercedes-Benz E-Class (W212)|W212]] replaced the W211 in 2009 (as a 2010 model). Official photos of the W212 were leaked on the internet on 9 December 2008 ahead of its 2009 [[Geneva Motor Show]] unveiling.<ref>{{cite web |url=http://www.autoscoops.eu/nieuws/2008/mercedes-e-klasse-de-eerste-fotos |title=Mercedes E-Klasse: de eerste foto's |publisher=Autoscoops.eu |access-date=2011-12-03 |url-status=dead |archive-url=https://archive.today/20120718133502/http://www.autoscoops.eu/nieuws/2008/mercedes-e-klasse-de-eerste-fotos |archive-date=2012-07-18 }}</ref> Scans of a leaked brochure were posted onto the internet in January 2009, detailing the whole E-Class range including the new E 200 CGI and E 230 CGI with [[gasoline direct injection|direct injected]] forced induction engines. New features included a [[blind spot monitor]], [[lane departure warning system|Lane Keeping Assist]], [[Precrash system|Pre-safe with Attention Assist]], and [[Night View Assist|Night View Assist Plus]]. In the United States the E-Class was priced nearly US$4,600 less than the previous model.<ref>{{cite web |last=Joseph |first=Noah |url=http://www.autoblog.com/2009/05/04/mercedes-slashes-nearly-5k-off-the-list-price-of-a-new-e-class/ |title=Mercedes slashes nearly $5k off the list price of a new E-Class – Autoblog |publisher=Autoblog.com |date=2009-04-05 |access-date=2010-03-21 |archive-date=2010-07-29 |archive-url=https://web.archive.org/web/20100729172622/http://www.autoblog.com/2009/05/04/mercedes-slashes-nearly-5k-off-the-list-price-of-a-new-e-class/ |url-status=live }}</ref> The W212 estate was also announced and available from November 2009.<ref>{{cite web |url=http://www.carthusiast.com/2010-mercedes-e-class-estate-intelligent-estate-of-the-art-1877.html |title=2010 Mercedes E-Class Estate, Intelligent (E)state-of-the-art |publisher=Carthusiast.com |date=2009-08-06 |access-date=2010-03-21 |archive-url=https://web.archive.org/web/20110708122537/http://www.carthusiast.com/2010-mercedes-e-class-estate-intelligent-estate-of-the-art-1877.html |archive-date=2011-07-08 |url-status=dead }}</ref>
+
+In 2013, the E-Class had a comprehensive [[Facelift (automotive)|facelift]], featuring significant styling changes, fuel economy improvements, and updated safety features. Daimler invested close to €1 billion into the development of the extensive refresh, making it likely the most expensive mid-life facelift in the history of the automobile.<ref>{{cite web |url=http://www.autoevolution.com/news/2014-w212-and-2017-w213-mercedes-e-class-sedans-spied-together-video-88669.html |title=2014 W212 and 2017 W213 Mercedes E-Class Sedans Spied Together [Video] |author=Mihnea Radu |work=autoevolution |date=8 November 2014 |access-date=2014-12-23 |archive-date=2014-12-23 |archive-url=https://archive.today/20141223182705/http://www.autoevolution.com/news/2014-w212-and-2017-w213-mercedes-e-class-sedans-spied-together-video-88669.html |url-status=live }}</ref><ref>{{cite web |url=http://www.autoevolution.com/news/mercedes-benz-e-350-w212-facelift-gets-reviewed-by-edmund-s-68614.html |title=Mercedes-Benz E 350 W212 Facelift Gets Reviewed by Edmund's |author=Alex Oagana |work=autoevolution |date=9 October 2013 |access-date=2014-12-23 |archive-date=2014-12-23 |archive-url=https://archive.today/20141223182610/http://www.autoevolution.com/news/mercedes-benz-e-350-w212-facelift-gets-reviewed-by-edmund-s-68614.html |url-status=live }}</ref> The biggest change was the singular front lights replacing the twin headlamp design (marking the end of Mercedes's dual headlamps use) with integrated LED [[Daytime running lamps|DRLs]].<ref>{{cite web |url=http://www.thechauffeur.com/new-mercedes-e-class-promises-to-give-rivals-a-rough-ride/ |title=New Mercedes E-Class promises to give rivals a rough ride |date=13 June 2013 |access-date=2015-12-15 |archive-date=2015-12-22 |archive-url=https://web.archive.org/web/20151222103430/http://www.thechauffeur.com/new-mercedes-e-class-promises-to-give-rivals-a-rough-ride/ |url-status=live }}</ref> Although not an all-new model, the W212 facelift was the only mid-cycle refresh featured on a family portrait of several generations of the E-Class side by side by Mercedes-Benz for the unveiling of the W213 E-Class.<ref>{{cite web |url=http://www.carscoops.com/2015/12/2017-mercedes-benz-e-class-exterior.html |title=2017 Mercedes-Benz E-Class Exterior Inadvertently Shown in Official Pics |author=Cristian Gnaticov |date=11 December 2015 |work=Carscoops |access-date=15 December 2015 |archive-date=15 December 2015 |archive-url=https://web.archive.org/web/20151215035510/http://www.carscoops.com/2015/12/2017-mercedes-benz-e-class-exterior.html |url-status=live }}</ref><ref>{{cite web |url=http://www.caradvice.com.au/403102/2016-mercedes-benz-e-class-styling-revealed-in-interior-promo-shots/ |title=2016 Mercedes-Benz E-Class styling revealed in interior promo shots |work=CarAdvice.com.au |access-date=2015-12-15 |archive-date=2015-12-15 |archive-url=https://web.archive.org/web/20151215210911/http://www.caradvice.com.au/403102/2016-mercedes-benz-e-class-styling-revealed-in-interior-promo-shots/ |url-status=live }}</ref> The E63 "S" AMG  model is rated at 577&nbsp;HP/585 PS power and 590 lb-ft/800 Nm torque, although there is significant real-world dynamometer testing indicating this model exceeds 600&nbsp;HP/608 PS power at the engine's  flywheel.
+
+=== Coupe and convertible (C207/A207) ===
+{{main|Mercedes-Benz E-Class (C207)}}
+
+[[File:2011 Mercedes-Benz E250 Sport CDi BlueEFFICIENCY Coupe 2.1 Front.jpg|thumb|Mercedes-Benz E 250 Sport CDi BlueEFFICIENCY (UK; C207)]]
+The coupé (C207) was first shown at the 2009 [[Geneva Motor Show]], while the convertible (A207) was unveiled at the 2010 [[North American International Auto Show]].<ref>{{Cite news|url=https://www.motorauthority.com/news/1032208_geneva-motor-show-debut-for-mercedes-benz-e-class-coupe|title=Geneva Motor Show debut for Mercedes Benz E-Class Coupe|work=Motor Authority|access-date=2018-05-05|language=en|archive-date=2018-05-06|archive-url=https://web.archive.org/web/20180506035001/https://www.motorauthority.com/news/1032208_geneva-motor-show-debut-for-mercedes-benz-e-class-coupe|url-status=live}}</ref><ref>{{Cite news|url=https://www.motor1.com/news/19514/2010-mercedes-benz-e-class-cabriolet-world-debut-in-detroit/|title=2010 Mercedes-Benz E-Class Cabriolet World Debut in Detroit|work=Motor1.com|access-date=2018-05-05|language=en|archive-date=2018-05-05|archive-url=https://web.archive.org/web/20180505205923/https://www.motor1.com/news/19514/2010-mercedes-benz-e-class-cabriolet-world-debut-in-detroit/|url-status=live}}</ref> Both models replaced the previous [[Mercedes-Benz CLK-Class (C209)|C209/A209 CLK-Class]] models. The C207/A207 E-Class is based on the [[Mercedes-Benz C-Class (W204)|W204 C-Class]] platform, and is produced alongside each other in the [[Bremen]] plant.<ref>{{Cite news|url=https://www.autoblog.com/2009/05/19/2010-mercedes-benz-e-class-coupe-a-c-class-underneath/|title=2010 Mercedes-Benz E-Class Coupe a C-Class underneath?|work=Autoblog|access-date=2018-05-05|language=en|archive-date=2018-05-06|archive-url=https://web.archive.org/web/20180506035011/https://www.autoblog.com/2009/05/19/2010-mercedes-benz-e-class-coupe-a-c-class-underneath/|url-status=live}}</ref>
+{{clear}}
+
+== Fifth generation (W213; 2016) ==
+{{main|Mercedes-Benz E-Class (W213)}}
+
+[[File:Mercedes-AMG E 53 (W213) FL IMG 3965.jpg|thumb|Mercedes-AMG E53 (W213 facelift)]]
+The fifth generation E-Class was unveiled at the 2016 [[North American International Auto Show]].<ref>{{cite web |url=http://www.worldcarfans.com/115051193606/next-generation-mercedes-benz-e-class-sedan-will-likely |title=Next generation Mercedes-Benz E-Class Sedan will likely debut in January 2016 at NAIAS [spy video] |work=Motor1.com |access-date=2015-05-12 |archive-date=2015-05-13 |archive-url=https://web.archive.org/web/20150513194251/http://www.worldcarfans.com/115051193606/next-generation-mercedes-benz-e-class-sedan-will-likely |url-status=live }}</ref> This generation E-Class has design cues from the larger [[Mercedes-Benz S-Class (W222)|W222 S-Class]] and the smaller [[Mercedes-Benz C-Class (W205)|W205 C-Class]].<ref>{{cite web |url=http://www.autoevolution.com/news/2016-mercedes-e-class-w213-first-interior-spy-photos-s-class-inspiration-89573.html# |title=2016 Mercedes E-Class (W213) First Interior Spy Photos: S-CLass Inspiration |author=Mihnea Radu |work=autoevolution |date=3 December 2014 |access-date=2014-12-23 |archive-date=2014-12-23 |archive-url=https://web.archive.org/web/20141223214649/http://www.autoevolution.com/news/2016-mercedes-e-class-w213-first-interior-spy-photos-s-class-inspiration-89573.html |url-status=live }}</ref> While the W212 E-Class has tighter surface and harder edges, the new model is curvier and more flowing.<ref>{{cite web |url=http://indianautosblog.com/2015/05/2016-mercedes-e-class-naias-2016-178443#ixzz3ZsnOcVNY |title=2016 Mercedes E Class to world debut at NAIAS 2016 |date=11 May 2015 |access-date=2015-05-12 |archive-date=2015-05-12 |archive-url=https://web.archive.org/web/20150512163851/http://indianautosblog.com/2015/05/2016-mercedes-e-class-naias-2016-178443#ixzz3ZsnOcVNY |url-status=live }}</ref>
+
+Engine options for the W213 E-Class saw a major update, switching back to inline six-cylinder engines from the previous V6 engines,<ref>{{cite web |url=http://www.carmagazine.co.uk/spy-shots/mercedes-benz/mercedes-e-class-2016-spied-straight-sixes-are-back/ |title=Mercedes E-class (2016) spied: straight sixes are back! |work=CAR Magazine |access-date=2015-04-22 |archive-date=2015-04-22 |archive-url=https://archive.today/20150422175722/http://www.carmagazine.co.uk/spy-shots/mercedes-benz/mercedes-e-class-2016-spied-straight-sixes-are-back/ |url-status=live }}</ref> along with a new generation of four-cylinder diesel engines, codenamed [[Mercedes-Benz OM654 engine|OM654]], while retaining existing four-cylinder petrol engines.<ref name="2016eclassautocar">{{cite web |url=http://www.autocar.co.uk/car-news/new-cars/2016-mercedes-benz-e-class-spotted-engines-and-launch-date |title=2016 Mercedes-Benz E-Class - engines and launch date |first=Greg | last = Kable |work=Autocar |access-date=2015-10-16 |archive-date=2015-07-26 |archive-url=https://archive.today/20150726151952/http://www.autocar.co.uk/car-news/new-cars/2016-mercedes-benz-e-class-spotted-engines-and-launch-date |url-status=live }}</ref>
+
+The W213 E-Class is the second-most technologically advanced Mercedes after the new [[Mercedes-Benz S-Class|S-Class]].{{According to whom|date=September 2026}} The E-Class received the latest in autonomous driving technology for use at highway speeds, capable of piloting itself up to speeds of {{convert|130|mph|km/h|abbr=on}} for up to 2 minutes. The system uses a complex array of motion sensors, radars, and cameras to scan the road ahead, and requires the driver's hands to be placed on the wheel at all times.<ref>{{cite web |url=http://performancedrive.com.au/2016-mercedes-e-class-will-be-capable-of-autonomous-driving-1020/ |title=2016 Mercedes E-Class will be capable of autonomous driving |work=PerformanceDrive |date=10 June 2015 |access-date=2015-06-29 |archive-date=2015-06-15 |archive-url=https://web.archive.org/web/20150615011411/http://performancedrive.com.au/2016-mercedes-e-class-will-be-capable-of-autonomous-driving-1020/ |url-status=live }}</ref><ref>{{cite web |url=http://www.worldcarfans.com/115042292626/mercedes-benz-says-autonomous-technology-is-imminent |title=Mercedes-Benz says autonomous technology is imminent, could debut on 2016 E-Class |work=Worldcarfans |access-date=2015-04-22 |archive-date=2015-04-23 |archive-url=https://web.archive.org/web/20150423130327/http://www.worldcarfans.com/115042292626/mercedes-benz-says-autonomous-technology-is-imminent |url-status=live }}</ref> This feature was also available on the fourth-generation Mercedes-AMG E 63 model.
+
+In 2020, Mercedes-Benz introduced a facelift to the W213.{{clear}}
+
+== Sixth generation (W214; 2023) ==
+[[File:Mercedes-Benz E 200 d AMG Line (W 214) – f 05072025.jpg|thumb|Mercedes-Benz E 200d (W214)]]
+{{main|Mercedes-Benz E-Class (W214)}}
+
+The sixth generation E-Class debuted on April 25, 2023. Body styles include the saloon and estate (wagon), while coupés and convertibles were discontinued. As part of a consolidation of model ranges, executive coupés and convertibles will slot between the E-Class and C-Class in size under the new [[Mercedes-Benz CLE|CLE]] nameplate.<ref>{{Cite web |title=2024 Mercedes-Benz E-Class teased ahead of April 25 debut |url=https://www.motorauthority.com/news/1139285_2024-mercedes-benz-e-class-teased-ahead-of-april-25-debut |access-date=2023-04-11 |website=Motor Authority |date=6 April 2023 |language=en |archive-date=2023-04-10 |archive-url=https://web.archive.org/web/20230410211424/https://www.motorauthority.com/news/1139285_2024-mercedes-benz-e-class-teased-ahead-of-april-25-debut |url-status=live }}</ref>
+
+== Production and sales ==
+{| class="wikitable"
+|-
+! rowspan="3" | Year
+! rowspan="3" |Production (sedan/estate/coupe/convertible) !! colspan="5" |Sales 
+|-
+! rowspan="2" |U.S.
+! rowspan="2" |Europe
+! colspan="3" |China<ref>{{cite web |url=https://www.goodcarbadcar.net/mercedes-benz-e-class-sales-figures/ |title=Mercedes-Benz E-Class Sales Figures |publisher=goodcarbadcar.net |access-date=2025-04-22}}</ref><ref group="note">2011–2014, 2023–2025 China sales only include locally produced versions, exclude imported versions.</ref>
+|-
+!ICE
+!PHEV
+!Total
+|-
+| 2001
+| ||44,445<ref>{{cite web |url=http://www.thefreelibrary.com/Mercedes-Benz+USA+Records+Highest+Sales+in+Its+History.-a096075297 |title=Mercedes-Benz USA Records Highest Sales in Its History. – Free Online Library |publisher=Thefreelibrary.com |date=2003-01-03 |access-date=2011-12-03 |archive-date=2014-02-21 |archive-url=https://web.archive.org/web/20140221202108/http://www.thefreelibrary.com/403.htm |url-status=live }}</ref>|| 128,208
+|
+| ||
+|-
+| 2002
+| ||42,598|| 156,317
+|
+| ||
+|-
+| 2003
+| ||55,683<ref>{{cite web |url=http://www.theautochannel.com/news/2005/01/04/313903.html |title=2004 Highest Year on Record for Mercedes-Benz USA |publisher=Theautochannel.com |access-date=2010-03-21 |archive-date=2013-08-01 |archive-url=https://web.archive.org/web/20130801083017/http://www.theautochannel.com/news/2005/01/04/313903.html |url-status=live }}</ref>|| 191,809
+|
+| ||
+|-
+| 2004
+| ||58,954|| 171,071
+|
+| ||
+|-
+| 2005
+| ||50,383<ref>{{cite web |url=http://www.theautochannel.com/news/2007/01/03/032870.html |title=Mercedes-Benz Rings in the New Year with Record 2006 Sales |publisher=Theautochannel.com |access-date=2010-03-21 |archive-date=2013-08-01 |archive-url=https://web.archive.org/web/20130801081817/http://www.theautochannel.com/news/2007/01/03/032870.html |url-status=live }}</ref>|| 125,348
+|
+| ||
+|-
+| 2006
+| ||50,195|| 110,494
+|
+| ||
+|-
+| 2007
+| ||48,950<ref>{{cite web |url=http://www.emercedesbenz.com/Jan09/05_001548_Mercedes_Benz_USA_Sales_Drop_32_Percent_In_December_2008.html |title=Mercedes-Benz USA's Sales Drop 32.1 Percent in December 2008 &#124; eMercedesBenz – The Unofficial Mercedes-Benz Weblog |publisher=eMercedesBenz |date=2009-01-05 |access-date=2010-03-21 |archive-url=https://archive.today/20120729125348/http://www.emercedesbenz.com/Jan09/05_001548_Mercedes_Benz_USA_Sales_Drop_32_Percent_In_December_2008.html |archive-date=2012-07-29 |url-status=dead }}</ref>|| 109,872
+|
+| ||
+|-
+| 2008
+| ||38,576|| 77,661
+|
+| ||
+|-
+| 2009
+| ||43,072<ref>{{cite press release |url=http://www.prnewswire.com/news-releases/highest-sales-month-for-the-year-at-21469-brings-mercedes-benz-to-an-18-percent-increase-for-2010-112881769.html |title=Highest Sales Month for the Year at 21,469 Brings Mercedes-Benz to an... – MONTVALE, N.J., Jan. 4, 2011 /PRNewswire/ |location=New Jersey |publisher=PR Newswire |access-date=2011-12-03 |archive-date=2013-06-04 |archive-url=https://web.archive.org/web/20130604224056/http://www.prnewswire.com/news-releases/highest-sales-month-for-the-year-at-21469-brings-mercedes-benz-to-an-18-percent-increase-for-2010-112881769.html |url-status=live }}</ref>||100,947
+|
+| || 8,200<ref>{{cite web |url=http://www.mercedes-benz.com.cn/content/china/mpc/mpc_china_website/enng/home_mpc/passengercars/home/passengercars_world/news/2010news/A_Record-Breaking_Year.html |title=Mercedes-Benz China Homepage – 2010 News – A Record-Breaking Year: Mercedes-Benz Concludes 2009 with Unprecedented Sales |publisher=Mercedes-benz.com.cn |date=2010-01-11 |access-date=2011-12-03 |archive-url=https://web.archive.org/web/20140407115337/http://www.mercedes-benz.com.cn/content/china/mpc/mpc_china_website/enng/home_mpc/passengercars/home/passengercars_world/news/2010news/A_Record-Breaking_Year.html |archive-date=2014-04-07 |url-status=dead }}</ref>
+|-
+| 2010
+| 323,200 (208,400 / 44,400 / 49,600 / 20,800)<ref>{{cite web |url=http://www.daimler.com/dccom/0-5-7171-1-1359454-1-0-0-0-0-0-12037-0-0-0-0-0-0-0-0.html |title=Successful Year for Mercedes-Benz: Sales Up 15 Percent Worldwide in 2010 &#124; Daimler > Investor Relations > Capital Market Releases |publisher=Daimler |access-date=2011-12-03 |url-status=dead |archive-url=https://web.archive.org/web/20111002044940/http://www.daimler.com/dccom/0-5-7171-1-1359454-1-0-0-0-0-0-12037-0-0-0-0-0-0-0-0.html |archive-date=2011-10-02 }}</ref>||60,922|| 139,192
+|
+| || 40,760<ref>{{cite web |url=http://www.mercedes-benz.com.cn/content/china/mpc/mpc_china_website/enng/home_mpc/passengercars/home/passengercars_world/news/2011_News/115_Growth_Mercedes-Benz_Remains_China_s_Fastest_Growing_Premium_brand_in_2010.html |title=Mercedes-Benz China Homepage – 2011 News – 115% Growth – Mercedes-Benz Remains China's Fastest Growing Premium brand in 2010 |publisher=Mercedes-benz.com.cn |access-date=2011-12-03 |archive-url=https://web.archive.org/web/20140407115341/http://www.mercedes-benz.com.cn/content/china/mpc/mpc_china_website/enng/home_mpc/passengercars/home/passengercars_world/news/2011_News/115_Growth_Mercedes-Benz_Remains_China_s_Fastest_Growing_Premium_brand_in_2010.html |archive-date=2014-04-07 |url-status=dead }}</ref>
+|-
+| 2011
+| 338,386 || 62,736<ref>{{cite web |url=http://www.prnewswire.com/news-releases/mercedes-benz-usa-hits-its-highest-ever-us-volume-with-sales-of-305072-185567602.html |title=Mercedes-Benz USA Hits Its Highest-Ever U.S. Volume With Sales of 305,072 |author=Mercedes-Benz USA |date=3 January 2013 |work=PR Newswire |access-date=10 March 2013 |archive-date=9 January 2017 |archive-url=https://archive.today/20170109120838/http://www.prnewswire.com/news-releases/mercedes-benz-usa-hits-its-highest-ever-us-volume-with-sales-of-305072-185567602.html |url-status=live }}</ref>|| 129,963
+|
+| || 44,738
+|-
+| 2012
+| 310,408 || 65,171 || 98,142
+|
+| || 36,385
+
+|-
+| 2013
+| || 69,803 || 106,559
+|
+| || 36,836
+|-
+| 2014
+| - (257,571 / - / - )|| 66,400<ref>{{cite press release |url=http://www.prnewswire.com/news-releases/mercedes-benz-delivers-record-breaking-2014-sales-volume-of-330391-up-57-300015788.html |title=Mercedes-Benz Delivers Record-Breaking 2014 Sales Volume of 330,391, Up 5.7% |publisher=[[Mercedes-Benz]] |agency=[[PR Newswire]] |date=2015-01-05 |access-date=2015-06-18 |archive-date=2015-01-12 |archive-url=https://archive.today/20150112014859/http://www.prnewswire.com/news-releases/mercedes-benz-delivers-record-breaking-2014-sales-volume-of-330391-up-57-300015788.html |url-status=live }}</ref>|| 99,565
+|
+| || 43,708
+|-
+| 2015
+| 232,453<ref>{{Cite web |url=https://www.daimler.com/documents/investors/nachrichten/kapitalmarktmeldungen/daimler-ir-release-en-20160108.pdf |title=Archived copy |access-date=2017-05-07 |archive-date=2016-12-27 |archive-url=https://web.archive.org/web/20161227130826/https://www.daimler.com/documents/investors/nachrichten/kapitalmarktmeldungen/daimler-ir-release-en-20160108.pdf |url-status=dead}}</ref>|| 55,888 || 84,771 
+|
+| || 57,853
+|-
+| 2016
+| 304,200<ref>{{Cite web |url=http://www.daimler.com/documents/investors/reports/annual-report/daimler/daimler-ir-annualreport-2016.pdf |title=Information on Daimler AG |access-date=2017-05-07 |archive-date=2017-03-29 |archive-url=https://web.archive.org/web/20170329035241/http://www.daimler.com/documents/investors/reports/annual-report/daimler/daimler-ir-annualreport-2016.pdf |url-status=live }}</ref>|| 50,896 || 99,494 
+|
+| || 57,439
+|-
+| 2017
+| || 51,312 || 127,638 
+|
+| || 113,431
+|-
+|2018
+|
+|46,422
+|117,906
+|
+|
+|146,032
+|-
+|2019
+|
+|40,113<ref>{{cite web |url=https://media.mbusa.com/releases/mercedes-benz-usa-sales-q4-2020 |title=MERCEDES-BENZ USA Sales -- Q4 2020 |publisher=mbusa.com |date=2021-01-08 |access-date=2025-04-22 }}</ref>
+|107,453
+|
+|
+|157,504
+|-
+| 2020
+| || 27,102<ref name="mercedesbenzusa">{{cite web |url=https://media.mbusa.com/releases/mercedes-benz-usa-sales-q4-2021 |title=Mercedes-Benz USA Sales - Q4 2021 |publisher=mbusa.com |date=2022-01-07 |access-date=2025-04-22}}</ref>|| 70,171 
+|
+| ||149,900
+|-
+| 2021
+| || 20,947<ref name="mercedesbenzusa" />|| 53,654 
+|
+| || 142,216
+|-
+| 2022
+| || 18,818<ref>{{cite web |url=https://media.mbusa.com/releases/mercedes-benz-usa-sales-q4-2022 |title=Mercedes-Benz USA sales Q4 2022 |publisher=mbusa.com |date=2023-01-10 |access-date=2025-04-22}}</ref>|| 39,782
+|
+| || 140,802
+|-
+| 2023
+| || 17,782<ref name="mercedesbenzusa_1">{{cite web |url=https://media.mbusa.com/releases/release-4efd8afecd0ad84220062379551956e8-mercedes-benz-usa-reports-9-year-over-year-growth-for-passenger-car-sales |title=Mercedes-Benz USA Reports 9% Year-Over-Year Growth for Passenger Car Sales |publisher=mbusa.com |date=2025-01-07 |access-date=2025-04-22}}</ref>||
+|148,149<ref>{{Cite web |title=【易车销量榜】全国2023年奔驰终端量销量榜-易车榜-易车 |url=https://car.yiche.com/newcar/salesrank/?brandId=2&saleType=2&flag=2023&energy=9 |access-date=2026-02-11 |website=car.yiche.com}}</ref>
+|13,832<ref>{{Cite web |title=【易车销量榜】全国2023年奔驰插电混动终端量销量榜-易车榜-易车 |url=https://car.yiche.com/newcar/salesrank/?brandId=2&saleType=2&flag=2023&energy=3 |access-date=2026-02-11 |website=car.yiche.com}}</ref>||161,981
+|-
+| 2024
+| || 17,638<ref name="mercedesbenzusa_1" /> ||
+|132,425<ref>{{Cite web |title=【易车销量榜】全国2024年奔驰终端量销量榜-易车榜-易车 |url=https://car.yiche.com/newcar/salesrank/?brandId=2&saleType=2&flag=2024&energy=9 |access-date=2026-02-11 |website=car.yiche.com}}</ref>
+|4,777<ref>{{Cite web |title=【易车销量榜】全国2024年奔驰插电混动终端量销量榜-易车榜-易车 |url=https://car.yiche.com/newcar/salesrank/?brandId=2&saleType=2&flag=2024&energy=3 |access-date=2026-02-11 |website=car.yiche.com}}</ref>||137,202
+|-
+|2025
+|
+|
+|
+|120,735<ref>{{Cite web |title=【易车销量榜】全国2025年奔驰终端量销量榜-易车榜-易车 |url=https://car.yiche.com/newcar/salesrank/?brandId=2&saleType=2&flag=2025&energy=9 |access-date=2026-02-11 |website=car.yiche.com}}</ref>
+|10,830<ref>{{Cite web |title=【易车销量榜】全国2025年奔驰插电混动终端量销量榜-易车榜-易车 |url=https://car.yiche.com/newcar/salesrank/?brandId=2&saleType=2&flag=2025&energy=3 |access-date=2026-02-11 |website=car.yiche.com}}</ref>
+|131,565
+|}
+
+== Explanatory notes ==
+{{Reflist|group=note}}
+
+== References ==
+=== Notes ===
+{{reflist|30em}}
+
+=== Bibliography ===
+<!-- last updated October 2021 -->
+
+==== General ====
+{{refbegin}}
+* {{Barrett: Illustrated Buyer's Guide Mercedes-Benz|edition=Second}}
+* {{Bols: Mercedes-Benz Personenwagen}}
+* {{Brooklands: On Mercedes 1971-1979}}
+* {{Brooklands: Mercedes AMG Gold Portfolio 1983-1999|editor-mask=6}}
+* {{Brooklands: Mercedes AMG Ultimate Portfolio 2000|editor-mask=6}}
+* {{cite book |editor-last=Clarke |editor-first=R.M. |title=Mercedes-Benz E-Class W124 1985–1995 |series=Road Test Portfolio Series |year=2011 |publisher=Brooklands Books |location=Cobham, Surrey, UK |isbn=9781855208896 |editor-mask=6}}
+* {{Oswald: Mercedes-Benz Personenwagen|volume=3}}
+* {{Oswald: Mercedes-Benz Personenwagen|author-mask=7|volume=4}}
+* {{cite book |last=Frommann |first=Jens |title=Mercedes W 124: Typengeschichte und Technik  |trans-title=Mercedes W 124: Type History and Technology |year=2014 |publisher=GeraMond |location=München |isbn=9783862456581 |language=de}}
+* {{Hartmann: Das große Mercedes-Cabrio-Buch}}
+* {{Hofner: Mercedes-Benz Automobile|volume=2}}
+* {{Hofner: Mercedes-Benz Typenkunde|author-mask=7|volume=2}}
+* {{Deutsche Autos|volume=6}}
+* {{Mercedes-Benz (Koch)|author-mask=7|volume=2}}
+* {{Larimer: Mercedes-Benz Buyer's Guide}}
+* {{cite book |editor-last=Liebl |editor-first=Johannes |title=Mercedes-Benz E-Klasse: Entwicklung und Technik des W213 |trans-title=Mercedes-Benz E-Class: Development and Technology of the W213 |series=ATZ/MTZ-Typenbuch series |year=2017 |publisher=Springer Vieweg |location=Wiesbaden, Germany |isbn=9783658184421 |language=de}}
+* {{Niemann: Personenwagen von Mercedes-Benz}}
+* {{Nitskey: Mercedes-Benz Production Models Book 1946-1995}}
+* {{Deutsche Autos|volume=4}}
+* {{Oswald: Mercedes-Benz Personenwagen|author-mask=7|volume=2}}
+* {{cite book |editor-last=Pitt |editor-first=Colin |title=Mercedes-Benz E-Class <!--W210--> |year=2003 |publisher=Unique Motor Books |location=Hockley, Essex, UK |isbn=1841551406}}
+* {{cite book |last=Pitt |first=Colin |title=Mercedes-Benz W124 Enthusiasts Guide |year=2005 |publisher=Unique Motor Books |location=Hockley, Essex, UK |isbn=1841555355 |author-mask=4}}
+* {{cite book |editor-last=Pitt |editor-first=Colin |title=Mercedes-Benz W124 Series 1985–1997: Sedan, Coupe, Convertible |year=2007 |publisher=Unique Motor Books |location=Hockley, Essex, UK |isbn=9781841556529 |editor-mask=4}}
+* {{cite journal |title=Magnum Force |last=St. Antoine |first=Arthur |journal=[[Car and Driver]] |issue=April 1992 |pages=47–56}}
+* {{Schlegelmilch: Mercedes}}
+* {{Mercedes-Benz since 1945|volume=1}}
+* {{Mercedes-Benz since 1945|author-mask=6|volume=2}}
+* {{Mercedes-Benz since 1945|author-mask=6|volume=3}}
+* {{Mercedes-Benz since 1945|pages=8–16, 65–88, 97–104, 107–111 |author-mask=6|volume=4}}
+* {{Taylor: Mercedes-Benz: Cars of the 1990s|pages=8–27, 91–107  |author-mask=6}}
+* {{cite book |last=Taylor |first=James |title=Mercedes-Benz W124: The Complete Story |series=Crowood AutoClassic Series |date=2015 |publisher=The Crowood Press |location=Ramsbury, Marlborough, UK |isbn=9781847979537 |author-mask=6}}
+* {{cite book |last=Vieweg |first=Christof |title=Alles über die Mercedes-Benz E-Klasse Limousine und T-Modell |trans-title=Everything about the Mercedes-Benz E-Class: Saloon and Station Wagon |series=Technik transparent series |year=1999 |location=Stuttgart |publisher=DaimlerChrysler |isbn=3932786092 |edition=3rd  |language=de}}
+* {{cite book |last=Zoporowski |first=Tobias |title=Mercedes-Benz W124: All models 1984 to 1997 |series=The Essential Buyer's Guide series |year=2016 |publisher=Veloce Publishing |location=Dorchester, Dorset, UK |isbn=9781845848774 }}
+{{refend}}
+
+==== Workshop manuals ====
+{{refbegin}}
+* {{Chilton: Mercedes-Benz: 1968-73|ref=none}}
+* {{cite book |last1=Drayton |first1=Spencer |last2=Coombs |first2=Mark |last3=Rendle |first3=Steve |title=Mercedes Benz 124 Series (85–93) Service and Repair Manual |series=Haynes Service and Repair Manual Series |year=1996 |publisher=Haynes |location=Sparkford, UK |isbn=1859602533}}
+* {{cite book |last=Etzold |first=Rüdiger |title=Mercedes E-Klasse: Typ W124, 200 bis E 320 von 1/85 bis 6/95 |series=So wird's gemacht, Band 54 |year=1999 |edition=9th |publisher=Delius Klasing |location=Bielefield, Germany |isbn=3768805379 |language=de}}
+* {{cite book |last=Etzold |first=Rüdiger |title=Mercedes E-Klasse Diesel: Typ W124, 200D bis 300TD von 1/85 bis 6/95 |series=So wird's gemacht, Band 55 |year=1999 |edition=8th |publisher=Delius Klasing |location=Bielefield, Germany |isbn=3768805387 |language=de |author-mask=7}}
+* {{cite book |last=Korp |first=Dieter |title=Mercedes-Benz: 200 D/250 D/300 D Dezember '84 bis Juni '93 / E 200/250/300 Diesel ab Juli '93 |series=Jetzt helfe ich mir selbst series, Band 123 |year=2008 |publisher=Motorbuch Verlag |location=Stuttgart |isbn=9783613011557 |language=de}}
+* {{cite book |last=Korp |first=Dieter |title=Mercedes-Benz: 200 – 320 E, E 200 – 320 200/200 E / 230 E / 260 E / 280 E /300 E / 300 E-24 / 320 E Dezember '84 bis Juni '93. E 200 / 220 / 280 / 320 Juli '93 bis Juni '95 200/230 E/260 E/300 E ab Dezember '84 |series=Jetzt helfe ich mir selbst series, Band 124 |year=2011 |edition=6th |publisher=Motorbuch Verlag |location=Stuttgart |isbn=9783613011564 |language=de |author-mask=5}}
+* {{cite book |last=Ritter |first=Stu |title=Mercedes-Benz E-Class Owner's Bible: 1986–1995 |year=2002 |publisher=Bentley Publishers |location=Cambridge, MA, USA |isbn=0837602300}}
+* {{cite book |last=Russek |first=Peter |title=Mercedes 124 Series 200, 200E, 200T, 200TE, 230E, 230CE |series=Pocket Mechanic Vehicle Manual |year=1991 |publisher=Peter Russek Publications |location=Caversham, Reading, Berkshire, UK |isbn=0907779018}}
+* {{cite book |last=Russek |first=Peter |title=Mercedes 200, 250, 300D Series 124 |series=Pocket Mechanic Vehicle Manual |year=1994 |publisher=Peter Russek Publications |location=Caversham, Reading, Berkshire, UK |isbn=1898780447 |author-mask=6}}
+https://www.workshopcarmanuals.uk/
+* {{cite book |last=Russek |first=Peter |title=Mercedes-Benz E-Class: W124 Series 1993–1995 / W210 Series 1995–2000 / 4- and 6-Cyl. Engines |series=Pocket Mechanic Vehicle Manual |year=2006 |publisher=Peter Russek Publications |location=Caversham, Reading, Berkshire, UK |isbn=1898780978 |author-mask=6}}
+* {{cite book |last=Russek |first=Peter |title=Mercedes-Benz E-class: Petrol W124 & W210 Workshop Manual 1993–2000 |year=2008 |publisher=Brooklands Books |location=Cobham, Surrey, UK |isbn=9781855207684 |author-mask=6}}
+* {{cite book |title=Mercedes W124 Owners Workshop Manual: 1985–1995 |year=1998 |publisher=Bentley Publishers |location=Cambridge, MA, USA |isbn=9780837612140}}
+* {{cite book |title=Mercedes Serie 124 ab Baujahr 1985 / 200 / 200 T / 230 E / 230 TE |edition=1st |series=Reparaturanleitung series, Band 906. |year=2012 |publisher=Verlag Bucheli |location=Zug, Switzerland |isbn=9783716817377 |language=de}}
+* {{cite book |title=Mercedes Diesel Serie 124 ab Baujahr 1985 / 200 D / 250 D / 300 D |edition=1st |series=Reparaturanleitung series, Band 919. |year=2012 |publisher=Verlag Bucheli |location=Zug, Switzerland |isbn=9783716817438 |language=de}}
+* {{cite book |title=Mercedes Serie W124 Vier- und Sechszylindermotoren Baujahre 1985 bis 1992 |edition=1st |series=Reparaturanleitung series, Band 1211. |year=2000 |publisher=Verlag Bucheli |location=Zug, Switzerland |isbn=3716819379 |language=de}}
+* {{cite book |title=Mercedes E-Klasse 1993 bis 1995 (Serie W124) 1995 bis 1997 (Serie W210) |edition=1st |series=Reparaturanleitung series, Band 1224. |year=2000 |publisher=Verlag Bucheli |location=Zug, Switzerland |isbn=3716819646 |language=de}}
+* {{Mercedes-Benz Technical Companion}}
+{{refend}}
+
+== External links ==
+{{commons category|Mercedes-Benz E-Class}}
+
+* [https://www.mercedes-benz.co.uk/passengercars/mercedes-benz-cars/models/e-class/saloon-w213/explore.html Official website] (United Kingdom)
+
+{{Mercedes-Benz}}
+{{Mercedes-Benz timeline 1990–2019}}
+{{Mercedes-Benz timeline 2020 to date}}
+{{Mercedes-Benz E-Class lineage}}
+
+[[Category:Executive cars]]
+[[Category:Mercedes-Benz vehicles|E-Class]]
+[[Category:ANCAP large cars]]
+[[Category:Luxury vehicles]]
+[[Category:All-wheel-drive vehicles]]
+[[Category:Rear-wheel-drive vehicles]]
+[[Category:Sports sedans]]
+[[Category:Limousines]]
+[[Category:Coupés]]
+[[Category:Station wagons]]
+[[Category:Cars introduced in 1953]]
+[[Category:1960s cars]]
+[[Category:1970s cars]]
+[[Category:1980s cars]]
+[[Category:1990s cars]]
+[[Category:2000s cars]]
+[[Category:2010s cars]]
+[[Category:2020s cars]]
