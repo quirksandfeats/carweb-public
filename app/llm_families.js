@@ -231,6 +231,11 @@ window.LlmFamilies = (function () {
     // could have built a family, undoes all four the same way. Keyed by the
     // nameplate's node id -> {label, unmergedAt}. See applyUnmerges.
     unmerges: bootData.unmerges || {},
+    // Engines the local model has read, keyed by engine node id -> {status,
+    // checkedAt, sourceTitle, article}. The powertrain layer's equivalent of
+    // `families`: the article is stored as read, and the graph is rebuilt
+    // from it at boot rather than the nodes being persisted themselves.
+    engines: bootData.engines || {},
     // What the orphan prune cleared, one line per decision -- see
     // pruneStandInOrphans and clearRenamedOrphans.
     //
@@ -7806,10 +7811,32 @@ Rules:
   // applied. `resolve` maps a Wikipedia title to the title it redirects to;
   // `mint` creates a car for an application that matched nothing, and may
   // return null to decline.
+  // The network half, kept separate so the boot replay can skip it entirely:
+  // every title an engine's applications name, mapped to what it redirects to.
+  async function resolveApplicationTitles(applications, resolve) {
+    const out = new Map();
+    if (!resolve) return out;
+    const titles = [...new Set((applications || []).map(a => a.target).filter(Boolean))];
+    for (const t of titles) {
+      let r = null;
+      try { r = await resolve(t); } catch (e) { r = null; }
+      out.set(t, r || t);
+    }
+    return out;
+  }
+
   async function planEngineEdges(applications, nodes, opts) {
     const o = opts || {};
-    const resolve = o.resolve || (async t => t);
-    const mint = o.mint || (() => null);
+    const resolved = await resolveApplicationTitles(applications, o.resolve);
+    return planEngineEdgesWith(applications, nodes, resolved, o.mint);
+  }
+
+  // Everything after the titles are known. Synchronous on purpose: app.js
+  // replays this layer at boot, in the same breath as applyConfirmed, and
+  // has to have every engine node in `nodes` before it builds its indexes.
+  function planEngineEdgesWith(applications, nodes, resolvedTitles, mintFn) {
+    const resolved = resolvedTitles || new Map();
+    const mint = mintFn || (() => null);
     const byId = new Map(nodes.map(n => [n.id, n]));
     const byWp = new Map();
     for (const n of nodes) {
@@ -7819,16 +7846,6 @@ Rules:
         if (full && !byWp.has(norm(full))) byWp.set(norm(full), n);
       }
     }
-    // Resolve every distinct title once. A page names the same article a
-    // dozen times and each resolution is a network round trip.
-    const titles = [...new Set(applications.map(a => a.target).filter(Boolean))];
-    const resolved = new Map();
-    for (const t of titles) {
-      let r = null;
-      try { r = await resolve(t); } catch (e) { r = null; }
-      resolved.set(t, r || t);
-    }
-
     const placed = [];
     for (const app of applications) {
       let node = carForApplication(app, byId, byWp, resolved.get(app.target));
@@ -7942,6 +7959,15 @@ Rules:
   // and a fresh scan land in the same place. Returns what it did.
   async function applyEngineArticle(article, title, nodes, links, opts) {
     const o = opts || {};
+    const flatApps = []
+      .concat(...((article.variants || []).map(v => v.applications || [])))
+      .concat(article.applications || []);
+    const resolved = await resolveApplicationTitles(flatApps, o.resolve);
+    return applyEngineArticleWith(article, title, nodes, links, resolved, o);
+  }
+
+  function applyEngineArticleWith(article, title, nodes, links, resolvedTitles, opts) {
+    const o = opts || {};
     const byId = new Map(nodes.map(n => [n.id, n]));
     const eng = (() => {
       const draft = engineNodeFrom(article, title);
@@ -8017,7 +8043,7 @@ Rules:
     (article.applications || []).forEach(a => flat.push(Object.assign({}, a, { __from: eng.id })));
 
     if (flat.length) {
-      const edges = await planEngineEdges(flat, nodes, { resolve: o.resolve, mint });
+      const edges = planEngineEdgesWith(flat, nodes, resolvedTitles, mint);
       for (const e of edges) {
         if (addLink(e.from || eng.id, e.node.id, "fitted",
                     { yearStart: e.app.yearStart || null, yearEnd: e.app.yearEnd || null,
@@ -8026,6 +8052,104 @@ Rules:
     }
 
     return { engine: eng, variants: variantCount, fitted: fittedCount, minted };
+  }
+
+  // ---------- engines: the stored layer ----------
+  // Same contract as every other layer in this file: the decision is stored,
+  // the graph is rebuilt from it at boot, and data.js is never touched. An
+  // engine scan is therefore undoable by deleting its entry, and a rebuild
+  // cannot clobber it.
+  function engineEntryFor(id) { return store.engines[id] || null; }
+  function allEngineEntries() {
+    return Object.keys(store.engines).map(id => {
+      const e = store.engines[id];
+      return { id, sourceTitle: e.sourceTitle || id, status: e.status, checkedAt: e.checkedAt,
+               variants: ((e.article && e.article.variants) || []).length };
+    }).sort((a, b) => (a.sourceTitle || "").localeCompare(b.sourceTitle || ""));
+  }
+  function deleteEngineEntry(id) { delete store.engines[id]; return persist(); }
+
+  // Follow every title to the article it actually serves. Engine pages link
+  // the same car under titles left behind by two renames; without this the
+  // nameplate rule sees three different cars. Cached per call, since one page
+  // names the same article a dozen times.
+  function redirectResolver() {
+    const seen = new Map();
+    return async title => {
+      if (seen.has(title)) return seen.get(title);
+      let out = title;
+      try { out = (await fetchArticleDigest(title)).resolvedTitle || title; }
+      catch (e) { out = title; }
+      seen.set(title, out);
+      return out;
+    };
+  }
+
+  // Read one engine article and put it in the graph. `title` is a Wikipedia
+  // article title. Everything it finds is stored, so this is the only place
+  // that needs the network.
+  function checkEngine(title, nodes, links, opts) {
+    if (!serverAvailable) return Promise.resolve({ status: "unavailable" });
+    const flightKey = "engine:" + norm(title);
+    if (inFlight.has(flightKey)) return inFlight.get(flightKey);
+    const p = (async () => {
+      try {
+        const { wikitext, resolvedTitle } = await fetchArticleDigest(title);
+        if (!isEngineArticle(wikitext)) {
+          return { status: "not-an-engine", title: resolvedTitle || title };
+        }
+        const article = readEngineArticle(wikitext, title);
+        const id = engineIdFor(article.name || title);
+        const flatApps = []
+          .concat(...((article.variants || []).map(v => v.applications || [])))
+          .concat(article.applications || []);
+        // Resolved ONCE, here, and stored with the entry. Every later boot
+        // replays from this rather than asking Wikipedia again, which is what
+        // lets the replay be synchronous -- and also means a redirect that
+        // changes later cannot silently move an existing edge.
+        const resolved = await resolveApplicationTitles(flatApps, redirectResolver());
+        const entry = {
+          status: "confirmed", checkedAt: new Date().toISOString(),
+          sourceTitle: resolvedTitle || title, article,
+          resolved: [...resolved.entries()],
+        };
+        store.engines[id] = entry;
+        await persist();
+        const applied = applyEngineArticleWith(article, entry.sourceTitle, nodes, links,
+          resolved, opts || {});
+        return Object.assign({ status: "confirmed", id, entry }, applied);
+      } catch (e) {
+        return { status: "error", error: String((e && e.message) || e) };
+      } finally {
+        inFlight.delete(flightKey);
+      }
+    })();
+    inFlight.set(flightKey, p);
+    return p;
+  }
+
+  // Replayed at boot, next to applyConfirmed and applyAllFamilyOverrides.
+  // Every engine already scanned is put back into the graph from what was
+  // stored, with no network: the article was already read once.
+  function applyEngines(nodes, links) {
+    const ids = Object.keys(store.engines || {});
+    if (!ids.length) return { engines: 0, variants: 0, fitted: 0 };
+    let variants = 0, fitted = 0, engines = 0;
+    for (const id of ids) {
+      const entry = store.engines[id];
+      if (!entry || entry.status !== "confirmed" || !entry.article) continue;
+      // No network and no minting. A boot replay cannot wait on Wikipedia --
+      // app.js builds its indexes on the next line -- and every car this
+      // engine reached was either already in the graph or minted the first
+      // time round, which means it is in the overlay and already back.
+      // The stored titles are what the first pass resolved them to, so the
+      // redirects are already followed.
+      const r = applyEngineArticleWith(entry.article, entry.sourceTitle, nodes, links,
+                                       new Map(entry.resolved || []), {});
+      if (r.engine) engines++;
+      variants += r.variants; fitted += r.fitted;
+    }
+    return { engines, variants, fitted };
   }
 
   // ---------- reading the link a generation's own section points at ----------
@@ -8867,7 +8991,9 @@ Rules:
     isEngineArticle, engineInfobox, engineVariants, engineApplications,
     parseApplicationLine, readEngineArticle,
     engineIdFor, engineVariantIdFor, nameplateOfCar, planEngineEdges,
-    engineNodeFrom, applyEngineArticle, carNameFromApplication,
+    engineNodeFrom, applyEngineArticle, applyEngineArticleWith,
+    carNameFromApplication, resolveApplicationTitles,
+    checkEngine, applyEngines, engineEntryFor, allEngineEntries, deleteEngineEntry,
     articleFromNameplateSection, findGenerationArticle,
     orphanedEntries, orphanKind, pruneStandInOrphans, clearRenamedOrphans,
     // The archive both of those write to. `store` is a shallow copy of the

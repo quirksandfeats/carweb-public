@@ -58,6 +58,19 @@ window.CarWeb = (function () {
   // generation set, not one an override is about to retire generations out
   // of).
   if (window.LlmFamilies) window.LlmFamilies.applyAllFamilyOverrides(nodes, links);
+  // The powertrain layer, replayed from what was stored the same way every
+  // other layer here is. Synchronous by design: the indexes below are built
+  // from `nodes` a few lines later, so an engine that arrived a tick late
+  // would be invisible to every one of them.
+  if (window.LlmFamilies && window.LlmFamilies.applyEngines) {
+    try {
+      const r = window.LlmFamilies.applyEngines(nodes, links);
+      if (r.engines) {
+        console.info(`[carweb] powertrain: ${r.engines} engine(s), ${r.variants} variant(s), ` +
+                     `${r.fitted} fitted connection(s)`);
+      }
+    } catch (e) { console.warn("CarWeb: could not replay the powertrain layer", e); }
+  }
   // A shared-platform/rebadge mention is often stated on only ONE of the
   // two nameplates' own Wikipedia articles (real bug report: the Infiniti
   // QX30's article says it shares a platform with the Mercedes-Benz
@@ -337,6 +350,12 @@ window.CarWeb = (function () {
   let layer = "designers";
   const isPerson = n => n.type === "person";
   const hasRole = (n, r) => n.roles && n.roles.includes(r);
+  // The powertrain layer's own node and link types. Kept as one predicate so
+  // "engines are not in the main graph" is one rule in one place rather than a
+  // type check scattered through every view.
+  const POWERTRAIN_NODES = new Set(["engine", "enginevar"]);
+  const POWERTRAIN_LINKS = new Set(["fitted", "enginegen", "enginesucc"]);
+  function isPowertrain(n) { return !!n && POWERTRAIN_NODES.has(n.type); }
   function nodeInLayer(n) {
     // Retired by a user-confirmed nameplate generation-list override (see
     // llm_families.js's applyFamilyOverride) -- superseded by a fresh
@@ -344,6 +363,12 @@ window.CarWeb = (function () {
     // at its id doesn't break, never shown anywhere. Checked first since it
     // overrides every other layer/expansion rule below.
     if (n.retired) return false;
+    // The powertrain layer lives in its own view. Real user answer, asked
+    // where engines should appear: "New view only" -- the main graph is
+    // untouched, same nodes, same counts, same layout. This is the single
+    // choke point that makes that true for the graph, the timeline, six
+    // degrees, the search and the footer counts at once.
+    if (isPowertrain(n)) return false;
     if (n.type === "model" && n.familyOf && !expandedFamilies.has(n.familyOf)) return false;
     if (!isPerson(n)) return true;
     if (layer === "none") return false;
@@ -379,6 +404,7 @@ window.CarWeb = (function () {
     // the same way nodeInLayer's own `n.retired` check already does for
     // nodes. Checked first, since it overrides every rule below.
     if (l.retired) return false;
+    if (POWERTRAIN_LINKS.has(l.type)) return false;   // see isPowertrain
     if (l.type === "designed" && (layer === "engineers" || layer === "none")) return false;
     if (l.type === "engineered" && (layer === "designers" || layer === "none")) return false;
     // Every family mirrors its generations' designed/engineered links up to
@@ -6359,6 +6385,17 @@ window.CarWeb = (function () {
     dt.hidden = true; dtNode = null;
     if (name === "timeline") CarWebTimeline.activate();
     if (name === "sixdeg") CarWebSix.activate();
+    if (name === "power" && window.CarWebPower) {
+      CarWebPower.activate();
+      const el = document.getElementById("pt-counts");
+      if (el) {
+        const c = CarWebPower.counts();
+        el.textContent = c.engines
+          ? `${c.engines} engine${c.engines === 1 ? "" : "s"} · ${c.variants} variant${c.variants === 1 ? "" : "s"} · ` +
+            `${c.cars} car${c.cars === 1 ? "" : "s"} · ${c.fitted} fitted`
+          : "nothing scanned yet";
+      }
+    }
     if (name === "graph") Graph.touch();
   }
   document.querySelectorAll(".tab").forEach(b => b.onclick = () => switchView(b.dataset.view));
@@ -6450,6 +6487,7 @@ window.CarWeb = (function () {
       Graph.init();
       CarWebTimeline.init();
       CarWebSix.init();
+      if (window.CarWebPower) CarWebPower.init();
       refreshCounts();
       document.querySelectorAll("#layertoggle button").forEach(b =>
         b.onclick = () => setLayer(b.dataset.layer));
@@ -6637,6 +6675,7 @@ window.CarWeb = (function () {
     // mutation already makes (see applyLlmConfirmSilent and friends). Exposed
     // so a test can add a node or a link and have the forces actually see it.
     rebuildSim: () => buildSim(),
+    isPowertrain, powertrainLinkTypes: () => POWERTRAIN_LINKS,
     graphTransform: () => Graph.state().t,
   };
   return api;

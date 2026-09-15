@@ -27,6 +27,7 @@
     <button class="tab active" data-view="graph" role="tab">Graph</button>
     <button class="tab" data-view="timeline" role="tab">Timeline</button>
     <button class="tab" data-view="sixdeg" role="tab">Six Degrees</button>
+    <button class="tab" data-view="power" role="tab">Powertrain</button>
   </nav>
   <div id="layertoggle" title="people layer">
     <button data-layer="none">None</button>
@@ -143,6 +144,22 @@
       <ol id="sd-steps"></ol>
     </div>
     <canvas id="sdcanvas"></canvas>
+  </section>
+
+  <!-- The powertrain view. Independent of the main graph on purpose: app.js's
+       nodeInLayer/linkInLayer refuse every engine node and edge, so nothing
+       here changes what the Graph, Timeline or Six Degrees tabs show. See
+       powertrain.js. -->
+  <section id="view-power" class="view">
+    <div id="pt-bar">
+      <span id="pt-counts" class="pt-counts"></span>
+      <span class="pt-key">
+        <b class="pt-dot pt-eng"></b> engine
+        <b class="pt-dot pt-var"></b> variant
+        <b class="pt-dot pt-car"></b> car
+      </span>
+    </div>
+    <canvas id="ptcanvas"></canvas>
   </section>
 
   <!-- detail panel -- lives inside <main> (not the page body) so its
@@ -664,6 +681,7 @@
 <script src="app.js"></script>
 <script src="timeline.js"></script>
 <script src="sixdeg.js"></script>
+<script src="powertrain.js"></script>
 <script>CarWeb.boot();</script>
 </body>
 </html>
