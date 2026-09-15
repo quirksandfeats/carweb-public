@@ -1091,7 +1091,7 @@ main{flex:1; position:relative; min-height:0}
    legend pill -- is the Graph's own, unchanged. Only the swatches differ. */
 #pt-legend[hidden]{display:none}
 .pt-counts{font-weight:600; color:var(--ink); font-variant-numeric:tabular-nums}
-.sw-pt-eng{background:var(--accent); box-shadow:0 0 0 1.5px var(--paper), 0 0 0 3px var(--ink)}
+.sw-pt-eng{background:var(--ink); box-shadow:0 0 0 1.5px var(--paper), 0 0 0 3px var(--accent)}
 .sw-pt-var{background:var(--engvar)}
 .sw-pt-car{background:var(--accent)}
 .sw-pt-fitted{width:22px; height:0; border-top:1.4px solid var(--ink2); border-radius:0; opacity:.55}

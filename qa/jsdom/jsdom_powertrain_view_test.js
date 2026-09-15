@@ -192,6 +192,18 @@ cw.rebuildSim();
   check("a car dropped inside the engine's bubble is pushed back out",
         d >= ring.clear - 0.001, d.toFixed(1) + " vs clearance " + ring.clear.toFixed(1));
 
+  // Real user request: "it would make more sense for the engines in the
+  // powertrain tab to adopt the same coloring as if it were the 'makes' nodes
+  // from the Graph tab, followed by the yellowish color you chose for the
+  // engine variants, followed by the standard orange for the car nodes."
+  const make = DATA.nodes.find(n => n.type === "make" && !n.retired);
+  const someVar = DATA.nodes.find(n => n.type === "enginevar");
+  check("an engine is sized on the same curve as a make, being its layer's hub",
+        Math.abs(eng.r - Math.min(9 + eng.deg * 0.18, 26)) < 1e-9,
+        eng.r + " (a make with the same degree: " + Math.min(9 + make.deg * 0.18, 26) + ")");
+  check("...and a variant is not -- it is a child, like a generation",
+        someVar.r < eng.r, someVar.r + " vs " + eng.r);
+
   cw.Graph.clearFocus();
   cw.switchView("graph");
 }
@@ -216,6 +228,19 @@ cw.rebuildSim();
   check("the hint line is the Graph's", !!doc.getElementById("graphhint"));
   check("the zoom control is the Graph's", !!doc.getElementById("zoomslider"));
   check("the release-focus button is the Graph's", !!doc.getElementById("clearfocus"));
+  // Real user request: "there should be an auto scaling where the camera
+  // initially is scaled down to fit all of the engines that it can, rather
+  // than start out super zoomed out (specifically for the powertrain tab)."
+  // fitAll took its extent over EVERY node in the array, so a layer holding
+  // forty of them was framed as if the other six thousand were on screen.
+  const appSrc = fs.readFileSync(path.join(APP, "app.js"), "utf-8");
+  const fit = appSrc.split("function fitAll(")[1].split("function activeSet")[0];
+  check("the camera frames what is on screen, not the whole node array",
+        /shown = nodes\.filter\(/.test(fit) && /inGraphView\(n\)/.test(fit) &&
+        /d3\.extent\(shown/.test(fit), fit.slice(0, 80).replace(/\n/g, " "));
+  check("...and switching into the layer settles it first, then frames it",
+        /if \(isPowerMode\(\)\) Graph\.settleAndFit\(\)/.test(appSrc));
+
   check("no parallel powertrain furniture is left behind",
         !doc.getElementById("ptzoom") && !doc.getElementById("pt-hint") &&
         !/#ptcanvas|#view-power|#pt-bar/.test(css));

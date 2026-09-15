@@ -5929,6 +5929,9 @@ window.CarWeb = (function () {
   function radius(n) {
     if (n.type === "make") return Math.min(9 + n.deg * 0.18, 26);
     if (n.type === "person") return Math.min(4.5 + n.deg * 0.5, 13);
+    // An engine is its layer's hub, the way a make is the main layer's, so it
+    // is sized on the same curve -- see the draw branch for the colour.
+    if (n.type === "engine") return Math.min(9 + n.deg * 0.18, 26);
     if (n.type === "family") return 4.4 + Math.min(n.deg, 10) * 0.6;
     return 3.6 + Math.min(n.deg, 8) * 0.55;
   }
@@ -6175,7 +6178,18 @@ window.CarWeb = (function () {
       return Math.max(60, top + (H - top - bottom) / 2);
     }
     function fitAll(animate) {
-      const xs = d3.extent(nodes, n => n.x), ys = d3.extent(nodes, n => n.y);
+      // Over the nodes actually ON SCREEN, not the whole array. Real user
+      // report about the Powertrain tab: "there should be an auto scaling
+      // where the camera initially is scaled down to fit all of the engines
+      // that it can, rather than start out super zoomed out." The extent was
+      // taken over every node in the graph, so switching to a layer holding
+      // forty of them still framed the other six thousand -- and in the main
+      // layer, an engine left wherever the powertrain simulation had put it
+      // stretched that extent for nothing.
+      let shown = nodes.filter(n => Number.isFinite(n.x) && Number.isFinite(n.y) && inGraphView(n));
+      if (!shown.length) shown = nodes.filter(n => Number.isFinite(n.x) && Number.isFinite(n.y));
+      if (!shown.length) return;
+      const xs = d3.extent(shown, n => n.x), ys = d3.extent(shown, n => n.y);
       const k = Math.min((W - panelReserve()) / (xs[1] - xs[0] + 200),
                          (H - panelReserveY() - legendReserveY()) / (ys[1] - ys[0] + 200));
       const tf = d3.zoomIdentity.translate(viewCenterX(), viewCenterY()).scale(k)
@@ -6607,12 +6621,18 @@ window.CarWeb = (function () {
           ctx.lineWidth = 1.1 / k; ctx.strokeStyle = C.ink; ctx.stroke();
           drawDbGarageRings(n, r, k);
         } else if (n.type === "engine") {
-          // An engine is a nameplate here, so it is drawn as one -- including
-          // the expandable ring, which is what says it opens.
+          // Real user request: "it would make more sense for the engines in
+          // the powertrain tab to adopt the same coloring as if it were the
+          // 'makes' nodes from the Graph tab, followed by the yellowish color
+          // you chose for the engine variants, followed by the standard
+          // orange for the car nodes." Which is the same hierarchy the main
+          // layer draws: the hub in ink, its children in accent.
           ctx.beginPath(); ctx.arc(n.x, n.y, r, 0, 2 * Math.PI);
-          ctx.fillStyle = C.accent; ctx.fill();
-          ctx.beginPath(); ctx.arc(n.x, n.y, r + 1.8 / k, 0, 2 * Math.PI);
-          ctx.lineWidth = 1.1 / k; ctx.strokeStyle = C.ink; ctx.stroke();
+          ctx.fillStyle = C.ink; ctx.fill();
+          // The expandable ring a nameplate gets, in accent rather than ink
+          // so it reads against an ink centre.
+          ctx.beginPath(); ctx.arc(n.x, n.y, r + 2 / k, 0, 2 * Math.PI);
+          ctx.lineWidth = 1.2 / k; ctx.strokeStyle = C.accent; ctx.stroke();
         } else if (n.type === "enginevar") {
           ctx.beginPath(); ctx.arc(n.x, n.y, r, 0, 2 * Math.PI);
           ctx.fillStyle = C.engvar; ctx.fill();
@@ -7050,6 +7070,15 @@ window.CarWeb = (function () {
       // layer changes under it (see switchView): the powertrain layer's forty
       // nodes sit nowhere near the main graph's six thousand.
       refit(anim) { fitAll(!!anim); },
+      // Run the forces far enough for the layout to mean something, then
+      // frame it. Switching layer hands the simulation a completely different
+      // set of nodes, most of them still sitting where they were seeded, so
+      // framing immediately frames a cloud that is about to move.
+      settleAndFit(ticks) {
+        for (let i = 0; i < (ticks || 140); i++) sim.tick();
+        fitAll(false);
+        dirty = true;
+      },
       clearSelection() { selected = null; dirty = true; },
       touch() { dirty = true; resize(); refreshPlatformsFilter(); },
       platformsOnly: () => platformsOnly, setPlatformsOnly,
@@ -7148,7 +7177,13 @@ window.CarWeb = (function () {
       invalidatePowerVis();
       Graph.clearFocus();
       buildSim();
-      Graph.refit(false);
+      // Settling only matters going IN to the powertrain layer -- a few dozen
+      // nodes, most of them still sitting where they were seeded. Coming back
+      // out, the main graph's six thousand are already laid out from before
+      // the switch and re-running their forces would cost a visible pause for
+      // no change.
+      if (isPowerMode()) Graph.settleAndFit();
+      else Graph.refit(false);
     }
     if (GRAPH_VIEWS[name]) Graph.touch();
   }
