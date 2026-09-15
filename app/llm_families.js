@@ -7586,7 +7586,135 @@ Rules:
   // generation already uses; a guess that just redirects back to the
   // nameplate overview page is no upgrade at all (see fetchArticleDigest's
   // resolvedTitle).
-  async function findGenerationArticle(gen, famLabel, currentWp) {
+  // ---------- reading the link a generation's own section points at ----------
+  // Real user request: "not all the info about each generation exists within
+  // this page, but there are links in each of the sections where the
+  // generations are given a summary. Those links are where the actual
+  // information exists about that given generation... there are many links on
+  // this page, and the only actual relevant ones are the ones that come right
+  // after the description of a particular generation, so context matters in
+  // which link is followed."
+  //
+  // Two article shapes, confirmed against real ones rather than assumed:
+  //
+  //   Volkswagen Golf -- the umbrella nameplate. Every generation heading is
+  //     followed on the next line by a hatnote naming the article outright:
+  //       == Fourth generation (Mk4/A4, ''Typ'' 1J; 1997) ==
+  //       {{Main article|Volkswagen Golf Mk4}}
+  //     Nothing has to be guessed, and "context matters" solves itself: the
+  //     hatnote is the only link in that position.
+  //
+  //   Mercedes-Benz E-Class -- no hatnotes anywhere. The per-generation
+  //     articles are linked from the section's running prose, among many
+  //     links that are not the article (4Matic, catalytic converter, Motor
+  //     Trend). Guessing the title works here, because the articles are named
+  //     "Mercedes-Benz E-Class (W213)" -- which is exactly the shape
+  //     findGenerationArticle below already tries, and exactly the shape the
+  //     Golf's "Volkswagen Golf Mk4" is not.
+  //
+  // So the two are complements, not alternatives: read the section first,
+  // guess second. Everything here is deterministic -- no model call is needed
+  // to decide which link is the right one, which also means no model can get
+  // it wrong.
+
+  // Split wikitext into sections, keyed by heading text. A section runs from
+  // its heading to the next heading at the SAME OR HIGHER level, so a
+  // generation's own sub-headings stay part of it.
+  function wikitextSections(wikitext) {
+    const out = [];
+    const rx = /^(={2,6})\s*(.+?)\s*\1\s*$/gm;
+    const heads = [];
+    let m;
+    while ((m = rx.exec(wikitext))) {
+      heads.push({ level: m[1].length, raw: m[2], at: m.index, end: m.index + m[0].length });
+    }
+    heads.forEach((h, i) => {
+      let stop = wikitext.length;
+      for (let j = i + 1; j < heads.length; j++) {
+        if (heads[j].level <= h.level) { stop = heads[j].at; break; }
+      }
+      // Headings carry anchors and italics: "<span class="anchor" id="A4">
+      // </span>Fourth generation (Mk4/A4, ''Typ'' 1J; 1997)".
+      const title = h.raw.replace(/<[^>]*>/g, "").replace(/'{2,}/g, "").trim();
+      out.push({ title, level: h.level, body: wikitext.slice(h.end, stop) });
+    });
+    return out;
+  }
+
+  // The article a hatnote in this section names, if any. {{Main}},
+  // {{Main article}} and {{Further}} all take the title as their first
+  // positional argument. Only the section's own opening is considered -- a
+  // {{Main}} deeper inside belongs to a sub-topic (the Golf's
+  // "{{Main|Volkswagen e-Golf}}" sits under its own sub-heading), not to the
+  // generation.
+  function hatnoteArticle(body) {
+    const head = String(body || "").slice(0, 600);
+    const m = head.match(/\{\{\s*(?:main|main article|further)\s*\|\s*([^|{}\n]+?)\s*(?:\||\}\})/i);
+    if (!m) return null;
+    const t = m[1].trim();
+    if (!t || /^[a-z]/.test(t) && !/\s/.test(t)) return null;   // {{main|section-name}} style self-reference
+    return t.split("#")[0].trim() || null;
+  }
+
+  // No hatnote: score the section's own wiki-links. The right one names the
+  // nameplate and the generation's code ("Mercedes-Benz E-Class (W213)"),
+  // sits early, and is not one of the dozens of incidental links. Anything
+  // that does not carry the code is refused outright rather than guessed at
+  // -- a wrong article here is worse than none, since the whole point is to
+  // read facts out of it.
+  function proseArticle(body, make, code) {
+    if (!code) return null;
+    const key = norm(code);
+    if (!key) return null;
+    const mk = norm(make || "");
+    const links = [];
+    const rx = /\[\[([^\]|#]+)(?:\|[^\]]*)?\]\]/g;
+    let m;
+    while ((m = rx.exec(body))) links.push({ title: m[1].trim(), at: m.index });
+    for (const l of links) {
+      const t = norm(l.title);
+      if (!t.includes(key)) continue;
+      if (mk && !t.includes(mk)) continue;     // same marque, or it is some other car entirely
+      return l.title;
+    }
+    return null;
+  }
+
+  // The generation section of `wikitext` that belongs to this generation,
+  // matched on its code the same way applyFamilyOverride pairs a fresh
+  // generation list against the current one.
+  function sectionForCode(wikitext, code) {
+    if (!code) return null;
+    const key = norm(code);
+    if (!key) return null;
+    const secs = wikitextSections(wikitext);
+    // Longest heading match loses to the most specific one: "Mk4" appears in
+    // both "Fourth generation (Mk4/A4...)" and "Extended production (Mk4.5)",
+    // and the first is the one that owns the generation.
+    let best = null;
+    for (const sec of secs) {
+      if (!norm(sec.title).includes(key)) continue;
+      if (!best || sec.level < best.level) best = sec;
+    }
+    return best;
+  }
+
+  // Public entry point: the article THIS generation's section points at,
+  // read from the nameplate's article. Null when the section says nothing.
+  async function articleFromNameplateSection(gen, famWp, famLabel) {
+    if (!famWp) return null;
+    const tc = trailingCode(String(gen.label || ""));
+    const code = tc && tc.code;
+    if (!code) return null;
+    let wikitext;
+    try { wikitext = (await fetchArticleDigest(famWp)).wikitext; }
+    catch (e) { return null; }
+    const sec = sectionForCode(wikitext, code);
+    if (!sec) return null;
+    return hatnoteArticle(sec.body) || proseArticle(sec.body, gen.make, code) || null;
+  }
+
+  async function findGenerationArticle(gen, famLabel, currentWp, famWp) {
     const make = String(gen.make || "").trim();
     const label = String(gen.label || "").trim();
     const tc = trailingCode(label);
@@ -7609,6 +7737,17 @@ Rules:
       catch (e) { currentResolved = currentWp; }
     }
     const isUpgrade = t => t && norm(t) !== norm(currentResolved || "") && norm(t) !== norm(famLabel ? `${make} ${famLabel}` : "");
+    // What the nameplate's own article says, before anything is guessed --
+    // see articleFromNameplateSection. The Volkswagen Golf names
+    // "Volkswagen Golf Mk4" outright, and none of the shapes below would
+    // ever have produced it.
+    const stated = await articleFromNameplateSection(gen, famWp, famLabel);
+    if (stated) {
+      let resolved = null;
+      try { resolved = (await fetchArticleDigest(stated)).resolvedTitle; }
+      catch (e) { resolved = null; }
+      if (isUpgrade(resolved)) return resolved;
+    }
     for (const t of candidates) {
       let resolved = null;
       try { resolved = (await fetchArticleDigest(t)).resolvedTitle; }
@@ -7627,7 +7766,7 @@ Rules:
     const p = (async () => {
       try {
         const famLabel = fam ? fam.label : null;
-        const upgraded = await findGenerationArticle(gen, famLabel, gen.wp);
+        const upgraded = await findGenerationArticle(gen, famLabel, gen.wp, fam && fam.wp);
         if (upgraded) {
           gen.wp = upgraded;
           store.wpLinks[gen.id] = upgraded;
@@ -8280,6 +8419,10 @@ Rules:
     setDecisionSource, decisionSource: () => decisionSource,
     resolveWeakRelations, makeRelationship, weakProposalRejection,
     additiveRecheck, diffGenerationCodes,
+    // The section-reading half of the generation-article lookup, exposed so
+    // the suite can drive it against real cached wikitext without a network.
+    wikitextSections, hatnoteArticle, proseArticle, sectionForCode,
+    articleFromNameplateSection, findGenerationArticle,
     orphanedEntries, orphanKind, pruneStandInOrphans, clearRenamedOrphans,
     // The archive both of those write to. `store` is a shallow copy of the
     // seeded object, so a NEW top-level key on it is not visible through
