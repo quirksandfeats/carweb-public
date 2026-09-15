@@ -14349,6 +14349,520 @@
     "dropped": []
    },
    "cascadeDiscovered": true
+  },
+  "llm-related-mercedes-benz-w114": {
+   "status": "none",
+   "checkedAt": "2026-09-15T22:17:57.604Z",
+   "sourceTitle": "Mercedes-Benz W114",
+   "proposal": {
+    "hasMultipleGenerations": false,
+    "generations": [
+     {
+      "code": "W114/W115",
+      "yearStart": 1968,
+      "yearEnd": 1976,
+      "designers": [
+       "Paul Bracq"
+      ],
+      "engineers": [],
+      "wikiFile": "Mercedes-Benz W115 220 D (1970) Classic-Gala 2022 1X7A0312 (cropped).jpg",
+      "sharedPlatforms": [
+       "Mercedes-Benz W108/W109"
+      ]
+     }
+    ]
+   },
+   "attempts": 1,
+   "feedback": [],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": false,
+     "generations": [
+      {
+       "code": "W114/W115",
+       "yearStart": 1968,
+       "yearEnd": 1976,
+       "designers": [
+        "Paul Bracq"
+       ],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Mercedes-Benz W108/W109"
+       ]
+      }
+     ]
+    },
+    "dropped": []
+   },
+   "cascadeDiscovered": true
+  },
+  "llm-related-mercedes-benz-w194": {
+   "status": "none",
+   "checkedAt": "2026-09-15T22:22:31.904Z",
+   "sourceTitle": "Mercedes-Benz W194",
+   "proposal": {
+    "hasMultipleGenerations": false,
+    "generations": [
+     {
+      "code": "W194",
+      "yearStart": 1952,
+      "yearEnd": 1954,
+      "designers": [
+       "Rudolf Uhlenhaut"
+      ],
+      "engineers": [
+       "Rudolf Uhlenhaut"
+      ],
+      "wikiFile": "300slretro2012av.jpg",
+      "sharedPlatforms": [
+       "Mercedes-Benz W186",
+       "Mercedes-Benz W188"
+      ],
+      "sharedPlatformMatches": {
+       "Mercedes-Benz W186": {
+        "matchId": null,
+        "confidence": "high",
+        "reason": "The mentioned car 'Mercedes-Benz W186' is a specific chassis generation (produced 1947–1955). None of the provided candidate IDs correspond to the W186 chassis. The candidates list includes other chassis codes (W123, W126, W201, etc.) and some broad nameplate entries (e.g., 'Mercedes-Benz 130'), but none explicitly identify the W186 model."
+       },
+       "Mercedes-Benz W188": {
+        "matchId": null,
+        "confidence": "high",
+        "reason": "The mentioned car 'Mercedes-Benz W188' is the Mercedes-Benz 300 SD, produced from 1978 to 1981. None of the provided candidates correspond to the W188 chassis code or the 300 SD model name. The closest related model in the list is the Mercedes-Benz 300 SEL 6.3 (W109) (id: m-mercedes-benz-300-sel-6-3), but this is a different car with different production years (1968–1972) and chassis code. Therefore, there is no match."
+       }
+      }
+     }
+    ]
+   },
+   "attempts": 1,
+   "feedback": [],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": false,
+     "generations": [
+      {
+       "code": "W194",
+       "yearStart": 1952,
+       "yearEnd": 1954,
+       "designers": [
+        "Rudolf Uhlenhaut"
+       ],
+       "engineers": [
+        "Rudolf Uhlenhaut"
+       ],
+       "sharedPlatforms": [
+        "Mercedes-Benz W186",
+        "Mercedes-Benz W188"
+       ]
+      }
+     ]
+    },
+    "dropped": []
+   },
+   "cascadeDiscovered": true
+  },
+  "m-mazda-121": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T22:22:38.184Z",
+   "sourceTitle": "Mazda 121",
+   "proposal": {
+    "hasMultipleGenerations": true,
+    "generations": [
+     {
+      "code": "CD",
+      "yearStart": 1975,
+      "yearEnd": 1981,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "1968 Mazda Cosmo-Sport 01.jpg",
+      "sharedPlatforms": []
+     },
+     {
+      "code": "HB",
+      "yearStart": 1981,
+      "yearEnd": 1989,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "Mazda Cosmo L10A rear-right 2016 Shanghai Auto Museum.jpg",
+      "sharedPlatforms": [
+       "Mazda Luce",
+       "Mazda 929"
+      ]
+     },
+     {
+      "code": "DA",
+      "yearStart": 1986,
+      "yearEnd": 1991,
+      "designers": [
+       "Mazda"
+      ],
+      "engineers": [
+       "Mazda"
+      ],
+      "wikiFile": "L10B inst panel.jpg",
+      "sharedPlatforms": [
+       "Kia Pride",
+       "Ford Festiva"
+      ]
+     },
+     {
+      "code": "DB",
+      "yearStart": 1991,
+      "yearEnd": 1998,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "Mazda121left 02.jpg",
+      "sharedPlatforms": [
+       "Autozam Revue",
+       "Mazda Revue"
+      ],
+      "sharedPlatformMatches": {
+       "Mazda Revue": {
+        "matchId": "m-autozam-revue",
+        "confidence": "high",
+        "reason": "The 'Mazda Revue' is a specific badge name used by Mazda (specifically in the Australian and New Zealand markets) for the Autozam Revue, which was sold as the Mazda323/Protege/Autozam Revue in other regions. The candidate 'Autozam Revue (1990–1998)' is the exact same physical vehicle, with the mention 'Mazda Revue' being a regional variant of the model name."
+       }
+      }
+     },
+     {
+      "code": "DW",
+      "yearStart": 1996,
+      "yearEnd": 2002,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "Mazda Cosmo AP 2000 rear.jpg",
+      "sharedPlatforms": [
+       "Autozam Revue",
+       "Mazda Revue",
+       "Ford Festiva Mini Wagon"
+      ],
+      "sharedPlatformMatches": {
+       "Mazda Revue": {
+        "matchId": "m-autozam-revue",
+        "confidence": "high",
+        "reason": "The 'Mazda Revue' is a specific badge name used by Mazda (specifically in the Australian and New Zealand markets) for the Autozam Revue, which was sold as the Mazda323/Protege/Autozam Revue in other regions. The candidate 'Autozam Revue (1990–1998)' is the exact same physical vehicle, with the mention 'Mazda Revue' being a regional variant of the model name."
+       },
+       "Ford Festiva Mini Wagon": {
+        "matchId": "m-ford-festiva",
+        "confidence": "low",
+        "reason": "The mention 'Ford Festiva Mini Wagon' refers to a specific body style (Wagon/Mini Van) of the Ford Festiva model. The candidate 'm-ford-festiva' corresponds to the Ford Festiva model itself (which was sold in various body styles including Hatchback and Wagon, particularly in the Japanese market as the Mazda 121 Wagon or similar variants). While the mention includes a specific trim/body style ('Mini Wagon'), the core vehicle identity is the Ford Festiva. Given the list contains only the base model 'm-ford-festiva' and no specific 'Festiva Wagon' entry, this is the only logical match, despite the mention specifying a body style not explicitly detailed in the candidate label."
+       }
+      }
+     },
+     {
+      "code": "Fiesta (fourth generation)",
+      "yearStart": 1995,
+      "yearEnd": 2002,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "1992 Ford Festiva (WA) 5-door hatchback (26631967204).jpg",
+      "sharedPlatforms": [
+       "Autozam Revue",
+       "Mazda 121"
+      ],
+      "sharedPlatformMatches": {
+       "Mazda 121": {
+        "matchId": "m-mazda-familia",
+        "confidence": "high",
+        "reason": "The 'Mazda 121' was the specific nameplate used for the Mazda Familia (specifically the GD/GK generation) in the South Korean and South American markets. The database entry 'm-mazda-familia' covers the entire production history (1963–2003), which includes the era and model corresponding to the Mazda 121, making it the correct match despite the different regional naming convention."
+       }
+      }
+     }
+    ]
+   },
+   "attempts": 1,
+   "feedback": [],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": true,
+     "generations": [
+      {
+       "code": "CD",
+       "yearStart": 1975,
+       "yearEnd": 1981,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": []
+      },
+      {
+       "code": "HB",
+       "yearStart": 1981,
+       "yearEnd": 1989,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Mazda Luce",
+        "Mazda 929"
+       ]
+      },
+      {
+       "code": "DA",
+       "yearStart": 1986,
+       "yearEnd": 1991,
+       "designers": [
+        "Mazda"
+       ],
+       "engineers": [
+        "Mazda"
+       ],
+       "sharedPlatforms": [
+        "Kia Pride",
+        "Ford Festiva"
+       ]
+      },
+      {
+       "code": "DB",
+       "yearStart": 1991,
+       "yearEnd": 1998,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Autozam Revue",
+        "Mazda Revue"
+       ]
+      },
+      {
+       "code": "DW",
+       "yearStart": 1996,
+       "yearEnd": 2002,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Autozam Revue",
+        "Mazda Revue",
+        "Ford Festiva Mini Wagon"
+       ]
+      },
+      {
+       "code": "Fiesta (fourth generation)",
+       "yearStart": 1995,
+       "yearEnd": 2002,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Autozam Revue",
+        "Mazda 121"
+       ]
+      }
+     ]
+    },
+    "dropped": []
+   },
+   "cascadeDiscovered": true,
+   "decidedBy": "user",
+   "decidedAt": "2026-09-15T22:22:38.185Z",
+   "allDesigners": [
+    "Mazda"
+   ],
+   "allEngineers": [
+    "Mazda"
+   ]
+  },
+  "m-mercedes-benz-190-sl": {
+   "status": "none",
+   "checkedAt": "2026-09-15T22:23:19.014Z",
+   "sourceTitle": "Mercedes-Benz 190 SL",
+   "proposal": {
+    "hasMultipleGenerations": false,
+    "generations": [
+     {
+      "code": "190 SL",
+      "yearStart": 1955,
+      "yearEnd": 1963,
+      "designers": [
+       "Karl Wilfert",
+       "Walter Häcker"
+      ],
+      "engineers": [],
+      "wikiFile": "MB 190 SL am 2006-07-16 (ret kl).JPG",
+      "sharedPlatforms": [
+       "Mercedes-Benz W120/121"
+      ],
+      "sharedPlatformMatches": {
+       "Mercedes-Benz W120/121": {
+        "matchId": "llm-related-mercedes-benz-w120",
+        "confidence": "high",
+        "reason": "The mention 'Mercedes-Benz W120/121' refers to the Postwar Mercedes-Benz series, where the W120 and W121 are the chassis codes for the same vehicle line (Mercedes-Benz 180/170/220/230/260). The candidate 'Mercedes-Benz W120' explicitly references the correct chassis code and represents the same physical car generation, whereas all other candidates refer to different chassis codes, models, or production eras."
+       }
+      }
+     }
+    ]
+   },
+   "attempts": 1,
+   "feedback": [],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": false,
+     "generations": [
+      {
+       "code": "190 SL",
+       "yearStart": 1955,
+       "yearEnd": 1963,
+       "designers": [
+        "Karl Wilfert",
+        "Walter Häcker"
+       ],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Mercedes-Benz W198 (300 SL)",
+        "Mercedes-Benz W120/121"
+       ]
+      }
+     ]
+    },
+    "dropped": []
+   },
+   "cascadeDiscovered": true
+  },
+  "m-mercedes-benz-w111": {
+   "status": "none",
+   "checkedAt": "2026-09-15T22:23:30.578Z",
+   "sourceTitle": "Mercedes-Benz W111",
+   "proposal": {
+    "hasMultipleGenerations": false,
+    "generations": [
+     {
+      "code": "W111",
+      "yearStart": 1959,
+      "yearEnd": 1971,
+      "designers": [
+       "Friedrich Geiger",
+       "Paul Bracq"
+      ],
+      "engineers": [],
+      "wikiFile": "Terenure, Co. Dublin - Ireland (6038324974).jpg",
+      "sharedPlatforms": [
+       "Mercedes-Benz W110",
+       "Mercedes-Benz W112",
+       "Mercedes-Benz W113"
+      ]
+     }
+    ]
+   },
+   "attempts": 1,
+   "feedback": [],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": false,
+     "generations": [
+      {
+       "code": "W111",
+       "yearStart": 1959,
+       "yearEnd": 1971,
+       "designers": [
+        "Friedrich Geiger",
+        "Paul Bracq"
+       ],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Mercedes-Benz W110",
+        "Mercedes-Benz W112",
+        "Mercedes-Benz W113"
+       ]
+      }
+     ]
+    },
+    "dropped": []
+   },
+   "cascadeDiscovered": true
+  },
+  "m-mercedes-benz-w112": {
+   "status": "none",
+   "checkedAt": "2026-09-15T22:23:38.612Z",
+   "sourceTitle": "Mercedes-Benz W112",
+   "proposal": {
+    "hasMultipleGenerations": false,
+    "generations": [
+     {
+      "code": "W112",
+      "yearStart": 1961,
+      "yearEnd": 1967,
+      "designers": [
+       "Friedrich Geiger",
+       "Paul Bracq"
+      ],
+      "engineers": [],
+      "wikiFile": "Mercedes-Benz 300 SE (W112) Classic-Gala 2021 1X7A0078.jpg",
+      "sharedPlatforms": [
+       "Mercedes-Benz W111",
+       "Mercedes-Benz W113"
+      ]
+     }
+    ]
+   },
+   "attempts": 1,
+   "feedback": [],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": false,
+     "generations": [
+      {
+       "code": "W112",
+       "yearStart": 1961,
+       "yearEnd": 1967,
+       "designers": [
+        "Friedrich Geiger",
+        "Paul Bracq"
+       ],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Mercedes-Benz W111",
+        "Mercedes-Benz W113"
+       ]
+      }
+     ]
+    },
+    "dropped": []
+   },
+   "cascadeDiscovered": true
+  },
+  "m-ruf-rtr": {
+   "status": "none",
+   "checkedAt": "2026-09-15T22:23:59.731Z",
+   "sourceTitle": "Ruf RTR",
+   "proposal": {
+    "hasMultipleGenerations": false,
+    "generations": [
+     {
+      "code": "RTR",
+      "yearStart": 2013,
+      "yearEnd": 2017,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "Ruf RTR Narrow Body 2 (cropped).jpg",
+      "sharedPlatforms": [
+       "Porsche 991"
+      ],
+      "sharedPlatformMatches": {
+       "Porsche 991": {
+        "matchId": "m-porsche-911-991",
+        "confidence": "high",
+        "reason": "The mention 'Porsche 991' is the widely used chassis code designation for the fifth generation of the Porsche 911, produced from 2011 to 2019. This corresponds exactly to the candidate 'm-porsche-911-991' labeled as 'Porsche 911 (991) (2011–2019)'."
+       }
+      }
+     }
+    ]
+   },
+   "attempts": 1,
+   "feedback": [],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": false,
+     "generations": [
+      {
+       "code": "RTR",
+       "yearStart": 2013,
+       "yearEnd": 2017,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Porsche 991"
+       ]
+      }
+     ]
+    },
+    "dropped": []
+   },
+   "cascadeDiscovered": true
   }
  },
  "relations": {
@@ -27625,12 +28139,253 @@
    "genIdB": "m-mercedes-benz-gl-class-x166",
    "reason": "matched automatically (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
    "llmDiscovered": true
+  },
+  "m-mercedes-benz-e-class-w124|m-mercedes-benz-sl-class-r129|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T22:16:59.884Z",
+   "decidedAt": "2026-09-15T22:16:59.884Z",
+   "famA": "fam-mercedes-benz-sl",
+   "famB": "m-mercedes-benz-e-class",
+   "relType": "platform",
+   "codeA": "SL-Class (R129)",
+   "codeB": "E-Class (W124)",
+   "genIdA": "m-mercedes-benz-sl-class-r129",
+   "genIdB": "m-mercedes-benz-e-class-w124",
+   "reason": "auto-approved in the background -- the local LLM sanity check confidently identified this as the same car as \"Mercedes-Benz W124\" (confidence: high) -- The mentioned car 'Mercedes-Benz W124' refers to the specific chassis code of the Mercedes-Benz E-Class produced from 1984 to 1997. This matches exactly with candidate 'm-mercedes-benz-e-class-w124', which explicitly lists the name 'Mercedes-Benz E-Class (W124)' and the correct production years (1984–1997). While other candidates share the string '124' (like Fiat 124 or SEAT 124), they are different cars from different manufacturers and eras. The W124 chassis code uniquely identifies this specific Mercedes model generation.",
+   "llmDiscovered": true,
+   "llmVerifiedDuplicate": true
+  },
+  "llm-fam-mercedes-benz-sl-w198-w121|m-mercedes-benz-190-sl|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T22:17:28.113Z",
+   "decidedAt": "2026-09-15T22:17:28.113Z",
+   "famA": "fam-mercedes-benz-sl",
+   "famB": "m-mercedes-benz-190-sl",
+   "relType": "platform",
+   "codeA": "SL W198 / W121",
+   "codeB": "190 SL",
+   "genIdA": "llm-fam-mercedes-benz-sl-w198-w121",
+   "genIdB": "m-mercedes-benz-190-sl",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-fam-mercedes-benz-sl-w198-w121|llm-related-mercedes-benz-w194|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T22:17:28.120Z",
+   "decidedAt": "2026-09-15T22:17:28.120Z",
+   "famA": "fam-mercedes-benz-sl",
+   "famB": "llm-related-mercedes-benz-w194",
+   "relType": "platform",
+   "codeA": "SL W198 / W121",
+   "codeB": "W194",
+   "genIdA": "llm-fam-mercedes-benz-sl-w198-w121",
+   "genIdB": "llm-related-mercedes-benz-w194",
+   "reason": "matched automatically -- \"Mercedes-Benz W194\" was named as a related car but didn't exist anywhere in the graph yet, so it was newly created from this mention (double-checked by the local LLM sanity pass against every plausible existing car -- none matched)",
+   "llmDiscovered": true
+  },
+  "llm-fam-mercedes-benz-sl-w113|m-mercedes-benz-w111|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T22:17:28.136Z",
+   "decidedAt": "2026-09-15T22:17:28.136Z",
+   "famA": "fam-mercedes-benz-sl",
+   "famB": "m-mercedes-benz-w111",
+   "relType": "platform",
+   "codeA": "SL W113",
+   "codeB": "W111",
+   "genIdA": "llm-fam-mercedes-benz-sl-w113",
+   "genIdB": "m-mercedes-benz-w111",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-fam-mercedes-benz-sl-w113|m-mercedes-benz-w112|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T22:17:28.140Z",
+   "decidedAt": "2026-09-15T22:17:28.140Z",
+   "famA": "fam-mercedes-benz-sl",
+   "famB": "m-mercedes-benz-w112",
+   "relType": "platform",
+   "codeA": "SL W113",
+   "codeB": "W112",
+   "genIdA": "llm-fam-mercedes-benz-sl-w113",
+   "genIdB": "m-mercedes-benz-w112",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-fam-mercedes-benz-sl-w113|m-mercedes-benz-w114-w115|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T22:17:28.141Z",
+   "decidedAt": "2026-09-15T22:17:28.141Z",
+   "famA": "fam-mercedes-benz-sl",
+   "famB": "m-mercedes-benz-w114-w115",
+   "relType": "platform",
+   "codeA": "SL W113",
+   "codeB": "W114/W115",
+   "genIdA": "llm-fam-mercedes-benz-sl-w113",
+   "genIdB": "m-mercedes-benz-w114-w115",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-fam-mercedes-benz-sl-r107|llm-related-mercedes-benz-w114|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T22:17:28.157Z",
+   "decidedAt": "2026-09-15T22:17:28.157Z",
+   "famA": "fam-mercedes-benz-sl",
+   "famB": "llm-related-mercedes-benz-w114",
+   "relType": "platform",
+   "codeA": "SL R107",
+   "codeB": "W114",
+   "genIdA": "llm-fam-mercedes-benz-sl-r107",
+   "genIdB": "llm-related-mercedes-benz-w114",
+   "reason": "matched automatically -- \"Mercedes-Benz W114\" was named as a related car but didn't exist anywhere in the graph yet, so it was newly created from this mention (double-checked by the local LLM sanity pass against every plausible existing car -- none matched)",
+   "llmDiscovered": true
+  },
+  "m-mercedes-benz-e-class-w212|m-mercedes-benz-sl-class-r231|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T22:22:18.385Z",
+   "decidedAt": "2026-09-15T22:22:18.385Z",
+   "famA": "fam-mercedes-benz-sl",
+   "famB": "m-mercedes-benz-e-class",
+   "relType": "platform",
+   "codeA": "SL-Class (R231)",
+   "codeB": "E-Class (W212)",
+   "genIdA": "m-mercedes-benz-sl-class-r231",
+   "genIdB": "m-mercedes-benz-e-class-w212",
+   "reason": "matched automatically (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-mazda-121-hb|m-mazda-luce|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T22:22:38.204Z",
+   "decidedAt": "2026-09-15T22:22:38.204Z",
+   "famA": "m-mazda-121",
+   "famB": "m-mazda-luce",
+   "relType": "platform",
+   "codeA": "121 HB",
+   "codeB": "Luce",
+   "genIdA": "llm-m-mazda-121-hb",
+   "genIdB": "m-mazda-luce",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-mazda-121-hb|m-mazda-929|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T22:22:38.206Z",
+   "decidedAt": "2026-09-15T22:22:38.206Z",
+   "famA": "m-mazda-121",
+   "famB": "m-mazda-929",
+   "relType": "platform",
+   "codeA": "121 HB",
+   "codeB": "929",
+   "genIdA": "llm-m-mazda-121-hb",
+   "genIdB": "m-mazda-929",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-mazda-121-da|m-kia-pride|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T22:22:38.210Z",
+   "decidedAt": "2026-09-15T22:22:38.210Z",
+   "famA": "m-mazda-121",
+   "famB": "m-kia-pride",
+   "relType": "platform",
+   "codeA": "121 DA",
+   "codeB": "Pride",
+   "genIdA": "llm-m-mazda-121-da",
+   "genIdB": "m-kia-pride",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-mazda-121-da|m-ford-festiva|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T22:22:38.211Z",
+   "decidedAt": "2026-09-15T22:22:38.211Z",
+   "famA": "m-mazda-121",
+   "famB": "m-ford-festiva",
+   "relType": "platform",
+   "codeA": "121 DA",
+   "codeB": "Festiva",
+   "genIdA": "llm-m-mazda-121-da",
+   "genIdB": "m-ford-festiva",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-mazda-121-db|m-autozam-revue|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T22:22:38.216Z",
+   "decidedAt": "2026-09-15T22:22:38.216Z",
+   "famA": "m-mazda-121",
+   "famB": "m-autozam-revue",
+   "relType": "platform",
+   "codeA": "121 DB",
+   "codeB": "Revue",
+   "genIdA": "llm-m-mazda-121-db",
+   "genIdB": "m-autozam-revue",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-mazda-121-dw|m-autozam-revue|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T22:22:38.226Z",
+   "decidedAt": "2026-09-15T22:22:38.226Z",
+   "famA": "m-mazda-121",
+   "famB": "m-autozam-revue",
+   "relType": "platform",
+   "codeA": "121 DW",
+   "codeB": "Revue",
+   "genIdA": "llm-m-mazda-121-dw",
+   "genIdB": "m-autozam-revue",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-mazda-121-dw|m-ford-festiva|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T22:22:38.237Z",
+   "decidedAt": "2026-09-15T22:24:57.383Z",
+   "famA": "m-mazda-121",
+   "famB": "m-ford-festiva",
+   "relType": "platform",
+   "codeA": "121 DW",
+   "codeB": "Festiva",
+   "genIdA": "llm-m-mazda-121-dw",
+   "genIdB": "m-ford-festiva",
+   "reason": "flagged by the local LLM sanity check as the same car as \"Ford Festiva Mini Wagon\" (confidence: low) -- The mention 'Ford Festiva Mini Wagon' refers to a specific body style (Wagon/Mini Van) of the Ford Festiva model. The candidate 'm-ford-festiva' corresponds to the Ford Festiva model itself (which was sold in various body styles including Hatchback and Wagon, particularly in the Japanese market as the Mazda 121 Wagon or similar variants). While the mention includes a specific trim/body style ('Mini Wagon'), the core vehicle identity is the Ford Festiva. Given the list contains only the base model 'm-ford-festiva' and no specific 'Festiva Wagon' entry, this is the only logical match, despite the mention specifying a body style not explicitly detailed in the candidate label. -- please verify this is really the right car before accepting",
+   "llmDiscovered": true,
+   "llmVerifiedDuplicate": true
+  },
+  "llm-m-mazda-121-fiesta-fourth-generation|m-autozam-revue|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T22:22:38.239Z",
+   "decidedAt": "2026-09-15T22:22:38.239Z",
+   "famA": "m-mazda-121",
+   "famB": "m-autozam-revue",
+   "relType": "platform",
+   "codeA": "121 Fiesta (fourth generation)",
+   "codeB": "Revue",
+   "genIdA": "llm-m-mazda-121-fiesta-fourth-generation",
+   "genIdB": "m-autozam-revue",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-mazda-121-fiesta-fourth-generation|m-mazda-familia|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-15T22:22:38.249Z",
+   "decidedAt": "2026-09-15T22:22:38.249Z",
+   "famA": "m-mazda-121",
+   "famB": "m-mazda-familia",
+   "relType": "platform",
+   "codeA": "121 Fiesta (fourth generation)",
+   "codeB": "Familia",
+   "genIdA": "llm-m-mazda-121-fiesta-fourth-generation",
+   "genIdB": "m-mazda-familia",
+   "reason": "auto-approved in the background -- the local LLM sanity check confidently identified this as the same car as \"Mazda 121\" (confidence: high) -- The 'Mazda 121' was the specific nameplate used for the Mazda Familia (specifically the GD/GK generation) in the South Korean and South American markets. The database entry 'm-mazda-familia' covers the entire production history (1963–2003), which includes the era and model corresponding to the Mazda 121, making it the correct match despite the different regional naming convention.",
+   "llmDiscovered": true,
+   "llmVerifiedDuplicate": true
   }
  },
  "recheck": {
   "m-mercedes-benz-g-class": {
    "status": "none",
-   "checkedAt": "2026-09-15T21:43:05.997Z",
+   "checkedAt": "2026-09-15T22:12:27.378Z",
    "sourceTitle": "Mercedes-Benz G-Class",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -27714,7 +28469,7 @@
   },
   "m-mercedes-benz-gla": {
    "status": "none",
-   "checkedAt": "2026-09-15T21:43:06.043Z",
+   "checkedAt": "2026-09-15T22:12:27.424Z",
    "sourceTitle": "Mercedes-Benz GLA",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -27817,7 +28572,7 @@
   },
   "m-mercedes-benz-cla": {
    "status": "none",
-   "checkedAt": "2026-09-15T21:43:06.080Z",
+   "checkedAt": "2026-09-15T22:12:27.461Z",
    "sourceTitle": "Mercedes-Benz CLA",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -28099,7 +28854,7 @@
   },
   "m-toyota-celica": {
    "status": "none",
-   "checkedAt": "2026-09-15T21:43:06.128Z",
+   "checkedAt": "2026-09-15T22:12:27.512Z",
    "sourceTitle": "Toyota Celica",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -28215,7 +28970,7 @@
   },
   "m-toyota-carina": {
    "status": "none",
-   "checkedAt": "2026-09-15T21:43:06.190Z",
+   "checkedAt": "2026-09-15T22:12:27.574Z",
    "sourceTitle": "Toyota Carina",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -28343,7 +29098,7 @@
   },
   "m-lexus-sc": {
    "status": "none",
-   "checkedAt": "2026-09-15T21:43:06.195Z",
+   "checkedAt": "2026-09-15T22:12:27.579Z",
    "sourceTitle": "Lexus SC",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -28992,7 +29747,7 @@
   },
   "m-seat-toledo": {
    "status": "none",
-   "checkedAt": "2026-09-15T21:43:06.259Z",
+   "checkedAt": "2026-09-15T22:12:27.643Z",
    "sourceTitle": "SEAT Toledo",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -29123,7 +29878,7 @@
   },
   "m-daren-mk-3": {
    "status": "none",
-   "checkedAt": "2026-09-15T21:43:06.272Z",
+   "checkedAt": "2026-09-15T22:12:27.655Z",
    "sourceTitle": "Daren Mk.3",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -29198,7 +29953,7 @@
   },
   "m-audi-a3-mk3": {
    "status": "none",
-   "checkedAt": "2026-09-15T21:43:06.289Z",
+   "checkedAt": "2026-09-15T22:12:27.672Z",
    "sourceTitle": "Audi A3",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -29254,7 +30009,7 @@
   },
   "m-audi-tt": {
    "status": "none",
-   "checkedAt": "2026-09-15T21:43:06.366Z",
+   "checkedAt": "2026-09-15T22:12:27.745Z",
    "sourceTitle": "Audi TT",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -29394,7 +30149,7 @@
   },
   "m-seat-leon-mk3": {
    "status": "none",
-   "checkedAt": "2026-09-15T21:43:06.415Z",
+   "checkedAt": "2026-09-15T22:12:27.795Z",
    "sourceTitle": "SEAT León",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -29508,7 +30263,7 @@
   },
   "m-volkswagen-karmann-ghia": {
    "status": "none",
-   "checkedAt": "2026-09-15T21:43:06.440Z",
+   "checkedAt": "2026-09-15T22:12:27.820Z",
    "sourceTitle": "Volkswagen Karmann Ghia",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -29558,7 +30313,7 @@
   },
   "m-porsche-panamera": {
    "status": "none",
-   "checkedAt": "2026-09-15T21:43:06.431Z",
+   "checkedAt": "2026-09-15T22:12:27.811Z",
    "sourceTitle": "Porsche Panamera",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -29624,7 +30379,7 @@
   },
   "m-subaru-forester": {
    "status": "none",
-   "checkedAt": "2026-09-15T21:43:06.475Z",
+   "checkedAt": "2026-09-15T22:12:27.855Z",
    "sourceTitle": "Subaru Forester",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -29733,7 +30488,7 @@
   },
   "m-volkswagen-touran": {
    "status": "none",
-   "checkedAt": "2026-09-15T21:43:06.492Z",
+   "checkedAt": "2026-09-15T22:12:27.873Z",
    "sourceTitle": "Volkswagen Touran",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -29783,7 +30538,7 @@
   },
   "m-chevrolet-captiva": {
    "status": "none",
-   "checkedAt": "2026-09-15T21:43:06.551Z",
+   "checkedAt": "2026-09-15T22:12:27.931Z",
    "sourceTitle": "Chevrolet Captiva",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -29888,7 +30643,7 @@
   },
   "m-isuzu-trooper": {
    "status": "none",
-   "checkedAt": "2026-09-15T21:43:06.597Z",
+   "checkedAt": "2026-09-15T22:12:27.979Z",
    "sourceTitle": "Isuzu Trooper",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -29984,7 +30739,7 @@
   },
   "m-volkswagen-tiguan": {
    "status": "none",
-   "checkedAt": "2026-09-15T21:43:06.654Z",
+   "checkedAt": "2026-09-15T22:12:28.041Z",
    "sourceTitle": "Volkswagen Tiguan",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -30097,7 +30852,7 @@
   },
   "m-chrysler-horizon": {
    "status": "none",
-   "checkedAt": "2026-09-15T21:43:06.693Z",
+   "checkedAt": "2026-09-15T22:12:28.082Z",
    "sourceTitle": "Chrysler Horizon",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -30197,7 +30952,7 @@
   },
   "m-mercury-monterey": {
    "status": "none",
-   "checkedAt": "2026-09-15T21:43:06.772Z",
+   "checkedAt": "2026-09-15T22:12:28.172Z",
    "sourceTitle": "Mercury Monterey",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -30372,7 +31127,7 @@
   },
   "m-gmc-envoy": {
    "status": "none",
-   "checkedAt": "2026-09-15T21:43:06.788Z",
+   "checkedAt": "2026-09-15T22:12:28.190Z",
    "sourceTitle": "GMC Envoy",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -30425,7 +31180,7 @@
   },
   "m-chevrolet-trailblazer": {
    "status": "none",
-   "checkedAt": "2026-09-15T21:43:06.802Z",
+   "checkedAt": "2026-09-15T22:12:28.205Z",
    "sourceTitle": "Chevrolet TrailBlazer (SUV)",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -30476,7 +31231,7 @@
   },
   "m-oldsmobile-bravada": {
    "status": "none",
-   "checkedAt": "2026-09-15T21:43:06.832Z",
+   "checkedAt": "2026-09-15T22:12:28.237Z",
    "sourceTitle": "Oldsmobile Bravada",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -30556,7 +31311,7 @@
   },
   "m-buick-lacrosse": {
    "status": "none",
-   "checkedAt": "2026-09-15T21:43:06.851Z",
+   "checkedAt": "2026-09-15T22:12:28.257Z",
    "sourceTitle": "Buick LaCrosse",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -30632,7 +31387,7 @@
   },
   "m-buick-invicta": {
    "status": "none",
-   "checkedAt": "2026-09-15T21:43:06.865Z",
+   "checkedAt": "2026-09-15T22:12:28.272Z",
    "sourceTitle": "Buick Invicta",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -30683,7 +31438,7 @@
   },
   "m-buick-century": {
    "status": "none",
-   "checkedAt": "2026-09-15T21:43:06.929Z",
+   "checkedAt": "2026-09-15T22:12:28.344Z",
    "sourceTitle": "Buick Century",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -30835,7 +31590,7 @@
   },
   "m-jaguar-xjs": {
    "status": "none",
-   "checkedAt": "2026-09-15T21:43:06.942Z",
+   "checkedAt": "2026-09-15T22:12:28.356Z",
    "sourceTitle": "Jaguar XJS",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -30894,7 +31649,7 @@
   },
   "m-jaguar-e-type": {
    "status": "none",
-   "checkedAt": "2026-09-15T21:43:06.959Z",
+   "checkedAt": "2026-09-15T22:12:28.374Z",
    "sourceTitle": "Jaguar E-Type",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -30963,7 +31718,7 @@
   },
   "m-wuling-starlight": {
    "status": "none",
-   "checkedAt": "2026-09-15T21:43:06.988Z",
+   "checkedAt": "2026-09-15T22:12:28.404Z",
    "sourceTitle": "Wuling Starlight",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -31027,7 +31782,7 @@
   },
   "m-jeep-compass": {
    "status": "none",
-   "checkedAt": "2026-09-15T21:43:07.024Z",
+   "checkedAt": "2026-09-15T22:12:28.442Z",
    "sourceTitle": "Jeep Compass",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -31111,7 +31866,7 @@
   },
   "m-mazda-tribute": {
    "status": "none",
-   "checkedAt": "2026-09-15T21:43:07.033Z",
+   "checkedAt": "2026-09-15T22:12:28.451Z",
    "sourceTitle": "Mazda Tribute",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -31148,7 +31903,7 @@
   },
   "m-mazda-cx-5": {
    "status": "none",
-   "checkedAt": "2026-09-15T21:43:07.044Z",
+   "checkedAt": "2026-09-15T22:12:28.462Z",
    "sourceTitle": "Mazda CX-5",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -31203,7 +31958,7 @@
   },
   "m-baojun-730": {
    "status": "none",
-   "checkedAt": "2026-09-15T21:43:07.048Z",
+   "checkedAt": "2026-09-15T22:12:28.466Z",
    "sourceTitle": "Baojun 730",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -31238,7 +31993,7 @@
   },
   "m-dacia-duster": {
    "status": "none",
-   "checkedAt": "2026-09-15T21:43:07.097Z",
+   "checkedAt": "2026-09-15T22:12:28.504Z",
    "sourceTitle": "Dacia Duster",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -31847,7 +32602,7 @@
   },
   "m-lincoln-lincoln-zephyr": {
    "status": "none",
-   "checkedAt": "2026-09-15T21:43:07.104Z",
+   "checkedAt": "2026-09-15T22:12:28.511Z",
    "sourceTitle": "Lincoln-Zephyr",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -31884,7 +32639,7 @@
   },
   "m-lincoln-capri": {
    "status": "none",
-   "checkedAt": "2026-09-15T21:43:07.136Z",
+   "checkedAt": "2026-09-15T22:12:28.540Z",
    "sourceTitle": "Lincoln Capri",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -31953,7 +32708,7 @@
   },
   "m-ford-continental-mark-ii": {
    "status": "none",
-   "checkedAt": "2026-09-15T21:43:07.167Z",
+   "checkedAt": "2026-09-15T22:12:28.568Z",
    "sourceTitle": "Continental Mark II",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -32052,7 +32807,7 @@
   },
   "m-mercury-marquis": {
    "status": "none",
-   "checkedAt": "2026-09-15T21:43:07.221Z",
+   "checkedAt": "2026-09-15T22:12:28.615Z",
    "sourceTitle": "Mercury Marquis",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -32143,7 +32898,7 @@
   },
   "m-mercury-grand-marquis": {
    "status": "none",
-   "checkedAt": "2026-09-15T21:43:07.270Z",
+   "checkedAt": "2026-09-15T22:12:28.658Z",
    "sourceTitle": "Mercury Grand Marquis",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -32246,7 +33001,7 @@
   },
   "m-lincoln-mark-series": {
    "status": "none",
-   "checkedAt": "2026-09-15T21:43:07.317Z",
+   "checkedAt": "2026-09-15T22:12:28.700Z",
    "sourceTitle": "Lincoln Mark series",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -32384,7 +33139,7 @@
   },
   "m-mercury-cougar": {
    "status": "none",
-   "checkedAt": "2026-09-15T21:43:07.381Z",
+   "checkedAt": "2026-09-15T22:12:28.754Z",
    "sourceTitle": "Mercury Cougar",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -32534,7 +33289,7 @@
   },
   "m-mercury-sable": {
    "status": "none",
-   "checkedAt": "2026-09-15T21:43:07.422Z",
+   "checkedAt": "2026-09-15T22:12:28.791Z",
    "sourceTitle": "Mercury Sable",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -32636,7 +33391,7 @@
   },
   "m-ford-windstar": {
    "status": "none",
-   "checkedAt": "2026-09-15T21:43:07.433Z",
+   "checkedAt": "2026-09-15T22:12:28.800Z",
    "sourceTitle": "Ford Windstar",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -32685,7 +33440,7 @@
   },
   "m-lincoln-mkz": {
    "status": "none",
-   "checkedAt": "2026-09-15T21:43:07.446Z",
+   "checkedAt": "2026-09-15T22:12:28.812Z",
    "sourceTitle": "Lincoln MKZ",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -33173,7 +33928,7 @@
   },
   "m-ssangyong-chairman": {
    "status": "none",
-   "checkedAt": "2026-09-15T21:43:07.457Z",
+   "checkedAt": "2026-09-15T22:12:28.821Z",
    "sourceTitle": "SsangYong Chairman",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -33215,7 +33970,7 @@
   },
   "m-mercedes-benz-w180": {
    "status": "none",
-   "checkedAt": "2026-09-15T21:43:07.470Z",
+   "checkedAt": "2026-09-15T22:12:28.832Z",
    "sourceTitle": "Mercedes-Benz W180",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -33253,7 +34008,7 @@
   },
   "m-mercedes-benz-w108-w109": {
    "status": "none",
-   "checkedAt": "2026-09-15T21:43:07.485Z",
+   "checkedAt": "2026-09-15T22:12:28.845Z",
    "sourceTitle": "Mercedes-Benz W108/W109",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -33298,7 +34053,7 @@
   },
   "m-chrysler-300c": {
    "status": "none",
-   "checkedAt": "2026-09-15T21:43:07.507Z",
+   "checkedAt": "2026-09-15T22:12:28.865Z",
    "sourceTitle": "Chrysler 300",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -33358,7 +34113,7 @@
   },
   "m-dodge-charger-lx": {
    "status": "none",
-   "checkedAt": "2026-09-15T21:43:07.535Z",
+   "checkedAt": "2026-09-15T22:12:28.891Z",
    "sourceTitle": "Dodge Charger (LX/LD)",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -33425,7 +34180,7 @@
   },
   "m-dodge-magnum": {
    "status": "none",
-   "checkedAt": "2026-09-15T21:43:07.576Z",
+   "checkedAt": "2026-09-15T22:12:28.927Z",
    "sourceTitle": "Dodge Magnum",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -33528,7 +34283,7 @@
   },
   "m-mercedes-benz-mercedes-amg-gt-4-door-coupe": {
    "status": "none",
-   "checkedAt": "2026-09-15T21:43:07.587Z",
+   "checkedAt": "2026-09-15T22:12:28.937Z",
    "sourceTitle": "Mercedes-AMG GT 4-Door Coupé",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -33573,7 +34328,7 @@
   },
   "m-mercedes-benz-gle": {
    "status": "none",
-   "checkedAt": "2026-09-15T21:43:07.617Z",
+   "checkedAt": "2026-09-15T22:12:28.964Z",
    "sourceTitle": "Mercedes-Benz GLE",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -33661,7 +34416,7 @@
   },
   "m-mercedes-benz-glc": {
    "status": "none",
-   "checkedAt": "2026-09-15T21:43:07.627Z",
+   "checkedAt": "2026-09-15T22:12:28.974Z",
    "sourceTitle": "Mercedes-Benz GLC",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -33693,6 +34448,481 @@
       "sharedPlatforms": [
        "Mercedes-Benz C-Class (W206)"
       ]
+     }
+    ]
+   },
+   "discrepancy": null,
+   "attempts": 1,
+   "feedback": []
+  },
+  "fam-mercedes-benz-sl": {
+   "status": "applied",
+   "checkedAt": "2026-09-15T22:16:59.844Z",
+   "sourceTitle": "Mercedes-Benz SL",
+   "proposal": {
+    "hasMultipleGenerations": true,
+    "generations": [
+     {
+      "code": "W198 / W121",
+      "yearStart": 1954,
+      "yearEnd": 1963,
+      "designers": [
+       "Rudolf Uhlenhaut",
+       "Friedrich Geiger",
+       "Karl Wilfert",
+       "Walter Häcker"
+      ],
+      "engineers": [],
+      "wikiFile": "Mercedes (1240346857).jpg",
+      "sharedPlatforms": [
+       "Mercedes-Benz W121 BII",
+       "Mercedes-Benz 190 SL",
+       "Mercedes-Benz W194"
+      ],
+      "sharedPlatformMatches": {
+       "Mercedes-Benz W121 BII": {
+        "matchId": null,
+        "confidence": "high",
+        "reason": "The mentioned car 'Mercedes-Benz W121 BII' refers to the Mercedes-Benz W121 (produced roughly 1955–1959), a post-war executive car. None of the provided candidate IDs correspond to the W121 chassis. The closest named candidates (e.g., W123, W126, W201) are entirely different model generations. There is no candidate matching the W121 designation."
+       },
+       "Mercedes-Benz W194": {
+        "matchId": null,
+        "confidence": "high",
+        "reason": "The mentioned car 'Mercedes-Benz W194' refers to a Formula 1 racing car from the 1950s (specifically 1954). None of the provided candidates match this description; they are all passenger vehicles or sports cars from different eras and chassis codes. No candidate in the list is a match."
+       }
+      }
+     },
+     {
+      "code": "W113",
+      "yearStart": 1963,
+      "yearEnd": 1971,
+      "designers": [
+       "Paul Bracq",
+       "Béla Barényi",
+       "Friedrich Geiger"
+      ],
+      "engineers": [
+       "Rudolf Uhlenhaut",
+       "Fritz Nallinger"
+      ],
+      "wikiFile": "1969 Mercedes-Benz 280 SL (W 113) roadster (2011-10-31) 01.jpg",
+      "sharedPlatforms": [
+       "Mercedes-Benz W111",
+       "Mercedes-Benz W108/W109",
+       "Mercedes-Benz W112",
+       "Mercedes-Benz W114/W115"
+      ]
+     },
+     {
+      "code": "R107",
+      "yearStart": 1971,
+      "yearEnd": 1989,
+      "designers": [
+       "Joseph Gallitzendörfer",
+       "Friedrich Geiger"
+      ],
+      "engineers": [],
+      "wikiFile": "1978 Mercedes-Benz 350 SL (R107) roadster (25009397464).jpg",
+      "sharedPlatforms": [
+       "Mercedes-Benz W114"
+      ],
+      "sharedPlatformMatches": {
+       "Mercedes-Benz W114": {
+        "matchId": null,
+        "confidence": "high",
+        "reason": "The mentioned car 'Mercedes-Benz W114' is a specific chassis code (produced roughly 1969–1976). None of the provided candidates match this specific model. The closest candidates are the 'Mercedes-Benz W11' (a completely different car from 1929) or the 'Mercedes-Benz W123' (a different generation produced later). Since the W114 chassis is not listed in the database candidates, no match exists."
+       }
+      }
+     },
+     {
+      "code": "R129",
+      "yearStart": 1989,
+      "yearEnd": 2001,
+      "designers": [
+       "Bruno Sacco",
+       "Johann Tomforde"
+      ],
+      "engineers": [],
+      "wikiFile": "1991 Mercedes 300SL-24 Automatic 3.0 Front.jpg",
+      "sharedPlatforms": [
+       "Mercedes-Benz W124"
+      ],
+      "sharedPlatformMatches": {
+       "Mercedes-Benz W124": {
+        "matchId": "m-mercedes-benz-e-class-w124",
+        "confidence": "high",
+        "reason": "The mentioned car 'Mercedes-Benz W124' refers to the specific chassis code of the Mercedes-Benz E-Class produced from 1984 to 1997. This matches exactly with candidate 'm-mercedes-benz-e-class-w124', which explicitly lists the name 'Mercedes-Benz E-Class (W124)' and the correct production years (1984–1997). While other candidates share the string '124' (like Fiat 124 or SEAT 124), they are different cars from different manufacturers and eras. The W124 chassis code uniquely identifies this specific Mercedes model generation."
+       }
+      }
+     },
+     {
+      "code": "R230",
+      "yearStart": 2001,
+      "yearEnd": 2011,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "2006-2008 Mercedes-Benz SL 350 (R 230) roadster (2011-01-12) 01.jpg",
+      "sharedPlatforms": []
+     },
+     {
+      "code": "R231",
+      "yearStart": 2011,
+      "yearEnd": 2020,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "Mercedes-Benz SL 350 (R 231) – Frontansicht geschlossen, 22. Mai 2013, Düsseldorf.jpg",
+      "sharedPlatforms": []
+     },
+     {
+      "code": "R232",
+      "yearStart": 2022,
+      "yearEnd": null,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "2022 Mercedes-AMG SL 55.jpg",
+      "sharedPlatforms": []
+     }
+    ]
+   },
+   "discrepancy": "Wikipedia currently describes 7 generations, but this nameplate currently shows 4 here",
+   "attempts": 1,
+   "feedback": [],
+   "engines": [
+    {
+     "title": "Mercedes-Benz M139 engine",
+     "name": "M139",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz M186 engine",
+     "name": "M198",
+     "variant": "M198"
+    },
+    {
+     "title": "Mercedes-Benz M121 engine",
+     "name": "M121",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz M180 engine",
+     "name": "M127.II",
+     "variant": "M127"
+    },
+    {
+     "title": "Mercedes-Benz M180 engine",
+     "name": "M129.II",
+     "variant": "M129"
+    },
+    {
+     "title": "Mercedes-Benz M180 engine",
+     "name": "M130",
+     "variant": "M130"
+    },
+    {
+     "title": "Mercedes-Benz M110 engine",
+     "name": "M110",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz M103 engine",
+     "name": "M103.980",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz M116 engine",
+     "name": "M116.980",
+     "variant": "3.5"
+    },
+    {
+     "title": "Mercedes-Benz M117 engine",
+     "name": "M117.982",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz M117 engine",
+     "name": "M117.960",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz M117 engine",
+     "name": "M117.967",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz M104 engine",
+     "name": "M104",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz M112 engine",
+     "name": "M112",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz M103 engine",
+     "name": "M103",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz M119 engine",
+     "name": "M119",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz M113 engine",
+     "name": "M113",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz M120 engine",
+     "name": "M120",
+     "variant": null
+    }
+   ],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": true,
+     "generations": [
+      {
+       "code": "W198/W121",
+       "yearStart": 1954,
+       "yearEnd": 1963,
+       "designers": [
+        "Rudolf Uhlenhaut",
+        "Friedrich Geiger",
+        "Karl Wilfert",
+        "Walter Häcker"
+       ],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Mercedes-Benz W121 BII",
+        "Mercedes-Benz 190 SL",
+        "Mercedes-Benz W194"
+       ]
+      },
+      {
+       "code": "W113",
+       "yearStart": 1963,
+       "yearEnd": 1971,
+       "designers": [
+        "Paul Bracq",
+        "Béla Barényi",
+        "Friedrich Geiger"
+       ],
+       "engineers": [
+        "Rudolf Uhlenhaut",
+        "Fritz Nallinger"
+       ],
+       "sharedPlatforms": [
+        "Mercedes-Benz W111",
+        "Mercedes-Benz W108/W109",
+        "Mercedes-Benz W112",
+        "Mercedes-Benz W114/W115"
+       ]
+      },
+      {
+       "code": "R107",
+       "yearStart": 1971,
+       "yearEnd": 1989,
+       "designers": [
+        "Joseph Gallitzendörfer",
+        "Friedrich Geiger"
+       ],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Mercedes-Benz W114",
+        "Mercedes-Benz C107"
+       ]
+      },
+      {
+       "code": "R129",
+       "yearStart": 1989,
+       "yearEnd": 2001,
+       "designers": [
+        "Bruno Sacco",
+        "Johann Tomforde"
+       ],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Mercedes-Benz W124"
+       ]
+      },
+      {
+       "code": "R230",
+       "yearStart": 2001,
+       "yearEnd": 2011,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": []
+      },
+      {
+       "code": "R231",
+       "yearStart": 2011,
+       "yearEnd": 2020,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": []
+      },
+      {
+       "code": "R232",
+       "yearStart": 2022,
+       "yearEnd": null,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": []
+      }
+     ]
+    },
+    "dropped": [
+     {
+      "code": "W198/W121",
+      "yearStart": 1954,
+      "yearEnd": 1963,
+      "designers": [
+       "Rudolf Uhlenhaut",
+       "Friedrich Geiger",
+       "Karl Wilfert",
+       "Walter Häcker"
+      ],
+      "engineers": [],
+      "sharedPlatforms": [
+       "Mercedes-Benz W121 BII",
+       "Mercedes-Benz 190 SL",
+       "Mercedes-Benz W194"
+      ]
+     }
+    ]
+   },
+   "manualRecheck": true,
+   "engineScansCleared": 0,
+   "generationDiff": {
+    "addedCodes": [
+     "W198 / W121",
+     "W113",
+     "R107"
+    ],
+    "removedIds": []
+   },
+   "peopleAdded": [
+    {
+     "generation": "SL-Class (R129)",
+     "role": "designer",
+     "name": "Bruno Sacco"
+    },
+    {
+     "generation": "SL-Class (R129)",
+     "role": "designer",
+     "name": "Johann Tomforde"
+    }
+   ],
+   "appliedAt": "2026-09-15T22:17:28.172Z"
+  },
+  "m-mazda-121": {
+   "status": "none",
+   "checkedAt": "2026-09-15T22:22:38.249Z",
+   "sourceTitle": "Mazda 121",
+   "proposal": {
+    "hasMultipleGenerations": true,
+    "generations": [
+     {
+      "code": "CD",
+      "yearStart": 1975,
+      "yearEnd": 1981,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "1968 Mazda Cosmo-Sport 01.jpg",
+      "sharedPlatforms": []
+     },
+     {
+      "code": "HB",
+      "yearStart": 1981,
+      "yearEnd": 1989,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "Mazda Cosmo L10A rear-right 2016 Shanghai Auto Museum.jpg",
+      "sharedPlatforms": [
+       "Mazda Luce",
+       "Mazda 929"
+      ]
+     },
+     {
+      "code": "DA",
+      "yearStart": 1986,
+      "yearEnd": 1991,
+      "designers": [
+       "Mazda"
+      ],
+      "engineers": [
+       "Mazda"
+      ],
+      "wikiFile": "L10B inst panel.jpg",
+      "sharedPlatforms": [
+       "Kia Pride",
+       "Ford Festiva"
+      ]
+     },
+     {
+      "code": "DB",
+      "yearStart": 1991,
+      "yearEnd": 1998,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "Mazda121left 02.jpg",
+      "sharedPlatforms": [
+       "Autozam Revue",
+       "Mazda Revue"
+      ],
+      "sharedPlatformMatches": {
+       "Mazda Revue": {
+        "matchId": "m-autozam-revue",
+        "confidence": "high",
+        "reason": "The 'Mazda Revue' is a specific badge name used by Mazda (specifically in the Australian and New Zealand markets) for the Autozam Revue, which was sold as the Mazda323/Protege/Autozam Revue in other regions. The candidate 'Autozam Revue (1990–1998)' is the exact same physical vehicle, with the mention 'Mazda Revue' being a regional variant of the model name."
+       }
+      }
+     },
+     {
+      "code": "DW",
+      "yearStart": 1996,
+      "yearEnd": 2002,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "Mazda Cosmo AP 2000 rear.jpg",
+      "sharedPlatforms": [
+       "Autozam Revue",
+       "Mazda Revue",
+       "Ford Festiva Mini Wagon"
+      ],
+      "sharedPlatformMatches": {
+       "Mazda Revue": {
+        "matchId": "m-autozam-revue",
+        "confidence": "high",
+        "reason": "The 'Mazda Revue' is a specific badge name used by Mazda (specifically in the Australian and New Zealand markets) for the Autozam Revue, which was sold as the Mazda323/Protege/Autozam Revue in other regions. The candidate 'Autozam Revue (1990–1998)' is the exact same physical vehicle, with the mention 'Mazda Revue' being a regional variant of the model name."
+       },
+       "Ford Festiva Mini Wagon": {
+        "matchId": "m-ford-festiva",
+        "confidence": "low",
+        "reason": "The mention 'Ford Festiva Mini Wagon' refers to a specific body style (Wagon/Mini Van) of the Ford Festiva model. The candidate 'm-ford-festiva' corresponds to the Ford Festiva model itself (which was sold in various body styles including Hatchback and Wagon, particularly in the Japanese market as the Mazda 121 Wagon or similar variants). While the mention includes a specific trim/body style ('Mini Wagon'), the core vehicle identity is the Ford Festiva. Given the list contains only the base model 'm-ford-festiva' and no specific 'Festiva Wagon' entry, this is the only logical match, despite the mention specifying a body style not explicitly detailed in the candidate label."
+       }
+      }
+     },
+     {
+      "code": "Fiesta (fourth generation)",
+      "yearStart": 1995,
+      "yearEnd": 2002,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "1992 Ford Festiva (WA) 5-door hatchback (26631967204).jpg",
+      "sharedPlatforms": [
+       "Autozam Revue",
+       "Mazda 121"
+      ],
+      "sharedPlatformMatches": {
+       "Mazda 121": {
+        "matchId": "m-mazda-familia",
+        "confidence": "high",
+        "reason": "The 'Mazda 121' was the specific nameplate used for the Mazda Familia (specifically the GD/GK generation) in the South Korean and South American markets. The database entry 'm-mazda-familia' covers the entire production history (1963–2003), which includes the era and model corresponding to the Mazda 121, making it the correct match despite the different regional naming convention."
+       }
+      }
      }
     ]
    },
@@ -33732,7 +34962,9 @@
   "llm-m-lincoln-continental-fourth-generation|m-ford-continental-mark-ii|platform": true,
   "m-ford-continental-mark-ii|m-lincoln-continental|platform": true,
   "llm-m-mercury-marquis-second-generation|m-veritas-meteor|platform": true,
-  "llm-m-lincoln-mark-series-mark-ii|m-ford-futura|platform": true
+  "llm-m-lincoln-mark-series-mark-ii|m-ford-futura|platform": true,
+  "llm-fam-mercedes-benz-sl-w198-w121|m-mazda-121|platform": true,
+  "m-mercedes-benz-sl-class-r230|m-ruf-rtr|platform": true
  },
  "crossGroupRejections": {
   "llm-m-skoda-octavia-mk1-1z|m-daren-mk-3|platform": {
@@ -33857,7 +35089,8 @@
   "resolved:llm-m-mercedes-benz-e-class-w110|m-mercedes-benz-e-class|related": true,
   "genresearch:llm-m-mercedes-benz-e-class-w211": true,
   "deeprecheck:m-mercedes-benz-e-class": true,
-  "none:llm-related-chrysler-pentastar-engine": true
+  "none:llm-related-chrysler-pentastar-engine": true,
+  "applied:fam-mercedes-benz-sl": true
  },
  "mintedFacts": {
   "llm-related-puch-g": {
@@ -35412,6 +36645,32 @@
    "year": 2010,
    "end": null,
    "source": "wikipedia"
+  },
+  "p-johann-tomforde": {
+   "checkedAt": "2026-09-15T22:17:06.235Z",
+   "born": null,
+   "died": null,
+   "country": null,
+   "tries": 1
+  },
+  "p-walter-hacker": {
+   "checkedAt": "2026-09-15T22:17:33.358Z",
+   "born": 1917,
+   "died": 2008,
+   "country": "Germany",
+   "source": "llm-recall"
+  },
+  "llm-related-mercedes-benz-w114": {
+   "checkedAt": "2026-09-15T22:17:45.184Z",
+   "year": 1968,
+   "end": 1976,
+   "source": "wikipedia"
+  },
+  "llm-related-mercedes-benz-w194": {
+   "checkedAt": "2026-09-15T22:19:55.269Z",
+   "year": 1939,
+   "end": 1940,
+   "source": "llm-recall"
   }
  },
  "userCars": {},
@@ -35457,7 +36716,10 @@
   "llm-related-lincoln-premiere": "Lincoln Premiere",
   "llm-related-lincoln-h-series": "Lincoln H-series",
   "llm-related-mercedes-benz-e-class": "Mercedes-Benz E-Class",
-  "llm-m-mercedes-benz-e-class-w110": "W110"
+  "llm-m-mercedes-benz-e-class-w110": "W110",
+  "llm-related-mercedes-benz-w194": "Mercedes-Benz W194",
+  "llm-related-mercedes-benz-w114": "Mercedes-Benz W114",
+  "llm-fam-mercedes-benz-sl-w198-w121": "Mercedes-Benz W194"
  },
  "genResearch": {
   "merge-m-volkswagen-jetta-self": {
@@ -36291,6 +37553,215 @@
     },
     "dropped": []
    }
+  },
+  "m-mercedes-benz-sl-class-r129": {
+   "status": "done",
+   "checkedAt": "2026-09-15T22:17:32.141Z",
+   "sourceTitle": "Mercedes-Benz SL-Class (R129)",
+   "upgradedArticle": null,
+   "relatedTexts": [
+    "Mercedes-Benz W124"
+   ],
+   "newRelationKeys": [],
+   "peopleAdded": [],
+   "engines": [
+    {
+     "title": "Mercedes-Benz M104 engine",
+     "name": "M104",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz M112 engine",
+     "name": "M112",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz M103 engine",
+     "name": "M103",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz M119 engine",
+     "name": "M119",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz M113 engine",
+     "name": "M113",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz M120 engine",
+     "name": "M120",
+     "variant": null
+    }
+   ],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": false,
+     "generations": [
+      {
+       "code": "R129",
+       "yearStart": 1988,
+       "yearEnd": 2001,
+       "designers": [
+        "Johann Tomforde",
+        "Bruno Sacco"
+       ],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Mercedes-Benz W124"
+       ]
+      }
+     ]
+    },
+    "dropped": []
+   }
+  },
+  "m-mercedes-benz-sl-class-r230": {
+   "status": "done",
+   "checkedAt": "2026-09-15T22:19:53.850Z",
+   "sourceTitle": "Mercedes-Benz SL-Class (R230)",
+   "upgradedArticle": null,
+   "relatedTexts": [
+    "Fisker Tramonto"
+   ],
+   "newRelationKeys": [],
+   "peopleAdded": [],
+   "engines": [
+    {
+     "title": "Mercedes-Benz M112 engine",
+     "name": "M112",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz M113 engine",
+     "name": "M113",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz M275 engine",
+     "name": "M275",
+     "variant": null
+    }
+   ],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": false,
+     "generations": [
+      {
+       "code": "R230",
+       "yearStart": 2001,
+       "yearEnd": 2011,
+       "designers": [
+        "Steve Mattin",
+        "Bruno Sacco"
+       ],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Fisker Tramonto"
+       ]
+      }
+     ]
+    },
+    "dropped": []
+   }
+  },
+  "m-mercedes-benz-sl-class-r231": {
+   "status": "done",
+   "checkedAt": "2026-09-15T22:22:18.403Z",
+   "sourceTitle": "Mercedes-Benz SL-Class (R231)",
+   "upgradedArticle": null,
+   "relatedTexts": [
+    "Mercedes-Benz E-Class (W212)"
+   ],
+   "newRelationKeys": [
+    "m-mercedes-benz-e-class-w212|m-mercedes-benz-sl-class-r231|platform"
+   ],
+   "peopleAdded": [],
+   "engines": [
+    {
+     "title": "Mercedes-Benz M276 engine",
+     "name": "M276",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz M278 engine",
+     "name": "M278",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz M157 engine",
+     "name": "M157",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz M279 engine",
+     "name": "M279",
+     "variant": null
+    }
+   ],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": false,
+     "generations": [
+      {
+       "code": "R231",
+       "yearStart": 2011,
+       "yearEnd": 2020,
+       "designers": [
+        "Frank Pfisterer",
+        "Mark Fetherston"
+       ],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Mercedes-Benz E-Class (W212)"
+       ]
+      }
+     ]
+    },
+    "dropped": []
+   }
+  },
+  "m-mercedes-benz-sl-r232": {
+   "status": "done",
+   "checkedAt": "2026-09-15T22:22:49.951Z",
+   "sourceTitle": "Mercedes-Benz SL (R232)",
+   "upgradedArticle": null,
+   "relatedTexts": [],
+   "newRelationKeys": [],
+   "peopleAdded": [],
+   "engines": [
+    {
+     "title": "Mercedes-Benz M139 engine",
+     "name": "M139",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz M177 engine",
+     "name": "M177",
+     "variant": null
+    }
+   ],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": false,
+     "generations": [
+      {
+       "code": "R232",
+       "yearStart": 2022,
+       "yearEnd": null,
+       "designers": [
+        "Mark Fetherston",
+        "Slavche Tanevski"
+       ],
+       "engineers": [],
+       "sharedPlatforms": []
+      }
+     ]
+    },
+    "dropped": []
+   }
   }
  },
  "merges": {
@@ -36470,7 +37941,7 @@
  "engines": {
   "eng-mercedes-benz-m276": {
    "status": "confirmed",
-   "checkedAt": "2026-09-15T21:23:15.904Z",
+   "checkedAt": "2026-09-15T22:13:03.750Z",
    "sourceTitle": "Mercedes-Benz M276 engine",
    "article": {
     "name": "Mercedes-Benz M276 DE35",
@@ -36481,359 +37952,422 @@
     "displacement": "3498 cc",
     "predecessor": "Mercedes-Benz M272",
     "successor": "M276 DE30LA",
-    "variants": [],
-    "applications": [
+    "variants": [
      {
-      "target": "Chrysler Pentastar engine",
-      "display": "Chrysler Pentastar engine",
-      "text": "The M276 engine is not related to the Chrysler Pentastar engine except for the 60-degree angle, despite that it was developed while Chrysler was still owned by Daimler AG. This can be seen in its 60 degree vee–angle, as opposed to the 90-degree angle of its M272 predecessor. The 60 degree vee–angle eliminates the need for a balance shaft, improving refinement while reducing mechanical complexity. None of the parts are shared at all.",
-      "yearStart": null,
-      "yearEnd": null,
-      "note": null
+      "code": "M276 DE35",
+      "applications": [
+       {
+        "target": "Mercedes-Benz S-Class (W221)",
+        "anchor": null,
+        "display": "W221 S 350/S 350 4MATIC",
+        "text": "2011–2013 W221 S 350/S 350 4MATIC",
+        "yearStart": 2011,
+        "yearEnd": 2013,
+        "note": null
+       },
+       {
+        "target": "Mercedes-Benz E-Class (W212)",
+        "anchor": null,
+        "display": "W212 E 300 BlueEFFICIENCY/E 300 BlueEFFICIENCY 4MATIC",
+        "text": "2011–2014 W212 E 300 BlueEFFICIENCY/E 300 BlueEFFICIENCY 4MATIC",
+        "yearStart": 2011,
+        "yearEnd": 2014,
+        "note": null
+       },
+       {
+        "target": "Mercedes-Benz CLS-Class (W218)",
+        "anchor": null,
+        "display": "W218 CLS 350 BlueEFFICIENCY",
+        "text": "2011–2014 W218 CLS 350 BlueEFFICIENCY",
+        "yearStart": 2011,
+        "yearEnd": 2014,
+        "note": null
+       },
+       {
+        "target": "Mercedes-Benz C-Class (W204)",
+        "anchor": "W204 facelift (2011–2014)",
+        "display": "W204 C 350 / C 350 4MATIC",
+        "text": "2011–2014 W204 C 350 / C 350 4MATIC",
+        "yearStart": 2011,
+        "yearEnd": 2014,
+        "note": null
+       },
+       {
+        "target": "Mercedes-Benz C-Class (W204)",
+        "anchor": "W204 facelift (2012-2014)",
+        "display": "W204 C 350 BlueEFFICIENCY / C 350 BlueEFFICIENCY 4MATIC",
+        "text": "2011–2014 W204 C 350 BlueEFFICIENCY / C 350 BlueEFFICIENCY 4MATIC",
+        "yearStart": 2011,
+        "yearEnd": 2014,
+        "note": null
+       },
+       {
+        "target": "Mercedes-Benz C-Class (W204)",
+        "anchor": "W204 facelift (2012-2014)",
+        "display": "W204 C 300 4MATIC (US/Canada)",
+        "text": "2012–2014 W204 C 300 4MATIC (US/Canada)",
+        "yearStart": 2012,
+        "yearEnd": 2014,
+        "note": null
+       },
+       {
+        "target": "Mercedes-Benz E-Class (W212)",
+        "anchor": null,
+        "display": "W212 E 350 BlueEFFICIENCY / E 350 BlueEFFICIENCY 4MATIC",
+        "text": "2012–2016 W212 E 350 BlueEFFICIENCY / E 350 BlueEFFICIENCY 4MATIC",
+        "yearStart": 2012,
+        "yearEnd": 2016,
+        "note": null
+       },
+       {
+        "target": "Mercedes-Benz E-Class (W212)",
+        "anchor": null,
+        "display": "W212 E 400 HYBRID",
+        "text": "2012–2016 W212 E 400 HYBRID",
+        "yearStart": 2012,
+        "yearEnd": 2016,
+        "note": null
+       },
+       {
+        "target": "Mercedes-Benz M-Class",
+        "anchor": "Third generation (W166; 2011–2019)",
+        "display": "W166 ML 350 BlueEFFICIENCY 4MATIC",
+        "text": "2012–2015 W166 ML 350 BlueEFFICIENCY 4MATIC",
+        "yearStart": 2012,
+        "yearEnd": 2015,
+        "note": null
+       },
+       {
+        "target": "Mercedes-Benz GLE-Class",
+        "anchor": "Third generation (W166; 2012–2018)",
+        "display": "W166 GLE 350 / GLE 350 4MATIC",
+        "text": "2015–2018 W166 GLE 350 / GLE 350 4MATIC",
+        "yearStart": 2015,
+        "yearEnd": 2018,
+        "note": null
+       },
+       {
+        "target": "Mercedes-Benz GLK-Class",
+        "anchor": null,
+        "display": "X204 GLK 350 4MATIC BlueEfficiency",
+        "text": "2012–2015 X204 GLK 350 4MATIC BlueEfficiency",
+        "yearStart": 2012,
+        "yearEnd": 2015,
+        "note": null
+       },
+       {
+        "target": "Mercedes-Benz GLK-Class",
+        "anchor": null,
+        "display": "X204 GLK 350",
+        "text": "2013–2015 X204 GLK 350",
+        "yearStart": 2013,
+        "yearEnd": 2015,
+        "note": null
+       },
+       {
+        "target": "Mercedes-Benz R-Class",
+        "anchor": null,
+        "display": "W251 R 350 4MATIC BlueEfficiency",
+        "text": "2012–2014 W251 R 350 4MATIC BlueEfficiency",
+        "yearStart": 2012,
+        "yearEnd": 2014,
+        "note": null
+       },
+       {
+        "target": "Mercedes-Benz S-Class (W222)",
+        "anchor": null,
+        "display": "W222 S 400 HYBRID",
+        "text": "2013–2017 W222 S 400 HYBRID",
+        "yearStart": 2013,
+        "yearEnd": 2017,
+        "note": null
+       },
+       {
+        "target": "Mercedes-Benz SLK-Class (R172)",
+        "anchor": null,
+        "display": "R172 SLK 350 BlueEFFICIENCY",
+        "text": "2011–2015 R172 SLK 350 BlueEFFICIENCY",
+        "yearStart": 2011,
+        "yearEnd": 2015,
+        "note": null
+       }
+      ]
      },
      {
-      "target": "Mercedes-Benz S-Class (W221)",
-      "display": "W221 S 350/S 350 4MATIC",
-      "text": "2011–2013 W221 S 350/S 350 4MATIC",
-      "yearStart": 2011,
-      "yearEnd": 2013,
-      "note": null
+      "code": "M276 DE30 LA",
+      "applications": [
+       {
+        "target": "IHI Corporation",
+        "anchor": null,
+        "display": "IHI",
+        "text": "With a reduced bore and stroke at 88 x 82.1 mm and reduced compression ratio at 10.7:1, DE 30 LA is turbocharged with twin IHI turbochargers for 245 kW at 5,250–6,000rpm and 480 Nm of torque at 1,600–4,000rpm and weighs in at 179.2&nbsp;kg DIN. This engine was introduced on 2013 C400(W205), and used for E400 Coupe 4Matic, ML(GLE)400 4Matic, E450 4Matic, CLS450, S450, S500e and other models.",
+        "yearStart": null,
+        "yearEnd": null,
+        "note": null
+       },
+       {
+        "target": "Mercedes-Benz E-Class (W212)",
+        "anchor": null,
+        "display": "W212 E 400/E 400 4MATIC",
+        "text": "2013–2014 W212 E 400/E 400 4MATIC",
+        "yearStart": 2013,
+        "yearEnd": 2014,
+        "note": null
+       },
+       {
+        "target": "Mercedes-Benz E-Class (C207)",
+        "anchor": null,
+        "display": "C207 E 400",
+        "text": "2013–2017 C207 E 400",
+        "yearStart": 2013,
+        "yearEnd": 2017,
+        "note": null
+       },
+       {
+        "target": "Mercedes-Benz S-Class (W222)",
+        "anchor": null,
+        "display": "W222 S 400 & S 320 (China)",
+        "text": "2014–2020 W222 S 400 & S 320 (China)",
+        "yearStart": 2014,
+        "yearEnd": 2020,
+        "note": null
+       },
+       {
+        "target": "Mercedes-Benz GL-Class (X166)",
+        "anchor": null,
+        "display": "X166 GL 400 / GLS 450",
+        "text": "2014–2019 X166 GL 400 / GLS 450",
+        "yearStart": 2014,
+        "yearEnd": 2019,
+        "note": null
+       },
+       {
+        "target": "Mercedes-Benz CLS-Class (C218)",
+        "anchor": null,
+        "display": "C218 CLS 400",
+        "text": "2014–2017 C218 CLS 400",
+        "yearStart": 2014,
+        "yearEnd": 2017,
+        "note": null
+       },
+       {
+        "target": "Mercedes-Benz S-Class (W222)",
+        "anchor": null,
+        "display": "W222 S 500 PLUG–IN HYBRID",
+        "text": "2014–2017 W222 S 500 PLUG–IN HYBRID",
+        "yearStart": 2014,
+        "yearEnd": 2017,
+        "note": null
+       },
+       {
+        "target": "Mercedes-Benz CLS-Class (W218)",
+        "anchor": null,
+        "display": "W218 CLS 400/CLS 400 4MATIC",
+        "text": "2014–2015 W218 CLS 400/CLS 400 4MATIC",
+        "yearStart": 2014,
+        "yearEnd": 2015,
+        "note": null
+       },
+       {
+        "target": "Mercedes-Benz M-Class",
+        "anchor": null,
+        "display": "W166 AMG GLE 43 4MATIC",
+        "text": "2015–2019 W166 AMG GLE 43 4MATIC",
+        "yearStart": 2015,
+        "yearEnd": 2019,
+        "note": null
+       },
+       {
+        "target": "Mercedes-Benz C-Class (W205)",
+        "anchor": null,
+        "display": "W205 C 400 4MATIC",
+        "text": "2015–2021 W205 C 400 4MATIC",
+        "yearStart": 2015,
+        "yearEnd": 2021,
+        "note": null
+       },
+       {
+        "target": "Mercedes-Benz GLC-Class",
+        "anchor": null,
+        "display": "X253 AMG GLC 43 4MATIC",
+        "text": "2015–2022 X253 AMG GLC 43 4MATIC",
+        "yearStart": 2015,
+        "yearEnd": 2022,
+        "note": null
+       },
+       {
+        "target": "Mercedes-Benz C-Class (W205)",
+        "anchor": null,
+        "display": "W205 C 450 AMG 4MATIC",
+        "text": "2015–2017 W205 C 450 AMG 4MATIC",
+        "yearStart": 2015,
+        "yearEnd": 2017,
+        "note": null
+       },
+       {
+        "target": "Mercedes-Benz M-Class",
+        "anchor": null,
+        "display": "W166 ML 400 / GLE 400 4MATIC",
+        "text": "2015–2017 W166 ML 400 / GLE 400 4MATIC",
+        "yearStart": 2015,
+        "yearEnd": 2017,
+        "note": null
+       },
+       {
+        "target": "BAIC BJ90",
+        "anchor": null,
+        "display": "BAIC BJ90",
+        "text": "2016–2023 BAIC BJ90 (an SUV from Chinese brand BAIC based on the second generation Mercedes-Benz GL-Class)",
+        "yearStart": 2016,
+        "yearEnd": 2023,
+        "note": null
+       },
+       {
+        "target": "Mercedes-Benz M-Class",
+        "anchor": null,
+        "display": "W166 GLE 450 AMG 4MATIC",
+        "text": "2016–2017 W166 GLE 450 AMG 4MATIC",
+        "yearStart": 2016,
+        "yearEnd": 2017,
+        "note": null
+       },
+       {
+        "target": "Mercedes-Benz M-Class",
+        "anchor": null,
+        "display": "W166 GLE 500 e / GLE 550 e (US) 4MATIC",
+        "text": "2016–2018 W166 GLE 500 e / GLE 550 e (US) 4MATIC",
+        "yearStart": 2016,
+        "yearEnd": 2018,
+        "note": null
+       },
+       {
+        "target": "Mercedes-Benz C-Class (W205)",
+        "anchor": null,
+        "display": "W205 AMG C 43 4MATIC",
+        "text": "2016–2021 W205 AMG C 43 4MATIC",
+        "yearStart": 2016,
+        "yearEnd": 2021,
+        "note": null
+       },
+       {
+        "target": "Mercedes-Benz E-Class (W213)",
+        "anchor": null,
+        "display": "W213 E 400 4MATIC",
+        "text": "2016–2018 W213 E 400 4MATIC",
+        "yearStart": 2016,
+        "yearEnd": 2018,
+        "note": null
+       },
+       {
+        "target": "Mercedes-Benz E-Class (W213)",
+        "anchor": null,
+        "display": "W213 AMG E 43 4MATIC",
+        "text": "2016–2018 W213 AMG E 43 4MATIC",
+        "yearStart": 2016,
+        "yearEnd": 2018,
+        "note": null
+       },
+       {
+        "target": "Mercedes-Benz S-Class (W222)",
+        "anchor": null,
+        "display": "W222 S 580 e",
+        "text": "2018–2020 W222 S 580 e",
+        "yearStart": 2018,
+        "yearEnd": 2020,
+        "note": null
+       },
+       {
+        "target": "Mercedes-Benz E-Class (W213)",
+        "anchor": null,
+        "display": "W213 E 450 4MATIC",
+        "text": "2019–2020 W213 E 450 4MATIC",
+        "yearStart": 2019,
+        "yearEnd": 2020,
+        "note": null
+       },
+       {
+        "target": "Mercedes-Benz SL-Class (R231)",
+        "anchor": null,
+        "display": "R231 SL 400",
+        "text": "2014-2020 R231 SL 400",
+        "yearStart": 2014,
+        "yearEnd": 2020,
+        "note": null
+       },
+       {
+        "target": "Mercedes-Benz SL-Class (R231)",
+        "anchor": null,
+        "display": "R231 SL 450",
+        "text": "2017-2020 R231 SL 450",
+        "yearStart": 2017,
+        "yearEnd": 2020,
+        "note": null
+       },
+       {
+        "target": "Mercedes-Benz SLC-Class (R172)",
+        "anchor": null,
+        "display": "R172 AMG SLC 43",
+        "text": "2016–2018 R172 AMG SLC 43 (362hp version)",
+        "yearStart": 2016,
+        "yearEnd": 2018,
+        "note": null
+       }
+      ]
      },
      {
-      "target": "Mercedes-Benz E-Class (W212)",
-      "display": "W212 E 300 BlueEFFICIENCY/E 300 BlueEFFICIENCY 4MATIC",
-      "text": "2011–2014 W212 E 300 BlueEFFICIENCY/E 300 BlueEFFICIENCY 4MATIC",
-      "yearStart": 2011,
-      "yearEnd": 2014,
-      "note": null
-     },
-     {
-      "target": "Mercedes-Benz CLS-Class (W218)",
-      "display": "W218 CLS 350 BlueEFFICIENCY",
-      "text": "2011–2014 W218 CLS 350 BlueEFFICIENCY",
-      "yearStart": 2011,
-      "yearEnd": 2014,
-      "note": null
-     },
-     {
-      "target": "Mercedes-Benz C-Class (W204)",
-      "display": "W204 C 350 / C 350 4MATIC",
-      "text": "2011–2014 W204 C 350 / C 350 4MATIC",
-      "yearStart": 2011,
-      "yearEnd": 2014,
-      "note": null
-     },
-     {
-      "target": "Mercedes-Benz C-Class (W204)",
-      "display": "W204 C 350 BlueEFFICIENCY / C 350 BlueEFFICIENCY 4MATIC",
-      "text": "2011–2014 W204 C 350 BlueEFFICIENCY / C 350 BlueEFFICIENCY 4MATIC",
-      "yearStart": 2011,
-      "yearEnd": 2014,
-      "note": null
-     },
-     {
-      "target": "Mercedes-Benz C-Class (W204)",
-      "display": "W204 C 300 4MATIC (US/Canada)",
-      "text": "2012–2014 W204 C 300 4MATIC (US/Canada)",
-      "yearStart": 2012,
-      "yearEnd": 2014,
-      "note": null
-     },
-     {
-      "target": "Mercedes-Benz E-Class (W212)",
-      "display": "W212 E 350 BlueEFFICIENCY / E 350 BlueEFFICIENCY 4MATIC",
-      "text": "2012–2016 W212 E 350 BlueEFFICIENCY / E 350 BlueEFFICIENCY 4MATIC",
-      "yearStart": 2012,
-      "yearEnd": 2016,
-      "note": null
-     },
-     {
-      "target": "Mercedes-Benz E-Class (W212)",
-      "display": "W212 E 400 HYBRID",
-      "text": "2012–2016 W212 E 400 HYBRID",
-      "yearStart": 2012,
-      "yearEnd": 2016,
-      "note": null
-     },
-     {
-      "target": "Mercedes-Benz M-Class",
-      "display": "W166 ML 350 BlueEFFICIENCY 4MATIC",
-      "text": "2012–2015 W166 ML 350 BlueEFFICIENCY 4MATIC",
-      "yearStart": 2012,
-      "yearEnd": 2015,
-      "note": null
-     },
-     {
-      "target": "Mercedes-Benz GLE-Class",
-      "display": "W166 GLE 350 / GLE 350 4MATIC",
-      "text": "2015–2018 W166 GLE 350 / GLE 350 4MATIC",
-      "yearStart": 2015,
-      "yearEnd": 2018,
-      "note": null
-     },
-     {
-      "target": "Mercedes-Benz GLK-Class",
-      "display": "X204 GLK 350 4MATIC BlueEfficiency",
-      "text": "2012–2015 X204 GLK 350 4MATIC BlueEfficiency",
-      "yearStart": 2012,
-      "yearEnd": 2015,
-      "note": null
-     },
-     {
-      "target": "Mercedes-Benz GLK-Class",
-      "display": "X204 GLK 350",
-      "text": "2013–2015 X204 GLK 350",
-      "yearStart": 2013,
-      "yearEnd": 2015,
-      "note": null
-     },
-     {
-      "target": "Mercedes-Benz R-Class",
-      "display": "W251 R 350 4MATIC BlueEfficiency",
-      "text": "2012–2014 W251 R 350 4MATIC BlueEfficiency",
-      "yearStart": 2012,
-      "yearEnd": 2014,
-      "note": null
-     },
-     {
-      "target": "Mercedes-Benz S-Class (W222)",
-      "display": "W222 S 400 HYBRID",
-      "text": "2013–2017 W222 S 400 HYBRID",
-      "yearStart": 2013,
-      "yearEnd": 2017,
-      "note": null
-     },
-     {
-      "target": "Mercedes-Benz SLK-Class (R172)",
-      "display": "R172 SLK 350 BlueEFFICIENCY",
-      "text": "2011–2015 R172 SLK 350 BlueEFFICIENCY",
-      "yearStart": 2011,
-      "yearEnd": 2015,
-      "note": null
-     },
-     {
-      "target": "IHI Corporation",
-      "display": "IHI",
-      "text": "With a reduced bore and stroke at 88 x 82.1 mm and reduced compression ratio at 10.7:1, DE 30 LA is turbocharged with twin IHI turbochargers for 245 kW at 5,250–6,000rpm and 480 Nm of torque at 1,600–4,000rpm and weighs in at 179.2&nbsp;kg DIN. This engine was introduced on 2013 C400(W205), and used for E400 Coupe 4Matic, ML(GLE)400 4Matic, E450 4Matic, CLS450, S450, S500e and other models.",
-      "yearStart": null,
-      "yearEnd": null,
-      "note": null
-     },
-     {
-      "target": "Mercedes-Benz E-Class (W212)",
-      "display": "W212 E 400/E 400 4MATIC",
-      "text": "2013–2014 W212 E 400/E 400 4MATIC",
-      "yearStart": 2013,
-      "yearEnd": 2014,
-      "note": null
-     },
-     {
-      "target": "Mercedes-Benz E-Class (C207)",
-      "display": "C207 E 400",
-      "text": "2013–2017 C207 E 400",
-      "yearStart": 2013,
-      "yearEnd": 2017,
-      "note": null
-     },
-     {
-      "target": "Mercedes-Benz S-Class (W222)",
-      "display": "W222 S 400 & S 320 (China)",
-      "text": "2014–2020 W222 S 400 & S 320 (China)",
-      "yearStart": 2014,
-      "yearEnd": 2020,
-      "note": null
-     },
-     {
-      "target": "Mercedes-Benz GL-Class (X166)",
-      "display": "X166 GL 400 / GLS 450",
-      "text": "2014–2019 X166 GL 400 / GLS 450",
-      "yearStart": 2014,
-      "yearEnd": 2019,
-      "note": null
-     },
-     {
-      "target": "Mercedes-Benz CLS-Class (C218)",
-      "display": "C218 CLS 400",
-      "text": "2014–2017 C218 CLS 400",
-      "yearStart": 2014,
-      "yearEnd": 2017,
-      "note": null
-     },
-     {
-      "target": "Mercedes-Benz S-Class (W222)",
-      "display": "W222 S 500 PLUG–IN HYBRID",
-      "text": "2014–2017 W222 S 500 PLUG–IN HYBRID",
-      "yearStart": 2014,
-      "yearEnd": 2017,
-      "note": null
-     },
-     {
-      "target": "Mercedes-Benz CLS-Class (W218)",
-      "display": "W218 CLS 400/CLS 400 4MATIC",
-      "text": "2014–2015 W218 CLS 400/CLS 400 4MATIC",
-      "yearStart": 2014,
-      "yearEnd": 2015,
-      "note": null
-     },
-     {
-      "target": "Mercedes-Benz M-Class",
-      "display": "W166 AMG GLE 43 4MATIC",
-      "text": "2015–2019 W166 AMG GLE 43 4MATIC",
-      "yearStart": 2015,
-      "yearEnd": 2019,
-      "note": null
-     },
-     {
-      "target": "Mercedes-Benz C-Class (W205)",
-      "display": "W205 C 400 4MATIC",
-      "text": "2015–2021 W205 C 400 4MATIC",
-      "yearStart": 2015,
-      "yearEnd": 2021,
-      "note": null
-     },
-     {
-      "target": "Mercedes-Benz GLC-Class",
-      "display": "X253 AMG GLC 43 4MATIC",
-      "text": "2015–2022 X253 AMG GLC 43 4MATIC",
-      "yearStart": 2015,
-      "yearEnd": 2022,
-      "note": null
-     },
-     {
-      "target": "Mercedes-Benz C-Class (W205)",
-      "display": "W205 C 450 AMG 4MATIC",
-      "text": "2015–2017 W205 C 450 AMG 4MATIC",
-      "yearStart": 2015,
-      "yearEnd": 2017,
-      "note": null
-     },
-     {
-      "target": "Mercedes-Benz M-Class",
-      "display": "W166 ML 400 / GLE 400 4MATIC",
-      "text": "2015–2017 W166 ML 400 / GLE 400 4MATIC",
-      "yearStart": 2015,
-      "yearEnd": 2017,
-      "note": null
-     },
-     {
-      "target": "BAIC BJ90",
-      "display": "BAIC BJ90",
-      "text": "2016–2023 BAIC BJ90 (an SUV from Chinese brand BAIC based on the second generation Mercedes-Benz GL-Class)",
-      "yearStart": 2016,
-      "yearEnd": 2023,
-      "note": null
-     },
-     {
-      "target": "Mercedes-Benz M-Class",
-      "display": "W166 GLE 450 AMG 4MATIC",
-      "text": "2016–2017 W166 GLE 450 AMG 4MATIC",
-      "yearStart": 2016,
-      "yearEnd": 2017,
-      "note": null
-     },
-     {
-      "target": "Mercedes-Benz M-Class",
-      "display": "W166 GLE 500 e / GLE 550 e (US) 4MATIC",
-      "text": "2016–2018 W166 GLE 500 e / GLE 550 e (US) 4MATIC",
-      "yearStart": 2016,
-      "yearEnd": 2018,
-      "note": null
-     },
-     {
-      "target": "Mercedes-Benz C-Class (W205)",
-      "display": "W205 AMG C 43 4MATIC",
-      "text": "2016–2021 W205 AMG C 43 4MATIC",
-      "yearStart": 2016,
-      "yearEnd": 2021,
-      "note": null
-     },
-     {
-      "target": "Mercedes-Benz E-Class (W213)",
-      "display": "W213 E 400 4MATIC",
-      "text": "2016–2018 W213 E 400 4MATIC",
-      "yearStart": 2016,
-      "yearEnd": 2018,
-      "note": null
-     },
-     {
-      "target": "Mercedes-Benz E-Class (W213)",
-      "display": "W213 AMG E 43 4MATIC",
-      "text": "2016–2018 W213 AMG E 43 4MATIC",
-      "yearStart": 2016,
-      "yearEnd": 2018,
-      "note": null
-     },
-     {
-      "target": "Mercedes-Benz S-Class (W222)",
-      "display": "W222 S 580 e",
-      "text": "2018–2020 W222 S 580 e",
-      "yearStart": 2018,
-      "yearEnd": 2020,
-      "note": null
-     },
-     {
-      "target": "Mercedes-Benz E-Class (W213)",
-      "display": "W213 E 450 4MATIC",
-      "text": "2019–2020 W213 E 450 4MATIC",
-      "yearStart": 2019,
-      "yearEnd": 2020,
-      "note": null
-     },
-     {
-      "target": "Mercedes-Benz SL-Class (R231)",
-      "display": "R231 SL 400",
-      "text": "2014-2020 R231 SL 400",
-      "yearStart": 2014,
-      "yearEnd": 2020,
-      "note": null
-     },
-     {
-      "target": "Mercedes-Benz SL-Class (R231)",
-      "display": "R231 SL 450",
-      "text": "2017-2020 R231 SL 450",
-      "yearStart": 2017,
-      "yearEnd": 2020,
-      "note": null
-     },
-     {
-      "target": "Mercedes-Benz SLC-Class (R172)",
-      "display": "R172 AMG SLC 43",
-      "text": "2016–2018 R172 AMG SLC 43 (362hp version)",
-      "yearStart": 2016,
-      "yearEnd": 2018,
-      "note": null
-     },
-     {
-      "target": "Mercedes-Benz S-Class (W222)",
-      "display": "W222 S 400 4MATIC",
-      "text": "2015–2017 W222 S 400 4MATIC",
-      "yearStart": 2015,
-      "yearEnd": 2017,
-      "note": null
-     },
-     {
-      "target": "Mercedes-Benz CLS-Class (C218)",
-      "display": "C218 CLS 400/CLS 400 4MATIC",
-      "text": "2015–2017 C218 CLS 400/CLS 400 4MATIC",
-      "yearStart": 2015,
-      "yearEnd": 2017,
-      "note": null
-     },
-     {
-      "target": "Mercedes-Benz S-Class (W222)",
-      "display": "W222 Maybach S 400 4MATIC",
-      "text": "2015–2017 W222 Maybach S 400 4MATIC",
-      "yearStart": 2015,
-      "yearEnd": 2017,
-      "note": null
+      "code": "M276 DE35 LA",
+      "applications": [
+       {
+        "target": "Mercedes-Benz S-Class (W222)",
+        "anchor": null,
+        "display": "W222 S 400 4MATIC",
+        "text": "2015–2017 W222 S 400 4MATIC",
+        "yearStart": 2015,
+        "yearEnd": 2017,
+        "note": null
+       },
+       {
+        "target": "Mercedes-Benz E-Class (W212)",
+        "anchor": null,
+        "display": "W212 E 400/E 400 4MATIC",
+        "text": "2015–2016 W212 E 400/E 400 4MATIC",
+        "yearStart": 2015,
+        "yearEnd": 2016,
+        "note": null
+       },
+       {
+        "target": "Mercedes-Benz CLS-Class (C218)",
+        "anchor": null,
+        "display": "C218 CLS 400/CLS 400 4MATIC",
+        "text": "2015–2017 C218 CLS 400/CLS 400 4MATIC",
+        "yearStart": 2015,
+        "yearEnd": 2017,
+        "note": null
+       },
+       {
+        "target": "Mercedes-Benz E-Class (W213)",
+        "anchor": null,
+        "display": "W213 E 400 4MATIC",
+        "text": "2017–2018 W213 E 400 4MATIC",
+        "yearStart": 2017,
+        "yearEnd": 2018,
+        "note": null
+       },
+       {
+        "target": "Mercedes-Benz S-Class (W222)",
+        "anchor": null,
+        "display": "W222 Maybach S 400 4MATIC",
+        "text": "2015–2017 W222 Maybach S 400 4MATIC",
+        "yearStart": 2015,
+        "yearEnd": 2017,
+        "note": null
+       }
+      ]
      }
-    ]
+    ],
+    "applications": []
    },
    "resolved": [
-    [
-     "Chrysler Pentastar engine",
-     "Chrysler Pentastar engine"
-    ],
     [
      "Mercedes-Benz S-Class (W221)",
      "Mercedes-Benz S-Class (W221)"
@@ -37450,6 +38984,203 @@
    "sourceTitle": null,
    "status": "no-article",
    "engines": []
+  },
+  "m-mercedes-benz-sl-class-r129": {
+   "checkedAt": "2026-09-15T22:17:05.132Z",
+   "sourceTitle": "Mercedes-Benz SL-Class (R129)",
+   "engines": [
+    {
+     "title": "Mercedes-Benz M104 engine",
+     "name": "M104",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz M112 engine",
+     "name": "M112",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz M103 engine",
+     "name": "M103",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz M119 engine",
+     "name": "M119",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz M113 engine",
+     "name": "M113",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz M120 engine",
+     "name": "M120",
+     "variant": null
+    }
+   ]
+  },
+  "m-mercedes-benz-sl-class-r230": {
+   "checkedAt": "2026-09-15T22:17:05.596Z",
+   "sourceTitle": "Mercedes-Benz SL-Class (R230)",
+   "engines": [
+    {
+     "title": "Mercedes-Benz M112 engine",
+     "name": "M112",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz M113 engine",
+     "name": "M113",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz M275 engine",
+     "name": "M275",
+     "variant": null
+    }
+   ]
+  },
+  "m-mercedes-benz-sl-class-r231": {
+   "checkedAt": "2026-09-15T22:17:05.935Z",
+   "sourceTitle": "Mercedes-Benz SL-Class (R231)",
+   "engines": [
+    {
+     "title": "Mercedes-Benz M276 engine",
+     "name": "M276",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz M278 engine",
+     "name": "M278",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz M157 engine",
+     "name": "M157",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz M279 engine",
+     "name": "M279",
+     "variant": null
+    }
+   ]
+  },
+  "m-mercedes-benz-sl-r232": {
+   "checkedAt": "2026-09-15T22:17:06.368Z",
+   "sourceTitle": "Mercedes-Benz SL (R232)",
+   "engines": [
+    {
+     "title": "Mercedes-Benz M139 engine",
+     "name": "M139",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz M177 engine",
+     "name": "M177",
+     "variant": null
+    }
+   ]
+  },
+  "llm-m-mazda-121-cd": {
+   "checkedAt": "2026-09-15T22:22:38.728Z",
+   "sourceTitle": null,
+   "status": "no-article",
+   "engines": []
+  },
+  "llm-m-mazda-121-hb": {
+   "checkedAt": "2026-09-15T22:22:38.729Z",
+   "sourceTitle": null,
+   "status": "no-article",
+   "engines": []
+  },
+  "llm-m-mazda-121-da": {
+   "checkedAt": "2026-09-15T22:22:38.729Z",
+   "sourceTitle": null,
+   "status": "no-article",
+   "engines": []
+  },
+  "llm-m-mazda-121-db": {
+   "checkedAt": "2026-09-15T22:22:38.729Z",
+   "sourceTitle": null,
+   "status": "no-article",
+   "engines": []
+  },
+  "llm-m-mazda-121-dw": {
+   "checkedAt": "2026-09-15T22:22:38.729Z",
+   "sourceTitle": null,
+   "status": "no-article",
+   "engines": []
+  },
+  "llm-m-mazda-121-fiesta-fourth-generation": {
+   "checkedAt": "2026-09-15T22:22:38.729Z",
+   "sourceTitle": null,
+   "status": "no-article",
+   "engines": []
+  },
+  "llm-fam-mercedes-benz-sl-w198-w121": {
+   "checkedAt": "2026-09-15T22:22:50.494Z",
+   "sourceTitle": "Mercedes-Benz W194",
+   "engines": []
+  },
+  "llm-fam-mercedes-benz-sl-w113": {
+   "checkedAt": "2026-09-15T22:22:50.862Z",
+   "sourceTitle": "Mercedes-Benz W113",
+   "engines": [
+    {
+     "title": "Mercedes-Benz M180 engine",
+     "name": "M127.II",
+     "variant": "M127"
+    },
+    {
+     "title": "Mercedes-Benz M180 engine",
+     "name": "M129.II",
+     "variant": "M129"
+    },
+    {
+     "title": "Mercedes-Benz M180 engine",
+     "name": "M130",
+     "variant": "M130"
+    }
+   ]
+  },
+  "llm-fam-mercedes-benz-sl-r107": {
+   "checkedAt": "2026-09-15T22:22:51.223Z",
+   "sourceTitle": "Mercedes-Benz R107 and C107",
+   "engines": [
+    {
+     "title": "Mercedes-Benz M110 engine",
+     "name": "M110",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz M103 engine",
+     "name": "M103.980",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz M116 engine",
+     "name": "M116.980",
+     "variant": "3.5"
+    },
+    {
+     "title": "Mercedes-Benz M117 engine",
+     "name": "M117.982",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz M117 engine",
+     "name": "M117.960",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz M117 engine",
+     "name": "M117.967",
+     "variant": null
+    }
+   ]
   }
  },
  "prunedDecisions": {
