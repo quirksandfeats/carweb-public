@@ -69,6 +69,12 @@ window.CarWeb = (function () {
       // was checked, never followed. These arrive unresearched, which is what
       // the Powertrain view shows as a bare engine with no variants.
       const m = window.LlmFamilies.applyEngineMentions(nodes, links);
+      // Merges last: they fold one engine into another, so both have to exist
+      // first -- the read ones from applyEngines, the merely-mentioned ones
+      // from applyEngineMentions.
+      const merged = window.LlmFamilies.applyEngineMerges
+        ? window.LlmFamilies.applyEngineMerges(nodes, links) : 0;
+      if (merged) console.info(`[carweb] powertrain: ${merged} engine merge(s) replayed`);
       if (r.engines || m.engines) {
         console.info(`[carweb] powertrain: ${r.engines} engine(s) read, ${r.variants} variant(s), ` +
                      `${m.engines} mentioned but unread, ${r.fitted + m.fitted} fitted connection(s)`);
@@ -1298,6 +1304,26 @@ window.CarWeb = (function () {
         btn.textContent = unread ? "Read this engine's article" : "Read it again";
         btn.onclick = () => scanEngine(n.wp || n.label, btn);
         wrap.appendChild(btn);
+        // Folding another engine in, and undoing it. Same shape as a
+        // nameplate merge: the other engine's variants become this one's.
+        const mergedInto = (window.LlmFamilies.allEngineMerges || (() => []))()
+          .find(r => r.id === n.id);
+        if (mergedInto) {
+          const undo = document.createElement("button");
+          undo.className = "llm-btn";
+          undo.textContent = "Un-merge";
+          undo.title = "put back the engine(s) folded into this one";
+          undo.onclick = () => {
+            window.LlmFamilies.undoEngineMerge(n.id);
+            window.alert("Un-merged. Reload to see it separate again.");
+          };
+          wrap.appendChild(undo);
+        }
+        const mergeBtn = document.createElement("button");
+        mergeBtn.className = "llm-btn";
+        mergeBtn.textContent = "Merge another engine in…";
+        mergeBtn.onclick = () => mergeEnginePrompt(n);
+        wrap.appendChild(mergeBtn);
         box.appendChild(wrap);
         const note = document.createElement("div");
         note.className = "llmdebug-note dt-power-note";
@@ -1323,12 +1349,41 @@ window.CarWeb = (function () {
     });
   }
 
+  // Fold another engine into this one. Named rather than picked from a list
+  // because the powertrain view is small and an engine's name is the thing
+  // anyone would type: "M256", "Mercedes-Benz M256".
+  function mergeEnginePrompt(primary) {
+    const others = nodes.filter(n => n.type === "engine" && !n.retired && n !== primary);
+    if (!others.length) { window.alert("There is no other engine in the graph to merge in."); return; }
+    const typed = window.prompt(
+      `Fold which engine into ${primary.label}?` + "\n\n" +
+      "Its variants become this engine's, and everything it was fitted to comes with it.\n\n" +
+      "Known: " + others.map(n => n.label).slice(0, 25).join(", "));
+    const want = String(typed || "").trim();
+    if (!want) return;
+    const hit = others.find(n => n.label.toLowerCase() === want.toLowerCase()) ||
+                others.find(n => n.label.toLowerCase().includes(want.toLowerCase()));
+    if (!hit) { window.alert(`No engine here matches "${want}".`); return; }
+    const nodesBefore = nodes.length, linksBefore = links.length;
+    const r = window.LlmFamilies.mergeEngines(primary.id, [hit.id], nodes, links);
+    if (!r.ok) { window.alert(r.error || "could not merge those"); return; }
+    spliceIntoIndexes(nodesBefore, linksBefore);
+    if (window.CarWebPower) window.CarWebPower.invalidate();
+    dtNode = null; openDetail(primary);
+    console.info(`[carweb] merged ${hit.label} into ${primary.label}; ${r.variants} variant(s) now`);
+  }
+
   // Read an engine article and put what it finds in the graph. The only place
   // in the UI that reaches the network for this layer.
   function scanEngine(title, btn) {
     const LFam = window.LlmFamilies;
     if (!LFam || !LFam.checkEngine || !title) return;
     if (btn) { btn.disabled = true; btn.textContent = "reading…"; }
+    // Reading an engine is a person asking for LLM work in as many words, so
+    // the cars it names are allowed to be checked in the background off the
+    // back of it -- the same permission clicking "LLM Check" on a car grants.
+    // See llm_families.js's setBackgroundAllowed and scheduleEngineCascade.
+    if (LFam.setBackgroundAllowed) LFam.setBackgroundAllowed(true);
     const nodesBefore = nodes.length, linksBefore = links.length;
     LFam.checkEngine(title, nodes, links, { mintCars: true }).then(r => {
       if (r && r.status === "not-an-engine") {
@@ -1348,7 +1403,8 @@ window.CarWeb = (function () {
       Graph.touch();
       const eng = r.engine || byId.get(r.id);
       if (eng) { dtNode = null; openDetail(eng); }
-      console.info(`[carweb] read ${title}: ${r.variants} variant(s), ${r.fitted} car(s)`);
+      console.info(`[carweb] read ${title}: ${r.variants} variant(s), ${r.fitted} car(s)` +
+                   (r.queued ? `, ${r.queued} car(s) queued for their own check` : ""));
     }).catch(e => {
       if (btn) { btn.disabled = false; btn.textContent = "Try again"; }
       console.warn("CarWeb: engine scan threw", e);
@@ -6926,7 +6982,7 @@ window.CarWeb = (function () {
     // so a test can add a node or a link and have the forces actually see it.
     rebuildSim: () => buildSim(),
     isPowertrain, powertrainLinkTypes: () => POWERTRAIN_LINKS,
-    scanEngine, renderPowertrain, recordEnginesLive,
+    scanEngine, renderPowertrain, recordEnginesLive, mergeEnginePrompt,
     graphTransform: () => Graph.state().t,
   };
   return api;

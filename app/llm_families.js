@@ -236,6 +236,9 @@ window.LlmFamilies = (function () {
     // `families`: the article is stored as read, and the graph is rebuilt
     // from it at boot rather than the nodes being persisted themselves.
     engines: bootData.engines || {},
+    // Engines folded into one another, primary id -> {memberIds, mergedAt}.
+    // The powertrain twin of `merges`; see applyOneEngineMerge.
+    engineMerges: bootData.engineMerges || {},
     // What the orphan prune cleared, one line per decision -- see
     // pruneStandInOrphans and clearRenamedOrphans.
     //
@@ -8060,16 +8063,19 @@ Rules:
     // engine itself, exactly as a single-generation nameplate's do.
     (article.applications || []).forEach(a => flat.push(Object.assign({}, a, { __from: eng.id })));
 
+    const cars = [];
     if (flat.length) {
       const edges = planEngineEdgesWith(flat, nodes, resolvedTitles, mint);
+      const seenCar = new Set();
       for (const e of edges) {
         if (addLink(e.from || eng.id, e.node.id, "fitted",
                     { yearStart: e.app.yearStart || null, yearEnd: e.app.yearEnd || null,
                       note: e.app.note || null })) fittedCount++;
+        if (!seenCar.has(e.node.id)) { seenCar.add(e.node.id); cars.push(e.node); }
       }
     }
 
-    return { engine: eng, variants: variantCount, fitted: fittedCount, minted };
+    return { engine: eng, variants: variantCount, fitted: fittedCount, minted, cars };
   }
 
   // ---------- engines: the stored layer ----------
@@ -8135,7 +8141,12 @@ Rules:
         await persist();
         const applied = applyEngineArticleWith(article, entry.sourceTitle, nodes, links,
           resolved, opts || {});
-        return Object.assign({ status: "confirmed", id, entry }, applied);
+        // Depth 1: every car this engine named now gets the ordinary check.
+        // Opt-outable, because the boot replay and the tests have no business
+        // starting a dozen model calls.
+        const queued = (opts && opts.cascade === false)
+          ? 0 : scheduleEngineCascade(id, applied.cars, nodes);
+        return Object.assign({ status: "confirmed", id, entry, queued }, applied);
       } catch (e) {
         return { status: "error", error: String((e && e.message) || e) };
       } finally {
@@ -8144,6 +8155,45 @@ Rules:
     })();
     inFlight.set(flightKey, p);
     return p;
+  }
+
+  // Every car an engine named, handed to the ordinary generation check.
+  //
+  // Real user request: "For all of the cars listed there, the LLM should check
+  // if the car already exists or not. Regardless, it should also automatically
+  // do an LLM check on whichever car is connected to this engine, as if it's
+  // doing an LLM check on the car as well. Once again, it should use the
+  // cascade matching that within serve.py so that it doesn't get out of
+  // control."
+  //
+  // So it goes through schedulePartnerCheck, the same queue and the same
+  // budget a shared-platform partner uses -- not a second path with its own
+  // rules. The engine is the origin at depth 0, which puts its cars at depth
+  // 1: they get the full check (is this a nameplate, what are its generations,
+  // who drew it), and THEIR partners and engines are depth 2 and are recorded
+  // but never followed. That is the shape the user chose when asked where to
+  // stop.
+  //
+  // A car that is already a generation of a split nameplate is skipped, and
+  // schedulePartnerCheck would skip it anyway: there is no "is this a
+  // nameplate" question left to ask about a car that is already inside one.
+  function scheduleEngineCascade(engineId, cars, nodes) {
+    if (!serverAvailable || !backgroundAllowed) return 0;
+    if (!engineId || !cars || !cars.length) return 0;
+    // An engine the user deliberately asked to read is the origin, exactly as
+    // a car they clicked is. Without this the cars compute a depth from
+    // whatever happened to be engaged and the budget refuses them.
+    cascadeDepth.set(engineId, 0);
+    if (!engagedId) engagedId = engineId;
+    let queued = 0;
+    for (const car of cars) {
+      if (!car || car.retired) continue;
+      if (car.type !== "model" || car.familyOf) continue;
+      if (entryFor(car.id)) continue;
+      schedulePartnerCheck(car, nodes, engineId);
+      queued++;
+    }
+    return queued;
   }
 
   // Replayed at boot, next to applyConfirmed and applyAllFamilyOverrides.
@@ -8328,6 +8378,139 @@ Rules:
       }
     }
     return { engines, fitted, mentions, added };
+  }
+
+  // ---------- engines: merging two into one ----------
+  // Real user request: "It is also possible in this step to merge some of the
+  // engines together, if they are all M256 but some are older generations than
+  // other, for example. Alternatively, they should be able to be merged in the
+  // future, like a nameplate (remember this functionality should work the same
+  // as for regular nameplates)."
+  //
+  // The same SHAPE as a nameplate merge -- members fold in, their generations
+  // join the primary's, the husk is retired rather than deleted, the decision
+  // is stored and replayed at boot, and undoing it is deleting that record.
+  // Not the same CODE: applyOneMerge requires a plain model of a matching
+  // marque and mints a generation stand-in for the primary out of the car it
+  // already was. None of that maps -- an engine often has no marque at all,
+  // and its variants come from its own article rather than from the node
+  // being a car in its own right. Bending it to fit would have cost more than
+  // the sixty lines below and made both harder to follow.
+  function applyOneEngineMerge(nodes, links, primaryId, rec) {
+    const byIdLocal = new Map(nodes.map(n => [n.id, n]));
+    const primary = byIdLocal.get(primaryId);
+    if (!primary || primary.retired || primary.type !== "engine") return false;
+    const members = (rec.memberIds || [])
+      .map(id => byIdLocal.get(id))
+      .filter(m => m && !m.retired && m.type === "engine" && m.id !== primaryId);
+    if (!members.length) return false;
+
+    const linkKey = new Set();
+    for (const l of links) {
+      const s0 = typeof l.source === "string" ? l.source : l.source && l.source.id;
+      const t0 = typeof l.target === "string" ? l.target : l.target && l.target.id;
+      linkKey.add(s0 + "|" + t0 + "|" + l.type);
+    }
+    const addLink = (a, b, type, extra) => {
+      if (!a || !b || a === b) return;
+      const k = a + "|" + b + "|" + type;
+      if (linkKey.has(k) || linkKey.has(b + "|" + a + "|" + type)) return;
+      linkKey.add(k);
+      links.push(Object.assign({ source: a, target: b, type, llmGenerated: true }, extra || {}));
+    };
+
+    primary.variants = primary.variants || [];
+    members.forEach(m => {
+      const own = (m.variants || []).map(id => byIdLocal.get(id)).filter(v => v && !v.retired);
+      if (own.length) {
+        // Its variants become the primary's, keeping their own ids so every
+        // fitted edge already pointing at them still lands.
+        own.forEach(v => {
+          v.engineOf = primary.id;
+          if (primary.variants.indexOf(v.id) < 0) primary.variants.push(v.id);
+          addLink(primary.id, v.id, "enginegen");
+        });
+      } else {
+        // An engine nobody has read has no variants of its own. It becomes one
+        // -- which is what "some are older generations than other" means when
+        // the older one was never more than a name on a car's infobox.
+        const vid = engineVariantIdFor(primary.id, m.label || m.id);
+        if (!byIdLocal.get(vid)) {
+          const vn = { id: vid, type: "enginevar", label: m.label, make: m.make || primary.make || null,
+                       engineOf: primary.id, wp: m.wp || primary.wp, llmGenerated: true,
+                       fromMergedEngine: m.id, year: m.year || null, end: m.end || null };
+          nodes.push(vn); byIdLocal.set(vid, vn);
+        }
+        if (primary.variants.indexOf(vid) < 0) primary.variants.push(vid);
+        addLink(primary.id, vid, "enginegen");
+        // Everything the husk was fitted to now hangs off that variant, so no
+        // connection is lost by the merge.
+        links.forEach(l => {
+          if (l.type !== "fitted" || l.retired) return;
+          const s0 = typeof l.source === "string" ? l.source : l.source && l.source.id;
+          const t0 = typeof l.target === "string" ? l.target : l.target && l.target.id;
+          if (s0 === m.id) { l.source = vid; if (l.sn) l.sn = byIdLocal.get(vid); }
+          else if (t0 === m.id) { l.target = vid; if (l.tn) l.tn = byIdLocal.get(vid); }
+        });
+      }
+      // Retired, never spliced out -- anything holding its id keeps working,
+      // and undoing the merge is a flag flip rather than a rebuild. Same
+      // discipline as every other retirement in this file.
+      m.retired = true;
+      m.supersededBy = primary.id;
+      m.retiredReason = "merged into " + (primary.label || primary.id);
+      m.variants = [];
+      // The primary keeps whatever it already knew and gains what it did not.
+      ["make", "wp", "configuration", "displacement"].forEach(k => {
+        if (!primary[k] && m[k]) primary[k] = m[k];
+      });
+      if (m.year && (!primary.year || m.year < primary.year)) primary.year = m.year;
+    });
+    return true;
+  }
+
+  function mergeEngines(primaryId, memberIds, nodes, links) {
+    // Accumulated, not replaced. Folding a second engine in later is a second
+    // decision about the same primary, and overwriting the record would
+    // silently un-merge the first one at the next boot -- the graph would look
+    // right for the rest of the session and wrong after a reload, which is the
+    // worst shape a bug can have.
+    const prior = (store.engineMerges[primaryId] || {}).memberIds || [];
+    const rec = {
+      memberIds: [...new Set(prior.concat(memberIds || []).filter(id => id && id !== primaryId))],
+      mergedAt: new Date().toISOString(),
+    };
+    if (!rec.memberIds.length) return { ok: false, error: "no other engine selected to merge in" };
+    const before = store.engineMerges[primaryId];
+    store.engineMerges[primaryId] = rec;
+    const ok = applyOneEngineMerge(nodes, links, primaryId, rec);
+    if (!ok) {
+      if (before) store.engineMerges[primaryId] = before; else delete store.engineMerges[primaryId];
+      return { ok: false, error: "none of the selected engines could be merged (retired, already merged, or not engines)" };
+    }
+    persist();
+    const primary = nodes.find(n => n.id === primaryId);
+    return { ok: true, variants: ((primary && primary.variants) || []).length };
+  }
+
+  function undoEngineMerge(primaryId) {
+    delete store.engineMerges[primaryId];
+    return persist();
+  }
+  function allEngineMerges() {
+    return Object.keys(store.engineMerges || {})
+      .map(id => Object.assign({ id }, store.engineMerges[id]));
+  }
+  function applyEngineMerges(nodes, links) {
+    if (!store.engineMerges || !Object.keys(store.engineMerges).length) return 0;
+    let n = 0;
+    Object.keys(store.engineMerges).forEach(primaryId => {
+      const rec = store.engineMerges[primaryId];
+      if (!rec || rec.status === "undone") return;
+      try { if (applyOneEngineMerge(nodes, links, primaryId, rec)) n++; }
+      catch (e) { console.warn("LlmFamilies: could not apply engine merge for " + primaryId, e); }
+    });
+    return n;
   }
 
   // ---------- reading the link a generation's own section points at ----------
@@ -9173,6 +9356,8 @@ Rules:
     engineNodeFrom, applyEngineArticle, applyEngineArticleWith,
     carNameFromApplication, resolveApplicationTitles,
     checkEngine, applyEngines, engineEntryFor, allEngineEntries, deleteEngineEntry,
+    scheduleEngineCascade,
+    mergeEngines, undoEngineMerge, allEngineMerges, applyEngineMerges,
     engineMentions, recordEngineMentions, recordEngineMentionsFrom, applyEngineMentions,
     looksLikeEngineArticleTitle, engineIdFromTitle,
     articleFromNameplateSection, findGenerationArticle,
