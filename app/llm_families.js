@@ -9574,7 +9574,7 @@ Rules:
     carNameFromApplication, resolveApplicationTitles,
     checkEngine, applyEngines, engineEntryFor, allEngineEntries, deleteEngineEntry,
     scheduleEngineCascade, scanEnginesFor, engineScanEntryFor, engineArticleFor,
-    clearEngineScansFor,
+    clearEngineScansFor, note,
     mergeEngines, undoEngineMerge, allEngineMerges, applyEngineMerges,
     engineMentions, recordEngineMentions, recordEngineMentionsFrom, applyEngineMentions,
     looksLikeEngineArticleTitle, engineIdFromTitle,
