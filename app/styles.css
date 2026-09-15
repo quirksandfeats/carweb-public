@@ -1085,7 +1085,13 @@ main{flex:1; position:relative; min-height:0}
 }
 
 /* ---------- powertrain view (see powertrain.js) ---------- */
-#view-power{position:relative}
+/* NOT position:relative. That overrode .view's own "position:absolute;
+   inset:0", so this section collapsed to the height of its own bar -- and
+   #ptcanvas, absolutely positioned to inset:0 inside it, became a ~40px
+   strip hidden behind that bar. The whole graph was being drawn, correctly,
+   into a band nobody could see: the tab reported "47 engines - 25 cars - 110
+   fitted" over a blank page. Keep it absolute so the canvas fills the view. */
+#view-power{position:absolute; inset:0}
 #ptcanvas{position:absolute; inset:0; width:100%; height:100%; display:block}
 #pt-bar{
   position:absolute; top:14px; left:22px; right:22px; z-index:20;
@@ -1093,6 +1099,16 @@ main{flex:1; position:relative; min-height:0}
   font-family:var(--sans); font-size:11.5px; color:var(--ink2); pointer-events:none;
 }
 .pt-counts{font-weight:600; color:var(--ink)}
+/* The car card's engine list, folded away by default off the Powertrain tab
+   -- a car with a dozen engines pushed the rest of the card off the bottom. */
+.dt-power-fold > summary{
+  cursor:pointer; font-family:var(--sans); font-size:10.5px; letter-spacing:.06em;
+  text-transform:uppercase; color:var(--muted); margin:10px 0 4px; list-style:none;
+}
+.dt-power-fold > summary::-webkit-details-marker{display:none}
+.dt-power-fold > summary::after{content:" ▸"; color:var(--hairline)}
+.dt-power-fold[open] > summary::after{content:" ▾"}
+.dt-power-fold > summary:hover{color:var(--ink)}
 .pt-key{display:flex; align-items:center; gap:10px; color:var(--muted)}
 .pt-dot{width:9px; height:9px; border-radius:50%; display:inline-block; margin-right:3px; vertical-align:-1px}
 .pt-eng{background:var(--accent)}

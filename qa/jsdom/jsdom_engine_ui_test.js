@@ -89,13 +89,75 @@ const doc = window.document;
   cw.recordEnginesLive();
   cw.openDetail(car);
   const box = doc.querySelector(".dt-power");
-  const heads = [...box.querySelectorAll("h4")].map(h => h.textContent);
-  check("the car's card lists its engines", heads.indexOf("Engines") >= 0, heads.join(", "));
+  // Folded away by default on the Graph tab, per "I want them to be
+  // contained in a dropdown within the info card, not expanded by default".
+  const fold = box.querySelector("details.dt-power-fold");
+  check("the car's card lists its engines", !!fold && /^Engines \(\d+\)$/.test(
+        fold.querySelector("summary").textContent),
+        fold && fold.querySelector("summary").textContent);
+  check("...folded shut, since this is the Graph tab", !!fold && !fold.open);
   const rows = [...box.querySelectorAll("button")].map(b => b.textContent);
   check("...by name", rows.some(r => /M256/.test(r)), rows.slice(0, 4).join(" | "));
   check("...saying which have not been read yet",
         rows.some(r => /not read yet/.test(r)), rows.slice(0, 2).join(" | "));
   check("nothing was fetched to draw that", fetched.length === 0, fetched.join(", "));
+
+  // Real bug report: "In the Powertrain Tab, for a particular car, you can
+  // see information repeated. the 'fitted to' and the 'linked to' contain
+  // exactly the same information. I only need it once." Same on the Graph
+  // tab, between "engines" and "linked to". The fitted edges had no verb in
+  // the verbs table, so the generic connections list fell through to its
+  // "linked to" fallback and printed the engine rows a second time.
+  const connHeads = [...doc.querySelectorAll(".dt-connections h4")].map(h => h.textContent);
+  const connRows = [...doc.querySelectorAll(".dt-connections button")].map(b => b.textContent);
+  check("the engines are not repeated as a second 'linked to' list",
+        connHeads.indexOf("linked to") < 0, connHeads.join(", "));
+  check("...nor do the engine rows appear there at all",
+        !connRows.some(r => /M256|M264|M254/.test(r)), connRows.slice(0, 5).join(" | "));
+
+  // Open on the Powertrain tab, where engines are the reason for looking.
+  cw.switchView("power");
+  cw.openDetail(car);
+  const foldP = doc.querySelector(".dt-power details.dt-power-fold");
+  check("...but open by default on the Powertrain tab", !!foldP && foldP.open);
+  cw.switchView("graph");
+}
+
+// ---------- 2b. the engine's own card ----------
+// Real bug report: an engine card reading "ENGINE · NOT READ YET" directly
+// above its own displacement and a list of seventeen cars, and a meta line
+// saying "· 0 cars in the web" while that list sat under it. Both came from
+// an engine falling through to a branch written for a person.
+{
+  const eng = DATA.nodes.find(n => n.type === "engine");
+  cw.openDetail(eng);
+  const meta = doc.querySelector(".dt-meta") || doc.querySelector("#dt-meta");
+  const metaText = meta ? meta.textContent : "";
+  // "in the web" stays: it is what separates this number -- cars actually in
+  // the graph -- from the card's own "FITTED TO 17 CARS", which counts what
+  // the article named whether or not any of them is here.
+  check("an engine's meta line counts the cars it is fitted to, not credits",
+        /fitted to [1-9]\d* cars? in the web/.test(metaText), metaText);
+  check("...and does not claim 0 cars while listing them",
+        !/·\s*0 cars in the web/.test(metaText), metaText);
+  const specsEls = doc.querySelectorAll(".dt-power .dt-power-specs");
+  check("the spec line is printed once, in the meta row, not twice",
+        specsEls.length === 0, specsEls.length);
+}
+
+// ---------- 2c. the Powertrain canvas actually has room to draw ----------
+// Real bug report, with a screenshot: the tab read "47 engines · 0 variants ·
+// 25 cars · 110 fitted" over a completely blank page. #view-power set
+// position:relative, which overrode .view's own "position:absolute; inset:0"
+// -- so the section collapsed to the height of its bar and #ptcanvas, at
+// inset:0 inside it, became a ~40px strip behind that bar. jsdom does no
+// layout, so this is checked where the bug actually lived.
+{
+  const css = fs.readFileSync(path.join(APP, "styles.css"), "utf-8");
+  const rule = (css.match(/#view-power\s*\{([^}]*)\}/) || [])[1] || "";
+  check("the powertrain view is positioned to fill its container",
+        /position\s*:\s*absolute/.test(rule) && /inset\s*:\s*0/.test(rule), rule.trim());
+  check("...and the canvas fills the view", /#ptcanvas\s*\{[^}]*inset\s*:\s*0/.test(css));
 }
 
 // ---------- 3. an engine's own card ----------

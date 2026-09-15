@@ -1041,8 +1041,13 @@ window.CarWeb = (function () {
   function nodeKicker(n) {
     if (n.type === "engine") {
       const vars = (n.variants || []).length;
-      return "engine" + (vars ? " · " + vars + " variant" + (vars === 1 ? "" : "s")
-                              : n.unresearched ? " · not read yet" : "");
+      const bits = [];
+      if (vars) bits.push(vars + " variant" + (vars === 1 ? "" : "s"));
+      // Not "no variants" -- see isEngineUnread. The M276 card read "NOT READ
+      // YET" directly above its own displacement, configuration and a list of
+      // seventeen cars, because it happens to have no sub-variants.
+      if (isEngineUnread(n)) bits.push("not read yet");
+      return ["engine"].concat(bits).join(" · ");
     }
     if (n.type === "enginevar") return "engine variant";
     if (n.type === "family") return (n.garage ? "my garage · " : "") + "nameplate · " + n.generations.length + " generations";
@@ -1101,6 +1106,22 @@ window.CarWeb = (function () {
       const d = n.designers && n.designers.length ? `<br>drawn by ${n.designers.join(" · ")}` : "";
       const e = n.engineers && n.engineers.length ? `<br>engineered by ${n.engineers.join(" · ")}` : "";
       return `${n.make} · ${run}${d}${e}`;
+    }
+    // An engine fell through to the person branch below and came out
+    // "· 0 cars in the web" -- personCreditedCars knows nothing about a
+    // fitted edge, so it counted none of the cars the card then listed.
+    if (n.type === "engine" || n.type === "enginevar") {
+      const index = powertrainNodeIndex();
+      const sources = n.type === "engine"
+        ? [n].concat((n.variants || []).map(id => index.get(id)).filter(Boolean))
+        : [n];
+      const cars = new Set();
+      sources.forEach(src => powertrainEdgesFor(src, index)
+        .filter(e => !isPowertrain(e.other))
+        .forEach(e => cars.add(e.other.familyOf || e.other.id)));
+      const specs = [n.configuration, n.displacement, fmtYearRun(n.year, n.end)].filter(Boolean).join(" · ");
+      const fitted = `fitted to ${cars.size} car${cars.size === 1 ? "" : "s"} in the web`;
+      return [specs, fitted].filter(Boolean).join(" · ");
     }
     if (n.type === "make") {
       const m = adj.get(n.id).filter(a => a.l.type === "made" && !a.l.retired && a.n && !a.n.retired).length;
@@ -1245,12 +1266,12 @@ window.CarWeb = (function () {
     const index = powertrainNodeIndex();
     const look = id => index.get(id);
 
-    const row = (label, sub, onclick, cls) => {
+    const row = (label, sub, onclick, cls, parent) => {
       const b = document.createElement("button");
       b.className = "dt-conn" + (cls ? " " + cls : "");
       b.innerHTML = `${esc(label)}${sub ? ` <span class="verb">${esc(sub)}</span>` : ""}`;
       if (onclick) b.onclick = onclick; else b.disabled = true;
-      box.appendChild(b);
+      (parent || box).appendChild(b);
       return b;
     };
     const head = text => {
@@ -1265,14 +1286,9 @@ window.CarWeb = (function () {
         row(eng.label, "variant of", () => api.goto(eng.id));
       }
       if (n.type === "engine") {
-        const specs = [n.configuration, n.displacement, fmtYearRun(n.year, n.end)]
-          .filter(Boolean).join(" · ");
-        if (specs) {
-          const p = document.createElement("p");
-          p.className = "dt-power-specs";
-          p.textContent = specs;
-          box.appendChild(p);
-        }
+        // The specs line lives in the card's own meta row now (see nodeMeta),
+        // which is where every other node type puts that sort of thing --
+        // printing it here as well put it on the card twice.
         const vars = (n.variants || []).map(look).filter(Boolean);
         if (vars.length) {
           head("Variants");
@@ -1313,7 +1329,7 @@ window.CarWeb = (function () {
         wrap.className = "llm-actions";
         const btn = document.createElement("button");
         btn.className = "llm-btn";
-        const unread = !entry || entry.status !== "confirmed";
+        const unread = isEngineUnread(n);
         btn.textContent = unread ? "Read this engine's article" : "Read it again";
         btn.onclick = () => scanEngine(n.wp || n.label, btn);
         wrap.appendChild(btn);
@@ -1349,17 +1365,41 @@ window.CarWeb = (function () {
       return;
     }
 
-    // An ordinary car.
+    // An ordinary car. Real user request: "for the engines within the Graph
+    // Tab, I want them to be contained in a dropdown within the info card,
+    // not expanded by default, with the user to expand it at their
+    // choosing." A car with a dozen engines pushed everything else on the
+    // card -- designers, relations, the LLM controls -- off the bottom.
+    //
+    // Open on the Powertrain tab, where engines are the whole point of
+    // looking, and shut on every other tab.
     const engines = powertrainEdgesFor(n, index).filter(e => isPowertrain(e.other));
     if (!engines.length) return;
-    head(engines.length === 1 ? "Engine" : "Engines");
+    const det = document.createElement("details");
+    det.className = "dt-power-fold";
+    if (activeView === "power") det.open = true;
+    const sum = document.createElement("summary");
+    sum.textContent = engines.length === 1 ? "Engine" : `Engines (${engines.length})`;
+    det.appendChild(sum);
+    box.appendChild(det);
     engines.forEach(({ other, l }) => {
       const eng = other.type === "enginevar" ? engineOfVariant(other, index) : other;
       const sub = [other.type === "enginevar" ? other.label : null,
                    fmtYearRun(l.yearStart, l.yearEnd),
-                   (eng && eng.unresearched) ? "not read yet" : null].filter(Boolean).join(" · ");
-      row(eng ? eng.label : other.label, sub, () => api.goto(other.id));
+                   isEngineUnread(eng) ? "not read yet" : null].filter(Boolean).join(" · ");
+      row(eng ? eng.label : other.label, sub, () => api.goto(other.id), null, det);
     });
+  }
+  // Whether an engine's own article has actually been read. `unresearched` is
+  // set when a car names an engine and cleared by a scan, but an engine whose
+  // article yields no VARIANTS kept looking unread on the card while plainly
+  // showing its specs and seventeen applications -- the flag was being second-
+  // guessed by a variant count. The store entry is the real answer.
+  function isEngineUnread(eng) {
+    if (!eng) return false;
+    const LFam = window.LlmFamilies;
+    const entry = LFam && LFam.engineEntryFor ? LFam.engineEntryFor(eng.id) : null;
+    return !entry || entry.status !== "confirmed";
   }
 
   // Fold another engine into this one. Named rather than picked from a list
@@ -1503,6 +1543,12 @@ window.CarWeb = (function () {
       // "I deleted it but it still appeared" half of the Ford Focus / VW
       // Jetta bug report.
       if (l.retired) return;
+      // Powertrain edges have their own section on this same card (see
+      // renderPowertrain), which names them properly -- "Engines", "Fitted to
+      // 17 cars". Here they fell through to the generic fallback verb and
+      // came out as a second "linked to" list holding exactly the same rows,
+      // on both the Graph and the Powertrain tab. One place each.
+      if (POWERTRAIN_LINKS.has(l.type) || isPowertrain(o)) return;
       if (l.type === "generation" && n.type === "family") return;  // shown separately above for families;
       // for an individual generation, the reverse of this same link ("part of")
       // is exactly how it points back up to its family, so it stays.
