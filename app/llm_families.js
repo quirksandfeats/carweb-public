@@ -239,6 +239,11 @@ window.LlmFamilies = (function () {
     // Engines folded into one another, primary id -> {memberIds, mergedAt}.
     // The powertrain twin of `merges`; see applyOneEngineMerge.
     engineMerges: bootData.engineMerges || {},
+    // Which cars have had their engines read, node id -> {checkedAt,
+    // sourceTitle, engines}. Separate from `genResearch` because that means
+    // "the model read this generation's whole article"; this only means "the
+    // infobox's engine field was looked at", which costs no model call.
+    engineScans: bootData.engineScans || {},
     // What the orphan prune cleared, one line per decision -- see
     // pruneStandInOrphans and clearRenamedOrphans.
     //
@@ -438,7 +443,34 @@ window.LlmFamilies = (function () {
   // live, so that's the bulk of what we send — plus a lightweight scan for
   // generation announcements in body prose (see generationCues below), for
   // nameplates that don't say it cleanly in either of those two places.
+  // A short-lived cache of article reads. Several passes now want the same
+  // wikitext within moments of each other -- the generation check reads a
+  // nameplate's article, the engine scan then reads it again to find out where
+  // each generation's article is, and findGenerationArticle re-reads it to
+  // compare resolved titles. Same bytes, three round trips.
+  //
+  // Deliberately short. A deliberate re-check minutes later is a person asking
+  // what the article says NOW, and must not be served a stale copy; within a
+  // minute of the last read it cannot have meaningfully changed.
+  const ARTICLE_CACHE_MS = 60 * 1000;
+  const ARTICLE_CACHE_MAX = 24;
+  const articleCache = new Map();
+  function cachedArticle(title) {
+    const hit = articleCache.get(title);
+    if (!hit) return null;
+    if (Date.now() - hit.at > ARTICLE_CACHE_MS) { articleCache.delete(title); return null; }
+    return hit.value;
+  }
+  function cacheArticle(title, value) {
+    articleCache.set(title, { at: Date.now(), value });
+    while (articleCache.size > ARTICLE_CACHE_MAX) {
+      articleCache.delete(articleCache.keys().next().value);
+    }
+  }
+
   async function fetchArticleDigest(title) {
+    const cached = cachedArticle(title);
+    if (cached) return cached;
     const url = "https://en.wikipedia.org/w/api.php?action=parse&format=json&origin=*&prop=wikitext&redirects=1&page=" +
       encodeURIComponent(title);
     const r = await fetch(url);
@@ -453,7 +485,9 @@ window.LlmFamilies = (function () {
     // first is a genuinely distinct article -- the second just redirects
     // straight back to the nameplate's own page. Comparing resolved titles
     // is the only reliable way to tell those two cases apart.
-    return { wikitext, digest: extractDigest(wikitext), resolvedTitle: (j.parse && j.parse.title) || title };
+    const out = { wikitext, digest: extractDigest(wikitext), resolvedTitle: (j.parse && j.parse.title) || title };
+    cacheArticle(title, out);
+    return out;
   }
 
   // ---------- public: Wikipedia lookup for a manually-added car ----------
@@ -7519,7 +7553,7 @@ Rules:
     if (inFlight.has(flightKey)) return inFlight.get(flightKey);
     const p = (async () => {
       try {
-        const { wp, clean, raw, dropped } = await runCheck(fam, null, null, undefined, nodes);
+        const { wp, wikitext, clean, raw, dropped } = await runCheck(fam, null, null, undefined, nodes);
         const discrepancy = compareGenerations(fam, genNodes, clean.generations);
         const { addedFresh, removedOld } = diffGenerationCodes(genNodes, clean.generations);
         const entry = {
@@ -7527,6 +7561,7 @@ Rules:
           checkedAt: new Date().toISOString(),
           sourceTitle: wp, proposal: clean, discrepancy,
           attempts: 1, feedback: [],
+          engines: engineMentions(wikitext),
           debug: { raw, dropped },
           manualRecheck: true,
           generationDiff: { addedCodes: addedFresh.map(g => g.code), removedIds: removedOld.map(o => o.id) },
@@ -8215,6 +8250,10 @@ Rules:
     };
     Object.keys(store.families || {}).forEach(id => replay(id, (store.families[id] || {}).engines));
     Object.keys(store.recheck || {}).forEach(id => replay(id, (store.recheck[id] || {}).engines));
+    // genResearch is keyed by GENERATION id, and is the bucket that actually
+    // has engines in it for a split nameplate -- see researchGeneration.
+    Object.keys(store.genResearch || {}).forEach(id => replay(id, (store.genResearch[id] || {}).engines));
+    Object.keys(store.engineScans || {}).forEach(id => replay(id, (store.engineScans[id] || {}).engines));
     return { engines, fitted };
   }
 
@@ -8513,6 +8552,124 @@ Rules:
     return n;
   }
 
+  // ---------- engines: the pass that actually finds them ----------
+  // Real bug report: "I ran an llm check on the mercedes E class... there
+  // didn't appear to be any information in the terminal on serve.py, nor was
+  // there any indication that there was any powertrain research performed...
+  // even when clicking the 'powertrain' tab it says nothing is scanned yet."
+  //
+  // Correct behaviour, wrong hook. The engines were being read off whichever
+  // article the GENERATION CHECK happened to fetch, and for a nameplate that
+  // is the umbrella page -- which does not list engines at all. The real
+  // Mercedes-Benz E-Class article has no engine field anywhere in it; its
+  // W213 generation article names nine. So a check on the nameplate most
+  // worth asking about found nothing, every time, and said so by staying
+  // silent.
+  //
+  // This is the pass that goes where the engines are: each generation's OWN
+  // article. It needs no model call -- an infobox field is a regex, not a
+  // judgement -- so the whole cost is one Wikipedia fetch per generation,
+  // which is the same fetch findGenerationArticle already makes to decide
+  // which article that is.
+  function engineScanEntryFor(id) { return store.engineScans[id] || null; }
+
+  // Which article to read a car's engines out of. For a generation that is
+  // its own article, not the nameplate's: a minted generation inherits the
+  // nameplate's `wp` (see applyFamilyOverride), so reading gen.wp would fetch
+  // the umbrella again and find nothing, which is precisely the bug.
+  // `famWikitext` is the nameplate's article, fetched once by the caller.
+  // Deliberately the section reader alone, not findGenerationArticle: that one
+  // also brute-forces title shapes, which costs several failed fetches per
+  // generation and would make reading the engines of a six-generation
+  // nameplate a few dozen round trips. The section reader is one regex over
+  // wikitext already in hand, and on real articles it is the one that works --
+  // the E-Class states every generation's article in a hatnote.
+  function engineArticleFor(car, fam, famWikitext) {
+    if (!car) return null;
+    const famWp = fam && fam.wp;
+    const isGeneration = !!(car.familyOf || (fam && fam !== car));
+    if (isGeneration) {
+      if (famWikitext) {
+        const tc = trailingCode(String(car.label || ""));
+        const code = tc && tc.code;
+        const sec = code ? sectionForCode(famWikitext, code) : null;
+        const stated = sec ? (hatnoteArticle(sec.body) || proseArticle(sec.body, car.make, code)) : null;
+        if (stated && (!famWp || norm(stated) !== norm(famWp))) return stated;
+      }
+      // No article of its own. Reading the nameplate's again would be a wasted
+      // round trip for a page already known to say nothing here.
+      if (!car.wp || (famWp && norm(car.wp) === norm(famWp))) return null;
+    }
+    return car.wp || null;
+  }
+
+  // Read the engines for one car, or for every generation of a nameplate.
+  // Done once per car and remembered, so re-opening a nameplate is free.
+  async function scanEnginesFor(node, nodes, links) {
+    const out = { engines: 0, fitted: 0, scanned: 0, skipped: 0 };
+    if (!serverAvailable || !node) return out;
+    const byIdLocal = new Map(nodes.map(n => [n.id, n]));
+    const fam = node.type === "family" ? node
+              : (node.familyOf ? byIdLocal.get(node.familyOf) : null);
+    const targets = node.type === "family"
+      ? (node.generations || []).map(id => byIdLocal.get(id)).filter(Boolean)
+      : [node];
+    // The nameplate's own article, read ONCE for the whole pass: it is what
+    // says where each generation's article is, and fetching it per generation
+    // would be the same page six times.
+    let famWikitext = null;
+    if (fam && fam.wp && targets.some(c => c && !store.engineScans[c.id])) {
+      try { famWikitext = (await fetchArticleDigest(fam.wp)).wikitext; } catch (e) { famWikitext = null; }
+    }
+    for (const car of targets) {
+      if (!car || car.retired) continue;
+      if (store.engineScans[car.id]) { out.skipped++; continue; }
+      let title = null;
+      try { title = engineArticleFor(car, fam, famWikitext); } catch (e) { title = null; }
+      // A miss is recorded too. Finding a generation's article costs several
+      // fetches (findGenerationArticle tries each title shape in turn), and a
+      // car whose article does not exist would pay that on every single check
+      // of its nameplate, forever, for the same answer. Clearing it is what
+      // the deliberate re-check does.
+      if (!title) {
+        store.engineScans[car.id] = {
+          checkedAt: new Date().toISOString(), sourceTitle: null, status: "no-article", engines: [],
+        };
+        out.scanned++; out.skipped++;
+        continue;
+      }
+      let wikitext = null;
+      try { wikitext = (await fetchArticleDigest(title)).wikitext; } catch (e) { wikitext = null; }
+      // Recorded on failure too, for the same reason a miss is: the nameplate
+      // states an article that does not exist (a red link, or one written
+      // since), and without this every later check of that nameplate fetches
+      // it again to get the same 404. Cleared by a deliberate re-check.
+      if (!wikitext) {
+        store.engineScans[car.id] = {
+          checkedAt: new Date().toISOString(), sourceTitle: title,
+          status: "unreadable", engines: [],
+        };
+        out.scanned++; out.skipped++;
+        continue;
+      }
+      const hits = engineMentions(wikitext);
+      store.engineScans[car.id] = {
+        checkedAt: new Date().toISOString(), sourceTitle: title, engines: hits,
+      };
+      // Worth keeping even when the article named no engine: it is also the
+      // generation's own page, which is a better link than the nameplate's.
+      if (title && (!car.wp || (fam && fam.wp && norm(car.wp) === norm(fam.wp)))) {
+        car.wp = title;
+        store.wpLinks[car.id] = title;
+      }
+      out.scanned++;
+      const r = recordEngineMentionsFrom(hits, car, nodes, links);
+      out.engines += r.engines; out.fitted += r.fitted;
+    }
+    if (out.scanned) await persist();
+    return out;
+  }
+
   // ---------- reading the link a generation's own section points at ----------
   // Real user request: "not all the info about each generation exists within
   // this page, but there are links in each of the sections where the
@@ -8710,7 +8867,7 @@ Rules:
         // which are already hallucination-guarded by validate(). Union them
         // across whatever entries come back rather than trusting the model
         // to return exactly one.
-        const { wp, clean, raw, dropped } = await runCheck(
+        const { wp, wikitext, clean, raw, dropped } = await runCheck(
           { make: gen.make, label: gen.label, wp: gen.wp, id: gen.id }, null, null, undefined, nodes);
         const texts = [], matches = {}, makeMatches = {};
         const designers = new Set(), engineers = new Set();
@@ -8755,6 +8912,12 @@ Rules:
           status: "done", checkedAt: new Date().toISOString(),
           sourceTitle: wp, upgradedArticle: upgraded || null,
           relatedTexts: texts, newRelationKeys: newRelations, peopleAdded,
+          // This is where engines actually are. A nameplate's umbrella article
+          // does not list them -- the real Mercedes-Benz E-Class page has no
+          // engine field at all, while its W213 generation article names nine
+          // -- so hooking the extraction only to the generation CHECK found
+          // nothing for exactly the cars most worth asking about.
+          engines: engineMentions(wikitext),
           debug: { raw, dropped },
         };
         store.genResearch[gen.id] = entry;
@@ -9356,7 +9519,7 @@ Rules:
     engineNodeFrom, applyEngineArticle, applyEngineArticleWith,
     carNameFromApplication, resolveApplicationTitles,
     checkEngine, applyEngines, engineEntryFor, allEngineEntries, deleteEngineEntry,
-    scheduleEngineCascade,
+    scheduleEngineCascade, scanEnginesFor, engineScanEntryFor, engineArticleFor,
     mergeEngines, undoEngineMerge, allEngineMerges, applyEngineMerges,
     engineMentions, recordEngineMentions, recordEngineMentionsFrom, applyEngineMentions,
     looksLikeEngineArticleTitle, engineIdFromTitle,

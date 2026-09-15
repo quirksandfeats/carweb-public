@@ -1205,25 +1205,36 @@ window.CarWeb = (function () {
   // its article. Real user request: "The user can also now search for
   // individual engines (or, they can 'add a new engine' to the graph), and
   // have the LLM look through it."
-  function powertrainEdgesFor(node) {
+  // Built fresh per render rather than read out of byId. An engine that a scan
+  // has just created is in `nodes` and not yet in any index, and a card that
+  // silently listed no engines in that window looks exactly like a car that
+  // has none -- which is the report this whole pass came from.
+  function powertrainNodeIndex() {
+    const m = new Map();
+    for (const n of nodes) m.set(n.id, n);
+    return m;
+  }
+  function powertrainEdgesFor(node, index) {
     const out = [];
+    const byIdLocal = index || powertrainNodeIndex();
     const idOf = e => (typeof e === "string" ? e : e && e.id);
     for (const l of links) {
       if (l.retired || l.type !== "fitted") continue;
-      // Matched by id first. sn/tn are set by spliceIntoIndexes, and this has
-      // to be right in the window before that runs -- a card that silently
-      // listed no engines would look exactly like a car that had none.
       const sid = idOf(l.source), tid = idOf(l.target);
       if (sid !== node.id && tid !== node.id) continue;
-      const s = byId.get(sid) || l.sn;
-      const t = byId.get(tid) || l.tn;
+      const s = byIdLocal.get(sid) || l.sn;
+      const t = byIdLocal.get(tid) || l.tn;
       if (!s || !t) continue;
       if (s === node) out.push({ other: t, l });
       else if (t === node) out.push({ other: s, l });
     }
     return out;
   }
-  function engineOfVariant(n) { return n && n.engineOf ? byId.get(n.engineOf) : null; }
+  function engineOfVariant(n, index) {
+    if (!n || !n.engineOf) return null;
+    return (index ? index.get(n.engineOf) : byId.get(n.engineOf)) ||
+           nodes.find(x => x.id === n.engineOf) || null;
+  }
 
   function renderPowertrain(n) {
     const box = dt.querySelector(".dt-power");
@@ -1231,6 +1242,8 @@ window.CarWeb = (function () {
     box.innerHTML = "";
     const LFam = window.LlmFamilies;
     if (!LFam || !LFam.checkEngine) return;
+    const index = powertrainNodeIndex();
+    const look = id => index.get(id);
 
     const row = (label, sub, onclick, cls) => {
       const b = document.createElement("button");
@@ -1245,7 +1258,7 @@ window.CarWeb = (function () {
     };
 
     if (isPowertrain(n)) {
-      const eng = n.type === "enginevar" ? engineOfVariant(n) : n;
+      const eng = n.type === "enginevar" ? engineOfVariant(n, index) : n;
       const entry = eng && LFam.engineEntryFor ? LFam.engineEntryFor(eng.id) : null;
       if (n.type === "enginevar" && eng) {
         head("Engine");
@@ -1260,7 +1273,7 @@ window.CarWeb = (function () {
           p.textContent = specs;
           box.appendChild(p);
         }
-        const vars = (n.variants || []).map(id => byId.get(id)).filter(Boolean);
+        const vars = (n.variants || []).map(look).filter(Boolean);
         if (vars.length) {
           head("Variants");
           vars.forEach(v => row(v.label, null, () => api.goto(v.id), "dt-gen"));
@@ -1271,12 +1284,12 @@ window.CarWeb = (function () {
       // card was reporting "Fitted to 1 car" while its three variants held
       // nineteen between them.
       const sources = n.type === "engine"
-        ? [n].concat((n.variants || []).map(id => byId.get(id)).filter(Boolean))
+        ? [n].concat((n.variants || []).map(look).filter(Boolean))
         : [n];
       const fitted = [];
       const seenCar = new Set();
       sources.forEach(src => {
-        powertrainEdgesFor(src).filter(e => !isPowertrain(e.other)).forEach(e => {
+        powertrainEdgesFor(src, index).filter(e => !isPowertrain(e.other)).forEach(e => {
           const key = e.other.id + "|" + (e.l.yearStart || "") + "|" + (e.l.yearEnd || "");
           if (seenCar.has(key)) return;
           seenCar.add(key);
@@ -1337,11 +1350,11 @@ window.CarWeb = (function () {
     }
 
     // An ordinary car.
-    const engines = powertrainEdgesFor(n).filter(e => isPowertrain(e.other));
+    const engines = powertrainEdgesFor(n, index).filter(e => isPowertrain(e.other));
     if (!engines.length) return;
     head(engines.length === 1 ? "Engine" : "Engines");
     engines.forEach(({ other, l }) => {
-      const eng = other.type === "enginevar" ? engineOfVariant(other) : other;
+      const eng = other.type === "enginevar" ? engineOfVariant(other, index) : other;
       const sub = [other.type === "enginevar" ? other.label : null,
                    fmtYearRun(l.yearStart, l.yearEnd),
                    (eng && eng.unresearched) ? "not read yet" : null].filter(Boolean).join(" · ");
@@ -2329,6 +2342,35 @@ window.CarWeb = (function () {
                  "from the car just checked");
   }
 
+  // Go and read the engines for a car that was just checked -- from each
+  // generation's OWN article, which is where they are. A nameplate's umbrella
+  // page does not list engines (the real E-Class one has no engine field at
+  // all), which is why hooking this to whatever article the generation check
+  // happened to fetch found nothing for a split nameplate.
+  //
+  // No model call: an infobox field is a regex. The cost is one Wikipedia
+  // fetch per generation, once ever, and the result is stored.
+  function scanEnginesLive(node) {
+    const LFam = window.LlmFamilies;
+    if (!LFam || !LFam.scanEnginesFor || !node) return;
+    const nodesBefore = nodes.length, linksBefore = links.length;
+    LFam.scanEnginesFor(node, nodes, links).then(r => {
+      if (!r || (!r.engines && !r.fitted)) {
+        if (r && r.scanned) {
+          console.info(`[carweb] powertrain: read ${r.scanned} article(s) for ` +
+                       `${node.label}; none of them names an engine`);
+        }
+        return;
+      }
+      spliceIntoIndexes(nodesBefore, linksBefore);
+      if (window.CarWebPower) window.CarWebPower.invalidate();
+      if (dtNode === node || (dtNode && dtNode.familyOf === node.id)) renderPowertrain(dtNode);
+      Graph.touch();
+      console.info(`[carweb] powertrain: ${r.engines} engine(s) and ${r.fitted} connection(s) ` +
+                   `from ${r.scanned} article(s) for ${node.label}`);
+    }).catch(e => console.warn("CarWeb: engine scan failed", e));
+  }
+
   function applyLlmConfirmSilent(n) {
     const nodesBefore = nodes.length, linksBefore = links.length;
     window.LlmFamilies.applyConfirmed(nodes, links);
@@ -2384,6 +2426,10 @@ window.CarWeb = (function () {
     Graph.touch();
     refreshCounts();           // new generation/person nodes + links (and possibly a
                                 // de-dup-retired standalone) just changed every number
+    // The generations only came into existence a few lines above, and THEIR
+    // own articles are where the engines are -- the nameplate's umbrella page
+    // does not list any. See llm_families.js's scanEnginesFor.
+    scanEnginesLive(n);
   }
   function applyLlmConfirm(n) {
     applyLlmConfirmSilent(n);
@@ -3100,6 +3146,7 @@ window.CarWeb = (function () {
   // just on next reload), then re-renders if the panel is still on this car.
   function afterLlmCheck(n) {
     recordEnginesLive();
+    scanEnginesLive(n);
     applySharedPlatformLive();
     if (dtNode === n) renderLlmCheck(n);
   }
@@ -6982,7 +7029,7 @@ window.CarWeb = (function () {
     // so a test can add a node or a link and have the forces actually see it.
     rebuildSim: () => buildSim(),
     isPowertrain, powertrainLinkTypes: () => POWERTRAIN_LINKS,
-    scanEngine, renderPowertrain, recordEnginesLive, mergeEnginePrompt,
+    scanEngine, renderPowertrain, recordEnginesLive, mergeEnginePrompt, scanEnginesLive,
     graphTransform: () => Graph.state().t,
   };
   return api;

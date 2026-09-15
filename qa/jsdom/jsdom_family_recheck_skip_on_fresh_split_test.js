@@ -104,6 +104,16 @@ loadScript("app.js");
 loadScript("timeline.js");
 loadScript("sixdeg.js");
 
+// The powertrain engine pass (llm_families.js's scanEnginesFor, fired by
+// app.js's scanEnginesLive) legitimately reads a Wikipedia article of its
+// own after a split -- each new generation's article is where the engine
+// fields live. That is a different feature with its own tests
+// (jsdom_engine_scan_nameplate_test.js); stub it out here so the
+// article-fetch assertions below stay an exact "checkFamily did not
+// re-read anything" guard rather than a count that has to be adjusted
+// every time the engine pass changes.
+window.LlmFamilies.scanEnginesFor = async () => ({ engines: 0, fitted: 0, scanned: 0, skipped: 0 });
+
 let fails = 0;
 function check(name, cond, extra) {
   console.log((cond ? "PASS " : "FAIL ") + name + (extra !== undefined ? " -- " + extra : ""));
@@ -206,6 +216,16 @@ loadScript2("llm_families.js");
 loadScript2("app.js");
 loadScript2("timeline.js");
 loadScript2("sixdeg.js");
+
+// The powertrain engine pass (llm_families.js's scanEnginesFor, fired by
+// app.js's scanEnginesLive) legitimately reads a Wikipedia article of its
+// own after a split -- each new generation's article is where the engine
+// fields live. That is a different feature with its own tests
+// (jsdom_engine_scan_nameplate_test.js); stub it out here so the
+// article-fetch assertions below stay an exact "checkFamily did not
+// re-read anything" guard rather than a count that has to be adjusted
+// every time the engine pass changes.
+window2.LlmFamilies.scanEnginesFor = async () => ({ engines: 0, fitted: 0, scanned: 0, skipped: 0 });
 
 window2.CarWeb.boot(); // applyConfirmed runs here, at boot, no interaction at all
 window2.CarWeb.setLlmCheck(true);
