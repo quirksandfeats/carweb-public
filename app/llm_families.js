@@ -7752,6 +7752,282 @@ Rules:
     };
   }
 
+  // ---------- engines: matching an application to a car in the graph ----------
+  // Real user request, on which end of a nameplate an engine hangs off:
+  // "specify to the nameplate's generation. Fallback is to specify to the
+  // nameplate itself, but don't do both. For example, if m256 appears in e
+  // class, w213, and w214, then only have it connect to w213 and w214. So
+  // long as one generation is mentioned, never connect the engine to the main
+  // nameplate but only the gen."
+  //
+  // That rule is per NAMEPLATE, not per article, which is what makes it
+  // awkward on real data. The M256 links the same GLE three different ways in
+  // one page -- "Mercedes GLE#Fourth generation (W167/C167; 2018)",
+  // "Mercedes-Benz M-Class" and "Mercedes-Benz GLE-Class" -- because Wikipedia
+  // renamed the article twice and both old titles still redirect. Applying
+  // the rule to the titles as written would hang the engine off the GLE
+  // nameplate AND off one of its generations at once, which is exactly what
+  // was asked against. So every target is resolved through its redirects
+  // first, and the grouping is done on the node each one lands on.
+  const ENGINE_ID_PREFIX = "eng-";
+  const ENGINE_VARIANT_ID_PREFIX = "engv-";
+  function engineIdFor(name) { return ENGINE_ID_PREFIX + slugify(name); }
+  function engineVariantIdFor(engineId, code) {
+    return ENGINE_VARIANT_ID_PREFIX + engineId.slice(ENGINE_ID_PREFIX.length) + "-" + slugify(code);
+  }
+
+  // A car's nameplate: the family it belongs to, itself when it IS one, and
+  // itself again when it is an ungrouped standalone -- a car that was never
+  // split has no generation level to prefer.
+  function nameplateOfCar(node, byId) {
+    if (!node) return null;
+    if (node.familyOf) return byId.get(node.familyOf) || node;
+    return node;
+  }
+  function isGenerationNode(node) { return !!(node && node.familyOf); }
+
+  // Resolve one application entry to a car already in the graph. Returns the
+  // node, or null if nothing matches -- minting is the caller's business,
+  // since only it knows whether this engine is allowed to create cars.
+  function carForApplication(app, byId, byWp, resolvedTitle) {
+    const wp = resolvedTitle || app.target;
+    const hit = byWp.get(norm(wp));
+    if (hit) return hit;
+    // The display text is the only place the car's name exists when the link
+    // points at a company (the M256's Austro-Daimler Bergmeister). Try it as
+    // "<make> <model>" against what is already here before giving up.
+    const spaced = String(app.display || "").replace(/\s+/g, " ").trim();
+    if (!spaced) return null;
+    const byLabel = byWp.get(norm(spaced));
+    return byLabel || null;
+  }
+
+  // The whole set of edges one engine should have, with the generation rule
+  // applied. `resolve` maps a Wikipedia title to the title it redirects to;
+  // `mint` creates a car for an application that matched nothing, and may
+  // return null to decline.
+  async function planEngineEdges(applications, nodes, opts) {
+    const o = opts || {};
+    const resolve = o.resolve || (async t => t);
+    const mint = o.mint || (() => null);
+    const byId = new Map(nodes.map(n => [n.id, n]));
+    const byWp = new Map();
+    for (const n of nodes) {
+      if (n.wp) byWp.set(norm(n.wp), n);
+      if (n.type === "model" || n.type === "family") {
+        const full = ((n.make ? n.make + " " : "") + n.label).trim();
+        if (full && !byWp.has(norm(full))) byWp.set(norm(full), n);
+      }
+    }
+    // Resolve every distinct title once. A page names the same article a
+    // dozen times and each resolution is a network round trip.
+    const titles = [...new Set(applications.map(a => a.target).filter(Boolean))];
+    const resolved = new Map();
+    for (const t of titles) {
+      let r = null;
+      try { r = await resolve(t); } catch (e) { r = null; }
+      resolved.set(t, r || t);
+    }
+
+    const placed = [];
+    for (const app of applications) {
+      let node = carForApplication(app, byId, byWp, resolved.get(app.target));
+      if (!node) {
+        node = mint(app) || null;
+        if (node) {
+          byId.set(node.id, node);
+          if (node.wp) byWp.set(norm(node.wp), node);
+          byWp.set(norm(((node.make ? node.make + " " : "") + node.label).trim()), node);
+        }
+      }
+      if (!node) continue;
+      // A link that lands on a MAKE is not an application -- it is the
+      // company article standing in for a car nobody wrote a page for. The
+      // mint path above is what turns those into cars; if it declined, drop
+      // the entry rather than hanging an engine off a manufacturer.
+      if (node.type === "make" || node.type === "person") continue;
+      placed.push({ app, node, from: app.__from || null });
+    }
+
+    // The rule, applied per nameplate -- across the WHOLE engine, not per
+    // variant. That distinction is the rule: the M256's variants name the
+    // E-Class only ever as W213 or W214, but an engine whose first variant
+    // said "E-Class" and whose second said "W213" would, grouped per variant,
+    // end up attached at both levels at once. Which is the thing the user
+    // asked against, in those words: "so long as one generation is mentioned,
+    // never connect the engine to the main nameplate but only the gen".
+    const byNameplate = new Map();
+    for (const p of placed) {
+      const np = nameplateOfCar(p.node, byId);
+      const key = np ? np.id : p.node.id;
+      if (!byNameplate.has(key)) byNameplate.set(key, []);
+      byNameplate.get(key).push(p);
+    }
+    const out = [];
+    const seen = new Set();
+    for (const [, group] of byNameplate) {
+      const gens = group.filter(p => isGenerationNode(p.node));
+      const keep = gens.length ? gens : group;
+      for (const p of keep) {
+        // One edge per (variant, car). Two variants that both went into the
+        // same car are two real facts, not a duplicate.
+        const k = (p.from || "") + "|" + p.node.id;
+        if (seen.has(k)) continue;
+        seen.add(k);
+        out.push(p);
+      }
+    }
+    return out;
+  }
+
+  // ---------- engines: putting one into the graph ----------
+  // The powertrain side mirrors the nameplate side deliberately, node for node
+  // and link for link, so that merging, renaming, un-merging and the
+  // additive-recheck rule all work on it without a second copy of any of them:
+  //
+  //   engine      <-> family        an M256
+  //   enginevar   <-> model/gen     an "M256 E30 DEH LA GR"
+  //   enginegen   <-> generation    the link between the two
+  //   fitted      <-> (new)         an engine or variant, to a car
+  //
+  // `fitted` is the one genuinely new edge, and it is the whole point: it is
+  // what carries "this engine went in that car".
+  // What to call a car that only exists as an application entry. The display
+  // text is the name, but the marque has to be split off it, and splitting on
+  // the first space gets that wrong exactly where it matters: "Austro Daimler
+  // Bergmeister PHEV" becomes an "Austro" called "Daimler Bergmeister PHEV".
+  // The link target is the missing piece -- it points at [[Austro-Daimler]],
+  // the company -- so where the display text starts with the target's own
+  // words, the target's spelling is restored as the marque.
+  function carNameFromApplication(app) {
+    const display = String((app && app.display) || "").replace(/\s+/g, " ").trim();
+    if (!display) return null;
+    const target = String((app && app.target) || "").replace(/\s+/g, " ").trim();
+    if (!target) return display;
+    const dn = norm(display), tn = norm(target);
+    if (!tn || !dn.startsWith(tn) || dn === tn) return display;
+    // Walk the display's words until they account for the target, then keep
+    // the target's own hyphenation and drop those words from the rest.
+    let acc = "", words = display.split(" "), i = 0;
+    for (; i < words.length; i++) {
+      acc += words[i];
+      if (norm(acc) === tn) { i++; break; }
+      if (norm(acc).length > tn.length) return display;
+    }
+    const rest = words.slice(i).join(" ").trim();
+    return rest ? target + " " + rest : display;
+  }
+
+  function engineNodeFrom(article, title) {
+    const label = String(article.name || article.shortName || title || "").trim();
+    if (!label) return null;
+    const id = engineIdFor(label);
+    const yearMatch = /(\d{4})/.exec(article.production || "");
+    const endMatch = /(\d{4})\s*[-–—]\s*(\d{4})/.exec(article.production || "");
+    return {
+      id, type: "engine", label,
+      make: article.manufacturer || null,
+      wp: title || label,
+      year: yearMatch ? Number(yearMatch[1]) : null,
+      end: endMatch ? Number(endMatch[2]) : null,
+      configuration: article.configuration || null,
+      displacement: article.displacement || null,
+      llmGenerated: true,
+      variants: [],
+    };
+  }
+
+  // Apply a read engine article to the live graph. Idempotent: every branch
+  // either finds what is already there or creates it once, so the boot replay
+  // and a fresh scan land in the same place. Returns what it did.
+  async function applyEngineArticle(article, title, nodes, links, opts) {
+    const o = opts || {};
+    const byId = new Map(nodes.map(n => [n.id, n]));
+    const eng = (() => {
+      const draft = engineNodeFrom(article, title);
+      if (!draft) return null;
+      const existing = byId.get(draft.id);
+      if (existing) {
+        // Fill only what is empty, the same discipline the live layer used.
+        ["make", "wp", "year", "end", "configuration", "displacement"].forEach(k => {
+          if (!existing[k] && draft[k]) existing[k] = draft[k];
+        });
+        return existing;
+      }
+      nodes.push(draft); byId.set(draft.id, draft);
+      return draft;
+    })();
+    if (!eng) return { engine: null, variants: 0, fitted: 0, minted: [] };
+
+    const linkKey = new Set();
+    for (const l of links) {
+      const s0 = typeof l.source === "string" ? l.source : l.source && l.source.id;
+      const t0 = typeof l.target === "string" ? l.target : l.target && l.target.id;
+      linkKey.add(s0 + "|" + t0 + "|" + l.type);
+      linkKey.add(t0 + "|" + s0 + "|" + l.type);
+    }
+    const addLink = (a, b, type, extra) => {
+      if (!a || !b || a === b) return false;
+      const k = a + "|" + b + "|" + type;
+      if (linkKey.has(k)) return false;
+      linkKey.add(k); linkKey.add(b + "|" + a + "|" + type);
+      links.push(Object.assign({ source: a, target: b, type, llmGenerated: true }, extra || {}));
+      return true;
+    };
+
+    const minted = [];
+    const mint = app => {
+      if (!o.mintCars) return null;
+      const name = carNameFromApplication(app);
+      if (!name) return null;
+      const n = mintRelatedNode(nodes, links, name, null, eng.id);
+      if (n) minted.push(n);
+      return n;
+    };
+
+    let variantCount = 0, fittedCount = 0;
+    // Every application the engine has, tagged with the variant it belongs to,
+    // so the nameplate rule can be applied to all of them at once and the
+    // surviving edges still know where to hang.
+    const flat = [];
+    if (article.variants && article.variants.length) {
+      eng.variants = eng.variants || [];
+      let prev = null;
+      for (const v of article.variants) {
+        const vid = engineVariantIdFor(eng.id, v.code);
+        let vn = byId.get(vid);
+        if (!vn) {
+          vn = { id: vid, type: "enginevar", label: v.code, make: eng.make || null,
+                 engineOf: eng.id, wp: eng.wp, llmGenerated: true, year: null, end: null };
+          nodes.push(vn); byId.set(vid, vn);
+          variantCount++;
+        }
+        vn.engineOf = eng.id;
+        if (eng.variants.indexOf(vid) < 0) eng.variants.push(vid);
+        addLink(eng.id, vid, "enginegen");
+        // Variants run in article order, which is the order they were
+        // introduced -- the same succession the generation side draws.
+        if (prev) addLink(prev, vid, "enginesucc");
+        prev = vid;
+        (v.applications || []).forEach(a => flat.push(Object.assign({}, a, { __from: vid })));
+      }
+    }
+    // An engine with no variant sections still has cars; they hang off the
+    // engine itself, exactly as a single-generation nameplate's do.
+    (article.applications || []).forEach(a => flat.push(Object.assign({}, a, { __from: eng.id })));
+
+    if (flat.length) {
+      const edges = await planEngineEdges(flat, nodes, { resolve: o.resolve, mint });
+      for (const e of edges) {
+        if (addLink(e.from || eng.id, e.node.id, "fitted",
+                    { yearStart: e.app.yearStart || null, yearEnd: e.app.yearEnd || null,
+                      note: e.app.note || null })) fittedCount++;
+      }
+    }
+
+    return { engine: eng, variants: variantCount, fitted: fittedCount, minted };
+  }
+
   // ---------- reading the link a generation's own section points at ----------
   // Real user request: "not all the info about each generation exists within
   // this page, but there are links in each of the sections where the
@@ -8590,6 +8866,8 @@ Rules:
     wikitextSections, hatnoteArticle, proseArticle, sectionForCode,
     isEngineArticle, engineInfobox, engineVariants, engineApplications,
     parseApplicationLine, readEngineArticle,
+    engineIdFor, engineVariantIdFor, nameplateOfCar, planEngineEdges,
+    engineNodeFrom, applyEngineArticle, carNameFromApplication,
     articleFromNameplateSection, findGenerationArticle,
     orphanedEntries, orphanKind, pruneStandInOrphans, clearRenamedOrphans,
     // The archive both of those write to. `store` is a shallow copy of the
