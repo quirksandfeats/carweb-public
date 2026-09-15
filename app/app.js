@@ -1964,14 +1964,63 @@ window.CarWeb = (function () {
   // needed for that half; the relation-side "potential re-work" results
   // show up over in the Unconfirmed Relationships panel instead (see
   // initUnconfirmedRelPanel).
+  // Real user request: "I think it would be useful that for a nameplate,
+  // there is a lighter llm recheck button and a more extensive one, which
+  // includes reading through the generations' own articles again."
+  //
+  // The split is about where the reading happens, and it is a real
+  // difference in cost. The light one re-reads the NAMEPLATE's article: one
+  // model call, plus the depth-1 cascade over related cars. The deep one
+  // then goes on to re-read every generation's OWN article (the W211 page
+  // rather than the general E-Class one), which is where the fuller
+  // designer/engineer/related-car lists live -- one more model call per
+  // generation, so six on an E-Class.
+  //
+  // Generation research was the one thing a re-check never redid: it runs
+  // from a button on each generation's own card, once, and stays "✓
+  // Researched" forever afterwards.
+  // What the last deep re-check of each nameplate found, for as long as the
+  // page is open. Held here rather than written into the row, because ANY
+  // later panel render rebuilds that row -- and several things render it
+  // moments after a deep pass ends (renderRelationChecks, the relation
+  // checks it in turn kicks off, the engine scan's own re-render), so a
+  // summary written straight into the element reliably vanished a beat after
+  // appearing. Not persisted: it describes one run, not a decision.
+  const deepRecheckSummary = new Map();
   function renderManualRecheckButton(el, fam) {
+    const summary = deepRecheckSummary.get(fam.id);
+    if (summary && !dismissedLlm.has("deeprecheck:" + fam.id)) {
+      const done = document.createElement("div");
+      done.className = "llm-status llm-applied";
+      done.innerHTML = `${llmCloseBtn("deeprecheck:" + fam.id)}✓ Deep re-check complete — ${esc(summary)}`;
+      el.appendChild(done);
+      wireLlmClose(done, "deeprecheck:" + fam.id, () => { done.remove(); });
+    }
     const row = document.createElement("div");
     row.className = "llm-recheck-row";
-    row.innerHTML = `<button type="button" class="llm-btn llm-recheck-btn" title="run a brand-new LLM check against Wikipedia right now, even though this nameplate has already been checked before">🔄 LLM Re-check</button>`;
-    row.querySelector(".llm-recheck-btn").onclick = () => {
+    const nGens = currentGenNodes(fam).length;
+    row.innerHTML =
+      `<button type="button" class="llm-btn llm-recheck-btn" title="re-read this nameplate's own Wikipedia article and re-derive its generations, relations and engines. One LLM call, plus its related cars.">🔄 LLM Re-check</button>` +
+      `<button type="button" class="llm-btn llm-recheck-btn llm-deep-recheck-btn" title="everything the ordinary re-check does, and then re-reads each generation's OWN Wikipedia article for designers, engineers and related cars it only names there. Roughly one extra LLM call per generation${nGens ? ` (${nGens} here)` : ""}, so it takes a while.">🔬 Deep re-check</button>`;
+    row.querySelector(".llm-deep-recheck-btn").onclick = () => runManualRecheck(fam, row, true);
+    row.querySelector(".llm-recheck-btn").onclick = () => runManualRecheck(fam, row, false);
+    el.appendChild(row);
+  }
+  function runManualRecheck(fam, row, deep) {
+    {
       row.innerHTML = `<div class="llm-status">🤖 re-checking Wikipedia for anything that's changed…</div>`;
       const genNodes = currentGenNodes(fam);
       const LF = window.LlmFamilies;
+      // forceRecheckFamily writes straight into the live nodes/links arrays
+      // -- applyFreshPeopleCredits mints a designer this pass newly credits,
+      // reworkRelationsForFamily can mint a related car -- and nothing here
+      // ever indexed them. Found by a deep re-check walking into
+      // computeYearFilterSet and throwing on `adj.get(id).some` for a person
+      // node that was in `nodes` but in no index, with its two designed
+      // links dropped by the next buildSim as having no endpoint. So a
+      // credit the manual re-check discovered was invisible, and unlinked,
+      // until the next page load.
+      const nodesBefore = nodes.length, linksBefore = links.length;
       // Real user request: "when I hit 'llm re-check', I want it to essentially
       // do a re-check of the entire car that I selected, as well as its cascade
       // max depth length that I would normally do when I check a car using LLM
@@ -1993,6 +2042,12 @@ window.CarWeb = (function () {
         if (dtNode === fam) renderLlmCheck(fam);
         if (res && res.status === "no-wiki-link") row.innerHTML = `<div class="llm-status llm-error">No Wikipedia link on file for this nameplate to re-check against.</div>`;
         if (res && res.status === "unavailable") row.innerHTML = `<div class="llm-status llm-error">Local LLM server isn't reachable right now.</div>`;
+        spliceIntoIndexes(nodesBefore, linksBefore);
+        if (nodes.length !== nodesBefore) buildSim();
+        refreshYearFilter();
+        indexMirrorReplacements();
+        refreshCounts();
+        Graph.touch();
         // The powertrain half. forceRecheckFamily has just dropped this
         // nameplate's stored engine-scan records (see clearEngineScansFor),
         // so this genuinely re-reads each generation's article rather than
@@ -2005,9 +2060,82 @@ window.CarWeb = (function () {
         // generation-to-generation. Same call the ordinary detail-panel render
         // makes, so there is one code path for both, not two that can drift.
         if (dtNode === fam) renderRelationChecks(fam);
+        if (deep && res && res.status !== "unavailable" && res.status !== "no-wiki-link") {
+          deepRecheckGenerations(fam, row);
+        }
       });
+    }
+  }
+  // The deep half: each generation's own article, in turn. Read AFTER the
+  // nameplate re-check above rather than alongside it, because that pass is
+  // what mints any generation this article has gained since -- a new one
+  // would otherwise be missed by exactly the pass meant to be thorough.
+  //
+  // Sequential on purpose: llama-server runs a single slot (see serve.py's
+  // LLAMA_PARALLEL_EFFECTIVE), so firing six at once only queues them while
+  // making the progress line useless.
+  function deepRecheckGenerations(fam, row) {
+    const LF = window.LlmFamilies;
+    if (!LF.researchGeneration || !LF.isEligibleForGenerationResearch) return;
+    const gens = currentGenNodes(fam).filter(g => LF.isEligibleForGenerationResearch(g));
+    if (!gens.length) return;
+    if (LF.note) LF.note(`deep re-check: ${fam.label} -- reading ${gens.length} generation article(s)`);
+    let done = 0, upgraded = 0, credits = 0, related = 0;
+    // Re-found each time rather than held: the nameplate re-check that just
+    // finished calls renderLlmCheck, which rebuilds the whole block and
+    // detaches the row this started from -- so writing progress into the
+    // original element put it somewhere nobody can see.
+    const liveRow = () => {
+      if (dtNode !== fam) return null;
+      return document.querySelector(".dt-llmcheck .llm-recheck-row") || (row.isConnected ? row : null);
     };
-    el.appendChild(row);
+    const status = () => {
+      const r = liveRow();
+      if (!r) return;
+      r.innerHTML = `<div class="llm-status">🔬 deep re-check: reading generation ` +
+        `${Math.min(done + 1, gens.length)} of ${gens.length} (${esc(gens[Math.min(done, gens.length - 1)].label)})…</div>`;
+    };
+    status();
+    (async () => {
+      for (const gen of gens) {
+        const nodesBefore = nodes.length, linksBefore = links.length;
+        let res = null;
+        try { res = await LF.researchGeneration(gen, fam, nodes, links); }
+        catch (e) { console.warn("CarWeb: generation research failed", gen.id, e); }
+        spliceIntoIndexes(nodesBefore, linksBefore);
+        if (nodes.length !== nodesBefore) buildSim();
+        if (res && res.status === "done") {
+          if (res.upgradedArticle) upgraded++;
+          credits += (res.peopleAdded || []).length;
+          related += (res.relatedTexts || []).length;
+        }
+        done++;
+        status();
+      }
+      refreshYearFilter();
+      indexMirrorReplacements();
+      refreshCounts();
+      Graph.refreshFocus();
+      Graph.touch();
+      // The generations may have gained their own articles just now, which
+      // is where the engines are -- so this is the pass most likely to find
+      // engines the nameplate's page never named.
+      recordEnginesLive();
+      scanEnginesLive(fam);
+      if (LF.note) {
+        LF.note(`deep re-check: ${fam.label} done -- ${gens.length} generation article(s), ` +
+                `${upgraded} upgraded, ${credits} credit(s), ${related} related car(s)`);
+      }
+      const bits = [`${gens.length} generation article(s) re-read`];
+      if (upgraded) bits.push(`${upgraded} now reading their own article`);
+      if (credits) bits.push(`${credits} credit(s) added`);
+      if (related) bits.push(`${related} related car(s) named`);
+      deepRecheckSummary.set(fam.id, bits.join(" · "));
+      dismissedLlm.delete("deeprecheck:" + fam.id);
+      if (dtNode !== fam) return;
+      renderLlmCheck(fam);       // shows the summary above, via the map
+      renderRelationChecks(fam); // re-renders too, and the summary survives it
+    })();
   }
   function renderLlmCheckFamily(el, fam) {
     if (!window.LlmFamilies.isEligibleForRecheck(fam)) return;

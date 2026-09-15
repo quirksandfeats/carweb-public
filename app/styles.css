@@ -509,7 +509,7 @@ main{flex:1; position:relative; min-height:0}
    always sits at the bottom of .dt-llmcheck for any eligible nameplate,
    regardless of whatever else that panel is currently showing, so a
    dashed rule separates it from any status/discrepancy content above it. */
-.llm-recheck-row{margin-top:8px; padding-top:8px; border-top:1px dashed var(--hairline)}
+.llm-recheck-row{margin-top:8px; padding-top:8px; border-top:1px dashed var(--hairline); display:flex; flex-wrap:wrap; gap:6px}
 .llm-recheck-btn{color:var(--muted)}
 .llm-recheck-btn:hover{background:var(--llm2); color:var(--ink)}
 .llm-genresearch-btn{color:var(--muted)}
