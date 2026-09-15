@@ -478,6 +478,9 @@ window.LlmFamilies = (function () {
     if (Date.now() - hit.at > ARTICLE_CACHE_MS) { articleCache.delete(title); return null; }
     return hit.value;
   }
+  function forgetArticle(title) {
+    if (title) articleCache.delete(title);
+  }
   function cacheArticle(title, value) {
     articleCache.set(title, { at: Date.now(), value });
     while (articleCache.size > ARTICLE_CACHE_MAX) {
@@ -8226,6 +8229,34 @@ Rules:
     const eng = (() => {
       const draft = engineNodeFrom(article, title);
       if (!draft) return null;
+      // Real bug report: '"Read it again" seems to not do anything at all',
+      // and the "Read on ..." date never moved.
+      //
+      // The id came from the article TITLE, and a redirect changes it: the
+      // M177 node was minted from a car's infobox as "Mercedes-Benz M177
+      // engine" (eng-mercedes-benz-m177), while the article that title
+      // redirects to is "Mercedes-Benz M176/M177/M178 engine"
+      // (eng-mercedes-benz-m176-m177-m178). So the read landed on a brand-new
+      // second node and a brand-new entry, and the card the user was looking
+      // at -- keyed by its own id -- was untouched: still "not read yet",
+      // still no date, nothing visibly happening. `o.id` pins the read to the
+      // node that was actually asked about.
+      const pinned = o.id ? byId.get(o.id) : null;
+      if (pinned) {
+        // Its own label and its own link are both kept: "M177", pointing at
+        // "Mercedes-Benz M177 engine". Overwriting the link with the resolved
+        // title is what the first version of this did, and it made the NEXT
+        // read a read of the whole combined page -- M176, M177 and M178
+        // together as one engine with three variants. The redirect is the
+        // more specific fact and it is what says which engine this is;
+        // entry.sourceTitle records where it was actually read from.
+        if (!pinned.wp && title) pinned.wp = title;
+        ["make", "year", "end", "configuration", "displacement"].forEach(k => {
+          if (draft[k]) pinned[k] = draft[k];
+        });
+        delete pinned.unresearched;
+        return pinned;
+      }
       const existing = byId.get(draft.id);
       if (existing) {
         // Fill only what is empty, the same discipline the live layer used.
@@ -8355,8 +8386,13 @@ Rules:
         if (!isEngineArticle(wikitext)) {
           return { status: "not-an-engine", title: resolvedTitle || title };
         }
+        // `title`, not the resolved one: "Mercedes-Benz M177 engine" is what
+        // says which of the three engines on that page is being asked about.
         const article = readEngineArticle(wikitext, title);
-        const id = engineIdFromTitle(resolvedTitle || title);
+        // Keyed to the node asked about where there is one, so a redirect
+        // cannot move the entry out from under its own card -- see
+        // applyEngineArticleWith's own note.
+        const id = (opts && opts.id) || engineIdFromTitle(resolvedTitle || title);
         const flatApps = []
           .concat(...((article.variants || []).map(v => v.applications || [])))
           .concat(article.applications || []);
@@ -8373,7 +8409,7 @@ Rules:
         store.engines[id] = entry;
         await persist();
         const applied = applyEngineArticleWith(article, entry.sourceTitle, nodes, links,
-          resolved, opts || {});
+          resolved, Object.assign({}, opts || {}, { id }));
         // Depth 1: every car this engine named now gets the ordinary check.
         // Opt-outable, because the boot replay and the tests have no business
         // starting a dozen model calls.
@@ -8388,6 +8424,26 @@ Rules:
     })();
     inFlight.set(flightKey, p);
     return p;
+  }
+
+  // "Read it again", meant literally. Real user request: "the 'scan' should
+  // essentially act like an 'llm recheck' for whatever it is looking at. In
+  // this case it's supposed to be the engine."
+  //
+  // checkEngine on its own is already a fresh read, but two things could
+  // quietly serve a stale one: the short-lived article cache (a re-read
+  // moments later is a person asking what the page says NOW) and an
+  // in-flight read of the same title. Both are cleared here, which is what
+  // makes this the engine's equivalent of 🔄 LLM Re-check.
+  function forceRecheckEngine(title, nodes, links, opts) {
+    const o = Object.assign({}, opts || {});
+    forgetArticle(title);
+    if (o.id) {
+      const prev = store.engines[o.id];
+      if (prev && prev.sourceTitle) forgetArticle(prev.sourceTitle);
+    }
+    inFlight.delete("engine:" + norm(title));
+    return checkEngine(title, nodes, links, o);
   }
 
   // Every car an engine named, handed to the ordinary generation check.
@@ -8468,8 +8524,11 @@ Rules:
       // time round, which means it is in the overlay and already back.
       // The stored titles are what the first pass resolved them to, so the
       // redirects are already followed.
+      // Pinned to the id the entry is stored under, so the replay lands on
+      // the same node the live read did -- a redirect between the two would
+      // otherwise put it somewhere else on every boot.
       const r = applyEngineArticleWith(entry.article, entry.sourceTitle, nodes, links,
-                                       new Map(entry.resolved || []), {});
+                                       new Map(entry.resolved || []), { id });
       if (r.engine) engines++;
       variants += r.variants; fitted += r.fitted;
     }
@@ -9178,6 +9237,11 @@ Rules:
     delete store.families[nodeId];
     delete store.recheck[nodeId];
     delete store.genResearch[nodeId];
+    // An engine's verdict lives in its own bucket, and "change this link and
+    // check it again" has to clear that too -- otherwise the card goes on
+    // reporting what the OLD article said, read on the old date.
+    delete store.engines[nodeId];
+    delete store.engineScans[nodeId];
     return persist();
   }
 
@@ -9747,6 +9811,7 @@ Rules:
     carNameFromApplication, resolveApplicationTitles,
     checkEngine, applyEngines, engineEntryFor, allEngineEntries, deleteEngineEntry,
     scheduleEngineCascade, scanEnginesFor, engineScanEntryFor, engineArticleFor,
+    forceRecheckEngine,
     clearEngineScansFor, note,
     mergeEngines, undoEngineMerge, allEngineMerges, applyEngineMerges,
     engineMentions, recordEngineMentions, recordEngineMentionsFrom, applyEngineMentions,

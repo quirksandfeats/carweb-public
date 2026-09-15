@@ -541,7 +541,11 @@ def _run_pass_in(browser, targets, budget_seconds, per_node_seconds,
             if kind == "engine":
                 page.evaluate(
                     "(id) => { const n = CarWeb.byId.get(id); if (!n) return; "
-                    "CarWeb.openDetail(n); CarWeb.scanEngine(n.wp || n.label); }", nid)
+                    # The node is passed so the read is pinned to it: a
+                    # redirect ("Mercedes-Benz M177 engine" ->
+                    # ".../M176/M177/M178 engine") would otherwise land the
+                    # result on a different id and this wait would never end.
+                    "CarWeb.openDetail(n); CarWeb.scanEngine(n.wp || n.label, null, n); }", nid)
             else:
                 page.evaluate("(id) => { const n = CarWeb.byId.get(id); if (n) CarWeb.openDetail(n); }", nid)
             settled = False

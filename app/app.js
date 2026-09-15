@@ -1448,7 +1448,7 @@ window.CarWeb = (function () {
         btn.className = "llm-btn";
         const unread = isEngineUnread(n);
         btn.textContent = unread ? "Read this engine's article" : "Read it again";
-        btn.onclick = () => scanEngine(n.wp || n.label, btn);
+        btn.onclick = () => scanEngine(n.wp || n.label, btn, n);
         wrap.appendChild(btn);
         // Folding another engine in, and undoing it. Same shape as a
         // nameplate merge: the other engine's variants become this one's.
@@ -1553,7 +1553,11 @@ window.CarWeb = (function () {
 
   // Read an engine article and put what it finds in the graph. The only place
   // in the UI that reaches the network for this layer.
-  function scanEngine(title, btn) {
+  // `node` is the engine whose card asked for this. Real bug report: '"Read
+  // it again" seems to not do anything at all', and the "Read on ..." date
+  // never moved -- because a redirect put the result on a different id (see
+  // llm_families.js's applyEngineArticleWith). Passing the node pins it.
+  function scanEngine(title, btn, node) {
     const LFam = window.LlmFamilies;
     if (!LFam || !LFam.checkEngine || !title) return;
     if (btn) { btn.disabled = true; btn.textContent = "reading…"; }
@@ -1563,7 +1567,16 @@ window.CarWeb = (function () {
     // See llm_families.js's setBackgroundAllowed and scheduleEngineCascade.
     if (LFam.setBackgroundAllowed) LFam.setBackgroundAllowed(true);
     const nodesBefore = nodes.length, linksBefore = links.length;
-    LFam.checkEngine(title, nodes, links, { mintCars: true }).then(r => {
+    // Real user request: "the 'scan' should essentially act like an 'llm
+    // recheck' for whatever it is looking at. In this case it's supposed to be
+    // the engine." So this button is the engine's 🔄 LLM Re-check: the stored
+    // read and the cached article are dropped first, and nothing in flight is
+    // reused.
+    const opts = { mintCars: true, id: node ? node.id : undefined };
+    const run = LFam.forceRecheckEngine
+      ? LFam.forceRecheckEngine(title, nodes, links, opts)
+      : LFam.checkEngine(title, nodes, links, opts);
+    run.then(r => {
       if (r && r.status === "not-an-engine") {
         if (btn) { btn.disabled = false; btn.textContent = "Read this engine's article"; }
         window.alert(`"${title}" is not an engine article.`);
@@ -1579,7 +1592,9 @@ window.CarWeb = (function () {
       powertrainChanged();
       refreshCounts();
       Graph.touch();
-      const eng = r.engine || byId.get(r.id);
+      // Re-opened so the card is rebuilt from the fresh entry -- the variant
+      // list, the cars, and the "Read on ..." date all come from it.
+      const eng = r.engine || byId.get(r.id) || node;
       if (eng) { dtNode = null; openDetail(eng); }
       console.info(`[carweb] read ${title}: ${r.variants} variant(s), ${r.fitted} car(s)` +
                    (r.queued ? `, ${r.queued} car(s) queued for their own check` : ""));
@@ -1752,7 +1767,15 @@ window.CarWeb = (function () {
     // article is this?" control, and a make (especially one minted by
     // mintRelatedNode from a related car's badge) needs it just as much. Its
     // link drives the hover card's photo and extract like any other node's.
-    if ((n.type === "model" || n.type === "family" || n.type === "make") && wpEl) renderWpLinkRow(wpEl, n, body);
+    // Real user request: "on the serve.py side, there should be a similar
+    // small option at the bottom of the info card that is a dropdown where
+    // the user can have the 'change link' and 'find it' buttons similar to
+    // the graph tab." An engine's article is the single thing its whole card
+    // is derived from, and a mention can easily name the wrong one -- so it
+    // gets the same fold, and the same local-only gate every other write
+    // control has.
+    if ((n.type === "model" || n.type === "family" || n.type === "make" ||
+         n.type === "engine") && wpEl) renderWpLinkRow(wpEl, n, body);
   }
   // ---------- re-run whichever kind of check this node is actually eligible for ----------
   // Three different questions, three different entry points, one caller-
@@ -1769,6 +1792,13 @@ window.CarWeb = (function () {
     // action, and openDetail (already re-run by the caller) is what picks up
     // the new article's photo and extract.
     if (n.type === "make") { el.innerHTML = ""; return; }
+    // An engine has no generations to split; its check IS reading its
+    // article, so "change the link and check it again" reads the new one.
+    if (n.type === "engine") {
+      el.innerHTML = `<div class="llm-status">🤖 reading this engine's article…</div>`;
+      scanEngine(n.wp || n.label, null, n);
+      return;
+    }
     if (LF.isEligibleForRecheck(n)) {
       const genNodes = currentGenNodes(n);
       el.innerHTML = `<div class="llm-status">🤖 re-checking this nameplate against Wikipedia…</div>`;
@@ -2037,6 +2067,11 @@ window.CarWeb = (function () {
         // name IS the article title to look for.
         const found = n.type === "make"
           ? await LF.findWikipediaTitleFor("", n.label)
+          // An engine's article is almost never filed under a bare code:
+          // "M177" is a disambiguation page, "Mercedes-Benz M177 engine" is
+          // the redirect that reaches the real one. Ask with the word.
+          : n.type === "engine"
+          ? await LF.findWikipediaTitleFor(n.make || "", n.label + " engine")
           : await LF.findWikipediaTitleFor(n.make, n.label);
         if (!found) {
           status.textContent = "Couldn't find one automatically — paste the link by hand instead.";
