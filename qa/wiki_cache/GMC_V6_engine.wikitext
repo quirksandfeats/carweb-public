@@ -1,0 +1,267 @@
+{{Infobox automobile engine
+| name = GMC V6 engine
+| image = 1960 GMC V12 702cid.JPG
+| caption = GMC "Twin Six" heavy duty engine {{convert|702|cid|L|1|abbr=on}}
+| manufacturer = [[General Motors]]
+| production = 1959–1974
+| configuration = 60° [[V6 engine|V6]], [[V8 engine|V8]], and [[V12 engine|V12]]
+| valvetrain = [[Overhead valve engine|OHV]] 2 valves × cyl.
+| fueltype = [[Gasoline]] and [[Diesel fuel|diesel]]
+| fuelsystem = [[Carburetor]]
+| coolingsystem = [[Radiator (engine cooling)|Water-cooled]]
+| block = [[Cast iron]]
+| head = [[Cast iron]]
+| displacement = {{Unbulleted list|{{convert|305|CID|L|1|abbr=on}}|{{convert|351|CID|L|1|abbr=on}}|{{convert|379|CID|L|1|abbr=on}}|{{convert|401|CID|L|1|abbr=on}}|{{convert|432|CID|L|1|abbr=on}}|{{convert|478|CID|L|1|abbr=on}}|{{convert|637|CID|L|1|abbr=on}}|{{convert|702|CID|L|1|abbr=on}}}}
+| bore = {{Unbulleted list|{{convert|4.25|in|mm|abbr=on}}|{{convert|4.56|in|mm|1|abbr=on}}|{{convert|4.87|in|mm|1|abbr=on}}|{{convert|4.875|in|mm|abbr=on}}|{{convert|5.125|in|mm|abbr=on}}}}
+| stroke = {{Unbulleted list|{{convert|3.58|in|mm|1|abbr=on}}|{{convert|3.86|in|mm|abbr=on}}}}
+| power = {{convert|150-275|hp|0|abbr=on}}<ref>{{Cite web|url=https://www.motortrend.com/how-to/ccrp-1212-702-ci-thunder-v12-gmc-engines-horsepower/|title = 702ci Thunder V12 GMC - Car Craft Magazine|date = 16 October 2012}}</ref><ref>{{Cite web|url=https://silodrome.com/702-cubic-inch-11-5-litre-gmc-v12/|title = There's a Rare 702 Cubic Inch (11.5 Litre) GMC V12 for Sale on eBay|date = 24 January 2020}}</ref>
+| torque = {{convert|260-630|lbft|0|abbr=on}}<ref>{{Cite web|url=https://www.curbsideclassic.com/blog/the-gmc-twin-six-v12-702-cubes-275-hp-at-2400-rpm-630-ft-lbs-at-1600-rpm/|title = The GMC Twin Six V12: 702 Cubes, 275 HP at 2400 RPM, 630 Ft. LBS. At 1600 RPM|date = 4 October 2021}}</ref><ref>{{Cite web|url=https://gmauthority.com/blog/2015/06/remember-when-gmc-produced-a-v12-engine/|title = Remember when GMC Produced a V12 Engine?|date = 9 June 2015}}</ref>
+}}
+
+The '''GMC V6''' is a family of 60-degree [[V6 engine|V6]] engines produced by the [[GMC (automobile)|GMC]] division of [[General Motors]] from 1959 through 1974. It was developed into both [[Gasoline engine|gasoline]] and [[Diesel engine|diesel]] versions, and produced in [[V8 engine|V8]] and [[V12 engine|V12]] derivatives. Examples of this engine family were found in [[pickup truck]]s, [[GMC Suburban|Suburbans]], heavier trucks, and motor coaches.
+
+A big-block engine, variants were produced in 305-, 351-, 401-, and 478-cubic-inch (5.0, 5.8, 6.6, and 7.8 liters respectively) displacements, with considerable parts commonality. During the latter years of production, {{convert|379 and 432|CID|L|1|adj=on}} versions with enlarged [[crankshaft]] [[Plain bearing|journals]] were manufactured as well.
+
+GMC produced a {{convert|637|CID|L|1|adj=on}} 60° [[V8 engine|V8]] with a single [[camshaft]] using the same general layout (bore and stroke) as the 478 V6. The 637 V8 was the largest-displacement production gasoline V8 ever made for highway trucks.
+
+The largest engine derived from the series was a {{convert|702|CID|L|1|adj=on}} "Twin Six" [[V12 engine|V12]], which had a unique block and crankshaft, but shared many exterior parts with the 351.
+
+Diesel versions of the 351, 478 and 637, advertised as the '''ToroFlow''', were also manufactured. These engines had no relationship to the well-known [[Detroit Diesel Series 71|Detroit Diesel]] [[two-stroke diesel engine]]s produced by General Motors during the same time period.
+
+All versions of the GMC V6 used a six-throw crankshaft, which when combined with the 60 degree included cylinder angle, produced a smooth-running engine without any need for a [[balance shaft]]. [[Spark plug]]s were located on the inboard side of the [[cylinder head]]s and were accessed from the top of the engine. This position allowed for shorter spark-plug wires and kept the spark plugs away from the hot [[exhaust manifold]]s, something which was emphasized in sales literature. It was also perceived as being easier to access for maintenance. These GMC V6 engines were noted for durability, ease of maintenance, and strong low-end torque.
+
+In 1974, GMC discontinued the V6 engine; all gasoline-engine models were powered by Chevrolet straight-six and V8 engines, while diesel engines were dropped from medium duty models and would not return until 1976.
+
+{| class="mw-collapsible mw-collapsed wikitable"
+! colspan=8|GMC 60° Engine Family
+|-
+!Fuel
+!Cylinders
+!Model
+!Displacement
+!Bore
+!Stroke
+!Power (Net)
+!Torque (Net)
+|-
+|rowspan=16|Gasoline
+|rowspan=14|6
+|305A<ref name=6066-gas-data>{{cite web |url=https://6066gmcguy.com/EngineData.html |title=GMC Big Block V6, V8, & V12 Engine Data |date=12 May 2008 |publisher=6066 GMC Guy |access-date=17 August 2024}}</ref>
+|{{convert|304.6|CID|L|1|abbr=on}}
+|{{convert|4.25|in|mm|abbr=on}}
+|{{convert|3.58|in|mm|abbr=on}}
+|{{convert|125|hp|0|abbr=on}}
+|{{convert|240|lbft|0|abbr=on}}
+|-
+|305B<ref name=6066-gas-data/>
+|{{convert|304.6|CID|L|1|abbr=on}}
+|{{convert|4.25|in|mm|abbr=on}}
+|{{convert|3.58|in|mm|abbr=on}}
+|{{convert|127|hp|0|abbr=on}}
+|{{convert|245|lbft|0|abbr=on}}
+|-
+|305C<ref name=71-trucks>{{cite web |url=https://xr793.com/wp-content/uploads/2019/08/1971-GMC-Conventional-Models.pdf |title=GMC Conventional Models, Series 4500-6500 |date=1971 |publisher=GMC Truck and Coach Division, General Motors Corporation |access-date=17 August 2024}}</ref>
+|{{convert|304.6|CID|L|1|abbr=on}}
+|{{convert|4.25|in|mm|abbr=on}}
+|{{convert|3.58|in|mm|abbr=on}}
+|{{convert|142|hp|0|abbr=on}}
+|{{convert|250|lbft|0|abbr=on}}
+|-
+|305D<ref name=1962-trucks>{{cite web |url=https://xr793.com/wp-content/uploads/2021/11/1962-GMC-Pickups.pdf |title=GMC Pickups |date=1962 |publisher=GMC Truck and Coach Division, General Motors Corporation |access-date=17 August 2024}}</ref>
+|{{convert|304.6|CID|L|1|abbr=on}}
+|{{convert|4.25|in|mm|abbr=on}}
+|{{convert|3.58|in|mm|abbr=on}}
+|{{convert|142|hp|0|abbr=on}}
+|{{convert|260|lbft|0|abbr=on}}
+|-
+|305E<ref name=1963-trucks>{{cite web |url=https://xr793.com/wp-content/uploads/2021/11/1963-GMC-Pickups.pdf |title=GMC Pickups and Stake Racks, Series 1000-2500 |date=1963 |publisher=GMC Truck and Coach Division, General Motors Corporation |access-date=17 August 2024}}</ref>
+|{{convert|304.6|CID|L|1|abbr=on}}
+|{{convert|4.25|in|mm|abbr=on}}
+|{{convert|3.58|in|mm|abbr=on}}
+|{{convert|142|hp|0|abbr=on}}
+|{{convert|260|lbft|0|abbr=on}}
+|-
+|351/351C<ref name=71-trucks/>
+|{{convert|351|CID|L|1|abbr=on}}
+|{{convert|4.56|in|mm|abbr=on}}
+|{{convert|3.58|in|mm|abbr=on}}
+|{{convert|155|hp|0|abbr=on}}
+|{{convert|288|lbft|0|abbr=on}}
+|-
+|351E<ref name=6066-gas-data/>
+|{{convert|351|CID|L|1|abbr=on}}
+|{{convert|4.56|in|mm|abbr=on}}
+|{{convert|3.58|in|mm|abbr=on}}
+|{{convert|190|hp|0|abbr=on}}
+|{{convert|304|lbft|0|abbr=on}}
+|-
+|351M<ref name=6066-gas-data/>
+|{{convert|351|CID|L|1|abbr=on}}
+|{{convert|4.56|in|mm|abbr=on}}
+|{{convert|3.58|in|mm|abbr=on}}
+|{{convert|190|hp|0|abbr=on}}
+|{{convert|304|lbft|0|abbr=on}}
+|-
+|379<ref name=6066-gas-data/>
+|{{convert|379|CID|L|1|abbr=on}}
+|{{convert|4.56|in|mm|abbr=on}}
+|{{convert|3.86|in|mm|abbr=on}}
+|{{convert|170|hp|0|abbr=on}}
+|{{convert|266|lbft|0|abbr=on}}
+|-
+|401<ref name=6066-gas-data/>
+|{{convert|401|CID|L|1|abbr=on}}
+|{{convert|4.875|in|mm|abbr=on}}
+|{{convert|3.58|in|mm|abbr=on}}
+|{{convert|178|hp|0|abbr=on}}
+|{{convert|351|lbft|0|abbr=on}}
+|-
+|401M<ref name=67-trucks/>
+|{{convert|401|CID|L|1|abbr=on}}
+|{{convert|4.875|in|mm|abbr=on}}
+|{{convert|3.58|in|mm|abbr=on}}
+|{{convert|210|hp|0|abbr=on}}
+|{{convert|348|lbft|0|abbr=on}}
+|-
+|432<ref name=6066-gas-data/>
+|{{convert|432|CID|L|1|abbr=on}}
+|{{convert|4.875|in|mm|abbr=on}}
+|{{convert|3.86|in|mm|abbr=on}}
+|{{convert|190|hp|0|abbr=on}}
+|{{convert|336|lbft|0|abbr=on}}
+|-
+|478<ref name=6066-gas-data/>
+|{{convert|478|CID|L|1|abbr=on}}
+|{{convert|5.125|in|mm|abbr=on}}
+|{{convert|3.86|in|mm|abbr=on}}
+|{{convert|206|hp|0|abbr=on}}
+|{{convert|400|lbft|0|abbr=on}}
+|-
+|478M<ref name=67-trucks/>
+|{{convert|478|CID|L|1|abbr=on}}
+|{{convert|5.125|in|mm|abbr=on}}
+|{{convert|3.86|in|mm|abbr=on}}
+|{{convert|225|hp|0|abbr=on}}
+|{{convert|410|lbft|0|abbr=on}}
+|-
+|rowspan=1|8
+|637<ref name=6066-gas-data/>
+|{{convert|637|CID|L|1|abbr=on}}
+|{{convert|5.125|in|mm|abbr=on}}
+|{{convert|3.86|in|mm|abbr=on}}
+|{{convert|250|hp|0|abbr=on}}
+|{{convert|560|lbft|0|abbr=on}}
+|-
+|rowspan=1|12
+|702<ref name=6066-gas-data/>
+|{{convert|702|CID|L|1|abbr=on}}
+|{{convert|4.56|in|mm|abbr=on}}
+|{{convert|3.58|in|mm|abbr=on}}
+|{{convert|250|hp|0|abbr=on}}
+|{{convert|585|lbft|0|abbr=on}}
+|-
+|rowspan=5|Diesel
+|rowspan=3|6
+|D351<ref name=65-engr/>
+|{{convert|351.2|CID|L|1|abbr=on}}
+|{{convert|4.56|in|mm|abbr=on}}
+|{{convert|3.58|in|mm|abbr=on}}
+|{{convert|118|hp|0|abbr=on}}
+|{{convert|234|lbft|0|abbr=on}}
+|-
+|D478<ref name=65-engr/>
+|{{convert|477.7|CID|L|1|abbr=on}}
+|{{convert|5.125|in|mm|abbr=on}}
+|{{convert|3.86|in|mm|abbr=on}}
+|{{convert|135|hp|0|abbr=on}}
+|{{convert|266|lbft|0|abbr=on}}
+|-
+|DH478<ref name=65-engr/>
+|{{convert|477.7|CID|L|1|abbr=on}}
+|{{convert|5.125|in|mm|abbr=on}}
+|{{convert|3.86|in|mm|abbr=on}}
+|{{convert|155|hp|0|abbr=on}}
+|{{convert|298|lbft|0|abbr=on}}
+|-
+|rowspan=2|8
+|D637<ref name=67-trucks/>
+|{{convert|637|CID|L|1|abbr=on}}
+|{{convert|5.125|in|mm|abbr=on}}
+|{{convert|3.86|in|mm|abbr=on}}
+|{{convert|185|hp|0|abbr=on}}
+|{{convert|440|lbft|0|abbr=on}}
+|-
+|DH637<ref name=67-trucks/>
+|{{convert|637|CID|L|1|abbr=on}}
+|{{convert|5.125|in|mm|abbr=on}}
+|{{convert|3.86|in|mm|abbr=on}}
+|{{convert|205|hp|0|abbr=on}}
+|{{convert|444|lbft|0|abbr=on}}
+|}
+
+==Gasoline V6==
+===305===
+The {{convert|304.6|CID|L|1|adj=on}} '''305''' had a {{convert|4.25x3.58|in|mm|abbr=on}} bore and stroke.<ref>{{cite book |ref={{harvid|Motor's|1973}}|title=Motor's Truck and Diesel Repair Manual|publisher=Motor|year=1973|isbn=0-910992-16-9|edition=26|pages=852–854}}<!--General Engine Specifications table - doesn't have disp, I'm AGFing the math--></ref> The 305A was equipped with a single barrel carburetor and produced {{convert|150|hp|0|abbr=on}} [[Horsepower#SAE gross power|gross]] at 3600 RPM and {{convert|260|lbft|0|abbr=on}} gross at 1600 RPM (measured without air cleaner or accessories in an ideal environment). <!--AGF A-->The 305E was equipped with a two barrel carburetor and produced {{convert|170|hp|0|abbr=on}} [[Horsepower#SAE gross power|gross]] at 4000 RPM and {{convert|263|lbft|0|abbr=on}} gross at 1600 RPM in 1969.{{sfnp|Motor's|1973|pages=852-854}}
+
+The 305 was GMC's standard [[Chevrolet C/K|pickup truck]] and [[GMC Suburban|Suburban]] engine from 1960 to 1969. The 305A was standard in 1000–3500 series trucks in 1960–1961 and was dropped in 1962. The 305D was an option in the 1000–3500 series in 1961 and became standard in 1962, replacing the 305A. The 305E replaced the 305D in the 1000–3500 series trucks in 1963 and was used until 1969. The 305B and 305C (a 305B with a different manifold and carburetor) were used in 4000 and 5000 series trucks; the 305B was dropped in 1962 while the 305C continued to 1974.{{sfnp|Motor's|1973|pages=848-849}}<!--model and engine table only refs 1962-1973-->
+
+===351===
+The {{convert|351|CID|L|1|adj=on}} '''351''' had a {{cvt|4.56x3.58|in|mm|1}} bore and stroke.{{sfnp|Motor's|1973|pages=852-854}} The 351C produced {{convert|195|hp|0|abbr=on}} [[Horsepower#SAE gross power|gross]] at 3600 RPM and {{convert|314|lbft|0|abbr=on}} gross at 1600 RPM, while the 351M produced {{convert|254|hp|0|abbr=on}} gross at 3700 RPM and {{convert|442|lbft|0|abbr=on}} gross at 1400 RPM in 1969.{{sfnp|Motor's|1973|pages=852-854}} Introduced in 1960, the 351 was available as a C series, an E series (351E), and Magnum series (351M). The E and M series featured a larger two-barrel carburetor and an open port intake, bigger intake and exhaust ports, larger diameter valves, and larger exhaust manifolds. The 351E did not use the same parts as the 305E.{{clarify|Fragment?|date=January 2023}}  
+
+The 351 or 351C were used in some 4000, 5000, and 6000 series trucks from 1962 to 1972 and the 351E was used in the 1000–3500 series trucks from 1966 to 1969.{{sfnp|Motor's|1973|pages=848-849}}<!--AGF E--> The 351, 351C, and 351M engines were medium duty truck engines, while the 351E was a light-duty engine – basically a 351M without the oil-driven governors. In 1973, the 351 was replaced by the 379-cubic-inch V6.{{sfnp|Motor's|1973|page=854}}<!--351 to 379-->
+
+===379===
+The {{convert|378.6|CID|L|1|adj=on}} '''379''' had a {{convert|4.56x3.86|in|mm|abbr=on}} bore and stroke.<ref>{{cite book |ref={{harvid|Steel Tilt Cab Models|1972}} |url=https://www.xr793.com/wp-content/uploads/2021/11/1973-GMC-Tilt-Cab.pdf|title=GMC 72" Steel Tilt Cab Models (Brochure)|year=1972|publisher=GMC Truck & Coach Division|page=3|access-date=January 15, 2023}}</ref> It produced {{convert|170|hp|kW|0|abbr=on}} net at 3600 RPM and {{convert|277|lbft|Nm|0|abbr=on}} net torque at 1600 RPM.{{sfnp|Steel Tilt Cab Models|1972|page=3}} The 379 was a 351 with a 478 crankshaft.
+
+===401===
+The {{convert|400.9|CID|L|1|adj=on}} '''401''' had a {{convert|4.875x3.58|in|mm|1|abbr=on}} bore and stroke.{{sfnp|Motor's|1973|pages=852-854}}<ref>gmc truck parts & illustration manual 1955-1964,1965-7</ref> It produced {{convert|210|hp|kW|0|abbr=on}} [[Horsepower#SAE gross power|gross]] at 3400 RPM and {{convert|377|lbft|Nm|0|abbr=on}} gross torque at 1400 RPM, while the Magnum version introduced in 1966 produced {{convert|237|hp|kW|0|abbr=on}} gross at 4000 RPM and {{convert|372|lbft|Nm|0|abbr=on}} gross torque at 1600 RPM.{{sfnp|Motor's|1973|pages=852-854}} The engine was a further enlargement of the {{convert|351|CID|L|1|adj=on}} '''351''' and was produced from 1960 through 1972. This engine was used in the 5500 and 6000 series as well as the H-5000; it was an option in the W-5000 and SP-5000.
+
+===432===
+The {{convert|432.3|CID|L|1|adj=on}} '''432''' had a {{convert|4.875x3.86|in|mm|abbr=on}} bore and stroke.{{sfnp|Motor's|1973|page=854}} In 1973 and 1974,<!--Motor's only refs 1973--> it produced {{convert|190|hp|kW|0|abbr=on}} net at 3200 RPM and {{convert|331|lbft|Nm|0|abbr=on}} net torque at 1600 RPM in 1973.{{sfnp|Motor's|1973|page=854}} There was also a version with enlarged crankshaft journals. The 432 was a 401 with a 478 crankshaft. The 432 was a Magnum engine, though it was never designated as such.
+
+===478===
+The {{convert|477.7|CID|L|1|adj=on}} '''478''' had a {{convert|5.125x3.86|in|mm|abbr=on}} bore and stroke.{{sfnp|Motor's|1973|page=852}} It produced {{convert|192|hp|kW|0|abbr=on}} net at 3200 RPM and {{convert|371|lbft|Nm|0|abbr=on}} net at 1400 RPM.{{sfnp|Motor's|1973|page=852}} It was one of the largest V6 engines ever built. It was introduced in 1962 for the 6500 series trucks.
+
+==Gasoline V8==
+=== 637 ===
+The {{convert|637|CID|L|1|adj=on}} '''637''' is essentially the V8 version of the 478, sharing the {{convert|5.125x3.86|in|mm|abbr=on}} bore and stroke and having a single [[camshaft]]. It was the largest-displacement production gasoline V8 ever made for highway trucks.
+
+==Gasoline V12==
+===702===
+The {{convert|702|CID|L|1|adj=on}} [[V12 engine|V12]] "'''Twin Six'''" had a {{convert|4.56x3.58|in|mm|abbr=on}} bore and stroke.{{sfnp|Motor's|1973|page=852}} It produced {{convert|275|hp|kW|0|abbr=on}} [[Horsepower#SAE gross power|gross]] at 2400 RPM and {{convert|630|lbft|Nm|0|abbr=on}} gross at 1600 RPM in 1965.{{sfnp|Motor's|1973|page=852}}
+
+It was offered in 1960 for the 7000 series trucks, and as a special-order option in [[Canada]]. It was its own separate engine design, based on a single block casting,<ref name='V12Myths'>{{cite web |url= http://6066gmcguy.com/v12myths.html |title=GMC Twin-Six V12 Myths |publisher=6066 GMC Trucks |date=June 1, 2007 |accessdate=2008-10-05}}</ref> which had four [[exhaust manifold]]s, two [[carburetor]]s and [[Inlet manifold|intake manifolds]], and two [[distributor]] caps driven by a single distributor drive,<ref name='V12Myths'/> plus other parts from the 351 V6. A total of 56 major parts are interchangeable between the Twin-Six and the other GMC V6 engines to provide greater parts availability and standardization. It produced {{convert|275|hp|kW|0|abbr=on}} horsepower. Torque was {{convert|630|lbft|Nm|0|abbr=on}}. The 702 was in production until 1966, when it was replaced by the 637 V8.<ref>{{Cite web|url=https://www.thedrive.com/news/40213/gms-final-v12-was-an-obscure-11-5-liter-truck-engine-from-the-1960s|title = GM's Final V12 Was an Obscure 11.5-Liter Truck Engine from the 1960s| date=16 April 2021 }}</ref><ref>{{Cite web|url=https://www.enginelabs.com/news/a-look-back-at-the-702ci-gmc-twin-six-v12-engine/|title=A Look Back at the 702ci GMC Twin-Six V12 Engine|date=12 February 2013}}</ref><ref name=macs-v12>{{Cite web|url=https://www.macsmotorcitygarage.com/inside-gmcs-mighty-702-cubic-inch-v12/|title = Inside GMC's Mighty 702 Cubic-Inch V12|date = 21 April 2016}}</ref> It is estimated that fewer than 5,000 engines were built and that less than 200 exist as of 2021.<ref>{{Cite web | title=Thunder V12 LLC {{!}} Re-Birth of the GMC 702 ci V12 Engine | url=https://thunderv12.com/ | access-date=2026-03-28 | website=thunderv12.com}}</ref>
+
+==Diesel V6==
+The [[Naturally aspirated engine|naturally aspirated]] GMC four-stroke diesel engines were added to the General Motors truck line for the 1965 model year. As introduced, the D351, D478, and DH478 all shared the same 17.5:1 [[compression ratio]].<ref name=65-engr>{{cite web |url=https://xr793.com/wp-content/uploads/2020/12/1965-Chevrolet-Truck-Engineering.pdf |title=1965 Chevrolet Truck Engineering |date=September 1964 |publisher=Chevrolet Engineering, Product Information Department |access-date=7 June 2024}}</ref>{{rp|34}} Although they shared similar displacement, bore, and stroke dimensions with the gasoline engines, very few parts were the same.<ref name=DW-Allen>{{cite news |url=https://www.dieselworldmag.com/diesel-engines/toro-flow/ |title=Toro-Flow: The other GM diesel |first=Jim |last=Allen |date=September 23, 2018 |work=Diesel World |access-date=7 June 2024}}</ref>
+
+===D351===
+The D351 has a {{cvt|4.56|×|3.58|in}} bore and stroke with a total displacement of {{cvt|351.2|cuin|L|1}}. The cylinder block is a chromium-nickel iron alloy with a 60-degree design.<ref name=65-engr/>{{rp|34}} It has a peak gross and net power output of {{cvt|130|and|118|hp}} at 3200&nbsp;RPM, respectively, and corresponding gross and net torque output of {{cvt|234|and|223|lbft}} at 2000&nbsp;RPM, respectively.<ref name=65-engr/>{{rp|61}} It was discontinued for the 1967 model year.<ref>{{cite web |url=https://xr793.com/wp-content/uploads/2020/12/1967-Chevrolet-Truck-Engineering.pdf |title=1967 Chevrolet Truck Engineering |date=September 1966 |publisher=Chevrolet Motor Division, General Motors Corporation, Product Information Department |access-date=7 June 2024}}</ref>{{rp|48}}
+
+===D478===
+The D478 has a {{cvt|5.125|×|3.86|in}} bore and stroke with a total displacement of {{cvt|477.7|cuin|L|1}}. It may be regarded as a de-tuned DH478. The cylinder block is a chromium-nickel iron alloy with a 60-degree design.<ref name=65-engr/>{{rp|34}} It has a peak gross and net power output of {{cvt|150|and|135|hp}} at 3200&nbsp;RPM, respectively, and corresponding gross and net torque output of {{cvt|275|and|266|lbft}} at 2000&nbsp;RPM, respectively.<ref name=65-engr/>{{rp|61}}
+
+===DH478===
+The DH478 shares the same {{cvt|5.125|×|3.86|in}} bore and stroke as the D478 with a total displacement of {{cvt|477.7|cuin|L|1}}. The primary difference is the DH478 has an oil cooler standard, which is optional on the D478. The cylinder block is a chromium-nickel iron alloy with a 60-degree design.<ref name=65-engr/>{{rp|34}} It has a peak gross and net power output of {{cvt|170|and|155|hp}} at 3200&nbsp;RPM, respectively, and corresponding gross and net torque output of {{cvt|310|and|290|lbft}} at 2000&nbsp;RPM, respectively.<ref name=65-engr/>{{rp|61}}
+
+==Diesel V8==
+The D637 and DH637 also share the same 17.5:1 compression ratio with their diesel V6 counterparts, introduced in 1966 on the 70-series trucks as an alternative to the established [[Two-stroke engine|two-stroke]] [[Detroit Diesel]] [[Detroit Diesel Series 53|''6V-53N'']].<ref name=67-trucks>{{cite web |url=https://www.xr793.com/wp-content/uploads/2021/08/1967-Chevrolet-Series-70-and-80.pdf |title=1967 Chevrolet Trucks: Conventional Cab Models |date=August 1966 |publisher=Chevrolet Motor Division of General Motors Corporation |access-date=10 June 2024}}</ref>
+
+===D637===
+Like the gasoline 637, the D637 shares the same {{cvt|5.125|×|3.86|in}} bore and stroke as the D478 with a total displacement of {{cvt|637|cuin|L|1}}. It was introduced in 1966,<ref name=DW-Allen/> featuring a gross and net peak power output of {{cvt|195|and|185|hp}} at 2600&nbsp;RPM, respectively, and peak torque of {{cvt|450|and|440|lbft}} at 1800&nbsp;RPM, respectively.<ref name=67-trucks/>
+
+===DH637===
+The DH637 is an uprated version of the D637, with slightly higher redline. Its gross and net peak power outputs are {{cvt|220|and|205|hp}} at 2800&nbsp;RPM, respectively, and peak torque outputs are {{cvt|458|and|444|lbft}} at 2000&nbsp;RPM, respectively.<ref name=67-trucks/>
+
+==See also==
+* [[GMC straight-6 engine]]
+* [[GMC V8 engine]]
+* [[List of GM engines]]
+* [http://6066gmcclub.com 1960–1966 GMC Truck Club]
+
+==References==
+{{reflist}}
+
+[[Category:GMC engines|V6]]
+[[Category:V6 engines]]
+[[Category:1950s automobile engines]]

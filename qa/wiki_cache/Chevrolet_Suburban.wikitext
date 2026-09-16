@@ -1,0 +1,995 @@
+{{Short description|Series of American full-size automobiles by General Motors}}
+{{Redirect-distinguish|GMC Yukon XL Denali|GMC Denali}}
+{{Use American English|date=May 2026}}
+{{Use mdy dates|date=May 2026}}
+{{Infobox automobile
+| name = Chevrolet and GMC Suburban<br>GMC Yukon XL<br>Chevrolet Veraneio
+| image = 2015 Chevrolet Suburban 1500 LTZ, front 4.18.19.jpg
+| caption = 2015 Chevrolet Suburban 1500 LTZ
+| manufacturer = [[General Motors]]
+| aka = {{ubl|Chevrolet Veraneio (Brazil, 1964–1995)|GMC Carryall (1960–1972)|GMC Suburban (1937–1999)|GMC Yukon XL (from 2000)|Holden Suburban (Australia/New Zealand, 1998–2001)}}
+| production = {{ubl|1934–present}}
+| class = [[Full-size]] [[station wagon]] (1935–1959)<br>[[Full-size SUV]] (1960–present)
+| layout = [[Front-engine, rear-wheel-drive layout|Front engine]], [[rear-wheel drive]] / [[four-wheel drive]]
+| chassis = [[Body-on-frame]]
+| related = {{ubl
+  | [[Chevrolet Silverado|Chevrolet Silverado/GMC Sierra]]
+  | [[Chevrolet Tahoe|Chevrolet Tahoe/GMC Yukon]]
+  | [[Cadillac Escalade]]
+  }}
+}}
+
+The '''Chevrolet Suburban''' is a series of [[SUV]]s built by [[Chevrolet]] since 1934. The longest-produced [[Nameplate (automotive)|automobile nameplate]] in the world,<ref name="f378">{{cite web |last=McAleer |first=Brendan |date=October 30, 2024 |title=These Are the Longest-Running Car Nameplates of All Time |url=https://www.roadandtrack.com/rankings/g62763889/longest-running-car-nameplates/ |access-date=September 1, 2025 |website=Road & Track}}</ref> the Suburban is currently in its twelfth generation, in production since the 2021 model year. Beginning life as one of the first metal-bodied [[Station wagon|station wagons]], the Suburban is the progenitor of the modern [[SUV#Full-size SUV|full-size sport utility vehicle]], combining a wagon-style body with the chassis and powertrain of a pickup truck. Alongside its [[Chevrolet Advance Design|Advance Design]], [[Chevrolet Task Force|Task Force]], and [[Chevrolet C/K|C/K]] predecessors, the [[Chevrolet Silverado]] currently shares chassis and mechanical commonality with the Suburban and other trucks.     
+
+Traditionally one of the most profitable vehicles sold by [[General Motors]],<ref>{{cite web |date=August 27, 2010 |title=Everybody Loves the Suburban |url=http://www.popularmechanics.com/cars/trucks/g212/chevy-suburbuan-historical-pictures/ |work=[[Popular Mechanics]]}}</ref> the Suburban has been marketed through both Chevrolet and [[GMC (automobile)|GMC]] for nearly its entire production. In addition to sharing the Suburban name with Chevrolet, GMC has used several nameplates for the model line, having marketed it as the '''GMC Yukon XL''' since 2000, while [[Cadillac]] has marketed it as the '''Cadillac Escalade ESV''' since 2003. During the 1990s, GM Australia marketed right-hand drive Suburbans under the [[Holden]] brand.    
+
+The Suburban is sold in the United States, Canada, Mexico, Central America, Chile, Dominican Republic, Bolivia, Peru, Philippines, and the Middle East (except Israel), while the Yukon XL is sold only in North America (exclusive to the United States, Canada, and Mexico) and the Middle East territories (except Israel).
+
+A 2018 [[iSeeCars.com]] study identified the Chevrolet Suburban as the car that is driven the most each year.<ref>{{cite web |last1=Blackley |first1=Julie |title=The Cars People Drive the Most |url=https://www.iseecars.com/most-driven-cars-study |publisher=[[iSeeCars.com]]}}</ref> A 2019 iSeeCars.com study named the Chevrolet Suburban the second-ranked longest-lasting vehicle.<ref>{{Cite web |url=https://www.iseecars.com/longest-lasting-cars-2019-study/ |title=The Longest-Lasting Cars to Reach 200,000 Miles and Beyond |access-date=March 14, 2019 |archive-url=https://web.archive.org/web/20190524042759/https://www.iseecars.com/longest-lasting-cars-2019-study |archive-date=May 24, 2019 |url-status=dead |publisher=iSeeCars.com}}</ref> In December 2019, the [[Hollywood Chamber of Commerce]] unveiled a [[Hollywood Walk of Fame]] star for the Suburban, noting that the car had been in "1,750 films and TV shows since 1952."<ref>{{cite news |last1=Eisenstein |first1=Paul A. |title=The latest celeb to get a star on the Hollywood Walk of Fame is... the Chevy Suburban |url=https://www.nbcnews.com/business/consumer/latest-celeb-get-star-hollywood-walk-fame-chevy-suburban-n1097101 |access-date=29 January 2020 |work=[[NBC News]] |date=7 December 2019}}</ref><ref>{{Cite web|url=https://www.caranddriver.com/news/a30152850/chevy-suburban-walk-of-fame/|title=Chevy Suburban is First Inanimate Object to Get a Star on Hollywood Walk of Fame|date=6 December 2019}}</ref>
+
+{{TOC limit|2}}
+
+==History==
+Several automotive companies in the United States used the "Suburban" designation to indicate a windowed, station wagon–type body on a commercial frame, including [[DeSoto (automobile)|DeSoto]], [[Dodge]], [[Plymouth (automobile)|Plymouth]], [[Studebaker]], and [[Nash Motors|Nash]], in addition to [[Chevrolet]] and [[GMC (automobile)|GMC]]. The (Westchester) Suburban name was, in fact, a trademark of U.S. Body and Forging Co. of [[Tell City, Indiana]], which built wooden station wagon bodies for all of these automobile and light truck chassis and more.
+
+Chevrolet began production of its all-steel "carryall-suburban" in 1934.<ref name=myautoworld/> GMC brought out its version in 1937. These vehicles were also known as the "Suburban Carryall" until [[General Motors]] shortened the name to simply "Suburban". GMC's equivalent to the Chevrolet model was originally named "Suburban" as well, until it was rebranded as "Yukon XL" for the 2000 model year.
+
+With the end of production of the [[Plymouth Fury Suburban]] station wagon in 1978, only GM continued to manufacture a vehicle branded as a "Suburban", and GM was awarded an exclusive trademark on the name in 1988. The Chevrolet Suburban is one of the largest SUVs on the market today. It has outlasted competitive vehicles such as the [[Travelall|International Harvester Travelall]], [[Jeep Wagoneer]], and the [[Ford Excursion]]. The latest competitor is the extended-length [[Ford Expedition|Ford Expedition EL]], which indirectly replaced the Excursion.
+
+The Suburban as of today is a full-size SUV (upgraded to extended-length from 1967 onward to make room for the K5 Blazer that debuted in 1969) with three rows of seating, a full [[pickup truck]] frame, and [[V8 engine]]. It is one of the few [[station wagon]]s available with all bench seating rows. The Suburban is the same height and width as the [[Chevrolet Tahoe]], except that the Suburban is {{convert|15-20|in|mm}} longer. The extra length provides a full-sized cargo area behind the nine-passenger seating area.
+
+From 1973 to 2013, it had been available in half-ton and 3/4-ton versions.<ref>{{Cite web |last=Lopez |first=Jonathan |date=2019-11-02 |title=Here's Every Generation Of The Chevrolet Suburban So Far | work = GM Authority |url=https://gmauthority.com/blog/2019/11/heres-every-generation-of-the-chevrolet-suburban-so-far/ |access-date=2025-10-10 |language=en-US}}</ref> Chevrolet discontinued this option for the public during the tenth-generation model's tenure after 2013 because of slow sales. However, for the 2016 model year, a one-ton model debuted as an exclusive to rental, fleet, and government services as the eleventh generation in 4WD and with LS and LT trim options, but soft sales would result in Chevrolet discontinuing production on this model after 2019.
+[[File:TPS MU (cropped).jpg|thumb|A ninth-generation Suburban being used as a police truck in Toronto]]
+In recent years,{{Clarify|reason=It would be helpful to define what "recent" means here, especially since this phrase dates back to the earliest revision of this page in 2004, 22 years ago|date=August 2026}} the Suburban has been used as a [[police truck]], [[fire chief's vehicle]], and [[Emergency Medical Services|EMS]] vehicle. Suburbans are also used as [[taxicab livery]] and [[limousines]]. Gothic black Suburban vehicles are commonly used by federal intelligence services such as the [[United States Secret Service|Secret Service]]. The Secret Service operates fully armored versions of the Suburban for the [[President of the United States]] when he attends less formal engagements.<ref>{{cite web|title=Vehicles used by Secret Service|url=http://www.policecarwebsite.net/fc/fedcars/ss3.html|publisher=Government Police Cars Web Site}}</ref> The Suburban (as well as the Tahoe and GMC variants) is very popular with the [[Federal Bureau of Investigation]] as a service vehicle.
+
+In the late 1990s, GM also introduced a [[Right-hand drive|RHD]] version of the Suburban, badged as a [[Holden]], for the Australian market. Sales were low and GM withdrew the model in 2000 from Holden's lineup. In 2019, Chevrolet considered bringing the Suburban back to the region as a converted RWD import through [[Holden Special Vehicles]] (albeit with the Chevrolet badge), but chose to hold off on those plans due to numerous factors, including the situation involving GM's decision to retire the Holden brand in 2020.
+
+In 2015, the Suburban commemorated its 80th anniversary at General Motors' [[Arlington Assembly]] Plant, where the 10 millionth Suburban was produced.<ref>{{Cite press release |url=https://media.chevrolet.com/media/us/en/chevrolet/news.detail.html/content/Pages/news/us/en/2015/mar/0325-suburban.html |title=Arlington 10 Million Celebration Adds to Suburban's Legacy |publisher=media.gm.com |access-date=2018-09-23|language=en}}</ref> A video was posted on Chevrolet's [[YouTube]] channel about its 80-year legacy.<ref>{{Cite web |publisher=Chevrolet|title=Chevy Suburban Anniversary: 80 Years of Power, Utility & More |date=2015-03-27 |via=[[YouTube]] |url=https://www.youtube.com/watch?v=Ig2GhR_KPmc |access-date=2018-09-23}}</ref>
+ 
+On February 26, 2018, ''[[Car and Driver]]'' magazine posted an article celebrating the vehicle's 83rd year, noting that the Suburban's longevity is due to being one of GM's best-selling brands, its appeal to customers across the board regardless of race, gender, class, or political affiliation, and a unique loyalty to the SUV. In an interview from Chevrolet's truck/SUV marketing executive Sandor Piszar, who recalls an event celebrating the truck division's 100th anniversary when they asked about what they named their vehicles, "It's a funny question, but it really is an intriguing point [...] People name what they love. And they love their Suburbans."<ref>{{cite web |first=Brett | last = Berk |date=February 26, 2018 |title=The Social History of the Chevrolet Suburban |url=https://www.caranddriver.com/news/a18356957/the-social-history-of-the-chevrolet-suburban/ |access-date=2025-10-10 |website=Car and Driver}}</ref>
+
+On December 5, 2019, the Chevrolet Suburban became the first vehicle to be awarded a star on the [[Hollywood Walk of Fame]] by the [[Hollywood Chamber of Commerce]] for its excellence in film and television, having appeared in more than 1,750 films and television series since 1952, and can also claim to have appeared in at least one television series every year since 1956, and at least one film every year since 1960, the most ever for an automobile of any type. The star, placed at the corner of Hollywood Boulevard and Highland Avenue, also carried the Chevrolet "Bowtie" symbol instead of the entertainment symbols (film, stage, television, radio, musical instruments, and recording artist), another first for the Walk of Fame.<ref name="freep.com">{{Cite web |last=LaReau |first=Jamie L. |title=Chevrolet SUV becomes the first vehicle with a star on Hollywood Walk of Fame |url=https://www.freep.com/story/money/cars/general-motors/2019/12/05/chevrolet-suv-hollywood-walk-fame/2623751001/ |access-date=2025-10-10 |website=Detroit Free Press |language=en-US}}</ref>
+
+There have been a total of twelve generations of Chevrolet Suburbans since its 1934 debut.
+{{clear}}
+
+==First generation (1935)<span class="anchor" id="1"></span><span class="anchor" id="1935"></span>==
+{{Infobox automobile
+| name = 1935–1940<ref>{{cite web |url=http://oldcarbrochures.org/New-Brochures---November/1998-Chevrolet-Suburban-Export-Brochure/1998-Chevrolet-Tahoe-Suburban-Export-08 |title=1998 Chevrolet Tahoe-Suburban Export-08 |access-date=2016-11-29 |url-status=dead |archive-url=https://web.archive.org/web/20161130042326/http://oldcarbrochures.org/New-Brochures---November/1998-Chevrolet-Suburban-Export-Brochure/1998-Chevrolet-Tahoe-Suburban-Export-08 |archive-date=November 30, 2016 |df=mdy-all }}</ref>
+| image = 1936 Chevrolet Suburban (15019443381).jpg
+| caption = 1936 Chevrolet Suburban
+| model_years = 1935–1940
+| assembly = {{ubl|[[Baltimore Assembly]], [[Baltimore, Maryland]]<ref>{{citation |title=Vehicle Serial Number|date=1935–1940 |publisher=created and issued by General Motors Corporation}}</ref>|[[Buffalo Assembly]], [[Buffalo, New York]]|[[Leeds Assembly]], [[Leeds, Kansas City|Leeds]], [[Kansas City, Missouri]]|[[Oakland Assembly]], [[Oakland, California]]|[[North Tarrytown Assembly]], [[Tarrytown, New York]]|[[Flint Truck Assembly#History|Flint "Chevy in the Hole" Plant]], [[Flint, Michigan]]|[[Norwood Assembly]], [[Norwood, Ohio]]|[[St. Louis Truck Assembly|St. Louis Assembly]], [[St. Louis|St. Louis, Missouri]]|[[Oshawa Truck Assembly|Oshawa Assembly]], [[Oshawa]], [[Canada]]}}
+| layout = [[FR layout]]
+| engine = {{convert|207|cuin|L|1|abbr=on}} [[Overhead valve engine|OHV]] [[Chevrolet Stovebolt engine|Chevrolet Stovebolt 6 cylinder]]<ref>{{Cite web | url=https://www.gmheritagecenter.com/gm-vehicle-collection/1936_Chevrolet_Suburban.html |title = GM Heritage Center Collection &#124; 1936 Chevrolet Suburban}}</ref>
+| related = [[Chevrolet Master]]
+| weight = {{convert|3300|lb|kg|abbr=on}}
+| body_style = {{ubl|2-door [[carryall]]|2-door [[panel truck]]|2-door [[canopy express]]}}
+| wheelbase = {{convert|113.5|in|mm|0|abbr=on}}<ref name="Dammann 1972">{{cite book|last=Dammann|first=George H.|title=Sixty Years of Chevrolet|year=1972|publisher=Crestline Publishing|isbn=978-0-912612-03-4}}</ref>
+}}
+Prior to the first-generation Suburban, in 1933, the [[Chevrolet Master]] had offered a [[station wagon]] body built on the 1/2-ton truck frame. This model was specifically built for [[United States National Guard|National Guard]] and [[Civilian Conservation Corps]] units. Much of the body was constructed from wood and could seat up to eight occupants.
+
+The actual first-generation model was offered by Chevrolet as a "Carryall Suburban", a utility vehicle featuring a station wagon body on the chassis of a small truck. Focused on functionality, the concept was indeed to "carry all": the whole family and their gear were to find sufficient space in one truck.<ref name=myautoworld/> It shared the front sheet metal and frames of the half-ton pickup models of the same year, but featured all-metal wagon bodies differing very little in shape from contemporary [[Woodie (car body style)|"woodie" station wagons]].
+
+Seating for up to eight occupants was available, with three in the front row, two in the middle row, and three in the rear row. Either the side-hinged rear panel doors or a rear [[Trunk (automobile)#Door|tailgate]]/lift window could be selected for cargo area access while only having two doors for passenger access.<ref name=myautoworld>{{Cite web|url=https://myautoworld.com/gm/history/suburban/suburban.html|title=1936 to 2010 Chevrolet Suburban|website=myautoworld.com}}</ref><gallery widths="150">
+File:1937 Chevrolet Carryall Suburban (front).jpg|1937 Chevrolet Carryall Suburban
+File:1937 Chevrolet Carryall Suburban.jpg|1937 Chevrolet Carryall Suburban (rear)
+</gallery>
+{{clear}}
+
+==Second generation (1941)<span class="anchor" id="2"></span><span class="anchor" id="1941"></span>==
+{{Infobox automobile
+| name = 1941–1942, 1946
+| image = 1941 Chevrolet Suburban (cropped).jpg
+| caption = 1941 Chevrolet Suburban
+| model_years = 1941–1942, 1946
+| assembly = {{ubl|[[Lakewood Assembly]], [[Lakewood Heights, Atlanta|Lakewood Heights]], [[Atlanta, Georgia]]|[[Leeds Assembly]], [[Leeds, Kansas City|Leeds]], [[Kansas City, Missouri]]<ref>{{citation |title=Vehicle Serial Number|date=1941–1946 |publisher=created and issued by General Motors Corporation}}</ref>|[[Oakland Assembly]], [[Oakland, California]]|[[St. Louis Truck Assembly|St. Louis Assembly]], [[St. Louis|St. Louis, Missouri]]|[[Flint Truck Assembly#History|Flint "Chevy in the Hole" Plant]], [[Flint, Michigan]]|[[Norwood Assembly]], [[Norwood, Ohio]]|[[North Tarrytown Assembly]], [[Tarrytown, New York]]|[[Oshawa Truck Assembly|Oshawa Assembly]], [[Oshawa]], [[Canada]]}}
+| body_style = {{ubl|2-door [[carryall]]|2-door [[panel truck]]|2-door [[canopy express]]}}
+| layout = [[FR layout]]
+| platform = [[Chevrolet AK Series|AK Series]]
+| engine = {{ubl|[[Chevrolet Stovebolt engine#216|{{convert|216|CID|L|1|abbr=on}}]] [[Straight-six engine|I6]]|[[GMC straight-6 engine#228|{{convert|228|CID|L|1|abbr=on}}]] [[Straight-six engine|I6]]}}
+| transmission = 3-speed manual<ref name="oldcarbrochures.com"/>
+| wheelbase = {{convert|116|in|mm|0|abbr=on}}
+| length = {{convert|196.625|in|mm|0|abbr=on}}<ref name="oldcarbrochures.com">{{cite web|url=http://www.oldcarbrochures.com/static/NA/GM%20Trucks%20and%20Vans/1948_Trucks_and_Vans/1948_Chevrolet_Trucks_Brochure/1948%20Chevrolet%20Trucks-16.html|title=1948 Chevrolet Trucks Brochure |publisher=Oldcarbrochures.com |access-date=January 16, 2012}}</ref>
+}}
+
+Suburbans were built in the model years 1941, 1942, and 1946. They were also produced during [[World War II]] as a military transport vehicle.<ref>{{cite web|url=http://www.motortrend.com/news/chevrolet-suburban-evolution-of-an-icon/|title=Chevrolet Suburban: Evolution of an Icon|date=April 2, 2014}}</ref><ref name="Dammann 1972"/> Seating for up to eight occupants was available. Models with rear panel doors were designated "3106", while those with tailgates were designated "3116". The Chevrolet versions were equipped a [[Chevrolet Stovebolt engine|216-cubic-inch six-cylinder engine]]. The GMC version was equipped with a [[GMC straight-6 engine|228-cubic-inch 6-cylinder engine]]. It shared much of its mechanicals with the [[Chevrolet AK Series|AK Series]] trucks.<gallery widths="150">
+File:1941 Chevrolet Carryall Suburban advert.jpg|1941 Chevrolet Carryall Suburban advert
+File:Chevrolet Suburban (1941) (48616663166).jpg|1941 Chevrolet Suburban rear 3/4 view
+</gallery>{{clear}}
+
+==Third generation (1947)==
+{{Infobox automobile
+| name = 1947–1955
+| image = Flickr - DVS1mn - 52 Chevrolet Suburban (1) (cropped).jpg
+| caption = 1952 Chevrolet Suburban
+| model_years = 1947–1955 (First Series)<ref>{{cite web|title=1955 Chevrolet First Series 3100 1/2 Ton|access-date=20 March 2023 |url=https://www.hagerty.com/valuation-tools/chevrolet/first_series_3100/1955/1955-chevrolet-first_series_3100}}</ref>
+| platform = [[Chevrolet Advance Design|Advance Design]]
+| assembly = [[Baltimore Assembly]], [[Baltimore, Maryland]]<ref>{{citation |title=Vehicle Serial Number|date=1947–1955 |publisher=created and issued by General Motors Corporation}}</ref><br />[[Janesville Assembly]], [[Janesville, Wisconsin]]<br />[[Leeds Assembly]], [[Leeds, Kansas City|Leeds]], [[Kansas City, Missouri]]<br />[[Norwood Assembly]], [[Norwood, Ohio]]<br />[[Oakland Assembly]], [[Oakland, California]] (Chevrolet & GMC) <br />[[Pontiac, Michigan]] (GMC only)<br />[[St. Louis Truck Assembly]], [[St. Louis, Missouri]] (Chevrolet & GMC)<br />[[North Tarrytown Assembly]], [[North Tarrytown, New York]]<br />[[Van Nuys Assembly]] ([[Van Nuys, California]])
+| transmission = {{ubl|3 speed [[manual transmission|manual]]|4 speed manual,|4 speed [[Hydra-Matic]] [[automatic transmission|automatic]]}}
+| layout = [[FR layout]]
+| engine = {{ubl|{{convert|216|CID|L|1|abbr=on|lk=in}} [[Chevrolet Stovebolt engine#216|"Stovebolt"]] OHV [[Straight-6|I6]]|{{convert|235|CID|L|1|abbr=on}} [[Chevrolet Stovebolt engine#235|"Thriftmaster"]] I6 after 1954<ref name="ReferenceA">{{cite web|url=http://www.oldcarbrochures.com/static/NA/GM%20Trucks%20and%20Vans/1954%20Trucks%20and%20Vans/1954%20Chevrolet%20Trucks/1954%20Chevrolet%20Trucks-06.html|title=1954 Chevrolet Trucks |publisher=Oldcarbrochures.com |access-date=January 16, 2012}}</ref>}}
+| wheelbase = {{convert|116|in|mm|0|abbr=on}}<ref name="ReferenceA"/>
+| length = {{convert|196.375|in|mm|0|abbr=on}}
+| body_style = {{ubl|2-door [[carryall]]|2-door [[panel truck]]|2-door [[canopy express]]}}
+}}
+[[File:FWS patrol vehicles 1950.jpg|left|thumb|1950 Chevrolet Suburbans]]
+[[File:1949 Chevrolet 3100 Suburban Carryall, front right (Hershey 2019).jpg|left|thumb|1949 Chevrolet 3100 Suburban]]
+The third generation model was based on the [[Chevrolet Advance Design]] series of pickups.
+
+Beginning in 1953, the [[Hydramatic|Hydra-Matic]] four-speed [[automatic transmission]] was available in GMC models and in the 1954 model year Chevrolet Suburbans. Models with rear panel doors were designated "3106", while those with tailgates were designated "3116". In 1952, the Suburban came with either a tailgate or panel doors.<ref name="Dammann 1972"/> The front bench seat was split, with two seats on the driver's side and a single seat on the passenger side, which slid forward for access to the rear two rows of seats. The second row was a "2/3" seat, requiring occupants to move past the front passenger seat, as well as the second-row seats to access the third row. This was the last series to feature "[[canopy express]]" models.<ref>{{Cite web|url=http://www.oldcarbrochures.com/static/NA/GM%20Trucks%20and%20Vans/1954%20Trucks%20and%20Vans/1954%20Chevrolet%20Trucks/1954%20Chevrolet%20Trucks-05.html|title=Directory Index: GM Trucks and Vans/1954 Trucks and/1954 Chevrolet Trucks}}</ref>
+
+The design of the 1947 Suburban would inspire the design of the [[Chevrolet HHR]] over half a century later.<ref>{{cite web |title=2009 Chevrolet HHR Review: Chevrolet's 1940s Suburban Throwback |url=https://www.greencarreports.com/news/1021886_2009-chevrolet-hhr-review-chevrolets-1940s-suburban-throwback |website=Green Car Reports |date=July 2009 |publisher=Jonathan McGrew}}</ref>
+
+{{clear}}
+
+==Fourth generation (1955)<span class="anchor" id="4"></span><span class="anchor" id="1955"></span>==
+{{Infobox automobile
+| name = 1955–1959
+| image = 1956 Chevrolet 3100 Suburban (cropped).jpg
+| caption = 1955-1959 Chevrolet Suburban
+| model_years = 1955 (Second Series)<ref>{{cite web|title=CHEVROLET SUBURBAN AT 85: THE LEGACY CONTINUES|date=31 October 2019 |url=https://media.chevrolet.com/media/us/en/chevrolet/suburban-tahoe.detail.html/content/Pages/news/us/en/2019/oct/1031-suburban-85.html}}</ref>–1959
+| assembly = [[Baltimore Assembly]], [[Baltimore, Maryland]]<br />[[Janesville Assembly]], [[Janesville, Wisconsin]]<br />[[Lakewood Assembly]], [[Lakewood Heights, Atlanta|Lakewood Heights]], [[Atlanta, Georgia]]<br />[[Leeds Assembly]], [[Leeds, Kansas City|Leeds]], [[Kansas City, Missouri]]<br />[[Norwood Assembly]], [[Norwood, Ohio]]<br />[[Oakland Assembly]], [[Oakland, California]] (Chevrolet & GMC) <br />[[Pontiac, Michigan]] (GMC only)<br />[[Van Nuys Assembly]], ([[Van Nuys, California]])<br />[[Willow Run Assembly]], [[Ypsilanti, Michigan]] (1958–1959)
+| platform = [[Chevrolet Task Force|Task Force]]
+| engine = {{ubl|[[Chevrolet small-block engine (first- and second-generation)#265|{{convert|265|CID|L|1|abbr=on}}]] {{convert|145|hp|kW|0|abbr=on}} V8<ref>{{cite web|url=http://www.oldcarbrochures.com/static/NA/GM%20Trucks%20and%20Vans/1955_Trucks-and_Vans/1955_Chevrolet_Truck_Operators_Manual/1955%20Chev%20Truck%20Manual-92.html|title=1955 Chevrolet Truck Operators Manual |publisher=Oldcarbrochures.com |access-date=January 16, 2012}}</ref>|[[Chevrolet small-block engine (first- and second-generation)#283|{{convert|283|CID|L|1|abbr=on}}]] {{convert|155|hp|kW|0|abbr=on}} V8<ref>{{cite web|url=http://www.oldcarbrochures.com/static/NA/GM%20Trucks%20and%20Vans/1956_Trucks_and_Vans/1956_Chevrolet_Truck_Operators_Manual/1956%20Chev%20Truck%20Manual-096.html|title=1956 Chevrolet Truck Operators Manual |publisher=Oldcarbrochures.com |access-date=January 16, 2012}}</ref>}}
+| transmission = 3-speed manual, 4-speed manual, 4-speed [[Hydra-Matic]] automatic<ref>{{cite web|url=http://www.oldcarbrochures.com/static/NA/GM%20Trucks%20and%20Vans/1955_Trucks-and_Vans/1955_Chevrolet_Truck_Operators_Manual/1955%20Chev%20Truck%20Manual-93.html |title=1955 Chevrolet Truck Operators Manual |publisher=Oldcarbrochures.com |access-date=January 16, 2012}}</ref>
+| wheelbase = {{convert|114|in|mm|0|abbr=on}}<ref>{{cite web|url=http://www.oldcarbrochures.com/static/NA/GM%20Trucks%20and%20Vans/1957_Trucks_and_Vans/1957_Chevrolet_Truck_Operators_Manual/1957%20Chev%20Truck%20Manual-102.html|title=1957 Chevrolet Truck Operators Manual |publisher=Oldcarbrochures.com |access-date=January 16, 2012}}</ref>
+| layout = [[Front-engine, rear-wheel-drive layout|Front engine]], [[rear-wheel drive]] / [[four-wheel drive]]
+| body_style = {{ubl|2-door carryall|2-door [[panel truck]]}}
+}}
+Updated engineering and styling on Chevrolet trucks was not introduced until March 25, 1955, in the middle of the model year that GM called the [[Chevrolet Task Force|Chevrolet Task Force/GMC Blue Chip]] series. All Chevrolet and GMC truck models received new styling that included a flatter hood, front fenders flush with the body, and a trapezoid grille.<ref name="Dammann 1972"/> The trucks' V-shaped speedometer was shared with passenger car models.<ref>{{cite web|url=http://www.oldcarbrochures.com/static/NA/GM%20Trucks%20and%20Vans/1955_Trucks-and_Vans/1955_Chevrolet_Truck_Operators_Manual/1955%20Chev%20Truck%20Manual-04.html |title=1955 Chevrolet Truck Operators Manual |page=4 |publisher=Oldcarbrochures.com |access-date=August 25, 2012 }}</ref>
+
+Engines included [[Chevrolet Stovebolt engine|I6]] and the small-block V8s. Chevrolet used its [[Chevrolet small-block engine (first- and second-generation)|265 V8]] engine, later evolving it to a 283-cubic-inch version. GMC based their V8 on a [[Pontiac V8 engine|Pontiac design]]. Standard Suburban model numbers continued from the previous series, but the introduction of four-wheel-drive models in 1957 added the numbers "3156" for 4WD Suburbans with panel doors, and "3166" for 4WD Suburbans with tailgates.<ref>{{Cite web|url=https://www.cargurus.com/Cars/Chevrolet-Suburban-Overview-d638|title=Chevrolet Suburban|website=CarGurus|date=18 October 2011 }}</ref><ref>[http://www.fourwheeler.com/features/1506-chevy-suburban-spotters-guide-suv-bio/ "Chevy Suburban Spotter's Guide – SUV Bio"] from Four Wheeler (April 27, 2015)</ref>
+
+The "Suburban" name was also used on GM's two-door GMC 100 series pickup trucks from 1955 to 1959, called the Suburban Pickup, which was similar to the [[Chevrolet Task Force#Cameo Carrier/Suburban Pickup|Chevrolet Cameo Carrier]]. However, it was dropped at the same time as Chevy's Cameo in March 1958, when GM released the new all-steel "Fleetside" bed option, replacing the Cameo/Suburban Pickup fiberglass bedsides. The Suburban name was never used again on a 1/2 ton pickup after the discontinuation of the Suburban Pickup. Although not documented because of a fire that destroyed the records, the production of Suburban Pickups is understood to be 300 or fewer each model year it was offered from 1955 to 1958.
+{{clear}}
+
+==Fifth generation (1960)<span class="anchor" id="5"></span><span class="anchor" id="1960"></span>==
+{{Infobox automobile
+| name = 1960–1966
+| image = 1961 Chevrolet Apache Suburban (cropped).jpg
+| caption = 1961 Chevrolet Apache Suburban
+| model_years = {{ubl|1960–1966|1964–1989 (Veraneio)}}
+| assembly = [[Baltimore Assembly]], [[Baltimore, Maryland]]<br />[[Flint Truck Assembly]], [[Flint, Michigan]]<br />[[Fremont Assembly]], [[Fremont, California]] (Chevrolet & GMC, 1963–1966)<br />[[Janesville Assembly]], [[Janesville, Wisconsin]]<br />[[Lakewood Assembly]], [[Lakewood Heights, Atlanta|Lakewood Heights]], [[Atlanta, Georgia]]<br />[[Leeds Assembly]], [[Leeds, Kansas City|Leeds]], [[Kansas City, Missouri]]<br />[[Oakland Assembly]], [[Oakland, California]] (Chevrolet & GMC, 1960–1964) <br />[[Pontiac West Assembly]], [[Pontiac, Michigan]] (GMC only) <br />[[St. Louis Truck Assembly]], [[St. Louis, Missouri]]<br />[[North Tarrytown Assembly]], [[North Tarrytown, New York]]<br />[[São Caetano do Sul]], Brazil ([[Chevrolet C/K#1964–1984|Chevrolet Veraneio]])
+| aka = {{ubl|GMC Carryall | Chevrolet Veraneio (Brazil)}}
+| platform = [[Chevrolet C/K|C/K series]]
+| body_style = {{ubl|2-door [[SUV]]|5-door SUV (Veraneio)|2-door [[panel truck]]}}
+| engine = {{ubl|[[Chevrolet Turbo-Thrift engine#230|{{convert|230|CID|L|1|abbr=on}}]] [[Straight-six engine|I6]] (63–65)|[[Chevrolet Stovebolt engine#235|{{convert|235|CID|L|1|abbr=on}}]] [[Straight-six engine|I6]] (60–62)|[[Chevrolet Turbo-Thrift engine#250|{{convert|250|CID|L|1|abbr=on}}]] [[Straight-six engine|I6]] (66)|[[Chevrolet small-block engine (first- and second-generation)#283|{{convert|283|CID|L|1|abbr=on}}]] V8 (60–66)|[[Chevrolet Turbo-Thrift engine#292|{{convert|292|CID|L|1|abbr=on}}]] [[Straight-six engine|I6]] (63–66)|[[GMC V6 engine#305|{{convert|305|CID|L|1|abbr=on}}]] [[V6 engine|V6]]|[[Chevrolet small-block engine (first- and second-generation)#327|{{convert|327|CID|L|1|abbr=on}}]] V8 (66)<ref name="ReferenceB">{{cite web|url=http://www.oldcarbrochures.com/static/NA/GM%20Trucks%20and%20Vans/1964_Trucks_and_Vans/1964_Chevrolet_Suburban_Brochure/1964%20Chev%20Suburban-04.html|title=1964 Chevrolet Suburban Brochure |publisher=Oldcarbrochures.com |access-date=January 16, 2012}}</ref>}}
+| wheelbase = {{convert|115|in|mm|0|abbr=on}}<ref name="ReferenceB"/>
+| length = {{convert|199.5|in|mm|0|abbr=on}}<ref name="ReferenceB"/>
+| width = {{convert|79.5|in|mm|0|abbr=on}}
+| transmission = 3-speed synchromesh manual, 4-speed synchromesh, 4-speed [[Hydra-Matic]] automatic, [[Powerglide]]<ref name="ReferenceB"/>
+| layout = {{ubl|[[Front-engine, rear-wheel-drive layout|Front engine]],|[[rear-wheel drive]] / [[four-wheel drive]]}}
+}}
+The styling of the 1960–1961 model year took cues from the late 1950s Chevrolet vehicles, and had large oval ports above the grille. An independent front suspension was new for 1960.<ref>{{cite web |url=http://www.oldcarbrochures.org/index.php/NA/GM-Trucks-and-Vans/1960_Trucks_and_Vans/1960-Chevrolet-Suburban-Brochure/1960-Chevrolet-Suburban-04 |title=1960 Chevrolet Suburban |page=4 |publisher=Oldcarbrochures.org |access-date=October 22, 2012 |archive-url=https://web.archive.org/web/20130610014942/http://oldcarbrochures.org/index.php/NA/GM-Trucks-and-Vans/1960_Trucks_and_Vans/1960-Chevrolet-Suburban-Brochure/1960-Chevrolet-Suburban-04 |archive-date=June 10, 2013 |url-status=dead }}</ref> The cab featured a "wrap around" windshield, while tailgate and panel door rear openings were available.
+
+From 1962 onwards, the hood styling was more conservative, with hoods that eliminated the large ports. In 1964, the front glass area was updated to a flatter windshield and larger door glass. {{convert|1150|lb|abbr=on}} of cargo could be carried in the back.<ref>{{cite web|url=http://www.oldcarbrochures.com/static/NA/GM%20Trucks%20and%20Vans/1964_Trucks_and_Vans/1964_Chevrolet_Suburban_Brochure/1964%20Chev%20Suburban-02.html|title=1964 Chevrolet Suburban Brochure |publisher=Oldcarbrochures.com |access-date=January 16, 2012}}</ref>
+
+This model series introduced a factory-equipped 4WD ("K") option for the first time. The 2WD ("C") models introduced a [[torsion bar]]-based independent front suspension and trailing arm and coil spring rear, but returned to a more conventional coil-spring approach by 1963.
+
+Engine options included [[Chevrolet Stovebolt engine|straight-sixes]] and [[Chevrolet small-block engine (first- and second-generation)|small-block V8s]]. A {{cvt|305|CID|L|1}} [[GMC V6 engine]] was also available on GMC models. This 305 was actually from GMC's medium-duty truck line. It featured high torque but had notoriously poor fuel economy. Transmissions were a three-speed and four-speed manual, the automatic Powerglide, and in the GMC models, the dual-range Hydra-Matic from 1960 to 1962.
+
+A 15-passenger conversion was done by Stageway of Fort Smith, Arkansas. These modified Suburbans had three doors on the right, a {{convert|171|in|mm|0|abbr=on}} wheelbase, were {{convert|273|in|mm|0|abbr=on}} long, and weighed {{convert|6300|lb|kg|0|abbr=on}}.<ref name="Dammann 1972"/>
+
+One-ton (C-30), {{convert|10|ft|m|0|adj=on}} panel truck models were no longer available after 1966.
+{{multiple image
+| align             = left
+| width             = 220
+| header            = 
+| image1            = Flickr - DVS1mn - 64 Chevrolet Suburban Carryall (1) (cropped).jpg
+| caption1          = 1964 Chevy Suburban Carryall
+| image2            = 66 GMC Suburban (cropped).jpg
+| caption2          = 1966 GMC Suburban
+}}
+{{clear left}}
+=== <span class="anchor" id="Veraneio"></span> Chevrolet Veraneio (Brazil) ===
+[[File:Chevrolet Veraneio front left.jpg|thumb|left|1972–1978 Chevrolet Veraneio|alt=Front view, from the right, of a green 1972+ Chevrolet Veraneio]]
+In 1964, Chevrolet in Brazil introduced a five-door version of the Suburban, known as the '''C-1416''' (known as '''Veraneio''' from 1969 onwards, which is Portuguese for "summertime"). It was based on the contemporary Brazilian Chevrolet '''C-14'''. Like the C-14, the C-1416/Veraneio used the instrument cluster from the U.S. C/K series, although the exterior sheet metal layout is exclusive to Brazil. It was initially powered with a Chevrolet 4.3L inline-six based on the pre-1962 "Stovebolt" engines. Later, it used the {{cvt|250|CID|L|1}} engine from Chevrolet's Brazilian mid-size sedan, the [[Chevrolet Opala|Opala]]. The original version of the Veraneio was kept in production, with another grille and interior, until the 1989 model year, but it was eventually replaced with an updated version based on the [[Chevrolet D-20|Série 20]] family.<ref name="Veraneio">{{cite web | url = http://www.lexicarbrasil.com.br/chevrolet/#attachment_2949 |title=Chevrolet |date=June 29, 2014 |access-date=February 20, 2015 |publisher=Lexicar Brazil |language=pt }}</ref> The second generation of Veraneio was produced from 1989 to 1995.
+
+In 1997, GM introduced the then-current North American pickups to the Brazilian market, replacing the long-running C-series. The Brazilian version of the Suburban was also converted to the current generation at the time, and lasted until 2001 as the "Grand Blazer", succeeding the Veraneio. The 4.1L inline-six engine with {{cvt|138|hp-metric|kW|0}} was offered on both models with option for a MWM 4.2L turbodiesel unit with {{cvt|168|hp-metric|kW|0}}.
+
+In 2015, ''[[Autoweek]]'' ranked the Veraneio fourth among Chevrolet station wagons never sold in the U.S. It also cited the vehicle's design as "baroque" and summed it up as "a 1960s Brazilian crossover." ''Autoweek'' noted that the Veraneio was eligible for import to the United States under the 25-year exemption.<ref>{{cite magazine | url = http://autoweek.com/article/classic-cars/7-chevrolet-station-wagons-america-never-got | title = 7 Chevrolet station wagons America never got | archive-url = https://web.archive.org/web/20210501162448/https://www.autoweek.com/car-life/classic-cars/a1876716/7-chevrolet-station-wagons-america-never-got/ | archive-date = 2021-05-01 | magazine = Autoweek | date = September 15, 2015 | publisher = Hearst Autos, Inc. | first = Jay | last = Ramey }}</ref>
+{{clear}}
+
+==Sixth generation (1967)<span class="anchor" id="6"></span><span class="anchor" id="1967"></span>==
+{{Infobox automobile
+| name = 1967–1972
+| image = GMC Suburban white single drivers side door 1968-72.jpg
+| model_years = 1967–1972
+| assembly = [[Flint Truck Assembly]], [[Flint, Michigan]] <br />[[Fremont Assembly]], [[Fremont, California]] <br /> [[St. Louis Truck Assembly]], [[St. Louis, Missouri]] <br />  [[Oshawa Truck Assembly]], [[Oshawa, Ontario]], [[Canada]]
+| platform = [[Chevrolet C/K|C/K series]]
+| aka = GMC Carryall
+| body_style = {{ubl|3-door [[station wagon]] (North America)|2-door [[panel truck]]}}
+| engine = {{ubl|{{convert|305|CID|L|1|abbr=on}} [[GMC V6 engine|GMC]] [[V6 engine|V6]]|{{convert|250|CID|L|1|abbr=on}} [[Chevrolet Turbo-Thrift engine#250|Chevrolet]] [[Straight-six engine|I6]]|{{convert|292|CID|L|1|abbr=on}} [[Chevrolet Turbo-Thrift engine#292|Chevrolet]] [[Straight-six engine|I6]]|{{convert|283|CID|L|1|abbr=on}} [[Chevrolet small-block engine (first- and second-generation)#283|Chevy small-block]] [[V8 engine|V8]]|{{convert|307|CID|L|1|abbr=on}} [[Chevrolet small-block engine (first- and second-generation)#307|Chevy small-block]] V8|{{convert|327|CID|L|1|abbr=on}} [[Chevrolet small-block engine (first- and second-generation)#327|Chevy small-block]] V8|{{convert|350|CID|L|1|abbr=on}} [[Chevrolet small-block engine (first- and second-generation)#350|Chevy small-block]] V8|{{convert|396|CID|L|1|abbr=on}} [[Chevrolet big-block engine#396 and 402|Chevy big-block]] V8<ref>{{cite web|url=http://www.oldcarbrochures.com/static/NA/GM%20Trucks%20and%20Vans/1969_Trucks_and_Vans/1969_Chevrolet_Suburban_Brochure/1969%20Chevy%20Suburban-06.html|title=1969 Chevrolet Suburban Brochure |publisher=Oldcarbrochures.com |access-date=January 16, 2012}}</ref> | {{cvt|402|CID|L|1|abbr=on}} [[Chevrolet big-block engine#396 and 402|Chevy big-block]] V8 }}
+| layout = {{ubl|[[Front-engine, rear-wheel-drive layout|Front engine]],|[[rear-wheel drive]] / [[four-wheel drive]]}}
+| successor = [[Chevrolet Van]] (for [[panel truck]] models)
+| wheelbase = {{convert|127|in|mm|0|abbr=on}}<ref name="Dammann 1972"/><ref name="ReferenceC">{{cite web|url=http://www.oldcarbrochures.com/static/NA/GM%20Trucks%20and%20Vans/1969_Trucks_and_Vans/1969_Chevrolet_Suburban_Brochure/1969%20Chevy%20Suburban-03.html|title=1969 Chevrolet Suburban Brochure |publisher=Oldcarbrochures.com |access-date=January 16, 2012}}</ref>
+| length = {{convert|215.5|in|mm|0|abbr=on}}<ref name="ReferenceC"/>
+| transmission = 3-speed manual, 4-speed manual, [[Powerglide]], [[Turbo-Hydramatic]]<ref>{{cite web|url=http://www.oldcarbrochures.com/static/NA/GM%20Trucks%20and%20Vans/1969_Trucks_and_Vans/1969_Chevrolet_Suburban_Brochure/1969%20Chevy%20Suburban-07.html |title=1969 Chevrolet Suburban Brochure |publisher=Oldcarbrochures.com |access-date=January 16, 2012}}</ref>
+| caption = 1968-1972 GMC Suburban
+}}
+[[File:Green Banks - Chevy Suburban C10 logo.jpg|thumb|left|Chevrolet Suburban C10 badge]]
+[[File:Green Banks - Chevy Suburban C10.jpg|thumb|left|Chevrolet Suburban C10]]
+The sixth-generation Suburban debuted alongside the [[Chevrolet C/K (second generation)|"Action-Line" generation]] of C/K trucks. Growing in size over its rival, the [[International Travelall]], the Suburban moved from a 115-inch to a 127-inch wheelbase (shared by pickup trucks with eight-foot beds). In another change, a {{3/4}}<big>-</big>ton C-20 Suburban was introduced for the first time.  Alongside the standard rear-wheel-drive configuration, 4×4 K-10/K-20 models were also offered.
+
+In a configuration distinct to this generation, Action-Line Suburbans are configured with a single driver-side door and two passenger doors. For 1969, the Suburban was joined by the shorter [[Chevrolet K5 Blazer|K5 Blazer]] (GMC Jimmy), a two-door utility vehicle with a lift-off hardtop.
+
+The rear-wheel-drive Suburban was also available as a [[panel truck]] for commercial purposes. Following the 1970 model year, the configuration was retired, with the model functionally replaced by the [[Chevrolet Van#Third generation (1971-1996)|G-Series Chevrolet Van/GMC Vandura]] for 1971.
+
+Through its production, the Action-Line Suburban shared a large amount of mechanical commonality with its pickup-truck counterpart, sharing the same powertrain offerings. A 250-cubic-inch inline-6 was standard, with a 292-cubic-inch inline-6 offered as an option. Small-block V8s initially were 283 and 327 V8s (later 307 and 350 V8s); a 396 (402) V8 served as a big-block V8 offering. GMC Suburbans were fitted with a 305 V6 as a standard engine until 1970.
+
+Sharing the styling revisions of Action-Line pickup trucks, the Suburban introduced front disc brakes for 1971.<ref>{{cite web |title=1971 Chevrolet Suburban Brochure |url=http://www.oldcarbrochures.com/static/NA/GM%20Trucks%20and%20Vans/1971_Trucks-Vans/1971_Chevrolet_Suburban_Brochure/1971%20Chevy%20Suburban-05.html |access-date=January 16, 2012 |publisher=Oldcarbrochures.com}}</ref> Automatic-transmission vehicles received an optional tilting steering column.<ref>{{cite web |title=1971 Chevrolet Suburban Brochure |url=http://www.oldcarbrochures.com/static/NA/GM%20Trucks%20and%20Vans/1971_Trucks-Vans/1971_Chevrolet_Suburban_Brochure/1971%20Chevy%20Suburban-07.html |access-date=January 16, 2012 |publisher=Oldcarbrochures.com}}</ref> For 1972, the optional rear-seat air conditioning was redesigned with a smaller housing (previously fitted with a housing that ran the full length of the roof).
+
+The Action-Line Suburban was produced alongside the rapid growth of the [[recreational vehicle]] market in the late 1960s. While only about 6,200 Suburbans were produced for 1967, by 1972, production had grown to approximately 27,000.{{Citation needed|date=March 2023}}  Alongside the retirement of the panel truck configuration, this generation marked the final use of the GMC Carryall name.
+{{clear}}
+
+==Seventh generation (1973)<span class="anchor" id="7"></span><span class="anchor" id="1973"></span>==
+<!--"Four-wheel drive" links here.-->
+{{Infobox automobile
+| name = 1973–1991
+| image = GMC Suburban -- 12-14-2011.jpg
+| aka = GMC Suburban
+| model_years = 1973–1991
+| platform = [[Chevrolet C/K|C/K series]]
+| body_style = 4-door SUV
+| layout = {{ubl|[[Front-engine, rear-wheel-drive layout|Front engine]],|[[rear-wheel drive]] / [[four-wheel drive]]}}
+| engine = {{ubl
+|'''Gasoline:'''
+|{{convert|250|cuin|L|1|abbr=on}} I6
+|{{convert|305|cuin|L|1|abbr=on}} V8 (1976–88)
+|{{convert|307|cuin|L|1|abbr=on}} V8 (1973)
+|{{convert|350|cuin|L|1|abbr=on}} V8
+|{{convert|400|cuin|L|1|abbr=on}} V8 (1976–80)
+|{{convert|454|cuin|L|1|abbr=on}} V8
+|'''Diesel:'''
+|{{convert|379|cuin|L|1|abbr=on}} [[Detroit Diesel V8 engine#6.2L|Detroit Diesel]] V8 (1982–91)}}
+| transmission = {{ubl|'''Manual:'''|3-speed|4-speed|'''Automatic:'''|3-speed [[Turbo-Hydramatic#THM350|THM-350]]|3-speed [[Turbo-Hydramatic#Super Turbine 400 / THM400 / 3L80 / 3L80HD|THM-400]]|4-speed [[Turbo-Hydramatic#700R4 / 4L60 / 4L60E / 4L65E|700R4]] (1981–91)|4-speed [[GM 4L80-E transmission|4L80-E]] (1991)}}
+| length = {{convert|219.1|in|mm|0|abbr=on}}
+| width = {{convert|79.6|in|mm|0|abbr=on}}
+| height = {{ubl|R10: {{convert|72.0|in|mm|0|abbr=on}}|V10: {{convert|73.8|in|mm|0|abbr=on}}|R20: {{convert|74.3|in|mm|0|abbr=on}}|V20: {{convert|76.1|in|mm|0|abbr=on}}}}
+| wheelbase = {{convert|129.5|in|mm|0|abbr=on}}
+| weight = {{convert|5837|lb|abbr=on}}
+| related = {{ubl|[[Chevrolet K5 Blazer|Chevrolet K-Blazer/GMC K-Jimmy]]|[[Chevrolet C/K|Chevrolet/GMC C/K]]|[[Chevrolet C/K#1985–1996|Chevrolet Veraneio]] (Brazil)}}
+| assembly = [[Flint, Michigan]] ([[Flint Truck Assembly]])
+| caption = 1989-1991 GMC Suburban V-1500 Series
+}}
+
+For 1973, the Suburban became part of the [[Chevrolet C/K (third generation)|Rounded-Line C/K]] series, with both the Chevrolet and [[GMC (automobile)|GMC]] divisions adopting the Suburban nameplate. Growing nominally in size over its Action-Line predecessor, the seventh-generation Suburban completely abandoned its carryall past, introducing a station wagon–style body with four full passenger doors (more than a decade after its rivals, the [[Jeep Wagoneer]] and [[International Travelall]]). As the term "sport-utility vehicle" was more closely associated with off-road vehicles (such as the K5 Blazer), GM designated the Suburban as a truck-based station wagon.<ref name=":0">{{cite web |title=1973 Trucks and_Vans album |url=http://www.oldcarbrochures.com/static/NA/GM%20Trucks%20and%20Vans/1973_Trucks_and_Vans/1973%20Chevrolet%20Suburban/1973%20Chevy%20Suburban-03.html |access-date=January 16, 2012 |website=OldCarBrochures.com }}</ref><ref>{{Cite web |title=Directory Index: GM Trucks and Vans/1976_Trucks_and_Vans/1976_Chevrolet_Suburban_Brochure |url=http://www.oldcarbrochures.com/static/NA/GM%20Trucks%20and%20Vans/1976_Trucks_and_Vans/1976_Chevrolet_Suburban_Brochure/1976%20Chevy%20Suburban-03.html |access-date=2023-03-19 |website=OldCarBrochures.com }}</ref>
+
+From the rear of the passenger doors, the Suburban shared its bodywork (both its doors and [[Roofline model|roofline]]) with the C/K crew-cab pickup (a new configuration introduced for 1973). The {{1/2}}-ton and {{3/4}}-ton 10 and 20 payload series made their return alongside the rear-wheel-drive C-series and 4×4 K-series. Alongside the long-running twin-panel rear doors, the Suburban adopted an optional tailgate-style rear door with a retractable rear window (lowered manually or electrically).<ref name=":0" /><ref name="74a">[https://www.gmheritagecenter.com/docs/gm-heritage-archive/vehicle-information-kits/Suburban/1974-Chevrolet-Suburban.pdf 1974 Chevrolet Suburban] gmheritagecenter.com</ref>
+
+Initially offered in Custom, Custom Deluxe, and Cheyenne Super trims,<ref>{{Cite web |title=Directory Index: GM Trucks and Vans/1973_Trucks_and_Vans/album |url=http://www.oldcarbrochures.com/static/NA/GM%20Trucks%20and%20Vans/1973_Trucks_and_Vans/1973%20Chevrolet%20Suburban/1973%20Chevy%20Suburban-08.html |access-date=2023-03-19 |website=OldCarBrochures.com }}</ref> the Suburban adopted a base Custom Deluxe, mid-level Scottsdale, and flagship Silverado trim nomenclature for 1975. GMC Suburbans were initially Custom, Super Custom, and Sierra Grande;<ref>{{Cite web |title=Directory Index: GM Trucks and Vans/1973_Trucks_and_Vans/album_005 |url=http://www.oldcarbrochures.com/static/NA/GM%20Trucks%20and%20Vans/1973_Trucks_and_Vans/1973%20GMC%20Pickups%20and%20Suburbans/1973%20GMC%20Pickups%20and%20Suburbans-09.html |access-date=2023-03-19 |website=OldCarBrochures.com }}</ref> in 1975, Sierra Classic replaced Super Custom.<ref>{{Cite web |title=Directory Index: GM Trucks and Vans/1975_Trucks_and_Vans/1975_GMC_Suburban_Brochure |url=http://www.oldcarbrochures.com/static/NA/GM%20Trucks%20and%20Vans/1975_Trucks_and_Vans/1975_GMC_Suburban_Brochure/1975%20GMC%20Suburban-03.html |access-date=2023-03-19 |website=OldCarBrochures.com }}</ref> In 1981, GMC replaced Custom with Sierra.<ref>{{Cite web |title=Directory Index: GM Trucks and Vans/1981_Trucks_and_Vans/album_003 |url=http://www.oldcarbrochures.com/static/NA/GM%20Trucks%20and%20Vans/1981_Trucks_and_Vans/1981%20GMC%20Suburban/1981%20GMC%20Suburban-02.html |access-date=2023-03-19 |website=OldCarBrochures.com }}</ref> A rare variant for both Chevrolet and GMC was the Estate option package, offering woodgrain exterior trim (in line with sedan-based wagons); the option was offered through the 1979 model year.<ref>{{Cite web |title=Directory Index: GM Trucks and Vans/1979_Trucks_and_Vans/1979_Chevrolet_Suburban_Brochure |url=http://www.oldcarbrochures.com/static/NA/GM%20Trucks%20and%20Vans/1979_Trucks_and_Vans/1979_Chevrolet_Suburban_Brochure/1979%20Chevy%20Suburban-11.html |access-date=2023-03-19 |website=OldCarBrochures.com }}</ref>
+
+Though technically fitted with only with a front bench seat as standard equipment, the Suburban was offered in multiple interior configurations, offering up to nine-passenger seating. Bucket front seats became a front-seat option in 1978, with the third-row seat changed to a quick-release design (without tools) for 1979.<ref>{{Cite web |title=Directory Index: GM Trucks and Vans/1979_Trucks_and_Vans/1979_Chevrolet_Suburban_Brochure |url=http://www.oldcarbrochures.com/static/NA/GM%20Trucks%20and%20Vans/1979_Trucks_and_Vans/1979_Chevrolet_Suburban_Brochure/1979%20Chevy%20Suburban-04.html |access-date=2023-03-19 |website=OldCarBrochures.com }}</ref>
+
+The Rounded-Line Suburban shared the same exterior revisions of its pickup-truck counterpart. Along with minor revisions in 1975, 1977, and 1980, the model line underwent a more substantial revision in 1981, followed by updates in 1983 and 1985.<ref>{{Citation |title= '73-'87 Chevrolet Trucks | first = Thom | last = Taylor |url=http://www.73-87.com/7387info/misc/73-87diff.jpg}}</ref>
+
+=== Powertrain details ===
+The Suburban shared several engines with the C/K pickup truck line. A 250-cubic-inch inline-six was the standard engine through 1979. The model line was offered with a 307- (1973 only) and 350-cubic-inch small-block V8s; a 454-cubic-inch big-block V8 was optional in C-series Suburbans. For 1976, the 350 V8 was joined by 305- and 400-cubic-inch V8s; the latter was discontinued for 1981. For 1980, V8 engines became standard for the model line, with the 305 returning as the standard engine for 1981. For 1982, GM introduced a 6.2L [[Detroit Diesel V8 engine|Detroit Diesel V8]] as a higher-efficiency alternative to the 454 V8.<ref>{{cite web |date=August 1981 |title=1982 Chevy Suburban (brochure) |url=http://www.coloradok5.com/brochures/1982/burb2.jpg |url-status=dead |archive-url=https://web.archive.org/web/20100214065927/http://www.coloradok5.com/brochures/1982/burb2.jpg |archive-date=February 14, 2010 |publisher=Chevrolet Motor Division |page=2 |df=mdy-all}}</ref>
+
+A three-speed manual transmission was offered through the 1980 model year, with a four-speed manual offered through 1987. Initially offered with three-speed [[Turbo Hydra-Matic]] 350 and 400 automatic transmissions, a four-speed Turbo Hydra-Matic 700R4 became an option in 1981.
+
+For 1980, K-series Suburbans moved from full-time four-wheel drive to a part-time system, allowing the front axle to freewheel.<ref name=":1">{{Cite web |title=73-87 GM Pickup Differences |url=http://www.73-87.com/7387info/7387differences.htm |access-date=2023-03-19 |website=73-87.com }}</ref> For 1981, the shift-on-the fly 4×4 system adopted automatic-locking front hubs; the NP208 transfer case replaced the NP205 in most examples.<ref>{{cite web |date=July 1980 |title=1981 Chevy Suburban (brochure) |url=http://www.coloradok5.com/brochures/1981/burb5.jpg |url-status=dead |archive-url=https://web.archive.org/web/20100214065920/http://www.coloradok5.com/brochures/1981/burb5.jpg |archive-date=February 14, 2010 |publisher=Chevrolet Motor Division |df=mdy-all}}</ref><ref>{{Cite web |title=Directory Index: GM Trucks and Vans/1981_Trucks_and_Vans/album_001 |url=http://www.oldcarbrochures.com/static/NA/GM%20Trucks%20and%20Vans/1981_Trucks_and_Vans/1981%20Chevy%20Suburban/1981%20Chevy%20Suburban-05.html |access-date=2023-03-19 |website=OldCarBrochures.com }}</ref>
+
+=== R/V series (1987–1991) ===
+For 1987, GM redesignated the Rounded-Line C/K series as the R/V series to accommodate the launch of the 1988 GMT400-platform C/K trucks, which were being launched in the spring of 1987. For 1987, the gasoline engines of the model converted from carbureted fuel delivery to [[electronic fuel injection]] (using [[Fuel injection#Throttle body injection|throttle body injection]]/TBI)''.'' For 1988, the 5.0L engine was dropped from the line, with the 5.7L V8 becoming the standard engine. In a trim revision, the R/V line adopted the nomenclature of its GMT400 successor, with all vehicles adopting the 1500/2500/3500 payload series (previously used by GMC) and the base Custom Deluxe trim retired and replaced by a revived Cheyenne trim.
+
+For 1989, the exterior underwent its largest revision since its 1973 introduction. Adopting a style similar to the GMT400, the black-painted grille was offered with quad headlights (economy trims were equipped with two). After using the same design nearly unchanged since 1973, the steering wheel was replaced (adopting the same design as the GMT400).<ref name=":1" />
+
+For 1990, the Suburban introduced power-operated sideview mirrors, also adding the option of rear-wheel [[Anti-lock braking system|ABS]]. Alongside the Suburban and Blazer/Jimmy, the R/V line was pared down nearly exclusively to one-ton crew-cab pickup and chassis-cab trucks.
+
+For 1991, the four-speed 700R4 automatic transmission was replaced by the electronically controlled 4L80-E unit. After an 18-year production run, the Rounded-Line Suburban ended production as GM shifted crew-cab pickup trucks and full-size SUVs to the GMT400 platform for 1992.
+
+<gallery widths="150">
+File:GMC Suburban Sierra Classic (Orange Julep).JPG|1977 GMC Suburban C15 Sierra Classic
+File:77 sub front right.jpg|1977 Chevrolet C20 Suburban Estate
+File:1979 Suburban C20.jpg|1979 Chevrolet Suburban C20
+File:1980 GMC suburban C15.jpg|1980 GMC Suburban C15 Sierra Classic
+File:1983 Suburban K25.jpg|1983 GMC Suburban K25 Diesel
+File:GMC-Suburban.jpg|1985–1988 GMC Suburban Sierra Classic
+File:1988 GMC R-2500 Suburban High Sierra, front right, 08-06-2023.jpg|1988 GMC R2500 Suburban High Sierra
+File:Chevrolet Suburban.jpg|1989–1991 Chevrolet Suburban 2500 Silverado
+File:1977 Chevrolet Suburban Estate (28300521421).jpg|1977 Suburban Estate dashboard
+</gallery>
+{{clear right}}
+
+==Eighth generation (1992)==
+{{main|Chevrolet Suburban (eighth generation)}}
+
+{{Infobox automobile
+| name = GMT400
+| image = 1995 GMC Suburban 1500 4x4 in Atlantic Blue Metallic, front left.jpg
+| caption = 1995 GMC Suburban 1500
+| aka = {{ubl|GMC Suburban|[[Holden]] Suburban (Oceania)}}
+| model_years = {{ubl|1992–1999 (U.S.)|1998–2001 (Australia)}}
+| platform = [[GMT400|GMT410/425]]
+| successor = GMC Yukon XL (for GMC Suburban)
+}}
+The eighth-generation Suburban was introduced in December 1991 for 1992, moving from the Rounded-Line chassis to the [[GMT400]] architecture. Four years after the [[Chevrolet C/K (fourth generation)|redesigned C/K pickup trucks]] debuted, the GMT400 transition was applied to the Suburban, K5 Blazer and Yukon (replacing the full-size Jimmy nameplate), and crew-cab pickup/chassis-cab vehicles.  Reverting from the placeholder R/V back to the C/K nomenclature for rear-wheel drive and 4x4 vehicles, the Suburban was offered in "½-ton" (1500) and "¾-ton" (2500) payload series.
+
+[[File:GMT400 K2500 Diesel Suburban.jpg|left|thumb|1997-1999 Chevrolet Suburban K2500 6.5L turbodiesel V8 ]]
+
+The GMT400 Suburban introduced an [[independent front suspension]] to 4WD models. 4WD models used [[torsion bar]]s in the front suspension, while 2WD models continued to use [[coil spring]]s. All models used a [[live axle]] and [[leaf spring]]s in the rear.  While the Suburban was not offered with a 4.3L V6 or 5.0L V8, the 5.7L engine was standard; the 7.4L V8 was optional on 2500-series vehicles. For 1994, a turbodiesel V8 was introduced for the first time, as the 6.5L V8 replaced the 6.2L V8 (last offered in 1991; there was no diesel engine available for 1992-93 Suburbans). For 1996, both gasoline engines were replaced with updated Vortec-series engines.
+
+This generation followed the development of its pickup truck counterpart during its production. Along with a 1994 exterior update, the model line saw multiple functional updates, including the introduction of driver-side and dual airbags (1995 and 1997, respectively), daytime running lights (1996), and the addition of [[OnStar]] (1998).
+
+The GMT400 Suburban again supported the Chevrolet K5 Blazer three-door wagon (the GMC Jimmy becoming the [[GMC Yukon]]), with the Blazer sharing its entire rear roofline with the Suburban. For 1995, Chevrolet renamed the K5 Blazer as the [[Chevrolet Tahoe]], with the three-door wagon joined by a five-door wagon (a shorter-wheelbase version of the Suburban with two rows of seating); the shorter five-door wagon served as the basis for the introductory [[GMC Yukon Denali|Yukon Denali]] and [[Cadillac Escalade]] for 1999.
+
+The GMT400 generation was also imported from Mexico to Australia and New Zealand by [[Holden]]. The division marketed the vehicles as a '''Holden Suburban''' between February 1998 and January 2001 with various minor changes (beyond the conversion to [[Left- and right-hand traffic|right-hand-drive]]).<ref>{{cite web |date=May 10, 2001 |title=Car review – Holden Suburban 1500 LT 5-dr wagon |url=http://www.goauto.com.au/mellor/mellor.nsf/story2/CCFB67BA3E9FCE77CA256A480019218D |url-status=dead |archive-url=https://web.archive.org/web/20071117105910/http://www.goauto.com.au/mellor/mellor.nsf/story2/CCFB67BA3E9FCE77CA256A480019218D |archive-date=November 17, 2007 |access-date=October 6, 2007 |website=GoAuto |publisher=John Mellor}}</ref>    
+
+{{clear}}
+
+==Ninth generation (2000)<span class="anchor" id="9"></span><span class="anchor" id="2000"></span><span class="anchor" id="GMT800"></span>==
+{{Infobox automobile
+| name = GMT830
+| image = 2000-2006 Chevrolet Suburban -- 03-16-2012 2.JPG
+| aka = {{ubl|GMC Suburban (Middle East)|GMC Yukon XL|[[Cadillac Escalade ESV]]}}
+| layout = [[Front-engine, rear-wheel-drive layout|Front engine]], [[rear-wheel drive]] / [[four-wheel drive]]
+| production = October 1999 – March 2006
+| model_years = 2000–2006
+| body_style = 4-door [[SUV]]
+| platform = [[GM GMT platform#GMT 800|GMT830]]
+| engine = {{ubl|5.3&nbsp;L (325&nbsp;cu&nbsp;in) [[LS based GM small-block engine#LM7|''Vortec 5300'' LM7]] V8 (Gen III) ([[Truck classification#Class 2|1500]] only)|5.3&nbsp;L (325&nbsp;cu&nbsp;in) [[LS based GM small-block engine#L59|''Vortec 5300'' L59]] [[flexible fuel|flex fuel]] V8 (Gen III) (1500 only) (2002–2006)|{{convert|350|cuin|L|1|abbr=on|order=flip}} [[Chevrolet small-block engine (first- and second-generation)#L31|Vortec L31]] V8 (2000–2002 Mexico Only)|6.0&nbsp;L (364&nbsp;cu&nbsp;in) [[LS based GM small-block engine#LQ4|''Vortec 6000'' LQ4]] V8 (Gen III) (optional on 1500 in 2006; standard on [[Truck classification#Class 2|2500]])<ref name=spec364_2006>{{cite web |url=http://media.gm.com/us/powertrain/en/product_services/2006/Spec%20Sheets/Gen%20III/2006%20GenIII%20V8%20Truck%20(LQ4).pdf |title=2006 GenIII V8 Truck (LQ4).xls |access-date=September 21, 2009 |url-status=dead |archive-url=https://web.archive.org/web/20091015031246/http://media.gm.com/us/powertrain/en/product_services/2006/Spec%20Sheets/Gen%20III/2006%20GenIII%20V8%20Truck%20%28LQ4%29.pdf |archive-date=October 15, 2009 |df=mdy-all }}</ref>|8.1&nbsp;L (496&nbsp;cu&nbsp;in) [[Chevrolet Big-Block engine#L18|''Vortec 8100'' L18]] V8 (optional on 2500 only)}}
+| transmission = {{ubl|4-speed [[GM 4L60-E transmission|4L60E]] [[automatic transmission|automatic]] (1500 only)|4-speed [[GM 4L65-E transmission|4L65E]] automatic (1500 w/ 6.0 L engine only)|4-speed [[GM 4L80-E transmission|4L80E]] automatic (2500 w/ 6.0 L engine only)|4-speed [[GM 4L80-E transmission#4L85-E|4L85E]] automatic (2500 w/ 8.1 L engine only)}}
+| length = {{convert|219.3|in|mm|0|abbr=on}}
+| width = {{convert|78.8|–|79.8|in|mm|0|abbr=on}}
+| height = {{convert|73.3|in|mm|0|abbr=on}} ''(2000–02 Chevy 1500 4WD)'' – {{convert|77.1|in|mm|0|abbr=on}} ''(Yukon XL 2500 4WD)''
+| wheelbase = {{convert|130.0|in|mm|0|abbr=on}}
+| assembly = {{ubl|[[Janesville, Wisconsin]], United States ([[Janesville Assembly]])|[[Arlington, Texas]], United States ([[Arlington Assembly]])|[[Silao, Guanajuato]], Mexico (Silao Assembly)}}
+| related = {{ubl|[[Chevrolet Silverado]]/[[GMC Sierra]]|[[Chevrolet Avalanche]]/[[Cadillac Escalade EXT]]|[[Chevrolet Tahoe]]/[[GMC Yukon]]|[[Cadillac Escalade]]|[[Hummer H2]]}}
+| designer = [[Wayne Cherry]] (1996)
+| caption = 2000–2006 Chevrolet Suburban
+}}
+[[File:00-06 GMC Yukon XL.jpg|left|thumb|GMT800 GMC Yukon XL]]
+[[File:01-06 GMC Yukon XL Denali.jpg|left|thumb|2006 GMC Yukon XL Denali]]
+[[File:Chevrolet Suburban LS 2002 (9609157819).jpg|thumb|left|Chevrolet Suburban LS]]
+
+The GMT800-based Suburbans were introduced in late December 1999 (Texas only) and January 2000 (nationally) for the 2000 model year.<ref>{{Cite web | url=http://autoweek.com/article/car-news/gm-engineers-had-extra-year-work-2000-truck-line |title = GM Engineers Had an Extra Year to Work on 2000 Truck Line|date = October 17, 1999}}</ref> They were sold in two series: 1/2-ton 1500 and 3/4-ton 2500. Suburbans came in Base, LS, and LT trims. Optional was a push-button 4WD with a low-range transfer case. A tow hitch with a trailer wiring plug was optional.
+
+For 2000, Chevrolet's long-serving [[Chevrolet small-block engine (first- and second-generation)#L31|5.7L]] and [[Chevrolet big-block engine#454|7.4L]] V8 engines were retired along with the [[Detroit Diesel V8 engine|6.5L diesel]] (except in Mexico, until 2002). New engines were the LS-based [[LM7|5.3L Vortec]] for the 1500 series and [[LQ4|6.0L Vortec]] for the 2500 series.
+
+Where Chevrolet kept the [[Chevrolet Tahoe|Tahoe]]/Suburban branding, GMC renamed its GMT800 products '''Yukon''' and '''Yukon XL''', a change that continues to this day. The shorter 116" wheelbase became the Yukon, and the full-length 130" wheelbase became the Yukon XL. Yukons were built in SLE, SLT, and [[GMC Denali|Denali]] trims.
+
+New features included:
+* A spare tire relocated beneath the vehicle (instead of in the cargo area as on previous models)
+* "Puddle lamps" in the exterior mirrors on LS and LT models
+* Electronic climate control available on LT models
+* Four-wheel disc brakes
+* Load-leveling Autoride suspension available on LT models
+* Premium Ride rear self-leveling suspension available on LS models
+* Digital components
+* Redesigned wheels
+* Redesigned interior with new dashboard and instrument panel including a driver message center and engine hour meter
+* Taillights with separate amber-colored turn signal indicators
+
+=== Yearly changes ===
+* '''2001:''' The 6.0-liter V8 in 2500-series Suburbans gained {{convert|20|hp|kW PS|0|abbr=on}} from a number of changes including aluminum cylinder heads. The new [[Chevrolet Big-Block engine#L18|Vortec 8100]] {{convert|496|cuin|L|1|abbr=on|order=flip}} V8 was added as an option for the 2500 as well. OnStar became standard on LT models and LS models with the new Z71 package. The exterior "1500" and "2500" door badges on Chevrolet models began being slowly phased out partway through the model year. Two-tone paint was also discontinued.
+* '''2002:''' Several optional features were made standard equipment on the LS model, including front and rear air conditioning, alloy wheels, power windows, power front seats, side steps, fog lamps, and heated outside rearview mirrors. Base models were discontinued, leaving LS and LT. Door badges on the Chevrolet models were completely removed. The [[LS based GM small-block engine#L59|Vortec 5300 L59]] variant in the 1500 series added [[flex-fuel]] capability.
+* '''2003:''' All GM full-size trucks received an upgraded interior, with better-quality materials and other enhancements. New radios offered [[Radio Data System]] compatibility, [[XM satellite radio]], [[Bose Corporation|Bose]] sound and improved ergonomics. Adjustable pedals were added as an option, and the instrument cluster-mounted Driver Information Center was improved and monitored up to 34 vehicle functions. A [[Panasonic]] [[DVD]] system was added as an option. GM's [[Stabilitrak]] system was added, and [[Quadrasteer]] became available on 2500 series Suburbans. Towing capacity for Quadrasteer-equipped vehicles was reduced by {{convert|300|lb|kg}} (the weight of the system).<ref>{{cite web |url=http://www.denalitrucks.com/documents/Owner%20Manuals/2003_gmc_yukon_owners.pdf |title=2003 GMC Yukon Owner's Manual |website=General Motors Corporation |date=June 24, 2002 |url-status=dead |archive-url=https://web.archive.org/web/20120704011650/http://www.denalitrucks.com/documents/Owner%20Manuals/2003_gmc_yukon_owners.pdf |archive-date=July 4, 2012 |df=mdy-all }}</ref> Although the pickup trucks received a revised front fascia, it was not carried over to the SUVs (except for Suburban/Tahoe ~ Sonora, in Mexico only).
+* '''2004:''' 1500-series Suburbans received the Hydroboost braking system that was previously introduced in the 2500 series. The Mexican-market Suburban received a front-end update that year, matching that of the Silverado.
+* '''2005:''' New updated body side moldings, barn doors were discontinued in favor of the formerly optional liftgate. All 1500 model engines switched to electrically driven radiator e-fans to reduce power loss and fuel consumption, updated side assist steps, and a lower air deflector were put in place for fuel economy gains of about one MPG. The Z71 package, long exclusive to 4WD models, became available on 2WD Suburbans. Z71 also featured updated side pillar emblems; the "Suburban" tailgate emblem returned on Z71 models, where a Z71 badge had been in previous years (2001-2004). OnStar also became standard across the board. This was the last year for the Quadrasteer option. Finally, Stabilitrak became standard on all models shortly after the start of the model year. The 2005 Suburban 1500 won the [[J.D. Power|J.D. Power and Associates]] award for highest initial quality among large SUVs, beating out its rivals, the [[Ford Expedition]] and [[Toyota Sequoia]].
+* '''2006:''' The GMT800 Suburban's last year. A special LTZ trim package became available, featuring {{convert|20|in|mm|adj=on}} wheels, all-wheel drive, and the LQ4 6.0L engine from the GMC Yukon Denali. The [[catalytic converter]]s were relocated closer to the engine. The XM radio antenna and the OnStar antenna were combined into a single "Shark Fin" antenna.
+
+=== Engines ===
+{| class="wikitable"
+!Year
+!Engine
+!Power
+!Torque
+!RPO Code
+!VIN Code (8th Digit)
+!Notes
+|-
+|2000–2003
+| rowspan="3" |5.3L ''[[LM7|Vortec 5300]]'' [[V8 engine|V8]]
+|{{convert|285|hp|kW|0|abbr=on}} @ 5200 RPM
+|{{convert|325|lbft|Nm|abbr=on}} @ 4000 RPM
+| rowspan="3" |LM7
+L59 (flex-fuel)
+| rowspan="3" |T
+Z (flex-fuel)
+| rowspan="3" |Power and torque ratings are on regular gasoline.
+Flex-fuel option available from 2002 to 2006.
+|-
+|2004–2005
+|{{convert|295|hp|kW|0|abbr=on}} @ 5200 RPM
+|{{convert|330|lbft|Nm|abbr=on}} @ 4000 RPM
+|-
+|2006
+|{{convert|295|hp|kW|0|abbr=on}} @ 5200 RPM
+|{{convert|335|lbft|Nm|abbr=on}} @ 4000 RPM
+|-
+|2001–2002
+| rowspan="4" |6.0L ''[[LQ4|Vortec 6000]]'' [[V8 engine|V8]]
+|{{convert|320|hp|kW|0|abbr=on}} @ 5200 RPM
+|{{convert|365|lbft|Nm|abbr=on}} @ 4000 RPM
+| rowspan="4" |LQ4
+| rowspan="4" |U
+| rowspan="4" |GMC Yukon Denali and 2006 Suburban LTZ only.
+|-
+|2003
+|{{convert|320|hp|kW|0|abbr=on}} @ 5000 RPM
+|{{convert|365|lbft|Nm|abbr=on}} @ 4000 RPM
+|-
+|2004
+|{{convert|325|hp|kW|0|abbr=on}} @ 5200 RPM
+|{{convert|365|lbft|Nm|abbr=on}} @ 4000 RPM
+|-
+|2005–2006
+|{{convert|335|hp|kW|0|abbr=on}} @ 5200 RPM
+|{{convert|375|lbft|Nm|abbr=on}} @ 4000 RPM
+|-
+|2000
+| rowspan="5" |6.0L ''[[LQ4|Vortec 6000]]'' [[V8 engine|V8]]
+|{{convert|300|hp|kW|0|abbr=on}} @ 5000 RPM
+|{{convert|355|lbft|Nm|abbr=on}} @ 4000 RPM
+| rowspan="5" |LQ4
+| rowspan="5" |U
+| rowspan="5" |2500 only.
+2000 models used cast-iron heads.
+|-
+|2001–2003
+|{{convert|320|hp|kW|0|abbr=on}} @ 5000 RPM
+|{{convert|360|lbft|Nm|abbr=on}} @ 4000 RPM
+|-
+|2004
+|{{convert|325|hp|kW|0|abbr=on}} @ 4000 RPM
+|{{convert|369|lbft|Nm|abbr=on}} @ 4000 RPM
+|-
+|2005
+|{{convert|325|hp|kW|0|abbr=on}} @ 5200 RPM
+|{{convert|365|lbft|Nm|abbr=on}} @ 4000 RPM
+|-
+|2006
+|{{convert|335|hp|kW|0|abbr=on}} @ 5200 RPM
+|{{convert|375|lbft|Nm|abbr=on}} @ 4000 RPM
+|-
+|2001–2003
+| rowspan="4" |8.1L ''[[Chevrolet big-block engine#Vortec 8100 (L18)|Vortec 8100]]'' [[V8 engine|V8]]
+|{{convert|340|hp|kW|0|abbr=on}} @ 4200 RPM
+|{{convert|455|lbft|Nm|abbr=on}} @ 3200 RPM
+| rowspan="4" |L18
+| rowspan="4" |G
+| rowspan="4" |2500 only.
+|-
+|2004
+|{{convert|320|hp|kW|0|abbr=on}} @ 4200 RPM
+|{{convert|445|lbft|Nm|abbr=on}} @ 3200 RPM
+|-
+|2005
+|{{convert|320|hp|kW|0|abbr=on}} @ 4200 RPM
+|{{convert|440|lbft|Nm|abbr=on}} @ 3200 RPM
+|-
+|2006
+|{{convert|325|hp|kW|0|abbr=on}} @ 4200 RPM
+|{{convert|447|lbft|Nm|abbr=on}} @ 3200 RPM
+|}
+In addition, a ''[[Chevrolet small-block engine (first- and second-generation)#L31|Vortec 5700]]'' {{convert|350|cuin|L|abbr=on}} L31 V8 remained in use in 2000–2002 Suburbans, Tahoes (called Sonora), and Silverado pickup trucks in the Mexican market.
+{{clear}}
+
+==Tenth generation (2007)<span class="anchor" id="10"></span><span class="anchor" id="2007"></span><span class="anchor" id="GMT900"></span>==
+{{Infobox automobile
+| name = GMT900
+| image = Chevrolet Suburban LT 2008 (15047911025).jpg
+| aka = {{ubl|GMC Yukon XL|[[Cadillac Escalade ESV]]|VIA VTrux SUV}}
+| layout = {{ubl|[[Front-engine, rear-wheel-drive layout|Front engine]],|[[rear-wheel drive]] / [[four-wheel drive]]}}
+| model_years = 2007–2014
+| production = January 2006 – December 2013
+| platform = {{ubl|[[GM GMT platform#GMT 900|GMT930]]:|GMT931 (Suburban)|GMT932 (Yukon XL)}}
+| engine = {{ubl|5.3&nbsp;L (325&nbsp;cu&nbsp;in) [[LS based GM small-block engine#LY5|''Vortec 5300'' LY5]] V8 ([[Truck classification#Class 2|1500]] only)|5.3&nbsp;L (325&nbsp;cu&nbsp;in) [[LS based GM small-block engine#LMG|''Vortec 5300'' LMG]] [[flexible fuel|flex fuel]] V8 (optional on 1500 only)|6.0&nbsp;L (364&nbsp;cu&nbsp;in) [[LS based GM small-block engine#L76|''Vortec 6000'' L76]] V8 (1500 only) (optional from 2007–2009)|6.0&nbsp;L (364&nbsp;cu&nbsp;in) [[LS based GM small-block engine#LY6|''Vortec 6000'' LY6]] V8 ([[Truck classification#Class 2|2500]] only)|6.2&nbsp;L (376&nbsp;cu&nbsp;in) [[LS based GM small-block engine#L92|''Vortec 6200'']] V8 (GMC Yukon XL 1500 Denali only)}}
+| body_style = 4-door [[Sport utility vehicle|SUV]]
+| transmission = {{ubl|4-speed [[GM 4L60-E transmission|4L60E]] [[automatic transmission|automatic]] (1500 only) (standard from 2007–2009)|4-speed [[GM 4L80-E transmission|4L80E]] automatic (2500 only) (standard 2007 only)|6-speed [[GM 6L80 transmission|6L80]] automatic (1500 only) (optional in 2009, standard from 2010–2014)|6-speed 6L90 automatic (2500 only) (standard from 2008–2013)}}
+| length = {{convert|222.4|in|mm|0|abbr=on}}<ref name="The Car Design yearbook 5">{{cite book|title=The Car Design yearbook 5|year=2006|publisher=Merrell|isbn=978-1-85894-318-3}}</ref>
+| width = {{convert|79.1|in|mm|0|abbr=on}}
+| height = {{ubl|{{convert|76.8|in|mm|0|abbr=on}}|Denali: {{convert|77.1|in|mm|0|abbr=on}}}}
+| assembly = {{ubl|[[Janesville, Wisconsin]], U.S. ([[Janesville Assembly]]: 2007–2009)|[[Arlington, Texas]], U.S. ([[Arlington Assembly]])|[[Silao, Guanajuato]], Mexico (Silao Assembly: 2007–2009)}}
+| wheelbase = {{convert|130.0|in|mm|0|abbr=on}}<ref name="The Car Design yearbook 5"/>
+| related = {{ubl|[[Cadillac Escalade]]|[[Chevrolet Avalanche]]|[[Chevrolet Tahoe]]/[[Chevrolet Tahoe|GMC Yukon]]|[[T-98 Kombat]]/[[Dartz]]}}
+| designer = [[Wayne Cherry]] (2002)
+| weight = {{convert|2,540|-|2,857|kg|lb|abbr=on}}<ref>{{Cite web | url=https://www.edmunds.com/chevrolet/suburban/2008/review/#:~:text=5%2C600%20to%206%2C300%20pounds..html |title = Chevrolet Suburban - 2008}}</ref>
+| caption = 2008 Chevrolet Suburban LT
+}}
+[[File:2010 GMC Yukon XL SLT -- 05-06-2011.jpg|thumb|left|2010 GMC Yukon XL SLT]]
+[[File:GMC Yukon XL Denali.jpg|thumb|left|GMT900 GMC Yukon XL Denali]]
+[[File:2007 Chevrolet Suburban rear.jpg|thumb|left|2007 Chevrolet Suburban LT]]
+
+The 2007 [[model year]] Suburban and Yukon XL were unveiled at the 2006 [[Los Angeles Auto Show]] in January. Production of the redesigned [[GM GMT platform#GMT 900|GMT900]] Suburban and Yukon XL began at [[Janesville Assembly]] and Silao Assembly in January 2006 (Suburban) and April 2006 (Yukon XL), with the vehicles arriving at dealerships in April 2006.
+
+The new models were redesigned with more modern and rounded styling,<ref name="The Car Design yearbook 5"/> already seen on the previously released 2007 Tahoes and Yukons. For the first time, the SUVs did not share any exterior parts with the pickup trucks except for the doors. The exterior features a more [[aerodynamic]] shape, made partly by a steeply raked windshield angle.
+
+The interior had a redesigned dashboard and improved seats. It still retained its nine-passenger seating availability, which was available on LS and SLE models only. LT2 and LT3 models have leather seating and available six-, seven-, and eight-passenger seating. A Z71 package was available on LT2 and LT3 models which included two-tone leather seats. All Mexican-built Suburbans including the nine-seat models offered the special two-tone leather seating used by the Z71. The Suburban LTZ came standard with a [[DVD]] player and a GPS-enhanced touchscreen radio.
+
+For the 2010 model year, in which ''[[U.S. News & World Report]]'' ranked it as the number-one affordable large SUV,<ref>{{cite web |url=http://usnews.rankingsandreviews.com/cars-trucks/Chevrolet_Suburban/ |title=2010 Chevrolet Suburban |website=U.S. News & World Report |date=August 27, 2009}}</ref> the Suburban added a premium interior package that included tri-zone climate control and features like [[Bluetooth]] and rear audio controls. Additionally, radios added a USB port, allowing for music to be played from auxiliary devices through the radio, as well as charging other small electronics. Side blind zone alert became an option on LT and standard on LTZ. The 6.0-liter engine in the 2010 models was also flex-fuel capable. Minor front-end changes including a slightly raised front bumper and side torso airbags were also made standard for 2010.
+
+In February 2010, Chevrolet unveiled a 75th anniversary edition of the Suburban, which had the LTZ trim with white diamond tricoat exterior paint and cashmere interior, along with standard 20-inch chrome-clad wheels, revised roof rails, integrated navigation radio, XM Satellite Radio, Bluetooth phone connectivity, rearview camera, rear park assist, remote starting, adjustable pedals, and leather upholstery with heated/cooled front seats. According to Chevrolet, only 2,570 units of this special edition would be produced due to the amount of white diamond paint GM could procure.<ref>{{cite web |url=http://www.autoblog.com/2010/02/10/chicago-2010-chevrolet-suburban-75th-anniversary-diamond-editio?icid=sphere_blogsmith_inpage_autoblog |title=Chicago 2010: Chevrolet celebrates Suburban's 75th Anniversary with Diamond Edition |website=Autoblog |date=February 10, 2010 |author=Harley, Michael |access-date=February 17, 2010}}</ref>
+
+The 5.3-liter and 6.0-liter engines were improved, and a new {{convert|403|hp|kW PS|0|adj=on}} 6.2-liter Vortec V8 was added for the Yukon XL Denali. The 8.1-liter engine was dropped.
+
+For the 2011 model year, the Suburban added three new exterior colors to the lineup: Mocha Steel Metallic, Green Steel Metallic, and Ice Blue Metallic. More features became standard on each trim, with the rear audio system, Bluetooth, floor console/storage area, woodgrain interior, luggage rack rails, body-color exterior door handle/mirror caps, and premium-cloth front bucket seats now standard on the LS trim, and chrome recovery hooks, two-speed transfer case, and 20-inch chrome wheels standard on LTZ 4WD models. In addition, the trailering package featured the trailer brake controller as standard on all trims.<ref>{{cite web|url= http://www.conceptcarz.com/z18563/Chevrolet-Suburban.aspx |title=2011 Chevrolet Suburban: forging Ahead in Its 76th Year |publisher=Conceptcarz |date=July 2010 |access-date=August 25, 2012 }}</ref>
+
+For the 2012 model year, trailer sway control and Hill Start Assist became standard on all trims, while the LTZ trim added a heated steering wheel as standard.<ref>{{cite web|url= http://autos.aol.com/cars-Chevrolet-Suburban+1500-2012/overview/ |title=2012 Chevrolet Suburban Overview |publisher=AOL Autos |date=October 2011 |access-date=August 25, 2012 }}</ref> Also, the LT1/2 options for the Suburban and SLE1/2 and SLT1/2 options on the Yukon XL were discontinued, leaving the Suburban with only an LS, LT, and LTZ trim and the Yukon XL with an SLE and SLT trim. In 2012, GMC celebrated its 100th anniversary by releasing a special edition of its Yukon XL, offering a Heritage Edition trim package.<ref>{{cite web|url= http://www.autoblog.com/2012/03/30/gmc-debuts-2012-yukon-and-sierra-heritage-editions/ |title=GMC debuts 2012 Yukon and Sierra Heritage Editions |publisher=Autoblog |date=March 30, 2012 |access-date=August 25, 2012 }}</ref> This was the final year that the colors Graystone Metallic, Gold Mist Metallic, and Blue Topaz Metallic would be offered, along with the all-season blackwall P265/65R18 tires.
+
+For the 2013 model year, two new colors were offered: Champagne Silver Metallic and Blue Ray Metallic (extra charge). Also new was Powertrain Grade Braking, normal mode. The 2013 model arrived at Chevrolet dealers in June 2012.<ref>{{cite web|url= http://gmauthority.com/blog/2012/05/2013-chevy-suburban/ |title=Here Are The Changes to the 2013 Chevy Suburban: RPO Central |publisher=GM Authority |date=May 21, 2012|access-date=August 25, 2012 }}</ref>
+
+For the 2014 model year, power-adjustable pedals, remote vehicle starter system, and rear parking assist, along with rear vision camera and inside mirror with camera display, became standard on the Suburban LS trims. Concord Metallic (which was supposed to be available for the 2013 MY) was added to the Suburban color offerings for the 2014 models.<ref>[http://media.gm.com/content/media/us/en/chevrolet/vehicles/suburban/2014.html Chevrolet Suburban – 2014] from GM Media (released May 2013)</ref> For the Yukon XL, a convenience package became standard on its SLE models, along with a new color, Deep Indigo Metallic.<ref>[http://media.gmc.com/content/media/us/en/gmc/vehicles/yukon_xl_denali_xl/2014.html 2014 GMC Yukon / Yukon Denali & Yukon XL / Yukon XL Denali] {{Webarchive|url=https://web.archive.org/web/20131211000818/http://media.gmc.com/content/media/us/en/gmc/vehicles/yukon_xl_denali_xl/2014.html |date=December 11, 2013 }} from GM Media (released May 2013)</ref> In February 2014, the Suburban came in second behind the Tahoe among the top-ranked large affordable SUVs by ''[[U.S. News & World Report]]''.<ref>[http://usnews.rankingsandreviews.com/cars-trucks/rankings/Affordable-Large-SUVs/ Large Affordable SUVs] from ''U.S. News & World Report''</ref> This was followed by its acknowledgement as an award recipient in the large SUV category by [[JD Power and Associates]] in July 2014.<ref>{{cite web|url=http://autos.jdpower.com/research/Chevrolet/Suburban%201500/2014/SUV/index.htm|title=2014 Chevrolet Suburban|last=rayadmin|date=July 28, 2015|access-date=March 26, 2017|archive-date=June 30, 2014|archive-url=https://web.archive.org/web/20140630002527/http://autos.jdpower.com/research/Chevrolet/Suburban%201500/2014/SUV/index.htm|url-status=dead}}</ref>
+
+The three-quarter-ton model's towing capacity is {{convert|9600|lb|abbr=on}}, being one of the best of any 4×4 SUV and unmatched by any other SUV. The towing capacity of the Suburban 2500 was unmatched, but also uncontested because of the discontinuation of the [[Ford Excursion]] in 2006. The three-quarter-ton model also has a GCVW of {{convert|16000|lb|abbr=on}}.
+
+The 2500 Suburban was originally sourced from Silao, Mexico, from 2007 to 2008, but was moved to the [[Arlington Assembly]] plant in Texas for the 2009 model year, where production of all GM full-size SUVs was consolidated after the closing of the Janesville plant.<ref>{{cite web|url=http://media.gm.com/content/media/us/en/news/news_detail.brand_gm.html/content/Pages/news/Plant_Facts/Other/Janesville |title=Janesville Assembly Fact Sheet (GM) |publisher=Media.gm.com |date=December 16, 2009 |access-date=June 24, 2011}}</ref><ref>{{cite web|url=http://media.gm.com/content/Pages/news/us/en/2010/Oct/1001_gmsales/_jcr_content/rightpar/sectioncontainer/par/download/file.res/GM%20September%20Production%20by%20Plant.pdf |title=GM North America September 2010 Production by Plant |access-date=June 24, 2011}}</ref>
+
+GM discontinued the 2500 versions of both Suburban and Yukon XL models after the 2013 model year.<ref>[http://gmauthority.com/blog/2013/06/2014-chevy-suburban-gets-more-standard-equipment-rpo-central/ "2014 Chevy Suburban Gets More Standard Equipment: RPO Central"] from GM Authority (June 15, 2013)</ref><ref>[http://gmauthority.com/blog/2013/06/2014-gmc-yukon-yukon-xl-get-slight-updates-rpo-central/ "2014 GMC Yukon, Yukon XL Get Several Updates: RPO Central"] from GM Authority (June 15, 2013)</ref>
+
+{{Clear}}
+
+==Eleventh generation (2015)<span class="anchor" id="11"></span><span class="anchor" id="2015"></span>==
+{{Infobox automobile
+| name = GMT K2YC/G
+| image = 2015 Chevrolet Suburban LT in black, front left side view.jpg
+| aka = {{ubl|GMC Yukon XL|[[Cadillac Escalade ESV]]}}
+| production = December 2013–December 2019
+| model_years = 2015–2020
+| assembly = [[Arlington, Texas]], U.S. ([[Arlington Assembly]])
+| designer = Louis "Chip" Thole, Warrack Leach, Alexandre Henriques, Tyler Moffatt, Fawad Jamil<ref>{{Cite web|url=http://patentimages.storage.googleapis.com/pdfs/USD716696.pdf|title=vehicle body exterior}}</ref>
+| platform = {{ubl|[[GMT K2XX]]|Suburban: GMTK2YC|Yukon XL/Denali XL: GMTK2YG}}
+| related = {{ubl|[[Cadillac Escalade]]|[[Chevrolet Tahoe]]/[[Chevrolet Tahoe|GMC Yukon]]}}
+| layout = {{ubl|[[Front-engine, rear-wheel-drive layout|Front engine]],|[[rear-wheel drive]] / [[four-wheel drive]]}}
+| engine = {{ubl|5.3&nbsp;L (325&nbsp;cu&nbsp;in) [[LS based GM small-block engine#L83|EcoTec3]] V8 FlexFuel|6.2&nbsp;L (376&nbsp;cu&nbsp;in) [[LS based GM small-block engine#L86/L87|EcoTec3]] V8 FlexFuel (Yukon XL Denali 2015–present; RST Suburban package, 2019–)<ref>{{cite web|title=Competitive Comparison|url=http://www.gmc.com/vehicles/previous-vehicles/2015-yukon-denali/competitive-compare.extapp.html?x-brand=GMC&x-country=US&x-language=en&x-chrome=364932&chrome2=364925&chrome3=364924|publisher=gmc.com|access-date=April 17, 2014|url-status=dead|archive-url=https://archive.today/20140417092826/http://www.gmc.com/vehicles/previous-vehicles/2015-yukon-denali/competitive-compare.extapp.html?x-brand=GMC&x-country=US&x-language=en&x-chrome=364932&chrome2=364925&chrome3=364924|archive-date=April 17, 2014|df=mdy-all}}</ref>}}
+| transmission = {{ubl|6-speed [[GM 6L80 transmission|GM 6L80 automatic]]|8-speed [[GM 8L transmission|GM 8L90 automatic]] (Yukon XL Denali)|10-speed [[Ford-GM 10-speed automatic transmission|Hydra-Matic 10L90 automatic]] (RST Suburban package, 2019–)}}
+| wheelbase = {{convert|130.0|in|mm|0|abbr=on}}
+| length = {{ubl|Suburban: {{convert|224.4|in|mm|0|abbr=on}}|Yukon XL: {{convert|224.3|in|mm|0|abbr=on}}}}
+| width = {{convert|80.5|in|mm|0|abbr=on}}
+| height = {{ubl|{{convert|74.4|in|mm|0|abbr=on}}|Denali: {{convert|77.1|in|mm|0|abbr=on}}}}
+| weight = {{convert|5586–6021|lbs|kg}}<ref>{{Cite web | url=https://media.chevrolet.com/media/us/en/chevrolet/vehicles/suburban/2020.tab1.html |title = Chevrolet Suburban - 2020}}</ref><ref>{{Cite web | url=https://media.gm.com/media/us/en/gmc/spec-tables/2015/15-yukon-xl-specs.html#dimensions-xl | title=GMC Pressroom - United States - 2015}}</ref>
+| caption = 2015 Chevrolet Suburban LT
+}}
+[[File:Chevrolet Suburban P4250871.jpg|thumb|left|Rear view of Chevrolet Suburban]]
+[[File:2015 GMC Yukon XL SLT, front 2.29.20.jpg|thumb|left|2015 GMC Yukon XL SLT]]
+[[File:Chevy Suburban interior.jpg|thumb|left|Interior (Chevrolet Suburban)]]
+
+The eleventh generation Chevrolet Suburban, GMC Yukon XL, and Yukon Denali XL were introduced to the public on September 12, 2013;<ref>[http://www.autoblog.com/2013/09/08/2015-chevy-tahoe-suburban-teased/ Chevy to reveal new Tahoe and Suburban on Thursday] from Autoblog (September 10, 2013)</ref> GM unveiled the vehicles in different locations (the Suburban in New York, Yukon XL in Los Angeles) on that date.<ref>[http://www.autoblog.com/2013/09/12/2015-chevy-tahoe-suburban-gmc-yukon-unveiled/ "2015 Chevy Tahoe, Suburban and GMC Yukon unveiled"] from Autoblog (September 12, 2013)</ref> Both vehicles are based on the [[GMT K2XX]] platform and carried specific model numbers, identified by platform (K2), brand (YC for Chevrolet, YG for GMC), drivetrain (C for 2WD; K for 4WD), tonnage (15 for half-ton, 25 for 3/4-ton, 35 for 1-ton), wheelbase (7 for short, 9 for long), and 06 for SUV, which means that a K2YC-K-15-9-06 would be identified as a Chevrolet Suburban 1500 4WD.<ref>[http://www.trucktrend.com/roadtests/suv/163_1309_2015_chevrolet_tahoe_suburban_gmc_yukon_first_look/ "2015 Chevrolet Tahoe/Suburban GMC Yukon/XL/Denali First Look"] {{Webarchive|url=https://web.archive.org/web/20150303091505/http://www.trucktrend.com/roadtests/suv/163_1309_2015_chevrolet_tahoe_suburban_gmc_yukon_first_look/ |date=2015-03-03 }} from Truck Trend (September 12, 2013)</ref> The Suburban and Yukon XL went on sale in February 2014 as a 2015 model,<ref>[https://www.topspeed.com/cars/chevrolet/2015-chevrolet-suburban/ 2015 Chevrolet Suburban] from Top Speed (September 26, 2013)</ref><ref>[http://www.nydailynews.com/autos/latest-reviews/2015-gmc-yukon-head-start-better-fuel-economy-smoother-ride-article-1.1482902 2015 GMC Yukon gets a head-start on the new year with better fuel economy, smoother ride] from New York Daily News (October 11, 2013)</ref> with the vehicles built exclusively in Arlington, Texas.<ref>[http://www.autonews.com/apps/pbcs.dll/article?AID=/20130513/OEM04/305139954/gm-delayed-suv-rollouts-to-focus-on-pickups "GM delayed SUV rollouts to focus on pickups"] from Automotive News (May 13, 2013)</ref>
+
+===Production details===
+The newly redesigned Suburban and Yukon XL were showcased to the public for the first time on September 27, 2013, at the [[State Fair of Texas]].<ref>[http://www.autoblog.com/2013/08/07/gm-unveil-new-suvs-state-fair-of-texas/ GM To Unveil New SUVs at The State Fair of Texas?] from Autoblog (August 7, 2013)</ref><ref>[http://blogs.cars.com/kickingtires/2013/10/2015-chevrolet-suburban-more-photos.html 2015 Chevrolet Suburban: More Photos] {{Webarchive|url=https://web.archive.org/web/20131005022623/http://blogs.cars.com/kickingtires/2013/10/2015-chevrolet-suburban-more-photos.html |date=2013-10-05 }} from Kicking Tires/Cars.com (October 2, 2013)</ref> This move comes on the heels of the 80th anniversary of the first production of the Suburban in 1934.
+
+The designs and concepts were created by GM's exterior design manager Chip Thole (before his transfer to GM's [[Buick]] design studio in 2013), who told ''[[Truck Trend]]'' magazine that "I start with what intuition tells me about the market and get the team going on that. You look at trends around the industry – fashion, culture, what people are buying, what they say they want now – and project that into the future. The fun part is putting those ideas to paper and going from there." He then added, "We wanted to take what was good about today's vehicles, bring that forward and make them new and different with that spark of freshness that people recognize, without making them gimmicky or overdone." Thole also challenged his design team to help bring ideas to the SUVs, which lead to the split [[headlamp]]s and a more graphic feel for the Suburban design, while a more industrial but sculptured look was added to the Yukon XL to give it a unique identity of its own.<ref>[http://www.trucktrend.com/features/consumer/163_1406_interview_chip_thole_former_exterior_design_manager_gm_full_size_suvs/ "Interview: Chip Thole, (Former) Exterior Design Manager, GM Full-Size SUVs"] {{Webarchive|url=https://web.archive.org/web/20140715060255/http://www.trucktrend.com/features/consumer/163_1406_interview_chip_thole_former_exterior_design_manager_gm_full_size_suvs/ |date=2014-07-15 }} from ''Truck Trend'' (February 17, 2014)</ref>
+
+Production on the Suburban and Tahoe began in December 2013, with the first completed SUVs being used for testing purposes.<ref>[http://www.dallasnews.com/business/autos-latest-news/20131202-gm-arlington-plant-prepares-for-big-suv-launch.ece "GM Arlington Plant Prepares For Big SUV Launch"] from [[Dallas Morning News]] (December 2, 2013)</ref> GM then officially started shipping the vehicles to dealerships on February 5, 2014.<ref>[http://bizbeatblog.dallasnews.com/2014/02/general-motors-arlington-plant-begins-shipping-2015-full-size-suvs.html/ "General Motors Arlington plant begins shipping 2015 full-size SUVs"] {{Webarchive|url=https://web.archive.org/web/20160807133601/http://bizbeatblog.dallasnews.com/2014/02/general-motors-arlington-plant-begins-shipping-2015-full-size-suvs.html/ |date=August 7, 2016 }} from ''Dallas Morning News'' (February 7, 2014)</ref> It is estimated that it took 8–10 weeks to assemble the SUVs, save for the upgrades on the level trims and destination scheduling.<ref>[http://www.donlen.com/production-trucks-gm.aspx "GM Trucks (Production Updates)"] {{Webarchive|url=https://web.archive.org/web/20140223030447/http://www.donlen.com/production-trucks-gm.aspx |date=2014-02-23 }} from Donlen.com</ref>
+
+===Features===
+The front fascia of the Chevy Suburban and GMC Yukon XL is distinct, but from the base of the A-pillars back, they share most of the same styling cues. This now includes inlaid doors that tuck into the door sills, instead of over them, improving aerodynamics, fuel economy, and lessens interior noise. The hoods and liftgate panels are made of aluminum to reduce vehicle weight, and the wiper blades that were located on the liftgate door were moved to the rear spoiler located on the top of the rear liftgate window. Also noticeable is the SUV's length, which expands from {{cvt|222.4|to|224.4|in|mm|0}} (the Yukon XL's length is shorter at {{cvt|224.3|in|mm|0}}) and its width from {{cvt|79.1|to|80.5|in|mm|0}}, while the height decreases from {{cvt|76.8|to|74.4|in|mm|0}}, thus allowing the vehicle to become slightly leaner, a little bit wider, more streamlined, and roomier.
+
+A more efficient, direct-injected EcoTec3 V8 powertrain (5.3 for the Suburban, 6.2 for Yukon XL/Yukon Denali XL) coupled with improved aerodynamics, helped the SUVs offer greater estimated highway fuel economy and improving its fuel economy estimates to {{convert|16|mpgus|abbr=on}} (city), {{convert|23|mpgus|abbr=on}} (highway), and {{convert|18|mpgus|abbr=on}} (combined) for 2WD, and {{convert|15|mpgus|abbr=on}} (city), {{convert|22|mpgus|abbr=on}} (highway), and {{convert|18|mpgus|abbr=on}} (combined) for 4WD.<ref>[https://www.fueleconomy.gov/feg/bymodel/2015_Chevrolet_Suburban.shtml 2015 Chevrolet Suburban] from http://www.fueleconomy.gov</ref> The increased fuel economy also vaulted the Suburban/Yukon XL into the top spot among large SUVs with the most efficient fuel economy rating numbers for this segment.<ref>[http://www.automobilemag.com/features/news/1402-2015-chevrolet-suburban-tahoe-gmc-yukon-epa-rated/ "2015 Chevrolet Suburban, GMC Yukon EPA Rated"] {{Webarchive|url=https://web.archive.org/web/20151121021044/http://www.automobilemag.com/features/news/1402-2015-chevrolet-suburban-tahoe-gmc-yukon-epa-rated/ |date=2015-11-21 }} from ''Automobile Magazine'' (February 24, 2014)</ref> However, when ''Motor Trend'' (which placed the 2015 Suburban on the front cover of its June 2014 issue) did a road test review on the SUVs, it estimated the 4WD MPG on the Suburban LTZ to be slightly better at around {{convert|15.2|mpgus|abbr=on}} city and {{convert|22.3|mpgus|abbr=on}} highway, while the 4WD Yukon Denali XL, whose fuel economy (MPG) is rated at {{convert|14|mpgus|abbr=on}} city and {{convert|20|mpgus|abbr=on}} highway, was estimated lower at {{convert|12.4|mpgus|abbr=on}} city and {{convert|19.2|mpgus|abbr=on}} highway.<ref>[http://www.motortrend.com/roadtests/suvs/1404_2015_chevrolet_suburban_gmc_yukon_xl_first_test/ "First Test: 2015 Chevrolet Suburban, GMC Yukon Denali XL"] {{Webarchive|url=https://web.archive.org/web/20151025212953/http://www.motortrend.com/roadtests/suvs/1404_2015_chevrolet_suburban_gmc_yukon_xl_first_test/ |date=2015-10-25 }} from ''[[Motor Trend]]'' (April 3, 2014)</ref>
+
+Like the 2007–14 version, both the Suburban and Yukon XL did not share a single piece of sheet metal or lighting element with the brands' full-size pickup trucks, and the front grilles of both vehicles were slightly altered to give it their own identity. The front headlights featured projector-beam headlamps flanking the Chevrolet-signature dual-port grille – chrome on all models, sweeping into the front fenders, while the Tahoe/Suburban LTZ and Yukon/XL Denali trims featured projector-beam high-intensity discharge headlamps and LED daytime running lamps. The Yukon and Yukon XL also featured projector-beam halogen headlamps on SLE and SLT trims. The improved safety features included a 360-degree radar detection for crash avoidance and occupant protection and a high-tech anti-theft system that now included vertical and interior sensors, in-glass and window breaking, a triggering alarm, and a shutdown device preventing the vehicle from moving. The latter was expected to address the issues regarding the constant thefts of the vehicles, especially with the previous generation's removable seats and items left in the cargo space, which has become a target for carjackers who see the third-row seats as valuable on the black market.<ref>[http://www.autoblog.com/2013/12/24/chevy-tahoe-suburban-gmc-yukon-theft-tech/ "GM looks to combat high theft rates on SUVs with added tech"] from Autoblog (December 24, 2013)</ref> According to General Motors' head of Global Vehicle Security Bill Biondo, "We have engineered a layered approach to vehicle security ... With new standard features and the available theft protection package, we are making the vehicles less attractive target to thieves and more secure for our customers."<ref>[http://gmauthority.com/blog/2013/12/a-look-at-the-multitude-of-anti-theft-feature-for-the-2015-tahoe-and-suburban-video/ "A Look At The Multitude Of Anti-Theft Features For The 2015 Tahoe And Suburban: Video"] from GM Authority (December 20, 2013)</ref>
+
+Also new were the addition of fold-flat second and third-row seats (replacing the aforementioned removable third seats), which was now a standard feature but could be equipped with an optional power-folding feature for the upgraded trims, and an additional two inches of legroom for second-row passengers. HD radio became a standard feature on all trims. Multiple USB ports and power outlets were now spread throughout their interiors, including one 120{{nbsp}}V three-prong outlet on both Suburban and Yukon XL, with the Suburban adding an available eight-inch color touch screen radio with next-generation MyLink connectivity along with an available rear-seat entertainment system with dual screens and Blu-ray DVD player, while the Yukon XL added a standard eight-inch-diagonal color touch screen radio with enhanced IntelliLink and available navigation. A 4G LTE WiFi access system, along with Siri Eyes Free and text messaging alerts, was included in all vehicles featuring the OnStar device around the second quarter of 2014.<ref>[http://www.thecarconnection.com/news/1090610_2015-chevy-tahoe-gmc-yukon-denali-chevrolet-suburban-first-drives "2015 Chevy Tahoe, GMC Yukon Denali, Chevrolet Suburban: First Drives"] from The Car Connection (February 28, 2014)</ref><ref>[http://media.gm.com/media/us/en/chevrolet/vehicles/suburban/2015.html 2015 Chevrolet Suburban] from GM Media (released August 2014)</ref>
+
+===Suburban HD===
+{{multiple image
+| title             = Suburban HD
+| align             = right
+| direction         = vertical
+| image1            = 2018 Chevrolet Suburban K3500 LS in Black (Sault Ste. Marie Police Emergency Services Unit -02), Front Left, 11-11-2022.jpg
+| caption1          = 2018 Suburban K3500HD LS, distinguished by 8-bolt wheels; [[Sault Ste. Marie, Ontario]], police
+| image2            = Chevrolet Suburban LT GMTK2XX Diplomatic Black Armoured (4).jpg
+| caption2          = Suburban K3500HD LT, fitted with armor
+}}
+
+With the change to the [[GMT K2XX|K2 platform]], GM discontinued the {{frac|3|4}}-ton Suburban 2500; however, plans were revealed to offer a K2-based Suburban HD for fleet sales according to an updated [[Vehicle Identification Number|VIN]] decoding document filed in March 2015.<ref name=C&G-2015-03-17>{{cite web |url=http://www.cheersandgears.com/_/chevrolet-truck-news/coming-for-2016-chevrolet-suburban-hd-r2699 |title=Coming for 2016 - Chevrolet Suburban HD |author=Dowdell, Drew |date=March 17, 2015 |work=Cheers and Gears |archive-url=https://web.archive.org/web/20150319184311/http://www.cheersandgears.com/_/chevrolet-truck-news/coming-for-2016-chevrolet-suburban-hd-r2699 |archive-date=March 19, 2015 |url-status=dead}}</ref> This version, identified as a Class 3 vehicle (around {{convert|10,000|to|14,000|lb|kg}} [[GVWR]]), was only available as a 4WD vehicle with the same design as the eleventh generation (K2XX), but was equipped with a different engine altogether.<ref name=C&G-2015-03-17/> The Suburban HD was offered only in LS and LT trims, reserving the LTZ trim for a more luxurious offering (like limousine or taxi-related services).<ref>{{cite news |url=http://gmauthority.com/blog/2015/03/2016-chevrolet-suburban-hd-to-be-offered-exclusively-for-fleets/ |title=2016 Chevrolet Suburban HD To Be Offered Exclusively For Fleets |website=GM Authority |date=March 18, 2015}}</ref> It also was not offered with 2WD or upgraded packages. In addition, there were no plans to offer a {{frac|3|4}}-ton GMC Yukon XL as GM made the design exclusive to Chevrolet.<ref name=C&G-2015-03-17/><ref>{{cite web |url=http://www.cheersandgears.com/_/chevrolet-truck-news/2016-chevrolet-suburban-hd-will-be-34-ton-fleet-only-r2707 |title=2016 Chevrolet Suburban HD will be 3/4-Ton; Fleet Only |website=Cheers & Gears |date=March 19, 2015 |archive-url=https://web.archive.org/web/20150321173702/https://www.cheersandgears.com/_/chevrolet-truck-news/2016-chevrolet-suburban-hd-will-be-34-ton-fleet-only-r2707 |archive-date=March 21, 2015 |url-status=dead}}</ref>
+
+The Suburban HD was officially named the "Suburban 3500HD," indicating a one-ton truck rating, and was introduced for the 2016 model year. This was available exclusively for fleet sales and equipped with the [[General Motors LS-based small-block engine#L96|''L96'']] 6.0L V8 engine, [[GM 6L80 transmission|''6L90'']] 6-speed heavy-duty automatic transmission (RPO MYD), 17-inch machined aluminum wheels (8-lug), a high-capacity air cleaner, 220-amp alternator, external engine oil cooler, and auxiliary transmission cooler. The 3500HD did not include HD radio.<ref>{{cite web |url=http://gmauthority.com/blog/2015/06/2016-chevrolet-suburban-3500hd-will-be-powered-by-6-0l-vortec-v8-and-have-these-options/ |title=2016 Chevrolet Suburban HD Will be Powered By 6.0L Vortec V8 and Have These Options |website=GM Authority |date=June 23, 2015}}</ref> Although the vehicle had a high GVWR of {{cvt|11,000|lb}}, it is intended to provide a larger payload but minimal towing capacity, as it primarily was intended for conversion to an [[armored car (VIP)|armored transport]].<ref name=AT-2021>{{cite web |url=https://www.autotrader.com/car-news/theres-such-a-thing-as-a-chevrolet-suburban-3500-hd-but-its-not-what-youd-think |title=There's Such a Thing as a Chevrolet Suburban 3500 HD, But It's Not What You'd Think |author=O'Neill, Chris |date=January 11, 2021 |work=Auto Trader |access-date=19 September 2023}}</ref>
+
+The 2019 model year would be the last year for the K2-based Suburban HD;<ref name=AT-2021/> chassis production ceased in August 2018.<ref name=DSS-PR2023>{{cite press release |url=https://www.state.gov/the-diplomatic-security-service-and-gm-defense-complete-phase-iii-in-the-development-of-next-generation-armored-heavy-duty-sports-utility-vehicle/ |title=The Diplomatic Security Service and GM Defense complete Phase III in the development of next-generation armored Heavy-Duty Sports Utility Vehicle |date=July 19, 2023 |publisher=U.S. Department of State |access-date=19 September 2023}}</ref><ref name=Drive-2023>{{cite news |url=https://www.thedrive.com/the-war-zone/first-look-at-state-departments-new-armored-chevy-suburban |title=New Armored Suburban For State Department Revealed |author=Parken, Oliver |date=July 21, 2023 |work=The Drive |access-date=19 September 2023}}</ref>
+
+===2015 mid-year update===
+The Suburban added a hands-free power liftgate feature that is standard on the LTZ but included on the LT with the optional Luxury Package. The added 4G LTE WiFi and Siri features became standard on both LT and LTZ trims, while the MyLink with Navigation feature was upgraded from optional to standard on the LTZ trim. The E85 capability feature is removed from retail orders.<ref>[http://gmauthority.com/blog/2014/10/model-year-2015i-chevy-tahoe-suburban-get-a-bevy-of-technology-equipment-updates/ "Model Year 2015i Chevy Tahoe, Suburban Get A Bevy Of Technology & Equipment Updates"] from GM Authority (October 24, 2014)</ref>
+
+The Yukon XL's 6.2-liter EcoTec3 V8 engine was updated with the new 8L90E eight-speed automatic transmission for the interim model year, allowing it to improve fuel economy.<ref>[http://gmauthority.com/blog/2014/11/gmc-gets-official-with-2015i-technology-equipment-updates-for-yukon-denali-and-denali-xl/ "GMC Gets Official With 2015i Technology & Equipment Updates For Yukon Denali And Denali XL"] from GM Authority (November 6, 2014)</ref> The Yukon XL Denali, however, saw its MSRP bumped up by $1,300 (~${{Format price|{{Inflation|index=US-GDP|value=1300|start_year=2015}}}} in {{Inflation/year|US-GDP}}) in part because of the loaded features.<ref>[http://gmauthority.com/blog/2014/11/2015i-gmc-yukon-denali-family-with-8-speed-sees-minor-msrp-bump/ "2015i GMC Yukon Denali Family With 8 Speed Sees Minor MSRP Bump"] from GM Authority (November 12, 2014)</ref>
+
+All GM full-sized SUVs received a body-colored painted Shark Fin antenna as part of the 2015 mid-year refresh.
+
+This refresh is often referred to as the 2015i, "i" for interim processing code.
+
+===2016===
+For the 2016 model year (which commenced sales in July 2015), the Chevrolet Suburban received more upgraded changes and new features that included power-adjustable pedals, forward collision alert, IntelliBeam headlamps, lane keep assist, and a safety alert seat as part of the newly introduced enhanced driver alert package as an available option on the LS trim. The inside floor console with storage area-SD card reader was removed, while a new AM/FM audio integrated system with Sirius XM, HD Radio, and CD/MP3 capabilities was introduced as a standard feature on all trims; the 8-inch MyLink feature was expanded to the LS trim and became standard (replacing the 4-inch display), although the navigation feature remained as an option on LT and standard on LTZ. A new liftgate shield was added to the Theft Protection Package, along with the new lane keep assist which replaced the lane departure warning. The capless fuel fill tanks became standard on all trims. ''Siren Red Tintcoat'' and ''Iridescent Pearl Tricoat'' became the new color trims, replacing ''Crystal Red Tintcoat'' and ''White Diamond Tricoat''. The instrument cluster was re-configured with a new multi-color enhancement and a heads-up display was introduced as a standard only on the LTZ trim.<ref>[http://media.gm.com/media/us/en/chevrolet/vehicles/suburban/2016.html "2016 Chevrolet Suburban"] from GM Media (June 2015)</ref><ref>[http://gmauthority.com/blog/2015/05/2016-chevy-suburban-gets-new-colors-technology-and-more/ "2016 Chevy Suburban Gets New Colors, Technology And More"] from GM Authority (May 19, 2016)</ref> The 2016 models also saw a price hike as well.<ref>[http://gmauthority.com/blog/2015/09/chevrolet-suburban-sees-700-msrp-hike-for-2016-model-year/ "Chevrolet Suburban Sees $700 MSRP Hike For 2016 Model Year"] from GM Authority (September 1, 2015)</ref>
+
+The 2016 GMC Yukon XL also sees similar changes, with the new enhanced driver alert package as an available option on the SLE trim, liftgate, power, hands-free now packaged on SLT trims, a free-flow feature that replaced the Premium package, a lane keep assist added to all trims, and two new premium colors (''Crimson Red Tintcoat'' and ''White Frost Tricoat'') replacing ''Crystal Red Tintcoat'' and ''White Diamond Tricoat'' respectively.<ref>[http://media.gmc.com/media/us/en/gmc/vehicles/yukon_xl_denali_xl/2016.html "2016 GMC Yukon XL"] {{Webarchive|url=https://web.archive.org/web/20170221030547/http://media.gmc.com/media/us/en/gmc/vehicles/yukon_xl_denali_xl/2016.html |date=February 21, 2017 }} from GM Media (June 2015)</ref><ref>[http://gmauthority.com/blog/2015/05/2015-gmc-yukon-yukon-xl-get-new-colors-technology-and-more/ "2016 GMC Yukon & Yukon XL Gets New Colors, Technology, and More"] from GM Authority (May 13, 2015)</ref>
+
+Chevrolet added [[CarPlay|Apple CarPlay]] and [[Android Auto]] Capability features to the Suburban starting with the 2016 models. However, only one of their phone brands at any one time can be used,<ref>[http://www.pcworld.com/article/2927225/apple-carplays-coming-to-these-14-chevrolet-cars-in-the-2016-model-year.html "Apple CarPlay's coming to these 14 Chevrolet cars in the 2016 model year"] from ''PC World'' (May 27, 2015)</ref> while the Android Auto option was only available on LT and LTZ trims featuring 8-inch screens.<ref>[http://www.pcworld.com/article/2927293/these-are-the-14-chevrolet-cars-from-the-2016-model-year-that-will-have-android-auto.html "These are the 14 Chevrolet cars from the 2016 model year that will have Android Auto"] from ''PC World'' (May 27, 2015)</ref>
+
+GM expanded newer 4G LTE features (like detecting battery failure and monitoring insurance discounts based on driver performance) to 2016 model year vehicles, including the Suburban, which GM cited as being the vehicle that is the most used among data subscribers.<ref>[http://www.detroitnews.com/story/business/autos/general-motors/2015/06/18/gms-connection-boost-consumer-features-revenue/28964127/ "GM's 4G connection to boost consumer features, revenue"] from ''[[Detroit News]]'' (June 19, 2015)</ref>
+
+=== 2017 ===
+The 2017 model year Chevrolet Suburban received upgraded changes after it went on sale in August 2016. The level trims LS and LT are retained but the LTZ is renamed Premier, the latter serving as the equivalent to the Yukon XL Denali. The LS trims also saw the badged "LS" lettering removed. The new features include two new colors (''Blue Velvet Metallic'' and ''Pepperdust Metallic''), two new 22-inch wheel options (a 7-spoke Silver wheels with Chrome inserts for all trims; Ultra Bright machined aluminum wheels with Bright Silver finish for Premier trim only), black roof rack cross rails (as part of the Texas Edition Package and All-Season Package), front active aero shutters (all trims), and heated and vented seats (Premier trim only). The MyLink was updated to incorporate Teen Driver, App Shop, Rear Seat Reminder customization, and Low-Speed Forward Automatic Braking (as part of Enhanced Driver Alert Package on the LS trim, but standard on LT and Premier). The Rear Seat Entertainment System was overhauled to include a new video voiceover feature for the visually and hearing impaired, an HDMI/MHL connector, digital headphones, Digital Living Network Alliance (DLNA) technology incorporated into the Wi-Fi system, and a second USB port with the capability of charging up to a 2.1-amp at the back of the console.<ref>[http://gmauthority.com/blog/2016/08/2017-chevrolet-suburban-updates-changes-new-features-announced/ "2017 Chevy Suburban Gets New Colors, Wheels & Technology; Active Aero Shutters, Premier Trim & More"] from GM Authority (August 4, 2016)</ref><ref>[http://gmauthority.com/blog/wp-content/uploads/2016/08/2017-Chevrolet-Suburban-order-guide-revised-July-29-2016.pdf 2017 Chevrolet Suburban Order Guide] (from Chevrolet, posted July 29, 2016)</ref>
+
+The 2017 model year Yukon XL also received similar changes, but with a few exceptions. Two new colors, ''Dark Blue Sapphire Metallic'' and ''Mineral Metallic'' were introduced, the latter exclusive to the Denali, which also added a new 22-inch ultra-bright aluminum wheels with midnight silver premium paint and a [[head-up display]] to its features. The interior backlights changed from red to blue. The heated and vented driver and front passenger seats became standard on the SLT and Denali trims.<ref>{{cite web |url=http://gmauthority.com/blog/2016/08/2017-gmc-yukon-changes-updates-new-colors-new-wheels-front-active-aero-shutters-revamped-rear-seat-entertainment/ |title=2017 GMC Yukon And Yukon XL Get New Colors, Wheels, Front Active Aero Shutters, Revamped Rear Seat Entertainment And More |website=GM Authority |date=August 8, 2016 |access-date=August 11, 2016}}</ref><ref>{{cite web |url=http://gmauthority.com/blog/wp-content/uploads/2016/08/2017-GMC-Yukon-XL-Order-Guide-Revised-August-5-2016.pdf |title=2017 GMC Yukon XL / Denali order guide |website=GM Authority |date=August 5, 2016 |access-date=August 11, 2016}}</ref>
+
+=== 2018 ===
+The 2018 model year Suburban had a few upgrades and deletions. LED daytime running lights became standard on all trims, along with a new color, ''Havana Metallic'' and ''Satin Steel Metallic''. The Cocoa/Mahogany interior that was combined with the ''Pepperdust Metallic'' exterior was dropped along with the wireless/inductive phone charging that was part of the Luxury and Texas Edition LT level trims. The fleet/commercial level trim, which had fewer features, was upgraded to include MyLink, HD Radio, multi-color driver information center, LED daytime running lights, and an optional driver alert package.<ref>[http://gmauthority.com/blog/2017/06/new-2018-chevrolet-suburban-gets-new-color-standard-led-daytime-running-lamps-rst-package-and-more/ "2018 Chevrolet Suburban Gets New Color, Standard LED Daytime Running Lamps, RST Package, & More"] from GM Authority (June 23, 2017)</ref>
+
+The 2018 Yukon Denali XL received a new grille with a layered appearance like the ones on its redesigned 2018 Acadia and Terrain brands, featuring high-intensity-discharge headlights and LED daytime running lights. The refreshed design provided better airflow to the radiator, and when less cooling air is needed, shutters behind the grille closed to improve aerodynamics and efficiency. The interior featured new ash wood trim that, according to GMC, gave the cabin a richer appearance. A new 10-speed automatic transmission was mated to its {{convert|420|hp|kW PS|0|adj=on}}, 6.2-liter V8 engine, replacing the 8-speed transmission.<ref>[https://www.cars.com/articles/2018-gmc-yukon-denali-preview-1420695507159/ "2018 GMC Yukon Denali Preview"] from Cars.com (May 24, 2017)</ref>
+
+=== 2019 ===
+The 2019 Suburban will have both ''Havana Metallic'' and ''Tungsten Metallic'' deleted in favor of a new ''Shadow Gray Metallic'' exterior color, while the top-of-the-line Premier now had the name displayed on the tailgate. The LS trim continued to make HD Radio a standard feature, but could be deleted if customers opted for the OnStar feature.<ref>[http://gmauthority.com/blog/2018/05/heres-whats-new-for-the-2019-chevy-suburban/ "Here's What's New For The 2019 Chevy Suburban"] from GM Authority (May 20, 2018)</ref>
+
+The 2019 model year GMC Yukon XL added three new exterior colors, ''Dark Sky Metallic'', ''Pepperdust Metallic'', and ''Smokey Quartz Metallic'', while deleting two others, ''Mineral Metallic'' and ''Iridium Metallic''. GMC also introduced two new package features, ''Graphite Edition'' and ''Graphite Performance Edition'', which were available in the SLT trim only.<ref>[http://gmauthority.com/blog/2018/05/what-is-new-for-the-2019-gmc-yukon-and-2019-yukon-denali/ "Here's What Is New For The 2019 GMC Yukon and 2019 Yukon Denali"] from GM Authority (May 25, 2018)</ref>
+
+=== 2020 ===
+The 2020 Chevrolet Suburban dropped the LT Signature Package and the LS All-Season Package, along with the ''Pepperdust Metallic'' color,<ref>[http://gmauthority.com/blog/2019/06/2020-chevrolet-suburban-heres-whats-new-and-different/ "2020 Chevrolet Suburban: Here's What's New And Different"] from GM Authority (June 21, 2019)</ref> while the 2020 GMC Yukon XL replaced its ''Pepperdust Metallic'' color with ''Carbon Black Metallic'' and made no additional changes.<ref>[http://gmauthority.com/blog/2019/07/2020-gmc-yukon-heres-whats-new-and-different/ "2020 GMC Yukon: Here's What's New And Different"] from GM Authority (July 3, 2019)</ref>
+
+===Accolades===
+The 2015 Suburban was ranked third among the top affordable SUVs and fifth among affordable SUVs with 3-row seats by ''[[U.S. News & World Report]]'',<ref>[http://usnews.rankingsandreviews.com/cars-trucks/Chevrolet_Suburban/ "2015 Chevrolet Suburban"] from ''U.S. News & World Report'' (June 20, 2014)</ref> and was among the finalists in ''[[Motor Trend]]'s'' SUV of the year for 2015.<ref>[http://www.motortrend.com/oftheyear/suv/2015_suv_of_the_year_contenders_and_finalists/chevrolet_suburban.html "Finalist: Chevrolet Suburban"] {{Webarchive|url=https://web.archive.org/web/20150928014711/http://www.motortrend.com/oftheyear/suv/2015_suv_of_the_year_contenders_and_finalists/chevrolet_suburban.html |date=2015-09-28 }} from ''Motor Trend'' (January 10, 2015)</ref> It also received a 2015 [[MotorWeek Drivers' Choice Awards|MotorWeek Drivers' Choice Award]] for best large SUV,<ref>[http://www.motorweek.org/reviews/drivers_choice_awards/#/best-large-utility "2015 Driver's Choice Award"] {{Webarchive|url=https://web.archive.org/web/20170421165521/http://www.motorweek.org/reviews/drivers_choice_awards/#/best-large-utility |date=2017-04-21 }} from ''[[MotorWeek]]'' (February 13, 2015)</ref> while ''[[Consumer Reports]]'' ranked the Suburban as the best SUV with a third row seat, topping its competitors in this category.<ref>[https://finance.yahoo.com/news/best-worst-three-row-vehicles-110000189.html "Best & worst three-row vehicles"] from ''[[Consumer Reports]]''/[[Yahoo!]] (June 26, 2015)</ref>
+
+The Chevrolet Suburban took third place behind the Tahoe and GMC Yukon in the 2016 J.D. Power Vehicle Dependability Study among full-size SUVs, based on responses from owners of the vehicles.<ref>[http://gmauthority.com/blog/2016/05/gms-full-size-suvs-sweep-full-size-suv-segment-in-2016-j-d-power-vehicle-dependability-study/ "GM's Full-Size SUVs Sweep Full-Size SUV Segment In 2016 J.D. Power Vehicle Dependability Study"] from GM Authority (May 31, 2016)</ref>
+
+''[[Good Housekeeping]]'' named the 2018 Suburban the "Best New Car of Year 2018" in the Large SUV category.<ref>{{cite magazine | url = http://www.goodhousekeeping.com/travel-products/car-reviews/g5081/new-car-awards-2018/ | title = The Best New Cars of 2018 | magazine = [[Good Housekeeping]] | date = February 12, 2018 }}</ref> ''[[Consumer Reports]]'' added the 2018 Suburban to their recommended list due to high owner satisfaction scores.<ref>{{Cite web| url=https://www.cheatsheet.com/automobiles/the-suvs-that-scored-new-consumer-reports-recommendations-for-2019.html/| title=The SUVs That Scored New Consumer Reports Recommendations for 2019| date=November 6, 2018| access-date=November 16, 2018| archive-date=November 16, 2018| archive-url=https://web.archive.org/web/20181116220658/https://www.cheatsheet.com/automobiles/the-suvs-that-scored-new-consumer-reports-recommendations-for-2019.html/| url-status=dead}}</ref>
+
+The Suburban was given a [[Hollywood Walk of Fame]] star on December 5, 2019, one of two inanimate objects to be awarded such ([[Disneyland]] being the other), for its frequent appearances in film and television. Because city regulations prohibit placing corporate names on public sidewalks including the Walk of Fame, the star was instead placed in an area adjacent to the Walk of Fame.<ref name="freep.com"/>
+
+===Sales===
+The eleventh-generation Suburban saw an increase in sales; April 2014 brought a 109.8 percent spike, with most dealers reporting that the vehicles are being sold within 10 days after arriving on the lot, with customers opting for the fully loaded LTZ model, making it one of Chevrolet's fastest selling brands in 2014.<ref>[http://gmauthority.com/blog/2014/05/chevrolet-says-demand-for-2015-suburban-and-tahoe-higher-than-expected/ "Chevrolet Says Demand For 2015 Suburban And Tahoe Higher Than Expected"] from GM Authority (May 7, 2014)</ref> The eleventh generation Suburban is also a hot seller in the Middle East, where in August 2014 posted a 37% increase in sales, with most of the purchases coming from Saudi Arabia (65%), the United Arab Emirates (15%) and Qatar (108%).<ref>[http://gmauthority.com/blog/2014/09/chevrolet-middle-east-suv-and-pickup-sales-up-35-percent-in-august/ "Chevrolet Middle East SUV and Pickup Sales Up 35 Percent In August"] from GM Authority (September 16, 2014)</ref> By the end of September 2014, GM sold more than 4101 units of the Suburban (up 50.1%), while the Yukon XL posted 2165 units sold (up 64%), with GM boasting that 80% of the vehicles sold were its large SUVs.<ref>[http://wot.motortrend.com/1410_gm_september_2014_sales_grow_19_percent_pickups_on_top.html "GM September 2014 Sales Grow 19 Percent, Pickups on Top"] from Motor Trend (October 1, 2014)</ref>
+
+In Canada, sales of the Suburban reached 966 units (up 43%) in 2014, although the Yukon XL was the best seller in that country with 1,760 vehicles sold (up 50.3%) that same year.<ref>[http://www.goodcarbadcar.net/search/label/Large%20SUV%20Sales?max-results=5 2014 Large SUV Sales] from Good Car Bad Car (January 15, 2015)</ref> Overall, they accounted for 70 percent of GM Canada's SUV sales for 2014.<ref>[http://www.wheels.ca/car-reviews/2015-chevrolet-suburban-lt-4wd-review/ "2015 Chevrolet Suburban LT 4WD Review"] from Wheels.ca (February 17, 2015)</ref>
+
+On August 17, 2015, GM confirmed plans to increase production on its large SUVs, especially on the Suburban/Yukon XL, citing lower gas prices and a higher demand for the vehicles. The move also resulted in its Arlington Assembly adding more hours and increasing its production from 48,000 SUVs to 60,000 based on the expanding hours and added Saturday overtime shifts.<ref>[http://www.autonews.com/article/20150813/OEM01/150819925/gm-said-to-be-boosting-production-of-big-suvs-pickups "GM Said To Be Boosting Production Of Big SUVs, Pickups"] from Automotive News (August 17, 2015)</ref>
+
+The 2017 MY Suburban saw its biggest sales increase in January 2017, when it posted a 72.3% gain (5,634 units), the most ever since January 2008 when it had the 2008 MY Suburban.<ref>[http://gmauthority.com/blog/2017/02/chevrolet-suburban-sales-numbers-figures-results-january-2017/ "Chevrolet Suburban Sales Up 72.3% In January 2017"] from GM Authority (February 24, 2017)</ref>
+
+==Twelfth generation (2021)<span class="anchor" id="12"></span><span class="anchor" id="2021"></span>==
+{{Infobox automobile
+| name = GMT1YC/YG
+| image = 2021 Chevrolet Suburban LT, rear 6.14.21.jpg
+| aka = {{ubl|GMC Yukon XL|[[Cadillac Escalade ESV]] (2021–)}}
+| production = July 2020<ref>{{Cite web|url=https://gmauthority.com/blog/2020/07/2021-chevrolet-suburban-production-begins-at-arlington-plant/|title=2021 Chevrolet Suburban Production Begins At Arlington &#124; GM Authority |date=13 July 2020 }}</ref>–present
+| model_years = 2021–present
+| assembly = [[Arlington, Texas]], U.S. ([[Arlington Assembly]])
+| designer = 
+| platform = [[GMT T1XX]]
+| related = {{ubl|[[Cadillac Escalade#Fifth generation (2021)|Cadillac Escalade]]|[[Chevrolet Tahoe#Fifth generation (2021)|Chevrolet Tahoe]]/[[Chevrolet Tahoe#Yukon|GMC Yukon]]}}
+| layout = {{ubl|[[Front-engine, rear-wheel-drive layout|Front engine]],|[[rear-wheel drive]] / [[four-wheel drive]]}}
+| engine = {{ubl|5.3&nbsp;L (325&nbsp;cu&nbsp;in) [[LS based GM small-block engine#Generation V (2013–present)|EcoTec3]] V8 FlexFuel|6.2&nbsp;L (376&nbsp;cu&nbsp;in) [[LS based GM small-block engine#Generation V (2013–present)|EcoTec3]] V8 FlexFuel|3.0&nbsp;L LM2 ''[[Duramax I6 engine|Duramax]]'' [[Inline-6|I6]] turbodiesel (except 2021–2024 Z71 and Mexico-export version)}}
+| transmission = 10-speed [[Ford-GM 10-speed automatic transmission|Hydra-Matic 10L80 automatic]]
+| wheelbase = {{convert|134.1|in|mm|0|abbr=on}}
+| length = {{ubl|Suburban: {{convert|225.7|in|mm|0|abbr=on}}|Yukon XL: {{convert|225.4|in|mm|0|abbr=on}}}}
+| width = {{convert|81.1|in|mm|0|abbr=on}}
+| height = {{convert|75.7|in|mm|0|abbr=on}}
+| weight = {{convert|5785-5993|lbs|abbr=on}}|
+| caption = 2021 Chevrolet Suburban LT
+}}
+
+On December 10, 2019, Chevrolet introduced the twelfth-generation Suburban at [[Little Caesars Arena]] in [[Detroit, Michigan]]. This time around, GM chose to introduce the Chevrolet full-size SUVs first. The GMC Yukon XL was later introduced on January 14, 2020.<ref>{{Cite web|url=https://www.caranddriver.com/news/a30517344/2021-gmc-yukon-xl-photos-info/|title=New 2021 GMC Yukon, Yukon XL Get AT4 Off-Road Trim and Diesel Engine|work=[[Car and Driver]]|last=Beresford|first=Colin|date=14 January 2020|access-date=14 January 2020}}</ref> Although the fifth-generation Cadillac Escalade made its debut on February 4, 2020,<ref>[https://gmauthority.com/blog/2019/12/next-gen-2021-cadillac-escalade-will-drop-in-february/ "Next-Gen 2021 Cadillac Escalade Will Drop In February"] from GM Authority (December 12, 2019)</ref> its extended length sibling Escalade ESV was the last GM full-size SUV to be introduced online in April 2020 after it was withdrawn from the cancelled 2020 [[New York International Auto Show]].<ref>[https://www.autoblog.com/2020/02/04/2021-cadillac-escalade-esv-debut-new-york-auto-show/#slide-endcap "2021 Cadillac Escalade ESV will debut at the New York Auto Show"] from Autoblog (February 4, 2020)</ref><ref>[https://gmauthority.com/blog/2020/02/2021-cadillac-escalade-esv-spotted-on-the-street/ "2021 Cadillac Escalade ESV Spotted On The Street"] from GM Authority (February 12, 2020)</ref> Originally scheduled to start in April 2020, due to the [[COVID-19 recession]], GM postponed production of the Suburban to 13 July, 2020. The Suburban began entering dealerships in August 2020.<ref>[https://www.reuters.com/article/us-health-coronavirus-autos-launches/coronavirus-could-force-gm-to-delay-its-redesigned-2021-suvs-idUSKBN21H3D8 "Coronavirus could force GM to delay its redesigned 2021 SUVs"] from Reuters (March 30, 2020)</ref><ref>[https://gmauthority.com/blog/2020/05/new-full-size-gm-suvs-start-shipping-in-june/ "New Full-Size GM SUVs Start Shipping In June"] from GM Authority (May 6, 2020)</ref>
+
+===Chevrolet Suburban===
+====2021====
+[[File:2021 Chevrolet Suburban LT, front 6.14.21.jpg|left|thumb|Rear view]]
+Based on the same [[GMT T1XX]] platform as the Silverado 1500, the Suburban distinguished itself by swapping that truck's [[live axle]] and [[Leaf spring|leaf springs]] for an [[Independent suspension|independent]] rear [[Multi-link suspension|multilink suspension]] setup with coil springs, thus lowering the floor of the vehicle and creating more room, in both the cargo area and the second- and third-row seats.<ref>[http://gmauthority.com/blog/2019/12/irs-for-2021-chevrolet-tahoe-suburban-was-the-plan-from-the-beginning/ ""IRS For 2021 Chevrolet Tahoe, Suburban, Was The Plan From The Beginning"] from GM Authority (December 11, 2019)</ref> The Suburban expanded its length to {{convert|225.7|in|mm|0}}, and the wheelbase to {{convert|134.1|in|mm|0}} while shortening down by {{convert|15|in|mm|0}} longer than the Tahoe (as its wheelbase was moved back by {{convert|5|in|mm|0}}), making it the largest and longest SUV in the extended-length segment. It gains {{convert|2|cuft|L|spell=in}} of cargo space behind the third row and {{convert|2.2|in|mm|0}} of third-row legroom. The towing capabilities were increased with the twelfth-generation models.<ref>[https://gmauthority.com/blog/2020/05/2021-general-motors-full-size-suvs-get-lower-max-towing-higher-standard-towing/ "2021 General Motors Full-Size SUVs Get Lower Max Towing, Higher Standard Towing"] from GM Authority (May 6, 2020)</ref>
+
+The trims feature the primary basic LS, LT, and Premier levels, with the 4WD-exclusive Z71 and RST moving from package to premium levels, along with the newly added High Country level, the latter being the top of the line. Chevrolet rolled out the LT, Z71, Premier, and High Country levels first, with the LS and RST levels arriving in late Fall 2020.<ref>[https://carbuzz.com/cars/chevrolet/suburban "2021 Chevrolet Suburban"] from CarBuzz (March 16, 2020)</ref>
+
+Quad exhaust tailpipes are added to the vehicle, giving it a more unique look, although this feature is only standard on Premier and High Country. This feature isn't offered on the LS, LT, Z71 and RST because of their configuration as regular base, off-road, and street-centric level trims respectively, nor on all trims with a Duramax option.<ref>[https://gmauthority.com/blog/2020/01/breaking-down-the-exhaust-treatments-for-the-2021-chevrolet-tahoe-suburban/ " Breaking Down The Exhaust Treatments For The 2021 Chevrolet Tahoe, Suburban"] from GM Authority (January 27, 2020)</ref> The RST Suburban, which had photos released in April 2020, has a unique fascia and a sportier design similar to its Cadillac Escalade ESV Sport level trim.<ref>[https://gmauthority.com/blog/2020/04/2021-chevrolet-suburban-rst-on-the-road-photo-gallery/ "2021 Chevrolet Suburban RST On The Road: Photo Gallery"] from GM Authority (April 10, 2020)</ref> Both Premier and High Country trims have power-retractable assist steps that was optional on the Premier trim from the previous generation.<ref>[https://gmauthority.com/blog/2020/04/check-out-the-2021-chevy-tahoe-2021-suburban-power-retractable-assist-steps-video/ "Check Out The 2021 Chevy Tahoe, 2021 Suburban Power-Retractable Assist Steps: Video"] from GM Authority (April 20, 2020)</ref>
+
+Although it retained a boxy look, it added a more curvaceous design with this change and adopted the same Chevrolet design language featuring the front grille and distinct LED lighting that is also used on the Silverado, save for the black-grilled Z71 (without the bumper) and RST. The tailgate is more front and center, with the signature "Suburban" name stretched across it. A combination of sheet metal and aluminum was used to ensure a more lightweight vehicle.<ref>[https://gmauthority.com/blog/2019/12/2021-chevrolet-suburban-and-tahoe-use-aluminum-panels-to-reduce-weight/ "2021 Chevrolet Suburban and Tahoe Use Aluminum Panels to Reduce Weight"] from GM Authority (December 12, 2019)</ref>
+ 
+The dashboard and entertainment system have been fleshed out, moving away from the traditional design. Newly updated features include a 10.25-inch touch screen that is now standard on all trims, and a pair of 12.6-inch LCD rear screens that can play movies and offer content from passengers' smartphones and can play different programs on the two screens. A new push-button shifter column (P, R, N, D) is placed on the dashboard. Nine camera displays for enhanced towing capabilities and a total of 30 additional safety features have been implemented throughout the Suburban. An Air Ride Adaptive Suspension is standard on the higher trims, likewise with an 8-inch driver screen. Another new feature, a power sliding console that became available in late Summer 2020. The High Country Suburban also has a Deluxe package option with advance features that is exclusive to this trim only.<ref>[https://gmauthority.com/blog/2020/02/2021-chevrolet-tahoe-suburban-high-country-deluxe-package-feature-spotlight/ "2021 Chevrolet Tahoe, Suburban High Country Deluxe Package: Feature Spotlight"] from GM Authority (February 6, 2020)</ref> The 40/20/40 front seat option that was available on the LS trim is now exclusive to fleet orders with this generation using the same base trim.<ref>[https://gmauthority.com/blog/2020/05/2021-chevrolet-tahoe-suburban-continue-9-passenger-seating-capacity/ "2021 Chevrolet Tahoe, Suburban Continue 9-Passenger Seating Capacity"] from GM Authority (May 19, 2020)</ref>
+
+The Suburban also featured a Duramax diesel engine as an option (available on all trims and packages except for the Z71<ref>[https://gmauthority.com/blog/2019/12/why-the-2021-chevrolet-tahoe-suburban-z71-dont-offer-3-0l-duramax-diesel/ "Why The 2021 Chevrolet Suburban, Tahoe Z71 Don't Offer 3.0L Duramax Diesel"] from GM Authority (December 31, 2019)</ref>) for the first time, and so far the only brand outside its competitors to have this option; a 3.0-liter [[Straight-six engine|I6]] is used which produces {{convert|277|hp|kW PS|0}} and {{convert|460|lbft|Nm kgm|0|abbr=on}} of torque. The 6.2-liter EcoTec engine that was reserved for the RST trim in the previous generation is exclusive to the High Country level trim. The engine choices added up to improved fuel economy numbers, albeit with an increased MPG for city and a decreased MPG for highway.<ref>[https://gmauthority.com/blog/2020/05/2021-full-size-general-motors-suvs-more-efficient-in-the-city-less-efficient-on-the-highway/ "2021 Full-Size General Motors SUVs More Efficient In The City, Less Efficient On The Highway"] from GM Authority (May 5, 2020)</ref> GM has no plans to offer this model in a 2500 or 3500 series version.
+
+====2022====
+For the 2022 model year, the Suburban saw an increased availability of the 6.2-liter V-8, which continues to be standard on High Country but can now be fitted to the RST, Z71, and Premier trim levels, and expands the Magnetic Ride Control damping system to the RST. The 12.3-inch screen (with Google Assistant, Google Maps, and the Google Play Store embedded) becomes standard on the higher trims except for the LS. A newly optional electronic limited-slip differential is now available on the Z71 trim and can be used in the 4WD Low setting.<ref>[https://www.msn.com/en-us/autos/news/2022-chevy-and-gmc-full-size-suvs-add-new-tech-more-v-8-options/ar-AAOSGjt?ocid=uxbndlbing 2022 Chevy and GMC Full-Size SUVs Add New Tech, More V-8 Options] from Car & Driver (September 27, 2021)</ref>
+
+==== 2025 refresh ====
+<gallery widths="200" heights="120">
+File:2025 Chevrolet Suburban LT, front 5.5.25.jpg|Front view
+File:2025 Chevrolet Suburban LT, rear 5.5.25.jpg|Rear View
+</gallery>On November 29, 2023, GM unveiled a refresh for both the Suburban and Tahoe models. The Suburban features a refreshed front and rear fascia with redesigned headlights and taillights similar to those from the 3rd-generation 2024 [[Chevrolet Traverse]]. Other changes include new 24-inch wheels, a new upgraded 3.0L Duramax diesel engine option with 10 percent more horsepower than the outgoing option (thus now being available on the Z71 trim level for the first time), a new revised interior with an all-new standard 17.7-inch-diagonal freeform infotainment screen paired with the 11-inch-diagonal driver information center and redesigned center console, new ride and handling enhancements, upgraded safety and technology including GM Super Cruise, and improved towing and trailering technology. The refreshed models will go on sale in late 2024 for the 2025 model year.<ref>{{cite web | url=https://media.chevrolet.com/media/us/en/chevrolet/news.detail.html/content/Pages/news/us/en/2023/nov/1129-tahoe-suburban.html | title=Site Maintenance }}</ref>
+
+===Yukon XL===
+====2021====
+GMC unveiled its twelfth generation Yukon XL in [[Vail, Colorado]] on January 14, 2020, alongside its short-wheelbase sibling Yukon. Like the Suburban, the Yukon XL also featured an independent rear suspension, a 3.0-liter inline-six turbodiesel engine, and a top-shelf suspension option featuring air springs and magnetic-ride shocks, a standard 5.3-liter V8, an optional {{convert|420|hp|kW PS|0|adj=on}} 6.2-liter V8, and a 10-speed automatic transmission that is standard across the lineup. It also gained {{convert|4.1|in|mm|0}} in the wheelbase but only {{convert|0.9|in|mm|0}} in overall length, making it still short of the Suburban's length. The dashboard has two versions, one identical to the Suburban while a different one with a larger entertainment screen is exclusive to the Denali. The Yukon XL's design follows GMC's design language, with the front grille mimicking the Sierra but the tailgate mimicking the GMC crossover SUV lineup with the lights extended to the tailgate doors.
+
+The lineup of level trims also expanded as well, with the SLE, SLT, and Denali now joined by the 4WD-exclusive AT4, the latter of which comes standard with the Magnetic Ride Control electronically adaptive dampers, AT4-exclusive leather-appointed seats, and stitching with a unique Jet Black interior color and Brandy accents, a heated steering wheel, heated and ventilated front seats, heated second-row outboard seats, a two-speed transfer case, 20-inch [[Goodyear Tire and Rubber Company|Goodyear]] all-terrain tires, Traction Select System with off-road mode, hill descent control, and skid plates.<ref>[https://carbuzz.com/cars/gmc/yukon-xl "2021 GMC Yukon XL"] from CarBuzz (March 17, 2020)</ref> The Denali level offers three packages for this generation, with Deluxe joining the Premium and Ultimate options, and became the only trim to offer quad exhaust tailpipes.<ref>[https://www.autoblog.com/2020/05/20/2021-gmc-yukon-denali-accessories-packages/#slide-2207019 2021 "GMC Yukon Denali adds another extra-luxe accessories bundle"] from Autoblog (May 20, 2020)</ref>
+
+====2022====
+For the 2022 model year, the Yukon XL added a few additions similar to the Suburban, among them a 12.3-inch digital gauge cluster that is now standard on all trims, with Google Assistant, Google Maps and the Google Play Store embedded. The power sliding center console is now standard on the Denali trim. Redwood Metallic is added as a new color option.<ref>[https://www.msn.com/en-us/autos/autos-suvs/2022-gmc-yukon-adds-standard-digital-cluster-google-smarts/ar-AAOSZEq?ocid=BingNewsSearch "2022 GMC Yukon adds standard digital cluster, Google smarts"] from Road Show (September 27, 2021)</ref>
+
+==== 2025 facelift ====
+The twelfth-generation GMC Yukon XL received a facelift for the 2025 model year. The facelift includes a redesigned front fascia with redesigned LED headlights and LED taillights similar to those from the 3rd-generation 2024 [[GMC Acadia]]. Other changes include the Elevation trim level being introduced to replace the SLE and SLT trim levels as the entry-level trim, the deletion of the nine passenger seating configuration with 1st row bench seating (which was an available seating option exclusive to the SLE and SLT trim levels on the pre-facelift version of the twelfth-generation GMC Yukon XL), the introduction of the Denali Ultimate and AT4 Ultimate trim levels, new towing technology, and the same upgraded Duramax Diesel engine output seen on the 2025 Suburban. The facelifted twelfth-generation Yukon XL entered production in November 2024.<ref>{{cite web | title=Here is the Refreshed 2025 GMC Yukon | date=August 19, 2024 | url=https://gmauthority.com/blog/2024/08/here-is-the-refreshed-2025-gmc-yukon/ }}</ref><ref>{{cite web | title=2025 GMC Yukon Loses This Family Friendly Seating Feature | date=October 19, 2024 | url=https://gmauthority.com/blog/2024/10/2025-gmc-yukon-loses-this-family-friendly-seating-feature/ }}</ref> The smallest wheel size is 20 inch, including on the offroad focused AT4 trim.<ref>{{Cite web |last=Hunt |first=Rhian |date=2024-12-28 |title=Here Are All The 2025 GMC Yukon Wheels - GM Authority |url=https://gmauthority.com/blog/2024/12/here-are-all-the-2025-gmc-yukon-wheels/ |access-date=2025-10-31 |language=en-US}}</ref>
+
+<gallery widths="200" heights="150" caption="T1XX (12th generation) Suburban/Yukon">
+File:2021 GMC Yukon XL SLT, front 9.24.20.jpg|2021 GMC Yukon XL
+File:2021 GMC Yukon XL SLE, rear 3.24.22.jpg|Rear view
+File:2022 GMC Yukon XL interior.jpg|Interior (standard)
+File:2023 GMC Yukon XL Denali interior.jpg|Interior (Denali)
+</gallery>
+
+===Suburban Shield / HD SUV===
+<!--Unfortunately this is a K2XX Suburban HD, not the T1XX HD SUV: [[File:Diplomatic Security Service (DSS) special agents prepare for the 78th United Nations General Assembly in New York City, September 2023 28.jpg|thumb|right|DSS Suburban in New York 2023]]-->
+{{anchor|HD SUV|Suburban Shield|Shield}}
+In 2021, [[GM Defense]] was awarded a $36.4 million contract by the [[United States Department of State]] [[Diplomatic Security Service]] (DSS) for ten [[GMT T1XX]]-based prototype Suburban HD vehicles, with uprated suspension and an undisclosed powertrain; deliveries were scheduled for Spring 2023.<ref>{{cite news |url=https://www.roadandtrack.com/news/a37625021/chevy-suburban-hd-is-back/ |title=The Suburban HD Is Back But You Can't Have One |author=Bell, Lucas |date=September 16, 2021 |work=Road & Track |access-date=19 September 2023}}</ref> The first prototype was shown to DSS leadership during a ride-and-drive event held at [[Summit Point Raceway]] on June 29, 2023.<ref name=DSS-PR2023/> Under the terms of the contract, one prototype will be tested for survivability by shooting it with small arms and detonating small blasts; the other prototypes will be tested for durability.<ref>{{cite news |url=https://www.musclecarsandtrucks.com/u-s-department-of-state-is-testing-a-gm-defense-hd-suv/ |title=Chevrolet Suburban HD from GM Defense now being tested by State Dept. |first=Zac |last=Quinn |date=July 27, 2023 |work=Muscle Cars and Trucks |access-date=16 January 2024}}</ref>
+
+The vehicle is named the '''Suburban Shield''' and was known as the '''Heavy-Duty Sport Utility Vehicle''' ('''HD&nbsp;SUV''') during development.<ref name=GMAuthority-2024-10-28>{{cite news |url=https://gmauthority.com/blog/2024/10/gm-defense-completes-production-of-first-suburban-shield-for-diplomatic-security-service/ |title=GM Defense Completes Production Of First Suburban Shield For Diplomatic Security Service |first=Jonathan |last=Lopez |date=October 28, 2024 |work=GM Authority |access-date=4 November 2024}}</ref> It is offered in 1LT and 2LT trims with 4WD and the [[General Motors LS-based small-block engine#L86/L87|''L87'']] 6.2L V8 engine and [[Ford-GM 10-speed automatic transmission|10-speed automatic transmission]] standard; the [[Duramax I6 engine|3.0L ''Duramax'' I-6 turbodiesel]] is an option.<ref><!--https://www.gmdefensellc.com/site/us/en/gm-defense/home/integrated-vehicles/hd-suv.html-->{{cite web |url=https://www.gmdefensellc.com/dld/content/site/us/en/gm-defense/home/integrated-vehicles/hd-suv/_jcr_content/par/channelbox_1590685200/par/rown/par_1/channelbox/par/channelbox_1266689036/par/channelbox_882264402/par/download/file.res/HDSUV_Overview_EN.pdf |title=Heavy-Duty Sport Utility Vehicle |publisher=GM Defense |access-date=19 September 2023}}</ref> The primary differences between the trims is the seating configuration, with the 1LT featuring second and third row bench seats, which are captain's chairs and jump seats, respectively, for the 2LT.<ref>{{cite web |url=https://www.gmdefensellc.com/dld/content/dam/company/gm-defense/docs/pdf/GMD_SuburbanShield.pdf |title=Suburban Shield Family |publisher=GM Defense, LLC |access-date=4 November 2024}}</ref> The chassis is designated "eBOF" (Electric Body on Frame) and can accommodate a diverse set of powertrains, including battery electric and hydrogen fuel cell.<ref>{{cite web |url=https://www.gmdefensellc.com/content/dam/company/gm-defense/docs/news/2021/ausa/GMD_AUSA_Flyer_IntegratedVehicles_FINAL.pdf |title=Integrated Vehicles |date=2021 |publisher=GM Defense |access-date=19 September 2023}}</ref> Armor is integrated during the initial build, rather than having a finished vehicle torn down and reassembled by an aftermarket upfitter.<ref>{{cite news |url=https://www.slashgear.com/1459442/300-million-heavy-duty-armor-chevy-suburban/ |title=The $300 Million Heavy Duty Armor Surprise Inside This Chevy Suburban |first=Rahul |last=Srinivas |date=November 30, 2023 |work=Slash Gear |access-date=16 January 2024}}</ref> Although many components and systems are shared with the commercial T1XX Suburban, including the body, exterior, interior, powertrain, and brakes, the chassis and frame are specific to the HD&nbsp;SUV to accommodate the increased weight;<ref name=FO-2023/> the chassis is based on the [[Chevrolet Silverado#Fourth-generation Silverado / fifth-generation Sierra (GMT T1XX; 2019)|Silverado HD ZR2]].<ref name=BNC-2024>{{cite news |url=https://businessnc.com/gm-defense-launches-armored-suburbans-with-n-c-twist/ |title=GM Defense launches armored Suburbans with N.C. twist |first=David |last=Mildenberg |date=November 1, 2024 |work=Business North Carolina |access-date=4 November 2024}}</ref>
+
+GM Defense was awarded an [[indefinite delivery, indefinite quantity]] contract in November 2023 with a ceiling value of US$300&nbsp;million;<ref name=FO-2023>{{cite news |url=https://www.fleetowner.com/equipment/article/21278390/gm-defense-awarded-us-state-department-contract-for-next-generation-armored-heavy-duty-suv |title=GM Defense awarded State Dept. contract for next-gen armored SUV |date=December 6, 2023 |work=FleetOwner |access-date=16 January 2024}}</ref> serial production is scheduled to commence in June 2024,<ref name=DSS-PR2023/> resulting in up to 2,000 Shields being delivered over 10 years.<ref name=Drive-2023/> It is assembled at a new GM Defense facility in [[Concord, North Carolina]], near [[Charlotte Motor Speedway]].<ref name=BNC-2024/><ref>{{cite news |url=https://businessnc.com/gm-defense-the-automotive-giant-has-ambitious-defense-contracting-plans-a-concord-factory-is-helping-revive-a-proud-legacy/ |title=GM Defense: A Concord factory is helping revive a proud legacy. |first=David |last=Mildenberg |date=April 30, 2024 |work=Business North Carolina |access-date=4 November 2024}}</ref> The first regular production Shield was completed in October 2024.<ref name=GMAuthority-2024-10-28/>
+
+===Availability===
+For international regions, Chevrolet started selling the twelfth generation Suburban in Mexico in August 2020, but unlike the United States and Canada, Mexico only offered the Suburban in the LT, RST, and High Country trims; the LS, Z71, and Premier level trims and the Duramax option are not offered for that country. The American-built models will use the GM 10-speed automatic transmission with Electronic Precision Shift technology, manufactured at the GM Silao Complex in the state of Guanajuato in central Mexico.<ref>[https://gmauthority.com/blog/2020/05/2021-chevrolet-tahoe-and-suburban-on-sale-in-mexico-this-fall/ "2021 Chevrolet Tahoe And Suburban On Sale In Mexico This Fall"] from GM Authority (May 8, 2020)</ref><ref>[https://gmauthority.com/blog/2020/08/all-new-2021-chevrolet-tahoe-and-suburban-arrive-in-mexico/ "All-New 2021 Chevrolet Tahoe And Suburban Arrive In Mexico"] from GM Authority (August 9, 2020)</ref> The Philippines began selling the 2021–present Suburban (with a possibility that it would offer a Duramax engine option in the country should Chevrolet make it available) in fall 2020,<ref>[https://www.autoindustriya.com/auto-industry-news/chevrolet-ph-to-launch-all-new-suburban-tahoe-by-q4-2020.html "Chevrolet PH to launch all-new Suburban, Tahoe by Q4 2020"] from Autoindustriya (February 6, 2020)</ref><ref>{{cite web | url = https://www.autoindustriya.com/auto-industry-news/chevrolet-ph-wants-to-offer-diesel-for-2021-tahoe-and-suburban.html | first = Marcus | last = De Guzman | title = Chevrolet PH wants to offer diesel for 2021 Tahoe and Suburban | work = Autoindustriya | date = February 20, 2020 }}</ref> followed by the Middle East region.<ref>[https://www.chevroletarabia.com/ae-en/upcoming/new-tahoe-and-suburban 2021 Suburban] from Chevrolet Arabia</ref> In November 2020, GM announced that their large SUV lineup would be imported to China, marking the Suburban's maiden entry into the country, starting with the 12th generation models. GM put those plans on hold in February 2021, citing the difficulty of having an import sold alongside its Chinese-built offerings, the makeup of the facilities that would be required to assemble the large full-size SUVs, and concerns that the full-size SUVs would not be able to comply with China's emission standards, as well as concerns that China's internal combustion engine excise taxes imposed on all vehicles sold in China that are powered by ICE engines more than 3.0 liters will hurt sales of GM's large full-size SUVs in the East Asian country.<ref>[https://www.detroitnews.com/story/business/autos/general-motors/2020/11/06/gm-china-full-size-suv-chevrolet-cadillac-buick/6188482002/ "GM plans to bring SUVs to China"] from ''[[The Detroit News]]'' (November 6, 2020)</ref>
+
+A right-hand-drive version of Suburban for Australia and right-hand-drive markets to be done by [[Holden Special Vehicles]] (HSV), which was announced in December 2019, is on hold, citing the low demand, capacity issues at HSV, and highly competitive large luxury SUV and towing market in Australia, although that could change due to GM's partnership with HSV to bring more American vehicles like the Suburban back down under the newly announced [[General Motors Specialty Vehicles]] (GMSV) arrangement.<ref>{{cite web|url=https://gmauthority.com/blog/2020/01/chevrolet-suburban-tahoe-looking-unlikely-for-australian-arrival/ |title=Chevrolet Suburban, Tahoe Looking Unlikely For Australian Arrival |first=Sam |last=McEachern |date=22 January 2020 |work=GM Authority}}</ref><ref>{{cite web|url=https://www.whichcar.com.au/news/large-v8-powered-us-suvs-coming-to-australia |title=Chevrolet Suburban and Tahoe put on ice for Australia |date=22 January 2020 |work=Wheels Australia |first=Cameron |last=Kirby}}</ref><ref>[https://www.whichcar.com.au/news/gmsv-deal-led-by-former-holden-executive "Former Holden exec to mastermind GMSV deal"] from Which Car (5 May 2020)</ref><ref>[https://gmauthority.com/blog/2020/07/gmsv-to-offer-more-models-in-australia-in-the-not-too-distant-future/ "GMSV To Offer More Models In Australia In The Not Too Distant Future"] from GM Authority (July 30, 2020)</ref>
+
+The Yukon XL officially went on sale for the first time ever in Mexico, starting in the Fall of 2020 with the 2021 models (GMC had only offered the Yukon in that country because GM did not want to have the Yukon XL cannibalized in terms of sales with the Suburban, which is also that country's best-selling SUV), where it is only available in the Denali trim.<ref>[https://gmauthority.com/blog/2020/03/gm-announces-all-new-2021-gmc-yukon-for-mexico/ "GM Announces All-New 2021 GMC Yukon For Mexico"] from GM Authority (March 31, 2020)</ref>
+
+==Signature Editions==
+Beginning with the 2018 model year, Chevrolet offered a "Signature Edition" package/trims of the Suburban. Each of the specialty versions were available at the LT and Premier level trims. Both the Z71 and RST became the fourth and fifth level trims starting with the twelfth generation Suburban for the 2021 model year, while the remaining continues as package features.
+
+===Z71 and Texas Edition===
+On September 26, 2014, Chevrolet debuted the updated Z71 Suburban at the State Fair of Texas, along with the debut of the Texas Edition Suburban, the latter due to Texas having the most units of Suburbans sold in the United States (As of August 2014, sales of the Chevrolet SUVs in Texas were up 37 percent) and to celebrate the 60th anniversary of GM's Arlington Assembly plant; production of the Z71 Suburban began in October 2014.
+
+As with the previous Z71 Suburbans, this version continued to be offered in a 4WD LT trim only, featuring a front skid plate, off-road tires mounted on 18-inch wheels, a unique grille, running boards, and "Z71" identification inside and out. Fog lamps, front tow hooks, and front parking assist are also included. The 2016 Z71 package was modified again, as portions of the Z71 items added on the Texas Edition package as an optional feature by request from customers was discontinued, making it a stand-alone package. The Z71 package was upgraded to a level trim starting with the twelfth generation models.
+
+The Texas Edition Suburban, which became part of the Texas Edition lineup along with the Tahoe and Silverado, was available in both LT and LTZ trims for the 2015 model year, featuring a maximum trailering package, twenty-inch polished aluminum wheels (on LT models), twenty-two-inch premium painted aluminum wheels (on LTZ models), and an exclusive "Texas Edition" badge.<ref>[http://www.autoblog.com/2014/09/26/chevy-tahoe-suburban-z71-texas-edition-official/ "Chevy announces Tahoe and Suburban Z71, Texas Editions"] from Autoblog (September 26, 2014)</ref> For the 2016 model year, Chevrolet discontinued the LTZ package but modified for the LT package without the requested Z71 features. The twelfth-generation Suburban continues to offer the Texas Edition for the LT and Premier trims only when combined with the Luxury, LT Signature, and Premium packages.
+
+===LT Signature Edition===
+The Suburban LT Signature Edition, introduced in the 2018 model year, was an optional package trim, similar to the luxury package but with less expensive features, available in the LT level trim only. This option was discontinued after the 2019 model year but will be offered for the 2021 model year.
+
+===Midnight Edition===
+A Midnight Edition Suburban, an all-black optional package available in 4WD LT and Z71 versions, was introduced for the 2017 model year. This version became part of the Signature Edition Suburban feature for the 2018 model year up until the 2020 model year.<ref>[http://blog.caranddriver.com/tangled-up-in-black-chevy-launches-midnight-edition-tahoe-and-suburban/ "Tangled Up In Black: Chevy Launches Midnight Edition Tahoe And Suburban"] {{Webarchive|url=https://web.archive.org/web/20170923144812/http://blog.caranddriver.com/tangled-up-in-black-chevy-launches-midnight-edition-tahoe-and-suburban/ |date=2017-09-23 }} from ''[[Car and Driver]]'' (September 12, 2016)</ref>
+
+===Premier Plus===
+On August 13, 2018, Chevrolet introduced a more upgraded version of the top-of-the-line Premier level trim of the Suburban, packaged as the Premier Plus, featuring a 6.2-liter engine, the classic gold bowtie emblems, chrome nameplate badging, and new polished 22-inch wheels. The interior is unique to these models, boasting with heated/ventilated Black-and-Mahogany leather front seats, Jet Black trim surround, a head-up display, and an eight-inch cluster. The exterior features standard cross rails, chrome power steps, and chrome exhaust tips. This feature was discontinued in the 2020 model year.<ref>[http://gmauthority.com/blog/2018/08/new-special-edition-chevrolet-tahoe-suburban-models-powered-by-6-2l-v8/ "New 6.2L Chevy Tahoe, Suburban Models Drop"] from GM Authority (August 13, 2018)</ref>
+
+===RST Edition===
+Chevrolet added a new package to the 2018 model year Suburban with the introduction of the street-themed RST (Rally Sport Truck) Special Edition Suburban. Originally at the time of the announcement, it was supposed to be available as an option for the LT and Premier trims as a Performance Package that included a {{convert|420|hp|kW PS|0|adj=on}}, 6.2-liter V-8 engine, a Magnetic Ride Control with performance calibration, and an all-new Hydra-Matic 10L80 10-speed automatic transmission. The press release also detailed additional features; The chrome elements are absent as body-color grilles surround the door and handles, along with an added gloss-black grille and mirror caps, black roof rails, window trim, badging and Chevy bowties, an exclusive 22-inch wheels wrapped in Bridgestone P285/45R 22 tires, a Borla performance exhaust system, massive front red Brembo six-piston, fixed aluminum calipers with brake pads clamping on larger-than-stock {{convert|410|x|32|mm|in|abbr=on}} Duralife rotors, coupled with an 84 percent increase in brake pad area and a 42 percent increase in rotor area to increase system thermal capacity.<ref>[https://www.gm.com/mol/m-2017-apr-nyas-chevrolet-0406-rst.html "RST Special Edition Brings Street Look and Power to the New Chevrolet Tahoe and Suburban"] official press release from GM (April 6, 2017)</ref>
+
+However, after the press release, Chevrolet confirmed that the RST Suburban would only be available as an appearance package, as the 6.2-liter engine would not be used for the 2018 model year.<ref>[http://gmauthority.com/blog/2017/04/2018-chevy-suburban-will-not-offer-optional-performance-package/ "2018 Chevrolet Suburban Will Not Offer Optional Performance Package"] from GM Authority (April 10, 2017)</ref> But on May 4, 2018, Chevrolet expanded the RST package to the Suburban as an option for the 2019 model year that will now include the 10-speed automatic transmission and 6.2L engine, reversing a decision made by GM that it would be exclusive to GMC and Cadillac's Suburban siblings Yukon XL and Escalade ESV. The packaged trim went on sale in July 2018. The RST package option became a level trim with the twelfth-generation Suburban for the 2021 model year.<ref>[https://www.autoblog.com/2018/05/04/chevy-suburban-rst-performance-package-v8/ "2019 Chevy Suburban RST Performance Package finally adds the big engine"] from Autoblog (May 4, 2018)</ref>
+
+==Additional changes==
+===Upgrades===
+GM offered another off-road variant or trim for the Suburban and Yukon XL starting with the eleventh generation.<ref>[http://www.autoblog.com/2013/09/24/gm-mulling-off-road-variants-fullsize-suvs/ GM mulling off-road variants of full-size SUVs] from Autobog (September 24, 2013)</ref> With the relaunch of the Z71 package in the Suburban for the 2015–2020 models, GM filed papers to trademark the Trail Boss name for use on future Chevrolet truck and SUV models, although they were never used for the Suburban trims.<ref>[http://www.autoblog.com/2015/01/26/gm-gmc-chevy-z71-trail-boss-trademark-report/ "GM files for Z71 Trail Boss trademark"] from Autoblog (January 26, 2015)</ref>
+
+===Concept versions===
+On November 4, 2013, Chevrolet unveiled a concept design for the Suburban called the Half-Pipe, whose features include roof racks and crossbars to mount skis, at the [[SEMA (association)|SEMA]] Show. Afterwards, Chevrolet made its parts available for order at Chevrolet Accessories.<ref>[http://gmauthority.com/blog/2013/11/sema-2013-chevy-suburban-half-pipe-concept-is-a-better-way-to-get-to-the-slopes/ SEMA 2013: Chevrolet Suburban Half-Pipe Concept Is A Better Way To Get To The Slopes] from GM Authority (November 4, 2013)</ref>
+
+At the [[SEMA (association)#2017|2017 SEMA Show]], a 4×4 off-road Suburban concept inspired by Country singer (and Chevrolet spokesman) [[Luke Bryan]] based around his 2016 song "[[Huntin', Fishin' and Lovin' Every Day]]" was introduced, decked out in custom Hunter Bronze exterior color with Dark Carbon accents and camo graphics, a roof-mounted light rack and a custom lower fascia, a liftgate re-engineered to swing outward rather than upward and incorporates a custom spare tire mount, 22-inch wheels with 35-inch-tall tires, roof-mounted equipment carrier with a fishing rod holder, an interior design consisting of Black and Two-Tone Olive with Argon Orange, unique seating featuring Argon piping and Platinum camo-pattern perforated designs, and the "Huntin', Fishin' and Lovin' Every Day" badges (designated by symbols in lieu of the words) displayed on both the exterior and interior. The rear windows are removed. The concept was inspired by Bryan himself and collaborated with Chevrolet on this project as he is an owner of a Suburban: "Chevy has been part of our family and a part of our work life on the farm for as long as I can remember," says Bryan. "If you were a Bryan, you drove a Chevy — and I'm a longtime Suburban owner. This partnership is a natural fit for me and this unique Suburban represents everything I and my family want for our outdoor adventures."<ref>[http://media.chevrolet.com/media/us/en/chevrolet/home.detail.html/content/Pages/news/us/en/2017/oct/sema/trucks-suv/1030-suburban-concept.html "LUKE BRYAN SUBURBAN CONCEPT FOR HUNTIN', FISHIN' AND MORE"] from Media.Chevrolet.com (October 30, 2017)</ref><ref>[https://www.autoblog.com/2017/10/30/luke-bryan-chevy-suburban-sema-2017/ "Luke Bryan Chevy Suburban is a rolling hunting blind"] from Autoblog (October 30, 2017)</ref>
+
+===Aftermarket options===
+In 2011, [[Callaway Cars]] offered an upgraded [[Eaton Corporation|Eaton]] supercharger package to the Suburban for an additional $15,995 (~${{Format price|{{Inflation|index=US-GDP|value=15995|start_year=2011}}}} in {{Inflation/year|US-GDP}}).<ref>{{Cite web|url=https://www.caranddriver.com/news/a18734245/callaway-supercharges-chevy-pickups-and-suvs-to-create-sporttrucks/|title=Callaway Supercharges Chevy Pickups and SUVs to Create SportTrucks |work=Car and Driver|date=22 April 2011}}</ref>
+
+In 2014, Callaway once again offered a supercharged version of the new 2015 K2XX Suburban.<ref>[http://www.autoweek.com/article/20140211/CARNEWS/140219963 "Callaway supercharges 2015 Chevrolet Tahoe and Suburban"] from Autoweek (February 11, 2014)</ref>
+
+In 2015, Corsa Performance added a cat-back exhaust system package for customers looking to upgrade their K2XX Suburban or Yukon XL, which would give the 5.3-liter versions a 669% flow increase and the 6.2-liter versions a 342% flow increase.<ref>[http://gmauthority.com/blog/2015/09/corsa-release-cat-back-exhaust-system-for-suburban-yukon-xl/ "Corsa Announces Cat-Back Exhaust For K2XX Chevy Suburban, GMC Yukon XL"] from GM Authority (September 25, 2015)</ref>
+
+In 2018, Freedom Mobility partnered with GM to have their trucks and SUVs equipped with features that will make it accessible to disabled and visible/hearing impaired drivers or passengers. The Suburban is among the selected vehicles that will be available with this option.<ref>[http://gmauthority.com/blog/2018/06/chevrolet-gmc-cadillac-trucks-and-suvs-get-wheelchair-accessible-via-freedom-motors/ "Chevrolet, GMC, Cadillac Trucks and SUVs Get Wheelchair Accessible Via Freedom Mobility"] from GM Authority (June 11, 2018)</ref>
+
+==Military applications==
+{{main|Commercial Utility Cargo Vehicle}}
+
+{{Infobox automobile
+|name         = LSSV
+|image        = Defilarea autostatiilor radio Harris.jpg
+|manufacturer = General Motors, [[AM General]]
+|body_style   = {{ubl|2-door SUV | 4-door SUV | 2-door pickup | 4-door pickup}}
+|model_years  = 2001–present
+|engine       = 6.6 L [[Duramax V8 engine|Duramax]] V8
+|transmission = {{ubl|4-speed [[GM 4L80-E transmission|4L80-E]] [[automatic transmission|automatic]]| 5-speed [[Allison 1000 transmission|Allison 1000]] [[automatic transmission|automatic]]}}
+|platform     = [[GM GMT platform#GMT 800|GM GMT880 platform]]
+}}
+When production of the CUCV II ended in 2000, GM redesigned it to coincide with civilian truck offerings. The CUCV nomenclature was changed to Light Service Support Vehicle in 2001. In 2005, LSSV production switched to [[AM General]], a unit of [[MacAndrews and Forbes Holdings]]. The LSSV is a GM-built [[Chevrolet Silverado (first generation)#Heavy Duty|Chevrolet Silverado 2500 HD]], [[Chevrolet Tahoe#GMT800|Chevrolet Tahoe]], or [[#Ninth generation (2000)|Chevrolet Suburban]] that is powered by a Duramax 6.6-liter turbo diesel engine. As GM has periodically redesigned its civilian trucks and SUVs from 2001 to the present, LSSVs have also been updated cosmetically.<ref name=LSSV>{{cite news|title=Light Service Support Vehicle (LSSV)|url=http://olive-drab.com/idphoto/id_photos_lssv.php|website=Olive-Drab|access-date=April 16, 2014}}</ref>
+
+The militarization of the standard GM trucks/SUVs to become LSSVs includes exterior changes such as CARC paint (Forest Green, Desert Sand, or 3-color Camouflage), blackout lights, military bumpers, a brush guard, a NATO slave receptacle/NATO trailer receptacle, a pintle hook, tow shackles, and a 24/12-volt electrical system. The dashboard has additional controls and dataplates. The truck also can be equipped with weapon supports in the cab, cargo tie-down hooks, folding troop seats, pioneer tools, winches, and other military accessories.<ref name="LSSV"/> In the [[Canadian Army]] these vehicles are nicknamed "Milverado".
+
+The Enhanced Mobility Package (EMP) option adds an uprated suspension, 4-wheel anti-lock brakes, a locking rear differential, [[beadlock]] tires, a tire pressure monitoring system, and other upgrades. About 2,000 LSSV units have been sold to U.S. and international military and law enforcement organizations.<ref name=LSSV />
+
+===Variants===
+* Cargo/Troop Carrier Pickup (2-door, Extended Cab, or 4-door Silverado)<ref name=LSSV />
+* Cargo/Troop Carrier/Command Vehicle (4-door Tahoe)<ref name=LSSV />
+* Cargo/Troop Carrier/Command Vehicle/Ambulance (4-door Suburban)<ref name=LSSV />
+{{clear}}
+
+==Safety==
+===National Highway Traffic Safety Administration (NHTSA)===
+
+====2007–14====
+For the 2009 model year, the Suburban received the U.S. [[National Highway Traffic Safety Administration]]'s (NHTSA) best rating of 5 stars in the frontal driver/passenger and side driver/passenger categories.
+
+NHTSA Chevrolet Suburban crash test results (For 2009 models):<ref>{{cite web|url=http://www.safercar.gov/portal/site/safercar/menuitem.94b0130be143aeb342252f0835a67789/?vgnextoid=68adf2905bf54110VgnVCM1000002fd17898RCRD |title=Safercar.gov |publisher=Safercar.gov |access-date=May 7, 2009 |url-status=dead |archive-url=https://web.archive.org/web/20090429085758/http://www.safercar.gov/portal/site/safercar/menuitem.94b0130be143aeb342252f0835a67789/?vgnextoid=68adf2905bf54110VgnVCM1000002fd17898RCRD |archive-date=April 29, 2009 }}</ref>
+* Frontal Driver: {{rating|5|5}}
+* Frontal Passenger: {{rating|5|5}}
+* Side Driver: {{rating|5|5}}
+* Side Rear Passenger: {{rating|5|5}}
+* 2WD Rollover: {{rating|3|5}}
+* 4WD Rollover: {{rating|3|5}}
+
+====2015–present====
+For the 2015 model year, the Suburban received an NHTSA rating of 4 stars overall, with the side driver/passenger categories receiving 5 stars. (Because of more stringent tests, 2011 and newer model ratings are not comparable to 1990–2010 ratings.) The NHTSA gave the 2016 models 4 stars overall in its review, similar to its review of its 2015 models.<ref>{{cite web|url=http://www.edmunds.com/car-news/2016-chevrolet-suburban-earns-four-star-safety-rating-from-federal-government.html |title=2016 Chevrolet Suburban Earns Four-Star Safety Rating From Federal Government |publisher=Edmunds |date= July 15, 2015|access-date=July 15, 2015}}</ref>
+
+NHTSA Chevrolet Suburban crash test results (For 2015 models):<ref>{{cite web |url=http://www.safercar.gov/Vehicle+Shoppers/5-Star+Safety+Ratings/2011-Newer+Vehicles/Search-Results?searchtype=model&make=CHEVROLET&model=SUBURBAN+1500&year=2015 |title=Safercar.gov |publisher=Safercar.gov |access-date=June 9, 2014 |archive-url=https://web.archive.org/web/20160324130646/http://www.safercar.gov/Vehicle+Shoppers/5-Star+Safety+Ratings/2011-Newer+Vehicles/Search-Results?searchtype=model&make=CHEVROLET&model=SUBURBAN+1500&year=2015 |archive-date=March 24, 2016 |url-status=dead }}</ref>
+* Frontal Driver: {{rating|4|5}}
+* Frontal Passenger: {{rating|4|5}}
+* Side Driver: {{rating|5|5}}
+* Side Rear Passenger: {{rating|5|5}}
+* 2WD [[Vehicle rollover|Rollover]]: {{rating|3|5}}
+* 4WD [[Vehicle rollover|Rollover]]: {{rating|3|5}}
+
+<!--ratings not found on www.iihs.org -->
+
+===Insurance Institute for Highway Safety (IIHS)===
+{{More citations needed section|date=October 2020}}
+
+====1995–99 Suburban====
+The IIHS gave the Suburban an Acceptable rating along with the [[Chevrolet Tahoe]], [[GMC Yukon]], and [[Cadillac Escalade]].
+
+====2000–06 Suburban====
+The Suburban, [[Chevrolet Tahoe]], [[GMC Yukon]], and [[Cadillac Escalade]] got a Good rating and a Best Pick. However, all four including the Yukon XL got a Good rating for head protection in side and seats and head restraints.{{Clarify|reason=Second sentence is the issue, mainly the "head protection in side and seats and head restraints" bit.|date=October 2020}}
+
+====2007–14 Suburban====
+The Suburban, [[Chevrolet Tahoe]], [[GMC Yukon]] and [[Cadillac Escalade]] earned a Good rating in the front offset. However, 2007–09 models without side airbags got a Poor rating. Models with them received a Marginal rating. 2010–14 models got a Top Safety Pick.
+
+====2015–2020 Suburban====
+All of the [[GMT K2XX]] SUVs received a top safety pick, except for the Chevrolet/GMC 1500 series pickups, which have not been tested.{{Update span|text=|date=October 2020}} The pickups have been tested against the moderate overlap test, for which they received a good rating.
+
+==Recalls==
+On March 28, 2014, GM announced a recall on the 2015 Suburban and Yukon XL in order to fix a "transmission oil cooler line that is not securely seated in its fitting," causing the vehicle to stop and rupture the oil cooling line, resulting in the engine to malfunction and catch fire immediately.<ref>[http://www.freep.com/article/20140328/BUSINESS0101/303280161/general-motors-gm-recalls-suburban-yukon-cruze "GM recalls another 680,000 trucks, cars, adding to quality woes"] from ''[[Detroit Free Press]]'' (March 28, 2014)</ref> The move comes on the heels on an incident that happened on March 23, 2014, when a 2015 GMC Yukon caught fire in [[Anaheim, California]] during a test drive.<ref>[http://www.latimes.com/local/lanow/la-me-ln-gmc-yukon-fire-test-drive-20140324,0,4338091.story "GMC Yukon erupts into flames during test drive in Anaheim"] from ''[[Los Angeles Times]]'' (March 24, 2014)</ref> Despite being an isolated incident, the 2015 Suburban and Yukon XL are not tied to GM's announced recall of its vehicles (from previous generation models and discontinued brands that were produced prior to, during, and after GM's restructuring in 2010) that was made on March 17, 2014.<ref>[http://www.autoblog.com/2014/03/17/gm-3-recalls-1.7-million-cars-barra-video/ "GM announces 3 new recalls affecting 1.7M vehicles in North America (w/video)"] from Autoblog (March 17, 2014)</ref>
+
+On June 6, 2014, GM issued another recall on the 2015 Suburban and Yukon XL because their radio control modules may not work, and thus prevent certain audible safety warnings.<ref>[http://www.autoblog.com/2014/06/06/gm-issues-4-recalls-90k-vehicles-chevy-buick-gmc/ "GM issues 4 new recalls for 90k vehicles, Chevy, Buick, GMC affected"] from Autoblog.com (June 6, 2014)</ref> This would be followed on June 27 with another recall, in which the transfer case "may electronically switch to neutral without input from the driver," adding that if this occurs while the vehicle is moving, power will not be sent to the wheels, meaning that if the vehicle is parked, it may roll away unexpectedly if the parking brake has not been set.<ref>[http://www.autoblog.com/2014/06/27/gm-announces-four-new-recalls-507k-cars-official/ "GM announces four new recalls, 507k vehicles affected"] from Autoblog (June 27, 2014)</ref>
+
+On December 5, 2014, GM announced that it is replacing ignition key units on the 2015 Suburban and Yukon XL after customers made complaints that the shift lever strikes the head of the key if the tilt-adjustable steering column is in the fully up position. The lever only can be moved out of "park" into a gear when the engine is running and the driver's foot is on the brake. The push-button ignition features are not affected.<ref>[https://www.usatoday.com/story/money/cars/2014/12/05/gm-new-trucks-ignition-key-replace/19916919/ "GM replaces ignition keys on new trucks"] from USA Today (December 5, 2014)</ref>
+
+On January 4, 2015, GM issued a recall on tenth-generation Suburbans and Yukon XLs from the 2011 and 2012 model years for a potential ignition lock actuator issue, citing that they are not the right size and can cause the ignition to get stuck in the "Start" position, and then either due to a jarring event or a "cool interior temperature" the ignition could switch back to the "Accessory" position, resulting in a loss of power assistance and prevent the airbags from deploying.<ref>[http://www.autoblog.com/2015/01/04/gm-recall-suv-ignition-switch/ "GM recalls 83,572 SUVs for ignition switch issue"] from ''Autoblog'' (January 4, 2015)</ref>
+
+On December 30, 2015, the NHTSA revealed that it had received complaints from 2015 Suburban/Yukon XL owners about buffeting and vibration problems causing drivers and passengers to endure an annoying vibration inside the cabin so severe that it leads to dizziness and headaches. GM is aware of this and has moved to correct the situation and try to pinpoint the source, but assures the vehicles are safe to drive.<ref>[http://www.autoblog.com/2015/12/30/fullsize-gm-suvs-making-owners-sick-report/ "Fullsize GM SUVs have a problem that's making owners sick"] from Autoblog (December 30, 2015)</ref>
+
+On May 3, 2016, GM placed a recall on both 2016 model Suburbans and Yukon XLs over inadequate welds on their upper front control arms, which could result in an accident or injury.<ref>[http://gmauthority.com/blog/2016/05/general-motors-chevrolet-gmc-cadillac-full-size-truck-suv-recall-front-upper-control-arms/ "General Motors Recalls 2016–2017 Full-Size Trucks And SUVs Over Issue With Front Upper Controls"] from GM Authority (May 3, 2016)</ref>
+
+On February 4, 2017, GM issued a recall of 2016 and 2017 Chevrolet Suburban HD models over an improperly fixed right-hand rear-view outside mirror which GM says will be replaced for free. The recall affected 211 vehicles.<ref>[http://gmauthority.com/blog/2017/02/2016-2017-chevrolet-suburban-hd-mirror-recall/ 2016–2017 Chevrolet Suburban HD Recalled Over Right Hand Outside Mirror] from GM Authority (February 4, 2017)</ref>
+
+==Awards==
+
+*2003 – [[J.D. Power and Associates|J.D. Power]] Highest ranked full-size SUV in initial quality<ref>{{Cite web |title=2003 quality Fullsize Sport Utility Awards |url=https://www.jdpower.com/Cars/Ratings/quality/2003/Fullsize-Sport-Utility |website=jdpower.com}}</ref>
+*2004 – [[J.D. Power and Associates|J.D. Power]] Highest ranked full-size SUV in initial quality<ref>{{Cite web |title=2004 quality Awards and Ratings |url=https://www.jdpower.com/cars/ratings/quality/2004 |website=jdpower.com}}</ref>
+*2005 – [[J.D. Power and Associates|J.D. Power]] Highest ranked full-size SUV in initial quality<ref>{{Cite web |title=2005 quality Fullsize SUV Awards |url=https://www.jdpower.com/Cars/Ratings/quality/2005/Fullsize-SUV |website=jdpower.com}}</ref>
+*2014 – [[J.D. Power and Associates|J.D. Power]] Highest ranked large SUV in initial quality<ref>{{Cite web |title=2014 quality Large SUV Awards |url=https://www.jdpower.com/Cars/Ratings/quality/2014/Large-SUV |website=jdpower.com}}</ref>
+*2014 – [[J.D. Power and Associates|J.D. Power]] Most dependable large SUV (''2011 GMC Yukon XL'')<ref>{{Cite web |title=2014 U.S. Vehicle Dependability Study Results |url=https://www.jdpower.com/Cars/Ratings/Dependability/2014/2014-us-vehicle-dependability-study-results |website=jdpower.com}}</ref>
+*2015 – [[U.S. News & World Report]] Best Large SUV for Families<ref>{{cite news|website=US News|access-date=23 July 2023
+|url=https://cars.usnews.com/cars-trucks/best-cars-for-families-2015|title=2015 Best Cars for Families}}</ref>
+*2015 – [[MotorWeek Drivers' Choice Awards]] Best Large Utility
+*2015 – [[Kelley Blue Book]] KBB.com Best Resale Value Full-Size SUV/Crossover<ref>{{Cite web|url=https://mediaroom.kbb.com/2015-01-23-2015-Best-Resale-Value-Award-Winners-Announced-By-Kelley-Blue-Book|title = 2015 Best Resale Value Award Winners Announced by Kelley Blue Book}}</ref>
+*2015 – ''[[Car and Driver]]'' Editors' Choice Awards Best SUVs<ref>{{cite web |url=https://www.caranddriver.com/features/a15107034/2015-best-suv-trucks/ |title = Best SUVs and Crossovers of 2015: Editors' Choice|date = 3 August 2015}}</ref>
+
+== Yearly U.S. sales ==
+In 1999, GM rebranded the GMC Suburban as the Yukon XL. GM discontinued tracking sales of the Yukon XL in 2018 and now includes them with the [[GMC Yukon#Yearly American sales|sales of the Yukon]]. From 2018 onward, this chart reflects only the number of Chevrolet Suburban units sold.<ref>[http://gmauthority.com/blog/2018/08/gmc-yukon-sales-numbers-figures-results-second-quarter-2018/ "GMC Yukon Sales Increase 17.5% To 19,520 Units In Q2 2018"] from GM Authority August 13, 2019)</ref>
+{| class="wikitable"
+|-
+! Calendar Year
+! Chevrolet Suburban !! GMC Suburban !! Yukon XL !! Total U.S. sales
+|-
+| 1996<ref>{{cite web |url=http://www.kama.or.kr/RS/pdf/w(2000_2007)/total(2002).pdf |title=Archived copy |access-date=2013-04-04 |url-status=dead |archive-url=https://web.archive.org/web/20130502230433/http://www.kama.or.kr/RS/pdf/w%282000_2007%29/total%282002%29.pdf |archive-date=May 2, 2013 |df=mdy }}</ref>
+| 94,010 || 43,161 || – || 137,171
+|-
+| 1997
+| 99,068 || 43,137 || – || 142,205
+|-
+| 1998<ref name='99sales'>{{cite press release|url=http://media.gm.com/news/releases/g000105a.html |title=GM reports robust December sales; leads industry in truck sales during second half of 1999 |publisher=Media.gm.com |date=January 5, 2000 |access-date=July 19, 2009 |archive-url = https://archive.today/20040602014537/http://media.gm.com/news/releases/g000105a.html |archive-date = June 2, 2004}}</ref>
+| 108,933 || 42,423 || – || 151,356
+|-
+| 1999<ref name='99sales'/>
+| 138,977 || 44,886 || 1,857 || 185,720
+|-
+| 2000<ref name='01sales'>{{cite press release|url=http://www.media.gm.com/news/releases/020103decembersales.html |title=GM's 'Industry Leading Truck Lineup' Sets Calendar Year Industry Sales Record |publisher=Media.gm.com |date=January 3, 2002 |access-date=July 19, 2009 |archive-url = https://archive.today/20040314185653/http://media.gm.com/news/releases/020103decembersales.html |archive-date = March 14, 2004}}</ref>
+| 133,123 || 4,776 || 47,016 || 184,915
+|-
+| 2001<ref name='01sales'/>
+| 154,782 || 94 || 70,706 || 225,582
+|-
+| 2002{{citation needed|date=August 2012}}
+| 151,056 || – || 67,556 || 218,612
+|-
+| 2003{{citation needed|date=August 2012}}
+| 135,222 || – || 70,887 || 206,109
+|-
+| 2004<ref name='05sales'>{{cite web|url=http://www.theautochannel.com/news/2006/01/05/205609.html |title=GM Reports December 2005 and Year Results |publisher=Theautochannel.com |date=January 5, 2006 |access-date=June 1, 2009}}</ref>
+| 119,545 || – || 65,917 || 185,462
+|-
+| 2005<ref name='05sales'/>
+| 87,011 || – || 53,652 || 140,663
+|-
+| 2006<ref>{{cite press release|url=http://media.gm.com/servlet/GatewayServlet?target=http://image.emerald.gm.com/gmnews/viewmonthlyreleasedetail.do?domain=6&docid=31596 |title=GM Reports 341,327 Deliveries in December |publisher=GM Communications |date=January 3, 2007 |access-date=June 1, 2009 |archive-url = https://archive.today/20070621063220/http://media.gm.com/servlet/GatewayServlet?target=http://image.emerald.gm.com/gmnews/viewmonthlyreleasedetail.do%3Fdomain=6&docid=31596 |archive-date = June 21, 2007}}</ref>
+| 77,211 || – || 45,413 || 122,624
+|-
+| 2007<ref name="cache.jalopnik.com">{{cite web |url=http://cache.jalopnik.com/assets/images/12/2009/01/Deliveries_December_08-3.jpg |title=GM truck deliveries (United States) |publisher=jalopnik.com |date=December 2008 |access-date=August 26, 2012 |url-status=dead |archive-url=https://web.archive.org/web/20130515140942/http://cache.jalopnik.com/assets/images/12/2009/01/Deliveries_December_08-3.jpg |archive-date=May 15, 2013 |df=mdy-all }}</ref>
+| 83,673 || – || 45,303 || 128,976
+|-
+| 2008<ref name="cache.jalopnik.com"/>
+| 54,058 || – || 26,404 || 80,462
+|-
+| 2009<ref>{{cite press release|url=http://media.gm.com/content/Pages/news/us/en/2010/Jan/0105_Dec_Sales/_jcr_content/iconrow/textfile/file.res/Deliveries%20December%2009.xls |title=Deliveries December 2009 |publisher=General Motors media |access-date=August 26, 2012}}</ref>
+| 41,055 || – || 16,819 || 57,874
+|-
+| 2010<ref>{{cite press release|url=http://media.gm.com/content/dam/Media/gmcom/investor/2011/DeliveriesDecember2010.pdf |title=GM U.S. deliveries for December 2010 – divisional brand level |publisher=General Motors media |access-date=August 26, 2012}}</ref>
+| 45,152 || – || 23,797 || 68,949
+|-
+| 2011<ref>{{cite press release|url=http://media.gm.com/content/Pages/news/us/en/2012/Jan/gmsales/_jcr_content/rightpar/sectioncontainer/par/download/file.res/Deliveries%20December%202011.pdf |title=GM U.S. deliveries for December 2011 – divisional brand level |publisher=General Motors media |access-date=August 26, 2012}}</ref>
+| 49,427 || – || 25,223 || 74,650
+|-
+| 2012
+| 48,116 || – || 23,427 || 71,543
+|-
+| 2013<ref>[http://media.gm.com/dld/content/dam/Media/gmcom/investor/2014/jan/Deliveries-December-2013.pdf Deliveries 2013] gm.com</ref>
+| 51,260 || – || 31,258 || 82,518
+|-
+| 2014<ref>{{Cite web |title=gmsales |url=https://news.gm.com/public/us/en/gm/home/newsroom.detail.html/Pages/news/us/en/2015/Jan/gmsales.html |access-date=2022-10-08 |website=news.gm.com}}</ref>
+| 55,009 || – || 29,752 || 84,761
+|-
+| 2015<ref>[http://media.gm.com/dld/content/Pages/news/us/en/2016/Jan/0105-gmsales/_jcr_content/rightpar/sectioncontainer_0/par/download_0/file.res/GM-Deliveries-December-2015.pdf Deliveries 2015] gm.com</ref>
+| 50,866 || – || 31,334 || 82,200
+|-
+| 2016<ref>[http://media.gm.com/dld/content/Pages/news/us/en/2017/jan/0104-gmsales/_jcr_content/rightpar/sectioncontainer_0/par/download_0/file.res/Deliveries-December-2016.pdf Deliveries 2016] gm.com</ref>
+| 60,082 || – || 37,054 || 97,136
+|-
+| 2017<ref>[http://gmauthority.com/blog/2018/01/general-motors-december-2017-sales-figures-numbers-results-united-states/ General Motors December 2017 Sales Figures Numbers Results] from GM Authority (January 3, 2018)</ref>
+| 56,516 || – || 35,059 || 91,575
+|-
+| 2018<ref>[http://gmauthority.com/blog/gm/chevrolet/chevrolet-sales-numbers/chevrolet-tahoe-suburban-sales-numbers/ General Motors Suburban/Tahoe Sales Figures Numbers Results] from GM Authority (January 3, 2019)</ref>
+| 60,633 || rowspan=8 colspan=3 {{n/a}}
+|-
+|2019<ref>[https://gmauthority.com/blog/2020/01/gm-sales-figures-numbers-results-united-states-q4-2019/ U.S. GM Sales Decrease 6.3 Percent To 735,909 Units In Fourth Quarter 2019] from GM Authority (January 3, 2020)</ref>
+| 51,928
+|-
+|2020<ref>{{Cite web|url=https://media.gm.com/media/us/en/gm/home.detail.html/content/Pages/news/us/en/2021/jan/0105-gmsales.html|title = GM 2020 Sales Far Outperform the U.S. Industry in Fourth Quarter and Calendar Year|date = 5 January 2021}}</ref>
+| 37,636
+|-
+|2021<ref>{{Cite web|url=https://plants.gm.com/media/us/en/gm/news.detail.html/content/Pages/news/us/en/2022/jan/0104-gmsales.html|title=Chevrolet Silverado and GMC Sierra Deliver GM's 2nd Consecutive Year of Full-Size Pickup Sales Leadership in 2021|date=4 January 2022}}</ref>
+| 48,214
+|-
+|2022<ref name="gm22">{{cite web|url=https://pressroom.gm.com/gmbx/us/en/pressroom/home/news.detail.html/Pages/news/us/en/2023/jan/0104-gmsales.html |title=GM Delivers a Year of Firsts |publisher=GM Pressroom |date=2023-01-04 |accessdate=2023-01-06}}</ref>
+| 50,951
+|-
+|2023<ref>{{cite web|url=https://pressroom.gm.com/gmbx/us/en/pressroom/home/news.detail.html/Pages/news/us/en/2024/jan/0103-gmsales.html |title=U.S. Q4 and Full-Year Sales: GM Delivers Another Year of Firsts |publisher=GM Pressroom |date=2024-01-04 |accessdate=2024-01-05}}</ref>
+| 52,820
+|-
+|2024<ref>{{cite web|url=https://pressroom.gm.com/gmbx/us/en/pressroom/home/news.detail.html/Pages/news/us/en/2025/jan/0103-gmsales.html |title=GM posts 4% sales growth in 2024, as market share keeps expanding |publisher=GM Pressroom |date=2025-01-03 |accessdate=2025-01-07}}</ref>
+| 44,398
+|-
+|2025<ref>{{cite press release|title=GM U.S. Deliveries for Quarter 4 2025|url=https://investor.gm.com/static-files/23adce96-ea26-4a6e-82dd-68a0042df51c}}</ref>
+| 58,683
+|}
+
+== References ==
+{{reflist|colwidth=30em}}
+
+== External links ==
+{{Commons category}}
+* {{official website}}
+* [https://www.gmc.com/suvs/yukon GMC Yukon] (twin vehicle)
+
+{{Chevrolet vehicles}}
+{{Early Chevrolet Trucks}}
+{{Chevrolet Truck}}
+{{Chevrolet trucks timeline (North America) 1980 to date}}
+{{GMC vehicles}}
+{{GMC}}
+{{Holden}}
+{{Holden vehicles}}
+
+[[Category:All-wheel-drive vehicles]]
+[[Category:Chevrolet vehicles|Suburban]]
+[[Category:Expanded length sport utility vehicles]]
+[[Category:Flexible-fuel vehicles]]<!-- Selected 2002-2005 models -->
+[[Category:Military light utility vehicles]]
+[[Category:Motor vehicles manufactured in the United States]]
+[[Category:Rear-wheel-drive vehicles]]
+[[Category:Full-size sport utility vehicles]]
+[[Category:Luxury sport utility vehicles]]
+[[Category:Flagship vehicles]]
+[[Category:Station wagons]]
+[[Category:Cars introduced in 1933]]
+[[Category:1940s cars]]
+[[Category:1950s cars]]
+[[Category:1960s cars]]
+[[Category:1970s cars]]
+[[Category:1980s cars]]
+[[Category:1990s cars]]
+[[Category:2000s cars]]
+[[Category:2010s cars]]
+[[Category:2020s cars]]
+[[Category:Panel trucks]]
+[[Category:Carryalls]]

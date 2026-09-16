@@ -1,0 +1,102 @@
+{{Infobox automobile engine
+| name = Mercedes-Benz M139
+| image = Mercedes-AMG M139 at IAA 2019 IMG 0505.jpg
+| manufacturer = [[Mercedes-AMG]]
+| aka = 
+| production = 2019-present
+| predecessor = [[Mercedes-Benz M133 engine]]
+| successor = 
+| configuration = [[Straight-four engine]]
+| displacement = {{convert|1991|cc|L|1|order=flip|abbr=on}}
+| bore = {{convert|83|mm|2|abbr=on}}
+| stroke = {{convert|92|mm|2|abbr=on}}
+| block = [[Aluminium alloy]]
+| head = Aluminium alloy
+| valvetrain = [[DOHC]]
+| compression = 9.0:1
+| turbocharger = One [[Turbocharger#Twin-scroll|twin-scroll]], [[electrically-assisted turbocharger|electrically assisted]]
+| fuelsystem = Combined Direct and Port Fuel Injection
+| management = 
+| fueltype = [[Petrol engine|Gasoline]]
+| oilsystem = 
+| coolingsystem = 
+| power = {{convert|285|kW|PS hp|0|abbr=on}} base version
+{{convert|310|kW|PS hp|0|abbr=on}} S-model
+| specpower = 
+| torque = {{convert|480|Nm|lbft|0|abbr=on}} (base version)
+{{convert|500|Nm|lbft|0|abbr=on}} (S-model)
+| length = 
+| width = 
+| height = 
+| diameter = 
+| weight = {{convert|160.5|kg|lb|abbr=on}}
+}}
+
+The '''M139''' is a turbocharged [[straight-four engine]] produced by [[Mercedes-Benz]]. It serves as the successor to the [[Mercedes-Benz M133 engine|M133 engine]]. It is the first AMG four-cylinder engine to feature two distinct output levels, be assembled by hand under the "one man, one engine" philosophy, and utilize a combined port and direct fuel injection system. At {{convert|310|kW|hp|0|abbr=on}}, upon its introduction, the M139 was the world's most powerful four-cylinder engine in serial production, achieving a specific output of {{cvt|208|hp|order=flip}} per litre or {{cvt|104|hp|order=flip}} per cylinder.<ref>{{cite news|url=https://jalopnik.com/good-gravy-amg-is-getting-416-horsepower-out-of-just-a-1835323078 |date=7 June 2019 |author=Patrick George |title=Good Gravy: AMG Is Getting 416 Horsepower Out of Just a 2.0-Liter Turbo Four |website=Jalopnik}}</ref><ref>{{cite news|url=https://www.roadandtrack.com/new-cars/car-technology/a27813866/mercedes-amg-most-powerful-four-cylinder-m139/ |title=How Mercedes-AMG Made the Most Powerful Production Four-Cylinder Ever |publisher=Road & Track |author=Bob Sorokanich |date=7 June 2019}}</ref> The current top version of the M139 produces {{convert|350|kW|hp|0|abbr=on}}, giving it a specific output of {{cvt|175|kW|hp|0}} per litre or {{cvt|87.5|kW|hp|0}} per cylinder, maintaining its status as the most powerful four-cylinder engine in serial production.
+
+== Design ==
+The M139 engine is based on the current [[Mercedes-Benz M260/M264 engine|M260 engine]], an upgraded version of the outgoing [[Mercedes-Benz M270/M274 engine|M270]], sharing the same bore, stroke, and block design. Unlike the standard M260, AMG engineers rotated the engine block 180 degrees. This orientation places the intake system at the front of the engine, while the turbocharger and exhaust headers are located between the engine and the firewall.<ref>{{Cite web|url=https://www.carthrottle.com/post/mercedes-amgs-new-20-inline-four-develops-416bhp-revs-to-7200rpm/|title = Mercedes-AMG's New 2.0 Inline-Four Develops 415bhp, Revs to 7200rpm | date=7 June 2019 }}</ref> This rotation is intended to optimize engine airflow for enhanced performance with shorter paths and fewer diversions. Mercedes-AMG states that this also "allows the flattest possible and aerodynamically advantageous front section design."<ref>{{cite web|url=https://media.mbusa.com/releases/release-6d7a68ca18d81680d3687d107907853e-the-worlds-most-powerful-four-cylinder-engine-in-series-production-made-in-affalterbach |title=The world's most powerful four-cylinder engine in series production, made in Affalterbach |date=6 June 2019 |website=Mercedes-Benz USA}}</ref> The exhaust valves in the M139 engine are larger than those in the M133 engine to facilitate higher flow. The compression ratio for the M139 is raised to 9.0:1, compared to 8.6:1 for the M133. The two-stage fuel injection system, a first for an AMG four-cylinder engine, employs piezo injectors for direct injection into the combustion chambers as the primary stage, and solenoid valves in the manifolds as the secondary stage to increase specific output.
+
+It uses an [[electrically assisted turbocharger]] system supplied by [[Garrett Motion]].<ref>{{cite web |title=Nerd's Eye View: Mercedes AMG M139 Engine with E-turbo and Liquid Immersion Battery Cooling |url=https://motoiq.com/nerds-eye-view-mercedes-amg-m139-engine-with-e-turbo-and-liquid-immersion-battery-cooling/ |website=MotoIQ |date=11 April 2021}}</ref>
+
+== Performance ==
+The M139 engine is available in two main output variants: {{convert|285|kW|PS hp|0|abbr=on}} and {{convert|480|Nm|lbft|0|abbr=on}} for the base version, and {{convert|310|kW|PS hp|0|abbr=on}} and {{convert|500|Nm|lbft|0|abbr=on}} for the S-model.
+
+== Models ==
+{| class="wikitable sortable" style="text-align: center;"
+!Engine
+!Power
+!Torque
+!Years
+|-
+| rowspan="3" |M139
+|{{convert|285|kW|hp|0|abbr=on}} <br> at 6,500 rpm
+|{{convert|480|Nm|lbft|0|abbr=on}} <br> at 4,750-5,000 rpm
+| 2019-
+|-
+|{{convert|300|kW|hp|0|abbr=on}}
+|{{convert|500|Nm|lbft|0|abbr=on}}
+| 2022-
+|-
+|{{convert|310|kW|hp|0|abbr=on}} <br> at 6,750 rpm
+|{{convert|500|Nm|lbft|0|abbr=on}} <br> at 5,000-5,250 rpm
+| 2019-
+|-
+| rowspan="1" |M139I
+|{{convert|350|kW|hp|0|abbr=on}} <br> at 6,750 rpm
+|{{convert|545|Nm|lbft|0|abbr=on}} <br> at 5,250-5,500 rpm
+| 2023-
+|-
+|}
+
+=== M139 (285 kW version) {{anchor|285 kW}}===
+*2019 - [[Mercedes-Benz CLA#C118|Mercedes-AMG CLA 45 4MATIC+ (Not available in United States until 2025 model year) (C118)]]
+*2019 - [[Mercedes-Benz A-Class (W177)|Mercedes-AMG A 45 4MATIC+ (W177)]]
+*2020 - [[Mercedes-Benz GLA#H247|Mercedes-AMG GLA 45 4MATIC+ (H247)]]
+*2024 - [[Mercedes-Benz SL (R232)|Mercedes-AMG SL 43 (R232)]]
+*2022 - [[Lotus Emira]] (268 kW / 360 hp)
+
+=== M139 (300 kW version) {{anchor|300 kW}}===
+*2022 - [[Mercedes-Benz C-Class (W206)|Mercedes-AMG C 43 4MATIC (W206)]]
+*2024 - Lotus Emira (US & China), Turbo SE (ROW)
+
+=== M139 (310 kW version) {{anchor|310 kW}}===
+*2019 - [[Mercedes-Benz CLA#C118|Mercedes-AMG CLA 45 S 4MATIC+ (Not available in United States until 2025 model year) (C118)]]
+*2019 - [[Mercedes-Benz A-Class (W177)|Mercedes-AMG A 45 S 4MATIC+ (W177)]]
+*2020 - [[Mercedes-Benz GLA#H247|Mercedes-AMG GLA 45 S 4MATIC+ (H247)]]
+*2024 - [[Mercedes-Benz C-Class (W206)|Mercedes-AMG C 43 4MATIC (W206)]]
+*2024 - [[Mercedes-Benz GLC#X254|Mercedes-AMG GLC 43 4MATIC (X254/C254)]]
+*2024 - [[Mercedes-AMG GT#C192|Mercedes-AMG GT 43 (C192)]]
+*2025 - [[Mercedes-Benz SL (R232)|Mercedes-AMG SL 43 (R232)]]
+*2024 - [[Lotus Emira#420 Sport|Lotus Emira 420 Sport]]
+
+=== M139I (350 kW version) {{anchor|350 kW|M139I}}===
+*2022 - [[Mercedes-Benz C-Class (W206)|Mercedes-AMG C 63 S E Performance 4MATIC+ (W206)]]
+*2024 - [[Mercedes-Benz GLC#X254|Mercedes-AMG GLC 63 S E Performance 4MATIC+ (X254/C254)]]
+
+== References ==
+{{Reflist}}
+
+[[Category:Mercedes-Benz engines]]
+[[Category:Straight-four engines]]
+[[Category:Gasoline engines by model]]

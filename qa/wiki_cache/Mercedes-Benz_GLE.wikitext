@@ -1,0 +1,1217 @@
+{{Short description|Mid-size luxury SUV}}
+{{Use dmy dates|date=January 2021}}
+{{Use American English|date=May 2025}}
+{{Infobox automobile
+| name = Mercedes-Benz GLE
+| image = Mercedes-Benz GLE 350 d 4MATIC AMG Line (V 167) – f 18042021.jpg
+| caption = 2021 GLE 350d 4MATIC AMG Line (V167)
+| manufacturer = {{ubl|[[Daimler-Benz]] (1997–1998)|[[DaimlerChrysler]] (1998–2007)|[[Daimler AG]] (2007–2022)|[[Mercedes-Benz Group]] (2022–present)}}
+| aka = Mercedes-Benz M-Class (1997–2015)
+| production = 1997–2015 (M-Class)<br>2015–present (GLE)
+| class = [[Mid-size car|Mid-size]] [[luxury vehicle|luxury]] [[SUV]] (1997–2005)<br />[[Executive car|Mid-size luxury]] [[crossover SUV]] (2005–present)
+| layout = [[Front-engine, rear-wheel-drive layout|Front-engine, rear-wheel-drive]] or [[Front-engine, four-wheel-drive layout|four-wheel-drive]] ([[4Matic]])
+| chassis = {{ubl
+  | [[Body-on-frame]] (1997–2005)
+  | [[Unibody]] (2005–present)
+  }}
+}}
+
+The '''Mercedes-Benz GLE''', formerly '''Mercedes-Benz M-Class''' (designated with the "ML" nomenclature), is a mid-size luxury [[Sport utility vehicle|SUV]] produced by the German manufacturer [[Mercedes-Benz]] since 1997. In terms of size, it is slotted in between the smaller [[Mercedes-Benz GLC|GLC]] and the larger [[Mercedes-Benz GLS|GLS]], the latter with which it shares platforms.
+
+The first-generation M-Class, designated with the model code W163, is a [[body-on-frame]] SUV and was produced until 2004. The second-generation M-Class (W164) moved to a [[unibody]] platform while sharing most components with the [[Mercedes-Benz GL-Class|GL-Class]], which sports a longer body to accommodate third-row seating.
+
+For a short time, between 1999 and 2002, the W163 M-Class was also built by [[Magna Steyr]] in [[Graz]], Austria, for the European market, and the W166 M-Class from 2011 to 2015 was built in Stuttgart for the European and Australian market, before all production moved to the [[Mercedes-Benz U.S. International|U.S. plant]] near [[Vance, Alabama]] in 2015 with the release of the facelifted W166 model, in an effort to harmonize Mercedes-Benz SUV nameplates by aligning it with the [[Mercedes-Benz E-Class|E-Class]].
+
+== Nomenclature changes ==
+Although grouped under the "M-Class" naming banner since the first launch, [[BMW]], who sells [[BMW M|M models]] such as the [[BMW M3|M3]], objected to the car being badged "M" with the three-digit engine level afterwards (e.g. M 320). This forced Mercedes-Benz to defer to a double-tiered marketing strategy of "ML" badging (e.g. ML 320) under an M-Class umbrella.<ref>{{cite web |last=Meiners |first=Jens |date=25 August 2014 |url=http://blog.caranddriver.com/mercedes-benz-to-revise-nomenclature-m-class-first-up-becomes-gle-class-early-next-year/ |title=Mercedes-Benz to Revise Nomenclature: M-class First Up, Becomes GLE-class Early Next Year |work=[[Car and Driver]] |access-date=27 August 2014 |archive-date=17 October 2017 |archive-url=https://web.archive.org/web/20171017181903/https://blog.caranddriver.com/mercedes-benz-to-revise-nomenclature-m-class-first-up-becomes-gle-class-early-next-year/ |url-status=dead }}</ref> There has been some confusion surrounding this nomenclature, with many sources erroneously referring to the series as the "ML-Class",<ref>{{cite web |last=Perlas |first=Giancarlo |date=13 December 2012 |url=http://www.benzinsider.com/2012/12/explained-why-its-the-m-class-and-not-ml-class/ |title=Explained: Why it's the M-Class and not ML-Class |publisher=BenzInsider |access-date=7 December 2015 |archive-date=18 December 2012 |archive-url=https://web.archive.org/web/20121218092054/http://www.benzinsider.com/2012/12/explained-why-its-the-m-class-and-not-ml-class/ |url-status=dead }}</ref><ref>{{cite web |last=Sarne |first=Vernon B. |date=17 May 2012 |url=http://www.topgear.com.ph/features/feature-articles/is-it-m-class-or-ml-class |title=Is it M-Class or ML-Class? |publisher=[[Top Gear Philippines]] | archive-url = https://web.archive.org/web/20120605105502/http://www.topgear.com.ph/features/feature-articles/is-it-m-class-or-ml-class | archive-date = 5 June 2012}}</ref> including Mercedes-Benz itself.<ref>{{cite web |url=https://www.mercedes-benz.com/en/mercedes-benz/vehicles/passenger-cars/s-class/in-search-of-lost-energy/ |title=Energy consumption in real time. |publisher=Mercedes-Benz |year=2014 |archive-url=https://web.archive.org/web/20141002124548/http://www.mercedes-benz.com/en/mercedes-benz/vehicles/passenger-cars/s-class/in-search-of-lost-energy/ |archive-date=2 October 2014}}</ref><ref>{{cite web |url=http://www.mercedes-LPbenz.com.au/content/media_library/australia/mpc_australia/passenger_cars_ng/new_car/rep_m_class/rep_m_class_price_list_and_brochure/rep_specifications.pdf |title=Mercedes-Benz ML-Class (Australia) Specifications as of 7 August 2014 |publisher=Mercedes-Benz Australia/Pacific |date=13 August 2014 |archive-url=https://web.archive.org/web/20141121222211/http://www.mercedes-benz.com.au/content/media_library/australia/mpc_australia/passenger_cars_ng/new_car/rep_m_class/rep_m_class_price_list_and_brochure/rep_specifications.pdf |archive-date=21 November 2014}}</ref>
+
+From 2015, with the release of the facelifted W166 third-generation model at the New York Auto Show in April, the M-Class was renamed to GLE as per the revised nomenclature adopted by the brand. Under this scheme, SUVs use the base name "GL", followed by the model's placement in Mercedes-Benz hierarchy. The "G" is for Geländewagen (German for off land wagon or [[off-road vehicle]]) and alludes the long-running [[Mercedes-Benz G-Class|G-Wagen]]. This is followed by the letter "L" that acts as a linkage with the letter "E"—the GLE being the SUV equivalent to the [[Mercedes-Benz E-Class|E-Class]].<ref>{{cite web |last=Ewing |first=Steven |date=11 November 2014 |url=http://www.autoblog.com/2014/11/11/mercedes-name-changes-gl-maybach/ |title=Mercedes renames utility vehicles, repositions Maybach as sub-brand |work=Autoblog |access-date=12 November 2014 |archive-date=30 June 2017 |archive-url=https://web.archive.org/web/20170630194627/http://www.autoblog.com/2014/11/11/mercedes-name-changes-gl-maybach/ |url-status=live }}</ref><ref>{{cite web |url=http://media.daimler.com/dcmedia/0-921-1760651-1-1760337-1-0-0-0-0-1-0-0-0-1-0-0-0-0-0.html?TS=1415752768119 |title=Mercedes-Benz expands brand world and introduces new nomenclature: Mercedes-Maybach for the ultimate in exclusivity and individuality |publisher=[[Daimler AG]] |date=11 November 2014 |access-date=12 November 2014 |archive-url=https://web.archive.org/web/20141112050328/http://media.daimler.com/dcmedia/0-921-1760651-1-1760337-1-0-0-0-0-1-0-0-0-1-0-0-0-0-0.html?TS=1415752768119 |archive-date=12 November 2014 |url-status=dead }}</ref>
+{{clear}}
+
+== <span class="anchor" id="W163"></span>First generation (W163; 1997) ==
+{{Infobox automobile
+| name = Mercedes-Benz M-Class (W163)
+| image = 2000 Mercedes-Benz ML 320 (W 163 MY00) wagon (2010-09-23) 01.jpg
+| caption = 2000 ML 320 (pre-facelift)
+| production = February 1997<ref>{{cite web|url=https://mercedes-benz-publicarchive.com/marsClassic/en/instance/ko/163-series-M-Class-19972001.xhtml?oid=4806|title=163 series M-Class, 1997–2001|website=mercedes-benz-publicarchive.com|access-date=5 April 2024|archive-date=9 September 2024|archive-url=https://web.archive.org/web/20240909234053/https://mercedes-benz-publicarchive.com/marsClassic/en/instance/ko/163-series-M-Class-19972001.xhtml?oid=4806|url-status=live}}</ref> – December 2004
+| model_years = 1998–2005
+| assembly = United States: [[Tuscaloosa, Alabama]] ([[Mercedes-Benz U.S. International|MBUSI]])<br />Austria: [[Graz]] ([[Magna Steyr]]; 1999–2002)
+| designer = [[Bruno Sacco]] & Peter Pfeiffer (1993)<br />Peter Arcadipane<ref>{{cite web|url=https://www.benzinsider.com/2013/05/designer-of-mercedes-benz-cls-joins-baic/|title=Designer Of Mercedes-Benz CLS Joins BAIC|website=benzinsider.com|date=13 May 2013|access-date=12 January 2020|archive-date=8 April 2023|archive-url=https://web.archive.org/web/20230408031845/https://www.benzinsider.com/2013/05/designer-of-mercedes-benz-cls-joins-baic/|url-status=live}}</ref>
+| body_style = 5-door [[Sport utility vehicle|SUV]]
+| chassis = [[Body-on-frame]]
+| related = [[SsangYong Rexton]]
+| engine = {{ubl
+ | '''[[Petrol engine|Gasoline]]''':
+  | 2.3&nbsp;L ''[[Mercedes-Benz M111 engine#E23|M111]]'' [[Straight-four engine|I4]]
+  | 3.2–3.7&nbsp;L ''[[Mercedes-Benz M112 engine#E32|M112]]'' [[V6 engine|V6]]
+  | 4.3–5.4&nbsp;L ''[[Mercedes-Benz M113 engine#E43|M113]]'' [[V8 engine|V8]]
+  | '''[[Diesel engine|Diesel]]''':
+  | 2.7&nbsp;L ''[[Mercedes-Benz OM612 engine|OM612]]'' [[Turbocharger|turbo]] [[Straight-five engine|I5]]
+  | 4.0&nbsp;L ''[[Mercedes-Benz OM628 engine|OM628]]'' turbo V8 
+}}
+| transmission = 5-speed [[manual transmission|manual]]<br />5-speed ''[[5G-Tronic]]'' [[automatic transmission|automatic]]
+| wheelbase = {{convert|111.0|in|mm|0|abbr=on|order=flip}}
+| length = 1997–02: {{convert|180.6|in|mm|0|abbr=on|order=flip}}<br />2002–05: {{convert|182.6|in|mm|0|abbr=on|order=flip}}<br />AMG: {{convert|182.5|in|mm|0|abbr=on|order=flip}}
+| width = 1997–02: {{convert|72.2|in|mm|0|abbr=on|order=flip}}<br />2002–05: {{convert|72.4|in|mm|0|abbr=on|order=flip}}<br />AMG: {{convert|74.6|in|mm|0|abbr=on|order=flip}}
+| height = 1997–02: {{convert|69.9|in|mm|0|abbr=on|order=flip}}<br />2002–05: {{convert|71.7|in|mm|0|abbr=on|order=flip}}<br />AMG: {{convert|69.3|in|mm|0|abbr=on|order=flip}}
+| weight = {{convert|4614|lb|abbr=on|order=flip}}
+| model_code = W163
+}}
+{{Multiple image | align = left | direction = vertical | width = 220
+| image1 = 2000 Mercedes-Benz ML 320 (W 163 MY00) wagon (2010-09-23) 02.jpg
+| caption1 = Pre-facelift Mercedes-Benz ML 320 (Australia)
+| image2 = Mercedes-Benz ML55 AMG -- 02-14-2012.jpg
+| caption2 = Mercedes-Benz ML 55 AMG (US)
+| image3 = 2001 Mercedes-Benz ML 55 AMG (W163) (3844040002) (cropped).jpg
+| caption3 = Mercedes-Benz ML 55 AMG (Europe)
+}}
+
+=== Development ===
+Mercedes-Benz proposed a plan to replace the G-Class, which at the time had been in production for 11 years. A joint agreement with [[Mitsubishi Motors]] to develop and produce a sports-utility vehicle was made in early 1991 and was confirmed publicly that June. Plans were made to base it on the [[Mitsubishi Pajero|Montero/Pajero]] platform, with one of them being badged as a Mercedes-Benz and the other a Mitsubishi. In May 1992, these plans were abandoned citing "technical problems" and Mercedes-Benz continued on with in-house development from January 1993.<ref>{{cite web |url=https://news.google.com/newspapers?id=GgAzAAAAIBAJ&pg=6958,8014610&dq=mercedes-benz+sports+utility+mitsubishi&hl=en |title=Mercedes, Mitsubishi discuss sharing sport-utility |publisher=The news |access-date=13 October 2012}}</ref><ref>{{cite web |url=https://news.google.com/newspapers?id=GSFKAAAAIBAJ&pg=6057,4060886&dq=mercedes-benz+mitsubishi+sport+utility&hl=en |title=Mitsubishi drops plan with Mercedes |publisher=The press courier |access-date=13 October 2012}}</ref>
+
+In March 1993, a search for a location to build a U.S. manufacturing plant began. By September 1993, a location in the state of Alabama was chosen and construction started in 1994.
+
+While plans were being made overseas, in Germany development continued. Design work took place from late 1992 to 1994. A design from Mercedes' Sindelfingen studio was chosen in 1993 and approved by the executive board in February 1994. The design patents were filed in Germany on 13 July 1994, and in the U.S. on 13 January 1995. Prototype testing started with test mules and crash tests using mock-ups in May 1994. First functional prototype's crash test took place in February 1995, with full testing run from March 1995 to December 1996 in various climates and regions of the world. Pilot production began in May 1996.
+
+In July 1996, construction on the [[Mercedes-Benz U.S. International]] plant in [[Vance, Alabama|Vance]], Alabama concluded, with the very first production M-Class rolling off the assembly line the week of 9 February 1997.<ref>{{cite book |url=https://books.google.com/books?id=xDjWke6iTNgC |title=Mercedes-Benz M-Class |isbn=9780760304310 |access-date=31 March 2015|last1=Lamm |first1=John |year=1997 |publisher=Motorbooks International }}</ref>
+
+=== Launch ===
+Mercedes-Benz launched the first generation W163 series M-Class on 19 February 1997, in the United States for the 1998 model year, with sales beginning that September. It is a mid-sized [[body-on-frame]] SUV with seating for five, or seven with an optional third-row, seven-seat version. Access to the third-row was deemed problematic and the seats were not suitable for large adults. As a result, the seven seater M-Class was discontinued after the 2005 model year and replaced by the larger GL-Class.
+
+The Mercedes-Benz M-Class (W163) was available with permanent [[4Matic]] four-wheel drive, which routed [[torque]] to all four wheels through open front, center, and rear [[Differential (mechanical device)|differentials]].<ref name="ReferenceA">{{cite web |url=http://www.4wheeloffroad.com/featuredvehicles/131_9802_1998_4x4_of_the_year_models_mercedes_benz_ml320/ |title=1998 Mercedes-Benz ML |publisher=4wheeloffroad.com |access-date=16 September 2012 |archive-date=23 July 2013 |archive-url=https://web.archive.org/web/20130723172920/http://www.4wheeloffroad.com/featuredvehicles/131_9802_1998_4x4_of_the_year_models_mercedes_benz_ml320/ |url-status=dead }}</ref> The system used a two-speed dual range [[BorgWarner]] 4409 transfer case with a planetary center differential that provides a 48% front/52% rear default torque split. The transfer case featured reduction gearing, and Mercedes' new ''[[Traction control|Four-wheel Electronic Traction System]]'' (4-ETS). 4-ETS simulated three [[Locking differential|differential locks]] on all three open differentials, via aggressively braking one or more spinning wheels.<ref name="ReferenceA" />
+
+The M-Class was the first [[luxury vehicle|luxury]] SUV to feature [[electronic stability control]], a system designed to detect loss of control and instantaneously intervene with selective braking to bring the vehicle back on its intended course. Furthermore, the M-Class featured front- and side-impact airbags with advanced occupant detection for the front passenger seat, which helped earn the W163 the highest marks in insurance industry crash tests.
+
+Manufactured in Vance, Alabama, in the United States, the M-Class launched in the North American market first as the ML 320. The ML 320 was sold internationally, with the "320" suffix alluding to the 3.2-liter V6 engine. The engine has a power output of {{cvt|218|PS|kW hp|0|abbr=on}} and {{cvt|232|lbft|Nm|abbr=on|order=flip}} of torque.<ref>{{cite web |url=https://www.caranddriver.com/reviews/a62529883/1998-mercedes-benz-ml320-archive-drive/ |title=1998 Mercedes-Benz ML320 Is Every Bit a Merc |website=Car and Driver |date=August 1, 1997}}</ref> An entry-level, manual transmission-only ML 230, fitted with a 2.3-liter [[inline-four engine|inline-four]] was available in Europe from launch in March 1998 until 2000. From launch in 1998, European markets also received the ML 270 CDI with a 2.7-liter inline-five [[turbodiesel]] engine. This unit was made available in Australia in 2000 and continued on in the W163 until being replaced upon the release of the W164 M-Class in 2005.
+
+Later, in 1998, the more powerful ML 430 became available with the newly introduced Mercedes-Benz 4.3-liter V8. This was followed by the February 1999 debut of the 2000 ML 55 AMG, featuring a 5.4-liter [[V8 engine]] made by [[Mercedes-AMG|AMG]], modified bodywork, and other performance features.
+
+[[File:Mercedes-Benz ML 320 Jurassic Park IMG 0887.jpg|thumb|Mercedes-Benz ML 320 used in ''[[The Lost World: Jurassic Park]]'' in the [[Mercedes-Benz Museum]].]]
+In September 1996, before the vehicle was launched, Mercedes-Benz allowed the producers of the 1997 film ''[[The Lost World: Jurassic Park]]'' to make use of modified pre-production M-Class SUVs as a way to advertise the W163 when it was launched in 1997. As a result, a Mercedes-Benz advertisement appears before the film on original VHS copies of the film. [[Jeff Goldblum]], the star of the film, received a complimentary ML 320 from Mercedes-Benz as a result of the tie-in. Three versions were used in the movie, two of which of each were built. Two are displayed at the [[Universal Orlando Resort|Universal Studios in Orlando]], Florida, there is one at the [[Mercedes-Benz Museum]] in [[Stuttgart]], Germany, and one at the Visitor Center at the M-class factory in Alabama.
+
+=== Awards ===
+The ML 320 was ''[[Motor Trend]]'' magazine's [[Truck of the Year]] for 1998 and was voted the 1998 [[North American Car of the Year#1994–1999|North American Truck of the Year]] at the [[North American International Auto Show]], Detroit, in January 1998. It also received the [[World Car of the Year|World Car Award]] in March 1999, voted by an international jury of automotive journalists in Geneva.<ref>{{cite web |url=http://media.daimler.com/dcmedia/0-921-1090888-1-869048-1-0-0-0-0-1-12759-614216-0-0-0-0-0-0-0.html?TS=1374733107680 |title=Tenth anniversary of the M-Class: Premiere at the Vance plant in 1997 – Daimler Global Media Site > Classic > Mercedes-Benz Cars > Mercedes-Benz Passenger Cars > M-Class |date=11 June 2008 |publisher=daimler.com |access-date=31 March 2015 |archive-url=https://web.archive.org/web/20160108070005/http://media.daimler.com/dcmedia/0-921-1090888-1-869048-1-0-0-0-0-1-12759-614216-0-0-0-0-0-0-0.html?TS=1374733107680 |archive-date=8 January 2016 |url-status=dead }}</ref> Despite the accolades, Mercedes-Benz received considerable criticism with respect to the substandard quality of the W163, resulting in the car being nicknamed ''Alabama Trashcan''.<ref>Hoovies Garage, ''[https://www.youtube.com/watch?v=NfjZEaY9T7k Why the GL-Class is the Worst Mercedes Made in the Last Decade] {{Webarchive|url=https://web.archive.org/web/20220510044803/https://www.youtube.com/watch?v=NfjZEaY9T7k |date=10 May 2022 }}'' (26 February 2021).</ref>  Quality improved over the years, especially after the facelift in 2001 for the 2002 model year. [[Daimler AG|DaimlerChrysler]] spent US$600 million (~${{Format price|{{Inflation|index=US-GDP|value=600000000|start_year=2005}}}} in {{Inflation/year|US-GDP}}) on improvements at the Alabama factory before launching the second generation ML in 2005.
+
+=== Engines (1997–2005) ===
+{| class="wikitable"
+!Model!!Years!!Displacement!!Configuration!!Power!!Torque!!{{convert|0–100|km/h|mph|0|abbr=on}}!!Top speed
+|-
+! colspan="8" style="text-align:center"|Gasoline engines
+|-
+|ML 230
+|1998–2001
+|{{convert|2295|cc|L|1|abbr=on|order=flip}}
+|inline-4
+|{{convert|110|kW|PS hp|0|abbr=on}}
+|{{convert|220|Nm|0|abbr=on}}
+|12.8 seconds
+| rowspan="2" |{{Convert|180|km/h|0|abbr=on}}
+|-
+|ML 320
+|1998–2001
+|rowspan=2|{{convert|3199|cc|L|1|abbr=on|order=flip}}
+|rowspan=3|V6
+|rowspan=2|{{convert|160|kW|PS hp|0|abbr=on}}
+|rowspan=2|{{convert|315|Nm|0|abbr=on}}
+|9.5 seconds
+|-
+|ML 320
+|2001–2002
+|9.0 seconds
+|{{Convert|195|km/h|0|abbr=on}}
+|-
+|ML 350
+|2002–2005
+|{{convert|3724|cc|L|1|abbr=on|order=flip}}
+|{{convert|173|kW|PS hp|0|abbr=on}}
+|{{convert|346|Nm|0|abbr=on}}
+|8.7 seconds
+|{{Convert|205|km/h|0|abbr=on}}
+|-
+|ML 430
+|1999–2001
+|{{convert|4266|cc|L|1|abbr=on|order=flip}}
+|rowspan=4|V8
+|{{convert|200|kW|PS hp|0|abbr=on}}
+|{{convert|400|Nm|0|abbr=on}}
+|8.4 seconds
+|{{Convert|210|km/h|0|abbr=on}}
+|-
+|ML 500
+|2001–2005
+|{{convert|4966|cc|L|1|abbr=on|order=flip}}
+|{{convert|215|kW|PS hp|0|abbr=on}}
+|{{convert|440|Nm|0|abbr=on}}
+|7.7 seconds
+|{{Convert|222|km/h|0|abbr=on}}
+|-
+|ML 55 AMG
+|2000–2001
+|rowspan=2|{{convert|5439|cc|L|1|abbr=on|order=flip}}
+|rowspan=2|{{convert|255|kW|PS hp|0|abbr=on}}
+|rowspan=2|{{convert|510|Nm|0|abbr=on}}
+|6.9 seconds
+|{{Convert|232|km/h|0|abbr=on}}
+|-
+|ML 55 AMG
+|2002–2003
+|6.7 seconds
+|{{Convert|235|km/h|0|abbr=on}}
+|-
+! colspan="8" style="text-align:center"|Diesel engines
+|-
+|ML 270 CDI
+|1998–2001
+|rowspan=2|{{convert|2688|cc|L|1|abbr=on|order=flip}}
+|rowspan=2|inline-5
+| rowspan="2" |{{convert|120|kW|PS hp|0|abbr=on}}
+| rowspan="2" |{{convert|370|Nm|0|abbr=on}}
+|11.7 seconds
+| rowspan="2" |{{Convert|185|km/h|0|abbr=on}}
+|-
+|ML 270 CDI
+|2002–2005
+|12.2 seconds
+|-
+|ML 400 CDI
+|2001–2005
+|{{convert|3996|cc|L|1|abbr=on|order=flip}}
+|V8
+|{{convert|184|kW|PS hp|0|abbr=on}}
+|{{convert|560|Nm|0|abbr=on}}
+|8.1 seconds
+|{{Convert|213|km/h|0|abbr=on}}
+|-
+|}
+
+=== Facelift ===
+{{Multiple image
+| align             = right
+| direction         = vertical
+| width             = 220
+| image1            = Mercedes-Benz ML 270 CDI (W 163, Facelift) – Frontansicht, 25. August 2013, Düsseldorf.jpg
+| image2            = 2003 Mercedes-Benz ML 500 (W 163 MY02) Luxury wagon (2010-07-11).jpg
+| caption2          = 2001 facelift
+}}
+
+Mercedes-Benz revised and updated the W163 in 2001 for the 2002 model year. Styling updates involved the fitment of new head- and tail-lamp lenses, front and rear bumpers, new alloy wheels on most variants, the relocation of the side turn signals from the fenders to the side-view mirrors, and various interior trim changes. At the same time, the ML 430 was replaced by the 5.0-liter V8-powered ML 500 and a new 4.0-liter V8 turbodiesel ML 400 CDI became available in Europe. The following year, in 2002, Mercedes-Benz launched the ML 350 fitted with a 3.7-liter V6 engine. The ML 350 replaced the ML 320 in some markets, but supplemented it in others.
+
+The previous [[Popemobile]] was based on a W163 series ML 430 and has been in service since July 2002.<ref>{{cite web |url=https://media.daimler.com/marsMediaSite/en/instance/ko.xhtml?oid=9905841&relId=60822&resultInfoTypeId=40627&ls=L2VuL2luc3RhbmNlL2tvLnhodG1sP3JlbElkPTYwODE4JnJlc3VsdEluZm9UeXBlSWQ9NDA2MzAmb2lkPTkyNjU4MzUmZnJvbU9pZD05MjY1ODM1JmJvcmRlcnM9dHJ1ZSZ2aWV3VHlwZT1saXN0JnNvcnREZWZpbml0aW9uPVBVQkxJU0hFRF9BVC0yJnRodW1iU2NhbGVJbmRleD0wJnJvd0NvdW50c0luZGV4PTU!&rs=11#toRelation |title=Daimler Global Media Site > Classic > Mercedes-Benz Cars > Mercedes-Benz Passenger Cars |date=7 June 2005 |publisher=daimler.com |access-date=23 June 2019}}</ref> [[Volkswagen]] had offered to build a new vehicle based on the [[Volkswagen Touareg|Touareg]], but [[Pope Benedict XVI]] opted to continue using his predecessor's Mercedes-Benz-manufactured vehicle.<ref>{{cite web|url=http://www.edmunds.com/insideline/do/News/articleId=106369 |title=2005-07-08 Pontiff Withholds Blessing From VW's Proposed Popemobile |publisher=Edmunds.com |access-date=1 October 2010 |url-status=dead |archive-url=https://web.archive.org/web/20090707083652/http://www.edmunds.com/insideline/do/News/articleId%3D106369 |archive-date=7 July 2009 }}</ref>
+
+=== Safety ===
+
+==== Euro NCAP ====
+{{Euro NCAP|year=2002|reference=https://cdn.euroncap.com/media/9903/euroncap_mercedes-benz_m_class_2002_4stars.pdf|reference_name=Mercedes-Benz ML-Class 2002 Results|description=Mercedes-Benz ML270|adult_stars=4|adult_score=30|pedestrian_stars=1|pedestrian_score=4}} <!-- https://web.archive.org/web/20200617072535/https://cdn.euroncap.com/media/9903/euroncap_mercedes-benz_m_class_2002_4stars.pdf -->
+
+==== IIHS ====
+{| class="wikitable"
+|+[[Insurance Institute for Highway Safety|IIHS]] scores (1999 model year)<ref>{{Cite web |title=1999 Mercedes-Benz M-Class 4-door SUV |url=https://www.iihs.org/ratings/vehicle/Mercedes-Benz/m-class-4-door-suv/1999 |access-date=2025-05-18 |website=IIHS-HLDI crash testing and highway safety |language=en |archive-date=21 April 2025 |archive-url=https://web.archive.org/web/20250421234733/https://www.iihs.org/ratings/vehicle/mercedes-benz/m-class-4-door-suv/1999 |url-status=live }}</ref>
+|Moderate overlap front (original test)
+| colspan="2" style="color:white;background: green" |Good
+|}
+
+==== ANCAP ====
+{{ANCAP
+|overall_stars=4
+|year=2002
+|reference_code=e23a08
+|description=Mercedes-Benz M-Class
+|frontal_offset=9.64/16
+|side_impact=16/16
+|pole=2/2
+|seat_belt_reminders=2/3
+|whiplash_protection=Not Assessed
+|pedestrian_protection=Poor
+|electronic_stability_control=Standard
+}}
+
+{{clear}}
+
+== <span class="anchor" id="W164"></span>Second generation (W164; 2005) ==
+{{Infobox automobile
+| name = Mercedes-Benz M-Class (W164)
+| image = 2007 Mercedes-Benz ML 320 CDI (W 164 MY08) Luxury wagon (2011-11-18) 01.jpg
+| caption = 2006 ML 320 CDI (pre-facelift)
+| production = January 2005<ref>{{cite web|url=https://mercedes-benz-publicarchive.com/marsClassic/en/instance/ko/ML-350-4MATIC-2005---2008.xhtml?oid=191401379|title=ML 350 4MATIC, 2005 - 2008|website=mercedes-benz-publicarchive.com|access-date=5 April 2024|archive-date=30 November 2024|archive-url=https://web.archive.org/web/20241130095210/https://mercedes-benz-publicarchive.com/marsClassic/en/instance/ko/ML-350-4MATIC-2005---2008.xhtml?oid=191401379|url-status=live}}</ref>–2011
+| model_years = 2006–2011
+| assembly = United States: [[Tuscaloosa, Alabama]] ([[Mercedes-Benz U.S. International|MBUSI]])
+| designer = Andreas Deufel, Holger Hutzenlaub,<ref name="mb-offroad" /> [[Steve Mattin]]<ref name="just-auto" /> (2001)
+| body_style = 5-door [[Sport utility vehicle|SUV]]
+| chassis = [[Unibody]]
+| platform = W164/V251/W166<ref>{{Cite web| title=Supplying to Mercedes Benz | url=https://autotechinsight.spglobal.com/_assets/sampledownloads/ihs-supplierbusiness-mercedesbenz2015-sample_1444052369.pdf | archive-url=https://web.archive.org/web/20251029104821/https://autotechinsight.spglobal.com/_assets/sampledownloads/ihs-supplierbusiness-mercedesbenz2015-sample_1444052369.pdf | archive-date=2025-10-29}}</ref>
+| related = [[Mercedes-Benz GL-Class (X164)]] [[Mercedes-Benz R-Class]]
+| engine = {{ubl
+ | '''[[Petrol engine|Gasoline]]:'''
+|3.5&nbsp;L ''[[Mercedes-Benz M272 engine#E35|M272 E35]]'' [[V6]] (gasoline and hybrid)
+|5.0&nbsp;L ''[[Mercedes-Benz M113 engine#M113 E50|M113 E50]]'' [[V8]]
+|4.6&nbsp;L ''[[Mercedes-Benz M273 engine#E47|M273 E47]]'' V8
+|5.5&nbsp;L ''[[Mercedes-Benz M273 engine#E55|M273 E55]]'' V8
+|6.2&nbsp;L ''[[Mercedes-Benz M156 engine|M156]]'' V8
+  | '''[[Diesel engine|Diesel]]:'''
+|3.0&nbsp;L ''[[Mercedes-Benz OM642 engine|OM642]]'' [[V6 engine|V6]] [[turbocharger|turbo]]
+|4.0&nbsp;L ''[[Mercedes-Benz OM629 engine|OM629]]'' [[V8 engine|V8]] turbo (2005–2011)
+}}
+| motor = 2x AC synchronous electric motors (ML450 Hybrid){{ubl
+  | {{convert|62|kW|PS hp|0|abbr=on}} 1st motor
+  | {{convert|60|kW|PS hp|0|abbr=on}} 2nd motor
+}}
+| transmission = 7-speed ''[[7G-Tronic]]'' [[Automatic transmission|automatic]]<br />[[Continuous variable transmission|two-mode hybrid CVT]] (ML450 Hybrid)<ref>{{cite web | url=https://www.caranddriver.com/reviews/a16579634/2010-mercedes-benz-ml450-hybrid-quick-spin/ | title=2010 Mercedes-Benz ML450 Hybrid | work=Car and Driver | date=4 December 2009 | access-date=19 March 2021 | archive-date=8 April 2023 | archive-url=https://web.archive.org/web/20230408031830/https://www.caranddriver.com/reviews/a16579634/2010-mercedes-benz-ml450-hybrid-quick-spin/ | url-status=live }}</ref>
+| drivetrain = [[Hybrid Electric Vehicle|Two-mode hybrid drive Parallel Hybrid]] (ML450 Hybrid)
+| battery = 2.4 kWh [[Nickel–metal hydride battery|Liquid-cooled high-voltage Ni-MH]]
+| wheelbase = {{convert|114.7|in|mm|0|abbr=on|order=flip}}
+| length = {{convert|188.23|in|mm|0|abbr=on|order=flip}}<ref>{{cite web | url=https://www.auto-data.net/en/mercedes-benz-m-class-w164-facelift-2008-ml-350-bluetec-v6-211hp-4matic-7g-tronic-12761 | title=2009 Mercedes-Benz M-class (W164, facelift 2008) ML 350 BlueTEC V6 (211 Hp) 4MATIC 7G-TRONIC &#124; Technical specs, data, fuel consumption, Dimensions }}</ref><ref>{{cite web | url=https://www.car.info/en-se/mercedes-benz/m-class/ml-320-cdi-4matic-6849978/specs | title=Specifications for Mercedes-Benz ML 320 CDI 4MATIC 7G-Tronic | access-date=5 October 2022 | archive-date=5 October 2022 | archive-url=https://web.archive.org/web/20221005215319/https://www.car.info/en-se/mercedes-benz/m-class/ml-320-cdi-4matic-6849978/specs | url-status=live }}</ref><br />AMG: {{convert|189.8|in|mm|0|abbr=on|order=flip}}<br />Hybrid: {{convert|189.2|in|mm|0|abbr=on|order=flip}}
+| width = {{convert|1910|mm|in|abbr=on}}<br />AMG: {{convert|76.8|in|mm|0|abbr=on|order=flip}}<br />Hybrid: {{convert|77.8|in|mm|0|abbr=on|order=flip}}
+| height = {{convert|1815|mm|in|abbr=on}}<br />AMG: {{convert|73.3|in|mm|0|abbr=on|order=flip}}
+| weight = {{convert|2150|kg|lb|abbr=on}}
+| model_code = W164
+}}
+{{Multiple image
+| align             = left
+| direction         = vertical
+| width             = 220
+| image1            = 2006 Mercedes-Benz ML 320 CDI (W 164) wagon (2011-07-17) 02.jpg
+| caption1          = Pre-facelift Mercedes-Benz ML 320 CDI (Australia)
+| image2            = 2006-2008 Mercedes-Benz ML 63 AMG (W 164) wagon (2018-09-03) 01.jpg
+| image3            = 2006-2008 Mercedes-Benz ML 63 AMG (W 164) wagon (2018-09-03) 02.jpg
+| caption3          = Mercedes-Benz ML 63 AMG (Australia; pre-facelift)
+}}
+
+In 1999, development on a successor to the W163 began under the codename "W164" and spanned a period of six years. First design drafts appeared in 2000 with the first models in scale 1:4, and in 2001 three full-sized models were prepared.<ref name="mb-offroad">{{cite web|url=https://www.mb-offroad.com/wp-content/PDF/Magazin/2005_07_IAA.pdf|title=Design|publisher=Mercedes-Benz Offroad|access-date=27 September 2019|archive-date=6 April 2023|archive-url=https://web.archive.org/web/20230406032117/https://www.mb-offroad.com/wp-content/PDF/Magazin/2005_07_IAA.pdf|url-status=dead}}</ref> In 2002 the design styled by Steve Mattin under Peter Pfeiffer was chosen and approved by the executive board.<ref name="just-auto">{{cite web |author=CGT union on production transfer rumours |url=http://www.just-auto.com/analysis/interview-with-steve-mattin-senior-designer-mercedes-benz_id86828.aspx |title=Interview with Steve Mattin, Senior Designer, Mercedes – Benz |publisher=Just-auto.com |access-date=29 September 2012 |archive-date=11 January 2017 |archive-url=https://archive.today/20170111144140/http://www.just-auto.com/analysis/interview-with-steve-mattin-senior-designer-mercedes-benz_id86828.aspx |url-status=dead }}</ref> Design patents were filed in Germany on 10 June 2003 and in the U.S. on 25 July. Prototype testing was conducted throughout 2003 and 2004, concluding in early 2005. The redesigned M-class (chassis name ''W164'') was introduced in April 2005 as a 2006 model after a showing at the [[North American International Auto Show#2005|North American International Auto Show]] in January. It was almost entirely new, with a more sporting, aerodynamic look. The [[coefficient of drag]] was reduced to 0.34. Mercedes-Benz made the new M-Class 71&nbsp;mm larger, 150&nbsp;mm longer and 5&nbsp;mm lower than the first model. The M-Class was named "Best New Sport Utility Vehicle" in the 2006 [[Canadian Car of the Year]] awards.
+
+Mercedes-Benz extensively publicised the [[United States dollar|US$]]600 million spent to update its factory and add manufacturing space for the new [[Mercedes-Benz R-Class|R-Class]]. According to early automotive press reports, the 2006 M-Class vehicles demonstrated vast improvements in quality.
+
+The W164 [[automobile platform|platform]] used for the new M-Class is shared with the new [[Mercedes-Benz GL-Class|GL-Class]] and is a [[unibody]] type rather than the former (W163) body-on-frame used by the M-Class vehicles produced from 1998–2005. The X164 GL-Class, a longer seven-seater version of the W164 platform, is also available.
+
+New features in the 2006 M-Class include the 7G-Tronic seven-speed [[automatic transmission]], optional [[Adaptive Front-lighting System (AFS)|Active Curve-Illuminating]] Bi-Xenon headlights which "steer" in the path of the vehicle, and an adjustable-height air suspension. The [[manual transmission]] has been dropped. Permanent 4Matic four-wheel drive remained, with one-speed transfer case (no low range), center [[limited-slip differential]] and four-wheel electronic traction system (4-ETS). In most countries except the U.S., an Off-Road Pro package with center and rear differential locks, 4-ETS, two-speed transfer case with reduction gearing, and adjustable ground clearance was available as an option increasing the original fording depth from 500&nbsp;mm to 600&nbsp;mm.
+
+The [[Mercedes-AMG|AMG]] version of the W164, the ML 63 AMG, was introduced at the [[North American International Auto Show#2006|2006 North American International Auto Show]] as a limited edition 2007 model. It features a 6.2&nbsp;L ''[[Mercedes-Benz M156 engine|M156]]'' [[V8 engine]] producing {{Convert|510|PS|kW|0|abbr=on}} and {{convert|465|lbft|Nm|0|abbr=on}} that is handcrafted in Germany. The engine is added to an AMG SpeedShift [[7G-Tronic]] seven-speed [[automatic transmission]]. The 2006 ML 63 AMG can accelerate from {{convert|0–60|mph|km/h||abbr=on}} in 4.8 seconds, or from {{convert|0–62|mph|km/h||abbr=on}} in 5.0 seconds. These features made the ML 63 AMG the most powerful naturally aspirated V8 SUV in the world at the time of its launch.<ref>{{Cite web|url=http://www.mbusa.com/models/features/specs/performance.do?modelCode=ML63&class=08_ML|archiveurl=https://web.archive.org/web/20071019010839/http://www.mbusa.com/models/features/specs/performance.do?modelCode=ML63&class=08_ML|url-status=dead|title=Mercedes-Benz ML 63 AMG Specifications|archivedate=19 October 2007}}</ref>
+
+=== Facelift ===
+{{Multiple image
+| align             = left
+| direction         = vertical
+| width             = 220
+| image1            = 2010 Mercedes-Benz ML 320 CDI (W 164 MY10) 4MATIC wagon (2018-10-19) 01.jpg
+| image2            = 2010 Mercedes-Benz ML 320 CDI (W 164 MY10) 4MATIC wagon (2018-10-19) 02.jpg
+| caption2          = 2008 facelift
+| image3            = Mercedes-Benz W164 interior.jpg
+| caption3          = Interior
+}}
+
+{{Multiple image
+| align             = right
+| direction         = vertical
+| width             = 220
+| image1            = Mercedes-Benz W164 ML 63 AMG AME.jpg
+| image2            = Mercedes-Benz W164 ML 63 AMG Heck AME.jpg
+| caption2          = 2008 facelift (ML 63 AMG)
+}}
+
+By 2007, design work on updates to the W164 were finalized and patented domestically in Germany on 23 November 2007. The 2009 Mercedes-Benz M-Class got a minor facelift as it debuted at the [[New York International Auto Show#2008|2008 New York International Auto Show]] in March 2008.
+
+This facelift includes new front headlights, redesigned front and rear bumpers, new exterior mirrors, new rim choices, a larger front grille, restyled interior, and a new ML 420 CDI engine choice. The ML 280 CDI became the ML 300 CDI, the 320 CDI became the 350 CDI, and the 420 CDI became the 450 CDI.
+
+Models using [[Bluetec]] [[Diesel engine]] with [[urea]] injection were introduced in 2008 for the 2009 model year.
+
+At the [[New York International Auto Show#2009|2009 New York International Auto Show]], Mercedes-Benz showed their ML 450 Hybrid SUV, which was announced on 8 April 2009. The ML 450 Hybrid consumes almost 50% less fuel than the ML 550 does, even though it produces over 90% of the power generated by the V8 model. Total power generated will be {{Convert|335|hp|kW|0|abbr=on}} and {{Convert|381|lbft|Nm|abbr=on}} of torque, while getting {{convert|24|mpgus|L/100 km|abbr=on}} on the highway and {{convert|21|mpgus|L/100 km|abbr=on}} in the city, according to [[United States Environmental Protection Agency]] (EPA) estimates. The engine itself runs on the [[Atkinson cycle]] and by itself makes 275&nbsp;hp.<ref>{{cite web |url=http://www.automoblog.net/2009/04/08/ml-450-hybrid-to-debut-at-new-york-show/ |title=Mercedes ML 450 Hybrid |publisher=Automoblog.net |access-date=6 January 2012 |url-status=dead |archive-url=https://web.archive.org/web/20120214232639/http://www.automoblog.net/2009/04/08/ml-450-hybrid-to-debut-at-new-york-show/ |archive-date=14 February 2012 |df=dmy-all }}</ref> The ML 450 was developed under the [[Global Hybrid Cooperation]], and will only be available in the United States under lease.<ref name="an">"[http://www.autonews.com/apps/pbcs.dll/article?AID=/20090714/COPY02/307149993&AssignSessionID=373348067472168 BMW, Daimler, GM hybrid alliance nears end]{{dead link|date=June 2026}}", Matthias Krust, ''[[Automotive News]]'', 14 July 2009</ref><ref>{{cite web |last=Abuelsamid |first=Sam |url=http://green.autoblog.com/2009/11/14/mercedes-benz-ml450-hybrid-launches-next-week-for-lease-only/ |title=Mercedes-Benz ML450 Hybrid launches next week for lease only – Autoblog Green |publisher=Green.autoblog.com |date=14 November 2009 |access-date=21 March 2010}}</ref>
+
+In 2011, Mercedes-Benz came out with the M-Class BlueTec Grand Edition. The vehicle had cosmetic changes, including specially-manufactured 22-inch 10 spoke wheels, black leather with white stitching, and smokers package with Grand Edition modeling. The exterior consisted of new wheels, tinted headlights and tail lights, xenon-package (LED tail lights and daytime running lights, Xenon headlights), black grille, AMG, and side-view mirrors. The Grand Edition was offered in Midnight Blue, Black, and Ivory White, differentiating the basic model by color already. The interior featured an [[Mercedes-AMG|AMG]] steering wheel in place of the standard heated steering wheel.
+{{clear}}
+
+===Engines (2005–2011)===
+{| class="wikitable"
+!Model!!Years!!Configuration!!Displacement!!Power!!Torque!!{{convert|0–100|km/h|mph|0|abbr=on}}!!Top speed
+|-
+! colspan="8" style="text-align:center"|Gasoline engines
+|-
+|ML 350 4MATIC
+|2005–2011
+| rowspan="2" |3498 cc
+|V6 NA
+|{{convert|203|kW|PS hp|0|abbr=on}}
+|{{convert|350|Nm|0|abbr=on}}
+|8.4 seconds
+|{{Convert|215|km/h|0|abbr=on}}
+|-
+|ML 450 Hybrid 4MATIC
+|2009–2011
+|V6 NA + 2x Electric Motors
+|{{convert|254|kW|PS hp|0|abbr=on}}
+|{{convert|517|Nm|0|abbr=on}}
+|7.8 seconds
+|{{Convert|211|km/h|0|abbr=on}}
+|-
+|ML 500 4MATIC (2005)
+|2005–2007
+|4966 cc
+| rowspan="3" |V8 NA
+|{{convert|228|kW|PS hp|0|abbr=on}}
+|{{convert|406|Nm|0|abbr=on}}
+|6.9 seconds
+|{{Convert|235|km/h|0|abbr=on}}
+|-
+|ML 500 4MATIC (2008)<br/>ML 550 4MATIC (2008)
+|2007–2011
+|5461 cc
+|{{convert|290|kW|PS hp|0|abbr=on}}
+|{{convert|530|Nm|0|abbr=on}}
+|5.5 seconds
+| rowspan="2" |{{Convert|250|km/h|0|abbr=on}}
+|-
+|ML 63 AMG 4MATIC
+|2006–2011
+|6208 cc
+|{{convert|380|kW|PS hp|0|abbr=on}}
+|{{convert|630|Nm|0|abbr=on}}
+|5 seconds
+|-
+! colspan="8" style="text-align:center"|Diesel engines
+|-
+|ML 280 CDI 4MATIC / ML 300 CDI 4MATIC BLUEEFFICIENCY
+|2005–2010
+| rowspan="4" |2987 cc
+| rowspan="4" |V6 Turbo
+|{{convert|141|kW|PS hp|0|abbr=on}}
+|{{convert|440|Nm|0|abbr=on}}
+|10.4 seconds
+|{{Convert|205|km/h|0|abbr=on}}
+|-
+|ML 300 CDI 4MATIC
+|2010–2011
+|{{convert|152|kW|PS hp|0|abbr=on}}
+|{{convert|500|Nm|0|abbr=on}}
+|8.2 seconds
+| rowspan="3" |{{Convert|210|km/h|0|abbr=on}}
+|-
+|ML 320 CDI 4MATIC
+|2005–2009
+|{{convert|157|kW|PS hp|0|abbr=on}}
+|{{convert|540|Nm|0|abbr=on}}
+|9.4 seconds
+|-
+|ML 350 CDI BlueTec 4MATIC
+|2009–2011
+|{{convert|167|kW|PS hp|0|abbr=on}}
+|{{convert|510|Nm|0|abbr=on}}
+|8.7 seconds
+|-
+|ML 420 CDI 4MATIC
+|2005–2009
+| rowspan="2" |3996 cc
+| rowspan="2" |V8 Turbo (OM629)
+| rowspan="2" |{{convert|228|kW|PS hp|0|abbr=on}}
+| rowspan="2" |{{convert|700|Nm|0|abbr=on}}
+|6.8 seconds
+|{{Convert|225|km/h|0|abbr=on}}
+|-
+|ML 450 CDI 4MATIC
+|2009–2010
+|6.5 seconds
+|{{Convert|235|km/h|0|abbr=on}}
+|}
+
+=== Safety ===
+
+==== Euro NCAP ====
+{{Euro NCAP|year=2008|reference=https://cdn.euroncap.com/media/8854/euroncap_mercedes-benz_m_class_2008_5stars.pdf|reference_name=Mercedes-Benz ML-Class 2008 Results|description=Mercedes-Benz ML320 CDI|adult_stars=5|adult_score=34|child_stars=3|child_score=34|pedestrian_stars=1|pedestrian_score=6}}
+
+==== IIHS ====
+{| class="wikitable"
+|+[[Insurance Institute for Highway Safety|IIHS]] scores (2006 model year)<ref>{{Cite web |title=2006 Mercedes-Benz M-Class 4-door SUV |url=https://www.iihs.org/ratings/vehicle/Mercedes-Benz/m-class-4-door-suv/2006 |access-date=2025-05-18 |website=IIHS-HLDI crash testing and highway safety |language=en |archive-date=13 May 2025 |archive-url=https://web.archive.org/web/20250513094401/https://www.iihs.org/ratings/vehicle/mercedes-benz/m-class-4-door-suv/2006 |url-status=live }}</ref>
+|Moderate overlap front (original test)
+| colspan="2" style="color:white;background: green" |Good
+|-
+|Side impact (original test)
+| colspan="2" style="color:white;background: green" |Good
+|-
+|Head restraints and seats
+| colspan="2" style="color:black;background:orange" |Marginal
+|}
+
+==== ANCAP ====
+{{ANCAP
+|overall_stars=5
+|year=2008
+|reference_code=1bfbac
+|description=Mercedes-Benz M-Class
+|frontal_offset=13.97/16
+|side_impact=16/16
+|pole=2/2
+|seat_belt_reminders=2/3
+|whiplash_protection=Not Assessed
+|pedestrian_protection=Poor
+|electronic_stability_control=Standard
+}}
+
+== <span class="anchor" id="W166"></span>Third generation (W166/C292; 2011) ==
+{{Infobox automobile
+| name = Mercedes-Benz M-Class/GLE (W166/C292)
+| image = Mercedes-Benz ML 350 BlueTEC 4MATIC (W 166) – Frontansicht, 8. September 2013, Bösensell.jpg
+| caption = 2013 ML350 W166 wagon (pre-facelift)
+| aka = 
+| production = July 2011–2019
+| assembly = {{ubl
+  | United States: [[Tuscaloosa, Alabama]] ([[Mercedes-Benz U.S. International|MBUSI]])
+  | India: [[Pune, Maharashtra]] ([[Mercedes-Benz India|MBI]])
+  | Indonesia: [[Bogor Regency|Bogor]] ([[Mercedes-Benz Distribution Indonesia|MBDI]])<ref>{{cite web |last=Yulisman |first=Linda |date=22 November 2012 |url=http://www.thejakartapost.com/news/2012/11/22/mercedes-starts-new-assembly-line-new-m-class-model.html |title=Mercedes starts new assembly line for new M-Class model |work=[[The Jakarta Post]] |access-date=8 June 2016 |archive-date=26 March 2020 |archive-url=https://web.archive.org/web/20200326173509/https://www.thejakartapost.com/news/2012/11/22/mercedes-starts-new-assembly-line-new-m-class-model.html |url-status=live }}</ref>
+  | Thailand: [[Samut Prakan]] ({{abbr|TAAP|Thonburi Automotive Assembly Plant Co., Ltd.}})
+}}
+| designer = Emiel Burki (2008)<ref>{{cite web |url=http://patent.ipexl.com/US/D643339.html |title=United States Patent D0643339 |publisher=Intellectual Property EXchange Limited |access-date=15 April 2016 }}{{Dead link|date=June 2026 |bot=InternetArchiveBot }}</ref>
+| body_style = 5-door [[Sport utility vehicle|SUV]]<br />5-door [[coupe SUV]]
+| chassis = [[Unibody]]
+| platform = W164/V251/W166<ref>{{Cite web| url=https://autotechinsight.spglobal.com/_assets/sampledownloads/ihs-supplierbusiness-mercedesbenz2015-sample_1444052369.pdf | title=Supplying to Mercedes Benz | access-date=19 June 2026 | archive-date=20 June 2026 | archive-url=https://web.archive.org/web/20260620022957/https://autotechinsight.spglobal.com/_assets/sampledownloads/ihs-supplierbusiness-mercedesbenz2015-sample_1444052369.pdf | url-status=live}}</ref>
+| related = [[Mercedes-Benz GL-Class (X166)]] [[Dodge Durango#Third generation (WD; 2011)|Dodge Durango (WD)]]
+[[Jeep Grand Cherokee (WK2)]]
+| engine = {{ubl
+ | '''[[Petrol engine|Gasoline]]:'''
+| 3.5 L ''[[Mercedes-Benz M276 engine|M 276 DE 35]]'' [[V6 engine|V6]]
+| 3.0 L ''[[Mercedes-Benz M276 engine|M276 DE 30 red.]]'' [[twin-turbocharged|bi-turbo]] V6
+| 4.7 L ''[[Mercedes-Benz M278 engine|M278 DE 46 AL]]'' bi-turbo [[V8 engine|V8]]
+| 5.5 L ''[[Mercedes-Benz M157 engine|M157 DE 55 AL]]'' bi-turbo V8
+| '''[[Petrol engine|Gasoline]] [[PHEV]]:'''
+| 3.0 L ''[[Mercedes-Benz M276 engine|M 276 DE 30 AL]]'' bi-turbo V6
+| '''[[Diesel engine|Diesel]]:'''
+| 2.1 L ''[[Mercedes-Benz OM651 engine|OM 651 DE 22 LA]]'' [[Turbocharger|turbo]] [[Straight-four engine|I4]]
+| 3.0 L ''[[Mercedes-Benz OM642|OM642 LS DE 30LA]]'' turbo V6
+}}
+| transmission = 7-speed ''[[Mercedes-Benz 7G-Tronic transmission|7G-Tronic]]'' [[Automatic transmission|automatic]]<br />9-speed ''[[Mercedes-Benz 9G-Tronic transmission|9G-Tronic]]'' automatic
+| drivetrain = [[Plug-in hybrid]] (GLE 500 e)
+| wheelbase = {{convert|114.8|in|mm|0|abbr=on|order=flip}}
+| length = {{convert|4803|mm|in|abbr=on}}<br />AMG: {{convert|189.8|in|mm|abbr=on|order=flip}}<br />Hybrid: {{convert|188.2|in|mm|abbr=on|order=flip}}
+| width = {{convert|1926|mm|in|abbr=on}}<br />AMG: {{convert|76.8|in|mm|abbr=on|order=flip}}<br />Hybrid: {{convert|77.8|in|mm|abbr=on|order=flip}}
+| height = {{convert|1796|mm|in|abbr=on}}<br />AMG: {{convert|73.3|in|mm|abbr=on|order=flip}}
+| weight = {{convert|2150|kg|lb|abbr=on}}
+| model_years = 2012–2019
+| model_code = W166<br/>C292 (Coupé)
+}}
+{{Multiple image
+| align             = left
+| direction         = vertical
+| width             = 220
+| image1            = 2011-2015 Mercedes-Benz ML 250 (W 166) BlueTEC wagon (2018-11-13) 01.jpg
+| image2            = 2011-2015 Mercedes-Benz ML 250 (W 166) BlueTEC wagon (2018-11-13) 02.jpg
+| caption2          = Mercedes-Benz ML 250 BlueTEC (Australia)
+| image3            = 2014 Mercedes-Benz ML 63 AMG (W 166 MY15) wagon (2014-12-19).jpg
+| image4            = Mercedes-Benz ML 63 AMG.jpg
+| caption4          = Mercedes-Benz ML 63 AMG
+| image5            = Mercedes-Benz ML 350 BlueTEC 4MATIC (W 166) – Innenraum, 19. November 2011, Wuppertal.jpg
+| caption5          = Interior
+}}
+
+In 2006, development began on the next-generation M-Class and spanned over a period of 5 years, a shorter duration than its predecessor. In 2008, the final design by Emiel Burki was approved and patented domestically on 16 December 2008 (U.S. design patent filed on 15 June 2009). The newly redesigned M-Class (chassis name ''W166'') was introduced in pre-production form 10 June 2011 as a 2012 model. The first customer-designated W166 rolled off the Vance production line on 20 July.<ref>{{cite web |last=Pettendy |first=Marton |date=22 July 2011 |url=http://www.goauto.com.au/mellor/mellor.nsf/story2/2001BBED58F99646CA2578D500097041 |title=Benz confirms next GL-class |work=GoAuto |publisher=John Mellor |access-date=23 July 2011 |archive-date=4 March 2016 |archive-url=https://web.archive.org/web/20160304060130/http://www.goauto.com.au/mellor/mellor.nsf/story2/2001BBED58F99646CA2578D500097041 |url-status=dead }}</ref> It is moderately refined, taking styling cues from the new generation [[Mercedes-Benz E-Class]]. An increase in rear seat legroom has been implemented, alongside adjustable rear backrests. It was to be launched in September 2011.
+
+New features in the 2012 M-Class include an updated 7G-Tronic Plus seven-speed [[automatic transmission]] to provide improved fuel economy, optional [[adaptive cruise control]] (Distronic Plus), active [[lane departure warning system]], and an adjustable-height air suspension (AirMatic). An [[Anti-roll bar|active curve system]] with [[active anti-roll bar]]s for body roll compensation was introduced.<ref>{{cite web |url=http://www.daimler.com/dccom/0-5-1210218-49-1531792-1-0-0-1210228-0-0-135-0-0-0-0-0-0-0-0.html |title=ACTIVE CURVE SYSTEM – Daimler > Technologie & Innovation > Sicherheit > Vorbeugen |date=21 June 2013 |publisher=daimler.com |access-date=31 March 2015 |url-status=dead |archive-url=https://web.archive.org/web/20150526130931/http://www.daimler.com/dccom/0-5-1210218-49-1531792-1-0-0-1210228-0-0-135-0-0-0-0-0-0-0-0.html |archive-date=26 May 2015 |df=dmy-all }}</ref>
+
+The W166 was one of the last vestiges of the joint venture between Daimler and Chrysler while they were a consolidated company. DaimlerChrysler developed the core platform and technology, benefitting from Chrysler's strong SUV sales and R&D domestically. The underlying platform work was largely completed in 2006, as the two companies were separated. Chrysler uses the same platform to power the [[Jeep Grand Cherokee (WK2)]] and [[Dodge Durango]]. Because of the separation however, the cars are extremely different in terms of interior and body design as well as engine choices. Aside from engines, the three SUVs share many powertrain components, including some transmissions.
+
+An ''On&Off Road Package'' is available for most markets (including North America) as of the 2013 model year. The package adds a two-speed dual range [[Magna Powertrain]] transfer case with center differential lock, reduction gearing, underbody [[skid plate]]s, and a 6-mode selectable [[terrain]] driving program system. The rear differential lock has been discontinued.<ref>{{cite web |url=http://www.leftlanenews.com/new-car-buying/mercedes-benz/m-class/ |title=2013 Mercedes-Benz M-Class |publisher=leftlanenews.com |access-date=30 September 2012 |archive-date=3 October 2012 |archive-url=https://web.archive.org/web/20121003205957/http://www.leftlanenews.com/new-car-buying/mercedes-benz/m-class/ |url-status=live }}</ref>
+
+Open front and rear differentials are fitted, and use four-wheel electronic traction system (4-ETS) to simulate front and rear differential locks.
+
+The Mercedes M-Class won first place in the "Luxury Crossover SUV" category and has been named the most ideal vehicle for Americans based on a study undertaken by California-based automotive research and consulting firm AutoPacific.<ref>{{cite web |url=http://www.autoevolution.com/mercedes-blog/mercedes-benz-m-class-wins-2013-ideal-vehicle-award-in-the-us-65133.html |title=Mercedes-Benz M-Class Wins 2013 Ideal Vehicle Award in the US |date=15 August 2013 |publisher=autoevolution.com |access-date=15 August 2013 |archive-date=17 August 2013 |archive-url=https://web.archive.org/web/20130817025405/http://www.autoevolution.com/mercedes-blog/mercedes-benz-m-class-wins-2013-ideal-vehicle-award-in-the-us-65133.html |url-status=live }}</ref>
+
+Mercedes-Benz India established a manufacturing plant in Chakan, Pune in early 2009<ref>{{cite web |url=http://media.daimler.com/dcmedia/0-921-658891-1-1182859-1-0-0-0-0-1-12759-614216-0-0-0-0-0-0-0.html?TS=1383898291476 |title=Mercedes-Benz Inaugurates New Manufacturing Plant in Pune, India – Daimler Global Media Site > Brands & Products > Mercedes-Benz Cars > Mercedes-Benz Passenger Cars > Special Topics |date=7 July 2011 |publisher=daimler.com |access-date=31 March 2015 |archive-date=9 January 2015 |archive-url=https://web.archive.org/web/20150109023709/http://media.daimler.com/dcmedia/0-921-658891-1-1182859-1-0-0-0-0-1-12759-614216-0-0-0-0-0-0-0.html?TS=1383898291476 |url-status=live }}</ref> that rolled out the first W166 M-Class to be built outside the US in October 2012.<ref>{{cite news |url=http://www.thehindu.com/business/companies/mercedesbenz-rolls-out-mclass-luxury-suv-from-pune-facility/article3985203.ece |title=Mercedes-Benz rolls out M-Class luxury SUV from Pune facility |author=Lalatendu Mishra |work=The Hindu |date=10 October 2012 |access-date=31 March 2015 |archive-date=8 January 2016 |archive-url=https://web.archive.org/web/20160108070004/http://www.thehindu.com/business/companies/mercedesbenz-rolls-out-mclass-luxury-suv-from-pune-facility/article3985203.ece |url-status=live }}</ref> In the following month, Mercedes-Benz Indonesia began M-Class assembly at a factory in Wanaherang, West Java.<ref>{{cite web |last=Tan |first=Danny |date=23 November 2012 |url=http://paultan.org/2012/11/23/mercedes-benz-assembles-m-class-suv-in-indonesia/ |title=Mercedes-Benz assembles M-Class SUV in Indonesia |work=Paul Tan’s Automotive News |access-date=15 April 2016}}</ref> These plants perform final assembly of vehicles shipped as "knocked-down" kits from Vance, USA.
+
+In the second half of 2015 a facelifted W166 was released as the GLE, along with a coupé version.
+
+The previous [[Popemobile]] was based on the 2012 M-Class and was delivered in December 2012.
+{{clear left}}
+
+=== Engines (2012–2019) ===
+{| class="wikitable collapsible sortable" style="font-size:95%;"
+|+Gasoline engines<ref name="Technical data C-Class">{{cite web |url=http://media.daimler.com/dcmedia/0-921-614251-1-827584-1-0-0-0-0-1-11702-854934-0-1-0-0-0-0-0.html?TS=1332553288251 |title=Technical data C-Class |publisher=Media.daimler.com |date=18 January 2007 |access-date=29 September 2012 |archive-url=https://web.archive.org/web/20160304042000/http://media.daimler.com/dcmedia/0-921-614251-1-827584-1-0-0-0-0-1-11702-854934-0-1-0-0-0-0-0.html?TS=1332553288251 |archive-date=4 March 2016 |url-status=dead }}</ref>
+! Model || Years || Type || Power, torque@rpm
+|-
+| GLE 320 4MATIC (China) || 2016–2019 || {{convert|2996|cc|L|1|abbr=on}} V6 BiTurbo ([[Mercedes-Benz M276 engine|Mercedes-Benz M276 DELA 30 engine]]) || {{convert|276|PS|hp kW|0|abbr=on}} @5000, {{convert|400|Nm|lbft|0|abbr=on}} @1300–4500
+|-
+| ML 350 / GLE 350 || 2012–2018 || {{convert|3498|cc|L|1|abbr=on}} V6 NA ([[Mercedes-Benz M276 engine|Mercedes-Benz M276 DE 35 engine]]) || {{convert|306|PS|hp kW|0|abbr=on}} @6500, {{convert|370|Nm|lbft|0|abbr=on}} @3500–5250
+|-
+| ML 400 / GLE 400 4MATIC || 2015–2019 || rowspan="2" | {{convert|2996|cc|L|1|abbr=on}} V6 BiTurbo ([[Mercedes-Benz M276 engine|Mercedes-Benz M276 DELA 30 engine]])|| {{convert|333|PS|hp kW|0|abbr=on}} @5250–6000, {{convert|480|Nm|lbft|0|abbr=on}} @1600–4000
+|-
+| GLE 450 AMG 4MATIC/AMG GLE 43 4MATIC || 2015–2018 || {{convert|367|PS|hp kW|0|abbr=on}} @5500–6000, {{convert|520|Nm|lbft|0|abbr=on}} @2000–4000
+|-
+| ML 500/ ML550 4MATIC || 2012–2015 || rowspan="2" |{{convert|4663|cc|L|1|abbr=on}} V8 BiTurbo|| {{convert|408|PS|hp kW|0|abbr=on}} @5000–5750, {{convert|600|Nm|lbft|0|abbr=on}} @1600–4750
+|-
+| GLE 500/ GLE550 4MATIC || 2015–2018 || {{convert|429|PS|hp kW|0|abbr=on}} @5250, {{convert|700|Nm|lbft|0|abbr=on}} @1800–4000
+|-
+| ML 63 / GLE 63 AMG (with 4MATIC)|| 2012–2015 || rowspan="2" | {{convert|5461|cc|L|1|abbr=on}} V8 Biturbo ([[Mercedes-Benz M157 engine]]) || {{convert|525|PS|hp kW|0|abbr=on}} @5250, {{convert|700|Nm|lbft|0|abbr=on}} @1750–5000<br />Performance Package: {{convert|557|PS|hp kW|0|abbr=on}} @5750, {{convert|760|Nm|lbft|0|abbr=on}} @2000–5000
+|-
+| GLE 63 S AMG 4MATIC || 2015–2019 || {{convert|585|PS|hp kW|0|abbr=on}} @5500, {{convert|760|Nm|lbft|0|abbr=on}} @1750–5350
+|}
+
+{| class="wikitable collapsible" style="font-size:95%;"
+|+Diesel engines<ref name="Technical data C-Class"/>
+! Model || Years || Type || Power, torque@rpm
+|-
+| ML 250 CDI/BlueTEC 4MATIC / GLE 250d 4MATIC || rowspan="2" | 2012–2019 || {{convert|2143|cc|L|1|abbr=on}} 16V I4 Bi-turbo [[Mercedes-Benz OM651|Mercedes-Benz OM651 DE 22 LA engine]] || {{convert|204|PS|hp kW|0|abbr=on}} @4200, {{convert|500|Nm|lbft|0|abbr=on}} @1600–1800
+|-
+| ML 350 BlueTEC 4MATIC / GLE 350d 4MATIC || {{convert|2987|cc|L|1|abbr=on}} 24V V6 Single turbo [[Mercedes-Benz OM642|Mercedes-Benz OM 642 LS DE 30 LA engine]]) || {{convert|258|PS|hp kW|0|abbr=on}} @3800, {{convert|620|Nm|lbft|0|abbr=on}} @1600–2400
+|}
+
+{| class="wikitable collapsible" style="font-size:95%;"
+|+Plug-in Hybrid engines<ref name="Technical data C-Class"/>
+! Model || Years || Type || Power, torque@rpm
+|-
+| GLE 500e || 2016–2019 || {{convert|2996|cc|L|1|abbr=on}} 24V V6 Bi-turbo ([[Mercedes-Benz M276 engine|Mercedes-Benz M276 DELA 30 engine]]) || |{{convert|245|kW|PS bhp|abbr=on}} at 5,250–6,000 (Engine) / {{convert|85|kW|PS bhp|abbr=on}} (Electric), {{convert|480|Nm|lbft|0|abbr=on}} at 1,600–4,000 (Engine) / {{convert|340|Nm|lbft|0|abbr=on}} (Electric)
+|}
+
+=== <span class="anchor" id="GLE"></span> Facelift (GLE) ===
+[[File:Mercedes-Benz Concept Coupé SUV (27).JPG|thumb|Mercedes-Benz Concept Coupé SUV]]
+
+The GLE name was used in 2015 for the [[Facelift (automotive)|facelifted]] W166<ref name="auto">{{cite web |title=2015 Mercedes-Benz GLE Coupe revealed |url=http://www.whatcar.com/car-news/2015-mercedes-benz-gle-coupe-revealed/1325808 |website=What Car? |access-date=13 January 2015 |date=9 December 2014 |url-status=dead |archive-url=https://web.archive.org/web/20150113184840/http://www.whatcar.com/car-news/2015-mercedes-benz-gle-coupe-revealed/1325808 |archive-date=13 January 2015 |df=dmy-all }}</ref> along with the new five-door coupé derivative GLE Coupé (C292) which was unveiled to the public in January 2015 at the [[North American International Auto Show#2015|North American International Auto Show]]. As part of Mercedes-Benz's new naming strategy, the GLE will define the SUV's positioning in the middle of its segment and between the future GLC and GLS (the former GLK and GL, respectively), the same way the E-Class is positioned in relation to the C and S-Classes.
+
+==== Body variants ====
+{{Multiple image
+| align             = right
+| direction         = vertical
+| width             = 220
+| image1            = 2016 Mercedes-Benz GLE 250 Diesel 4MATIC AMG Line Premium 2.1 Front.jpg
+| image2            = 2016 Mercedes-Benz GLE 250 Diesel 4MATIC AMG Line Premium 2.1 Rear.jpg
+| caption2          = GLE 250d wagon
+| image3            = Mercedes-Benz GLE 350 d 4MATIC Coupé (C 292) – Heckansicht, 12. Juni 2017, Düsseldorf.jpg
+| caption3          = GLE 350d Coupé
+| image4            = Mercedes-AMG GLE 43 Coupe 1Y7A4927.jpg
+| caption4          = GLE 43 Coupé
+| image5            = AMG, Berlin (DSC 0010).jpg
+| caption5          = GLE 63 S AMG wagon
+| image6            = 2016 Mercedes-Benz GLE 350 d (W 166) wagon (2016-03-05) 03.jpg
+| caption6          = Interior (GLE)
+}}
+
+===== SUV (W166) =====
+The W166 facelift was unveiled at the [[New York Auto Show]].<ref name="daimler.com">{{cite web |url=https://media.daimler.com/marsMediaSite/en/instance/ko/Premire-for-the-Mercedes-Benz-GLE-and-Mercedes-AMG-GLE-63-Efficiency-meets-performance.xhtml?oid=9920077 |title=Première for the Mercedes-Benz GLE and Mercedes-AMG GLE 63: Efficiency meets performance – Daimler Global Media Site > Brands & Products > Mercedes-Benz Cars > Mercedes-Benz Passenger Cars > GLE |date=31 March 2015 |publisher=daimler.com |access-date=14 October 2018}}</ref> The GLE 500 e is the first [[plug-in hybrid]] in this model range, combining a 333&nbsp;hp V6 engine with a 116&nbsp;hp electric motor.<ref name="daimler.com"/> The first 19 units were delivered in the American market in June 2016.<ref>{{cite web |last=Cole |first=Jay |date=2016-07-01 |url=http://insideevs.com/june-2016-plug-electric-vehicle-sales-report-card/ |title=June 2016 Plug-In Electric Vehicle Sales Report Card |publisher=InsideEVs.com |access-date=2016-07-04 |archive-date=6 July 2016 |archive-url=https://web.archive.org/web/20160706200445/http://insideevs.com/june-2016-plug-electric-vehicle-sales-report-card/ |url-status=dead }}</ref>
+
+===== <span class="anchor" id="C292"></span><span class="anchor" id="Coupé"></span><span class="anchor" id="Coupe"></span> Coupé (C292) =====
+The GLE Coupé (C292) is the [[coupé SUV]] version and is heavily related to the W166, sharing its platform, mechanicals and interior (but having a unique body with a similar design).<ref name="auto"/> The C292 coupé was unveiled to the public in January 2015 at the [[North American International Auto Show#2015|North American International Auto Show]], it was discontinued in August 2019 after the introduction of the W167.
+
+The GLE Coupé was built in Alabama with the GLE on which it is based.<ref>{{cite web |title=Mercedes GLE Coupe Takes on BMW X6 for Sporty SUV Buyers |url=https://www.bloomberg.com/news/2015-01-12/mercedes-gle-coupe-takes-on-bmw-x6-for-sporty-suv-buyers.html |publisher=Bloomberg L.P. |access-date=13 January 2015 |date=12 January 2015 |archive-date=13 January 2015 |archive-url=https://web.archive.org/web/20150113184347/http://www.bloomberg.com/news/2015-01-12/mercedes-gle-coupe-takes-on-bmw-x6-for-sporty-suv-buyers.html |url-status=live }}</ref> Sales are expected from the second half of 2015.{{Update inline|date=August 2025}} The range is topped by the [[Mercedes-AMG]] GLE 63 S-Model, powered by 5.5-liter twin turbo V8 producing 585&nbsp;bhp and 768&nbsp;Nm of torque,<ref>{{cite web |title=Mercedes-AMG GLE 63 Coupe debuts at Detroit Show |url=http://www.autoexpress.co.uk/mercedes/90006/mercedes-amg-gle-63-coupe-debuts-at-detroit-show |website=Auto Express |access-date=13 January 2015 |date=12 January 2015 |archive-date=13 January 2015 |archive-url=https://web.archive.org/web/20150113102333/http://www.autoexpress.co.uk/mercedes/90006/mercedes-amg-gle-63-coupe-debuts-at-detroit-show |url-status=live }}</ref> making it one of the quickest in its segment.<ref name=lieb>Lieberman, Jonny. "[http://www.motortrend.com/news/x6-m-range-rover-sport-svr-gle63-s-coupe-cayenne-turbo-s/ Cayenne Turbo S vs. GLE63 S Coupe vs. X6 M vs. Range Rover Sport SVR]" ''[[Motor Trend]]'', 21 December 2015. [https://web.archive.org/web/20160223074747/http://www.motortrend.com/news/x6-m-range-rover-sport-svr-gle63-s-coupe-cayenne-turbo-s/ Archive]</ref>
+
+=== Safety ===
+{| class="wikitable"
+|-
+! [[National Highway Traffic Safety Administration|NHTSA]]<ref>{{cite web |url=http://www.safercar.gov/Vehicle+Shoppers/5-Star+Safety+Ratings/2011-Newer+Vehicles/Vehicle-Detail?vehicleId=7683 |title=2013 Mercedes-Benz ML-Class SUV 4WD |publisher=U.S. Department of Transportation |access-date=23 September 2015 |archive-date=25 September 2015 |archive-url=https://web.archive.org/web/20150925101812/http://www.safercar.gov/Vehicle+Shoppers/5-Star+Safety+Ratings/2011-Newer+Vehicles/Vehicle-Detail?vehicleId=7683 |url-status=live }}</ref>!! !! [[Euro NCAP]]<ref>{{cite web |url=http://www.euroncap.com/results/mercedes_benz/m_class/2012/455.aspx |title=Euro NCAP – Mercedes-Benz M-Class (2002) |publisher=euroncap.com |access-date=31 March 2015 |archive-date=31 May 2013 |archive-url=https://web.archive.org/web/20130531031451/http://www.euroncap.com/results/mercedes_benz/m_class/2012/455.aspx |url-status=live }}</ref>
+|-
+| Overall: || {{rating|5|5}} || Overall: || {{rating|5|5}}
+|-
+| Frontal – Driver: || {{rating|5|5}} || Adult occupant: ||   pts / 96%
+|-
+| Frontal – Passenger: || {{rating|5|5}} || Child occupant: ||   pts /  %
+|-
+| Side – Driver: || {{rating|5|5}} || Pedestrian: ||   pts / 60%
+|-
+| Side – Passenger: || {{rating|5|5}} || Driver assist: ||   pts /  %
+|-
+| Side Pole – Driver: || {{rating|5|5}}
+|-
+| [[Vehicle rollover|Rollover]]: || {{rating|4|5}} / <small>17.9%</small>
+|}
+
+{| class="wikitable"
+|+IIHS scores<ref>{{cite web |url=http://www.iihs.org/iihs/ratings/vehicle/v/mercedes/m-class |title=Vehicle details |publisher=iihs.org |access-date=31 March 2015 |archive-date=2 April 2015 |archive-url=https://web.archive.org/web/20150402170258/http://www.iihs.org/iihs/ratings/vehicle/v/mercedes/m-class |url-status=dead }}</ref>
+|-
+! Category !! Rating
+|-
+|Moderate overlap frontal offset
+|style="background: green"|Good
+|-
+|Small overlap frontal offset <small>(Nov 2013–present)</small>
+|style="background: green"|Good<sup>1</sup>
+|-
+|Side impact
+|style="background: green"|Good
+|-
+|Roof strength
+|style="background: green"|Good<sup>2</sup>
+|}
+:<sup>1</sup> <small>vehicle structure rated "Acceptable"</small>
+:<sup>2</sup> <small>strength-to-weight ratio: 6.68</small>
+
+{{ANCAP
+|overall_stars=5
+|year=2011
+|reference_code=ebde8d
+|description=Mercedes-Benz M-Class ML350 3.5L petrol V6 variants
+|frontal_offset=15.34/16
+|side_impact=16/16
+|pole=2/2
+|seat_belt_reminders=3/3
+|whiplash_protection=Not Assessed
+|pedestrian_protection=Adequate
+|electronic_stability_control=Standard
+}}
+
+{{clear}}
+
+== Fourth generation (W167/C167; 2018) ==
+{{Infobox automobile
+| name = Mercedes-Benz GLE (W167/C167)
+| image = 2020 Mercedes-Benz GLE 350 4Matic front 6.16.19.jpg
+| caption = 2020 GLE 350
+| production = October 2018–present<ref>{{Cite web|url=https://www.madeinalabama.com/2019/02/next-gen-mercedes-gle-suv-rolls-from-alabama-toward-showroom-debut/#gallery-665a1f71d4ec8-2|title=Next-gen Mercedes GLE SUV rolls from Alabama toward showroom debut|first=Dawn|last=Azok|date=28 February 2019|website=Made in Alabama|access-date=31 May 2024|archive-date=31 May 2024|archive-url=https://web.archive.org/web/20240531190619/https://www.madeinalabama.com/2019/02/next-gen-mercedes-gle-suv-rolls-from-alabama-toward-showroom-debut/#gallery-665a1f71d4ec8-2|url-status=live}}</ref>
+| assembly = {{ubl
+  | United States: [[Tuscaloosa, Alabama]] ([[Mercedes-Benz U.S. International|MBUSI]])
+  | India: [[Pune, Maharashtra]] ([[Mercedes-Benz India|MBI]])
+  | Indonesia: [[Bogor Regency|Bogor]] ([[Mercedes-Benz Distribution Indonesia|MBDI]] / [[Inchcape plc|Inchcape]] [[Indomobil]])
+  | Thailand: [[Samut Prakan]] ({{abbr|TAAP|Thonburi Automotive Assembly Plant Co., Ltd.}})
+  | Malaysia: [[Pekan]] ([[HICOM Automotive Manufacturers (Malaysia)|HICOM]])
+  | China: [[Beijing]] ([[Beijing Benz]] for L models, from 2026)
+}}
+| designer = [[Robert Lešnik]],<ref>{{Cite web|url=https://group-media.mercedes-benz.com/marsMediaSite/en/instance/picture.xhtml?oid=41859874|title=Mercedes-Benz GLE (V 167), designsketch exterior|website=group-media.mercedes-benz.com|language=en|access-date=2022-07-28|archive-date=6 April 2023|archive-url=https://web.archive.org/web/20230406032126/https://group-media.mercedes-benz.com/marsMediaSite/en/instance/picture.xhtml?oid=41859874|url-status=live}}</ref> Balázs Filczer,<ref>{{Cite web|url=https://group-media.mercedes-benz.com/marsMediaSite/en/instance/picture.xhtml?oid=41859871|title=Mercedes-Benz GLE (V 167), designsketch exterior|website=group-media.mercedes-benz.com|language=en|access-date=2022-07-28|archive-date=28 July 2022|archive-url=https://web.archive.org/web/20220728124745/https://group-media.mercedes-benz.com/marsMediaSite/en/instance/picture.xhtml?oid=41859871|url-status=live}}</ref> Michael Frei<ref>{{Cite web|url=https://group-media.mercedes-benz.com/marsMediaSite/en/instance/picture.xhtml?oid=41859873|title=Mercedes-Benz GLE (V 167), designsketch exterior|website=group-media.mercedes-benz.com|language=en|access-date=2022-07-28|archive-date=28 July 2022|archive-url=https://web.archive.org/web/20220728124744/https://group-media.mercedes-benz.com/marsMediaSite/en/instance/picture.xhtml?oid=41859873|url-status=live}}</ref>
+| body_style = 5-door [[Sport utility vehicle|SUV]]<br />5-door [[coupe SUV]]
+| related = [[Mercedes-Benz GLS (X167)]]
+| engine = '''[[Petrol engine|Gasoline]]:'''<br />2.0 L ''[[Mercedes-Benz M260/M264 engine|M264]]'' [[turbocharger|turbocharged]] [[Inline-four engine|I4]]<br />2.0 L ''[[Mercedes-Benz M270/M274 engine|M274]]'' [[PHEV]] [[turbocharger|turbocharged]] [[Inline-four engine|I4]]<!-- source if needed: https://jesmb.de/2494 --><br />2.5 L ''[[Mercedes-Benz M256 engine|M256]]'' [[mild hybrid]] turbo [[inline-six engine|I6]] (China)<!-- source if needed: https://baijiahao.baidu.com/s?id=1734447724776774686&wfr=spider&for=pc --><br />3.0 L ''[[Mercedes-Benz M256 engine|M256]]'' [[mild hybrid]] Turbo [[inline-six engine|I6]]<br />3.0 L ''[[Mercedes-Benz M256 engine|M256]]'' [[PHEV]] Turbo [[inline-six engine|I6]]<br />4.0 L ''[[Mercedes-Benz M177 engine|M176]]'' [[twin-turbocharged|bi-turbo]] [[V8]]<br />4.0 L ''[[Mercedes-Benz M177 engine|M177]]'' [[mild hybrid]] [[twin-turbocharged|bi-turbo]] [[V8]]<br>'''[[Diesel engine|Diesel]]:'''<br />2.0 L ''[[Mercedes-Benz OM654 engine|OM654]]'' [[turbocharger|turbodiesel]] [[Inline-four engine|I4]]<br />2.0 L ''[[Mercedes-Benz OM654 engine|OM654]]'' [[PHEV]] [[turbocharger|turbodiesel]] [[Inline-four engine|I4]]<br />2.9 L ''[[Mercedes-Benz OM656 engine|OM656]]'' [[turbocharger|turbodiesel]] [[Inline-four engine|I6]]<br />3.0 L ''[[Mercedes-Benz OM656 engine|OM656]]'' [[turbocharger|turbodiesel]] [[Inline-four engine|I6]]
+| transmission = 9-speed ''[[Mercedes-Benz 9G-Tronic transmission|9G-Tronic]]'' [[Automatic transmission|automatic]]
+| drivetrain = [[Plug-in hybrid]] (GLE 350e, GLE 350de, GLE 400e, and AMG GLE 53 Hybrid)
+| wheelbase = {{convert|2995|mm|in|1|abbr=on}}<ref>{{cite web| url = https://www.mbusa.com/en/vehicles/model/gle/suv/gle350w4| title = 2020GLE 350 4MATIC SUV| access-date = 29 July 2020| work = mbusa.com| archive-date = 30 September 2023| archive-url = https://web.archive.org/web/20230930095024/https://www.mbusa.com/en/vehicles/model/gle/suv/gle350w4| url-status = live}}</ref><br/> {{Convert|3115|mm|in|1|abbr=on}} (GLE L, China)<ref>{{Cite web |title=北京奔驰国产 GLE L 申报：轴距加长至 3115mm，车长 5051mm - IT之家 |url=https://www.ithome.com/0/948/375.htm |access-date=2026-05-09 |website=www.ithome.com |archive-date=17 May 2026 |archive-url=https://web.archive.org/web/20260517151844/https://www.ithome.com/0/948/375.htm |url-status=live }}</ref>
+| length = {{convert|4924–4930|mm|in|1|abbr=on}} <br/> {{Convert|5051|mm|in|1|abbr=on}} (GLE L, China)
+| width = {{convert|2015–2018|mm|in|1|abbr=on}} <br /> {{convert|2157|mm|in|1|abbr=on}} (with mirrors)
+| height = {{convert|1795–1797|mm|in|1|abbr=on}}
+| weight = {{convert|4,696|lb|kg|abbr=on|disp=flip}}
+| model_code = W167<ref>{{cite web|url=https://www.car.info/en-se/mercedes-benz/gle-class/w167-17856929|title=Mercedes-Benz GLE V167 2019 - 2023|website=Car.Info|access-date=2024-01-16|archive-date=16 January 2024|archive-url=https://web.archive.org/web/20240116125841/https://www.car.info/en-se/mercedes-benz/gle-class/w167-17856929|url-status=live}}</ref><br/>C167 (Coupé)<ref>{{cite web|url=https://www.car.info/en-se/mercedes-benz/gle-class/gle-class-coupe-w167-19031135|title=Mercedes-Benz GLE Coupé C167 2019 - 2023|website=Car.Info|access-date=2024-05-29}}</ref>
+| model_years = 2020–present
+}}
+
+The fourth generation GLE was unveiled at the [[2018 Paris Motor Show]].
+
+At launch, the GLE was sold in the U.S. with two engine options. The GLE 350 has a 2.0-liter 4-cylinder engine with {{convert|255|hp|PS kW|abbr=on}} and the GLE 450 has a 3.0-liter, inline-6, turbocharged engine with {{convert|362|hp|PS kW|abbr=on}} and {{convert|369|lbft|Nm|abbr=on}} of torque. The GLE 450 has a 48V electric system with an integrated starter motor. The system powers the air-conditioner, in-car electronics and the electronically driven turbocharger.<ref name=RT2018>{{cite web|url=https://www.roadandtrack.com/new-cars/future-cars/a23100515/2019-mercedes-benz-gle-e-active-body-control-tech/|title=The 2019 Mercedes-Benz GLE 450 Has an Incredible Adaptive Suspension System - The new Mercedes SUV can lean into corners and adjust each wheel's suspension tuning individually and on the fly.|author=CHRIS PERKINS|work=Road & Track|date=23 September 2018|access-date=16 November 2021|archive-date=8 April 2023|archive-url=https://web.archive.org/web/20230408031835/https://www.roadandtrack.com/new-cars/future-cars/a23100515/2019-mercedes-benz-gle-e-active-body-control-tech/|url-status=live}}</ref> The GLE 450 features a refined [[Active Body Control]] system, that does away with mechanical roll bars, notably enhancing performance.<ref name=RT2018/>
+
+Other engine options are also available. The AMG GLE 53 was introduced at the [[Geneva Motor Show#2019|2019 Geneva Motor Show]] in March. It has a 3.0 L turbocharged I6 producing {{convert|429|hp|PS kW|abbr=on}} and {{convert|384|lbft|Nm|abbr=on}} of torque. A 48V electric system like in the GLE 450 features EQ Boost for an extra {{convert|21|hp|kW|abbr=on}} and {{convert|184|lbft|Nm|abbr=on}} torque on demand.<ref>{{cite web |url=https://www.autoblog.com/2019/02/27/mercedes-amg-gle-53-eq-boost-48v-geneva/ |title=Mercedes-AMG GLE 53 revealed for Geneva with EQ Boost, 48V, 429 hp |date=27 February 2019 |access-date=27 February 2019 |archive-date=7 April 2023 |archive-url=https://web.archive.org/web/20230407200457/https://www.autoblog.com/2019/02/27/mercedes-amg-gle-53-eq-boost-48v-geneva/ |url-status=live }}</ref>
+
+For the first time under the "GLE" name, the GLE also adds a seven-seat option.
+
+===Plug-in hybrid===
+In the European market, two [[PHEV|plug-in hybrid]] versions are available: the GLE 350e, using a gasoline engine, and the GLE 350de, using a diesel engine. Both use a 31.2-kWh battery. The vehicle can be equipped with a 60&nbsp;kW quick charging option. The declared WLTP all-electric range is {{convert|90|to|99|km|mi|abbr=on}}.<ref>{{cite web |url=https://jesmb.de/2494 |title=Nächster Plug-in-Hybrid: Mercedes GLE 350e 4matic - JESMB |date=5 June 2020 |access-date=5 June 2021 |archive-date=26 June 2026 |archive-url=https://megalodon.jp/2026-0626-2031-02/https://jesmb.de:443/2494 |url-status=live }}</ref><ref>{{cite web |url=https://media.daimler.com/marsMediaSite/de/instance/ko/Mercedes-Benz-GLE-350-de-4MATIC-und-GLC-300-e-4MATIC-Neue-Plug-in-Hybride-der-dritten-Generation-Der-naechste-Sprung-bei-der-Reichweite.xhtml?oid=44336333 |title=Mercedes-Benz GLE 350 de 4MATIC und GLC 300 e 4MATIC: Neue Plug-in-Hybride der dritten Generation: Der nächste Sprung bei der Reichweite - Daimler Global Media Site |access-date=5 June 2021 |archive-date=19 April 2021 |archive-url=https://web.archive.org/web/20210419015325/https://media.daimler.com/marsMediaSite/de/instance/ko/Mercedes-Benz-GLE-350-de-4MATIC-und-GLC-300-e-4MATIC-Neue-Plug-in-Hybride-der-dritten-Generation-Der-naechste-Sprung-bei-der-Reichweite.xhtml?oid=44336333 |url-status=live }}</ref>
+
+<gallery widths="200" heights="133">
+File:2020 Mercedes-Benz GLE 350 4Matic rear 6.16.19.jpg|Mercedes-Benz GLE 350
+File:2019 Mercedes-Benz GLE 450 AMG Line Premium+ 4MATIC 3.0 Front.jpg|Mercedes-Benz GLE 450
+File:2019 Mercedes-Benz GLE 450 AMG Line Premium+ 4MATIC 3.0 Rear.jpg|Mercedes-Benz GLE 450
+File:Mercedes-AMG GLE 53 4MATIC 1X7A7342.jpg|Mercedes-AMG GLE 53
+File:Mercedes-AMG GLE 53 4MATIC 1X7A7341.jpg|Mercedes-AMG GLE 53
+File:Mercedes-AMG C167 at IAA 2019 IMG 0656.jpg|Mercedes-AMG GLE 53 Coupe
+File:Mercedes-AMG C167 at IAA 2019 IMG 0514.jpg|Mercedes-AMG GLE 53 Coupe
+File:Mercedes-AMG GLE 63 S 4MATIC IMG 3430.jpg|Mercedes-AMG GLE 63 S
+</gallery>
+
+===2023 facelift===
+In January 2023, the GLE received a facelift for the 2024 model year, adding completely restyled headlights and taillights, a new steering wheel, restyled bumper, newer wheels and a new variant called GLE450e.<ref>{{Cite web |last=Smith |first=Christopher |date=2023-01-31 |title=2024 Mercedes-Benz GLE-Class Debuts: New 400e PHEV Model, Faster AMG 53 |url=https://www.motor1.com/news/645434/2024-mercedes-benz-gle-class-debuts/ |access-date=2025-05-18 |website=Motor1.com |language=en |archive-date=1 June 2025 |archive-url=https://web.archive.org/web/20250601050629/https://www.motor1.com/news/645434/2024-mercedes-benz-gle-class-debuts/ |url-status=live }}</ref>
+
+<gallery widths="200" heights="133">
+File:Mercedes-Benz GLE AMG Line (V 167, Facelift) – f 14042024.jpg|GLE AMG Line (2023 facelift)
+File:Mercedes-Benz GLE AMG Line (V 167, Facelift) – h 14042024.jpg|Rear view (2023 facelift)
+File:2023 Mercedes-AMG GLE 53 4MATIC 1X7A7378.jpg|GLE 53 (covered, 2023 facelift)
+File:2023 Mercedes-AMG GLE 53 4MATIC 1X7A7376.jpg|GLE 53 (covered, 2023 facelift)
+File:MERCEDES-BENZ GLE (W167) CHINA VERSION INTERIOR.jpg|Interior (2023 facelift)
+</gallery>
+
+===2026 facelift===
+In March 2026, a facelift for the 2027 model year GLE was unveiled before it entered production in August 2026, adding completely restyled headlights and taillights, a new steering wheel, and a restyled bumper.<ref>{{Cite web |last=Alaniz |first=Anthony |date=2026-03-31 |title=2027 Mercedes-Benz GLE Revealed: New AMG 53 Hybrid Makes 577 HP |url=https://www.motor1.com/news/791684/2027-mercedes-benz-gle-engines-horsepower-specs-details/ |access-date=2026-04-01 |website=Motor1.com |language=en}}</ref>
+
+<gallery widths="200" heights="133">
+2026 Mercedes-Benz W167 IMG 6655.jpg|Front
+2026 Mercedes-Benz W167 IMG 6666.jpg|Rear
+</gallery>
+
+===Engines===
+{| class="wikitable"
+!Model!!Years!!Configuration!!Displacement!!Power!!Torque!!0{{En dash}}{{convert|100|km/h|mph|0|abbr=on}}!!Top speed
+|-
+! colspan="8" style="text-align:center"|Gasoline engines
+|-
+|GLE 350  / GLE 350 4MATIC
+| rowspan="2" |02/2019–01/2023
+| rowspan="3" |{{convert|1991|cc||abbr=on}}
+|Inline-4 Turbo
+|{{convert|190|kW|PS hp|0|abbr=on}}
+|{{convert|370|Nm|0|abbr=on}}
+|7.6 seconds
+|{{Convert|228|km/h|0|abbr=on}}
+|-
+|GLE 350e 4MATIC
+| rowspan="2" |Inline-4 Turbo + Plug-in hybrid
+|{{convert|245|kW|PS hp|0|abbr=on}}
+|{{convert|700|Nm|0|abbr=on}}
+|6.9 seconds
+| rowspan="2" |{{Convert|210|km/h|0|abbr=on}}
+|-
+|GLE 400e 4MATIC
+|02/2023–
+|{{convert|280|kW|PS hp|0|abbr=on}}
+|{{convert|650|Nm|0|abbr=on}}<ref name="mercedes-benz.de">{{Cite web |title=Konfigurator & Preise {{!}} Mercedes-Benz |url=https://www.mercedes-benz.de/passengercars/configurator.html |access-date=2024-01-15 |website=www.mercedes-benz.de |language=de-DE |archive-date=15 January 2024 |archive-url=https://web.archive.org/web/20240115103725/https://www.mercedes-benz.de/passengercars/configurator.html |url-status=live }}</ref>
+|6.1 seconds
+|-
+|GLE 450 4MATIC (2019)
+|02/2019–01/2023
+| rowspan="5" |{{convert|2999|cc||abbr=on}}
+| rowspan="4" |Inline-6 Turbo + EQ Boost
+|{{convert|270|kW|PS hp|0|abbr=on}}
+| rowspan="2" |{{convert|500|Nm|0|abbr=on}}
+|5.7 seconds
+| rowspan="7" |{{Convert|250|km/h|0|abbr=on}}
+|-
+|GLE 450 4MATIC (2023)
+|02/2023–
+|{{convert|284|kW|PS hp|0|abbr=on}}
+|5.6 seconds
+|-
+|AMG GLE 53 4MATIC+ (2020)
+|2020–23
+|{{convert|320|kW|PS hp|0|abbr=on}}
+|{{convert|520|Nm|0|abbr=on}}
+|5.3 seconds
+|-
+|AMG GLE 53 4MATIC+ (2023)
+| rowspan="2" |2023–
+|{{convert|324|kW|PS hp|0|abbr=on}}
+|{{convert|560|Nm|0|abbr=on}}
+|5.0 seconds
+|-
+|AMG GLE 53 Hybrid 4MATIC+ (2023)
+|Inline-6 Turbo + Plug-in hybrid
+|{{convert|400|kW|PS hp|0|abbr=on}}
+|{{convert|750|Nm|0|abbr=on}}
+|4.7 seconds
+|-
+|GLE 580 4MATIC (2019)
+|09/2019– 2023
+| rowspan="4" |{{convert|3982|cc||abbr=on}}
+| rowspan="4" |V8 Biturbo + EQ Boost
+|{{convert|360|kW|PS hp|0|abbr=on}}
+|{{convert|700|Nm|0|abbr=on}}
+|4.9 seconds
+|-
+|GLE 580 4MATIC (2023)
+|2023–
+|{{convert|380|kW|PS hp|0|abbr=on}}
+|{{convert|730|Nm|0|abbr=on}}
+|4.6 seconds
+|-
+|AMG GLE 63 4MATIC+
+| rowspan="2" |2020–
+|{{convert|420|kW|PS hp|0|abbr=on}} @ 5750 – 6500 rpm
+|{{convert|750|Nm|0|abbr=on}} @ 2250 – 5000 rpm
+|4.0 seconds
+|{{Convert|250|km/h|0|abbr=on}}<br>{{Convert|280|km/h|0|abbr=on}} (with AMG Drivers Package)
+|-
+|AMG GLE 63 S 4MATIC+
+|{{convert|450|kW|PS hp|0|abbr=on}} @ 5750 – 6500 rpm
+|{{convert|850|Nm|0|abbr=on}} @ 2500 – 4500 rpm
+|3.8 seconds
+|{{Convert|280|km/h|0|abbr=on}}
+|-
+! colspan="8" style="text-align:center"|Diesel engines
+|-
+|GLE 300d 4MATIC (2019)
+|09/2019–01/2023
+| rowspan="4" |{{convert|1950|cc||abbr=on}}
+|Inline-4 Turbo
+|{{convert|180|kW|PS hp|0|abbr=on}}
+|{{convert|500|Nm|0|abbr=on}}
+|7.2 seconds
+|{{Convert|225|km/h|0|abbr=on}}
+|-
+|GLE 300d 4MATIC (2023)
+|02/2023–
+|Inline-4 Turbo + EQ Boost
+|{{convert|201|kW|PS hp|0|abbr=on}}
+|{{convert|550|Nm|0|abbr=on}}
+|6.9 seconds
+|{{Convert|230|km/h|0|abbr=on}}
+|-
+|GLE 350de 4MATIC (2019)
+|09/2019–01/2023
+| rowspan="2" |Inline-4 Turbo + Plug-in hybrid
+|{{convert|235|kW|PS hp|0|abbr=on}}
+|{{convert|700|Nm|0|abbr=on}}
+|6.8 seconds
+| rowspan="2" |{{Convert|210|km/h|0|abbr=on}}
+|-
+|GLE 350de 4MATIC (2023)
+|02/2023–
+|{{convert|248|kW|PS hp|0|abbr=on}}
+|{{convert|750|Nm|0|abbr=on}}
+|6.9 seconds<ref name="mercedes-benz.de"/>
+|-
+|GLE 350d 4MATIC
+| rowspan="2" |09/2019–01/2023
+| rowspan="3" |{{convert|2927|cc||abbr=on}}
+| rowspan="2" |Inline-6 Turbo
+|{{convert|200|kW|PS hp|0|abbr=on}}
+|{{convert|600|Nm|0|abbr=on}}
+|6.9 seconds
+|{{Convert|230|km/h|0|abbr=on}}
+|-
+|GLE 400d 4MATIC
+|{{convert|243|kW|PS hp|0|abbr=on}}
+|{{convert|700|Nm|0|abbr=on}}
+|5.8 seconds
+|{{Convert|240|km/h|0|abbr=on}}
+|-
+|GLE 450d 4MATIC
+|02/2023–
+|Inline-6 Turbo + EQ Boost
+|{{convert|273|kW|PS hp|0|abbr=on}}
+|{{convert|750|Nm|0|abbr=on}}
+|5.6 seconds
+|{{Convert|250|km/h|0|abbr=on}}
+|}
+
+=== Safety ===
+
+==== ANCAP ====
+{{ANCAP
+|overall_stars=5
+|year=2019
+|reference_code=432aba
+|description=Mercedes-Benz GLE all variants excluding AMG (see ANCAP Technical Report)
+|adult_points=34.9
+|adult_percent=91
+|child_points=45.2
+|child_percent=92
+|pedestrian_points=37.8
+|pedestrian_percent=78
+|safety_points=10.3
+|safety_percent=79
+}}
+==== Euro NCAP ====
+{{Euro NCAP|year=2019|reference=https://www.euroncap.com/en/results/mercedes-benz/gle/37569|reference_name=Mercedes-Benz GLE-Class 2019 Results|overall_stars=5|adult_points=34.9|description=Mercedes-Benz GLE 350d 4MATIC AMG Line (LHD)|adult_percent=91|child_points=44.2|child_percent=90|pedestrian_points=37.8|pedestrian_percent=78|safety_percent=78|safety_points=10.2}}
+
+==== IIHS ====
+The 2020 model year Mercedes-Benz GLE was awarded "Top Safety Pick+" by [[Insurance Institute for Highway Safety|IIHS]], applies to vehicle built after July 2019. The GLE received a good rating in all categories except for the headlights. For the headlights, the available curve-adaptive LED projector headlights with high-beam assist on vehicles built after July 2019 scored a good rating from IIHS.<ref>{{Cite web |date=2019-10-28 |title=2020 Mercedes-Benz GLE Snags Top Safety Honor |url=https://www.automotive-fleet.com/343391/2020-mercedes-benz-gle-snags-top-safety-honor |access-date=2025-05-18 |website=Automotive Fleet |language=en-US}}</ref>
+{| class="wikitable"
+|+[[Insurance Institute for Highway Safety|IIHS]] scores (2020 model year)<ref>{{Cite web |title=2020 Mercedes-Benz GLE-Class 4-door SUV |url=https://www.iihs.org/ratings/vehicle/Mercedes-Benz/gle-class-4-door-suv/2020 |access-date=2025-05-18 |website=IIHS-HLDI crash testing and highway safety |language=en |archive-date=10 June 2025 |archive-url=https://web.archive.org/web/20250610130755/https://www.iihs.org/ratings/vehicle/mercedes-benz/gle-class-4-door-suv/2020 |url-status=live }}</ref>
+|Small overlap front (driver)
+| colspan="2" style="color:white;background: green" |Good
+|
+|-
+|Small overlap front (passenger)
+| colspan="2" style="color:white;background: green" |Good
+|
+|-
+|Moderate overlap front (original test)
+| colspan="2" style="color:white;background: green" |Good
+|
+|-
+|Side impact (original test)
+| colspan="2" style="color:white;background: green" |Good
+|
+|-
+|Roof strength
+| colspan="2" style="color:white;background: green" |Good
+|
+|-
+|Head restraints and seats
+| colspan="2" style="color:white;background: green" |Good
+|
+|-
+|Headlights
+| style="color:white;background:green" |Good
+| style="color:black;background:yellow" |Acceptable
+|
+|-
+|Front crash prevention: vehicle-to-vehicle
+| colspan="2" style="color:white;background: green" |Superior
+|Standard
+|-
+|Front crash prevention: vehicle-to-vehicle
+| colspan="2" style="color:white;background: green" |Superior
+|Optional
+|-
+|Front crash prevention: vehicle-to-pedestrian (day)
+| colspan="2" style="color:white;background: green" |Superior
+|Standard
+|-
+|Front crash prevention: vehicle-to-pedestrian (day)
+| colspan="2" style="color:white;background: green" |Basic
+|Optional
+|-
+|Child restraint LATCH ease of use
+| colspan="2" style="color:white;background: green" |Good+
+|
+|}
+
+=== Recall ===
+In March 2024, Mercedes-Benz recalled over 116,000 GLE and GLS cars, built from 2019 to 2024, due to a loose 48-volt ground cable that may not have been tightened properly during assembly. The ground cable is located under the front passenger seat that could pose a potential safety risk when the cables become hot.<ref>{{Cite news |last=Smith |first=Christopher |date=2024-03-20 |title=Mercedes Recalls 116K GLE, GLS Models for Fire Risk Under Passenger Seat |url=https://www.motor1.com/news/713189/mercedes-recalls-gle-gls-fire-risk-passenger-seat/ |work=Motor1 |archive-date=11 April 2024 |access-date=11 April 2024 |archive-url=https://web.archive.org/web/20240411102733/https://www.motor1.com/news/713189/mercedes-recalls-gle-gls-fire-risk-passenger-seat/ |url-status=live }}</ref>{{clear}}
+
+== Sales ==
+{| class="wikitable"
+|-
+! rowspan="2" | Year
+! rowspan="2" | Production
+! rowspan="2" | U.S.
+! rowspan="2" | Mexico<ref>{{Cite web|title=Venta al público y producción de vehículos ligeros por marca, modelo, segmento y país origen|url=https://www.inegi.org.mx/app/tabulados/pxwebv2/pxweb/es/RAIAVL/RAIAVL/RAIAVL_8_9.px/|access-date=2021-11-06|website=Instituto Nacional de Estadística, Geografía e Informática (INEGI)|language=es-MX}}</ref>
+! colspan="4" |China
+|-
+!GLE
+!Coupe
+!PHEV
+!Total
+|-
+| 2001
+| ||45,655<ref>{{cite web |url=http://www.thefreelibrary.com/Mercedes-Benz+USA+Records+Highest+Sales+in+Its+History.-a096075297 |title=Mercedes-Benz USA Records Highest Sales in Its History. – Free Online Library |publisher=Thefreelibrary.com |date=3 January 2003 |access-date=25 April 2011 |archive-date=22 October 2012 |archive-url=https://web.archive.org/web/20121022134049/http://www.thefreelibrary.com/Mercedes-Benz+USA+Records+Highest+Sales+in+Its+History.-a096075297 |url-status=live }}</ref>
+|
+|
+|
+|
+|
+|-
+| 2002
+| ||39,679
+|
+|
+|
+|
+|
+|-
+| 2003
+| ||30,017<ref>{{cite web |url=http://www.theautochannel.com/news/2005/01/04/313903.html |title=2004 Highest Year on Record for Mercedes-Benz USA |publisher=Theautochannel.com |access-date=25 April 2011 |archive-date=26 May 2011 |archive-url=https://web.archive.org/web/20110526082935/http://www.theautochannel.com/news/2005/01/04/313903.html |url-status=live }}</ref>
+|
+|
+|
+|
+|
+|-
+| 2004
+| ||25,681
+|
+|
+|
+|
+|
+|-
+| 2005
+| ||34,959<ref>{{cite web |url=http://www.theautochannel.com/news/2007/01/03/032870.html |title=Mercedes-Benz Rings in the New Year with Record 2006 Sales |publisher=Theautochannel.com |access-date=25 April 2011}}</ref>
+|
+|
+|
+|
+|
+|-
+| 2006
+| ||31,632
+|
+|
+|
+|
+|
+|-
+| 2007
+| ||33,879<ref>{{cite web |url=http://www.emercedesbenz.com/Jan09/05_001548_Mercedes_Benz_USA_Sales_Drop_32_Percent_In_December_2008.html |title=Mercedes-Benz USA's Sales Drop 32.1 Percent in December 2008 |publisher=Emercedesbenz.com |date=5 January 2009 |access-date=25 April 2011 |archive-url=https://web.archive.org/web/20110719062244/https://emercedesbenz.com/Jan09/05_001548_Mercedes_Benz_USA_Sales_Drop_32_Percent_In_December_2008.html |archive-date=2011-07-19 |url-status=dead }}</ref>
+|
+|
+|
+|
+|
+|-
+| 2008
+| ||34,320
+|
+|
+|
+|
+|
+|-
+| 2009
+| ||25,799<ref>{{cite press release |url=http://www.prnewswire.com/news-releases/highest-sales-month-for-the-year-at-21469-brings-mercedes-benz-to-an-18-percent-increase-for-2010-112881769.html |title=Highest Sales Month for the Year at 21,469 Brings Mercedes-Benz to an... – MONTVALE, N.J., Jan. 4, 2011 /PRNewswire/ |location=New Jersey |agency=PR Newswire |access-date=25 April 2011 |archive-date=17 January 2011 |archive-url=https://web.archive.org/web/20110117012535/http://www.prnewswire.com/news-releases/highest-sales-month-for-the-year-at-21469-brings-mercedes-benz-to-an-18-percent-increase-for-2010-112881769.html |url-status=live }}</ref>
+|
+|
+|
+|
+|
+|-
+| 2010
+| ||29,698<ref>{{cite web |url=http://www.hybridcars.com/hybrid-clean-diesel-sales-dashboard/december-2010.html |title=December 2010 Dashboard: Year End Tally |publisher=Hybrid Cars |date=7 January 2011 |access-date=25 April 2011 |url-status=dead |archive-url=https://web.archive.org/web/20110712233547/http://www.hybridcars.com/hybrid-clean-diesel-sales-dashboard/december-2010.html |archive-date=12 July 2011}}</ref>
+|
+|
+|
+|
+|
+|-
+| 2011
+| ||35,835<ref>{{cite press release |url=http://www.prnewswire.com/news-releases/mercedes-benz-records-the-highest-year-on-record-with-sales-of-264460-136730778.html |title=Mercedes-Benz Records the Highest Year on Record with Sales of 264,460 – MONTVALE, N.J., Jan. 5, 2012 /PRNewswire/ |location=New Jersey |agency=PR Newswire |access-date=18 May 2012 |archive-date=26 February 2012 |archive-url=https://web.archive.org/web/20120226124844/http://www.prnewswire.com/news-releases/mercedes-benz-records-the-highest-year-on-record-with-sales-of-264460-136730778.html |url-status=live }}</ref>
+|310
+|
+|
+|
+|
+|-
+| 2012
+| ||38,101
+|845
+|
+|
+|
+|
+|-
+| 2013
+| ||41,326
+|783
+|
+|
+|
+|
+|-
+| 2014
+| ||46,726<ref>{{cite press release |url=http://www.prnewswire.com/news-releases/mercedes-benz-delivers-record-breaking-2014-sales-volume-of-330391-up-57-300015788.html |title=Mercedes-Benz Delivers Record-Breaking 2014 Sales Volume of 330,391, Up 5.7% |author=Mercedes-Benz USA |date=5 January 2015 |agency=PR Newswire |access-date=31 March 2015 |archive-date=16 March 2015 |archive-url=https://web.archive.org/web/20150316000639/http://www.prnewswire.com/news-releases/mercedes-benz-delivers-record-breaking-2014-sales-volume-of-330391-up-57-300015788.html |url-status=live }}</ref>
+|813
+|
+|
+|
+|
+|-
+| 2015
+| ||53,217
+|1,002
+|
+|
+|
+|
+|-
+| 2016
+| ||51,791<ref>{{Cite press release|url=https://www.prnewswire.com/news-releases/mercedes-benz-usa-reports-best-year-ever-with-2016-sales-of-380752-units-300385664.html|title=Mercedes-Benz USA Reports Best Year Ever With 2016 Sales Of 380,752 Units|first=Mercedes-Benz|last=USA|website=www.prnewswire.com}}</ref>
+|1,797
+|
+|
+|
+|
+|-
+| 2017
+| ||54,595
+|2,050
+|
+|
+|
+|
+|-
+| 2018
+| ||46,010
+|2,292
+|
+|
+|
+|
+|-
+| 2019
+| ||48,664
+|2,412
+|
+|
+|
+|
+|-
+| 2020
+| ||48,153
+|2,681
+|
+|
+|
+|
+|-
+|2021
+|
+|65,073
+|
+|
+|
+|
+|
+|-
+|2022
+|
+|57,933
+|
+|
+|
+|
+|
+|-
+|2023
+|
+|40,322<ref>{{Cite web |last=Sales |first=Mercedes-Benz Model |title=Mercedes-Benz GLE-Class Sales Figures |url=https://www.goodcarbadcar.net/mercedes-benz-m-class-sales-figures/ |access-date=2024-01-15 |website=GCBC |language=en-US}}</ref>
+|
+|40,790<ref name=":0">{{Cite web |title=【易车销量榜】全国2023年奔驰终端量销量榜-易车榜-易车 |url=https://car.yiche.com/newcar/salesrank/?brandId=2&saleType=2&flag=2023 |access-date=2026-02-11 |website=car.yiche.com |archive-date=5 April 2026 |archive-url=https://web.archive.org/web/20260405141243/https://car.yiche.com/newcar/salesrank/?brandId=2&saleType=2&flag=2023 |url-status=live }}</ref>
+|4,239<ref name=":0" />
+|2,428<ref>{{Cite web |title=【易车销量榜】全国2023年奔驰插电混动终端量销量榜-易车榜-易车 |url=https://car.yiche.com/newcar/salesrank/?brandId=2&saleType=2&flag=2023&energy=3 |access-date=2026-02-11 |website=car.yiche.com}}</ref>
+|47,457
+|-
+|2024
+|
+|
+|
+|45,380<ref name=":1">{{Cite web |title=【易车销量榜】全国2024年奔驰终端量销量榜-易车榜-易车 |url=https://car.yiche.com/newcar/salesrank/?brandId=2&saleType=2&flag=2024 |access-date=2026-02-11 |website=car.yiche.com |archive-date=24 March 2026 |archive-url=https://web.archive.org/web/20260324215748/https://car.yiche.com/newcar/salesrank/?brandId=2&saleType=2&flag=2024 |url-status=live }}</ref>
+|905<ref name=":1" />
+|1,254<ref>{{Cite web |title=【易车销量榜】全国2024年奔驰插电混动终端量销量榜-易车榜-易车 |url=https://car.yiche.com/newcar/salesrank/?brandId=2&saleType=2&flag=2024&energy=3 |access-date=2026-02-11 |website=car.yiche.com}}</ref>
+|47,539
+|-
+|2025
+|
+|
+|
+|34,927<ref name=":2">{{Cite web |title=【易车销量榜】全国2025年奔驰终端量销量榜-易车榜-易车 |url=https://car.yiche.com/newcar/salesrank/?brandId=2&saleType=2&flag=2025 |access-date=2026-02-11 |website=car.yiche.com |archive-date=26 August 2025 |archive-url=https://web.archive.org/web/20250826234515/https://car.yiche.com/newcar/salesrank/?flag=2025&saleType=2&brandId=2 |url-status=live }}</ref>
+|447<ref name=":2" />
+|360<ref>{{Cite web |title=【易车销量榜】全国2025年奔驰插电混动终端量销量榜-易车榜-易车 |url=https://car.yiche.com/newcar/salesrank/?brandId=2&saleType=2&flag=2025&energy=3 |access-date=2026-02-11 |website=car.yiche.com}}</ref>
+|35,734
+|}
+
+== References ==
+===Notes===
+{{reflist|30em}}
+
+===Bibliography===
+<!-- last updated September 2021 -->
+
+====General====
+{{refbegin}}
+* {{Bradsher: High and Mighty|pages=99, 136, 183–184, 241, 386}}
+* {{Brooklands: Mercedes AMG Ultimate Portfolio 2000}}
+* {{Chapman: SUV}}
+* {{Oswald: Mercedes-Benz Personenwagen|volume=4}}
+* {{Henshaw: The Ultimate Guide to SUVs and Off-Road Vehicles}}
+* {{Hofner: Mercedes-Benz Automobile|volume=2}}
+* {{cite book |last1=Lamm |first1=John |title=Mercedes-Benz M-Class |date=1997 |publisher=Motorbooks International |location=Osceola, WI, USA |isbn=0-7603-0431-9}}
+* {{Niemann: Personenwagen von Mercedes-Benz}}
+* {{Deutsche Autos|volume=7}}
+* {{cite book |last1=Pietschmann |first1=Harald |title=Das grosse Buch der Mercedes M-Klasse: der deutsche Amerikaner |trans-title=The Big Book of the Mercedes M-Class: the German American |date=1998 |publisher=Off Road Verlag |location=Ottobrunn bei München, Germany |isbn=3-930193-17-5 |language=de}}
+* {{Schlegelmilch: Mercedes}}
+* {{Taylor: Mercedes-Benz: Cars of the 1990s}}
+* {{cite book |last1=Vieweg |first1=Christof |title=Alles über die Mercedes-Benz M-Klasse |trans-title=Everything about the Mercedes-Benz M-Class |series=Technik transparent series |date=1998 |publisher=Daimler-Benz |location=Stuttgart |isbn=3-932786-01-7 |language=de}}
+{{refend}}
+
+====Workshop manuals====
+{{refbegin}}
+* {{cite book |last=Russek |first=Peter |title=Mercedes-Benz: ML Models, Diesel Engines, ML 270 CDI - Series 163, ML 400 CDI - Series 163, ML 280 CDI/ML 320 CDI - Series 164 |series=Pocket Mechanic Vehicle Manual |year=2006 |publisher=Peter Russek Publications |location=Caversham, Reading, Berkshire, UK |isbn=1-898780-32-3}}
+* {{cite book |last=Russek |first=Peter |title=Mercedes-Benz: ML Models, Petrol Models, Series 163 - 1997 to 2004, Series 164 - 2005 to 2006 |series=Pocket Mechanic Vehicle Manual |year=2006 |publisher=Peter Russek Publications |location=Caversham, Reading, Berkshire, UK |isbn=1-898780-09-9 |author-mask=6}}
+* {{cite book |title=Mercedes-Benz ML: Diesel Models Series 163 & 164 Workshop Manual 1998-2006 |date=2015 |publisher=Brooklands Books |location=Cobham, Surrey, UK |isbn=978-1-78318-051-6}}
+* {{cite book |title=Mercedes-Benz ML: Petrol Models Series 163 & 164 Workshop Manual 1998-2006 |date=2015 |publisher=Brooklands Books |location=Cobham, Surrey, UK |isbn=978-1-78318-052-3}}
+* {{Mercedes-Benz Technical Companion}}
+{{refend}}
+
+== External links ==
+{{Commons category multi|Mercedes-Benz GLE-Class|Mercedes-Benz M-Class}}
+* [http://www.mercedes-benz.com/en/vehicles/passenger-cars/gle/ Official website]
+
+{{Mercedes-Benz}}
+{{Mercedes-Benz timeline 1990–2019}}
+{{Mercedes-Benz timeline 2020 to date}}
+{{Authority control}}
+
+[[Category:2000s cars]]
+[[Category:2010s cars]]
+[[Category:2020s cars]]
+[[Category:All-wheel-drive vehicles]]
+[[Category:ANCAP large SUVs]]
+[[Category:Cars introduced in 1997]]
+[[Category:Cars of Austria]]
+[[Category:Cars of Indonesia]]
+[[Category:Cars of Malaysia]]
+[[Category:Cars of Thailand]]
+[[Category:Diesel hybrid vehicles]]
+[[Category:Euro NCAP large off-road]]
+[[Category:Hybrid sport utility vehicles]]
+[[Category:Luxury crossover sport utility vehicles]]
+[[Category:Luxury sport utility vehicles]]
+[[Category:Mercedes-Benz vehicles|GLE]]
+[[Category:Mid-size sport utility vehicles]]
+[[Category:Mid-size crossover sport utility vehicles]]
+[[Category:Motor vehicles manufactured in the United States]]
+[[Category:Plug-in hybrid vehicles]]

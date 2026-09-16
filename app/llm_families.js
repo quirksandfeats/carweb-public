@@ -8000,7 +8000,7 @@ Rules:
     const out = [];
     for (const sec of hits) {
       if (inner.indexOf(sec) >= 0) continue;
-      const title = sec.title.replace(/\s+/g, " ").trim();
+      const title = stripEngineMarkup(sec.title).replace(/\s+/g, " ").trim();
       // "DE35" on its own says nothing about which engine; the article's own
       // prose calls it "the M276 DE 35". Prefixed so the variant reads as
       // what it is, here and in a merge.
@@ -8118,17 +8118,67 @@ Rules:
   // step down one level rather than hanging the engine off the whole
   // nameplate. planEngineEdgesWith's own per-nameplate rule cannot do this:
   // it can only prefer a generation among nodes something already resolved to.
+  // Was this car being built in the year the application names?
+  //
+  // Real user report about the M139: "In many cases the specific generations
+  // linked to them were inaccurate. For example, in the graph it lists the CLA
+  // 178 as being linked to the M139, despite it coming out in 2025 (not 2019),
+  // and being associated with the model that existed in 2019, not later."
+  //
+  // The application states its year -- "*2019 - [[Mercedes-Benz CLA#C118|...]]"
+  // -- and that is a hard fact about which generation it can possibly mean. A
+  // year is only used to RULE OUT, never to pick between two that both fit:
+  // an open-ended run (end: null) covers everything after it, and a car with
+  // no year on file is not contradicted by anything.
+  const YEAR_SLACK = 1;   // a run announced a year before it is sold, and the reverse
+  function yearsCover(n, year) {
+    if (!n || !year) return true;
+    if (!Number.isFinite(n.year)) return true;
+    if (year < n.year - YEAR_SLACK) return false;
+    const end = Number.isFinite(n.end) ? n.end : null;
+    if (end != null && year > end + YEAR_SLACK) return false;
+    return true;
+  }
   function stepDownToGeneration(fam, app, byId) {
     if (!fam || fam.type !== "family") return null;
     const gens = (fam.generations || []).map(id => byId.get(id)).filter(g => g && !g.retired);
     if (!gens.length) return null;
+    const year = app && app.yearStart;
     const codes = chassisCodesIn(app && app.anchor).concat(chassisCodesIn(app && app.display));
     for (const c of codes) {
       const k = norm(c);
       const hit = gens.find(g => norm(g.label).indexOf(k) >= 0);
       if (hit) return hit;
     }
+    // No code stated, but a year was. One generation of this nameplate was
+    // being built then and the others were not, which is an answer.
+    if (year) {
+      const fits = gens.filter(g => Number.isFinite(g.year) && yearsCover(g, year));
+      if (fits.length === 1) return fits[0];
+    }
     return null;
+  }
+  // The car an application resolved to, corrected where its own stated year
+  // says it cannot be that one. See yearsCover.
+  function correctCarByYear(node, app, byId) {
+    const year = app && app.yearStart;
+    if (!node || !year) return node;
+    if (node.type !== "model" && node.type !== "family") return node;
+    if (yearsCover(node, year)) return node;
+    // Wrong car, but the right nameplate: look along its siblings.
+    const famId = node.familyOf || (node.type === "family" ? node.id : null);
+    const fam = famId ? byId.get(famId) : null;
+    const gens = fam ? (fam.generations || []).map(id => byId.get(id)).filter(g => g && !g.retired) : [];
+    const fits = gens.filter(g => Number.isFinite(g.year) && yearsCover(g, year));
+    if (fits.length === 1) return fits[0];
+    if (fits.length > 1) {
+      // The latest one that had started by then: generations overlap at their
+      // edges and the newer is the one actually being sold.
+      return fits.reduce((a, b) => (b.year > a.year ? b : a));
+    }
+    // Nothing of this nameplate was being built then. The nameplate itself is
+    // the honest answer -- it is the part we are sure of.
+    return fam && fam !== node ? fam : node;
   }
   // Generations by their chassis code, where that code is unambiguous across
   // the whole graph. Real user request about the M117: "when I do a re-read
@@ -8225,6 +8275,8 @@ Rules:
           byWp.set(norm(((node.make ? node.make + " " : "") + node.label).trim()), node);
         }
       }
+      if (!node) continue;
+      node = correctCarByYear(node, app, byId);
       if (!node) continue;
       // A link that lands on a MAKE is not an application -- it is the
       // company article standing in for a car nobody wrote a page for. The
@@ -8678,7 +8730,11 @@ Rules:
   // and the layout. What separates a real one is that its title carries a
   // model code -- M256, OM654, N55 -- which is also why the generic ones can
   // be excluded by rule rather than by a list that would need maintaining.
-  const GENERIC_ENGINE_TITLE = /^(?:petrol|diesel|gasoline|hybrid|electric|steam|rotary|piston|internal[\s-]combustion|reciprocating|two[\s-]stroke|four[\s-]stroke|mild hybrid)$/i;
+  // Descriptions of how an engine works, which are not engines. The
+  // valvetrain and induction words are here because the Suburban's infoboxes
+  // link them like engines -- "[[Overhead valve engine|OHV]]" sat on its
+  // first generation's card as an engine called OHV.
+  const GENERIC_ENGINE_TITLE = /^(?:petrol|diesel|gasoline|hybrid|electric|steam|rotary|piston|internal[\s-]combustion|reciprocating|two[\s-]stroke|four[\s-]stroke|mild hybrid|overhead[\s-](?:valve|cam(?:shaft)?)|pushrod|(?:single|double|dual)[\s-]overhead[\s-]cam(?:shaft)?|[sd]?ohc|ohv|turbo(?:charged)?|supercharged|naturally[\s-]aspirated|four[\s-]cylinder|six[\s-]cylinder|eight[\s-]cylinder)$/i;
   const LAYOUT_ENGINE_TITLE = /^(?:(?:straight|inline|flat|boxer|slant|vee)[\s-]?\w*|[vwbihrlu][\s-]?\d{1,2}|\d{1,2}[\s-]?cylinder)$/i;
 
   // "Mercedes-Benz M256 engine" -> a real engine; "V8 engine" -> not one.
@@ -8701,16 +8757,26 @@ Rules:
   function looksLikeEngineArticleTitle(title) {
     const t = String(title || "").split("#")[0].trim();
     if (!t) return false;
-    const m = /^(.*?)\s+engines?$/i.exec(t);
+    // The suffix is not always the last thing in the title: "Chevrolet
+    // small-block engine (first- and second-generation)" is an engine article
+    // with a disambiguating parenthetical after the word.
+    const m = /^(.*?)\s+engines?(\s*\([^()]*\))?$/i.exec(t);
     const core = (m ? m[1] : t).trim();
     if (!core) return false;
     if (GENERIC_ENGINE_TITLE.test(core) || LAYOUT_ENGINE_TITLE.test(core)) return false;
-    // A real engine article is named for a code, and a code has a digit in it.
     // Without the " engine" suffix a title has to earn it some other way, so
     // only suffixed ones qualify here -- "BMW N55" is reached by scanning it
     // directly, not by being mentioned.
     if (!m) return false;
-    return /\d/.test(core);
+    // A code carries a digit ("M256", "GMC V6"), but plenty of real engine
+    // FAMILIES are named in words: the Suburban's infoboxes link the Chevrolet
+    // Stovebolt, the Turbo-Thrift and the small-block, and requiring a digit
+    // threw all three away. What actually disqualifies a title is being a
+    // description rather than a name, which the two lists above are for -- so
+    // the remaining rule is that it names something: at least two words, or
+    // one that carries a digit.
+    if (/\d/.test(core)) return true;
+    return core.split(/[\s-]+/).filter(Boolean).length >= 2;
   }
 
   // The id an engine gets, from the article title rather than whatever short
@@ -8723,6 +8789,35 @@ Rules:
   }
 
   // Every engine a car's article names, as {title, name, variant}.
+  // What to call an engine a car's infobox mentions.
+  //
+  // Normally the link's display text: "[[Mercedes-Benz M177 engine|M177]]" is
+  // the car telling you which engine it has. But that text is often a
+  // SPECIFICATION rather than a name -- real user report, an engine card whose
+  // title read "{{convert|305|CID|L|1|abbr=on}}" -- and a displacement is not
+  // an engine. Those fall back to the article's own short name.
+  function mentionName(display, title) {
+    // Quotes come off: an infobox writes [[...|"Stovebolt"]] and the engine is
+    // called the Stovebolt.
+    const shown = stripEngineMarkup(display || "").replace(/^["'\u201c\u201d]+|["'\u201c\u201d]+$/g, "").trim();
+    // The marque comes off only when what is left is a bare designation:
+    // "Mercedes-Benz M139" is the M139, but "GMC V6" is called the GMC V6 --
+    // strip its marque and the engine is named "V6", which names nothing.
+    // The suffix may carry a parenthetical, as "Chevrolet small-block engine
+    // (first- and second-generation)" does; without this the whole thing was
+    // used verbatim as the engine's name.
+    const bare = String(title || "")
+      .replace(/\s+engines?(\s*\([^()]*\))?$/i, "").trim();
+    const fromTitle = bare.replace(/^[A-Z][A-Za-z-]*\s+(?=[A-Z]{1,3}\d{2,})/, "");
+    if (!shown) return fromTitle || String(title || "").trim();
+    // A measurement, not a name: opens with a number, or carries a unit and
+    // no code of its own.
+    const looksLikeSpec = /^[\d.,]/.test(shown) ||
+      (/\b(?:cc|cid|l|litres?|liters?|kw|hp|ps|bhp|in³|cu\s*in)\b/i.test(shown) &&
+       !/[A-Za-z]\d/.test(shown));
+    if (looksLikeSpec) return fromTitle || shown;
+    return shown;
+  }
   function engineMentions(wikitext) {
     const src = String(wikitext || "");
     // EVERY engine field, not just the first. A merged, single-article
@@ -8757,7 +8852,7 @@ Rules:
       if (!looksLikeEngineArticleTitle(raw)) continue;
       const title = raw.split("#")[0].trim();
       const anchor = raw.indexOf("#") >= 0 ? raw.slice(raw.indexOf("#") + 1).trim() : null;
-      const name = (l[2] || title).replace(/''+/g, "").trim();
+      const name = mentionName(l[2], title);
       const key = norm(title) + "|" + norm(name);
       if (seen.has(key)) continue;
       seen.add(key);
@@ -9065,6 +9160,84 @@ Rules:
     return car.wp || null;
   }
 
+  // The section of a nameplate's article that describes ONE of its
+  // generations.
+  //
+  // Real user report: "There are instances where there do not exist wikipedia
+  // pages on individual generations of cars. For example, the Chevrolet
+  // suburban... However, in the main wikipedia page for the chevrolet
+  // suburban, there exist individual generation 'cards' that display the
+  // engines for the subsequent generation being described."
+  //
+  // Those cards are per-generation {{Infobox automobile}} blocks -- the
+  // Suburban's article carries twelve of them, each with its own `| engine =`
+  // -- so the engines are right there, in the nameplate's article, under the
+  // generation's own heading. Nothing looked, because the scan gave up as soon
+  // as a generation had no article of its own.
+  //
+  // Matching is deliberately tolerant. An LLM-minted generation is named after
+  // the heading it came from but not always exactly ("Suburban Third
+  // generation (1955)" against a heading that reads "Fourth generation
+  // (1955)"), so a year in parentheses and a chassis code are both accepted as
+  // the identifying part, and an ambiguous match is no match.
+  // ORDINALS already exists above for generationKeys, but stops at "tenth" --
+  // the Suburban has twelve generations.
+  const SECTION_ORDINALS = ORDINALS.concat(["eleventh", "twelfth", "thirteenth", "fourteenth"]);
+  function sectionKeysFor(label, famLabel) {
+    const bare = String(label || "").replace(new RegExp("^" + (famLabel || "")
+      .replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "i"), "").trim();
+    const years = (bare.match(/\((\d{4})\)/) || [])[1] || (bare.match(/\b(\d{4})\b/) || [])[1] || null;
+    const ord = (bare.match(new RegExp("\\b(" + SECTION_ORDINALS.join("|") + ")\\b", "i")) || [])[1] || null;
+    const code = (trailingCode(String(label || "")) || {}).code || null;
+    return { bare, years, ord: ord && ord.toLowerCase(), code };
+  }
+  function nameplateSectionForCar(car, fam, famWikitext) {
+    if (!car || !famWikitext) return null;
+    const famLabel = fam ? fam.label : null;
+    const want = sectionKeysFor(car.label, famLabel);
+    const secs = wikitextSections(famWikitext);
+    if (!secs.length) return null;
+    const top = Math.min(...secs.map(x => x.level));
+    const cands = secs.filter(x => x.level === top);
+    const pick = list => (list.length === 1 ? list[0] : null);
+    // Exact first, then the year, then the ordinal, then a chassis code. Each
+    // is only accepted when exactly one section matches it.
+    if (want.bare) {
+      const exact = cands.filter(x => norm(x.title) === norm(want.bare));
+      if (exact.length) return exact[0];
+    }
+    if (want.years) {
+      const byYear = pick(cands.filter(x => x.title.indexOf(want.years) >= 0));
+      if (byYear) return byYear;
+    }
+    if (want.code) {
+      const k = norm(want.code);
+      const byCode = pick(cands.filter(x => norm(x.title).indexOf(k) >= 0));
+      if (byCode) return byCode;
+    }
+    if (want.ord) {
+      const rx = new RegExp("\\b" + want.ord + "\\b", "i");
+      const byOrd = pick(cands.filter(x => rx.test(x.title)));
+      if (byOrd) return byOrd;
+    }
+    return null;
+  }
+  // Two readings of the same car, merged. Real user request: "Maybe it's worth
+  // gathering this info from both possible locations and appending them to
+  // each other, if they exist in both places, obviously checking if there's
+  // overlap to prevent duplicate engines appearing for the same car."
+  function mergeEngineHits(a, b) {
+    const out = [], seen = new Set();
+    for (const hit of (a || []).concat(b || [])) {
+      if (!hit || !hit.title) continue;
+      const key = norm(hit.title) + "|" + norm(hit.name);
+      if (seen.has(key)) continue;
+      seen.add(key);
+      out.push(hit);
+    }
+    return out;
+  }
+
   // Read the engines for one car, or for every generation of a nameplate.
   // Done once per car and remembered, so re-opening a nameplate is free.
   async function scanEnginesFor(node, nodes, links) {
@@ -9082,7 +9255,8 @@ Rules:
     const pending = targets.filter(c => c && !c.retired && !store.engineScans[c.id]);
     if (!pending.length) return out;
     note(`powertrain: reading engines for ${node.label} -- ` +
-         `${pending.length} article(s) to check (no model call, infobox only)`);
+         `${pending.length} car(s) to check, from their own articles and from ` +
+         "this nameplate's own sections (no model call, infobox only)");
     let famWikitext = null;
     if (fam && fam.wp) {
       try { famWikitext = (await fetchArticleDigest(fam.wp)).wikitext; } catch (e) { famWikitext = null; }
@@ -9092,44 +9266,71 @@ Rules:
       if (store.engineScans[car.id]) { out.skipped++; continue; }
       let title = null;
       try { title = engineArticleFor(car, fam, famWikitext); } catch (e) { title = null; }
-      // A miss is recorded too. Finding a generation's article costs several
-      // fetches (findGenerationArticle tries each title shape in turn), and a
-      // car whose article does not exist would pay that on every single check
-      // of its nameplate, forever, for the same answer. Clearing it is what
-      // the deliberate re-check does.
-      if (!title) {
+
+      // BOTH places, merged. A generation's own article is the better source
+      // where one exists, and the nameplate's own section for that generation
+      // is the source where one does not -- the Suburban has no per-generation
+      // articles at all and twelve per-generation infoboxes. Where both exist
+      // they are appended and de-duplicated, which is what the user asked for.
+      let hits = [];
+      let readTitle = null, unreadable = false;
+      if (title) {
+        let wikitext = null;
+        try { wikitext = (await fetchArticleDigest(title)).wikitext; } catch (e) { wikitext = null; }
+        if (wikitext) { hits = engineMentions(wikitext); readTitle = title; }
+        else unreadable = true;
+      }
+      let fromSection = null;
+      if (famWikitext) {
+        try { fromSection = nameplateSectionForCar(car, fam, famWikitext); } catch (e) { fromSection = null; }
+      }
+      if (fromSection) {
+        const secHits = engineMentions(fromSection.body);
+        if (secHits.length) {
+          const before = hits.length;
+          hits = mergeEngineHits(hits, secHits);
+          note(`powertrain: ${car.label} -- ${hits.length - before} more engine(s) from ` +
+               `"${fam.wp}" § ${fromSection.title}`);
+        }
+      }
+
+      // Recorded even when nothing was found, and saying WHICH kind of nothing
+      // it was. Finding a generation's article costs several fetches
+      // (findGenerationArticle tries each title shape in turn), so a car with
+      // no article and no section would pay that on every check of its
+      // nameplate, forever, for the same answer. Clearing it is what the
+      // deliberate re-check does.
+      if (!hits.length) {
+        const status = unreadable ? "unreadable"
+                     : title ? "no-engines"
+                     : fromSection ? "no-engines" : "no-article";
         store.engineScans[car.id] = {
-          checkedAt: new Date().toISOString(), sourceTitle: null, status: "no-article", engines: [],
+          checkedAt: new Date().toISOString(),
+          sourceTitle: readTitle || (fromSection && fam.wp) || null,
+          status, engines: [],
         };
-        note(`powertrain: ${car.label} -- no article of its own to read engines from`);
+        note(`powertrain: ${car.label} -- ` + (
+          unreadable ? `could not read "${title}"`
+          : status === "no-engines"
+            ? "its article names no engine"
+            : "no article of its own, and its nameplate's page has no section for it"));
         out.scanned++; out.skipped++;
         continue;
       }
-      let wikitext = null;
-      try { wikitext = (await fetchArticleDigest(title)).wikitext; } catch (e) { wikitext = null; }
-      // Recorded on failure too, for the same reason a miss is: the nameplate
-      // states an article that does not exist (a red link, or one written
-      // since), and without this every later check of that nameplate fetches
-      // it again to get the same 404. Cleared by a deliberate re-check.
-      if (!wikitext) {
-        store.engineScans[car.id] = {
-          checkedAt: new Date().toISOString(), sourceTitle: title,
-          status: "unreadable", engines: [],
-        };
-        note(`powertrain: ${car.label} -- could not read "${title}"`);
-        out.scanned++; out.skipped++;
-        continue;
-      }
-      const hits = engineMentions(wikitext);
       store.engineScans[car.id] = {
-        checkedAt: new Date().toISOString(), sourceTitle: title, engines: hits,
+        checkedAt: new Date().toISOString(),
+        sourceTitle: readTitle || (fam && fam.wp) || null,
+        section: fromSection ? fromSection.title : null,
+        engines: hits,
       };
-      note(`powertrain: ${car.label} -- ${hits.length} engine(s) in "${title}"`);
-      // Worth keeping even when the article named no engine: it is also the
-      // generation's own page, which is a better link than the nameplate's.
-      if (title && (!car.wp || (fam && fam.wp && norm(car.wp) === norm(fam.wp)))) {
-        car.wp = title;
-        store.wpLinks[car.id] = title;
+      note(`powertrain: ${car.label} -- ${hits.length} engine(s) in ` +
+           `"${readTitle || (fam && fam.wp)}"`);
+      // Worth keeping: the generation's own page is a better link than the
+      // nameplate's. Only when there really is one -- a section of the
+      // nameplate's article is not a page of its own.
+      if (readTitle && (!car.wp || (fam && fam.wp && norm(car.wp) === norm(fam.wp)))) {
+        car.wp = readTitle;
+        store.wpLinks[car.id] = readTitle;
       }
       out.scanned++;
       // revive: this is a person having asked for a check, which is exactly
@@ -9197,8 +9398,20 @@ Rules:
         if (heads[j].level <= h.level) { stop = heads[j].at; break; }
       }
       // Headings carry anchors and italics: "<span class="anchor" id="A4">
-      // </span>Fourth generation (Mk4/A4, ''Typ'' 1J; 1997)".
-      const title = h.raw.replace(/<[^>]*>/g, "").replace(/'{2,}/g, "").trim();
+      // </span>Fourth generation (Mk4/A4, ''Typ'' 1J; 1997)". The TEMPLATE
+      // form of that anchor was left in, which is how the M139's variants came
+      // to be called "M139 (285 kW version) {{anchor|285 kW}}" on the card --
+      // an anchor is metadata for linking, never part of the name.
+      const title = h.raw
+        .replace(/<[^>]*>/g, "")
+        .replace(/\{\{\s*anchor\s*\|[^{}]*\}\}/gi, "")
+        .replace(/\{\{\s*c(?:onvert|vt)\s*\|([^{}]*)\}\}/gi, (m0, args) => {
+          const parts = args.split("|").map(x => x.trim()).filter(x => x && !/=/.test(x));
+          return parts.length >= 2 ? parts[0] + " " + parts[1] : (parts[0] || "");
+        })
+        .replace(/'{2,}/g, "")
+        .replace(/\s+/g, " ")
+        .trim();
       out.push({ title, level: h.level, body: wikitext.slice(h.end, stop), at: h.at, stop });
     });
     return out;
@@ -9998,6 +10211,7 @@ Rules:
     // the suite can drive it against real cached wikitext without a network.
     wikitextSections, hatnoteArticle, proseArticle, sectionForCode,
     isEngineArticle, engineInfobox, engineVariants, engineApplications,
+    mentionName, yearsCover,
     parseApplicationLine, readEngineArticle,
     engineIdFor, engineVariantIdFor, nameplateOfCar, planEngineEdges, planEngineEdgesWith,
     engineNodeFrom, applyEngineArticle, applyEngineArticleWith,
@@ -10005,7 +10219,7 @@ Rules:
     checkEngine, applyEngines, engineEntryFor, allEngineEntries, deleteEngineEntry,
     scheduleEngineCascade, scanEnginesFor, engineScanEntryFor, engineArticleFor,
     forceRecheckEngine,
-    clearEngineScansFor, note,
+    clearEngineScansFor, note, nameplateSectionForCar, mergeEngineHits,
     mergeEngines, undoEngineMerge, allEngineMerges, applyEngineMerges,
     engineMentions, recordEngineMentions, recordEngineMentionsFrom, applyEngineMentions,
     looksLikeEngineArticleTitle, engineIdFromTitle,
