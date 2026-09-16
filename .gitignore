@@ -52,3 +52,7 @@ testwrite.tmp
 # it; Homebrew Python refuses a system-wide pip install under PEP 668).
 .venv/
 venv/
+
+# Timestamped copies of app/llm_families.json taken before a reset (see
+# scripts/reset_llm_layer.sh). Local safety net, not project history.
+llm_layer_backups/
