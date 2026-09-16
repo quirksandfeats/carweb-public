@@ -7828,6 +7828,72 @@ Rules:
     }
     return out;
   }
+  // A section that IS a list of applications, whatever it calls itself.
+  const APP_SECTION_RE = /^(applications?|vehicles?|usage|used in|fitment|fitments?)$/;
+  // Every link on one line, rather than the first. Real user example, the
+  // M117: "*450 SL, SLC ([[Mercedes-Benz R107|R107]] / [[Mercedes-Benz
+  // SLC-Class|C107]])" is TWO cars, and reading only the first loses the
+  // C107 entirely.
+  function parseApplicationLinks(raw) {
+    const line = String(raw || "")
+      .replace(/<ref[^>]*\/?>[\s\S]*?<\/ref>|<ref[^>]*\/>/gi, "")
+      .replace(/\{\{\s*(?:citation needed|cn)[^{}]*\}\}/gi, "")
+      .replace(/\[\[\s*(?:File|Image)\s*:[^\]]*\]\]/gi, "");
+    const out = [];
+    const rx = /\[\[([^\]|#]+)(?:#([^\]|]*))?(?:\|([^\]]*))?\]\]/g;
+    let m;
+    while ((m = rx.exec(line))) {
+      const base = parseApplicationLine(line.slice(m.index));
+      if (!base) continue;
+      base.target = m[1].trim();
+      base.anchor = (m[2] || "").trim() || null;
+      base.display = (m[3] || m[1]).replace(/\s+/g, " ").trim();
+      // The line's own text names the car ("450 SL, SLC"); the link's display
+      // is usually just the chassis code. Both are kept -- text is what
+      // carNameFromApplication reads when nothing resolves.
+      base.text = stripEngineMarkup(line);
+      if (/^(?:File|Image|Category)\s*:/i.test(base.target)) continue;
+      out.push(base);
+    }
+    return out;
+  }
+  // Applications with no years at all. Real user example, the M117's whole
+  // "==Applications==" section: "*500 GE ([[Mercedes-Benz W463|W463]])".
+  // Accepted only INSIDE a section that says it lists applications -- the
+  // same shape anywhere else is just a bulleted list of anything.
+  function engineApplicationsLoose(body) {
+    const src = String(body || "").replace(/<!--[\s\S]*?-->/g, "");
+    const out = [];
+    const seen = new Set();
+    src.split(/\n/).forEach(line => {
+      if (!/^\s*[*#]/.test(line)) return;      // a list item, not prose
+      if (!/\[\[/.test(line)) return;
+      for (const e of parseApplicationLinks(line)) {
+        const key = norm(e.target) + "|" + norm(e.display);
+        if (seen.has(key)) continue;
+        seen.add(key);
+        out.push(e);
+      }
+    });
+    return out;
+  }
+  // Both readings of a body: the strict one (years-led bullets, and tables)
+  // over all of it, plus the loose one over any section that announces
+  // itself as a list of applications.
+  function engineApplicationsIn(body) {
+    const out = engineApplications(body);
+    const seen = new Set(out.map(e => norm(e.target) + "|" + norm(e.display)));
+    for (const sec of wikitextSections(body)) {
+      if (!APP_SECTION_RE.test(norm(sec.title))) continue;
+      for (const e of engineApplicationsLoose(sec.body)) {
+        const key = norm(e.target) + "|" + norm(e.display);
+        if (seen.has(key)) continue;
+        seen.add(key);
+        out.push(e);
+      }
+    }
+    return out;
+  }
   function engineApplications(body) {
     const src = String(body || "").replace(/<!--[\s\S]*?-->/g, "");
     const out = [];
@@ -7928,7 +7994,7 @@ Rules:
       // what it is, here and in a merge.
       const code = (key && !norm(title).startsWith(key) && name)
         ? (name + " " + title) : title;
-      out.push({ code, applications: engineApplications(sec.body) });
+      out.push({ code, applications: engineApplicationsIn(sec.body) });
     }
     return out;
   }
@@ -7964,7 +8030,7 @@ Rules:
     // No variant sections at all still means applications -- they just sit in
     // the article body. Same fallback the nameplate side uses for a car that
     // turns out to have only one generation.
-    const loose = variants.length ? [] : engineApplications(body);
+    const loose = variants.length ? [] : engineApplicationsIn(body);
     return {
       name: stripEngineMarkup(info.name || name || ""),
       shortName: short,
@@ -8048,10 +8114,39 @@ Rules:
     }
     return null;
   }
-  function carForApplication(app, byId, byWp, resolvedTitle) {
+  // Generations by their chassis code, where that code is unambiguous across
+  // the whole graph. Real user request about the M117: "when I do a re-read
+  // of the Wikipedia article, it should also find the W463 as a generation
+  // car to appear". Its applications link to "Mercedes-Benz W463" -- an
+  // article the graph has under a different title (the G-Class generation),
+  // so nothing resolved and a stray "W463" car would be minted beside the
+  // real one. A code shared by two makes is left alone rather than guessed.
+  function generationsByCode(nodes) {
+    const seen = new Map();
+    for (const n of nodes) {
+      if (n.retired || n.type !== "model" || !n.familyOf) continue;
+      for (const c of chassisCodesIn(n.label)) {
+        const k = norm(c);
+        if (seen.has(k)) { if (seen.get(k) !== n) seen.set(k, null); }
+        else seen.set(k, n);
+      }
+    }
+    return seen;
+  }
+  function carForApplication(app, byId, byWp, resolvedTitle, byCode) {
     const wp = resolvedTitle || app.target;
     const hit = byWp.get(norm(wp));
     if (hit) return stepDownToGeneration(hit, app, byId) || hit;
+    if (byCode) {
+      // The code can be the whole point of the link ("[[Mercedes-Benz
+      // W463|W463]]"), so the target is where to look first.
+      const codes = chassisCodesIn(app.target).concat(chassisCodesIn(app.display),
+                                                      chassisCodesIn(app.anchor));
+      for (const c of codes) {
+        const gen = byCode.get(norm(c));
+        if (gen) return gen;
+      }
+    }
     // The display text is the only place the car's name exists when the link
     // points at a company (the M256's Austro-Daimler Bergmeister). Try it as
     // "<make> <model>" against what is already here before giving up.
@@ -8101,9 +8196,10 @@ Rules:
         if (full && !byWp.has(norm(full))) byWp.set(norm(full), n);
       }
     }
+    const byCode = generationsByCode(nodes);
     const placed = [];
     for (const app of applications) {
-      let node = carForApplication(app, byId, byWp, resolved.get(app.target));
+      let node = carForApplication(app, byId, byWp, resolved.get(app.target), byCode);
       if (!node) {
         node = mint(app) || null;
         if (node) {

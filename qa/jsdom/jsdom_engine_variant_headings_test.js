@@ -37,6 +37,7 @@ const M276 = fs.readFileSync(path.join(CACHE, "Mercedes-Benz_M276_engine.wikitex
 const M256 = fs.readFileSync(path.join(CACHE, "Mercedes-Benz_M256_engine.wikitext"), "utf-8");
 const N55 = fs.readFileSync(path.join(CACHE, "BMW_N55.wikitext"), "utf-8");
 const M17X = fs.readFileSync(path.join(CACHE, "Mercedes-Benz_M176_M177_M178_engine.wikitext"), "utf-8");
+const M117 = fs.readFileSync(path.join(CACHE, "Mercedes-Benz_M117_engine.wikitext"), "utf-8");
 
 const dom = new JSDOM(html, { url: "http://localhost:8077/index.html", runScripts: "outside-only" });
 const { window } = dom;
@@ -67,8 +68,15 @@ for (const f of [...html.matchAll(/<script src="([^"]+)"><\/script>/g)].map(m =>
                      generations: gens, designers: [], engineers: [] });
       D.links.push({ source: id, target: mk.id, type: "made" });
     });
+    // The G-Class, whose W463 generation the M117 links to as "Mercedes-Benz
+    // W463" -- a title this graph does not have.
+    D.nodes.push({ id: "fam-mb-g", type: "family", label: "G-Class", make: "Mercedes-Benz",
+                   wp: "Mercedes-Benz G-Class", generations: ["m-mb-g-w463"],
+                   designers: [], engineers: [] });
+    D.links.push({ source: "fam-mb-g", target: mk.id, type: "made" });
     [[G_W166, "GLE-Class (W166)", FAM_GLE], [G_V167, "GLE-Class (V167)", FAM_GLE],
-     [G_ML_W166, "M-Class (W166)", FAM_ML]].forEach(([id, label, fam]) => {
+     [G_ML_W166, "M-Class (W166)", FAM_ML],
+     ["m-mb-g-w463", "G-Class (W463)", "fam-mb-g"]].forEach(([id, label, fam]) => {
       D.nodes.push({ id, type: "model", label, make: "Mercedes-Benz", familyOf: fam,
                      designers: [], engineers: [] });
       D.links.push({ source: fam, target: id, type: "generation" });
@@ -200,6 +208,50 @@ const DATA = window.CARDATA;
   const whole = LF.readEngineArticle(M17X, "Mercedes-Benz M176/M177/M178 engine");
   check("asked for the page itself, the three engines come back as its parts",
         whole.variants.length === 3, whole.variants.map(v => v.code).join(" | "));
+}
+
+// ---------- 6. an applications list with no years at all ----------
+// Real user report about the M117: "doing a scan on an 'already scanned'
+// engine still doesn't actually try to read the Wikipedia article again and
+// search for specific details. For example, the m117 article also has an
+// 'applications' section that has text as following: 280 SE, SEL 4.5 (W108)
+// ... 500 GE (W463) ... So, when I do a re-read of the Wikipedia article, it
+// should also find the W463 as a generation car to appear."
+//
+// The re-read was running. It found nothing because not one of those lines
+// carries a year, and an application had to open with its years to count --
+// which is the right rule in prose and the wrong one inside a section that
+// says it is a list of applications.
+{
+  const read = LF.readEngineArticle(M117, "Mercedes-Benz M117 engine");
+  const apps = read.applications;
+  // Fifteen distinct cars across its eighteen bullets -- the R107, C107 and
+  // W126 each appear on more than one line and are one car each.
+  check("the M117's year-less applications are read", apps.length === 15, apps.length);
+  check("...including the 500 GE's W463",
+        apps.some(a => a.target === "Mercedes-Benz W463"),
+        apps.map(a => a.target).slice(0, 4).join(" | "));
+  // "450 SL, SLC ([[Mercedes-Benz R107|R107]] / [[Mercedes-Benz SLC-Class|C107]])"
+  // is two cars on one line; reading only the first link loses the C107.
+  check("...and both cars on a line that names two",
+        apps.some(a => a.target === "Mercedes-Benz R107") &&
+        apps.some(a => a.target === "Mercedes-Benz SLC-Class"),
+        apps.filter(a => /R107|SLC/.test(a.target)).map(a => a.target).join(" | "));
+  check("...with the line's own text kept, since the link is just the code",
+        apps.some(a => /500 GE/.test(a.text || "")),
+        (apps.find(a => a.target === "Mercedes-Benz W463") || {}).text);
+  check("the racing and other-manufacturer lists come too",
+        apps.some(a => /Sauber C9/.test(a.target)) && apps.some(a => /Lotec/.test(a.target)),
+        apps.map(a => a.target).slice(-4).join(" | "));
+  check("...and nothing from the References section",
+        !apps.some(a => /McComb|Bibliography/i.test(a.target)),
+        apps.map(a => a.target).join(" | ").slice(0, 60));
+
+  // And they land on the generation the code names, not on a new stray car.
+  const planned = LF.planEngineEdgesWith(apps, DATA.nodes, new Map(), () => null);
+  const w463 = planned.find(p => p.app.target === "Mercedes-Benz W463");
+  check("an application linked only by chassis code finds that generation",
+        w463 && w463.node.id === "m-mb-g-w463", w463 && w463.node.id);
 }
 
 console.log("\n" + (fails === 0 ? "ALL GREEN" : fails + " FAILURE(S)"));

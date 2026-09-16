@@ -1,0 +1,127 @@
+{{More sources needed|date=December 2009}}
+{{Infobox automobile engine
+| name = Mercedes-Benz M119 engine
+| image = 1993 MB 500 SL R 129 Motor 1092.jpg
+| manufacturer = [[Mercedes-Benz]]
+| production = 1989–1999
+| configuration = 90° [[V8 engine|V8]]
+| valvetrain = [[DOHC]] [[Multi-valve#Four valves|4 valves x cyl.]] and [[variable valve timing|VVT]]
+| head = Aluminium
+| displacement = {{convert|4196|cc|L|1|abbr=on|order=flip}}<br/>{{convert|4973|cc|L|1|abbr=on|order=flip}}<br/>{{convert|5956|cc|L|1|abbr=on|order=flip}}<br/>{{convert|6410|cc|L|1|abbr=on|order=flip}}
+| bore = {{convert|92|mm|2|abbr=on}}<br/>{{convert|96.5|mm|2|abbr=on}}<br/>{{convert|100|mm|2|abbr=on}}
+| stroke = {{convert|78.9|mm|2|abbr=on}}<br/>{{convert|85|mm|2|abbr=on}}<br/>{{convert|94.8|mm|2|abbr=on}}
+| power = {{convert|279-960|hp|PS kW|0|abbr=on}}
+| torque = {{convert|400-1085|Nm|lbft|0|abbr=on}}
+| fueltype = [[Petrol]]
+| fuelsystem = [[Fuel injection]]
+| coolingsystem = [[Radiator (engine cooling)|Water cooled]]
+| turbocharger = In some 5.0 L racing versions
+| compression = 10.0:1, 11.0:1
+| predecessor = [[Mercedes-Benz M117 engine|Mercedes-Benz M117]]
+| successor = [[Mercedes-Benz M113 engine|Mercedes-Benz M113]]
+}}
+The [[Mercedes-Benz]] '''M119''' is a [[V8 engine|V8]] [[automobile]] [[petrol]] [[internal combustion engine|engine]] produced from 1989 through 1999. It was available in 4.2&nbsp;L; 5.0&nbsp;L; and 6.0&nbsp;L displacements. It was a [[double overhead cam]] design with 4 valves per cylinder and [[variable valve timing]] on the [[intake manifold|intake]] side. It was replaced by the 3-valve [[Mercedes-Benz M113 engine|M113]] starting in 1997.
+
+The M119 differed from the [[Mercedes-Benz M117 engine|M117]] in the following ways:
+
+* The engine block uses asbestos-free gaskets and has better oil flow
+* The cylinder head is now a [[multi-valve#Four valves|4-valve]] aluminium unit with [[dual overhead camshaft]]s
+* The [[connecting rod]]s are forged and enable cooling of the pistons with sprayed oil
+* The pistons are iron-coated cast aluminium
+* An improved vibration damper system is used
+* The aluminium oil pan has bolted-on oil baffles to prevent foaming of the engine oil
+* The intake camshaft timing is adjusted [[hydraulic|hydro]]-[[machine|mechanically]] up to 20°:
+** 0&ndash;2000&nbsp;rpm &mdash; retarded for improved idle and cylinder scavenging
+** 2000&ndash;4700&nbsp;rpm &mdash; advanced for increased [[torque]]
+** 4700+ rpm &mdash; retarded for improved [[volumetric efficiency]]
+
+== Engine Data ==
+{| class="wikitable"
+|- class="hintergrundfarbe5"
+!Engine code
+! Bore × stroke || Displacement || Compression || Power at [rpm]
+!Years
+manufactured
+! Torque at [rpm]
+|-
+| rowspan="3"|M 119 E 42 || rowspan="3" |{{convert|92x78.9|mm|2|abbr=on}} || rowspan="3"|{{convert|4196|cc|L|1|order=flip|abbr=on}} || 10.0:1 || {{convert|268|hp|PS kW|0|abbr=on}} at 5,700 (US-Version) - Ratings conflict in factory documents
+|1992|| rowspan="3" |{{convert|400|Nm|lbft|0|abbr=on}}<br/>at 3,900
+|-
+|10.0:1
+||{{convert|282|hp|PS kW|0|abbr=on}} at 5,700
+|1991-1993
+|-
+|11.0:1 ||{{convert|275|hp|PS kW|0|abbr=on}} at 5,700
+|1993-1999
+|-
+| rowspan="3"|M 119 E 50|| rowspan="3"|{{convert|96.5x85|mm|2|abbr=on}} || rowspan="3"|{{convert|4973|cc|L|1|order=flip|abbr=on}} ||10.0:1 ||{{convert|316|hp|PS kW|0|abbr=on}} at 5,600
+|1993-1999||{{convert|470|Nm|lbft|0|abbr=on}}<br/>at 3,900
+|-
+|10.0:1
+|{{convert|322|hp|PS kW|0|abbr=on}} at 5,700
+|1989-1992||{{convert|480|Nm|lbft|0|abbr=on}}<br/>at 3,900
+|-
+|11.0:1
+|{{convert|342|hp|PS kW|0|abbr=on}} at 5,750
+|1996-1997|| {{convert|480|Nm|lbft|0|abbr=on}}<br/>at3,750–4,250
+|-
+| rowspan="2"|M 119 E 60|| rowspan="2"|{{convert|100x94.8|mm|2|abbr=on}} || rowspan="2"|{{convert|5956|cc|L|1|order=flip|abbr=on}} 
+|10.0:1||{{convert|369|hp|PS kW|0|abbr=on}} at 5,250
+|1996-1999||{{convert|550|Nm|lbft|0|abbr=on}}<br/>at 4,000
+|-
+|10.0:1
+|{{convert|375|hp|PS kW|0|abbr=on}} at 5,500
+|1993-1994||{{convert|580|Nm|lbft|0|abbr=on}}<br/>at 3,750
+|}
+
+==4.2==
+The {{convert|4196|cc|L|1|abbr=on|disp=flip}} version (M119.975) produced {{convert|275|hp|PS kW|0|abbr=on}} at 5700&nbsp;rpm and {{convert|400|Nm|lbft|0|abbr=on}} of torque at 3900&nbsp;rpm. Early versions of [[Mercedes-Benz W140|W140 400SE/400SEL]] (and potentially [[Mercedes-Benz W124|W124 400E]] for USA and Japan) produced {{convert|286|PS|kW bhp|0|abbr=on}} at 5700&nbsp;rpm and {{convert|410|Nm|lbft|0|abbr=on}} of torque at 3900&nbsp;rpm.<ref>{{Cite web |title=Detailed specs review of 1992 Mercedes-Benz 400 SE offered up to September 1992 for Europe |url=https://www.automobile-catalog.com/car/1992/1522745/mercedes-benz_400_se.html |access-date=2023-03-09 |website=www.automobile-catalog.com}}</ref><ref>{{Cite web |title=1991 Mercedes-Benz S-class (W140) 400 SE (286 Hp) Automatic {{!}} Technical specs, data, fuel consumption, Dimensions |url=https://www.auto-data.net/en/mercedes-benz-s-class-w140-400-se-286hp-automatic-37010 |access-date=2023-03-09 |website=www.auto-data.net |language=en}}</ref><ref>{{Cite web |title=Mercedes-Benz 400 SE W140 |url=https://www.car.info/en-se/mercedes-benz/s-class/400-se-6633916 |access-date=2023-03-09 |website=car.info}}</ref> Rare Japanese version 400E 4.2 AMG (16-20 cars) has 312 PS (229&nbsp;kW; 308&nbsp;bhp).
+
+Applications:
+* [[Mercedes-Benz W124|W124]] [[Mercedes-Benz E-Class|400 E / E 420]]
+* [[Mercedes-Benz W124|W124 400E 4.2 AMG]]
+* [[Mercedes-Benz W210|W210]] [[Mercedes-Benz E-Class|E 420]]
+* [[Mercedes-Benz W140|W140]] [[Mercedes-Benz S-Class|400 SE / 400 SEL / S 420]]
+* [[Mercedes-Benz C140|C140 420 SEC / S 420 Coupé / CL 420]]
+
+==5.0==
+[[Image:Mercedes-Benz M119 engine.jpg|thumb|right|250px|A twin-turbocharged M119 installed in a [[Mercedes-Benz C11]] [[Group C]] race car.]]
+The {{convert|4973|cc|L|1|abbr=on|disp=flip}} version produced {{convert|326|PS|kW bhp|0|abbr=on}} at 5700&nbsp;rpm and {{convert|480|Nm|lbft|0|abbr=on}} of torque at 3900&nbsp;rpm. Later engines had the full throttle enrichment removed and power was a little less, to {{convert|316|hp|PS kW|0|abbr=on}}.
+The E50 AMG M119.985 produced {{convert|347|PS|kW hp|0|abbr=on}} @ 5,550&nbsp;rpm and {{convert|480|Nm|lbft|0|abbr=on}} @ 3,200&nbsp;rpm.
+
+Applications:
+* [[Mercedes-Benz W124|W124 500E / E500]]
+* [[Mercedes-Benz W140|W140 500SE / 500SEL / S500]]
+* [[Mercedes-Benz W140|C140 500SEC / S500 Coupe / CL500]]
+* [[Mercedes-Benz SL-Class (R129)|R129 500SL / SL500]]
+* [[Mercedes-Benz E-Class (W210)|W210]] [[Mercedes-Benz E-Class (W210)#E 50 AMG|E50 AMG]]
+* [[Mercedes-Benz CLK LM|CLK LM]] (with naturally aspirated version of M119 engine) 
+* [[Sauber C9]] (with biturbo)
+* [[Mercedes-Benz C11]] (with biturbo)
+* [[De La Chapelle Parcours]] (2 of 3, 1 concept and 1 production car)
+
+The 5.0&nbsp;L M119 replaced the [[Mercedes-Benz M120 engine|M120 V12]] in the [[Mercedes-Benz CLK GTR|CLK-GTR]] race car, for the new generation [[Mercedes-Benz CLK GTR|CLK-LM]] which then won every race in the [[FIA GT]] series, which ultimately resulted in the GT1 class being canceled.
+
+It also won the [[1989 24 Hours of Le Mans]] in the [[Sauber C9]] and was further used in the [[Mercedes-Benz C11]] before being replaced by the [[Mercedes-Benz M291 engine|M291]] in 1991.
+
+==6.0==
+{{no sources section|date=March 2024}}
+The M119 fitted into AMG models produced around {{convert|375|hp|PS kW|0|abbr=on}} to {{convert|415|PS|kW hp|0|abbr=on}} and {{convert|580|Nm|lbft|0|abbr=on}} of torque.
+
+* [[Mercedes-Benz W124|E 60 AMG (W124)]]
+* [[Mercedes-Benz SL-Class (R129)|SL 60 AMG (R129)]]
+* [[Mercedes-Benz E-Class (W210)|E 60 AMG (W210)]]
+
+For 1994 model year, there were also limited AMG models for Japan which were sold between October 1993 and September 1999 in left-hand drive. Installed engine was M119.970 which displaced {{convert|5956|cc|L|1|abbr=on|disp=flip}}, power {{convert|381|PS|kW hp|0|abbr=on}}, and {{convert|59.1|kgm|Nm lbft|0|abbr=on}} of torque.
+* [[Mercedes-Benz G-Class#W463|500 GE 6.0 AMG (W463)]]
+* [[Mercedes-Benz S-Class (W140)|S 500 6.0 AMG (W140)]]
+* [[Mercedes-Benz S-Class (W140)|CL 500 6.0 AMG (C140)]]
+
+==References==
+{{Reflist}}
+
+{{DEFAULTSORT:Mercedes-Benz M119 Engine}}
+[[Category:Mercedes-Benz engines|M119]]
+[[Category:World Sportscar Championship engines]]
+[[Category:V8 engines]]
+[[Category:Gasoline engines by model]]

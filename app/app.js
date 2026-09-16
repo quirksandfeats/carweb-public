@@ -431,7 +431,11 @@ window.CarWeb = (function () {
   function invalidatePowerVis() { powerVis = null; }
   function powerSets() {
     if (powerVis) return powerVis;
-    const shown = new Set(), reached = new Set();
+    const shown = new Set(), reached = new Set(), suppressed = new Set();
+    // Every (engine, car) this layer knows about, so the nameplate rule below
+    // can be applied per engine rather than per link.
+    const byHub = new Map();
+    const edges = [];
     for (const l of links) {
       if (l.retired || l.type !== "fitted") continue;
       const a = endOf(l, "source"), b = endOf(l, "target");
@@ -440,15 +444,50 @@ window.CarWeb = (function () {
       if (!eng) continue;
       const car = eng === a ? b : a;
       if (!car || isPowertrain(car) || car.retired) continue;
-      reached.add(car.id);
       const hubId = eng.type === "enginevar" ? eng.engineOf : eng.id;
-      if (hubId && expandedFamilies.has(hubId)) shown.add(car.id);
+      if (!hubId) continue;
+      edges.push({ l, hubId, car });
+      if (!byHub.has(hubId)) byHub.set(hubId, []);
+      byHub.get(hubId).push(car);
     }
-    powerVis = { shown, reached };
+    // Real user report, with a screenshot of the M119: "in the engine search,
+    // you can see both the nameplate and the individual generation of that
+    // nameplate (for example, the e class and the w124 e class). I don't want
+    // the nameplate to be shown at all if the generation is shown."
+    //
+    // planEngineEdges applies exactly this rule when an engine ARTICLE is
+    // read -- but the E-Class edge in that screenshot came from an engine
+    // MENTION on a car's infobox, which never goes through it. So the rule is
+    // applied here too, where every edge ends up regardless of where it came
+    // from: for one engine, a nameplate whose own generation is also fitted
+    // to it is not shown at all.
+    for (const [hubId, cars] of byHub) {
+      const covered = new Set();
+      for (const c of cars) { if (c.familyOf) covered.add(c.familyOf); }
+      if (!covered.size) continue;
+      for (const c of cars) { if (covered.has(c.id)) suppressed.add(hubId + "|" + c.id); }
+    }
+    for (const { hubId, car } of edges) {
+      if (suppressed.has(hubId + "|" + car.id)) continue;
+      reached.add(car.id);
+      if (expandedFamilies.has(hubId)) shown.add(car.id);
+    }
+    powerVis = { shown, reached, suppressed };
     return powerVis;
   }
   // Drawn: only the cars an open engine reaches.
   function powerVisibleCars() { return powerSets().shown; }
+  // Is this fitted edge the redundant nameplate-level one? See powerSets.
+  function powerEdgeSuppressed(l) {
+    if (!l || l.type !== "fitted") return false;
+    const a = endOf(l, "source"), b = endOf(l, "target");
+    if (!a || !b) return false;
+    const eng = isPowertrain(a) ? a : isPowertrain(b) ? b : null;
+    if (!eng) return false;
+    const car = eng === a ? b : a;
+    const hubId = eng.type === "enginevar" ? eng.engineOf : eng.id;
+    return powerSets().suppressed.has(hubId + "|" + (car && car.id));
+  }
   // Simulated: every car any engine reaches, open or not -- exactly as a
   // collapsed nameplate's generations stay in the main layer's simulation.
   // The alternative throws: d3's link force resolves both endpoints up front
@@ -514,6 +553,7 @@ window.CarWeb = (function () {
     if (l.retired) return false;
     if (isPowerMode()) {
       if (!POWERTRAIN_LINKS.has(l.type)) return false;
+      if (powerEdgeSuppressed(l)) return false;   // the nameplate rule, see powerSets
       // Both ends have to be on screen, or a fitted edge would be drawn to a
       // car that is not there yet -- same reason the main layer hides a
       // family-level credit link while its generation carries it.
@@ -1419,6 +1459,14 @@ window.CarWeb = (function () {
           fitted.push(Object.assign({ via: src === n ? null : src }, e));
         });
       });
+      // The nameplate rule, so the card agrees with the canvas: a nameplate
+      // whose own generation is in this list does not appear itself. See
+      // powerSets for the report behind it.
+      const coveredFams = new Set();
+      fitted.forEach(f => { if (f.other.familyOf) coveredFams.add(f.other.familyOf); });
+      for (let i = fitted.length - 1; i >= 0; i--) {
+        if (coveredFams.has(fitted[i].other.id)) fitted.splice(i, 1);
+      }
       if (fitted.length) {
         head(fitted.length === 1 ? "Fitted to 1 car" : `Fitted to ${fitted.length} cars`);
         fitted.sort((a, b) => (a.l.yearStart || 0) - (b.l.yearStart || 0));
@@ -6944,6 +6992,24 @@ window.CarWeb = (function () {
       // camera to an empty patch of canvas.
       if (platformsOnly && !platformsNodeIds.has(n.id)) setPlatformsOnly(false);
       if (isHub(n)) expandForFocus(n.id);
+      // Real bug report, with a screenshot: clicking one of the cars
+      // connected to an engine left the Powertrain tab "completely blank".
+      // collapseAutoExpanded above had just shut the engine that was making
+      // that car visible, so the car vanished at the instant it was clicked
+      // and the focus flew to an empty patch of canvas.
+      //
+      // A car in this layer exists BECAUSE an engine reaches it, so focusing
+      // one opens every engine that does. That is also what the user asked
+      // for -- "I want a duplicate of the car that exists in the graph tab,
+      // but appearing in the powertrain tab. It should be an exact copy of
+      // the car being referenced" -- and it is the same node, so it is.
+      if (isPowerMode() && !isPowertrain(n)) {
+        for (const { n: o, l } of adj.get(n.id) || []) {
+          if (l.retired || l.type !== "fitted" || !o) continue;
+          if (powerEdgeSuppressed(l)) continue;
+          expandForFocus(o.type === "enginevar" ? o.engineOf : o.id);
+        }
+      }
       focusRoot = n; selected = n;
       focusSet = neighborhoodForFocus(n);
       document.getElementById("clearfocus").hidden = false;

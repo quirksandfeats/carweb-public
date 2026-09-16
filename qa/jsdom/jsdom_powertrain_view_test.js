@@ -268,5 +268,77 @@ cw.rebuildSim();
   cw.switchView("graph");
 }
 
+// ---------- 6. a nameplate never stands next to its own generation ----------
+// Real user report, with a screenshot of the M119: "in the engine search, you
+// can see both the nameplate and the individual generation of that nameplate
+// (for example, the e class and the w124 e class). I don't want the nameplate
+// to be shown at all if the generation is shown."
+//
+// planEngineEdges applies that rule when an engine ARTICLE is read. The
+// E-Class edge in the screenshot came from an engine MENTION on a car's
+// infobox, which never passes through it -- so this drives the mention path.
+{
+  const doc = window.document;
+  const FAM = "fam-pt-eclass", GEN = "m-pt-eclass-w124", LONE = "m-pt-lone";
+  const mk = cw.byId.get(DATA.nodes.find(n => n.type === "make").id);
+  DATA.nodes.push(
+    { id: FAM, type: "family", label: "E-Class", make: "TestPT", wp: "TestPT E-Class",
+      generations: [GEN], designers: [], engineers: [] },
+    { id: GEN, type: "model", label: "E-Class (W124)", make: "TestPT", familyOf: FAM,
+      year: 1984, end: 1996, designers: [], engineers: [] },
+    // A car with no nameplate of its own, to prove the rule is about the pair
+    // and not about families in general.
+    { id: LONE, type: "model", label: "Lone", make: "TestPT", year: 1990, designers: [], engineers: [] });
+  DATA.links.push({ source: FAM, target: GEN, type: "generation" });
+  const eng2 = { id: "eng-pt-m119", type: "engine", label: "M119", wp: "Mercedes-Benz M119 engine",
+                 unresearched: true, variants: [] };
+  DATA.nodes.push(eng2);
+  // Exactly what a mention leaves behind: an edge at BOTH levels.
+  DATA.links.push({ source: eng2.id, target: FAM, type: "fitted", fromCar: true },
+                  { source: eng2.id, target: GEN, type: "fitted", fromCar: true },
+                  { source: eng2.id, target: LONE, type: "fitted", fromCar: true });
+  cw.spliceIntoIndexes(DATA.nodes.length - 4, DATA.links.length - 4);
+  cw.switchView("power");
+  cw.rebuildSim();
+  cw.Graph.gotoNode(cw.byId.get(eng2.id));
+
+  check("the generation is shown", cw.nodeInLayer(cw.byId.get(GEN)));
+  check("...and its nameplate is not, since the generation covers it",
+        !cw.nodeInLayer(cw.byId.get(FAM)));
+  check("...nor is the edge to it drawn",
+        !DATA.links.some(l => l.type === "fitted" && cw.linkInLayer(l) &&
+          (l.target.id || l.target) === FAM));
+  check("a car that has no nameplate of its own is unaffected",
+        cw.nodeInLayer(cw.byId.get(LONE)));
+
+  cw.openDetail(cw.byId.get(eng2.id));
+  const listed = [...doc.querySelectorAll(".dt-power button")].map(b => b.textContent);
+  check("the card agrees with the canvas: the generation, not the nameplate",
+        listed.some(r => /E-Class \(W124\)/.test(r)) &&
+        !listed.some(r => /^TestPT E-Class(?!\s*\()/.test(r.trim())),
+        listed.join(" | ").slice(0, 120));
+
+  // ---------- and clicking one of those cars does not empty the canvas ----------
+  // Real bug report, with a screenshot: "now if I click on the cars connected,
+  // it looks like the second screenshot I attached (basically it's completely
+  // blank)." focusOn collapses the previous focus's auto-expansions before
+  // opening this one's -- which shut the engine that was making the car
+  // visible, at the instant it was clicked.
+  cw.Graph.gotoNode(cw.byId.get(GEN));
+  check("clicking a connected car keeps it on screen", cw.nodeInLayer(cw.byId.get(GEN)));
+  check("...and the engine that reaches it, so the canvas is not empty",
+        cw.nodeInLayer(cw.byId.get(eng2.id)));
+  check("...with the car focused, not something else",
+        [...(cw.graphFocusSet() || [])].indexOf(GEN) >= 0,
+        [...(cw.graphFocusSet() || [])].length);
+  check("...and its card is the car's own, the same node the Graph tab shows",
+        doc.querySelector(".dt-title").textContent.indexOf("E-Class (W124)") >= 0,
+        doc.querySelector(".dt-title").textContent);
+  check("...still in the powertrain layer, not bounced back to the Graph",
+        cw.graphMode() === "power", cw.graphMode());
+  cw.Graph.clearFocus();
+  cw.switchView("graph");
+}
+
 console.log("\n" + (fails === 0 ? "ALL GREEN" : fails + " FAILURE(S)"));
 process.exit(fails === 0 ? 0 : 1);

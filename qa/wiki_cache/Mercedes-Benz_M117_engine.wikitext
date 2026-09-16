@@ -1,0 +1,63 @@
+{{Infobox automobile engine
+|name=Mercedes-Benz M117 Engine
+|image=1989 Mercedes-Benz 560SL (M117) engine.jpg
+|caption=An M117 4.5 L engine from a 1972 [[Mercedes W108|280SE 4.5]]
+|manufacturer=[[Daimler-Benz]]
+|production=1971&ndash;1991
+|configuration=[[Naturally aspirated]] 90° [[V8 engine|V8]]
+|valvetrain=[[SOHC]] with 2 valves x cyl.
+|displacement={{convert|4520|cc|L|1|disp=flip|abbr=on}}<br>{{convert|4973|cc|L|1|disp=flip|abbr=on}}<br>{{convert|5025|cc|L|1|disp=flip|abbr=on}}<br>{{convert|5547|cc|L|1|disp=flip|abbr=on}}
+|block= [[Cast iron]] 1971-1978 <br> [[Alusil]] 1978-1991 
+|head = Aluminum
+|fueltype= [[Gasoline]]
+|fuelsystem= Continuous [[multi-point injection]]
+|oilsystem= [[Wet sump]]
+|coolingsystem= [[Radiator (engine cooling)|Water-cooled]]
+|management=[[Bosch K-Jetronic|Bosch K(E)-Jetronic]]
+|predecessor=[[Mercedes-Benz M100 engine]]
+|successor=[[Mercedes-Benz M119 engine]]
+|power={{convert|185-300|PS|kW hp|0|abbr=on}}
+|torque={{convert|298-455|Nm|lbft|0|abbr=on}}
+}}
+
+The '''Mercedes-Benz M117''' is an [[Overhead camshaft|OHC]] (overhead cam), 2 [[valve]] per [[cylinder (engine)|cylinder]] [[V8 engine]] made in several versions by [[Daimler-Benz]] between 1971 and 1992.
+
+==Applications==
+
+*280 SE, SEL 4.5 ([[Mercedes-Benz W108|W108]])<ref name=":0">{{cite web |url=http://www.automobile-catalog.com/car/1972/1465760/mercedes-benz_280_se_4_5.html |title=1972 Mercedes-Benz 280 SEL 4.5 (model since May 1971 for North America U.S.) specifications & performance data review |publisher=Automobile-catalog.com |accessdate=5 January 2015}}</ref>
+*300 SEL 4.5 ([[Mercedes-Benz W109|W109]])<ref>{{cite web |url=http://www.automobile-catalog.com/car/1972/1465790/mercedes-benz_300_sel_4_5.html |title=1972 Mercedes-Benz 300 SEL 4.5 (model since May 1971 for North America U.S.) specifications & performance data review |publisher=Automobile-catalog.com |accessdate=5 January 2015}}</ref>
+*450 SE, SEL ([[Mercedes-Benz W116|W116]])<ref>{{cite web |url=http://www.automobile-catalog.com/car/1979/1470185/mercedes-benz_450_se.html |title=1979 Mercedes-Benz 450 SE (model for Europe ) specifications & performance data review |publisher=Automobile-catalog.com |accessdate=5 January 2015}}</ref>
+*450 SL, SLC ([[Mercedes-Benz R107|R107]] / [[Mercedes-Benz SLC-Class|C107]])<ref>{{cite web |url=http://www.automobile-catalog.com/car/1974/1468955/mercedes-benz_450_slc.html |title=1974 Mercedes-Benz 450 SLC (model for Europe ) specifications & performance data review |publisher=Automobile-catalog.com |accessdate=5 January 2015}}</ref>
+*450 SLC 5.0 ([[Mercedes-Benz SLC-Class|C107]])<ref>{{cite web |url=http://www.automobile-catalog.com/car/1979/1469000/mercedes-benz_450_slc_5_0.html |title=1979 Mercedes-Benz 450 SLC 5.0 (model since May 1979 for Europe ) specifications & performance data review |publisher=Automobile-catalog.com |accessdate=5 January 2015}}</ref>
+*500 GE ([[Mercedes-Benz W463|W463]])<ref>{{cite web |url=http://www.automobile-catalog.com/car/1993/1565120/mercedes-benz_500_ge_v8.html |title=1993 Mercedes-Benz 500 GE V8 (model since March 1993 for Europe ) specifications & performance data review |publisher=Automobile-catalog.com |accessdate=5 January 2015}}</ref>
+*500 SE, SEL, SEC ([[Mercedes-Benz W126|W / V / C126]])<ref>{{cite web |url=http://www.automobile-catalog.com/car/1991/1475375/mercedes-benz_500_se_cat.html |title=1991 Mercedes-Benz 500 SE cat (model up to December 1991 for Europe ) specifications & performance data review |publisher=Automobile-catalog.com |accessdate=5 January 2015}}</ref>
+*500 SL, SLC ([[Mercedes-Benz R107|R107]] / [[Mercedes-Benz SLC-Class|C107]])<ref>{{cite web |url=http://www.ultimatecarpage.com/spec/1548/Mercedes-Benz-500-SL.html |title=1980 &ndash; 1989 Mercedes-Benz 500 SL Specifications |publisher=Ultimatecarpage.com |accessdate=5 January 2015}}</ref>
+*560 SE, SEL, SEC ([[Mercedes-Benz W126|W / V / C126]])<ref>{{cite web |url=http://www.automobile-catalog.com/car/1991/1475510/mercedes-benz_560_se_cat.html |title=1991 Mercedes-Benz 560 SE cat (model up to mid-year 1991 for Europe ) specifications & performance data review |publisher=Automobile-catalog.com |accessdate=5 January 2015}}</ref>
+*560 SL ([[Mercedes-Benz R107|R107]])<ref>{{cite web |url=http://www.ultimatecarpage.com/spec/1547/Mercedes-Benz-560-SL.html |title=1985 &ndash; 1989 Mercedes-Benz 560 SL Specifications |publisher=Ultimatecarpage.com |accessdate=5 January 2015}}</ref>
+
+;Racing:
+*[[Sauber C8]]<ref>{{cite web |url=http://www.ultimatecarpage.com/spec/765/Sauber-Mercedes-C8.html |title=1985 &ndash; 1987 Sauber Mercedes C8 Specifications |publisher=Ultimatecarpage.com |accessdate=5 January 2015 |first=Wouter |last=Melissen}}</ref>
+*[[Sauber C9]]<ref>{{cite web |url=http://www.ultimatecarpage.com/car/766/Sauber-Mercedes-C9.html |title=1987 &ndash; 1989 Sauber Mercedes C9 Specifications |publisher=Ultimatecarpage.com |date=7 November 2014 |accessdate=5 January 2015 |first=Wouter |last=Melissen}}</ref>
+
+;Other Manufacturers:
+*[[Isdera|Isdera Autobahnkurier AK116i]]<ref>{{Cite web|title=Isdera Autobahnkurier 116i: A Behemoth With a 16-Cylinder Engine|url=https://dyler.com/posts/316/isdera-autobahnkurier-116i-a-behemoth-with-a-16-cylinder-engine|access-date=2022-02-17|website=dyler.com|language=en}}</ref>
+*[[Isdera|Isdera Erator GTE]]<ref>{{cite web |url=http://www.automobile-catalog.com/make/isdera/erator/erator/1969.html |title=1969 Isdera Erator GTE (model since 1969 for Europe) specifications & performance data review |publisher=Automobile-catalog.com |access-date=31 August 2021}}</ref>
+*[[Isdera Imperator 108i]]<ref>{{cite web |url=http://www.automobile-catalog.com/car/1987/1271570/isdera_imperator_108i_5_6l_cat.html |title=1987 Isdera Imperator 108i 5.6L cat (model since mid-year 1987 for Europe ) specifications & performance data review |publisher=Automobile-catalog.com |access-date=5 January 2015}}</ref>
+*[[Lotec C1000]] (with two turbochargers)<ref>{{Cite web|date=2016-04-22|title=1991 Lotec C1000 {{!}} Review|url=https://www.supercars.net/blog/1991-lotec-c1000/|access-date=2022-02-14|website=Supercars.net|language=en-US}}</ref>
+*[[Monteverdi Tiara]]<ref>{{Cite web |title=Monteverdi Tiara data and specifications catalogue |url=https://www.automobile-catalog.com/model/monteverdi/tiara.html |access-date=2022-03-21 |website=www.automobile-catalog.com}}</ref>
+*[[Zender GmbH|Zender]] Vision 3<ref>{{Cite web|title=1988 Zender Vision 3 specifications {{!}} technical data {{!}} performance {{!}} fuel economy {{!}} emissions {{!}} dimensions {{!}} horsepower {{!}} torque {{!}} weight|url=https://www.carfolio.com/zender-vision-3-22715|access-date=2022-02-13|website=www.carfolio.com}}</ref>
+
+==References==
+===Notes===
+{{reflist|2}}
+
+===Bibliography===
+<!-- last updated September 2021 -->
+{{refbegin}}
+* {{McComb: Mercedes-Benz V8s}}
+{{refend}}
+
+{{DEFAULTSORT:Mercedes-Benz M117 Engine}}
+[[Category:Mercedes-Benz engines|M117]]
+[[Category:World Sportscar Championship engines]]
+[[Category:V8 engines]]
