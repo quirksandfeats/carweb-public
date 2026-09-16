@@ -1,10 +1,10 @@
-harvest titles kept:   6961
+harvest titles kept:   6962
 matched curated:       383
-auto models:           6379
+auto models:           6380
 auto makes:            1219
 auto designers:        2144
-succession edges:      3449
-related edges:         3014
+succession edges:      3452
+related edges:         3011
 unmatched (no make):   3
 marque articles, not cars: 196
 model year ceiling:    2027
