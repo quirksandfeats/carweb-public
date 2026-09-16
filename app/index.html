@@ -641,6 +641,29 @@
     </div>
     <div id="rebuild-status" class="llmdebug-note"></div>
   </div>
+
+  <!-- Real user request: "add two buttons, one that wipes all the LLM stuff
+       (links, nodes, etc everything done by the llm), and a third button which
+       wipes everything and starts from scratch (no LLM stuff done, and the
+       full graph rebuilt from dbpedia)." The rebuild above is the third one's
+       other half; these two are about the overlay, which nothing until now
+       could clear. -->
+  <div class="llmdebug-section" id="llmreset-section">
+    <label>Start over</label>
+    <p class="llmdebug-note">Two datasets sit on top of each other. The <b>baked graph</b> comes from DBpedia and the curated tables and is always re-buildable. The <b>LLM layer</b> is everything the local model has decided since: generation splits, relationships, engines, renames, merges, your accepts and rejects, your deletions and the permanently-cleared list.<br>
+    <code>app/llm_families.json</code> is copied to <code>llm_layer_backups/</code> before either button writes anything, so a reset can be undone by copying that file back.</p>
+    <div class="llmdebug-row">
+      <button id="llmreset-start" class="llm-btn">Wipe the LLM layer…</button>
+      <button id="llmreset-confirm" class="llm-btn dp-delete-btn" hidden>Yes, wipe it</button>
+      <button id="llmreset-cancel" class="llm-btn" hidden>Cancel</button>
+    </div>
+    <div class="llmdebug-row">
+      <button id="llmwipe-start" class="llm-btn">Wipe everything and rebuild…</button>
+      <button id="llmwipe-confirm" class="llm-btn dp-delete-btn" hidden>Yes, start from scratch</button>
+      <button id="llmwipe-cancel" class="llm-btn" hidden>Cancel</button>
+    </div>
+    <div id="llmreset-status" class="llmdebug-note"></div>
+  </div>
 </div>
 
 <footer id="colophon">

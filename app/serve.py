@@ -671,6 +671,41 @@ def write_llm_families(data):
         os.replace(js_tmp, LLM_FAMILIES_DATA_JS_PATH)
 
 
+LLM_BACKUP_DIR = os.path.join(DIR, "..", "llm_layer_backups")
+
+
+def reset_llm_families():
+    """Empty the LLM overlay, after copying it somewhere recoverable.
+
+    Returns (counts_cleared, backup_path_or_None). Holds the same lock every
+    other write to this file takes, so a decision landing at the same moment
+    cannot interleave with the truncate."""
+    with _llm_families_lock:
+        counts, backup = {}, None
+        if os.path.exists(LLM_FAMILIES_PATH):
+            try:
+                with open(LLM_FAMILIES_PATH, encoding="utf-8") as f:
+                    data = json.load(f)
+                if isinstance(data, dict):
+                    counts = {k: len(v) for k, v in data.items()
+                              if isinstance(v, (dict, list)) and len(v)}
+            except Exception:
+                counts = {}   # unreadable is still resettable; it just cannot be summarised
+            os.makedirs(LLM_BACKUP_DIR, exist_ok=True)
+            stamp = time.strftime("%Y%m%d-%H%M%S")
+            backup = os.path.join(LLM_BACKUP_DIR, f"llm_families-{stamp}.json")
+            shutil.copy2(LLM_FAMILIES_PATH, backup)
+        tmp = LLM_FAMILIES_PATH + ".tmp"
+        with open(tmp, "w", encoding="utf-8") as f:
+            f.write("{}\n")
+        os.replace(tmp, LLM_FAMILIES_PATH)
+        js_tmp = LLM_FAMILIES_DATA_JS_PATH + ".tmp"
+        with open(js_tmp, "w", encoding="utf-8") as f:
+            f.write("window.LLM_FAMILIES_STATIC = {};\n")
+        os.replace(js_tmp, LLM_FAMILIES_DATA_JS_PATH)
+        return counts, backup
+
+
 # Same race-guard reasoning as _llm_families_lock just above, for the
 # separate db_match_overrides.json file app/db_match.html reads/writes.
 _db_match_overrides_lock = threading.Lock()
@@ -835,6 +870,26 @@ class Handler(http.server.SimpleHTTPRequestHandler):
         # looked like the only thing happening while several other passes
         # ran invisibly alongside it. This endpoint is how the page says
         # what it is doing; it stores nothing and answers immediately.
+        # Real user request: "add two buttons, one that wipes all the LLM stuff
+        # (links, nodes, etc everything done by the llm), and a third button
+        # which wipes everything and starts from scratch (no LLM stuff done,
+        # and the full graph rebuilt from dbpedia)."
+        #
+        # Server-side rather than "have the page POST an empty store": the
+        # overlay is the only half of this project that cannot be rebuilt from
+        # public sources -- it is hours of local model time plus every
+        # accept/reject decision -- so it is copied somewhere recoverable
+        # first, always, by the same code that empties it. Same thing
+        # scripts/reset_llm_layer.sh does from a terminal.
+        if self.path == "/api/llm-reset":
+            try:
+                counts, backup = reset_llm_families()
+            except Exception as e:
+                return self._json(500, {"error": "could not reset the LLM layer", "detail": str(e)})
+            print(f"llm layer: reset ({sum(counts.values())} record(s) cleared); "
+                  f"backup: {backup or 'nothing to back up'}", flush=True)
+            return self._json(200, {"ok": True, "cleared": counts, "backup": backup})
+
         if self.path == "/api/note":
             length = int(self.headers.get("Content-Length", 0))
             try:

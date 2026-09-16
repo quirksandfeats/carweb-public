@@ -136,6 +136,57 @@ try:
     time.sleep(0.3)
     check("an empty note prints nothing",
           not [l for l in terminal()[before:].splitlines() if l.startswith("[app]")])
+
+    # ---------- 4. wiping the LLM layer ----------
+    # Real user request: "add two buttons, one that wipes all the LLM stuff...
+    # and a third button which wipes everything and starts from scratch". The
+    # overlay is the only half of the project that cannot be rebuilt from
+    # public sources, so the endpoint that empties it is also the thing that
+    # backs it up -- the page is never trusted to have done that first.
+    app_dir = os.path.abspath(APP)
+    overlay = os.path.join(app_dir, "llm_families.json")
+    mirror = os.path.join(app_dir, "llm_families_data.js")
+    backups = os.path.abspath(os.path.join(app_dir, "..", "llm_layer_backups"))
+    # The real overlay is MOVED aside rather than copied, so a crash in the
+    # middle of this leaves it intact under an obvious name next to itself
+    # rather than leaving a two-key test fixture as somebody's data file.
+    stash = overlay + ".qa-stashed"
+    saved_mirror = open(mirror, encoding="utf-8").read() if os.path.exists(mirror) else None
+    had_overlay = os.path.exists(overlay)
+    if had_overlay:
+        os.replace(overlay, stash)
+    before_backups = set(os.listdir(backups)) if os.path.isdir(backups) else set()
+    try:
+        with open(overlay, "w", encoding="utf-8") as f:
+            json.dump({"families": {"a": 1, "b": 2}, "purged": {"c": 3}, "settings": {}}, f)
+        st, d = post("/api/llm-reset", {})
+        check("the reset reports what it cleared", st == 200 and d.get("ok") is True, (st, d))
+        check("...counting each bucket", d.get("cleared") == {"families": 2, "purged": 1},
+              d.get("cleared"))
+        check("...and it does not count an empty bucket as work",
+              "settings" not in (d.get("cleared") or {}), d.get("cleared"))
+        check("the overlay really is empty afterwards",
+              json.load(open(overlay, encoding="utf-8")) == {}, open(overlay).read()[:60])
+        check("...and so is the script-tag mirror the page loads",
+              "= {}" in open(mirror, encoding="utf-8").read(),
+              open(mirror, encoding="utf-8").read()[:60])
+        new_backups = (set(os.listdir(backups)) if os.path.isdir(backups) else set()) - before_backups
+        check("the old overlay was copied somewhere recoverable first",
+              len(new_backups) == 1 and d.get("backup"), sorted(new_backups))
+        if new_backups:
+            kept = json.load(open(os.path.join(backups, new_backups.pop()), encoding="utf-8"))
+            check("...with its contents intact, so the reset can be undone",
+                  kept.get("families") == {"a": 1, "b": 2}, kept)
+        # Idempotent: wiping an already-empty overlay is a no-op, not an error.
+        st, d = post("/api/llm-reset", {})
+        check("wiping an already-empty overlay is fine", st == 200 and d.get("cleared") == {},
+              (st, d))
+    finally:
+        if had_overlay and os.path.exists(stash):
+            os.replace(stash, overlay)
+        if saved_mirror is not None:
+            with open(mirror, "w", encoding="utf-8") as f:
+                f.write(saved_mirror)
 finally:
     srv.terminate()
     try: srv.wait(timeout=10)

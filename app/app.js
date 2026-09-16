@@ -4742,6 +4742,11 @@ window.CarWeb = (function () {
   //      the progress line shows. Closing the panel doesn't cancel it.
   //   3. When it finishes the page must reload, because data.js is a script
   //      tag -- the running page is still holding the old graph in memory.
+  // Set up by initRebuildPanel, used by the reset panel below: "wipe
+  // everything and start from scratch" is the overlay reset followed by
+  // exactly this rebuild, and two copies of a minutes-long poll loop is two
+  // things to keep in step.
+  let rebuildRunner = null;
   function initRebuildPanel() {
     const startBtn = document.getElementById("rebuild-start");
     const confirmBtn = document.getElementById("rebuild-confirm");
@@ -4797,7 +4802,8 @@ window.CarWeb = (function () {
       poll();
     };
 
-    function poll() {
+    function poll() { pollWith(say, busy); }
+    function pollWith(say, busy) {
       clearInterval(polling);
       polling = setInterval(async () => {
         let d;
@@ -4822,6 +4828,36 @@ window.CarWeb = (function () {
       }, 1500);
     }
 
+    rebuildRunner = {
+      // Starts it and returns true, or reports why it could not and returns
+      // false. `say` and `busy` are the caller's own, so progress lands in
+      // whichever panel asked.
+      async start(skipHarvest, sayTo, busyTo) {
+        busyTo(true);
+        sayTo("starting the rebuild…");
+        let r;
+        try {
+          r = await fetch("/api/rebuild", {
+            method: "POST", headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ skipHarvest: !!skipHarvest }),
+          });
+        } catch (e) {
+          busyTo(false);
+          sayTo("couldn't reach the local server. This needs `python3 app/serve.py` to be running.", "dp-error");
+          return false;
+        }
+        if (!r.ok) {
+          busyTo(false);
+          let msg = "rebuild couldn't start (HTTP " + r.status + ")";
+          try { const j = await r.json(); if (j && j.error) msg = j.error; } catch (e) {}
+          sayTo(msg, "dp-error");
+          return false;
+        }
+        pollWith(sayTo, busyTo);
+        return true;
+      },
+    };
+
     // A rebuild started before this page load (or in another tab) is still
     // running server-side -- pick it up rather than showing an idle panel
     // that invites a second one.
@@ -4838,6 +4874,114 @@ window.CarWeb = (function () {
         // clicking it gives the clearer message above.
       }
     })();
+  }
+
+  // ---------- start over ----------
+  // Real user request: "add two buttons, one that wipes all the LLM stuff
+  // (links, nodes, etc everything done by the llm), and a third button which
+  // wipes everything and starts from scratch (no LLM stuff done, and the full
+  // graph rebuilt from dbpedia)."
+  //
+  // Both go through serve.py's /api/llm-reset, which copies
+  // app/llm_families.json into llm_layer_backups/ before emptying it -- the
+  // overlay is the one half of this project that cannot be rebuilt from public
+  // sources. The second button is that, then the rebuild above; it reuses that
+  // panel's own runner rather than a second copy of a minutes-long poll loop.
+  //
+  // A reload is not optional afterwards. Both data.js and
+  // llm_families_data.js are script tags, and the running page is still
+  // holding every node and decision in memory -- worse, its next save would
+  // write the old overlay straight back over the reset one.
+  function initLlmResetPanel() {
+    const status = document.getElementById("llmreset-status");
+    if (!status) return;
+    const say = (msg, cls) => {
+      status.textContent = msg || "";
+      status.className = "llmdebug-note" + (cls ? " " + cls : "");
+    };
+    const all = ["llmreset-start", "llmreset-confirm", "llmreset-cancel",
+                 "llmwipe-start", "llmwipe-confirm", "llmwipe-cancel"]
+                .map(id => document.getElementById(id));
+    if (all.some(b => !b)) return;
+    const [rStart, rYes, rNo, wStart, wYes, wNo] = all;
+    const busy = on => all.forEach(b => { b.disabled = on; });
+    // Only one of the two can be armed at a time: they differ by minutes of
+    // work and a whole dataset, and two live "Yes" buttons side by side is
+    // how the wrong one gets clicked.
+    function arm(which) {
+      rStart.hidden = which === "reset"; rYes.hidden = which !== "reset"; rNo.hidden = which !== "reset";
+      wStart.hidden = which === "wipe";  wYes.hidden = which !== "wipe";  wNo.hidden = which !== "wipe";
+    }
+    arm(null);
+
+    async function resetOverlay() {
+      let r;
+      try {
+        r = await fetch("/api/llm-reset", { method: "POST",
+              headers: { "Content-Type": "application/json" }, body: "{}" });
+      } catch (e) {
+        say("couldn't reach the local server. This needs `python3 app/serve.py` to be running.", "dp-error");
+        return null;
+      }
+      if (!r.ok) {
+        let msg = "couldn't wipe the LLM layer (HTTP " + r.status + ")";
+        try { const j = await r.json(); if (j && j.error) msg = j.error; } catch (e) {}
+        say(msg, "dp-error");
+        return null;
+      }
+      let d = null;
+      try { d = await r.json(); } catch (e) { d = { ok: true }; }
+      return d;
+    }
+    const describe = d => {
+      const c = (d && d.cleared) || {};
+      const n = Object.keys(c).reduce((s, k) => s + c[k], 0);
+      const top = Object.keys(c).sort((a, b) => c[b] - c[a]).slice(0, 3)
+                        .map(k => c[k] + " " + k);
+      return n ? `${n} record(s) cleared` + (top.length ? ` (${top.join(", ")}…)` : "")
+               : "there was nothing recorded to clear";
+    };
+
+    rStart.onclick = () => {
+      arm("reset");
+      say("This clears every LLM decision — splits, relationships, engines, renames, merges, " +
+          "your accepts and rejects, your deletions and the permanently-cleared list. The graph " +
+          "underneath is untouched. A backup is written first. Continue?");
+    };
+    rNo.onclick = () => { arm(null); say(""); };
+    rYes.onclick = async () => {
+      arm(null); busy(true);
+      say("wiping…");
+      const d = await resetOverlay();
+      if (!d) { busy(false); return; }
+      say(describe(d) + (d.backup ? " · backed up to llm_layer_backups/" : "") +
+          " — reloading…");
+      setTimeout(() => location.reload(), 1400);
+    };
+
+    wStart.onclick = () => {
+      arm("wipe");
+      say("This clears every LLM decision AND re-harvests the whole graph from DBpedia, " +
+          "rebuilding data.js from nothing. Takes a few minutes and needs internet. " +
+          "A backup of the LLM layer is written first. Continue?");
+    };
+    wNo.onclick = () => { arm(null); say(""); };
+    wYes.onclick = async () => {
+      arm(null); busy(true);
+      say("wiping the LLM layer…");
+      const d = await resetOverlay();
+      if (!d) { busy(false); return; }
+      if (!rebuildRunner) {
+        busy(false);
+        say(describe(d) + ", but the rebuild panel isn't available — run " +
+            "`bash data_src/rebuild.sh` yourself to finish.", "dp-error");
+        return;
+      }
+      say(describe(d) + " — now rebuilding the graph from DBpedia…");
+      // The rebuild's own poll reports into this panel and reloads when it is
+      // done, which is also what the overlay reset needs.
+      await rebuildRunner.start(false, say, busy);
+    };
   }
 
   // Real user request: configurable hop count for suggested (transitive)
@@ -7517,6 +7661,7 @@ window.CarWeb = (function () {
       initModifyCarPanel();
       initDeletePanel();
       initRebuildPanel();
+      initLlmResetPanel();   // after it: reuses its runner, see rebuildRunner
       initTransitiveSetting();
 
       // Every panel under Tools writes through serve.py's JSON API, so with no
