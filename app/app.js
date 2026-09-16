@@ -431,10 +431,9 @@ window.CarWeb = (function () {
   function invalidatePowerVis() { powerVis = null; }
   function powerSets() {
     if (powerVis) return powerVis;
-    const shown = new Set(), reached = new Set(), suppressed = new Set();
-    // Every (engine, car) this layer knows about, so the nameplate rule below
-    // can be applied per engine rather than per link.
-    const byHub = new Map();
+    const shown = new Set(), reached = new Set(), suppressedEdges = new Set();
+    // Every (engine, car) edge this layer knows about, so the two rules below
+    // can be applied per engine and per car rather than per link.
     const edges = [];
     for (const l of links) {
       if (l.retired || l.type !== "fitted") continue;
@@ -446,47 +445,56 @@ window.CarWeb = (function () {
       if (!car || isPowertrain(car) || car.retired) continue;
       const hubId = eng.type === "enginevar" ? eng.engineOf : eng.id;
       if (!hubId) continue;
-      edges.push({ l, hubId, car });
-      if (!byHub.has(hubId)) byHub.set(hubId, []);
-      byHub.get(hubId).push(car);
+      edges.push({ l, eng, hubId, car });
     }
-    // Real user report, with a screenshot of the M119: "in the engine search,
-    // you can see both the nameplate and the individual generation of that
-    // nameplate (for example, the e class and the w124 e class). I don't want
-    // the nameplate to be shown at all if the generation is shown."
+    // Rule one, per engine. Real user report, with a screenshot of the M119:
+    // "in the engine search, you can see both the nameplate and the
+    // individual generation of that nameplate (for example, the e class and
+    // the w124 e class). I don't want the nameplate to be shown at all if the
+    // generation is shown."
     //
-    // planEngineEdges applies exactly this rule when an engine ARTICLE is
-    // read -- but the E-Class edge in that screenshot came from an engine
-    // MENTION on a car's infobox, which never goes through it. So the rule is
-    // applied here too, where every edge ends up regardless of where it came
-    // from: for one engine, a nameplate whose own generation is also fitted
-    // to it is not shown at all.
-    for (const [hubId, cars] of byHub) {
-      const covered = new Set();
-      for (const c of cars) { if (c.familyOf) covered.add(c.familyOf); }
-      if (!covered.size) continue;
-      for (const c of cars) { if (covered.has(c.id)) suppressed.add(hubId + "|" + c.id); }
-    }
+    // planEngineEdges applies this when an engine ARTICLE is read -- but that
+    // edge came from an engine MENTION on a car's infobox, which never passes
+    // through it. So it is applied here, where every edge ends up.
+    const famsCovered = new Map();   // hub id -> set of nameplate ids its generations cover
     for (const { hubId, car } of edges) {
-      if (suppressed.has(hubId + "|" + car.id)) continue;
-      reached.add(car.id);
-      if (expandedFamilies.has(hubId)) shown.add(car.id);
+      if (!car.familyOf) continue;
+      if (!famsCovered.has(hubId)) famsCovered.set(hubId, new Set());
+      famsCovered.get(hubId).add(car.familyOf);
     }
-    powerVis = { shown, reached, suppressed };
+    // Rule two, the same thing one level down on the engine's own side: a car
+    // reached both by an engine and by one of that engine's variants is
+    // connected to the variant only. "if the engine var is there for the car,
+    // then only show the engine var... Only fall back to the engine name if
+    // there is no engine var, but dont show both."
+    const varsCovered = new Map();   // car id -> set of engine ids a variant covers
+    for (const { eng, car } of edges) {
+      if (eng.type !== "enginevar" || !eng.engineOf) continue;
+      if (!varsCovered.has(car.id)) varsCovered.set(car.id, new Set());
+      varsCovered.get(car.id).add(eng.engineOf);
+    }
+    for (const e of edges) {
+      const byFam = famsCovered.get(e.hubId);
+      const byVar = varsCovered.get(e.car.id);
+      // Kept as the edge OBJECT rather than a key: an engine's own id is also
+      // its variants' hub id, so any id-pair key would hide the variant's
+      // edge along with the engine's.
+      if ((byFam && byFam.has(e.car.id)) ||
+          (byVar && e.eng.type === "engine" && byVar.has(e.eng.id))) {
+        suppressedEdges.add(e.l);
+        continue;
+      }
+      reached.add(e.car.id);
+      if (expandedFamilies.has(e.hubId)) shown.add(e.car.id);
+    }
+    powerVis = { shown, reached, suppressedEdges };
     return powerVis;
   }
   // Drawn: only the cars an open engine reaches.
   function powerVisibleCars() { return powerSets().shown; }
-  // Is this fitted edge the redundant nameplate-level one? See powerSets.
+  // Is this fitted edge the redundant one? See powerSets' two rules.
   function powerEdgeSuppressed(l) {
-    if (!l || l.type !== "fitted") return false;
-    const a = endOf(l, "source"), b = endOf(l, "target");
-    if (!a || !b) return false;
-    const eng = isPowertrain(a) ? a : isPowertrain(b) ? b : null;
-    if (!eng) return false;
-    const car = eng === a ? b : a;
-    const hubId = eng.type === "enginevar" ? eng.engineOf : eng.id;
-    return powerSets().suppressed.has(hubId + "|" + (car && car.id));
+    return !!l && l.type === "fitted" && powerSets().suppressedEdges.has(l);
   }
   // Simulated: every car any engine reaches, open or not -- exactly as a
   // collapsed nameplate's generations stay in the main layer's simulation.
@@ -1496,7 +1504,7 @@ window.CarWeb = (function () {
         btn.className = "llm-btn";
         const unread = isEngineUnread(n);
         btn.textContent = unread ? "Read this engine's article" : "Read it again";
-        btn.onclick = () => scanEngine(n.wp || n.label, btn, n);
+        btn.onclick = () => scanEngine(n.wp || n.label, btn, n);   // n carries its own name
         wrap.appendChild(btn);
         // Folding another engine in, and undoing it. Same shape as a
         // nameplate merge: the other engine's variants become this one's.
@@ -1546,7 +1554,19 @@ window.CarWeb = (function () {
     //
     // Open on the Powertrain tab, where engines are the whole point of
     // looking, and shut on every other tab.
-    const engines = powertrainEdgesFor(n, index).filter(e => isPowertrain(e.other));
+    let engines = powertrainEdgesFor(n, index).filter(e => isPowertrain(e.other));
+    // Real user report on the SL R232's card: "notice that the engine and the
+    // enginevar is specified in the list of engines... if the engine var is
+    // there for the car, then only show the engine var... Only fall back to
+    // the engine name if there is no engine var, but dont show both."
+    //
+    // The same rule as a nameplate and its generation, one level down: an
+    // engine whose own variant is fitted to this car is not listed itself.
+    {
+      const covered = new Set();
+      engines.forEach(e => { if (e.other.type === "enginevar") covered.add(e.other.engineOf); });
+      if (covered.size) engines = engines.filter(e => !covered.has(e.other.id));
+    }
     if (!engines.length) return;
     const det = document.createElement("details");
     det.className = "dt-power-fold";
@@ -1620,7 +1640,11 @@ window.CarWeb = (function () {
     // the engine." So this button is the engine's 🔄 LLM Re-check: the stored
     // read and the cached article are dropped first, and nothing in flight is
     // reused.
-    const opts = { mintCars: true, id: node ? node.id : undefined };
+    // `name` is what says WHICH engine, when the article covers several:
+    // "M177" out of the M176/M177/M178 page. See llm_families.js's
+    // splitMultiEngineTitle.
+    const opts = { mintCars: true, id: node ? node.id : undefined,
+                   name: node ? node.label : undefined };
     const run = LFam.forceRecheckEngine
       ? LFam.forceRecheckEngine(title, nodes, links, opts)
       : LFam.checkEngine(title, nodes, links, opts);

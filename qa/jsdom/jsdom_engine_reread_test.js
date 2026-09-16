@@ -217,6 +217,106 @@ const doc = window.document;
           LF.engineEntryFor(ENG) && LF.engineEntryFor(ENG).sourceTitle);
   }
 
+  // ---------- 5. one page, three engines ----------
+  // Real user point about the SL R232's card: "notice that the full engine is
+  // listed as M176/M177/M178 M177, which in this case is not correct, since
+  // it's simply taking the information about the wikipedia title and assuming
+  // that it is the 'engine' name, when in reality M176, M177, and M178 are
+  // technically separate, but all use the same wikipedia page."
+  {
+    const car = cw.byId.get(CAR);
+    // How the SL R232's own infobox writes it: the page, and which engine on
+    // it this car actually has.
+    const before = DATA.nodes.length, lbefore = DATA.links.length;
+    LF.recordEngineMentionsFrom(
+      [{ title: REAL_TITLE, name: "M178", variant: null }], car, DATA.nodes, DATA.links);
+    cw.spliceIntoIndexes(before, lbefore);
+    const m178 = DATA.nodes.find(n => n.type === "engine" && n.label === "M178");
+    check("a mention of one engine on a shared page records THAT engine",
+          !!m178 && m178.id === "eng-mercedes-benz-m178", m178 && m178.id);
+    check("...not a node named after the page",
+          !DATA.nodes.some(n => n.type === "engine" && /M176\/M177\/M178/.test(n.label)),
+          DATA.nodes.filter(n => n.type === "engine").map(n => n.label).join(", "));
+    check("...pointing at the page it is documented on", m178.wp === REAL_TITLE, m178.wp);
+
+    cw.openDetail(m178);
+    const btn = [...doc.querySelectorAll(".dt-power button")]
+      .find(b => /Read this engine's article/.test(b.textContent));
+    btn.click();
+    for (let i = 0; i < 160 && !LF.engineEntryFor(m178.id); i++) await sleep(20);
+    await sleep(80);
+    const art = LF.engineEntryFor(m178.id).article;
+    check("reading it reads the M178's own section",
+          art.applications.some(a => /Mercedes-AMG GT/.test(a.display)) &&
+          !art.applications.some(a => /BAIC BJ90|C 63/.test(a.display)),
+          art.applications.length + ": " + art.applications.map(a => a.display).slice(0, 2).join(" | "));
+    // Its table names its cars in plain text -- only the Valhalla is a link
+    // -- so a link-based reading found one of nine. The chassis code in the
+    // cell is what identifies the rest.
+    check("...including the cars its table names without linking them",
+          art.applications.filter(a => !a.target).length >= 6,
+          art.applications.filter(a => !a.target).map(a => a.display).slice(0, 3).join(" | "));
+    check("...and not the power and torque cells as if they were cars",
+          !art.applications.some(a => /kW|Nm|rpm/.test(a.display)),
+          art.applications.map(a => a.display).join(" | ").slice(0, 80));
+    check("...and its variants are not its two sibling engines",
+          !art.variants.some(v => /M176|M177/.test(v.code)),
+          art.variants.map(v => v.code).join(" | ") || "(none)");
+    check("...nor is anything called 'M176/M177/M178 M178'",
+          !art.variants.some(v => /M176\/M177\/M178/.test(v.code)),
+          art.variants.map(v => v.code).join(" | ") || "(none)");
+  }
+
+  // ---------- 6. a car lists the variant, not the variant AND its engine ----------
+  // "if the engine var is there for the car, then only show the engine var...
+  // Only fall back to the engine name if there is no engine var, but dont
+  // show both."
+  {
+    const car = cw.byId.get(CAR);
+    const eng = cw.byId.get(ENG);
+    // The state that produced the report: the car has an edge to the engine
+    // (from its infobox mention) AND to one of that engine's variants (from
+    // reading the article).
+    const vid = "engvar-test-m177-a";
+    DATA.nodes.push({ id: vid, type: "enginevar", label: "M177 A", engineOf: eng.id,
+                      wp: eng.wp, year: 2022, end: null });
+    DATA.links.push({ source: vid, target: car.id, type: "fitted" });
+    if (eng.variants.indexOf(vid) < 0) eng.variants.push(vid);
+    DATA.links.push({ source: eng.id, target: car.id, type: "fitted", fromCar: true });
+    cw.spliceIntoIndexes(DATA.nodes.length - 1, DATA.links.length - 2);
+
+    cw.openDetail(car);
+    const det = doc.querySelector(".dt-power details.dt-power-fold");
+    det.open = true;
+    const rows = [...det.querySelectorAll("button")].map(b => b.textContent.trim());
+    check("the variant is listed", rows.some(r => /M177 A/.test(r)), rows.join(" | "));
+    check("...and its engine is not listed as a second engine",
+          rows.filter(r => /^M177\b/.test(r) && !/M177 A/.test(r)).length === 0,
+          rows.join(" | "));
+    check("...so the count is of what is shown",
+          /Engines? ?\(?\d*\)?/.test(det.querySelector("summary").textContent) &&
+          !/\(3\)/.test(det.querySelector("summary").textContent),
+          det.querySelector("summary").textContent);
+
+    // On the canvas too: the engine-level edge is the redundant one, and
+    // hiding it must not take the variant's edge with it.
+    cw.switchView("power");
+    cw.rebuildSim();
+    cw.Graph.gotoNode(eng);
+    const mine = new Set([eng.id, vid]);
+    const toCar = DATA.links.filter(l => l.type === "fitted" && cw.linkInLayer(l) &&
+      ((l.target.id || l.target) === car.id || (l.source.id || l.source) === car.id) &&
+      (mine.has(l.source.id || l.source) || mine.has(l.target.id || l.target)));
+    check("exactly one connection is drawn from that engine to that car",
+          toCar.length === 1, toCar.length);
+    check("...and it is the variant's, not the engine's",
+          toCar.length === 1 && ((toCar[0].source.id || toCar[0].source) === vid ||
+                                 (toCar[0].target.id || toCar[0].target) === vid),
+          toCar.map(l => (l.source.id || l.source) + "->" + (l.target.id || l.target)).join(","));
+    cw.Graph.clearFocus();
+    cw.switchView("graph");
+  }
+
   console.log("\n" + (fails === 0 ? "ALL GREEN" : fails + " FAILURE(S)"));
   process.exit(fails === 0 ? 0 : 1);
 })();

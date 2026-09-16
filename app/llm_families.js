@@ -7811,8 +7811,20 @@ Rules:
                          .map(c => c.replace(/^\s*[|!]+/, "").trim())
                          .filter(Boolean);
         const linkCell = cells.find(c => /\[\[/.test(c));
-        if (!linkCell) continue;
-        const e = parseApplicationLine(linkCell);
+        // A model cell with no link at all. The M178's whole table is like
+        // this -- "Mercedes-AMG GT S (C190)", "Mercedes-AMG GT Black Series
+        // (C190)" -- and reading only linked cells found exactly one of its
+        // nine cars. The chassis code in the cell is what identifies it, so
+        // the entry is emitted with no target and resolved by code instead
+        // (see carForApplication). A cell with no code is not a car.
+        const codeCell = linkCell ? null : cells.find(c =>
+          c.length < 90 && !TABLE_YEARS_RE.test(c) && chassisCodesIn(c).length);
+        if (!linkCell && !codeCell) continue;
+        const e = linkCell ? parseApplicationLine(linkCell) : {
+          target: null, anchor: null,
+          display: stripEngineMarkup(codeCell).replace(/\s+/g, " ").trim(),
+          text: stripEngineMarkup(codeCell), yearStart: null, yearEnd: null, note: null,
+        };
         if (!e) continue;
         const yearCell = cells.find(c => TABLE_YEARS_RE.test(c));
         if (yearCell) {
@@ -7820,7 +7832,7 @@ Rules:
           e.yearStart = Number(m[1]);
           e.yearEnd = m[2] && /^\d{4}$/.test(m[2]) ? Number(m[2]) : null;
         }
-        const key = norm(e.target) + "|" + norm(e.display);
+        const key = norm(e.target || "") + "|" + norm(e.display);
         if (seen.has(key)) continue;
         seen.add(key);
         out.push(e);
@@ -7869,7 +7881,7 @@ Rules:
       if (!/^\s*[*#]/.test(line)) return;      // a list item, not prose
       if (!/\[\[/.test(line)) return;
       for (const e of parseApplicationLinks(line)) {
-        const key = norm(e.target) + "|" + norm(e.display);
+        const key = norm(e.target || "") + "|" + norm(e.display);
         if (seen.has(key)) continue;
         seen.add(key);
         out.push(e);
@@ -7882,11 +7894,11 @@ Rules:
   // itself as a list of applications.
   function engineApplicationsIn(body) {
     const out = engineApplications(body);
-    const seen = new Set(out.map(e => norm(e.target) + "|" + norm(e.display)));
+    const seen = new Set(out.map(e => norm(e.target || "") + "|" + norm(e.display)));
     for (const sec of wikitextSections(body)) {
       if (!APP_SECTION_RE.test(norm(sec.title))) continue;
       for (const e of engineApplicationsLoose(sec.body)) {
-        const key = norm(e.target) + "|" + norm(e.display);
+        const key = norm(e.target || "") + "|" + norm(e.display);
         if (seen.has(key)) continue;
         seen.add(key);
         out.push(e);
@@ -7911,7 +7923,7 @@ Rules:
       if (!APP_LINE_RE.test(line)) return;
       const e = parseApplicationLine(line);
       if (!e) return;
-      const key = norm(e.target) + "|" + norm(e.display);
+      const key = norm(e.target || "") + "|" + norm(e.display);
       if (seen.has(key)) return;
       seen.add(key);
       out.push(e);
@@ -7921,7 +7933,7 @@ Rules:
     // precise form where both exist, so the table only fills in what they did
     // not already name.
     for (const e of engineTableApplications(src)) {
-      const key = norm(e.target) + "|" + norm(e.display);
+      const key = norm(e.target || "") + "|" + norm(e.display);
       if (seen.has(key)) continue;
       seen.add(key);
       out.push(e);
@@ -7992,7 +8004,11 @@ Rules:
       // "DE35" on its own says nothing about which engine; the article's own
       // prose calls it "the M276 DE 35". Prefixed so the variant reads as
       // what it is, here and in a merge.
-      const code = (key && !norm(title).startsWith(key) && name)
+      // Not prefixed when the "engine" is really a page covering several --
+      // "M176/M177/M178 M177" is not the name of anything. See
+      // splitMultiEngineTitle.
+      const multiName = String(name || "").indexOf("/") >= 0;
+      const code = (key && !multiName && !norm(title).startsWith(key) && name)
         ? (name + " " + title) : title;
       out.push({ code, applications: engineApplicationsIn(sec.body) });
     }
@@ -8135,13 +8151,14 @@ Rules:
   }
   function carForApplication(app, byId, byWp, resolvedTitle, byCode) {
     const wp = resolvedTitle || app.target;
-    const hit = byWp.get(norm(wp));
+    const hit = wp ? byWp.get(norm(wp)) : null;
     if (hit) return stepDownToGeneration(hit, app, byId) || hit;
     if (byCode) {
       // The code can be the whole point of the link ("[[Mercedes-Benz
       // W463|W463]]"), so the target is where to look first.
       const codes = chassisCodesIn(app.target).concat(chassisCodesIn(app.display),
-                                                      chassisCodesIn(app.anchor));
+                                                      chassisCodesIn(app.anchor),
+                                                      chassisCodesIn(app.text));
       for (const c of codes) {
         const gen = byCode.get(norm(c));
         if (gen) return gen;
@@ -8482,9 +8499,11 @@ Rules:
         if (!isEngineArticle(wikitext)) {
           return { status: "not-an-engine", title: resolvedTitle || title };
         }
-        // `title`, not the resolved one: "Mercedes-Benz M177 engine" is what
-        // says which of the three engines on that page is being asked about.
-        const article = readEngineArticle(wikitext, title);
+        // Which engine is being asked about: the node's own name when there
+        // is one ("M177"), otherwise the title asked for -- and `title`
+        // rather than the resolved one, since "Mercedes-Benz M177 engine" is
+        // itself the answer while ".../M176/M177/M178 engine" is not.
+        const article = readEngineArticle(wikitext, (opts && opts.name) || title);
         // Keyed to the node asked about where there is one, so a redirect
         // cannot move the entry out from under its own card -- see
         // applyEngineArticleWith's own note.
@@ -8658,6 +8677,22 @@ Rules:
   const LAYOUT_ENGINE_TITLE = /^(?:(?:straight|inline|flat|boxer|slant|vee)[\s-]?\w*|[vwbihrlu][\s-]?\d{1,2}|\d{1,2}[\s-]?cylinder)$/i;
 
   // "Mercedes-Benz M256 engine" -> a real engine; "V8 engine" -> not one.
+  // "Mercedes-Benz M176/M177/M178 engine" is one article for three engines.
+  // Real user point: "M176, M177, and M178 are technically separate, but all
+  // use the same wikipedia page." So the page's own title is not the name of
+  // an engine, and a node built from it is not one engine -- which is how the
+  // SL R232's card came to list "M176/M177/M178 M177" as an engine variant of
+  // an engine called "Mercedes-Benz M176/M177/M178".
+  const ENGINE_CODE_RE = /^[A-Z]{1,3}\d{2,4}[A-Z0-9]*$/;
+  function splitMultiEngineTitle(title) {
+    const t = String(title || "").split("#")[0].trim().replace(/\s+engines?$/i, "");
+    if (t.indexOf("/") < 0) return null;
+    const words = t.split(/\s+/);
+    const last = words.pop() || "";
+    const codes = last.split("/").map(c => c.trim()).filter(Boolean);
+    if (codes.length < 2 || !codes.every(c => ENGINE_CODE_RE.test(c))) return null;
+    return { marque: words.join(" "), codes };
+  }
   function looksLikeEngineArticleTitle(title) {
     const t = String(title || "").split("#")[0].trim();
     if (!t) return false;
@@ -8748,10 +8783,19 @@ Rules:
     let engines = 0, fitted = 0;
     const added = [];
     for (const mention of mentions) {
-      const id = engineIdFromTitle(mention.title);
+      // A car's infobox says which of a shared page's engines it means -- the
+      // SL R232 links "[[Mercedes-Benz M176/M177/M178 engine|M177]]" -- so
+      // that is the engine recorded, not the page. Without this, all three
+      // become one node named after the article.
+      const multi = splitMultiEngineTitle(mention.title);
+      const picked = multi && multi.codes.find(c => norm(c) === norm(mention.name));
+      const id = picked
+        ? engineIdFor((multi.marque ? multi.marque + " " : "") + picked)
+        : engineIdFromTitle(mention.title);
       let n = byId.get(id);
       if (!n) {
-        n = { id, type: "engine", label: mention.name || mention.title, wp: mention.title,
+        n = { id, type: "engine", label: picked || mention.name || mention.title,
+              wp: mention.title,
               make: null, year: null, end: null, llmGenerated: true, unresearched: true,
               variants: [] };
         nodes.push(n); byId.set(id, n); added.push(n);
