@@ -1164,95 +1164,6 @@
    },
    "cascadeDiscovered": true
   },
-  "llm-related-brabus-rocket-900-one-of-ten": {
-   "status": "provisional",
-   "checkedAt": "2026-09-16T18:37:38.689Z",
-   "sourceTitle": "Brabus Rocket",
-   "proposal": {
-    "hasMultipleGenerations": true,
-    "generations": [
-     {
-      "code": "Brabus Rocket",
-      "yearStart": 2006,
-      "yearEnd": null,
-      "designers": [],
-      "engineers": [],
-      "wikiFile": "Brabus 900 Rocket IMG 0536.jpg",
-      "sharedPlatforms": []
-     },
-     {
-      "code": "Brabus Rocket 800",
-      "yearStart": 2011,
-      "yearEnd": null,
-      "designers": [],
-      "engineers": [],
-      "wikiFile": "Brabus 900 Rocket IMG 0536.jpg",
-      "sharedPlatforms": []
-     },
-     {
-      "code": "Brabus Rocket 730",
-      "yearStart": 2014,
-      "yearEnd": null,
-      "designers": [],
-      "engineers": [],
-      "wikiFile": "Brabus 900 Rocket IMG 0536.jpg",
-      "sharedPlatforms": []
-     },
-     {
-      "code": "Brabus Rocket 900",
-      "yearStart": 2015,
-      "yearEnd": null,
-      "designers": [],
-      "engineers": [],
-      "wikiFile": "Brabus 900 Rocket IMG 0536.jpg",
-      "sharedPlatforms": []
-     }
-    ]
-   },
-   "attempts": 1,
-   "feedback": [],
-   "debug": {
-    "raw": {
-     "hasMultipleGenerations": true,
-     "generations": [
-      {
-       "code": "Brabus Rocket",
-       "yearStart": 2006,
-       "yearEnd": null,
-       "designers": [],
-       "engineers": [],
-       "sharedPlatforms": []
-      },
-      {
-       "code": "Brabus Rocket 800",
-       "yearStart": 2011,
-       "yearEnd": null,
-       "designers": [],
-       "engineers": [],
-       "sharedPlatforms": []
-      },
-      {
-       "code": "Brabus Rocket 730",
-       "yearStart": 2014,
-       "yearEnd": null,
-       "designers": [],
-       "engineers": [],
-       "sharedPlatforms": []
-      },
-      {
-       "code": "Brabus Rocket 900",
-       "yearStart": 2015,
-       "yearEnd": null,
-       "designers": [],
-       "engineers": [],
-       "sharedPlatforms": []
-      }
-     ]
-    },
-    "dropped": []
-   },
-   "cascadeDiscovered": true
-  },
   "m-mercedes-benz-mercedes-amg-gt-4-door-coupe": {
    "status": "confirmed",
    "checkedAt": "2026-09-16T18:38:10.215Z",
@@ -4382,6 +4293,762 @@
     "dropped": []
    },
    "cascadeDiscovered": true
+  },
+  "m-baic-bj90": {
+   "status": "none",
+   "checkedAt": "2026-09-16T22:28:36.560Z",
+   "sourceTitle": "BAIC BJ90",
+   "proposal": {
+    "hasMultipleGenerations": false,
+    "generations": [
+     {
+      "code": "BAIC BJ90",
+      "yearStart": 2016,
+      "yearEnd": 2023,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "Beijing BJ90 IMG004.jpg",
+      "sharedPlatforms": [
+       "Mercedes-Benz GL-Class (X166)"
+      ]
+     }
+    ]
+   },
+   "attempts": 1,
+   "feedback": [],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": false,
+     "generations": [
+      {
+       "code": "BAIC BJ90",
+       "yearStart": 2016,
+       "yearEnd": 2023,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Mercedes-Benz GL-Class (X166)"
+       ]
+      }
+     ]
+    },
+    "dropped": []
+   },
+   "cascadeDiscovered": true
+  },
+  "llm-related-mercedes-amg-gt-track-series-c190-engine-code-m178-ls2": {
+   "status": "none",
+   "checkedAt": "2026-09-16T22:28:51.141Z",
+   "sourceTitle": "Mercedes-Benz M176/M177/M178 engine",
+   "proposal": {
+    "hasMultipleGenerations": false,
+    "generations": [
+     {
+      "code": "M176/M177/M178",
+      "yearStart": 2014,
+      "yearEnd": null,
+      "designers": [
+       "Mercedes-AMG"
+      ],
+      "engineers": [],
+      "wikiFile": "Mercedes-Benz M178 BR190.jpg",
+      "sharedPlatforms": []
+     }
+    ]
+   },
+   "attempts": 1,
+   "feedback": [],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": false,
+     "generations": [
+      {
+       "code": "M176/M177/M178",
+       "yearStart": 2014,
+       "yearEnd": null,
+       "designers": [
+        "Mercedes-AMG"
+       ],
+       "engineers": [],
+       "sharedPlatforms": []
+      }
+     ]
+    },
+    "dropped": []
+   },
+   "cascadeDiscovered": true
+  },
+  "llm-related-mercedes-amg-gt-c-c190": {
+   "status": "provisional",
+   "checkedAt": "2026-09-16T22:29:47.372Z",
+   "sourceTitle": "Mercedes-AMG GT",
+   "proposal": {
+    "hasMultipleGenerations": true,
+    "generations": [
+     {
+      "code": "C190/R190",
+      "yearStart": 2015,
+      "yearEnd": 2022,
+      "designers": [
+       "Robert Lešnik",
+       "Gabriel Nemeth",
+       "Huey Lee",
+       "Mark Fetherston",
+       "Jan Kaul"
+      ],
+      "engineers": [],
+      "wikiFile": "2015-2017 Mercedes-AMG GT (C 190) S coupe (2017-07-15) 01.jpg",
+      "sharedPlatforms": [
+       "Mercedes-Benz SLS AMG"
+      ]
+     },
+     {
+      "code": "C192",
+      "yearStart": 2023,
+      "yearEnd": null,
+      "designers": [
+       "Slavche Tanevski"
+      ],
+      "engineers": [],
+      "wikiFile": "Mercedes-AMG C192 1X7A0832.jpg",
+      "sharedPlatforms": [
+       "Mercedes-Benz SL-Class"
+      ]
+     }
+    ]
+   },
+   "attempts": 1,
+   "feedback": [],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": true,
+     "generations": [
+      {
+       "code": "C190/R190",
+       "yearStart": 2015,
+       "yearEnd": 2022,
+       "designers": [
+        "Robert Lešnik",
+        "Gabriel Nemeth",
+        "Huey Lee",
+        "Mark Fetherston",
+        "Jan Kaul"
+       ],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Mercedes-Benz SLS AMG"
+       ]
+      },
+      {
+       "code": "C192",
+       "yearStart": 2023,
+       "yearEnd": null,
+       "designers": [
+        "Slavche Tanevski"
+       ],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Mercedes-Benz SL-Class"
+       ]
+      }
+     ]
+    },
+    "dropped": []
+   },
+   "cascadeDiscovered": true
+  },
+  "llm-related-mercedes-amg-gt-r-c190": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-16T22:30:16.363Z",
+   "sourceTitle": "Mercedes-AMG GT",
+   "proposal": {
+    "hasMultipleGenerations": true,
+    "generations": [
+     {
+      "code": "C190/R190",
+      "yearStart": 2014,
+      "yearEnd": 2022,
+      "designers": [
+       "Robert Lešnik",
+       "Gabriel Nemeth",
+       "Huey Lee",
+       "Mark Fetherston",
+       "Jan Kaul"
+      ],
+      "engineers": [],
+      "wikiFile": "2015-2017 Mercedes-AMG GT (C 190) S coupe (2017-07-15) 01.jpg",
+      "sharedPlatforms": [
+       "Mercedes-Benz SLS AMG"
+      ]
+     },
+     {
+      "code": "C192",
+      "yearStart": 2023,
+      "yearEnd": null,
+      "designers": [
+       "Slavche Tanevski"
+      ],
+      "engineers": [],
+      "wikiFile": "Mercedes-AMG C192 1X7A0832.jpg",
+      "sharedPlatforms": [
+       "Mercedes-Benz SL (R232)"
+      ]
+     }
+    ]
+   },
+   "attempts": 1,
+   "feedback": [],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": true,
+     "generations": [
+      {
+       "code": "C190/R190",
+       "yearStart": 2014,
+       "yearEnd": 2022,
+       "designers": [
+        "Robert Lešnik",
+        "Gabriel Nemeth",
+        "Huey Lee",
+        "Mark Fetherston",
+        "Jan Kaul"
+       ],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Mercedes-Benz SLS AMG"
+       ]
+      },
+      {
+       "code": "C192",
+       "yearStart": 2023,
+       "yearEnd": null,
+       "designers": [
+        "Slavche Tanevski"
+       ],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Mercedes-Benz SL (R232)"
+       ]
+      }
+     ]
+    },
+    "dropped": []
+   },
+   "cascadeDiscovered": true,
+   "decidedBy": "user",
+   "decidedAt": "2026-09-16T22:35:29.914Z",
+   "allDesigners": [
+    "Robert Lešnik",
+    "Gabriel Nemeth",
+    "Huey Lee",
+    "Mark Fetherston",
+    "Jan Kaul",
+    "Slavche Tanevski"
+   ],
+   "allEngineers": []
+  },
+  "llm-related-mercedes-amg-gt-black-series-c190-engine-code-m178-ls2": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-16T22:30:32.764Z",
+   "sourceTitle": "Mercedes-Benz M176/M177/M178 engine",
+   "proposal": {
+    "hasMultipleGenerations": true,
+    "generations": [
+     {
+      "code": "M176",
+      "yearStart": 2014,
+      "yearEnd": 2018,
+      "designers": [
+       "Mercedes-AMG"
+      ],
+      "engineers": [
+       "Mercedes-AMG"
+      ],
+      "wikiFile": "Mercedes-Benz M178 BR190.jpg",
+      "sharedPlatforms": [
+       "Mercedes-Benz M133 engine"
+      ],
+      "sharedPlatformMatches": {
+       "Mercedes-Benz M133 engine": {
+        "matchId": null,
+        "confidence": "high",
+        "reason": "The mention refers to the Mercedes-Benz M133 engine (a 1.6L turbocharged petrol engine used in models like the A-Class W168 and C-Class W203 from ~2003 onwards). None of the candidate car entries correspond to this engine or the specific vehicle models known to use it. While some candidates share chassis codes (e.g., W203) or are Mercedes-Benz cars, the specific mention of the M133 engine distinguishes it from the specific model years and configurations listed in the candidates, many of which are significantly older or refer to different powertrains."
+       }
+      }
+     },
+     {
+      "code": "M177",
+      "yearStart": 2014,
+      "yearEnd": 2020,
+      "designers": [
+       "Mercedes-AMG"
+      ],
+      "engineers": [
+       "Mercedes-AMG"
+      ],
+      "wikiFile": "Mercedes-Benz M178 BR190.jpg",
+      "sharedPlatforms": [
+       "Mercedes-Benz M133 engine"
+      ],
+      "sharedPlatformMatches": {
+       "Mercedes-Benz M133 engine": {
+        "matchId": null,
+        "confidence": "high",
+        "reason": "The mention refers to the Mercedes-Benz M133 engine (a 1.6L turbocharged petrol engine used in models like the A-Class W168 and C-Class W203 from ~2003 onwards). None of the candidate car entries correspond to this engine or the specific vehicle models known to use it. While some candidates share chassis codes (e.g., W203) or are Mercedes-Benz cars, the specific mention of the M133 engine distinguishes it from the specific model years and configurations listed in the candidates, many of which are significantly older or refer to different powertrains."
+       }
+      }
+     },
+     {
+      "code": "M178",
+      "yearStart": 2014,
+      "yearEnd": null,
+      "designers": [
+       "Mercedes-AMG"
+      ],
+      "engineers": [
+       "Mercedes-AMG"
+      ],
+      "wikiFile": "Mercedes-Benz M178 BR190.jpg",
+      "sharedPlatforms": [
+       "Mercedes-Benz M133 engine"
+      ],
+      "sharedPlatformMatches": {
+       "Mercedes-Benz M133 engine": {
+        "matchId": null,
+        "confidence": "high",
+        "reason": "The mention refers to the Mercedes-Benz M133 engine (a 1.6L turbocharged petrol engine used in models like the A-Class W168 and C-Class W203 from ~2003 onwards). None of the candidate car entries correspond to this engine or the specific vehicle models known to use it. While some candidates share chassis codes (e.g., W203) or are Mercedes-Benz cars, the specific mention of the M133 engine distinguishes it from the specific model years and configurations listed in the candidates, many of which are significantly older or refer to different powertrains."
+       }
+      }
+     }
+    ]
+   },
+   "attempts": 1,
+   "feedback": [],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": true,
+     "generations": [
+      {
+       "code": "M176",
+       "yearStart": 2014,
+       "yearEnd": 2018,
+       "designers": [
+        "Mercedes-AMG"
+       ],
+       "engineers": [
+        "Mercedes-AMG"
+       ],
+       "sharedPlatforms": [
+        "Mercedes-Benz M133 engine"
+       ]
+      },
+      {
+       "code": "M177",
+       "yearStart": 2014,
+       "yearEnd": 2020,
+       "designers": [
+        "Mercedes-AMG"
+       ],
+       "engineers": [
+        "Mercedes-AMG"
+       ],
+       "sharedPlatforms": [
+        "Mercedes-Benz M133 engine"
+       ]
+      },
+      {
+       "code": "M178",
+       "yearStart": 2014,
+       "yearEnd": null,
+       "designers": [
+        "Mercedes-AMG"
+       ],
+       "engineers": [
+        "Mercedes-AMG"
+       ],
+       "sharedPlatforms": [
+        "Mercedes-Benz M133 engine"
+       ]
+      }
+     ]
+    },
+    "dropped": []
+   },
+   "cascadeDiscovered": true,
+   "decidedBy": "user",
+   "decidedAt": "2026-09-16T22:30:39.428Z",
+   "allDesigners": [
+    "Mercedes-AMG"
+   ],
+   "allEngineers": [
+    "Mercedes-AMG"
+   ]
+  },
+  "llm-related-brabus-rocket-900-one-of-ten": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-16T22:30:56.645Z",
+   "sourceTitle": "Brabus Rocket",
+   "proposal": {
+    "hasMultipleGenerations": true,
+    "generations": [
+     {
+      "code": "Brabus Rocket (2006)",
+      "yearStart": 2006,
+      "yearEnd": null,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "Brabus 900 Rocket IMG 0536.jpg",
+      "sharedPlatforms": [
+       "Mercedes-Benz CLS-Class (W219)"
+      ],
+      "sharedPlatformMatches": {
+       "Mercedes-Benz CLS-Class (W219)": {
+        "matchId": "m-mercedes-benz-cls-class-c219",
+        "confidence": "high",
+        "reason": "The mention specifies the Mercedes-Benz CLS-Class with chassis code W219, which corresponds exactly to the candidate 'Mercedes-Benz CLS-Class (C219) (2004–2010)'. The W219 chassis code is the official internal designation for the C219 CLS generation produced during those years."
+       }
+      }
+     },
+     {
+      "code": "Brabus Rocket 800 (2011)",
+      "yearStart": 2011,
+      "yearEnd": null,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "Brabus 900 Rocket IMG 0536.jpg",
+      "sharedPlatforms": [
+       "Mercedes-Benz CLS-Class (W219)"
+      ],
+      "sharedPlatformMatches": {
+       "Mercedes-Benz CLS-Class (W219)": {
+        "matchId": "m-mercedes-benz-cls-class-c219",
+        "confidence": "high",
+        "reason": "The mention specifies the Mercedes-Benz CLS-Class with chassis code W219, which corresponds exactly to the candidate 'Mercedes-Benz CLS-Class (C219) (2004–2010)'. The W219 chassis code is the official internal designation for the C219 CLS generation produced during those years."
+       }
+      }
+     },
+     {
+      "code": "Brabus Rocket 730 (2014)",
+      "yearStart": 2014,
+      "yearEnd": null,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "Brabus 900 Rocket IMG 0536.jpg",
+      "sharedPlatforms": [
+       "Mercedes-Benz CLS-Class (W219)"
+      ],
+      "sharedPlatformMatches": {
+       "Mercedes-Benz CLS-Class (W219)": {
+        "matchId": "m-mercedes-benz-cls-class-c219",
+        "confidence": "high",
+        "reason": "The mention specifies the Mercedes-Benz CLS-Class with chassis code W219, which corresponds exactly to the candidate 'Mercedes-Benz CLS-Class (C219) (2004–2010)'. The W219 chassis code is the official internal designation for the C219 CLS generation produced during those years."
+       }
+      }
+     },
+     {
+      "code": "Brabus Rocket 900 (2015)",
+      "yearStart": 2015,
+      "yearEnd": null,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "Brabus 900 Rocket IMG 0536.jpg",
+      "sharedPlatforms": [
+       "Mercedes-Benz CLS-Class (W219)",
+       "Mercedes-AMG GT 4-Door Coupé"
+      ],
+      "sharedPlatformMatches": {
+       "Mercedes-Benz CLS-Class (W219)": {
+        "matchId": "m-mercedes-benz-cls-class-c219",
+        "confidence": "high",
+        "reason": "The mention specifies the Mercedes-Benz CLS-Class with chassis code W219, which corresponds exactly to the candidate 'Mercedes-Benz CLS-Class (C219) (2004–2010)'. The W219 chassis code is the official internal designation for the C219 CLS generation produced during those years."
+       }
+      }
+     },
+     {
+      "code": "Brabus Rocket 900 \"ONE OF TEN\" (2020)",
+      "yearStart": 2020,
+      "yearEnd": null,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "Brabus 900 Rocket IMG 0536.jpg",
+      "sharedPlatforms": [
+       "Mercedes-Benz CLS-Class (W219)",
+       "Mercedes-AMG GT 4-Door Coupé"
+      ],
+      "sharedPlatformMatches": {
+       "Mercedes-Benz CLS-Class (W219)": {
+        "matchId": "m-mercedes-benz-cls-class-c219",
+        "confidence": "high",
+        "reason": "The mention specifies the Mercedes-Benz CLS-Class with chassis code W219, which corresponds exactly to the candidate 'Mercedes-Benz CLS-Class (C219) (2004–2010)'. The W219 chassis code is the official internal designation for the C219 CLS generation produced during those years."
+       }
+      }
+     }
+    ]
+   },
+   "attempts": 1,
+   "feedback": [],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": true,
+     "generations": [
+      {
+       "code": "Brabus Rocket (2006)",
+       "yearStart": 2006,
+       "yearEnd": null,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Mercedes-Benz CLS-Class (W219)"
+       ]
+      },
+      {
+       "code": "Brabus Rocket 800 (2011)",
+       "yearStart": 2011,
+       "yearEnd": null,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Mercedes-Benz CLS-Class (W219)"
+       ]
+      },
+      {
+       "code": "Brabus Rocket 730 (2014)",
+       "yearStart": 2014,
+       "yearEnd": null,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Mercedes-Benz CLS-Class (W219)"
+       ]
+      },
+      {
+       "code": "Brabus Rocket 900 (2015)",
+       "yearStart": 2015,
+       "yearEnd": null,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Mercedes-Benz CLS-Class (W219)",
+        "Mercedes-AMG GT 4-Door Coupé"
+       ]
+      },
+      {
+       "code": "Brabus Rocket 900 \"ONE OF TEN\" (2020)",
+       "yearStart": 2020,
+       "yearEnd": null,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Mercedes-Benz CLS-Class (W219)",
+        "Mercedes-AMG GT 4-Door Coupé"
+       ]
+      }
+     ]
+    },
+    "dropped": []
+   },
+   "cascadeDiscovered": true,
+   "decidedBy": "user",
+   "decidedAt": "2026-09-16T22:30:56.645Z",
+   "allDesigners": [],
+   "allEngineers": []
+  },
+  "m-aston-martin-valhalla": {
+   "status": "none",
+   "checkedAt": "2026-09-16T22:31:04.283Z",
+   "sourceTitle": "Aston Martin Valhalla",
+   "proposal": {
+    "hasMultipleGenerations": false,
+    "generations": [
+     {
+      "code": "Valhalla (AM-RB 003)",
+      "yearStart": 2019,
+      "yearEnd": null,
+      "designers": [
+       "Miles Nurnberger",
+       "Adrian Newey"
+      ],
+      "engineers": [],
+      "wikiFile": "File:2026 Aston Martin Valhalla SCD 26.jpg",
+      "sharedPlatforms": [
+       "Aston Martin Valkyrie"
+      ]
+     }
+    ]
+   },
+   "attempts": 1,
+   "feedback": [],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": false,
+     "generations": [
+      {
+       "code": "Valhalla (AM-RB 003)",
+       "yearStart": 2019,
+       "yearEnd": null,
+       "designers": [
+        "Miles Nurnberger",
+        "Adrian Newey"
+       ],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Aston Martin Valkyrie"
+       ]
+      }
+     ]
+    },
+    "dropped": []
+   },
+   "cascadeDiscovered": true
+  },
+  "m-seat-133": {
+   "status": "none",
+   "checkedAt": "2026-09-16T22:31:11.777Z",
+   "sourceTitle": "SEAT 133",
+   "proposal": {
+    "hasMultipleGenerations": false,
+    "generations": [
+     {
+      "code": "SEAT 133",
+      "yearStart": 1974,
+      "yearEnd": 1982,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "VI Concentración VCACPontevedra - SEAT 127.jpg",
+      "sharedPlatforms": [
+       "SEAT 850",
+       "Fiat 850"
+      ]
+     }
+    ]
+   },
+   "attempts": 1,
+   "feedback": [],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": false,
+     "generations": [
+      {
+       "code": "SEAT 133",
+       "yearStart": 1974,
+       "yearEnd": 1982,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": [
+        "SEAT 850",
+        "Fiat 850"
+       ]
+      }
+     ]
+    },
+    "dropped": []
+   },
+   "cascadeDiscovered": true
+  },
+  "m-lotus-emira": {
+   "status": "none",
+   "checkedAt": "2026-09-16T22:31:48.969Z",
+   "sourceTitle": "Lotus Emira",
+   "proposal": {
+    "hasMultipleGenerations": false,
+    "generations": [
+     {
+      "code": "Emira",
+      "yearStart": 2022,
+      "yearEnd": null,
+      "designers": [
+       "Daniel Durrant",
+       "Russell Carr",
+       "Jon Statham"
+      ],
+      "engineers": [],
+      "wikiFile": "2025 Lotus Emira V6 in Vivid Red, front right.jpg",
+      "sharedPlatforms": []
+     }
+    ]
+   },
+   "attempts": 1,
+   "feedback": [],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": false,
+     "generations": [
+      {
+       "code": "Emira",
+       "yearStart": 2022,
+       "yearEnd": null,
+       "designers": [
+        "Daniel Durrant",
+        "Russell Carr",
+        "Jon Statham"
+       ],
+       "engineers": [],
+       "sharedPlatforms": []
+      }
+     ]
+    },
+    "dropped": []
+   },
+   "cascadeDiscovered": true
+  },
+  "m-mercedes-benz-sls-amg": {
+   "status": "none",
+   "checkedAt": "2026-09-16T22:35:43.503Z",
+   "sourceTitle": "Mercedes-Benz SLS AMG",
+   "proposal": {
+    "hasMultipleGenerations": false,
+    "generations": [
+     {
+      "code": "C197 / R197",
+      "yearStart": 2010,
+      "yearEnd": 2015,
+      "designers": [
+       "Mark Fetherston"
+      ],
+      "engineers": [
+       "David Coulthard"
+      ],
+      "wikiFile": "Mercedes-Benz SLS AMG (C 197) – Frontansicht geöffnet, 10. August 2011, Düsseldorf.jpg",
+      "sharedPlatforms": []
+     }
+    ]
+   },
+   "attempts": 1,
+   "feedback": [],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": false,
+     "generations": [
+      {
+       "code": "C197/R197",
+       "yearStart": 2010,
+       "yearEnd": 2015,
+       "designers": [
+        "Mark Fetherston"
+       ],
+       "engineers": [
+        "David Coulthard"
+       ],
+       "sharedPlatforms": []
+      }
+     ]
+    },
+    "dropped": [
+     {
+      "code": "C197/R197",
+      "yearStart": 2010,
+      "yearEnd": 2015,
+      "designers": [
+       "Mark Fetherston"
+      ],
+      "engineers": [
+       "David Coulthard"
+      ],
+      "sharedPlatforms": []
+     }
+    ]
+   },
+   "cascadeDiscovered": true
   }
  },
  "relations": {
@@ -6138,12 +6805,341 @@
    "genIdB": "llm-m-mercedes-benz-cla-c178",
    "reason": "proposed by overlapping production years only, on top of a nameplate name that only matched as a substring -- please verify this is really the right car before accepting",
    "llmDiscovered": true
+  },
+  "m-porsche-911-991|m-ruf-rtr|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-16T22:27:07.879Z",
+   "decidedAt": "2026-09-16T22:27:07.879Z",
+   "famA": "m-ruf-rtr",
+   "famB": "fam-porsche-911",
+   "relType": "platform",
+   "codeA": "RTR",
+   "codeB": "911 (991)",
+   "genIdA": "m-ruf-rtr",
+   "genIdB": "m-porsche-911-991",
+   "reason": "auto-approved in the background -- the local LLM sanity check confidently identified this as the same car as \"Porsche 991\" (confidence: high) -- The mention 'Porsche 991' refers to the specific generation of the Porsche 911, which is the fourth generation of the 911 model line. The candidate 'm-porsche-911-991' is explicitly labeled as 'Porsche 911 (991)' and covers the production years 2011–2019, which matches the definition of the 991 generation.",
+   "llmDiscovered": true,
+   "llmVerifiedDuplicate": true
+  },
+  "m-mercedes-benz-w110|m-mercedes-benz-w111|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-16T22:27:07.880Z",
+   "decidedAt": "2026-09-16T22:27:07.880Z",
+   "famA": "m-mercedes-benz-w111",
+   "famB": "m-mercedes-benz-w110",
+   "relType": "platform",
+   "codeA": "W111",
+   "codeB": "W110",
+   "genIdA": "m-mercedes-benz-w111",
+   "genIdB": "m-mercedes-benz-w110",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "m-mercedes-benz-w111|m-mercedes-benz-w112|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-16T22:27:07.882Z",
+   "decidedAt": "2026-09-16T22:27:07.882Z",
+   "famA": "m-mercedes-benz-w111",
+   "famB": "m-mercedes-benz-w112",
+   "relType": "platform",
+   "codeA": "W111",
+   "codeB": "W112",
+   "genIdA": "m-mercedes-benz-w111",
+   "genIdB": "m-mercedes-benz-w112",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "m-mercedes-benz-w111|m-mercedes-benz-w113|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-16T22:27:07.883Z",
+   "decidedAt": "2026-09-16T22:27:07.883Z",
+   "famA": "m-mercedes-benz-w111",
+   "famB": "m-mercedes-benz-w113",
+   "relType": "platform",
+   "codeA": "W111",
+   "codeB": "W113",
+   "genIdA": "m-mercedes-benz-w111",
+   "genIdB": "m-mercedes-benz-w113",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "m-mercedes-benz-w112|m-mercedes-benz-w113|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-16T22:27:07.886Z",
+   "decidedAt": "2026-09-16T22:27:07.886Z",
+   "famA": "m-mercedes-benz-w112",
+   "famB": "m-mercedes-benz-w113",
+   "relType": "platform",
+   "codeA": "W112",
+   "codeB": "W113",
+   "genIdA": "m-mercedes-benz-w112",
+   "genIdB": "m-mercedes-benz-w113",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "m-mercedes-benz-s-class-c217|m-mercedes-benz-s-class-w222|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-16T22:27:07.889Z",
+   "decidedAt": "2026-09-16T22:27:07.889Z",
+   "famA": "m-mercedes-benz-s-class-c217",
+   "famB": "fam-mercedes-benz-s",
+   "relType": "platform",
+   "codeA": "S-Class (C217)",
+   "codeB": "S-Class (W222)",
+   "genIdA": "m-mercedes-benz-s-class-c217",
+   "genIdB": "m-mercedes-benz-s-class-w222",
+   "reason": "matched automatically (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "m-aston-martin-dbx|m-aston-martin-vantage-2018|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-16T22:27:07.892Z",
+   "decidedAt": "2026-09-16T22:27:07.892Z",
+   "famA": "m-aston-martin-dbx",
+   "famB": "fam-aston-martin-vantage",
+   "relType": "platform",
+   "codeA": "DBX",
+   "codeB": "Vantage (2018)",
+   "genIdA": "m-aston-martin-dbx",
+   "genIdB": "m-aston-martin-vantage-2018",
+   "reason": "matched automatically (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-mercedes-benz-cla-c117|m-mercedes-benz-r-class|platform": {
+   "status": "provisional",
+   "checkedAt": "2026-09-16T22:27:07.897Z",
+   "famA": "m-mercedes-benz-r-class",
+   "famB": "m-mercedes-benz-cla",
+   "relType": "platform",
+   "codeA": "R-Class",
+   "codeB": "CLA C117",
+   "genIdA": "m-mercedes-benz-r-class",
+   "genIdB": "llm-m-mercedes-benz-cla-c117",
+   "reason": "proposed by overlapping production years only, on top of a nameplate name that only matched as a substring -- please verify this is really the right car before accepting",
+   "llmDiscovered": true
+  },
+  "m-mercedes-benz-gl-class-x164|m-mercedes-benz-r-class|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-16T22:27:07.902Z",
+   "decidedAt": "2026-09-16T22:27:07.902Z",
+   "famA": "m-mercedes-benz-r-class",
+   "famB": "fam-mercedes-benz-gl",
+   "relType": "platform",
+   "codeA": "R-Class",
+   "codeB": "GL-Class (X164)",
+   "genIdA": "m-mercedes-benz-r-class",
+   "genIdB": "m-mercedes-benz-gl-class-x164",
+   "reason": "auto-approved in the background -- the local LLM sanity check confidently identified this as the same car as \"Mercedes-Benz GL-Class\" (confidence: high) -- The mention 'Mercedes-Benz GL-Class' refers to the SUV lineage, which in the database is split into two generations: X164 (2006–2012) and X166 (2012–2019). Since the mention does not specify a generation or year, the first generation (X164) is the most direct and specific match for the base name 'GL-Class' in the provided list, whereas 'GLC' is a distinct model name and other 'GL' candidates (G-Class, GLA, etc.) are different vehicles.",
+   "llmDiscovered": true,
+   "llmVerifiedDuplicate": true
+  },
+  "m-mercedes-benz-r-class|m-ssangyong-rodius|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-16T22:27:07.904Z",
+   "decidedAt": "2026-09-16T22:27:07.904Z",
+   "famA": "m-mercedes-benz-r-class",
+   "famB": "m-ssangyong-rodius",
+   "relType": "platform",
+   "codeA": "R-Class",
+   "codeB": "Rodius",
+   "genIdA": "m-mercedes-benz-r-class",
+   "genIdB": "m-ssangyong-rodius",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-related-mercedes-benz-m-class-w166|llm-related-mercedes-benz-m-class-w166|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-16T22:27:07.908Z",
+   "decidedAt": "2026-09-16T22:27:07.908Z",
+   "famA": "llm-related-mercedes-benz-m-class-w166",
+   "famB": "llm-related-mercedes-benz-m-class-w166",
+   "relType": "platform",
+   "codeA": "M-Class (W166)",
+   "codeB": "M-Class (W166)",
+   "genIdA": "llm-related-mercedes-benz-m-class-w166",
+   "genIdB": "llm-related-mercedes-benz-m-class-w166",
+   "reason": "matched automatically -- \"Mercedes-Benz M-Class (W166)\" was named as a related car but didn't exist anywhere in the graph yet, so it was newly created from this mention (double-checked by the local LLM sanity pass against every plausible existing car -- none matched)",
+   "llmDiscovered": true
+  },
+  "llm-related-mercedes-benz-m-class-w166|m-baic-bj90|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-16T22:27:07.909Z",
+   "decidedAt": "2026-09-16T22:27:07.909Z",
+   "famA": "llm-related-mercedes-benz-m-class-w166",
+   "famB": "m-baic-bj90",
+   "relType": "platform",
+   "codeA": "M-Class (W166)",
+   "codeB": "BJ90",
+   "genIdA": "llm-related-mercedes-benz-m-class-w166",
+   "genIdB": "m-baic-bj90",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-related-mercedes-benz-glk|m-mercedes-benz-c-class-w204|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-16T22:27:07.910Z",
+   "decidedAt": "2026-09-16T22:27:07.910Z",
+   "famA": "llm-related-mercedes-benz-glk",
+   "famB": "fam-mercedes-benz-c",
+   "relType": "platform",
+   "codeA": "GLK",
+   "codeB": "C-Class (W204)",
+   "genIdA": "llm-related-mercedes-benz-glk",
+   "genIdB": "m-mercedes-benz-c-class-w204",
+   "reason": "matched automatically (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-related-mercedes-benz-glk|m-mercedes-benz-e-class-w212|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-16T22:27:07.911Z",
+   "decidedAt": "2026-09-16T22:27:07.911Z",
+   "famA": "llm-related-mercedes-benz-glk",
+   "famB": "fam-mercedes-benz-e",
+   "relType": "platform",
+   "codeA": "GLK",
+   "codeB": "E-Class (W212)",
+   "genIdA": "llm-related-mercedes-benz-glk",
+   "genIdB": "m-mercedes-benz-e-class-w212",
+   "reason": "matched automatically (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-related-mercedes-benz-musso-sports|m-nissan-navara|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-16T22:27:07.916Z",
+   "decidedAt": "2026-09-16T22:27:07.916Z",
+   "famA": "llm-related-mercedes-benz-musso-sports",
+   "famB": "m-nissan-navara",
+   "relType": "platform",
+   "codeA": "Musso Sports",
+   "codeB": "Navara",
+   "genIdA": "llm-related-mercedes-benz-musso-sports",
+   "genIdB": "m-nissan-navara",
+   "reason": "auto-approved in the background -- the local LLM sanity check confidently identified this as the same car as \"Nissan Navara (D23)\" (confidence: high) -- The mention 'Nissan Navara (D23)' explicitly identifies the chassis code D23, which corresponds to the second generation of the Nissan Navara. The candidate 'm-nissan-navara' is labeled 'Nissan Navara (1997–present)', covering the entire production history including the D23 generation (introduced in 2015). This is a direct match for the specific model mentioned.",
+   "llmDiscovered": true,
+   "llmVerifiedDuplicate": true
+  },
+  "llm-llm-related-brabus-rocket-900-one-of-ten-brabus-rocket-2006|m-mercedes-benz-cls-class-c219|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-16T22:30:56.657Z",
+   "decidedAt": "2026-09-16T22:30:56.657Z",
+   "famA": "llm-related-brabus-rocket-900-one-of-ten",
+   "famB": "fam-mercedes-benz-cls",
+   "relType": "platform",
+   "codeA": "Rocket 900 \"ONE OF TEN\" Brabus Rocket (2006)",
+   "codeB": "CLS-Class (C219)",
+   "genIdA": "llm-llm-related-brabus-rocket-900-one-of-ten-brabus-rocket-2006",
+   "genIdB": "m-mercedes-benz-cls-class-c219",
+   "reason": "auto-approved in the background -- the local LLM sanity check confidently identified this as the same car as \"Mercedes-Benz CLS-Class (W219)\" (confidence: high) -- The mention specifies the Mercedes-Benz CLS-Class with chassis code W219, which corresponds exactly to the candidate 'Mercedes-Benz CLS-Class (C219) (2004–2010)'. The W219 chassis code is the official internal designation for the C219 CLS generation produced during those years.",
+   "llmDiscovered": true,
+   "llmVerifiedDuplicate": true
+  },
+  "llm-llm-related-brabus-rocket-900-one-of-ten-brabus-rocket-800-2011|m-mercedes-benz-cls-class-c219|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-16T22:30:56.664Z",
+   "decidedAt": "2026-09-16T22:30:56.664Z",
+   "famA": "llm-related-brabus-rocket-900-one-of-ten",
+   "famB": "fam-mercedes-benz-cls",
+   "relType": "platform",
+   "codeA": "Rocket 900 \"ONE OF TEN\" Brabus Rocket 800 (2011)",
+   "codeB": "CLS-Class (C219)",
+   "genIdA": "llm-llm-related-brabus-rocket-900-one-of-ten-brabus-rocket-800-2011",
+   "genIdB": "m-mercedes-benz-cls-class-c219",
+   "reason": "auto-approved in the background -- the local LLM sanity check confidently identified this as the same car as \"Mercedes-Benz CLS-Class (W219)\" (confidence: high) -- The mention specifies the Mercedes-Benz CLS-Class with chassis code W219, which corresponds exactly to the candidate 'Mercedes-Benz CLS-Class (C219) (2004–2010)'. The W219 chassis code is the official internal designation for the C219 CLS generation produced during those years.",
+   "llmDiscovered": true,
+   "llmVerifiedDuplicate": true
+  },
+  "llm-llm-related-brabus-rocket-900-one-of-ten-brabus-rocket-730-2014|m-mercedes-benz-cls-class-c219|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-16T22:30:56.671Z",
+   "decidedAt": "2026-09-16T22:30:56.671Z",
+   "famA": "llm-related-brabus-rocket-900-one-of-ten",
+   "famB": "fam-mercedes-benz-cls",
+   "relType": "platform",
+   "codeA": "Rocket 900 \"ONE OF TEN\" Brabus Rocket 730 (2014)",
+   "codeB": "CLS-Class (C219)",
+   "genIdA": "llm-llm-related-brabus-rocket-900-one-of-ten-brabus-rocket-730-2014",
+   "genIdB": "m-mercedes-benz-cls-class-c219",
+   "reason": "auto-approved in the background -- the local LLM sanity check confidently identified this as the same car as \"Mercedes-Benz CLS-Class (W219)\" (confidence: high) -- The mention specifies the Mercedes-Benz CLS-Class with chassis code W219, which corresponds exactly to the candidate 'Mercedes-Benz CLS-Class (C219) (2004–2010)'. The W219 chassis code is the official internal designation for the C219 CLS generation produced during those years.",
+   "llmDiscovered": true,
+   "llmVerifiedDuplicate": true
+  },
+  "llm-llm-related-brabus-rocket-900-one-of-ten-brabus-rocket-900-2015|m-mercedes-benz-cls-class-c219|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-16T22:30:56.678Z",
+   "decidedAt": "2026-09-16T22:30:56.678Z",
+   "famA": "llm-related-brabus-rocket-900-one-of-ten",
+   "famB": "fam-mercedes-benz-cls",
+   "relType": "platform",
+   "codeA": "Rocket 900 \"ONE OF TEN\" Brabus Rocket 900 (2015)",
+   "codeB": "CLS-Class (C219)",
+   "genIdA": "llm-llm-related-brabus-rocket-900-one-of-ten-brabus-rocket-900-2015",
+   "genIdB": "m-mercedes-benz-cls-class-c219",
+   "reason": "auto-approved in the background -- the local LLM sanity check confidently identified this as the same car as \"Mercedes-Benz CLS-Class (W219)\" (confidence: high) -- The mention specifies the Mercedes-Benz CLS-Class with chassis code W219, which corresponds exactly to the candidate 'Mercedes-Benz CLS-Class (C219) (2004–2010)'. The W219 chassis code is the official internal designation for the C219 CLS generation produced during those years.",
+   "llmDiscovered": true,
+   "llmVerifiedDuplicate": true
+  },
+  "llm-llm-related-brabus-rocket-900-one-of-ten-brabus-rocket-900-one-of-ten-2020|m-mercedes-benz-cls-class-c219|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-16T22:30:56.687Z",
+   "decidedAt": "2026-09-16T22:30:56.687Z",
+   "famA": "llm-related-brabus-rocket-900-one-of-ten",
+   "famB": "fam-mercedes-benz-cls",
+   "relType": "platform",
+   "codeA": "Rocket 900 \"ONE OF TEN\" Brabus Rocket 900 \"ONE OF TEN\" (2020)",
+   "codeB": "CLS-Class (C219)",
+   "genIdA": "llm-llm-related-brabus-rocket-900-one-of-ten-brabus-rocket-900-one-of-ten-2020",
+   "genIdB": "m-mercedes-benz-cls-class-c219",
+   "reason": "auto-approved in the background -- the local LLM sanity check confidently identified this as the same car as \"Mercedes-Benz CLS-Class (W219)\" (confidence: high) -- The mention specifies the Mercedes-Benz CLS-Class with chassis code W219, which corresponds exactly to the candidate 'Mercedes-Benz CLS-Class (C219) (2004–2010)'. The W219 chassis code is the official internal designation for the C219 CLS generation produced during those years.",
+   "llmDiscovered": true,
+   "llmVerifiedDuplicate": true
+  },
+  "llm-llm-related-brabus-rocket-900-one-of-ten-brabus-rocket-900-one-of-ten-2020|llm-m-mercedes-benz-mercedes-amg-gt-4-door-coupe-x290|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-16T22:30:56.688Z",
+   "decidedAt": "2026-09-16T22:30:56.688Z",
+   "famA": "llm-related-brabus-rocket-900-one-of-ten",
+   "famB": "m-mercedes-benz-mercedes-amg-gt-4-door-coupe",
+   "relType": "platform",
+   "codeA": "Rocket 900 \"ONE OF TEN\" Brabus Rocket 900 \"ONE OF TEN\" (2020)",
+   "codeB": "Mercedes-AMG GT 4-Door Coupé X290",
+   "genIdA": "llm-llm-related-brabus-rocket-900-one-of-ten-brabus-rocket-900-one-of-ten-2020",
+   "genIdB": "llm-m-mercedes-benz-mercedes-amg-gt-4-door-coupe-x290",
+   "reason": "matched automatically -- the nameplate was named exactly in the source text, and exactly one of its generations was in production alongside this one, so that is the generation it refers to",
+   "llmDiscovered": true
+  },
+  "llm-llm-related-mercedes-amg-gt-r-c190-c190-r190|m-mercedes-benz-sls-amg|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-16T22:35:29.923Z",
+   "decidedAt": "2026-09-16T22:35:29.923Z",
+   "famA": "llm-related-mercedes-amg-gt-r-c190",
+   "famB": "m-mercedes-benz-sls-amg",
+   "relType": "platform",
+   "codeA": "GT R (C190) C190/R190",
+   "codeB": "SLS AMG",
+   "genIdA": "llm-llm-related-mercedes-amg-gt-r-c190-c190-r190",
+   "genIdB": "m-mercedes-benz-sls-amg",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-llm-related-mercedes-amg-gt-r-c190-c192|m-mercedes-benz-sl-r232|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-16T22:35:29.930Z",
+   "decidedAt": "2026-09-16T22:35:29.930Z",
+   "famA": "llm-related-mercedes-amg-gt-r-c190",
+   "famB": "fam-mercedes-benz-sl",
+   "relType": "platform",
+   "codeA": "GT R (C190) C192",
+   "codeB": "SL (R232)",
+   "genIdA": "llm-llm-related-mercedes-amg-gt-r-c190-c192",
+   "genIdB": "m-mercedes-benz-sl-r232",
+   "reason": "matched automatically (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
   }
  },
  "recheck": {
   "m-chevrolet-van": {
    "status": "none",
-   "checkedAt": "2026-09-16T16:56:46.498Z",
+   "checkedAt": "2026-09-16T22:27:25.583Z",
    "sourceTitle": "Chevrolet van",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -6217,7 +7213,7 @@
   },
   "m-chevrolet-suburban": {
    "status": "none",
-   "checkedAt": "2026-09-16T16:57:17.290Z",
+   "checkedAt": "2026-09-16T22:27:25.660Z",
    "sourceTitle": "Chevrolet Suburban",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -6786,7 +7782,7 @@
   },
   "m-mercedes-benz-w108-w109": {
    "status": "none",
-   "checkedAt": "2026-09-16T18:36:29.998Z",
+   "checkedAt": "2026-09-16T22:27:25.669Z",
    "sourceTitle": "Mercedes-Benz W108/W109",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -6827,7 +7823,7 @@
   },
   "m-mercedes-benz-mercedes-amg-gt-4-door-coupe": {
    "status": "none",
-   "checkedAt": "2026-09-16T18:38:10.231Z",
+   "checkedAt": "2026-09-16T22:27:25.679Z",
    "sourceTitle": "Mercedes-AMG GT 4-Door Coupé",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -6872,7 +7868,7 @@
   },
   "m-mercedes-benz-g-class": {
    "status": "none",
-   "checkedAt": "2026-09-16T18:40:10.509Z",
+   "checkedAt": "2026-09-16T22:27:25.701Z",
    "sourceTitle": "Mercedes-Benz G-Class",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -6979,7 +7975,7 @@
   },
   "m-mercedes-benz-glc": {
    "status": "none",
-   "checkedAt": "2026-09-16T18:40:49.068Z",
+   "checkedAt": "2026-09-16T22:27:25.713Z",
    "sourceTitle": "Mercedes-Benz GLC",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -7033,7 +8029,7 @@
   },
   "m-mercedes-benz-gle": {
    "status": "none",
-   "checkedAt": "2026-09-16T18:43:27.619Z",
+   "checkedAt": "2026-09-16T22:27:25.740Z",
    "sourceTitle": "Mercedes-Benz GLE",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -7128,7 +8124,7 @@
   },
   "m-kgm-rexton": {
    "status": "none",
-   "checkedAt": "2026-09-16T18:45:22.074Z",
+   "checkedAt": "2026-09-16T22:27:25.750Z",
    "sourceTitle": "KGM Rexton",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -7172,7 +8168,7 @@
   },
   "m-dodge-durango": {
    "status": "none",
-   "checkedAt": "2026-09-16T18:46:26.186Z",
+   "checkedAt": "2026-09-16T22:27:25.760Z",
    "sourceTitle": "Dodge Durango",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -7227,7 +8223,7 @@
   },
   "m-mercedes-benz-gls": {
    "status": "none",
-   "checkedAt": "2026-09-16T18:47:50.129Z",
+   "checkedAt": "2026-09-16T22:27:25.783Z",
    "sourceTitle": "Mercedes-Benz GLS",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -7294,7 +8290,7 @@
   },
   "m-mercedes-benz-cla": {
    "status": "none",
-   "checkedAt": "2026-09-16T18:50:15.966Z",
+   "checkedAt": "2026-09-16T22:27:25.818Z",
    "sourceTitle": "Mercedes-Benz CLA",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -7384,7 +8380,7 @@
   },
   "m-ssangyong-musso": {
    "status": "none",
-   "checkedAt": "2026-09-16T18:53:59.190Z",
+   "checkedAt": "2026-09-16T22:27:25.915Z",
    "sourceTitle": "SsangYong Musso",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -7563,7 +8559,7 @@
   },
   "m-mercedes-benz-gla": {
    "status": "none",
-   "checkedAt": "2026-09-16T19:01:19.206Z",
+   "checkedAt": "2026-09-16T22:27:25.951Z",
    "sourceTitle": "Mercedes-Benz GLA",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -7649,7 +8645,7 @@
   },
   "m-mercedes-benz-glb": {
    "status": "none",
-   "checkedAt": "2026-09-16T19:02:47.030Z",
+   "checkedAt": "2026-09-16T22:27:25.971Z",
    "sourceTitle": "Mercedes-Benz GLB",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -7705,6 +8701,233 @@
    "discrepancy": null,
    "attempts": 1,
    "feedback": []
+  },
+  "llm-related-mercedes-amg-gt-black-series-c190-engine-code-m178-ls2": {
+   "status": "none",
+   "checkedAt": "2026-09-16T22:30:39.454Z",
+   "sourceTitle": "Mercedes-Benz M176/M177/M178 engine",
+   "proposal": {
+    "hasMultipleGenerations": true,
+    "generations": [
+     {
+      "code": "M176",
+      "yearStart": 2014,
+      "yearEnd": 2018,
+      "designers": [
+       "Mercedes-AMG"
+      ],
+      "engineers": [
+       "Mercedes-AMG"
+      ],
+      "wikiFile": "Mercedes-Benz M178 BR190.jpg",
+      "sharedPlatforms": [
+       "Mercedes-Benz M133 engine"
+      ],
+      "sharedPlatformMatches": {
+       "Mercedes-Benz M133 engine": {
+        "matchId": null,
+        "confidence": "high",
+        "reason": "The mention refers to the Mercedes-Benz M133 engine (a 1.6L turbocharged petrol engine used in models like the A-Class W168 and C-Class W203 from ~2003 onwards). None of the candidate car entries correspond to this engine or the specific vehicle models known to use it. While some candidates share chassis codes (e.g., W203) or are Mercedes-Benz cars, the specific mention of the M133 engine distinguishes it from the specific model years and configurations listed in the candidates, many of which are significantly older or refer to different powertrains."
+       }
+      }
+     },
+     {
+      "code": "M177",
+      "yearStart": 2014,
+      "yearEnd": 2020,
+      "designers": [
+       "Mercedes-AMG"
+      ],
+      "engineers": [
+       "Mercedes-AMG"
+      ],
+      "wikiFile": "Mercedes-Benz M178 BR190.jpg",
+      "sharedPlatforms": [
+       "Mercedes-Benz M133 engine"
+      ],
+      "sharedPlatformMatches": {
+       "Mercedes-Benz M133 engine": {
+        "matchId": null,
+        "confidence": "high",
+        "reason": "The mention refers to the Mercedes-Benz M133 engine (a 1.6L turbocharged petrol engine used in models like the A-Class W168 and C-Class W203 from ~2003 onwards). None of the candidate car entries correspond to this engine or the specific vehicle models known to use it. While some candidates share chassis codes (e.g., W203) or are Mercedes-Benz cars, the specific mention of the M133 engine distinguishes it from the specific model years and configurations listed in the candidates, many of which are significantly older or refer to different powertrains."
+       }
+      }
+     },
+     {
+      "code": "M178",
+      "yearStart": 2014,
+      "yearEnd": null,
+      "designers": [
+       "Mercedes-AMG"
+      ],
+      "engineers": [
+       "Mercedes-AMG"
+      ],
+      "wikiFile": "Mercedes-Benz M178 BR190.jpg",
+      "sharedPlatforms": [
+       "Mercedes-Benz M133 engine"
+      ],
+      "sharedPlatformMatches": {
+       "Mercedes-Benz M133 engine": {
+        "matchId": null,
+        "confidence": "high",
+        "reason": "The mention refers to the Mercedes-Benz M133 engine (a 1.6L turbocharged petrol engine used in models like the A-Class W168 and C-Class W203 from ~2003 onwards). None of the candidate car entries correspond to this engine or the specific vehicle models known to use it. While some candidates share chassis codes (e.g., W203) or are Mercedes-Benz cars, the specific mention of the M133 engine distinguishes it from the specific model years and configurations listed in the candidates, many of which are significantly older or refer to different powertrains."
+       }
+      }
+     }
+    ]
+   },
+   "discrepancy": null,
+   "attempts": 1,
+   "feedback": []
+  },
+  "llm-related-brabus-rocket-900-one-of-ten": {
+   "status": "none",
+   "checkedAt": "2026-09-16T22:30:56.688Z",
+   "sourceTitle": "Brabus Rocket",
+   "proposal": {
+    "hasMultipleGenerations": true,
+    "generations": [
+     {
+      "code": "Brabus Rocket (2006)",
+      "yearStart": 2006,
+      "yearEnd": null,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "Brabus 900 Rocket IMG 0536.jpg",
+      "sharedPlatforms": [
+       "Mercedes-Benz CLS-Class (W219)"
+      ],
+      "sharedPlatformMatches": {
+       "Mercedes-Benz CLS-Class (W219)": {
+        "matchId": "m-mercedes-benz-cls-class-c219",
+        "confidence": "high",
+        "reason": "The mention specifies the Mercedes-Benz CLS-Class with chassis code W219, which corresponds exactly to the candidate 'Mercedes-Benz CLS-Class (C219) (2004–2010)'. The W219 chassis code is the official internal designation for the C219 CLS generation produced during those years."
+       }
+      }
+     },
+     {
+      "code": "Brabus Rocket 800 (2011)",
+      "yearStart": 2011,
+      "yearEnd": null,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "Brabus 900 Rocket IMG 0536.jpg",
+      "sharedPlatforms": [
+       "Mercedes-Benz CLS-Class (W219)"
+      ],
+      "sharedPlatformMatches": {
+       "Mercedes-Benz CLS-Class (W219)": {
+        "matchId": "m-mercedes-benz-cls-class-c219",
+        "confidence": "high",
+        "reason": "The mention specifies the Mercedes-Benz CLS-Class with chassis code W219, which corresponds exactly to the candidate 'Mercedes-Benz CLS-Class (C219) (2004–2010)'. The W219 chassis code is the official internal designation for the C219 CLS generation produced during those years."
+       }
+      }
+     },
+     {
+      "code": "Brabus Rocket 730 (2014)",
+      "yearStart": 2014,
+      "yearEnd": null,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "Brabus 900 Rocket IMG 0536.jpg",
+      "sharedPlatforms": [
+       "Mercedes-Benz CLS-Class (W219)"
+      ],
+      "sharedPlatformMatches": {
+       "Mercedes-Benz CLS-Class (W219)": {
+        "matchId": "m-mercedes-benz-cls-class-c219",
+        "confidence": "high",
+        "reason": "The mention specifies the Mercedes-Benz CLS-Class with chassis code W219, which corresponds exactly to the candidate 'Mercedes-Benz CLS-Class (C219) (2004–2010)'. The W219 chassis code is the official internal designation for the C219 CLS generation produced during those years."
+       }
+      }
+     },
+     {
+      "code": "Brabus Rocket 900 (2015)",
+      "yearStart": 2015,
+      "yearEnd": null,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "Brabus 900 Rocket IMG 0536.jpg",
+      "sharedPlatforms": [
+       "Mercedes-Benz CLS-Class (W219)",
+       "Mercedes-AMG GT 4-Door Coupé"
+      ],
+      "sharedPlatformMatches": {
+       "Mercedes-Benz CLS-Class (W219)": {
+        "matchId": "m-mercedes-benz-cls-class-c219",
+        "confidence": "high",
+        "reason": "The mention specifies the Mercedes-Benz CLS-Class with chassis code W219, which corresponds exactly to the candidate 'Mercedes-Benz CLS-Class (C219) (2004–2010)'. The W219 chassis code is the official internal designation for the C219 CLS generation produced during those years."
+       }
+      }
+     },
+     {
+      "code": "Brabus Rocket 900 \"ONE OF TEN\" (2020)",
+      "yearStart": 2020,
+      "yearEnd": null,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "Brabus 900 Rocket IMG 0536.jpg",
+      "sharedPlatforms": [
+       "Mercedes-Benz CLS-Class (W219)",
+       "Mercedes-AMG GT 4-Door Coupé"
+      ],
+      "sharedPlatformMatches": {
+       "Mercedes-Benz CLS-Class (W219)": {
+        "matchId": "m-mercedes-benz-cls-class-c219",
+        "confidence": "high",
+        "reason": "The mention specifies the Mercedes-Benz CLS-Class with chassis code W219, which corresponds exactly to the candidate 'Mercedes-Benz CLS-Class (C219) (2004–2010)'. The W219 chassis code is the official internal designation for the C219 CLS generation produced during those years."
+       }
+      }
+     }
+    ]
+   },
+   "discrepancy": null,
+   "attempts": 1,
+   "feedback": []
+  },
+  "llm-related-mercedes-amg-gt-r-c190": {
+   "status": "none",
+   "checkedAt": "2026-09-16T22:35:29.931Z",
+   "sourceTitle": "Mercedes-AMG GT",
+   "proposal": {
+    "hasMultipleGenerations": true,
+    "generations": [
+     {
+      "code": "C190/R190",
+      "yearStart": 2014,
+      "yearEnd": 2022,
+      "designers": [
+       "Robert Lešnik",
+       "Gabriel Nemeth",
+       "Huey Lee",
+       "Mark Fetherston",
+       "Jan Kaul"
+      ],
+      "engineers": [],
+      "wikiFile": "2015-2017 Mercedes-AMG GT (C 190) S coupe (2017-07-15) 01.jpg",
+      "sharedPlatforms": [
+       "Mercedes-Benz SLS AMG"
+      ]
+     },
+     {
+      "code": "C192",
+      "yearStart": 2023,
+      "yearEnd": null,
+      "designers": [
+       "Slavche Tanevski"
+      ],
+      "engineers": [],
+      "wikiFile": "Mercedes-AMG C192 1X7A0832.jpg",
+      "sharedPlatforms": [
+       "Mercedes-Benz SL (R232)"
+      ]
+     }
+    ]
+   },
+   "discrepancy": null,
+   "attempts": 1,
+   "feedback": []
   }
  },
  "rejectedRelations": {
@@ -7712,7 +8935,11 @@
   "m-mercedes-benz-sl-class-r230|m-ruf-rtr|platform": true,
   "llm-m-kgm-rexton-y200|m-mercedes-benz-cla|platform": true,
   "llm-m-mercedes-benz-cla-c178|m-mercedes-benz-gla|platform": true,
-  "llm-m-ssangyong-musso-q200|llm-related-ssangyong-musso|platform": true
+  "llm-m-ssangyong-musso-q200|llm-related-ssangyong-musso|platform": true,
+  "llm-related-mercedes-benz-musso-sports|m-isuzu-aska|platform": true,
+  "llm-llm-related-mercedes-amg-gt-black-series-c190-engine-code-m178-ls2-m176|m-seat-133|platform": true,
+  "llm-llm-related-mercedes-amg-gt-black-series-c190-engine-code-m178-ls2-m177|m-seat-133|platform": true,
+  "llm-llm-related-mercedes-amg-gt-black-series-c190-engine-code-m178-ls2-m178|m-seat-133|platform": true
  },
  "crossGroupRejections": {},
  "transitive": {},
@@ -7857,13 +9084,69 @@
    "year": 2024,
    "end": null,
    "source": "llm-recall"
+  },
+  "llm-related-mercedes-amg-gt-track-series-c190-engine-code-m178-ls2": {
+   "checkedAt": "2026-09-16T22:28:37.928Z",
+   "year": 2019,
+   "end": 2023,
+   "source": "llm-recall"
+  },
+  "llm-related-mercedes-amg-gt-c-c190": {
+   "checkedAt": "2026-09-16T22:28:38.913Z",
+   "year": 2018,
+   "end": 2021,
+   "source": "llm-recall"
+  },
+  "llm-related-mercedes-amg-gt-black-series-c190-engine-code-m178-ls2": {
+   "checkedAt": "2026-09-16T22:28:39.975Z",
+   "year": 2018,
+   "end": 2021,
+   "source": "llm-recall"
+  },
+  "llm-related-rowspan-2-mercedes-amg-gt-c190": {
+   "checkedAt": "2026-09-16T22:28:40.962Z",
+   "year": null,
+   "end": null,
+   "tries": 1
+  },
+  "llm-related-rowspan-3-mercedes-amg-gt-s-c190": {
+   "checkedAt": "2026-09-16T22:28:41.779Z",
+   "year": 2017,
+   "end": 2021,
+   "source": "llm-recall"
+  },
+  "llm-related-mercedes-amg-gt-r-c190": {
+   "checkedAt": "2026-09-16T22:28:42.602Z",
+   "year": 2017,
+   "end": 2020,
+   "source": "llm-recall"
+  },
+  "p-mercedes-amg": {
+   "checkedAt": "2026-09-16T22:30:52.909Z",
+   "born": 1967,
+   "died": null,
+   "country": "Germany",
+   "source": "wikipedia"
+  },
+  "p-jan-kaul": {
+   "checkedAt": "2026-09-16T22:35:31.628Z",
+   "born": null,
+   "died": null,
+   "country": null,
+   "tries": 1
+  },
+  "p-huey-lee": {
+   "checkedAt": "2026-09-16T22:35:32.148Z",
+   "born": null,
+   "died": null,
+   "country": null,
+   "tries": 1
   }
  },
  "userCars": {},
  "wpLinks": {
   "llm-related-mercedes-benz-w114": "Mercedes-Benz W114",
   "llm-fam-mercedes-benz-sl-w198-w121": "Mercedes-Benz W194",
-  "llm-related-brabus-rocket-900-one-of-ten": "Brabus Rocket",
   "llm-related-puch-g": "Puch G",
   "llm-m-mercedes-benz-glc-x540": "Mercedes-Benz GLC Electric",
   "llm-m-mercedes-benz-gls-x164": "Mercedes-Benz GL-Class (X164)",
@@ -7879,7 +9162,12 @@
   "llm-related-ssangyong-musso-grand": "SsangYong Musso",
   "llm-related-mercedes-benz-musso-sports": "Mercedes-Benz X-Class",
   "llm-related-kgm-musso-sports": "SsangYong Musso",
-  "llm-related-mercedes-benz-gla-electric": "Mercedes-Benz GLA"
+  "llm-related-mercedes-benz-gla-electric": "Mercedes-Benz GLA",
+  "llm-related-mercedes-amg-gt-track-series-c190-engine-code-m178-ls2": "Mercedes-Benz M176/M177/M178 engine",
+  "llm-related-mercedes-amg-gt-black-series-c190-engine-code-m178-ls2": "Mercedes-Benz M176/M177/M178 engine",
+  "llm-related-brabus-rocket-900-one-of-ten": "Brabus Rocket",
+  "llm-related-mercedes-amg-gt-c-c190": "Mercedes-AMG GT",
+  "llm-related-mercedes-amg-gt-r-c190": "Mercedes-AMG GT"
  },
  "genResearch": {
   "m-mercedes-benz-sl-class-r129": {
@@ -8099,7 +9387,28 @@
   }
  },
  "merges": {},
- "deletions": {},
+ "deletions": {
+  "eng-mercedes-benz-m177": {
+   "kind": "engine",
+   "label": "M177",
+   "hard": false,
+   "cascadeIds": [
+    "eng-mercedes-benz-m177"
+   ],
+   "reason": null,
+   "deletedAt": "2026-09-16T22:29:57.850Z"
+  },
+  "eng-mercedes-benz-m176": {
+   "kind": "engine",
+   "label": "M176",
+   "hard": false,
+   "cascadeIds": [
+    "eng-mercedes-benz-m176"
+   ],
+   "reason": null,
+   "deletedAt": "2026-09-16T22:30:27.231Z"
+  }
+ },
  "renames": {},
  "unmergedDuplicates": {},
  "mergeWpChoices": {},
@@ -8340,6 +9649,657 @@
     [
      "Aston Martin DB12",
      "Aston Martin DB12"
+    ]
+   ]
+  },
+  "eng-gmc-straight-6": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-16T22:27:44.123Z",
+   "sourceTitle": "GMC straight-6 engine",
+   "article": {
+    "name": "GMC straight-6 engine",
+    "shortName": "{{convert|228|CID|L|1|abbr=on}}",
+    "manufacturer": "General Motors",
+    "production": "1939–1962",
+    "configuration": "straight-6",
+    "displacement": "228-503 CID",
+    "predecessor": "Buick Straight-6 engine 223 cu in Pontiac straight-6 230 cu in Oldsmobile straight-6",
+    "successor": "324 cu in Oldsmobile V8 GMC V6 engine Chevrolet Turbo-Thrift engine",
+    "variants": [],
+    "applications": []
+   },
+   "resolved": []
+  },
+  "eng-mercedes-benz-m176-m177-m178": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-16T22:28:24.105Z",
+   "sourceTitle": "Mercedes-Benz M176/M177/M178 engine",
+   "article": {
+    "name": "Mercedes-Benz M176/M177/M178",
+    "shortName": "M176/M177/M178",
+    "manufacturer": "Mercedes-AMG",
+    "production": "2014–present",
+    "configuration": "90° V8",
+    "displacement": "3982 cc",
+    "predecessor": "Mercedes-Benz M278 / M157 engine (4.7&nbsp;L & 5.5&nbsp;L) Mercedes-Benz M152 engine Mercedes-Benz M156 engine",
+    "successor": "",
+    "variants": [
+     {
+      "code": "M176",
+      "applications": [
+       {
+        "target": "Mercedes-Benz G-Class",
+        "anchor": "G-Class W463, first generation (1990–2018)",
+        "display": "Mercedes-Benz G 500/G 550 and G 500 4×4² (W463, first generation)",
+        "text": "Mercedes-Benz G 500/G 550 and G 500 4×4² (W463, first generation)",
+        "yearStart": 2015,
+        "yearEnd": 2018,
+        "note": null
+       },
+       {
+        "target": "Mercedes-Benz S-Class (W222)",
+        "anchor": null,
+        "display": "Mercedes-Benz S 560/S 560 4MATIC (W222/V222)",
+        "text": "Mercedes-Benz S 560/S 560 4MATIC (W222/V222)",
+        "yearStart": 2017,
+        "yearEnd": 2020,
+        "note": null
+       },
+       {
+        "target": "Mercedes-Benz S-Class (W222)",
+        "anchor": null,
+        "display": "Mercedes-Maybach S 560/S 560 4MATIC (X222)",
+        "text": "Mercedes-Maybach S 560/S 560 4MATIC (X222)",
+        "yearStart": 2017,
+        "yearEnd": 2020,
+        "note": null
+       },
+       {
+        "target": "Mercedes-Benz S-Class (C217)",
+        "anchor": null,
+        "display": "Mercedes-Benz S 560 Coupe & Cabrio (C217)",
+        "text": "Mercedes-Benz S 560 Coupe & Cabrio (C217)",
+        "yearStart": 2017,
+        "yearEnd": 2020,
+        "note": null
+       },
+       {
+        "target": "Mercedes-Benz G-Class",
+        "anchor": "G-Class W463, second generation (2018–present)",
+        "display": "Mercedes-Benz G 500/G 550 (W463, second generation)",
+        "text": "Mercedes-Benz G 500/G 550 (W463, second generation)",
+        "yearStart": 2018,
+        "yearEnd": 2024,
+        "note": null
+       },
+       {
+        "target": "Mercedes-Benz M-Class",
+        "anchor": "Fourth generation (W167/V167; 2019)",
+        "display": "Mercedes-Benz GLE 580 4MATIC (W167/V167)",
+        "text": "Mercedes-Benz GLE 580 4MATIC (W167/V167)",
+        "yearStart": 2019,
+        "yearEnd": null,
+        "note": null
+       },
+       {
+        "target": "Mercedes-Benz GLS-Class (X167)",
+        "anchor": null,
+        "display": "Mercedes-Benz GLS 580 4MATIC (X167)",
+        "text": "Mercedes-Benz GLS 580 4MATIC (X167)",
+        "yearStart": 2019,
+        "yearEnd": null,
+        "note": null
+       },
+       {
+        "target": "Mercedes-Benz S-Class (W223)",
+        "anchor": null,
+        "display": "Mercedes-Benz S 580 4MATIC (W223/V223)",
+        "text": "Mercedes-Benz S 580 4MATIC (W223/V223)",
+        "yearStart": 2021,
+        "yearEnd": null,
+        "note": null
+       },
+       {
+        "target": "Mercedes-Benz S-Class (W223)",
+        "anchor": null,
+        "display": "Mercedes-Maybach S 580 4MATIC (without EQ Boost) (Z223)",
+        "text": "Mercedes-Maybach S 580 4MATIC (without EQ Boost) (Z223)",
+        "yearStart": 2021,
+        "yearEnd": null,
+        "note": null
+       },
+       {
+        "target": "BAIC BJ90",
+        "anchor": null,
+        "display": "BAIC BJ90",
+        "text": "BAIC BJ90",
+        "yearStart": 2017,
+        "yearEnd": null,
+        "note": null
+       }
+      ]
+     },
+     {
+      "code": "M177",
+      "applications": [
+       {
+        "target": "Mercedes-Benz C-Class (W205)",
+        "anchor": null,
+        "display": "Mercedes-AMG C 63 and C 63 S (W205)",
+        "text": "Mercedes-AMG C 63 and C 63 S (W205)",
+        "yearStart": 2015,
+        "yearEnd": 2021,
+        "note": null
+       },
+       {
+        "target": "Mercedes-Benz E-Class (W213)",
+        "anchor": null,
+        "display": "Mercedes-AMG E 63 4MATIC+ and E 63 S 4MATIC+ (W213)",
+        "text": "Mercedes-AMG E 63 4MATIC+ and E 63 S 4MATIC+ (W213)",
+        "yearStart": 2016,
+        "yearEnd": 2022,
+        "note": null
+       },
+       {
+        "target": "Mercedes-Benz S-Class (C217)",
+        "anchor": null,
+        "display": "Mercedes-AMG S 63 Coupe 4MATIC (C217) and S 63 Cabriolet 4MATIC (A217)",
+        "text": "Mercedes-AMG S 63 Coupe 4MATIC (C217) and S 63 Cabriolet 4MATIC (A217)",
+        "yearStart": 2018,
+        "yearEnd": 2020,
+        "note": null
+       },
+       {
+        "target": "Mercedes-Benz S-Class (W222)",
+        "anchor": null,
+        "display": "Mercedes-AMG S 63 4MATIC and S 63 (W222/V222)",
+        "text": "Mercedes-AMG S 63 4MATIC and S 63 (W222/V222)",
+        "yearStart": 2017,
+        "yearEnd": 2020,
+        "note": null
+       },
+       {
+        "target": "Mercedes-AMG GT 4-Door Coupé",
+        "anchor": null,
+        "display": "Mercedes-AMG GT 63 4MATIC+, GT 63 S 4MATIC+, and GT 63 S E Performance (X290)",
+        "text": "Mercedes-AMG GT 63 4MATIC+, GT 63 S 4MATIC+, and GT 63 S E Performance (X290)",
+        "yearStart": 2018,
+        "yearEnd": 2026,
+        "note": null
+       },
+       {
+        "target": "Mercedes-Benz G-Class",
+        "anchor": "W463",
+        "display": "Mercedes-AMG G 63 (W463, second generation)",
+        "text": "Mercedes-AMG G 63 (W463, second generation)",
+        "yearStart": 2019,
+        "yearEnd": 2024,
+        "note": null
+       },
+       {
+        "target": "Mercedes-Benz GLC",
+        "anchor": "X253",
+        "display": "Mercedes-AMG GLC 63 4MATIC, GLC 63 4MATIC Coupé, GLC 63 S 4MATIC, and GLC 63 S 4MATIC Coupé (X253)",
+        "text": "Mercedes-AMG GLC 63 4MATIC, GLC 63 4MATIC Coupé, GLC 63 S 4MATIC, and GLC 63 S 4MATIC Coupé (X253)",
+        "yearStart": 2018,
+        "yearEnd": 2022,
+        "note": null
+       },
+       {
+        "target": "Mercedes-Benz GLE",
+        "anchor": "W167",
+        "display": "Mercedes-AMG GLE 63 4MATIC+ and 63 S 4MATIC+ (X167) with ISG)",
+        "text": "Mercedes-AMG GLE 63 4MATIC+ and 63 S 4MATIC+ (X167) with ISG)",
+        "yearStart": 2020,
+        "yearEnd": null,
+        "note": null
+       },
+       {
+        "target": "Mercedes-Benz GLS-Class (X167)",
+        "anchor": null,
+        "display": "Mercedes-AMG GLS 63 4MATIC+ (X167) with ISG",
+        "text": "Mercedes-AMG GLS 63 4MATIC+ (X167) with ISG",
+        "yearStart": 2020,
+        "yearEnd": null,
+        "note": null
+       },
+       {
+        "target": "Mercedes-Benz GLS-Class (X167)",
+        "anchor": null,
+        "display": "Mercedes-Maybach GLS 600 (X167) with ISG",
+        "text": "Mercedes-Maybach GLS 600 (X167) with ISG",
+        "yearStart": 2020,
+        "yearEnd": null,
+        "note": null
+       },
+       {
+        "target": "Mercedes-AMG SL-Class (R232)",
+        "anchor": null,
+        "display": "Mercedes-AMG SL 55 4MATIC+, SL 63 4MATIC+ (R232)",
+        "text": "Mercedes-AMG SL 55 4MATIC+, SL 63 4MATIC+ (R232)",
+        "yearStart": 2022,
+        "yearEnd": null,
+        "note": null
+       },
+       {
+        "target": "Mercedes-Benz S-Class (W223)",
+        "anchor": null,
+        "display": "Mercedes-AMG S 63 E Performance (W223)",
+        "text": "Mercedes-AMG S 63 E Performance (W223)",
+        "yearStart": 2022,
+        "yearEnd": null,
+        "note": null
+       },
+       {
+        "target": "Brabus Rocket",
+        "anchor": "Brabus Rocket 900 \"ONE OF TEN\" (2020 – )",
+        "display": "Brabus Rocket 900 \"ONE OF TEN\"",
+        "text": "Brabus Rocket 900 \"ONE OF TEN\" (enlarged to 4.4 L)",
+        "yearStart": 2020,
+        "yearEnd": null,
+        "note": null
+       },
+       {
+        "target": "Aston Martin DB11",
+        "anchor": null,
+        "display": "Aston Martin DB11 V8 and DB11 Volante",
+        "text": "Aston Martin DB11 V8 and DB11 Volante",
+        "yearStart": 2017,
+        "yearEnd": 2023,
+        "note": null
+       },
+       {
+        "target": "Aston Martin Vantage (2018)",
+        "anchor": null,
+        "display": "Aston Martin Vantage V8",
+        "text": "Aston Martin Vantage V8, Vantage F1 Edition and Vantage AMR 59",
+        "yearStart": 2018,
+        "yearEnd": null,
+        "note": null
+       },
+       {
+        "target": "Aston Martin DBX",
+        "anchor": null,
+        "display": "Aston Martin DBX V8 and DBX707",
+        "text": "Aston Martin DBX V8 and DBX707",
+        "yearStart": 2021,
+        "yearEnd": null,
+        "note": null
+       },
+       {
+        "target": "Aston Martin DB12",
+        "anchor": null,
+        "display": "Aston Martin DB12",
+        "text": "Aston Martin DB12",
+        "yearStart": 2023,
+        "yearEnd": null,
+        "note": null
+       }
+      ]
+     },
+     {
+      "code": "M178",
+      "applications": [
+       {
+        "target": null,
+        "anchor": null,
+        "display": "rowspan=\"2\"|Mercedes-AMG GT (C190)",
+        "text": "rowspan=\"2\"|Mercedes-AMG GT (C190)",
+        "yearStart": null,
+        "yearEnd": null,
+        "note": null
+       },
+       {
+        "target": null,
+        "anchor": null,
+        "display": "rowspan=\"3\"|Mercedes-AMG GT S (C190)",
+        "text": "rowspan=\"3\"|Mercedes-AMG GT S (C190)",
+        "yearStart": null,
+        "yearEnd": null,
+        "note": null
+       },
+       {
+        "target": null,
+        "anchor": null,
+        "display": "Mercedes-AMG GT C (C190)",
+        "text": "Mercedes-AMG GT C (C190)",
+        "yearStart": null,
+        "yearEnd": null,
+        "note": null
+       },
+       {
+        "target": null,
+        "anchor": null,
+        "display": "Mercedes-AMG GT R (C190)",
+        "text": "Mercedes-AMG GT R (C190)",
+        "yearStart": null,
+        "yearEnd": null,
+        "note": null
+       },
+       {
+        "target": null,
+        "anchor": null,
+        "display": "Mercedes-AMG GT Black Series (C190) (Engine Code M178 LS2)",
+        "text": "Mercedes-AMG GT Black Series (C190) (Engine Code M178 LS2)",
+        "yearStart": null,
+        "yearEnd": null,
+        "note": null
+       },
+       {
+        "target": null,
+        "anchor": null,
+        "display": "Mercedes-AMG GT Track Series (C190) (Engine Code M178 LS2)",
+        "text": "Mercedes-AMG GT Track Series (C190) (Engine Code M178 LS2)",
+        "yearStart": null,
+        "yearEnd": null,
+        "note": null
+       },
+       {
+        "target": "Aston Martin Valhalla",
+        "anchor": null,
+        "display": "Aston Martin Valhalla",
+        "text": "Aston Martin Valhalla (Engine Code M178 LS2)",
+        "yearStart": 2023,
+        "yearEnd": null,
+        "note": null
+       }
+      ]
+     }
+    ],
+    "applications": []
+   },
+   "resolved": [
+    [
+     "Mercedes-Benz G-Class",
+     "Mercedes-Benz G-Class"
+    ],
+    [
+     "Mercedes-Benz S-Class (W222)",
+     "Mercedes-Benz S-Class (W222)"
+    ],
+    [
+     "Mercedes-Benz S-Class (C217)",
+     "Mercedes-Benz S-Class (C217)"
+    ],
+    [
+     "Mercedes-Benz M-Class",
+     "Mercedes-Benz GLE"
+    ],
+    [
+     "Mercedes-Benz GLS-Class (X167)",
+     "Mercedes-Benz GLS (X167)"
+    ],
+    [
+     "Mercedes-Benz S-Class (W223)",
+     "Mercedes-Benz S-Class (W223)"
+    ],
+    [
+     "BAIC BJ90",
+     "BAIC BJ90"
+    ],
+    [
+     "Mercedes-Benz C-Class (W205)",
+     "Mercedes-Benz C-Class (W205)"
+    ],
+    [
+     "Mercedes-Benz E-Class (W213)",
+     "Mercedes-Benz E-Class (W213)"
+    ],
+    [
+     "Mercedes-AMG GT 4-Door Coupé",
+     "Mercedes-AMG GT 4-Door Coupé"
+    ],
+    [
+     "Mercedes-Benz GLC",
+     "Mercedes-Benz GLC"
+    ],
+    [
+     "Mercedes-Benz GLE",
+     "Mercedes-Benz GLE"
+    ],
+    [
+     "Mercedes-AMG SL-Class (R232)",
+     "Mercedes-Benz SL (R232)"
+    ],
+    [
+     "Brabus Rocket",
+     "Brabus Rocket"
+    ],
+    [
+     "Aston Martin DB11",
+     "Aston Martin DB11"
+    ],
+    [
+     "Aston Martin Vantage (2018)",
+     "Aston Martin Vantage (2018)"
+    ],
+    [
+     "Aston Martin DBX",
+     "Aston Martin DBX"
+    ],
+    [
+     "Aston Martin DB12",
+     "Aston Martin DB12"
+    ],
+    [
+     "Aston Martin Valhalla",
+     "Aston Martin Valhalla"
+    ]
+   ]
+  },
+  "eng-mercedes-benz-m139": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-16T22:31:42.978Z",
+   "sourceTitle": "Mercedes-Benz M139 engine",
+   "article": {
+    "name": "Mercedes-Benz M139",
+    "shortName": "M139",
+    "manufacturer": "Mercedes-AMG",
+    "production": "2019-present",
+    "configuration": "Straight-four engine",
+    "displacement": "1991 cc",
+    "predecessor": "Mercedes-Benz M133 engine",
+    "successor": "",
+    "variants": [
+     {
+      "code": "M139 (285 kW version) {{anchor|285 kW}}",
+      "applications": [
+       {
+        "target": "Mercedes-Benz CLA",
+        "anchor": "C118",
+        "display": "Mercedes-AMG CLA 45 4MATIC+ (Not available in United States until 2025 model year) (C118)",
+        "text": "2019 - Mercedes-AMG CLA 45 4MATIC+ (Not available in United States until 2025 model year) (C118)",
+        "yearStart": 2019,
+        "yearEnd": null,
+        "note": null
+       },
+       {
+        "target": "Mercedes-Benz A-Class (W177)",
+        "anchor": null,
+        "display": "Mercedes-AMG A 45 4MATIC+ (W177)",
+        "text": "2019 - Mercedes-AMG A 45 4MATIC+ (W177)",
+        "yearStart": 2019,
+        "yearEnd": null,
+        "note": null
+       },
+       {
+        "target": "Mercedes-Benz GLA",
+        "anchor": "H247",
+        "display": "Mercedes-AMG GLA 45 4MATIC+ (H247)",
+        "text": "2020 - Mercedes-AMG GLA 45 4MATIC+ (H247)",
+        "yearStart": 2020,
+        "yearEnd": null,
+        "note": null
+       },
+       {
+        "target": "Mercedes-Benz SL (R232)",
+        "anchor": null,
+        "display": "Mercedes-AMG SL 43 (R232)",
+        "text": "2024 - Mercedes-AMG SL 43 (R232)",
+        "yearStart": 2024,
+        "yearEnd": null,
+        "note": null
+       },
+       {
+        "target": "Lotus Emira",
+        "anchor": null,
+        "display": "Lotus Emira",
+        "text": "2022 - Lotus Emira (268 kW / 360 hp)",
+        "yearStart": 2022,
+        "yearEnd": null,
+        "note": null
+       }
+      ]
+     },
+     {
+      "code": "M139 (300 kW version) {{anchor|300 kW}}",
+      "applications": [
+       {
+        "target": "Mercedes-Benz C-Class (W206)",
+        "anchor": null,
+        "display": "Mercedes-AMG C 43 4MATIC (W206)",
+        "text": "2022 - Mercedes-AMG C 43 4MATIC (W206)",
+        "yearStart": 2022,
+        "yearEnd": null,
+        "note": null
+       }
+      ]
+     },
+     {
+      "code": "M139 (310 kW version) {{anchor|310 kW}}",
+      "applications": [
+       {
+        "target": "Mercedes-Benz CLA",
+        "anchor": "C118",
+        "display": "Mercedes-AMG CLA 45 S 4MATIC+ (Not available in United States until 2025 model year) (C118)",
+        "text": "2019 - Mercedes-AMG CLA 45 S 4MATIC+ (Not available in United States until 2025 model year) (C118)",
+        "yearStart": 2019,
+        "yearEnd": null,
+        "note": null
+       },
+       {
+        "target": "Mercedes-Benz A-Class (W177)",
+        "anchor": null,
+        "display": "Mercedes-AMG A 45 S 4MATIC+ (W177)",
+        "text": "2019 - Mercedes-AMG A 45 S 4MATIC+ (W177)",
+        "yearStart": 2019,
+        "yearEnd": null,
+        "note": null
+       },
+       {
+        "target": "Mercedes-Benz GLA",
+        "anchor": "H247",
+        "display": "Mercedes-AMG GLA 45 S 4MATIC+ (H247)",
+        "text": "2020 - Mercedes-AMG GLA 45 S 4MATIC+ (H247)",
+        "yearStart": 2020,
+        "yearEnd": null,
+        "note": null
+       },
+       {
+        "target": "Mercedes-Benz C-Class (W206)",
+        "anchor": null,
+        "display": "Mercedes-AMG C 43 4MATIC (W206)",
+        "text": "2024 - Mercedes-AMG C 43 4MATIC (W206)",
+        "yearStart": 2024,
+        "yearEnd": null,
+        "note": null
+       },
+       {
+        "target": "Mercedes-Benz GLC",
+        "anchor": "X254",
+        "display": "Mercedes-AMG GLC 43 4MATIC (X254/C254)",
+        "text": "2024 - Mercedes-AMG GLC 43 4MATIC (X254/C254)",
+        "yearStart": 2024,
+        "yearEnd": null,
+        "note": null
+       },
+       {
+        "target": "Mercedes-AMG GT",
+        "anchor": "C192",
+        "display": "Mercedes-AMG GT 43 (C192)",
+        "text": "2024 - Mercedes-AMG GT 43 (C192)",
+        "yearStart": 2024,
+        "yearEnd": null,
+        "note": null
+       },
+       {
+        "target": "Mercedes-Benz SL (R232)",
+        "anchor": null,
+        "display": "Mercedes-AMG SL 43 (R232)",
+        "text": "2025 - Mercedes-AMG SL 43 (R232)",
+        "yearStart": 2025,
+        "yearEnd": null,
+        "note": null
+       },
+       {
+        "target": "Lotus Emira",
+        "anchor": "420 Sport",
+        "display": "Lotus Emira 420 Sport",
+        "text": "2024 - Lotus Emira 420 Sport",
+        "yearStart": 2024,
+        "yearEnd": null,
+        "note": null
+       }
+      ]
+     },
+     {
+      "code": "M139I (350 kW version) {{anchor|350 kW|M139I}}",
+      "applications": [
+       {
+        "target": "Mercedes-Benz C-Class (W206)",
+        "anchor": null,
+        "display": "Mercedes-AMG C 63 S E Performance 4MATIC+ (W206)",
+        "text": "2022 - Mercedes-AMG C 63 S E Performance 4MATIC+ (W206)",
+        "yearStart": 2022,
+        "yearEnd": null,
+        "note": null
+       },
+       {
+        "target": "Mercedes-Benz GLC",
+        "anchor": "X254",
+        "display": "Mercedes-AMG GLC 63 S E Performance 4MATIC+ (X254/C254)",
+        "text": "2024 - Mercedes-AMG GLC 63 S E Performance 4MATIC+ (X254/C254)",
+        "yearStart": 2024,
+        "yearEnd": null,
+        "note": null
+       }
+      ]
+     }
+    ],
+    "applications": []
+   },
+   "resolved": [
+    [
+     "Mercedes-Benz CLA",
+     "Mercedes-Benz CLA"
+    ],
+    [
+     "Mercedes-Benz A-Class (W177)",
+     "Mercedes-Benz A-Class (W177)"
+    ],
+    [
+     "Mercedes-Benz GLA",
+     "Mercedes-Benz GLA"
+    ],
+    [
+     "Mercedes-Benz SL (R232)",
+     "Mercedes-Benz SL (R232)"
+    ],
+    [
+     "Lotus Emira",
+     "Lotus Emira"
+    ],
+    [
+     "Mercedes-Benz C-Class (W206)",
+     "Mercedes-Benz C-Class (W206)"
+    ],
+    [
+     "Mercedes-Benz GLC",
+     "Mercedes-Benz GLC"
+    ],
+    [
+     "Mercedes-AMG GT",
+     "Mercedes-AMG GT"
     ]
    ]
   }
@@ -8884,7 +10844,78 @@
    "sourceTitle": null,
    "status": "no-article",
    "engines": []
+  },
+  "llm-llm-related-mercedes-amg-gt-black-series-c190-engine-code-m178-ls2-m176": {
+   "checkedAt": "2026-09-16T22:30:39.975Z",
+   "sourceTitle": null,
+   "status": "no-article",
+   "engines": []
+  },
+  "llm-llm-related-mercedes-amg-gt-black-series-c190-engine-code-m178-ls2-m177": {
+   "checkedAt": "2026-09-16T22:30:39.975Z",
+   "sourceTitle": null,
+   "status": "no-article",
+   "engines": []
+  },
+  "llm-llm-related-mercedes-amg-gt-black-series-c190-engine-code-m178-ls2-m178": {
+   "checkedAt": "2026-09-16T22:30:39.975Z",
+   "sourceTitle": null,
+   "status": "no-article",
+   "engines": []
+  },
+  "llm-llm-related-brabus-rocket-900-one-of-ten-brabus-rocket-2006": {
+   "checkedAt": "2026-09-16T22:30:57.055Z",
+   "sourceTitle": null,
+   "status": "no-article",
+   "engines": []
+  },
+  "llm-llm-related-brabus-rocket-900-one-of-ten-brabus-rocket-800-2011": {
+   "checkedAt": "2026-09-16T22:30:57.055Z",
+   "sourceTitle": null,
+   "status": "no-article",
+   "engines": []
+  },
+  "llm-llm-related-brabus-rocket-900-one-of-ten-brabus-rocket-730-2014": {
+   "checkedAt": "2026-09-16T22:30:57.056Z",
+   "sourceTitle": null,
+   "status": "no-article",
+   "engines": []
+  },
+  "llm-llm-related-brabus-rocket-900-one-of-ten-brabus-rocket-900-2015": {
+   "checkedAt": "2026-09-16T22:30:57.056Z",
+   "sourceTitle": null,
+   "status": "no-article",
+   "engines": []
+  },
+  "llm-llm-related-brabus-rocket-900-one-of-ten-brabus-rocket-900-one-of-ten-2020": {
+   "checkedAt": "2026-09-16T22:30:57.056Z",
+   "sourceTitle": null,
+   "status": "no-article",
+   "engines": []
+  },
+  "llm-llm-related-mercedes-amg-gt-r-c190-c190-r190": {
+   "checkedAt": "2026-09-16T22:35:30.504Z",
+   "sourceTitle": null,
+   "status": "no-article",
+   "engines": []
+  },
+  "llm-llm-related-mercedes-amg-gt-r-c190-c192": {
+   "checkedAt": "2026-09-16T22:35:30.809Z",
+   "sourceTitle": "File:Mercedes-AMG C192 63 IAA 2023 1X7A0621.jpg",
+   "status": "unreadable",
+   "engines": []
   }
  },
- "prunedDecisions": {}
+ "prunedDecisions": {
+  "families|llm-related-brabus-rocket-900-one-of-ten": {
+   "what": "generation split",
+   "label": "llm-related-brabus-rocket-900-one-of-ten",
+   "prunedAt": "2026-09-16T22:27:08.094Z"
+  },
+  "wpLinks|llm-related-brabus-rocket-900-one-of-ten": {
+   "what": "Wikipedia link you pasted",
+   "label": "llm-related-brabus-rocket-900-one-of-ten → Brabus Rocket",
+   "prunedAt": "2026-09-16T22:27:08.094Z"
+  }
+ }
 }
