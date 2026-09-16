@@ -491,7 +491,11 @@ def _run_pass_in(browser, targets, budget_seconds, per_node_seconds,
                  settle_seconds, quiet_seconds, done, errors, skipped, started):
         page = browser.new_page(viewport={"width": 1440, "height": 900})
         page.on("pageerror", lambda e: errors.append("pageerror: " + str(e)[:200]))
-        page.goto(f"http://localhost:{PORT}/index.html", wait_until="domcontentloaded", timeout=60000)
+        # ?agent=1: the page recovers its persisted scan queue at boot but does
+        # NOT start it, because every decision this run makes has to be stamped
+        # "agent" first and that happens below, after the page has loaded. See
+        # llm_families.js's jobsAllowed.
+        page.goto(f"http://localhost:{PORT}/index.html?agent=1", wait_until="domcontentloaded", timeout=60000)
         page.wait_for_timeout(3000)
 
         if not page.evaluate("() => !!(window.LlmFamilies && window.LlmFamilies.serverAvailable)"):
@@ -508,6 +512,18 @@ def _run_pass_in(browser, targets, budget_seconds, per_node_seconds,
         if page.evaluate("() => window.LlmFamilies.decisionSource()") != "agent":
             raise RuntimeError("this build cannot stamp agent decisions -- refusing to "
                                "confirm anything unattributed")
+
+        # Only now is it safe to let the queue run. It may already hold
+        # requests a person left in it at the keyboard (the Tools > Scan Queue
+        # panel writes them into llm_families.json), and those are worked
+        # through in the order they were asked for, ahead of this run's own
+        # targets -- which is the point of the queue.
+        started = page.evaluate(
+            "() => { const LF = window.LlmFamilies; "
+            "if (!LF || !LF.startJobs) return null; LF.startJobs(); "
+            "return LF.jobs().length; }")
+        if started:
+            log(f"scan queue: {started} request(s) already waiting -- those run first")
 
         depth = page.evaluate("() => window.LlmFamilies.cascadeMaxDepth()")
         rows_before = entry_rows(page)
@@ -538,16 +554,27 @@ def _run_pass_in(browser, targets, budget_seconds, per_node_seconds,
             # Reading its article is the equivalent pass: variants, and every
             # car each variant went into.
             log(f"{name}  [{nid}] -- opening" + (" (engine)" if kind == "engine" else ""))
-            if kind == "engine":
-                page.evaluate(
-                    "(id) => { const n = CarWeb.byId.get(id); if (!n) return; "
-                    # The node is passed so the read is pinned to it: a
-                    # redirect ("Mercedes-Benz M177 engine" ->
-                    # ".../M176/M177/M178 engine") would otherwise land the
-                    # result on a different id and this wait would never end.
-                    "CarWeb.openDetail(n); CarWeb.scanEngine(n.wp || n.label, null, n); }", nid)
-            else:
-                page.evaluate("(id) => { const n = CarWeb.byId.get(id); if (n) CarWeb.openDetail(n); }", nid)
+            # Both kinds go through the page's own work queue now, which is
+            # what keeps this run from starting a pass on top of one a person
+            # left waiting, or on top of the previous target's own cascade.
+            # requestScan picks the same pass the car's own card would: an
+            # engine's article for an engine, a nameplate re-check for a
+            # nameplate, a hidden-generation check for a plain model. The node
+            # is opened first because the cascade measures depth from whatever
+            # is engaged, and an engine read is pinned to the node so a
+            # redirect ("Mercedes-Benz M177 engine" ->
+            # ".../M176/M177/M178 engine") cannot land the result on a
+            # different id and leave this wait hanging forever.
+            queued = page.evaluate(
+                "(id) => { const n = CarWeb.byId.get(id); if (!n) return null; "
+                "CarWeb.openDetail(n); "
+                "if (CarWeb.requestScan) { const j = CarWeb.requestScan(n); "
+                "return j ? (j.duplicate ? 'already-queued' : 'queued') : 'not-scannable'; } "
+                "if (n.type === 'engine') CarWeb.scanEngine(n.wp || n.label, null, n); "
+                "return 'legacy'; }", nid)
+            if queued in ("not-scannable", None):
+                skipped.append(nid)
+                continue
             settled = False
             said = ""
             # The timeout is IDLE time, not total time. A local 9B model on a

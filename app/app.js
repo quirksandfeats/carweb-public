@@ -1625,9 +1625,9 @@ window.CarWeb = (function () {
   // it again" seems to not do anything at all', and the "Read on ..." date
   // never moved -- because a redirect put the result on a different id (see
   // llm_families.js's applyEngineArticleWith). Passing the node pins it.
-  function scanEngine(title, btn, node) {
+  function scanEngineNow(title, btn, node) {
     const LFam = window.LlmFamilies;
-    if (!LFam || !LFam.checkEngine || !title) return;
+    if (!LFam || !LFam.checkEngine || !title) return Promise.resolve();
     if (btn) { btn.disabled = true; btn.textContent = "reading…"; }
     // Reading an engine is a person asking for LLM work in as many words, so
     // the cars it names are allowed to be checked in the background off the
@@ -1648,7 +1648,9 @@ window.CarWeb = (function () {
     const run = LFam.forceRecheckEngine
       ? LFam.forceRecheckEngine(title, nodes, links, opts)
       : LFam.checkEngine(title, nodes, links, opts);
-    run.then(r => {
+    // Returned, not fired and forgotten: the work queue needs to know when
+    // this pass is actually over before it starts the next one.
+    return run.then(r => {
       if (r && r.status === "not-an-engine") {
         if (btn) { btn.disabled = false; btn.textContent = "Read this engine's article"; }
         window.alert(`"${title}" is not an engine article.`);
@@ -1674,6 +1676,14 @@ window.CarWeb = (function () {
       if (btn) { btn.disabled = false; btn.textContent = "Try again"; }
       console.warn("CarWeb: engine scan threw", e);
     });
+  }
+  // The button's entry point: ask for it, don't run it. See the work queue in
+  // llm_families.js for why every user-initiated pass goes through this.
+  function scanEngine(title, btn, node) {
+    if (!title) return;
+    const label = node ? ((node.make ? node.make + " " : "") + node.label) : String(title);
+    return enqueueLlmJob({ kind: "engine-read", targetId: (node && node.id) || "engine:" + title,
+                           label, detail: { title, nodeId: node ? node.id : null } }, btn);
   }
 
   function openDetail(n) {
@@ -1858,34 +1868,140 @@ window.CarWeb = (function () {
   // it's related to (researchGeneration). Used by the Wikipedia-link row
   // below (after a link is corrected) and by the Modify Existing Car panel,
   // so neither has to know which case it's looking at.
-  function recheckNodeNow(n, el) {
+  // ---------- asking for LLM work: the queue ----------
+  // Real user request: "If I want to add further cars for the LLM to check
+  // (in serve.py, or in the web version, or anywhere), make sure that the
+  // request is properly added to the queue in a way that it does not ruin any
+  // scanning or have data loss. I want there to also be a queuing system
+  // everywhere, including serve.py, for if I want to request several
+  // different models to be checked and I want to request to scan them while
+  // others are already currently being scanned."
+  //
+  // Every button that asks for LLM work now calls enqueueLlmJob instead of
+  // starting a pass, and llm_families.js runs them one at a time in order and
+  // keeps the waiting ones on disk. See its own "work queue" section for why
+  // two passes at once lost data rather than merely being slow.
+  //
+  // The runners below are the passes themselves, unchanged -- they are
+  // registered rather than called. Each one re-finds the element it writes
+  // into instead of being handed one: by the time a queued job runs, the card
+  // it was asked from may be closed, or on a different car, or re-rendered
+  // from scratch by the pass before it. Same reason deepRecheckGenerations
+  // re-finds its own progress row.
+  function llmCheckBody(targetId) {
+    if (!dtNode || dtNode.id !== targetId) return null;
+    const el = dt.querySelector(".dt-llmcheck");
+    return (el && el.firstElementChild) || el || null;
+  }
+  function initLlmJobRunners() {
     const LF = window.LlmFamilies;
+    if (!LF || !LF.registerJobRunner) return;
+    LF.registerJobRunner("node-check", async job => {
+      const n = byId.get(job.targetId);
+      if (!n || n.retired) return;
+      const el = llmCheckBody(n.id);
+      if (el) el.innerHTML = `<div class="llm-status">🤖 checking Wikipedia for hidden generations…</div>`;
+      // explicit: the user clicked this car's own check. Keep the result even
+      // if they navigate or the page reloads while it runs -- see checkNode.
+      await LF.checkNode(n, nodes, { explicit: true });
+      afterLlmCheck(n);
+    });
+    LF.registerJobRunner("family-recheck", async job => {
+      const n = byId.get(job.targetId);
+      if (!n || n.retired) return;
+      await runManualRecheckNow(n, llmCheckBody(n.id), false);
+    });
+    LF.registerJobRunner("family-recheck-deep", async job => {
+      const n = byId.get(job.targetId);
+      if (!n || n.retired) return;
+      await runManualRecheckNow(n, llmCheckBody(n.id), true);
+    });
+    LF.registerJobRunner("gen-research", async job => {
+      const n = byId.get(job.targetId);
+      if (!n || n.retired) return;
+      await runGenerationResearchNow(n, llmCheckBody(n.id));
+    });
+    LF.registerJobRunner("engine-read", async job => {
+      const d = job.detail || {};
+      // Pinned to the node where there is one: a redirect would otherwise
+      // land the read on a different id. See scanEngineNow's own note.
+      const n = d.nodeId ? byId.get(d.nodeId) : null;
+      const title = d.title || (n && (n.wp || n.label));
+      if (!title) return;
+      await scanEngineNow(title, null, n || undefined);
+    });
+    LF.registerJobRunner("engine-scan", async job => {
+      const n = byId.get(job.targetId);
+      if (!n || n.retired) return;
+      recordEnginesLive();
+      await scanEnginesLive(n);
+    });
+    LF.onJobChange(() => { refreshQueueUi(); });
+  }
+
+  // A job asked for, and whatever the card should say about it right now.
+  // Without this, pressing a button while something else ran looked exactly
+  // like pressing a button that does nothing -- which is what it used to be.
+  function enqueueLlmJob(spec, btn, el) {
+    const LF = window.LlmFamilies;
+    if (!LF || !LF.enqueueJob) return null;
+    const res = LF.enqueueJob(spec);
+    if (!res) return null;
+    const say = msg => {
+      if (el && el.isConnected) el.innerHTML = `<div class="llm-status">${msg}</div>`;
+      if (btn) { btn.disabled = true; btn.textContent = "queued"; }
+    };
+    if (res.error === "queue-full") {
+      const msg = `The queue is full (${res.limit} waiting). Let some of it run first.`;
+      if (el && el.isConnected) el.innerHTML = `<div class="llm-status llm-error">${msg}</div>`;
+      else window.alert(msg);
+      return res;
+    }
+    if (res.duplicate) { say(`⏳ already asked for — ${queuePhrase(res)}`); return res; }
+    const pos = LF.jobPositionFor(spec.targetId, spec.kind);
+    // Position 0 means it started immediately, and the runner's own status
+    // line is already on screen -- don't overwrite it with "1st in line".
+    if (pos > 0) say(`⏳ queued — ${queuePhrase(res)}`);
+    return res;
+  }
+  function queuePhrase(job) {
+    const LF = window.LlmFamilies;
+    const pos = LF && LF.jobPositionFor ? LF.jobPositionFor(job.targetId, job.kind) : -1;
+    if (pos === 0) return "running now";
+    if (pos < 0) return "not in the queue";
+    const running = LF.runningJob && LF.runningJob();
+    return (pos === 1 ? "next in line" : ordinalWord(pos) + " in line") +
+           (running ? ` (${esc(running.label)} is running now)` : "");
+  }
+  function ordinalWord(n) {
+    const s = ["th", "st", "nd", "rd"], v = n % 100;
+    return n + (s[(v - 20) % 10] || s[v] || s[0]);
+  }
+
+  // Which pass a node's own "check it" means. One dispatcher, used by the
+  // card's controls, by the link-change row, and by the queue panel's "Send
+  // request" -- so asking for a car from any of them asks for the same work.
+  function llmJobSpecFor(n) {
+    const LF = window.LlmFamilies;
+    if (!n || n.retired || n.type === "make") return null;
+    const label = (n.make ? n.make + " " : "") + n.label;
+    if (n.type === "engine") {
+      return { kind: "engine-read", targetId: n.id, label,
+               detail: { title: n.wp || n.label, nodeId: n.id } };
+    }
+    if (LF.isEligibleForRecheck(n)) return { kind: "family-recheck", targetId: n.id, label };
+    if (LF.isEligibleForGenerationResearch && LF.isEligibleForGenerationResearch(n)) {
+      return { kind: "gen-research", targetId: n.id, label };
+    }
+    return { kind: "node-check", targetId: n.id, label };
+  }
+  function recheckNodeNow(n, el) {
     // A make has no LLM check of its own -- setting its link is the whole
     // action, and openDetail (already re-run by the caller) is what picks up
     // the new article's photo and extract.
-    if (n.type === "make") { el.innerHTML = ""; return; }
-    // An engine has no generations to split; its check IS reading its
-    // article, so "change the link and check it again" reads the new one.
-    if (n.type === "engine") {
-      el.innerHTML = `<div class="llm-status">🤖 reading this engine's article…</div>`;
-      scanEngine(n.wp || n.label, null, n);
-      return;
-    }
-    if (LF.isEligibleForRecheck(n)) {
-      const genNodes = currentGenNodes(n);
-      el.innerHTML = `<div class="llm-status">🤖 re-checking this nameplate against Wikipedia…</div>`;
-      LF.forceRecheckFamily(familyCheckTarget(n, genNodes), genNodes, nodes, links)
-        .then(() => { if (dtNode === n) renderLlmCheck(n); });
-      return;
-    }
-    if (LF.isEligibleForGenerationResearch && LF.isEligibleForGenerationResearch(n)) {
-      runGenerationResearch(n, el);
-      return;
-    }
-    el.innerHTML = `<div class="llm-status">🤖 checking Wikipedia for hidden generations…</div>`;
-    // explicit: the user clicked this car's own check. Keep the result even
-    // if they navigate or the page reloads while it runs -- see checkNode.
-    LF.checkNode(n, nodes, { explicit: true }).then(() => afterLlmCheck(n));
+    const spec = llmJobSpecFor(n);
+    if (!spec) { if (el) el.innerHTML = ""; return; }
+    return enqueueLlmJob(spec, null, el);
   }
   // ---------- generation-level research (see llm_families.js's researchGeneration) ----------
   // researchGeneration writes straight into the live nodes/links arrays
@@ -1895,12 +2011,12 @@ window.CarWeb = (function () {
   // file's indexes before anything reads them again, exactly like every
   // other live mutation here. applyRelationConfirm afterwards is what wires
   // in the relation entries it resolved and re-opens the panel in place.
-  function runGenerationResearch(gen, el) {
+  function runGenerationResearchNow(gen, el) {
     const LF = window.LlmFamilies;
     const fam = gen.familyOf ? byId.get(gen.familyOf) : null;
     const nodesBefore = nodes.length, linksBefore = links.length;
-    el.innerHTML = `<div class="llm-status">🤖 looking for this generation's own Wikipedia article, then reading it…</div>`;
-    LF.researchGeneration(gen, fam, nodes, links).then(res => {
+    if (el) el.innerHTML = `<div class="llm-status">🤖 looking for this generation's own Wikipedia article, then reading it…</div>`;
+    return LF.researchGeneration(gen, fam, nodes, links).then(res => {
       spliceIntoIndexes(nodesBefore, linksBefore);
       if (nodes.length !== nodesBefore) buildSim();
       refreshYearFilter();
@@ -1914,12 +2030,18 @@ window.CarWeb = (function () {
       // nothing put them in the graph, so they sat in the store until some
       // later pass or the next reload happened to pick them up.
       recordEnginesLive();
-      scanEnginesLive(gen);
-      if (dtNode !== gen) return;
-      if (res && res.status === "error") {
+      const eng = scanEnginesLive(gen);
+      if (dtNode === gen && res && res.status === "error" && el && el.isConnected) {
         el.innerHTML = `<div class="llm-status llm-error">Generation research failed: ${esc(res.error || "unknown error")}</div>`;
       }
+      // Awaited so the queue does not start the next pass while this one is
+      // still reading and splicing engines.
+      return eng;
     });
+  }
+  function runGenerationResearch(gen, el) {
+    return enqueueLlmJob({ kind: "gen-research", targetId: gen.id,
+                           label: (gen.make ? gen.make + " " : "") + gen.label }, null, el);
   }
   function renderGenerationResearch(el, gen) {
     const LF = window.LlmFamilies;
@@ -1976,8 +2098,12 @@ window.CarWeb = (function () {
       // whenever there's genuinely nothing to check against.
       if (!n.wp) return renderLlmNoWikiLink(el, n);
       if (!llmCheckOn) return;
-      el.innerHTML = `<div class="llm-status">🤖 checking Wikipedia for hidden generations…</div>`;
-      window.LlmFamilies.checkNode(n, nodes, { explicit: true }).then(() => afterLlmCheck(n));
+      // Through the queue like every other pass. This one is automatic --
+      // 🤖 LLM Check is armed and a card was opened -- which makes it the
+      // likeliest of all of them to land on top of something already
+      // running: clicking through four cars used to start four passes.
+      enqueueLlmJob({ kind: "node-check", targetId: n.id,
+                      label: (n.make ? n.make + " " : "") + n.label }, null, el);
       disengageLlmCheckFor(n.id);
       return;
     }
@@ -2056,8 +2182,8 @@ window.CarWeb = (function () {
   function renderLlmNoWikiLink(el, n) {
     renderWpPasteUi(el, "no Wikipedia link on file for this car — paste one to run a real check", async (title) => {
       await window.LlmFamilies.setNodeWikiLink(n.id, title, nodes, { force: true });
-      el.innerHTML = `<div class="llm-status">🤖 checking Wikipedia for hidden generations…</div>`;
-      window.LlmFamilies.checkNode(n, nodes, { explicit: true }).then(() => afterLlmCheck(n));
+      enqueueLlmJob({ kind: "node-check", targetId: n.id,
+                      label: (n.make ? n.make + " " : "") + n.label }, null, el);
     });
   }
   // ---------- persistent "this car's Wikipedia link" row ----------
@@ -2292,9 +2418,9 @@ window.CarWeb = (function () {
     row.querySelector(".llm-recheck-btn").onclick = () => runManualRecheck(fam, row, false);
     el.appendChild(row);
   }
-  function runManualRecheck(fam, row, deep) {
+  function runManualRecheckNow(fam, row, deep) {
     {
-      row.innerHTML = `<div class="llm-status">🤖 re-checking Wikipedia for anything that's changed…</div>`;
+      if (row) row.innerHTML = `<div class="llm-status">🤖 re-checking Wikipedia for anything that's changed…</div>`;
       const genNodes = currentGenNodes(fam);
       const LF = window.LlmFamilies;
       // forceRecheckFamily writes straight into the live nodes/links arrays
@@ -2324,10 +2450,11 @@ window.CarWeb = (function () {
       if (LF.setEngaged) LF.setEngaged(fam.id);
       if (LF.resetCascadeFrom) LF.resetCascadeFrom(fam.id);
       if (LF.setBackgroundAllowed) LF.setBackgroundAllowed(true);
-      LF.forceRecheckFamily(familyCheckTarget(fam, genNodes), genNodes, nodes, links).then(res => {
+      return LF.forceRecheckFamily(familyCheckTarget(fam, genNodes), genNodes, nodes, links).then(async res => {
         if (dtNode === fam) renderLlmCheck(fam);
-        if (res && res.status === "no-wiki-link") row.innerHTML = `<div class="llm-status llm-error">No Wikipedia link on file for this nameplate to re-check against.</div>`;
-        if (res && res.status === "unavailable") row.innerHTML = `<div class="llm-status llm-error">Local LLM server isn't reachable right now.</div>`;
+        const sayRow = m => { if (row && row.isConnected) row.innerHTML = `<div class="llm-status llm-error">${m}</div>`; };
+        if (res && res.status === "no-wiki-link") sayRow("No Wikipedia link on file for this nameplate to re-check against.");
+        if (res && res.status === "unavailable") sayRow("Local LLM server isn't reachable right now.");
         spliceIntoIndexes(nodesBefore, linksBefore);
         if (nodes.length !== nodesBefore) buildSim();
         refreshYearFilter();
@@ -2340,17 +2467,25 @@ window.CarWeb = (function () {
         // skipping every one already scanned -- which is why a re-check used
         // to come back with no engines at all.
         recordEnginesLive();
-        scanEnginesLive(fam);
+        await scanEnginesLive(fam);
         // The depth-1 half: expand every directly-related car into its own
         // generations (checking it if it has never been checked) and match
         // generation-to-generation. Same call the ordinary detail-panel render
         // makes, so there is one code path for both, not two that can drift.
         if (dtNode === fam) renderRelationChecks(fam);
         if (deep && res && res.status !== "unavailable" && res.status !== "no-wiki-link") {
-          deepRecheckGenerations(fam, row);
+          // Awaited: the deep half is the longer half, and a queue that
+          // started the next request while six generation articles were still
+          // being read would be back to running two passes at once.
+          await deepRecheckGenerations(fam, row);
         }
+        return res;
       });
     }
+  }
+  function runManualRecheck(fam, row, deep) {
+    return enqueueLlmJob({ kind: deep ? "family-recheck-deep" : "family-recheck", targetId: fam.id,
+                           label: (fam.make ? fam.make + " " : "") + fam.label }, null, row);
   }
   // The deep half: each generation's own article, in turn. Read AFTER the
   // nameplate re-check above rather than alongside it, because that pass is
@@ -2362,9 +2497,9 @@ window.CarWeb = (function () {
   // making the progress line useless.
   function deepRecheckGenerations(fam, row) {
     const LF = window.LlmFamilies;
-    if (!LF.researchGeneration || !LF.isEligibleForGenerationResearch) return;
+    if (!LF.researchGeneration || !LF.isEligibleForGenerationResearch) return Promise.resolve();
     const gens = currentGenNodes(fam).filter(g => LF.isEligibleForGenerationResearch(g));
-    if (!gens.length) return;
+    if (!gens.length) return Promise.resolve();
     if (LF.note) LF.note(`deep re-check: ${fam.label} -- reading ${gens.length} generation article(s)`);
     let done = 0, upgraded = 0, credits = 0, related = 0;
     // Re-found each time rather than held: the nameplate re-check that just
@@ -2382,7 +2517,7 @@ window.CarWeb = (function () {
         `${Math.min(done + 1, gens.length)} of ${gens.length} (${esc(gens[Math.min(done, gens.length - 1)].label)})…</div>`;
     };
     status();
-    (async () => {
+    return (async () => {
       for (const gen of gens) {
         const nodesBefore = nodes.length, linksBefore = links.length;
         let res = null;
@@ -2407,7 +2542,7 @@ window.CarWeb = (function () {
       // is where the engines are -- so this is the pass most likely to find
       // engines the nameplate's page never named.
       recordEnginesLive();
-      scanEnginesLive(fam);
+      await scanEnginesLive(fam);
       if (LF.note) {
         LF.note(`deep re-check: ${fam.label} done -- ${gens.length} generation article(s), ` +
                 `${upgraded} upgraded, ${credits} credit(s), ${related} related car(s)`);
@@ -2773,9 +2908,13 @@ window.CarWeb = (function () {
   // fetch per generation, once ever, and the result is stored.
   function scanEnginesLive(node) {
     const LFam = window.LlmFamilies;
-    if (!LFam || !LFam.scanEnginesFor || !node) return;
+    if (!LFam || !LFam.scanEnginesFor || !node) return Promise.resolve();
     const nodesBefore = nodes.length, linksBefore = links.length;
-    LFam.scanEnginesFor(node, nodes, links).then(r => {
+    // Returned so a caller that is itself a queued job can await it. Not
+    // queued itself: it is called from INSIDE those passes, and a job that
+    // waits for a job the queue will not start until it finishes is a
+    // deadlock. It makes no model call either -- infobox only.
+    return LFam.scanEnginesFor(node, nodes, links).then(r => {
       if (!r || (!r.engines && !r.fitted && !r.revived)) {
         if (r && r.scanned) {
           console.info(`[carweb] powertrain: read ${r.scanned} article(s) for ` +
@@ -5325,8 +5464,13 @@ window.CarWeb = (function () {
       let p;
       try { p = LF.pendingWork(); } catch (e) { return; }
       if (!p || !p.total) { box.hidden = true; return; }
-      const running = p.checks.map(name);
-      const queued = p.partners.length + p.lookups.length;
+      // p.running is the queue's current job where that is not already one of
+      // the in-flight checks -- an engine read or a generation research pass
+      // makes no checkNode call and so appears in neither `checks` nor
+      // `partners`, and used to leave this box blank for its whole duration.
+      const running = [...p.checks, ...(p.running || [])].map(name);
+      const asked = (p.queued || []).map(name);
+      const queued = p.partners.length + p.lookups.length + asked.length;
       // The distinction is the useful part: something IS being worked on right
       // now, and separately there are N more behind it. A bare total reads as
       // a progress bar with no end.
@@ -5334,9 +5478,11 @@ window.CarWeb = (function () {
         ? "checking " + running.slice(0, 2).join(", ") +
           (running.length > 2 ? ` +${running.length - 2}` : "")
         : "starting the next check";
-      text.textContent = head + (queued ? ` — ${queued} more queued` : "");
+      text.textContent = head +
+        (queued ? ` — ${queued} more queued` : "") +
+        (asked.length ? ` (${asked.length} you asked for)` : "");
       box.title = "Still working on: " +
-        [...running, ...p.partners.map(name), ...p.lookups.map(name)].join(", ") +
+        [...running, ...p.partners.map(name), ...p.lookups.map(name), ...asked].join(", ") +
         ". Don't stop serve.py yet — a check that is cut off is lost.";
       box.hidden = false;
     }
@@ -5817,6 +5963,198 @@ window.CarWeb = (function () {
     // One check at boot so the dot can show something is queued without the
     // panel ever being opened.
     refresh();
+  }
+
+
+  // ---------- the local scan queue panel ----------
+  // Real user request: "I want there to also be a queuing system everywhere,
+  // including serve.py, for if I want to request several different models to
+  // be checked and I want to request to scan them while others are already
+  // currently being scanned."
+  //
+  // The local twin of "Request scan" above. Same shell and the same .lrq-*
+  // styles on purpose -- what differs is only where the request goes: the
+  // hosted panel leaves a job in a Worker for a machine that is asleep, this
+  // one hands it to the queue in llm_families.js, which this page runs itself.
+  // No passphrase, because this panel only appears when serve.py is answering
+  // and that means you are the one at the keyboard.
+  let refreshQueueUi = () => {};
+  function initLlmQueuePanel() {
+    const trigger = document.getElementById("llmqueuebtn");
+    const panel = document.getElementById("llmqueue-panel");
+    const LF = window.LlmFamilies;
+    if (!trigger || !panel || !LF || !LF.enqueueJob) return;
+    // Every item in the Tools menu ships hidden and is revealed by its own
+    // init; this one needs the server, like every other write control.
+    if (!LF.serverAvailable) return;
+    trigger.hidden = false;
+
+    const dot = document.getElementById("llmqueue-dot");
+    const closeBtn = document.getElementById("llmqueue-close");
+    const carEl = document.getElementById("llmqueue-car");
+    const resultsEl = document.getElementById("llmqueue-carresults");
+    const chosenEl = document.getElementById("llmqueue-chosen");
+    const addBtn = document.getElementById("llmqueue-add");
+    const clearBtn = document.getElementById("llmqueue-clear");
+    const statusEl = document.getElementById("llmqueue-status");
+    const listEl = document.getElementById("llmqueue-list");
+    let chosen = null;
+
+    const say = (m, cls) => { statusEl.textContent = m || ""; statusEl.className = "lrq-status" + (cls ? " " + cls : ""); };
+    const carName = n => (n.type === "model" || n.type === "family") ? `${n.make} ${n.label}` : n.label;
+    // Exactly what llmJobSpecFor will accept, asked the same way: a make has
+    // no pass of its own and a person has nothing to read.
+    const scannable = n => !!n && !n.retired && !!llmJobSpecFor(n);
+    const kindOf = n => n && n.type === "family" ? "nameplate"
+                      : n && n.type === "engine" ? "engine" : "model";
+    const ago = iso => {
+      const ms = Date.now() - Date.parse(iso);
+      if (!isFinite(ms)) return "";
+      const m = Math.round(ms / 60000);
+      if (m < 1) return "just now";
+      if (m < 60) return m + " min ago";
+      const h = Math.round(m / 60);
+      return h < 48 ? h + "h ago" : Math.round(h / 24) + " days ago";
+    };
+
+    function setChosen(n) {
+      chosen = scannable(n) ? n : null;
+      if (chosen) {
+        chosenEl.hidden = false;
+        chosenEl.innerHTML = `<span class="k">${kindOf(chosen)}</span>` +
+          `<span>${esc(carName(chosen))}</span><button title="clear">✕</button>`;
+        chosenEl.querySelector("button").onclick = () => { setChosen(null); carEl.focus(); };
+        carEl.value = "";
+      } else {
+        chosenEl.hidden = true;
+        chosenEl.innerHTML = "";
+      }
+      resultsEl.hidden = true;
+      refreshAddState();
+    }
+    function renderCarResults(q) {
+      const hits = (searchAll(q) || []).filter(scannable).slice(0, 8);
+      if (!hits.length) { resultsEl.hidden = true; resultsEl.innerHTML = ""; return; }
+      resultsEl.innerHTML = "";
+      hits.forEach(n => {
+        const b = document.createElement("button");
+        b.className = "lrq-result";
+        b.innerHTML = `<span class="t">${kindOf(n)}</span>` +
+          `<span>${esc(carName(n))}</span><span class="y">${n.year || ""}</span>`;
+        b.onclick = () => setChosen(n);
+        resultsEl.appendChild(b);
+      });
+      resultsEl.hidden = false;
+    }
+    function refreshAddState() {
+      const spec = chosen ? llmJobSpecFor(chosen) : null;
+      const queued = spec && LF.jobFor(spec.targetId, spec.kind);
+      addBtn.disabled = !spec || !!queued;
+      addBtn.textContent = !spec ? "Pick one first"
+                         : queued ? "Already in the queue" : "Add to the queue";
+    }
+
+    // Called on every queue change, whether this panel is open or not: the
+    // dot on the Tools menu is how you see there is still work outstanding
+    // without opening anything.
+    refreshQueueUi = function () {
+      const list = LF.jobs();
+      const waiting = list.filter(j => j.state !== "running");
+      if (dot) dot.hidden = !list.length;
+      if (panel.hidden) return;
+      if (list.length) {
+        listEl.innerHTML = `<h5>in the queue (${list.length})</h5><ol>` + list.map(j =>
+          `<li${j.state === "running" ? ' class="run"' : ""}>` +
+          `<span>${esc(j.label)} — ${esc(LF.jobDescription(j))}` +
+          `${j.state === "running" ? " — running now" : " — added " + ago(j.queuedAt)}</span>` +
+          // Not the one being worked on: its pass is mid-flight, and a check
+          // that is cut off is lost.
+          (j.state === "running" ? "" :
+            `<button class="lrq-drop" data-id="${esc(j.id)}" title="remove this request">✕</button>`) +
+          `</li>`).join("") + "</ol>";
+        listEl.querySelectorAll(".lrq-drop").forEach(b => {
+          b.onclick = () => {
+            const r = LF.cancelJob(b.dataset.id);
+            say(r && r.ok ? "Removed." : "That one is already running.", r && r.ok ? "ok" : "err");
+          };
+        });
+      } else {
+        listEl.innerHTML = "";
+      }
+      clearBtn.disabled = !waiting.length;
+      const running = LF.runningJob();
+      const last = LF.lastJob ? LF.lastJob() : null;
+      if (running) {
+        say(`Working on ${running.label} now` + (waiting.length ? ` — ${waiting.length} behind it.` : "."), "ok");
+      } else if (waiting.length) {
+        say(`${waiting.length} waiting — starting the next one.`, "ok");
+      } else if (last) {
+        say(`Nothing waiting. Last was ${last.label}, ${ago(last.finishedAt)}` +
+            (last.state === "error" ? ` — it failed: ${last.summary}` : "") + ".",
+            last.state === "error" ? "err" : "");
+      } else {
+        say("Nothing in the queue.");
+      }
+      refreshAddState();
+    };
+
+    function positionPanel() {
+      const r = trigger.getBoundingClientRect();
+      panel.style.top = (r.bottom + 6) + "px";
+      panel.style.left = "auto";
+      panel.style.right = Math.max(0, window.innerWidth - r.right) + "px";
+    }
+    function openPanel() {
+      positionPanel();
+      panel.hidden = false;
+      const menu = document.getElementById("toolsmenu");
+      if (menu) menu.hidden = true;
+      if (!chosen) setChosen(dtNode && scannable(dtNode) ? dtNode : null);
+      refreshQueueUi();
+      (chosen ? addBtn : carEl).focus();
+    }
+    function closePanel() {
+      panel.hidden = true;
+      resultsEl.hidden = true;
+    }
+
+    addBtn.onclick = () => {
+      const spec = chosen ? llmJobSpecFor(chosen) : null;
+      if (!spec) { say("Pick a car, nameplate or engine first.", "err"); carEl.focus(); return; }
+      const res = LF.enqueueJob(spec);
+      if (res && res.error === "queue-full") {
+        say(`The queue is full (${res.limit} waiting). Let some of it run first.`, "err");
+        return;
+      }
+      say(res && res.duplicate ? `${carName(chosen)} was already in the queue.`
+                               : `${carName(chosen)} added.`, "ok");
+      setChosen(null);
+      carEl.focus();
+    };
+    clearBtn.onclick = () => {
+      const r = LF.clearWaitingJobs();
+      say(r && r.dropped ? `Removed ${r.dropped} waiting request(s).` : "Nothing was waiting.", "ok");
+    };
+    carEl.addEventListener("input", () => {
+      if (chosen) setChosen(null);
+      const q = carEl.value.trim();
+      if (q.length < 2) { resultsEl.hidden = true; return; }
+      renderCarResults(q);
+    });
+    carEl.addEventListener("keydown", e => {
+      if (e.key === "Enter") {
+        const first = resultsEl.querySelector(".lrq-result");
+        if (first) { e.preventDefault(); first.click(); }
+      }
+    });
+    trigger.onclick = (e) => { e.stopPropagation(); if (panel.hidden) openPanel(); else closePanel(); };
+    closeBtn.onclick = closePanel;
+    document.addEventListener("keydown", e => { if (e.key === "Escape" && !panel.hidden) closePanel(); });
+    window.addEventListener("resize", () => { if (!panel.hidden) positionPanel(); });
+    // Opening a car while the panel is up retargets it, so clicking around
+    // the graph and then adding "this one" works without the text box.
+    onDetailOpen(n => { if (!panel.hidden && scannable(n)) setChosen(n); });
+    refreshQueueUi();
   }
 
   // ---------- phone layout: the wordmark is the menu ----------
@@ -7740,6 +8078,27 @@ window.CarWeb = (function () {
       initLegendToggle();
       initToolsMenu();
       initLlmRequest();
+      // The work queue. Runners first (nothing can run without them), then
+      // the panel, then resume: anything left over from a previous session --
+      // including a job that was mid-pass when the page reloaded or serve.py
+      // was stopped -- starts here rather than being lost. See
+      // llm_families.js's resumeJobs.
+      initLlmJobRunners();
+      initLlmQueuePanel();
+      if (window.LlmFamilies && window.LlmFamilies.resumeJobs) {
+        const q = window.LlmFamilies.resumeJobs();
+        if (q && q.waiting) {
+          console.info(`[carweb] scan queue: ${q.waiting} request(s) waiting` +
+                       (q.recovered ? `, ${q.recovered} recovered from an interrupted run` : ""));
+        }
+        // ?agent=1 is the agent's own page (scripts/llm_agent.py). It starts
+        // the queue itself, after stamping its decisions as "agent" -- a job
+        // started during boot would have been filed as a person's decision.
+        // Any other page is a person's browser, so it starts now.
+        if (!/[?&]agent=1(?:&|$)/.test(location.search) && window.LlmFamilies.startJobs) {
+          window.LlmFamilies.startJobs();
+        }
+      }
       initAutoRefresh();
       restoreViewState();
       setDataStatus();
@@ -7764,6 +8123,14 @@ window.CarWeb = (function () {
     spliceIntoIndexes,
     isPowertrain, powertrainLinkTypes: () => POWERTRAIN_LINKS,
     scanEngine, renderPowertrain, recordEnginesLive, mergeEnginePrompt, scanEnginesLive,
+    // The work queue, from outside: `scanEngine` and the card's own buttons
+    // all go through it, and the agent's settle test sees it through
+    // LlmFamilies.pendingWork. requestScan is the one-call "do to this node
+    // whatever its own card's check would do", which is what the queue panel
+    // and the agent both want.
+    llmJobSpecFor,
+    requestScan: n => { const spec = llmJobSpecFor(n); return spec ? enqueueLlmJob(spec) : null; },
+    scanEngineNow, runManualRecheckNow, runGenerationResearchNow,
     graphTransform: () => Graph.state().t,
   };
   return api;

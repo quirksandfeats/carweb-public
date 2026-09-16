@@ -362,8 +362,23 @@ check("...and reads an engine's article instead of checking it for generations",
       'kind == "engine"' in pass_src and "CarWeb.scanEngine(" in pass_src)
 check("...waiting on the engine's own entry, so the wait can end",
       "engineEntryFor" in pass_src and 'state["engine"]' in pass_src)
-check("a car is still opened exactly as before",
-      "CarWeb.openDetail(n); }\", nid)" in pass_src)
+check("a car is still opened, so the cascade measures depth from it",
+      "CarWeb.openDetail(n); " in pass_src)
+# Real user request: "I want there to also be a queuing system everywhere...
+# for if I want to request several different models to be checked and I want to
+# request to scan them while others are already currently being scanned." Two
+# passes at once is how one of them loses its writes (see llm_families.js's
+# work queue), so this run asks the page's queue rather than starting a pass
+# per target itself.
+check("...and each target is asked for through the page's work queue",
+      "CarWeb.requestScan(n)" in pass_src)
+check("...which is not started until agent decisions can be stamped",
+      "LF.startJobs()" in pass_src and
+      pass_src.index("setDecisionSource('agent')") < pass_src.index("LF.startJobs()"))
+check("...and the page boots with the queue held, not running",
+      "index.html?agent=1" in pass_src)
+check("a target this build cannot scan is skipped rather than waited on",
+      "not-scannable" in pass_src)
 
 print()
 print("ALL GREEN" if not fails else "FAILURES: " + str(fails))

@@ -335,9 +335,17 @@ function freshWindow(opts) {
     /if \(opts && opts\.explicit\) \{\s*\n\s*store\.families\[node\.id\] = entry;\s*\n\s*await persist\(\);/.test(src));
   check("...and idle browsing still discards an unasked-for one",
     /if \(engagedId === node\.id\) store\.families\[node\.id\] = entry;/.test(src));
-  check("every user-initiated check marks itself explicit",
-    (app.match(/checkNode\(n, nodes, \{ explicit: true \}\)/g) || []).length === 3,
-    (app.match(/checkNode\(n, nodes, \{ explicit: true \}\)/g) || []).length);
+  // There used to be three separate call sites, each having to remember the
+  // flag. They all go through the work queue's one node-check runner now, so
+  // the invariant is that THAT passes it -- and that no entry point has gone
+  // back to calling checkNode itself without it.
+  check("the user-initiated check marks itself explicit",
+    /await LF\.checkNode\(n, nodes, \{ explicit: true \}\);/.test(app));
+  check("...and every path that asks for one goes through the queue",
+    (app.match(/kind: "node-check"/g) || []).length >= 3,
+    (app.match(/kind: "node-check"/g) || []).length);
+  check("...with no entry point calling checkNode unexplicitly behind its back",
+    !/(?:window\.LlmFamilies|LF)\.checkNode\(n, nodes\)/.test(app));
   check("the same duplicate question isn't re-asked within a run",
     /const duplicateCheckCache = new Map\(\)/.test(src) &&
     /if \(duplicateCheckCache\.has\(cacheKey\)\) return duplicateCheckCache\.get\(cacheKey\)/.test(src));

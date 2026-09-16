@@ -45,6 +45,50 @@ stamped so it can be reviewed afterwards.
 - The **review backlog** lives in `data_src/harvest/family_match_report.txt`
   and is the list of cars `--now` works through when there is no request to
   read. Nothing to do with Cloudflare.
+- The **local scan queue** lives in `app/llm_families.json`, under `jobs`, and
+  is described in its own section below. Also nothing to do with Cloudflare:
+  it is the queue the page itself works through, whether the request came from
+  a button on the card, the Tools > Scan Queue panel, or the agent.
+
+## The local scan queue
+
+Every LLM pass the page can run -- a hidden-generation check, a nameplate
+re-check either depth, generation research, reading an engine's article --
+goes into one queue and they run **one at a time, in the order they were asked
+for**. `app/llm_families.js` owns it; `Tools > 🧾 Scan Queue` is where you see
+and edit it.
+
+It exists because two passes at once lost data rather than merely being slow.
+Each one reads the whole store and POSTs the whole store back, so the second
+POST -- built from a snapshot taken before the first one's writes -- erased
+them. A cascade also mints nodes and splices them into the live graph, which a
+second pass walking the same arrays would see changing underneath it. And
+`llama-server` has a fixed number of slots that a single cascade already
+fills, so a second pass did not get answered sooner; it just made the first
+one take longer.
+
+- **Adding.** Any card's own check button, the Tools panel (search a car,
+  nameplate or engine and add it), or `CarWeb.requestScan(node)`. Asking for
+  the same work on the same car twice returns the request already in hand.
+  Different work on the same car -- re-check it, and separately read its
+  engines -- is two requests, because both are worth doing.
+- **Waiting is on disk.** What has not run yet is written into
+  `llm_families.json`, so a reload, a rebuild, or stopping `serve.py` keeps
+  it. A job that was mid-pass when the page went away comes back as waiting
+  rather than being lost.
+- **Withdrawing.** Anything still waiting; never the one being worked on. Its
+  pass is mid-flight and a check that is cut off is lost.
+- **Nothing starts until something says go.** The page recovers the queue
+  during boot but holds it. A real browser releases it once boot is done; the
+  agent's page (opened as `index.html?agent=1`) releases it only after it has
+  stamped its decisions as `agent`, or a job that started during boot would
+  have been filed as a person's decision.
+- **The agent shares it.** `scripts/llm_agent.py` asks for each of its targets
+  through the same queue, so a run works through anything a person left
+  waiting at the keyboard first, and never starts a pass on top of one.
+  `LlmFamilies.pendingWork()` counts queued requests, which is what the
+  agent's settle test reads -- without that a run would declare itself
+  finished and exit with requested cars still in the queue.
 
 ## Several people at once
 

@@ -257,6 +257,24 @@ window.LlmFamilies = (function () {
     // wild had cleared 78 stand-in entries: they were gone, correctly, and the
     // record of them was gone too.
     prunedDecisions: bootData.prunedDecisions || {},
+    // Real user request: "If I want to add further cars for the LLM to check
+    // (in serve.py, or in the web version, or anywhere), make sure that the
+    // request is properly added to the queue in a way that it does not ruin
+    // any scanning or have data loss. I want there to also be a queuing
+    // system everywhere, including serve.py, for if I want to request several
+    // different models to be checked and I want to request to scan them while
+    // others are already currently being scanned."
+    //
+    // An ARRAY, not a map, because the order IS the queue. Persisted for the
+    // same reason the queue exists at all: a request made while something
+    // else is running must still be there after a reload, and a reload is
+    // exactly what happens after a rebuild. See the job queue below.
+    jobs: Array.isArray(bootData.jobs) ? bootData.jobs : [],
+    // The last job to finish, so the panel can say what happened after the
+    // queue empties rather than going blank. Declared here for the reason
+    // prunedDecisions spells out: a key that only exists once something has
+    // been written would be wiped by the next boot's first persist().
+    lastJob: bootData.lastJob || null,
   };
 
   // Whether /api/llm-families was actually reachable at boot — if not (e.g.
@@ -3135,7 +3153,230 @@ Rules:
     const checks = [...inFlight.keys()];
     const partners = [...partnerCheckScheduled].filter(id => !inFlight.has(id));
     const lookups = [...wpLookupScheduled];
-    return { checks, partners, lookups, total: checks.length + partners.length + lookups.length };
+    // Requests waiting in the queue count as outstanding work. This is what
+    // the agent's settle test reads (scripts/llm_agent.py's pending_work), so
+    // without them a run would declare itself finished, push, and exit with
+    // three cars the user had asked for still sitting in the queue -- the
+    // same class of loss the cascade's own queued partners caused.
+    const queued = jobList().filter(j => j.state !== "running").map(j => j.targetId);
+    const running = jobList().filter(j => j.state === "running").map(j => j.targetId)
+                             .filter(id => !checks.includes(id));
+    return { checks, partners, lookups, queued, running,
+             total: checks.length + partners.length + lookups.length +
+                    queued.length + running.length };
+  }
+
+  // ---------- the work queue ----------
+  // Real user request: "If I want to add further cars for the LLM to check
+  // (in serve.py, or in the web version, or anywhere), make sure that the
+  // request is properly added to the queue in a way that it does not ruin any
+  // scanning or have data loss. I want there to also be a queuing system
+  // everywhere, including serve.py, for if I want to request several
+  // different models to be checked and I want to request to scan them while
+  // others are already currently being scanned."
+  //
+  // What was wrong. Every LLM action in the UI called its own async function
+  // the moment its button was pressed. Pressing two meant two passes running
+  // over the same graph at once, and that is not merely slow:
+  //   - both read `store` and both call persist(), which POSTs the WHOLE
+  //     store. The second POST is built from a snapshot taken before the
+  //     first one's writes and silently erases them. That is the data loss.
+  //   - a cascade mints nodes and splices them into the live graph. A second
+  //     pass walking the same arrays sees a graph changing underneath it.
+  //   - llama-server has a fixed number of slots; a cascade already fills
+  //     them with its own partner checks. A second user pass does not get
+  //     answered sooner, it just makes the first one take longer.
+  // And pressing a button while something ran gave no sign that the request
+  // had been noted, so the honest options were "lose it" or "collide".
+  //
+  // What this is. ONE user-requested pass at a time, in the order they were
+  // asked for, with everything waiting written to disk so a reload keeps it.
+  // Concurrency inside a pass is untouched -- a cascade still fans out to its
+  // partners as it always did. The limit is on user jobs, which is where the
+  // collisions were.
+  //
+  // The runners live where the work lives (app.js owns the UI passes), so
+  // they are registered rather than defined here; this file owns the order,
+  // the dedupe, the persistence and the recovery.
+  const MAX_JOBS = 40;
+  const jobRunners = new Map();
+  const jobListeners = [];
+  let jobPumping = false;
+  // Nothing runs until something says go. The queue is persisted, so a page
+  // that boots with five requests in it would otherwise start the first one
+  // during boot -- which is wrong in exactly one important case: the agent's
+  // headless page (scripts/llm_agent.py) stamps every decision it makes as
+  // "agent" and does so AFTER the page has loaded. A job that started during
+  // boot would have its decisions filed as a person's. So boot recovers the
+  // queue and the caller starts it: app.js after boot for a real browser, the
+  // agent itself once it has stamped the source.
+  let jobsAllowed = false;
+  function startJobs() { jobsAllowed = true; notifyJobs(); pumpJobs(); }
+  function jobsStarted() { return jobsAllowed; }
+
+  function registerJobRunner(kind, fn) { jobRunners.set(String(kind), fn); }
+  function onJobChange(fn) { if (typeof fn === "function") jobListeners.push(fn); }
+  function notifyJobs() {
+    jobListeners.forEach(f => { try { f(); } catch (e) { /* one bad listener shouldn't stop the queue */ } });
+  }
+  function jobList() { return Array.isArray(store.jobs) ? store.jobs : (store.jobs = []); }
+  // A copy, so a caller rendering the queue cannot reorder the real one.
+  function jobs() { return jobList().map(j => Object.assign({}, j)); }
+  function runningJob() { return jobList().find(j => j.state === "running") || null; }
+  // 1-based, and 0 for the one actually running: what "3rd in line" means.
+  function jobPositionFor(targetId, kind) {
+    const list = jobList();
+    const i = list.findIndex(j => j.targetId === targetId && (!kind || j.kind === kind));
+    if (i < 0) return -1;
+    return list[i].state === "running" ? 0 : list.slice(0, i).filter(j => j.state !== "running").length + 1;
+  }
+  function jobFor(targetId, kind) {
+    const j = jobList().find(x => x.targetId === targetId && (!kind || x.kind === kind));
+    return j ? Object.assign({}, j) : null;
+  }
+
+  // Deliberately NOT keyed on the target alone. "re-check this nameplate" and
+  // "read its engines" are different work on the same car and both are worth
+  // doing; asking for the same one twice is the request that is already in
+  // hand. Same rule the Worker's one-key-per-car dedupe follows, one level
+  // finer. See src/worker.js.
+  function enqueueJob(spec) {
+    if (!spec || !spec.kind || !spec.targetId) return null;
+    const kind = String(spec.kind), targetId = String(spec.targetId);
+    const list = jobList();
+    const already = list.find(j => j.kind === kind && j.targetId === targetId);
+    if (already) return Object.assign({}, already, { duplicate: true });
+    if (list.filter(j => j.state !== "running").length >= MAX_JOBS) {
+      return { error: "queue-full", limit: MAX_JOBS };
+    }
+    const job = {
+      id: "job-" + Date.now().toString(36) + "-" + Math.random().toString(36).slice(2, 7),
+      kind, targetId,
+      label: String(spec.label || targetId),
+      detail: spec.detail || null,
+      source: String(spec.source || "local"),
+      state: "waiting",
+      queuedAt: new Date().toISOString(),
+    };
+    list.push(job);
+    persist();
+    note(`queue: ${job.label} added -- ${jobDescription(job)} ` +
+         `(${list.filter(j => j.state !== "running").length} waiting` +
+         (runningJob() ? `, ${runningJob().label} running now)` : ")"));
+    notifyJobs();
+    pumpJobs();
+    return Object.assign({}, job);
+  }
+
+  const JOB_WORDS = {
+    "node-check": "look for hidden generations",
+    "family-recheck": "re-check this nameplate",
+    "family-recheck-deep": "re-check it and read every generation's article",
+    "gen-research": "research this generation",
+    "engine-read": "read this engine's article",
+    "engine-scan": "read the engines of every generation",
+  };
+  function jobDescription(job) { return (job && JOB_WORDS[job.kind]) || (job && job.kind) || ""; }
+
+  // A request is a suggestion, so it has to be withdrawable -- but not the one
+  // being worked on. Its pass is mid-flight and stopping it there is exactly
+  // the "a check that is cut off is lost" case the busy box warns about.
+  function cancelJob(id) {
+    const list = jobList();
+    const i = list.findIndex(j => j.id === id);
+    if (i < 0) return { ok: false, error: "no-such-job" };
+    if (list[i].state === "running") return { ok: false, error: "running" };
+    const [gone] = list.splice(i, 1);
+    persist();
+    note(`queue: ${gone.label} removed from the queue`);
+    notifyJobs();
+    return { ok: true, job: gone };
+  }
+  function clearWaitingJobs() {
+    const list = jobList();
+    const kept = list.filter(j => j.state === "running");
+    const dropped = list.length - kept.length;
+    if (!dropped) return { ok: true, dropped: 0 };
+    store.jobs = kept;
+    persist();
+    note(`queue: ${dropped} waiting request(s) removed`);
+    notifyJobs();
+    return { ok: true, dropped };
+  }
+
+  // One at a time, and re-entrant-safe: every path that could start work
+  // (enqueue, a finished job, boot recovery) calls this, and only the first
+  // one through actually runs.
+  async function pumpJobs() {
+    if (jobPumping || !jobsAllowed) return;
+    const list = jobList();
+    if (runningJob()) return;
+    const next = list.find(j => j.state === "waiting");
+    if (!next) return;
+    const runner = jobRunners.get(next.kind);
+    if (!runner) {
+      // A job whose kind this build does not know: drop it rather than block
+      // the queue behind it forever. Happens to a job persisted by a newer
+      // build and read back by an older one.
+      note(`queue: ${next.label} skipped -- this build has no "${next.kind}" pass`);
+      store.jobs = list.filter(j => j !== next);
+      persist();
+      notifyJobs();
+      return pumpJobs();
+    }
+    jobPumping = true;
+    next.state = "running";
+    next.startedAt = new Date().toISOString();
+    persist();
+    const waiting = list.filter(j => j.state === "waiting").length;
+    note(`queue: starting ${next.label} -- ${jobDescription(next)}` +
+         (waiting ? ` (${waiting} still waiting)` : ""));
+    notifyJobs();
+    let err = null;
+    try {
+      await runner(Object.assign({}, next));
+    } catch (e) {
+      err = e;
+      console.warn("LlmFamilies: job failed", next, e);
+      note(`queue: ${next.label} failed -- ${(e && e.message) || e}`);
+    }
+    // Removed whether it worked or not. A job that failed and stayed would be
+    // retried forever on every boot, and the verdict a pass writes for itself
+    // (an "error" entry on the car) is the record of the failure.
+    store.jobs = jobList().filter(j => j.id !== next.id);
+    store.lastJob = {
+      id: next.id, kind: next.kind, targetId: next.targetId, label: next.label,
+      finishedAt: new Date().toISOString(),
+      state: err ? "error" : "done",
+      summary: err ? String((err && err.message) || err) : "",
+    };
+    await persist();
+    const left = jobList().filter(j => j.state === "waiting").length;
+    note(`queue: ${next.label} done` + (left ? ` -- ${left} left` : " -- queue empty"));
+    jobPumping = false;
+    notifyJobs();
+    // Not awaited: this is the tail of one job, not the caller's business.
+    pumpJobs();
+  }
+
+  // Called once from app.js's boot, after the graph exists (a runner opens
+  // and reads real nodes). Anything left "running" died with the page mid-pass
+  // -- a reload, a rebuild, or serve.py being stopped -- so it goes back to
+  // waiting rather than being lost, which is the whole point of persisting it.
+  function resumeJobs() {
+    const list = jobList();
+    if (!list.length) return { waiting: 0, recovered: 0 };
+    let recovered = 0;
+    list.forEach(j => {
+      if (j.state === "running") { j.state = "waiting"; delete j.startedAt; recovered++; }
+    });
+    if (recovered) {
+      note(`queue: ${recovered} request(s) were interrupted and are back in the queue`);
+      persist();
+    }
+    notifyJobs();
+    // Deliberately not started here -- see jobsAllowed above.
+    return { waiting: list.filter(j => j.state === "waiting").length, recovered };
   }
 
   // ---------- public: replay every manually-pasted Wikipedia link ----------
@@ -10139,6 +10380,12 @@ Rules:
     // Odyssey / Acura MDX report this closes.
     onSplitReady: f => splitListeners.push(f),
     pendingWork,
+    // the work queue -- one user-requested pass at a time, in order, kept
+    // across reloads. See its own section above.
+    registerJobRunner, onJobChange, enqueueJob, cancelJob, clearWaitingJobs,
+    jobs, jobFor, jobPositionFor, runningJob, jobDescription, resumeJobs,
+    startJobs, jobsStarted,
+    lastJob: () => (store.lastJob ? Object.assign({}, store.lastJob) : null),
     // The single gate every background scheduler consults -- app.js drives it
     // from the 🤖 LLM Check toggle. See setBackgroundAllowed's own comment.
     setBackgroundAllowed,

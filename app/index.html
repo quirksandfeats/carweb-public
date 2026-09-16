@@ -249,6 +249,41 @@
   <div id="llmrequest-queue" class="lrq-queue"></div>
 </div>
 
+<!-- The local queue. Same shell as #llmrequest-panel above (and the same
+     .lrq-* styles), and deliberately so: asking for a car to be looked at
+     should look the same whether you are sitting at the machine or not. The
+     difference is where the request goes -- this page runs it itself, in
+     order, one at a time, and what is waiting is written into
+     llm_families.json so a reload keeps it. No passphrase: this panel only
+     exists when serve.py is answering, which means you are the one at the
+     keyboard. -->
+<div id="llmqueue-panel" hidden>
+  <div class="lrq-head">
+    <strong>Scan queue</strong>
+    <button id="llmqueue-close" title="close">✕</button>
+  </div>
+  <p class="lrq-blurb">
+    One pass at a time, in the order you asked for them. Add as many as you
+    like while something is running — nothing starts until the one before it
+    has finished, which is what keeps two passes from writing over each
+    other. What is waiting here survives a reload.
+  </p>
+
+  <label class="lrq-label" for="llmqueue-car">Add a car, nameplate or engine</label>
+  <div class="lrq-pick">
+    <input id="llmqueue-car" type="text" autocomplete="off" spellcheck="false"
+           placeholder="search the graph, or click one on it">
+    <div id="llmqueue-carresults" class="lrq-results" hidden></div>
+  </div>
+  <div id="llmqueue-chosen" class="lrq-chosen" hidden></div>
+  <div class="lrq-actions">
+    <button id="llmqueue-add">Add to the queue</button>
+    <button id="llmqueue-clear" class="lrq-ghost">Clear those waiting</button>
+  </div>
+  <div id="llmqueue-status" class="lrq-status"></div>
+  <div id="llmqueue-list" class="lrq-queue"></div>
+</div>
+
 <div id="genphotos-panel" hidden>
   <div class="lrq-head">
     <strong>Refresh generation photos</strong>
@@ -292,6 +327,14 @@
        refreshGenerationImages. -->
   <button id="genphotosbtn" class="toolsmenu-item" role="menuitem" title="re-read the source articles and fill in the per-generation photos, without re-running the model" hidden>🖼 Refresh Generation Photos</button>
   <button id="addcarbtn" class="toolsmenu-item" role="menuitem" title="add a specific make/model to the graph by hand" hidden>➕ Add Car</button>
+  <!-- Real user request: "I want there to also be a queuing system
+       everywhere, including serve.py, for if I want to request several
+       different models to be checked and I want to request to scan them
+       while others are already currently being scanned." The local twin of
+       the hosted site's "Request scan": the same list of waiting cars, but
+       run by this page rather than by the Worker. See app.js's
+       initLlmQueuePanel and llm_families.js's work queue. -->
+  <button id="llmqueuebtn" class="toolsmenu-item" role="menuitem" title="line up several cars, engines or nameplates for the model to work through, one at a time" hidden>🧾 Scan Queue <span id="llmqueue-dot" hidden>●</span></button>
   <!-- The powertrain layer's own entry point. Reads an engine's article: its
        variants, and every car it went into. See app.js's scanEngine. -->
   <button id="addenginebtn" class="toolsmenu-item" role="menuitem" title="read an engine's Wikipedia article: its variants, and the cars it went into" hidden>⚙ Add Engine</button>
