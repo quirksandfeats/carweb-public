@@ -8356,6 +8356,7 @@ Rules:
       // node that was actually asked about.
       const pinned = o.id ? byId.get(o.id) : null;
       if (pinned) {
+        if (o.revive !== false) reviveEngineNode(pinned, links, byId);
         // Its own label and its own link are both kept: "M177", pointing at
         // "Mercedes-Benz M177 engine". Overwriting the link with the resolved
         // title is what the first version of this did, and it made the NEXT
@@ -8372,6 +8373,7 @@ Rules:
       }
       const existing = byId.get(draft.id);
       if (existing) {
+        if (o.revive) reviveEngineNode(existing, links, byId);
         // Fill only what is empty, the same discipline the live layer used.
         ["make", "wp", "year", "end", "configuration", "displacement"].forEach(k => {
           if (!existing[k] && draft[k]) existing[k] = draft[k];
@@ -8613,6 +8615,9 @@ Rules:
     const replay = (carId, hits) => {
       const car = byId.get(carId);
       if (!car || car.retired || !hits || !hits.length) return;
+      // No revive: a boot replay is not a deliberate read, and undoing the
+      // user's delete on every page load would make it impossible to delete
+      // an engine at all.
       const r = recordEngineMentionsFrom(hits, car, nodes, links);
       engines += r.engines; fitted += r.fitted;
       r.added.forEach(n => byId.set(n.id, n));
@@ -8769,9 +8774,44 @@ Rules:
   function recordEngineMentions(wikitext, carNode, nodes, links) {
     return recordEngineMentionsFrom(engineMentions(wikitext), carNode, nodes, links);
   }
-  function recordEngineMentionsFrom(mentions, carNode, nodes, links) {
-    if (!carNode) return { engines: 0, fitted: 0, added: [] };
-    if (!mentions || !mentions.length) return { engines: 0, fitted: 0, added: [] };
+  // Un-hide an engine (and its edges) a plain delete had retired.
+  //
+  // Real bug report: the user deleted the M177 and its parent, then re-checked
+  // the SL -- and the terminal said it had found 3, 6, 6, 3, 4 and 2 engines
+  // across seven articles, followed by "SL done -- 0 engine(s), 0
+  // connection(s)". Both halves were true: the engines were found, and every
+  // one of them already existed as a retired node with a retired edge, so
+  // nothing was created and nothing became visible. The app looked broken.
+  //
+  // A plain delete is "hide this", restorable, and the delete panel says in
+  // as many words that re-running a check can rediscover it -- so a
+  // deliberate read does. A PERMANENT clear (store.purged) is the blacklist,
+  // and nothing here touches it.
+  function reviveEngineNode(n, links, byId) {
+    if (!n || !n.retired || n.purged || isPurged(n.id)) return false;
+    n.retired = false;
+    delete n.retiredReason;
+    delete store.deletions[n.id];
+    (n.variants || []).forEach(vid => {
+      const v = byId.get(vid);
+      if (v && v.retired && !v.purged && !isPurged(vid)) { v.retired = false; delete store.deletions[vid]; }
+    });
+    for (const l of links) {
+      if (!l.retired || l.retiredByPurge) continue;
+      if (!POWERTRAIN_LINK_TYPES.has(l.type)) continue;
+      const s0 = idOf(l.source), t0 = idOf(l.target);
+      if (s0 !== n.id && t0 !== n.id &&
+          (n.variants || []).indexOf(s0) < 0 && (n.variants || []).indexOf(t0) < 0) continue;
+      const other = byId.get(s0 === n.id ? t0 : s0);
+      if (other && other.retired) continue;   // its other end is still deleted
+      delete l.retired;
+    }
+    return true;
+  }
+  const POWERTRAIN_LINK_TYPES = new Set(["fitted", "enginegen", "enginesucc"]);
+  function recordEngineMentionsFrom(mentions, carNode, nodes, links, opts) {
+    if (!carNode) return { engines: 0, fitted: 0, revived: 0, deleted: 0, added: [] };
+    if (!mentions || !mentions.length) return { engines: 0, fitted: 0, revived: 0, deleted: 0, added: [] };
     const byId = new Map(nodes.map(n => [n.id, n]));
     const linkKey = new Set();
     for (const l of links) {
@@ -8780,7 +8820,8 @@ Rules:
       linkKey.add(s0 + "|" + t0 + "|" + l.type);
       linkKey.add(t0 + "|" + s0 + "|" + l.type);
     }
-    let engines = 0, fitted = 0;
+    let engines = 0, fitted = 0, revived = 0, deleted = 0;
+    const revive = !!(opts && opts.revive);
     const added = [];
     for (const mention of mentions) {
       // A car's infobox says which of a shared page's engines it means -- the
@@ -8804,6 +8845,10 @@ Rules:
       // Keep the article title even on a node that already existed: a mention
       // is often the first place it is known.
       if (!n.wp) n.wp = mention.title;
+      if (n.retired) {
+        if (revive && reviveEngineNode(n, links, byId)) revived++;
+        else { deleted++; continue; }
+      }
       const k = n.id + "|" + carNode.id + "|fitted";
       if (!linkKey.has(k)) {
         linkKey.add(k); linkKey.add(carNode.id + "|" + n.id + "|fitted");
@@ -8813,7 +8858,7 @@ Rules:
         fitted++;
       }
     }
-    return { engines, fitted, mentions, added };
+    return { engines, fitted, revived, deleted, mentions, added };
   }
 
   // ---------- engines: merging two into one ----------
@@ -9023,7 +9068,7 @@ Rules:
   // Read the engines for one car, or for every generation of a nameplate.
   // Done once per car and remembered, so re-opening a nameplate is free.
   async function scanEnginesFor(node, nodes, links) {
-    const out = { engines: 0, fitted: 0, scanned: 0, skipped: 0 };
+    const out = { engines: 0, fitted: 0, scanned: 0, skipped: 0, revived: 0, deleted: 0 };
     if (!serverAvailable || !node) return out;
     const byIdLocal = new Map(nodes.map(n => [n.id, n]));
     const fam = node.type === "family" ? node
@@ -9087,12 +9132,20 @@ Rules:
         store.wpLinks[car.id] = title;
       }
       out.scanned++;
-      const r = recordEngineMentionsFrom(hits, car, nodes, links);
+      // revive: this is a person having asked for a check, which is exactly
+      // what the delete panel says can rediscover a deleted engine.
+      const r = recordEngineMentionsFrom(hits, car, nodes, links, { revive: true });
       out.engines += r.engines; out.fitted += r.fitted;
+      out.revived += r.revived; out.deleted += r.deleted;
     }
     if (out.scanned) await persist();
     note(`powertrain: ${node.label} done -- ${out.engines} engine(s), ` +
-         `${out.fitted} connection(s) from ${out.scanned} article(s)`);
+         `${out.fitted} connection(s) from ${out.scanned} article(s)` +
+         (out.revived ? `, ${out.revived} brought back from deleted` : "") +
+         // Said out loud rather than reported as a bare zero: "found 6
+         // engines" followed by "0 engines" is what made this look broken.
+         (out.deleted ? `, ${out.deleted} named engine(s) stay hidden ` +
+                        "(permanently cleared -- restore them from Tools to see them)" : ""));
     return out;
   }
 

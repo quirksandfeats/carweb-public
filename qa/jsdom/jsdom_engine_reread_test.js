@@ -317,6 +317,54 @@ const doc = window.document;
     cw.switchView("graph");
   }
 
+  // ---------- 7. deleted, and what a re-read does about it ----------
+  // Real user report: "I deleted all mentions of the m177 powertrain and its
+  // parent (but not permanently cleared - was I supposed to?)... but the
+  // terminal suggested it was finding the engine again" -- it said it had
+  // found 3, 6, 6, 3, 4 and 2 engines across seven articles and then "0
+  // engine(s), 0 connection(s)". Both true: every one already existed as a
+  // retired node behind a retired edge, so nothing was created and nothing
+  // became visible.
+  {
+    const eng = cw.byId.get(ENG);
+    const mine = l => l.type === "fitted" &&
+      ((l.source.id || l.source) === eng.id || (l.target.id || l.target) === eng.id);
+    LF.deleteNode(eng, DATA.nodes, DATA.links, "testing");
+    check("(precondition) a plain delete hides the engine and its connections",
+          eng.retired && DATA.links.filter(l => mine(l) && !l.retired).length === 0);
+
+    // A boot replay must NOT undo it -- otherwise the engine could never be
+    // deleted at all, it would just come back on the next page load.
+    cw.recordEnginesLive();
+    check("a boot replay leaves the delete alone", cw.byId.get(ENG).retired);
+
+    cw.openDetail(eng);
+    const btn = [...doc.querySelectorAll(".dt-power button")]
+      .find(b => /Read this engine's article|Read it again/.test(b.textContent));
+    btn.click();
+    for (let i = 0; i < 160 && cw.byId.get(ENG).retired; i++) await sleep(20);
+    await sleep(80);
+    check("...but reading its article deliberately brings it back",
+          !cw.byId.get(ENG).retired);
+    check("...with its connections, not as a bare node",
+          DATA.links.filter(l => mine(l) && !l.retired).length > 0,
+          DATA.links.filter(l => mine(l) && !l.retired).length);
+    check("...and the delete record cleared, so it is not half-deleted",
+          !LF.allDeletions().some(d => d.id === ENG),
+          LF.allDeletions().map(d => d.id).join(", "));
+
+    // "Clear for good" is the blacklist, and it holds.
+    LF.deleteNode(cw.byId.get(ENG), DATA.nodes, DATA.links, "testing again");
+    const purged = LF.purgeDeletion(ENG, DATA.nodes, DATA.links);
+    check("(precondition) clearing it for good purges it", purged.ok && cw.byId.get(ENG).purged);
+    cw.openDetail(cw.byId.get(ENG));
+    const again = [...doc.querySelectorAll(".dt-power button")]
+      .find(b => /Read this engine's article|Read it again/.test(b.textContent));
+    if (again) again.click();
+    await sleep(300);
+    check("...and a re-read does NOT bring that one back", cw.byId.get(ENG).retired);
+  }
+
   console.log("\n" + (fails === 0 ? "ALL GREEN" : fails + " FAILURE(S)"));
   process.exit(fails === 0 ? 0 : 1);
 })();

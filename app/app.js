@@ -1643,7 +1643,7 @@ window.CarWeb = (function () {
     // `name` is what says WHICH engine, when the article covers several:
     // "M177" out of the M176/M177/M178 page. See llm_families.js's
     // splitMultiEngineTitle.
-    const opts = { mintCars: true, id: node ? node.id : undefined,
+    const opts = { mintCars: true, revive: true, id: node ? node.id : undefined,
                    name: node ? node.label : undefined };
     const run = LFam.forceRecheckEngine
       ? LFam.forceRecheckEngine(title, nodes, links, opts)
@@ -1907,6 +1907,14 @@ window.CarWeb = (function () {
       indexMirrorReplacements();
       refreshCounts();
       applyRelationConfirm(gen); // wires any relation this just resolved + re-renders the panel
+      // Real bug report: "When I do 'research this generation' for a
+      // particular generation, it seems to not do research for the engine
+      // information for a generation." researchGeneration does record the
+      // engines its article names -- see its own `engines` field -- but
+      // nothing put them in the graph, so they sat in the store until some
+      // later pass or the next reload happened to pick them up.
+      recordEnginesLive();
+      scanEnginesLive(gen);
       if (dtNode !== gen) return;
       if (res && res.status === "error") {
         el.innerHTML = `<div class="llm-status llm-error">Generation research failed: ${esc(res.error || "unknown error")}</div>`;
@@ -2768,10 +2776,12 @@ window.CarWeb = (function () {
     if (!LFam || !LFam.scanEnginesFor || !node) return;
     const nodesBefore = nodes.length, linksBefore = links.length;
     LFam.scanEnginesFor(node, nodes, links).then(r => {
-      if (!r || (!r.engines && !r.fitted)) {
+      if (!r || (!r.engines && !r.fitted && !r.revived)) {
         if (r && r.scanned) {
           console.info(`[carweb] powertrain: read ${r.scanned} article(s) for ` +
-                       `${node.label}; none of them names an engine`);
+                       `${node.label}; ` +
+                       (r.deleted ? `${r.deleted} engine(s) named there are permanently cleared`
+                                  : "none of them names an engine"));
         }
         return;
       }
@@ -4914,7 +4924,10 @@ window.CarWeb = (function () {
         `<b>${esc(labelOf(n))}</b> <span class="verb">${esc(kind)}</span>${esc(describeCascade(n))}<br>` +
         (hard
           ? `<span class="dp-hard">⚠ Harvested data</span> — this came from the DBpedia build or your Car Database, not from the LLM layer. It'll be recorded below as a hard-data deletion and can be restored at any time.`
-          : `Created by the LLM layer, so re-running a check can also rediscover it.`);
+          : `Created by the LLM layer.`) +
+        `<br><span class="verb">This hides it and can be undone from the list below. ` +
+        `Running a check that finds it again brings it back — “Clear for good” down there is what ` +
+        `stops that, permanently.</span>`;
       confirmSection.hidden = false;
       setStatus("");
       reason.value = "";
@@ -5081,7 +5094,9 @@ window.CarWeb = (function () {
             clearBtn.dataset.armed = "1";
             clearBtn.textContent = "✕ Clear for good?";
             clearBtn.classList.add("dp-delete-btn");
-            setStatus(`Clearing ${e.label || e.id} wipes it from the LLM data file entirely — it can't be restored afterwards. Click again to confirm.`, "error");
+            setStatus(`Clearing ${e.label || e.id} wipes it from the LLM data file and blacklists it: ` +
+                      "it can't be restored, and no future check will create it again. " +
+                      "Click again to confirm.", "error");
             setTimeout(() => {
               if (clearBtn.dataset.armed !== "1") return;
               clearBtn.dataset.armed = "";

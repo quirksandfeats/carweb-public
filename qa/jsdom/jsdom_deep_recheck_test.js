@@ -252,6 +252,59 @@ const LF = window.LlmFamilies;
           (l.source.id || l.source) === G1).length === 1);
   }
 
-  console.log("\n" + (fails === 0 ? "ALL GREEN" : fails + " FAILURE(S)"));
+  // ---------- 5. researching one generation reads its engines too ----------
+// Real bug report: "When I do 'research this generation' for a particular
+// generation, it seems to not do research for the engine information for a
+// generation." researchGeneration does record the engines its article names
+// -- it has an `engines` field for exactly that -- but nothing in the
+// button's own path put them into the graph.
+//
+// And the state this is driven from is the other half of the same report: the
+// user had DELETED those engines, so a later pass found them, created nothing,
+// and reported zero. A plain delete is "hide this" -- the delete panel says a
+// check can rediscover it -- so a deliberate read brings it back.
+{
+  const gen = window.CarWeb.byId.get(G1);
+  const entry = LF.genResearchEntryFor(G1);
+  check("the generation's research did record the engines its article names",
+        entry && (entry.engines || []).length > 0,
+        entry && (entry.engines || []).map(e => e.name).join(", "));
+
+  const eng = window.CARDATA.nodes.find(n => n.type === "engine" && !n.retired);
+  check("(precondition) that engine is in the graph", !!eng, eng && eng.label);
+  const mine = l => l.type === "fitted" &&
+    ((l.source.id || l.source) === eng.id || (l.target.id || l.target) === eng.id);
+  const res = LF.deleteNode(eng, window.CARDATA.nodes, window.CARDATA.links, "testing");
+  check("deleting it hides it and its connections",
+        res.ok && eng.retired &&
+        window.CARDATA.links.filter(l => mine(l) && !l.retired).length === 0,
+        window.CARDATA.links.filter(l => mine(l) && !l.retired).length);
+  if (LF.clearEngineScansFor) LF.clearEngineScansFor(window.CarWeb.byId.get(FAM), [gen]);
+
+  window.CarWeb.openDetail(gen);
+  const btn = window.document.querySelector(".llm-genresearch-btn");
+  check("a generation's card offers to research it", !!btn);
+  btn.click();
+  for (let i = 0; i < 300 && eng.retired; i++) await sleep(20);
+  await sleep(250);
+
+  const fitted = window.CARDATA.links.filter(l => mine(l) && !l.retired);
+  check("researching a generation puts its engines in the graph", fitted.length > 0, fitted.length);
+  check("...connected to the generation whose article named it",
+        fitted.some(l => (l.target.id || l.target) === G1 || (l.source.id || l.source) === G1),
+        fitted.map(l => (l.source.id || l.source) + "->" + (l.target.id || l.target)).join(","));
+  check("...the engine brought back rather than a duplicate beside it",
+        !eng.retired && window.CARDATA.nodes.filter(n => n.type === "engine" &&
+          n.label === eng.label).length === 1,
+        window.CARDATA.nodes.filter(n => n.type === "engine").map(n => n.label).join(", "));
+  check("...and the delete record is gone with it, so it is not half-deleted",
+        !(LF.allDeletions || (() => []))().some(d => d.id === eng.id),
+        (LF.allDeletions || (() => []))().map(d => d.id).join(", "));
+  check("...and its card says so",
+        /M1\b/.test(window.document.querySelector(".dt-power").textContent),
+        window.document.querySelector(".dt-power").textContent.slice(0, 80));
+}
+
+console.log("\n" + (fails === 0 ? "ALL GREEN" : fails + " FAILURE(S)"));
   process.exit(fails === 0 ? 0 : 1);
 })();
