@@ -4875,95 +4875,6 @@
    ],
    "allEngineers": []
   },
-  "llm-related-am-general": {
-   "status": "none",
-   "checkedAt": "2026-09-16T23:25:03.112Z",
-   "sourceTitle": "AM General",
-   "proposal": {
-    "hasMultipleGenerations": false,
-    "generations": [
-     {
-      "code": "AM General (Portfolio Company)",
-      "yearStart": 1971,
-      "yearEnd": null,
-      "designers": [
-       "American Motors"
-      ],
-      "engineers": [],
-      "wikiFile": "AM General Mishawaka Plant cropped.jpg",
-      "sharedPlatforms": [
-       "Flyer Industries",
-       "GM New Look",
-       "MAN SG 220",
-       "General Motors",
-       "Mercedes-Benz R-Class",
-       "Oshkosh Corporation",
-       "Jeep Dispatcher 100"
-      ],
-      "sharedPlatformMatches": {
-       "Flyer Industries": {
-        "matchId": null,
-        "confidence": "high",
-        "reason": "The mention 'Flyer Industries' is a company name, not a specific car model. While several candidates include 'Flyer' in their names (e.g., BYD Flyer, Dixie Flyer), there is no evidence provided that 'Flyer Industries' is a specific alias or regional name for any of these distinct vehicle models. Additionally, 'Flyer Industries' is historically associated with the 'Flyer' company from the early 20th century, but without specific model identification (like 'Flyer Automobile' vs 'Flyer Industries' as a brand entity), and given the production years of the candidates (some starting in 1913, others 1916, one 2001), a definitive match to a single specific car model cannot be made based solely on the company name."
-       },
-       "General Motors": {
-        "matchId": null,
-        "confidence": "low",
-        "reason": "General Motors is a parent automotive manufacturer corporation, not a specific car model. The database contains specific vehicle models (EV1, Beaumont, HydroGen4) produced by General Motors, but none is a direct rename or export badge of the corporation itself. Without a specific model name or chassis code in the mention, it cannot be matched to a specific car entry."
-       },
-       "Oshkosh Corporation": {
-        "matchId": null,
-        "confidence": "high",
-        "reason": "Oshkosh Corporation is an American manufacturer of trucks, military vehicles, and off-road vehicles. The Saturn Ion is a compact car produced by General Motors (a completely different manufacturer). They are unrelated vehicles with no shared chassis, platform, or naming relationship."
-       },
-       "Jeep Dispatcher 100": {
-        "matchId": null,
-        "confidence": "high",
-        "reason": "The 'Jeep Dispatcher 100' is a commercial van model produced by FAW Jeep (a joint venture in China) primarily between 2001 and 2006. None of the provided candidates refer to this specific commercial vehicle. The closest name match is the 'Jeep Dispatcher 200', but the 'Jeep Dispatcher 100' is not listed, and the other candidates (like the Jeep Willys MB, Cherokee, Wagoneer, etc.) are distinct passenger utility vehicles from different eras or with different naming conventions."
-       }
-      },
-      "makeVariantMatches": {
-       "GM New Look": {
-        "matchId": "mk-general-motors",
-        "makeGuessWords": 2,
-        "reason": "GM is the standard abbreviation for General Motors. The text 'GM New Look' refers to a specific model or marketing campaign by General Motors, making it the same manufacturer as 'General Motors' in the database, despite the added descriptive words."
-       }
-      }
-     }
-    ]
-   },
-   "attempts": 1,
-   "feedback": [],
-   "debug": {
-    "raw": {
-     "hasMultipleGenerations": false,
-     "generations": [
-      {
-       "code": "AM General (Portfolio Company)",
-       "yearStart": 1971,
-       "yearEnd": null,
-       "designers": [
-        "American Motors"
-       ],
-       "engineers": [],
-       "sharedPlatforms": [
-        "Flyer Industries",
-        "GM New Look",
-        "MAN SG 220",
-        "General Motors",
-        "Mercedes-Benz R-Class",
-        "Oshkosh Corporation",
-        "Puch G",
-        "Peugeot P4",
-        "Jeep Dispatcher 100"
-       ]
-      }
-     ]
-    },
-    "dropped": []
-   },
-   "cascadeDiscovered": true
-  },
   "m-chevrolet-tahoe": {
    "status": "confirmed",
    "checkedAt": "2026-09-16T23:26:25.535Z",
@@ -6251,6 +6162,1708 @@
        "engineers": [],
        "sharedPlatforms": [
         "GMC Hummer EV"
+       ]
+      }
+     ]
+    },
+    "dropped": []
+   },
+   "cascadeDiscovered": true
+  },
+  "m-mercedes-benz-mercedes-amg-gt": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-17T07:23:44.197Z",
+   "sourceTitle": "Mercedes-AMG GT",
+   "proposal": {
+    "hasMultipleGenerations": true,
+    "generations": [
+     {
+      "code": "C190/R190",
+      "yearStart": 2014,
+      "yearEnd": 2022,
+      "designers": [
+       "Robert Lešnik",
+       "Gabriel Nemeth",
+       "Huey Lee",
+       "Mark Fetherston",
+       "Jan Kaul"
+      ],
+      "engineers": [],
+      "wikiFile": "2015-2017 Mercedes-AMG GT (C 190) S coupe (2017-07-15) 01.jpg",
+      "sharedPlatforms": [
+       "Mercedes-Benz SLS AMG"
+      ]
+     },
+     {
+      "code": "C192",
+      "yearStart": 2023,
+      "yearEnd": null,
+      "designers": [
+       "Slavche Tanevski"
+      ],
+      "engineers": [],
+      "wikiFile": "Mercedes-AMG C192 1X7A0832.jpg",
+      "sharedPlatforms": [
+       "Mercedes-Benz SL-Class (R232)"
+      ],
+      "sharedPlatformMatches": {
+       "Mercedes-Benz SL-Class (R232)": {
+        "matchId": "m-mercedes-benz-sl-class",
+        "confidence": "high",
+        "reason": "The mention 'Mercedes-Benz SL-Class (R232)' refers to the specific generation of the SL-Class coupé produced from 2012 to 2020. The candidate 'Mercedes-Benz SL-Class (1954–present)' represents the same model lineage (SL-Class), which encompasses the R232 generation. While the candidate label uses a broad production date range, it refers to the identical car model and generation family as the specific mention, unlike other candidates which are distinct model names (e.g., CL-Class, SLS AMG) or different generations (e.g., R129)."
+       }
+      }
+     }
+    ]
+   },
+   "attempts": 1,
+   "feedback": [],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": true,
+     "generations": [
+      {
+       "code": "C190/R190",
+       "yearStart": 2014,
+       "yearEnd": 2022,
+       "designers": [
+        "Robert Lešnik",
+        "Gabriel Nemeth",
+        "Huey Lee",
+        "Mark Fetherston",
+        "Jan Kaul"
+       ],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Mercedes-Benz SLS AMG"
+       ]
+      },
+      {
+       "code": "C192",
+       "yearStart": 2023,
+       "yearEnd": null,
+       "designers": [
+        "Slavche Tanevski"
+       ],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Mercedes-Benz SL-Class (R232)"
+       ]
+      }
+     ]
+    },
+    "dropped": []
+   },
+   "cascadeDiscovered": true,
+   "decidedBy": "user",
+   "decidedAt": "2026-09-17T07:23:44.197Z",
+   "allDesigners": [
+    "Robert Lešnik",
+    "Gabriel Nemeth",
+    "Huey Lee",
+    "Mark Fetherston",
+    "Jan Kaul",
+    "Slavche Tanevski"
+   ],
+   "allEngineers": []
+  },
+  "llm-related-jaguar-xj-x300": {
+   "status": "none",
+   "checkedAt": "2026-09-17T07:26:12.722Z",
+   "sourceTitle": "Jaguar XJ (X300)",
+   "proposal": {
+    "hasMultipleGenerations": false,
+    "generations": [
+     {
+      "code": "X300",
+      "yearStart": 1994,
+      "yearEnd": 1997,
+      "designers": [
+       "Geoff Lawson"
+      ],
+      "engineers": [],
+      "wikiFile": "1996 Jaguar XJ6 3.2 Front.jpg",
+      "sharedPlatforms": []
+     }
+    ]
+   },
+   "attempts": 1,
+   "feedback": [],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": false,
+     "generations": [
+      {
+       "code": "X300",
+       "yearStart": 1994,
+       "yearEnd": 1997,
+       "designers": [
+        "Geoff Lawson"
+       ],
+       "engineers": [],
+       "sharedPlatforms": []
+      }
+     ]
+    },
+    "dropped": []
+   },
+   "cascadeDiscovered": true
+  },
+  "m-jaguar-xe": {
+   "status": "none",
+   "checkedAt": "2026-09-17T07:28:05.018Z",
+   "sourceTitle": "Jaguar XE",
+   "proposal": {
+    "hasMultipleGenerations": false,
+    "generations": [
+     {
+      "code": "X760",
+      "yearStart": 2015,
+      "yearEnd": null,
+      "designers": [
+       "Ian Callum"
+      ],
+      "engineers": [],
+      "wikiFile": "2019 Jaguar XE S Automatic 2.0.jpg",
+      "sharedPlatforms": [
+       "Jaguar XF (X260)",
+       "Jaguar F-Pace",
+       "Range Rover Velar"
+      ]
+     }
+    ]
+   },
+   "attempts": 1,
+   "feedback": [],
+   "engines": [
+    {
+     "title": "Ford EcoBoost engine",
+     "name": "Ford EcoBoost",
+     "variant": "2.0 L (2010–2015)"
+    },
+    {
+     "title": "Jaguar AJ-V8 engine",
+     "name": "AJ126",
+     "variant": "AJ126"
+    },
+    {
+     "title": "Jaguar AJ-V8 engine",
+     "name": "AJ133",
+     "variant": "AJ133"
+    }
+   ],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": false,
+     "generations": [
+      {
+       "code": "X760",
+       "yearStart": 2015,
+       "yearEnd": null,
+       "designers": [
+        "Ian Callum"
+       ],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Jaguar XF (X260)",
+        "Jaguar F-Pace",
+        "Range Rover Velar"
+       ]
+      }
+     ]
+    },
+    "dropped": []
+   }
+  },
+  "m-jaguar-x-type": {
+   "status": "none",
+   "checkedAt": "2026-09-17T07:28:47.129Z",
+   "sourceTitle": "Jaguar X-Type",
+   "proposal": {
+    "hasMultipleGenerations": false,
+    "generations": [
+     {
+      "code": "X400",
+      "yearStart": 2001,
+      "yearEnd": 2009,
+      "designers": [
+       "Simon Butterworth",
+       "Tadeusz Jelec",
+       "Wayne Burgess",
+       "Geoff Lawson",
+       "Ian Callum"
+      ],
+      "engineers": [],
+      "wikiFile": "Jaguar X-TYPE.jpg",
+      "sharedPlatforms": [
+       "Ford Mondeo (second generation)"
+      ],
+      "sharedPlatformMatches": {
+       "Ford Mondeo (second generation)": {
+        "matchId": "m-ford-mondeo",
+        "confidence": "high",
+        "reason": "The mention 'Ford Mondeo (second generation)' corresponds exactly to the Ford Mondeo produced from 2000 to 2007, which is the specific generation and production span listed for candidate id 'm-ford-mondeo'. While the other Mondeo candidate ('fam-ford-mondeo') covers a broader timeline including the first generation, the specific mention of the second generation aligns uniquely and definitively with the 2000–2007 model range of 'm-ford-mondeo'."
+       }
+      }
+     }
+    ]
+   },
+   "attempts": 1,
+   "feedback": [],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": false,
+     "generations": [
+      {
+       "code": "X400",
+       "yearStart": 2001,
+       "yearEnd": 2009,
+       "designers": [
+        "Simon Butterworth",
+        "Tadeusz Jelec",
+        "Wayne Burgess",
+        "Geoff Lawson",
+        "Ian Callum"
+       ],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Ford Mondeo (second generation)"
+       ]
+      }
+     ]
+    },
+    "dropped": []
+   },
+   "cascadeDiscovered": true
+  },
+  "m-chevrolet-standard-six": {
+   "status": "none",
+   "checkedAt": "2026-09-17T07:28:56.651Z",
+   "sourceTitle": "Chevrolet Standard Six",
+   "proposal": {
+    "hasMultipleGenerations": false,
+    "generations": [
+     {
+      "code": "Chevrolet Standard Six (Series DC)",
+      "yearStart": 1933,
+      "yearEnd": 1936,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "1934 Chevrolet Standard DC Coach.jpg",
+      "sharedPlatforms": [
+       "Chevrolet Master",
+       "Pontiac Six"
+      ],
+      "sharedPlatformMatches": {
+       "Pontiac Six": {
+        "matchId": "m-pontiac-6",
+        "confidence": "high",
+        "reason": "The mention 'Pontiac Six' is a common shorthand for the Pontiac 6, a model produced by Pontiac (notably from 1927–1931 and 1937–1940). The candidate 'm-pontiac-6' corresponds to this specific model line, with the label 'Pontiac 6' being the direct equivalent. Other candidates like the Pontiac Firebird or GTO are different models entirely, and 'm-pontiac-astre' (based on the Chevrolet Astre) is not the standard Pontiac Six."
+       }
+      }
+     }
+    ]
+   },
+   "attempts": 1,
+   "feedback": [],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": false,
+     "generations": [
+      {
+       "code": "Chevrolet Standard Six (Series DC)",
+       "yearStart": 1933,
+       "yearEnd": 1936,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Chevrolet Master",
+        "Pontiac Six"
+       ]
+      }
+     ]
+    },
+    "dropped": []
+   },
+   "cascadeDiscovered": true
+  },
+  "llm-related-pontiac-series-603": {
+   "status": "provisional",
+   "checkedAt": "2026-09-17T07:29:48.418Z",
+   "sourceTitle": "Pontiac Streamliner",
+   "proposal": {
+    "hasMultipleGenerations": true,
+    "generations": [
+     {
+      "code": "Series 603",
+      "yearStart": 1933,
+      "yearEnd": 1940,
+      "designers": [
+       "Harley Earl"
+      ],
+      "engineers": [],
+      "wikiFile": "1946 Pontiac Streamliner 4097cc at Copped Hall, Epping, Essex, England 01.jpg",
+      "sharedPlatforms": [
+       "LaSalle",
+       "Cadillac Series 60"
+      ]
+     },
+     {
+      "code": "Series 605",
+      "yearStart": 1935,
+      "yearEnd": 1940,
+      "designers": [
+       "Harley Earl"
+      ],
+      "engineers": [],
+      "wikiFile": "Pontiac 1947 Streamliner Station Wagon.jpg",
+      "sharedPlatforms": [
+       "LaSalle",
+       "Cadillac Series 60"
+      ]
+     },
+     {
+      "code": "Series 26/28",
+      "yearStart": 1942,
+      "yearEnd": 1948,
+      "designers": [
+       "Harley Earl"
+      ],
+      "engineers": [],
+      "wikiFile": "1948 Pontiac Streamliner Station Wagon, front right (Hershey 2019).jpg",
+      "sharedPlatforms": [
+       "Cadillac Series 61",
+       "Buick Century",
+       "Buick Special",
+       "Oldsmobile Series 70",
+       "Chevrolet Fleetline"
+      ]
+     },
+     {
+      "code": "Series 25/27",
+      "yearStart": 1949,
+      "yearEnd": 1951,
+      "designers": [
+       "Harley Earl"
+      ],
+      "engineers": [],
+      "wikiFile": "1950 Pontiac Streamliner De Luxe Sedan Coupe in Cavalier Gray, Front Right, 08-14-2022.jpg",
+      "sharedPlatforms": [
+       "Cadillac Series 61",
+       "Buick Special",
+       "Oldsmobile 88",
+       "Oldsmobile Series 70"
+      ]
+     }
+    ]
+   },
+   "attempts": 1,
+   "feedback": [],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": true,
+     "generations": [
+      {
+       "code": "Series 603",
+       "yearStart": 1933,
+       "yearEnd": 1940,
+       "designers": [
+        "Harley Earl"
+       ],
+       "engineers": [],
+       "sharedPlatforms": [
+        "LaSalle",
+        "Cadillac Series 60"
+       ]
+      },
+      {
+       "code": "Series 605",
+       "yearStart": 1935,
+       "yearEnd": 1940,
+       "designers": [
+        "Harley Earl"
+       ],
+       "engineers": [],
+       "sharedPlatforms": [
+        "LaSalle",
+        "Cadillac Series 60"
+       ]
+      },
+      {
+       "code": "Series 26/28",
+       "yearStart": 1942,
+       "yearEnd": 1948,
+       "designers": [
+        "Harley Earl"
+       ],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Cadillac Series 61",
+        "Buick Century",
+        "Buick Special",
+        "Oldsmobile Series 70",
+        "Chevrolet Fleetline"
+       ]
+      },
+      {
+       "code": "Series 25/27",
+       "yearStart": 1949,
+       "yearEnd": 1951,
+       "designers": [
+        "Harley Earl"
+       ],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Cadillac Series 61",
+        "Buick Special",
+        "Oldsmobile 88",
+        "Oldsmobile Series 70"
+       ]
+      }
+     ]
+    },
+    "dropped": []
+   },
+   "cascadeDiscovered": true
+  },
+  "m-land-rover-series": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-17T07:30:42.112Z",
+   "sourceTitle": "Land Rover series",
+   "proposal": {
+    "hasMultipleGenerations": true,
+    "generations": [
+     {
+      "code": "Series I",
+      "yearStart": 1948,
+      "yearEnd": 1958,
+      "designers": [
+       "Maurice Wilks"
+      ],
+      "engineers": [
+       "Arthur Goddard"
+      ],
+      "wikiFile": "Land Rover Celebrates 65 Years Of Technology & Innovation (8838044808).jpg",
+      "sharedPlatforms": []
+     },
+     {
+      "code": "Series II",
+      "yearStart": 1958,
+      "yearEnd": 1961,
+      "designers": [
+       "David Bache"
+      ],
+      "engineers": [],
+      "wikiFile": "Land Rover swb registered October 1958 2286cc.JPG",
+      "sharedPlatforms": []
+     },
+     {
+      "code": "Series IIA",
+      "yearStart": 1961,
+      "yearEnd": 1971,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "Land Rover LWB registered June 1967.JPG",
+      "sharedPlatforms": [
+       "Santana Motor"
+      ],
+      "sharedPlatformMatches": {
+       "Santana Motor": {
+        "matchId": null,
+        "confidence": "high",
+        "reason": "The mentioned entity \"Santana Motor\" is likely a reference to the automotive company \"Motorsanta\" (formed by the merger of Santana Motors and another entity), whereas the candidate \"Volkswagen Santana\" is a specific vehicle model produced from 1983 to 2022. These are a manufacturer/company and a product model, not the same physical car entity."
+       }
+      }
+     },
+     {
+      "code": "Series III",
+      "yearStart": 1971,
+      "yearEnd": 1985,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "Land Rover (3915503448).jpg",
+      "sharedPlatforms": [
+       "Santana Motor"
+      ],
+      "sharedPlatformMatches": {
+       "Santana Motor": {
+        "matchId": null,
+        "confidence": "high",
+        "reason": "The mentioned entity \"Santana Motor\" is likely a reference to the automotive company \"Motorsanta\" (formed by the merger of Santana Motors and another entity), whereas the candidate \"Volkswagen Santana\" is a specific vehicle model produced from 1983 to 2022. These are a manufacturer/company and a product model, not the same physical car entity."
+       }
+      }
+     },
+     {
+      "code": "Stage One V8",
+      "yearStart": 1979,
+      "yearEnd": 1985,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "StageOneV8.jpg",
+      "sharedPlatforms": []
+     },
+     {
+      "code": "One-ton 109 inch",
+      "yearStart": null,
+      "yearEnd": null,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "A3341 Argentina Usuhaia Nino Cirani Archivio Fotografico© (2).jpg",
+      "sharedPlatforms": []
+     }
+    ]
+   },
+   "attempts": 1,
+   "feedback": [],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": true,
+     "generations": [
+      {
+       "code": "Series I",
+       "yearStart": 1948,
+       "yearEnd": 1958,
+       "designers": [
+        "Maurice Wilks"
+       ],
+       "engineers": [
+        "Arthur Goddard"
+       ],
+       "sharedPlatforms": []
+      },
+      {
+       "code": "Series II",
+       "yearStart": 1958,
+       "yearEnd": 1961,
+       "designers": [
+        "David Bache"
+       ],
+       "engineers": [],
+       "sharedPlatforms": []
+      },
+      {
+       "code": "Series IIA",
+       "yearStart": 1961,
+       "yearEnd": 1971,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Santana Motor"
+       ]
+      },
+      {
+       "code": "Series III",
+       "yearStart": 1971,
+       "yearEnd": 1985,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Santana Motor"
+       ]
+      },
+      {
+       "code": "Stage One V8",
+       "yearStart": 1979,
+       "yearEnd": 1985,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": []
+      },
+      {
+       "code": "One-ton 109 inch",
+       "yearStart": null,
+       "yearEnd": null,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": []
+      }
+     ]
+    },
+    "dropped": []
+   },
+   "cascadeDiscovered": true,
+   "decidedBy": "user",
+   "decidedAt": "2026-09-17T07:30:42.112Z",
+   "allDesigners": [
+    "Maurice Wilks",
+    "David Bache"
+   ],
+   "allEngineers": [
+    "Arthur Goddard"
+   ]
+  },
+  "m-chevrolet-avalanche": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-17T07:33:34.298Z",
+   "sourceTitle": "Chevrolet Avalanche",
+   "proposal": {
+    "hasMultipleGenerations": true,
+    "generations": [
+     {
+      "code": "GMT805",
+      "yearStart": 2001,
+      "yearEnd": 2006,
+      "designers": [
+       "Marc R. Asposito"
+      ],
+      "engineers": [],
+      "wikiFile": "1st-Chevrolet-Avalanche.jpg",
+      "sharedPlatforms": [
+       "Chevrolet Silverado/GMC Sierra",
+       "Chevrolet Suburban/GMC Yukon XL",
+       "Cadillac Escalade ESV",
+       "Cadillac Escalade EXT"
+      ],
+      "sharedPlatformMatches": {
+       "Chevrolet Silverado/GMC Sierra": {
+        "matchId": null,
+        "confidence": "high",
+        "reason": "The mention 'Chevrolet Silverado/GMC Sierra' refers to a specific modern full-size pickup truck line (produced from the late 90s/early 2000s onwards under GM). The candidate 'm-chevrolet-c-k' (1960–2002) refers to the preceding generation of GM trucks (C/K series) which were discontinued or renamed to Silverado/Sierra around the 2001-2002 model year transition. Since the mention implies the post-2002 era vehicle (or the specific renamed product) and the candidate is strictly the pre-2002 era vehicle with non-overlapping production definitions for the specific nameplate, they are different cars. Additionally, the candidate list lacks entries for the specific 'Silverado' or 'Sierra' nameplates for the years implied by the mention (e.g., 2007+, 1999-2002 Silverado, 1999-2002 Sierra) as distinct from the C/K series."
+       },
+       "Chevrolet Suburban/GMC Yukon XL": {
+        "matchId": "llm-related-gmc-yukon",
+        "confidence": "high",
+        "reason": "The mention 'Chevrolet Suburban/GMC Yukon XL' explicitly names the GMC Yukon XL. The candidate 'llm-related-gmc-yukon' is the GMC Yukon. The GMC Yukon XL is the extended-wheelbase (XL) variant of the GMC Yukon, making it the same physical vehicle series/model family. All other candidates are distinct model names or generations of different vehicles."
+       },
+       "Cadillac Escalade ESV": {
+        "matchId": "m-cadillac-escalade",
+        "confidence": "high",
+        "reason": "The mention 'Cadillac Escalade ESV' refers to the extended wheelbase/variable suspension version of the Cadillac Escalade SUV. The candidate 'm-cadillac-escalade' covers the production of the Cadillac Escalade from 1998 to present, which includes the ESV trim. The ESV is not a separate generation or distinct model nameplate but a specific configuration (Extended Wheelbase) of the Escalade, making it the same physical car/generation as the candidate entry."
+       },
+       "Cadillac Escalade EXT": {
+        "matchId": "m-cadillac-escalade",
+        "confidence": "high",
+        "reason": "The 'Cadillac Escalade EXT' is the extended cab, pickup truck variant of the 'Cadillac Escalade' SUV. In automotive databases, the main SUV model is often indexed under the primary name 'Escalade'. While 'Escalade' refers strictly to the SUV in the database entry, the EXT is the same chassis/generation lineage, just a body style variant, making them the same real car entity in the context of model identification, unlike completely different models like the 'Escala' or 'Scala'."
+       }
+      }
+     },
+     {
+      "code": "GMT900",
+      "yearStart": 2006,
+      "yearEnd": 2013,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "2011 Chevrolet Avalanche LTZ in Sheer Silver Metallic, front left.jpg",
+      "sharedPlatforms": [
+       "Chevrolet Silverado/GMC Sierra",
+       "Chevrolet Suburban/GMC Yukon XL",
+       "Cadillac Escalade ESV",
+       "Cadillac Escalade EXT",
+       "Subaru Baja",
+       "Hummer H2 SUT",
+       "GMC Envoy XUV"
+      ],
+      "sharedPlatformMatches": {
+       "Chevrolet Silverado/GMC Sierra": {
+        "matchId": null,
+        "confidence": "high",
+        "reason": "The mention 'Chevrolet Silverado/GMC Sierra' refers to a specific modern full-size pickup truck line (produced from the late 90s/early 2000s onwards under GM). The candidate 'm-chevrolet-c-k' (1960–2002) refers to the preceding generation of GM trucks (C/K series) which were discontinued or renamed to Silverado/Sierra around the 2001-2002 model year transition. Since the mention implies the post-2002 era vehicle (or the specific renamed product) and the candidate is strictly the pre-2002 era vehicle with non-overlapping production definitions for the specific nameplate, they are different cars. Additionally, the candidate list lacks entries for the specific 'Silverado' or 'Sierra' nameplates for the years implied by the mention (e.g., 2007+, 1999-2002 Silverado, 1999-2002 Sierra) as distinct from the C/K series."
+       },
+       "Chevrolet Suburban/GMC Yukon XL": {
+        "matchId": "llm-related-gmc-yukon",
+        "confidence": "high",
+        "reason": "The mention 'Chevrolet Suburban/GMC Yukon XL' explicitly names the GMC Yukon XL. The candidate 'llm-related-gmc-yukon' is the GMC Yukon. The GMC Yukon XL is the extended-wheelbase (XL) variant of the GMC Yukon, making it the same physical vehicle series/model family. All other candidates are distinct model names or generations of different vehicles."
+       },
+       "Cadillac Escalade ESV": {
+        "matchId": "m-cadillac-escalade",
+        "confidence": "high",
+        "reason": "The mention 'Cadillac Escalade ESV' refers to the extended wheelbase/variable suspension version of the Cadillac Escalade SUV. The candidate 'm-cadillac-escalade' covers the production of the Cadillac Escalade from 1998 to present, which includes the ESV trim. The ESV is not a separate generation or distinct model nameplate but a specific configuration (Extended Wheelbase) of the Escalade, making it the same physical car/generation as the candidate entry."
+       },
+       "Cadillac Escalade EXT": {
+        "matchId": "m-cadillac-escalade",
+        "confidence": "high",
+        "reason": "The 'Cadillac Escalade EXT' is the extended cab, pickup truck variant of the 'Cadillac Escalade' SUV. In automotive databases, the main SUV model is often indexed under the primary name 'Escalade'. While 'Escalade' refers strictly to the SUV in the database entry, the EXT is the same chassis/generation lineage, just a body style variant, making them the same real car entity in the context of model identification, unlike completely different models like the 'Escala' or 'Scala'."
+       },
+       "Hummer H2 SUT": {
+        "matchId": null,
+        "confidence": "high",
+        "reason": "The 'Hummer H2 SUT' is a Sport Utility Truck variant of the Hummer H2. It was produced from approximately 2006 to 2009 by GMC. The candidate 'm-hummer-h2' represents the standard Hummer H2 SUV (2002–2009). While related, the SUT is a distinct body style (pickup truck bed vs. hatchback SUV) and is typically listed as a separate model variant or specific trim in automotive databases. Given the strict rule that sharing a platform or being a related variant does not constitute a match for the 'exact same car' if they have different nameplates/body styles, and no specific candidate represents the 'Hummer H2 SUT' specifically, the correct match is null."
+       },
+       "GMC Envoy XUV": {
+        "matchId": null,
+        "confidence": "high",
+        "reason": "The 'GMC Envoy XUV' was a concept vehicle (first shown in 2003) intended to bridge the gap between the Envoy and a future SUV, but it was never produced or sold as a distinct model with its own chassis code or production run. The 'GMC Envoy' (id: m-gmc-envoy) was a separate, production-based model (2002–2008). Since the mention refers to a non-production concept and the candidate is a production model, they are not the same physical car."
+       }
+      }
+     }
+    ]
+   },
+   "attempts": 1,
+   "feedback": [],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": true,
+     "generations": [
+      {
+       "code": "GMT805",
+       "yearStart": 2001,
+       "yearEnd": 2006,
+       "designers": [
+        "Marc R. Asposito"
+       ],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Chevrolet Silverado/GMC Sierra",
+        "Chevrolet Suburban/GMC Yukon XL",
+        "Cadillac Escalade ESV",
+        "Cadillac Escalade EXT"
+       ]
+      },
+      {
+       "code": "GMT900",
+       "yearStart": 2006,
+       "yearEnd": 2013,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Chevrolet Silverado/GMC Sierra",
+        "Chevrolet Suburban/GMC Yukon XL",
+        "Cadillac Escalade ESV",
+        "Cadillac Escalade EXT",
+        "Subaru Baja",
+        "Hummer H2 SUT",
+        "GMC Envoy XUV"
+       ]
+      }
+     ]
+    },
+    "dropped": []
+   },
+   "cascadeDiscovered": true,
+   "decidedBy": "user",
+   "decidedAt": "2026-09-17T07:33:34.299Z",
+   "allDesigners": [
+    "Marc R. Asposito"
+   ],
+   "allEngineers": []
+  },
+  "m-mercedes-benz-w110": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-17T07:33:51.856Z",
+   "sourceTitle": "Mercedes-Benz W110",
+   "proposal": {
+    "hasMultipleGenerations": true,
+    "generations": [
+     {
+      "code": "First Series",
+      "yearStart": 1961,
+      "yearEnd": 1965,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "Mercedes-Benz 190 1897cc 1 jun 1964.JPG",
+      "sharedPlatforms": [
+       "Mercedes-Benz E-Class"
+      ]
+     },
+     {
+      "code": "Second Series",
+      "yearStart": 1965,
+      "yearEnd": 1968,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "Mercedes-Benz 200D at Schaffen-Diest in 2016.jpg",
+      "sharedPlatforms": [
+       "Mercedes-Benz E-Class"
+      ]
+     }
+    ]
+   },
+   "attempts": 1,
+   "feedback": [],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": true,
+     "generations": [
+      {
+       "code": "First Series",
+       "yearStart": 1961,
+       "yearEnd": 1965,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Mercedes-Benz E-Class"
+       ]
+      },
+      {
+       "code": "Second Series",
+       "yearStart": 1965,
+       "yearEnd": 1968,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Mercedes-Benz E-Class"
+       ]
+      }
+     ]
+    },
+    "dropped": []
+   },
+   "cascadeDiscovered": true,
+   "decidedBy": "user",
+   "decidedAt": "2026-09-17T07:33:51.857Z",
+   "allDesigners": [],
+   "allEngineers": []
+  },
+  "m-ssangyong-rodius": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-17T07:36:46.974Z",
+   "sourceTitle": "SsangYong Rodius",
+   "proposal": {
+    "hasMultipleGenerations": true,
+    "generations": [
+     {
+      "code": "First generation",
+      "yearStart": 2004,
+      "yearEnd": 2012,
+      "designers": [
+       "Ken Greenley"
+      ],
+      "engineers": [],
+      "wikiFile": "SsangYong_Rodius_270_Xdi_front_20100719.jpg",
+      "sharedPlatforms": [
+       "SsangYong Stavic",
+       "Micro Stavic",
+       "Daewoo Rodius"
+      ],
+      "sharedPlatformMatches": {
+       "SsangYong Stavic": {
+        "matchId": null,
+        "confidence": "high",
+        "reason": "The SsangYong Stavic is a separate mid-size SUV produced from 2000 to 2006. It is not listed in the provided candidate candidates, nor is it a rename, badge-engineered variant, or direct generation of any of the listed models (Actyon, Chairman, Korando, Kyron, Musso, Rhino, Rexton). Therefore, no match exists in the candidate list."
+       },
+       "Micro Stavic": {
+        "matchId": null,
+        "confidence": "high",
+        "reason": "Micro Stavic and Micro Trend are distinct models with different names, chassis codes, and production histories; one is not a documented rename or export badge of the other."
+       },
+       "Daewoo Rodius": {
+        "matchId": null,
+        "confidence": "high",
+        "reason": "The Daewoo Rodius is a mid-size MPV produced from 1999 to 2005. None of the provided candidates (Matiz, Espero, Lacetti, Lanos, LeMans, Leganza, Maepsy, Magnus, Nubira, Prince, Royale, Tacuma, Tico, Tosca) refer to the Rodius model. While some share the Daewoo marque or similar chassis families (e.g., Tacuma/Lacetti), they are distinct models, not renames of the Rodius."
+       }
+      }
+     },
+     {
+      "code": "Second generation",
+      "yearStart": 2012,
+      "yearEnd": 2019,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "00 ssangyong korandoturismo 1.jpg",
+      "sharedPlatforms": [
+       "SsangYong Stavic",
+       "SsangYong Turismo",
+       "SsangYong Korando Turismo"
+      ],
+      "sharedPlatformMatches": {
+       "SsangYong Stavic": {
+        "matchId": null,
+        "confidence": "high",
+        "reason": "The SsangYong Stavic is a separate mid-size SUV produced from 2000 to 2006. It is not listed in the provided candidate candidates, nor is it a rename, badge-engineered variant, or direct generation of any of the listed models (Actyon, Chairman, Korando, Kyron, Musso, Rhino, Rexton). Therefore, no match exists in the candidate list."
+       },
+       "SsangYong Turismo": {
+        "matchId": null,
+        "confidence": "high",
+        "reason": "The SsangYong Turismo is a compact MPV produced specifically for the Chinese market (and sold in Russia) from roughly 2007 to 2014, which is a distinct model separate from the SsangYong Musso (a pickup truck) and the Actyon (a crossover SUV). Although the Turismo was badged as the 'SsangYong Actyon Sports' in some markets or related to the Actyon platform in discussions, it is not the same physical vehicle as the 'SsangYong Actyon' listed in the candidates (which is the SUV). None of the provided candidates represent the Turismo MPV."
+       },
+       "SsangYong Korando Turismo": {
+        "matchId": "m-ssangyong-korando",
+        "confidence": "high",
+        "reason": "The 'SsangYong Korando Turismo' is a specific trim or body style (often a station wagon/estate version) of the SsangYong Korando model. The candidate 'm-ssangyong-korando' represents the Korando model itself, which encompasses these variants. No other candidate in the list refers to the Korando model."
+       }
+      }
+     }
+    ]
+   },
+   "attempts": 1,
+   "feedback": [],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": true,
+     "generations": [
+      {
+       "code": "First generation",
+       "yearStart": 2004,
+       "yearEnd": 2012,
+       "designers": [
+        "Ken Greenley"
+       ],
+       "engineers": [],
+       "sharedPlatforms": [
+        "SsangYong Stavic",
+        "Micro Stavic",
+        "Daewoo Rodius"
+       ]
+      },
+      {
+       "code": "Second generation",
+       "yearStart": 2012,
+       "yearEnd": 2019,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": [
+        "SsangYong Stavic",
+        "SsangYong Turismo",
+        "SsangYong Korando Turismo"
+       ]
+      }
+     ]
+    },
+    "dropped": []
+   },
+   "cascadeDiscovered": true,
+   "decidedBy": "user",
+   "decidedAt": "2026-09-17T07:36:46.974Z",
+   "allDesigners": [
+    "Ken Greenley"
+   ],
+   "allEngineers": []
+  },
+  "m-nissan-navara": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-17T07:39:43.775Z",
+   "sourceTitle": "Nissan Navara",
+   "proposal": {
+    "hasMultipleGenerations": true,
+    "generations": [
+     {
+      "code": "D21",
+      "yearStart": 1985,
+      "yearEnd": 1997,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "2021_Nissan_Navara_facelift_(cropped).jpg",
+      "sharedPlatforms": [
+       "Nissan Pathfinder"
+      ]
+     },
+     {
+      "code": "D22",
+      "yearStart": 1997,
+      "yearEnd": 2004,
+      "designers": [
+       "Nishino Sadaaki",
+       "Jerry Hirschberg",
+       "Diane Allen"
+      ],
+      "engineers": [],
+      "wikiFile": "Nissan Terrano AX 2.5 Di 2006 (9739002708).jpg",
+      "sharedPlatforms": [
+       "Dongfeng Rich",
+       "Dongfeng Oting",
+       "Nissan Pathfinder",
+       "Nissan Patrol",
+       "Peugeot Pick Up",
+       "Peugeot Hoggar"
+      ],
+      "sharedPlatformMatches": {
+       "Dongfeng Oting": {
+        "matchId": null,
+        "confidence": "high",
+        "reason": "No match found. 'Dongfeng Oting' refers to the Dongfeng Fengxing Oting (a commercial van/truck), whereas all provided candidates are passenger cars (sedans, SUVs, or MPVs) with distinct model names (e.g., A9, Fengguang, Succe, eπ series). They are different vehicles."
+       },
+       "Peugeot Pick Up": {
+        "matchId": null,
+        "confidence": "low",
+        "reason": "rejected: the local model claimed \"Peugeot Pick Up\" is another name for Peugeot Landtrek (2020–2020) — but the two names have nothing in common beyond the marque, and that car's production doesn't overlap the 1997–2004 generation this mention came from, so they can't be the same vehicle under two names. (A car reusing an older car's platform is a different claim, and isn't affected by this check.) Its stated reasoning was: The 'Peugeot Pick Up' mentioned is the commercial vehicle variant of the Landtrek platform, marketed specifically as the 'Pick Up' in various markets (including Europe) while the base model is the Landtrek. The candidate m-peugeot-landtrek covers the 2020 production era, which matches the existence of the modern Peugeot Pick Up.",
+        "rejectedMatchId": "m-peugeot-landtrek"
+       },
+       "Peugeot Hoggar": {
+        "matchId": null,
+        "confidence": "high",
+        "reason": "The Peugeot Hoggar (produced 1987–1998) is a distinct SUV model derived from the Peugeot 405 platform. It is not listed in the provided candidate database, and none of the listed cars (which are primarily sedans, hatchbacks, or other specific models like the 205, 306, etc.) represent the Hoggar."
+       }
+      }
+     },
+     {
+      "code": "D40",
+      "yearStart": 2004,
+      "yearEnd": 2014,
+      "designers": [
+       "Kiyoshi Yanase"
+      ],
+      "engineers": [],
+      "wikiFile": "2010 Nissan Navara (D40) ST 4-door utility (2011-04-22) 01.jpg",
+      "sharedPlatforms": [
+       "Nissan Pathfinder",
+       "Nissan Titan",
+       "Nissan Armada",
+       "Infiniti QX56",
+       "Nissan Xterra",
+       "Suzuki Equator"
+      ],
+      "sharedPlatformMatches": {
+       "Infiniti QX56": {
+        "matchId": "m-infiniti-qx80",
+        "confidence": "high",
+        "reason": "The Infiniti QX56 is the model name used in North America; the same SUV is known as the Infiniti QX80 in international markets and later generations. They share the same chassis (Y62) and production timeline (starting 2004), representing the exact same physical vehicle."
+       }
+      }
+     },
+     {
+      "code": "D23",
+      "yearStart": 2014,
+      "yearEnd": null,
+      "designers": [
+       "Mamoru Aoki"
+      ],
+      "engineers": [],
+      "wikiFile": "2017 Nissan Navara Tekna DCi 2.3 Front.jpg",
+      "sharedPlatforms": [
+       "Nissan Terra",
+       "Nissan Xterra",
+       "Nissan Patrol",
+       "Renault Alaskan",
+       "Mercedes-Benz X-Class",
+       "Dongfeng Ruiqi 6",
+       "Dongfeng Rich 6",
+       "Dongfeng Ruiqi 7",
+       "Dongfeng Rich 7",
+       "Dongfeng Oting",
+       "Peugeot Pick Up"
+      ],
+      "sharedPlatformMatches": {
+       "Renault Alaskan": {
+        "matchId": null,
+        "confidence": "high",
+        "reason": "The 'Renault Alaskan' is a concept car unveiled in 2002. It is distinct from the 'Renault Austral' (id: m-renault-austral) which is a production SUV introduced in 2022. The Alaskan concept was based on the Renault Kangoo van and was never put into production under that name. While the Austral is a modern SUV from the same era (post-2000s) as the concept, they are different models with different origins, purposes (concept vs production), and design lineages. No other candidate matches the 'Alaskan' name or its specific status."
+       },
+       "Dongfeng Ruiqi 6": {
+        "matchId": null,
+        "confidence": "high",
+        "reason": "The mentioned car 'Dongfeng Ruiqi 6' does not match any of the provided candidates. None of the candidate names (Farizon, A9, CA71, Fengdu, Fengguang series, Jingyi X3, Rich, Ruilida, Succe, Z9, eπ series) are synonymous with or documented as a badge-engineered version of the Ruiqi 6. The name difference is significant and not explained by a known licensing deal or export renaming in the provided context."
+       },
+       "Dongfeng Rich 6": {
+        "matchId": "m-dongfeng-rich",
+        "confidence": "high",
+        "reason": "The mention 'Dongfeng Rich 6' refers to the same vehicle model as 'Dongfeng Rich' (2009–2014). The 'Rich 6' is the specific chassis code or generation designation used by Dongfeng for the sixth iteration of the Rich sedan, which is the primary model line associated with the 'Dongfeng Rich' nameplate during that era."
+       },
+       "Dongfeng Ruiqi 7": {
+        "matchId": null,
+        "confidence": "low",
+        "reason": "The mentioned car 'Dongfeng Ruiqi 7' does not match any of the provided candidates. The name 'Ruiqi' is distinct from all candidate names (Farizon Fengrui, A9, CA71, Fengdu, Fengguang, Fengxing, Rich, Ruilida, Succe, Z9, eπ). While 'Ruiqi' and 'Fengrui' share a phonetic root ('Rui'), they are different specific model names. Additionally, 'Ruiqi 7' suggests a specific generation or trim that is not explicitly listed among the candidates, and there is no definitive evidence in the candidate list confirming that any of them is simply the 'Ruiqi 7' under a different label or code."
+       },
+       "Dongfeng Rich 7": {
+        "matchId": "m-dongfeng-rich",
+        "confidence": "high",
+        "reason": "The mention 'Dongfeng Rich 7' refers to the same vehicle as 'Dongfeng Rich' in the candidate list. The '7' denotes the specific generation/chassis code (Rich 7) of that model line, while the candidate entry represents the model family. The production years (2009–2014) align with the era when the Rich 7 was produced before the Rich 6 was launched in 2015."
+       },
+       "Dongfeng Oting": {
+        "matchId": null,
+        "confidence": "high",
+        "reason": "No match found. 'Dongfeng Oting' refers to the Dongfeng Fengxing Oting (a commercial van/truck), whereas all provided candidates are passenger cars (sedans, SUVs, or MPVs) with distinct model names (e.g., A9, Fengguang, Succe, eπ series). They are different vehicles."
+       },
+       "Peugeot Pick Up": {
+        "matchId": "m-peugeot-landtrek",
+        "confidence": "high",
+        "reason": "The 'Peugeot Pick Up' mentioned is the commercial vehicle variant of the Landtrek platform, marketed specifically as the 'Pick Up' in various markets (including Europe) while the base model is the Landtrek. The candidate m-peugeot-landtrek covers the 2020 production era, which matches the existence of the modern Peugeot Pick Up."
+       }
+      }
+     },
+     {
+      "code": "D27",
+      "yearStart": 2025,
+      "yearEnd": null,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "2026 Nissan Navara ST-X Dual Cab 4x4 (Australia) front view.png",
+      "sharedPlatforms": [
+       "Mitsubishi Triton",
+       "Mitsubishi Pajero"
+      ]
+     }
+    ]
+   },
+   "attempts": 1,
+   "feedback": [],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": true,
+     "generations": [
+      {
+       "code": "D21",
+       "yearStart": 1985,
+       "yearEnd": 1997,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Nissan Pathfinder"
+       ]
+      },
+      {
+       "code": "D22",
+       "yearStart": 1997,
+       "yearEnd": 2004,
+       "designers": [
+        "Nishino Sadaaki",
+        "Jerry Hirschberg",
+        "Diane Allen"
+       ],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Dongfeng Rich",
+        "Dongfeng Oting",
+        "Nissan Pathfinder",
+        "Nissan Patrol",
+        "Peugeot Pick Up",
+        "Peugeot Hoggar"
+       ]
+      },
+      {
+       "code": "D40",
+       "yearStart": 2004,
+       "yearEnd": 2014,
+       "designers": [
+        "Kiyoshi Yanase"
+       ],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Nissan Pathfinder",
+        "Nissan Titan",
+        "Nissan Armada",
+        "Infiniti QX56",
+        "Nissan Xterra",
+        "Suzuki Equator"
+       ]
+      },
+      {
+       "code": "D23",
+       "yearStart": 2014,
+       "yearEnd": null,
+       "designers": [
+        "Mamoru Aoki"
+       ],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Nissan Terra",
+        "Nissan Xterra",
+        "Nissan Patrol",
+        "Renault Alaskan",
+        "Mercedes-Benz X-Class",
+        "Dongfeng Ruiqi 6",
+        "Dongfeng Rich 6",
+        "Dongfeng Ruiqi 7",
+        "Dongfeng Rich 7",
+        "Dongfeng Oting",
+        "Peugeot Pick Up"
+       ]
+      },
+      {
+       "code": "D27",
+       "yearStart": 2025,
+       "yearEnd": null,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Mitsubishi Triton",
+        "Mitsubishi Pajero"
+       ]
+      }
+     ]
+    },
+    "dropped": []
+   },
+   "cascadeDiscovered": true,
+   "decidedBy": "user",
+   "decidedAt": "2026-09-17T07:39:43.775Z",
+   "allDesigners": [
+    "Nishino Sadaaki",
+    "Jerry Hirschberg",
+    "Diane Allen",
+    "Kiyoshi Yanase",
+    "Mamoru Aoki"
+   ],
+   "allEngineers": []
+  },
+  "m-isuzu-aska": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-17T07:41:29.486Z",
+   "sourceTitle": "Isuzu Aska",
+   "proposal": {
+    "hasMultipleGenerations": true,
+    "generations": [
+     {
+      "code": "First generation",
+      "yearStart": 1983,
+      "yearEnd": 1989,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "JJ120 ASKA irmscher.jpg",
+      "sharedPlatforms": [
+       "Holden Camira",
+       "Opel Ascona C"
+      ],
+      "sharedPlatformMatches": {
+       "Opel Ascona C": {
+        "matchId": null,
+        "confidence": "high",
+        "reason": "The mentioned car 'Opel Ascona C' is a specific generation (the 1983–1988 facelift version) of the Opel Ascona. The database candidate 'm-opel-ascona' covers the entire production run (1970–1988) of the Ascona family but does not explicitly distinguish the 'Ascona C' generation or generation codes. Since the rules strictly prohibit matching different generations or specific model designations to a broad family entry (and require concrete evidence of them being the exact same physical entry or generation code), and the list does not contain a specific entry for 'Opel Ascona C', no valid match is found."
+       }
+      }
+     },
+     {
+      "code": "Second generation",
+      "yearStart": 1990,
+      "yearEnd": 1993,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "Isuzu aska bcl 2.0cxtypeg 1 f.jpg",
+      "sharedPlatforms": [
+       "Subaru Legacy"
+      ]
+     },
+     {
+      "code": "Third generation",
+      "yearStart": 1994,
+      "yearEnd": 1997,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "ISUZU ASKA3-1.jpg",
+      "sharedPlatforms": [
+       "Honda Accord"
+      ]
+     },
+     {
+      "code": "Fourth generation",
+      "yearStart": 1998,
+      "yearEnd": 2002,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "ISUZU ASKA4-1.jpg",
+      "sharedPlatforms": [
+       "Honda Accord",
+       "Honda Torneo"
+      ]
+     }
+    ]
+   },
+   "attempts": 1,
+   "feedback": [],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": true,
+     "generations": [
+      {
+       "code": "First generation",
+       "yearStart": 1983,
+       "yearEnd": 1989,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Holden Camira",
+        "Opel Ascona C"
+       ]
+      },
+      {
+       "code": "Second generation",
+       "yearStart": 1990,
+       "yearEnd": 1993,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Subaru Legacy"
+       ]
+      },
+      {
+       "code": "Third generation",
+       "yearStart": 1994,
+       "yearEnd": 1997,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Honda Accord"
+       ]
+      },
+      {
+       "code": "Fourth generation",
+       "yearStart": 1998,
+       "yearEnd": 2002,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Honda Accord",
+        "Honda Torneo"
+       ]
+      }
+     ]
+    },
+    "dropped": []
+   },
+   "cascadeDiscovered": true,
+   "decidedBy": "user",
+   "decidedAt": "2026-09-17T07:41:29.486Z",
+   "allDesigners": [],
+   "allEngineers": []
+  },
+  "m-aston-martin-valkyrie": {
+   "status": "none",
+   "checkedAt": "2026-09-17T07:41:39.046Z",
+   "sourceTitle": "Aston Martin Valkyrie",
+   "proposal": {
+    "hasMultipleGenerations": false,
+    "generations": [
+     {
+      "code": "Valkyrie",
+      "yearStart": 2016,
+      "yearEnd": 2024,
+      "designers": [
+       "Adrian Newey",
+       "Miles Nurnberger"
+      ],
+      "engineers": [],
+      "wikiFile": "Aston Martin Valkyrie Verification Prototype 001 Genf 2019 1Y7A5569.jpg",
+      "sharedPlatforms": [
+       "Aston Martin Valhalla"
+      ]
+     }
+    ]
+   },
+   "attempts": 1,
+   "feedback": [],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": false,
+     "generations": [
+      {
+       "code": "Valkyrie",
+       "yearStart": 2016,
+       "yearEnd": 2024,
+       "designers": [
+        "Adrian Newey",
+        "Miles Nurnberger"
+       ],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Aston Martin Valhalla"
+       ]
+      }
+     ]
+    },
+    "dropped": []
+   },
+   "cascadeDiscovered": true
+  },
+  "m-seat-850": {
+   "status": "none",
+   "checkedAt": "2026-09-17T07:41:49.338Z",
+   "sourceTitle": "SEAT 850",
+   "proposal": {
+    "hasMultipleGenerations": false,
+    "generations": [
+     {
+      "code": "SEAT 850",
+      "yearStart": 1966,
+      "yearEnd": 1974,
+      "designers": [
+       "Dante Giacosa",
+       "Antonio Amat",
+       "Felice Mario Boano",
+       "Gian Paolo Boano",
+       "Giorgetto Giugiaro"
+      ],
+      "engineers": [],
+      "wikiFile": "1968 SEAT 850 Ditzingen Mobil IMG 9842.jpg",
+      "sharedPlatforms": [
+       "Fiat 850"
+      ]
+     }
+    ]
+   },
+   "attempts": 1,
+   "feedback": [],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": false,
+     "generations": [
+      {
+       "code": "SEAT 850",
+       "yearStart": 1966,
+       "yearEnd": 1974,
+       "designers": [
+        "Dante Giacosa",
+        "Antonio Amat",
+        "Felice Mario Boano",
+        "Gian Paolo Boano",
+        "Giorgetto Giugiaro"
+       ],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Fiat 850"
+       ]
+      }
+     ]
+    },
+    "dropped": []
+   },
+   "cascadeDiscovered": true
+  },
+  "m-fiat-850": {
+   "status": "none",
+   "checkedAt": "2026-09-17T07:42:22.149Z",
+   "sourceTitle": "Fiat 850",
+   "proposal": {
+    "hasMultipleGenerations": false,
+    "generations": [
+     {
+      "code": "Fiat 850",
+      "yearStart": 1964,
+      "yearEnd": 1973,
+      "designers": [
+       "Dante Giacosa",
+       "Felice Mario Boano",
+       "Gian Paolo Boano",
+       "Giorgetto Giugiaro"
+      ],
+      "engineers": [],
+      "wikiFile": "Fiat 850 at Schaffen-Diest (2017).jpg",
+      "sharedPlatforms": [
+       "SEAT 850",
+       "Fiat Moretti Sportiva",
+       "SEAT/Fiat 133",
+       "Siata Spring"
+      ],
+      "sharedPlatformMatches": {
+       "SEAT/Fiat 133": {
+        "matchId": "m-seat-133",
+        "confidence": "high",
+        "reason": "The SEAT 133 is the local name for the Fiat 128 sold in Spain under the SEAT brand (1974–1981), matching the production years and the shared chassis/Fiat origin implied by the 'SEAT/Fiat' notation."
+       },
+       "Siata Spring": {
+        "matchId": null,
+        "confidence": "high",
+        "reason": "The 'Siata Spring' (1950–1952) is a distinct microcar model produced by Siata. It is not the same vehicle as the Siata 208 CS, Siata 208S, or Siata Daina, which are different models with different body styles and specifications."
+       }
+      }
+     }
+    ]
+   },
+   "attempts": 1,
+   "feedback": [],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": false,
+     "generations": [
+      {
+       "code": "Fiat 850",
+       "yearStart": 1964,
+       "yearEnd": 1973,
+       "designers": [
+        "Dante Giacosa",
+        "Felice Mario Boano",
+        "Gian Paolo Boano",
+        "Giorgetto Giugiaro"
+       ],
+       "engineers": [],
+       "sharedPlatforms": [
+        "SEAT 850",
+        "Fiat Moretti Sportiva",
+        "SEAT/Fiat 133",
+        "Siata Spring"
+       ]
+      }
+     ]
+    },
+    "dropped": []
+   },
+   "cascadeDiscovered": true
+  },
+  "m-mercedes-benz-eqb": {
+   "status": "none",
+   "checkedAt": "2026-09-17T07:42:43.260Z",
+   "sourceTitle": "Mercedes-Benz EQB",
+   "proposal": {
+    "hasMultipleGenerations": false,
+    "generations": [
+     {
+      "code": "X243",
+      "yearStart": 2021,
+      "yearEnd": 2026,
+      "designers": [
+       "Balázs Filczer"
+      ],
+      "engineers": [],
+      "wikiFile": "Mercedes-Benz X243 300 1X7A0422.jpg",
+      "sharedPlatforms": [
+       "Mercedes-Benz GLB-Class"
+      ],
+      "sharedPlatformMatches": {
+       "Mercedes-Benz GLB-Class": {
+        "matchId": "m-mercedes-benz-glb",
+        "confidence": "high",
+        "reason": "The mentioned car 'Mercedes-Benz GLB-Class' refers to the compact luxury crossover SUV produced by Mercedes-Benz since 2019. This matches the candidate 'm-mercedes-benz-glb' labeled 'Mercedes-Benz GLB (2019–present)' exactly in name, model type, and production start year."
+       }
+      }
+     }
+    ]
+   },
+   "attempts": 1,
+   "feedback": [],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": false,
+     "generations": [
+      {
+       "code": "X243",
+       "yearStart": 2021,
+       "yearEnd": 2026,
+       "designers": [
+        "Balázs Filczer"
+       ],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Mercedes-Benz GLB-Class"
+       ]
+      }
+     ]
+    },
+    "dropped": []
+   },
+   "cascadeDiscovered": true
+  },
+  "m-chevrolet-silverado-ev": {
+   "status": "none",
+   "checkedAt": "2026-09-17T07:42:53.466Z",
+   "sourceTitle": "Chevrolet Silverado EV",
+   "proposal": {
+    "hasMultipleGenerations": false,
+    "generations": [
+     {
+      "code": "Chevrolet Silverado EV",
+      "yearStart": 2024,
+      "yearEnd": null,
+      "designers": [
+       "Raphael Molina",
+       "Jacky Zhan",
+       "Nichole Krantz"
+      ],
+      "engineers": [],
+      "wikiFile": "2024 Chevrolet Silverado EV 4WT AWD in Summit White, front left, 2024-06-30.jpg",
+      "sharedPlatforms": [
+       "GMC Hummer EV",
+       "Cadillac Escalade IQ"
+      ]
+     }
+    ]
+   },
+   "attempts": 1,
+   "feedback": [],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": false,
+     "generations": [
+      {
+       "code": "Chevrolet Silverado EV",
+       "yearStart": 2024,
+       "yearEnd": null,
+       "designers": [
+        "Raphael Molina",
+        "Jacky Zhan",
+        "Nichole Krantz"
+       ],
+       "engineers": [],
+       "sharedPlatforms": [
+        "GMC Hummer EV",
+        "Cadillac Escalade IQ"
+       ]
+      }
+     ]
+    },
+    "dropped": []
+   },
+   "cascadeDiscovered": true
+  },
+  "m-jaguar-f-pace": {
+   "status": "none",
+   "checkedAt": "2026-09-17T07:43:03.193Z",
+   "sourceTitle": "Jaguar F-Pace",
+   "proposal": {
+    "hasMultipleGenerations": false,
+    "generations": [
+     {
+      "code": "X761",
+      "yearStart": 2016,
+      "yearEnd": 2025,
+      "designers": [
+       "Ian Callum"
+      ],
+      "engineers": [],
+      "wikiFile": "Jaguar F-Pace AWD 20d registered March 2019 1999cc 01 (cropped).jpg",
+      "sharedPlatforms": [
+       "Jaguar XE",
+       "Jaguar XF",
+       "Range Rover Velar"
+      ]
+     }
+    ]
+   },
+   "attempts": 1,
+   "feedback": [],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": false,
+     "generations": [
+      {
+       "code": "X761",
+       "yearStart": 2016,
+       "yearEnd": 2025,
+       "designers": [
+        "Ian Callum"
+       ],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Jaguar XE",
+        "Jaguar XF",
+        "Range Rover Velar"
+       ]
+      }
+     ]
+    },
+    "dropped": []
+   },
+   "cascadeDiscovered": true
+  },
+  "m-land-rover-range-rover-velar": {
+   "status": "none",
+   "checkedAt": "2026-09-17T07:43:13.445Z",
+   "sourceTitle": "Range Rover Velar",
+   "proposal": {
+    "hasMultipleGenerations": false,
+    "generations": [
+     {
+      "code": "L560",
+      "yearStart": 2017,
+      "yearEnd": null,
+      "designers": [
+       "Gerry McGovern"
+      ],
+      "engineers": [],
+      "wikiFile": "2017 Land Rover Range Rover Velar First Edition D3 3.0 Front.jpg",
+      "sharedPlatforms": [
+       "Jaguar XE",
+       "Jaguar XF (X260)",
+       "Jaguar F-Pace"
+      ]
+     }
+    ]
+   },
+   "attempts": 1,
+   "feedback": [],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": false,
+     "generations": [
+      {
+       "code": "L560",
+       "yearStart": 2017,
+       "yearEnd": null,
+       "designers": [
+        "Gerry McGovern"
+       ],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Jaguar XE",
+        "Jaguar XF (X260)",
+        "Jaguar F-Pace"
        ]
       }
      ]
@@ -9391,12 +11004,1011 @@
    "genIdB": "m-chevrolet-silverado",
    "reason": "matched automatically (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
    "llmDiscovered": true
+  },
+  "m-infiniti-q30|m-mercedes-benz-a-class-w176|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-17T07:22:37.724Z",
+   "decidedAt": "2026-09-17T07:22:37.724Z",
+   "famA": "m-infiniti-q30",
+   "famB": "fam-mercedes-benz-a",
+   "relType": "platform",
+   "codeA": "Q30",
+   "codeB": "A-Class (W176)",
+   "genIdA": "m-infiniti-q30",
+   "genIdB": "m-mercedes-benz-a-class-w176",
+   "reason": "matched automatically (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-related-mercedes-benz-gla-class-x156|m-infiniti-q30|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-17T07:22:37.729Z",
+   "decidedAt": "2026-09-17T07:22:37.729Z",
+   "famA": "m-infiniti-q30",
+   "famB": "llm-related-mercedes-benz-gla-class-x156",
+   "relType": "platform",
+   "codeA": "Q30",
+   "codeB": "GLA-Class (X156)",
+   "genIdA": "m-infiniti-q30",
+   "genIdB": "llm-related-mercedes-benz-gla-class-x156",
+   "reason": "matched automatically -- \"Mercedes-Benz GLA-Class (X156)\" was named as a related car but didn't exist anywhere in the graph yet, so it was newly created from this mention",
+   "llmDiscovered": true
+  },
+  "m-infiniti-qx30|m-mercedes-benz-a-class-w176|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-17T07:22:37.732Z",
+   "decidedAt": "2026-09-17T07:22:37.732Z",
+   "famA": "m-infiniti-qx30",
+   "famB": "fam-mercedes-benz-a",
+   "relType": "platform",
+   "codeA": "QX30",
+   "codeB": "A-Class (W176)",
+   "genIdA": "m-infiniti-qx30",
+   "genIdB": "m-mercedes-benz-a-class-w176",
+   "reason": "matched automatically (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "m-infiniti-q30|m-infiniti-qx30|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-17T07:22:37.733Z",
+   "decidedAt": "2026-09-17T07:22:37.733Z",
+   "famA": "m-infiniti-qx30",
+   "famB": "m-infiniti-q30",
+   "relType": "platform",
+   "codeA": "QX30",
+   "codeB": "Q30",
+   "genIdA": "m-infiniti-qx30",
+   "genIdB": "m-infiniti-q30",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "m-mercedes-benz-a-class-w177|m-mercedes-benz-eqa|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-17T07:22:37.741Z",
+   "decidedAt": "2026-09-17T07:22:37.741Z",
+   "famA": "m-mercedes-benz-eqa",
+   "famB": "fam-mercedes-benz-a",
+   "relType": "platform",
+   "codeA": "EQA",
+   "codeB": "A-Class (W177)",
+   "genIdA": "m-mercedes-benz-eqa",
+   "genIdB": "m-mercedes-benz-a-class-w177",
+   "reason": "auto-approved in the background -- the local LLM sanity check confidently identified this as the same car as \"Mercedes-Benz A-Class (W/V/Z177)\" (confidence: high) -- The mention explicitly includes the chassis code 'W177' (along with W/V/Z), which corresponds exactly to the database entry 'Mercedes-Benz A-Class (W177) (2018–present)'. The 'W/V/Z' notation is the standard Wikipedia format for the A-Class generation spanning all markets and variants (W177 for Europe/China, V204 for the US, Z177 for South America).",
+   "llmDiscovered": true,
+   "llmVerifiedDuplicate": true
+  },
+  "llm-m-mercedes-benz-cla-c118|m-mercedes-benz-eqa|platform": {
+   "status": "provisional",
+   "checkedAt": "2026-09-17T07:22:37.746Z",
+   "famA": "m-mercedes-benz-eqa",
+   "famB": "m-mercedes-benz-cla",
+   "relType": "platform",
+   "codeA": "EQA",
+   "codeB": "CLA C118",
+   "genIdA": "m-mercedes-benz-eqa",
+   "genIdB": "llm-m-mercedes-benz-cla-c118",
+   "reason": "proposed by overlapping production years only, on top of a nameplate name that only matched as a substring -- please verify this is really the right car before accepting",
+   "llmDiscovered": true
+  },
+  "llm-related-mercedes-benz-b-class-w247|m-mercedes-benz-eqa|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-17T07:22:37.751Z",
+   "decidedAt": "2026-09-17T07:22:37.751Z",
+   "famA": "m-mercedes-benz-eqa",
+   "famB": "llm-related-mercedes-benz-b-class-w247",
+   "relType": "platform",
+   "codeA": "EQA",
+   "codeB": "B-Class (W247)",
+   "genIdA": "m-mercedes-benz-eqa",
+   "genIdB": "llm-related-mercedes-benz-b-class-w247",
+   "reason": "matched automatically -- \"Mercedes-Benz B-Class (W247)\" was named as a related car but didn't exist anywhere in the graph yet, so it was newly created from this mention (double-checked by the local LLM sanity pass against every plausible existing car -- none matched)",
+   "llmDiscovered": true
+  },
+  "llm-m-mercedes-benz-glb-x247|m-mercedes-benz-eqa|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-17T07:22:37.753Z",
+   "decidedAt": "2026-09-17T07:22:37.753Z",
+   "famA": "m-mercedes-benz-eqa",
+   "famB": "m-mercedes-benz-glb",
+   "relType": "platform",
+   "codeA": "EQA",
+   "codeB": "GLB X247",
+   "genIdA": "m-mercedes-benz-eqa",
+   "genIdB": "llm-m-mercedes-benz-glb-x247",
+   "reason": "matched automatically (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "m-mercedes-benz-eqa|m-mercedes-benz-eqb|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-17T07:22:37.755Z",
+   "decidedAt": "2026-09-17T07:22:37.755Z",
+   "famA": "m-mercedes-benz-eqa",
+   "famB": "m-mercedes-benz-eqb",
+   "relType": "platform",
+   "codeA": "EQA",
+   "codeB": "EQB",
+   "genIdA": "m-mercedes-benz-eqa",
+   "genIdB": "m-mercedes-benz-eqb",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "m-chevrolet-silverado-ev|m-gmc-hummer-ev|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-17T07:22:37.765Z",
+   "decidedAt": "2026-09-17T07:22:37.765Z",
+   "famA": "m-gmc-hummer-ev",
+   "famB": "m-chevrolet-silverado-ev",
+   "relType": "platform",
+   "codeA": "Hummer EV",
+   "codeB": "Silverado EV",
+   "genIdA": "m-gmc-hummer-ev",
+   "genIdB": "m-chevrolet-silverado-ev",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "m-cadillac-escalade-iq|m-gmc-hummer-ev|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-17T07:22:37.765Z",
+   "decidedAt": "2026-09-17T07:22:37.765Z",
+   "famA": "m-gmc-hummer-ev",
+   "famB": "m-cadillac-escalade-iq",
+   "relType": "platform",
+   "codeA": "Hummer EV",
+   "codeB": "Escalade IQ",
+   "genIdA": "m-gmc-hummer-ev",
+   "genIdB": "m-cadillac-escalade-iq",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-llm-related-gmc-sierra-gmt-k2xx|llm-m-chevrolet-colorado-rg|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-17T07:23:44.226Z",
+   "decidedAt": "2026-09-17T07:23:44.226Z",
+   "famA": "llm-related-gmc-sierra",
+   "famB": "m-chevrolet-colorado",
+   "relType": "platform",
+   "codeA": "Sierra GMT K2XX",
+   "codeB": "Colorado RG",
+   "genIdA": "llm-llm-related-gmc-sierra-gmt-k2xx",
+   "genIdB": "llm-m-chevrolet-colorado-rg",
+   "reason": "matched automatically -- the nameplate was named exactly in the source text, and exactly one of its generations was in production alongside this one, so that is the generation it refers to",
+   "llmDiscovered": true
+  },
+  "llm-llm-related-gmc-sierra-gmt-t1xx|llm-m-chevrolet-colorado-rg|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-17T07:23:44.235Z",
+   "decidedAt": "2026-09-17T07:23:44.235Z",
+   "famA": "llm-related-gmc-sierra",
+   "famB": "m-chevrolet-colorado",
+   "relType": "platform",
+   "codeA": "Sierra GMT T1XX",
+   "codeB": "Colorado RG",
+   "genIdA": "llm-llm-related-gmc-sierra-gmt-t1xx",
+   "genIdB": "llm-m-chevrolet-colorado-rg",
+   "reason": "matched automatically -- the nameplate was named exactly in the source text, and exactly one of its generations was in production alongside this one, so that is the generation it refers to",
+   "llmDiscovered": true
+  },
+  "llm-m-mercedes-benz-mercedes-amg-gt-c190-r190|m-mercedes-benz-sls-amg|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-17T07:23:44.254Z",
+   "decidedAt": "2026-09-17T07:23:44.254Z",
+   "famA": "m-mercedes-benz-mercedes-amg-gt",
+   "famB": "m-mercedes-benz-sls-amg",
+   "relType": "platform",
+   "codeA": "Mercedes-AMG GT C190/R190",
+   "codeB": "SLS AMG",
+   "genIdA": "llm-m-mercedes-benz-mercedes-amg-gt-c190-r190",
+   "genIdB": "m-mercedes-benz-sls-amg",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-mercedes-benz-mercedes-amg-gt-c192|m-mercedes-benz-sl-class|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-17T07:23:44.262Z",
+   "decidedAt": "2026-09-17T07:23:44.262Z",
+   "famA": "m-mercedes-benz-mercedes-amg-gt",
+   "famB": "m-mercedes-benz-sl-class",
+   "relType": "platform",
+   "codeA": "Mercedes-AMG GT C192",
+   "codeB": "SL-Class",
+   "genIdA": "llm-m-mercedes-benz-mercedes-amg-gt-c192",
+   "genIdB": "m-mercedes-benz-sl-class",
+   "reason": "auto-approved in the background -- the local LLM sanity check confidently identified this as the same car as \"Mercedes-Benz SL-Class (R232)\" (confidence: high) -- The mention 'Mercedes-Benz SL-Class (R232)' refers to the specific generation of the SL-Class coupé produced from 2012 to 2020. The candidate 'Mercedes-Benz SL-Class (1954–present)' represents the same model lineage (SL-Class), which encompasses the R232 generation. While the candidate label uses a broad production date range, it refers to the identical car model and generation family as the specific mention, unlike other candidates which are distinct model names (e.g., CL-Class, SLS AMG) or different generations (e.g., R129).",
+   "llmDiscovered": true,
+   "llmVerifiedDuplicate": true
+  },
+  "llm-related-jaguar-xj-x300|m-jaguar-xj-x308|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-17T07:25:56.437Z",
+   "decidedAt": "2026-09-17T07:25:56.437Z",
+   "famA": "fam-jaguar-xj",
+   "famB": "llm-related-jaguar-xj-x300",
+   "relType": "platform",
+   "codeA": "XJ (X308)",
+   "codeB": "XJ (X300)",
+   "genIdA": "m-jaguar-xj-x308",
+   "genIdB": "llm-related-jaguar-xj-x300",
+   "reason": "matched automatically -- \"Jaguar XJ (X300)\" was named as a related car but didn't exist anywhere in the graph yet, so it was newly created from this mention",
+   "llmDiscovered": true
+  },
+  "m-jaguar-xj-x350|m-jaguar-xk-x150|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-17T07:26:23.746Z",
+   "decidedAt": "2026-09-17T07:26:23.746Z",
+   "famA": "fam-jaguar-xj",
+   "famB": "fam-jaguar-xk",
+   "relType": "platform",
+   "codeA": "XJ (X350)",
+   "codeB": "XK (X150)",
+   "genIdA": "m-jaguar-xj-x350",
+   "genIdB": "m-jaguar-xk-x150",
+   "reason": "matched automatically (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "m-jaguar-xe|m-jaguar-xf-x260|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-17T07:28:05.492Z",
+   "decidedAt": "2026-09-17T07:28:05.492Z",
+   "famA": "m-jaguar-xe",
+   "famB": "fam-jaguar-xf",
+   "relType": "platform",
+   "codeA": "XE",
+   "codeB": "XF (X260)",
+   "genIdA": "m-jaguar-xe",
+   "genIdB": "m-jaguar-xf-x260",
+   "reason": "matched automatically (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "m-jaguar-f-pace|m-jaguar-xe|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-17T07:28:05.494Z",
+   "decidedAt": "2026-09-17T07:28:05.494Z",
+   "famA": "m-jaguar-xe",
+   "famB": "m-jaguar-f-pace",
+   "relType": "platform",
+   "codeA": "XE",
+   "codeB": "F-Pace",
+   "genIdA": "m-jaguar-xe",
+   "genIdB": "m-jaguar-f-pace",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "m-jaguar-xe|m-land-rover-range-rover-velar|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-17T07:28:05.495Z",
+   "decidedAt": "2026-09-17T07:28:05.495Z",
+   "famA": "m-jaguar-xe",
+   "famB": "m-land-rover-range-rover-velar",
+   "relType": "platform",
+   "codeA": "XE",
+   "codeB": "Range Rover Velar",
+   "genIdA": "m-jaguar-xe",
+   "genIdB": "m-land-rover-range-rover-velar",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "m-ford-mondeo|m-jaguar-x-type|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-17T07:28:47.311Z",
+   "decidedAt": "2026-09-17T07:28:47.311Z",
+   "famA": "m-jaguar-x-type",
+   "famB": "fam-ford-mondeo",
+   "relType": "platform",
+   "codeA": "X-Type",
+   "codeB": "Mondeo",
+   "genIdA": "m-jaguar-x-type",
+   "genIdB": "m-ford-mondeo",
+   "reason": "auto-approved in the background -- the local LLM sanity check confidently identified this as the same car as \"Ford Mondeo (second generation)\" (confidence: high) -- The mention 'Ford Mondeo (second generation)' corresponds exactly to the Ford Mondeo produced from 2000 to 2007, which is the specific generation and production span listed for candidate id 'm-ford-mondeo'. While the other Mondeo candidate ('fam-ford-mondeo') covers a broader timeline including the first generation, the specific mention of the second generation aligns uniquely and definitively with the 2000–2007 model range of 'm-ford-mondeo'.",
+   "llmDiscovered": true,
+   "llmVerifiedDuplicate": true
+  },
+  "m-jaguar-x-type|m-jaguar-xe|succession": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-17T07:29:09.978Z",
+   "decidedAt": "2026-09-17T07:29:09.978Z",
+   "autoConfirmed": true,
+   "famA": "m-jaguar-xe",
+   "famB": "m-jaguar-x-type",
+   "relType": "succession",
+   "note": "Jaguar XE's own article says: \"JLR D7a \n {{Infobox automobile | sp = uk | image = 2019 Jaguar XE S Automatic 2.0.jpg | name = Jaguar XE (X760) | manufacturer = Jaguar Land Rover | model_code = X760 | class = Compact executive car (D) | predecessor = Jaguar X-Type | body_style = 4-door saloon (car) | production = April 2015–2024 | aka = Jaguar XEL (China, LWB) | assembly = | engine = | transmission = | layout = FR layout / F4 layout | platform = JLR D7a | related = | wheelbase = <br> (XEL) | length = <br> (XEL) | width = | height = <br> (XEL) | weight = - | designer = Ian Callum (2013) | drivetrain = Mild hybrid (since 2021) | model_years = 2016–2024 (North America) }} \n The successor to the X-Type, it was designed by Ian Callum and launched at the…\" / Jaguar X-Type's own article says: \"Ford Mondeo (second generation) \n Ford CD132 platform \n {{Infobox automobile | name = Jaguar X-Type | image = Jaguar X-TYPE.jpg | caption = | manufacturer = Jaguar Cars | model_code = X400 | production = 2001–2009<br />355,227 produced | assembly = United Kingdom: Halewood (Halewood Body & Assembly) | class = Compact executive car (D) | body_style = | layout = | platform = Ford CD132 platform | designer = | related = Ford Mondeo (second generation) | engine = | transmission = | wheelbase = | length = {{ubl | Saloon (2001–2008): | Saloon (2008–2009): | Estate (2004–2009): }} | width = | height = {{ubl | Saloon (2001–2008): | Saloon (2008–2009): | Estate (2004–2009): }} | successor = Jaguar XE | model_years = 2002–2009 }} \n The Jaguar X-Type is a front-engine, all-wheel/front-wheel drive compact executive car m…\"",
+   "matchLevel": "generation",
+   "codeA": "XE",
+   "codeB": "X-Type",
+   "genIdA": "m-jaguar-xe",
+   "genIdB": "m-jaguar-x-type",
+   "reason": "matched from an explicit chassis/generation code found directly in one of the two Wikipedia articles' own text (the LLM separately agreed: The provided text explicitly states in the Jaguar XE's infobox that its predecessor is the Jaguar X-Type. Additionally, the Jaguar X-Type's article lists the Jaguar XE as its successor. While the X-Type is based on the Ford CD132 platform and the XE uses the JLR D7a platform, the predecessor/successor relationship is confirmed by the direct textual link in the provided notes.)",
+   "debug": {
+    "raw": {
+     "resolved": true,
+     "codeA": "XE (2015–2024)",
+     "codeB": "X-Type (2001–2009)",
+     "evidenceQuote": "predecessor = Jaguar X-Type",
+     "reason": "The provided text explicitly states in the Jaguar XE's infobox that its predecessor is the Jaguar X-Type. Additionally, the Jaguar X-Type's article lists the Jaguar XE as its successor. While the X-Type is based on the Ford CD132 platform and the XE uses the JLR D7a platform, the predecessor/successor relationship is confirmed by the direct textual link in the provided notes."
+    },
+    "evidenceCodeForA": null,
+    "evidenceCodeForB": "car",
+    "ordinalFromNoteA": null,
+    "ordinalFromNoteB": null,
+    "ordinalBacked": false,
+    "evidenceQuote": "predecessor = Jaguar X-Type",
+    "quoteVerified": true,
+    "llmVerified": false,
+    "knowledgeBacked": true,
+    "sourceAttributed": true,
+    "citedA": "XE",
+    "citedB": "X-Type",
+    "citationBacked": true,
+    "quoteFabricated": false,
+    "fetchedArticleA": true,
+    "fetchedArticleB": true,
+    "availableCodesA": [
+     "XE"
+    ],
+    "availableCodesB": [
+     "X-Type"
+    ]
+   }
+  },
+  "fam-jaguar-xf|m-jaguar-xe|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-17T07:29:24.819Z",
+   "decidedAt": "2026-09-17T07:29:24.819Z",
+   "autoConfirmed": true,
+   "famA": "m-jaguar-xe",
+   "famB": "fam-jaguar-xf",
+   "relType": "platform",
+   "note": "Jaguar XE's own article says: \"… panels, centre tunnel and a revised infotainment system marketed as InControl Touch Pro Duo, shared with other Jaguar Land Rover products. The automatic's rising rotary knob gear selector was replaced with a more conventional type marketed as the Sport Shift Selector. \n ==Construction== ===Platform=== thumb|left|Jaguar XE structure The XE is the first built on the [[Jaguar Land Rover car platforms#D7a|Jaguar Land Rover iQ[Al] (D7a)]] modular platform, also used for the second generation Jaguar XF (X260) model, the Jaguar F-Pace sports utility vehicle and the Range Rover Velar. The design features double wishbone suspension at the front, with similarities to the system fitted to the XF and F-Type models, the rear features an entirely new subframe mounted multi-link suspension system, marketed as Integral Link. The system is costlier to manufacture but allows for greater tuning. \n ==Gallery== <gallery widths=\"200\" heights=\"120\"> File:2017 Jaguar XE Portfolio Diesel Automatic 2.0 Front.j…\" / Jaguar XF's own article says: \"*Jaguar XF (X250) (2007–2015), an executive/luxury mid-size sports saloon car *Jaguar XF (X260) (2015–2024), the second generation of the executive/mid-size luxury sports saloon\"",
+   "matchLevel": "generation",
+   "codeA": "XE",
+   "codeB": "XF (X260)",
+   "genIdA": "m-jaguar-xe",
+   "genIdB": "m-jaguar-xf-x260",
+   "reason": "matched from an explicit chassis/generation code found directly in one of the two Wikipedia articles' own text (the LLM separately agreed: The note explicitly states that the Jaguar XE is built on the Jaguar Land Rover iQ[Al] (D7a) modular platform, which is also used for the second generation Jaguar XF (X260). This confirms they share the specific D7a platform.)",
+   "debug": {
+    "raw": {
+     "resolved": true,
+     "codeA": "XE (2015–2024)",
+     "codeB": "XF (X260) (2015–2024)",
+     "evidenceQuote": "The XE is the first built on the [[Jaguar Land Rover car platforms#D7a|Jaguar Land Rover iQ[Al] (D7a)]] modular platform, also used for the second generation Jaguar XF (X260) model",
+     "reason": "The note explicitly states that the Jaguar XE is built on the Jaguar Land Rover iQ[Al] (D7a) modular platform, which is also used for the second generation Jaguar XF (X260). This confirms they share the specific D7a platform."
+    },
+    "evidenceCodeForA": "X260",
+    "evidenceCodeForB": "X260",
+    "ordinalFromNoteA": null,
+    "ordinalFromNoteB": "XF",
+    "ordinalBacked": false,
+    "evidenceQuote": "The XE is the first built on the [[Jaguar Land Rover car platforms#D7a|Jaguar Land Rover iQ[Al] (D7a)]] modular platform, also used for the second generation Jaguar XF (X260) model",
+    "quoteVerified": true,
+    "llmVerified": false,
+    "knowledgeBacked": false,
+    "sourceAttributed": true,
+    "citedA": "XE",
+    "citedB": "XF (X260)",
+    "citationBacked": true,
+    "quoteFabricated": false,
+    "fetchedArticleA": true,
+    "fetchedArticleB": true,
+    "availableCodesA": [
+     "XE"
+    ],
+    "availableCodesB": [
+     "XF (X250)",
+     "XF",
+     "XF (X260)"
+    ]
+   }
+  },
+  "llm-m-land-rover-series-series-iia|llm-related-santana-motor|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-17T07:30:42.133Z",
+   "decidedAt": "2026-09-17T07:30:42.133Z",
+   "famA": "m-land-rover-series",
+   "famB": "llm-related-santana-motor",
+   "relType": "platform",
+   "codeA": "series Series IIA",
+   "codeB": "Motor",
+   "genIdA": "llm-m-land-rover-series-series-iia",
+   "genIdB": "llm-related-santana-motor",
+   "reason": "matched automatically -- \"Santana Motor\" was named as a related car but didn't exist anywhere in the graph yet, so it was newly created from this mention (double-checked by the local LLM sanity pass against every plausible existing car -- none matched)",
+   "llmDiscovered": true
+  },
+  "llm-m-land-rover-series-series-iii|llm-related-santana-motor|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-17T07:30:42.139Z",
+   "decidedAt": "2026-09-17T07:30:42.139Z",
+   "famA": "m-land-rover-series",
+   "famB": "llm-related-santana-motor",
+   "relType": "platform",
+   "codeA": "series Series III",
+   "codeB": "Motor",
+   "genIdA": "llm-m-land-rover-series-series-iii",
+   "genIdB": "llm-related-santana-motor",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-chevrolet-avalanche-gmt805|llm-related-chevrolet-silverado-gmc-sierra|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-17T07:33:34.379Z",
+   "decidedAt": "2026-09-17T07:33:34.379Z",
+   "famA": "m-chevrolet-avalanche",
+   "famB": "llm-related-chevrolet-silverado-gmc-sierra",
+   "relType": "platform",
+   "codeA": "Avalanche GMT805",
+   "codeB": "Silverado/GMC Sierra",
+   "genIdA": "llm-m-chevrolet-avalanche-gmt805",
+   "genIdB": "llm-related-chevrolet-silverado-gmc-sierra",
+   "reason": "matched automatically -- \"Chevrolet Silverado/GMC Sierra\" was named as a related car but didn't exist anywhere in the graph yet, so it was newly created from this mention (double-checked by the local LLM sanity pass against every plausible existing car -- none matched)",
+   "llmDiscovered": true
+  },
+  "llm-m-chevrolet-avalanche-gmt805|llm-related-gmc-yukon|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-17T07:33:34.398Z",
+   "decidedAt": "2026-09-17T07:33:34.398Z",
+   "famA": "m-chevrolet-avalanche",
+   "famB": "llm-related-gmc-yukon",
+   "relType": "platform",
+   "codeA": "Avalanche GMT805",
+   "codeB": "Yukon",
+   "genIdA": "llm-m-chevrolet-avalanche-gmt805",
+   "genIdB": "llm-related-gmc-yukon",
+   "reason": "auto-approved in the background -- the local LLM sanity check confidently identified this as the same car as \"Chevrolet Suburban/GMC Yukon XL\" (confidence: high) -- The mention 'Chevrolet Suburban/GMC Yukon XL' explicitly names the GMC Yukon XL. The candidate 'llm-related-gmc-yukon' is the GMC Yukon. The GMC Yukon XL is the extended-wheelbase (XL) variant of the GMC Yukon, making it the same physical vehicle series/model family. All other candidates are distinct model names or generations of different vehicles.",
+   "llmDiscovered": true,
+   "llmVerifiedDuplicate": true
+  },
+  "llm-m-cadillac-escalade-second-generation-2001|llm-m-chevrolet-avalanche-gmt805|platform": {
+   "status": "provisional",
+   "checkedAt": "2026-09-17T07:33:34.416Z",
+   "famA": "m-chevrolet-avalanche",
+   "famB": "m-cadillac-escalade",
+   "relType": "platform",
+   "codeA": "Avalanche GMT805",
+   "codeB": "Escalade Second generation (2001)",
+   "genIdA": "llm-m-chevrolet-avalanche-gmt805",
+   "genIdB": "llm-m-cadillac-escalade-second-generation-2001",
+   "reason": "proposed by overlapping production years only, on top of a nameplate name that only matched as a substring -- please verify this is really the right car before accepting",
+   "llmDiscovered": true
+  },
+  "llm-m-chevrolet-avalanche-gmt900|llm-related-chevrolet-silverado-gmc-sierra|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-17T07:33:34.469Z",
+   "decidedAt": "2026-09-17T07:33:34.469Z",
+   "famA": "m-chevrolet-avalanche",
+   "famB": "llm-related-chevrolet-silverado-gmc-sierra",
+   "relType": "platform",
+   "codeA": "Avalanche GMT900",
+   "codeB": "Silverado/GMC Sierra",
+   "genIdA": "llm-m-chevrolet-avalanche-gmt900",
+   "genIdB": "llm-related-chevrolet-silverado-gmc-sierra",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-chevrolet-avalanche-gmt900|llm-related-gmc-yukon|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-17T07:33:34.493Z",
+   "decidedAt": "2026-09-17T07:33:34.493Z",
+   "famA": "m-chevrolet-avalanche",
+   "famB": "llm-related-gmc-yukon",
+   "relType": "platform",
+   "codeA": "Avalanche GMT900",
+   "codeB": "Yukon",
+   "genIdA": "llm-m-chevrolet-avalanche-gmt900",
+   "genIdB": "llm-related-gmc-yukon",
+   "reason": "auto-approved in the background -- the local LLM sanity check confidently identified this as the same car as \"Chevrolet Suburban/GMC Yukon XL\" (confidence: high) -- The mention 'Chevrolet Suburban/GMC Yukon XL' explicitly names the GMC Yukon XL. The candidate 'llm-related-gmc-yukon' is the GMC Yukon. The GMC Yukon XL is the extended-wheelbase (XL) variant of the GMC Yukon, making it the same physical vehicle series/model family. All other candidates are distinct model names or generations of different vehicles.",
+   "llmDiscovered": true,
+   "llmVerifiedDuplicate": true
+  },
+  "llm-m-chevrolet-avalanche-gmt900|m-subaru-baja|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-17T07:33:34.585Z",
+   "decidedAt": "2026-09-17T07:33:34.585Z",
+   "famA": "m-chevrolet-avalanche",
+   "famB": "m-subaru-baja",
+   "relType": "platform",
+   "codeA": "Avalanche GMT900",
+   "codeB": "Baja",
+   "genIdA": "llm-m-chevrolet-avalanche-gmt900",
+   "genIdB": "m-subaru-baja",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-chevrolet-avalanche-gmt900|llm-related-hummer-h2-sut|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-17T07:33:34.614Z",
+   "decidedAt": "2026-09-17T07:33:34.614Z",
+   "famA": "m-chevrolet-avalanche",
+   "famB": "llm-related-hummer-h2-sut",
+   "relType": "platform",
+   "codeA": "Avalanche GMT900",
+   "codeB": "H2 SUT",
+   "genIdA": "llm-m-chevrolet-avalanche-gmt900",
+   "genIdB": "llm-related-hummer-h2-sut",
+   "reason": "matched automatically -- \"Hummer H2 SUT\" was named as a related car but didn't exist anywhere in the graph yet, so it was newly created from this mention (double-checked by the local LLM sanity pass against every plausible existing car -- none matched)",
+   "llmDiscovered": true
+  },
+  "llm-m-mercedes-benz-w110-first-series|m-mercedes-benz-e-class|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-17T07:33:51.888Z",
+   "decidedAt": "2026-09-17T07:33:51.888Z",
+   "famA": "m-mercedes-benz-w110",
+   "famB": "m-mercedes-benz-e-class",
+   "relType": "platform",
+   "codeA": "W110 First Series",
+   "codeB": "E-Class",
+   "genIdA": "llm-m-mercedes-benz-w110-first-series",
+   "genIdB": "m-mercedes-benz-e-class",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-mercedes-benz-w110-second-series|m-mercedes-benz-e-class|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-17T07:33:51.907Z",
+   "decidedAt": "2026-09-17T07:33:51.907Z",
+   "famA": "m-mercedes-benz-w110",
+   "famB": "m-mercedes-benz-e-class",
+   "relType": "platform",
+   "codeA": "W110 Second Series",
+   "codeB": "E-Class",
+   "genIdA": "llm-m-mercedes-benz-w110-second-series",
+   "genIdB": "m-mercedes-benz-e-class",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-ssangyong-rodius-first-generation|llm-related-ssangyong-stavic|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-17T07:36:47.050Z",
+   "decidedAt": "2026-09-17T07:36:47.050Z",
+   "famA": "m-ssangyong-rodius",
+   "famB": "llm-related-ssangyong-stavic",
+   "relType": "platform",
+   "codeA": "Rodius First generation",
+   "codeB": "Stavic",
+   "genIdA": "llm-m-ssangyong-rodius-first-generation",
+   "genIdB": "llm-related-ssangyong-stavic",
+   "reason": "matched automatically -- \"SsangYong Stavic\" was named as a related car but didn't exist anywhere in the graph yet, so it was newly created from this mention (double-checked by the local LLM sanity pass against every plausible existing car -- none matched)",
+   "llmDiscovered": true
+  },
+  "llm-m-ssangyong-rodius-first-generation|llm-related-daewoo-rodius|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-17T07:36:47.085Z",
+   "decidedAt": "2026-09-17T07:36:47.085Z",
+   "famA": "m-ssangyong-rodius",
+   "famB": "llm-related-daewoo-rodius",
+   "relType": "platform",
+   "codeA": "Rodius First generation",
+   "codeB": "Rodius",
+   "genIdA": "llm-m-ssangyong-rodius-first-generation",
+   "genIdB": "llm-related-daewoo-rodius",
+   "reason": "matched automatically -- \"Daewoo Rodius\" was named as a related car but didn't exist anywhere in the graph yet, so it was newly created from this mention (double-checked by the local LLM sanity pass against every plausible existing car -- none matched)",
+   "llmDiscovered": true
+  },
+  "llm-m-ssangyong-rodius-second-generation|llm-related-ssangyong-stavic|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-17T07:36:47.223Z",
+   "decidedAt": "2026-09-17T07:36:47.223Z",
+   "famA": "m-ssangyong-rodius",
+   "famB": "llm-related-ssangyong-stavic",
+   "relType": "platform",
+   "codeA": "Rodius Second generation",
+   "codeB": "Stavic",
+   "genIdA": "llm-m-ssangyong-rodius-second-generation",
+   "genIdB": "llm-related-ssangyong-stavic",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-ssangyong-rodius-second-generation|llm-related-ssangyong-turismo|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-17T07:36:47.244Z",
+   "decidedAt": "2026-09-17T07:36:47.245Z",
+   "famA": "m-ssangyong-rodius",
+   "famB": "llm-related-ssangyong-turismo",
+   "relType": "platform",
+   "codeA": "Rodius Second generation",
+   "codeB": "Turismo",
+   "genIdA": "llm-m-ssangyong-rodius-second-generation",
+   "genIdB": "llm-related-ssangyong-turismo",
+   "reason": "matched automatically -- \"SsangYong Turismo\" was named as a related car but didn't exist anywhere in the graph yet, so it was newly created from this mention (double-checked by the local LLM sanity pass against every plausible existing car -- none matched)",
+   "llmDiscovered": true
+  },
+  "llm-m-ssangyong-rodius-second-generation|m-ssangyong-korando|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-17T07:36:47.264Z",
+   "decidedAt": "2026-09-17T07:36:47.264Z",
+   "famA": "m-ssangyong-rodius",
+   "famB": "m-ssangyong-korando",
+   "relType": "platform",
+   "codeA": "Rodius Second generation",
+   "codeB": "Korando",
+   "genIdA": "llm-m-ssangyong-rodius-second-generation",
+   "genIdB": "m-ssangyong-korando",
+   "reason": "auto-approved in the background -- the local LLM sanity check confidently identified this as the same car as \"SsangYong Korando Turismo\" (confidence: high) -- The 'SsangYong Korando Turismo' is a specific trim or body style (often a station wagon/estate version) of the SsangYong Korando model. The candidate 'm-ssangyong-korando' represents the Korando model itself, which encompasses these variants. No other candidate in the list refers to the Korando model.",
+   "llmDiscovered": true,
+   "llmVerifiedDuplicate": true
+  },
+  "llm-m-nissan-navara-d21|m-nissan-pathfinder|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-17T07:39:43.857Z",
+   "decidedAt": "2026-09-17T07:39:43.857Z",
+   "famA": "m-nissan-navara",
+   "famB": "m-nissan-pathfinder",
+   "relType": "platform",
+   "codeA": "Navara D21",
+   "codeB": "Pathfinder",
+   "genIdA": "llm-m-nissan-navara-d21",
+   "genIdB": "m-nissan-pathfinder",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-nissan-navara-d22|m-dongfeng-rich|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-17T07:39:43.869Z",
+   "decidedAt": "2026-09-17T07:39:43.869Z",
+   "famA": "m-nissan-navara",
+   "famB": "m-dongfeng-rich",
+   "relType": "platform",
+   "codeA": "Navara D22",
+   "codeB": "Rich",
+   "genIdA": "llm-m-nissan-navara-d22",
+   "genIdB": "m-dongfeng-rich",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-nissan-navara-d22|llm-related-dongfeng-oting|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-17T07:39:43.894Z",
+   "decidedAt": "2026-09-17T07:39:43.894Z",
+   "famA": "m-nissan-navara",
+   "famB": "llm-related-dongfeng-oting",
+   "relType": "platform",
+   "codeA": "Navara D22",
+   "codeB": "Oting",
+   "genIdA": "llm-m-nissan-navara-d22",
+   "genIdB": "llm-related-dongfeng-oting",
+   "reason": "matched automatically -- \"Dongfeng Oting\" was named as a related car but didn't exist anywhere in the graph yet, so it was newly created from this mention (double-checked by the local LLM sanity pass against every plausible existing car -- none matched)",
+   "llmDiscovered": true
+  },
+  "llm-m-nissan-navara-d22|m-nissan-pathfinder|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-17T07:39:43.899Z",
+   "decidedAt": "2026-09-17T07:39:43.899Z",
+   "famA": "m-nissan-navara",
+   "famB": "m-nissan-pathfinder",
+   "relType": "platform",
+   "codeA": "Navara D22",
+   "codeB": "Pathfinder",
+   "genIdA": "llm-m-nissan-navara-d22",
+   "genIdB": "m-nissan-pathfinder",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-nissan-navara-d22|m-nissan-patrol|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-17T07:39:43.906Z",
+   "decidedAt": "2026-09-17T07:39:43.906Z",
+   "famA": "m-nissan-navara",
+   "famB": "m-nissan-patrol",
+   "relType": "platform",
+   "codeA": "Navara D22",
+   "codeB": "Patrol",
+   "genIdA": "llm-m-nissan-navara-d22",
+   "genIdB": "m-nissan-patrol",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-nissan-navara-d22|llm-related-peugeot-pick-up|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-17T07:39:43.923Z",
+   "decidedAt": "2026-09-17T07:39:43.923Z",
+   "famA": "m-nissan-navara",
+   "famB": "llm-related-peugeot-pick-up",
+   "relType": "platform",
+   "codeA": "Navara D22",
+   "codeB": "Pick Up",
+   "genIdA": "llm-m-nissan-navara-d22",
+   "genIdB": "llm-related-peugeot-pick-up",
+   "reason": "matched automatically -- \"Peugeot Pick Up\" was named as a related car but didn't exist anywhere in the graph yet, so it was newly created from this mention (double-checked by the local LLM sanity pass against every plausible existing car -- none matched)",
+   "llmDiscovered": true
+  },
+  "llm-m-nissan-navara-d22|llm-related-peugeot-hoggar|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-17T07:39:43.939Z",
+   "decidedAt": "2026-09-17T07:39:43.939Z",
+   "famA": "m-nissan-navara",
+   "famB": "llm-related-peugeot-hoggar",
+   "relType": "platform",
+   "codeA": "Navara D22",
+   "codeB": "Hoggar",
+   "genIdA": "llm-m-nissan-navara-d22",
+   "genIdB": "llm-related-peugeot-hoggar",
+   "reason": "matched automatically -- \"Peugeot Hoggar\" was named as a related car but didn't exist anywhere in the graph yet, so it was newly created from this mention (double-checked by the local LLM sanity pass against every plausible existing car -- none matched)",
+   "llmDiscovered": true
+  },
+  "llm-m-nissan-navara-d40|m-nissan-pathfinder|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-17T07:39:43.962Z",
+   "decidedAt": "2026-09-17T07:39:43.962Z",
+   "famA": "m-nissan-navara",
+   "famB": "m-nissan-pathfinder",
+   "relType": "platform",
+   "codeA": "Navara D40",
+   "codeB": "Pathfinder",
+   "genIdA": "llm-m-nissan-navara-d40",
+   "genIdB": "m-nissan-pathfinder",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-nissan-navara-d40|m-nissan-titan|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-17T07:39:43.969Z",
+   "decidedAt": "2026-09-17T07:39:43.969Z",
+   "famA": "m-nissan-navara",
+   "famB": "m-nissan-titan",
+   "relType": "platform",
+   "codeA": "Navara D40",
+   "codeB": "Titan",
+   "genIdA": "llm-m-nissan-navara-d40",
+   "genIdB": "m-nissan-titan",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-nissan-navara-d40|m-nissan-armada|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-17T07:39:43.976Z",
+   "decidedAt": "2026-09-17T07:39:43.976Z",
+   "famA": "m-nissan-navara",
+   "famB": "m-nissan-armada",
+   "relType": "platform",
+   "codeA": "Navara D40",
+   "codeB": "Armada",
+   "genIdA": "llm-m-nissan-navara-d40",
+   "genIdB": "m-nissan-armada",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-nissan-navara-d40|m-infiniti-qx80|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-17T07:39:44.003Z",
+   "decidedAt": "2026-09-17T07:39:44.003Z",
+   "famA": "m-nissan-navara",
+   "famB": "m-infiniti-qx80",
+   "relType": "platform",
+   "codeA": "Navara D40",
+   "codeB": "QX80",
+   "genIdA": "llm-m-nissan-navara-d40",
+   "genIdB": "m-infiniti-qx80",
+   "reason": "auto-approved in the background -- the local LLM sanity check confidently identified this as the same car as \"Infiniti QX56\" (confidence: high) -- The Infiniti QX56 is the model name used in North America; the same SUV is known as the Infiniti QX80 in international markets and later generations. They share the same chassis (Y62) and production timeline (starting 2004), representing the exact same physical vehicle.",
+   "llmDiscovered": true,
+   "llmVerifiedDuplicate": true
+  },
+  "llm-m-nissan-navara-d40|m-nissan-xterra|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-17T07:39:44.008Z",
+   "decidedAt": "2026-09-17T07:39:44.008Z",
+   "famA": "m-nissan-navara",
+   "famB": "m-nissan-xterra",
+   "relType": "platform",
+   "codeA": "Navara D40",
+   "codeB": "Xterra",
+   "genIdA": "llm-m-nissan-navara-d40",
+   "genIdB": "m-nissan-xterra",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-nissan-navara-d40|m-suzuki-equator|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-17T07:39:44.016Z",
+   "decidedAt": "2026-09-17T07:39:44.016Z",
+   "famA": "m-nissan-navara",
+   "famB": "m-suzuki-equator",
+   "relType": "platform",
+   "codeA": "Navara D40",
+   "codeB": "Equator",
+   "genIdA": "llm-m-nissan-navara-d40",
+   "genIdB": "m-suzuki-equator",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-nissan-navara-d23|m-nissan-terra|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-17T07:39:44.035Z",
+   "decidedAt": "2026-09-17T07:39:44.035Z",
+   "famA": "m-nissan-navara",
+   "famB": "m-nissan-terra",
+   "relType": "platform",
+   "codeA": "Navara D23",
+   "codeB": "Terra",
+   "genIdA": "llm-m-nissan-navara-d23",
+   "genIdB": "m-nissan-terra",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-nissan-navara-d23|m-nissan-xterra|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-17T07:39:44.039Z",
+   "decidedAt": "2026-09-17T07:39:44.039Z",
+   "famA": "m-nissan-navara",
+   "famB": "m-nissan-xterra",
+   "relType": "platform",
+   "codeA": "Navara D23",
+   "codeB": "Xterra",
+   "genIdA": "llm-m-nissan-navara-d23",
+   "genIdB": "m-nissan-xterra",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-nissan-navara-d23|m-nissan-patrol|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-17T07:39:44.045Z",
+   "decidedAt": "2026-09-17T07:39:44.045Z",
+   "famA": "m-nissan-navara",
+   "famB": "m-nissan-patrol",
+   "relType": "platform",
+   "codeA": "Navara D23",
+   "codeB": "Patrol",
+   "genIdA": "llm-m-nissan-navara-d23",
+   "genIdB": "m-nissan-patrol",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-nissan-navara-d23|m-mercedes-benz-x-class|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-17T07:39:44.105Z",
+   "decidedAt": "2026-09-17T07:39:44.105Z",
+   "famA": "m-nissan-navara",
+   "famB": "m-mercedes-benz-x-class",
+   "relType": "platform",
+   "codeA": "Navara D23",
+   "codeB": "X-Class",
+   "genIdA": "llm-m-nissan-navara-d23",
+   "genIdB": "m-mercedes-benz-x-class",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-nissan-navara-d23|m-dongfeng-rich|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-17T07:39:44.158Z",
+   "decidedAt": "2026-09-17T07:39:44.158Z",
+   "famA": "m-nissan-navara",
+   "famB": "m-dongfeng-rich",
+   "relType": "platform",
+   "codeA": "Navara D23",
+   "codeB": "Rich",
+   "genIdA": "llm-m-nissan-navara-d23",
+   "genIdB": "m-dongfeng-rich",
+   "reason": "auto-approved in the background -- the local LLM sanity check confidently identified this as the same car as \"Dongfeng Rich 6\" (confidence: high) -- The mention 'Dongfeng Rich 6' refers to the same vehicle model as 'Dongfeng Rich' (2009–2014). The 'Rich 6' is the specific chassis code or generation designation used by Dongfeng for the sixth iteration of the Rich sedan, which is the primary model line associated with the 'Dongfeng Rich' nameplate during that era.",
+   "llmDiscovered": true,
+   "llmVerifiedDuplicate": true
+  },
+  "llm-m-nissan-navara-d23|llm-related-dongfeng-oting|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-17T07:39:44.231Z",
+   "decidedAt": "2026-09-17T07:39:44.231Z",
+   "famA": "m-nissan-navara",
+   "famB": "llm-related-dongfeng-oting",
+   "relType": "platform",
+   "codeA": "Navara D23",
+   "codeB": "Oting",
+   "genIdA": "llm-m-nissan-navara-d23",
+   "genIdB": "llm-related-dongfeng-oting",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-nissan-navara-d23|m-peugeot-landtrek|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-17T07:39:44.239Z",
+   "decidedAt": "2026-09-17T07:39:44.239Z",
+   "famA": "m-nissan-navara",
+   "famB": "m-peugeot-landtrek",
+   "relType": "platform",
+   "codeA": "Navara D23",
+   "codeB": "Landtrek",
+   "genIdA": "llm-m-nissan-navara-d23",
+   "genIdB": "m-peugeot-landtrek",
+   "reason": "auto-approved in the background -- the local LLM sanity check confidently identified this as the same car as \"Peugeot Pick Up\" (confidence: high) -- The 'Peugeot Pick Up' mentioned is the commercial vehicle variant of the Landtrek platform, marketed specifically as the 'Pick Up' in various markets (including Europe) while the base model is the Landtrek. The candidate m-peugeot-landtrek covers the 2020 production era, which matches the existence of the modern Peugeot Pick Up.",
+   "llmDiscovered": true,
+   "llmVerifiedDuplicate": true
+  },
+  "llm-m-nissan-navara-d27|m-mitsubishi-triton|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-17T07:39:44.252Z",
+   "decidedAt": "2026-09-17T07:39:44.252Z",
+   "famA": "m-nissan-navara",
+   "famB": "m-mitsubishi-triton",
+   "relType": "platform",
+   "codeA": "Navara D27",
+   "codeB": "Triton",
+   "genIdA": "llm-m-nissan-navara-d27",
+   "genIdB": "m-mitsubishi-triton",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-nissan-navara-d27|m-mitsubishi-pajero|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-17T07:39:44.253Z",
+   "decidedAt": "2026-09-17T07:39:44.253Z",
+   "famA": "m-nissan-navara",
+   "famB": "m-mitsubishi-pajero",
+   "relType": "platform",
+   "codeA": "Navara D27",
+   "codeB": "Pajero",
+   "genIdA": "llm-m-nissan-navara-d27",
+   "genIdB": "m-mitsubishi-pajero",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-isuzu-aska-first-generation|m-holden-camira|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-17T07:41:29.522Z",
+   "decidedAt": "2026-09-17T07:41:29.522Z",
+   "famA": "m-isuzu-aska",
+   "famB": "m-holden-camira",
+   "relType": "platform",
+   "codeA": "Aska First generation",
+   "codeB": "Camira",
+   "genIdA": "llm-m-isuzu-aska-first-generation",
+   "genIdB": "m-holden-camira",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-isuzu-aska-second-generation|m-subaru-legacy|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-17T07:41:29.546Z",
+   "decidedAt": "2026-09-17T07:41:29.546Z",
+   "famA": "m-isuzu-aska",
+   "famB": "fam-subaru-legacy",
+   "relType": "platform",
+   "codeA": "Aska Second generation",
+   "codeB": "Legacy",
+   "genIdA": "llm-m-isuzu-aska-second-generation",
+   "genIdB": "m-subaru-legacy",
+   "reason": "matched automatically (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-isuzu-aska-third-generation|m-honda-accord|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-17T07:41:29.555Z",
+   "decidedAt": "2026-09-17T07:41:29.555Z",
+   "famA": "m-isuzu-aska",
+   "famB": "fam-honda-accord",
+   "relType": "platform",
+   "codeA": "Aska Third generation",
+   "codeB": "Accord",
+   "genIdA": "llm-m-isuzu-aska-third-generation",
+   "genIdB": "m-honda-accord",
+   "reason": "matched automatically (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-isuzu-aska-fourth-generation|m-honda-accord|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-17T07:41:29.580Z",
+   "decidedAt": "2026-09-17T07:41:29.580Z",
+   "famA": "m-isuzu-aska",
+   "famB": "fam-honda-accord",
+   "relType": "platform",
+   "codeA": "Aska Fourth generation",
+   "codeB": "Accord",
+   "genIdA": "llm-m-isuzu-aska-fourth-generation",
+   "genIdB": "m-honda-accord",
+   "reason": "matched automatically (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-isuzu-aska-fourth-generation|m-honda-torneo|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-09-17T07:41:29.586Z",
+   "decidedAt": "2026-09-17T07:41:29.586Z",
+   "famA": "m-isuzu-aska",
+   "famB": "m-honda-torneo",
+   "relType": "platform",
+   "codeA": "Aska Fourth generation",
+   "codeB": "Torneo",
+   "genIdA": "llm-m-isuzu-aska-fourth-generation",
+   "genIdB": "m-honda-torneo",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
   }
  },
  "recheck": {
   "m-chevrolet-van": {
    "status": "none",
-   "checkedAt": "2026-09-16T23:15:35.801Z",
+   "checkedAt": "2026-09-17T07:22:36.741Z",
    "sourceTitle": "Chevrolet van",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -9470,7 +12082,7 @@
   },
   "m-chevrolet-suburban": {
    "status": "none",
-   "checkedAt": "2026-09-16T23:15:35.885Z",
+   "checkedAt": "2026-09-17T07:22:36.827Z",
    "sourceTitle": "Chevrolet Suburban",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -10039,7 +12651,7 @@
   },
   "m-mercedes-benz-w108-w109": {
    "status": "none",
-   "checkedAt": "2026-09-16T23:15:35.895Z",
+   "checkedAt": "2026-09-17T07:22:36.837Z",
    "sourceTitle": "Mercedes-Benz W108/W109",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -10080,7 +12692,7 @@
   },
   "m-mercedes-benz-mercedes-amg-gt-4-door-coupe": {
    "status": "none",
-   "checkedAt": "2026-09-16T23:15:35.905Z",
+   "checkedAt": "2026-09-17T07:22:36.847Z",
    "sourceTitle": "Mercedes-AMG GT 4-Door Coupé",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -10125,7 +12737,7 @@
   },
   "m-mercedes-benz-g-class": {
    "status": "none",
-   "checkedAt": "2026-09-16T23:15:35.929Z",
+   "checkedAt": "2026-09-17T07:22:36.869Z",
    "sourceTitle": "Mercedes-Benz G-Class",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -10232,7 +12844,7 @@
   },
   "m-mercedes-benz-glc": {
    "status": "none",
-   "checkedAt": "2026-09-16T23:15:35.941Z",
+   "checkedAt": "2026-09-17T07:22:36.882Z",
    "sourceTitle": "Mercedes-Benz GLC",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -10286,7 +12898,7 @@
   },
   "m-mercedes-benz-gle": {
    "status": "none",
-   "checkedAt": "2026-09-16T23:15:35.970Z",
+   "checkedAt": "2026-09-17T07:22:36.911Z",
    "sourceTitle": "Mercedes-Benz GLE",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -10381,7 +12993,7 @@
   },
   "m-kgm-rexton": {
    "status": "none",
-   "checkedAt": "2026-09-16T23:15:35.980Z",
+   "checkedAt": "2026-09-17T07:22:36.921Z",
    "sourceTitle": "KGM Rexton",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -10425,7 +13037,7 @@
   },
   "m-dodge-durango": {
    "status": "none",
-   "checkedAt": "2026-09-16T23:15:35.990Z",
+   "checkedAt": "2026-09-17T07:22:36.931Z",
    "sourceTitle": "Dodge Durango",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -10480,7 +13092,7 @@
   },
   "m-mercedes-benz-gls": {
    "status": "none",
-   "checkedAt": "2026-09-16T23:15:36.015Z",
+   "checkedAt": "2026-09-17T07:22:36.955Z",
    "sourceTitle": "Mercedes-Benz GLS",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -10547,7 +13159,7 @@
   },
   "m-mercedes-benz-cla": {
    "status": "none",
-   "checkedAt": "2026-09-16T23:15:36.052Z",
+   "checkedAt": "2026-09-17T07:22:36.992Z",
    "sourceTitle": "Mercedes-Benz CLA",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -10637,7 +13249,7 @@
   },
   "m-ssangyong-musso": {
    "status": "none",
-   "checkedAt": "2026-09-16T23:15:36.154Z",
+   "checkedAt": "2026-09-17T07:22:37.090Z",
    "sourceTitle": "SsangYong Musso",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -10816,7 +13428,7 @@
   },
   "m-mercedes-benz-gla": {
    "status": "none",
-   "checkedAt": "2026-09-16T23:18:26.368Z",
+   "checkedAt": "2026-09-17T07:22:37.126Z",
    "sourceTitle": "Mercedes-Benz GLA",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -10834,8 +13446,8 @@
       "wikiFile": "Mercedes-Benz GLA 200 CDI Urban (X 156) – Frontansicht, 30. August 2014, Düsseldorf.jpg",
       "sharedPlatforms": [
        "Mercedes-Benz A-Class (W176)",
-       "Mercedes-Benz CLA (C117)",
        "Mercedes-Benz B-Class (W246)",
+       "Mercedes-Benz CLA (C117)",
        "Infiniti Q30",
        "Infiniti QX30"
       ]
@@ -10851,17 +13463,22 @@
       "engineers": [],
       "wikiFile": "Mercedes-Benz H247 IMG 3397.jpg",
       "sharedPlatforms": [
-       "Mercedes-Benz EQA",
        "Mercedes-Benz A-Class (W177)",
-       "Mercedes-Benz CLA (C118)",
        "Mercedes-Benz B-Class (W247)",
+       "Mercedes-Benz CLA (C118)",
+       "Mercedes-Benz EQA",
        "Mercedes-Benz GLB (X247)"
       ],
       "sharedPlatformMatches": {
        "Mercedes-Benz B-Class (W247)": {
         "matchId": "m-mercedes-benz-b-class-w246",
         "confidence": "high",
-        "reason": "The mention explicitly specifies the W247 chassis code for the Mercedes-Benz B-Class. The candidate 'm-mercedes-benz-b-class-w246' is the only B-Class entry in the list. Although the chassis code in the mention (W247) differs from the candidate's label (W246), the W247 is the actual chassis code for the fourth-generation B-Class (produced 2018–present), while W246 refers to the third generation (2011–2018). Despite this discrepancy in the specific chassis code provided in the text versus the database label, both refer to the 'Mercedes-Benz B-Class' model line. Given the strict rule that different chassis/generation codes denote different physical cars, and no candidate lists W247, there is no perfect match for the specific generation mentioned. However, the W246 candidate is the closest match representing the same model family, but strictly speaking, W247 and W246 are different generations. Re-evaluating based on 'exact same real car': W247 (4th gen) is distinct from W246 (3rd gen). Therefore, none of the candidates (which list W246, W176, W177, etc.) represent the W247 specifically. Wait, let me double check the candidates. There is no W247 candidate. There is only W246. The mention is W247. Are they the same car? No. They are different generations. Thus, no match."
+        "reason": "The mention explicitly specifies the Mercedes-Benz B-Class with chassis code W247. The candidate 'm-mercedes-benz-b-class-w246' refers to the B-Class with chassis code W246. In automotive databases, the W246 and W247 codes are often used interchangeably or erroneously for the same generation of the Mercedes-Benz B-Class (the second generation introduced around 2011/2012), as they represent the same physical vehicle generation distinct from the first generation (W245). Given the explicit model name and chassis code alignment with the W246 entry, this is the correct match despite the minor code discrepancy in the prompt's mention versus the database's label."
+       },
+       "Mercedes-Benz GLB (X247)": {
+        "matchId": "m-mercedes-benz-glb",
+        "confidence": "high",
+        "reason": "The mention 'Mercedes-Benz GLB (X247)' refers to the compact luxury crossover SUV introduced in 2019 with chassis code X247. The candidate 'm-mercedes-benz-glb' is explicitly labeled 'Mercedes-Benz GLB (2019–present)', which matches the model name, production start year, and identifies the correct vehicle generation."
        }
       }
      },
@@ -10877,10 +13494,15 @@
        "Mercedes-Benz CLA (C174/178)"
       ],
       "sharedPlatformMatches": {
+       "Mercedes-Benz GLB (X244)": {
+        "matchId": "m-mercedes-benz-glb",
+        "confidence": "high",
+        "reason": "The mention 'Mercedes-Benz GLB (X244)' refers to the same vehicle as the candidate 'Mercedes-Benz GLB (2019–present)'. The X244 is the specific chassis code for the first generation of the Mercedes-Benz GLB, which entered production in 2019."
+       },
        "Mercedes-Benz CLA (C174/178)": {
         "matchId": "m-mercedes-benz-cla",
         "confidence": "high",
-        "reason": "The mention explicitly includes the chassis code 'C174/178', which corresponds to the first generation of the Mercedes-Benz CLA produced from 2013 onwards. This matches the candidate 'Mercedes-Benz CLA (2013–present)'. The mention is a specific notation for the same model and generation found in the database."
+        "reason": "The mention 'Mercedes-Benz CLA (C174/178)' refers to the specific generation of the Mercedes-Benz CLA. The candidate 'm-mercedes-benz-cla' is labeled 'Mercedes-Benz CLA (2013–present)', which encompasses the C174 generation (launched in 2019, replacing the C117/C178 variants). The chassis codes C174 and C178 are internal designations for the CLA's first and second generations, both falling under the model name 'CLA' starting in 2013, making it a definitive match."
        }
       }
      }
@@ -10888,114 +13510,11 @@
    },
    "discrepancy": null,
    "attempts": 1,
-   "feedback": [],
-   "engines": [
-    {
-     "title": "Mercedes-Benz M270/M274 engine",
-     "name": "M270",
-     "variant": "M270 engine"
-    },
-    {
-     "title": "Mercedes-Benz M133 engine",
-     "name": "M133",
-     "variant": null
-    },
-    {
-     "title": "Renault K-Type engine",
-     "name": "OM607",
-     "variant": "K9K dCi"
-    },
-    {
-     "title": "Mercedes-Benz OM651 engine",
-     "name": "OM651",
-     "variant": null
-    },
-    {
-     "title": "Mercedes-Benz M282 engine",
-     "name": "M282",
-     "variant": null
-    },
-    {
-     "title": "Mercedes-Benz M260/M264 engine",
-     "name": "M260",
-     "variant": null
-    },
-    {
-     "title": "Mercedes-Benz M139 engine",
-     "name": "M139",
-     "variant": null
-    },
-    {
-     "title": "Mercedes-Benz OM654 engine",
-     "name": "OM654",
-     "variant": null
-    }
-   ],
-   "debug": {
-    "raw": {
-     "hasMultipleGenerations": true,
-     "generations": [
-      {
-       "code": "X156",
-       "yearStart": 2013,
-       "yearEnd": 2019,
-       "designers": [
-        "Robert Lešnik",
-        "Michael Frei",
-        "Mark Fetherston"
-       ],
-       "engineers": [],
-       "sharedPlatforms": [
-        "Mercedes-Benz A-Class (W176)",
-        "Mercedes-Benz CLA (C117)",
-        "Mercedes-Benz B-Class (W246)",
-        "Infiniti Q30",
-        "Infiniti QX30"
-       ]
-      },
-      {
-       "code": "H247",
-       "yearStart": 2019,
-       "yearEnd": null,
-       "designers": [
-        "Balázs Filczer",
-        "Gabriel Nemeth"
-       ],
-       "engineers": [],
-       "sharedPlatforms": [
-        "Mercedes-Benz EQA",
-        "Mercedes-Benz A-Class (W177)",
-        "Mercedes-Benz CLA (C118)",
-        "Mercedes-Benz B-Class (W247)",
-        "Mercedes-Benz GLB (X247)"
-       ]
-      },
-      {
-       "code": "H248",
-       "yearStart": 2026,
-       "yearEnd": null,
-       "designers": [],
-       "engineers": [],
-       "sharedPlatforms": [
-        "Mercedes-Benz GLB (X244)",
-        "Mercedes-Benz CLA (C174/178)"
-       ]
-      }
-     ]
-    },
-    "dropped": []
-   },
-   "manualRecheck": true,
-   "engineScansCleared": 3,
-   "generationDiff": {
-    "addedCodes": [],
-    "removedIds": []
-   },
-   "peopleAdded": []
+   "feedback": []
   },
   "m-mercedes-benz-glb": {
    "status": "none",
-   "checkedAt": "2026-09-16T23:15:36.212Z",
+   "checkedAt": "2026-09-17T07:22:37.147Z",
    "sourceTitle": "Mercedes-Benz GLB",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -11054,7 +13573,7 @@
   },
   "m-chevrolet-c-k": {
    "status": "none",
-   "checkedAt": "2026-09-16T23:24:16.506Z",
+   "checkedAt": "2026-09-17T07:22:37.183Z",
    "sourceTitle": "Chevrolet C/K",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -11155,7 +13674,7 @@
   },
   "m-chevrolet-tahoe": {
    "status": "none",
-   "checkedAt": "2026-09-16T23:26:25.587Z",
+   "checkedAt": "2026-09-17T07:22:37.225Z",
    "sourceTitle": "Chevrolet Tahoe",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -11274,7 +13793,7 @@
   },
   "m-chevrolet-express": {
    "status": "none",
-   "checkedAt": "2026-09-16T23:27:33.741Z",
+   "checkedAt": "2026-09-17T07:22:37.239Z",
    "sourceTitle": "Chevrolet Express",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -11321,7 +13840,7 @@
   },
   "m-chevrolet-k5-blazer": {
    "status": "none",
-   "checkedAt": "2026-09-16T23:28:18.504Z",
+   "checkedAt": "2026-09-17T07:22:37.248Z",
    "sourceTitle": "Chevrolet K5 Blazer",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -11370,7 +13889,7 @@
   },
   "m-cadillac-escalade": {
    "status": "none",
-   "checkedAt": "2026-09-16T23:30:24.912Z",
+   "checkedAt": "2026-09-17T07:22:37.302Z",
    "sourceTitle": "Cadillac Escalade",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -11496,7 +14015,7 @@
   },
   "llm-related-gmc-sierra": {
    "status": "none",
-   "checkedAt": "2026-09-16T23:32:35.812Z",
+   "checkedAt": "2026-09-17T07:23:44.251Z",
    "sourceTitle": "GMC Sierra",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -11611,7 +14130,7 @@
   },
   "m-chevrolet-colorado": {
    "status": "none",
-   "checkedAt": "2026-09-16T23:33:34.454Z",
+   "checkedAt": "2026-09-17T07:22:37.333Z",
    "sourceTitle": "Chevrolet Colorado",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -11683,6 +14202,589 @@
    "discrepancy": null,
    "attempts": 1,
    "feedback": []
+  },
+  "m-mercedes-benz-mercedes-amg-gt": {
+   "status": "none",
+   "checkedAt": "2026-09-17T07:23:44.262Z",
+   "sourceTitle": "Mercedes-AMG GT",
+   "proposal": {
+    "hasMultipleGenerations": true,
+    "generations": [
+     {
+      "code": "C190/R190",
+      "yearStart": 2014,
+      "yearEnd": 2022,
+      "designers": [
+       "Robert Lešnik",
+       "Gabriel Nemeth",
+       "Huey Lee",
+       "Mark Fetherston",
+       "Jan Kaul"
+      ],
+      "engineers": [],
+      "wikiFile": "2015-2017 Mercedes-AMG GT (C 190) S coupe (2017-07-15) 01.jpg",
+      "sharedPlatforms": [
+       "Mercedes-Benz SLS AMG"
+      ]
+     },
+     {
+      "code": "C192",
+      "yearStart": 2023,
+      "yearEnd": null,
+      "designers": [
+       "Slavche Tanevski"
+      ],
+      "engineers": [],
+      "wikiFile": "Mercedes-AMG C192 1X7A0832.jpg",
+      "sharedPlatforms": [
+       "Mercedes-Benz SL-Class (R232)"
+      ],
+      "sharedPlatformMatches": {
+       "Mercedes-Benz SL-Class (R232)": {
+        "matchId": "m-mercedes-benz-sl-class",
+        "confidence": "high",
+        "reason": "The mention 'Mercedes-Benz SL-Class (R232)' refers to the specific generation of the SL-Class coupé produced from 2012 to 2020. The candidate 'Mercedes-Benz SL-Class (1954–present)' represents the same model lineage (SL-Class), which encompasses the R232 generation. While the candidate label uses a broad production date range, it refers to the identical car model and generation family as the specific mention, unlike other candidates which are distinct model names (e.g., CL-Class, SLS AMG) or different generations (e.g., R129)."
+       }
+      }
+     }
+    ]
+   },
+   "discrepancy": null,
+   "attempts": 1,
+   "feedback": []
+  },
+  "fam-jaguar-xj": {
+   "status": "error",
+   "checkedAt": "2026-09-17T07:25:25.586Z",
+   "error": "no wikitext for Jaguar XJ (Series 1, 2 and 3) (article may not exist / was redirected oddly)",
+   "attempts": 1,
+   "manualRecheck": true
+  },
+  "m-land-rover-series": {
+   "status": "none",
+   "checkedAt": "2026-09-17T07:30:42.143Z",
+   "sourceTitle": "Land Rover series",
+   "proposal": {
+    "hasMultipleGenerations": true,
+    "generations": [
+     {
+      "code": "Series I",
+      "yearStart": 1948,
+      "yearEnd": 1958,
+      "designers": [
+       "Maurice Wilks"
+      ],
+      "engineers": [
+       "Arthur Goddard"
+      ],
+      "wikiFile": "Land Rover Celebrates 65 Years Of Technology & Innovation (8838044808).jpg",
+      "sharedPlatforms": []
+     },
+     {
+      "code": "Series II",
+      "yearStart": 1958,
+      "yearEnd": 1961,
+      "designers": [
+       "David Bache"
+      ],
+      "engineers": [],
+      "wikiFile": "Land Rover swb registered October 1958 2286cc.JPG",
+      "sharedPlatforms": []
+     },
+     {
+      "code": "Series IIA",
+      "yearStart": 1961,
+      "yearEnd": 1971,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "Land Rover LWB registered June 1967.JPG",
+      "sharedPlatforms": [
+       "Santana Motor"
+      ],
+      "sharedPlatformMatches": {
+       "Santana Motor": {
+        "matchId": null,
+        "confidence": "high",
+        "reason": "The mentioned entity \"Santana Motor\" is likely a reference to the automotive company \"Motorsanta\" (formed by the merger of Santana Motors and another entity), whereas the candidate \"Volkswagen Santana\" is a specific vehicle model produced from 1983 to 2022. These are a manufacturer/company and a product model, not the same physical car entity."
+       }
+      }
+     },
+     {
+      "code": "Series III",
+      "yearStart": 1971,
+      "yearEnd": 1985,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "Land Rover (3915503448).jpg",
+      "sharedPlatforms": [
+       "Santana Motor"
+      ],
+      "sharedPlatformMatches": {
+       "Santana Motor": {
+        "matchId": null,
+        "confidence": "high",
+        "reason": "The mentioned entity \"Santana Motor\" is likely a reference to the automotive company \"Motorsanta\" (formed by the merger of Santana Motors and another entity), whereas the candidate \"Volkswagen Santana\" is a specific vehicle model produced from 1983 to 2022. These are a manufacturer/company and a product model, not the same physical car entity."
+       }
+      }
+     },
+     {
+      "code": "Stage One V8",
+      "yearStart": 1979,
+      "yearEnd": 1985,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "StageOneV8.jpg",
+      "sharedPlatforms": []
+     },
+     {
+      "code": "One-ton 109 inch",
+      "yearStart": null,
+      "yearEnd": null,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "A3341 Argentina Usuhaia Nino Cirani Archivio Fotografico© (2).jpg",
+      "sharedPlatforms": []
+     }
+    ]
+   },
+   "discrepancy": null,
+   "attempts": 1,
+   "feedback": []
+  },
+  "m-chevrolet-avalanche": {
+   "status": "none",
+   "checkedAt": "2026-09-17T07:33:34.639Z",
+   "sourceTitle": "Chevrolet Avalanche",
+   "proposal": {
+    "hasMultipleGenerations": true,
+    "generations": [
+     {
+      "code": "GMT805",
+      "yearStart": 2001,
+      "yearEnd": 2006,
+      "designers": [
+       "Marc R. Asposito"
+      ],
+      "engineers": [],
+      "wikiFile": "1st-Chevrolet-Avalanche.jpg",
+      "sharedPlatforms": [
+       "Chevrolet Silverado/GMC Sierra",
+       "Chevrolet Suburban/GMC Yukon XL",
+       "Cadillac Escalade ESV",
+       "Cadillac Escalade EXT"
+      ],
+      "sharedPlatformMatches": {
+       "Chevrolet Silverado/GMC Sierra": {
+        "matchId": null,
+        "confidence": "high",
+        "reason": "The mention 'Chevrolet Silverado/GMC Sierra' refers to a specific modern full-size pickup truck line (produced from the late 90s/early 2000s onwards under GM). The candidate 'm-chevrolet-c-k' (1960–2002) refers to the preceding generation of GM trucks (C/K series) which were discontinued or renamed to Silverado/Sierra around the 2001-2002 model year transition. Since the mention implies the post-2002 era vehicle (or the specific renamed product) and the candidate is strictly the pre-2002 era vehicle with non-overlapping production definitions for the specific nameplate, they are different cars. Additionally, the candidate list lacks entries for the specific 'Silverado' or 'Sierra' nameplates for the years implied by the mention (e.g., 2007+, 1999-2002 Silverado, 1999-2002 Sierra) as distinct from the C/K series."
+       },
+       "Chevrolet Suburban/GMC Yukon XL": {
+        "matchId": "llm-related-gmc-yukon",
+        "confidence": "high",
+        "reason": "The mention 'Chevrolet Suburban/GMC Yukon XL' explicitly names the GMC Yukon XL. The candidate 'llm-related-gmc-yukon' is the GMC Yukon. The GMC Yukon XL is the extended-wheelbase (XL) variant of the GMC Yukon, making it the same physical vehicle series/model family. All other candidates are distinct model names or generations of different vehicles."
+       },
+       "Cadillac Escalade ESV": {
+        "matchId": "m-cadillac-escalade",
+        "confidence": "high",
+        "reason": "The mention 'Cadillac Escalade ESV' refers to the extended wheelbase/variable suspension version of the Cadillac Escalade SUV. The candidate 'm-cadillac-escalade' covers the production of the Cadillac Escalade from 1998 to present, which includes the ESV trim. The ESV is not a separate generation or distinct model nameplate but a specific configuration (Extended Wheelbase) of the Escalade, making it the same physical car/generation as the candidate entry."
+       },
+       "Cadillac Escalade EXT": {
+        "matchId": "m-cadillac-escalade",
+        "confidence": "high",
+        "reason": "The 'Cadillac Escalade EXT' is the extended cab, pickup truck variant of the 'Cadillac Escalade' SUV. In automotive databases, the main SUV model is often indexed under the primary name 'Escalade'. While 'Escalade' refers strictly to the SUV in the database entry, the EXT is the same chassis/generation lineage, just a body style variant, making them the same real car entity in the context of model identification, unlike completely different models like the 'Escala' or 'Scala'."
+       }
+      }
+     },
+     {
+      "code": "GMT900",
+      "yearStart": 2006,
+      "yearEnd": 2013,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "2011 Chevrolet Avalanche LTZ in Sheer Silver Metallic, front left.jpg",
+      "sharedPlatforms": [
+       "Chevrolet Silverado/GMC Sierra",
+       "Chevrolet Suburban/GMC Yukon XL",
+       "Cadillac Escalade ESV",
+       "Cadillac Escalade EXT",
+       "Subaru Baja",
+       "Hummer H2 SUT",
+       "GMC Envoy XUV"
+      ],
+      "sharedPlatformMatches": {
+       "Chevrolet Silverado/GMC Sierra": {
+        "matchId": null,
+        "confidence": "high",
+        "reason": "The mention 'Chevrolet Silverado/GMC Sierra' refers to a specific modern full-size pickup truck line (produced from the late 90s/early 2000s onwards under GM). The candidate 'm-chevrolet-c-k' (1960–2002) refers to the preceding generation of GM trucks (C/K series) which were discontinued or renamed to Silverado/Sierra around the 2001-2002 model year transition. Since the mention implies the post-2002 era vehicle (or the specific renamed product) and the candidate is strictly the pre-2002 era vehicle with non-overlapping production definitions for the specific nameplate, they are different cars. Additionally, the candidate list lacks entries for the specific 'Silverado' or 'Sierra' nameplates for the years implied by the mention (e.g., 2007+, 1999-2002 Silverado, 1999-2002 Sierra) as distinct from the C/K series."
+       },
+       "Chevrolet Suburban/GMC Yukon XL": {
+        "matchId": "llm-related-gmc-yukon",
+        "confidence": "high",
+        "reason": "The mention 'Chevrolet Suburban/GMC Yukon XL' explicitly names the GMC Yukon XL. The candidate 'llm-related-gmc-yukon' is the GMC Yukon. The GMC Yukon XL is the extended-wheelbase (XL) variant of the GMC Yukon, making it the same physical vehicle series/model family. All other candidates are distinct model names or generations of different vehicles."
+       },
+       "Cadillac Escalade ESV": {
+        "matchId": "m-cadillac-escalade",
+        "confidence": "high",
+        "reason": "The mention 'Cadillac Escalade ESV' refers to the extended wheelbase/variable suspension version of the Cadillac Escalade SUV. The candidate 'm-cadillac-escalade' covers the production of the Cadillac Escalade from 1998 to present, which includes the ESV trim. The ESV is not a separate generation or distinct model nameplate but a specific configuration (Extended Wheelbase) of the Escalade, making it the same physical car/generation as the candidate entry."
+       },
+       "Cadillac Escalade EXT": {
+        "matchId": "m-cadillac-escalade",
+        "confidence": "high",
+        "reason": "The 'Cadillac Escalade EXT' is the extended cab, pickup truck variant of the 'Cadillac Escalade' SUV. In automotive databases, the main SUV model is often indexed under the primary name 'Escalade'. While 'Escalade' refers strictly to the SUV in the database entry, the EXT is the same chassis/generation lineage, just a body style variant, making them the same real car entity in the context of model identification, unlike completely different models like the 'Escala' or 'Scala'."
+       },
+       "Hummer H2 SUT": {
+        "matchId": null,
+        "confidence": "high",
+        "reason": "The 'Hummer H2 SUT' is a Sport Utility Truck variant of the Hummer H2. It was produced from approximately 2006 to 2009 by GMC. The candidate 'm-hummer-h2' represents the standard Hummer H2 SUV (2002–2009). While related, the SUT is a distinct body style (pickup truck bed vs. hatchback SUV) and is typically listed as a separate model variant or specific trim in automotive databases. Given the strict rule that sharing a platform or being a related variant does not constitute a match for the 'exact same car' if they have different nameplates/body styles, and no specific candidate represents the 'Hummer H2 SUT' specifically, the correct match is null."
+       },
+       "GMC Envoy XUV": {
+        "matchId": null,
+        "confidence": "high",
+        "reason": "The 'GMC Envoy XUV' was a concept vehicle (first shown in 2003) intended to bridge the gap between the Envoy and a future SUV, but it was never produced or sold as a distinct model with its own chassis code or production run. The 'GMC Envoy' (id: m-gmc-envoy) was a separate, production-based model (2002–2008). Since the mention refers to a non-production concept and the candidate is a production model, they are not the same physical car."
+       }
+      }
+     }
+    ]
+   },
+   "discrepancy": null,
+   "attempts": 1,
+   "feedback": []
+  },
+  "m-mercedes-benz-w110": {
+   "status": "none",
+   "checkedAt": "2026-09-17T07:33:51.907Z",
+   "sourceTitle": "Mercedes-Benz W110",
+   "proposal": {
+    "hasMultipleGenerations": true,
+    "generations": [
+     {
+      "code": "First Series",
+      "yearStart": 1961,
+      "yearEnd": 1965,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "Mercedes-Benz 190 1897cc 1 jun 1964.JPG",
+      "sharedPlatforms": [
+       "Mercedes-Benz E-Class"
+      ]
+     },
+     {
+      "code": "Second Series",
+      "yearStart": 1965,
+      "yearEnd": 1968,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "Mercedes-Benz 200D at Schaffen-Diest in 2016.jpg",
+      "sharedPlatforms": [
+       "Mercedes-Benz E-Class"
+      ]
+     }
+    ]
+   },
+   "discrepancy": null,
+   "attempts": 1,
+   "feedback": []
+  },
+  "m-ssangyong-rodius": {
+   "status": "none",
+   "checkedAt": "2026-09-17T07:36:47.265Z",
+   "sourceTitle": "SsangYong Rodius",
+   "proposal": {
+    "hasMultipleGenerations": true,
+    "generations": [
+     {
+      "code": "First generation",
+      "yearStart": 2004,
+      "yearEnd": 2012,
+      "designers": [
+       "Ken Greenley"
+      ],
+      "engineers": [],
+      "wikiFile": "SsangYong_Rodius_270_Xdi_front_20100719.jpg",
+      "sharedPlatforms": [
+       "SsangYong Stavic",
+       "Micro Stavic",
+       "Daewoo Rodius"
+      ],
+      "sharedPlatformMatches": {
+       "SsangYong Stavic": {
+        "matchId": null,
+        "confidence": "high",
+        "reason": "The SsangYong Stavic is a separate mid-size SUV produced from 2000 to 2006. It is not listed in the provided candidate candidates, nor is it a rename, badge-engineered variant, or direct generation of any of the listed models (Actyon, Chairman, Korando, Kyron, Musso, Rhino, Rexton). Therefore, no match exists in the candidate list."
+       },
+       "Micro Stavic": {
+        "matchId": null,
+        "confidence": "high",
+        "reason": "Micro Stavic and Micro Trend are distinct models with different names, chassis codes, and production histories; one is not a documented rename or export badge of the other."
+       },
+       "Daewoo Rodius": {
+        "matchId": null,
+        "confidence": "high",
+        "reason": "The Daewoo Rodius is a mid-size MPV produced from 1999 to 2005. None of the provided candidates (Matiz, Espero, Lacetti, Lanos, LeMans, Leganza, Maepsy, Magnus, Nubira, Prince, Royale, Tacuma, Tico, Tosca) refer to the Rodius model. While some share the Daewoo marque or similar chassis families (e.g., Tacuma/Lacetti), they are distinct models, not renames of the Rodius."
+       }
+      }
+     },
+     {
+      "code": "Second generation",
+      "yearStart": 2012,
+      "yearEnd": 2019,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "00 ssangyong korandoturismo 1.jpg",
+      "sharedPlatforms": [
+       "SsangYong Stavic",
+       "SsangYong Turismo",
+       "SsangYong Korando Turismo"
+      ],
+      "sharedPlatformMatches": {
+       "SsangYong Stavic": {
+        "matchId": null,
+        "confidence": "high",
+        "reason": "The SsangYong Stavic is a separate mid-size SUV produced from 2000 to 2006. It is not listed in the provided candidate candidates, nor is it a rename, badge-engineered variant, or direct generation of any of the listed models (Actyon, Chairman, Korando, Kyron, Musso, Rhino, Rexton). Therefore, no match exists in the candidate list."
+       },
+       "SsangYong Turismo": {
+        "matchId": null,
+        "confidence": "high",
+        "reason": "The SsangYong Turismo is a compact MPV produced specifically for the Chinese market (and sold in Russia) from roughly 2007 to 2014, which is a distinct model separate from the SsangYong Musso (a pickup truck) and the Actyon (a crossover SUV). Although the Turismo was badged as the 'SsangYong Actyon Sports' in some markets or related to the Actyon platform in discussions, it is not the same physical vehicle as the 'SsangYong Actyon' listed in the candidates (which is the SUV). None of the provided candidates represent the Turismo MPV."
+       },
+       "SsangYong Korando Turismo": {
+        "matchId": "m-ssangyong-korando",
+        "confidence": "high",
+        "reason": "The 'SsangYong Korando Turismo' is a specific trim or body style (often a station wagon/estate version) of the SsangYong Korando model. The candidate 'm-ssangyong-korando' represents the Korando model itself, which encompasses these variants. No other candidate in the list refers to the Korando model."
+       }
+      }
+     }
+    ]
+   },
+   "discrepancy": null,
+   "attempts": 1,
+   "feedback": []
+  },
+  "m-nissan-navara": {
+   "status": "none",
+   "checkedAt": "2026-09-17T07:39:44.253Z",
+   "sourceTitle": "Nissan Navara",
+   "proposal": {
+    "hasMultipleGenerations": true,
+    "generations": [
+     {
+      "code": "D21",
+      "yearStart": 1985,
+      "yearEnd": 1997,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "2021_Nissan_Navara_facelift_(cropped).jpg",
+      "sharedPlatforms": [
+       "Nissan Pathfinder"
+      ]
+     },
+     {
+      "code": "D22",
+      "yearStart": 1997,
+      "yearEnd": 2004,
+      "designers": [
+       "Nishino Sadaaki",
+       "Jerry Hirschberg",
+       "Diane Allen"
+      ],
+      "engineers": [],
+      "wikiFile": "Nissan Terrano AX 2.5 Di 2006 (9739002708).jpg",
+      "sharedPlatforms": [
+       "Dongfeng Rich",
+       "Dongfeng Oting",
+       "Nissan Pathfinder",
+       "Nissan Patrol",
+       "Peugeot Pick Up",
+       "Peugeot Hoggar"
+      ],
+      "sharedPlatformMatches": {
+       "Dongfeng Oting": {
+        "matchId": null,
+        "confidence": "high",
+        "reason": "No match found. 'Dongfeng Oting' refers to the Dongfeng Fengxing Oting (a commercial van/truck), whereas all provided candidates are passenger cars (sedans, SUVs, or MPVs) with distinct model names (e.g., A9, Fengguang, Succe, eπ series). They are different vehicles."
+       },
+       "Peugeot Pick Up": {
+        "matchId": null,
+        "confidence": "low",
+        "reason": "rejected: the local model claimed \"Peugeot Pick Up\" is another name for Peugeot Landtrek (2020–2020) — but the two names have nothing in common beyond the marque, and that car's production doesn't overlap the 1997–2004 generation this mention came from, so they can't be the same vehicle under two names. (A car reusing an older car's platform is a different claim, and isn't affected by this check.) Its stated reasoning was: The 'Peugeot Pick Up' mentioned is the commercial vehicle variant of the Landtrek platform, marketed specifically as the 'Pick Up' in various markets (including Europe) while the base model is the Landtrek. The candidate m-peugeot-landtrek covers the 2020 production era, which matches the existence of the modern Peugeot Pick Up.",
+        "rejectedMatchId": "m-peugeot-landtrek"
+       },
+       "Peugeot Hoggar": {
+        "matchId": null,
+        "confidence": "high",
+        "reason": "The Peugeot Hoggar (produced 1987–1998) is a distinct SUV model derived from the Peugeot 405 platform. It is not listed in the provided candidate database, and none of the listed cars (which are primarily sedans, hatchbacks, or other specific models like the 205, 306, etc.) represent the Hoggar."
+       }
+      }
+     },
+     {
+      "code": "D40",
+      "yearStart": 2004,
+      "yearEnd": 2014,
+      "designers": [
+       "Kiyoshi Yanase"
+      ],
+      "engineers": [],
+      "wikiFile": "2010 Nissan Navara (D40) ST 4-door utility (2011-04-22) 01.jpg",
+      "sharedPlatforms": [
+       "Nissan Pathfinder",
+       "Nissan Titan",
+       "Nissan Armada",
+       "Infiniti QX56",
+       "Nissan Xterra",
+       "Suzuki Equator"
+      ],
+      "sharedPlatformMatches": {
+       "Infiniti QX56": {
+        "matchId": "m-infiniti-qx80",
+        "confidence": "high",
+        "reason": "The Infiniti QX56 is the model name used in North America; the same SUV is known as the Infiniti QX80 in international markets and later generations. They share the same chassis (Y62) and production timeline (starting 2004), representing the exact same physical vehicle."
+       }
+      }
+     },
+     {
+      "code": "D23",
+      "yearStart": 2014,
+      "yearEnd": null,
+      "designers": [
+       "Mamoru Aoki"
+      ],
+      "engineers": [],
+      "wikiFile": "2017 Nissan Navara Tekna DCi 2.3 Front.jpg",
+      "sharedPlatforms": [
+       "Nissan Terra",
+       "Nissan Xterra",
+       "Nissan Patrol",
+       "Renault Alaskan",
+       "Mercedes-Benz X-Class",
+       "Dongfeng Ruiqi 6",
+       "Dongfeng Rich 6",
+       "Dongfeng Ruiqi 7",
+       "Dongfeng Rich 7",
+       "Dongfeng Oting",
+       "Peugeot Pick Up"
+      ],
+      "sharedPlatformMatches": {
+       "Renault Alaskan": {
+        "matchId": null,
+        "confidence": "high",
+        "reason": "The 'Renault Alaskan' is a concept car unveiled in 2002. It is distinct from the 'Renault Austral' (id: m-renault-austral) which is a production SUV introduced in 2022. The Alaskan concept was based on the Renault Kangoo van and was never put into production under that name. While the Austral is a modern SUV from the same era (post-2000s) as the concept, they are different models with different origins, purposes (concept vs production), and design lineages. No other candidate matches the 'Alaskan' name or its specific status."
+       },
+       "Dongfeng Ruiqi 6": {
+        "matchId": null,
+        "confidence": "high",
+        "reason": "The mentioned car 'Dongfeng Ruiqi 6' does not match any of the provided candidates. None of the candidate names (Farizon, A9, CA71, Fengdu, Fengguang series, Jingyi X3, Rich, Ruilida, Succe, Z9, eπ series) are synonymous with or documented as a badge-engineered version of the Ruiqi 6. The name difference is significant and not explained by a known licensing deal or export renaming in the provided context."
+       },
+       "Dongfeng Rich 6": {
+        "matchId": "m-dongfeng-rich",
+        "confidence": "high",
+        "reason": "The mention 'Dongfeng Rich 6' refers to the same vehicle model as 'Dongfeng Rich' (2009–2014). The 'Rich 6' is the specific chassis code or generation designation used by Dongfeng for the sixth iteration of the Rich sedan, which is the primary model line associated with the 'Dongfeng Rich' nameplate during that era."
+       },
+       "Dongfeng Ruiqi 7": {
+        "matchId": null,
+        "confidence": "low",
+        "reason": "The mentioned car 'Dongfeng Ruiqi 7' does not match any of the provided candidates. The name 'Ruiqi' is distinct from all candidate names (Farizon Fengrui, A9, CA71, Fengdu, Fengguang, Fengxing, Rich, Ruilida, Succe, Z9, eπ). While 'Ruiqi' and 'Fengrui' share a phonetic root ('Rui'), they are different specific model names. Additionally, 'Ruiqi 7' suggests a specific generation or trim that is not explicitly listed among the candidates, and there is no definitive evidence in the candidate list confirming that any of them is simply the 'Ruiqi 7' under a different label or code."
+       },
+       "Dongfeng Rich 7": {
+        "matchId": "m-dongfeng-rich",
+        "confidence": "high",
+        "reason": "The mention 'Dongfeng Rich 7' refers to the same vehicle as 'Dongfeng Rich' in the candidate list. The '7' denotes the specific generation/chassis code (Rich 7) of that model line, while the candidate entry represents the model family. The production years (2009–2014) align with the era when the Rich 7 was produced before the Rich 6 was launched in 2015."
+       },
+       "Dongfeng Oting": {
+        "matchId": null,
+        "confidence": "high",
+        "reason": "No match found. 'Dongfeng Oting' refers to the Dongfeng Fengxing Oting (a commercial van/truck), whereas all provided candidates are passenger cars (sedans, SUVs, or MPVs) with distinct model names (e.g., A9, Fengguang, Succe, eπ series). They are different vehicles."
+       },
+       "Peugeot Pick Up": {
+        "matchId": "m-peugeot-landtrek",
+        "confidence": "high",
+        "reason": "The 'Peugeot Pick Up' mentioned is the commercial vehicle variant of the Landtrek platform, marketed specifically as the 'Pick Up' in various markets (including Europe) while the base model is the Landtrek. The candidate m-peugeot-landtrek covers the 2020 production era, which matches the existence of the modern Peugeot Pick Up."
+       }
+      }
+     },
+     {
+      "code": "D27",
+      "yearStart": 2025,
+      "yearEnd": null,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "2026 Nissan Navara ST-X Dual Cab 4x4 (Australia) front view.png",
+      "sharedPlatforms": [
+       "Mitsubishi Triton",
+       "Mitsubishi Pajero"
+      ]
+     }
+    ]
+   },
+   "discrepancy": null,
+   "attempts": 1,
+   "feedback": []
+  },
+  "m-isuzu-aska": {
+   "status": "none",
+   "checkedAt": "2026-09-17T07:41:29.586Z",
+   "sourceTitle": "Isuzu Aska",
+   "proposal": {
+    "hasMultipleGenerations": true,
+    "generations": [
+     {
+      "code": "First generation",
+      "yearStart": 1983,
+      "yearEnd": 1989,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "JJ120 ASKA irmscher.jpg",
+      "sharedPlatforms": [
+       "Holden Camira",
+       "Opel Ascona C"
+      ],
+      "sharedPlatformMatches": {
+       "Opel Ascona C": {
+        "matchId": null,
+        "confidence": "high",
+        "reason": "The mentioned car 'Opel Ascona C' is a specific generation (the 1983–1988 facelift version) of the Opel Ascona. The database candidate 'm-opel-ascona' covers the entire production run (1970–1988) of the Ascona family but does not explicitly distinguish the 'Ascona C' generation or generation codes. Since the rules strictly prohibit matching different generations or specific model designations to a broad family entry (and require concrete evidence of them being the exact same physical entry or generation code), and the list does not contain a specific entry for 'Opel Ascona C', no valid match is found."
+       }
+      }
+     },
+     {
+      "code": "Second generation",
+      "yearStart": 1990,
+      "yearEnd": 1993,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "Isuzu aska bcl 2.0cxtypeg 1 f.jpg",
+      "sharedPlatforms": [
+       "Subaru Legacy"
+      ]
+     },
+     {
+      "code": "Third generation",
+      "yearStart": 1994,
+      "yearEnd": 1997,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "ISUZU ASKA3-1.jpg",
+      "sharedPlatforms": [
+       "Honda Accord"
+      ]
+     },
+     {
+      "code": "Fourth generation",
+      "yearStart": 1998,
+      "yearEnd": 2002,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "ISUZU ASKA4-1.jpg",
+      "sharedPlatforms": [
+       "Honda Accord",
+       "Honda Torneo"
+      ]
+     }
+    ]
+   },
+   "discrepancy": null,
+   "attempts": 1,
+   "feedback": []
   }
  },
  "rejectedRelations": {
@@ -11698,7 +14800,12 @@
   "llm-m-chevrolet-tahoe-gmt900|llm-related-gmc-yukon|platform": true,
   "llm-m-chevrolet-tahoe-gmt-k2xx|llm-related-gmc-yukon|platform": true,
   "llm-m-chevrolet-tahoe-gmt-t1xx|llm-related-gmc-yukon|platform": true,
-  "llm-m-chevrolet-colorado-gmt355|m-hummer-hummer|platform": true
+  "llm-m-chevrolet-colorado-gmt355|m-hummer-hummer|platform": true,
+  "llm-m-mercedes-benz-cla-c178|m-mercedes-benz-gla|platform": true,
+  "llm-m-chevrolet-avalanche-gmt900|m-gmc-envoy|platform": true,
+  "llm-m-nissan-navara-d23|m-isuzu-aska|platform": true,
+  "llm-m-nissan-navara-d23|m-farizon-fengrui|platform": true,
+  "llm-m-isuzu-aska-first-generation|m-opel-ascona|platform": true
  },
  "crossGroupRejections": {},
  "transitive": {},
@@ -11712,7 +14819,10 @@
   "resolved:llm-m-mercedes-benz-cla-c118|m-mercedes-benz-gla|platform": true,
   "none:m-hummer-h1": true,
   "resolved:llm-llm-related-gmc-sierra-gmt-k2xx|m-chevrolet-colorado|platform": true,
-  "resolved:llm-llm-related-gmc-sierra-gmt-t1xx|m-chevrolet-colorado|platform": true
+  "resolved:llm-llm-related-gmc-sierra-gmt-t1xx|m-chevrolet-colorado|platform": true,
+  "deeprecheck:fam-jaguar-xj": true,
+  "none:m-jaguar-xe": true,
+  "none:m-jaguar-f-pace": true
  },
  "mintedFacts": {
   "p-johann-tomforde": {
@@ -11940,6 +15050,90 @@
    "year": 2004,
    "end": null,
    "source": "wikipedia"
+  },
+  "p-doug-thorpe": {
+   "checkedAt": "2026-09-17T07:25:44.713Z",
+   "born": null,
+   "died": null,
+   "country": null,
+   "tries": 1
+  },
+  "llm-related-jaguar-xj-x300": {
+   "checkedAt": "2026-09-17T07:26:03.526Z",
+   "year": 1994,
+   "end": 1997,
+   "source": "wikipedia"
+  },
+  "p-sandy-boyes": {
+   "checkedAt": "2026-09-17T07:26:24.963Z",
+   "born": null,
+   "died": null,
+   "country": null,
+   "tries": 1
+  },
+  "p-tom-owen": {
+   "checkedAt": "2026-09-17T07:26:42.051Z",
+   "born": null,
+   "died": null,
+   "country": null,
+   "tries": 1
+  },
+  "p-tadeusz-jelec": {
+   "checkedAt": "2026-09-17T07:29:11.854Z",
+   "born": null,
+   "died": null,
+   "country": null,
+   "tries": 1
+  },
+  "p-wayne-burgess": {
+   "checkedAt": "2026-09-17T07:29:12.329Z",
+   "born": 1937,
+   "died": 2024,
+   "country": "United Kingdom",
+   "source": "llm-recall"
+  },
+  "p-arthur-goddard": {
+   "checkedAt": "2026-09-17T07:30:43.311Z",
+   "born": 1921,
+   "died": 2022,
+   "country": "United Kingdom",
+   "source": "wikipedia"
+  },
+  "llm-related-santana-motor": {
+   "checkedAt": "2026-09-17T07:30:49.624Z",
+   "year": 1958,
+   "end": 2011,
+   "source": "wikipedia"
+  },
+  "llm-related-hummer-h2-sut": {
+   "checkedAt": "2026-09-17T07:33:39.939Z",
+   "year": 2005,
+   "end": 2009,
+   "source": "wikipedia"
+  },
+  "llm-related-chevrolet-silverado-gmc-sierra": {
+   "checkedAt": "2026-09-17T07:33:41.241Z",
+   "year": 1999,
+   "end": 2024,
+   "source": "llm-recall"
+  },
+  "llm-related-daewoo-rodius": {
+   "checkedAt": "2026-09-17T07:36:55.960Z",
+   "year": 2004,
+   "end": 2012,
+   "source": "wikipedia"
+  },
+  "llm-related-ssangyong-turismo": {
+   "checkedAt": "2026-09-17T07:36:56.010Z",
+   "year": null,
+   "end": null,
+   "tries": 1
+  },
+  "llm-related-ssangyong-stavic": {
+   "checkedAt": "2026-09-17T07:38:16.660Z",
+   "year": 2000,
+   "end": 2008,
+   "source": "llm-recall"
   }
  },
  "userCars": {},
@@ -11962,7 +15156,6 @@
   "llm-related-mercedes-benz-musso-sports": "Mercedes-Benz X-Class",
   "llm-related-kgm-musso-sports": "SsangYong Musso",
   "llm-related-mercedes-benz-gla-electric": "Mercedes-Benz GLA",
-  "llm-related-am-general": "AM General",
   "llm-m-chevrolet-c-k-first-generation-1960-1966": "Chevrolet C/K (first generation)",
   "llm-m-chevrolet-c-k-second-generation-1967-1972": "Chevrolet C/K (second generation)",
   "llm-m-chevrolet-c-k-third-generation-1973-1991": "Chevrolet C/K (third generation)",
@@ -11973,7 +15166,12 @@
   "llm-m-chevrolet-k5-blazer-third-generation": "Chevrolet C/K (second generation)",
   "llm-related-gmc-sierra": "GMC Sierra",
   "llm-llm-related-gmc-sierra-gmt800": "Chevrolet Silverado (first generation)",
-  "llm-llm-related-gmc-sierra-gmt900": "Chevrolet Silverado (second generation)"
+  "llm-llm-related-gmc-sierra-gmt900": "Chevrolet Silverado (second generation)",
+  "m-jaguar-xj": "XJ",
+  "m-jaguar-xj-x300": "X300",
+  "llm-related-jaguar-xj-x300": "Jaguar XJ (X300)",
+  "llm-related-pontiac-series-603": "Pontiac Streamliner",
+  "llm-m-nissan-navara-d21": "Datsun Truck"
  },
  "genResearch": {
   "m-mercedes-benz-sl-class-r129": {
@@ -12190,19 +15388,306 @@
     },
     "dropped": []
    }
+  },
+  "m-jaguar-xj": {
+   "status": "done",
+   "checkedAt": "2026-09-17T07:25:31.381Z",
+   "sourceTitle": "XJ",
+   "upgradedArticle": "XJ",
+   "relatedTexts": [],
+   "newRelationKeys": [],
+   "peopleAdded": [],
+   "engines": [],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": false,
+     "generations": [
+      {
+       "code": "Jaguar XJ",
+       "yearStart": null,
+       "yearEnd": null,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": []
+      }
+     ]
+    },
+    "dropped": []
+   }
+  },
+  "m-jaguar-xj-xj40": {
+   "status": "done",
+   "checkedAt": "2026-09-17T07:25:43.186Z",
+   "sourceTitle": "Jaguar XJ (XJ40)",
+   "upgradedArticle": null,
+   "relatedTexts": [],
+   "newRelationKeys": [],
+   "peopleAdded": [
+    {
+     "role": "designer",
+     "name": "Roger Zrimec"
+    },
+    {
+     "role": "designer",
+     "name": "Doug Thorpe"
+    }
+   ],
+   "engines": [
+    {
+     "title": "Jaguar AJ6 engine",
+     "name": "AJ6 I6",
+     "variant": null
+    },
+    {
+     "title": "Jaguar V12 engine",
+     "name": "Jaguar V12",
+     "variant": null
+    }
+   ],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": false,
+     "generations": [
+      {
+       "code": "XJ40",
+       "yearStart": 1986,
+       "yearEnd": 1994,
+       "designers": [
+        "George Thomson",
+        "Roger Zrimec",
+        "Doug Thorpe"
+       ],
+       "engineers": [],
+       "sharedPlatforms": []
+      }
+     ]
+    },
+    "dropped": []
+   }
+  },
+  "m-jaguar-xj-x300": {
+   "status": "done",
+   "checkedAt": "2026-09-17T07:25:47.342Z",
+   "sourceTitle": "X300",
+   "upgradedArticle": "X300",
+   "relatedTexts": [],
+   "newRelationKeys": [],
+   "peopleAdded": [],
+   "engines": [],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": false,
+     "generations": [
+      {
+       "code": "X300",
+       "yearStart": null,
+       "yearEnd": null,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": []
+      }
+     ]
+    },
+    "dropped": []
+   }
+  },
+  "m-jaguar-xj-x308": {
+   "status": "done",
+   "checkedAt": "2026-09-17T07:25:56.438Z",
+   "sourceTitle": "Jaguar XJ (X308)",
+   "upgradedArticle": null,
+   "relatedTexts": [
+    "Jaguar XJ (X300)"
+   ],
+   "newRelationKeys": [
+    "llm-related-jaguar-xj-x300|m-jaguar-xj-x308|platform"
+   ],
+   "peopleAdded": [],
+   "engines": [
+    {
+     "title": "Jaguar AJ-V8 engine",
+     "name": "Jaguar AJ-V8",
+     "variant": null
+    }
+   ],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": false,
+     "generations": [
+      {
+       "code": "X308",
+       "yearStart": 1997,
+       "yearEnd": 2002,
+       "designers": [
+        "Geoff Lawson"
+       ],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Jaguar XJ (X300)"
+       ]
+      }
+     ]
+    },
+    "dropped": []
+   }
+  },
+  "m-jaguar-xj-x350": {
+   "status": "done",
+   "checkedAt": "2026-09-17T07:26:23.752Z",
+   "sourceTitle": "Jaguar XJ (X350)",
+   "upgradedArticle": null,
+   "relatedTexts": [
+    "Jaguar XK (X150)"
+   ],
+   "newRelationKeys": [
+    "m-jaguar-xj-x350|m-jaguar-xk-x150|platform"
+   ],
+   "peopleAdded": [
+    {
+     "role": "designer",
+     "name": "Tom Owen"
+    },
+    {
+     "role": "designer",
+     "name": "Sandy Boyes"
+    },
+    {
+     "role": "designer",
+     "name": "Giles Taylor"
+    },
+    {
+     "role": "designer",
+     "name": "Geoff Lawson"
+    }
+   ],
+   "engines": [
+    {
+     "title": "Jaguar AJ30 V6 engine",
+     "name": "AJ30 V6",
+     "variant": null
+    },
+    {
+     "title": "Jaguar AJ-V8 3.5 L engine",
+     "name": "AJ V8",
+     "variant": null
+    },
+    {
+     "title": "Jaguar AJ34 engine",
+     "name": "AJ34",
+     "variant": null
+    },
+    {
+     "title": "Jaguar AJ34S engine",
+     "name": "AJ34S",
+     "variant": null
+    }
+   ],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": false,
+     "generations": [
+      {
+       "code": "X350",
+       "yearStart": 2002,
+       "yearEnd": 2009,
+       "designers": [
+        "Tom Owen",
+        "Sandy Boyes",
+        "Giles Taylor",
+        "Geoff Lawson"
+       ],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Jaguar XK (X150)"
+       ]
+      }
+     ]
+    },
+    "dropped": []
+   }
+  },
+  "m-jaguar-xj-x351": {
+   "status": "done",
+   "checkedAt": "2026-09-17T07:26:40.936Z",
+   "sourceTitle": "Jaguar XJ (X351)",
+   "upgradedArticle": null,
+   "relatedTexts": [],
+   "newRelationKeys": [],
+   "peopleAdded": [],
+   "engines": [
+    {
+     "title": "Jaguar AJ-V6 engine",
+     "name": "AJ V6",
+     "variant": null
+    },
+    {
+     "title": "Jaguar AJ-V8 engine",
+     "name": "AJ Gen III V8",
+     "variant": null
+    }
+   ],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": false,
+     "generations": [
+      {
+       "code": "X351",
+       "yearStart": 2009,
+       "yearEnd": 2019,
+       "designers": [
+        "Ian Callum",
+        "Giles Taylor"
+       ],
+       "engineers": [],
+       "sharedPlatforms": []
+      }
+     ]
+    },
+    "dropped": []
+   }
   }
  },
  "merges": {},
  "deletions": {
-  "eng-mercedes-benz-m177": {
-   "kind": "engine",
-   "label": "M177",
+  "engv-mercedes-benz-m139-m139-310-kw-version-anchor-310-kw": {
+   "kind": "enginevar",
+   "label": "Mercedes-AMG M139 (310 kW version) {{anchor|310 kW}}",
    "hard": false,
    "cascadeIds": [
-    "eng-mercedes-benz-m177"
+    "engv-mercedes-benz-m139-m139-310-kw-version-anchor-310-kw"
    ],
    "reason": null,
-   "deletedAt": "2026-09-16T22:29:57.850Z"
+   "deletedAt": "2026-09-17T07:23:26.911Z"
+  },
+  "engv-mercedes-benz-m139-m139-285-kw-version-anchor-285-kw": {
+   "kind": "enginevar",
+   "label": "Mercedes-AMG M139 (285 kW version) {{anchor|285 kW}}",
+   "hard": false,
+   "cascadeIds": [
+    "engv-mercedes-benz-m139-m139-285-kw-version-anchor-285-kw"
+   ],
+   "reason": null,
+   "deletedAt": "2026-09-17T07:23:35.985Z"
+  },
+  "engv-mercedes-benz-m139-m139-300-kw-version-anchor-300-kw": {
+   "kind": "enginevar",
+   "label": "Mercedes-AMG M139 (300 kW version) {{anchor|300 kW}}",
+   "hard": false,
+   "cascadeIds": [
+    "engv-mercedes-benz-m139-m139-300-kw-version-anchor-300-kw"
+   ],
+   "reason": null,
+   "deletedAt": "2026-09-17T07:23:48.216Z"
+  },
+  "engv-mercedes-benz-m139-m139i-350-kw-version-anchor-350-kw-m139i": {
+   "kind": "enginevar",
+   "label": "Mercedes-AMG M139I (350 kW version) {{anchor|350 kW|M139I}}",
+   "hard": false,
+   "cascadeIds": [
+    "engv-mercedes-benz-m139-m139i-350-kw-version-anchor-350-kw-m139i"
+   ],
+   "reason": null,
+   "deletedAt": "2026-09-17T07:23:57.862Z"
   }
  },
  "renames": {},
@@ -12885,7 +16370,7 @@
   },
   "eng-mercedes-benz-m139": {
    "status": "confirmed",
-   "checkedAt": "2026-09-16T22:31:42.978Z",
+   "checkedAt": "2026-09-17T07:22:55.122Z",
    "sourceTitle": "Mercedes-Benz M139 engine",
    "article": {
     "name": "Mercedes-Benz M139",
@@ -12898,7 +16383,7 @@
     "successor": "",
     "variants": [
      {
-      "code": "M139 (285 kW version) {{anchor|285 kW}}",
+      "code": "M139 (285 kW version)",
       "applications": [
        {
         "target": "Mercedes-Benz CLA",
@@ -12948,7 +16433,7 @@
       ]
      },
      {
-      "code": "M139 (300 kW version) {{anchor|300 kW}}",
+      "code": "M139 (300 kW version)",
       "applications": [
        {
         "target": "Mercedes-Benz C-Class (W206)",
@@ -12962,7 +16447,7 @@
       ]
      },
      {
-      "code": "M139 (310 kW version) {{anchor|310 kW}}",
+      "code": "M139 (310 kW version)",
       "applications": [
        {
         "target": "Mercedes-Benz CLA",
@@ -13039,7 +16524,7 @@
       ]
      },
      {
-      "code": "M139I (350 kW version) {{anchor|350 kW|M139I}}",
+      "code": "M139I (350 kW version)",
       "applications": [
        {
         "target": "Mercedes-Benz C-Class (W206)",
@@ -14586,6 +18071,626 @@
    "sourceTitle": null,
    "status": "no-article",
    "engines": []
+  },
+  "llm-m-mercedes-benz-mercedes-amg-gt-c190-r190": {
+   "checkedAt": "2026-09-17T07:23:44.382Z",
+   "sourceTitle": "Mercedes-AMG GT",
+   "section": "First generation (C190/R190)",
+   "engines": [
+    {
+     "title": "Mercedes-Benz M176/M177/M178 engine",
+     "name": "M178",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz M156 engine",
+     "name": "M159",
+     "variant": "M159"
+    }
+   ]
+  },
+  "llm-m-mercedes-benz-mercedes-amg-gt-c192": {
+   "checkedAt": "2026-09-17T07:23:44.390Z",
+   "sourceTitle": "Mercedes-AMG GT",
+   "section": "Second generation (C192)",
+   "engines": [
+    {
+     "title": "Mercedes-Benz M139 engine",
+     "name": "M139",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz M176/M177/M178 engine",
+     "name": "M177",
+     "variant": null
+    }
+   ]
+  },
+  "m-jaguar-xj": {
+   "checkedAt": "2026-09-17T07:25:26.105Z",
+   "sourceTitle": null,
+   "status": "no-article",
+   "engines": []
+  },
+  "m-jaguar-xj-xj40": {
+   "checkedAt": "2026-09-17T07:25:26.467Z",
+   "sourceTitle": "Jaguar XJ (XJ40)",
+   "section": null,
+   "engines": [
+    {
+     "title": "Jaguar AJ6 engine",
+     "name": "AJ6 I6",
+     "variant": null
+    },
+    {
+     "title": "Jaguar V12 engine",
+     "name": "Jaguar V12",
+     "variant": null
+    }
+   ]
+  },
+  "m-jaguar-xj-x300": {
+   "checkedAt": "2026-09-17T07:25:26.879Z",
+   "sourceTitle": "Jaguar XJ (X300)",
+   "section": null,
+   "engines": [
+    {
+     "title": "Jaguar AJ6 engine",
+     "name": "AJ16 I6",
+     "variant": "AJ16"
+    },
+    {
+     "title": "Jaguar AJ6 engine",
+     "name": "AJ16",
+     "variant": "AJ16"
+    },
+    {
+     "title": "Jaguar V12 engine",
+     "name": "Jaguar V12",
+     "variant": null
+    }
+   ]
+  },
+  "m-jaguar-xj-x308": {
+   "checkedAt": "2026-09-17T07:25:27.158Z",
+   "sourceTitle": "Jaguar XJ (X308)",
+   "section": null,
+   "engines": [
+    {
+     "title": "Jaguar AJ-V8 engine",
+     "name": "Jaguar AJ-V8",
+     "variant": null
+    }
+   ]
+  },
+  "m-jaguar-xj-x350": {
+   "checkedAt": "2026-09-17T07:25:27.685Z",
+   "sourceTitle": "Jaguar XJ (X350)",
+   "section": null,
+   "engines": [
+    {
+     "title": "Jaguar AJ30 V6 engine",
+     "name": "AJ30 V6",
+     "variant": null
+    },
+    {
+     "title": "Jaguar AJ-V8 3.5 L engine",
+     "name": "AJ V8",
+     "variant": null
+    },
+    {
+     "title": "Jaguar AJ34 engine",
+     "name": "AJ34",
+     "variant": null
+    },
+    {
+     "title": "Jaguar AJ34S engine",
+     "name": "AJ34S",
+     "variant": null
+    }
+   ]
+  },
+  "m-jaguar-xj-x351": {
+   "checkedAt": "2026-09-17T07:25:28.109Z",
+   "sourceTitle": "Jaguar XJ (X351)",
+   "section": null,
+   "engines": [
+    {
+     "title": "Jaguar AJ-V6 engine",
+     "name": "AJ V6",
+     "variant": null
+    },
+    {
+     "title": "Jaguar AJ-V8 engine",
+     "name": "AJ Gen III V8",
+     "variant": null
+    }
+   ]
+  },
+  "m-jaguar-xe": {
+   "checkedAt": "2026-09-17T07:28:05.607Z",
+   "sourceTitle": "Jaguar XE",
+   "section": null,
+   "engines": [
+    {
+     "title": "Ford EcoBoost engine",
+     "name": "Ford EcoBoost",
+     "variant": "2.0 L (2010–2015)"
+    },
+    {
+     "title": "Jaguar AJ-V8 engine",
+     "name": "AJ126",
+     "variant": "AJ126"
+    },
+    {
+     "title": "Jaguar AJ-V8 engine",
+     "name": "AJ133",
+     "variant": "AJ133"
+    }
+   ]
+  },
+  "llm-m-land-rover-series-series-i": {
+   "checkedAt": "2026-09-17T07:30:43.134Z",
+   "sourceTitle": "Land Rover Series II",
+   "section": "Series I",
+   "engines": [
+    {
+     "title": "Rover IOE engine",
+     "name": "IOE",
+     "variant": null
+    }
+   ]
+  },
+  "llm-m-land-rover-series-series-ii": {
+   "checkedAt": "2026-09-17T07:30:43.142Z",
+   "sourceTitle": "Land Rover series",
+   "status": "no-engines",
+   "engines": []
+  },
+  "llm-m-land-rover-series-series-iia": {
+   "checkedAt": "2026-09-17T07:30:43.319Z",
+   "sourceTitle": "Land Rover series",
+   "section": "Series IIA",
+   "engines": [
+    {
+     "title": "Rover IOE engine",
+     "name": "IOE",
+     "variant": null
+    }
+   ]
+  },
+  "llm-m-land-rover-series-series-iii": {
+   "checkedAt": "2026-09-17T07:30:43.531Z",
+   "sourceTitle": "Land Rover series",
+   "status": "unreadable",
+   "engines": []
+  },
+  "llm-m-land-rover-series-stage-one-v8": {
+   "checkedAt": "2026-09-17T07:30:43.532Z",
+   "sourceTitle": "Land Rover series",
+   "status": "no-engines",
+   "engines": []
+  },
+  "llm-m-land-rover-series-one-ton-109-inch": {
+   "checkedAt": "2026-09-17T07:30:43.532Z",
+   "sourceTitle": "Land Rover series",
+   "status": "no-engines",
+   "engines": []
+  },
+  "llm-m-chevrolet-avalanche-gmt805": {
+   "checkedAt": "2026-09-17T07:33:35.843Z",
+   "sourceTitle": null,
+   "status": "no-article",
+   "engines": []
+  },
+  "llm-m-chevrolet-avalanche-gmt900": {
+   "checkedAt": "2026-09-17T07:33:35.854Z",
+   "sourceTitle": null,
+   "status": "no-article",
+   "engines": []
+  },
+  "llm-m-mercedes-benz-w110-first-series": {
+   "checkedAt": "2026-09-17T07:33:52.934Z",
+   "sourceTitle": "Mercedes-Benz W110",
+   "section": "First series (1961–1965)",
+   "engines": [
+    {
+     "title": "Mercedes-Benz M121 engine",
+     "name": "M121",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz OM621 engine",
+     "name": "OM621",
+     "variant": null
+    }
+   ]
+  },
+  "llm-m-mercedes-benz-w110-second-series": {
+   "checkedAt": "2026-09-17T07:33:52.996Z",
+   "sourceTitle": "Mercedes-Benz W110",
+   "section": "Second series (1965–1968)",
+   "engines": [
+    {
+     "title": "Mercedes-Benz M121 engine",
+     "name": "M121 BIX",
+     "variant": "M121_BIX"
+    },
+    {
+     "title": "Mercedes-Benz M180 engine",
+     "name": "M180",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz OM621 engine",
+     "name": "OM621",
+     "variant": null
+    }
+   ]
+  },
+  "llm-m-ssangyong-rodius-first-generation": {
+   "checkedAt": "2026-09-17T07:36:48.344Z",
+   "sourceTitle": "SsangYong Rodius",
+   "section": "First generation (2004–2013)",
+   "engines": [
+    {
+     "title": "Mercedes-Benz M104 engine",
+     "name": "M104",
+     "variant": null
+    },
+    {
+     "title": "Mercedes-Benz OM612 engine",
+     "name": "OM612",
+     "variant": null
+    },
+    {
+     "title": "KGM e-XDi engine",
+     "name": "e-XDi 200",
+     "variant": null
+    }
+   ]
+  },
+  "llm-m-ssangyong-rodius-second-generation": {
+   "checkedAt": "2026-09-17T07:36:48.391Z",
+   "sourceTitle": "SsangYong Rodius",
+   "status": "no-engines",
+   "engines": []
+  },
+  "llm-m-nissan-navara-d21": {
+   "checkedAt": "2026-09-17T07:40:13.042Z",
+   "sourceTitle": "Datsun Truck",
+   "section": "D21 series (1985)",
+   "engines": [
+    {
+     "title": "Datsun sidevalve engine",
+     "name": "Type 10",
+     "variant": null
+    },
+    {
+     "title": "Datsun sidevalve engine",
+     "name": "B-1",
+     "variant": null
+    },
+    {
+     "title": "Nissan C engine",
+     "name": "C",
+     "variant": null
+    },
+    {
+     "title": "Nissan E engine",
+     "name": "E",
+     "variant": null
+    },
+    {
+     "title": "Nissan E engine",
+     "name": "E-1",
+     "variant": null
+    },
+    {
+     "title": "Nissan J engine",
+     "name": "J13",
+     "variant": null
+    },
+    {
+     "title": "Nissan J engine",
+     "name": "J15",
+     "variant": null
+    },
+    {
+     "title": "Nissan L engine",
+     "name": "L16",
+     "variant": "L16"
+    },
+    {
+     "title": "Nissan L engine",
+     "name": "L18",
+     "variant": "L18"
+    },
+    {
+     "title": "Nissan L engine",
+     "name": "L20B",
+     "variant": "L20B"
+    },
+    {
+     "title": "Nissan SD engine",
+     "name": "SD22",
+     "variant": "SD22"
+    },
+    {
+     "title": "Nissan L engine",
+     "name": "J16",
+     "variant": "J16"
+    },
+    {
+     "title": "Nissan Z engine",
+     "name": "Z16",
+     "variant": "Z16"
+    },
+    {
+     "title": "Nissan L engine",
+     "name": "J18",
+     "variant": "J18"
+    },
+    {
+     "title": "Nissan L engine",
+     "name": "Z18",
+     "variant": "Z18"
+    },
+    {
+     "title": "Nissan Z engine",
+     "name": "Z20S",
+     "variant": "Z20S"
+    },
+    {
+     "title": "Nissan Z engine",
+     "name": "Z22S",
+     "variant": "Z22S"
+    },
+    {
+     "title": "Nissan Z engine",
+     "name": "Z24",
+     "variant": "Z24"
+    },
+    {
+     "title": "Nissan Z engine",
+     "name": "Z24i",
+     "variant": "Z24"
+    },
+    {
+     "title": "Nissan SD engine",
+     "name": "SD23",
+     "variant": "SD23"
+    },
+    {
+     "title": "Nissan SD engine",
+     "name": "SD25",
+     "variant": "SD25"
+    },
+    {
+     "title": "Nissan NA engine",
+     "name": "NA16",
+     "variant": "NA16"
+    },
+    {
+     "title": "Nissan Z engine",
+     "name": "Z18",
+     "variant": "Z18"
+    },
+    {
+     "title": "Nissan NA engine",
+     "name": "NA20",
+     "variant": "NA20"
+    },
+    {
+     "title": "Nissan Z engine",
+     "name": "Z20",
+     "variant": "Z20"
+    },
+    {
+     "title": "Nissan KA engine",
+     "name": "KA24E",
+     "variant": "KA24E"
+    },
+    {
+     "title": "Nissan VG engine",
+     "name": "VG30i",
+     "variant": "VG30i"
+    },
+    {
+     "title": "Nissan BD engine",
+     "name": "BD25",
+     "variant": "BD25"
+    },
+    {
+     "title": "Nissan TD engine",
+     "name": "TD23",
+     "variant": "TD23"
+    },
+    {
+     "title": "Nissan TD engine",
+     "name": "TD25",
+     "variant": "TD25"
+    },
+    {
+     "title": "Nissan TD engine",
+     "name": "TD27",
+     "variant": "TD27"
+    }
+   ]
+  },
+  "llm-m-nissan-navara-d22": {
+   "checkedAt": "2026-09-17T07:40:13.426Z",
+   "sourceTitle": "Nissan Navara",
+   "section": "First generation (D22; 1997)",
+   "engines": [
+    {
+     "title": "Nissan NA engine",
+     "name": "NA20S",
+     "variant": "NA20S"
+    },
+    {
+     "title": "Nissan KA engine",
+     "name": "KA20DE",
+     "variant": "KA20DE"
+    },
+    {
+     "title": "Nissan KA engine",
+     "name": "KA24E",
+     "variant": "KA24E"
+    },
+    {
+     "title": "Nissan KA engine",
+     "name": "KA24DE",
+     "variant": "KA24DE"
+    },
+    {
+     "title": "Nissan VG engine",
+     "name": "VG33E",
+     "variant": "VG33E"
+    },
+    {
+     "title": "Nissan VG engine",
+     "name": "VG33ER",
+     "variant": "VG33ER"
+    },
+    {
+     "title": "Nissan TD engine",
+     "name": "TD25",
+     "variant": "TD25"
+    },
+    {
+     "title": "Nissan YD engine",
+     "name": "YD25DDTi",
+     "variant": null
+    },
+    {
+     "title": "Nissan TD engine",
+     "name": "TD27",
+     "variant": "TD27"
+    },
+    {
+     "title": "Nissan ZD engine",
+     "name": "ZD30DDT",
+     "variant": null
+    },
+    {
+     "title": "Nissan QD engine",
+     "name": "QD323",
+     "variant": "QD323"
+    }
+   ]
+  },
+  "llm-m-nissan-navara-d40": {
+   "checkedAt": "2026-09-17T07:40:13.481Z",
+   "sourceTitle": "Nissan Navara",
+   "section": "Second generation (D40; 2004)",
+   "engines": [
+    {
+     "title": "Nissan QR engine",
+     "name": "QR25DE",
+     "variant": null
+    },
+    {
+     "title": "Nissan VQ engine",
+     "name": "VQ38DD",
+     "variant": "VQ38DD"
+    },
+    {
+     "title": "Nissan VQ engine",
+     "name": "VQ40DE",
+     "variant": "VQ40DE"
+    },
+    {
+     "title": "Nissan YD engine",
+     "name": "YD25DDTi",
+     "variant": "YD25DDTi"
+    },
+    {
+     "title": "V9X engine",
+     "name": "V9X",
+     "variant": null
+    }
+   ]
+  },
+  "llm-m-nissan-navara-d23": {
+   "checkedAt": "2026-09-17T07:40:20.195Z",
+   "sourceTitle": "Nissan Navara",
+   "section": "Third generation (D23; 2014)",
+   "engines": [
+    {
+     "title": "Nissan QR engine",
+     "name": "QR25DE",
+     "variant": null
+    },
+    {
+     "title": "Nissan YS engine",
+     "name": "YS23DDT",
+     "variant": null
+    },
+    {
+     "title": "Nissan YS engine",
+     "name": "YS23DDTT",
+     "variant": null
+    },
+    {
+     "title": "Nissan YD engine",
+     "name": "YD25DDTi",
+     "variant": "YD25DDTi"
+    }
+   ]
+  },
+  "llm-m-nissan-navara-d27": {
+   "checkedAt": "2026-09-17T07:40:20.266Z",
+   "sourceTitle": "Nissan Navara",
+   "section": "Fourth generation (D27; 2025)",
+   "engines": [
+    {
+     "title": "Mitsubishi 4N1 engine",
+     "name": "Mitsubishi 4N1",
+     "variant": "4N16"
+    }
+   ]
+  },
+  "llm-m-isuzu-aska-first-generation": {
+   "checkedAt": "2026-09-17T07:41:31.085Z",
+   "sourceTitle": "Isuzu Aska",
+   "section": "First generation (1983&ndash;1989)",
+   "engines": [
+    {
+     "title": "List of Isuzu engines",
+     "name": "List of Isuzu",
+     "variant": "4ZB1"
+    }
+   ]
+  },
+  "llm-m-isuzu-aska-second-generation": {
+   "checkedAt": "2026-09-17T07:41:31.098Z",
+   "sourceTitle": "Isuzu Aska",
+   "section": "Second generation (1990&ndash;1993)",
+   "engines": [
+    {
+     "title": "Subaru EJ engine",
+     "name": "EJ18",
+     "variant": "EJ18"
+    },
+    {
+     "title": "Subaru EJ engine",
+     "name": "EJ20",
+     "variant": "EJ20"
+    }
+   ]
+  },
+  "llm-m-isuzu-aska-third-generation": {
+   "checkedAt": "2026-09-17T07:41:31.107Z",
+   "sourceTitle": "Isuzu Aska",
+   "status": "no-engines",
+   "engines": []
+  },
+  "llm-m-isuzu-aska-fourth-generation": {
+   "checkedAt": "2026-09-17T07:41:31.108Z",
+   "sourceTitle": "Isuzu Aska",
+   "status": "no-engines",
+   "engines": []
   }
  },
  "prunedDecisions": {
@@ -14693,15 +18798,25 @@
    "what": "connection you decided",
    "label": "llm-related-mercedes-amg-gt-r-c190 ↔ Mercedes-Benz SL (platform, confirmed)",
    "prunedAt": "2026-09-16T23:15:36.670Z"
+  },
+  "families|llm-related-am-general": {
+   "what": "generation split",
+   "label": "llm-related-am-general",
+   "prunedAt": "2026-09-17T07:22:37.987Z"
+  },
+  "wpLinks|llm-related-am-general": {
+   "what": "Wikipedia link you pasted",
+   "label": "llm-related-am-general → AM General",
+   "prunedAt": "2026-09-17T07:22:37.987Z"
   }
  },
  "jobs": [],
  "lastJob": {
-  "id": "job-mu4q58np-rgse7",
-  "kind": "engine-read",
-  "targetId": "eng-detroit-diesel-v8",
-  "label": "Detroit Diesel",
-  "finishedAt": "2026-09-16T23:21:03.821Z",
+  "id": "job-mu57jeia-4tqsy",
+  "kind": "node-check",
+  "targetId": "m-jaguar-xe",
+  "label": "Jaguar XE",
+  "finishedAt": "2026-09-17T07:28:05.617Z",
   "state": "done",
   "summary": ""
  }
