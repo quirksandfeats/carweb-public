@@ -8174,7 +8174,12 @@ Rules:
       // wholesale left a displacement field reading "<br/>".
       .replace(/\{\{\s*c(?:onvert|vt)\s*\|([^{}]*)\}\}/gi, (m0, args) => {
         const parts = args.split("|").map(x => x.trim()).filter(x => x && !/=/.test(x));
-        return parts.length >= 2 ? parts[0] + " " + parts[1] : (parts[0] || "");
+        if (!parts.length) return "";
+        // A range: {{convert|340|-|450|kW|PS hp}} is "340-450 kW", not "340 -".
+        if (parts.length >= 4 && /^(?:-|–|to|and)$/.test(parts[1]) && /^[\d.,]+$/.test(parts[2])) {
+          return parts[0] + "-" + parts[2] + " " + parts[3];
+        }
+        return parts.length >= 2 ? parts[0] + " " + parts[1] : parts[0];
       })
       .replace(/\{\{[^{}]*\}\}/g, "")
       .replace(/\[\[([^\]|]+)(?:\|([^\]]+))?\]\]/g, (m0, t, d) => d || t)
@@ -8432,7 +8437,7 @@ Rules:
     }
     return best;
   }
-  function engineVariants(wikitext, name) {
+  function engineVariants(wikitext, name, inherited) {
     const key = norm(name || "");
     const secs = wikitextSections(wikitext);
     const hits = secs.filter(sec => {
@@ -8457,12 +8462,179 @@ Rules:
       const multiName = String(name || "").indexOf("/") >= 0;
       const code = (key && !multiName && !norm(title).startsWith(key) && name)
         ? (name + " " + title) : title;
-      out.push({ code, applications: engineApplicationsIn(sec.body) });
+      out.push({ code, applications: engineApplicationsIn(sec.body),
+                 specs: engineSpecsFromSection(sec.body, inherited, sec.title) });
     }
     return out;
   }
 
   // The whole article, in the shape the engine layer stores.
+
+  // ---------- engines: what the article says about the engine itself ----------
+  // Real user request: "I want that the engine details for the enginevar to
+  // contain some basic info about the engine, but only when I scan the engine
+  // itself for it to look at the wikipedia link. The process should be as
+  // follows: Scan a particular engine (not engine var), and then the llm
+  // determines whether this is a standalone engine or a family of engines. If
+  // it is standalone, then proceed to lay out the specs on it. If this engine
+  // contains enginevars, then split up into enginevars and then do the
+  // individual specs for each of the enginevars. The specs include
+  // displacement, power output, number of cylinders, and formation (like V
+  // pattern, inline, etc...). These should appear in the information card
+  // about the engine or engine var, depending on the logic explained above. If
+  // there is no information about this for a particular engine then do not try
+  // to make up information; only if there is actual information in the
+  // articles should you include this information."
+  //
+  // Standalone or a family is not a judgement call and so is not asked of the
+  // model: an article with variant sections is a family and one without is a
+  // standalone, which is the same test the variant list already comes from.
+  // The specs are read, never inferred -- a field that is not in the article
+  // is simply absent, and a variant with nothing of its own says nothing
+  // rather than repeating the family's.
+  const ENGINE_SPEC_FIELDS = {
+    displacement: ["displacement"],
+    power: ["power", "power output", "poweroutput"],
+    torque: ["torque"],
+    configuration: ["configuration", "layout"],
+    bore: ["bore"], stroke: ["stroke"],
+    valvetrain: ["valvetrain"], compression: ["compression"],
+    fuel: ["fueltype", "fuel type"],
+  };
+  // "90° V8" -> V, 8. "[[Straight-four engine]]" -> I, 4. "Flat-6" -> F, 6.
+  const CYL_WORDS = { two: 2, three: 3, four: 4, five: 5, six: 6, seven: 7, eight: 8,
+                      ten: 10, twelve: 12, sixteen: 16 };
+  function layoutFromConfiguration(text) {
+    const t = stripEngineMarkup(text || "").replace(/&nbsp;/g, " ");
+    if (!t) return null;
+    let m = /\b(straight|inline|flat|boxer|vee|v|w|h)\s*-?\s*(\d{1,2}|two|three|four|five|six|seven|eight|ten|twelve|sixteen)\b/i.exec(t);
+    if (!m) m = /\b([VWvw])\s*-?\s*(\d{1,2})\b/.exec(t);
+    if (!m) {
+      const single = /\b(single|twin|two)[\s-]cylinder\b/i.exec(t);
+      if (single) return { layout: null, cylinders: CYL_WORDS[single[1].toLowerCase()] || (/twin/i.test(single[1]) ? 2 : 1) };
+      const n = /\b(\d{1,2})[\s-]cylinder\b/i.exec(t);
+      return n ? { layout: null, cylinders: +n[1] } : null;
+    }
+    const word = String(m[2]).toLowerCase();
+    const cylinders = CYL_WORDS[word] != null ? CYL_WORDS[word] : (/^\d+$/.test(word) ? +word : null);
+    const head = String(m[1]).toLowerCase();
+    const layout = /^(straight|inline|i)$/.test(head) ? "I"
+                 : /^(flat|boxer|h)$/.test(head) ? "F"
+                 : /^(vee|v)$/.test(head) ? "V"
+                 : /^w$/.test(head) ? "W" : null;
+    return { layout, cylinders };
+  }
+  // How it reads on a card: "V8, 4.0 L, 430 kW". Only what is known.
+  // The specs recorded for one node, engine or variant. A variant's are its
+  // own; an engine's are the article's, and only when it is standalone -- a
+  // family's headline figures belong to its variants, not to the hub.
+  function engineSpecsFor(node) {
+    if (!node) return null;
+    if (node.type === "enginevar") {
+      const owner = node.engineOf && store.engines[node.engineOf];
+      const art = owner && owner.article;
+      if (!art) return node.specs || null;
+      const v = (art.variants || []).find(x => norm(x.code) === norm(node.label));
+      return (v && v.specs) || node.specs || null;
+    }
+    const entry = store.engines[node.id];
+    const art = entry && entry.article;
+    if (!art) return node.specs || null;
+    return art.specs || null;
+  }
+  function engineSpecSummary(specs) {
+    if (!specs) return "";
+    const bits = [];
+    if (specs.layout && specs.cylinders) bits.push(specs.layout + specs.cylinders);
+    else if (specs.cylinders) bits.push(specs.cylinders + "-cyl");
+    else if (specs.configuration) bits.push(specs.configuration);
+    if (specs.displacement) bits.push(specs.displacement);
+    if (specs.power) bits.push(specs.power);
+    return bits.join(" · ");
+  }
+  // "285 kW base version 310 kW S-model" -> "285-310 kW". An infobox often
+  // lists one line per state of tune, and the card wants the span, not the
+  // prose. Left exactly as written when there is only one figure, or when the
+  // figures are in different units.
+  function tidyPowerField(text, units) {
+    const t = String(text || "").trim();
+    if (!t) return "";
+    const nums = [], seen = new Set();
+    const rx = units === "size"
+      ? /(\d[\d,.]*)\s*(cc|L|litres?|liters?|cu\s*in|CID)\b/gi
+      : /(\d[\d,.]*)\s*(kW|PS|hp|bhp|Nm|lb.?ft)\b/gi;
+    let m, unitRaw = "";
+    while ((m = rx.exec(t))) {
+      nums.push(parseFloat(m[1].replace(/,/g, "")));
+      if (!unitRaw) unitRaw = m[2];
+      seen.add(m[2].toLowerCase().replace(/\s+/g, " "));
+    }
+    if (nums.length < 2 || seen.size !== 1) return t;
+    const unit = unitRaw;
+    const lo = Math.min(...nums), hi = Math.max(...nums);
+    return lo === hi ? lo + " " + unit : lo + "-" + hi + " " + unit;
+  }
+  function engineSpecsFromInfobox(info) {
+    if (!info) return null;
+    const out = {};
+    Object.keys(ENGINE_SPEC_FIELDS).forEach(key => {
+      for (const field of ENGINE_SPEC_FIELDS[key]) {
+        const raw = info[field];
+        if (raw == null || !String(raw).trim()) continue;
+        let v = stripEngineMarkup(raw).replace(/\s+/g, " ").trim();
+        if (key === "power" || key === "torque") v = tidyPowerField(v);
+        if (key === "displacement") v = tidyPowerField(v, "size");
+        if (v) { out[key] = v; break; }
+      }
+    });
+    const c = layoutFromConfiguration(out.configuration || "");
+    if (c) {
+      if (c.layout) out.layout = c.layout;
+      if (c.cylinders) out.cylinders = c.cylinders;
+    }
+    // A cylinder count stated only in the displacement or the name ("V8
+    // biturbo") still counts -- it is in the article.
+    if (!out.cylinders) {
+      const c2 = layoutFromConfiguration([info.name, info.aka].filter(Boolean).join(" "));
+      if (c2 && c2.cylinders) { out.cylinders = c2.cylinders; if (c2.layout && !out.layout) out.layout = c2.layout; }
+    }
+    return Object.keys(out).length ? out : null;
+  }
+  // A variant section's own specs. Its own infobox first -- some variant
+  // sections carry one -- then the section's prose, which is where a variant
+  // that has no infobox states its displacement and power.
+  const SECTION_POWER_RE = /\b(\d[\d,.]*)\s*(?:-|\s)?\s*(kW|PS|hp|bhp)\b/i;
+  function engineSpecsFromSection(body, inherited, heading) {
+    const own = engineInfobox(body);
+    if (own) {
+      const s = engineSpecsFromInfobox(own);
+      if (s) return Object.assign({}, inherited && { layout: inherited.layout, cylinders: inherited.cylinders }, s);
+    }
+    // No infobox of its own. The HEADING is the one place a variant reliably
+    // states its own figures -- "M139 (285 kW version)", "M276 DE 35" -- and
+    // it is the only place worth reading: a scan of the section's prose picked
+    // up whatever number came first, which on these pages is as often a
+    // torque figure from a table or another engine's kW as it is this one's.
+    const out = {};
+    const head = stripEngineMarkup(heading || "");
+    if (head) {
+      const basic = engineSpecsFromText(head);
+      if (basic.displacement) out.displacement = basic.displacement;
+      if (basic.layout) out.layout = basic.layout;
+      if (basic.cylinders) out.cylinders = basic.cylinders;
+      const p = SECTION_POWER_RE.exec(head);
+      if (p) out.power = tidyPowerField(p[1] + " " + p[2]);
+    }
+    // A variant inherits the family's layout when it does not restate it --
+    // every M177 is a V8 -- but never its displacement or its power, which
+    // are the things that differ between variants.
+    if (inherited) {
+      if (!out.layout && inherited.layout) out.layout = inherited.layout;
+      if (!out.cylinders && inherited.cylinders) out.cylinders = inherited.cylinders;
+    }
+    return Object.keys(out).length ? out : null;
+  }
+
   function readEngineArticle(wikitext, name, title) {
     const info = engineInfobox(wikitext) || {};
     // The short name is what every variant heading is prefixed with ("M256 E30
@@ -8507,7 +8679,12 @@ Rules:
     // tables are the applications.
     const scope = engineSectionFor(wikitext, short);
     const body = scope ? scope.body : wikitext;
-    const variants = engineVariants(body, short);
+    // The family's own specs, read once: the infobox at the top of the
+    // article, or -- when this is one engine out of a page covering several
+    // -- whatever that engine's own section states.
+    const specs = (scope ? engineSpecsFromSection(scope.body, engineSpecsFromInfobox(info))
+                         : engineSpecsFromInfobox(info)) || engineSpecsFromInfobox(info);
+    const variants = engineVariants(body, short, specs);
     // No variant sections at all still means applications -- they just sit in
     // the article body. Same fallback the nameplate side uses for a car that
     // turns out to have only one generation.
@@ -8523,6 +8700,11 @@ Rules:
       successor: stripEngineMarkup(info.successor || ""),
       variants,
       applications: loose,
+      // Standalone or a family, and the specs for whichever it is. A family's
+      // own line stays -- it is the shared part (a V8, a 4.0 L block) -- and
+      // each variant carries what differs.
+      standalone: !variants.length,
+      specs,
     };
   }
 
@@ -8901,6 +9083,10 @@ Rules:
       return draft;
     })();
     if (!eng) return { engine: null, variants: 0, fitted: 0, minted: [] };
+    // A standalone engine's specs are its own; a family's stay on the article
+    // and belong to its variants, which carry their own below.
+    if (article.specs && article.standalone) eng.specs = article.specs;
+    else if (article.specs) eng.specs = article.specs;
 
     const linkKey = new Set();
     for (const l of links) {
@@ -8946,6 +9132,9 @@ Rules:
           variantCount++;
         }
         vn.engineOf = eng.id;
+        // Carried onto the node so the card and the hover card can show them
+        // without reaching back into the store. Only what the article stated.
+        if (v.specs) vn.specs = v.specs;
         if (eng.variants.indexOf(vid) < 0) eng.variants.push(vid);
         addLink(eng.id, vid, "enginegen");
         // Variants run in article order, which is the order they were
@@ -11185,6 +11374,10 @@ Rules:
     engineNodeFrom, applyEngineArticle, applyEngineArticleWith,
     carNameFromApplication, resolveApplicationTitles,
     checkEngine, applyEngines, engineEntryFor, allEngineEntries, deleteEngineEntry,
+    // Displacement, power, cylinder count and layout, as the article states
+    // them -- for the engine when it is standalone, per variant when it is a
+    // family. See engineSpecsFromInfobox.
+    engineSpecsFor, engineSpecSummary, engineSpecsFromInfobox, engineSpecsFromSection,
     scheduleEngineCascade, scanEnginesFor, engineScanEntryFor, engineArticleFor,
     forceRecheckEngine,
     clearEngineScansFor, note, nameplateSectionForCar, mergeEngineHits,

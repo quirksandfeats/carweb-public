@@ -1298,7 +1298,23 @@ window.CarWeb = (function () {
       sources.forEach(src => powertrainEdgesFor(src, index)
         .filter(e => !isPowertrain(e.other))
         .forEach(e => cars.add(e.other.familyOf || e.other.id)));
-      const specs = [n.configuration, n.displacement, fmtYearRun(n.year, n.end)].filter(Boolean).join(" · ");
+      // Real user request: "I want that the engine details for the enginevar
+      // to contain some basic info about the engine... The specs include
+      // displacement, power output, number of cylinders, and formation (like
+      // V pattern, inline, etc...). These should appear in the information
+      // card about the engine or engine var... If there is no information
+      // about this for a particular engine then do not try to make up
+      // information."
+      //
+      // Read from the article when it was scanned (see llm_families.js's
+      // engineSpecsFor): a standalone engine states its own, a family's
+      // variants each state theirs. Anything the article does not say is
+      // simply absent from this line.
+      const LFam = window.LlmFamilies;
+      const read = LFam && LFam.engineSpecsFor ? LFam.engineSpecsFor(n) : null;
+      const fromArticle = (LFam && LFam.engineSpecSummary) ? LFam.engineSpecSummary(read) : "";
+      const specs = [fromArticle || [n.configuration, n.displacement].filter(Boolean).join(" · "),
+                     fmtYearRun(n.year, n.end)].filter(Boolean).join(" · ");
       const fitted = `fitted to ${cars.size} car${cars.size === 1 ? "" : "s"} in the web`;
       return [specs, fitted].filter(Boolean).join(" · ");
     }
