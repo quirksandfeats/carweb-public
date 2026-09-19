@@ -142,7 +142,6 @@ window.CarWeb = (function () {
   // pushSuccessionToGenerations' own `specific` check), and after
   // applyConfirmed/applyAllFamilyOverrides so every family's generation list
   // is final before "newest"/"oldest" are computed off it.
-  if (window.LlmFamilies) window.LlmFamilies.pushSuccessionToGenerations(nodes, links);
   // A My Database car that was only ever matched onto a plain, not-yet-
   // split model at build time should move onto the specific generation the
   // instant that model becomes a real nameplate via the LLM split just
@@ -174,6 +173,13 @@ window.CarWeb = (function () {
   // here for the one case that can't be prevented at mint time, a HARVESTED
   // car that data.js rebuilds from scratch on every boot.
   if (window.LlmFamilies) window.LlmFamilies.applyPurges(nodes, links);
+  // Deliberately last of the replay passes, not in the middle of them. It
+  // reads every family's final generation list, and the four calls above are
+  // the ones that retire generations -- an unmerge, a rename, a delete, a
+  // purge. Running it before them left 128 derived succession links pointing
+  // at generations that had since been retired, and the coarse nameplate
+  // lines they had stepped aside for still deferring to them.
+  if (window.LlmFamilies) window.LlmFamilies.pushSuccessionToGenerations(nodes, links);
   const byId = new Map(nodes.map(n => [n.id, n]));
   const adj = new Map(nodes.map(n => [n.id, []]));
   links.forEach(l => {
@@ -3002,6 +3008,25 @@ window.CarWeb = (function () {
     // own articles are where the engines are -- the nameplate's umbrella page
     // does not list any. See llm_families.js's scanEnginesFor.
     scanEnginesLive(n);
+    // An engine read earlier could only connect to this car as one undivided
+    // model. Now that it has generations, its engines move down onto them --
+    // the Buick Riviera case. See llm_families.js's restitchEngineEdges.
+    restitchEnginesLive();
+  }
+  function restitchEnginesLive() {
+    const LFam = window.LlmFamilies;
+    if (!LFam || !LFam.restitchEngineEdges) return;
+    const nodesBefore = nodes.length, linksBefore = links.length;
+    let r = null;
+    try { r = LFam.restitchEngineEdges(nodes, links); }
+    catch (e) { console.warn("CarWeb: could not re-place engine edges", e); return; }
+    if (!r || (!r.fitted && !r.dropped)) return;
+    spliceIntoIndexes(nodesBefore, linksBefore);
+    buildSim();
+    powertrainChanged();
+    Graph.touch();
+    console.info(`[carweb] powertrain: moved ${r.dropped} engine link(s) down to a generation, ` +
+                 `${r.fitted} new connection(s)`);
   }
   function applyLlmConfirm(n) {
     applyLlmConfirmSilent(n);

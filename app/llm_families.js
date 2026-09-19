@@ -507,6 +507,9 @@ window.LlmFamilies = (function () {
   }
 
   async function fetchArticleDigest(title) {
+    // An engine read out of an index article carries its section in its link
+    // ("List of Isuzu engines#4ZE1"); the API wants the page.
+    title = String(title || "").split("#")[0].trim() || title;
     const cached = cachedArticle(title);
     if (cached) return cached;
     const url = "https://en.wikipedia.org/w/api.php?action=parse&format=json&origin=*&prop=wikitext&redirects=1&page=" +
@@ -3389,6 +3392,9 @@ Rules:
   // for any of these nodes -- called from app.js's boot sequence
   // immediately after applyUserCars, for the same reason.
   function applyWpLinks(nodes) {
+    // Boot passes through here with the whole node array; the marque list the
+    // engine reader uses is cheapest to take here.
+    rememberMakeNames(nodes);
     if (!store.wpLinks || !Object.keys(store.wpLinks).length) return;
     const byId = new Map(nodes.map(n => [n.id, n]));
     Object.keys(store.wpLinks).forEach(id => {
@@ -7297,6 +7303,64 @@ Rules:
   function pushSuccessionToGenerations(nodes, links) {
     const byIdLocal = new Map(nodes.map(n => [n.id, n]));
     const belongsTo = (n, famId) => !!n && (n.id === famId || n.familyOf === famId);
+    // Derived links from an earlier run, against a graph that has changed
+    // since. A generation retired by a merge, a supersede or a delete leaves
+    // its derived succession behind pointing at a node that is no longer
+    // drawn -- 128 of them in the real graph -- and the coarse nameplate line
+    // it deferred to stays deferred, so the pair shows nothing at all, or
+    // shows both. Dropped and re-derived rather than patched: deriving is
+    // deterministic and cheap.
+    for (let i = links.length - 1; i >= 0; i--) {
+      const l = links[i];
+      if (!l.genLevel || l.type !== "succession") continue;
+      const a = byIdLocal.get(idOf(l.source)), b = byIdLocal.get(idOf(l.target));
+      if (!a || !b || a.retired || b.retired) links.splice(i, 1);
+    }
+    // ...and the tags on the coarse links, so a nameplate line that no longer
+    // has a specific line standing in for it goes back to being drawn itself.
+    links.forEach(l => {
+      if (l.type !== "succession" || l.genLevel) return;
+      if (l.mirrorSourceFam || l.mirrorTargetFam) {
+        delete l.mirrorSourceFam; delete l.mirrorTargetFam; delete l.mirror;
+      }
+    });
+    // A succession drawn BOTH WAYS between the same two cars. The real graph
+    // has the Jaguar X-Type succeeded by the XE and, separately, the XE
+    // succeeded by the X-Type -- two harvested statements that cannot both be
+    // true, drawn as two lines between the same pair. Production years settle
+    // it: the older car hands over to the newer one, never the reverse.
+    const pairs = new Map();
+    links.forEach(l => {
+      if (l.type !== "succession" || l.retired) return;
+      const a = idOf(l.source), b = idOf(l.target);
+      if (!a || !b || a === b) return;
+      const k = [a, b].sort().join("|");
+      if (!pairs.has(k)) pairs.set(k, []);
+      pairs.get(k).push(l);
+    });
+    let contradictions = 0;
+    pairs.forEach(group => {
+      if (group.length < 2) return;
+      const dirs = new Set(group.map(l => idOf(l.source) + ">" + idOf(l.target)));
+      if (dirs.size < 2) return;                  // duplicates, not a contradiction
+      const yearOf = id => { const n = byIdLocal.get(id); return n && Number.isFinite(n.year) ? n.year : null; };
+      const right = group.find(l => {
+        const sy = yearOf(idOf(l.source)), ty = yearOf(idOf(l.target));
+        return sy != null && ty != null && sy < ty;
+      });
+      if (!right) return;                          // no years to judge by -- leave both alone
+      group.forEach(l => {
+        if (l === right) return;
+        if (idOf(l.source) === idOf(right.source) && idOf(l.target) === idOf(right.target)) return;
+        l.retired = true;
+        l.retiredReason = "succession stated in both directions; kept the one the production years support";
+        contradictions++;
+      });
+    });
+    if (contradictions) {
+      note(`graph: dropped ${contradictions} succession link(s) that pointed backwards in time ` +
+           "against an opposite link between the same two cars");
+    }
     const toAdd = [];
     links.forEach(l => {
       if (l.type !== "succession" || l.mirror || l.retired || l.genLevel) return;
@@ -7963,7 +8027,34 @@ Rules:
   // the longer name rejected a real engine page outright.
   const ENGINE_INFOBOX_RE = /\{\{\s*Infobox\s+(?:automobile\s+)?engine\b/i;
 
-  function isEngineArticle(wikitext) { return ENGINE_INFOBOX_RE.test(String(wikitext || "")); }
+  // Real user report: an engine node called "List of Isuzu engines", fitted to
+  // one car, whose Read-this-article button answered "'List of Isuzu engines'
+  // is not an engine article." Both true, and both wrong to leave:
+  //
+  //   "there are also instances of where certain 'engine' nodes are being
+  //   created, such as: List of Isuzu ... This issue also occurs on the
+  //   porsche 911 page... But, make sure not to get too lost in these types of
+  //   articles... make sure that the link to the engine for a particular car
+  //   doesn't say 'list of ___ engines', but actually identifies correctly the
+  //   engine(s) associated with it."
+  //
+  // A list article is an INDEX, not an engine and not an engine family: it has
+  // no infobox of its own and its sections are unrelated engines that happen
+  // to share a maker. So it is never a node. A car that links one with an
+  // anchor ("List of Isuzu engines#4ZE1") names a real engine -- that section
+  // is the engine, and the article is only where it is written down. A car
+  // that links one with NO anchor says only "an Isuzu engine", which is not
+  // something that can be put in a graph, so nothing is.
+  const ENGINE_LIST_TITLE_RE = /^list of\s+.+\s+engines?(\s*\([^()]*\))?$/i;
+  function isEngineListTitle(title) {
+    return ENGINE_LIST_TITLE_RE.test(String(title || "").split("#")[0].trim());
+  }
+  function isEngineArticle(wikitext, title) {
+    if (ENGINE_INFOBOX_RE.test(String(wikitext || ""))) return true;
+    // A list article carries no engine infobox at all. It is still readable --
+    // one section at a time, which is the only way it makes sense to read it.
+    return isEngineListTitle(title) && wikitextSections(String(wikitext || "")).length > 1;
+  }
 
   // The infobox as a plain field map. Brace-counted, because a field value
   // routinely contains {{convert}} and a naive split on "|" tears it apart.
@@ -8063,6 +8154,14 @@ Rules:
   // The year is in its own cell here, not at the head of the line, so it
   // cannot come from the same regex; it is read per cell.
   const TABLE_YEARS_RE = /^\s*(\d{4})(?:\s*[-\u2013\u2014/]\s*(\d{2,4}|present)?)?\s*$/i;
+  // 'rowspan="2"|Mercedes-AMG GT' -> 'Mercedes-AMG GT'. Only when what comes
+  // before the pipe really is an attribute list (name="value", no wiki
+  // markup), so a cell whose text legitimately contains a pipe is untouched.
+  const CELL_ATTRS_RE = /^\s*((?:[a-zA-Z-]+\s*=\s*(?:"[^"]*"|'[^']*'|[^\s|]+)\s*)+)\|(?!\|)/;
+  function stripCellAttributes(cell) {
+    const m = CELL_ATTRS_RE.exec(String(cell || ""));
+    return (m ? cell.slice(m[0].length) : String(cell || "")).trim();
+  }
   function engineTableApplications(body) {
     const out = [];
     const seen = new Set();
@@ -8074,6 +8173,11 @@ Rules:
         // never at either of those positions.
         const cells = row.split(/\n\s*[|!]|\|\||!!/)
                          .map(c => c.replace(/^\s*[|!]+/, "").trim())
+                         // A cell may carry HTML attributes before a single
+                         // pipe -- 'rowspan="2"|Mercedes-AMG GT (C190)'. Those
+                         // are the cell's formatting, not its text, and they
+                         // were ending up in the car's own name on the card.
+                         .map(c => stripCellAttributes(c))
                          .filter(Boolean);
         const linkCell = cells.find(c => /\[\[/.test(c));
         // A model cell with no link at all. The M178's whole table is like
@@ -8281,7 +8385,7 @@ Rules:
   }
 
   // The whole article, in the shape the engine layer stores.
-  function readEngineArticle(wikitext, name) {
+  function readEngineArticle(wikitext, name, title) {
     const info = engineInfobox(wikitext) || {};
     // The short name is what every variant heading is prefixed with ("M256 E30
     // DEH LA GR"), so it has to come out as "M256" whether this was called
@@ -8289,7 +8393,25 @@ Rules:
     // ("Mercedes-Benz M256") or the bare code. Leaving the word "engine" on
     // the end silently matched no heading at all and reported an engine with
     // no variants -- which reads exactly like an article that has none.
-    const short = String(name || info.name || "")
+    //
+    // Markup comes off first. `name` is often whatever a car's infobox
+    // displayed for the link, and that can be a raw template -- the GMC V6
+    // arrived as "{{convert|305|CID|L|1|abbr=on}}" and every variant this
+    // produced was prefixed with it.
+    const titleShort = String(title || "").split("#")[0]
+      .replace(/\s+engines?(\s*\([^()]*\))?$/i, "").trim();
+    let asked = stripEngineMarkup(String(name || "")).replace(/\s+engines?$/i, "").trim();
+    // A displacement is not a name, and neither is the maker on its own: both
+    // are what a car's engine line puts in the link text. The article's own
+    // title is the name in either case. ("Buick" -> "Buick V6".)
+    const isSpec = looksLikeMeasurement(asked);
+    const isBareMarque = !!asked && !/\d/.test(asked) && !!titleShort &&
+      norm(titleShort).startsWith(norm(asked)) && norm(titleShort) !== norm(asked);
+    // A list article's own title never names an engine, so it is never the
+    // fallback -- what was asked for IS the engine. See isEngineListTitle.
+    const listed = isEngineListTitle(title);
+    if (!listed && (!asked || isSpec || isBareMarque)) asked = titleShort || asked || String(info.name || "");
+    const short = asked
       .replace(/\s+engines?$/i, "")
       .replace(/^[A-Z][A-Za-z-]*\s+(?=[A-Za-z]{0,2}\d)/, "")
       .trim();
@@ -8313,7 +8435,7 @@ Rules:
     // turns out to have only one generation.
     const loose = variants.length ? [] : engineApplicationsIn(body);
     return {
-      name: stripEngineMarkup(info.name || name || ""),
+      name: stripEngineMarkup(info.name || "") || short || titleShort,
       shortName: short,
       manufacturer: stripEngineMarkup(info.manufacturer || ""),
       production: stripEngineMarkup(info.production || ""),
@@ -8769,9 +8891,59 @@ Rules:
                       note: e.app.note || null })) fittedCount++;
         if (!seenCar.has(e.node.id)) { seenCar.add(e.node.id); cars.push(e.node); }
       }
+      // Real user report, the Oldsmobile LF9: "why is the Oldsmobile LF9
+      // engine linked to the entire Buick Riviera nameplate and not a specific
+      // generation from the riviera nameplate?... in the wikipedia, it even
+      // says it's for the '1981-1985 Buick Riviera'."
+      //
+      // planEngineEdgesWith already prefers a generation over its nameplate,
+      // but only among the edges it is planning right now. An edge drawn
+      // EARLIER, when the Riviera was still one undivided model, survived the
+      // car being split -- so the engine hung off the nameplate and off the
+      // generation at once. Any nameplate-level edge this engine holds is
+      // dropped once it holds one to a generation of that nameplate.
+      dropNameplateEdgesUnderGenerations(eng, nodes, links);
     }
 
     return { engine: eng, variants: variantCount, fitted: fittedCount, minted, cars };
+  }
+
+  // An engine (with its variants) must not be drawn to a nameplate AND to one
+  // of that nameplate's generations. The rule is the user's own: "so long as
+  // one generation is mentioned, never connect the engine to the main
+  // nameplate but only the gen." Applied to what is already in the graph, not
+  // only to what is being added, because a car can be split into generations
+  // long after the engine was first read.
+  function dropNameplateEdgesUnderGenerations(eng, nodes, links) {
+    if (!eng) return 0;
+    const byIdLocal = new Map(nodes.map(n => [n.id, n]));
+    const mine = new Set([eng.id].concat((eng.variants || [])));
+    const endOf = v => (typeof v === "string" ? v : (v && v.id));
+    const covered = new Set();
+    for (const l of links) {
+      if (l.type !== "fitted" || l.retired) continue;
+      const a = endOf(l.source), b = endOf(l.target);
+      const carId = mine.has(a) ? b : (mine.has(b) ? a : null);
+      if (!carId) continue;
+      const car = byIdLocal.get(carId);
+      if (car && car.familyOf) covered.add(car.familyOf);
+    }
+    if (!covered.size) return 0;
+    let dropped = 0;
+    for (let i = links.length - 1; i >= 0; i--) {
+      const l = links[i];
+      if (l.type !== "fitted" || l.retired) continue;
+      const a = endOf(l.source), b = endOf(l.target);
+      const carId = mine.has(a) ? b : (mine.has(b) ? a : null);
+      if (!carId || !covered.has(carId)) continue;
+      links.splice(i, 1);
+      dropped++;
+    }
+    if (dropped) {
+      note(`powertrain: ${eng.label} -- dropped ${dropped} link(s) to a nameplate ` +
+           "whose own generation this engine is already connected to");
+    }
+    return dropped;
   }
 
   // ---------- engines: the stored layer ----------
@@ -8815,14 +8987,14 @@ Rules:
     const p = (async () => {
       try {
         const { wikitext, resolvedTitle } = await fetchArticleDigest(title);
-        if (!isEngineArticle(wikitext)) {
+        if (!isEngineArticle(wikitext, resolvedTitle || title)) {
           return { status: "not-an-engine", title: resolvedTitle || title };
         }
         // Which engine is being asked about: the node's own name when there
         // is one ("M177"), otherwise the title asked for -- and `title`
         // rather than the resolved one, since "Mercedes-Benz M177 engine" is
         // itself the answer while ".../M176/M177/M178 engine" is not.
-        const article = readEngineArticle(wikitext, (opts && opts.name) || title);
+        const article = readEngineArticle(wikitext, (opts && opts.name) || title, title);
         // Keyed to the node asked about where there is one, so a redirect
         // cannot move the entry out from under its own card -- see
         // applyEngineArticleWith's own note.
@@ -8972,6 +9144,27 @@ Rules:
     return { engines, variants, fitted };
   }
 
+  // Re-place every engine's edges against the graph as it is NOW.
+  //
+  // Real user request: "if a car is found for the first time from searching
+  // for a particular engine, it should also be checked whether or not the car
+  // being matched is a nameplate, and then match them to the generation
+  // corresponding to it." When an engine is read, a car it names may still be
+  // one undivided model -- the Buick Riviera was -- so the only honest edge at
+  // that moment is to the car itself. The car is queued for its own check (see
+  // scheduleEngineCascade), and when that check splits it into generations
+  // this is what moves the engine down onto the right one.
+  function restitchEngineEdges(nodes, links) {
+    const r = applyEngines(nodes, links);
+    let dropped = 0;
+    for (const n of nodes) {
+      if (!n || n.type !== "engine" || n.retired) continue;
+      try { dropped += dropNameplateEdgesUnderGenerations(n, nodes, links); }
+      catch (e) { /* one engine's edges are not worth failing the pass for */ }
+    }
+    return Object.assign({ dropped }, r);
+  }
+
   // ---------- engines: what a car's own article says it had ----------
   // Real user request: "The user can either select a car and have the LLM
   // search it normally, after which the information about the engine also gets
@@ -9048,6 +9241,11 @@ Rules:
   // name a mention happened to display. "Mercedes-Benz M256 engine" and the
   // infobox's own "Mercedes-Benz M256" have to land on the SAME node, or
   // scanning a car and then scanning its engine would produce two.
+  // What to call a node built from an article title alone.
+  function engineTitleLabel(title) {
+    return String(title || "").split("#")[0].trim()
+      .replace(/\s+engines?(\s*\([^()]*\))?$/i, "").trim() || String(title || "");
+  }
   function engineIdFromTitle(title) {
     const t = String(title || "").split("#")[0].trim().replace(/\s+engines?$/i, "");
     return engineIdFor(t || title || "");
@@ -9061,7 +9259,18 @@ Rules:
   // SPECIFICATION rather than a name -- real user report, an engine card whose
   // title read "{{convert|305|CID|L|1|abbr=on}}" -- and a displacement is not
   // an engine. Those fall back to the article's own short name.
-  function mentionName(display, title) {
+  // "2.0 L", "305 CID", "1,998 cc" are measurements. "4ZE1", "6G72", "2JZ-GE"
+  // open with a digit too and are names -- an engine code is digits and
+  // letters run together, a measurement is a number followed by a unit.
+  function looksLikeMeasurement(text) {
+    const t = String(text || "").trim();
+    if (!t) return false;
+    if (/^[\d.,\s]+$/.test(t)) return true;
+    if (/^[\d.,]+\s*(?:-|\s)?\s*(?:l|cc|cm3|cm³|cid|cu\s*in|in³|litres?|liters?|hp|kw|ps|bhp|nm)\b/i.test(t)) return true;
+    // A unit anywhere, and no code of its own to redeem it.
+    return /\b(?:cc|cid|litres?|liters?|kw|hp|ps|bhp|in³|cu\s*in)\b/i.test(t) && !/[A-Za-z]\d|\d[A-Za-z]/.test(t);
+  }
+  function mentionName(display, title, anchor) {
     // Quotes come off: an infobox writes [[...|"Stovebolt"]] and the engine is
     // called the Stovebolt.
     const shown = stripEngineMarkup(display || "").replace(/^["'\u201c\u201d]+|["'\u201c\u201d]+$/g, "").trim();
@@ -9074,15 +9283,255 @@ Rules:
     const bare = String(title || "")
       .replace(/\s+engines?(\s*\([^()]*\))?$/i, "").trim();
     const fromTitle = bare.replace(/^[A-Z][A-Za-z-]*\s+(?=[A-Z]{1,3}\d{2,})/, "");
-    if (!shown) return fromTitle || String(title || "").trim();
+    // An anchor names ONE engine out of a family page, and that is the better
+    // name for it: "[[Land Rover engines#2-litre diesel|2.0 L diesel I4]]" is
+    // the 2-litre diesel, not "Land Rover engines" and not its own dimensions.
+    // ...but only when the anchor is a NAME. The Suburban links
+    // "[[Chevrolet small-block engine (first- and second-generation)#265|...]]"
+    // -- "265" is the displacement in cubic inches, which identifies the
+    // variant and is not what the engine is called. Anchors like that stay in
+    // the `variant` field and the article's own name is used.
+    const rawAnchor = anchor ? stripEngineMarkup(String(anchor).replace(/_/g, " ")).trim() : "";
+    const fromAnchor = /[A-Za-z]{2,}/.test(rawAnchor) ? rawAnchor : "";
+    if (!shown) return fromAnchor || fromTitle || String(title || "").trim();
     // A measurement, not a name: opens with a number, or carries a unit and
     // no code of its own.
-    const looksLikeSpec = /^[\d.,]/.test(shown) ||
-      (/\b(?:cc|cid|l|litres?|liters?|kw|hp|ps|bhp|in³|cu\s*in)\b/i.test(shown) &&
-       !/[A-Za-z]\d/.test(shown));
-    if (looksLikeSpec) return fromTitle || shown;
-    return shown;
+    if (looksLikeMeasurement(shown)) return fromAnchor || fromTitle || shown;
+    // Real user report, the Cadillac de Ville: its card listed engines called
+    // "Buick" and "Oldsmobile". Those came from "[[Buick V6 engine|Buick]]"
+    // and "[[Oldsmobile Diesel engine|Oldsmobile]]" -- the display text is
+    // just the marque, which is the maker and not the name of the engine. The
+    // article's own name is what it is called.
+    const bareTitleWords = bare.split(/\s+/).filter(Boolean);
+    const isPrefixOfTitle = bareTitleWords.length > 1 &&
+      norm(bareTitleWords.slice(0, shown.split(/\s+/).length).join(" ")) === norm(shown);
+    if (isPrefixOfTitle && !/\d/.test(shown)) return fromAnchor || bare;
+    return fromAnchor && !/\d/.test(shown) && norm(shown) === norm(bare) ? fromAnchor : shown;
   }
+
+  // ---------- reading one line of a car's "| engine =" field ----------
+  // Real user report, the Jaguar XE:
+  //
+  //   Engine  Petrol:
+  //           2.0 L Ford EcoBoost turbo I4 (until 2017)
+  //           2.0 L Ingenium turbo I4 (since 2015)
+  //           3.0 L AJ126 supercharged V6 (until 2019)
+  //           5.0 L AJ133 supercharged V8 (SV Project 8)
+  //           Diesel:
+  //           2.0 L Ingenium turbo I4 (since 2015)
+  //
+  // "Notice how each engine is listed in a list, with the primary names of the
+  // engines linked. In every case, the link can be visited... For example, the
+  // Ford Ecoboost in that list is the link that should be followed, not 'turbo'
+  // or 'I4', since those are links to what a turbo and an I4 is. However,
+  // following the ford ecoboost link would prove to be relevant, along with
+  // taking the information that the engine is a 2.0L and it is an Inline 4, to
+  // find the associated engine variant in the ford ecoboost wikipedia link
+  // (which is a huge family of engines)."
+  //
+  // So a line is ONE engine: at most one of its links is the engine, and
+  // everything else on it -- displacement, layout, induction, fuel, years -- is
+  // what says WHICH engine out of a family page that may list dozens. Reading
+  // the field as a flat bag of links, which is what this used to do, threw all
+  // of that away and could not tell "[[Ford EcoBoost engine|Ford]]" from
+  // "[[Inline-four engine|I4]]" except by a title rule.
+  // Splitting a field into its lines is the whole game, and Wikipedia writes
+  // that list four different ways: <br/>-separated text, newline-separated
+  // text, "*" bullets, and a list TEMPLATE whose items are separated by the
+  // same "|" that separates a template's arguments -- "{{ubl|item|item|item}}".
+  // The template form is why this has to walk the text rather than split on a
+  // regex: a "|" inside an item's own [[link|display]] or {{convert|...}} is
+  // not a separator. Reading the Suburban's ninth generation as ONE line, and
+  // so as one engine out of five, is what this is for.
+  const LIST_TEMPLATE_RE = /^(?:ubl|unbulleted list|plainlist|flatlist|hlist|blist|collapsible list|ubli)$/i;
+  function splitEngineField(field) {
+    const src = String(field || "").replace(/<br\s*\/?>/gi, "\n");
+    const out = [];
+    let buf = "";
+    const flush = () => { if (buf.trim()) out.push(buf.trim()); buf = ""; };
+    for (let i = 0; i < src.length; i++) {
+      const two = src.substr(i, 2);
+      if (two === "[[") { const j = matchingClose(src, i, "[[", "]]"); buf += src.slice(i, j); i = j - 1; continue; }
+      if (two === "{{") {
+        const j = matchingClose(src, i, "{{", "}}");
+        const inner = src.slice(i + 2, j - 2);
+        const bar = topLevelBar(inner);
+        const head = (bar < 0 ? inner : inner.slice(0, bar)).trim();
+        if (LIST_TEMPLATE_RE.test(head) && bar >= 0) {
+          // Its arguments ARE the lines. Positional only: "|title=..." is a
+          // property of the list, not an item of it.
+          splitTopLevel(inner.slice(bar + 1)).forEach(part => {
+            if (/^\s*[A-Za-z_][\w\s-]*=/.test(part)) return;
+            splitEngineField(part).forEach(x => out.push(x));
+          });
+          flush();
+          i = j - 1;
+          continue;
+        }
+        buf += src.slice(i, j); i = j - 1; continue;
+      }
+      if (src[i] === "\n") { flush(); continue; }
+      if (src[i] === "*" && !buf.trim()) { flush(); continue; }
+      buf += src[i];
+    }
+    flush();
+    return out;
+  }
+  // Index just past the closing delimiter that matches the opener at `i`.
+  function matchingClose(src, i, open, close) {
+    let depth = 0;
+    for (let k = i; k < src.length; k++) {
+      if (src.substr(k, 2) === open) { depth++; k++; continue; }
+      if (src.substr(k, 2) === close) { depth--; k++; if (!depth) return k + 1; continue; }
+    }
+    return src.length;
+  }
+  function topLevelBar(inner) {
+    for (let k = 0; k < inner.length; k++) {
+      const two = inner.substr(k, 2);
+      if (two === "[[") { k = matchingClose(inner, k, "[[", "]]") - 1; continue; }
+      if (two === "{{") { k = matchingClose(inner, k, "{{", "}}") - 1; continue; }
+      if (inner[k] === "|") return k;
+    }
+    return -1;
+  }
+  function splitTopLevel(rest) {
+    const parts = [];
+    let buf = "";
+    for (let k = 0; k < rest.length; k++) {
+      const two = rest.substr(k, 2);
+      if (two === "[[") { const j = matchingClose(rest, k, "[[", "]]"); buf += rest.slice(k, j); k = j - 1; continue; }
+      if (two === "{{") { const j = matchingClose(rest, k, "{{", "}}"); buf += rest.slice(k, j); k = j - 1; continue; }
+      if (rest[k] === "|") { parts.push(buf); buf = ""; continue; }
+      buf += rest[k];
+    }
+    parts.push(buf);
+    return parts;
+  }
+  // "Petrol:" / "Diesel:" / "Petrol engines:" head a group; they are not lines
+  // of their own but they say what the lines under them burn.
+  const FUEL_HEADING_RE = /^\s*'*\s*(petrol|gasoline|diesel|hybrid|electric|cng|lpg|ethanol|flex[\s-]?fuel)\b[^:]*:\s*'*\s*$/i;
+
+  // What a line says about the engine, in the units Wikipedia's infoboxes
+  // actually use. Only what is written: nothing here infers a displacement
+  // from a code or a cylinder count from a layout it did not see.
+  function engineSpecsFromText(raw) {
+    const t = stripEngineMarkup(raw || "").replace(/&nbsp;/g, " ");
+    const out = {};
+    // 2.0 L / 1,998 cc / 305 CID / 5.7-litre
+    let m = /(\d+(?:[.,]\d+)?)\s*(?:-|\s)?\s*(l\b|litres?|liters?)/i.exec(t);
+    if (m) out.displacement = m[1].replace(",", ".") + " L";
+    else if ((m = /(\d[\d,.]*)\s*(cc|cm3|cm³)\b/i.exec(t))) out.displacement = m[1].replace(/,/g, "") + " cc";
+    else if ((m = /(\d[\d,.]*)\s*(?:cid|cu\s*in|in³)\b/i.exec(t))) out.displacement = m[1].replace(/,/g, "") + " cu in";
+    // I4 / V6 / V8 / flat-6 / straight-six / W12
+    m = /\b(?:([VWvw])\s*-?\s*(\d{1,2})|([Ii])\s*-?\s*(\d{1,2})|(straight|inline|flat|boxer)\s*-?\s*(\d{1,2}|four|six|eight|twelve|two|three|five|ten))\b/.exec(t);
+    if (m) {
+      const words = { two: 2, three: 3, four: 4, five: 5, six: 6, eight: 8, ten: 10, twelve: 12 };
+      if (m[1]) { out.layout = m[1].toUpperCase(); out.cylinders = +m[2]; }
+      else if (m[3]) { out.layout = "I"; out.cylinders = +m[4]; }
+      else {
+        const word = String(m[6]).toLowerCase();
+        out.cylinders = words[word] != null ? words[word] : +m[6];
+        out.layout = /flat|boxer/i.test(m[5]) ? "F" : "I";
+      }
+    }
+    const induction = [];
+    if (/\bturbo(?:charged)?\b/i.test(t)) induction.push("turbocharged");
+    if (/\b(?:super\s?charged|supercharger)\b/i.test(t)) induction.push("supercharged");
+    if (/\bnaturally[\s-]aspirated\b/i.test(t)) induction.push("naturally aspirated");
+    if (induction.length) out.induction = induction.join(" + ");
+    if (/\bdiesel\b/i.test(t)) out.fuel = "diesel";
+    else if (/\b(?:petrol|gasoline)\b/i.test(t)) out.fuel = "petrol";
+    else if (/\b(?:electric|ev)\b/i.test(t) && !/hybrid/i.test(t)) out.fuel = "electric";
+    if (/\bhybrid\b/i.test(t)) out.hybrid = true;
+    // (until 2017) / (since 2015) / (2001-2006)
+    m = /\((?:until|to|up to)\s*(\d{4})\)/i.exec(t);
+    if (m) out.yearEnd = +m[1];
+    m = /\((?:since|from)\s*(\d{4})\)/i.exec(t);
+    if (m) out.yearStart = +m[1];
+    m = /\((\d{4})\s*[-–—]\s*(\d{4}|present)\)/i.exec(t);
+    if (m) { out.yearStart = +m[1]; if (/^\d{4}$/.test(m[2])) out.yearEnd = +m[2]; }
+    return out;
+  }
+
+  // Every marque the graph knows, so a link to one can be told from a link to
+  // an engine without a hardcoded list. Refreshed by whoever has the node
+  // array to hand; empty until then, which only costs the shape rule below.
+  let knownMakes = new Set();
+  function knownMakeNames() { return knownMakes; }
+  function rememberMakeNames(nodes) {
+    if (!Array.isArray(nodes)) return;
+    const next = new Set();
+    for (const n of nodes) {
+      if (n && n.type === "make" && !n.retired && n.label) next.add(norm(n.label));
+    }
+    if (next.size) knownMakes = next;
+  }
+
+  // A link that is a company, not an engine. "[[Ford]]", "[[General Motors]]",
+  // "[[Buick]]" appear inside an engine line all the time and name the maker.
+  // Recognised by shape rather than by a list of marques: no digits, no
+  // "engine" suffix, and every word capitalised.
+  function looksLikeMarqueOnly(title, makes) {
+    const t = String(title || "").split("#")[0].trim();
+    if (!t || /\d/.test(t) || /\bengines?\b/i.test(t)) return false;
+    if (makes && makes.has(norm(t))) return true;
+    return /^[A-Z][A-Za-z-]*(?:\s+(?:Motor|Motors|Company|Corporation|Group|Automobiles?|AG|SA|Inc\.?))*$/.test(t) &&
+           t.split(/\s+/).length <= 3;
+  }
+
+  // The links on one line, in order, with the generic ones dropped. The FIRST
+  // survivor is the engine: an infobox writes the engine's own name first and
+  // qualifies it afterwards ("2.0 L [[Ford EcoBoost engine|Ford EcoBoost]]
+  // [[Turbocharger|turbo]] [[Inline-four engine|I4]]").
+  function engineLinksIn(line, makes) {
+    const out = [];
+    const rx = /\[\[([^\]|]+)(?:\|([^\]]*))?\]\]/g;
+    let m;
+    while ((m = rx.exec(line))) {
+      const raw = m[1].trim();
+      if (!raw || /^\s*(?:File|Image|Category)\s*:/i.test(raw)) continue;
+      const title = raw.split("#")[0].trim();
+      const anchor = raw.indexOf("#") >= 0 ? raw.slice(raw.indexOf("#") + 1).trim() : null;
+      if (looksLikeMarqueOnly(title, makes)) continue;
+      // An anchored link into a family page is an engine even when the page's
+      // own title would not pass on its own: "[[Land Rover engines#2-litre
+      // diesel|2.0 L diesel I4]]" names one engine of many, and the anchor is
+      // its name. Real user point: "the unnamed engine '2.0L diesel' is
+      // relevant since the title of the link is
+      // .../Land_Rover_engines#2-litre_diesel, which specifically involves
+      // land rover engines."
+      // An index of a maker's engines is not an engine. With an anchor it
+      // points at one; without one it says only "an Isuzu engine", which is
+      // not something that can go in a graph. See isEngineListTitle.
+      if (isEngineListTitle(title)) { if (!anchor) continue; }
+      else if (!looksLikeEngineArticleTitle(raw) && !(anchor && /\bengines?\b/i.test(title))) continue;
+      out.push({ title, anchor, display: (m[2] || "").trim() });
+    }
+    return out;
+  }
+
+  // Split an "| engine =" field into one entry per engine, carrying each
+  // line's own specs and whichever fuel heading it sits under.
+  function engineFieldEntries(field, makes) {
+    const lines = splitEngineField(field);
+    const out = [];
+    let fuel = null;
+    for (const raw of lines) {
+      const line = String(raw || "").trim();
+      if (!line) continue;
+      const bare = stripEngineMarkup(line);
+      const fm = FUEL_HEADING_RE.exec(bare);
+      if (fm) { fuel = fm[1].toLowerCase().replace("gasoline", "petrol"); continue; }
+      if (!bare) continue;
+      const links = engineLinksIn(line, makes);
+      const specs = engineSpecsFromText(line);
+      if (fuel && !specs.fuel) specs.fuel = fuel;
+      out.push({ text: bare, links, specs });
+    }
+    return out;
+  }
+
   function engineMentions(wikitext) {
     const src = String(wikitext || "");
     // EVERY engine field, not just the first. A merged, single-article
@@ -9107,21 +9556,28 @@ Rules:
       fields.push(src.slice(m.index + m[0].length, end));
     }
     if (!fields.length) return [];
-    const field = fields.join("\n");
+    const makes = knownMakeNames();
     const out = [];
     const seen = new Set();
-    const rx = /\[\[([^\]|]+)(?:\|([^\]]*))?\]\]/g;
-    let l;
-    while ((l = rx.exec(field))) {
-      const raw = l[1].trim();
-      if (!looksLikeEngineArticleTitle(raw)) continue;
-      const title = raw.split("#")[0].trim();
-      const anchor = raw.indexOf("#") >= 0 ? raw.slice(raw.indexOf("#") + 1).trim() : null;
-      const name = mentionName(l[2], title);
-      const key = norm(title) + "|" + norm(name);
-      if (seen.has(key)) continue;
-      seen.add(key);
-      out.push({ title, name, variant: anchor || null });
+    // One entry per LINE, because a line is one engine -- and the rest of the
+    // line is what says which engine, when the link goes to a family page
+    // holding dozens. See engineFieldEntries.
+    for (const field of fields) {
+      for (const entry of engineFieldEntries(field, makes)) {
+        // At most one link on a line is the engine, and it is the first that
+        // survives engineLinksIn. A line with none (the Land Rover series'
+        // "1.6 L I4 (1948-1951)") names an engine with no article to read, so
+        // there is nothing to put in the graph -- its specs still belong to
+        // the line and are kept for anything that wants them.
+        const link = entry.links[0];
+        if (!link) continue;
+        const name = mentionName(link.display, link.title, link.anchor);
+        const key = norm(link.title) + "|" + norm(name) + "|" + norm(link.anchor || "");
+        if (seen.has(key)) continue;
+        seen.add(key);
+        out.push({ title: link.title, name, variant: link.anchor || null,
+                   specs: entry.specs, said: entry.text });
+      }
     }
     return out;
   }
@@ -9170,6 +9626,7 @@ Rules:
   }
   const POWERTRAIN_LINK_TYPES = new Set(["fitted", "enginegen", "enginesucc"]);
   function recordEngineMentionsFrom(mentions, carNode, nodes, links, opts) {
+    rememberMakeNames(nodes);
     if (!carNode) return { engines: 0, fitted: 0, revived: 0, deleted: 0, added: [] };
     if (!mentions || !mentions.length) return { engines: 0, fitted: 0, revived: 0, deleted: 0, added: [] };
     const byId = new Map(nodes.map(n => [n.id, n]));
@@ -9185,18 +9642,34 @@ Rules:
     const added = [];
     for (const mention of mentions) {
       // A car's infobox says which of a shared page's engines it means -- the
-      // SL R232 links "[[Mercedes-Benz M176/M177/M178 engine|M177]]" -- so
-      // that is the engine recorded, not the page. Without this, all three
-      // become one node named after the article.
+      // SL R232 links "[[Mercedes-Benz M176/M177/M178 engine|M177]]". That is
+      // recorded as WHICH VARIANT, not as a second engine node.
+      //
+      // Real user report: "M176 exists twice, once as an engine and another
+      // time as an enginevar. the M176 was already researched under the
+      // Mercedes-Benz M176/M177/M178 engine, and also clearly has more info
+      // about it." Minting a node for the code is what produced that pair:
+      // scanning the article gives a hub with three variants, and a car
+      // linking the same article gave a fourth, empty node beside it. One
+      // article is one engine node; its codes are its variants.
       const multi = splitMultiEngineTitle(mention.title);
       const picked = multi && multi.codes.find(c => norm(c) === norm(mention.name));
-      const id = picked
-        ? engineIdFor((multi.marque ? multi.marque + " " : "") + picked)
-        : engineIdFromTitle(mention.title);
+      // An index article is the exception to one-article-one-engine: its
+      // sections are unrelated engines that only share a maker, so the
+      // SECTION is the engine and the article is merely where it is written.
+      const listed = isEngineListTitle(mention.title) && mention.variant;
+      const id = listed ? engineIdFor(mention.name || mention.variant)
+                        : engineIdFromTitle(mention.title);
       let n = byId.get(id);
       if (!n) {
-        n = { id, type: "engine", label: picked || mention.name || mention.title,
-              wp: mention.title,
+        n = { id, type: "engine",
+              // Named for the article, not for whichever of its engines this
+              // car happens to use -- an unread node called "M177" whose page
+              // is the M176/M177/M178 is a node that lies about its own scope.
+              label: listed ? (mention.name || mention.variant)
+                   : multi ? engineTitleLabel(mention.title)
+                   : (mention.name || mention.title),
+              wp: listed ? mention.title + "#" + mention.variant : mention.title,
               make: null, year: null, end: null, llmGenerated: true, unresearched: true,
               variants: [] };
         nodes.push(n); byId.set(id, n); added.push(n);
@@ -9214,9 +9687,25 @@ Rules:
         linkKey.add(k); linkKey.add(carNode.id + "|" + n.id + "|fitted");
         links.push({ source: n.id, target: carNode.id, type: "fitted",
                      llmGenerated: true, fromCar: true,
-                     variantHint: mention.variant || null });
+                     // Either the anchor the link carried, or the code the
+                     // link displayed for a page covering several engines.
+                     variantHint: mention.variant || picked || null,
+                     // What the car's own line said: displacement, layout,
+                     // induction, fuel, years. Kept so a family page with
+                     // dozens of variants can be narrowed to the right one --
+                     // "2.0 L ... turbo I4" is what picks the EcoBoost this
+                     // car actually has. See engineSpecsFromText.
+                     saidSpecs: mention.specs || null,
+                     saidText: mention.said || null });
         fitted++;
       }
+    }
+    // The clean-up the user asked for, run every time engines are added rather
+    // than as a separate chore: a node that turns out to be the same engine as
+    // one already here folds in immediately, instead of sitting beside it.
+    if (added.length) {
+      try { autoMergeDuplicateEngines(nodes, links); }
+      catch (e) { console.warn("LlmFamilies: engine duplicate check failed", e); }
     }
     return { engines, fitted, revived, deleted, mentions, added };
   }
@@ -9354,6 +9843,101 @@ Rules:
     return n;
   }
 
+
+  // ---------- engines: the same engine reached twice ----------
+  // Real user report: "there are a few duplicate engines that exist in the
+  // graph. For example, M176 exists twice, once as an engine and another time
+  // as an enginevar. the M176 was already researched under the Mercedes-Benz
+  // M176/M177/M178 engine, and also clearly has more info about it. In this
+  // case, there should be some duplicate checking whenever a new engine is
+  // considered to be added, as well as some automatic clean-up check every
+  // time a new engine is added, similar to how it is done for a car. A similar
+  // issue goes for the Duramax engine."
+  //
+  // Two ways the same engine arrives twice, both real and both in the file:
+  //
+  //  - ONE ARTICLE, TWO NODES. Scanning "Mercedes-Benz M176/M177/M178 engine"
+  //    gives a hub with three variants. A car whose infobox links that same
+  //    article and displays "M177" used to mint a SECOND engine node for the
+  //    code. Same article, same engine, two nodes -- and the one built from
+  //    the mention knows nothing, while the one built from the article knows
+  //    everything. "Buick" beside "Buick V6", and "LT4" beside the whole
+  //    LS-based small-block, are the same shape.
+  //  - A CODE THAT IS ALREADY A VARIANT. An unresearched node named after a
+  //    variant of an engine that has been read ("Duramax LB7" next to the
+  //    Duramax it belongs to).
+  //
+  // Both fold into the node that has the article, using the merge machinery
+  // that already exists -- so the decision is recorded, replayed at boot, and
+  // undoable from the same place as a hand-made merge.
+  function engineArticleKey(n) {
+    const wp = String((n && n.wp) || "").split("#")[0].trim();
+    if (!wp) return null;
+    return norm(wp.replace(/\s+engines?(\s*\([^()]*\))?$/i, ""));
+  }
+  function autoMergeDuplicateEngines(nodes, links) {
+    const engines = nodes.filter(n => n && n.type === "engine" && !n.retired);
+    if (engines.length < 2) return { merged: 0, groups: [] };
+    const byId = new Map(nodes.map(n => [n.id, n]));
+    const groups = new Map();
+    for (const n of engines) {
+      const key = engineArticleKey(n);
+      if (!key) continue;
+      if (!groups.has(key)) groups.set(key, []);
+      groups.get(key).push(n);
+    }
+    // How much a node knows, so the one folded IN is never the one with the
+    // article behind it.
+    const read = n => {
+      const e = store.engines[n.id];
+      const vars = (n.variants || []).filter(id => { const v = byId.get(id); return v && !v.retired; }).length;
+      return (e && e.article ? 1000 : 0) + vars * 10 +
+             (n.unresearched ? 0 : 5) +
+             links.filter(l => l.source === n.id || l.target === n.id ||
+                               (l.source && l.source.id === n.id) || (l.target && l.target.id === n.id)).length;
+    };
+    const done = [];
+    for (const [key, list] of groups) {
+      if (list.length < 2) continue;
+      // The article's own node wins ties: its id is derived from the title.
+      const wanted = engineIdFromTitle((list.find(n => n.wp) || {}).wp || "");
+      const sorted = list.slice().sort((a, b) => {
+        if (a.id === wanted && b.id !== wanted) return -1;
+        if (b.id === wanted && a.id !== wanted) return 1;
+        return read(b) - read(a);
+      });
+      const primary = sorted[0];
+      const members = sorted.slice(1).map(n => n.id);
+      const r = mergeEngines(primary.id, members, nodes, links);
+      if (r && r.ok) {
+        done.push({ primary: primary.id, members, why: "same article" });
+        note(`powertrain: folded ${members.length} duplicate engine node(s) into ` +
+             `"${primary.label}" -- same article (${primary.wp})`);
+      }
+    }
+    // The second shape: an unresearched node whose name IS a variant of an
+    // engine that has been read.
+    const variantOwner = new Map();
+    for (const n of engines) {
+      (n.variants || []).forEach(id => {
+        const v = byId.get(id);
+        if (v && !v.retired && v.label) variantOwner.set(norm(v.label), n.id);
+      });
+    }
+    for (const n of nodes.filter(x => x && x.type === "engine" && !x.retired && x.unresearched)) {
+      const owner = variantOwner.get(norm(n.label));
+      if (!owner || owner === n.id) continue;
+      if (done.some(d => d.members.indexOf(n.id) >= 0)) continue;
+      const r = mergeEngines(owner, [n.id], nodes, links);
+      if (r && r.ok) {
+        done.push({ primary: owner, members: [n.id], why: "already a variant" });
+        note(`powertrain: "${n.label}" is already a variant of ` +
+             `"${(byId.get(owner) || {}).label}" -- folded in`);
+      }
+    }
+    return { merged: done.reduce((s, d) => s + d.members.length, 0), groups: done };
+  }
+
   // ---------- engines: the pass that actually finds them ----------
   // Real bug report: "I ran an llm check on the mercedes E class... there
   // didn't appear to be any information in the terminal on serve.py, nor was
@@ -9406,9 +9990,38 @@ Rules:
   // nameplate a few dozen round trips. The section reader is one regex over
   // wikitext already in hand, and on real articles it is the one that works --
   // the E-Class states every generation's article in a hatnote.
-  function engineArticleFor(car, fam, famWikitext) {
+  // The article a whole nameplate is written in, when one is.
+  //
+  // Real bug report, the Cadillac de Ville: its fifth generation's card listed
+  // engines from every era of the car at once. All eight generations live in
+  // one article, each with its own {{Infobox automobile}}, and reading that
+  // article whole merges eight "| engine =" fields into one list. The guard
+  // against that was `fam.wp` -- but a BUILD-TIME family node has no wp of its
+  // own (only its generations do), so it never fired and the whole page was
+  // read for every generation. The article two or more generations share IS
+  // the nameplate's article, whatever the family node says.
+  function umbrellaArticleFor(fam, byIdLocal) {
+    if (!fam) return null;
+    if (fam.wp) return fam.wp;
+    const count = new Map();
+    (fam.generations || []).forEach(id => {
+      const g = byIdLocal && byIdLocal.get ? byIdLocal.get(id) : null;
+      if (!g || !g.wp || g.retired) return;
+      const k = norm(g.wp);
+      count.set(k, (count.get(k) || 0) + 1);
+    });
+    let best = null, bestN = 0;
+    (fam.generations || []).forEach(id => {
+      const g = byIdLocal && byIdLocal.get ? byIdLocal.get(id) : null;
+      if (!g || !g.wp) return;
+      const n = count.get(norm(g.wp)) || 0;
+      if (n > bestN) { bestN = n; best = g.wp; }
+    });
+    return bestN >= 2 ? best : null;
+  }
+  function engineArticleFor(car, fam, famWikitext, umbrella) {
     if (!car) return null;
-    const famWp = fam && fam.wp;
+    const famWp = (fam && fam.wp) || umbrella || null;
     const isGeneration = !!(car.familyOf || (fam && fam !== car));
     if (isGeneration) {
       if (famWikitext) {
@@ -9522,15 +10135,20 @@ Rules:
     note(`powertrain: reading engines for ${node.label} -- ` +
          `${pending.length} car(s) to check, from their own articles and from ` +
          "this nameplate's own sections (no model call, infobox only)");
+    // A build-time family has no wp of its own, so the article the nameplate
+    // is actually written in is the one its generations share. Without this
+    // every generation of the Cadillac de Ville read the whole eight-
+    // generation article and came back with all eight eras' engines.
+    const umbrella = umbrellaArticleFor(fam, byIdLocal);
     let famWikitext = null;
-    if (fam && fam.wp) {
-      try { famWikitext = (await fetchArticleDigest(fam.wp)).wikitext; } catch (e) { famWikitext = null; }
+    if (umbrella) {
+      try { famWikitext = (await fetchArticleDigest(umbrella)).wikitext; } catch (e) { famWikitext = null; }
     }
     for (const car of targets) {
       if (!car || car.retired) continue;
       if (store.engineScans[car.id]) { out.skipped++; continue; }
       let title = null;
-      try { title = engineArticleFor(car, fam, famWikitext); } catch (e) { title = null; }
+      try { title = engineArticleFor(car, fam, famWikitext, umbrella); } catch (e) { title = null; }
 
       // BOTH places, merged. A generation's own article is the better source
       // where one exists, and the nameplate's own section for that generation
@@ -9555,7 +10173,7 @@ Rules:
           const before = hits.length;
           hits = mergeEngineHits(hits, secHits);
           note(`powertrain: ${car.label} -- ${hits.length - before} more engine(s) from ` +
-               `"${fam.wp}" § ${fromSection.title}`);
+               `"${umbrella}" § ${fromSection.title}`);
         }
       }
 
@@ -9571,7 +10189,7 @@ Rules:
                      : fromSection ? "no-engines" : "no-article";
         store.engineScans[car.id] = {
           checkedAt: new Date().toISOString(),
-          sourceTitle: readTitle || (fromSection && fam.wp) || null,
+          sourceTitle: readTitle || (fromSection && umbrella) || null,
           status, engines: [],
         };
         note(`powertrain: ${car.label} -- ` + (
@@ -9584,16 +10202,16 @@ Rules:
       }
       store.engineScans[car.id] = {
         checkedAt: new Date().toISOString(),
-        sourceTitle: readTitle || (fam && fam.wp) || null,
+        sourceTitle: readTitle || umbrella || null,
         section: fromSection ? fromSection.title : null,
         engines: hits,
       };
       note(`powertrain: ${car.label} -- ${hits.length} engine(s) in ` +
-           `"${readTitle || (fam && fam.wp)}"`);
+           `"${readTitle || umbrella}"`);
       // Worth keeping: the generation's own page is a better link than the
       // nameplate's. Only when there really is one -- a section of the
       // nameplate's article is not a page of its own.
-      if (readTitle && (!car.wp || (fam && fam.wp && norm(car.wp) === norm(fam.wp)))) {
+      if (readTitle && (!car.wp || (umbrella && norm(car.wp) === norm(umbrella)))) {
         car.wp = readTitle;
         store.wpLinks[car.id] = readTitle;
       }
@@ -10403,6 +11021,7 @@ Rules:
     // minting/splicing. See schedulePartnerCheck's own comment for the Honda
     // Odyssey / Acura MDX report this closes.
     onSplitReady: f => splitListeners.push(f),
+    restitchEngineEdges, autoMergeDuplicateEngines,
     pendingWork,
     // the work queue -- one user-requested pass at a time, in order, kept
     // across reloads. See its own section above.

@@ -100,8 +100,13 @@ const DATA = window.CARDATA;
 {
   check("the real E-Class umbrella article names no engine at all",
         LF.engineMentions(ECLASS).length === 0, LF.engineMentions(ECLASS).length);
-  check("...while its W213 generation article names nine",
-        LF.engineMentions(W213).length === 9, LF.engineMentions(W213).length);
+  // Eleven entries over nine distinct engines: the W213 runs two M264
+  // variants and two M274s, and one line per engine is what tells them apart.
+  check("...while its W213 generation article names eleven",
+        LF.engineMentions(W213).length === 11, LF.engineMentions(W213).length);
+  check("...over nine distinct engines",
+        new Set(LF.engineMentions(W213).map(x => x.title)).size === 9,
+        new Set(LF.engineMentions(W213).map(x => x.title)).size);
 }
 
 (async () => {
@@ -194,7 +199,7 @@ const DATA = window.CARDATA;
     const r = await LF.scanEnginesFor(fam, DATA.nodes, DATA.links);
     check("...so the articles are genuinely read again", r.scanned >= 2 && asked.length > askedBefore,
           r.scanned + " scanned, " + (asked.length - askedBefore) + " fetched");
-    check("...and the engines are still found", LF.engineScanEntryFor(G213).engines.length === 9,
+    check("...and the engines are still found", LF.engineScanEntryFor(G213).engines.length === 11,
           LF.engineScanEntryFor(G213).engines.length);
     check("...without duplicating a single node", DATA.nodes.filter(n => n.type === "engine").length === 9,
           DATA.nodes.filter(n => n.type === "engine").length);

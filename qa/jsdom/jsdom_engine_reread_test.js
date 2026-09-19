@@ -231,12 +231,21 @@ const doc = window.document;
     LF.recordEngineMentionsFrom(
       [{ title: REAL_TITLE, name: "M178", variant: null }], car, DATA.nodes, DATA.links);
     cw.spliceIntoIndexes(before, lbefore);
-    const m178 = DATA.nodes.find(n => n.type === "engine" && n.label === "M178");
-    check("a mention of one engine on a shared page records THAT engine",
-          !!m178 && m178.id === "eng-mercedes-benz-m178", m178 && m178.id);
-    check("...not a node named after the page",
-          !DATA.nodes.some(n => n.type === "engine" && /M176\/M177\/M178/.test(n.label)),
-          DATA.nodes.filter(n => n.type === "engine").map(n => n.label).join(", "));
+    // One article is one engine node, and the code the car displayed is WHICH
+    // VARIANT it has. Real user report: "M176 exists twice, once as an engine
+    // and another time as an enginevar. the M176 was already researched under
+    // the Mercedes-Benz M176/M177/M178 engine, and also clearly has more info
+    // about it." Minting a node per code is what produced that pair -- the
+    // article's own node with three variants, and an empty node beside it.
+    const m178 = DATA.nodes.find(n => n.type === "engine" && /M176\/M177\/M178/.test(n.label));
+    check("a mention of one engine on a shared page lands on that page's engine",
+          !!m178 && m178.id === "eng-mercedes-benz-m176-m177-m178", m178 && m178.id);
+    check("...with no second node minted for the code",
+          !DATA.nodes.some(n => n.type === "engine" && !n.retired && n.label === "M178"),
+          DATA.nodes.filter(n => n.type === "engine" && !n.retired).map(n => n.label).join(", "));
+    check("...but which engine on the page is remembered",
+          DATA.links.some(l => l.type === "fitted" && l.variantHint === "M178"),
+          JSON.stringify(DATA.links.filter(l => l.type === "fitted").map(l => l.variantHint)));
     check("...pointing at the page it is documented on", m178.wp === REAL_TITLE, m178.wp);
 
     cw.openDetail(m178);
@@ -246,23 +255,27 @@ const doc = window.document;
     for (let i = 0; i < 160 && !LF.engineEntryFor(m178.id); i++) await sleep(20);
     await sleep(80);
     const art = LF.engineEntryFor(m178.id).article;
-    check("reading it reads the M178's own section",
-          art.applications.some(a => /Mercedes-AMG GT/.test(a.display)) &&
-          !art.applications.some(a => /BAIC BJ90|C 63/.test(a.display)),
-          art.applications.length + ": " + art.applications.map(a => a.display).slice(0, 2).join(" | "));
+    // Read whole, the page's three engines are its three variants, each
+    // holding its own section's applications -- which is what makes them
+    // separate without being separate nodes.
+    check("reading it splits the page into its three engines",
+          art.variants.map(v => v.code).join(",") === "M176,M177,M178",
+          art.variants.map(v => v.code).join(",") || "(none)");
+    const v178 = art.variants.find(v => v.code === "M178") || { applications: [] };
+    check("...each holding only its own section's cars",
+          v178.applications.some(a => /Mercedes-AMG GT/.test(a.display)) &&
+          !v178.applications.some(a => /BAIC BJ90|C 63/.test(a.display)),
+          v178.applications.length + ": " + v178.applications.map(a => a.display).slice(0, 2).join(" | "));
     // Its table names its cars in plain text -- only the Valhalla is a link
     // -- so a link-based reading found one of nine. The chassis code in the
     // cell is what identifies the rest.
     check("...including the cars its table names without linking them",
-          art.applications.filter(a => !a.target).length >= 6,
-          art.applications.filter(a => !a.target).map(a => a.display).slice(0, 3).join(" | "));
+          v178.applications.filter(a => !a.target).length >= 6,
+          v178.applications.filter(a => !a.target).map(a => a.display).slice(0, 3).join(" | "));
     check("...and not the power and torque cells as if they were cars",
-          !art.applications.some(a => /kW|Nm|rpm/.test(a.display)),
-          art.applications.map(a => a.display).join(" | ").slice(0, 80));
-    check("...and its variants are not its two sibling engines",
-          !art.variants.some(v => /M176|M177/.test(v.code)),
-          art.variants.map(v => v.code).join(" | ") || "(none)");
-    check("...nor is anything called 'M176/M177/M178 M178'",
+          !v178.applications.some(a => /kW|Nm|rpm/.test(a.display)),
+          v178.applications.map(a => a.display).join(" | ").slice(0, 80));
+    check("...and nothing is called 'M176/M177/M178 M178'",
           !art.variants.some(v => /M176\/M177\/M178/.test(v.code)),
           art.variants.map(v => v.code).join(" | ") || "(none)");
   }
@@ -326,7 +339,10 @@ const doc = window.document;
   // retired node behind a retired edge, so nothing was created and nothing
   // became visible.
   {
-    const eng = cw.byId.get(ENG);
+    // Section 5 folded the code-named node into the article's own engine (one
+    // article, one engine), so THAT is the node the connections hang off now.
+    const ENG7 = "eng-mercedes-benz-m176-m177-m178";
+    const eng = cw.byId.get(ENG7);
     const mine = l => l.type === "fitted" &&
       ((l.source.id || l.source) === eng.id || (l.target.id || l.target) === eng.id);
     LF.deleteNode(eng, DATA.nodes, DATA.links, "testing");
@@ -336,33 +352,33 @@ const doc = window.document;
     // A boot replay must NOT undo it -- otherwise the engine could never be
     // deleted at all, it would just come back on the next page load.
     cw.recordEnginesLive();
-    check("a boot replay leaves the delete alone", cw.byId.get(ENG).retired);
+    check("a boot replay leaves the delete alone", cw.byId.get(ENG7).retired);
 
     cw.openDetail(eng);
     const btn = [...doc.querySelectorAll(".dt-power button")]
       .find(b => /Read this engine's article|Read it again/.test(b.textContent));
     btn.click();
-    for (let i = 0; i < 160 && cw.byId.get(ENG).retired; i++) await sleep(20);
+    for (let i = 0; i < 160 && cw.byId.get(ENG7).retired; i++) await sleep(20);
     await sleep(80);
     check("...but reading its article deliberately brings it back",
-          !cw.byId.get(ENG).retired);
+          !cw.byId.get(ENG7).retired);
     check("...with its connections, not as a bare node",
           DATA.links.filter(l => mine(l) && !l.retired).length > 0,
           DATA.links.filter(l => mine(l) && !l.retired).length);
     check("...and the delete record cleared, so it is not half-deleted",
-          !LF.allDeletions().some(d => d.id === ENG),
+          !LF.allDeletions().some(d => d.id === ENG7),
           LF.allDeletions().map(d => d.id).join(", "));
 
     // "Clear for good" is the blacklist, and it holds.
-    LF.deleteNode(cw.byId.get(ENG), DATA.nodes, DATA.links, "testing again");
-    const purged = LF.purgeDeletion(ENG, DATA.nodes, DATA.links);
-    check("(precondition) clearing it for good purges it", purged.ok && cw.byId.get(ENG).purged);
-    cw.openDetail(cw.byId.get(ENG));
+    LF.deleteNode(cw.byId.get(ENG7), DATA.nodes, DATA.links, "testing again");
+    const purged = LF.purgeDeletion(ENG7, DATA.nodes, DATA.links);
+    check("(precondition) clearing it for good purges it", purged.ok && cw.byId.get(ENG7).purged);
+    cw.openDetail(cw.byId.get(ENG7));
     const again = [...doc.querySelectorAll(".dt-power button")]
       .find(b => /Read this engine's article|Read it again/.test(b.textContent));
     if (again) again.click();
     await sleep(300);
-    check("...and a re-read does NOT bring that one back", cw.byId.get(ENG).retired);
+    check("...and a re-read does NOT bring that one back", cw.byId.get(ENG7).retired);
   }
 
   console.log("\n" + (fails === 0 ? "ALL GREEN" : fails + " FAILURE(S)"));

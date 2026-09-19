@@ -77,7 +77,29 @@ const GOLF = fs.readFileSync(path.join(CACHE, "Volkswagen_Golf.wikitext"), "utf-
 {
   const m = LF.engineMentions(W213);
   const names = m.map(x => x.name);
-  check("the W213's engines are found", m.length === 9, names.join(", "));
+  // Eleven entries, nine distinct engines: the W213 runs two different M264
+  // variants (E15 and E20) and two different M274s (DE16 and DE20), and those
+  // are four different engines, not two. They were collapsed to one apiece
+  // while this read the field as a flat bag of links with no idea which line
+  // each came from -- so the 1.5 and the 2.0 were the same thing.
+  check("the W213's engines are found", m.length === 11, names.join(", "));
+  check("...one entry per line of the infobox, so two variants of one engine are two",
+        m.filter(x => x.name === "M264").length === 2 &&
+        m.filter(x => x.name === "M264").map(x => x.variant).join("|") ===
+          "M264 E15 DEH LA|M264 E20 DEH LA",
+        m.filter(x => x.name === "M264").map(x => x.variant).join(" | "));
+  check("...each carrying what its own line said about it",
+        m.filter(x => x.name === "M264").map(x => x.specs.displacement).join("|") === "1.5 L|2.0 L",
+        JSON.stringify(m.filter(x => x.name === "M264").map(x => x.specs)));
+  check("...and the fuel heading it sits under",
+        (m.find(x => x.name === "OM654") || {}).specs.fuel === "diesel" &&
+        (m.find(x => x.name === "M256") || {}).specs.fuel === "petrol",
+        JSON.stringify([(m.find(x => x.name === "OM654") || {}).specs,
+                        (m.find(x => x.name === "M256") || {}).specs]));
+  check("...with the layout it names",
+        (m.find(x => x.name === "M256") || {}).specs.layout === "I" &&
+        (m.find(x => x.name === "M256") || {}).specs.cylinders === 6,
+        JSON.stringify((m.find(x => x.name === "M256") || {}).specs));
   check("...including the M256 this whole layer started from",
         names.indexOf("M256") >= 0, names.join(", "));
   check("...and its diesels", names.indexOf("OM654") >= 0 && names.indexOf("OM656") >= 0);
