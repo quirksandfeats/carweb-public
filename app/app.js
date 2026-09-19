@@ -118,6 +118,14 @@ window.CarWeb = (function () {
   // group with exactly ONE family). Before applyResolvedRelations, though,
   // so relation wiring sees the final structure.
   if (window.LlmFamilies) window.LlmFamilies.mergeDuplicateNameplates(nodes, links);
+  // Its companion for the case the name-based pass cannot see: the same
+  // generation minted twice under two different spellings of the nameplate
+  // ("Mercedes-Benz GLA-Class (X156)" beside the GLA's own "GLA X156"). The
+  // chassis code is what identifies them as one car. See
+  // foldCodeDuplicateModels.
+  if (window.LlmFamilies && window.LlmFamilies.foldCodeDuplicateModels) {
+    window.LlmFamilies.foldCodeDuplicateModels(nodes, links);
+  }
   if (window.LlmFamilies) window.LlmFamilies.applySharedPlatformForSingleGen(nodes, links);
   // Its twin for the people half of a single-generation verdict -- the Audi
   // Nuvolari report, where the check found "Massimo Frascella" and the

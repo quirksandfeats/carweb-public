@@ -2608,6 +2608,29 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
       if (!eligible(n)) continue;
       if (norm(`${n.make} ${n.label}`) === key || norm(n.label) === key) return { node: n, loose: false };
     }
+    // Real user report: "There are some instances where there now exists a
+    // duplicate of a car, model, generation, etc. For example, there currently
+    // exists a 'Mercedes-Benz GLA X156', which is part of the GLA nameplate
+    // and has lots of info associated with it. There also exists a
+    // 'Mercedes-Benz GLA-Class (X156)', which displays as a separate model but
+    // has no additional information."
+    //
+    // A chassis code is the strongest identifier a car mention carries, and
+    // "Mercedes-Benz GLA-Class (X156)" carries one. The loose substring rule
+    // below could not see it -- "GLA-Class (X156)" does not contain "GLA X156"
+    // -- so the mention matched nothing and was minted as a new model beside
+    // the generation it names. Checked before the substring rule because a
+    // code is evidence and a substring is a guess.
+    const byCode = generationsByCode(nodes);
+    for (const c of chassisCodesIn(text)) {
+      const gen = byCode.get(norm(c));
+      if (!gen || !eligible(gen)) continue;
+      // The code has to belong to the marque the text names, where the text
+      // names one at all -- codes are only unique within a maker.
+      if (gen.make && norm(key).indexOf(norm(gen.make)) < 0 &&
+          norm(key).indexOf(norm(gen.label)) < 0) continue;
+      return { node: gen, loose: true, byCode: true };
+    }
     // Loose fallback: the mentioned text contains (or is contained by) a
     // node's bare label, e.g. "the Toyota GT86 (badged as the Scion FR-S in
     // some markets)" containing "GT86" -- only accepted when exactly one
@@ -6897,6 +6920,61 @@ Rules:
     });
     return pairs;
   }
+
+  // ---------- the same car, minted twice, told apart by its chassis code ----------
+  // Real user report: "there currently exists a 'Mercedes-Benz GLA X156',
+  // which is part of the GLA nameplate and has lots of info associated with
+  // it. There also exists a 'Mercedes-Benz GLA-Class (X156)', which displays
+  // as a separate model but has no additional information. This should also be
+  // considered when trying to introduce a new model into the graph."
+  //
+  // findMatchingNameplate now checks the code before minting, which stops new
+  // ones. This is the other half: the pairs already in the graph. Wikipedia
+  // renames nameplates ("GLA-Class" -> "GLA"), so the same generation gets
+  // mentioned under both names and the string matcher sees two different cars.
+  // The code does not change, which is what makes it the right key.
+  //
+  // Conservative on purpose. Both sides must be the same marque, the code must
+  // be unambiguous across the whole graph (generationsByCode drops any code
+  // two cars share), the survivor must be a real generation of a nameplate and
+  // the one folded in must NOT be -- a stray model with no family of its own.
+  // Nothing is deleted: supersedeStandalone retires it and carries everything
+  // it knew onto the generation, exactly as the nameplate split does.
+  function nameplateKey(label) {
+    return norm(String(label || "")
+      .replace(/\s*\([^()]*\)\s*$/, "")
+      .replace(/[-\s]*(?:class|series|line)\s*$/i, ""));
+  }
+  function foldCodeDuplicateModels(nodes, links) {
+    const byCode = generationsByCode(nodes);
+    if (!byCode.size) return 0;
+    const byIdLocal = new Map(nodes.map(n => [n.id, n]));
+    let folded = 0;
+    for (const m of nodes.slice()) {
+      if (!m || m.retired || m.type !== "model" || m.familyOf) continue;
+      if ((m.generations || []).length) continue;     // it is a nameplate in its own right
+      if (!m.make) continue;
+      for (const c of chassisCodesIn(m.label)) {
+        const gen = byCode.get(norm(c));
+        if (!gen || gen === m || gen.retired || !gen.familyOf) continue;
+        if (norm(gen.make) !== norm(m.make)) continue;
+        const fam = byIdLocal.get(gen.familyOf);
+        if (!fam || fam.retired) continue;
+        // "GLA-Class (X156)" and the GLA's "GLA X156" agree on the nameplate
+        // once the renaming suffix is off. A code that matches while the
+        // names do not is two different cars, and is left alone.
+        if (nameplateKey(m.label) !== nameplateKey(fam.label) &&
+            nameplateKey(m.label) !== nameplateKey(gen.label)) continue;
+        if (store.unmergedDuplicates[gen.id + "|" + m.id]) continue;
+        supersedeStandalone(nodes, links, m, gen, fam.id, fam.make + " " + fam.label);
+        note(`graph: "${m.make} ${m.label}" is the same car as "${gen.label}" (${c}) -- folded in`);
+        folded++;
+        break;
+      }
+    }
+    return folded;
+  }
+
   function mergeDuplicateNameplates(nodes, links) {
     const byIdLocal = new Map(nodes.map(n => [n.id, n]));
     let merged = 0;
@@ -11048,7 +11126,7 @@ Rules:
     // Succession rollup to the specific generations it really describes --
     // must run after applyResolvedRelations in app.js's boot sequence, so an
     // LLM-resolved generation pair always wins over the derived one.
-    pushSuccessionToGenerations,
+    pushSuccessionToGenerations, foldCodeDuplicateModels,
     // Generation-level research against a generation's OWN (more specific)
     // Wikipedia article -- see researchGeneration's own comment.
     isEligibleForGenerationResearch, genResearchEntryFor, researchGeneration,

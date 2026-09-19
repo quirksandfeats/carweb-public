@@ -93,10 +93,22 @@ const LF = window.LlmFamilies;
 const DATA = window.CARDATA;
 const doc = window.document;
 
+// The real dataset already carries this exact car -- "SL (R232)", a
+// generation of the Mercedes-Benz SL nameplate -- and foldCodeDuplicateModels
+// now recognises the seeded one as the same car by its chassis code and folds
+// it in. That IS the behaviour under test elsewhere; here it just means the
+// live node is the survivor, not the id that was seeded. See
+// llm_families.js's supersedeStandalone.
+const liveCar = () => {
+  let n = cw.byId.get(CAR);
+  for (let i = 0; n && n.retired && n.supersededBy && i < 5; i++) n = cw.byId.get(n.supersededBy);
+  return n;
+};
+
 (async () => {
   // ---------- 1. the engine, as a car's infobox leaves it ----------
   {
-    const car = cw.byId.get(CAR);
+    const car = liveCar();
     const r = LF.recordEngineMentionsFrom(
       [{ title: ASKED_TITLE, name: "M177", variant: null }], car, DATA.nodes, DATA.links);
     cw.spliceIntoIndexes(DATA.nodes.length - r.engines, DATA.links.length - r.fitted);
@@ -224,7 +236,7 @@ const doc = window.document;
   // that it is the 'engine' name, when in reality M176, M177, and M178 are
   // technically separate, but all use the same wikipedia page."
   {
-    const car = cw.byId.get(CAR);
+    const car = liveCar();
     // How the SL R232's own infobox writes it: the page, and which engine on
     // it this car actually has.
     const before = DATA.nodes.length, lbefore = DATA.links.length;
@@ -285,8 +297,10 @@ const doc = window.document;
   // Only fall back to the engine name if there is no engine var, but dont
   // show both."
   {
-    const car = cw.byId.get(CAR);
-    const eng = cw.byId.get(ENG);
+    const car = liveCar();
+    // Section 5 folded the code-named node into the article's own engine, so
+    // that is the live one from here on.
+    const eng = cw.byId.get("eng-mercedes-benz-m176-m177-m178");
     // The state that produced the report: the car has an edge to the engine
     // (from its infobox mention) AND to one of that engine's variants (from
     // reading the article).
@@ -314,6 +328,11 @@ const doc = window.document;
     // On the canvas too: the engine-level edge is the redundant one, and
     // hiding it must not take the variant's edge with it.
     cw.switchView("power");
+    // Expanded explicitly: in the powertrain layer an engine's variants are
+    // its generations, and a collapsed engine draws none of their edges (see
+    // powerSets). The question here is which of the two edges survives, not
+    // whether the canvas happened to open this engine.
+    cw.expandFamily(eng.id);
     cw.rebuildSim();
     cw.Graph.gotoNode(eng);
     const mine = new Set([eng.id, vid]);

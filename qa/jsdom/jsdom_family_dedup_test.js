@@ -203,8 +203,15 @@ function countsExpectations(cw) {
   const countsText = window.document.getElementById("counts").textContent;
   check("footer counts refreshed live after the override (not stale baked numbers)",
     countsText.startsWith(exp.models + " models"), countsText.slice(0, 40) + " | expected " + exp.models);
+  // The standalone this scenario retired is not the only retired model in the
+  // real graph any more -- foldCodeDuplicateModels retires the ones that turn
+  // out to be a second copy of an existing generation -- so this asserts what
+  // it is actually about: the count leaves out whatever is retired, and this
+  // particular standalone is one of them.
   check("footer model count excludes the retired standalone",
-    exp.models === cw.nodes.filter(n => n.type === "model").length - 1);
+    exp.models === cw.nodes.filter(n => n.type === "model" && !n.retired).length &&
+    exp.models < cw.nodes.filter(n => n.type === "model").length &&
+    cw.byId.get(STANDALONE_R107_ID).retired);
   check("footer connection count excludes links whose endpoint is retired",
     countsText.includes(exp.conns + " connections"), countsText);
 }
@@ -266,7 +273,15 @@ function countsExpectations(cw) {
   const standalone2 = cw2.byId.get(STANDALONE_R107_ID);
   check("after the override is deleted, a fresh boot leaves the standalone un-retired", !standalone2.retired);
   check("and visible again via nodeInLayer, with zero extra unwinding needed", cw2.nodeInLayer(standalone2));
-  check("no stale rebound links survive the revert", !cw2.links.some(l => l.rebound));
+  // Rebound links from OTHER passes are fine and expected on real data (see
+  // foldCodeDuplicateModels); what must be gone is anything rebound onto the
+  // generation this override minted.
+  check("no stale rebound links survive the revert",
+    !cw2.links.some(l => l.rebound &&
+      (lid(l.source) === STANDALONE_R107_ID || lid(l.target) === STANDALONE_R107_ID ||
+       String(lid(l.source)).indexOf("llm-m-testmercedes-sl-class") === 0 ||
+       String(lid(l.target)).indexOf("llm-m-testmercedes-sl-class") === 0)),
+    cw2.links.filter(l => l.rebound).length + " rebound overall");
   const fam2 = cw2.byId.get(FAM_ID);
   check("the family reverts to just its original single generation", fam2.generations.length === 1 && fam2.generations.includes(R230_ID), fam2.generations);
   check("the standalone's original 'related' connection is live again",
