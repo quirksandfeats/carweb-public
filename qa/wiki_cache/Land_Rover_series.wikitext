@@ -1,0 +1,310 @@
+{{For|vehicles after 1985|Land Rover}}
+{{Use dmy dates|date=January 2017}}
+{{Use British English|date=January 2017}}
+{{more citations needed|date=July 2007}}
+{{Infobox automobile
+| image        = Land Rover Series I 1948 (HUE 166).jpg
+| caption      = The first pre production Land Rover R01
+| name         = Land Rover series
+| manufacturer = {{ubl
+  | [[Rover Company]] (1948–1967)
+  | [[British Leyland]] (1968–1978)
+  | [[Land Rover Ltd.]] (1978–1985)
+}}
+| successor   = [[Land Rover Defender|Land Rover Ninety & One Ten / Defender]]
+| predecessor = 
+| class       = [[Off-road vehicle]]
+| production  = 1948–1985
+| assembly    = United Kingdom: [[Solihull]] ([[Solihull plant]])<br />Australia: [[Enfield, New South Wales|Enfield]] ([[British Motor Corporation (Australia)|BMC Australia]])<br />Belgium: [[Antwerp]] ([[Minerva (automobile)|Minerva]])<br />Ethiopia: [[Addis Ababa]] (A.M.C.E)<br />Iran: [[Tehran]] ([[Morattab]])<br />Kenya: [[Thika]] (Leyland Kenya Limited)<br />New Zealand: [[Nelson, New Zealand|Nelson]] ([[New Zealand Motor Corporation|NZMC]])<br />Nigeria: [[Ibadan]] (Leyland Nigeria Ltd)<br />South Africa: [[Port Elizabeth]] (BMC SA)<br />Spain: [[Linares, Jaén|Linares]] ([[Santana Motors]])<br />West Germany: [[Hamburg]] ([[Tempo (automobile)|Tempo]])<br />Zambia: [[Ndola]] (Rover (Zambia) Ltd)
+| layout      = [[Front engine, rear-wheel-drive layout|FR layout]] / [[All-wheel drive]] 
+}}
+
+The '''Land Rover Series I''', '''II''', and '''III''', or simply the '''Land-Rover''' (commonly referred to as ''Series'' Land Rovers, to distinguish them from later models) are compact British [[off-road vehicle]]s, produced by the [[Rover Company]] since 1948, and later by [[British Leyland]]. Inspired by the [[Willys MB|World War II jeep]], it was the first mass-produced civilian [[four-wheel drive]] car with doors and an available hard roof. Unlike conventional cars and trucks of the time, it used a sturdy, fully box-welded frame. Furthermore, due to the post-war steel shortage and aluminium surplus, Land Rovers received aluminium alloy bodies that did not rust, thereby favouring their longevity. In 1992, Land Rover claimed that 70% of all the vehicles they had built were still in use.
+
+Most Series models feature [[leaf springs|leaf-spring]] suspension with selectable [[Two-wheel drive|two]] or [[four-wheel drive]] (4WD), however Series I's produced between 1948 and mid-1951 had constant 4WD via a freewheel mechanism, and the Stage 1 V8 version of the Series III featured permanent 4WD. All three models could be started with a front-hand crank and offered front & rear power takeoffs for accessories.
+
+After introducing a long-wheelbase model in 1954, Land Rover also offered the world's first four / five-door, 4WD off-road station wagon in 1956. Series Land Rovers and [[Land Rover Defender|Defenders]] continually excelled in space utilization, offering (optional) three abreast seating in the seating rows with doors, and troop seating in the rear, resulting in up to seven seats in the SWB, and up to ten seats in the LWB models, exceeding the capacity of most [[minivan]]s, when comparing vehicles of the same length.
+
+==Development==
+The Land Rover was conceived by the [[Rover Company]] in 1947 during the aftermath of [[World War II]]. Before the war, Rover had produced luxury cars which were not in demand in the immediate post-war period and raw materials were strictly rationed to those companies building construction or industrial equipment, or products that could be widely exported to earn crucial [[Foreign exchange market|foreign exchange]] for the country. Also, Rover's original factory in [[Coventry]] had been bombed during the war, forcing the company to move into a huge "[[British shadow factories|shadow factory]]" built just before the war in [[Solihull]] near [[Birmingham]], previously used to construct [[Bristol Hercules]] aircraft engines. This factory was now empty but starting car production there from scratch would not be financially viable. Plans for a small, economical car known as the M Type were drawn up, and a few prototypes made, but would be too expensive to produce.
+
+[[Maurice Wilks]], Rover's chief designer came up with a plan to produce a light agricultural and [[utility vehicle]], of a similar concept to the [[Willys Jeep]] used in the war, but with an emphasis on agricultural use. He was possibly inspired by the [[Standard Motor Company]], who faced similar problems and were producing the highly successful [[Ferguson TE20]] [[tractor]] in their shadow factory in Coventry. More likely, he used his own experience of using an army-surplus Jeep on his farm in [[Anglesey]], North Wales. His design added a [[power take-off]] (PTO) feature since there was a gap in the market between jeeps and tractors (which offered the feature but were less flexible as transport). The original Land Rover concept (a cross between a light truck and a tractor) is similar to the [[Unimog]], which was developed in Germany during this period.
+
+The first prototype had a distinctive feature – the steering wheel was mounted in the middle of the vehicle. It hence became known as the "[[centre steer]]". It was built on a Jeep chassis and used the engine and gearbox out of a [[Rover P3]] saloon car. The bodywork was handmade out of an aluminium/magnesium alloy called ''[[Birmabright]]'', to save on steel, which was closely rationed. The choice of colour was dictated by [[military surplus]] supplies of aircraft cockpit paint, so early vehicles only came in various shades of light green. The first pre-production Land Rovers were being developed in late 1947 by a team led by engineer [[Arthur Goddard Engineer|Arthur Goddard]].<ref>{{cite web |author=Sibur-Russian Tyres |url=http://www.just-auto.com/factsheet.aspx?ID=180 |title=JustAuto Factsheet |publisher=Just-auto.com |access-date=2010-09-30 |archive-date=15 November 2007 |archive-url=https://web.archive.org/web/20071115011747/http://www.just-auto.com/factsheet.aspx?ID=180 |url-status=dead }}</ref>
+[[File:1948 Land Rover pre production (5956734739).jpg|thumb|left|1948 Land Rover pre-production number R04; at the National Motor Museum in Beaulieu, Hampshire, England.]]
+Tests showed this prototype vehicle to be a capable and versatile machine. The [[Power take-off|PTO]] drives from the front of the engine and from the gearbox to the centre and rear of the vehicle allowed it to drive farm machinery, exactly as a tractor would. It was also tested [[ploughing]] and performing other agricultural tasks. However, as the vehicle was readied for production, this emphasis on tractor-like usage decreased and the centre steering proved impractical in use. The steering wheel was mounted off to the side as normal, the bodywork was simplified to reduce production time and costs and a larger engine was fitted, together with a specially designed transfer gearbox to replace the Jeep unit. The result was a vehicle that didn't use a single Jeep component and was slightly shorter than its American inspiration, but wider, heavier, faster and still retained the [[Power take-off|PTO]] drives.
+
+The Land Rover was designed to only be in production for two or three years to gain some cash flow and export orders for the Rover Company so it could restart up-market car production. Once car production restarted, however, it was greatly outsold by the off-road Land Rover, which developed into its own brand that remains successful today. Many of the defining and successful features of the Land Rover design were in fact the result of Rover's drive to simplify the tooling required for the vehicle and to use the minimum amount of rationed materials. As well as the aluminium alloy bodywork (which has been retained throughout production despite it now being more expensive than a conventional steel body due to its ideal properties of light weight and corrosion resistance) other examples include the distinctive flat body panels with only simple, constant-radius curves (originally used because they could be cut and formed by hand from aluminium sheet on a basic jig) and the sturdy box-section ladder [[chassis]], which on series vehicles was made up from four strips of steel [[welded]] at each side to form a box, thus cutting down on the complex operations required when making a more conventional U- or I-section frame.
+
+==Series I==
+{{Infobox automobile
+|image          = Land Rover Celebrates 65 Years Of Technology & Innovation (8838044808).jpg
+|caption=Series I first registered January 1949<br>"HUE166 the first pre-production Land-Rover"<br>portraits of Spencer and Maurice Wilks
+|name           = Series I
+|production     = 1948–1958
+| designer = [[Maurice Wilks]]
+|body_style     = 2-door [[Off-road vehicle]] <br> 4-door [[Off-road vehicle]] <br> 2-door [[pickup truck|pickup]]
+|platform       = 
+|related        = 
+|engine         = {{ubl | 1.6 [[Liter|L]] [[Inline-four engine|I4]] (1948–1951) | 2.0 L I4 (1950–1958) | [[Land_Rover_engines#2-litre_diesel|2.0 L diesel]] I4 (1957–1958) }}
+|transmission   = 4-speed [[Manual transmission|manual]]
+|wheelbase      = 1948–1953: {{convert|80.0|in|mm|0|abbr=on}}<br />1954–1956: {{convert|86.0|in|mm|0|abbr=on}} (SWB)<br />1956–1958: {{convert|88.0|in|mm|0|abbr=on}} (SWB)<br>1954–1956: {{convert|107.0|in|mm|0|abbr=on}} (LWB)<br />1956½–1959:{{convert|109.0|in|mm|0|abbr=on}} (LWB)
+|length         = {{convert|132.0|in|mm|0|abbr=on}}/{{convert|140.5|in|mm|0|abbr=on}} (SWB)<br />{{convert|173.5|in|mm|0|abbr=on}} (LWB)
+|width          = {{convert|61.0|in|mm|0|abbr=on}}
+|height         = {{convert|73.5|in|mm|0|abbr=on}}
+|layout         = 
+|successor      = [[Land Rover Series II]]
+}}
+
+[[File:GAZ-69 and Land Rover Series I during ProDvizhenie 2026 (front-side view).jpg|thumb|left|Soviet [[GAZ-69]] and Land Rover.]]
+Land Rover entered production in 1948 with what has later been termed the '''Series I'''. This was launched at the [[Amsterdam]] Motor Show. It was designed for farm and light industrial use, with a steel box-section [[chassis]] and an aluminium body.
+
+Originally the Land Rover was a single model offering, which from 1948 until 1951 used an {{convert|80|in|m|2|adj=on}} [[wheelbase]] and a 1.6-litre [[petrol engine]] producing around {{convert|50|bhp|kW PS|0|abbr=on}}. The four-speed gearbox from the [[Rover P3]] was used, with a new two-speed transfer box. This incorporated an unusual four-wheel-drive system, with a [[freewheel]] unit (as used on several Rover cars of the time). This disengaged the front axle from the [[manual transmission]] on the overrun, allowing a form of non-
+permanent 4WD. A ring-pull mechanism in the driver's footwell allowed the freewheel to be locked to provide more traditional 4WD. This was a basic vehicle: tops for the doors and a roof (canvas or metal) were optional extras. In 1950, the lights moved from a position behind the [[Grille (car)|grille]] to protruding through the grille.
+[[File:1948 Land Rover 80 Tickford Estate Heritage Motor Centre, Gaydon.jpg|thumb|left|1949 Land Rover 80 in with Tickford Station Wagon coachwork; Heritage Motor Centre, Gaydon.]]
+From the beginning, it was realised that some buyers would want a Land Rover's abilities without the spartan interiors. In 1949, Land Rover launched a second body option called the "[[Station wagon|Station Wagon]]", fitted with a body built by [[Tickford]], a coachbuilder known for their work with [[Rolls-Royce Limited|Rolls-Royce]] and [[Lagonda]]. The bodywork was wooden-framed and had seating for seven people. Tickford was well equipped in comparison with the standard Land Rover, having leather seats, a heater, a one-piece laminated windscreen, a tin-plate spare wheel cover, some interior trim and other options. The wooden construction made them expensive to build. The Tickford was taxed as a private car, which attracted high levels of [[Purchase Tax]] unlike the original Land Rover. As a result, fewer than 700 Tickfords were sold, and all but 50 were exported.
+
+[[File:Land Rover 1953 Series 1.8C inch short wheel base, petrol, Car No. 36661138.jpg|thumb|left|Land Rover 1953 Series 1.8C in short wheel base, petrol, Car No. 36661138, on display at the  Swakopmund Museum, Namibia.]]
+[[File:1953 Land Rover Series II 88 Royal Review Vehicle State II Heritage Motor Centre, Gaydon.jpg|thumb|left|1953 Land Rover Series I 86&nbsp;in, Royal Review Vehicle "State IV".]]
+[[File:1957 Land Rover Series I Station Wagon front q (cropped).jpg|thumb|left|1957 Series I 107 in station wagon with its modular body clearly visible.]]
+In 1952 and 1953, a larger 2.0-litre petrol engine was fitted. This engine has Siamese bores, meaning that there are no water passages for cooling between the cylinders. During 1950, the unusual semi-permanent 4WD system was replaced with a more conventional setup, with drive to the front axle being taken through a simple [[dog clutch]]. Around this time the Land Rover's legal status was also clarified. As mentioned above, the Land Rover was originally classed as a commercial vehicle, meaning it was free from purchase tax. However, this also meant it was limited to a speed of {{convert|30|mph|abbr=on}} on British roads. After an appeal to the [[Law Lords]] after an owner was charged with exceeding this limit, the Land Rover was classified as a "multi-purpose vehicle" which was only to be classed as a commercial vehicle if used for commercial purposes.
+[[Image:Land Rover Series 1 HT (cropped).jpg|thumb|Series I 86 in Hard Top. Showing double-skinned "Safari Roof".]]
+The 1954 model year brought major changes. The {{convert|80|in|m|2|adj=on}} wheelbase model was replaced by an {{convert|86|in|m|2|adj=on}} wheelbase model, and a {{convert|107|in|m|2|adj=on}} wheelbase "[[Pickup truck|pick up]]" version was introduced. The extra wheelbase was added behind the cab area to provide additional load space.
+In mid-1954 the "spread bore" petrol engine was introduced (from engines 5710xxxx), allowing better cooling between the cylinders. This had been introduced in the Rover car the year before.<ref>"Land Rover, 65 Years of the 4X4 Workhorse", James Taylor, Crowood Press, 2013</ref> The engine was modified again in 1955 (from engine 1706xxxxx), sometimes known as the 'later' spread bore.
+
+September 1955<ref>"New model Land Rover is introduced Today", The Yorkshire Post and Leeds Mercury, Sept 21st 1955</ref> saw the introduction of the first five-door model, on the 107-inch chassis known as the "[[station wagon]]" with seating for up to ten people. The 86-inch station wagon was a three-door, seven-seater. The new station wagons were very different from the previous Tickford model, being built with simple metal panels and bolt-together construction instead of the complex wooden structure of the older Station Wagon. They were intended to be used both as commercial vehicles as people-carriers for transporting workmen to remote locations, as well as by private users. Like the Tickford version, they came with basic interior trim and equipment such as roof vents and interior lights.
+
+The Station Wagons saw the first expansion of the Land Rover range. Station Wagons were fitted with a "Tropical Roof" which consisted of a second roof skin fitted on top of the vehicle. This kept the interior cool in hot weather and reduced condensation in cold weather. Vents fitted in the roof allowed added ventilation to the interior. While they were based on the same chassis and [[Powertrain|drivetrains]] as the standard vehicles, Station Wagons carried different chassis numbers, special badging, and were advertised in separate brochures. Unlike the original Station Wagon, the new in-house versions were highly popular.
+[[File:1948 Land Rover Series I (001).jpg|thumb|1948 Series I 80 in. The first production Land Rover.]]
+In mid-1956 the wheelbases were extended by {{convert|2|in|mm|0}} to {{convert|88|in|m|2}} and {{convert|109|in|m|2}}, and the front chassis cross-member was moved an inch forward, to accommodate the new diesel engine, to be an option the following year. This change was made to all models with the exception of the 107 Station Wagon, which would never be fitted with a diesel engine, and would eventually be the last Series I in production. These dimensions were to be used on all Land Rovers for the next 25 years.
+
+In 1957 a brand new 2.0-litre [[diesel engine]] was introduced that, despite the similar capacity, was not related to the petrol engines used. The petrol engines of the time used the rather out-dated inlet-over-exhaust [[valve]] arrangement; the diesel used the more modern overhead valve layout. This diesel engine was one of the first high-speed diesels developed for road use, producing {{convert|52|hp|abbr=on}} at 4,000&nbsp;rpm.
+{{clear}}
+
+==Series II==
+{{Infobox automobile
+|image          = Land Rover swb registered October 1958 2286cc.JPG
+|name           = Series II
+|production     = 1958–1961
+|body_style     = 2-door [[Off-road vehicle]] <br> 4-door [[Off-road vehicle]] <br> 2-door [[pickup truck|pickup]]
+|platform       = 
+|designer       = [[David Bache]]
+|related        = 
+|engine         = 2.0 L petrol [[inline-four engine|I4]]<br />[[Land_Rover_engines#2.25-litre_diesel_(Engine_Code_10J)|2.25 L petrol]] [[inline-four engine|I4]]<br />[[Land_Rover_engines#2-litre_diesel|2.0 L I4 diesel]]
+|transmission   = 4-speed [[Manual transmission|manual]]
+|wheelbase      = {{convert|88.0|in|mm|0|abbr=on}} (SWB)<br />{{convert|109.0|in|mm|0|abbr=on}} (LWB)
+|length         = {{convert|142.4|in|mm|0|abbr=on}} (SWB)<br />{{convert|175.0|in|mm|0|abbr=on}} (LWB)
+|width          = {{convert|66.0|in|mm|0|abbr=on}}
+|height         = {{convert|77.5|in|mm|0|abbr=on}} (SWB)<br />{{convert|81.0|in|mm|0|abbr=on}} (LWB)
+|layout         = 
+|predecessor    = [[Land Rover Series I]]
+|successor      = [[Land_Rover_series#Series_IIA|Land Rover Series IIA]]
+}}
+The successor to the successful Series I was the '''Series II''', produced from 1958 until the Series IIA was introduced in 1961. It came in {{convert|88|in|m|2|abbr=on}} and {{convert|109|in|m|2|abbr=on}} wheelbases (normally referred to as the 'SWB' and 'LWB'). This was the first Land Rover to receive the attention of Rover's styling department. Chief Stylist [[David Bache]] produced the familiar 'barrel side' waistline, with a {{convert|5|in|cm|1|abbr=on}} greater width to cover the vehicle's wider tracks, as well as the improved design of the truck cab variant, introducing the curved side windows and rounded roof still used on current Land Rovers. The Series II was the first vehicle to use the well-known 2.25-litre [[petrol engine]], although the first 1,500 or so short wheelbase (SWB) models retained the {{convert|52|hp|abbr=on}} 2.0-litre petrol engine from the Series I. This larger petrol engine produced {{convert|72|hp|abbr=on}} and was closely related to the 2.0-litre diesel unit still in use. This engine became the standard Land Rover unit until the mid-1980s when diesel engines became more popular.
+
+The {{convert|109|in|m|2|adj=on}} Series II [[station wagon]] introduced a twelve-seater option on top of the standard ten-seater layout. This was primarily to take advantage of UK tax laws, by which a vehicle with 12 seats or more was classed as a [[bus]], and was exempt from Purchase Tax and Special Vehicle Tax. This made the twelve-seater not only cheaper to buy than the 10-seater version, but also cheaper than the seven-seater {{convert|88|in|m|2|adj=on}} Station Wagon. The twelve-seater layout remained a highly popular body style for decades, being retained on the later Series and [[Land Rover Defender|Defender]] variants until 2002, when it was dropped. The unusual status of the twelve-seater remained until the end&mdash;such vehicles were classed as [[minibuses]] and thus could use [[bus lane]]s and (if registered correctly) could be exempt from the [[London congestion charge]].
+
+There was some degree of overlap between Series I and II production. Early Series II {{convert|88|in|m|2|adj=on}} vehicles were fitted with the old 2-litre petrol engine to use up existing stock from production of the Series I. The {{convert|107|in|m|2|adj=on}} Station Wagon continued until late 1959 due to continued demand from export markets and to allow the production of Series II components to reach full level.
+
+<gallery widths="200" heights="160">
+File:Land Rover SII Cuthbertson + Forest Rover.jpg|Series II 'Forest Rover' (left) and 'Cuthbertson' (with tracks)
+File:1961-1966 Land Rover 109 SII Forest Rover (right side).jpg|1961-1966 Land Rover Series II 109 inch 'Forest Rover' with tractor-size wheels
+File:1959 Land Rover Series II Model 109 004 (cropped).jpg|1959 Series II 109 inch station wagon showed more sophisticated styling
+</gallery>
+{{Clear}}
+
+==Series IIA==
+{{Infobox automobile
+|image          = Land Rover LWB registered June 1967.JPG
+|name           = Series IIA
+|production     = 1961–1971
+|body_style     = 2-door [[Off-road vehicle]]<br>4-door [[Off-road vehicle]]<br>2-door [[pickup truck|pickup]]
+|platform       = 
+|related        = 
+|engine         = {{ubl | [[Land_Rover_engines#2.25-litre_petrol_(Engine_Codes_10H,_11H_and_13H)|2.25 L ''ADO 23'' petrol]] [[Inline-four engine|I4]] | [[Land_Rover_engines#2.25-litre_diesel_(Engine_Code_10J)|2.25 L diesel I4]] | 2.6 L [[Rover IOE engine|IOE]] [[Straight-six engine|I6]] }}
+|transmission   = 4-speed [[Manual transmission|manual]]
+|wheelbase      = {{convert|88.0|in|mm|0|abbr=on}} (SWB)<br />{{convert|109.0|in|mm|0|abbr=on}} (LWB)
+|length         = {{convert|142.4|in|mm|0|abbr=on}} (SWB)<br />{{convert|175.0|in|mm|0|abbr=on}} (LWB)
+|width          = {{convert|66.0|in|mm|0|abbr=on}}
+|height         = {{convert|77.5|in|mm|0|abbr=on}} (SWB)<br />{{convert|81.0|in|mm|0|abbr=on}} (LWB)
+|layout         = 
+|predecessor    = [[Land Rover Series II]]
+|successor      = [[Land Rover Series III]]
+}}
+
+The SII and the SIIA are very difficult to distinguish. There were some minor cosmetic changes. Body configurations available from the factory ranged from short-wheelbase soft-top to the top-of-the-line five-door station wagon. A 2.25-litre diesel was added to the engine line, which after 1967 included a 2.6-litre inline six-cylinder petrol engine for the long-wheelbase models, which also had servo-assisted brakes. 811 of these were NADA (or North American Dollar Area) trucks, which were the only long-wheelbase models made for the American and Canadian markets.
+
+From February 1969 (home market), the headlamps moved into the wings on all models, and the sill panels were redesigned to be shallower a few months afterward. Later still, the rear wheelarch profile was changed, possibly to accommodate 900x16 tyres fitted with snow chains on 1-Ton 109" models.
+
+The '''Series IIA''' is considered by many the most hardy Series model constructed. It is quite possibly also the type of classic Land Rover that features strongly in the general public's perception of the Land Rover, from its many appearances in popular films and television documentaries set in Africa throughout the 1960s, such as ''[[Born Free]]''. In February 1968, just a few months after the [[Rover Company]] had been subsumed, under government pressure, into the [[Leyland Motor Corporation]], the Land Rover celebrated its twentieth birthday, with total production to date just short of 600,000, of which more than 70% had been exported.<ref name=Motor196802>{{cite magazine| title = News|magazine= Motor| pages =90–91|date = 17 February 1968}}</ref> Certainly it was whilst the Series IIA was in production that sales of utility Land Rovers reached their peak, in 1969–70, when sales of over 60,000 Land Rovers a year were recorded. (For comparison, the sales of the Defender have been around the 25,000 level since the 1990s.) As well as record sales, the Land Rover dominated many world markets- in Australia in the 1960s Land Rover held 90% of the 4×4 market. This figure was repeated in many countries in Africa and the Middle East.
+
+A rail-road version was developed in partnership with [[Dunlop Tyres|Dunlop]].<ref>Road-Rail Vehicle ''[[Railway Gazette International|Railway Gazette]]'' 28 September 1962 page 371</ref>
+
+[[File:Land Rover Serie IIA '88 1970 - Sillones.jpg|thumb|Factory three abreast front seating (1970 SWB S-IIA).]]
+<gallery widths="200px" heights="150px">
+File:1963.landrover.s2a.arp.jpg|1963 Land Rover<br>Series IIA pickup-type.
+File:1963 Land Rover Series 2A 109in WB ambulance - United Nations (5637208384).jpg|1963 Series IIA ambulance, United Nations.
+File:Land Rover Series IIA (1965) - 28607076444.jpg|1965 Series IIA ambulance, sand.
+File:Land Rover (1392444602).jpg|On late model Series IIA, the headlights were moved to the wings / fenders.
+</gallery>
+{{Clear}}
+
+==Series IIA Forward Control==
+[[File:1963 Land Rover 112 Recovery Wagon Heritage Motor Centre, Gaydon.jpg|thumb|right|1963 Land Rover Forward Control Recovery Wagon]]
+The '''Series IIA FC''' launched in 1962 was based on the Series IIA 2.25-litre petrol engine and {{convert|109|in|mm|0|abbr=on}} chassis, with the cab positioned over the engine to give more load space. Export vehicles were the first Land Rovers to get the 2.6-litre petrol engine. Most examples had an [[E.N.V. Motor Syndicate|ENV]] (heavy duty) rear axle, a matching front axle came later. Tyres were large 900×16 types on deep-dish wheel rims to spread the ground weight of this heavy vehicle. These vehicles were somewhat underpowered for the increased load capacity ({{convert|1.5|LT|kg|abbr=on|disp=or}}), and most had a hard working life. Less than 2,500 were made, and most had a utility body, but surviving examples often have custom bodywork. With an upgraded powertrain, they can be used as a small motorhome. 
+
+<gallery widths="200px" heights="150px">
+File:Land Rover 109 IIA Forward Control Fire Engine pic1.JPG|Land Rover Series IIA forward control fire engine
+</gallery>
+{{Clear}}
+
+==Series IIB forward control==
+[[File:Land Rover Series IIB FC side.jpg|thumb|Land Rover Series IIB forward control in Evje, Norway on the Norwegian Land Rover Club's 30th anniversary meet in August 2005.]]
+The '''Series IIB FC''' produced from 1966 was similar to the Series IIA FC but added the 2.25-litre diesel engine as an option. The 2.25-litre engine was the standard engine for this model, the 2.6-litre engine being only available for export.
+
+Heavy duty wide-track axles (designed by ENV) were fitted to improve vehicle stability, as was a front anti-roll bar and revised rear springs which were mounted above the axle rather than below it. In the process the wheelbase was increased to {{convert|110|in|mm|0|abbr=on}}. Production ended in 1974 when Land-Rover rationalised its vehicle range. Many IIB components were also used on the "1 Ton" 109&nbsp;in vehicle.
+{{Clear}}
+
+==Series III==
+{{Infobox automobile
+|image          = Land Rover (3915503448).jpg
+|name           = Series III
+|production     = 1971–1985
+|body_style     = 2-door [[Off-road vehicle]]<br />4-door [[Off-road vehicle]]<br />2-door [[pickup truck|pickup]]
+|platform       = 
+|related        = 
+|engine         = [[Land_Rover_engines#2.25-litre_petrol_(Engine_Codes_10H,_11H_and_13H)|2.25 L]] {{convert|73|hp|abbr=on}} [[inline-four engine|I4]] (Petrol)<br />[[Land_Rover_engines#2.25-litre_diesel_(Engine_Code_10J)|2.25 L]] {{convert|62|hp|abbr=on}} I4 ([[Diesel engine|Diesel]])<br />2.6 L [[Rover (marque)|Rover]] {{convert|86|hp|abbr=on}} [[Straight-six engine|I6]] (Petrol)<br>3.5 L {{convert|91|hp|abbr=on}} [[V8 engine|V8]] (Petrol)
+|transmission   = 4-speed [[Manual transmission|manual]] (main transmission)<br />2-speed manual (transfer gearbox)<br />Selectable [[4-wheel drive]]
+|wheelbase      = {{convert|88.0|in|mm|0|abbr=on}} (SWB)<br />{{convert|109.0|in|mm|0|abbr=on}} (LWB)
+|length         = {{convert|142.4|in|mm|0|abbr=on}} (SWB)<br />{{convert|175.0|in|mm|0|abbr=on}} (LWB)
+|width          = {{convert|66.0|in|mm|0|abbr=on}}
+|height         = {{convert|77.5|in|mm|0|abbr=on}} (SWB)<br />{{convert|81.0|in|mm|0|abbr=on}} (LWB)
+|layout         = 
+|successor      = [[Land Rover Defender|Land Rover Ninety & One Ten]]
+|predecessor    = [[Land_Rover_series#Series_IIA|Land Rover Series IIA]]<br>[[Austin Gipsy]]
+}}
+The Series III had the same body and engine options as the preceding IIA, including station wagons and the One-Ton versions. Little changed cosmetically from the IIA to the '''Series III'''. The Series III is the most common series vehicle, with 440,000 of the type built from 1971 to 1985. The [[headlight]]s were moved to the wings on late production IIA models from 1968/9 onward (ostensibly to comply with Australian, American, and Dutch lighting regulations) and remained in this position for the Series III. The traditional metal grille, featured on the Series I, II and IIA, was replaced with a plastic one for the Series III model. The 2.25-litre engine had its compression raised from 7:1 to 8:1, increasing the power slightly (the high compression engine had been an optional fit on the IIa model for several years). During the Series III production run from 1971 until 1985, the 1,000,000th Land Rover rolled off the production line in 1976. 
+[[File:Land Rover and new chassis.jpg|thumb|left|Fully boxed-welded steel frames distinguished Land Rovers from the beginning.]]
+[[File:Land Rover - Flickr - dave 7.jpg|thumb|left|For many years, a SWB Land Rover was the shortest 7-seat vehicle available in Europe.]]
+The Series III saw many changes later in its life as Land Rover updated the design to meet increased competition. This was the first model to feature [[synchromesh]] on all four gears, although some late H-suffix SIIA models (mainly the more expensive Station Wagons) had used the all-synchro box. In keeping with early 1970s trends in automotive interior design, both in safety and use of more advanced materials, the simple metal dashboard of earlier models was redesigned to accept a new moulded plastic dash. The instrument cluster, which was previously centrally located, was moved to the driver's side. Long-wheelbase Series III vehicles had the Salisbury rear axle (the differential housing and axle case are one piece){{clarify|date=May 2013}} as standard, although some late Series IIA {{convert|109|in|mm|adj=on}} vehicles had them, too.
+
+North American sales from the factory ceased in 1974.<ref name="Hagerty74">{{cite web|url=https://www.hagerty.com/media/hagerty-community/rides-from-the-readers-1974-land-rover-series-iii/|title=Rides from the Readers: 1974 Land Rover Series III|author=Grace Houghton|publisher=Hagerty Media|date=10 September 2020|accessdate=14 October 2021|archive-date=28 October 2021|archive-url=https://web.archive.org/web/20211028175008/https://www.hagerty.com/media/hagerty-community/rides-from-the-readers-1974-land-rover-series-iii/|url-status=live}}</ref>
+
+In 1980, the 2.25-litre petrol and diesel engines received five main bearing crankshafts to increase rigidity and the [[Transmission (mechanics)|transmission]], and [[axle]]s and wheel hubs were strengthened. This was the culmination of a series of updates to the transmission that had been made since the 1960s to combat the all-too-common problem of the rear axle half-shafts breaking in heavy usage. This problem was partly due to the design of the shafts themselves. Due to the fully floating design of the rear wheel hubs, the half shafts can be removed very quickly without even having to jack the vehicle off the ground. [[File:Land Rover Santana Serie III.jpg|thumb|A green [[Santana Motor|Santana]] Series III in Spain.]] The tendency for commercial operators to overload their vehicles exacerbated this flaw which blighted the Series Land Rovers in many of their export markets and established a reputation that continues in many markets to the present day. This is despite the 1982 re-design (mainly the increase of driving-[[Spline (mechanical)|spline]]s from 10 to 24 to reduce stress) that all but solved the problem.
+
+Also, new trim options were introduced to make the interior more comfortable if the buyer so wished (many farmers and commercial users preferred the original, non-trimmed interior).
+
+These changes culminated in April 1982 with the introduction of the "County" spec. Station Wagon Land Rovers, available in both {{convert|88|in|mm|adj=on}} and {{convert|109|in|mm|adj=on}} types. These had all-new cloth seats from the [[Leyland Trucks|Leyland]] T-45 Lorry, soundproofing kits, tinted glass and other "soft" options designed to appeal to the leisure owner/user.
+
+Of more interest was the introduction of the High Capacity Pick Up to the {{convert|109|in|mm|adj=on}} chassis. This was a pick-up truck load bay that offered 25% more cubic capacity than the standard pick-up style. The HCPU came with heavy-duty suspension and was popular with public utility companies and building contractors.
+
+==Stage One V8==
+
+The first Prototype V8 Land Rover was the creation of Bruce McWilliams, then president of the Rover Motor Company of North America Limited. McWilliams thought that the newly acquired all alloy V8 from GM would be perfect for the Land Rover. Early in 1966 the project was given to then Service Manager and newly appointed Product Development Engineer, Richard F Green of Rover Motor Company of North America, Ltd., based in South San Francisco. Green’s past included years in Grand Prix and sports-car racing with teams like Aston Martin and MG/BMC. Green came to America in February 1956 after the Monte Carlo Rally, sponsored by Ken Miles. The project was named "BOP" (Buick-Olds-Pontiac). McWilliams listed specifications he wanted in addition to the V8 such as Primrose Yellow paint, black upholstery, side pipes from a Corvette, a Hurst shifter, making a hot rod in the California sense of the word. Green had other ideas. A new 1966 88" Station Wagon was collected at the SF Docks and taken to British Sports Car Service in [[Hayward, California]] for teardown. Green designed and drew a blueprint for the engine adapter plate (the same one the factory would go on to use for three other V8s they would build). In addition to the increased horsepower, Green would upgrade the 10" SLS drum brakes to 11"x3" DLS from the new NADA 109" they would soon be testing; increase fuel capacity; relocate and fit adjustable driver’s seat; and, with the help of Moeller Bros Body Shop, modify the rear bulkhead and then paint the car Golden Rod Yellow, which would then become the new project name: "Golden Rod". They drove the completed the Golden Rod to New York City for McWilliams to see, from where it was shipped to Southampton, where Green would later collect it and drive it to Solihull.
+
+From 1979 until 1985, the Stage 1 was built using some of the same components as the Range Rover and 101 Forward Control, such as the LT95 gearbox and 3.5-litre [[Rover V8]] petrol engine. The engine was detuned to {{convert|91|hp|abbr=on}} from the 135BHP of the contemporary Range Rover. The vehicle came about because the competing Toyota Land Cruiser and Nissan Patrol vehicles, fitted with powerful and durable 6-cylinder engines, were making considerable inroads into the market, particularly in Australia and Africa. A V8-powered Land Rover with the Range Rover's constant 4WD system was a considerable technological advancement on the part-time 4WD and 4-cyl engines of previous variants, though the Stage 1 still used the Series III's leaf springs.
+
+The Stage 1 was normally available only in LWB {{convert|109|in|mm|adj=on}} form but 24 examples were built with the SWB {{convert|88|in|mm|0|abbr=on}} wheelbase.<ref>{{cite web |url=http://www.stage1v8.org.uk/ |title=Stage 1 V8 109 |publisher=Stage1v8.org.uk |access-date=2010-09-30 |archive-date=18 July 2007 |archive-url=https://web.archive.org/web/20070718022903/http://www.stage1v8.org.uk/ |url-status=live }}</ref>
+
+"Stage 1" refers to the first stage of investment by the British Government in the company to improve the Land Rover and Range Rover product offerings to counter the aforementioned market challenges, and were a transitional development on the way to the coil-sprung Land Rover 90 and 110. The use of the Range Rover engine and drive train made it the only Series III vehicle to have permanent four-wheel drive.
+[[File:StageOneV8.jpg|left|thumb|Land Rover Stage One V8 in Spain.]]
+Most of the V8 Stage 1 vehicles were exported, as the larger engine was not really sought after by UK owners, for whom the 4-cyl 2286cc engine seemed to be sufficient and somewhat more economical. A small number may have been used by the British armed forces. However, the New Zealand Army bought 566 Stage 1 V8 Land Rovers which entered service over the period 1982–1986. The New Zealand Army standardised on the type, retiring the previous mixture of British- and Australian-built 88" and 109" Series 2 variants. All the V8 vehicles were 109" configuration and were supplied with a plastic-coated canvas canopy with bodywork in Deep Bronze Green. All had 24&nbsp;V electrics with Fitted For Radio (FFR) vehicles having a larger 100-amp generator supplied by Milspec Manufacturing Pty Ltd of Australia. Variants included a hard-top fitted vehicle used for specialist signals tasks (some of which had dual rear wheels for lateral stability to counteract the weight of additional equipment carried). There was also a white-painted 300 TDI conversion of approximately 20 vehicles, including a hard top and locally devised disc brake conversion, for peacekeeping service with New Zealand's UNPROFOR contingent in Bosnia-Herzegovina from 1994 to 1996. The retirement of New Zealand V8 Stage 1 vehicles started from 2000, with the last examples taken out of service in 2006 once sufficient numbers of the Pinzgauer replacement vehicle became available. The vehicles were sold off in a series of disposal auctions, and many are now cherished by private owners in New Zealand.
+{{-}}
+==One-ton 109 inch==
+[[File:A3341 Argentina Usuhaia Nino Cirani Archivio Fotografico© (2).jpg|thumb|alt=Argentina Usuhaia Nino Cirani Land Rover 109|Land Rover 109 used by explorer and photographer [[Nino Cirani]] in [[Ushuaia]], Argentina]]
+The 1 Ton 109&nbsp;inch was produced from late 1968 to 1977, covering late IIA and Series III Models. It was basically a Series-IIB forward control built with a standard 109&nbsp;in body, featuring 2.6-litre petrol engine, lower ratio transfer gearbox, ENV front and rear axles, (Salisbury front and rear on later series IIIs) though some late IIAs were fitted with ENV axles in front and Salisbury on the rear. Later series IIIs had a Rover type front axle with a supposedly strengthened differential. The chassis frame was unique to the model and featured drop-shackle suspension similar to the military series Land Rovers. 900x16 tyres on deep dish steel wheelrims were a standard feature and these machines were commonly used by utility companies and breakdown/recovery firms. Only 170 IIA and 238 series IIIs (1 Ton) were built for the home market. Export markets had even fewer examples, making this one of the rarest types of Land-Rover ever built.
+22 IIA 1-tons were built with 2.25 litre petrol engine for the ministry of defence as fire tenders, known as the TACR1. The series III version was an uprated version of the standard military Land Rover.
+{{-}}
+
+==Australia==
+[[File:Land Rover Series III CAMEL.jpg|thumb|Short-wheelbase Land Rover Series III.]]
+Australia has always been an important export market for Land Rovers of various models, but especially the utility models. 80-inch series-I models were sold to the Australian government in the late 1940s for work on civil engineering projects such as dams and road construction, which brought the vehicle to the buying public's attention. Large sales followed and in the 1950s Land Rover established factories in Australia to build [[Complete knock down|CKD]] kits shipped from the Solihull factory. The Land Rover continued to sell well throughout the 1960s in series II guise, commanding some 90% of the off-road market, and with practically every farm having at least one Land Rover.
+[[File:Land Rover 109 Pick-Up 1980 (cropped).jpg|thumb|Land Rover Series III pickup.]]
+The series III continued this success in the early 1970s, but from the middle of the decade sales declined. A large coal export deal to Japan relied on the subsequent import of Japanese cars and other goods, a combination of this increasing competition and increasingly poor quality of the components being shipped from Britain meant that Land Rover's dominance slipped.
+
+In an attempt to address declining sales in the rural and civil engineering markets in the mid 1970s, Leyland Australia developed the Land Rover GAME, an up-market, short-wheelbase Series III aimed at the emerging recreational 4WD market. Fitted with fifteen inch white spoke wheels and wide tyres, wheel arch extensions, deluxe bonnet, rear bumperettes, rear swing away spare wheel carrier, interior trim, and a radio cassette player, the GAME was available in a single colour scheme of 'Yellow Devil' body, white roof, black front panels and silver windscreen vent panel. Optional extras included a Fairey overdrive, safari roof, and free-wheeling hubs. Sales were limited and the model was discontinued in 1979.<ref>{{cite web |title=Land Rover GAME - Leyland Australia's take on an upmarket Series III |url=https://www.aronline.co.uk/cars/land-rover/defender-land-rover/land-rover-game-series-iii-development-story/ |website=AROnline |date=9 July 2018 |access-date=22 October 2019 |archive-url=https://web.archive.org/web/20191022071923/https://www.aronline.co.uk/cars/land-rover/defender-land-rover/land-rover-game-series-iii-development-story/ |archive-date=22 October 2019}}</ref>
+
+A problem specific to Australia was the always-limited supply of new Land Rovers. Leyland's factory never had the capacity to meet possible demand and the need to import almost the entire vehicle in kit form from Britain restricted the supply and manufacturing process further. This led to a long waiting list developing for the Leyland product whilst commercial operators could receive large fleets of Japanese vehicles very quickly. The other problems faced by Land Rover were the same throughout its export markets- compared to the Japanese competition, the Land Rover was underpowered, unreliable and slow with a poor ride quality, despite their arguably superior off-road ability. Poor rust-proofing and low-quality [[steel]] used in comparison to the Japanese vehicles turned the buyers away in large numbers and by 1983, with the introduction of the One Ten, the [[Toyota Land Cruiser]] became the best-selling 4×4 in Australia.
+
+In the early 1980s, Land Rover Australia had made some changes to the vehicle to try to combat this sales decline. As well as the fitting of the V8 petrol engine in the 1979 "Stage One", as in the rest of the world, Australia also received the same vehicle with the option of a 3.9-litre {{convert|97|hp|kW|abbr=on}} four-cylinder [[Isuzu]] diesel engine ([[List of Isuzu engines#D4|4BD1]]).<ref name=truck86>{{cite journal | journal = TRUCK | date = June 1986 | page = 5 | editor-last = Barden | editor-first = Paul | title = Scoop! New Land Rover truck | location = London, UK | publisher = FF Publishing Ltd }}</ref> This was introduced in 1982, and was meant to be equipped in about ten per cent of the Australian production. Top speed is {{convert|77|mph|km/h|0|abbr=on}}.<ref name=truck>{{cite journal | journal = TRUCK | date = May 1982 | ref = truck82 | page = 13 | editor-last = Kennett | editor-first = Pat | title = What's New: Isuzu power for Land Rover | location = London, UK | publisher = FF Publishing Ltd }}</ref> This helped slow the sales decline, but the rest of the vehicle's shortcomings let it down. The One Ten was also available with this engine, and a turbocharged version producing in excess of {{convert|100|hp}} powered the military 6×6.
+
+==South Africa==
+South Africa's relationship with Land Rover started in 1949 when the first Series-I 80-inch models were sold in [[Union of South Africa|South Africa]]. In August 1950, Car Distributors Assembly (Pty) Ltd assembled the first Land Rover CKD in [[Port Elizabeth]], South Africa. The first local production of fuel tanks and chassis at the Port Elizabeth plant was announced in August 1963 and from then on the local content in the production of Land Rovers increased steadily to 44% of vehicle weight by 1972. Local content included: chassis, road springs, entire body, tyres, seat frames and upholstery, battery, fibreglass roof and all glass. In 1974 Leyland SA had three assembly plants. Local content increased further in 1980 with the series-IIIS models fitted with locally produced petrol(R6) and diesel(ADE 236) engines. In 1992, the Blackheath factory in the Cape Province was identified as the largest Land Rover CKD assembly outside the [[United Kingdom]].<ref>{{cite book|title=Land Rover in South Africa|publisher=XtraMile Creative|isbn=978-0-620-46761-2}}</ref>
+
+==Military==
+
+===United Kingdom===
+[[File:Land Rover, licence registration 'A377MDD'.JPG|thumb|British Army, 109 in wheelbase, series-III soft-top.]]
+The [[British Army]] used series Land Rovers in large numbers (and continues to use the modern [[Land Rover Defender|Defender]] versions). The British Army tested the {{convert|80|in|m|2|adj=on}} series-I Land Rover almost as soon as it was launched in 1948. At that time, the Army was more interested in developing a specially designed military utility 4×4 (the [[Austin Champ]]). However, the Champ proved too complex, heavy and unreliable in battlefield conditions so the Army looked to the Land Rover. In the late 1940s the [[Ministry of Defence (United Kingdom)|Ministry of Defence]] was keen on the standardisation of its vehicles and equipment. Part of this plan was to fit [[Rolls-Royce Limited|Rolls-Royce]] petrol engines to all its vehicles (even though most were not actually built by R-R). A batch of series-I Land Rovers were fitted with Rolls-Royce B40 four-cylinder engine, which required modification to an {{convert|81|in|m|2|adj=on}} wheelbase). However, the engine was too heavy and slow-revving, which stunted performance and produced torque that the Rover gearbox could only just cope with. Rover convinced the MOD that, considering the quantities of Land Rovers they were considering ordering, that the standard 1.6-litre engine would suffice. The MOD started ordering Land Rovers in batches from late 1949. The initial batches were for 50 vehicles, but by the mid-1950s the Army was buying Land Rovers 200 vehicles at a time.
+
+{{Anchor|Pink Panther}}
+[[File:Land Rover series IIa 'Pink Panther' SAS desert car 1968.jpg|thumb|The 'Pink Panther'.]]
+Land Rovers were deployed to the [[Korean War]] and the [[Suez Crisis]], and became standard light military vehicles throughout the Commonwealth.
+[[File:Land Rover 109 S111 Ambulance.JPG|thumb|Originally British 109 in SIII ambulance.]]
+However, as the 1960s progressed, more and more specialised versions were developed. As well as the standard 'GS' (General Service) vehicles, a common variant was the 'FFR' (Fitted For Radio), which had 24-[[volt]] electrics and a large engine-powered generator to power on-board radios. There were also Ambulances on the {{convert|109|in|m|2|adj=on}} series-II and series-III chassis. A well-known version was the LRDPV (Long-Range Desert Patrol Vehicle), commonly called the 'Pink Panther', on account of their distinctive light pink sand camouflage. These {{convert|109|in|m|2|adj=on}} series IIs were converted by [[Marshall Aerospace and Defence Group|Marshall's of Cambridge]] by being stripped of doors and windscreens and fitted with [[grenade]] launchers, a [[machine gun]] mounting ring and long-range fuel tanks and water tanks. They were used by the [[Special Air Service|SAS]] for desert patrol and special operations.
+[[File:Land Rover Lightweight (9896535976).jpg|thumb|[[Land Rover 1/2 ton Lightweight|Land Rover half-ton lightweight]] Series III.]]
+
+By the late 1970s, the British Army had acquired around 9,000 series-III models, which were mainly a special "heavy duty" version of the {{convert|109|in|m|2|adj=on}} soft top. These models had improved suspension components and a different chassis cross-member design. These were produced in 12-volt 'GS' models and 24-volt 'FFR' versions. A small number were {{convert|88|in|m|2|adj=on}} GS and FFR models, but in general the Army used the air-portable half-ton, {{convert|88|in|m|2|adj=on}} [[Land Rover 1/2 ton Lightweight|"lightweight"]] version. The lightweight was in service by many armies all over the world. In Europe also the [[Royal Netherlands Army|Royal Dutch Ground Forces]] and the Danish Army used the Land Rover lightweight. Instead of the petrol engine the Dutch and Danish lightweights had diesel engines. Instead of the canvas top the Dutch ones had PVC tops like the modern Land Rover "Wolf".
+
+In addition, there were also {{convert|101|in|m|2|adj=on}} [[Land Rover 101 Forward Control|Forward Control]] models, {{convert|109|in|m|2|adj=on}} FV18067 [[ambulance]]s built by [[Marshall Aerospace]] of Cambridge.
+
+The [[Royal Navy]] and [[Royal Air Force]] also acquired and maintained smaller Land Rover fleets during the 1960s and 1970s. The RAF used {{convert|88|in|m|2|adj=on}} models for communications, liaison, personnel transport and airfield tractor duties. The Royal Navy's fleet was, understandably, small and consisted mainly of GS-spec and Station Wagon versions for personnel and cargo transport.
+
+All British military Land Rovers used the 2.25-litre four-cylinder petrol engine, except the forward control 101 which used the 3.5 litre Rover V8 engine. However, some overseas customers (such as The Netherlands) specified the 2.25-litre diesel unit instead.
+
+The Land Rover is also the basis for the [[Shorland (vehicle)|Shorland Internal Security Patrol Vehicle]] developed by [[Short Brothers]].
+
+===Australia===
+[[File:106mm land rover.JPG|thumb|Australian Army Land Rover Series 2 [[anti-tank]] "Gunbuggy" with a [[M40 recoilless rifle|106 mm recoilless rifle]].]]
+[[File:Australian Army land rover used in UNTAG.JPG|thumb|Australian Army Land Rover deployed to [[Namibia]] during [[United Nations Transition Assistance Group|UNTAG]] on display at the [[Australian War Memorial]].]]
+The Australian-made series 1, 2, 2A and 3 were widely used by the [[Australian Army]], [[Royal Australian Navy]] and [[Royal Australian Air Force]].<ref name="Clarke">{{cite book|author=R. M. Clarke|title=Land Rover Military Portfolio|publisher=Brooklands Books|year=2001|isbn=1855205610}}</ref> Most were GS (General Service) mobility vehicles with variants built as [[Long Range Patrol Vehicle]]s, ambulances, command reconnaissance cars, fire tenders and ceremonial vehicles.<ref name="Vanderveen">{{cite book|author=Bart Harmannus Vanderveen|title=World directory of modern military vehicles|pages=44, 62, 235|publisher=Arco Publications|year=1983|isbn=0668060220}}</ref>
+
+The first was delivered to the Army in 1948 and the series 1 gradually replaced the World War II era [[Austin Champ]]s and [[Jeep#World War II Jeeps|Jeeps]]. The series 2 was introduced in 1958, the 2a in 1963 and series 3 in 1973.<ref name="REMLR">{{cite web|url=http://www.remlr.com/auinfo-army.html|title=Australian Military Land Rover Fleet Information|publisher=Registry of Ex-Military Land Rovers|access-date=10 December 2012|archive-url=https://web.archive.org/web/20120221033515/http://www.remlr.com/auinfo-army.html|archive-date=21 February 2012|url-status=dead}}</ref> 72 of the series 2 were fitted as an anti-tank "gunbuggy" with a [[M40 recoilless rifle|106mm recoilless rifle]].<ref name="Vanderveen"/>
+
+The [[Land Rover Perentie]], commonly thought to be a military variant of the [[Land Rover Defender]], was introduced in 1987, 3 years before the Defender was named in 1990. Over 2,500 four wheel drive and 400 six wheel drive remained in service until 2019.<ref name="REMLR"/>
+
+===New Zealand===
+The [[New Zealand Army]] purchased 640 of the Australian-made Series I between 1951–1953. A similar number of Series II were purchased in 1959–1962 and a small batch of Series IIA in 1965–1967. New Zealand purchased a small number of ex-Australian Series II and IIA vehicles in 1971–1972, out of the pool used by the [[ANZUK]] force in [[Singapore]], which were typically re-manufactured by BLMC NZ Ltd in Wellington and hence carry New Zealand build plates.<ref>{{Cite web|url=http://www.remlr.com/nzinfo.html|title=NZ info -REMLR|website=www.remlr.com|access-date=2016-06-16|archive-date=24 September 2015|archive-url=https://web.archive.org/web/20150924085923/http://www.remlr.com/nzinfo.html|url-status=live}}</ref> These are commonly called a Land Rover "Skippy" and are distinctive with differently cut guards. The New Zealand Army purchased 566 Series 3 109" V8s, entering service over the period 1982 - 1986.<ref name="REMLR"/> The last Land Rover V8s were phased out of New Zealand service in 2006 when they were replaced by 321 [[Pinzgauer High-Mobility All-Terrain Vehicle]]s.<ref>{{cite web|title=LOV (Light Operational Vehicle) |url=http://www.army.mil.nz/our-capability/operational-vehicles/lov.htm |website=NZ Army |access-date=28 Sep 2011 |url-status=dead |archive-url=https://web.archive.org/web/20130331011837/http://www.army.mil.nz/our-capability/operational-vehicles/lov.htm |archive-date=31 March 2013 }}</ref>
+
+==Minerva==
+[[File:Minerva Land Rover IMG 1546.jpg|thumb|Minerva Land Rover.]]
+[[Minerva (automobile)|Minerva]] of [[Belgium]] produced a version of the [[Standard Vanguard]], under licence from the [[Standard Motor Company]].
+When Belgium's army needed a lightweight 4×4 vehicle, the head of Minerva, Monsieur van Roggen approached Rover in the spring of 1951. On 21 June, Rover discovered that they were competing against [[Willys Jeep]] for the contract. In October 1951, the deal was agreed and in 1952, the Minerva-Land Rover was produced. Both 80" and 86" models were made until production ended in 1956.
+
+The Rover company supplied technical support for Minerva and allowed Minerva to produce Land Rovers under licence. [[Arthur Goddard Engineer|Arthur Goddard]], Rover Assistant Chief Engineer and head of Land Rover development was in charge of approving the changes Minerva wanted to make to the Land Rover as well as setting the factory up to assemble the vehicles.
+
+==Santana==
+{{main|Santana Motor}}
+[[Santana Motor|Santana Motor S.A.]] was a Spanish car manufacturer based in [[Linares, Jaén|Linares]], Spain.<ref name="santana-motor.es">{{Cite web|url=http://www.santana-motor.es/SantanaMotor/porta.htm|title=Who we are?|access-date=2007-12-22|work=santana-motor.es|archive-date=10 December 2007|archive-url=https://web.archive.org/web/20071210145912/http://www.santana-motor.es/SantanaMotor/porta.htm|url-status=live}}</ref> The company decided to expand beyond its original products line and entered into talks with the [[Rover Company|Rover]] car company in 1956 in an attempt to get a licensing agreement to build Land Rover series models in their factory, in a similar way to the [[Minerva (automobile)|Minerva]] company in Belgium, [[Tempo (automobile)|Tempo]] in Germany and [[Morattab]] company in Iran, all built series [[Land Rover]]s under licence. An agreement was reached in 1956 and production began in 1958 it was licensed to build Land Rover models. The Santana Motor company built series Land Rovers under licence in CKD form ([[Complete knock down|Complete Knocked Down]] kits); essentially parts were shipped over from the [[Solihull plant|Land Rover factory in Solihull]] and the Land Rovers were built up from this 'kit' at the Santana factory in Spain. From 1968 Santana began to develop its own versions of the Land Rover series models, developing new engines and new models and this close relationship with Land Rover led the company to change its name from "Metalúrgica de Santa Ana, SA" to "Land Rover Santana, SA".<ref name="ReferenceA">{{cite journal |date=July 2005 |title=Anibal Charm |journal=Land Rover World Magazine |pages=66–72}}</ref> In 1962 the company became responsible for promoting the Santana and Land Rover brands in Central and South American Markets as well as Africa. CKD kits were also supplied to the Moroccan and Costa Rican markets by the company. The Santana Motor Company ended its agreement with Land Rover in 1983 but continued to develop its own range of vehicles which remained visually similar to Land Rover's series and Defender range.
+==See also==
+* [[Austin Gipsy]]
+* [[Military light utility vehicle]]
+
+==References==
+{{reflist}}
+
+==External links==
+{{Commons category|Land Rover Series}}
+* [http://www.landrover.com/ Land Rover International Official website]
+* [http://www.landroverusa.com/index.html Land Rover USA Official Website]
+* [http://www.landrover-me.com/en/index.html Land Rover MENA Official Website]
+* [https://manualwheel.com/2023-land-rover-defender-110/ Land Rover Official Website]
+* [https://smithies.co.nz/land_rover/ Land Rover Instruction and workshop manual]
+
+{{Rover}}
+{{Land Rover vehicles}}
+{{British Motor Holdings and British Leyland cars, 1966-1986}}
+
+[[Category:Military vehicles of the United Kingdom]]
+[[Category:Off-road vehicles]]
+[[Category:All-wheel-drive vehicles]]
+[[Category:Cars introduced in 1948]]
+[[Category:1950s cars]]
+[[Category:1960s cars]]
+[[Category:1970s cars]]
+[[Category:1980s cars]]
+[[Category:Land Rover vehicles|Series]]
+[[Category:Military light utility vehicles]]
+[[Category:First car made by manufacturer]]
+[[Category:Panel trucks]]
+[[Category:Cars discontinued in 1985]]

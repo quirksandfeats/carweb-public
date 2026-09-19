@@ -8192,10 +8192,19 @@ Rules:
 
   // One "* 2020-present [[Target|Display]] (note)" line.
   const APP_YEARS_RE = /(\d{4})\s*[-–—]\s*(\d{4}|present|Present)?/;
+  // A single year, stated on its own at the head of a line. Real bug report,
+  // the Oldsmobile Diesel: "the LS2 engine has no information about what cars
+  // use the engine, but in the wikipedia it is clearly stated." Its section
+  // lists four, and every one of them is written "*1985 [[Buick Electra]]" --
+  // one year, not a range. The line reader required a range and threw all of
+  // them away, along with the whole of the LF7's list.
+  // 1880-2029, because a displacement in cc is four digits too: the Isuzu G
+  // engine's "1599" was being read as the year a Chevrolet Chevette was built.
+  const APP_ONE_YEAR_RE = /(?:^|[^\d])((?:18[89]\d|19\d\d|20[0-2]\d))\s*(?:[^\d–—-]|$)/;
   // The same years, but at the HEAD of the line, which is where an
   // application states them -- past any bullet, and past a leading image.
   const APP_LINE_RE =
-    /^\s*(?:\[\[\s*(?:File|Image)\s*:[^\]]*\]\]\s*)*(?:[*#:]+\s*)?(?:\[\[[^\]]*\]\]\s*)?\d{4}\s*[-–—]/;
+    /^\s*(?:\[\[\s*(?:File|Image)\s*:[^\]]*\]\]\s*)*(?:[*#:]+\s*)?(?:\[\[[^\]]*\]\]\s*)?\d{4}\s*(?:[-–—]|[^\d-]|$)/;
   function parseApplicationLine(raw) {
     let line = String(raw || "");
     if (!line.trim()) return null;
@@ -8213,6 +8222,8 @@ Rules:
     const display = (link[3] || link[1]).trim();
     if (!target || /^(?:File|Image|Category)\s*:/i.test(target)) return null;
     const ys = APP_YEARS_RE.exec(line);
+    // One year means it ran that year: start and end are both it.
+    const one = ys ? null : APP_ONE_YEAR_RE.exec(line);
     const note = (line.match(/\(([^()]*only[^()]*)\)/i) || [])[1] || null;
     return {
       target,
@@ -8222,8 +8233,9 @@ Rules:
       // the whole line's plain text is kept too: it is what says which car,
       // in the cases where the target is only a company.
       text: stripEngineMarkup(line),
-      yearStart: ys ? Number(ys[1]) : null,
-      yearEnd: ys && ys[2] && /^\d/.test(ys[2]) ? Number(ys[2]) : null,
+      yearStart: ys ? Number(ys[1]) : (one ? Number(one[1]) : null),
+      yearEnd: ys ? (ys[2] && /^\d/.test(ys[2]) ? Number(ys[2]) : null)
+                  : (one ? Number(one[1]) : null),
       note: note ? note.trim() : null,
     };
   }
@@ -8428,15 +8440,119 @@ Rules:
   function engineSectionFor(wikitext, short) {
     const key = norm(short || "");
     if (!key) return null;
-    let best = null;
+    let best = null, byAnchor = null;
     for (const sec of wikitextSections(wikitext)) {
+      if ((sec.anchors || []).some(a => norm(a) === key)) {
+        if (!byAnchor || sec.level > byAnchor.level) byAnchor = sec;  // deepest: the most specific
+      }
       if (norm(sec.title) !== key) continue;
       // Shallowest match wins: "== M177 ==" is the engine; a deeper heading
       // repeating the code is something inside it.
       if (!best || sec.level < best.level) best = sec;
     }
-    return best;
+    // A heading that says the name outright beats an anchor, which is a
+    // link target and may sit on a section covering several.
+    return best || byAnchor;
   }
+
+  // ---------- an index of a maker's engines ----------
+  // Real user request: "it would be very useful if this type of article is
+  // found, as it can be used to gather many different engines of an entire
+  // company. In this case Im only concerned with the engine names/families,
+  // and the specs that I mentioned I am interested in deriving... But, make
+  // sure not to get too lost in these types of articles, see if you can figure
+  // out a good system for deriving the engines without getting too lost in the
+  // content."
+  //
+  // The system: an index is organised as structure then engines -- Isuzu's is
+  // "Four-cylinder > Diesel > Isuzu J engine" -- so the engines are the
+  // DEEPEST sections, and everything above them is filing. Read whole, the
+  // Isuzu list gave 57 "applications" that were mostly the valvetrain, the
+  // cooling and the maker; read this way it gives the engine families and
+  // nothing else, which is what was asked for.
+  //
+  // Nothing here follows a link out of the index: each engine is whatever its
+  // own section says, and that is where it stops.
+  const ENGINE_LIST_STRUCTURE = new Set([
+    "overview", "history", "references", "external links", "see also", "notes",
+    "applications", "further reading", "sources", "bibliography", "gallery",
+    "petrol", "gasoline", "diesel", "cng", "lpg", "hybrid", "electric", "turbo",
+    "two-cylinder", "three-cylinder", "four-cylinder", "five-cylinder",
+    "six-cylinder", "eight-cylinder", "ten-cylinder", "twelve-cylinder",
+    "sixteen-cylinder", "single-cylinder", "rotary", "current", "former",
+    "production", "engines", "engine", "petrol engines", "diesel engines",
+    "automotive engines", "aircraft engines", "heavy vehicle engines",
+    "marine engines", "industrial engines", "racing engines", "tractor engines",
+  ]);
+  function engineListSections(wikitext, marqueName) {
+    const secs = wikitextSections(wikitext);
+    const named = secs.filter(sec => {
+      const t = String(sec.title || "").trim();
+      if (!t || t.length > 60) return false;
+      if (ENGINE_LIST_STRUCTURE.has(norm(t))) return false;
+      // "=== [[Porsche 356]] ===" is a car this index is filed under, not an
+      // engine it names.
+      if (sec.titleIsLink) return false;
+      if (norm(t).indexOf("cylinder") >= 0 && !/\d/.test(t.replace(/\D/g, ""))) return false;
+      // It has to say it is an engine. An index that names its engines says
+      // so in the heading ("Isuzu J engine", "GH engine") or hangs a link
+      // anchor there for exactly this purpose; one filed by CAR does neither,
+      // and "List of Porsche engines" -- headed "Cayman", "Cayenne",
+      // "Carrera GT" -- would otherwise put a dozen cars in the graph as
+      // engines. Nothing usable from an article like that is the right
+      // answer: "make sure not to get too lost in these types of articles."
+      if (looksLikeMarqueOnly(t, null)) return false;
+      // The heading has to SAY it is an engine. An index that names engines
+      // says so in every heading ("Isuzu J engine", "GH engine", "CNG
+      // Engines"); one filed by car does not, and "List of Porsche engines" --
+      // headed "Cayenne", "Junior", "Hemi-head" -- would otherwise put a
+      // dozen cars and tractors in the graph as engines. An index whose
+      // headings are bare codes yields nothing, which is the conservative
+      // answer "don't get too lost in these types of articles" asks for.
+      return /\bengines?\b/i.test(t);
+    });
+    // A kept section that CONTAINS another kept section is the filing, not the
+    // engine -- "General Motors" over three GM engines is a heading, not one.
+    const leaves = named.filter(a => !named.some(b => b !== a && b.at > a.at && b.at < a.stop));
+    // ...and the last question: is this index filed by ENGINE or by CAR?
+    // "List of Porsche engines" is filed by car -- "Porsche 930", "Porsche
+    // 996", "Porsche 911 GT1" -- and reading those as engine names would put a
+    // dozen cars in the graph as engines. An engine's designation carries
+    // letters (J, GH, 4ZE1, M256); a car's model number usually does not. When
+    // most of the headings are bare numbers the index is filed by car, and the
+    // honest answer is that it names no engines -- which is what "don't get
+    // too lost in these types of articles" asks for.
+    // The maker, from the article's own title ("List of Porsche engines"),
+    // with whatever every heading happens to start with as a fallback.
+    const marque = new Set();
+    String(marqueName || "").split(/\s+/).forEach(w => {
+      const c = w.replace(/[^A-Za-z0-9]/g, "");
+      if (c) marque.add(c);
+    });
+    const distinctive = sec => {
+      let t = String(sec.title || "").replace(/\s*\([^()]*\)\s*/g, " ");
+      marque.forEach(w => { t = t.replace(new RegExp("\\b" + w + "\\b", "ig"), " "); });
+      return t.replace(/[^A-Za-z0-9]+/g, " ").trim();
+    };
+    // The marque is whatever word every heading starts with, if they agree.
+    if (!marque.size) {
+      const firstWords = leaves.map(sec => (String(sec.title || "").trim().split(/\s+/)[0] || ""));
+      if (firstWords.length > 2 && new Set(firstWords.map(norm)).size === 1 && firstWords[0]) {
+        marque.add(firstWords[0].replace(/[^A-Za-z0-9]/g, ""));
+      }
+    }
+    // A car: a bare model number ("930"), or a number followed by a trim name
+    // ("911 GT1", "919 Hybrid"). An engine code that opens with a digit runs
+    // the digit into its letters ("4ZE1", "6G72") and so is not caught.
+    const looksLikeModelNumber = sec => {
+      const d = distinctive(sec);
+      return /^\d[\d\s/]*$/.test(d) || /^\d+\s+\S/.test(d);
+    };
+    const byCar = leaves.filter(looksLikeModelNumber).length;
+    if (leaves.length && byCar * 2 > leaves.length) return [];
+    return leaves.filter(sec => !looksLikeModelNumber(sec));
+  }
+
   function engineVariants(wikitext, name, inherited) {
     const key = norm(name || "");
     const secs = wikitextSections(wikitext);
@@ -8684,11 +8800,39 @@ Rules:
     // -- whatever that engine's own section states.
     const specs = (scope ? engineSpecsFromSection(scope.body, engineSpecsFromInfobox(info))
                          : engineSpecsFromInfobox(info)) || engineSpecsFromInfobox(info);
-    const variants = engineVariants(body, short, specs);
+    // An index article read whole is a list of engines, not one engine: its
+    // sections ARE its variants, and it has no applications of its own. Read
+    // for ONE of them (scope found) it is that engine, and this does not
+    // apply. See engineListSections.
+    const indexed = isEngineListTitle(title) && !scope;
+    // The maker, from "List of Isuzu engines" -- so "A engine" reads as the
+    // Isuzu A rather than as a letter.
+    const listMarque = indexed
+      ? String(title || "").replace(/^list of\s+/i, "").replace(ENGINE_SUFFIX_RE, "").trim() : "";
+    const variants = indexed ? engineListSections(wikitext, listMarque).map(sec => {
+                                const bare = stripEngineSuffix(sec.title) || sec.title;
+                                const code = (listMarque && norm(bare).indexOf(norm(listMarque)) < 0)
+                                  ? listMarque + " " + bare : bare;
+                                return {
+                                  code,
+                                  // Deliberately empty. "In this case Im only
+                                  // concerned with the engine names/families,
+                                  // and the specs" -- and an index's prose
+                                  // links the valvetrain, the maker and the
+                                  // country as readily as it links a car, so
+                                  // reading cars out of it is exactly the
+                                  // getting-lost that was warned against. An
+                                  // engine worth following has its own article.
+                                  applications: [],
+                                  specs: engineSpecsFromSection(sec.body, null, sec.title),
+                                  anchors: sec.anchors || [],
+                                };
+                              })
+                            : engineVariants(body, short, specs);
     // No variant sections at all still means applications -- they just sit in
     // the article body. Same fallback the nameplate side uses for a car that
     // turns out to have only one generation.
-    const loose = variants.length ? [] : engineApplicationsIn(body);
+    const loose = (indexed || variants.length) ? [] : engineApplicationsIn(body);
     return {
       name: stripEngineMarkup(info.name || "") || short || titleShort,
       shortName: short,
@@ -9459,7 +9603,7 @@ Rules:
   // valvetrain and induction words are here because the Suburban's infoboxes
   // link them like engines -- "[[Overhead valve engine|OHV]]" sat on its
   // first generation's card as an engine called OHV.
-  const GENERIC_ENGINE_TITLE = /^(?:petrol|diesel|gasoline|hybrid|electric|steam|rotary|piston|internal[\s-]combustion|reciprocating|two[\s-]stroke|four[\s-]stroke|mild hybrid|overhead[\s-](?:valve|cam(?:shaft)?)|pushrod|(?:single|double|dual)[\s-]overhead[\s-]cam(?:shaft)?|[sd]?ohc|ohv|turbo(?:charged)?|supercharged|naturally[\s-]aspirated|four[\s-]cylinder|six[\s-]cylinder|eight[\s-]cylinder)$/i;
+  const GENERIC_ENGINE_TITLE = /^(?:petrol|diesel|gasoline|hybrid|electric|steam|rotary|piston|internal[\s-]combustion|reciprocating|two[\s-]stroke|four[\s-]stroke|mild hybrid|overhead[\s-](?:valve|cam(?:shaft)?)|pushrod|(?:single|double|dual)[\s-]overhead[\s-]cam(?:shaft)?|[sd]?ohc|ohv|turbo(?:charged)?|supercharged|naturally[\s-]aspirated|four[\s-]cylinder|six[\s-]cylinder|eight[\s-]cylinder|wankel|otto|atkinson|miller|brayton|gas turbine|turbine|jet|electric motor|traction motor|motor|plug[\s-]?in hybrid|range[\s-]extender|fuel cell|hydrogen|lpg|cng|ethanol|flex[\s-]?fuel|two[\s-]cylinder|three[\s-]cylinder|five[\s-]cylinder|ten[\s-]cylinder|twelve[\s-]cylinder|multi[\s-]cylinder)$/i;
   const LAYOUT_ENGINE_TITLE = /^(?:(?:straight|inline|flat|boxer|slant|vee)[\s-]?\w*|[vwbihrlu][\s-]?\d{1,2}|\d{1,2}[\s-]?cylinder)$/i;
 
   // "Mercedes-Benz M256 engine" -> a real engine; "V8 engine" -> not one.
@@ -9485,7 +9629,13 @@ Rules:
     // The suffix is not always the last thing in the title: "Chevrolet
     // small-block engine (first- and second-generation)" is an engine article
     // with a disambiguating parenthetical after the word.
-    const m = /^(.*?)\s+engines?(\s*\([^()]*\))?$/i.exec(t);
+    // The suffix is not always the last word either: Wikipedia files engine
+    // families as "Ingenium engine family", "Chrysler LA engine series" and
+    // "Rover K-series engine". A trailing word that only says "this is a
+    // group of them" does not stop it being an engine article -- and the
+    // Jaguar XE's two Ingenium entries, half its engine list, were dropped
+    // because of it.
+    const m = /^(.*?)\s+engines?(\s+(?:family|families|range|series|line|lineup))?(\s*\([^()]*\))?$/i.exec(t);
     const core = (m ? m[1] : t).trim();
     if (!core) return false;
     if (GENERIC_ENGINE_TITLE.test(core) || LAYOUT_ENGINE_TITLE.test(core)) return false;
@@ -9497,11 +9647,18 @@ Rules:
     // FAMILIES are named in words: the Suburban's infoboxes link the Chevrolet
     // Stovebolt, the Turbo-Thrift and the small-block, and requiring a digit
     // threw all three away. What actually disqualifies a title is being a
-    // description rather than a name, which the two lists above are for -- so
-    // the remaining rule is that it names something: at least two words, or
-    // one that carries a digit.
+    // description rather than a name, which the two lists above are for.
+    //
+    // One word is enough, as long as it is a name. Real user report, the
+    // Jaguar XE: "[[Ingenium engine family|Ingenium]]" is two of its five
+    // engines, and a rule of "two words, or one with a digit" threw both
+    // away. Anything generic enough to be a description is already excluded
+    // above, and a lower-case single word is a description rather than a
+    // name, so that is the remaining test.
     if (/\d/.test(core)) return true;
-    return core.split(/[\s-]+/).filter(Boolean).length >= 2;
+    const words = core.split(/[\s-]+/).filter(Boolean);
+    if (words.length >= 2) return true;
+    return /^[A-Z]/.test(core);
   }
 
   // The id an engine gets, from the article title rather than whatever short
@@ -9509,9 +9666,16 @@ Rules:
   // infobox's own "Mercedes-Benz M256" have to land on the SAME node, or
   // scanning a car and then scanning its engine would produce two.
   // What to call a node built from an article title alone.
+  // "Ford EcoBoost engine" -> "Ford EcoBoost"; "Ingenium engine family" ->
+  // "Ingenium"; "Chevrolet small-block engine (first- and second-generation)"
+  // -> "Chevrolet small-block". One place, because four rules need it to agree.
+  const ENGINE_SUFFIX_RE = /\s+engines?(\s+(?:family|families|range|series|line|lineup))?(\s*\([^()]*\))?$/i;
+  function stripEngineSuffix(title) {
+    return String(title || "").split("#")[0].replace(/_/g, " ").trim()
+      .replace(ENGINE_SUFFIX_RE, "").trim();
+  }
   function engineTitleLabel(title) {
-    return String(title || "").split("#")[0].trim()
-      .replace(/\s+engines?(\s*\([^()]*\))?$/i, "").trim() || String(title || "");
+    return stripEngineSuffix(title) || String(title || "");
   }
   function engineIdFromTitle(title) {
     const t = String(title || "").split("#")[0].trim().replace(/\s+engines?$/i, "");
@@ -9547,8 +9711,7 @@ Rules:
     // The suffix may carry a parenthetical, as "Chevrolet small-block engine
     // (first- and second-generation)" does; without this the whole thing was
     // used verbatim as the engine's name.
-    const bare = String(title || "")
-      .replace(/\s+engines?(\s*\([^()]*\))?$/i, "").trim();
+    const bare = stripEngineSuffix(title);
     const fromTitle = bare.replace(/^[A-Z][A-Za-z-]*\s+(?=[A-Z]{1,3}\d{2,})/, "");
     // An anchor names ONE engine out of a family page, and that is the better
     // name for it: "[[Land Rover engines#2-litre diesel|2.0 L diesel I4]]" is
@@ -9569,6 +9732,13 @@ Rules:
     // and "[[Oldsmobile Diesel engine|Oldsmobile]]" -- the display text is
     // just the marque, which is the maker and not the name of the engine. The
     // article's own name is what it is called.
+    // The display text is sometimes a description rather than a name:
+    // "[[Cadillac V8 engine|OHV]]" is the valvetrain, and the Cadillac de
+    // Ville's third generation had two engines both called "OHV" on its card.
+    // The article's own name is what it is called.
+    if (GENERIC_ENGINE_TITLE.test(shown) || LAYOUT_ENGINE_TITLE.test(shown)) {
+      return fromAnchor || bare || shown;
+    }
     const bareTitleWords = bare.split(/\s+/).filter(Boolean);
     const isPrefixOfTitle = bareTitleWords.length > 1 &&
       norm(bareTitleWords.slice(0, shown.split(/\s+/).length).join(" ")) === norm(shown);
@@ -9756,7 +9926,12 @@ Rules:
     const rx = /\[\[([^\]|]+)(?:\|([^\]]*))?\]\]/g;
     let m;
     while ((m = rx.exec(line))) {
-      const raw = m[1].trim();
+      // Underscores and spaces are the same character to Wikipedia, and an
+      // infobox writes either -- "[[Land_Rover_engines#2-litre_diesel|2.0 L
+      // diesel]]". Every rule below reads words, so they are normalised here
+      // or none of them match: that one link was the whole of the Land Rover
+      // series' engine list that could be followed at all.
+      const raw = m[1].trim().replace(/_/g, " ");
       if (!raw || /^\s*(?:File|Image|Category)\s*:/i.test(raw)) continue;
       const title = raw.split("#")[0].trim();
       const anchor = raw.indexOf("#") >= 0 ? raw.slice(raw.indexOf("#") + 1).trim() : null;
@@ -9795,6 +9970,39 @@ Rules:
       const specs = engineSpecsFromText(line);
       if (fuel && !specs.fuel) specs.fuel = fuel;
       out.push({ text: bare, links, specs });
+    }
+    // Real user report, the Mercedes-Benz GLA: its first generation runs five
+    // engines and only four were found. The fifth is written
+    //
+    //   | 1.6 L ''[[Mercedes-Benz M270/M274 engine#M270 engine|M270]]'' turbo I4
+    //   | 2.0 L ''M270'' turbo I4
+    //
+    // -- the second line names the same engine and does not link it again,
+    // because the line above already did. A line with no link of its own that
+    // names an engine linked elsewhere in the SAME field is that engine; it is
+    // a different one (a different displacement), which is why it is a line of
+    // its own rather than a duplicate. A line naming something linked nowhere
+    // stays unlinked: there is no article to follow, and inventing one would
+    // be worse than the gap.
+    const linked = new Map();
+    out.forEach(e => {
+      if (!e.links.length) return;
+      const l = e.links[0];
+      [l.display, l.anchor, stripEngineSuffix(l.title)].forEach(t => {
+        String(t || "").split(/[^A-Za-z0-9-]+/).forEach(w => {
+          if (w && w.length >= 3 && /\d/.test(w) && !linked.has(norm(w))) linked.set(norm(w), l);
+        });
+      });
+    });
+    if (linked.size) {
+      out.forEach(e => {
+        if (e.links.length) return;
+        for (const w of String(e.text || "").split(/[^A-Za-z0-9-]+/)) {
+          if (!w || w.length < 3 || !/\d/.test(w)) continue;
+          const l = linked.get(norm(w));
+          if (l) { e.links = [Object.assign({}, l, { display: w, inherited: true })]; break; }
+        }
+      });
     }
     return out;
   }
@@ -9839,7 +10047,12 @@ Rules:
         const link = entry.links[0];
         if (!link) continue;
         const name = mentionName(link.display, link.title, link.anchor);
-        const key = norm(link.title) + "|" + norm(name) + "|" + norm(link.anchor || "");
+        // The same engine family in two states is two engines: the Jaguar XE
+        // runs a petrol Ingenium and a diesel Ingenium, both "[[Ingenium
+        // engine family|Ingenium]]", and keying on the link alone kept one.
+        const key = [norm(link.title), norm(name), norm(link.anchor || ""),
+                     norm((entry.specs || {}).displacement || ""),
+                     norm((entry.specs || {}).fuel || "")].join("|");
         if (seen.has(key)) continue;
         seen.add(key);
         out.push({ title: link.title, name, variant: link.anchor || null,
@@ -10552,9 +10765,17 @@ Rules:
       // form of that anchor was left in, which is how the M139's variants came
       // to be called "M139 (285 kW version) {{anchor|285 kW}}" on the card --
       // an anchor is metadata for linking, never part of the name.
+      // A heading that is nothing but links is a cross-reference to other
+      // articles, not a name. The "List of Porsche engines" article is filed
+      // by CAR that way -- "=== [[Porsche 356]] ===" -- and reading its
+      // headings as engine names would put a dozen cars in the graph as
+      // engines. See engineListSections.
+      const titleIsLink = /^\s*(?:\[\[[^\]]*\]\]|[\s/,&+-]|'{2,})+\s*$/.test(
+        h.raw.replace(/<[^>]*>/g, ""));
       const title = h.raw
         .replace(/<[^>]*>/g, "")
         .replace(/\{\{\s*anchor\s*\|[^{}]*\}\}/gi, "")
+        .replace(/\[\[([^\]|]+)(?:\|([^\]]*))?\]\]/g, (m0, t, d) => d || t)
         .replace(/\{\{\s*c(?:onvert|vt)\s*\|([^{}]*)\}\}/gi, (m0, args) => {
           const parts = args.split("|").map(x => x.trim()).filter(x => x && !/=/.test(x));
           return parts.length >= 2 ? parts[0] + " " + parts[1] : (parts[0] || "");
@@ -10562,7 +10783,25 @@ Rules:
         .replace(/'{2,}/g, "")
         .replace(/\s+/g, " ")
         .trim();
-      out.push({ title, level: h.level, body: wikitext.slice(h.end, stop), at: h.at, stop });
+      // The ids a "#..." link can point at. An index article hangs them off
+      // its headings -- '<span class="anchor" id="GH10"></span>GH engine' --
+      // and stripping the markup for the title threw away the only thing that
+      // says which engine "List of Isuzu engines#GH10" means.
+      const body = wikitext.slice(h.end, stop);
+      const anchors = [];
+      const anchorRx = /<span[^>]*\bid\s*=\s*"([^"]+)"/gi;
+      let am;
+      while ((am = anchorRx.exec(h.raw))) anchors.push(am[1]);
+      const tmplRx = /\{\{\s*anchor\s*\|([^{}]*)\}\}/gi;
+      while ((am = tmplRx.exec(h.raw))) {
+        am[1].split("|").forEach(x => { const t = x.trim(); if (t && !/=/.test(t)) anchors.push(t); });
+      }
+      // ...and the ones in the first lines of the section, which is the other
+      // place Wikipedia puts them.
+      const head = body.slice(0, 400);
+      const anchorRx2 = /<span[^>]*\bid\s*=\s*"([^"]+)"/gi;
+      while ((am = anchorRx2.exec(head))) anchors.push(am[1]);
+      out.push({ title, level: h.level, body, at: h.at, stop, anchors, titleIsLink });
     });
     return out;
   }
@@ -11378,6 +11617,7 @@ Rules:
     // them -- for the engine when it is standalone, per variant when it is a
     // family. See engineSpecsFromInfobox.
     engineSpecsFor, engineSpecSummary, engineSpecsFromInfobox, engineSpecsFromSection,
+    isEngineListTitle, stripEngineSuffix, engineFieldEntries, splitEngineField,
     scheduleEngineCascade, scanEnginesFor, engineScanEntryFor, engineArticleFor,
     forceRecheckEngine,
     clearEngineScansFor, note, nameplateSectionForCar, mergeEngineHits,

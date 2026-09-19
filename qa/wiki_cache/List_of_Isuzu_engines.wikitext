@@ -1,0 +1,1463 @@
+{{Short description|none}}
+[[Isuzu]] has used both its own [[engine]]s and [[General Motors]]-built engines.  It has also developed engines for General Motors, [[Renault]], [[Saab Automobile|Saab]], [[Honda]], [[Nissan]], [[Opel]] and [[Mazda]].
+
+==Overview==
+Isuzu engines carry a two-character prefix which designate the number of cylinders and engine family. Engines available currently include the following:
+
+{| class="wikitable sortable" style="text-align:center;font-size:100%;"
+|+
+! Cyl. !! Family !! Displacement !! Power Rating !! class="unsortable" | Notes
+|-
+! 3 !! C
+| {{cvt|0.57|–|1.6|L|in3|1}}
+| {{cvt|11.8|–|23.9|hp}}
+| style="text-align:left;font-size:90%;" |<ref>{{cite web |url=https://www.isuzuengines.com/products-c-series/ |title=C-Series |publisher=Isuzu Engines |access-date=22 April 2022}}</ref>
+|-
+! 4 !! L
+| {{cvt|2.179|L|in3|1}}
+| {{cvt|40|–|62|hp}}
+| style="text-align:left;font-size:90%;" |<ref>{{cite web |url=https://www.isuzuengines.com/products-l-series/ |title=L-Series |publisher=Isuzu Engines |access-date=22 April 2022}}</ref>
+|-
+! 4 !! J
+| {{cvt|2.999|L|in3|1}}
+| {{cvt|70|–|115|hp}}
+| style="text-align:left;font-size:90%;" |<ref>{{cite web |url=https://www.isuzuengines.com/products-j-series/ |title=J-Series |publisher=Isuzu Engines |access-date=22 April 2022}}</ref>
+|-
+! 4 !! rowspan=2 | B
+| {{cvt|4.3|L|in3|1}}
+| {{cvt|98|–|111|hp}}
+| style="text-align:left;font-size:90%;" rowspan=2 |<ref>{{cite web |url=https://www.isuzuengines.com/products-b-series/ |title=B-Series |publisher=Isuzu Engines |access-date=22 April 2022}}</ref>
+|-
+! 6
+| {{cvt|6.5|L|in3|1}}
+| {{cvt|154|–|174|hp}}
+|-
+! 4 !! rowspan=2 | H
+| {{cvt|5.193|L|in3|1}}
+| {{cvt|173|–|188|hp}}
+| style="text-align:left;font-size:90%;" rowspan=2 | Also available as LP/CNG engine (4HV1).<ref>{{cite web |url=http://ptmedia.isuzuengines.com/downloads/Lit%20Sheets/Isuzu-REDTech-4HV1-Lit-Sheet.pdf |title=Alternative Fuel (a natural progression) |publisher=Isuzu Engines |access-date=22 April 2022}}</ref><ref>{{cite web |url=https://www.isuzuengines.com/products-h-series/ |title=H-Series |publisher=Isuzu Engines |access-date=22 April 2022}}</ref>
+|-
+! 6
+| {{cvt|7.790|L|in3|1}}
+| {{cvt|282|hp}}
+|-
+! 6 !! U
+| {{cvt|9.839|L|in3|1}}
+| {{cvt|362|hp}}
+| style="text-align:left;font-size:90%;" |<ref>{{cite web |url=https://www.isuzuengines.com/products-u-series/ |title=U-Series |publisher=Isuzu Engines |access-date=22 April 2022}}</ref>
+|-
+! 6 !! W
+| {{cvt|15.681|L|in3|1}}
+| {{cvt|512|hp}}
+| style="text-align:left;font-size:90%;" |<ref>{{cite web |url=https://www.isuzuengines.com/products-w-series/ |title=W-Series |publisher=Isuzu Engines |access-date=22 April 2022}}</ref>
+|}
+
+== Two-cylinder ==
+
+=== Diesel ===
+{| class="wikitable" style="text-align: center;"
+! Designation
+! Description
+! Bore
+! Stroke
+! Displacement
+! Power Rating
+! Production Run
+! Dry Weight
+|-
+| 2AA1
+| There is also a three-cylinder version called the 3AA1. The Bosch PES-K fuel pump is shared with the 2AB1, and is similar to the PES-A used on the 3AA1, 3AB1, C220, and C240 engines.<ref name=PES>[[#2AA1|''2AA1&ndash;3AA1, 2AB1&ndash;3AB1 Workshop Manual'']], p. 4-2-1</ref>
+| {{convert|86|mm|in|abbr=on}}
+| {{convert|84|mm|in|abbr=on}}
+| {{convert|975|cc|cuin|abbr=on}}
+| 19.5 PS (14.3&nbsp;kW) @2800rpm
+| 1972–1989
+| {{convert|160|kg|lb|abbr=on}}<ref name=manual11>{{citation | url = http://www.l-36.com/read_pdf.php?file=manuals/Isuzu-2AA1-to-3AB1-Workshop-Manual | ref = 2AA1 | type = Workshop Manual | title = Industrial Diesel Engines: 2AA1&ndash;3AA1, 2AB1&ndash;3AB1 | page = 1 | publisher = Isuzu Motors Limited | date = December 1983 | id = 809-06-200K }}</ref>
+|-
+| 2AB1
+| There is also a three-cylinder version called the 3AB1.
+| {{convert|86|mm|in|abbr=on}}
+| {{convert|106|mm|in|abbr=on}}
+| {{convert|1184|cc|cuin|abbr=on}}
+| 25.5 PS (18.8&nbsp;kW) @2800rpm
+| 1970–1991
+| {{convert|160|kg|lb|abbr=on}}<ref>[[#2AA1|''2AA1&ndash;3AA1, 2AB1&ndash;3AB1 Workshop Manual'']], p. 1-2</ref>
+|-
+| UM-2AB1
+| A marinised version of the 2AB1
+| {{convert|86|mm|in|abbr=on}}
+| {{convert|106|mm|in|abbr=on}}
+| {{convert|1184|cc|cuin|abbr=on}}
+|
+| 1971–1991
+|
+|-
+| 2CA1
+| A marinised version is produced by Klassen Engines - the Suzie 14
+|
+|
+| {{convert|653|cc|cuin|abbr=on}}
+|
+| 1983
+|
+|-
+| 2KC1
+|
+| {{convert|74|mm|in|abbr=on}}
+| {{convert|76|mm|in|abbr=on}}
+| {{convert|653|cc|cuin|abbr=on}}
+|
+| 1988–1994
+|
+|-
+| UM-2KC1
+| A marinised version of the 2KC1. Also marinised briefly by Beta Marine Limited.
+| {{convert|74|mm|in|abbr=on}}
+| {{convert|76|mm|in|abbr=on}}
+|
+|
+|
+|
+|}
+
+== Three-cylinder ==
+
+=== Diesel ===
+==== A Engines ====
+{| class="wikitable" style="text-align: center;"
+! Designation
+! Description
+! Bore
+! Stroke
+! Displacement
+! Power Rating
+! Production Run
+! Dry Weight
+|-
+| 3AA1
+| This engine shares the bore and stroke of the [[#C190|C190]] four-cylinder diesel and 2AA1 two-cylinder. The Bosch PES-A fuel pump is the same as the one used on the 3AA1, 3AB1, C220, and C240 engines.<ref name=PES/>
+| {{convert|86|mm|in|abbr=on}}
+| {{convert|84|mm|in|abbr=on}}
+| {{convert|1463|cc|cuin|abbr=on}}
+| {{convert|29.5|PS|kW|abbr=on}} @2800rpm
+| 1972–90
+| {{convert|197|kg|lb|abbr=on}}.<ref>[[#2AA1|''2AA1&ndash;3AA1, 2AB1&ndash;3AB1 Workshop Manual'']], p. 1-3</ref>
+|-
+| 3AB1
+| This engine shares the bore of the 2AA1/3AA1/[[#C240|C240]], but with a much longer stroke. There is also a two-cylinder version called the 2AB1.
+| {{convert|86|mm|in|abbr=on}}
+| {{convert|102|mm|in|abbr=on}}
+| {{convert|1777|cc|cuin|abbr=on}}
+| {{convert|38|PS|kW|abbr=on}} @2800rpm
+| 1971-
+| {{convert|217|kg|lb|abbr=on}}.<ref>[[#2AA1|''2AA1&ndash;3AA1, 2AB1&ndash;3AB1 Workshop Manual'']], p. 1-4</ref>
+|-
+| 3AD1
+|
+|
+|
+|
+|
+| 1977–90
+|
+|-
+| 3AD1-T
+|
+|
+|
+|
+|
+| 1978–79
+|
+|}
+
+==== L Engine ====
+
+{| class="wikitable" style="text-align: center;"
+! Designation<ref>{{Cite web |url=https://www.det-isuzu.com/en/node/311 |title=Isuzu 3LB1 - Isuzu 3LD1 - Isuzu 3LD2 - 3LB1 - 3LD1 - 3LD2 - Engine model - Engine characteristics - Valvetrain - Overhead valve - 4 Cycle - Water cooled - Vertical In-line - 3 Cylinders - Injection - Output &#124; DET Isuzu |access-date=2018-02-05 |archive-date=2018-02-06 |archive-url=https://web.archive.org/web/20180206073658/https://www.det-isuzu.com/en/node/311 |url-status=dead }}</ref>
+! Description
+! Bore
+! Stroke
+! Displacement
+! Power Rating
+! Production Run
+! Dry Weight
+|-
+| 3LA1
+|
+|
+|
+|
+|
+|
+|
+|-
+| 3LB1
+|
+|
+|
+|
+|
+|
+| [[Overhead valve engine|OHV]]
+|-
+| 3LD1
+|
+|
+|
+|
+|
+|
+| OHV
+|-
+| 3LD1
+|
+|
+|
+|
+|
+|
+| OHV
+|}
+
+== Four-cylinder ==
+
+===Petrol===
+
+====<span class="anchor" id="GH10"></span><span class="anchor" id="GH12"></span><span class="anchor" id="GH100"></span>GH engine====
+Isuzu's first petrol engines were license built Hillman units for the locally assembled [[Hillman Minx|Minx]], from 1953. Called the '''GH10''' it has a bore of {{convert|65|mm|in|2|abbr=on}} and a stroke of {{convert|95|mm|in|2|abbr=on}} for a displacement of {{convert|1260|cc|cuin|1|abbr=on}}. Power is {{convert|37.5|PS|kW|0|abbr=on}}. In 1955 this was updated to the '''GH12''', a square design with a 76.2&nbsp;mm bore and stroke for a displacement of {{convert|1390|cc|cuin|1|abbr=on}}. This was upgraded in 1956 for more power, {{convert|46|PS|kW|0|abbr=on}} rather than the original's {{convert|43|PS|kW|0|abbr=on}}, and was renamed '''GH100'''. In 1958, power increased yet again, to {{convert|50|PS|kW|0|abbr=on}}.<ref name="Trucks18-72">{{Cite book | last = Ozeki | first = Kazuo | ref = 1918-72 |script-title=ja:日本のトラック・バス 1918~1972 |trans-title=Japanese Trucks and Buses 1918-1972 | publisher = Miki Press | year = 2007 | page = 54 | location = Tokyo | language = Japanese | isbn = 978-4-89522-494-9 }}</ref>
+
+====<span class="anchor" id="GL150"></span>GL engine====
+For 1959 Isuzu developed their own square design ({{convert|78|mm|in|2|abbr=on|disp=or}}) called the '''GL150''', Isuzu's first own petrol engine.<ref>{{cite web | script-title = ja:ものづくりの歴史 いすゞ自動車株式会社 | trans-title = Manufacturing history of Isuzu Motors | url = http://www.recruit.isuzu.co.jp/shinsotsu/history/index.html | publisher = Isuzu Motors | accessdate = 2014-01-08 | work = Isuzu Recruiting Information | language = Japanese | archive-url = https://web.archive.org/web/20140108123058/http://www.recruit.isuzu.co.jp/shinsotsu/history/index.html | archive-date = 2014-01-08 | url-status = dead }}</ref> Still showing unmistakable Hillman origins it displaces {{convert|1491|cc|cuin|1|abbr=on}} and has {{convert|60|PS|kW|0|abbr=on}}.<ref name="Trucks18-72"/> The GL150 was fitted to the 1959 [[Isuzu Elf]] and the 1961 [[Isuzu Bellel|Bellel]].
+
+====General Motors====
+
+* The [[Isuzu Hombre]] used a General Motors-built [[GM Vortec engine#2200|Vortec 2200 Engine]] with 118&nbsp;hp (86&nbsp;kW) and 140&nbsp;ft·lb (190 N·m) of torque.
+* 2004–2006 [[Isuzu i-Series]] used a General Motors-built [[GM Atlas engine#LK5|Vortec 2800 Engine]] with 175&nbsp;hp (130&nbsp;kW) and 185&nbsp;ft·lb (251 N·m) of torque.
+* 2007–2008 [[Isuzu i-Series]] use a General Motors-built [[GM Atlas engine#LLV|Vortec 2900 Engine]] with 185&nbsp;hp (138&nbsp;kW) and 195&nbsp;ft·lb (263 N·m) of torque.
+
+====Isuzu G engine====
+
+{| class="wikitable" style="text-align: center;"
+! Designation
+! Description
+! Bore
+! Stroke
+! Displacement
+! Power Rating
+! Valvetrain
+|-
+| {{anchor|G130}}G130
+| This engine was used in the [[Isuzu Bellett]], Bellett B, and Bellett Express.
+| {{convert|75|mm|in|abbr=on}}
+| {{convert|75|mm|in|abbr=on}}
+| {{convert|1325|cc|cuin|abbr=on}}
+| {{convert|58|PS|kW|abbr=on}}<ref name="Camion1">{{citation | chapter = トラックメーカーアーカイブ: いすゞ自動車のすべて [Truck Manufacturer Archive: Everything Isuzu] | last = Ishikawa | first = Kenji | language = Japanese | title = Camion | publisher = Geibun Mooks | location = Tokyo, Japan | page = 86 | date = 2012-05-01 | isbn = 978-4-86396-183-8 }}</ref>
+| OHV
+|-
+| {{anchor|G140}}G140
+| The 1.4&nbsp;L '''G140''' engine was used in the [[Chevrolet Chevette]] in North America. The engine block and associated components for the USA market Isuzu G-series engines were locally produced under license by a GM engine casting and assembly plant in Flint, Michigan. In South America an overhead-cam version was adapted, and later developed into a 1599&nbsp;cc version with a 75.7&nbsp;mm stroke.<ref name=TAM85>{{Cite book | title = Quattroruote: Tutte le Auto del Mondo 1985 | editor = Mastrostefano, Raffaele | publisher = Editoriale Domus S.p.A  | year = 1985 | page = 175 | language = Italian | location = Milano | isbn = 978-88-7212-012-5 }}</ref>
+| {{convert|82|mm|in|abbr=on}}
+| {{convert|66.2|mm|in|abbr=on}}
+| {{convert|1398|cc|cuin|abbr=on}}
+| {{convert|53|PS|kW|abbr=on}} {{Citation needed|date=August 2019}}
+| OHV
+|-
+| {{anchor|G150}}G150
+| The 1.5&nbsp;L '''G150''' engine was used in the Isuzu Bellett and the [[Isuzu Elf]].
+| {{convert|79|mm|in|abbr=on}}
+| {{convert|75|mm|in|abbr=on}}
+| {{convert|1471|cc|cuin|abbr=on}}
+| {{convert|68|PS|kW|abbr=on}} {{Citation needed|date=August 2019}}
+| OHV
+|-
+| {{anchor|G160|G161}}G160/G161
+| The eight-valve 1.6&nbsp;L '''G160/G161''' engine was used in the [[Isuzu Florian]] and the Isuzu Bellett GT, as well as a number of commercial vehicles including the [[Isuzu Elf|Elf 150]] (KA41/51). The G160 has a three [[main bearing]] [[crankshaft]], whereas the G161 has five bearings. There is also an [[SOHC]] version of this called the '''G161S''', which was used in the Florian and the Bellett. A new version of this engine, with the same dimensions, was called the '''G161Z''' and was installed in the Florian, [[Isuzu Gemini]], [[Holden Gemini]] and [[Holden Rodeo]], and Chevrolet Chevette. Part of the "Z" engine family, this was later renamed the [[#4ZA1|4ZA1]]. A further (albeit earlier) development was the [[Overhead camshaft#DOHC|twin-cam]] '''G161W''' engine (still with eight valves) first presented in the Isuzu Bellett GT-R in March 1968.<ref name="NekoIsu">{{citation | title = Isuzu: Piazza, 117 Coupé, Bellett GT | publisher = Neko Publishing | location = Tokyo | language = Japanese | page = 63 | year = 1991 | isbn = 978-4-87366-026-4 }}</ref>
+| {{convert|82|mm|in|abbr=on}}
+| {{convert|75.7|mm|in|abbr=on}}
+| {{convert|1599|cc|cuin|abbr=on}}
+| {{convert|61|PS|kW|abbr=on}} {{Citation needed|date=August 2019}}
+| OHV
+|-
+| {{anchor|G180|ZZ}}G180
+| The 1.8&nbsp;L '''G180SS''' engine was used in the Isuzu Bellett GT. The 1.8&nbsp;L '''G180Z''' SOHC engine was used in the 1972–1976 [[Opel Kadett]], Isuzu Gemini, [[Chevrolet LUV]], and [[Isuzu 117 Coupé]]. There is also the '''G180W''' [[DOHC]] eight valve engine which was used in the [[Isuzu Gemini#PF60|Gemini ZZ]] (Japan only) and the Isuzu 117 Coupé.
+| {{convert|84|mm|in|abbr=on}}
+| {{convert|82|mm|in|abbr=on}}
+| {{convert|1818|cc|cuin|abbr=on}}
+| {{convert|78|-|80|hp|PS+kW|abbr=on}} @4800rpm <br />{{convert|95|lbft|Nm|abbr=on}} @3000rpm
+| SOHC
+|-
+| {{anchor|G200|G200Z|G200W|LR1}}G200
+| The 2.0&nbsp;L '''G200Z''' engine was used in the 1981–1985 [[Chevrolet LUV]] and also [[Isuzu Trooper]] (Holden Jackaroo in Australia). With carburettor it has 86&nbsp;hp, with EFI in the [[Isuzu Piazza]] 90&nbsp;hp in the US and 110&nbsp;hp in Japan. The '''G200W''' DOHC eight valve engine was found in the 19??-1985 [[Japanese domestic market|JDM]], Isuzu 117 Coupé and early Isuzu Piazza with 135&nbsp;hp (101&nbsp;kW) and 123&nbsp;lb·ft (167 N·m) of torque. It was also installed in 1982&ndash;1985 [[Chevrolet S-10|GMC S-15]] pickup trucks,<ref name=DEM37>{{citation | title = The first century of GMC truck history | ref = DEM | first = Donald E. | last = Meyer | url = http://www.gmheritagecenter.com/docs/gm-heritage-archive/historical-brochures/GMC/100_YR_GMC_HISTORY_MAR09.pdf |date=March 2009 | page = 37 | publisher = General Motors | work = GM Heritage Center }}</ref> where it received the '''LR1''' engine code. Unlike the 1.4 which was locally produced, the '''G200''' was imported. It was also used with the second generation LUV and Isuzu P'UP until GM discontinued it as the entry level powerplant when the [[Iron Duke engine|Iron Duke]] was made the base motor after 1985; some early S10/S15s came with the optional [[General Motors 122 engine|GM 122]] engine shared with its J-platform compacts since it was locally produced.
+| {{convert|87|mm|in|abbr=on}}
+| {{convert|82|mm|in|abbr=on}}
+| {{convert|1949|cc|cuin|abbr=on}}
+| {{convert|82|hp|PS+kW|abbr=on}} @4600rpm <br />{{convert|101|lbft|Nm|abbr=on}} @3000rpm
+| SOHC
+|-
+| {{anchor|G201}}G201
+| This 2-liter inline-four is a gasoline-powered version of the diesel C190. It has an 8.0 : 1 compression ratio. It was fitted to certain models of the [[Isuzu Elf#second|Isuzu Elf 250]] (TLG42).
+| {{convert|86|mm|in|abbr=on}}
+| {{convert|84|mm|in|abbr=on}}
+| {{convert|1951|cc|cuin|abbr=on}}
+| {{convert|93|PS|kW|0|abbr=on}} at 4800&nbsp;rpm <br />{{convert|16.0|kgm|Nm+lbft|abbr=on}} at 3000&nbsp;rpm<ref name=Catvol20>{{citation | ref = JAMA20 | title = 自動車ガイドブック: Japanese motor vehicles guide book 1973/1974 | language = ja | volume = 20 | date = 1973-10-30 | publisher = [[Japan Automobile Manufacturers Association]] | location = Japan | page = 277 }}</ref>
+| SOHC
+|}
+
+====Isuzu X engine====
+[[File:1991 Isuzu Stylus XS in Colorado Red, engine.jpg|thumb|4XE1 DOHC engine in a 1991 Isuzu Stylus (US-market Gemini)]]
+{| class="wikitable" style="text-align: center;"
+! Designation
+! Description
+! Bore
+! Stroke
+! Displacement
+! Power Rating
+! Valvetrain
+|-
+| {{anchor|4XB1}}4XB1
+| The 1.3&nbsp;L '''4XB1''' engine was available in export market [[Isuzu Gemini#1985|Isuzu Gemini JT140s]].
+| {{cvt|72.3|mm|in|2}}
+| rowspan="5" | {{cvt|79|mm|in|2}}
+| {{cvt|1297|cc|cuin|1}}
+| {{convert|72|PS|kW|abbr=on}} DIN at 5400&nbsp;rpm<ref>{{Cite book | title = Quattroruote: Tutte le Auto del Mondo 1990 | editor = Mastrostefano, Raffaele | publisher = Editoriale Domus S.p.A | year = 1990 | page = 388 | language = Italian | location = Milano }}</ref>
+| SOHC
+|-
+| {{anchor|4XC1}}4XC1
+| The 1.5&nbsp;L '''4XC1''' SOHC engine was the base engine for the Isuzu Gemini FF, the JT22 series Isuzu Piazza, and its [[Chevrolet Spectrum]] derivatives. Power ranged from {{convert|70|hp|kW|0|abbr=on}} in US-spec versions via {{convert|76|PS|kW|0|abbr=on}} in the non-catalyzed European models, to a turbocharged version with {{convert|120|PS|kW|0|abbr=on}} (down to 110&nbsp;hp SAE in the US).<ref>''Tutte le Auto del Mondo 1990'', pp. 389-390</ref> Later versions received a twelve-valve head, as installed in the [[Isuzu Gemini#1990|JT150 Gemini]] it offered {{convert|100|PS|kW|0|abbr=on}} at 6,000&nbsp;rpm.<ref name="AR92">{{cite book | title = Automobil Revue 1992 | editor-last = Büschi | editor-first = Hans-Ulrich | publisher = Hallwag AG | location = Berne, Switzerland | language = German, French | page = 318 | volume = 87 |date=5 March 1992 | isbn = 978-3-444-00539-8 }}</ref>
+| {{convert|77|mm|in|abbr=on}}
+| {{convert|1471|cc|cuin|abbr=on}}
+|
+| SOHC
+|-
+| {{anchor|4XE1-V}}4XE1-V
+| The 1.6L '''4XE1-V''' engine was used in the base model [[Geo Storm]] and the base model [[Isuzu Stylus]] S.
+| rowspan="4" | {{cvt|80|mm|in|2}}
+| rowspan="3" | {{cvt|1588|cc|cuin|1}}
+| {{cvt|96|hp|kW PS|0}}
+| SOHC
+|-
+| {{anchor|4XE1-UW}}4XE1-UW
+| The 1.6L '''4XE1-UW''' engine was used in the 1990-1991 [[Isuzu Impulse]] XS, in the 1990-1991 Isuzu Stylus XS, in the 1990-1991 Geo Storm GSi, and the [[Lotus Elan#Elan M100|M100 Lotus Elan]].
+| {{cvt|130|hp|kW PS|0}} <br /> {{cvt|140|PS|kW|0}} in Japanese spec.
+| 16 Valve<ref>{{Citation| work = MotorWeek | title = Retro Review: '91 Isuzu Stylus XS|url=https://www.youtube.com/watch?v=dCkvEgdLyMk|language=en|access-date=2021-03-12}}</ref> DOHC
+|-
+| {{anchor|4XE1W}}4XE1-WT
+| The 1.6L '''4XE1-WT''' [[turbocharger|turbocharged]] engine was used in the [[Lotus Elan#Elan M100|M100 Lotus Elan]], the Isuzu Impulse RS, and the 1991 Isuzu Stylus RS as well as the JDM Gemini sedan.
+| {{cvt|160|hp|kW PS|0}} <br /> {{cvt|180|PS|kW|0}} in Japanese spec.<ref name="AR92.2">''Automobil Revue 1992'', p. 319</ref>
+| 16 Valve DOHC
+|-
+| {{anchor|4XF1}}4XF1
+| The larger 1.8L '''4XF1''' replaced the '''4XE1''' in North America. This engine was used in the 1992-1993 Geo Storm GSi, in the 1992 Isuzu Stylus RS, and in the [[Asüna Sunfire]]. In Japan it was installed in the Isuzu Piazza, where it had {{convert|150|PS|kW|0|abbr=on}}.<ref name="AR92.2"/>
+| {{cvt|90|mm|in|2}}
+| {{cvt|1809|cc|cuin|1}}
+| {{cvt|140|hp|PS kW|0}} <br /> {{convert|125|lbft|Nm|abbr=on}}
+| 16 Valve DOHC
+|}
+
+====Isuzu Z engine====
+
+{| class="wikitable" style="text-align: center;"
+! Designation
+! width= 35% | Description
+! Bore
+! Stroke
+! Displacement
+! Power Rating
+! Valvetrain
+|-
+| {{anchor|4ZA1}}4ZA1
+| The 1.6L '''4ZA1''' engine is based on the earlier '''[[#G161|G161]]''' engine.
+| {{convert|82|mm|in|abbr=on}}
+| {{convert|75|mm|in|abbr=on}}
+| {{convert|1584|cc|cuin|abbr=on}}
+|
+| SOHC
+|-
+| {{anchor|4ZB1}}4ZB1
+| The 1.8L '''4ZB1''' engine was used in the 1981 to 1985 [[Isuzu Fargo]]. It was a development of the earlier '''[[#G180|G180]]''' engine. It has also been built by [[Hindustan Motors]] in [[India]] since the 1990s, replacing the G180Z there.
+| {{convert|84|mm|in|abbr=on}}
+| {{convert|82|mm|in|abbr=on}}
+| {{convert|1817|cc|cuin|abbr=on}}
+| {{convert|88|PS|kW|abbr=on}}
+| 8 Valve SOHC
+|-
+| {{anchor|4ZC1}}4ZC1
+| The 2.0L '''4ZC1''' engine was used in the [[Isuzu Fargo]] van from 1986 onward, where it produced {{convert|69|kW|PS|0|abbr=on|order=flip}}. This was also used in the [[Isuzu Aska]], where it produced {{convert|110|PS|kW|0|abbr=on}} (JIS). The export version claimed {{convert|100|PS|kW|0|abbr=on}}. A {{convert|110|kW|PS|0|abbr=on|order=flip}} turbo version ('''4ZC1-T''') could be found in the Isuzu Piazza & [[Isuzu Aska]].
+| {{convert|88|mm|in|abbr=on}}
+| {{convert|82|mm|in|abbr=on}}
+| {{convert|1994|cc|cuin|abbr=on}}
+|
+| 8 Valve SOHC
+|-
+| {{anchor|4ZD1}}4ZD1
+| The 2.3L '''4ZD1''' could be found in the [[Isuzu Faster|Pickup]], the [[Isuzu Wizard|MU/Wizard/Rodeo/Amigo]], and the Trooper. Max power in the Amigo/MU was {{convert|96|hp|kW|0|abbr=on}}, while export market Troopers (carburetted) produced {{convert|110|PS|kW|0|abbr=on}} and the MY 1988/89 US market Isuzu Piazza received an MPFi version with {{convert|110|hp|kW|0|abbr=on}} at 5000&nbsp;rpm.<ref>{{Cite book | title = Standard Catalog of Imported Cars, 1946–1990 | first = James M. | last = Flammang | publisher = Krause Publications, Inc. | location = Iola, WI | page = 309 | year = 1994 | isbn = 978-0-87341-158-5 }}</ref>
+| {{cvt|89.3|mm|in|2}}
+| {{cvt|90|mm|in|2}}
+| {{convert|2255|cc|cuin|abbr=on}}
+|
+| 8 Valve SOHC
+|-
+| {{anchor|4ZE1}}4ZE1
+| The 2.6L '''4ZE1''' engine was available as an option to replace the '''4ZD1''' on four-wheel-drive models. It was fitted to the [[Isuzu Wizard|MU/Wizard/Rodeo/Amigo]], the Trooper, and the [[Isuzu Faster|Pickup]]. Later models received a slightly bigger bore and displacement.
+| {{cvt|92.6|mm|in|2}}<br>{{cvt|93.0|mm|in|2}}
+| {{cvt|95.0|mm|in|2}}
+| {{cvt|2559|cc|cuin|1}}<br>{{cvt|2581|cc|cuin|1}}
+| {{convert|115|-|122|PS|kW|0|abbr=on}}
+| 8 Valve SOHC
+|}
+
+===Diesel===
+{{anchor|D4}}
+====Isuzu B engine====
+Isuzu considered the '''B engine''' their "small" truck engine. Initially designed in 1969 as a 3.6-liter four cylinder or a 5.4-liter six-cylinder direct injection unit, other displacements were added later on.<ref name=SAE850261>{{cite journal | journal = SAE Transactions | title = The New Isuzu 2.5 Liter and 2.8 Liter 4-Cylinder Direct Injection Diesel Engine | last1 = Takeuchi | first1 = Koichi | first2 = Kimi | last2 = Kubota | first3 = Masao | last3 = Konagai | first4 = Mitsuo | last4 = Watanabe | first5 = Ryoji | last5 = Kihara | volume = 94 | pages = 434–452 | date = 1985 | issue = 2 | issn = 0096-736X | jstor = 44467592 }}</ref> In 1980 a 3.3-liter version appeared.
+
+{| class="wikitable" style="text-align: center;"
+! Designation
+! Description
+! Bore
+! Stroke
+! Displacement
+! Power Rating
+! Valvetrain
+|-
+| {{anchor|4BA1}}4BA1
+| The '''4BA1''' is a 2.8L diesel sold in Isuzu Elf light trucks of several generations. 
+| {{cvt|98|mm|in|1}}
+| {{cvt|92|mm|in|1}}
+| {{convert|2775|cc|cuin|abbr=on}}
+| {{cvt|75|PS|kW|0}} <br /> {{cvt|165|Nm|lbft|0}} at 2200&nbsp;rpm
+|
+|-
+| {{anchor|4BB1}}4BB1
+| The '''4BB1''' is a direct injection diesel sold in Isuzu ELF and KT light trucks from 1973 to 1979. It is a four-cylinder version of the 6BB1.
+| rowspan="6" | {{cvt|102|mm|in|1}}
+| {{cvt|110|mm|in|1}}
+| {{cvt|3595|cc|cuin|1}}
+| {{cvt|80|to|100|PS|kW|0}} at 3300-3400&nbsp;rpm <br /> {{cvt|265|Nm|lbft|0}} at 2000&nbsp;rpm
+|
+|-
+| {{anchor|4BC1}}4BC1
+| The '''4BC1''' is a 3.3L diesel sold in Isuzu ELF light trucks from 1980 to 1982.
+| rowspan="2" | {{cvt|100|mm|in|1}}
+| rowspan="2" | {{cvt|3268|cc|cuin|1}}
+| {{cvt|85|PS|kW|0}} <br /> {{cvt|175|Nm|lbft|0}} at 2500&nbsp;rpm
+|
+|-
+| {{anchor|4BC2}}4BC2
+| The '''4BC2''' is a 3.3 L direct injection version of the 4BC1. It was sold in the Isuzu ELF and NPR trucks from 1982 to 1987.
+| {{cvt|90|PS|kW|0}} at 3500&nbsp;rpm <br /> {{convert|200|Nm|lbft|0}} at 2000&nbsp;rpm
+|
+|-
+| {{anchor|4BD1}}4BD1
+| The '''4BD1''' is a 3.9L direct injection diesel sold in Isuzu ELF trucks as well as marine and industrial applications from 1979. Power output varied. 1979 models had {{cvt|64|kW|PS hp|0}} at 3200rpm, 1988 models had {{cvt|83|kW|PS hp|0}} at 3200&nbsp;rpm {{convert|270|Nm|lbft|abbr=on}} at 1900&nbsp;rpm. OEM diesel in [[Australia]]n specification [[Land Rover]] SIII Stage 1 and coil sprung 110, 120, and [[Land Rover Perentie]] models from 1981 to 1992.
+| rowspan="3" | {{cvt|118|mm|in|1}}
+| rowspan="3" | {{convert|3856|cc|cuin|abbr=on}}
+|
+|
+|-
+| {{anchor|4BD1T}}4BD1T
+| The '''4BD1T''' is a turbocharged version of the 3.9-litre 4BD1. It was produced from 1985 and was fitted to Isuzu NPR trucks from 1986 and sold in the US. OEM diesel in [[Australia]]n specifications [[Land Rover Perentie]] 6X6 models from 1989 to 1992. Different versions feature power ratings ranging from {{cvt|90|to|100|kW|PS hp|0}}. Peak torque ranges from {{convert|314|to|330|Nm|lbft|abbr=on}} at 1800&nbsp;rpm. Also used in jeepneys built in [[Batangas]].
+|
+|
+|-
+| {{anchor|4BD2T}}4BD2T
+| The '''4BD2T''' is an indirect injection version of the 4BD1T that was also intercooled, it replaced the 4BD1T in the US market until 1998.
+| {{cvt|100|kW|PS|0}} at 3000&nbsp;rpm <br /> {{convert|345|Nm|lbft|abbr=on}} at 2000&nbsp;rpm
+|
+|-
+| {{anchor|4BE1}}4BE1
+| The '''4BE1''' is a 3.6L direct injection engine. It is a high revving high output diesel on its VE-Rotary Zexel injection pump. It replaced the 4BC2 in [[Isuzu]] NPR's from 1987- non turbo, while the other version uses Diesel Kiki A-type injection pump but not the same as high revving like the Rotary version. Power ratings in VE-Rotary versions (NKR300) are {{cvt|100|PS|kW|0|disp=flip}} at 3800&nbsp;rpm and {{convert|242|Nm|lbft|abbr=on}} at 2000&nbsp;rpm
+| rowspan="2" | {{cvt|105|mm|in|1}}
+| {{cvt|105|mm|in|1}}
+| {{convert|3636|cc|cuin|abbr=on}}
+|
+|
+|-
+| {{anchor|4BG1}}4BG1
+| The '''4BG1''' is a 4.3L, non turbo, direct injection industrial and marine engine. The 4BG1T is a turbocharged version of the 4BG1 and is available in marine ratings to {{cvt|111|PS|kW|82|disp=flip}}.
+| {{cvt|125|mm|in|1}}
+| {{convert|4329|cc|cuin|abbr=on}}
+|
+|
+|}
+
+====Isuzu C engine====
+Isuzu's '''C-series''' engine was a mainstay for their light truck production, as well as for industrial and marine uses. The engine was introduced in 1959; by 1985 over 2 million units had been produced.<ref name=SAE850261/> It was replaced in 1985 by the larger [[#Isuzu J engine|J-series engine]].
+
+{| class="wikitable" style="text-align: center;"
+! Designation
+! Description
+! Bore
+! Stroke
+! Displacement
+! Power Rating
+! Valvetrain
+|-
+| {{anchor|C180}}C180
+| The '''C180''' engine was used in the Isuzu Bellett, Bellett B, Express, and [[Isuzu Wasp|Wasp]].<ref name="Camion1"/>
+| {{convert|79|mm|in|abbr=on}}
+| {{convert|90|mm|in|abbr=on}}
+| {{convert|1764|cc|cuin|abbr=on}}
+| {{convert|50|PS|kW|0|abbr=on}}.<ref name="TAM67">{{Cite book | title = Quattroruote Speciale: Tutte le Auto del Mondo 1967 | publisher = Editoriale Domus S.p.A |date=February 1967 | language = Italian | page = 151 | location = Milano }}</ref>
+| 8 Valve OHV
+|-
+| {{anchor|C190}}C190
+| The '''C190''' is a 2.0&nbsp;L engine used in the [[Isuzu Faster]]/[[Holden Rodeo]] and Isuzu Florian and also [[Isuzu KB]]. It was also fitted to the [[Delta Motors Corporation|Delta Mini Cruiser]] for the European market. It has also been fitted to light-duty versions of the [[Isuzu Elf]] and the [[Isuzu Journey|Isuzu Journey-S]] minibus. For later industrial and marine applications, this engine has been called '''4AA1'''. There is also a gasoline-powered iteration of this engine, called the [[#G201|G&nbsp;201&nbsp;FA]].
+| {{convert|86|mm|in|abbr=on}}
+| {{convert|84|mm|in|abbr=on}}
+| {{convert|1951|cc|cuin|abbr=on}}
+| {{convert|62|PS|kW|abbr=on}} at 4400&nbsp;rpm
+| 8 Valve OHV
+|-
+| {{anchor|C220|C221|C223}}C220<br />C221<br />C223
+| The '''C220, C221, C223''' is a 2.2L engine with 58&nbsp;hp and 93&nbsp;ft·lb of torque used in the 1981–1982 [[Chevrolet LUV]] and the 1981 through 1987 [[Isuzu Faster|Isuzu P'up]]; GM also used the C220 series as an option (RPO LQ7) with the Chevrolet S10/GMC S15; low demand led to its discontinuation after the 1985 model year where subsequent S-series were gasoline powered. It was also used in the 1979–1981 [[Isuzu 117 Coupé]] XD/XDL, one of the first cars with sporting pretensions to be fitted with a diesel engine. In the 117, claimed max power (JIS) increased to {{convert|73|PS|kW|0|abbr=on}} at 4,300&nbsp;rpm.<ref>{{cite web | title = 1979 Isuzu 117 XD Coupé technical specifications | url = http://www.carfolio.com/specifications/models/car/?car=116182 | publisher = Carfolio.com | date = 2008-04-03 }}</ref> It is a bored out version of the 2-litre [[#DL engine|DL201]] and was first seen in the 1964 [[Isuzu Elf]], as the C220 with 62&nbsp;PS. For the 1968 new model Elf it was upgraded (now with 65&nbsp;PS) and called the C221.
+| {{convert|88|mm|in|abbr=on}}
+| {{convert|92|mm|in|abbr=on}}
+| {{convert|2238|cc|cuin|abbr=on}}
+|
+| 8 Valve OHV
+|-
+| {{anchor|C240}}C240
+| The '''C240''' was often used in stationary and forklift applications. It has been used in the second and third generation [[Isuzu Elf]] 250 since late 1969 (TLD23) and also in the rare, front-wheel drive "Elf Mypack" (KUD20). For later industrial and marine applications, this engine has been called '''4AB1'''. This family of Isuzu engines were fitted in early diesel [[jeepneys]] and CJ2A, CJ3A jeeps made by Francisco Motors and Sarao Motors in the [[Philippines]].
+| {{convert|86|mm|in|abbr=on}}
+| {{convert|102|mm|in|abbr=on}}
+| {{convert|2369|cc|cuin|abbr=on}}
+| {{convert|38|to|68|hp|PS+kW|0|abbr=on}} <br />{{convert|145|Nm|lbft|abbr=on}}
+| 8 Valve OHV
+|}
+
+====Isuzu DL engine====
+
+{| class="wikitable" style="text-align: center;"
+! Designation
+! Description
+! Bore
+! Stroke
+! Displacement
+! Power Rating
+! Valvetrain
+|-
+| {{anchor|DL200}}DL200
+| The '''DL200''' is a long-stroke 2.0L engine with cast iron block and head. It was fitted to the [[Isuzu Elf]]. In 1961 it was replaced by the more modern DL201 engine.
+| {{convert|79|mm|in|abbr=on}}
+| {{convert|107|mm|in|abbr=on}}
+| {{convert|1999|cc|cuin|abbr=on}}
+| {{convert|52|PS|kW|0|abbr=on}} <br /> {{convert|12|kgm|Nm+lbft|abbr=on}}
+| 8 Valve OHV
+|-
+|
+| There is also a 1.6L engine with cast iron block and head. It was fitted to the [[Isuzu Bellel]]. The fuel injection was a licensed Bosch unit.<ref name="SCI2">Flammang, p. 308</ref>
+| {{convert|79|mm|in|abbr=on}}
+| {{convert|82|mm|in|abbr=on}}
+| {{convert|1608|cc|cuin|abbr=on}}
+| {{convert|52|PS|kW|0|abbr=on}} <br /> {{convert|87|lbft|Nm|abbr=on}}
+| 8 Valve OHV
+|-
+| {{anchor|DL201}}DL201
+| The '''DL201''' is a 2.0L engine with cast iron block and head. It was fitted to the [[Isuzu Bellel|Bellel]] and Bellel Express as well as the Elf and Elfin trucks. Like its smaller sister, the DL201 used a license-built Bosch fuel injection unit.<ref name="SCI2"/>
+| {{convert|83|mm|in|abbr=on}}
+| {{convert|92|mm|in|abbr=on}}
+| {{convert|1991|cc|cuin|abbr=on}}
+| {{convert|55|PS|kW|0|abbr=on}} <br /> {{convert|8.9|kgm|Nm+lbft|abbr=on}}
+| 8 Valve OHV
+|}
+
+====Isuzu E engine====
+This family of engines started as the [[Indirect injection#Swirl chamber|swirl chamber]] design, later modified into direct injection (4EE1), with a final improvement into a 16-valve direct common rail injection (4EE2).
+
+{| class="wikitable" style="text-align: center;"
+! Designation
+! Description
+! Bore
+! Stroke
+! Displacement
+! Power Rating
+! Valvetrain
+|-
+| {{anchor|4EC1}}4EC1<br>T4EC1
+| Power in the atmospheric version is {{convert|50|PS|kW|0|abbr=on}} at 4,800&nbsp;rpm and 90&nbsp;Nm at 3,000&nbsp;rpm. The turbocharged version (IHI) develops {{convert|67|PS|kW|0|abbr=on}} at 4,600&nbsp;rpm and 132&nbsp;Nm at 2,600&nbsp;rpm as fitted to the [[Opel Corsa#A|Opel Corsa A]] (with {{convert|0.68|bar|psi|1|abbr=on|disp=or}} of boost),<ref name="AR91">{{cite book | title = Automobil Revue 1991 | editor-last = Büschi | editor-first = Hans-Ulrich | publisher = Hallwag AG | location = Berne, Switzerland | language = German, French | pages = 457, 459 | volume = 86 |date=March 1991 | isbn = 978-3-444-00514-5 }}</ref> and {{convert|72|PS|kW|0|abbr=on}} at 4,600&nbsp;rpm and 143&nbsp;Nm at 2,600&nbsp;rpm when fitted to the larger Opel Kadett E.<ref>''Automobil Revue 1991'', p. 462</ref> This engine was first seen in the [[Isuzu Gemini#1985|Isuzu Gemini FF]].
+| {{convert|76|mm|in|abbr=on}}
+| {{convert|82|mm|in|abbr=on}}
+| {{convert|1488|cc|cuin|abbr=on}}
+|
+| 8 Valve SOHC
+|-
+| {{anchor|4EE1}}4EE1
+| The turbocharged and intercooled version first seen in the 1990 Isuzu Gemini. This engine formed the basis for the [[common rail]], [[fuel injection#Direct injection systems|direct injection]] [[Circle L engine|4EE2]] engine now produced by Opel
+| {{convert|79|mm|in|abbr=on}}
+| {{convert|86|mm|in|abbr=on}}
+| {{convert|1686|cc|cuin|abbr=on}}
+| {{convert|88|PS|kW|0|abbr=on}} @4,500rpm <br /> {{convert|167|Nm|lbft|abbr=on}} @2,500rpm<ref>''Automobil Revue 1991'', p. 332</ref>
+| 8 Valve SOHC
+|-
+| {{anchor|4EE2}}4EE2
+| This engine is now produced by Opel, who calls it the Ecotec DTi/CDTi. Better known as the "[[Circle L engine]]", it is made in [[Poland]] by [[Isuzu Motors Polska]] and is available in certain Opel and Honda vehicles. It was available in versions of 100, 110 and latest 130 PS. The only visible difference between the versions is the relocation of the oil filler cap from upper right (Honda 2003–2005, engine type 4EE 2, 100PS version, 5-hole injector nozzles), to lower right, then to lower left corner of the engine (Opel engine types A17DT A17DTC A17DTE<ref>[https://faiauto.com/engine-of-the-month/opelvauxhall-1-7-cdti-a17dt_a17dtc_a17dte/ 4EE2 parts]</ref>).<ref name="4EE2 development history">[https://www.automaniac.org/blog/14/popular-engines-isuzu-1.7-4ee2 4EE2 development history]</ref> The early version used 5-hole injector nozzles, the latest has 7-hole injector nozzles for better emissions and fuel economy.
+| {{convert|79|mm|in|abbr=on}}
+| {{convert|86|mm|in|abbr=on}}
+| {{convert|1686|cc|cuin|abbr=on}}
+| {{convert|74|kW|PS|0|abbr=on}}
+| 16 Valve DOHC
+|-
+| {{anchor|A17DTL}}A17DTL A17DTN
+| After the ISUZU Polska factory went under full GM ownership, the engine marking changed to A17. All modifications of the original 4EE2 are physically only minor and can be considered tuning instead of an all-new development.<ref name="4EE2 development history"/>
+| {{convert|79|mm|in|abbr=on}}
+| {{convert|86|mm|in|abbr=on}}
+| {{convert|1686|cc|cuin|abbr=on}}
+| {{cvt|100|PS|kW|0}}<ref name=AstraJ>{{cite web | url = https://www.opel-infos.de/modelle/astra_jst.html | title = List of Opel cars and engines }}</ref>
+| 16 Valve DOHC
+|-
+| {{anchor|A17DTJ}}A17DTJ A17DTC A17DTE
+| All the A17 engines are almost identical to the 4EE2 base engine, the main changes are in the ECU, control software, camshaft position sensing wheel, added sensors (exhaust temperature), injector upgrades and modifications of the engine cover, resulting in shifting oil cap position.
+| {{convert|79|mm|in|abbr=on}}
+| {{convert|86|mm|in|abbr=on}}
+| {{convert|1686|cc|cuin|abbr=on}}
+| {{cvt|110|PS|kW|0}} [http://www.superchips.co.uk/search?make=37&fueltype=2&model=491&variant=2758 A17DTJ power] [https://www.opel-infos.de/modelle/astra_jst.html A17DTC power] [http://www.superchips.co.uk/search?make=37&fueltype=2&model=491&variant=2667 A17DTE power]
+| 16 Valve DOHC
+|-
+| {{anchor|A17DTR}}A17DTR
+| 
+| {{convert|79|mm|in|abbr=on}}
+| {{convert|86|mm|in|abbr=on}}
+| {{convert|1686|cc|cuin|abbr=on}}
+| {{cvt|125|PS|kW|0}}<ref name=AstraJ/>
+| 16 Valve DOHC
+|-
+| {{anchor|A17DTS}}A17DTS
+| The latest engine tuning and highest power specification, still within EURO5 emission standard. The engine block remained unchanged from 1992 until 2014.<ref name="4EE2 development history"/>
+| {{convert|79|mm|in|abbr=on}}
+| {{convert|86|mm|in|abbr=on}}
+| {{convert|1686|cc|cuin|abbr=on}}
+| {{convert|130|PS|kW|0|abbr=on}} [http://www.superchips.co.uk/search?make=37&fueltype=2&model=491&variant=2659 A17DTS power]
+| 16 Valve DOHC
+|-
+|}
+
+====Isuzu F engine====
+
+{| class="wikitable" style="text-align: center;"
+! Designation
+! Description
+! Bore
+! Stroke
+! Displacement
+! Power Rating
+! Valvetrain
+|-
+| {{anchor|4FB1}}4FB1
+| The '''4FB1''' is a 1.8L engine used in the 1981–1986 Chevrolet Chevette and the 1979–1987 [[Isuzu Gemini#PFD60|Isuzu Gemini/I-Mark]] as well as the Australian Holden Gemini iteration of that car. It was also available with electronic fuel injection (Bosch) and with a turbocharger.
+:{{convert|61|PS|kW|0|abbr=on}} at 5,000rpm, {{convert|11.2|kgm|Nm lbft|abbr=on}} at 2,000rpm (JIS)<ref name="WC84">{{Cite book | title = World Cars 1984 | publisher = L'Editrice dell'Automobile LEA/Herald Books | location = Pelham, NY | page = 345 | year = 1984 | isbn = 978-0-910714-16-7 }}</ref>
+:{{convert|66|PS|kW|0|abbr=on}} at 5,000rpm, {{convert|11.2|kgm|Nm lbft|abbr=on}} at 2,000rpm (JIS) - Electronic injection<ref name="WC84"/>
+:{{convert|73|PS|kW|0|abbr=on}} at 5,000rpm, {{convert|16.0|kgm|Nm lbft|abbr=on}} at 2,500rpm (JIS) - Turbocharged<ref name="WC84"/>
+| {{convert|84|mm|in|abbr=on}}
+| {{convert|82|mm|in|abbr=on}}
+| {{convert|1817|cc|cuin|abbr=on}}
+| {{convert|51|hp|PS+kW|0|abbr=on}} at 5000rpm <br /> {{convert|72|lbft|Nm|abbr=on}}
+| 8 Valve SOHC
+|-
+| {{anchor|4FC1}}4FC1
+| The '''4FC1''' is a 2.0L engine used in the [[Isuzu Aska]], and in [[Hindustan Ambassador]] in turbo and non-turbo ('''2DE1 NA''') form.
+| {{convert|84|mm|in|abbr=on}}
+| {{convert|90|mm|in|abbr=on}}
+| {{convert|1995|cc|cuin|abbr=on}}
+|
+| 8 Valve SOHC
+|-
+| {{anchor|4FD1}}4FD1
+| The '''4FD1''' is a 2.2L engine used in the [[Isuzu Midi]], non-turbo form.
+<br /> 4 cylinder, inline, water cooled, SOHC
+<br /> Compression ratio: 21.5:1
+| {{convert|88|mm|in|abbr=on}}
+| {{convert|90|mm|in|abbr=on}}
+| {{convert|2189|cc|cuin|abbr=on}}
+| {{convert|61|bhp|PS+kW|0|abbr=on}} at 4400rpm <br /> {{convert|92.9|lbft|Nm|abbr=on}} at 2000rpm
+| 8 Valve SOHC
+|}
+
+====Isuzu H engine====
+
+All engines are SOHC with direct injection and are normally aspirated (N/A) or turbocharged (T) or turbocharged and intercooled (T/I)
+
+Three bores: {{convert|110|mm|in|abbr=on}}, {{convert|112|mm|in|abbr=on}}, {{convert|115|mm|in|abbr=on}}
+
+Four strokes: {{convert|110|mm|in|abbr=on}}, {{convert|115|mm|in|abbr=on}}, {{convert|120|mm|in|abbr=on}}, {{convert|125|mm|in|abbr=on}}
+
+4HL1 versions have common rail high-pressure fuel injection system with electronic control system (= CR-ECS)
+
+{| class="wikitable" style="text-align: center;"
+! Designation
+! Bore
+! Stroke
+! Displacement
+! Power Rating
+! Valves
+! Notes
+! Vehicle
+|-
+| {{anchor|4HE1-T}}4HE1-T
+| 110
+| 125
+| {{convert|4752|cc|cuin|abbr=on}}
+| {{convert|109|kW|PS|0|abbr=on|order=flip}} at 2,900&nbsp;rpm <br /> {{convert|400|Nm|lbft|abbr=on}} at 1,800&nbsp;rpm
+| 8
+| T
+| 1998 NQR500
+|-
+| {{anchor|4HE1-XN}}4HE1-XN
+| 110
+| 125
+| {{convert|4752|cc|cuin|abbr=on}}
+| {{convert|127|kW|PS|abbr=on}} at 2,700&nbsp;rpm <br /> {{convert|458|Nm|lbft|abbr=on}} at 2,000-2,400&nbsp;rpm
+| 8
+| T
+| 2003 NPR400
+|-
+| {{anchor|4HF1}}4HF1
+| 112
+| 110
+| {{convert|4334|cc|cuin|abbr=on}}
+| {{convert|85|kW|PS|abbr=on}} at 3,200&nbsp;rpm <br /> {{convert|285|Nm|lbft|abbr=on}} at 1,800&nbsp;rpm
+| 8
+| N/A
+| 1998 NPR200
+|-
+| {{anchor|4HG1-T}}4HG1-T
+| 115
+| 110
+|  4.57L
+| {{convert|89|kW|PS|abbr=on}} at 3,000&nbsp;rpm <br /> {{convert|325|Nm|lbft|abbr=on}} at 1,800&nbsp;rpm
+| 8
+| T
+| 2000 NPR350A
+|-
+| {{anchor|4HJ1}}4HJ1
+| 115
+| 120
+| {{convert|4985|cc|cuin|abbr=on}}
+| {{convert|111|kW|PS|abbr=on}} at 3,100&nbsp;rpm <br /> {{convert|363|Nm|lbft|abbr=on}} at 1,600&nbsp;rpm
+| 8
+| N/A
+| 1998-2004 Elf
+|-
+| {{anchor|4HK1-TCN}}4HK1-TCN
+| 115
+| 125
+| {{convert|5193|cc|cuin|abbr=on}}
+| {{convert|109|kW|PS|abbr=on}} at 2,600&nbsp;rpm <br /> {{convert|402|Nm|lbft|abbr=on}} at 1,500-2,600&nbsp;rpm
+| 16
+| T
+| 2006 NPR400<ref>{{cite web |url=http://www.isuzu.co.nz/media/1969/NPR350M_NPR400M%20CVO274%20Oct%2006.pdf |title= NPR350M/NPR400M Medium | date= October 2006 | publisher = Isuzu New Zealand |url-status=dead |archiveurl=https://web.archive.org/web/20130208100207/http://isuzu.co.nz/media/1969/NPR350M_NPR400M%20CVO274%20Oct%2006.pdf |archivedate=2013-02-08 }}</ref>
+|-
+| {{anchor|4HK1-TCC}}4HK1-TCC
+| 115
+| 125
+| {{convert|5193|cc|cuin|abbr=on}}
+| {{convert|139|kW|PS|abbr=on}} @2600rpm <br /> {{convert|510|Nm|lbft|abbr=on}} @1500-2000rpm
+| 16
+| T
+| 2008 NQR500
+|-
+| {{anchor|4HK1-TCS}}4HK1-TCS
+| 115
+| 125
+| {{convert|5193|cc|cuin|abbr=on}}
+| {{convert|129|kW|PS|abbr=on}} @2600rpm <br /> {{convert|500|Nm|lbft|abbr=on}} @1600-2600rpm
+| 16
+| T
+| 2005 NQR500
+|-
+| {{anchor|4HL1}}4HL1
+| 115
+| 115
+| {{convert|4777|cc|cuin|abbr=on}}
+| {{convert|103|kW|PS|abbr=on}} @3000rpm <br /> {{convert|333|Nm|lbft|abbr=on}} @1500rpm
+| 16
+| CR-ECS; N/A
+|
+|-
+| {{anchor|4HL1-N}}4HL1-N
+| 115
+| 115
+| {{convert|4777|cc|cuin|abbr=on}}
+| {{convert|96|kW|PS|abbr=on}} @3000rpm <br /> {{convert|333|Nm|lbft|abbr=on}} @1500rpm
+| 16
+| CR-ECS; N/A
+|
+|-
+| {{anchor|4HL1-TC}}4HL1-TC
+| 115
+| 115
+| {{convert|4777|cc|cuin|abbr=on}}
+| {{convert|118|kW|PS|abbr=on}} @2700rpm <br /> {{convert|425|Nm|lbft|abbr=on}} @1500rpm
+| 16
+| CR-ECS; T/I
+|
+|-
+| {{anchor|4HL1-TCS}}4HL1-TCS
+| 115
+| 115
+| {{convert|4777|cc|cuin|abbr=on}}
+| {{convert|132|kW|PS|abbr=on}} @2700rpm <br /> {{convert|500|Nm|lbft|abbr=on}} @1500rpm
+| 16
+| CR-ECS; T/I
+|
+|}
+
+====Isuzu J engine====
+[[File:Isuzu_4JJ3-TCX_Engine.jpg|thumb|Isuzu 4JJ3-TCX Engine]]
+The '''J-series''' direct injection diesel engine was introduced in 1985, in 2.5 or 2.8 liter displacements.<ref name=SAE850261/> Initially installed only in lighter duty versions of the [[Isuzu Elf]], it soon found its way into other Isuzu products. It replaced the somewhat smaller [[#Isuzu C engine|C engine]]; later on 3.1- and 3.0-liter versions were also introduced - still with four cylinders in line.
+{{clear}}
+
+{| class="wikitable" style="text-align: center;"
+! Designation
+! Description
+! Bore
+! Stroke
+! Displacement
+! Compression Ratio
+! Power Rating
+! Valvetrain
+|-
+| {{anchor|4JA1}}4JA1
+| The '''4JA1''' is a direct injection 8V. It was used in a variety of [[Isuzu Faster|Isuzu TF Pickup]]s under a variety of names including Opel Campo, and also in the Thai market [[Isuzu Wizard#Thailand|Isuzu Cameo]] (as well as the 1991-1997 Mazda B2500 "Thunder"; 1992-1996 Ford Marathon) and in the [[Isuzu Panther]], an Isuzu MUV car produced in [[Indonesia]]. In Thai specs, the naturally aspirated eight-valve version claimed 90&nbsp;hp in 1992. 
+| {{convert|93|mm|in|abbr=on}}
+| {{convert|92|mm|in|abbr=on}}
+| {{convert|2499|cc|cuin|abbr=on}}
+| 18.4:1
+| {{convert|76|PS|kW|abbr=on}} at 4200&nbsp;rpm<br />{{convert|17.5|kgm|Nm|0|abbr=on}} at 2000&nbsp;rpm<ref>{{citation | type = catalog | publisher = บริษัท ตรีเพชรอีซูซุเซลส์ จำกัด [Tri Petch Isuzu Sales Ltd.] | title = Rodeo 4WD: ยอดรถสำหรับยอดดน | trans-title = Top Car for Top People | language = Thai | date = April 1992 | pages = 3–4 }}</ref>
+|
+|-
+| {{anchor|4JA1-L}}4JA1-L
+| The current '''4JA1-L''' engine is turbocharged but not intercooled with an 18.5:1 compression ratio. The GM South Africa-built Isuzu KB250 (D-Max) pickup has {{convert|79|PS|kW|0|abbr=on}} at 3800&nbsp;rpm and {{convert|170|Nm|lbft|abbr=on}} at 1800&nbsp;rpm. For the Indonesian market it is rated at {{convert|80|PS|kW|abbr=on}} at 3500&nbsp;rpm and {{convert|191|Nm|lbft|abbr=on}} at 1800&nbsp;rpm and is installed in the Isuzu Bison, a relabelled [[Mitsubishi Delica]] (L300), the old Isuzu Pickup, the Isuzu Panther, and [[Isuzu Traga]]. For the Philippines it is rated at {{convert|85|PS|kW|abbr=on}} at 3900&nbsp;rpm and {{convert|185|Nm|lbft|abbr=on}} at 2000&nbsp;rpm and is used in the Euro2-rated Isuzu Crosswind, the local version of the Panther; and in India at {{convert|73.4|PS|kW|abbr=on}} at 3900&nbsp;rpm and {{convert|171|Nm|lbft|abbr=on}} at 1800&nbsp;rpm for the BS-3 (Euro3 equivalent) Chevrolet Tavera (another version of the Panther).
+| {{convert|93|mm|in|abbr=on}}
+| {{convert|92|mm|in|abbr=on}}
+| {{convert|2499|cc|cuin|abbr=on}}
+|
+|
+|
+|-
+| {{anchor|4JA1-CR / 4JA1 Blue Power}}4JA1 CR / 4JA1 Blue Power
+| The '''4JA1-CR / 4JA1 Blue Power''' is a Euro 4 variant of 4JA1-L. Unlike its predecessor which used conventional [[Fuel injection#Direct injection systems|Direct Injection]], it uses a High Pressure [[Common rail]] Direct Injection system and [[Diesel particulate filter]],<ref>{{Cite web|last= Pornelos | first = Vince | date=2019-11-13|title=With Euro4 4JA1 in 2020 Traviz, could Isuzu revive Crosswind?|url=https://www.autoindustriya.com/auto-industry-news/with-euro4-4ja1-in-2020-traviz-could-isuzu-revive-crosswind.html |archive-url=|archive-date=| website= Autoindustriya.com }}</ref> thus achieving Euro 4 emission. Power rated at {{convert|78|PS|kW|abbr=on}} at 3900&nbsp;rpm and {{convert|176.5|Nm|kgm|abbr=on}} at 1800&nbsp;rpm. It is first used in [[Isuzu Traga|Isuzu Traviz]]<ref>{{cite web |url=https://www.isuzuphil.com/products/traviz |title=Isuzu TRAVIZ {{!}} Isuzu Philippines |website=www.isuzuphil.com |url-status=dead |archive-url=https://web.archive.org/web/20200715095025/https://www.isuzuphil.com/products/traviz |archive-date=2020-07-15}}</ref> (Filipino variant of Isuzu Traga), and later on Indonesian variant of Euro 4 Isuzu Traga<ref>{{cite web |url=https://isuzu-astra.com/traga-pick-up/ |title=Isuzu Traga Euro 4 {{!}} Isuzu Indonesia |website=isuzu-astra.com |url-status=dead |archive-url=https://web.archive.org/web/20240611153350/https://isuzu-astra.com/traga-pick-up/ |archive-date=2024-06-11}}</ref>
+| 
+| 
+| {{convert|2499|cc|cuin|abbr=on}}
+|
+|{{convert|78|PS|kW|abbr=on}} at 3900&nbsp;rpm and {{convert|176.5|Nm|kgm|abbr=on}} at 1800&nbsp;rpm
+|
+|-
+| {{anchor|4JA1-T}}4JA1-T
+| The '''4JA1-T''' is a turbocharged version of 4JA1 engine.
+| {{convert|93|mm|in|abbr=on}}
+| {{convert|92|mm|in|abbr=on}}
+| {{convert|2499|cc|cuin|abbr=on}}
+|
+|
+| OHV
+|-
+| {{anchor|4JB1}}4JB1
+| The '''4JB1''' is a 4-cylinder naturally aspirated watercooled in-line direct injection and also a high revving high output diesel engine with its VE rotary injection pump. Horse power is 90ps industrial version. torque is 135&nbsp;lb.-ft. at 2000&nbsp;rpm . while the light version 4JB1 uses gear type oil pump and Bosch "A" Type mechanical injection. It has a dry weight of {{convert|230|kg|lb|abbr=on}}. It was used in the Isuzu Bighorn (Trooper), Mu (Rodeo), Wizard (LWB Rodeo), Rodeo Pickup and Holden Jackaroo sold in most world markets aside from North America until the early 1990s. This motor was also installed in [[Isuzu Elf]] 150 and other light trucks.
+| {{convert|93|mm|in|abbr=on}}
+| {{convert|102|mm|in|abbr=on}}
+| {{convert|2771|cc|cuin|abbr=on}}
+|
+| {{convert|87|PS|kW|abbr=on}}<ref>{{Cite book | title = Quattroruote: Tutte le Auto del Mondo 1990 | editor = Mastrostefano, Raffaele | publisher = Editoriale Domus S.p.A | year = 1990 | page = 1252 | language = Italian | location = Milano }}</ref>
+| OHV
+|-
+| {{anchor|4JB1-T}}4JB1-T
+| The '''4JB1-T''' is a turbocharged version of the 4JB1. It was intercooled in some applications. Numerous versions of the Isuzu 4JB1 remain in production in China, both by Isuzu's Chinese joint ventures and innumerable other manufacturers like YANGZI. Upgrades to common-rail direct injection to bring emissions up to National 4 standards and even 16V DOHC valve-trains are also in production.
+| {{convert|93|mm|in|abbr=on}}
+| {{convert|102|mm|in|abbr=on}}
+| {{convert|2771|cc|cuin|abbr=on}}
+|
+| {{convert|100|and|115|PS|kW|abbr=on}}<ref>''Automobil Revue 1991'', p. 334</ref>
+|
+|-
+|4JC1
+|
+|88&nbsp;mm
+|92&nbsp;mm
+|2,238 cc
+|
+|
+|OHV
+|-
+|4JD1
+|
+|84&nbsp;mm
+|92&nbsp;mm
+|2,039 cc
+|
+|
+|OHV
+|-
+|4JE1
+|
+|84mm
+|84&nbsp;mm
+|1,862 cc
+|
+|
+|OHV
+|-
+|4JF1
+|
+|75.3&nbsp;mm
+|84&nbsp;mm
+|1,496 cc
+|
+|
+|OHV
+|-
+| {{anchor|4JK1-TC}}4JK1-TC
+| The '''4JK1-TC''' is a common-rail direct injection intercooled turbo-diesel engine. It was used in the [[Isuzu D-Max]] Low variant or base model in Philippine market. and first generation [[Chevrolet Colorado]] produced in Thailand.
+| {{convert|95.4|mm|in|abbr=on}}
+| {{convert|87.4|mm|in|abbr=on}}
+| {{convert|2499|cc|cuin|abbr=on}}
+|
+| {{convert|85|kW|PS|abbr=on}} <br /> {{convert|208|Nm|lbft+kgm|abbr=on}} at 1800-2200&nbsp;rpm
+| 16 Valve DOHC
+|-
+| {{anchor|4JK1-TCX}}4JK1-TCX
+| The '''4JK1-TCX''' is an in line direct injection electronic common rail diesel engine with a variable geometry system (VGS) turbocharger and a compression ratio originally at 18.1:1. It was used in the [[Isuzu D-Max]] LT 4X4 model, produced in Thailand and Australia, as well as in the related Holden Rodeo and first-generation Chevrolet Colorado. The original version is still used in the South African version of the new D-Max, the Isuzu KB, and with the compression ratio reduced to 16.0:1 in the Thai-market D-Max X-series.
+| {{convert|95.4|mm|in|abbr=on}}
+| {{convert|87.4|mm|in|abbr=on}}
+| {{convert|2499|cc|cuin|abbr=on}}
+|
+| {{convert|136|PS|kW|abbr=on}} <br /> {{convert|325|Nm|lbft|abbr=on}} at 1800-2800&nbsp;rpm
+| 16 Valve DOHC
+|-
+| {{anchor|4JK-1E5-TC}}4JK-1E5-TC
+| The '''4JK-1E5-TC''' is a twin turbo version of the 4JK1 and was produced for DMAX pickups exported to Europe starting in 2012. Certified to the Euro5b emission standard with a 17.0:1 compression ratio.
+| {{convert|95.4|mm|in|abbr=on}}
+| {{convert|87.4|mm|in|abbr=on}}
+| {{convert|2499|cc|cuin|abbr=on}}
+|
+| {{convert|120|kW|PS|abbr=on}} at 3600&nbsp;rpm <br /> {{convert|400|Nm|lbft+kgm|abbr=on}} @1400-2000rpm
+|
+|-
+| {{anchor|4JG1}}4JG1
+| The '''4JG1''' engine has a trochoid type oil pump, gear driven from the camshaft. The fuel system operates by plunger and nozzle and is of the high pressure solid injection type (Zexel in-line Bosch A-type). The starter motor is a 12 V unit. The firing order 1-3-4-2.
+|
+|
+|
+| 18.6
+| {{convert|48|kW|PS|abbr=on}} at 2500&nbsp;rpm <br /> {{convert|205|Nm|lbft+kgm|abbr=on}}
+| OHV
+|-
+| {{anchor|4JG1T}}4JG1T
+| The '''4JG1T''' engine is a turbocharged version of the 4JG1. Notable differences include a reduced compression ratio of 18.1:1
+|
+|
+|
+| 18.1
+| {{convert|63|kW|PS|abbr=on}} at 2500&nbsp;rpm <br /> {{convert|265|Nm|lbft+kgm|abbr=on}}
+| OHV
+|-
+| {{anchor|4JG2}}4JG2
+| The '''4JG2''' is an indirect injection engine. It replaced the 4JB1-T in the [[Isuzu Trooper|Isuzu Bighorn]] (Trooper II) and Mu/Wizard (Rodeo) in most markets.<ref name="AR94">{{cite book | title = Automobil Revue 1994 | editor-last = Büschi | editor-first = Hans-Ulrich | publisher = Hallwag AG | location = Berne, Switzerland | language = German, French | page = 316 | volume = 89 |date=10 March 1994 | isbn = 978-3-444-00584-8 }}</ref> This engine was upgraded from mechanical injection to electronically controlled mechanical injection.
+| {{convert|95.4|mm|in|abbr=on}}
+| {{convert|107|mm|in|abbr=on}}
+| {{convert|3059|cc|cuin|abbr=on}}
+|
+| {{convert|70|to|84|kW|PS|abbr=on}}
+|
+|-
+| {{anchor|4JH1-T}}4JH1-T
+| The '''4JH1-T''' is a 3.0L direct injection, turbocharged and intercooled engine which replaced the 4JB1-T in the [[Isuzu Faster|Faster/Rodeo]] pickups. This vehicle was sold as the [[Holden Rodeo]] in New Zealand and Australia.  On some models it features an electronically controlled injection pump.
+|
+|
+|
+|
+| {{convert|88|kW|PS|abbr=on}} <br /> {{convert|245|Nm|lbft+kgm|abbr=on}}
+| OHV
+|-
+| {{anchor|4JH1-TC}}4JH1-TC
+| The '''4JH1-TC''' is a 3.0L common rail direct injection, turbocharged and intercooled blue power engine which replaced the 4JB1-T found in Isuzu NHR and NKR in some markets. It applies to the Philippine-spec Isuzu QKR.since 2004 has undergone an upgrade to the ECU and yielded 163&nbsp;hp this has emerged in some countries
+| {{convert|95.4|mm|in|abbr=on}}
+| {{convert|104.9|mm|in|abbr=on}}
+| {{convert|2999|cc|cuin|abbr=on}}
+|
+| {{convert|77|kW|PS|abbr=on}} <br /> {{convert|230|Nm|lbft+kgm|abbr=on}}
+| 
+|-
+| {{anchor|4JJ1-TC}}4JJ1-TC
+| The '''4JJ1-TC''' is a 3.0L common rail direct injection engine with turbo and intercooler which replaced the 4JH1 in the [[Holden Rodeo]] and later Chevrolet & Holden Colorado produced in Thailand. It has a 17.5:1 compression ratio. It was commonly used in the Philippines for Alterra model in 2005 to 2014. The 4JJ1-TC-iTEQ 3.0-liter diesel engine is environment-friendly, complying with Euro 3 emission standards. Equipped with a turbocharger and intercooler, plus a common rail direct injection system, the engine produces 144&nbsp;hp and 294 Nm of torque. 
+| {{convert|95.4|mm|in|abbr=on}}
+| {{convert|104.9|mm|in|abbr=on}}
+| {{convert|2999|cc|cuin|abbr=on}}
+|
+|
+| 16 Valve DOHC
+|-
+| {{anchor|4JJ1-TCX}}4JJ1-TCX
+| The '''4JJ1-TCX''' is a 3.0L common rail direct injection engine with VGS-turbo and intercooler, originally with a 17.5:1 compression ratio. Stock power in 2006 was {{convert|163|PS|kW|abbr=on}} and {{convert|360|Nm|lbft|abbr=on}} for Manual transmission/ {{convert|333|Nm|lbft|abbr=on}} for Automatic transmission, increased to {{convert|177|PS|kW|abbr=on}} and {{convert|380|Nm|lbft|abbr=on}} in 2011 with a reduction in compression ratio to 17.3:1. With the introduction of Isuzu's "BluePower" system for improved economy in 2015, the compression ratio was further reduced to 16.5:1 both for the facelifted "Blue Power" D-Max and the Mu-X.
+| {{convert|95.4|mm|in|abbr=on}}
+| {{convert|104.9|mm|in|abbr=on}}
+| {{convert|2999|cc|cuin|abbr=on}}
+|
+|
+| 16 Valve DOHC
+|-
+| {{anchor|4JJ1-TCX}}4JJ3-TCX
+| The '''4JJ3-TCX''' is a newest Engine 3.0L common rail direct injection engine with VGS-turbo and intercooler, which replaced the 4JJ1-TCX in the [[Isuzu D-Max]] It uses unit injectors With the introduction of Isuzu's "BluePower" system and 4 valves per cylinder. Power {{convert|190|PS|kW|abbr=on}} and {{convert|450|Nm|lbft|abbr=on}} of Torque in 2019, the compression ratio was further reduced to 16.3:1
+| {{convert|95.4|mm|in|abbr=on}}
+| {{convert|104.9|mm|in|abbr=on}}
+| {{convert|2999|cc|cuin|abbr=on}}
+|
+|
+| 16 Valve DOHC
+|-
+|{{anchor|4JJ1-TCX}}4JJ1-T
+|The '''4JJ1-T''' REDTECH is a 3.0L direct injection, turbocharged watercooled engine being marketed in the North and South America as an Industrial engine. Certified to the US EPA Tier 4 and Euro 3b/4.
+Dry Weight: 322&nbsp;kg (709.9&nbsp;lbs)
+
+Coolant Capacity (Block): 6.0L (6.3 qt.)
+
+Oil Capacity: 15.0L (15.9 qt.)
+
+Dimensions - L x W x H 911mm x 754mm x 847mm (35.9in x 29.7in x 33.3in)
+|
+|
+|3.0L
+
+(183.1 cu in)
+|
+|52 KW (70 HP) @ 2000 RPM Variable
+|OHV
+|-
+|4JJ1-X
+|The '''4JH1-X''' REDTECH is a 3.0L direct injection, turbocharged watercooled engine being marketed in the North and South America as a constant speed or variable speed Industrial engine. Certified to the US EPA Tier 4 and Euro 3b/4.
+SAE 3 flywheel housing
+
+Dry Weight: 322&nbsp;kg (709.9&nbsp;lbs)
+
+Coolant Capacity (Block): 6.0L (6.3 qt.)
+
+Oil Capacity: 15.0L (15.9 qt.)
+
+Dimensions: 911mm x 754mm x 847mm (35.9in x 29.7in x 33.3in)
+|
+|
+|3.0L
+(183.1 cu in)
+|
+|70.8 KW (95HP) @ 1800 RPM Constant
+
+85.7 KW (115 HP) @ 2200 RPM Variable
+|OHV
+|-
+| {{anchor|4JX1}}4JX1
+| The '''4JX1''' is a 3.0L HEUI direct-injection diesel engine, turbo, some intercooler, which replaced the 4JG2 in the [[Isuzu Trooper|Isuzu Bighorn/Trooper/]]Holden Jackaroo.  It uses unit injectors and 4 valves per cylinder.
+Dry Weight: 254&nbsp;kg
+
+Coolant Capacity: 9.3L
+
+Oil Capacity: 9.0L
+
+|95.4
+|104.9
+|2999 cc
+|
+|117&nbsp;kW (157&nbsp;hp) at 3900rpm
+|DOHC
+|-
+|4JZ1
+|'''4JZ1-TCH/TCS''' is a 3.0l direct-injection advanced diesel engine, featuring both compliance to the latest emissions standards and top-class fuel efficiency.
+Diesel, 4-cycle, water-cooled inline DOHC
+|95.4
+|104.9
+|2999 cc
+|17.3
+|4JZ1-TCS
+110&nbsp;kW (150PS) @2800rpm
+375Nm /1280-2800rpm
+4JZ1-TCH
+129&nbsp;kW (175PS) @2960rpm
+430Nm /1450-2860rpm
+|16 valve DOHC
+|}
+
+====Isuzu RZ Engine====
+* The '''{{vanchor|RZ4E-TC}}''' is a 1.9L direct injection diesel powered, turbo intercooled engine which replaced the 4JK1-TCX found in [[Isuzu D-Max]] and [[Isuzu MU-X]]. The new engine's displacement is 1898cc, 601cc less than the 4JK1-TCX. In addition, the RZ4E-TC generates 150&nbsp;hp at 3600rpm and 258&nbsp;lb.-ft. (340Nm) of torque between 1800rpm to 2600rpm, giving it 16&nbsp;hp and 22&nbsp;lb.-ft. more than 4JK1-TCX. Isuzu has claimed that RZ4E-TC will have 19% better fuel efficiency compared to its predecessor. Bore is 80.0&nbsp;mm and stroke is 94.4&nbsp;mm.
+* The '''{{vanchor|RZ4F-TC}}''' is a 2.2L direct injection diesel powered, turbo intercooled engine which replaced the RZ4E-TC found in [[Isuzu D-Max]] and [[Isuzu MU-X]] (only in Thailand by model year 2025). The new engine's displacement is 2164cc, 175cc more than the RZ4E-TC. In addition, the RZ4F-TC generates 163&nbsp;hp at 3600rpm and 295&nbsp;lb.-ft. (400 Nm) of torque between 1800rpm to 2600rpm, giving it 13&nbsp;hp and 37&nbsp;lb.-ft. more than RZ4E-TC. Isuzu has claimed that RZ4F-TC will have 10% better fuel efficiency compared to its predecessor. Bore is 83&nbsp;mm and stroke is 100&nbsp;mm.
+
+===CNG===
+
+====<span class="anchor" id="4HF1-CNG"></span>CNG Engines====
+Isuzu developed the first [[Compressed natural gas|Compressed Natural Gas (CNG)]] engine series with low-emissions truck mounted with a clean CNG engine emitting zero black smoke.
+
+* The '''4HF1-CNG''' is a CNG engine of 4.334 L capacity (as based on direct injection diesel engine) with non-contact ignition system. Peak torque is 323 Nm, peak power is {{convert|88|kW|PS|0|abbr=on|order=flip}} at 1,500 rpm. Bore is 115&nbsp;mm, stroke is 108&nbsp;mm.
+* The '''4HV1''' is a CNG engine of 4.570 L capacity with non-contact ignition system. Peak torque is 353 Nm, peak power is {{convert|125|kW|PS|0|abbr=on|order=flip}} at 3200 rpm. Bore is 115&nbsp;mm, stroke is 110&nbsp;mm. Application used for NPR300 CNG series.
+
+== Five-cylinder ==
+
+=== Gasoline ===
+
+The [[Isuzu i-Series]] uses General Motors-built inline five-cylinder engines.
+
+*2004–2006 used the General Motors-built [[GM Atlas engine#L52|Vortec 3500 Engine]] with 220&nbsp;hp (164&nbsp;kW) and 225&nbsp;ft·lb (305 N·m) of torque.
+*2007–2008 used the General Motors-built [[GM Atlas engine#LLR|Vortec 3700 Engine]] with 242&nbsp;hp (180&nbsp;kW) and 242&nbsp;ft·lb (327 N·m) of torque.
+
+== Six-cylinder ==
+
+=== Gasoline ===
+
+====General Motors====
+
+*From 1989 to 1990 the {{convert|2838|cc|L|1|abbr=on|order=flip}} [[GM 60-Degree V6 engine#LL2|LL2]] V6 with single point fuel injection, producing {{convert|122|hp|kW|0|abbr=on}} and {{convert|204|Nm|lb.ft|0|abbr=on}} of torque was used in the first generation Trooper.
+*From 1990 to 1992 the {{convert|3128|cc|L|1|abbr=on|order=flip}} [[GM 60-Degree V6 engine#LG6|LG6]] V6 engine with {{convert|122|hp|kW|0|abbr=on}} and {{convert|224|Nm|lb.ft|0|abbr=on}} was used in the [[Isuzu Wizard|Isuzu Rodeo]] until replaced with the [[Isuzu]]-built 3.2L '''[[#6VD1|6VD1]]''' engine.
+*The 2003–2008 [[Isuzu Ascender]] used the General Motors-built [[GM Atlas engine#LL8|Atlas 4200 Engine]] with 275&nbsp;hp (205&nbsp;kW) and 275&nbsp;ft·lbf (373 N·m) of torque. For the 2007 model year, the engine received an increase to 291&nbsp;hp (217&nbsp;kW) and 277&nbsp;ft·lb (376 N·m) of torque.
+*The 1996–2000 [[Isuzu Hombre]] used the General Motors-built [[GM Vortec engine#4300|Vortec 4300 Engine]] with 180&nbsp;hp (134&nbsp;kW) and 245&nbsp;ft·lb (332 N·m) of torque.
+
+====Isuzu V engine====
+{{Main|Isuzu V engine}}
+
+The Isuzu '''V engine''' is a family of all-aluminum 75° [[V6]] [[gasoline]] engines ranging from 3.2 to 3.5 liters.
+
+=== Diesel ===
+{| class="wikitable" style="text-align: center;"
+! Designation
+! Description
+! Bore
+! Stroke
+! Displacement
+! Power Rating
+! Torque Rating
+|-
+| {{anchor|D400}}D400
+| Inline-six diesel engine of 3988 cc displacement. First seen in 1968, in the TY-series truck.
+|
+|
+| {{convert|3998|cc|L cuin|abbr=on}}
+| {{convert|102|PS|kW|0|abbr=on}} at 3400&nbsp;rpm
+| {{convert|25.0|kgm|Nm lbft|abbr=on}} at 1800&nbsp;rpm
+|-
+| {{anchor|DA640}}DA640
+| Inline-six, four-stroke diesel engine of 6373 cc displacement.
+|
+|
+| {{convert|6373|cc|L cuin|abbr=on}}
+| {{convert|135|PS|kW|0|abbr=on}} at 2600&nbsp;rpm
+| {{convert|41.5|kgm|Nm lbft|abbr=on}} at 1600&nbsp;rpm
+|-
+| {{anchor|DH100}}DH100
+| Inline-six, four-stroke diesel engine of 10179 cc displacement.
+|
+|
+| {{convert|10179|cc|L cuin|abbr=on}}
+| {{convert|195|PS|kW|0|abbr=on}} at 2300 rpm
+| {{convert|69|kgm|Nm lbft|abbr=on}} at 1200 rpm.
+|-
+| {{anchor|E120}}E120
+| Inline-six, four-stroke diesel engine of 12023 cc displacement.
+|
+|
+| {{convert|12023|cc|L cuin|abbr=on}}
+| {{convert|260|PS|kW|0|abbr=on}} at 2500 rpm
+| {{convert|84|kgm|Nm lbft|abbr=on}} at 1400 rpm.
+|-
+| {{anchor|6BB1}}6BB1
+| 6-cylinder version of the 4BB1
+|
+|
+| {{convert|5393|cc|L cuin|abbr=on}}<ref name=Catvol23>{{citation | ref = JAMA23 | title = 自動車ガイドブック |trans-title=Automobile Guide Book 1976/1977 | language = Japanese | volume = 23 | date = 1976-10-20 | publisher = [[Japan Automobile Manufacturers Association]] | location = Japan | page = 291 | id = 0053-760023-3400 }}</ref>
+| {{convert|145|PS|kW|0|abbr=on}} at 3200 rpm
+| {{convert|35|kgm|Nm lbft|-1|abbr=on}} at 2000 rpm
+|-
+| {{anchor|6BD1}}6BD1
+| 6-cylinder version of the 4BD1
+|
+|
+| {{convert|5785|cc|L cuin|abbr=on}}
+| {{convert|160|PS|kW|0|abbr=on}} at 3200 rpm
+| {{convert|39|kgm|Nm lbft|-1|abbr=on}} at 2000 rpm
+|-
+| {{anchor|6BD1T}}6BD1T
+| 6-cylinder version of the 4BD1T
+|
+|
+| {{convert|5785|cc|L cuin|abbr=on}}
+| {{convert|180|PS|kW|0|abbr=on}} at 3000 rpm<br />{{convert|185|PS|kW|0|abbr=on}} at 3000 rpm
+| {{convert|49|kgm|Nm lbft|-1|abbr=on}} at 1800 rpm<br />{{convert|53|kgm|Nm lbft|-1|abbr=on}} at 1800 rpm
+|-
+| {{anchor|6BF1}}6BF1
+|
+|
+|
+| {{convert|6130|cc|L cuin|abbr=on}}
+| {{convert|170|PS|kW|0|abbr=on}} at 3200 rpm
+| {{convert|42.5|kgm|Nm lb.ft|-1|abbr=on}}
+|-
+| {{anchor|6BG1}}6BG1
+| 6-cylinder version of the 4BG1.
+|
+|
+| {{convert|6494|cc|L cuin|abbr=on}}
+| {{convert|200|PS|kW|0|abbr=on}} at 2800 rpm (6BG1-TC/TCE)<br />{{convert|175|PS|kW|0|abbr=on}} at 3000 rpm / {{convert|180|PS|kW|0|abbr=on}} at 3000 rpm (6BG1-S)<br />{{convert|155|PS|kW|0|abbr=on}} at 2800 rpm / {{convert|160|PS|kW|0|abbr=on}} at 2800 rpm (6BG1-N)<br />{{convert|210|PS|kW|0|abbr=on}} at 2800 rpm (6BG1-TC1)<br />{{convert|230|PS|kW|0|abbr=on}} at 2800 rpm (6BG1-TC2)
+| {{convert|44|kgm|Nm lb.ft|-1|abbr=on}} / {{convert|45|kgm|Nm lb.ft|-1|abbr=on}} at 1800 rpm (6BG1-N)<br />{{convert|46|kgm|Nm lb.ft|-1|abbr=on}} / {{convert|47|kgm|Nm lb.ft|-1|abbr=on}} at 1800 rpm (6BG1-S)<br />{{convert|65|kgm|Nm lb.ft|-1|abbr=on}} at 1700 rpm (6BG1-TC/TCE/TC1)<br />{{convert|66|kgm|Nm lb.ft|-1|abbr=on}} at 1700 rpm(6BG1-TC2)
+|-
+| {{anchor|6DE1}}6DE1
+| DOHC 24V turbocharged engine of 2958 cc displacement. Found in the Euro IV specification [[Opel Vectra]].
+| {{convert|87.5|mm|in|abbr=on}}
+| {{convert|82|mm|in|abbr=on}}
+| {{convert|2958|cc|L cuin|abbr=on}}
+| {{convert|184|PS|kW|0|abbr=on}}
+| {{convert|400|Nm|lb.ft|-1|abbr=on}}
+|-
+| {{anchor|6HE1}}6HE1
+| 6-cylinder version of the 4HE1
+| {{convert|110|mm|in|abbr=on}}
+| {{convert|125|mm|in|abbr=on}}
+| {{convert|7127|cc|L cuin|abbr=on}}
+| {{convert|165|PS|kW|0|abbr=on}} at 2800 rpm (6HE1-N, 1989)<br />{{convert|195|PS|kW|0|abbr=on}} at 2900 rpm(6HE1-S, 1989)
+| {{convert|46|kgm|Nm lb.ft|-1|abbr=on}} at 1800 rpm (6HE1-N)<br />{{convert|51|kgm|Nm lb.ft|-1|abbr=on}} at 1800 rpm (6HE1-S)
+|-
+| {{anchor|6HE1T}}6HE1T
+| 6-cylinder version of the 4HE1T
+| {{convert|110|mm|in|abbr=on}}
+| {{convert|125|mm|in|abbr=on}}
+| {{convert|7127|cc|L cuin|abbr=on}}
+| ''1989 Japanese emission standards:''<br />{{convert|220|PS|kW|0|abbr=on}} at 2700 rpm (6HE1-TCN)<br />{{convert|250|PS|kW|0|abbr=on}} at 2700 rpm (6HE1-TCS)<br />''1994 Japanese emission standards:''<br />{{convert|230|PS|kW|0|abbr=on}} at 2700 rpm (6HE1-TCN)<br />{{convert|260|PS|kW|0|abbr=on}} at 2700 rpm (6HE1-TCS)
+| ''1989 Japanese emission standards:''<br />{{convert|66|kgm|Nm lb.ft|-1|abbr=on}} at 1700 rpm (6HE1-TCN)<br />{{convert|70|kgm|Nm lb.ft|-1|abbr=on}} at 1700 rpm (6HE1-TCS)<br />''1994 Japanese emission standards:''<br />{{convert|68|kgm|Nm lb.ft|-1|abbr=on}} at 1400 rpm (6HE1-TCN)<br />{{convert|77|kgm|Nm lb.ft|-1|abbr=on}} at 1400 rpm (6HE1-TCS)
+|-
+| {{anchor|6HH1}}6HH1
+| 
+| {{convert|115|mm|in|abbr=on}}
+| {{convert|132|mm|in|abbr=on}}
+| {{convert|8226|cc|L cuin|abbr=on}}
+| {{convert|175|PS|kW|0|abbr=on}} (6HH1-N, 1994)<br />{{convert|185|PS|kW|0|abbr=on}} (6HH1-C, 1994)<br />{{convert|210|PS|kW|0|abbr=on}} (6HH1-S, 1994)<br />{{convert|225|PS|kW|0|abbr=on}} (6HH1-S, 1998)
+| {{convert|50|kgm|Nm lb.ft|-1|abbr=on}} at 1700 rpm (6HH1-N, 1994)<br />{{convert|55|kgm|Nm lb.ft|-1|abbr=on}} (6HH1-S and 6HH1-C, 1994)<br />{{convert|58|kgm|Nm lb.ft|-1|abbr=on}} (6HH1-S, 1998)
+|-
+| {{anchor|6HK1}}6HK1
+| 6-cylinder version of the 4HK1
+| {{convert|115|mm|in|abbr=on}}
+| {{convert|125|mm|in|abbr=on}}
+| {{convert|7790|cc|L cuin|abbr=on}}
+| {{convert|205|PS|kW|0|abbr=on}} (6HK1-TCR)<br />{{convert|240|PS|kW|0|abbr=on}} (6HK1-TCN)<br />{{convert|260|PS|kW|0|abbr=on}} (6HK1-TCC)<br />{{convert|280|PS|kW|0|abbr=on}} (6HK1-TCS, 1998–1999)<br />{{convert|300|PS|kW|0|abbr=on}} (6HK1-TCH; 6HK1-TCS, 2005)
+| ''KK, KL, PA, PJ Japanese emission codes:''<br />{{convert|55|kgm|Nm lb.ft|-1|abbr=on}} at 1400 rpm (6HK1-TCR)<br />{{convert|70|kgm|Nm lb.ft|-1|abbr=on}} at 1400 rpm (6HK1-TCN)<br />{{convert|76|kgm|Nm lb.ft|-1|abbr=on}} at 1400 rpm (6HK1-TCC)<br />{{convert|82|kgm|Nm lb.ft|-1|abbr=on}} at 1400 rpm (6HK1-TCS)<br />''PDG, PKG Japanese emission codes:''<br />{{convert|72|kgm|Nm lb.ft|-1|abbr=on}} at 1450 rpm (6HK1-TCN)<br />{{convert|78|kgm|Nm lb.ft|-1|abbr=on}} at 1450 rpm (6HK1-TCC)<br />{{convert|100|kgm|Nm lb.ft|-1|abbr=on}} at 1450 rpm (6HK1-TCS)<br />''SKG Japanese emission code:''<br />{{convert|76|kgm|Nm lb.ft|-1|abbr=on}} at 1400-2300 rpm (6HK1-TCH)<br />{{convert|78|kgm|Nm lb.ft|-1|abbr=on}} at 1450-2200 rpm (6HK1-TCC)<br />{{convert|100|kgm|Nm lb.ft|-1|abbr=on}} at 1450 rpm (6HK1-TCS)
+|-
+| {{anchor|6HL1}}6HL1
+| 6-cylinder version of the 4HL1
+| {{convert|114|mm|in|abbr=on}}
+| {{convert|117|mm|in|abbr=on}}
+| {{convert|7166|cc|L cuin|abbr=on}}
+| {{convert|180|PS|kW|0|abbr=on}} (6HL1-N)<br />{{convert|190|PS|kW|0|abbr=on}} (6HL1-S, 2003–2004)<br />{{convert|205|PS|kW|0|abbr=on}} (6HL1-S, 1998)
+| {{convert|50|kgm|Nm lb.ft|-1|abbr=on}} at 1700 rpm (6HL1-N)<br />{{convert|51|kgm|Nm lb.ft|-1|abbr=on}} at 1700 rpm (6HL1-S)
+|-
+| {{anchor|6NX1}}6NX1
+| a 6-cylinder engine found in present-generation Isuzu Giga (in 4x2 and 6x2 rigid chassis.)
+|
+|
+| {{convert|7790|cc|L cuin|abbr=on}}
+| {{convert|340|PS|kW|0|abbr=on}}
+|
+|-
+| {{anchor|6QA1}}6QA1
+|
+| {{convert|125|mm|in|abbr=on}}
+| {{convert|150|mm|in|abbr=on}}
+| {{convert|11044|cc|L cuin|abbr=on}}
+| {{convert|220|PS|kW|0|abbr=on}}
+|
+|-
+| {{anchor|6QA2}}6QA2
+|
+|
+|
+|
+| {{convert|220|PS|kW|0|abbr=on}}
+|
+|-
+| {{anchor|6QB2}}6QB2
+|
+|
+|
+|
+| {{convert|230|PS|kW|0|abbr=on}}
+|
+|-
+| {{anchor|6RA1}}6RA1
+|
+| {{convert|135|mm|in|abbr=on}}
+| {{convert|140|mm|in|abbr=on}}
+| {{convert|12024|cc|L cuin|abbr=on}}
+| {{convert|285|PS|kW|0|abbr=on}} for the turbocharged version
+|
+|-
+| {{anchor|6RB1}}6RB1
+|
+| {{convert|135|mm|in|abbr=on}}
+| {{convert|160|mm|in|abbr=on}}
+| {{convert|13741|cc|L cuin|abbr=on}}
+| {{convert|320|PS|kW|0|abbr=on}} (6RB1-TC1)<br />{{convert|340|PS|kW|0|abbr=on}} (6RB1-T1)
+|
+|-
+| {{anchor|6RB2}}6RB2
+|
+|
+|
+|
+| {{convert|275|PS|kW|0|abbr=on}} at 2700 rpm
+|
+|-
+| {{anchor|6SA1}}6SA1
+|
+| {{convert|115|mm|in|abbr=on}}
+| {{convert|135|mm|in|abbr=on}}
+| {{convert|8413|cc|L cuin|abbr=on}}
+| {{convert|200|PS|kW|0|abbr=on}} at 2700 rpm
+| {{convert|58|kgm|Nm lb.ft|-1|abbr=on}} at 1400 rpm
+|-
+| {{anchor|6SD1}}6SD1
+|
+| {{convert|120|mm|in|abbr=on}}
+| {{convert|145|mm|in|abbr=on}}
+| {{convert|9839|cc|L cuin|abbr=on}}
+| {{convert|310|PS|kW|0|abbr=on}} (6SD1-TCN)<br />{{convert|340|PS|kW|0|abbr=on}} (6SD1-TCS)
+|
+|-
+| {{anchor|6TE1}}6TE1
+|
+| {{convert|161|mm|in|abbr=on}}
+| {{convert|155|mm|in|abbr=on}}
+| {{convert|18933|cc|L cuin|abbr=on}}
+| {{convert|330|PS|kW|0|abbr=on}}<br />{{convert|370|PS|kW|0|abbr=on}}
+|
+|-
+| {{anchor|6UV1}}6UV1
+| CNG version of the 6UZ1
+| {{convert|120|mm|in|abbr=on}}
+| {{convert|145|mm|in|abbr=on}}
+| {{convert|9839|cc|L cuin|abbr=on}}
+| {{convert|330|PS|kW|0|abbr=on}}
+|
+|-
+| {{anchor|6UZ1}}6UZ1
+| A 6-cylinder diesel engine launched in 2005 using the [[Isuzu Giga|Giga]].
+| {{convert|120|mm|in|abbr=on}}
+| {{convert|145|mm|in|abbr=on}}
+| {{convert|9839|cc|L cuin|abbr=on}}
+| ''Until 2010:''<br />{{convert|330|PS|kW|0|abbr=on}} at 2000 rpm (6UZ1-TCN)<br />{{convert|380|PS|kW|0|abbr=on}} at 2000 rpm (6UZ1-TCS)<br />''From 2010:''<br />{{convert|330|PS|kW|0|abbr=on}} at 1800 rpm (6UZ1-TCN)<br />{{convert|380|PS|kW|0|abbr=on}} at 1800 rpm (6UZ1-TCS)<br />{{convert|400|PS|kW|0|abbr=on}} at 1800 rpm (6UZ1-TCH)
+| ''Until 2010:''<br />{{convert|1422|Nm|lb.ft|-1|abbr=on}} at 1400 rpm (6UZ1-TCN)<br />{{convert|1765|Nm|lb.ft|-1|abbr=on}} at 1400 rpm (6UZ1-TCS)<br />''From 2010:''<br />{{convert|1422|Nm|lb.ft|-1|abbr=on}} at 1000-1500 rpm (6UZ1-TCN)<br />{{convert|1765|Nm|lb.ft|-1|abbr=on}} at 1200 rpm for (6UZ1-TCS)<br />{{convert|1765|Nm|lb.ft|-1|abbr=on}} at 1200 rpm for (6UZ1-TCH)
+|-
+| {{anchor|6WA1}}6WA1
+|
+| {{convert|132.9|mm|in|abbr=on}}
+| {{convert|145|mm|in|abbr=on}}
+| {{convert|12068|cc|L cuin|abbr=on}}
+| {{convert|330|PS|kW|0|abbr=on}} (6WA1-TCN)<br />{{convert|360|PS|kW|0|abbr=on}} (6WA1-TCC)<br />{{convert|390|PS|kW|0|abbr=on}} (6WA1-TCS)
+|
+|-
+| {{anchor|6WF1}}6WF1
+|
+| {{convert|147|mm|in|abbr=on}}
+| {{convert|140|mm|in|abbr=on}}
+| {{convert|14256|cc|L cuin|abbr=on}}
+| {{convert|320|PS|kW|0|abbr=on}} (6WF1-TCN)<br />{{convert|370|PS|kW|0|abbr=on}}(6WF1-TC)
+|
+|-
+| {{anchor|6WG1}}6WG1
+| a 6-cylinder engine found in Isuzu E-Series tractor.
+|{{convert|147|mm|in|abbr=on}}
+| {{convert|154|mm|in|abbr=on}}
+| {{convert|15681|cc|L cuin|abbr=on}}
+| (6WG1-T)<br />{{convert|290|PS|kW|0|abbr=on}}1818rpm . (6WG1-TCX)<br />{{convert|400|PS|kW|0|abbr=on}} 2200 rpm . (6WG1-TCR)<br />{{convert|420|PS|kW|0|abbr=on}} 2100rpm. (6WG1-TCC)<br />{{convert|520|PS|kW|0|abbr=on}} 2200 rpm(6WG1-TCS)
+|
+|-
+|}
+[[File:Isuzu 6UZ1-TCG40 380PS.jpg|thumb|upright|380&nbsp;PS 6UZ1-TCG40 diesel engine]]
+
+== Eight-cylinder ==
+
+===Gasoline===
+*The 2002–2007 [[Isuzu Ascender]] use the General Motors-built [[General Motors LS-based small-block engine#5.3 L|Vortec 5300 Engine]] with 285&nbsp;hp (213&nbsp;kW) and 325&nbsp;ft·lb (441 N·m) of torque.
+*Isuzu Commercial trucks use the General Motors-built [[General Motors LS-based small-block engine|Vortec 6000 Engine]] with 300&nbsp;hp (224&nbsp;kW) and 360&nbsp;ft·lb (488 N·m) of torque.
+*2023–2025 Commercial trucks use the General Motors-built [[General Motors LS-based small-block engine#L8T|6.6 L L8T]] with 350&nbsp;hp (261&nbsp;kW) and 425&nbsp;ft·lb (576 N·m) of torque.<ref>{{Cite web | title=Isuzu N-Series Gas Trucks | url=https://www.isuzucv.com/en/nseries/nseries_gas | access-date=2025-09-18 | website=www.isuzucv.com}}</ref>
+
+===Diesel===
+*The '''8PA1''' is a {{convert|9971|cc|L|1|abbr=on|order=flip}} V8 diesel truck engine. It has {{convert|215|PS|kW|0|abbr=on}} at 2800&nbsp;rpm and {{convert|62.0|kgm|Nm lbft|abbr=on}} at 1600&nbsp;rpm.<ref>''[[#JAMA23|Automobile Guide Book 1976/1977]]'', p. 279</ref>
+*The '''8GF1''' (Duramax) is a {{convert|6600|cc|L|1|abbr=on|order=flip}} V8 diesel truck engine. It has {{convert|360|HP|kW|0|abbr=on}} at 3200&nbsp;rpm and {{convert|89.0|kgm|Nm lbft|abbr=on}} at 1600&nbsp;rpm.
+
+
+*Isuzu had the design responsibility of the base engine, while GM Truck Group was responsible for designing the installation and packaging within the vehicle. Engine validation relied on Isuzu's proven validation process, in addition to GM Powertrain's expertise in engine validation. Engine calibration work in the vehicle was undertaken by a joint team of Isuzu, GM Powertrain and GM Truck Group personnel, which reflects how the engine was born as a complete collaboration of the three organizations.
+
+== Twelve-cylinder ==
+=== Gasoline ===
+{| class="wikitable" style="text-align: center;"
+! Designation
+! Description
+! Bore
+! Stroke
+! Displacement
+! Power Rating
+! Torque Rating
+|-
+| [[Isuzu V12 F1 engine|P799WE]]<ref>{{cite web| url = https://drivetribe.com/p/isuzus-v12-monster-B1KOaG8aR9u24fpBebj-tQ?iid=HdKWoUg7ToCjr6AfbkINYg| title = Isuzu's V12 monster| access-date = 2026-05-08| archive-date = 2021-11-17| archive-url = https://web.archive.org/web/20211117071727/https://drivetribe.com/p/isuzus-v12-monster-B1KOaG8aR9u24fpBebj-tQ?iid=HdKWoUg7ToCjr6AfbkINYg| url-status = dead}}</ref>
+| 12-cylinder [[Formula One]] [[motor racing|racing]] [[internal combustion engine|engine]] used in the [[Lotus 102|Lotus 102B]]; but developed from 1989 to 1991.
+| {{convert|85|mm|in|abbr=on}}
+| {{convert|51.3|mm|in|abbr=on}}
+| {{convert|3500|cc|L cuin|abbr=on}}
+| {{convert|649-775|PS|kW|0|abbr=on}}
+| {{convert|401-418|N.m|lb.ft|0|abbr=on}}
+|}
+
+=== Diesel ===
+{| class="wikitable" style="text-align: center;"
+! Designation
+! Description
+! Bore
+! Stroke
+! Displacement
+! Power Rating
+! Torque Rating
+|-
+| 12PA1
+| 12-cylinder engine used in the [[Isuzu New Power]] from February 1976 to August 1983.
+| {{convert|115|mm|in|abbr=on}}
+| {{convert|120|mm|in|abbr=on}}
+| {{convert|14957|cc|L cuin|abbr=on}}
+| {{convert|350|PS|kW|0|abbr=on}}<br />{{convert|385|PS|kW|0|abbr=on}}
+|
+|-
+| 12PB1
+| 12-cylinder engine used in the [[Isuzu New Power]] from December 1979 to August 1983.
+| {{convert|115|mm|in|abbr=on}}
+| {{convert|135|mm|in|abbr=on}}
+| {{convert|16827|cc|L cuin|abbr=on}}
+| {{convert|350|PS|kW|0|abbr=on}}<br />{{convert|385|PS|kW|0|abbr=on}}
+|
+|-
+| 12PC1
+| 12-cylinder engine used in the [[Isuzu 810]] from 1983 to 1989.
+| {{convert|119|mm|in|abbr=on}}
+| {{convert|135|mm|in|abbr=on}}
+| {{convert|18018|cc|L cuin|abbr=on}}
+| {{convert|355|PS|kW|0|abbr=on}} (12PC1-N)<br />{{convert|395|PS|kW|0|abbr=on}} (12PC1-S)
+|
+|-
+| 12PD1
+| 12-cylinder engine used in the [[Isuzu 810]] from 1989 to 1994.
+| {{convert|119|mm|in|abbr=on}}
+| {{convert|150|mm|in|abbr=on}}
+| {{convert|20020|cc|L cuin|abbr=on}}
+| {{convert|365|PS|kW|0|abbr=on}} (12PD1-N)<br />{{convert|395|PS|kW|0|abbr=on}} (12PD1-C)<br />{{convert|425|PS|kW|0|abbr=on}} (12PD1-S)
+|
+|-
+| 12PE1
+| 12-cylinder engine used in the [[Isuzu Giga]] from 1994 to 2000.
+| {{convert|127|mm|in|abbr=on}}
+| {{convert|150|mm|in|abbr=on}}
+| {{convert|22801|cc|L cuin|abbr=on}}
+| {{convert|385|PS|kW|0|abbr=on}}
+|-
+|}
+
+== References ==
+{{reflist|2}}[https://www.sae.org/papers/design-concept-duramax-6600-diesel-engine-2001-01-2703 The Design Concept of the Duramax 6600 Diesel Engine 2001-01-2703]
+
+==External links==
+* [http://www.isuzucv.com/index.html Official Website ]-Isuzu Commercial Vehicles
+
+{{DEFAULTSORT:List Of Isuzu Engines}}
+[[Category:Isuzu engines| ]]
+[[Category:Lists of automobile engines|Isuzu]]

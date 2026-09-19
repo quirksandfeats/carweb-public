@@ -1,0 +1,390 @@
+{{Short description|Large family car by Jaguar, 2015 to 2024}}
+{{Use British English|date= October 2025}}
+{{Use dmy dates|date=March 2023}}
+{{Infobox automobile
+| sp = uk
+| image = 2019 Jaguar XE S Automatic 2.0.jpg
+| name = Jaguar XE (X760)
+| manufacturer = [[Jaguar Land Rover]]
+| model_code = X760
+| class = [[Compact executive car]] ([[D-segment|D]])
+| predecessor = [[Jaguar X-Type]]
+| body_style = 4-door [[saloon (car)|saloon]]
+| production = April 2015–2024
+| aka = Jaguar XEL (China, LWB)<ref>{{cite web|url=https://carnewschina.com/2017/11/08/spy-shots-jaguar-xe-l-ready-chinese-car-market/ |title=Jaguar XE L Is Ready For The Chinese Car Market |publisher=Carnewschina.com |date=2017-11-08 |access-date=2018-08-28}}</ref>
+| assembly = {{ubl
+  |United Kingdom: [[Solihull]] ([[Solihull plant]]); [[Birmingham]] ([[Castle Bromwich Assembly]]); [[Ryton-on-Dunsmore]] (Project 8 only)
+  |China: [[Changshu]] ([[Chery Jaguar Land Rover]])
+  |India: [[Pune]] (JLR India)
+}}
+| engine = {{ubl
+  | '''[[Petrol engine|Petrol]]:'''
+  | 2.0 L ''[[Ford EcoBoost engine#2.0 L (2010–2015)|Ford EcoBoost]]'' [[Turbocharger|turbo]] [[Straight-four engine|I4]] (until 2017)
+  | 2.0 L ''[[Ingenium engine family|Ingenium]]'' turbo I4 (since 2015)
+  | 3.0 L ''[[Jaguar AJ-V8 engine#AJ126|AJ126]]'' [[Supercharger|supercharged]] [[V6 engine|V6]] (until 2019)
+  | 5.0 L ''[[Jaguar AJ-V8 engine#AJ133|AJ133]]'' supercharged [[V8 engine|V8]] (SV Project 8)
+  | '''[[Diesel engine|Diesel]]:'''
+  | 2.0 L ''[[Ingenium engine family|Ingenium]]'' turbo I4 (since 2015)
+  }}
+| transmission = {{ubl|6-speed [[manual transmission|manual]] (''[[ZF Friedrichshafen|ZF]]'')|[[ZF 8HP transmission|8-speed automatic]] (''[[ZF 8HP transmission|ZF 8HP45 or 8HP70]]'')}}
+| layout = [[FR layout]] / [[F4 layout]]
+| platform = [[Jaguar Land Rover car platforms#D7a|JLR D7a]]<ref>{{cite web |last1=Tisshaw |first1=Mark |title=JLR to launch Ingenium straight-six engines |url=https://www.autocar.co.uk/car-news/new-cars/jlr-launch-ingenium-straight-six-engines |website=Autocar |access-date=30 November 2018 |date=19 April 2016}}</ref>
+| related = {{ubl|[[Jaguar F-Pace]]|[[Jaguar XF (X260)]]|[[Range Rover Velar]]}}
+| wheelbase = {{convert|2835|mm|in|1|abbr=on}}<br>
+{{convert|2935|mm|in|1|abbr=on}} (XEL)
+| length = {{convert|4672|mm|in|1|abbr=on}}<br>
+{{convert|4788|mm|in|1|abbr=on}} (XEL)
+| width = {{convert|1850|mm|in|1|abbr=on}}
+| height = {{convert|1416|mm|in|1|abbr=on}}<br>
+{{convert|1429|mm|in|1|abbr=on}} (XEL)
+| weight = {{convert|1474|kg|lb|0|abbr=on}} - {{convert|1665|kg|lb|abbr=on}}
+| designer = [[Ian Callum]] (2013)<ref>{{cite web|url=https://www.cardesignnews.com/interior-motives/interior-motives-winter-2014/15/27013.article|title=Interior Motives - Winter 2014/15|date=27 January 2015|website=Car Design News}}</ref>
+| drivetrain = [[Mild hybrid]] (since 2021)
+| model_years = 2016–2024 (North America)
+}}
+
+The '''Jaguar XE''' (X760) is a [[compact executive car]] manufactured by [[Jaguar Land Rover]] and marketed under their [[Jaguar Cars|Jaguar marque]] from April 2015 until mid-2024 across a single generation.<ref name="AE Solihull 130415">{{cite news |last1=Allan |first1=Lawrence |last2=Burn |first2=Jonathan |url=http://www.autoexpress.co.uk/jaguar/90967/jaguar-begins-xe-production-at-solihull-factory |title=Jaguar begins XE production at Solihull factory |work=[[Auto Express]] |location=London |date=13 April 2015 |access-date=16 April 2015 |url-status= dead}}</ref><ref name="topgear">{{cite web |last1=Pattni |first1=Vijay |title=Jaguar has stopped building the XE, XF and F-Type; I-Pace and E-Pace to stop in Dec |url=https://www.topgear.com/car-news/business/jaguar-has-stopped-building-xe-xf-and-f-type-i-pace-and-e-pace-stop-dec |website=Top Gear |access-date=21 July 2024 |date=17 July 2024}}</ref> It is a four-door [[saloon car]] with a [[front-mounted engine]] and either [[rear-wheel drive]] or [[all-wheel drive]].
+
+The successor to the [[Jaguar X-Type|X-Type]], it was designed by [[Ian Callum]] and launched at the October [[2014 Paris Motor Show]].<ref name=holloway>{{cite web |last=Holloway |first=Hilton |title=Jaguar XE confirmed as BMW 3-series rival |url=http://www.autocar.co.uk/car-news/geneva-motor-show/jaguar-xe-confirmed-bmw-3-series-rival |work=Autocar |access-date=4 March 2014 |date=4 March 2014 |archive-url=https://web.archive.org/web/20150923220203/http://www.autocar.co.uk/car-news/geneva-motor-show/jaguar-xe-confirmed-bmw-3-series-rival |archive-date=23 September 2015 |url-status=dead }}</ref>
+
+The XE has an  [[aluminium]] suspension as well as its bonded-and-riveted [[Unibody|unitary]] aluminium  [[monocoque]] structure, without need for a reinforcing [[space frame]]. This was developed by Jaguar on their third generation [[Jaguar XJ (X350)|XJ-series (X350; from 2002)]] &mdash; the first in its segment.<ref name="AutoExpress May 2014">{{cite news |last=Rix |first=Jack |url=http://www.autoexpress.co.uk/car-news/87194/new-jaguar-xe-exclusive-pictures-and-details |title= New Jaguar XE: exclusive pictures and details |work=[[Auto Express]] |date=28 May 2014 |access-date=9 September 2014 }}</ref><ref name="AutoExpress Sep 2014">{{cite news |last=Fowler |first=Steve |url=http://www.autoexpress.co.uk/jaguar/xe/85784/new-jaguar-xe-revealed-specs-price-and-all-the-info |title= New Jaguar XE revealed: specs, price and all the info |work=[[Auto Express]] |date=8 September 2014 |access-date=9 September 2014 }}</ref>
+
+==Launch==
+The XE was announced, but not displayed, at the [[Geneva Motor Show#2014|2014 Geneva Motor Show]]<ref name=holloway/> and debuted globally on 8 September 2014 in London.<ref name="Autocar08Sep2014">{{cite news |last=Cropley |first=Steve |url=http://www.autocar.co.uk/car-news/new-cars/jaguar-xe-revealed-ahead-2015-launch |title=Jaguar XE revealed ahead of 2015 launch |work=[[Autocar (magazine)|Autocar]] |date=8 September 2014 |access-date=8 September 2014 |archive-url=https://web.archive.org/web/20140911011941/http://www.autocar.co.uk/car-news/new-cars/jaguar-xe-revealed-ahead-2015-launch |archive-date=11 September 2014 |url-status=dead }}</ref><ref>{{cite web|last1=Madden|first1=Luke|title=Jaguar XE tech secrets revealed|url=http://www.autoexpress.co.uk/jaguar/xe/87861/jaguar-xe-tech-secrets-revealed?|website=[[Auto Express]]|access-date=16 July 2014|date=15 July 2014}}</ref> Sales were expected to begin in most markets in 2015, followed by the United States in 2016.<ref>{{cite web |first=Noah |last=Joseph |url=http://www.autoblog.com/2014/03/04/2015-jaguar-xe-ingenium-official/ |title=Jaguar names its 3 Series-fighter XE, packs it with Ingenium engines |website=Autoblog |date=4 March 2014 |access-date=2017-02-19}}</ref> Production formally commenced on 13 April 2015 at Jaguar Land Rover's Solihull plant.<ref name="AE Solihull 130415" />
+
+==Production==
+The XE was the first Jaguar to be built at the factory in [[Solihull plant|Solihull]], which was to be dedicated to the manufacture of aluminium vehicles under both the Jaguar and Land Rover brands, including the second-generation [[Range Rover Sport (L494)|Range Rover Sport]].<ref name="AutoExpress Sep Interview" /> Due to high demand for the vehicle, production capacity was increased by adding a line at [[Castle Bromwich Assembly]].<ref name="ac_10160912">{{cite news|last1=Holder|first1=Jim|title=Jaguar XE production moves to Castle Bromwich|url=https://www.autocar.co.uk/car-news/industry/jaguar-xe-production-moves-castle-bromwich|access-date=4 September 2017|work=Autocar|publisher=Haymarket Media Group|date=12 September 2016}}</ref> Production transferred completely to Castle Bromwich in 2017 as part of a £100m refit.
+
+An extended-wheelbase version—exclusively for the Chinese market—called ''XEL'' commenced production at the [[Chery Jaguar Land Rover]] plant in [[Changshu]] in 2015.<ref>{{cite web|last1=Gibbs|first1=Nick|title=Jaguar picks XE as first China-made model|url=http://europe.autonews.com/article/20141221/ANE/141219871/jaguar-picks-xe-as-first-china-made-model|website=Auto News Europe|access-date=31 December 2014|date=21 December 2014}}</ref>
+
+==Engines==
+The XE was the first application of Jaguar Land Rover's new 2.0 L [[turbocharged]] ''[[Ingenium engine family|Ingenium]]'' four-cylinder engine.<ref name=Dobie>{{cite web|last=Dobie|first=Stephen|title=A tour round the Jag XE's engine factory|url=http://www.topgear.com/uk/car-news/jaguar-ingenium-engine-factory-opens-2014-10-31|access-date=1 June 2015|date=28 January 2015|archive-date=30 June 2015|archive-url=https://web.archive.org/web/20150630165425/http://www.topgear.com/uk/car-news/jaguar-ingenium-engine-factory-opens-2014-10-31|url-status=dead}}</ref> The Ingenium technology licenses the [[Multiair|Multiair/UniAir]] [[electrohydraulic]] variable valve lift system<ref name="autonews.com">JLR taps Schaeffler's fuel-saving system, sources say: [http://europe.autonews.com/article/20140519/ANE/140519917/jlr-taps-schaefflers-fuel-saving-valve-system-sources-say JLR taps Schaeffler's fuel-saving system, sources say], accessdate: 14. helmikuuta 2018</ref> from [[Schaeffler Group]], which Schaeffler in turn licensed from [[Fiat Chrysler Automobiles]] in 2001.<ref name="MA2">{{cite web
+  | title = Schaeffler Expects Other Takers for MultiAir Technology
+  | publisher = Wards Automotive
+  | author = David Zoia
+  | date = March 7, 2011
+  | url = http://wardsauto.com/news-analysis/schaeffler-expects-other-takers-multiair-technology
+  | access-date = 24 June 2020
+  | archive-date = 6 August 2016
+  | archive-url = https://web.archive.org/web/20160806050130/http://wardsauto.com/news-analysis/schaeffler-expects-other-takers-multiair-technology
+  | url-status = dead
+  }}</ref> The system, developed by [[Fiat Powertrain Technologies]], is a hydraulically actuated [[variable valve lift]] (VVL) technology enabling "cylinder by cylinder, stroke by stroke" control of intake air directly via an internal combustion engine's inlet valves.<ref name="MA9">{{cite web
+ |title        = Fiat's Multiair engine wins Popular Science award
+ |publisher    = Popular Science via Allpar.com
+ |date         = November 17, 2010
+ |url          = http://www.allpar.com/news/2010/11/fiats-multiair-engine-wins-popular-science-award-6549
+ |archive-url  = https://web.archive.org/web/20160303010027/http://www.allpar.com/news/2010/11/fiats-multiair-engine-wins-popular-science-award-6549
+ |archive-date = 2016-03-03
+ |url-status     = unfit
+}}</ref>
+
+The four-cylinder is available in both petrol and diesel variants, in a range of different power outputs. The {{cvt|163|PS|kW hp}} diesel significantly reduced consumption and carbon emission figures, and is capable of fuel consumption less than {{convert|68.9|mpgimp|L/100 km mpgus|abbr=on}} and producing CO<sub>2</sub> emissions of only 99 g/km.<ref>{{cite web |url=https://www.greencarguide.co.uk/car-reviews-and-road-tests/jaguar-xe-se-review/#:~:text=Jaguar%20XE%20ECONOMY%20AND%20EMISSIONS,with%20emissions%20of%20106g%2Fkm.&text=The%20manual%20XE%20model%20has,(and%2017%25%20BIK). |title=Jaguar XE SE 2.0 163 PS Review |last=Clarke |first= Paul |website=GreenCarGuide |access-date=8 March 2020}}</ref><ref name="WhatCar Sep 2014">{{cite news |last=Holder |first=Jim |url=http://www.whatcar.com/car-news/2015-jaguar-xe-revealed-full-story/1283319 |title=2015 Jaguar XE revealed - the full story |work=[[What Car]] |date=8 September 2014 |access-date=9 September 2014 |archive-date=10 September 2014 |archive-url=https://web.archive.org/web/20140910013841/http://www.whatcar.com/car-news/2015-jaguar-xe-revealed-full-story/1283319 |url-status=dead }}</ref> The cleanest models in Britain pay no annual [[Vehicle Excise Duty]].<ref name="AutoExpress Sep 2014" />
+
+From the XE's launch until 2017 the petrol four-cylinders were from [[Ford Motor Company|Ford]]'s family of [[Ford EcoBoost engine#2.0 L (2010–2015)|"EcoBoost" engine]]s.<ref>{{cite web| url=https://www.autocar.co.uk/car-review/jaguar/xe/first-drives/2015-jaguar-xe-20i-240ps-portfolio-review |title=2015 Jaguar XE 2.0i 240PS Portfolio review |last=Burt |first=Matt |website=Autocar |date=30 April 2015 |access-date=13 March 2020 |quote=Of course, as with Land Rover Discovery Sports using old-school diesel engines while they wait for the shiny Ingenium units that are such stars in the XE, so the Jag’s petrol engines aren’t really brewed up in the firm’s shiny new plant in Wolverhampton. They’re Ford units, made in Valencia; Ingenium petrols are a further year away, allegedly.}}</ref><ref>{{cite web| url=https://europe.autonews.com/article/20160916/ANE/160919894/jaguar-land-rover-drops-ford-engine-as-it-expands-ingenium-family |title=Jaguar Land Rover drops Ford engine as it expands Ingenium family |last=Gibbs |first=Nick |date=16 September 2016 |access-date=13 March 2020 |website=Automotive News Europe}}</ref> New Ingenium petrol engines replaced the Ford units beginning in the 2018 model year.<ref name="enginetechintl">{{cite web| url=https://www.enginetechnologyinternational.com/news/new-engine/jaguar-unveils-revised-ingenium-engines-for-f-pace-xf-and-xe.html |title=Jaguar unveils revised Ingenium engines for F-Pace, XF and XE |last=Slavnich |first=Dean |date=15 February 2017 |access-date=8 March 2020}}</ref>
+
+From the XE's launch until 2019 the petrol V6 was from [[Jaguar Cars|Jaguar]]'s family of [[Jaguar AJ-V8 engine|AJ-V8 engine]]s.<ref name=ebbs>{{cite web|last=Ebbs|first=Chris|title=New Jaguar saloon to be called XE|url=http://www.autoexpress.co.uk/jaguar/86011/new-jaguar-saloon-be-called-xe|work=Auto Express|access-date=4 March 2014|date=4 March 2014}}</ref><ref name="TopGear Sep 14">{{cite news |last=Pattni |first=Vijay |url=http://www.topgear.com/uk/car-news/new-jaguar-xe-revealed-2014-9-8 |title=Welcome to the new Jaguar XE |work=[[Top Gear (magazine)|Top Gear]] |date=8 September 2014 |access-date=9 September 2014 |archive-date=30 June 2015 |archive-url=https://web.archive.org/web/20150630165423/http://www.topgear.com/uk/car-news/new-jaguar-xe-revealed-2014-9-8 |url-status=dead }}</ref> After 2019, the V6 engine was no longer offered.<ref name="C&D 2020">{{cite web| title=The Updated Jaguar XE Deserves a Better Engine |last1=Siler |first1=Steve |last2=Sutton |first2=Mike |date=29 January 2020 |access-date=7 March 2020 |url=https://www.caranddriver.com/reviews/a27226102/2020-jaguar-xe-first-drive/ |website=Car & Driver |publisher=Hearst Autos, Inc.}}</ref>
+
+In late 2020, [[mild hybrid]] options were announced, as modifications to the Ingenium 2.0L engines with an additional [[48-volt electrical system|48 Volt]] [[BAS hybrid|belt alternator starter]] system.<ref>{{Cite web |title=JAGUAR XE: UPDATED WITH NEW CONNECTED TECHNOLOGIES AND MILD-HYBRID POWER {{!}} JLR Corporate Website |url=https://www.jaguarlandrover.com/news/2020/10/jaguar-xe-updated-new-connected-technologies-and-mild-hybrid-power |access-date=2024-09-25 |website=www.jaguarlandrover.com}}</ref>
+
+{| class="wikitable" style="text-align:center; font-size:88%;"
+|- 
+!colspan=10|Diesel Engines
+|- style="background:#dcdcdc; text-align:center; vertical-align:middle;"
+! Name !! Displacement !! Cylinders !! Transmission !! Power !! Torque !! Emissions<br />{{CO2}}!! Top speed !! Acceleration<br />{{nowrap|0–62 mph}}<br />{{nowrap|(0–100 km/h)}}!! Note
+|-
+|rowspan=2| 20d 163 PS E-Performance
+|rowspan=7| {{cvt|1999|cc|lk=on|disp=br()}}
+|rowspan=7| Inline 4
+|| 6-speed manual
+|rowspan=4| {{cvt|163|PS|kW bhp|0|disp=br()}}
+|rowspan=4| {{cvt|380|Nm|lbft|0|disp=br()}}
+|| 99 g/km
+||{{cvt|132|mi/h|km/h|0|disp=br()}}
+|| 9.4 s
+|| Ingenium
+|-
+|| 8-speed auto
+|| 106 g/km
+||{{cvt|132|mi/h|km/h|0|disp=br()}}
+|| 8.8 s
+|| Ingenium
+|-
+|rowspan=2| 20d 163 PS
+||6-speed manual 
+||126 g/km
+||{{cvt|132|mi/h|km/h|0|disp=br()}}
+||9.4 s
+||Ingenium
+|-
+|rowspan=4|8-speed auto
+||135 g/km
+||{{cvt|132|mi/h|km/h|0|disp=br()}}
+||8.8 s
+||Ingenium
+|-
+|rowspan=2|20d 180 PS (2015–2019)<br />D180 (2019–present)
+|rowspan=2|{{cvt|180|PS|kW bhp|0|disp=br()}}
+|rowspan=2|{{cvt|431|Nm|lbft|0|disp=br()}}
+|| 137 g/km
+|rowspan=2|{{cvt|140|mi/h|km/h|0|disp=br()}}
+|rowspan=2| 7.6 s
+||Ingenium, rear-wheel drive
+|-
+||145 g/km
+||Ingenium, all-wheel drive
+|-
+|25d
+||{{cvt|240|PS|kW bhp|0|disp=br()}}
+||{{cvt|500|Nm|lbft|0|disp=br()}}
+|| 153 g/km
+||{{cvt|155|mi/h|km/h|0|disp=br()}}
+|| 6.5 s 
+||Ingenium, all-wheel drive
+|-
+!colspan=10|Petrol Engines
+|-
+! Name !! Displacement !! Cylinders !! Transmission !! Power !! Torque !! Emissions<br />{{CO2}}!! Top speed !! Acceleration<br />{{nowrap|0-62 mph}}<br />{{nowrap|(0-100 km/h)}}!! Note
+|-
+| 20t 200 PS
+||{{cvt|1999|cc|lk=on|disp=br()|}}
+|rowspan=5| Inline 4 
+|rowspan=8| 8-speed auto 
+||{{cvt|200|PS|kW bhp|0|disp=br()}}
+||{{cvt|320|Nm|lbft|0|disp=br()}}
+|| 164 g/km ||{{cvt|147|mi/h|km/h|0|disp=br()}}
+|| 7.6 s
+|| [[Ford EcoBoost engine#2.0 L (2010–2015)|Ford EcoBoost]], 2015–2017
+|-
+| 20t 200 PS
+||{{cvt|1997|cc|lk=on|disp=br()|}}
+||{{cvt|200|PS|kW bhp|0|disp=br()}}
+||{{cvt|320|Nm|lbft|0|disp=br()}}
+||
+||
+||
+|| Ingenium, 2017–2019
+|-
+| 25t 240 PS
+||{{cvt|1999|cc|lk=on|disp=br()|}}
+||{{cvt|240|PS|kW bhp|0|disp=br()}}
+||{{cvt|340|Nm|lbft|0|disp=br()}}
+|| 164 g/km
+||{{cvt|155|mi/h|km/h|0|disp=br()}}
+|| 6.8 s
+|| Ford EcoBoost, 2015–2017
+|-
+|25t 250 PS (2017–2019)<br />P250 (2019–present)
+|rowspan=2|{{cvt|1997|cc|lk=on|disp=br()|}}
+|{{cvt|250|PS|kW bhp|0|disp=br()}}
+|{{cvt|365|Nm|lbft|0|disp=br()}}
+|164 g/km
+|{{cvt|155|mi/h|km/h|0|disp=br()}}
+|6.5 s
+|Ingenium
+|-
+|30t (2017–2019)<br>P300 (2019–present)
+|{{cvt|300|PS|kW bhp|0|disp=br()}}
+|{{cvt|400|Nm|lbft|0|disp=br()}}
+|173 g/km
+|{{cvt|155|mi/h|km/h|0|disp=br()}}
+|5.7 s
+|Ingenium
+|-
+| 35t / S 340 PS
+|rowspan=2|{{cvt|2995|cc|lk=on|disp=br()}}
+|rowspan=2| V6
+||{{cvt|340|PS|kW bhp|0|disp=br()}}
+||{{cvt|450|Nm|lbft|0|disp=br()}}
+|| 194 g/km 
+||{{cvt|155|mi/h|km/h|0|disp=br()}}
+|| 4.9 s
+|| AJ126, 2015–2017
+|-
+| S 380 PS
+||{{cvt|380|PS|kW bhp|0|disp=br()}}
+||{{cvt|450|Nm|lbft|0|disp=br()}}
+|| 194 g/km
+||{{cvt|155|mi/h|km/h|0|disp=br()}}
+|| 4.8 s<ref>{{cite web |url=http://www.jaguar.co.uk/jaguar-range/xe/pricing-specs/index.html |title=Pricing and Specifications &#124; Jaguar XE &#124; Explore All Models |publisher=Jaguar.co.uk |access-date=2018-08-28 |archive-date=12 April 2019 |archive-url=https://web.archive.org/web/20190412151733/https://www.jaguar.co.uk/jaguar-range/xe/pricing-specs/index.html |url-status=dead }}</ref>
+|| AJ126, 2017–2019 (Europe) / 2018–2019 (North America)
+|-
+| SV Project 8
+||{{cvt|5000|cc|lk=on|disp=br()}}
+|| V8
+||{{cvt|600|PS|kW bhp|0|disp=br()}}
+||{{cvt|700|Nm|lbft|0|disp=br()}}
+|| 254 g/km
+||{{cvt|200|mi/h|km/h|0|disp=br()}}
+|| 3.7 s<br /><ref name="jaguar.it">Tienimi informato: [https://www.jaguar.it/jaguar-range/xe/xe-svp8-tienimi-informato.html Tienimi informato] {{Webarchive|url=https://web.archive.org/web/20190717180230/https://www.jaguar.it/jaguar-range/xe/xe-svp8-tienimi-informato.html |date=17 July 2019 }}, October: 18. lokakuuta 2018</ref>
+|| AJ-V8, 2018 (limited 300 cars)
+|}
+
+==Design==
+===Exterior===
+[[Ian Callum]] designed the XE's exterior.<ref name="CarBuyer Sept 14">{{cite news |last=Campbell |first=Russell |date=8 September 2014 |title=Jaguar XE 2015: price, specs & release date Read more: Jaguar XE 2015: price, specs & release date |url=http://www.carbuyer.co.uk/news/138785/jaguar-xe-2015-price-specs-release-date |access-date=9 September 2014 |work=CarBuyer}}</ref> The construction features bonded and riveted aluminium construction, with bolt-on front and rear crash structure and key body panels to simplify repair and decrease insurance costs.<ref name="iQAL">{{cite news |last=Holloway |first=Hilton |url=http://www.autocar.co.uk/car-news/new-cars/technical-secrets-new-jaguar-xe |title=Technical secrets of the new Jaguar XE |work=Autocar |date=14 March 2014 |access-date=23 April 2014 }}</ref><ref name="Telegraph Sep 2014">{{cite news |last=Robbins |first=Alex |url=https://www.telegraph.co.uk/motoring/car-manufacturers/jaguar/11078112/Jaguar-XE-in-detail.html |title=Jaguar XE: in detail |work=[[Daily Telegraph]] |date=8 September 2014 |access-date=9 September 2014 }}</ref> In the event of a collision with a pedestrian, the [[active bonnet]] pops up to provide additional protection.<ref name="WhatCar Sep 2014" /><ref name="AutoExpress Sep Interview">{{cite news |last=Cropley |first=Steve |url=http://www.autocar.co.uk/car-news/paris-motor-show/jaguar-xe-revealed-interviews-ian-callum-and-alan-volkaerts |title=Jaguar XE revealed - interviews with Ian Callum and Alan Volkaerts |work=[[Autocar (magazine)|Autocar]] |date=8 September 2014 |access-date=9 September 2014 }}</ref>
+
+The exterior design has a [[drag co-efficient]] of 0.26.<ref>{{Cite web |title=2017 Jaguar XE 35T R-Sport 4DR RWD — 335 HP, 0-60 in 5s |url=https://www.motormatchup.com/catalog/Jaguar/XE/2017/35T-R_Sport-4DR-RWD |access-date=2026-06-09 |website=Motor Matchup |language=en}}</ref>
+
+In 2019, the XE was facelifted, bringing updates to the exterior as well as the interior.
+
+===Interior===
+[[File:World Premiere of Jaguar XE (15158936256).jpg|thumb|XE S pre-facelift interior]]
+The interior features a flush rotary gear selector which rises and becomes functional once the engine is started. The central console features an {{convert|8|in|cm|adj=on}} or optional 10.2-inch [[touch screen]], providing access to [[in car entertainment]], [[automotive navigation system|satellite navigation]] and vehicle settings. The XE features smartphone connectivity and some models allow the owner to pre-heat the interior or unlock the car remotely, using a smartphone application.<ref name="WhatCar Sep 2014" /><ref name="CarBuyer Sept 14" /> A laser colour [[automotive head-up display|head-up display]] is an available option.
+
+Interior revisions in 2017<ref>{{Cite news|url=http://www.indiaonline.me/Technology/Automobile/Difference-between-Jaguar-XE-2016-2017-and-2018.asp|title=Difference between Jaguar XE 2016, 2017 and 2018|work=IndiaOnline|access-date=2018-02-10}}</ref> include cupholder covers, revised and higher resolution display and standard [[In-car entertainment|infotainment]] interface marketed as ''InControl Touch Pro'' reliant on a user-provided data connection [[SIM card]].
+
+In 2019, the interior was revised with new door panels, centre tunnel and a revised [[In-car entertainment|infotainment]] system marketed as ''InControl Touch Pro Duo'', shared with other Jaguar Land Rover products. The automatic's rising rotary knob gear selector was replaced with a more conventional type marketed as the ''Sport Shift Selector''.<ref name="C&D 2020" />
+
+==Construction==
+===Platform===
+[[File:Jaguar XE - 12926287943.jpg|thumb|left|Jaguar XE structure]]
+The XE is the first built on the [[Jaguar Land Rover car platforms#D7a|Jaguar Land Rover iQ[Al] (D7a)]] modular platform, also used for the second generation [[Jaguar XF (X260)]] model, the [[Jaguar F-Pace]] sports utility vehicle and the [[Range Rover Velar]].<ref name="Car Oct 2014">{{cite journal|last1=Pulman|first1=Ben|title=Jaguar XE: the juice|journal=Car|date=October 2014|issue=627|pages=96&ndash;103}}</ref> The design features [[double wishbone suspension]] at the front, with similarities to the system fitted to the XF and F-Type models, the rear features an entirely new subframe mounted [[multi-link suspension]] system, marketed as ''Integral Link''. The system is costlier to manufacture but allows for greater tuning.<ref name="WhatCar Sep 2014" />
+
+The major suspension components are manufactured from aluminium to reduce the [[unsprung mass|unsprung]] as well as overall vehicle mass and increase the suspension system stiffness.<ref name="CarBuyer Sept 14" /> The suspension system features sacrificial slip-fixings to protect expensive major components from damage.<ref name="Telegraph Sep 2014" /> To create the 50:50 weight balance the battery is located in the boot, consuming space normally accommodating the spare wheel. The rear boot floor and boot lid are steel, contributing to balanced weight distribution.<ref name="Carwitter.com">{{cite news |url=http://carwitter.com/2015/05/30/jaguar-xe-review-first-uk-drive-exclusive/ |title=Jaguar XE Review - First UK Drive Exclusive |work=Carwitter.com |access-date=2015-05-31 }}</ref>
+
+Single-piston [[brake caliper]]s are provided with one of three different sizes of [[Disc brake|brake discs]] fitted, depending on the vehicle's configuration.<ref name="Autocar08Sep2014" /> An electric [[power steering]] system is fitted and the XE comes with a choice of four different road wheel sizes.<ref name="WhatCar Sep 2014" /> Initially there were eight available alloy wheel designs.<ref name="Autocar08Sep2014" />
+
+===Transmission===
+[[File:Jaguar XE - 12926388583.jpg|thumb|Jaguar Land Rover Ingenium engine]]
+Initially offered with [[rear-wheel drive]], the [[Jaguar Land Rover car platforms#D7a|D7a]] modular architecture was designed to accommodate all-wheel drive (AWD), which was offered in November 2015.<ref>{{cite web|url=http://www.jaguar.co.uk/news/jaguar-xe-awd.html |title=JAGUAR XE gains AWD and apple watch |publisher=Jaguar.co.uk |access-date=2017-02-19}}</ref>
+
+All XE models are equipped with a [[ZF 8HP transmission|ZF 8HP45 or ZF 8HP70 eight-speed]] [[automatic transmission]],<ref name="xeforums.co.uk">Jaguar XE Technical Data: [http://www.xeforums.co.uk/viewtopic.php?f=11&t=104 ZF 8HP45], accessdate: 22. February 2017</ref> a lighter variant of the gearbox currently fitted to other Jaguar models and period competitor [[BMW 3 Series (F30)]].<ref name="WhatCar Sep 2014" /> A six-speed ZF manual gearbox is available on diesel models.<ref name="Autocar08Sep2014" /><ref name="CarBuyer Sept 14" />
+
+The XE uses a traction control system marketed as ''All Surface Progress Control'', developed from the ''Terrain Response'' system fitted to Land Rover's off-road vehicles and allowing better traction in snow and ice.<ref name="Autocar08Sep2014" /><ref name="WhatCar Sep 2014" /><ref name="CarBuyer Sept 14" />
+
+==Security and safety==
+Jaguar expected the XE to obtain a five star [[Euro NCAP]] safety rating which was proven in 2015.<ref>{{cite web|author=Jaguar XE |url=http://www.euroncap.com/en/results/jaguar/xe/22028 |title=Official Jaguar XE 2015 safety rating |publisher=Euroncap.com |access-date=2017-02-19}}</ref> The design features several safety features now mandatory to be considered for a five star rating, including the [[Advanced Emergency Braking System]] ([[pre-crash system]]).<ref name="WhatCar Sep 2014" />
+
+{| class="wikitable"
+|-
+![[EURONCAP|Euro NCAP]] 2015 ''XE''<ref name="Euro NCAP Jaguar XE">{{cite web|url=http://www.euroncap.com/en/results/jaguar/xe/22028 |title=Jaguar XE; Euro NCAP – For safer cars crash test safety rating |publisher=Euro NCAP |access-date=2016-08-26}}</ref>!!Score
+|-
+|Overall:
+|{{rating|5|5}}
+|-
+|Adult Occupant:
+|92%
+|-
+|Child Occupant:
+|82%
+|-
+|Pedestrian:
+|81%
+|-
+|Safety Assist:
+|82%
+|}
+
+The XE was tested by Thatcham's [https://web.archive.org/web/20120625160358/http://www.thatcham.org/nvsr/ New Vehicle Security Ratings] (NVSR) organisation and achieved the following ratings:
+
+{| class="wikitable"
+|-
+! Saloon !!Rating
+|-
+|Theft of car:
+|{{rating|5|5}}
+|-
+|Theft from car:
+|{{rating|4|5}}
+|}
+
+{{ANCAP/2018
+|overall_stars=5
+|year=2015
+|reference_code=df44e7
+|description=Jaguar XE
+|adult_points=35.3
+|adult_percent=92
+|child_points=40.5
+|child_percent=82
+|pedestrian_points=29.4
+|pedestrian_percent=81
+|safety_points=10.7
+|safety_percent=82
+}}
+
+==SV Project 8==
+A limited-production, high-performance version of the XE called ''SV Project 8'' debuted at the 2017 [[Goodwood Festival of Speed]].<ref>{{cite web| url=https://www.motor1.com/news/149908/jaguar-xe-project-8-goodwood/ |title=Jaguar XE SV Project 8 Makes First Public Appearance At Goodwood |website=motor1.com |last=Perez |first=Jeff |date=29 June 2017 |access-date=14 March 2020}}</ref> The base car was modified by Jaguar Land Rover's Special Vehicle Operations (SVO) team, with carbon fibre body panels and aerodynamic aids including a [[Diffuser (automotive)#Splitters|front splitter]] and rear wing, carbon fibre and [[Alcantara (material)|Alcantara]] interior trim, 400 mm carbon ceramic brake discs in front with six-piston calipers, unique 20-inch wheels with [[Michelin]] Sport Cup 2 tyres, and a supercharged and intercooled 592 hp version of the 5.0 L Jaguar AJ-V8.<ref name="C&DProjcect8">{{cite web| url=https://www.caranddriver.com/reviews/a27655717/2019-jaguar-xe-sv-project-8-by-the-numbers/ |title=The 2019 Jaguar XE SV Project 8 Is Fast, Furious, and Fantastic |last=Siler |first=Steve |date=30 May 2019 |access-date=14 March 2020 |website=Car & Driver |publisher=Hearst Autos Inc.}}</ref><ref name="Jag.co.uk SV Project 8">{{cite web |url=https://www.jaguar.co.uk/about-jaguar/special-vehicle-operations/project-8.html |title=Jaguar XE SV Project 8 |access-date=14 March 2020}}</ref>
+
+<gallery widths="200" heights="120">
+File:2018 Jaguar XE SV Project 8 Auto.jpg
+File:2020 Jaguar XE SV Project 8 AWD Auto 3.jpg
+</gallery>
+
+In the typical trim, the Project 8 has four leather-trimmed bucket seats, with the two front seats mounted on lightweight magnesium frames. A "track package", not available in the United States,<ref name="C&DProjcect8" /> features a harness retention hoop in place of the rear seats, and carbon fibre racing seats with [[Seat belt#4-, 5-, and 6-point|four-point competition harnesses]] installed in the front.<ref name="Jag.co.uk SV Project 8" />
+
+Total production is limited to 300 worldwide.<ref name="Jag.co.uk SV Project 8" />
+
+==Worldwide sales==
+{| class="wikitable" style="float:center; clear:center; margin:0 0 1em 1em; text-align:center;"
+|+Worldwide sales
+|-
+! Year !! Sales<ref>{{Cite web |url=http://www.tatamotors.com/investors/jlr-volumes.php |title=Archived copy |access-date=30 January 2017 |archive-url=https://web.archive.org/web/20170731063152/http://www.tatamotors.com/investors/jlr-volumes.php |archive-date=31 July 2017 |url-status=dead }}</ref>
+|-
+| 2015 || 23,621
+|-
+| 2016 || 44,095
+|-
+| 2017 || 38,696
+|-
+| 2018 || 30,654
+|-
+| 2019 || 25,951
+|-
+| '''Total''' || '''163,017'''
+|}
+{| class="wikitable"
+|+XEL
+!Year
+!China
+|-
+|2023
+|10,266<ref>{{Cite web |title=【易车销量榜】全国2023年捷豹终端量销量榜-易车榜-易车 |url=https://car.yiche.com/newcar/salesrank/?brandId=98&saleType=2&flag=2023 |access-date=2026-02-09 |website=car.yiche.com}}</ref>
+|-
+|2024
+|8,314<ref>{{Cite web |title=【易车销量榜】全国2024年捷豹终端量销量榜-易车榜-易车 |url=https://car.yiche.com/newcar/salesrank/?brandId=98&saleType=2&flag=2024 |access-date=2026-02-09 |website=car.yiche.com}}</ref>
+|-
+|2025
+|6,523<ref>{{Cite web |title=【易车销量榜】全国2025年捷豹终端量销量榜-易车榜-易车 |url=https://car.yiche.com/newcar/salesrank/?brandId=98&saleType=2&flag=2025 |access-date=2026-02-09 |website=car.yiche.com}}</ref>
+|}
+
+==Gallery==
+<gallery widths="200" heights="120">
+File:2017 Jaguar XE Portfolio Diesel Automatic 2.0 Front.jpg|Jaguar XE Portfolio (UK)
+File:2017 Jaguar XE Portfolio Diesel Automatic 2.0 Rear.jpg|Jaguar XE Portfolio (UK)
+File:Jaguar XE S registered January 2017 2995cc.jpg|Jaguar XE S (UK)
+File:2019 Jaguar XE S Automatic 2.0.jpg|Revised Jaguar XE
+File:Jaguar XE at IAA 2019 IMG 0606.jpg|Revised XE at IAA
+File:JAGUAR XEL (JAGUAR XE LWB) China (11).jpg|Pre-facelift long wheelbase XEL (China)
+File:JAGUAR XEL (JAGUAR XE LWB) China (12).jpg|Pre-facelift long wheelbase XEL (China)
+File:JAGUAR_XEL_(JAGUAR_XE_LWB)_China_(5).jpg|Post-facelift long wheelbase XEL (China)
+File:JAGUAR XEL (JAGUAR XE LWB) China (14).jpg|Post-facelift long wheelbase XEL (China)
+File:Jaguar XE SV-Project 8.jpg|Jaguar XE SV Project 8
+File:Jaguar XE SV Project 8 Back IMG 0497.jpg|Jaguar XE SV Project 8 (rear)
+</gallery>
+{{clear}}
+
+==References==
+{{reflist|2}}
+
+==External links==
+{{Commons category}}
+
+{{official|https://www.jaguar.com/XE}}
+
+{{Jaguar modern timeline 1980–2019}}
+{{Jaguar modern timeline 2020 to date}}
+{{Jaguar Land Rover}}
+
+[[Category:Jaguar vehicles|XE]]
+[[Category:Cars introduced in 2014]]
+[[Category:Cars discontinued in 2024]]
+[[Category:Compact executive cars]]
+[[Category:Sports sedans]]
+[[Category:Rear-wheel-drive vehicles]]
+[[Category:All-wheel-drive vehicles]]
+[[Category:ANCAP medium cars]]
+[[Category:Euro NCAP large family cars]]
+[[Category:2020s cars]]
+[[Category:Hybrid electric cars]]
+[[Category:Cars of China]]

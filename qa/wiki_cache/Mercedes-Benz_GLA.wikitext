@@ -1,0 +1,666 @@
+{{Short description|Subcompact luxury crossover SUV}}
+{{Infobox automobile
+| image = Mercedes-Benz GLA 250 e AMG Line (H 247) – f 11042021 (exposure adjusted).jpg
+| caption = Mercedes-Benz GLA 250 e AMG Line (H 247)
+| name = Mercedes-Benz GLA
+| manufacturer = {{ubl
+  |[[Daimler AG]] (2013–2022)
+  |[[Mercedes-Benz Group]] (2022–present)
+  }}
+| production = 2013–present
+| model_years = 2014–present
+| class = [[Subcompact luxury crossover SUV]] ([[C-segment|C]])<ref>{{Cite web|url=https://www.auto-motor-und-sport.de/neuheiten/mercedes-gla-2020/|title = Kompakt-SUV Mercedes GLA: Plug-in-Hybrid in Kürze bestellbar|date = 11 February 2020}}</ref>
+| layout = {{ubl
+  | [[Front-engine, front-wheel-drive]]
+  | [[Front-engine, all-wheel-drive]] ([[4Matic]])
+  }}
+| body_style = 5-door [[SUV]]
+}}
+
+The '''Mercedes-Benz GLA''' is a [[subcompact luxury crossover SUV]] manufactured and marketed by [[Mercedes-Benz]] over two generations. It is essentially the SUV equivalent of the [[Mercedes-Benz A-Class|A-Class]], and the smallest SUV marketed by the brand.<ref>{{Cite web|title=Mercedes GLA Review 2021|url=https://www.whatcar.com/mercedes-benz/gla/hatchback/review/n17173|access-date=2021-03-23|website=What Car?|language=en}}</ref><ref>{{Cite web|title=Mercedes GLA Review 2021|url=https://www.carwow.co.uk/mercedes/gla|access-date=2021-03-23|website=carwow.co.uk|language=en}}</ref> The production version was revealed in August 2013 ahead of the [[Frankfurt Auto Show#2013|2013 Frankfurt Auto Show]] in September 2013.<ref name=Evo0913>{{cite web|title=Mercedes GLA specs and release At slow speeds when the steering wheel is fully turned...this model shudders severely date|url=http://www.evo.co.uk/news/evonews/290614/mercedes_gla_specs_and_release_date.html|work=Evo|access-date=23 October 2013|date=18 September 2013|url-status=dead|archive-url=https://web.archive.org/web/20130921165350/http://www.evo.co.uk/news/evonews/290614/mercedes_gla_specs_and_release_date.html|archive-date=21 September 2013}}</ref>
+
+The GLA is powered by a range of petrol and diesel 4-cylinder engines, and comes in either front-wheel drive or all-wheel drive, the latter marketed by Mercedes as [[4Matic]].<ref>{{cite web|title=Mercedes GLA review|url=http://www.autoexpress.co.uk/mercedes/gla|website=Auto Express|access-date=29 August 2014|date=5 June 2014}}</ref>
+
+The GLA nameplate aligns with Mercedes SUV nomenclature, where GL stands for Geländewagen (German for [[off-road vehicle]]) and the A designates its overall place in the Mercedes range, in this class, the smallest or [[Mercedes-Benz A-Class|A-Class]].<ref>{{cite web | last = Ewing | first = Steven | date = 11 November 2014 | url = http://www.autoblog.com/2014/11/11/mercedes-name-changes-gl-maybach/ | title = Mercedes renames utility vehicles, repositions Maybach as sub-brand | publisher = [[Autoblog.com]] | access-date = 12 November 2014}}</ref><ref>{{cite web | url = http://media.daimler.com/dcmedia/0-921-1760651-1-1760337-1-0-0-0-0-1-0-0-0-1-0-0-0-0-0.html?TS=1415752768119 | title = Mercedes-Benz expands brand world and introduces new nomenclature: Mercedes-Maybach for the ultimate in exclusivity and individuality | publisher = [[Daimler AG]] | date = 11 November 2014 | access-date = 12 November 2014 | archive-url = https://web.archive.org/web/20141112050328/http://media.daimler.com/dcmedia/0-921-1760651-1-1760337-1-0-0-0-0-1-0-0-0-1-0-0-0-0-0.html?TS=1415752768119 | archive-date = 12 November 2014 | url-status = dead }}</ref><ref>{{cite web|url=http://wot.motortrend.com/spied-upcoming-mercedes-benz-gla-class-front-drive-compact-crossover-272501.html|title = Spied! Upcoming Mercedes-Benz GLA-Class Front-Drive Compact Crossover|access-date = 2012-10-12|publisher = [[Motor Trend]]}}</ref>
+
+==Concept models==
+===Concept GLA (2013)===
+The Concept GLA debuted in the 2013 [[Auto Shanghai]]<ref name=AutoExpress180413>{{cite web|last=Bond|first=Paul|title=Mercedes Concept GLA|url=http://www.autoexpress.co.uk/mercedes/gla/63544/mercedes-concept-gla|work=Auto Express|access-date=18 April 2013|date=18 April 2013}}</ref><ref>[http://www.autoblog.com/2013/04/20/mercedes-benz-gla-concept-shanghai-2013/ Mercedes-Benz GLA Concept gets mobbed in China]</ref> and is powered by a 2.0-litre turbo petrol engine rated {{convert|211|PS|kW hp|0|abbr=on}}, 7-speed dual clutch automatic transmission, driving all wheels via the Mercedes-Benz [[4Matic]] system. The concept included front headlamps with a laser-beam projector, two cameras housed in the front roof rail, 20-inch wheels and fibre-optic ambient interior lighting.
+
+===Concept GLA 45 AMG (2013)===
+The Concept GLA 45 AMG concept car was unveiled at the [[Los Angeles Auto Show#2013|2013 Los Angeles Auto Show]],<ref>[http://www.autoblog.com/2013/11/21/mercedes-benz-concept-gla45-amg-la-2013/ Mercedes-Benz Concept GLA45 AMG tip-toes around production status]</ref> as a high-performance version of the GLA with an AMG 2.0-litre four-cylinder twin-scroll turbocharged petrol engine rated {{convert|360|PS|kW hp|0|abbr=on}} and {{convert|450|Nm|0|abbr=on}}, 4Matic all wheel drive, AMG Speedshift DCT 7-speed transmission with paddle shifters, and fitted with various AMG-badged accoutrements and an AMG sports exhaust system with an electronically controlled variable vane system to modulate the exhaust note.
+
+===Concept GLA 45 AMG (2016)===
+The 2016 Concept GLA 45 AMG with an AMG 2.0-litre four-cylinder twin-scroll turbocharged petrol engine rated {{convert|280|kW|PS hp|0|abbr=on|order=flip}} and {{convert|475|Nm|0|abbr=on}}, 4Matic all wheel drive, AMG Speedshift DCT 7-speed transmission with paddle shifters, and fitted with various AMG-badged accoutrements and an AMG sports exhaust system with an electronically controlled variable vane system to modulate the exhaust note.
+
+==<span class="anchor" id="X156"></span>First generation (X156; 2013)==
+{{Infobox automobile
+| image = Mercedes-Benz GLA 200 CDI Urban (X 156) – Frontansicht, 30. August 2014, Düsseldorf.jpg
+| name = First generation
+| model_code = X156
+| production = December 2013 – November 2019
+| model_years = 2014–2020
+| assembly = {{ubl
+  |Germany: [[Rastatt]] (Mercedes Benz Werk Rastatt)
+  |China: [[Beijing]] ([[Beijing Benz]])
+  |India: [[Pune]]<ref>{{Cite web|url=https://timesofindia.indiatimes.com/business/india-business/Mercedes-rolls-out-locally-made-GLA-commissions-third-assembly-line/articleshow/47630016.cms|title = Mercedes rolls out locally made GLA, commissions third assembly line - Times of India| website=[[The Times of India]] | date=11 June 2015 }}</ref>
+  |Thailand: [[Samut Prakan]] ({{abbr|TAAP|Thonburi Automotive Assembly Plant Co., Ltd.}})
+  |Brazil: [[Iracemápolis]] (Mercedes-Benz Iracemápolis)<ref>{{Cite web|url=http://media.daimler.com/marsMediaSite/en/instance/ko/Second-model-for-passenger-car-plant-in-Brazil-Mercedes-Benz-starts-production-of-the-GLA-in-Iracempolis.xhtml?oid=13518816|title=Second model for passenger-car plant in Brazil: Mercedes-Benz starts production of the GLA in Iracemápolis {{!}} marsMediaSite|website=marsMediaSite|language=en-EN|access-date=2017-09-13}}</ref>
+  }}
+| designer = [[Robert Lešnik]],<ref>{{Cite web|title=Mercedes-Benz GLA-Class teased through sketches|url=https://paultan.org/2013/08/13/mercedes-benz-gla-sketches/|access-date=2022-07-08|website=paultan.org|date=13 August 2013 |language=en}}</ref> Michael Frei,<ref>{{Cite web|title=The whats and whys behind the Mercedes-Benz GLA-Class|url=https://www.sgcarmart.com/news/events_features.php?AID=3035&GASRC=sgcm|access-date=2022-07-08|website=sgcarmart|language=en}}</ref> Mark Fetherston
+| related = {{ubl
+  | [[Mercedes-Benz A-Class (W176)]]
+  | [[Mercedes-Benz CLA (C117)]]
+  | [[Mercedes-Benz B-Class (W246)]]
+  | [[Infiniti Q30]]
+  | [[Infiniti QX30]]
+  }}
+| platform = [[Mercedes-Benz MFA|MFA]]
+| engine = {{ubl
+|'''[[Petrol engine|Petrol]]''':
+  | 1.6 L ''[[Mercedes-Benz M270/M274 engine#M270 engine|M270]]'' [[Turbocharger|turbo]] [[Straight-four engine|I4]]
+  | 2.0 L ''M270'' turbo I4
+  | 2.0 L ''[[Mercedes-Benz M133 engine|M133]]'' turbo I4
+|'''[[Diesel engine|Diesel]]''':
+  | 1.5 L ''[[Renault K-Type engine#K9K dCi|OM607]]'' turbo I4
+  | 2.1 L ''[[Mercedes-Benz OM651 engine|OM651]]'' turbo I4
+  }}
+| transmission = {{ubl
+  | 6-speed [[Manual transmission|manual]]
+  | 7-speed [[Dual-clutch transmission|DCT]]
+  }}
+| wheelbase = {{convert|2699|mm|in|1|abbr=on}}
+| length = {{convert|4417|mm|in|1|abbr=on}}
+| width = {{convert|1804|mm|in|1|abbr=on}}
+| height = {{convert|1494|mm|in|1|abbr=on}}
+| weight = {{convert|1505|-|1585|kg|lb|0|abbr=on}}
+| caption = 2014 Mercedes-Benz GLA 200 CDI Urban
+}}
+The production X156 GLA is closely based on the Concept GLA design and was unveiled at the [[Frankfurt Motor Show#2013|2013 Frankfurt Motor Show]].<ref>[http://media.daimler.com/dcmedia/0-921-658901-1-1631055-1-0-0-0-0-1-0-1549054-0-1-0-0-0-0-0.html?TS=1408408477987 Five Mercedes-Benz world premieres at the 2013 IAA: Benchmark for automotive passion]</ref><ref>[http://www.autoblog.com/2013/09/11/2015-mercedes-gla-class-frankfurt-2013/ 2015 Mercedes-Benz GLA-Class hits the matte]</ref> Orders had been taken beginning from the end of November 2013, and arrived in dealer showrooms during 2014, with Japan and US in the autumn.<ref>[http://www.autoblog.com/2013/08/14/2015-mercedes-gla-class-official-frankfurt-debut/ 2015 Mercedes GLA-Class officially bound for Frankfurt]</ref>
+
+At launch, Mercedes-Benz claimed the vehicle was the most aerodynamic in its segment, with a Cd figure of 0.29.<ref>{{Cite web|title=Fit for off-road excursions: Multi-talented: The new Mercedes-Benz GLA|url=https://media.daimler.com/marsMediaSite/en/instance/ko/Fit-for-off-road-excursions-Multi-talented-The-new-Mercedes-Benz-GLA.xhtml?oid=9903591|access-date=2021-03-23|website=marsMediaSite|language=en}}</ref> The GLA's platform makes use of a strut-type front suspension and a [[Multi-link suspension|multi-link]] rear setup, and an electric power steering.<ref>{{Cite web|last=Meiners|first=Jens|date=2013-08-14|title=2015 Mercedes-Benz GLA-class|url=https://www.caranddriver.com/news/a15114725/2015-mercedes-benz-gla-class-photos-and-info-news|access-date=2021-03-23|website=Car and Driver|language=en-US}}</ref><ref>{{Cite web|title=2015 Mercedes-Benz GLA preview|url=https://www.motorauthority.com/news/1086224_2015-mercedes-benz-gla-preview|access-date=2021-03-23|website=Motor Authority|date=14 August 2013 |language=en}}</ref>
+
+Nissan marketed a restyled variant of the GLA from 2016 to 2019 through its Infiniti brand in North America as the [[Infiniti Q30]] and [[Infiniti QX30|QX30]], sharing the GLA mechanicals with revised exterior sheet metal.<ref>{{cite web|last=Derek|first=James|title=Mercedes-Benz GLA-Class vs. Infiniti QX30: Buy This, Not That|url=https://www.motorbiscuit.com/mercedes-benz-gla-class-infiniti-qx30-buy-this-not-that/|access-date=7 February 2018|work=Motor Biscuit|date=5 September 2016}}</ref> The Infiniti derivatives were produced between 2016 and 2019.<gallery widths="200" heights="130">
+File:Mercedes-Benz GLA 200 CDI Urban (X 156) – Heckansicht, 30. August 2014, Düsseldorf.jpg|2014 Mercedes-Benz GLA 200 CDI Urban (pre-facelift)
+File:2015 Mercedes-Benz GLA 200 AMG Line CDi 4MATIC 2.1 Front.jpg|2015 Mercedes-Benz GLA 200 (pre-facelift)
+File:2015 Mercedes-Benz GLA 200 AMG Line CDi 4MATIC 2.1 Rear.jpg|2015 Mercedes-Benz GLA 200 (pre-facelift)
+File:Mercedes-Benz GLA180 Sports (X156) interior.JPG|Interior
+</gallery>
+
+===Facelift===
+Mercedes unveiled a mid-life facelift of the GLA at the [[Detroit Motor Show#2017|Detroit Motor Show]] in January 2017. The updated model came with some cosmetic tweaks on the outside, including a redesigned grille, new front and rear bumpers and updated 18-inch alloy wheels. Moreover, the bi-xenon headlamps of the previous models were replaced by all LED units, while the taillights too were all LED and got a new design pattern. A new Canyon Beige colour option was also added. The interiors carried forward the same dashboard layout, though the infotainment system received a new 8.0-inch screen that was located on top of the centre console in a free-standing layout.<ref>{{Cite news|url=http://www.autositeindia.com/news/mercedes-benz-gla-specs-features-colours/|title=Mercedes-Benz GLA price, specs, features, colours, images, safety|date=2017-07-06|work=Autosite India|access-date=2017-07-07|language=en-US}}</ref><gallery widths="200" heights="110">
+File:2018 Mercedes-Benz GLA 180 (X 156) wagon (2018-07-19) 01.jpg|2018 Mercedes-Benz GLA 180 (facelift)
+File:2018 Mercedes-Benz GLA 180 (X 156) wagon (2018-07-19) 02.jpg|2018 Mercedes-Benz GLA 180 (facelift)
+File:2018 Mercedes-Benz GLA 220 AMG Line Exclusive Diesel 4MATIC 2.1 Front.jpg|2018 Mercedes-Benz GLA 220 (facelift)
+File:2018 Mercedes-Benz GLA 220 AMG Line Exclusive Diesel 4MATIC 2.1 Rear.jpg|2018 Mercedes-Benz GLA 220 (facelift)
+</gallery>
+
+===GLA 45 AMG===
+The design of GLA 45 AMG is based on Concept GLA 45 AMG, with AMG sports suspension ([[MacPherson strut]] front axle with stiffer steering knuckles, four-link rear axle, optimised elastokinematics, specially tuned spring/damper units, bigger anti-roll bars), electromechanical AMG speed-sensitive sports steering, AMG high-performance braking system (ventilated, cross-drilled brake discs with grey- or red-painted brake calipers), 3-stage ESP with "SPORT Handling" mode, ESP [[Curve Dynamic Assist]], 5-twin-spoke AMG light-alloy wheels painted titanium grey with high-sheen finish and 235/45 R19 tyres (optional 10-spoke AMG light-alloy wheels in 2 a choice of 2 colours (titanium grey with high-sheen finish, matt black with high-sheen rim flange) 235/40 R 20 tyres), AMG front apron with front splitter in matt titanium grey, AMG 'twin blade' radiator grille in matt titanium grey, black flics (air deflector elements) above the large exterior cooling air intakes, bi-xenon headlamps, side sill panels with titanium grey inserts, 'TURBO AMG' lettering on the front wings and the aluminium roof rails, rear diffuser insert with titanium grey trim, rectangular chrome-plated tailpipe trim at the twin tailpipes.
+
+Some launch models of the AMG are sold as "Edition 1", available for one year from market launch, and include a high-gloss black Aerodynamics package with larger front splitter, additional flics in the front apron, and rear aerofoil.<ref>[http://media.daimler.com/dcmedia/0-921-1657920-1-1670755-1-0-0-0-0-1-0-1549054-0-1-0-0-0-0-0.html?TS=1408410691334 Design and equipment: Sensual purity plus elements exclusive to AMG]</ref> The vehicle was unveiled at the [[North American International Auto Show#2014|2014 North American International Auto Show]] with sales from the summer of 2014.<gallery widths="200" heights="100">
+File:Mercedes-Benz GLA45 AMG.jpg|Mercedes-Benz GLA 45 AMG 4MATIC
+File:Mercedes-Benz GLA 45 AMG 4MATIC Edition 1 (X 156) – Frontansicht, 24. Oktober 2015, Münster.jpg|2015 Mercedes-Benz GLA 45 AMG 4MATIC Edition 1
+File:Mercedes-Benz GLA 45 AMG 4MATIC Edition 1 (X 156) – Heckansicht, 24. Oktober 2015, Münster.jpg|2015 Mercedes-Benz GLA 45 AMG 4MATIC Edition 1
+File:2019 Mercedes-AMG GLA 45 4MATIC Automatic 2.0.jpg|2019 Mercedes-AMG GLA 45 facelift
+</gallery>
+
+===Technical details===
+The GLA shares its platform with the [[Mercedes-Benz A-Class|A-Class]] and [[Mercedes-Benz B-Class|B-Class]], with a similar range of petrol and diesel engines.<ref name="Evo0913"/> Availability of engines varies between markets.
+
+====Engines====
+{| class="wikitable"
+!Model!!Years!!Configuration!!Displacement!!Power!!Torque!!{{convert|0–100|km/h|mph|0|abbr=on}}!!Top speed!!Fuel consumption/efficiency<br>(EU-Norm combined)
+|-
+! colspan="9" style="text-align:center"|Petrol engines
+|-
+|GLA 180
+|02/2015–11/2019
+|Inline-4 [[Turbocharger|turbo]] ([[Mercedes-Benz M270/M274 engine|M 270 DE 16 AL red.]])
+|rowspan="2"|{{convert|1,595|cc|L|1|abbr=on|order=flip}}
+|{{convert|90|kW|PS bhp|0|abbr=on}} at 5,000 rpm
+|{{convert|200|Nm|lbft|0|abbr=on}} at 1,250-4,000 rpm
+|9.3 seconds (M)<br>9.2 seconds (A)
+|{{Convert|200|km/h|0|abbr=on}}<br>(M)(A)
+|{{convert|5.7–6.0|L/100 km|mpgUS|abbr=on}} (M)<br>{{convert|5.5–5.7|L/100 km|mpgUS|abbr=on}} (A)
+|-
+|GLA 200
+|12/2013–11/2019
+|Inline-4 [[Turbocharger|turbo]] ([[Mercedes-Benz M270/M274 engine|M 270 DE 16 AL]])
+|{{convert|115|kW|PS bhp|0|abbr=on}} at 5,300 rpm
+|{{convert|250|Nm|lbft|0|abbr=on}} at 1,250-4,000 rpm
+|8.9 seconds (M)<br>8.8 seconds (A)
+|{{Convert|215|km/h|0|abbr=on}}<br>(M)(A)
+|{{convert|5.8–5.9|L/100 km|mpgUS|abbr=on}}<br>(M)(A)
+|-
+|GLA 220 4MATIC
+|01/2017–11/2019
+|rowspan="3"|Inline-4 [[Turbocharger|turbo]] ([[Mercedes-Benz M270/M274 engine|M 270 DE 20 AL]])
+|rowspan="5"|{{convert|1,991|cc|L|1|abbr=on|order=flip}}
+|{{convert|135|kW|PS bhp|0|abbr=on}} at 5,500 rpm
+|{{convert|300|Nm|lbft|0|abbr=on}} at 1,200-4,000 rpm
+|7.1 seconds
+|{{Convert|230|km/h|0|abbr=on}}
+|{{convert|6.5–6.6|L/100 km|mpgUS|abbr=on}}
+|-
+|GLA 250
+|rowspan="2"|12/2013–11/2019
+|rowspan="2"|{{convert|155|kW|PS bhp|0|abbr=on}} at 5,500 rpm
+|rowspan="2"|{{convert|350|Nm|lbft|0|abbr=on}} at 1,200-4,000 rpm
+|6.7 seconds (M)(A)
+|{{Convert|230|km/h|0|abbr=on}}<br>(M)(A)
+|{{convert|6.0–6.1|L/100 km|mpgUS|abbr=on}}<br>(M)(A)
+|-
+|GLA 250 4MATIC
+|6.6 seconds
+|{{Convert|230|km/h|0|abbr=on}}
+|{{convert|6.5–6.6|L/100 km|mpgUS|abbr=on}}
+|-
+|GLA 45 4MATIC AMG
+|07/2014–08/2015
+|rowspan="2"|Inline-4 [[Turbocharger#Twin-scroll|twin-scroll turbo]] ([[Mercedes-Benz M133 engine|M 133 DE 20 AL]])
+|{{convert|265|kW|PS bhp|0|abbr=on}} at 6,000 rpm
+|{{convert|450|Nm|lbft|0|abbr=on}} at 2,250-5,000 rpm
+|4.8 seconds
+|{{Convert|250|km/h|0|abbr=on}}
+|{{convert|7.5|L/100 km|mpgUS|abbr=on}}
+|-
+|Mercedes-AMG GLA 45 4MATIC
+|09/2015–04/2019
+|{{convert|280|kW|PS bhp|0|abbr=on}} at 6,000 rpm
+|{{convert|475|Nm|lbft|0|abbr=on}} at 2,250-5,000 rpm
+|4.4 seconds
+|{{Convert|250|km/h|0|abbr=on}}<br>{{Convert|270|km/h|0|abbr=on}} with AMG Driver's Package
+|{{convert|7.4|L/100 km|mpgUS|abbr=on}}
+|-
+! colspan="9" style="text-align:center"|Diesel engines ("d" designation replaced "CDI" from January 2017 onward)
+|-
+|GLA 180 d (CDI)
+|09/2014–05/2018
+|Inline-4 [[Turbocharger|turbo]] ([[Mercedes-Benz OM607 engine|OM 607 DE 15 LA]])
+|{{convert|1,461|cc|L|1|abbr=on|order=flip}}
+|{{convert|80|kW|PS bhp|0|abbr=on}} at 5,000 rpm
+|{{convert|250|Nm|lbft|0|abbr=on}} at 1,750–2,500 rpm
+|12.0 seconds (M)<br>11.9 seconds (A)
+|{{Convert|190|km/h|0|abbr=on}}<br>(M)(A)
+|{{convert|4.0|L/100 km|mpgUS|abbr=on}} (M)<br>{{convert|3.9|L/100 km|mpgUS|abbr=on}} (A)
+|-
+|GLA 200 d (CDI)
+|rowspan="4"|12/2013–04/2019 
+|rowspan="4"|Inline-4 [[Turbocharger|turbo]] ([[Mercedes-Benz OM651 engine|OM 651 DE 22 LA]])
+|rowspan="4"|{{convert|2,143|cc|L|1|abbr=on|order=flip}}
+|rowspan="2"|{{convert|100|kW|PS bhp|0|abbr=on}} at 3,400–4,400 rpm
+|rowspan="2"|{{convert|300|Nm|lbft|0|abbr=on}} at 1,400–3,000 rpm
+|10.0 seconds (M)<br>9.9 seconds (A)
+|{{Convert|205|km/h|0|abbr=on}}<br>(M)(A)
+|{{convert|4.3–4.5|L/100 km|mpgUS|abbr=on}} (M)<br>{{convert|4.4–4.5|L/100 km|mpgUS|abbr=on}} (A)
+|-
+|GLA 200 d (CDI) 4MATIC
+|9.9 seconds
+|{{Convert|200|km/h|0|abbr=on}}
+|{{convert|4.9–5.1|L/100 km|mpgUS|abbr=on}}
+|-
+|GLA 220 d (CDI)
+|rowspan="2"|{{convert|125|kW|PS bhp|0|abbr=on}} at 3,400–4,400 rpm
+|rowspan="2"|{{convert|340|Nm|lbft|0|abbr=on}} at 1,400–3,000 rpm
+|rowspan="2"|8.3 seconds
+|rowspan="2"|{{Convert|215|km/h|0|abbr=on}}
+|{{convert|4.4–4.6|L/100 km|mpgUS|abbr=on}}
+|-
+|GLA 220 d (CDI) 4MATIC
+|{{convert|4.9–5.1|L/100 km|mpgUS|abbr=on}}
+|-
+|}
+
+====Transmissions====
+{| class=wikitable
+|-
+!Model!!Years!!Types (standard)!! Types (optional)
+|-
+! colspan="4" style="text-align:center"|Petrol engines
+|-
+|GLA 180
+|02/2015–11/2019
+|rowspan="2"|6-speed [[manual transmission|manual]]
+|rowspan="2"|7-speed 7G-DCT [[Dual-clutch transmission|dual-clutch automatic]]
+|-
+|GLA 200
+|12/2013–11/2019
+|-
+|GLA 220 4MATIC
+|01/2017–11/2019
+|7-speed 7G-DCT [[Dual-clutch transmission|dual-clutch automatic]]
+|–
+|-
+|GLA 250
+|rowspan="2"|12/2013–11/2019
+|6-speed [[manual transmission|manual]]
+|7-speed 7G-DCT [[Dual-clutch transmission|dual-clutch automatic]]
+|-
+|GLA 250 4MATIC
+|7-speed 7G-DCT [[Dual-clutch transmission|dual-clutch automatic]]
+|–
+|-
+|GLA 45 4MATIC AMG 
+|07/2014–08/2015
+|rowspan="2"|7-speed AMG SPEEDSHIFT DCT [[Dual-clutch transmission|dual-clutch automatic]]
+|rowspan="2"|–
+|-
+|Mercedes-AMG GLA 45 4MATIC
+|09/2015–04/2019
+|-
+! colspan="4" style="text-align:center"|Diesel engines
+|-
+|GLA 180 d
+|09/2014–05/2018
+|rowspan="2"|6-speed [[manual transmission|manual]]
+|rowspan="2"|7-speed 7G-DCT [[Dual-clutch transmission|dual-clutch automatic]]
+|-
+|GLA 200 d
+|rowspan="4"|12/2013–04/2019
+|-
+|GLA 200 d 4MATIC
+|rowspan="3"|7-speed 7G-DCT [[Dual-clutch transmission|dual-clutch automatic]]
+|rowspan="3"|–
+|-
+|GLA 220 d
+|-
+|GLA 220 d 4MATIC
+|-
+|}
+
+=== Safety ===
+{{Euro NCAP|year=2014|reference=https://www.euroncap.com/en/results/mercedes-benz/gla-class/7877|reference_name=Mercedes-Benz GLA-Class 2014 Results|overall_stars=5|adult_points=36.7|description=Mercedes-Benz GLA200 CDI 'Urban' 4x2 (LHD)|adult_percent=96|child_points=43.1|child_percent=88|pedestrian_points=24.4|pedestrian_percent=67|safety_percent=70|safety_points=9.1}}
+
+===Marketing===
+As part of a partnership between Mercedes-Benz and [[Nintendo]], the two companies released a television commercial featuring [[Mario]] driving a Mercedes-Benz GLA in the Japanese market in May 2014 to coincide with the line's Japanese launch. Additional commercials featuring other ''[[Mario (franchise)|Mario]]'' characters in the same style were released in November 2014, culminating in the GLA becoming a selectable vehicle in ''[[Mario Kart 8]]'' and its [[Mario Kart 8 Deluxe|Switch port]] with Mercedes' [[Mercedes-Benz W25|W 25 Silver Arrow]] and [[Mercedes-Benz 300 SL|300 SL Roadster]] also being included.<ref>[http://www.autoblog.com/2014/05/29/super-mario-bros-mercedes-gla-video/ Mario Bros. enlisted to sell Mercedes GLA in Japan with bizarre results]</ref><ref>{{Cite web|url=http://www.polygon.com/2014/11/12/7204107/mercedes-bizarre-mario-kart-ads-roll-on-with-luigi-and-peach|title=Mercedes' bizarre Mario Kart ads roll on with Luigi and Peach|website=[[Polygon (website)|Polygon]] |date=12 November 2014}}</ref>
+
+==<span class="anchor" id="H247"></span>Second generation (H247; 2019)==
+{{Infobox automobile
+| image = Mercedes-Benz H247 IMG 3397.jpg
+| name = Second generation
+| model_code = H247
+| production = December 2019 – present
+| model_years = 2020–present
+| aka = [[Mercedes-Benz EQA]] (electric version)
+| assembly = {{ubl
+  | Germany: [[Rastatt]]
+  | China: [[Beijing]] ([[Beijing Benz]])
+  | India: [[Pune]] ([[Mercedes Benz India|MBI]])
+  | Thailand: [[Samut Prakan]] ({{abbr|TAAP|Thonburi Automotive Assembly Plant Co., Ltd.}})
+  | Malaysia: [[Pekan]] ([[HICOM Automotive Manufacturers (Malaysia)|HICOM]])
+  | Indonesia: [[Bogor Regency|Bogor]] ([[Mercedes-Benz Distribution Indonesia|MBI]] / [[Inchcape plc|Inchcape]] [[Indomobil]])}}
+| designer = Balázs Filczer,<ref>{{Cite web|title=Mercedes-Benz GLA design sketch|url=https://group-media.mercedes-benz.com/marsMediaSite/en/instance/picture/Mercedes-Benz-GLA-design-sketch.xhtml?oid=45062985|access-date=2022-07-08|website=group-media.mercedes-benz.com|language=en}}</ref> Gabriel Nemeth<ref>{{Cite news|url=https://news.yahoo.com/2021-mercedes-benz-gla-shown-153800860.html|title=2021 Mercedes-Benz GLA shown in design sketches ahead of this week's debut|work=[[Yahoo! News]]|last=Glon|first=Ronan|access-date=2019-12-09|language=en-US}}</ref>
+| related = {{ubl
+  | [[Mercedes-Benz EQA]]
+  | [[Mercedes-Benz A-Class (W177)|Mercedes-Benz A-Class (W/V/Z177)]]
+  | [[Mercedes-Benz CLA (C118)|Mercedes-Benz CLA (C/X118)]]
+  | [[Mercedes-Benz B-Class (W247)]]
+  | [[Mercedes-Benz GLB (X247)]]
+  }}
+| platform = [[Mercedes-Benz MFA platform#MFA2|MFA2]]
+| engine = {{ubl
+  | '''[[Petrol engine|Petrol]]''':
+  | 1.3 L ''[[Mercedes-Benz M282 engine|M282]]'' [[turbocharger|turbo]] [[Inline-four engine|I4]]
+  | 2.0 L ''[[Mercedes-Benz M260/M264 engine|M260]]'' turbo I4
+  | 2.0 L ''[[Mercedes-Benz M139 engine|M139]]'' turbo I4
+  | '''[[Petrol engine|Petrol]] [[plug-in hybrid]]:'''
+  | 1.3 L ''[[Mercedes-Benz M282 engine|M282]]'' turbo I4
+  | '''[[Diesel engine|Diesel]]''':
+  | 2.0 L ''[[Mercedes-Benz OM654 engine|OM654]]'' turbo I4
+  }}
+| transmission = {{ubl
+  | 7-speed [[Dual-clutch transmission|DCT]] automatic
+  | 8-speed [[Dual-clutch transmission|DCT]] automatic
+  }}
+| drivetrain = [[Plug-in hybrid]] (GLA 250 e)
+| wheelbase = {{convert|2729|mm|in|1|abbr=on}}
+| length = {{convert|4410|mm|in|1|abbr=on}}
+| width = {{convert|1834|mm|in|1|abbr=on}}
+| height = {{convert|1611|mm|in|1|abbr=on}}
+| weight = {{convert|1505|-|1585|kg|lb|0|abbr=on}}
+}}
+The second generation, introduced on 11 December 2019 at Mercedes media event,<ref>{{cite web|url=https://media.mercedes-benz.com/article/c148055e-b14b-4fdb-87bc-6565c47dda36 |title=Der neue Mercedes-Benz GLA feiert seine digitale Weltpremiere auf Mercedes me media |date=11 December 2019 |language=de |work=Daimler AG}}</ref> is revised from the previous generation. The chassis number, 247, is shared with [[Mercedes-Benz B-Class|W247 B-Class]] and [[Mercedes-Benz GLB|X247 GLB]]. The GLA uses the second generation MFA2 platform and completes the eight-model [[Mercedes-Benz A-Class (W177)|W177 A-Class]] compact based line-up.<ref>{{cite web|url=https://jalopnik.com/the-2021-mercedes-benz-gla-250-is-bigger-and-has-221-hp-1840361060 |last=Lee |first=Kristen |date=11 December 2019 |title=The 2021 Mercedes-Benz GLA 250 Is Bigger And Has 221 HP |work=Jalopnik}}</ref>
+
+The H247 GLA is {{convert|15|mm|in|abbr=on}} shorter in length, {{convert|10|mm|in|abbr=on}} narrower, {{convert|104|mm|in|abbr=on}} higher than the first-generation model, and the wheelbase has been extended by {{convert|30|mm|in|abbr=on}}.<ref>{{Cite web|url=https://www.wardsauto.com/technology/mercedes-benz-reveals-new-gla-crossover|title=Mercedes-Benz Reveals New GLA Crossover|date=2019-12-10|website=WardsAuto|language=en|access-date=2019-12-27}}</ref> The H247 GLA has 116&nbsp;mm more headroom, 45&nbsp;mm more elbow room and 43&nbsp;mm more rear shoulder room.<ref name=":0">{{Cite web|url=https://citizen.co.za/motoring/motoring-news-motoring/2217953/new-mercedes-benz-gla-revealed-along-with-hot-amg-gla-35/|title=New Mercedes-Benz GLA revealed along with hot AMG GLA 35|website=citizen.co.za|date=11 December 2019 |access-date=2019-12-27}}</ref> The ground clearance has been raised by 9&nbsp;mm to 143&nbsp;mm and the front seats are positioned 140&nbsp;mm higher than in the W177 A-Class. Despite this, there is an added {{convert|22|mm|in|abbr=on}} of front-seat headroom compared to its predecessor.<ref name=":1">{{Cite web|url=https://www.autocar.co.uk/car-news/new-cars/new-mercedes-gla-receives-more-tech-space-and-comfort|title=New Mercedes GLA receives more tech, space and comfort {{!}} Autocar|website=www.autocar.co.uk|access-date=2019-12-27}}</ref>
+
+As with other MFA2-based models, the GLA has suspension with [[MacPherson strut]]s up front and either a [[torsion beam]] or [[multi-link suspension]] at the rear. Variable damping control is optional.<ref name=":1" /> Inside, the GLA is similar to other MFA2 Mercedes models, featuring a dashboard with a free-standing digital display panel, the MBUX infotainment system, as well as other tech such as a colour Heads-Up Display.<ref name=":0" />
+
+A [[Battery electric vehicle|battery electric]] version called the [[Mercedes-Benz EQA|EQA]] was introduced in 2020 as the third battery electric SUV from Mercedes-Benz.<ref>{{cite web|url=https://www.auto-motor-und-sport.de/neuheiten/mercedes-eqa-2020/ |title=Mercedes EQA 2020 |last=Wittich |first=Horst |date=12 December 2019 |language=de |work=auto motor und sport}}</ref><gallery widths="200" heights="130">
+File:Mercedes-Benz GLA 250 e AMG Line (H 247) – h 11042021 (exposure adjusted).jpg|Rear view (AMG Line)
+File:Mercedes-Benz H247 IMG 3407.jpg|Interior
+File:Mercedes-AMG GLA 35 4MATIC (H247) Auto Zuerich 2021 IMG 0269.jpg|Mercedes-AMG GLA 35 4Matic
+File:Mercedes-AMG GLA 45 S 4MATIC+ (H247) IMG 5888.jpg|Mercedes-AMG GLA 45 S 4Matic+
+</gallery>
+
+===2023 facelift===
+In March 2023, the GLA received a facelift, featuring redesigned headlights and taillights. It receives the latest iteration of Mercedes's MBUX infotainment system, which supports wireless [[Apple CarPlay]] and [[Android Auto]]. It receives updated powertrain options, along with three new optional wheel designs. A dual 10.3-inch screen that originally came part of the Premium Package became standard.<ref>{{cite web|url=https://www.caranddriver.com/news/a43335960/2024-mercedes-benz-gla-class-2024-mercedes-amg-gla35-revealed/|title= 2024 Mercedes-Benz GLA-Class Sees Incremental Changes|first=Jack|last=Fitzgelard|date=March 16, 2023|access-date=14 July 2023}}</ref>
+
+<gallery widths="200" heights="100">
+File:2023_Mercedes-Benz_GLA_200d_AMG_Line_Premium_-_1950cc_2.0_%28150PS%29_Diesel_-_Grey_-_05-2024%2C_Front.jpg|Mercedes-Benz GLA 200d AMG Line (UK)
+2025 Mercedes-Benz GLA 250 4Matic in Mountain Grey Metallic, rear left.jpg|Mercedes-Benz GLA 250 (US; rear view)
+</gallery>
+
+===Technical details===
+====Powertrain====
+The second generation GLA has four petrol and four diesel models at launch. The GLA 250 e plug-in hybrid model was revealed in March 2020.<ref>{{cite web|url=https://www.autodevot.com/2020/03/gla-cla-coupe-shooting-brake-250-e-plug-in-hybrid-eq-power/|title=GLA, CLA Coupé and Shooting Brake models get EQ power|website=www.autodevot.com|date=13 March 2020 |access-date=13 March 2020}}</ref> The model range for the United States is GLA 250, GLA 4MATIC, and Mercedes-AMG GLA 35 4MATIC.
+
+{| class="wikitable"
+!Model!!Years!!Configuration!!Displacement!!Power!!Torque!!{{convert|0–100|km/h|mph|0|abbr=on}}!!Top Speed!!Fuel Consumption/Efficiency<br>(EU-Norm combined)
+|-
+! colspan="9" style="text-align:center"|Petrol Engines
+|-
+|GLA 180
+|2020–
+| rowspan="3" | [[Turbocharger|Turbo]] inline-4<br>[[Mercedes-Benz M282 engine|M 282 DE 14 AL]]
+| rowspan="3" | {{cvt|1,332|cc|L|1|order=flip}}
+|{{convert|100|kW|PS bhp|0|abbr=on}} at 5,500 rpm
+|{{convert|200|Nm|lbft|0|abbr=on}} at 1,460 rpm
+|9.6 seconds
+|{{cvt|200|km/h|mph|0}}
+|{{convert|6.7|L/100 km|mpgUS|abbr=on}}
+|-
+|GLA 200
+|2020–
+|{{convert|120|kW|PS bhp|0|abbr=on}} at 5,500 rpm
+|{{convert|250|Nm|lbft|0|abbr=on}} at 1,620–4,000 rpm
+|8.7 seconds
+|{{cvt|210|km/h|mph|0}}
+|{{convert|5.6–5.9|L/100 km|mpgUS|abbr=on}}
+|-
+|GLA 200 4MATIC
+|2020–
+|{{convert|120|kW|PS bhp|0|abbr=on}} at 5,500 rpm
+|{{convert|250|Nm|lbft|0|abbr=on}} at 1,620 rpm
+|9.3 seconds
+|{{cvt|206|km/h|mph|0}}
+|{{convert|6.8|L/100 km|mpgUS|abbr=on}}
+|-
+|GLA 250
+|2020–
+| rowspan="3" | Turbo I4<br>[[Mercedes-Benz M260/M264 engine|M 260 DE 20 AL]]
+| rowspan="5" | {{cvt|1,991|cc|L|1|order=flip}}
+| rowspan="2" | {{cvt|165|kW|PS bhp|0}} at 5,500 rpm
+| rowspan="2" | {{cvt|350|Nm|lbft|0}} at 1,800–4,000 rpm
+|6.9 seconds
+| rowspan="2" | {{cvt|240|km/h|mph|0}}
+|{{cvt|7.2–7.4|L/100 km|mpgUS}}
+|-
+|GLA 250 4MATIC
+|2020–
+|6.7 seconds
+|{{cvt|7.2–7.4|L/100 km|mpgUS}}
+|-
+|Mercedes-AMG GLA 35 4MATIC
+|2020–
+|{{convert|228|kW|PS bhp|0|abbr=on}} at 5,500 rpm
+|{{convert|400|Nm|lbft|0|abbr=on}} at 1,800–4,000 rpm
+|5.1 seconds
+| rowspan="3" | {{cvt|250|km/h|mph|0}}
+|{{convert|7.2–7.4|L/100 km|mpgUS|abbr=on}}
+|-
+|Mercedes-AMG GLA 45 4MATIC+
+|2020–2024
+| rowspan="2" | Turbo I4<br>[[Mercedes-Benz M139 engine|M 139]]
+|{{cvt|285|kW|PS bhp|0}} at 5,500 rpm
+|{{cvt|480|Nm|lbft|0}} at 1,800–4,000 rpm
+|4.4 seconds
+|{{convert|7.2–7.4|L/100 km|mpgUS|abbr=on}}
+|-
+|Mercedes-AMG GLA 45 S 4MATIC+
+|2020–2024
+|{{cvt|310|kW|PS bhp|0}} at 5,500 rpm
+|{{cvt|500|Nm|lbft|0}} at 1,800–4,000 rpm
+|4.3 seconds
+|{{convert|7.2–7.4|L/100 km|mpgUS|abbr=on}}
+|-
+! colspan="9" style="text-align:center"|Plug-In Hybrid Engines
+|-
+|GLA 250 e 
+|03/2020–
+| Turbo inline-4<br>[[Mercedes-Benz M282 engine|M282 DE14 LA]]
+|{{cvt|1,332|cc|L|1|order=flip}}
+| Engine: {{cvt|116|kW|PS bhp|0}}<br>Electric: {{cvt|75|kW|PS bhp|0}}
+| Engine: {{cvt|250|Nm|lbft|0}}<br>Electric: {{cvt|300|Nm|lbft|0}}
+|6.6 seconds
+|{{cvt|235|km/h|mph|0}}
+|{{convert|1.4-1.5|L/100 km|mpgUS|abbr=on}}
+|-
+! colspan="9" style="text-align:center"|Diesel Engines
+|-
+|GLA 180 d
+|2020–
+| Turbo inline-4<br>[[Mercedes-Benz OM654 engine|OM 654q DE 20 SCR]]
+|rowspan="4" | {{cvt|1,951|cc|L|1|abbr=on|order=flip}}
+|{{cvt|85|kW|PS bhp|0}} at 3,400–4,400 rpm
+|{{cvt|280|Nm|lbft|0}} at 1,200–2,600 rpm
+|10.8-11.0 seconds
+|{{cvt|190|km/h|mph|0}}
+|{{cvt|4.6-5.8|L/100 km|mpgUS}}
+|-
+|GLA 200 d
+|2020–
+|rowspan="3" | Turbo inline-4<br>[[Mercedes-Benz OM654 engine|OM 654q DE 20]]
+|rowspan="2" |{{cvt|110|kW|PS bhp|0}} at 3,400 – 4,440 rpm
+|rowspan="2" |{{cvt|320|Nm|lbft|0}} at 1,400 - 2,600 rpm
+|9.0 seconds
+|{{cvt|204|km/h|mph|0}}
+|{{cvt|4.9-5.0|L/100 km|mpgUS}}
+|-
+|GLA 200 d 4MATIC
+|2020–
+|9.3 seconds
+|{{cvt|201|km/h|mph|0}}
+|{{cvt|5.2-5.5|L/100 km|mpgUS}}
+|-
+|GLA 220 d 4MATIC
+|2020–
+|{{cvt|140|kW|PS bhp|0}} at 3,800 rpm
+|{{cvt|400|Nm|lbft|0}} at 1,600 - 2,400 rpm
+|7.6 seconds
+|{{cvt|217|km/h|mph|0}}
+|{{cvt|5.2-5.5|L/100 km|mpgUS}}
+|-
+|}
+
+====Transmissions====
+Only GLA 180 and 200 uses 7-speed 7G-DCT automatic transmission while the rest of engine range uses 8-speed 8G-DCT automatic transmission. The GLA 35 4MATIC AMG uses 8-speed AMG Speedshift automatic transmission. The GLA 250 e 8-speed [[automatic transmission|automatic]] 8F-DCT. No manual transmission option is available anymore.
+
+=== Safety ===
+{{Euro NCAP|year=2019|reference=https://www.euroncap.com/en/results/mercedes-benz/b-class/37570|reference_name=Mercedes-Benz B-Class 2019 Results|overall_stars=5|adult_points=36.6|description=Mercedes-Benz B180 Progressive Line (LHD)|adult_percent=96|child_points=44.5|child_percent=90|pedestrian_points=37.7|pedestrian_percent=78|safety_percent=75|safety_points=9.8}}
+
+{{ANCAP
+|overall_stars=5
+|year=2019
+|reference_code=7d8a6c
+|description=Mercedes-Benz GLA all variants excluding AMG (see ANCAP Technical Report)
+|adult_points=36.6
+|adult_percent=96
+|child_points=45.2
+|child_percent=92
+|pedestrian_points=37.9
+|pedestrian_percent=79
+|safety_points=10
+|safety_percent=77
+}}
+
+== <span class="anchor" id="H248"></span><span class="anchor" id="H244"></span>Third generation (H248/244; 2026) ==
+{{Infobox automobile
+| name = Third generation
+| image = 
+| caption = 
+| model_code = {{ubl
+  | H248
+  | H244 (EV)
+  }}
+| production = September 2026 – present<ref>{{Cite web |title= Mercedes-Benz GLA: series production of all-electric model begins |url= https://www.electrive.com/2026/07/17/mercedes-confirms-next-generation-gla-for-rastatt-plant/ |access-date=2026-09-17 |website=electrive.com |language=}}</ref>
+| model_years = 2027 (North America)
+| assembly = {{unbulleted list
+  | Germany: [[Rastatt]]
+  <!-- | Hungary: [[Kecskemét]] (Mercedes-Benz Manufacturing Hungary) -->
+  }}
+| layout = {{unbulleted list
+  | [[Front-engine, front-wheel-drive]] (hybrid)
+  | [[Front-engine, all-wheel-drive]] (hybrid, [[4matic]])
+  | [[Rear-motor, rear-wheel-drive]] (EV)
+  | [[Dual-motor, all-wheel-drive]] (EV, [[4matic]])
+  }}
+| platform = [[Mercedes-Benz MMA platform|Mercedes-Benz Modular Architecture (MMA)]]<ref name=":2" />
+| related = {{unbulleted list
+  | [[Mercedes-Benz GLB#X244|Mercedes-Benz GLB (X244)]]
+  | [[Mercedes-Benz CLA#C178|Mercedes-Benz CLA (C174/178)]]
+  }}
+| engine = 1.5L M252 turbo I4 (hybrid)
+| motor = {{unbulleted list
+  | {{convert|27|PS|kW hp|abbr=on|0}} permanent-magnet motor (hybrid)
+  | 1x or 2x Permanent magnet AC synchronous (EV)
+  }}
+| powerout = {{unbulleted list
+  | {{convert|116|–|157|kW|hp PS|abbr=on|0}} (hybrid, FWD)
+  | {{convert|137|–|157|kW|hp PS|abbr=on|0}} (hybrid, AWD)
+  | {{convert|165|–|200|kW|hp PS|abbr=on|0}} (EV, RWD)
+  | {{convert|260|kW|hp PS|abbr=on|0}} (EV, AWD)
+  }}
+| transmission = {{unbulleted list
+  | 8-speed [[Dual-clutch transmission|dual-clutch]] (hybrid)
+  | 2-speed [[Automatic transmission|automatic]] (EV)
+  }}
+| battery = {{unbulleted list
+  | [[Lithium-ion battery|'''Lithium-ion:''']]
+  | 1.3&nbsp;[[kWh]] 48V (hybrid)
+  | 58.0&nbsp;[[kWh]] [[Lithium iron phosphate battery|LFP]] (EV)
+  | 85.0&nbsp;[[kWh]] [[Lithium nickel manganese cobalt oxides|Li-NMC]] (EV)
+  }}
+| drivetrain = High-tech Hybrid
+| range = 
+| charging = 320&nbsp;kW ([[Direct current|DC]])
+| wheelbase = {{convert|2790|mm|in|1|abbr=on}}
+| length = {{convert|4565|mm|in|1|abbr=on}}
+| width = {{convert|1873|mm|in|1|abbr=on}}
+| height = {{convert|1590|mm|in|1|abbr=on}}
+| weight = {{convert|NNNN|kg|lb|0|abbr=on}}
+| sp = uk
+| predecessor = [[Mercedes-Benz EQA]] (GLA Electric)
+}}
+
+The third generation GLA, revealed on 29 July 2026, unifies both internal combustion engine and battery electric (EQA) models under the GLA name, similar to the [[Mercedes-Benz CLA#C174|third-generation CLA]] revealed a year prior.<ref>{{Cite web |last=Alaniz |first=Anthony |date=30 July 2026 |title=Mercedes Reinvents Its Smallest SUV For The EV Era |url=https://www.motor1.com/news/803141/2028-mercedes-benz-gla-powertrains-specs-trims/ |access-date=30 July 2026 |website=Motor1}}</ref> While battery electric versions will be available first, the hybrid version will follow in 2027.
+
+Compared to its predecessor, the third generation GLA is {{Convert|143|mm|in|abbr=on}} longer and {{Convert|20|mm|in|abbr=on}} lower than its predecessor with a {{Convert|2.4|in|mm|abbr=on}} longer wheelbase.<ref name=":2">{{Cite web |title=New Mercedes GLA revealed as Audi Q4 rival with 408-mile range {{!}} Autocar |url=https://www.autocar.co.uk/car-news/electric-cars/new-mercedes-gla-revealed-audi-q4-rival-408-mile-range |access-date=2026-07-29 |website=www.autocar.co.uk |language=en}}</ref>
+
+The exterior and interior design of the third generation GLA has been completely redesigned. The battery electric version features Mercedes-Benz's "Iconic Grille", similar to that of the [[Mercedes-Benz GLC Electric|GLC electric]], while the hybrid version uses a star pattern instead. The interior uses the MBOS Superscreen featured in various other models, consisting of a 14-inch central display, 14-inch passenger display and 10.25-inch driver display.<ref>{{Cite web |last=Padeanu |first=Adrian |date=2026-07-29 |title=Mercedes Fires Back At BMW X1 And iX1 With The New GLA |url=https://www.bmwblog.com/2026/07/29/2027-mercedes-gla-revealed-bmw-x1-competitor/ |access-date=2026-07-29 |website=BMWBLOG |language=en-US}}</ref> It has a {{Convert|410|L|cuft|abbr=on}} trunk that expands to {{Convert|1400|L|cuft|abbr=on}} when the second row is folded down; battery electric models add a {{Convert|107|L|cuft|abbr=on}} frunk.
+
+Three battery electric versions are available - the GLA 200 electric with {{Convert|221|hp|kW|abbr=on}}, GLA 250+ electric with {{Convert|268|hp|kW|abbr=on}} and the GLA 350 4Matic electric with {{Convert|349|hp|kW|abbr=on}} and a 0-100 km/h acceleration time of 5.3 seconds. All versions use a [[Lithium nickel manganese cobalt oxides|nickel-manganese-cobalt (NMC) battery]], featuring a usable capacity of either 58.0 kWh (GLA 200 electric) or 85.0 kWh. Mercedes-Benz claims the GLA electric will offer up to {{Convert|657|km|mi|abbr=on}} of range and can charge up to 320 kW.<ref name=":2" />
+
+== Sales ==
+{| class="wikitable"
+!Year
+!Europe<ref>{{Cite web|date=2014-01-28|title=Mercedes-Benz GLA European sales figures|url=https://carsalesbase.com/europe-mercedes-benz-gla/|access-date=2021-03-26|website=carsalesbase.com|language=en-US}}</ref>
+!U.S.<ref>{{Cite web|date=2015-11-08|title=Mercedes-Benz GLA US car sales figures|url=https://carsalesbase.com/us-mercedes-benz-gla/|access-date=2021-03-26|website=carsalesbase.com|language=en-US}}</ref>
+!Mexico<ref>{{Cite web|title= Venta al público y producción de vehículos ligeros por marca, modelo, segmento y país origen|url=https://www.inegi.org.mx/app/tabulados/pxwebv2/pxweb/es/RAIAVL/RAIAVL/RAIAVL_8_9.px/|access-date=2021-11-05|website=Instituto Nacional de Estadística, Geografía e Informática (INEGI)|language=es-MX}}</ref>
+!China<ref>{{Cite web|date=2015-05-29|title=Mercedes-Benz GLA China auto sales figures|url=https://carsalesbase.com/china-mercedes-benz-gla/|access-date=2021-03-26|website=carsalesbase.com|language=en-US}}</ref>
+|-
+|2013
+|225
+|
+|
+|
+|-
+|2014
+|44,710
+|6,884
+|534
+|
+|-
+|2015
+|63,425
+|25,593
+|1,110
+|42,662
+|-
+|2016
+|67,070
+|24,545
+|1,841
+|66,909
+|-
+|2017
+|72,869
+|24,104
+|1,940
+|70,802
+|-
+|2018
+|72,798
+|24,136
+|2,038
+|61,003
+|-
+|2019
+|70,608
+|22,136
+|1,685
+|39,273
+|-
+|2020
+|55,911
+|16,509
+|939
+|16,290
+|-
+|2021
+|75,124
+|14,322
+|
+|33,135
+|-
+|2022
+|
+|
+|
+|
+|-
+|2023
+|
+|
+|
+|23,816<ref>{{Cite web |title=【易车销量榜】全国2023年奔驰终端量销量榜-易车榜-易车 |url=https://car.yiche.com/newcar/salesrank/?brandId=2&saleType=2&flag=2023 |access-date=2026-02-11 |website=car.yiche.com}}</ref>
+|-
+|2024
+|
+|
+|
+|8,901<ref>{{Cite web |title=【易车销量榜】全国2024年奔驰终端量销量榜-易车榜-易车 |url=https://car.yiche.com/newcar/salesrank/?brandId=2&saleType=2&flag=2024 |access-date=2026-02-11 |website=car.yiche.com}}</ref>
+|-
+|2025
+|
+|
+|
+|4,690<ref>{{Cite web |title=【易车销量榜】全国2025年奔驰终端量销量榜-易车榜-易车 |url=https://car.yiche.com/newcar/salesrank/?brandId=2&saleType=2&flag=2025 |access-date=2026-02-11 |website=car.yiche.com}}</ref>
+|}
+
+==References==
+{{reflist|30em}}
+
+==External links==
+{{Commons category}}
+*{{official website|http://www5.mercedes-benz.com/en/vehicles/passenger-cars/gla-class/}}
+
+{{Mercedes-Benz}}
+{{Mercedes-Benz timeline 1990–2019}}
+{{Mercedes-Benz timeline 2020 to date}}
+
+[[Category:Mercedes-Benz vehicles|GLA-Class]]
+[[Category:Cars introduced in 2013]]
+[[Category:Front-wheel-drive vehicles]]
+[[Category:All-wheel-drive vehicles]]
+[[Category:Subcompact crossover sport utility vehicles]]
+[[Category:Luxury crossover sport utility vehicles]]
+[[Category:2020s cars]]
+[[Category:ANCAP small SUVs]]
+[[Category:Cars of Brazil]]
+[[Category:Cars of Indonesia]]
+[[Category:Cars of Malaysia]]
+[[Category:Cars of Thailand]]
+[[Category:Plug-in hybrid vehicles]]
+[[Category:Hybrid sport utility vehicles]]
+[[Category:Production electric cars]]

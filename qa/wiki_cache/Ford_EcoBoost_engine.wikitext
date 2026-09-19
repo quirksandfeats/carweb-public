@@ -1,0 +1,841 @@
+{{short description|Series of turbocharged, direct-injection gasoline engines}}
+{{Use mdy dates|date=November 2017}}
+{{Infobox automobile engine
+| name = Ford EcoBoost engine
+| image = Ford EcoBoost logo.jpg
+| manufacturer = [[Ford Motor Company|Ford]]
+| aka = TwinForce (obsolete)<br />EcoBoost SCTi<br />GTDi
+| production = 2009–present
+| predecessor = {{ubl
+ | '''for Straight-4:'''
+ | [[Ford Duratec engine|Ford Duratec]]
+ | '''for V6:'''
+ | [[Ford Duratec V6 engine|Ford Duratec V6]], [[Ford Cyclone engine#3.5 L|Mazda MZI 35]], Mazda GY
+}}
+| configuration = [[Straight-3|I3]], [[Straight-4|I4]] and 60° [[V6]]
+| displacement = {{ubl | V6 {{cvt|3496|cc|L cc cuin|1|order=out}} | V6 {{cvt|2967|cc|L cc cuin|1|order=out}} | V6 {{cvt|2694|cc|L cc cuin|1|order=out}} | I4 {{cvt|2261|cc|L cc cuin|1|order=out}} | I4 {{cvt|1999|cc|L cc cuin|1|order=out}} | I4 {{cvt|1596|cc|L cc cuin|1|order=out}} | I4 {{cvt|1500|cc|L cc cuin|1|order=out}} | I3 {{cvt|1497|cc|L cc cuin|1|order=out}} | I3 {{cvt|995|cc|L cc cuin|1|order=out}} }}
+| bore = {{ubl |V6 3.5: {{cvt|92.5|mm|in|2}} | V6 3.0: {{cvt|85.3|mm|in|2}} | V6 2.7: {{cvt|83|mm|in|2}} | I4 2.3: {{cvt|87.55|mm|in|2}}<ref>{{cite web|url=https://media.ford.com/content/dam/fordmedia/North%20America/US/2015_Specs/2015_Mustang_Specs.pdf |title=2015 Ford Mustang – USA Technical Specifications |work=Ford.com |publisher=Ford Motor Company |access-date=2017-03-19}}</ref> | I4 2.3 "MPC": {{cvt|84|mm|in|2}}<ref name=2024TS>{{Cite web |title=Ford Official Site {{!}} Vehicles, History & Community | url=https://media.ford.com/content/dam/fordmedia/North%20America/US/2022/09/14/2024-mustang-technical-specifications.pdf |access-date=2026-07-02 |website=media.ford.com}}</ref> | I4 2.0: {{cvt|87.5|mm|in|2}}[http://thenewmondeo.fordmedia.eu/] | I4 1.6: {{cvt|79.0|mm|in|2}}<ref>{{cite web | url= http://all-newfordfocus.fordmedia.eu/htm/AM_NOFLASH.html | title= Ford of Europe Press Kit – All-new Ford Focus | date= January 2011 | work= All-newfordfocus.fordmedia.eu | access-date= 2012-01-24 | archive-date= August 6, 2011 | archive-url= https://web.archive.org/web/20110806231012/http://all-newfordfocus.fordmedia.eu/htm/AM_NOFLASH.html | url-status= dead }}</ref> | I3 1.5: {{cvt|84|mm|in|2}} | I3 1.0: {{cvt|71.|mm|in|2}} }}
+| stroke = {{ubl |V6 3.5: {{cvt|86.7|mm|in|2}} | V6 3.0: {{cvt|86|mm|in|2}} | V6 2.7: {{cvt|83|mm|in|2}} | I4 2.3: {{cvt|94.0|mm|in|2}} | I4 2.3 "MPC": {{cvt|102|mm|in|2}}<ref name=2024TS/> | I4 2.0: {{cvt|83.1|mm|in|2}} | I4 1.6: {{cvt|81.4|mm|in|2}} | I3 1.5: {{cvt|90|mm|in|2}} | I3 1.0: {{cvt|82|mm|in|2}} }}
+| weight = {{ubl |V6 3.5: {{cvt|449|lb|kg|0}} | V6 3.0: {{cvt|445|lb|kg|0}} | V6 2.7: {{cvt|440|lb|kg|0}} | I4 2.0: {{cvt|328|lb|kg|0}} | I4 1.6: {{cvt|251|lb|kg|0}} | I3 1.0: {{cvt|213|lb|kg|0}}<ref>{{cite web |first=Andrew |last=English |url=http://www.autoexpress.co.uk/carreviews/firstdrives/278503/ford_focus_10litre_ecoboost.html |title=Ford Focus 1.0-litre EcoBoost review |publisher=[[Auto Express]] |date=2012-02-08 |access-date=2016-07-27 |archive-date=June 28, 2012 |archive-url=https://web.archive.org/web/20120628160217/http://www.autoexpress.co.uk/carreviews/firstdrives/278503/ford_focus_10litre_ecoboost.html |url-status=dead }}</ref> }}
+| block = V6 2.7: [[Compacted graphite iron]]<br />I3 1.0 and 1.1: [[Cast iron]]<br />All others: [[Aluminum]]
+| head = [[Aluminum]]
+| valvetrain = [[DOHC]] with direct acting mechanical buckets or roller finger followers<br />[[Variable camshaft timing]]
+| turbocharger = {{ubl |V6: Dual [[Borg Warner]] K03 low inertia integrated turbo system | I4 2.3: [[Garrett Motion]] (Honeywell) [[Twin-scroll turbocharger|twin-scroll]] MGT2260SZ (Mustang Ecoboost) | I4 2.0: [[Borg Warner]] K03 low inertia integrated turbo system | I4 1.6: [[Borg Warner]] KP39 low inertia turbo | I3 1.5: [[Continental AG|Continental]] RAAX low-inertia turbocharger }}
+| fuelsystem = [[Gasoline direct injection]] or dual injection/PFDI
+| management = {{ubl |V6: Bosch<ref>{{cite web|first= Andrew |last= English |url=http://www.enginelabs.com/news/a-look-at-the-record-setting-ecoboost-sportscar-engine/ |title=A Look at the Record-setting EcoBoost Sportscar Engine |publisher=[[Enginelabs]] |date=2013-08-10 |access-date=2017-01-25}}</ref> | I4 2.0: Bosch MED17 with [[CAN-Bus]] and individual cylinder knock control | I4 1.6: Bosch MED17 with CAN-Bus and individual cylinder knock control | I3 1.5: Bosch MG1CS016 with CAN-Bus and individual cylinder knock control. FGEC software }}
+| fueltype = [[Gasoline]]
+| oilsystem = [[Wet sump]]
+| coolingsystem = [[Radiator (engine cooling)|Water-cooled]]
+| compression = {{ubl |V6 3.5: 10.0:1 (10.5:1 MY2017) | V6 3.0: 9.5:1 | V6 2.7: 10.3:1 | I4 2.3: 9.5:1 | I4 2.3 "MPC": 10.6:1<ref name=2024TS/> | I4 2.0: 10.0:1 | I4 1.6: 10.0:1 | I3 1.5: 9.7:1 }}
+}}
+[[File:Ford Focus Ecoboost Race Car (cropped).JPG|thumb|Ford Focus EcoBoost race car]]
+'''EcoBoost''' is a series of [[Turbocharger|turbocharged]], [[petrol direct injection|direct-injection]] [[gasoline engine]]s produced by [[Ford Motor Company|Ford]] and originally co-developed by FEV Inc. (now FEV North America Inc.).<ref>{{Cite web|url=https://www.aftermarketnews.com/fev-inc-becomes-fev-north-america-inc/|title=FEV Inc. Becomes FEV North America Inc.. |website= Aftermarketnews.com|date=February 5, 2014 |language=en-US|access-date=2014-02-05}}</ref> EcoBoost engines are designed to deliver power and torque consistent with those of larger-[[Engine displacement|displacement]] (cylinder volume) [[naturally aspirated engine]]s, while achieving up to 20% better [[Fuel efficiency in transportation|fuel efficiency]] and 15% fewer [[greenhouse gas emissions|greenhouse emissions]], according to Ford.<ref>{{cite news |last1=Taylor |first1=Alex |title=Ford EcoBoost: The little engine that could |url=https://money.cnn.com/2011/08/02/autos/ford_eco_boost.fortune/index.htm |access-date=1 August 2023 |work=Fortune Magazine |date=2 August 2011 |archive-url=https://web.archive.org/web/20110828160546/https://money.cnn.com/2011/08/02/autos/ford_eco_boost.fortune/index.htm |archive-date=28 August 2011}}</ref> The manufacturer sees the EcoBoost technology as less costly and more versatile than further developing or expanding the use of [[Hybrid vehicle|hybrid]] and [[Diesel engine|diesel]] engine technologies. EcoBoost engines are broadly available across the Ford vehicle lineup.<ref>{{Cite web|url=https://www.ford.com/ecoboost/|title=What Is Ford EcoBoost? {{!}} Learn What Goes Into Ecoboost Performance |website= Ford.com|language=en-US|access-date=2017-11-16}}</ref>
+
+{{toc level|3}}
+
+==Global production==
+EcoBoost gasoline direct-injection turbocharged engine technology adds 128 patents and patent applications to Ford's 4,618 active and thousands of pending US patents.<ref>{{cite web |url=http://media.ford.com/article_display.cfm?article_id=31124 |title=EcoBoost contributes 980 new US patents, continues Ford tradition of patent quality |date=October 2, 2009 |work= Ford.com |access-date=2009-11-24}}</ref> Some of the costs of US development and production were assisted by the $5.9 billion [[Advanced Technology Vehicles Manufacturing Loan Program]] of the [[United States Department of Energy|Department of Energy]].<ref>{{cite web|url=http://midwestenergynews.com/2014/05/21/fuel-efficiency-loan-program-looking-beyond-the-big-three/|title=Fuel-efficiency loan program looking beyond the Big Three|first=Andy|last=Balaskovitz|date=21 May 2014|work=Midwest Energy News|access-date=27 November 2016|archive-date=December 15, 2017|archive-url=https://web.archive.org/web/20171215084520/http://midwestenergynews.com/2014/05/21/fuel-efficiency-loan-program-looking-beyond-the-big-three/|url-status=dead}}</ref>
+
+The V6 EcoBoost engines are being assembled at [[Cleveland Engine]] Plant No. 1 in Brook Park, Ohio.<ref>{{cite news |url= http://www.cleveland.com/business/index.ssf/2009/05/ford_1.html |title=Ford Cleveland Engine Plant No. 1 in Brook Park reopens after about 2 years |author=Kroll, Kathie |date=May 18, 2009 |work=Cleveland.com |access-date=2009-11-24}}</ref> The 2.0-liter I4 EcoBoost engines were produced at the [[Ford Valencia Plant]] in Spain in 2009.<ref name="Plant">{{cite web |url= http://media.ford.com/news/newhighefficiencyfourcylinderfordecoboostenginefamilydebutsatfrankfurt.htm |title=New high efficiency four-cylinder Ford EcoBoost engine family debuts at Frankfurt |date=September 15, 2009 |work=Media.Ford.com |access-date=2009-11-24}}</ref> The 1.6-liter I4 EcoBoost engines are assembled at the [[Ford Bridgend Engine Plant]] in the United Kingdom.<ref>{{Cite web |last=admin |date=2016-09-21 |title=Ford Bridgend plant makes 20 millionth engine |url=https://www.just-auto.com/news/ford-bridgend-plant-makes-20-millionth-engine/ |access-date=2023-02-11 |website=Just Auto |language=en-US}}</ref> The smaller 1000cc-displacement 3 cylinder EcoBoost engine is produced both at [[Ford Germany]] in [[Cologne]] and at [[Ford Romania]] in [[Craiova]].<ref name="Plant" />
+
+By 2012, the company planned to produce 750,000 EcoBoost units annually in the US and 1.3 million globally in the world market. Ford expected over 90% of its global vehicle lineup (includes North America) to offer EcoBoost engine technology by 2013.<ref name="Plant"/><ref>{{cite web |url=https://media.ford.com/article_print.cfm?article_id=29660 |publisher=Ford Motor Company |title=Pump it Up: EcoBoost Twin Turbos Pack Power to Give V-6 Engines V-8 Performance Feel |work=Ford Media |date=January 11, 2009}}</ref> From the engine's beginning to November 2012, 500,000 Ford EcoBoost vehicles have been sold.<ref>{{cite web |url=http://www.scoopcar.com/500000-ford-ecoboost-sold/2422/ |publisher=ScoopCar |title=500,000 Ford EcoBoost Sold |work=Ford Media |date=November 21, 2012 |access-date=November 21, 2012 |archive-url=https://web.archive.org/web/20130225182717/http://www.scoopcar.com/500000-ford-ecoboost-sold/2422/ |archive-date=February 25, 2013 |url-status=dead }}</ref>
+
+During Ford's ownership of [[Volvo Cars|Volvo]] (until 2010), it used the term '''PTDi''' (petrol turbocharged direct injection) for the 1.6 L I4 engine when introducing Volvo S60 concept<ref>{{cite web |url=http://www.kbb.com/kbb/green-cars/articles.aspx?BlogPostId=1339&r=16517324938030486 |title=2010 Volvo S60 Concept Offers Look at EcoBoosted 1.6-liter Engine |work=KBB Green |publisher=Kelley Blue Book |date=July 19, 2009 |archive-date=July 22, 2009 |archive-url=https://web.archive.org/web/20090722044614/http://www.kbb.com/kbb/green-cars/articles.aspx?BlogPostId=1339&r=16517324938030486 |access-date=2026-07-14 |url-status=dead }}</ref> and for the 2.0 L I4 engine when introducing Volvo XC60.<ref>{{cite news|url=http://www.autoevolution.com/news/volvo-v70-and-s80-now-with-20-gtdi-14369.html |title=Volvo V70 and S80, Now with 2.0 GTDi | work= autoevolution.com |access-date=2011-03-18}}</ref>
+
+===Safety issues===
+Ford has had to refund hundreds of customers worldwide because Ford EcoBoost engines in their vehicles have overheated and, in some cases, caused engine fires.<ref>{{cite news|url=https://www.bbc.co.uk/news/uk-england-45628325|title= Ford to refund 'engine fail' EcoBoost customers|date=1 October 2018|publisher=BBC News}}</ref> In 2015, a South African man died after becoming trapped in his [[Ford Kuga]] after its 1.6-litre EcoBoost engine burst into flames.<ref>{{cite news|url= https://www.news24.com/wheels/news/industry_news/ford-has-only-given-us-excuses-relative-of-ford-kuga-victim-killed-in-fire-20170116|title=Ford has only given us excuses - relative of Kuga victim killed in fire |website= News24 |date=16 January 2017 | first = Jeanette | last = Chabalala }}</ref> In 2017, Ford South Africa recalled all Kugas in the country for engine checks.<ref>{{cite news|url=https://www.autocar.co.uk/car-news/new-cars/ford-recalls-all-kugas-south-africa-due-fires|title=Ford recalls all Kugas in South Africa due to fires|work =Autocar.co.uk |date=16 January 2017}}</ref>
+
+==Engine family list==
+{| class="wikitable"
+|-
+!Name
+!Family
+!Displacement
+!Year
+!Features
+|-
+|EcoBoost 1.0||Fox||{{cvt|999|cc|cuin}}||2012–present||DOHC I3
+|-
+|Ti-VCT 1.1||Fox||{{cvt|1084|cc|cuin}}||2017–present||DOHC I3
+|-
+|EcoBoost 1.5||[[Ford Sigma engine]]||{{cvt|1500|cc|cuin}}||2014–present||DOHC I4
+|-
+|EcoBoost 1.5||Dragon||{{cvt|1497|cc|cuin}}||2017–present||DOHC I3
+|-
+|EcoBoost 1.6||Ford Sigma engine||{{cvt|1596|cc|cuin}}||2010–present||DOHC I4
+|-
+|EcoBoost 2.0||[[Mazda L engine]]||{{cvt|1999|cc|cuin}}||2010–2014||DOHC I4
+|-
+|EcoBoost 2.0 twin scroll||Clean-sheet engine block<ref>{{cite news| url= http://www.autonews.com/article/20140624/OEM04/140629942/ford-to-replace-2.0-liter-ecoboost-engine-after-just-4-model-years| website= Autonews.com| title= Ford to replace 2.0-liter EcoBoost engine after just 4 model years| date= June 24, 2014 | access-date= March 19, 2019}}</ref>||{{cvt|1999|cc|cuin}}||2015–present||DOHC I4
+|-
+|EcoBoost 2.0
+|
+|{{cvt|1995|cc|cuin}}
+|2022–present
+|DOHC I4
+|-
+|EcoBoost 2.3|| Mazda L engine ||{{cvt|2261|cc|cuin}}||2015–2024||DOHC I4
+|-
+|EcoBoost 2.3 "MPC"
+|
+|{{cvt|2261|cc|cuin}}
+|2024-present
+|DOHC I4
+|-
+|EcoBoost 2.7||Nano||{{cvt|2694|cc|cuin}}||2015–present||DOHC V6
+|-
+|EcoBoost 3.0||Nano||{{cvt|2967|cc|cuin}}||2016–present||DOHC V6
+|-
+|EcoBoost 3.5||[[Ford Cyclone engine|Cyclone]]||{{cvt|3496|cc|cuin}}||2010–present||DOHC V6
+|-
+|}
+{{Clear}}
+
+==Inline three-cylinder==
+
+=== 1.0 L Fox{{Anchor|1.0|1.0 l|1.0 L|1.0l|1.0L}} ===
+{{Update section|date=October 2024|reason=Updated gen 2 Fox with reversed head flow and cylinder deactivation should be in a new section}}{{Infobox Automobile engine
+| name = 1.0 L Ecoboost Fox I-3
+| image = Ford EcoBoost 1.0 L. Fox 002.jpg
+| configuration = [[Inline-3]]
+| displacement = {{cvt|999|cc|cuin}}
+| bore = {{cvt|71.9|mm|in}}
+| stroke = {{cvt|82.0|mm|in}}
+| block = Cast iron
+| head = Cast aluminum
+| valvetrain = 12 valve DOHC
+| timing = Wet belt (2012-2019), chain (2019-present),.
+| compression = 10.0-10.5:1
+| turbocharger = Single [[Continental AG|Continental]] radial-axial
+| fuelsystem = Direct injection
+| management = Bosch MED17
+Vitesco EMS2916 (MHEV)
+| oilsystem = Electronically controlled variable displacement oil pump
+}}Ford produces a 1.0 L turbocharged [[Straight-three engine|in-line three-cylinder]] engine for the EcoBoost family developed at Ford's [[Dunton Technical Centre]] in the UK. Production started in April 2012. The 1.0 was built initially in two versions: {{cvt|74|kW|PS hp}} and {{cvt|88|to|92|kW|PS hp}}.
+
+Both versions deliver a maximum of {{cvt|170|Nm|0}} from 1,400 to 4,500&nbsp;rpm, whereas higher performing versions can provide up to {{cvt|200|Nm|lbft|0}} on overboost for 30 seconds, which makes for a broad torque curve when compared to a naturally aspirated gasoline engine. A {{cvt|140|PS|kW hp|0}} version has also been released in the Fiesta Red Edition and Black Edition (some markets), as well as the Focus ST-Line, with {{cvt|155|lb.ft|order=flip}} of torque. The engine block is cast iron, which offers, in addition to the required strength, up to 50% faster warm-up than aluminum, at the expense of additional weight.<ref name="Triple EcoBoost">{{cite web |url= http://www.gizmag.com/ford-smallest-motor-3-cylinder-ecoboost/18814/ |title=Ford produces the smallest motor in its history – three-cylinder 1.0-Litre EcoBoost |date=June 6, 2011 | first= Jack| last= Martin| website= gizmag.com}}</ref><ref>{{cite web|url=http://www.autoblog.com/2011/09/12/ford-1-0l-ecoboost-three-cylinder-finds-a-home-in-the-euro-spec/ |title= 1.0 Ecoboost for Europe| first= Chris| last= Shunk| work= autoblog.com| date= September 12, 2011| access-date= March 19, 2019}}</ref>
+
+To quell the natural vibrations of a three-cylinder design, unspecified efforts have been made in the flywheel design to ensure satisfactorily smooth running without the use of energy sapping balance shafts. The 1.0L EcoBoost GTDI engine uses an oil-bathed timing belt, commonly known as a "wet belt".<ref>{{cite web|url=https://www.motor.com/magazine-summary/dissecting-fords-ecoboost-engine/ |title= Dissecting Ford's EcoBoost Engine| first= Roy Dennis | last= Ripple| website= motor.com| date= July 2017| access-date= January 25, 2020}}</ref>
+
+The engine is packaged in an engine block with a footprint the size of an [[A4 paper|A4]] sheet of paper.<ref name="All New 1.0 Ecoboost">{{cite press release| url= https://media.ford.com/content/fordmedia/feu/it/it/news/2014/08/06/1-0-litre-ecoboost-now-powers-1-in-5-new-fords-in-europe--acclai.pdf| title= 1.0-Litre EcoBoost Now Powers 1 in 5 New Fords in Europe; Acclaimed 3-Pot is Europe's Top Turbocharged Petrol Engine| url-status= dead| archive-url= https://web.archive.org/web/20141009131702/http://media.ford.com/content/fordmedia/feu/it/it/news/2014/08/06/1-0-litre-ecoboost-now-powers-1-in-5-new-fords-in-europe--acclai.pdf| archive-date= October 9, 2014| date= August 6, 2014| publisher= Ford Motor Company| location= Cologne, Germany| website= Ford.com| access-date= March 19, 2019}}</ref> With the introduction of the face-lifted 2013 Ford Fiesta, Ford introduced a naturally aspirated version of 1.0 Fox engine. The two versions produce {{Convert|65|hp|kW PS|abbr=unit}} and {{Convert|80|hp|kW PS|abbr=unit}}, and both engines use direct injection and Ti-VCT like the turbocharged versions. Start-stop technology is also available.
+
+The engines are produced in [[Cologne]] (Germany), [[Craiova]] (Romania) and [[Chongqing]] (China). Production is expected to be 700,000–1,500,000 units per year.
+
+The 1.0 L EcoBoost engine was introduced to the American market with the 2014 [[Ford Fiesta]] [[Sedan (automobile)|sedan]] and [[hatchback]], although cars with this engine did not sell particularly well. It was announced at the 2012 [[Los Angeles Auto Show]], when the Fiesta was introduced. The 123-hp version debuted in the North American market Focus in the 2015 model year. The engine accounted for less than 5 percent of Fiesta and [[Ford Focus|Focus]] sales in the U.S., according to a 2017 report.<ref>{{cite web|title=Engine innovations continue despite calls for emissions standards repeal (30 Mar 2017)|url=http://autoweek.com/article/technology/engine-innovations-continue-despite-calls-emissions-standards-repeal|website=Autoweek|date=March 30, 2017|access-date=1 April 2017}}</ref> The 1.0 L engine was awarded the International Engine of Year Award 2016, making it the Best Engine Under 1.0 L for the fifth time in a row.<ref>{{cite web|title = And the Oscar Goes to - Ford 1.0L EcoBoost|url = http://www.carbay.ph/en/car-news/and-the-oscar-goes-to-ford-1-0l-ecoboost-21154135|website = CarBay Philippines|access-date = 2016-06-07}}</ref> After the discontinuation of the Focus and Fiesta in North America, the 1.0 L was only available there in the EcoSport until 2022.
+
+In 2017 Ford was again awarded International Engine of Year (for Engines Under 1.0 L) with a largely reconfigured version of the Ecoboost 1.0. Although thermodynamically similar to the old Ecoboost 1.0, the new engine features cylinder deactivation under low-load conditions. A new dual-mass flywheel and a vibration-damping clutch disc (in manual-transmission vehicles) help neutralise engine oscillations when running on two cylinders.<ref>{{cite web|title=Ford EcoBoost Awarded Best Engine Under 1 0 Liter in 2017 International Engine of the Year|website = [[YouTube]]| date=July 6, 2017 |url=https://www.youtube.com/watch?v=sTNegcgq3N8 |archive-url=https://ghostarchive.org/varchive/youtube/20211220/sTNegcgq3N8 |archive-date=2021-12-20 |url-status=live}}{{cbignore}}</ref> Production started in 2018.
+
+In 2019, Ford launched an mHEV version of the 1.0 EcoBoost engine first fitted to the Puma SUV, which uses a belt-driven integrated starter/generator-motor (BiSG); which is in essence a starter motor, [[alternator]], and propulsion motor in one. Fundamentally, the engine is identical to the 2018–present 1.0 EcoBoost, but features the electric starter/generator and its battery system. The motor itself is not used to propel the vehicle on its own, and is mainly used to increase efficiency by reducing engine load, provide extra power during acceleration, and to reduce the perceived ‘turbo-lag’ at certain engine speeds while accelerating. The starter/generator makes use of a 48-volt battery system in the car, although vehicles fitted with these engines are not [[plug-in hybrid]]s or full hybrids. Further developments introduced include a more comprehensive ‘start-stop’ functionality, which was previously available but did not cut the engine off until the vehicle was completely stopped. The new engines can turn off while the car decelerates, at a maximum speed of about 15&nbsp;mph. The new, electrified engines are available in either {{Convert|125|hp|kW PS|abbr=unit}} or {{Convert|154|hp|kW PS|abbr=unit}} outputs.
+
+==== Engine issues ====
+The 1.0L Fox wet timing belt can degrade prematurely. This causes the engine to lose oil pressure or timing which causes severe engine damage. The belt needs to be replaced according to the manufacturers recommended interval or earlier under harsh conditions. The cost is higher than a dry timing belt due to the greater labour needed.
+
+In 2024, Ford announced that the 2016-2018 Focus and 2017-2021 EcoSport models would be recalled due to unreliable oil pump drive belt tensioner arms and/or wet belt degradation. Prior to this recall, 2,099 warranty claims were reportedly filed due to this issue.<ref>{{cite report |url=https://static.nhtsa.gov/odi/rcl/2023/RCLRPT-23V905-3533.PDF |title=Part 573 Safety Recall Report 23V-905 |access-date=11 January 2024 |archiveurl=https://web.archive.org/web/20240110173301/https://static.nhtsa.gov/odi/rcl/2023/RCLRPT-23V905-3533.PDF |archivedate=10 January 2024}}</ref>
+
+In December 2025, the [[National Highway Traffic Safety Administration|NHTSA]] opened an Investigation into the version of the 1.0L engine used in the 2015-2018 [[Ford Focus (third generation)|Ford Focus]] and 2015-2017 [[Ford Fiesta (sixth generation)|Ford Fiesta]]. This was due to complaints of an oil warning appearing on the [[dashboard]] then followed by a loss or reduction in power.<ref>{{Cite web |last=Foote |first=Brett |date=2025-12-23 |title=NHTSA Opens Investigation Into Failing Ford 1.0L EcoBoost Engines |url=https://fordauthority.com/2025/12/nhtsa-opens-investigation-into-failing-ford-1-0l-ecoboost-engines/ |access-date=2026-06-04 |language=en-US}}</ref>
+
+* {{cvt|84|hp|kW PS}} at 6000&nbsp;rpm, {{cvt|170|Nm|lbft|order=flip|0}} at 1400-3500&nbsp;rpm
+** 2018–2019 [[Ford Focus (fourth generation)|Ford Focus Mk4]]
+
+* {{cvt|99|hp|kW PS}} at 4500-6000&nbsp;rpm, {{cvt|170|Nm|lbft|order=flip|0}} at 1400-4000&nbsp;rpm
+** 2012–present [[Ford Focus (third generation)|Ford Focus Mk3]]
+** 2012–2019 [[Ford C-Max]]
+** 2012–2017 [[Ford B-Max]]
+** 2013–2023 [[Ford Fiesta (sixth generation)|Ford Fiesta Mk6]]
+** 2013–2022 [[Ford Ecosport]]
+** 2014–present [[Ford Transit Courier]] <!-- 2018+ models have the second generation with cylinder deactivation -->
+
+* {{cvt|123|hp|kW PS}} at 6000&nbsp;rpm, {{cvt|170|Nm|lbft|order=flip|0}} at 1400-4500&nbsp;rpm
+** 2012–present [[Ford Focus (third generation)|Ford Focus Mk3]]
+** 2012–2019 [[Ford C-Max]]
+** 2012–2017 [[Ford B-Max]]
+** 2013–2023 [[Ford Fiesta (sixth generation)|Ford Fiesta Mk6]]
+** 2013–2022 [[Ford EcoSport]]
+** 2013–2019 [[Ford Mondeo (fourth generation)|Ford Mondeo Mk5]]
+** 2023–present [[Ford Tourneo Courier]]
+** 2024–present [[Ford Transit Courier]]
+
+* {{cvt|123|hp|kW PS}} at 6000&nbsp;rpm, {{cvt|210|Nm|lbft|order=flip|0}} at 1750&nbsp;rpm Motor: {{Convert|11.5|kW|hp PS|abbr=unit}}, {{cvt|50|Nm|lbft|order=flip}} motor (MHEV)
+** 2019–present [[Ford Puma (crossover)|Ford Puma]]
+** 2020–2023 [[Ford Fiesta (seventh generation)|Ford Fiesta Mk7]]
+** 2020–present [[Ford Focus (fourth generation)|Ford Focus Mk4]]
+
+* {{cvt|138|hp|kW PS}} at 6000&nbsp;rpm, {{cvt|180|Nm|lbft|order=flip|0}} at 1500-5000&nbsp;rpm
+** 2014–2020 [[Ford Fiesta (sixth generation)|Ford Fiesta Mk6]]
+** 2014–2018 [[Ford Focus (third generation)|Ford Focus Mk3]]
+
+* {{cvt|155|PS|kW hp}} at 6000&nbsp;rpm, {{cvt|240|Nm|lbft|order=flip|0}} at 2500&nbsp;rpm, 10:1 compression ratio Motor: {{Convert|11.5|kW|hp PS|abbr=unit}}, {{cvt|50|Nm|lbft|order=flip}} motor (MHEV)
+** 2019–present [[Ford Puma (crossover)|Ford Puma]]
+** 2020–2023 [[Ford Fiesta (seventh generation)|Ford Fiesta Mk7]]
+** 2020–present [[Ford Focus (fourth generation)|Ford Focus Mk4]]
+
+* {{cvt|170|PS|kW hp|0}} at 6000&nbsp;rpm, {{cvt|248|Nm|lbft|order=flip}} at 3000&nbsp;rpm, 10:1 compression ratio Motor: {{Convert|11.5|kW|hp PS|abbr=unit}}, {{cvt|50|Nm|lbft|order=flip}} motor (MHEV)
+** 2019–present [[Ford Puma (crossover)|Ford Puma ST]]
+
+====Motorsports====
+* [[Ford Fiesta Rally4]]
+* [[Ford Fiesta Rally5]]
+
+===1.1 L Duratec Ti-VCT{{Anchor|1.1|1.1 l|1.1 L|1.1l|1.1L}}===
+{{Infobox Automobile engine
+| name = 1.1 L Duratec Ti-VCT I-3
+| configuration = [[Inline-3]]
+| displacement = {{cvt|1084|cc|cuin}}
+| bore = {{cvt|73.0|mm|in}}
+| stroke = {{cvt|86.3|mm|in}}
+| block = Cast iron
+| head = Cast aluminum
+| valvetrain = 12 valve DOHC
+| timing = Wet belt
+| compression = 12.0:1
+| fuelsystem = Port injection
+| management = [[Bosch (company)|Bosch]] MED17
+| oilsystem = Fixed displacement oil pump
+}}This is a decontented version of the 1.0L Ecoboost Fox engine intended to provide a more affordable powertrain option. It shares most components with the Fox including the block, oil bathed timing belt, valvetrain, and ECU, but is port injected, lacks cylinder deactivation, and is naturally aspirated; as a result, its compression ratio is raised to 12.0:1. It is built at Ford's Bridgend Engine Plant in the UK.
+
+====Applications====
+{{cvt|69|hp|kW PS}} at 5000-6500&nbsp;rpm, {{cvt|110|Nm|lbft|order=flip}} at 3500&nbsp;rpm
+* 2017–2023 [[Ford Fiesta (seventh generation)|Ford Fiesta Mk7]]
+{{cvt|84|hp|kW PS}} at 6300&nbsp;rpm, {{cvt|110|Nm|lbft|order=flip}} at 3500&nbsp;rpm
+* 2017–2023 [[Ford Fiesta (seventh generation)|Ford Fiesta Mk7]]
+{{Clear}}
+
+===1.5 L Dragon {{Anchor|2017 1.5|2017 1.5 l|2017 1.5 L|2017 1.5l|2017 1.5L}}===
+{{Infobox Automobile engine
+| name = Dragon 1.5 L Ecoboost I-3
+| configuration = [[Inline-3]]
+| displacement = {{cvt|1496|cc|cuin}}
+| bore = {{cvt|84.0|mm|in}}
+| stroke = {{cvt|90.0|mm|in}}
+| block = Cast aluminum
+| head = Cast aluminum
+| valvetrain = 12 valve DOHC roller finger follower
+| compression = 9.7-11.0:1
+| turbocharger = Single [[Continental AG|Continental]] radial-axial
+| fuelsystem = Port and direct injection
+| management = [[Bosch (company)|Bosch]] MG1CS016
+| oilsystem = Two-stage variable displacement oil pump
+| predecessor = [[#1.5_L|Ecoboost 1.5 L I4]]
+}}
+On 24 February 2017, as part of the unveiling of the seventh generation (Mk8 - UK) derived Fiesta ST, Ford announced an all-new aluminum inline 3-cylinder 1.5 L EcoBoost engine with cylinder deactivation technology.<ref>{{Cite news|url=http://www.autoexpress.co.uk/ford/fiesta/97192/all-new-2018-ford-fiesta-st-unveiled-with-197bhp|title=All-new 2018 Ford Fiesta ST unveiled with 197bhp|newspaper=Auto Express|access-date=2017-02-24|archive-date=March 9, 2017|archive-url=https://web.archive.org/web/20170309221130/http://www.autoexpress.co.uk/ford/fiesta/97192/all-new-2018-ford-fiesta-st-unveiled-with-197bhp|url-status=dead}}</ref> The version of this engine announced for the Fiesta ST produces {{cvt|200|PS|kW hp|0}} at 6,000&nbsp;rpm and delivers {{cvt|290|Nm|lbft|0}} of torque from 1,600 to 4,000&nbsp;rpm.<ref>{{cite press release|title=All-New Ford Fiesta ST Offers Limited-Slip Differential and Debuts Patented Technology for Ultimate Driving Dynamics| url=https://media.ford.com/content/fordmedia/feu/en/news/2018/03/12/all-new-ford-fiesta-st-offers-limited-slip-differential-and-debu.html| publisher= Ford Motor Company| website= Ford.com| access-date=15 March 2018|archive-url=https://web.archive.org/web/20220707042125/https://media.ford.com/content/fordmedia/feu/en/news/2018/03/12/all-new-ford-fiesta-st-offers-limited-slip-differential-and-debu.html|archive-date=7 July 2022}}</ref><ref>{{Cite web |title=1.5L Dragon GTDI Engine |url=https://www.ford.co.uk/content/dam/guxeu/uk/documents/home/experience-ford/news/component-sales/engines/1.5L-Dragon-GTDI-Engine.pdf |website=ford.co.uk}}</ref>
+
+The engine is based on an expansion of the 1.0 EcoBoost, taking the capacity per cylinder up to 500 cc, which Ford consider is likely to be the maximum for optimum [[thermal efficiency]].<ref>{{cite news|title=Three-cylinder Ford Ecoboost engine will soon lead brand's sales|url=https://www.autocar.co.uk/car-news/new-cars/three-cylinder-ford-ecoboost-engine-will-soon-lead-brand%E2%80%99s-sales|website=Autocar|access-date=28 April 2017}}</ref> The engine is an all-aluminum design with integrated exhaust manifold, low inertia mixed flow [[turbocharger]] and combines both [[Multi Point Injection|port fuel injection]] and [[gasoline direct injection|direct fuel injection]].
+
+The engine is equipped with [[variable displacement|cylinder deactivation technology]], implemented by stopping fuel delivery and valve operation for one of the engine's cylinders in conditions where full capacity is not needed.
+
+====Applications====
+* {{cvt|148|hp|kW PS}} at 6000&nbsp;rpm, {{cvt|240|Nm|lbft|order=flip|0}} at 1600-5000&nbsp;rpm
+** 2018–present [[Ford Focus (fourth generation)|Ford Focus Mk4]]
+** 2019–present [[Ford Kuga#Third generation (C482; 2019)|Ford Kuga Mk3]]
+
+* {{cvt|180|hp|kW PS|0}} at 6000&nbsp;rpm, {{cvt|240|Nm|lbft|order=flip|0}} at 1600-5000&nbsp;rpm
+** 2018–2023 [[Ford Focus (fourth generation)|Ford Focus Mk4]]
+* {{cvt|180|hp|kW PS|0}} at 6000&nbsp;rpm, {{cvt|270|Nm|lbft|order=flip|0}} at 3000&nbsp;rpm
+** 2023–present [[Ford Escape]]
+** 2025–present [[Ford Bronco Sport]]
+* {{cvt|181|hp|kW PS}} at 6000&nbsp;rpm, {{cvt|260|Nm|lbft|order=flip|0}} at 3000&nbsp;rpm
+** 2020–2022 [[Ford Escape]]
+** 2021–2024 [[Ford Bronco Sport]]
+
+* {{cvt|197|hp|kW PS}} at 6000&nbsp;rpm, {{cvt|290|Nm|lbft|order=flip|0}} at 1600-4000&nbsp;rpm, 9.7:1 compression ratio
+** 2018–2023 [[Ford Fiesta (seventh generation)|Ford Fiesta Mk7 ST]]
+** 2021–present [[Ford Puma (crossover)|Ford Puma ST]]
+
+====Motorsports====
+* [[Ford Fiesta Rally3]]
+
+==Inline four-cylinder==
+Four versions of EcoBoost I4 engines are in production. A 1.5 L downsized version of the 1.6 L, the 1.6 L which replaces larger-displacement, naturally aspirated I4 engines in Ford vehicles, a 2.0 L which replaces small-displacement, naturally aspirated V6 engines, and a 2.3 L used in high-performance applications. All four engines are turbocharged and direct injected. The production engine family was officially announced at the 2009 Frankfurt Motor Show.<ref>{{cite web |url=http://www.autoblog.com/2009/09/15/embargo-9-15-09-5am-edt-frankfurt-2009-ford-unveils-the-1-6-li/ |title=Frankfurt 2009: Ford unveils smallest EcoBoost engine yet at 1.6 litres |author=Abuelsamid, Sam |work=Autoblog |date=September 15, 2009 |access-date=2009-11-24}}</ref>
+
+===1.5 L {{Anchor|1.5|1.5 l|1.5 L|1.5l|1.5L}}===
+A 1.5 L version of the EcoBoost engine family was first unveiled in the 2014 [[Ford Fusion (Americas)|Ford Fusion]] as a downsized version of the 1.6 L EcoBoost engine.<ref>{{cite web |url=https://media.ford.com/content/fordmedia/fna/us/en/news/2013/04/11/ford-launches-new-fuel-efficient-1-5-liter-ecoboost-engine--boos.html |title=Ford Launches New Fuel-Efficient 1.5-Liter EcoBoost Engine |access-date=2013-04-12}}</ref> The downsized displacement is a result of Chinese vehicle tax regulations which tax vehicles with engine displacements of 1.5 L or less at lower rates. The 1.5 L EcoBoost adds new technology compared to the 1.6 L on which it is based, including an integrated exhaust manifold and a computer-controlled water pump clutch to decrease warm up time. In the 2015 Fusion, the engine produces {{cvt|181|hp|kW PS|0}} and {{cvt|185|lbft|Nm|0}}.
+
+====Applications====
+{{cvt|184|PS|kW hp|0}}
+* 2014 - 2020 [[Ford Fusion (Americas)|Ford Fusion]]
+* 2015 - 2018 [[Ford Focus (third generation)|Ford Focus Mk3]]
+
+{{cvt|181|PS|kW hp|0}}
+* 2017–2019 [[Ford Escape]]
+
+{{cvt|162|PS|kW hp|0}}
+* 2017–2019 [[Landwind X7]]
+
+{{cvt|160|PS|kW hp|0}}
+* 2015 - 2022 [[Ford Mondeo (fourth generation)|Ford Mondeo Mk5]]
+
+{{cvt|150|PS|kW hp|0}}
+* 2015 - 2018 [[Ford Focus (third generation)|Ford Focus Mk4]]
+* 2015 - 2019 [[Ford C-Max]]
+{{cvt|190|PS|kW hp|0}}
+
+* 2023 - present [[Ford Mondeo (fourth generation)|Ford Mondeo Mk5]]
+
+===1.6 L {{Anchor|1.6|1.6 l|1.6 L|1.6l|1.6L|B4164T}}===
+{{Infobox Automobile engine
+| name = 1.6 L Ecoboost I-4
+| configuration = [[Inline-4]]
+| displacement = {{cvt|1596|cc|cuin}}
+| bore = {{cvt|79.0|mm|in}}
+| stroke = {{cvt|81.4|mm|in}}
+| block = Cast aluminum
+| head = Cast aluminum
+| valvetrain = 16 valve DOHC direct acting mechanical bucket
+| timing = Belt
+| compression = 10.0-10.1:1
+| turbocharger = Borg Warner KP39 low-inertia turbo
+| fuelsystem = Direct injection
+| management = Bosch MED17
+| oilsystem = Variable displacement oil pump
+| emissions level = Euro Stage 5
+| successor = [[#1.5_L|Ecoboost 1.5 L I4]]
+}}
+The 1.6-litre version was first unveiled in the 2009 [[Lincoln C]] concept. The engine is rated at {{cvt|197|hp|kW PS|0}} and {{cvt|207|lbft|Nm|1}}.<ref>{{cite web |url=http://media.ford.com/article_display.cfm?article_id=29669 |publisher=Ford Motor Company |title=Lincoln C Pairs EcoBoost I-4 with Dual-Clutch Power Shift Transmission for 40-Plus MPG |work=Ford Media |date=January 12, 2009}}</ref> This was also installed in many Volvos during the years of Ford's ownership of that company; Volvo badged the engine B4164T# (with # being different number for different iterations).
+
+The European market version of the 1.6 L provides {{cvt|150|hp|kW PS|0}}, although a {{cvt|160|hp|kW PS|0|adj=on}} version is used in the [[Ford Mondeo]].
+
+The 1.6 L EcoBoost engine is raced in the [[British Formula Ford Championship]]. The units have replaced the original N/A 1.6 L Duratec units, which in turn replaced the 1.8 L Zetec-engined cars. The engine has also been used for the past few seasons in the [[World Rally Championship|WRC]] in the Ford Fiesta.
+
+The 1.6 L EcoBoost engine is also produced at the [[Ford Bridgend Engine Plant]] in [[Bridgend, Wales]].<gallery>
+File:1.6ecoboostturboside.jpg
+File:1.6ecoboostintakeside.jpg
+File:Ecoboost 16 1.jpg
+</gallery>
+{{Clear}}
+
+====Safety and recalls====
+{{See also|Ford Escape#Recalls}}
+In 2013, Ford has recalled certain [[Ford Kuga#Ford Escape|Ford Escapes]] equipped with this engine due to the potential for them to catch fire after overheating.<ref>{{cite web|url=http://jalopnik.com/ford-recalls-ford-escape-for-sixth-time-in-18-months-ov-1471855972|title=Ford Recalls Ford Escape For Sixth Time In 18 Months Over Fire Risk| first= Zac |last= Estrada| date= November 26, 2013| work= jalopnik.com| access-date= March 19, 2019}}</ref>
+
+In 2017, Ford recalled over 360,000 Ford Escape, [[Ford Fiesta ST]], [[Ford Fusion (Americas)#Second generation (2013)|Ford Fusion]], [[Ford Transit Connect#North America|Ford Transit Connect]], [[Ford Focus]] and [[Ford C-Max|C-Max hybrid]] with 1.6 ecoboost engines because of a risk of engine fires caused by a "lack of coolant circulation". There were 29 fires in the U.S. and Canada reported to Ford. The recall partly contributed to a charge of US$300 million by Ford.<ref>{{cite news| last1= Lynch| first1= Jim| title= Ford recalls 230,000 cars over potential engine fires| url= http://www.detroitnews.com/story/business/autos/ford/2017/03/29/ford-recall/99771750/|access-date=1 April 2017|work= [[The Detroit News]] |date=29 Mar 2017}}</ref><ref>{{cite news|last1=Krisher|first1=Tom|title=Ford recalls 570,000 vehicles for engine fire risk, door latch trouble|url=https://www.theglobeandmail.com/report-on-business/ford-recalls-570000-vehicles-for-engine-fire-risk-door-latch-trouble/article34471584/| access-date=1 April 2017|work= [[The Globe and Mail]] |agency=Associated Press |date=29 Mar 2017}}</ref>
+
+====Specifications====
+'''Type'''-turbocharged, direct gasoline-injected inline four-cylinder engine with twin independent variable-camshaft timing<br />
+'''Displacement'''-1,596 cc (1.6 L; 97 cu in)<br />
+{| class="wikitable mw-collapsible mw-collapsed"
+|-
+! More details
+|-
+|'''Type'''<br />
+Turbocharged, direct gasoline-injected inline four-cylinder engine with twin independent variable-camshaft timing<br />
+'''Displacement''' <br />
+{{cvt|1596|cc|L CID|1}}<br />
+'''Bore'''<br />
+{{cvt|79.0|mm|in|2}}<br />
+'''Stroke'''<br />
+{{cvt|81.4|mm|in|2}}<br />
+'''Compression ratio'''<br />
+10.0:1<br />
+'''Valve gear'''<br />
+DOHC with four valves per cylinder, twin independent variable-cam timing<br />
+'''Cylinder head'''<br />
+Cast aluminium<br />
+'''Cylinder block'''<br />
+Cast aluminium<br />
+'''Camshaft drive'''<br />
+Timing belt with dynamic tensioner<br />
+'''Crankshaft'''<br />
+Cast iron, four counterweights, five main bearings<br />
+'''Engine management'''<br />
+Bosch MED17 with CAN-Bus and individual cylinder knock control<br />
+'''Fuel injection'''<br />
+High-pressure direct fuel injection with six-hole injectors<br />
+'''Emission control'''<br />
+Close-coupled three-way catalyst system with heated oxygen sensors and catalyst monitor sensors after catalyst<br />
+'''Emission level'''<br />
+Euro Stage 5<br />
+'''Turbocharger'''<br />
+Borg Warner KP39 low-inertia turbo<br />
+'''Lubrication system'''<br />
+Pressure-fed lubrication system with variable-displacement pump and full-flow oil filter<br />
+'''System capacity with filter'''<br />
+4.1 L (4.3 US qt)
+|}
+
+====Applications====
+{{cvt|120|PS|kW hp|0}}
+* 2012–2015 [[Volvo V40 (2012–2019)|Volvo V40]]
+{{cvt|150|PS|kW hp|0}}
+* 2010–2019 [[Ford C-MAX]]
+* 2010–2014 [[Ford Focus (third generation)|Ford Focus Mk3]]
+* 2014–2016 [[Ford Transit Connect]]
+* 2011–2018 [[Volvo S60]]
+* 2011–2015 [[Volvo V60]]
+* 2012–2015 [[Volvo V40 (2012–2019)|Volvo V40]]
+{{cvt|160|PS|kW hp|0}}
+* 2011–2014 [[Ford Mondeo]]
+* 2011–2015 [[Ford S-Max]]
+* 2011–2015 [[Ford Galaxy]]
+{{cvt|180|PS|kW hp|0}}
+* 2010–2014 [[Ford Focus (third generation)|Ford Focus]]
+* 2013–2016 [[Ford Escape]]
+* 2010–2018 Volvo S60 DRIVe FFV (Thailand)
+{{cvt|185|PS|kW hp|0}}
+* 2010–2019 [[Ford C-MAX]]
+* 2010–2018 [[Volvo S60]]
+* 2011–2015 [[Volvo V60]]
+* 2011–2014 [[Ford Focus (third generation)|Ford Focus]]
+* 2011–2016 [[Volvo V70]]
+* 2011–2016 [[Volvo S80]]
+* 2012–2015 [[Volvo V40 (2012–2019)|Volvo V40]]
+* 2013–2014 [[Ford Fusion (Americas)|Ford Fusion]]
+* 2013–2017 [[Ford Fiesta#Fiesta ST (2013–)|Ford Fiesta ST]]
+{{cvt|200|PS|kW hp|0}}
+* 2016–2017 [[Ford Fiesta#Fiesta ST (2013–)|Ford Fiesta ST200]]
+
+====Motorsports====
+* [[Ford Fiesta R5]]
+* [[Ford Fiesta Rally2]]
+* [[Ford Fiesta RS WRC]]
+* [[Ford Fiesta WRC]]
+* [[Ford Puma Rally1]]
+
+===2.0 L (2010–2018){{Anchor|2.0|2.0 l|2.0 L|2.0l|2.0L}}===
+<gallery>
+File:2.0combustionchamber.jpg|2.0L EcoBoost demo engine at the 2011 NAIAS
+File:2.0bottomend.jpg|2.0L EcoBoost demo engine at the 2011 NAIAS. Note the exhaust manifold, not present on production North American engines
+File:Turboside2.0.jpg|Another angle of the 2011 NAIAS demo engine, again showing the Euro-spec exhaust manifold
+</gallery>
+{{Clear}}
+A 2.0 L version was first seen in the 2008 [[Ford Explorer#Explorer America concept|Ford Explorer America]] concept.<ref name="EcoBoost">{{cite press release|url=http://media.ford.com/article_display.cfm?article_id=27455|title=Ford to Equip Half A Million Vehicles with EcoBoost Engine Technology for Up To 20% Better Fuel Economy|date=January 6, 2008| publisher= Ford Motor Company | work= Ford.com|archive-url=https://web.archive.org/web/20130728152234/http://media.ford.com/article_display.cfm?article_id=27455|archive-date=July 28, 2013|url-status=dead|df=mdy}}</ref> The engine was rated at {{cvt|275|hp|kW PS|}} and {{cvt|280|lb.ft|Nm|0}}.
+
+It is the first EcoBoost engine to include twin independent variable cam timing (Ti-VCT), with advertised 10–20% better fuel economy while maintaining the performance of 3.0 L V6s.<ref>{{cite web |url=http://green.autoblog.com/2009/07/21/ford-announces-2-0l-ecoboost-and-dual-clutch-gear-box-for-2010 |title=Ford announces 2.0l ecoboost and dual clutch gearbox for 2010 |last=Abuelsamid |first=Sam |date=July 21, 2009 |work=Autoblog Green |access-date=2009-11-24 |archive-date=February 24, 2021 |archive-url=https://web.archive.org/web/20210224160535/http://green.autoblog.com/2009/07/21/ford-announces-2-0l-ecoboost-and-dual-clutch-gear-box-for-2010 |url-status=dead }}</ref><ref>{{cite web|url=http://media.ford.com/article_display.cfm?article_id=29311|title=Ford increases fuel economy and performance of I-4 models as 'new frugality' sweeps nation|date=October 29, 2008 |publisher= Ford Motor Company | work= Ford.com|access-date=2009-07-28}}</ref>
+
+This engine is derived from the 2.0 L [[Mazda L engine#2.0 L (LF-DE, LF-VE, LF-VD)|Mazda L engine]] block used by Ford in the North American Focus MK3, but equipped with unique heads, fuel injection system, and Ford's Ti-VCT. It should not be confused with the [[Mazda L engine#2.3L DISI Turbo (L3-VDT)|Mazda 2.3 DISI Turbo]], which also features direct injection along with turbocharging, but shares little else aside from the same engine block.
+
+The 2.0 L EcoBoost engine used in North American vehicles is now produced at the Cleveland Engine Plant in Brook Park, Ohio.
+
+====Specifications====
+'''Type'''- turbocharged, direct gasoline-injected inline four-cylinder engine with Ti-VCT<br />
+'''Displacement'''-{{cvt|1999|cc|L cuin|0}}<br />
+{| class="wikitable collapsible collapsed"
+|-
+! More details
+|-
+|'''Type'''<br />
+Turbocharged, direct gasoline-injected inline four-cylinder engine with Ti-VCT<br />
+'''Displacement''' <br />
+{{cvt|1999|cc|L cuin|0}}<br />
+'''Bore'''<br />
+87.5&nbsp;mm (3.4&nbsp;in)<br />
+'''Stroke'''<br />
+83.1&nbsp;mm (3.3&nbsp;in) <br />
+'''Compression ratio'''<br />
+9.3:1<br />
+'''Valve gear'''<br />
+DOHC with four valves per cylinder, Ti-VCT<br />
+'''Cylinder head'''<br />
+DOHC Gravity die-cast aluminum alloy with sintered valve guides and seats<br />
+'''Cylinder block'''<br />
+High-pressure die-cast aluminum alloy with bed plate<br />
+'''Camshaft drive'''<br />
+Single chain<br />
+'''Crankshaft'''<br />
+Cast iron with 47&nbsp;mm diameter crankpins, eight counterweights, five 52&nbsp;mm diameter main bearings and damped front pulley<br />
+'''Engine management'''<br />
+Bosch MED17 with CAN-Bus and individual knock control<br />
+'''Fuel injection'''<br />
+High-pressure fuel direct injection with 7-hole injectors<br />
+'''Emission control'''<br />
+Close-coupled three-way catalyst system with heated oxygen sensors and catalyst monitor sensors after catalyst<br />
+'''Emission level'''<br />
+Euro Stage 5<br />
+'''Turbocharger'''<br />
+Borg Warner K03 low-inertia integrated turbo system<br />
+'''Lubrication system'''<br />
+Wet-Sump<br />
+'''System capacity with filter'''<br />
+5.7Qt
+|}
+
+====Applications====
+Although not listed, some 2.0 EcoBoost engines have a different block design including alternate weaker deck design and cooling ports missing. When installed in Volvos, these engines are called '''B4204T6''' and '''T7'''.
+
+It should also be noted that North American-spec and European-spec engines have different cylinder heads: North American market vehicles use a cylinder head with an integrated exhaust manifold, while European-spec vehicles use a cylinder head with individual exhaust ports and a conventional exhaust manifold.
+* {{cvt|203|PS|kW hp|0}} at 5500&nbsp;rpm, {{cvt|221|lbft|Nm|0}} at 1750-4500&nbsp;rpm<ref>{{cite press release |url= http://media.ford.com/news/2010brusselsmotorshowdebutfornewford_eurowide.htm |title=2010 Brussels Motor Show Debut For New Ford S-Max and New Ford Galaxy| publisher= Ford Motor Company | work= Ford.com |date=December 15, 2009 |access-date=2011-03-18}}</ref>
+** 2010–2014 [[Ford S-MAX]]
+** 2010–2015 [[Ford Galaxy]]
+** 2010–2019 [[Ford Mondeo]]
+** 2010–2018 [[Volvo S60]] 2.0T
+** 2010–2011 [[Volvo V60]] 2.0T
+** 2010–2011 [[Volvo V70]] 2.0T
+* {{cvt|243|PS|kW hp|0}} at 5500&nbsp;rpm, {{cvt|270|lbft|Nm|0}} at 1900–3500&nbsp;rpm<ref>{{cite web |url=http://www.autoblog.com/2010/07/26/2011-ford-explorer-puts-four-cylinder-ecoboost-engine-above-v6/ |title=2011 Ford Explorer puts four-cylinder EcoBoost engine above V6 in pecking order |author=Abuelsamid, Sam |work=Autoblog |date=July 26, 2010 |access-date=August 8, 2010}}</ref> (Note: Torque figures are not uniform for all of the following vehicles)
+** 2010–2019 [[Ford Mondeo]]<ref>{{cite web|url=http://media.ford.com/news/moscowmotorshowdebutfornewlookfordmondeohighefficiencypowertrainsnewtechnologiesandfreshkineticdesign.htm |title=Moscow Motor Show Debut For New-Look Ford Mondeo: High-Efficiency Powertrains, New Technologies and Fresh Kinetic Design | publisher= Ford Motor Company | work= Ford.com|date=June 25, 2010 |access-date=2011-03-18}}</ref>
+**2010–2018 [[Volvo S60]] T5
+**2010–2013 [[Volvo V60]] T5
+**2011–2013 [[Volvo V70]]
+**2012–2017 [[Volvo XC60]] T5
+** 2011–2015 [[Ford Explorer]]
+** 2011–2014 [[Ford Edge]]
+** 2011– 2017 [[Range Rover Evoque]]<ref>{{cite news|url=http://www.autocar.co.uk/News/NewsArticle/AllCars/254494/ |title=Evoque by Cosworth planned |publisher=Autocar.co.uk |date=December 9, 2010 |access-date=2011-03-18}}</ref>
+** 2012–2018 [[Ford S-MAX]]
+** 2015–2021 [[Ford Galaxy]]
+** 2012–2016 [[Ford Falcon (Australia)|Ford Falcon]]<ref>{{cite web | last = Pettendy | first = Marton | date = July 27, 2009 | url = http://www.goauto.com.au/mellor/mellor.nsf/story2/0C064A086E4AC88BCA25760000159F9E | title = Ford Falcon EcoBoosted | work = GoAuto | publisher = John Mellor | access-date = 2009-12-06 | archive-date = October 20, 2012 | archive-url = https://web.archive.org/web/20121020173043/http://www.goauto.com.au/mellor/mellor.nsf/story2/0C064A086E4AC88BCA25760000159F9E | url-status = dead }}</ref>
+** 2013–2015 [[Ford Escape]] / [[Ford Kuga]]
+** 2013–2015 [[Land Rover Freelander#Freelander 2 (L359; 2006–2014)|Land Rover Freelander 2]]
+** 2013–2016 [[Ford Fusion (Americas)|Ford Fusion]]
+** 2013–2017 [[Ford Taurus]]<ref>{{cite web| first= Steven J. |last= Ewing |url=http://www.autoblog.com/2011/04/19/2013-ford-taurus-revealed/ |title=2013 Ford Taurus gets 2.0L EcoBoost four, styling tweaks [w/video&#93; |website=Autoblog.com |access-date=2012-01-24}}</ref><ref>{{cite web|title=First Look: 2013 Ford Taurus|url=http://www.automobilemag.com/auto_shows/new_york/2011/1104_2013_ford_taurus_first_look/index.html|website=Automobilemag.com|access-date=October 24, 2011|archive-date=October 28, 2011|archive-url=https://web.archive.org/web/20111028013557/http://www.automobilemag.com/auto_shows/new_york/2011/1104_2013_ford_taurus_first_look/index.html|url-status=dead}}</ref><ref>{{cite web| publisher= Ford Motor Company | work= Ford.com |url= https://media.ford.com/content/dam/fordmedia/North%20America/US/product/2018/taurus/18-taurus.pdf|title=2018 Taurus|access-date=2018-01-04}}</ref>
+** 2013–2015 [[Lincoln MKZ]]
+** 2015–2017 [[Land Rover Discovery Sport]]
+** 2015-2017 [[Jaguar XE]] 25T
+** 2015–2018 [[Lincoln MKC]]
+* {{cvt|255|PS|kW hp|0}} at 5500&nbsp;rpm, {{cvt|270|lb.ft|Nm|0}} at 2000–4500&nbsp;rpm<ref>{{cite web| first= Matt |last= Hardigree |url=http://jalopnik.com/5906627/ford-focus-st-now-with-252-hp-overboost-and-a-free-gopro-camera |title=Ford Focus ST: Now With 252 HP, Overboost, And A Free GoPro Camera |website=Jalopnik.com |date= May 2012 |access-date=2016-07-27}}</ref>
+** 2012–2018 [[Ford Focus (third generation)#Focus ST|Ford Focus ST]]
+* {{cvt|290|PS|kW hp|0}} at 5500&nbsp;rpm, {{cvt|310|lbft|Nm|0}} at 1900–3500
+** 2008–2017 [[VUHL 05]]
+* {{cvt|305|PS|kW hp|0}} at 5500&nbsp;rpm, 270&nbsp;lb⋅ft (366 N·m) at 2500&nbsp;rpm, Ford-RPE (Radical Performance Engines)
+** 2011– [[Radical SR3|Radical SR3 SL]]<ref>{{cite web |url=http://www.sr3sl.com/A-Radical-Departure/?hprnav |title= A Radical Departure |access-date=2012-02-26 |url-status=dead|archive-url=https://web.archive.org/web/20120225033633/http://www.sr3sl.com/A-Radical-Departure/?hprnav |website= sr3sl.com| publisher= Radical Sportscars| archive-date=February 25, 2012 |df=mdy }}</ref>
+
+===2.0 L "Twin-Scroll" (2015–) {{Anchor|2015 2.0|2015 2.0 l|2015 2.0 L|2015 2.0l|2015 2.0L}}===
+{{Expand section|date=June 2014}}
+{{Update section|date=October 2024|reason="MPC" refresh found in 2023+ Escape and 2025 Bronco Sport and Maverick}}
+
+A redesigned 2.0 L EcoBoost four-cylinder was introduced with the [[Ford Edge#Second generation (CD539; 2015)|second-generation Ford Edge]], followed by the 2017 Ford Escape in spring 2016.<ref>{{cite web|url=http://www.autonews.com/article/20140630/OEM06/306309977/ford-to-replace-2-0-liter-ecoboost-after-just-4-years |title=Ford to replace 2.0-liter EcoBoost after just 4 years |website=Autonews.com |date=2014-06-30 |access-date=2016-07-27}}</ref> It is built in Cleveland, Ohio and Valencia, Spain. It features a higher compression ratio than its predecessor (10.1:1 vs 9.3:1), with the exception of the Maverick,<ref>{{Cite web |title=2022 Ford Maverick Tech Specs |url=https://media.ford.com/content/dam/fordmedia/North%20America/US/product/2022/maverick/pdf/2022-Ford-Maverick-Technical-Specifications.pdf |access-date=May 2, 2024 |website=Ford.com}}</ref> along with a [[twin-scroll turbocharger]] and fuel and oil systems upgrades, as well as a redesigned block and cylinder head.<ref>{{cite web|url=http://www.carscoops.com/2014/12/ford-details-2015-edges-new-twin-scroll.html|title=Ford Details 2015 Edge's New Twin-Scroll 2.0L EcoBoost Engine | website= carscoops.com|date=December 31, 2014|access-date=January 16, 2015}}</ref> This new engine will deliver more low-end torque than its predecessor. It is expected to tow {{cvt|3,500|lb}} in the redesigned Edge and 2017+ Escape and up to 4,000 lb (1,800 kg) in the Ford Maverick when properly equipped. This generation of the 2.0 L EcoBoost uses direct fuel injection only.
+
+For the 2020 model year, the engine block was updated to use drilled cylinder coolant passages instead of a slit between the cylinders. This largely corrected remaining coolant intrusion issues for the engine.<!-- Built in Cleveland? and does not seem to be available for any Euro market (Tourneo's 2.0T is for China only) -->
+
+====Applications====
+* Approx. {{cvt|245|hp|kW PS|0}}, {{cvt|275|lb.ft|Nm|0}}
+** 2015–2018 [[Ford Edge]]
+** 2015–2021 [[Ford Everest]]
+** 2015–2016 [[Zenos E10 S]]<ref name="A_ZenosE10S">{{cite web|last1=Cackett|first1=Nic|url=http://www.autocar.co.uk/car-review/zenos/e10-s|title=2015 Zenos E10 S review|website=Autocar.co.uk|date=19 March 2015|publisher=Haymarket Media Group|access-date=27 May 2016|archive-date=June 11, 2016|archive-url=https://web.archive.org/web/20160611042221/http://www.autocar.co.uk/car-review/zenos/e10-s|url-status=dead}}</ref>
+** 2016– [[Ford Tourneo]]
+** 2016–present [[Ford Escape]] / [[Ford Kuga]]<!-- MPC update since 2023+ -->
+** 2017–2020 [[Ford Fusion (Americas)|Ford Fusion]]
+** 2022–present [[Ford Mondeo (fifth generation)|Ford Mondeo]]
+** 2021–present [[Ford Bronco Sport]]<!-- MPC update for 2025+ -->
+** 2016–2020 [[Lincoln MKZ]]
+** 2022–present [[Lincoln Zephyr (China)|Lincoln Zephyr]]
+** 2019–2020 [[Lincoln MKC]]
+* {{cvt|250|hp|kW PS|0}}, {{cvt|280|lb.ft|Nm|0}}
+** 2019–2024 [[Ford Edge]] [[Ford Edge#Third generation (CDX706; 2023)|L]]
+** 2019–2023 [[Lincoln MKX|Lincoln Nautilus]]<ref>{{cite press release| website= lincoln.com| url= https://media.lincoln.com/content/lincolnmedia/lna/us/en/news/2017/11/28/new-lincoln-nautilus.html |title=New Lincoln Nautilus Pairs Powerful Performance with Driver-Assist Technologies That Inspire Confidence|date=2017-11-28}}</ref>
+** 2020–2023 [[Lincoln Corsair]]
+** 2024-present [[Oshkosh NGDV | Oshkosh Next Generation Delivery Vehicle (NGDV)]] for United States Postal Service (USPS)
+* {{cvt|250|hp|kW PS|0}} at 5500&nbsp;rpm, {{cvt|277|lb.ft|Nm|0}} at 3000&nbsp;rpm<ref>{{Cite web |title=2022 Ford Maverick Tech Specs |url=https://media.ford.com/content/dam/fordmedia/North%20America/US/product/2022/maverick/pdf/2022-Ford-Maverick-Technical-Specifications.pdf |access-date=September 3, 2022 |website=media.ford.com}}</ref>
+** 2022–2024 [[Ford Maverick (2022)|Ford Maverick]]
+
+====Motorsport====
+*2019–present [[Ford Fiesta Rally2]] (Detuned to 1600cc and developed by M-Sport)
+{{Infobox engine
+| name = CAF484WQ**
+| manufacturer = Changan Ford
+| designer = Ford
+| production = {{Start date|2022}}-
+| configuration = Inline-4
+| displacement = {{cvt|1995|cc|cuin|1}}
+| bore = {{cvt|84|mm|in|3}}
+| stroke = {{cvt|90|mm|in|3}}
+| timing = Chain
+| compression = 9.5:1 / 10.8:1
+| turbocharger = Twin-scroll
+| fuelsystem = Dual injection (combine both port injection and direct injection)
+| fueltype = Gas
+| power = 185 Kw - 214 Kw
+| torque = 390 Nm - 407 Nm
+| emissions level = China 6
+| emissions control = EGR, catalytic converter, GPF
+| predecessor = CAF488WQ*
+}}
+
+===2.0 L EcoBoost Engine (2022–present)===
+The redesigned 2.0L EcoBoost turbocharged engine introduced in 2022 featured an adjustment to its bore and stroke ratio, changing it from the previous 87.5mm * 83.1mm to 84mm * 90mm. Additionally, the engine incorporated both port injection and direct injection technologies. The engine of gasoline-powered vehicles and the engine of hybrid vehicles have different compression ratios. The compression ratio of the gasoline engine is 10.8:1, while that of the hybrid engine is 9.5:1.
+
+====Aplications in USA & China====
+* {{cvt|248|hp|kW PS}} at 5000&nbsp;rpm, {{cvt|287.65|lb.ft|Nm|0}} at 2000-4000&nbsp;rpm
+** 2024–present [[Ford Mondeo (fifth generation)|Ford Mondeo]]
+** 2023–present [[Ford Edge|Ford Edge L]]
+* {{cvt|255|hp|kW PS}} at 5000&nbsp;rpm, {{cvt|287.65|lb.ft|Nm|0}} at 2000-4000&nbsp;rpm
+** 2023–present [[Lincoln Corsair]]
+** 2024–present [[Lincoln Z]]
+** 2023–present [[Lincoln Nautilus]]
+* {{cvt|270|hp|kW PS|0}}, {{cvt|295|lb.ft|Nm|0}} ([[Hybrid vehicle drivetrain|FHEV]])
+** 2023–present [[Ford Edge#Third generation (CDX706; 2023)|Ford Edge L]]
+* {{cvt|277|hp|kW PS|0}}, {{cvt|300|lb.ft|Nm|0}} ([[Hybrid vehicle drivetrain|FHEV]])
+** 2023–present [[Lincoln Nautilus]]
+* {{cvt|282|hp|kW PS|0}}, {{cvt|300|lb.ft|Nm|0}} ([[Hybrid vehicle drivetrain|FHEV]])
+** 2024–present [[Ford Mondeo (fifth generation)|Ford Mondeo]] Sport
+* {{cvt|287|hp|kW PS|0}}, {{cvt|300|lb.ft|Nm|0}} ([[Hybrid vehicle drivetrain|FHEV]])
+** 2024–present [[Lincoln Z]]
+** 2025–present [[Bronco Sport]]
+
+===2.3 L {{Anchor|2.3|2.3 l|2.3 L|2.3l|2.3L}}===
+{{Infobox Automobile engine
+| name = 2.3 L Ecoboost I-4
+| configuration = [[Inline-4]]
+| displacement = {{cvt|2261|cc|cuin}}
+| bore = {{cvt|87.5|mm|in|2}}<ref name=Musman2.3>{{cite web | url = https://www.fordservicecontent.com/Ford_Content/vdirsnet/OwnerManual/Home/Content?variantid=6908&languageCode=en&countryCode=USA&Uid=G1884344&ProcUid=G1884349&userMarket=THA&div=f&vFilteringEnabled=False&buildtype=web | archive-url = https://web.archive.org/web/20250107022329/https://www.fordservicecontent.com/Ford_Content/vdirsnet/OwnerManual/Home/Content?variantid=6908&languageCode=en&countryCode=USA&Uid=G1884344&ProcUid=G1884349&userMarket=THA&div=f&vFilteringEnabled=False&buildtype=web | archive-date = 2025-01-07 | title = Capacities and Specifications - Engine Specifications - 2.3L EcoBoost | work = Mustang Owner's Manual | publisher = Ford Motor Company }}</ref>
+| stroke = {{cvt|94.0|mm|in|1}}<ref name=Musman2.3/>
+| block = high pressure cast aluminum
+| head = High pressure cast aluminum
+| valvetrain = 16-valve DOHC [[Tappet|direct acting mechanical bucket]]
+| compression = 9.37-10.0:1
+| turbocharger = Single-scroll
+| fuelsystem = Direct injection
+}}
+The 2.3L version of the EcoBoost engine, a derivative of the [[Mazda L engine#L3|Mazda L3]], debuted in the 2015 [[Ford Mustang]] and also the [[Lincoln MKC]] crossover and has been implemented in many Ford and Lincoln vehicles with various outputs.
+
+The 2.3 L EcoBoost engine is produced with the 2.0 L EcoBoost at the Valencia Engine Plant in [[Valencia, Spain]]. In March 2015 Ford announced the official production start of the all-new twin-scroll 2.0-liter and 2.3-liter EcoBoost engines for North America at its Cleveland Engine Plant in Ohio.<ref>{{cite press release| url= https://media.ford.com/content/fordmedia/fna/us/en/news/2015/03/06/ford-cleveland-engine-plant-begins-production-of-the-new-twin-sc.html | publisher= Ford Motor Company| title= Ford Cleveland Engine Plant Begins Production of the New Twin-Scroll 2.0-Liter EcoBoost and 2.3-Liter EcoBoost Engines| date= March 6, 2015| location= Cleveland| access-date= March 19, 2019}}</ref>
+
+====Applications====
+* {{cvt|270|hp|kW PS|0}} at 5500&nbsp;rpm, {{cvt|310|lb.ft|Nm|0}} at 3000&nbsp;rpm
+** 2019–present [[Ford Ranger]]
+** 2020–present [[Ford Everest#Second generation (U375/UA; 2015)|Ford Everest]]<ref>{{cite web | url = https://paultan.org/2020/06/09/ford-everest-gets-275-ps-2-3-litre-ecoboost-for-china/ | archive-url = https://web.archive.org/web/20220923002057/https://paultan.org/2020/06/09/ford-everest-gets-275-ps-2-3-litre-ecoboost-for-china/ | archive-date = 2022-09-23 | date = 2020-06-09 | title = Ford Everest gets 275 PS 2.3 litre EcoBoost for China | first = Mick | last = Chan | work = Paultan.org | publisher = Driven Communications Sdn. Bhd. }}</ref>
+* {{cvt|276|hp|kW PS|0}} at 5500&nbsp;rpm, {{cvt|310|lb.ft|Nm|0}} at 3000–4000&nbsp;rpm
+** 2019–2025 [[Ford Focus ST]]
+* {{cvt|280|hp|kW PS|0}} at 5600&nbsp;rpm, {{cvt|310|lb.ft|Nm|0}} at 3000&nbsp;rpm
+** 2016–2019 [[Ford Explorer]]
+* {{cvt|285-295|hp|kW PS|0}} at 5500&nbsp;rpm, {{cvt|305-310|lb.ft|Nm|0}} at 2750&nbsp;rpm
+** 2015–2019 [[Lincoln MKC]]
+** 2020–2025 [[Lincoln Corsair]]
+* {{cvt|300|hp|kW PS|0}} at 5500&nbsp;rpm, {{cvt|310|lb.ft|Nm|0}} at 3500&nbsp;rpm
+** 2020–2024 [[Ford Explorer]]
+* {{cvt|300|hp|kW PS|0}} at 5700&nbsp;rpm, {{cvt|325|lb.ft|Nm|0}} at 3400&nbsp;rpm
+** 2021–2024 [[Ford Bronco (sixth generation)|Ford Bronco]]
+* {{cvt|310|hp|kW PS|0}} at 5500&nbsp;rpm, {{cvt|320-350|lb.ft|Nm|0}} at 3000&nbsp;rpm, 9.5:1 compression ratio
+** 2015–2023 [[Ford Mustang (sixth generation)|Ford Mustang EcoBoost]] (S550)
+* {{cvt|330|hp|kW PS|0}} at 6000&nbsp;rpm, {{cvt|350|lb.ft|Nm|0}} at 3000&nbsp;rpm, 9.37:1 compression ratio
+** 2020–2023 [[Ford Mustang (sixth generation)|Ford Mustang EcoBoost]] Performance Package<ref>{{cite web | url = https://media.ford.com/content/dam/fordmedia/North%20America/US/product/2023/mustang/2023-mustang-specs-final.pdf | archive-url = https://web.archive.org/web/20231207180836/https://media.ford.com/content/dam/fordmedia/North%20America/US/product/2023/mustang/2023-mustang-specs-final.pdf | archive-date = 2023-12-07 | title = 2023 Ford Mustang: Technical Specifications | date = 2022 | publisher = Ford Motor Company }}</ref>
+* {{cvt|350|hp|kW PS|0}} at 6000&nbsp;rpm, {{cvt|350|lb.ft|Nm|0}} at 3200&nbsp;rpm
+** 2016–2018 [[Ford Focus RS]]<ref>{{cite web|url=http://www.ford.com/cars/focus/trim/rs/ |title=2016 Ford Focus RS |website=Ford.com |access-date=2016-07-27}}</ref><ref>{{cite web| last1=Stafford | first1=Eric| title=Ford Focus RS Review, Pricing, and Specs | url=https://www.caranddriver.com/ford/focus-rs | website=Caranddriver.com | date=December 13, 2018| publisher=Hearst Magazine Media, Inc.}}</ref><ref>{{cite web| last1=Rix | first1=Jack| title=Video: sideways in the new Ford Focus RS | url=https://www.topgear.com/car-news/hot-hatch/video-sideways-new-ford-focus-rs | website=topgear.com | date=January 23, 2016| publisher=BBC Studios Distribution | access-date = 23 Jan 2016}}</ref>
+** 2016–2017 [[Zenos E10|Zenos E10 R]]<ref name="A_20160302">{{cite web|last1=Saunders|first1=Matt|title=2016 Zenos E10 R review |url=http://www.autocar.co.uk/car-review/zenos/e10/first-drives/2016-zenos-e10-r-review|website=Autocar.co.uk |publisher=Haymarket Media Group|access-date=27 May 2016|date=2 March 2016}}</ref>
+** 2017–present [[Elemental Motor Company|Elemental]] RP1<ref>{{cite web|last1=Pullman|first1=Ben|title=Elemental RP1: The road legal track day car for the 21st Century |url=https://www.carmagazine.co.uk/car-reviews/elemental/elemental-rp1-2017-review/|website=carmagazine.co.uk |publisher=Bauer Consumer Media Ltd.|access-date=23 May 2018}}</ref>
+* {{cvt|325-405|hp|kW PS|0}} at 6000&nbsp;rpm, {{cvt|317-369|lb.ft|Nm|0}} at 3200&nbsp;rpm
+** 2019–present [[VUHL 05|VUHL 05 RR]]<ref>{{cite web| title=05RR | url=https://vuhl05.com/pages/vuhl-05rr-specs#specsAcordeon71 |website=vuhl05.com}}</ref><ref>{{cite web|last1=Padeanu|first1=Adrian|title=2019 VUHL 05RR Is Mexico's Newest Road-Legal Track Toy | url=https://www.motor1.com/news/302008/2019-vuhl-05rr-revealed/ | website=motor1.com| publisher=Motorsport Network | access-date=22 Jan 2019}}</ref><ref>{{cite web|last1=Dhimann|first1=Sidd|title=2019 Vuhl 05RR | url=https://www.topspeed.com/cars/zzz-others/2019-vuhl-05rr/ | website=TopSpeed.com|date=January 24, 2019| access-date = 24 Jan 2019}}</ref>
+* {{cvt|395|hp|kW PS|0}} at 6200&nbsp;rpm, {{cvt|369|lb.ft|Nm|0}} at 3000-3500&nbsp;rpm
+** 2017–present [[Dallara Stradale]]<ref>{{cite web|last1=Duff|first1=Mike|title=Dallara Stradale: A Racing Legend Hits the Road |url=https://www.caranddriver.com/reviews/a19579363/dallara-stradale-first-drive-review/|website=Caranddriver.com |date=March 23, 2018|publisher=Hearst Magazine Media, Inc.|access-date=23 May 2018}}</ref>
+* {{cvt|493|hp|kW PS|0}}, {{cvt|516|lb.ft|Nm|0}}
+** 2021–present [[Dallara Stradale EXP]]<ref>{{cite web|last1=Duff|first1=Mike|title=Dallara Stradale: A Racing Legend Hits the Road |url=https://stradale.dallara.it/en/dallara-exp/|website=stradale.dallara.it |date=March 23, 2018|publisher=Dallara|access-date=23 Jun 2026}}</ref>
+
+===<span class="anchor" id="2.3 2024"></span><span class="anchor" id="2.3 MPC"></span> 2.3L "MPC"===
+{{Infobox Automobile engine
+| name = MPC 2.3 L Ecoboost I-4
+| configuration = [[Inline-4]]
+| displacement = {{cvt|2261|cc|cuin}}
+| bore = {{cvt|84|mm|in|2}}
+| stroke = {{cvt|102|mm|in|2}}
+| block = high pressure cast aluminum
+| head = High pressure cast aluminum
+| valvetrain = 16 valve DOHC roller finger follower
+| compression = 10.634:1
+| turbocharger = Twin-scroll
+| fuelsystem = Port and direct injection
+| predecessor = [[#2.3_L|Ecoboost 2.3 L I4]]
+}}
+An updated version of the 2.3L engine debuted in the 2024 [[Ford Mustang (seventh generation)|Ford Mustang]]. It has different cylinder dimensions to the previous version, with bore decreased to {{cvt|84|mm|in|2}} and the stroke increased to {{cvt|102|mm|in|2}}, which comes out to nearly the exact same displacement of {{cvt|2.261|L|cc cuin|adj=ri1|0}}. The compression ratio is increased to 10.634:1. Valve diameter and lift are increased, with intake and exhaust valve diameters of {{Convert|34|mm|in|abbr=unit}} and {{Convert|28.9|mm|in|abbr=unit}} respectively, and both valve types lifting up to {{Convert|9|mm|in|abbr=unit}}. It now features the Modular Power Cylinder (MPC) architecture, which involves upgrades such as port injection alongside the existing direct injection, a smaller twin-scroll turbocharger with an electronic wastegate, internal [[exhaust gas recirculation]] piping, and an integrated airbox in longitudinal applications.<ref>{{Cite web |last=Edmunds |first=Dan |date=Nov 24, 2023 |title=Tested: 2024 Ford Mustang EcoBoost Revises the Four-mula |url=https://www.caranddriver.com/reviews/a45794367/2024-ford-mustang-ecoboost-test/ |access-date=Oct 28, 2024 |website=[[Car and Driver]]}}</ref><ref>{{Cite web |last=Markus |first=Frank |date=Dec 15, 2022 |title=2024 Ford Mustang Engines: More Power for EcoBoost and GT, New Dark Horse Gets 500 HP |url=https://www.motortrend.com/news/2024-ford-mustang-engine-ecoboost-v-8-deep-dive/ |access-date=Oct 28, 2024 |website=[[MotorTrend]]}}</ref> It is built at Ford's Cleveland Engine Plant in Ohio. 
+
+====Applications====
+* {{Convert|270|hp|kW PS|0|abbr=unit}}
+** 2025–present [[Ford_Ranger_(Americas)#Fifth generation (2024)|Ford Ranger]]
+* {{Convert|300|hp|kW PS|0|abbr=unit}} at 5500&nbsp;rpm, {{Convert|310|lbft|Nm|abbr=unit}} at 3500&nbsp;rpm
+** 2025–present [[Ford Explorer#2025 refresh|Ford Explorer]]
+* {{Convert|300|hp|kW PS|0|abbr=unit}} at 5700&nbsp;rpm, {{Convert|325|lbft|Nm|abbr=unit}} at 3400&nbsp;rpm
+** 2025–present [[Ford Bronco (sixth generation)|Ford Bronco]]
+* {{Convert|315|hp|kW PS|abbr=unit}} at 5500&nbsp;rpm, {{Convert|350|lbft|Nm|0|abbr=unit}} at 3000&nbsp;rpm
+** 2024–present [[Ford Mustang (seventh generation)|Ford Mustang EcoBoost]] (S650){{Clear}}
+
+==V6 {{anchor|V6}}==
+===2.7 L Nano (first generation) {{Anchor|2.7|2.7 l|2.7 L|2.7l|2.7L}}===
+Introduced with the 2015 Ford F-150 is a [[twin-turbo]] 2.7 L V6 EcoBoost engine. It delivers about {{cvt|325|hp|kW|0}} and {{cvt|375|lbft|Nm|0}}.<ref>{{cite web|website=jalopnik.com|url=http://truckyeah.jalopnik.com/2015-ford-f-150-weighs-less-than-5-000-pounds-2-7-v6-m-1608913569/+travis|title=2.7 final stats|access-date=22 July 2014|archive-date=July 24, 2014|archive-url=https://web.archive.org/web/20140724170956/http://truckyeah.jalopnik.com/2015-ford-f-150-weighs-less-than-5-000-pounds-2-7-v6-m-1608913569/%20travis|url-status=dead}}</ref> The engine is built at the [[Lima Engine|Lima Ford Engine Plant]].<ref>{{cite web | url= http://www.limaohio.com/news/news/669135/Ford-unveils-lighter-F-150-at-auto-show | title= Ford 2.7 Ecoboost Lima info | access-date= 15 January 2014|archive-url=https://archive.today/20140115202342/http://www.limaohio.com/news/news/669135/Ford-unveils-lighter-F-150-at-auto-show|archive-date=15 January 2014}}</ref> Ford has invested US$500 million in the Lima plant for the new engine. Ford also states that the new engine will bring 300 jobs to [[Allen County, Ohio]],<ref>{{cite web|website=jalopnik.com|url=http://truckyeah.jalopnik.com/ford-v6-trucks-outselling-v8s-means-big-changes-for-pro-1553616099/@zacestrada|title=2.7 EcoBoost $500,000,000 investment|access-date=2 April 2014|archive-date=March 30, 2014|archive-url=https://web.archive.org/web/20140330204443/http://truckyeah.jalopnik.com/ford-v6-trucks-outselling-v8s-means-big-changes-for-pro-1553616099/@zacestrada|url-status=dead}}</ref> but transfers from other plants make the actual number hard to pin down. A 335-hp version was an option on the 2017 Lincoln Continental. Being a next-generation design, it uses a two-piece block design. Compacted graphite iron, a material Ford uses in its 6.7 L PowerStroke diesel engine, is used for the upper cylinder section with aluminum used for the lower stiffening section of the block.<ref>{{Cite web|date=2014-07-01|title=Ford 2.7L EcoBoost V-6 Inside Look|url=http://www.trucktrend.com/features/1410-ford-2-7l-ecoboost-v-6-inside-look/|access-date=2021-04-12|website=Truck Trend|language=en}}</ref>
+
+While the second generation 2.7L EcoBoost V6 would fully transition to a wet-belt driven oil pump, the first generation also introduced the design as a rolling production change for some applications, as both generations were produced concurrently.<ref>{{cite web |title=Caution on Oil Pump Drive Belt/Chain for 2015-2023 Ford 2.7L Ecoboost Engines |url=https://www.engineprofessional.com/TB24/TB022924-2.pdf#:~:text=2.7L%20Ecoboost%20Engines%20It%20has%20been%20reported,which%20drive%20gear%20method%20is%20being%20used. |website=www.engineprofessional.com |publisher=AERA Engine Builders Association |access-date=11 February 2026}}</ref>
+
+====Applications====
+* {{cvt|325|hp|kW|0}} at 5750&nbsp;rpm, {{cvt|375|lbft|Nm|0}} at 3000&nbsp;rpm
+** 2015–2017 [[Ford F-Series (thirteenth generation)|Ford F-150]]
+* {{cvt|335|hp|kW|0}} at 5500&nbsp;rpm, {{cvt|380|lbft|Nm|0}} at 3000&nbsp;rpm<ref>{{cite web |url=http://www.lincoln.com/2016-mkx/#performance |title=2016 Lincoln MKX Luxury Crossover SUV &#124; Powerful & Sophisticated |website=Lincoln.com |access-date=2016-07-27 |archive-url=https://web.archive.org/web/20150702211021/http://www.lincoln.com/2016-mkx/#performance |archive-date=July 2, 2015 |url-status=dead }}</ref>
+** 2016–2018 [[Lincoln MKX]]
+** 2017–2020 [[Lincoln Continental]]
+* {{cvt|335|hp|kW|0}} at 5500&nbsp;rpm, {{cvt|380|lbft|Nm|0}} at 3250&nbsp;rpm
+** 2019–2023 [[Lincoln Nautilus]]
+* {{cvt|315|hp|kW|0}} at 4750&nbsp;rpm, {{cvt|350|lbft|Nm|0}} at 2750&nbsp;rpm
+** 2015–2018 [[Ford Edge|Ford Edge Sport]]
+* {{cvt|335|hp|kW|0}} at 5000&nbsp;rpm, {{cvt|380|lbft|Nm|0}} at 3000&nbsp;rpm<ref>{{cite web |url= http://www.roadandtrack.com/car-shows/detroit-auto-show/a14783801/2019-ford-edge-st-specs-info-pictures/ |title=2019 Ford Edge ST Revealed |website= roadandtrack.com |date=2018-01-11 |access-date=2018-01-11}}</ref>
+** 2019–2024 [[Ford Edge|Ford Edge ST]]
+* {{cvt|325|hp|kW|0}} at 5500&nbsp;rpm, {{cvt|380|lbft|Nm|0}} at 3500&nbsp;rpm
+** 2017–2019 [[Ford Fusion (Americas)|Ford Fusion Sport]]
+
+===2.7 L Nano (second generation)===
+The second generation 2.7L EcoBoost V6 was introduced with the 2018 Ford F-150 and is mated to a 10-speed transmission that debuted the year prior. It produces an additional {{cvt|25|lbft|Nm|0}} of torque over the first generation. The engine uses a compacted-graphite iron (CGI) block, which is both high strength and lightweight.
+
+It boasts a number of changes from the first generation, with many carrying over from the second generation 3.5L EcoBoost engine that arrived a year earlier in the F-150. The most prominent change being the addition of port fuel injection, while keeping the direct injection system. It also has reduced internal friction to improve power and fuel economy, and new [[exhaust gas recirculation]] system.<ref>{{cite web| url= https://www.caranddriver.com/reviews/a19183397/2018-ford-f-150-27l-ecoboost-v-6-4x2-supercrew-test-review/ | work= Car & Driver| title= 2018 Ford F-150 2.7L EcoBoost V-6 4x2 SuperCrew| last=Stoklosa | first= Alexander | date= March 8, 2018| access-date= March 19, 2019}}</ref> The specific output of the engine is now 121&nbsp;hp/L, versus the 395-hp Ford Coyote 5.0L naturally aspirated V-8 which has a specific output of only 78&nbsp;hp/L. The peak torque matches the 5.0L V-8, albeit at a lower 2,750&nbsp;rpm vs. 4,500&nbsp;rpm for the V-8.
+
+Additional changes include a new lightweight cam to save weight, dual-chain cam drive system that is stronger and reduces parasitic friction loss, a new electrically actuated wastegate that provides more accurate turbo boost control, a high-pressure exhaust gas recirculation system, and a variable-displacement wet belt-driven oil pump that is electronically controlled to modulate oil flow to further reduce parasitic losses.<ref>{{cite web| url= https://www.wardsauto.com/engines/2018-winner-ford-f-150-27l-ecoboost-twin-turbo-v-6| title= Engines: 2018 Winner: Ford F-150 2.7L EcoBoost Twin Turbo V-6| website= wardsauto.com| first= Tom |last= Murphy |date= January 8, 2018| access-date= March 19, 2019}}</ref> 
+
+====Applications====
+* {{cvt|325|hp|kW|0}} at 5000&nbsp;rpm, {{cvt|400|lbft|Nm|0}} at 2750&nbsp;rpm (2018-20), at 3000 rpm (2021-24), at 3500 rpm (2025-26)
+** 2018–2026 [[Ford F-Series (thirteenth generation)|Ford F-150]]
+* {{cvt|330|hp|kW|0}} at 5250&nbsp;rpm and {{cvt|415|lbft|Nm|0}} at 3100&nbsp;rpm
+** 2021–present [[Ford Bronco#Sixth generation (U725; 2021)|Ford Bronco]]
+* {{cvt|315|hp|kW|0}}, {{cvt|400|lbft|Nm|0}}
+** 2024–present [[Ford Ranger]]<ref>{{cite web| url= https://www.ford.ca/trucks/ranger/2024/| title= 2024 Ford Ranger| website= ford.ca| access-date= May 30, 2023}}</ref>
+* {{cvt|335|hp|kW|0}}, {{cvt|380|lbft|Nm|0}}
+
+===3.0 L Nano {{Anchor|3.0|3.0 l|3.0 L|3.0l|3.0L}}===
+A 3.0L [[V6]] twin-turbocharged gasoline direct-injection engine, derived from the 2.7 L EcoBoost, was released in 2016 that produces between 325 and 418 horsepower. The 3.0 L replaced the 3.7 L Ti-VCT [[Ford Cyclone engine#3.7 L|Cyclone]] V6 engine in various vehicles, including the [[Lincoln MKZ|MKZ]], [[Lincoln Continental|Continental]], [[Lincoln Aviator|Aviator]], [[Ford Explorer]] and is also found in the 2022 [[Ford Bronco]] Raptor. The 3.0-liter version of the engine was created by increasing the 2.7-liter's cylinder bore in the CGI-block from 83.0 millimeters to 85.3, and by lengthening piston stroke by 3.0 millimeters (to 86.0).<ref>{{cite web|url=https://www.chastangford.com/static/dealer-18817/pdf/Specs-Houston-TX.pdf|archive-url=https://web.archive.org/web/20200703082818/https://www.chastangford.com/static/dealer-18817/pdf/Specs-Houston-TX.pdf |archive-date=July 3, 2020 |title=2020 Ford Explorer Technical Specifications}}</ref> Unlike its 2.7L counterpart, it does not use a wet-belt driven oil pump, instead using the timing chain.{{Citation needed|date=July 2026}} The 3.0 L is currently only equipped with direct injection while the 2.7 L and 3.5 L engines feature port fuel and direct injection fuel systems.
+
+====Applications====
+* {{cvt|288|hp|kW|0}} at TBU &nbsp;rpm, {{cvt|491|Nm|lbft|0}} at TBU&nbsp;rpm
+** 2022–present Ford Ranger Raptor (EU) – detuned due to Otto Particulate Filter for emissions reasons
+*{{cvt|325|hp|kW|0}} at 5500 rpm, {{cvt|400|lbft|Nm|0}} at 2250 rpm
+**2027–present Ford F-150
+* {{cvt|350|hp|kW|0}} at 5500&nbsp;rpm, {{cvt|400|lbft|Nm|0}} at 2750&nbsp;rpm ([[Front-wheel drive]] only)
+** 2017–2020 Lincoln MKZ
+* {{cvt|400|hp|kW|0}} at 5750&nbsp;rpm, {{cvt|400|lbft|Nm|0}} at 2750&nbsp;rpm ([[All-wheel drive]] only)
+** 2017–2020 Lincoln Continental
+** 2017–2020 Lincoln MKZ
+* {{cvt|365|hp|kW|0}} at 5500&nbsp;rpm, {{cvt|380|lbft|Nm|0}} at 3500&nbsp;rpm
+** 2020–2021 Ford Explorer King Ranch & Platinum
+*{{cvt|392|hp|kW|0}} at 5650&nbsp;rpm, {{cvt|430|lbft|Nm|0}} at 3500&nbsp;rpm
+** 2022–present Ford Ranger Raptor (Australia)
+* {{cvt|405|hp|kW|0}} at 5650 &nbsp;rpm, {{cvt|430|lbft|Nm|0}} at 3500&nbsp;rpm
+** 2024–present Ford Ranger Raptor (USA)
+*{{cvt|400|hp|kW|0}} at 5500&nbsp;rpm, {{cvt|415|lbft|Nm|0}} at 3500&nbsp;rpm
+** 2020–present Ford Explorer ST
+** 2026–present Ford Explorer Tremor
+** 2022–2023 Ford Explorer King Ranch
+** 2022–2025; 2027–present Ford Explorer Platinum
+** 2020–present Ford Police Interceptor Utility
+** 2020–present Lincoln Aviator
+*{{cvt|418|hp|kW|0}} at 5650&nbsp;rpm, {{cvt|440|lbft|Nm|0}} at 3500&nbsp;rpm
+**2022–present Ford Bronco Raptor
+*{{cvt|494|hp|kW|0}} total, with added electric engines at 5500&nbsp;rpm, {{cvt|630|lbft|Nm|0}} total, with added electric motors at 3000&nbsp;rpm
+** 2020–2023 Lincoln Aviator plug-in hybrid
+
+===3.5 L (first generation) {{Anchor|3.5|3.5 l|3.5 L|3.5l|3.5L}}===
+The first Ford vehicle to feature this engine was the 2007 [[Lincoln MKR]] [[concept vehicle]] under the name '''TwinForce'''.<ref>{{cite web |url=http://media.ford.com/press_kits_detail.cfm?presskit_id=1528&item_id=4755&press_section_id=2870 |publisher=Ford Motor Company |title=2007 MKR Concept Overview |work=Ford Media |year=2007}}</ref> The engine was designed to deliver power and torque output equivalent to a typical 6.0 L or larger-displacement V8 while achieving at least 15% better fuel efficiency and reduced greenhouse emissions. In the MKR, the concept TwinForce engine was rated at {{cvt|415|hp|kW|0}} and {{cvt|400|lbft|Nm|0}} of torque, as well as run on [[E85]] fuel.<ref>{{cite web |url=http://media.ford.com/article_display.cfm?article_id=25149 |publisher=Ford Motor Company |title=TwinForce Delivers V-8 Power, V-6 Fuel Efficiency |date=January 10, 2007 |work= Ford.com}}</ref> When the same prototype engine reappeared in the [[Lincoln MKT]] concept in 2008 North American International Auto Show, the name was changed to EcoBoost. Official EcoBoost production began on May 19, 2009 at Cleveland Engine Plant No. 1.
+
+The production engines use the [[Ford Duratec engine#Duratec 35|Duratec 35]] V6 engine block. The fuel charging and delivery systems can attain high fuel pressures up to {{convert|2150|psi|MPa|disp=flip}}, necessary for efficient operation of the direct fuel injection system. The F-series EcoBoost 3.5L V6 uses two BorgWarner K03 turbochargers which can spin up to 170,000&nbsp;rpm and provide up to {{cvt|15|psi|kPa|disp=flip}} of boost. The transverse EcoBoost 3.5L V6 uses two Garrett GT1549L turbochargers and provides up to {{cvt|11|psi|disp=flip}} of boost. The turbos are set up in a twin-turbo configuration. The engine can consume up to 25% more air over the naturally aspirated counterpart. Through the use of direct injection, the engine needs only regular-grade gasoline to run. The EcoBoost V6 was first available as an engine option for 2010 [[Lincoln MKS]], followed by 2010 [[Ford Flex]], 2010 [[Ford Taurus SHO]], and 2010 [[Lincoln MKT]].<ref>{{cite web |url=http://media.ford.com/article_display.cfm?article_id=29946 |publisher=Ford Motor Company |title=Collaboration with Partners Key to EcoBoost's Industry-Leading Fuel-Charging System, Output |work=Ford Media |date=February 27, 2009}}</ref> The fuel-charging and -delivery systems were co-developed with [[Robert Bosch GmbH]].<ref>{{cite web |url= http://www.autoblog.com/2008/08/18/ford-to-charge-700-premium-for-ecoboost/ |title= Ford reportedly to charge $700 premium for Ecoboost |author=Shunk, Chris |work= Autoblog |date=August 18, 2008 |access-date= 2009-11-24}}</ref>
+
+On transverse applications, the water pump was relocated to behind the timing cover and driven off of the timing chain.
+
+In 2009, Ford modified an experimental 3.5 L V6 EcoBoost engine with both E85 direct injection and gasoline indirect fuel injection, which achieved a brake mean effective pressure of {{cvt|395|psi|MPa|disp=flip}} (27 bar), which translates to roughly {{convert|553|lbft|disp=flip}} of torque and {{convert|316|hp}} at 3000&nbsp;rpm (flat torque curve from 1500–3000&nbsp;rpm).<ref name="news.pickuptrucks.com">{{cite web |url=http://news.pickuptrucks.com/2009/06/sneak-peek-ford-bobcat-dual-fuel-engine.html |title=Sneak Peek! Ford's "Bobcat" Dual Fuel Engine |author=Levine, Mike |date=June 8, 2009 |work= PickupTrucks.com |publisher= Cars.com |access-date=2009-11-24}}</ref>
+
+====Applications====
+* {{cvt|310|hp|kW|0}} at 5500&nbsp;rpm, {{cvt|400|lbft|Nm|0}} at 2500&nbsp;rpm
+** 2015–2019 [[Ford Transit]]
+* {{cvt|355|hp|kW|0}} at 5700&nbsp;rpm, {{cvt|350|lbft|Nm|0}} at 3500&nbsp;rpm
+** 2010–2012 [[Ford Flex]]
+** 2010–2012 [[Lincoln MKS]]
+** 2010–2012 [[Lincoln MKT]]
+
+* {{cvt|365|hp|kW|0}} at 5500&nbsp;rpm, {{cvt|350|lbft|Nm|0}} at 1500-5000&nbsp;rpm
+** 2010–2019 [[Ford Taurus SHO]]<ref>{{cite web|url=http://www.ford.com/cars/taurus/specifications/engine/ |title=2016 Ford Taurus &#124; Engine Specs |website=Ford.com |access-date=2016-07-27}}</ref>
+** 2013–2019 [[Ford Police Interceptor Sedan|Police Interceptor Sedan]]
+** 2013–2016 [[Lincoln MKS]]<ref>{{cite web |url=http://www.lincoln.com/cars/mks/2013/specifications/engine/ |title=2016 Lincoln MKS &#124; Engine Specs |website=Lincoln.com |access-date=2016-07-27 |archive-url=https://web.archive.org/web/20111122055830/http://www.lincoln.com/cars/mks/2013/specifications/engine/ |archive-date=November 22, 2011 |url-status=dead }}</ref>
+** 2013–2019 [[Lincoln MKT]]<ref>{{cite web|url=http://www.lincoln.com/cars/mkt/2013/specifications/engine/ |title=2016 Lincoln MKT Luxury Crossover &#124; Engine Specs |website=Lincoln.com |access-date=2016-07-27}}</ref>
+* {{cvt|365|hp|kW|0}} at 5500&nbsp;rpm, {{cvt|350|lbft|Nm|0}} at 3500&nbsp;rpm
+** 2013–2019 [[Ford Explorer#2013 Ford Explorer Sport|Ford Explorer Sport]]<ref>{{cite web|url=http://www.ford.com/suvs/explorer/specifications/engine/ |title=2017 Ford Explorer SUV &#124; Engine Specs |website=Ford.com |access-date=2016-07-27}}</ref>
+** 2016–2019 Ford Explorer Platinum
+** 2013–2019 [[Ford Flex]]<ref>{{cite web|url=http://www.ford.com/crossovers/flex/2013/specifications/engine/ |title=2016 Ford Flex Crossover &#124; Engine Specifications |website=Ford.com |access-date=2016-07-27}}</ref>
+** 2014–2019 [[Ford Explorer#Ford Police Interceptor Utility|Ford Police Interceptor Utility]]
+* {{cvt|365|hp|kW|0}} at 5000&nbsp;rpm, {{cvt|420|lbft|Nm|0}} at 2500&nbsp;rpm
+** 2011–2016 [[Ford F-150]]<ref>{{cite press release| url= http://media.ford.com/article_display.cfm?article_id=30386 |title=A New Era Dawns For Ford With Start of EcoBoost Engine Production at Storied Cleveland Plant |publisher= Ford Motor Company | website= Ford.com |date=May 19, 2009 |access-date= 2011-03-18}}</ref><ref>{{cite press release |url= http://media.ford.com/article_display.cfm?article_id=31765 |title=FORD LAUNCHES UNPRECEDENTED NINE NEW ENGINES, SIX NEW TRANSMISSIONS IN NORTH AMERICA IN 2010 | publisher= Ford Motor Company | website= Ford.com |date=January 8, 2010 |access-date=2011-03-18}}</ref><ref>{{cite web |url= http://media.ford.com/images/10031/2011_F150_EcoBoost.pdf |title= New 2011 F-150 3.5eXplorer EcoBoost|access-date=2010-09-23 |url-status=dead|archive-url= https://web.archive.org/web/20100820145729/http://media.ford.com/images/10031/2011_F150_EcoBoost.pdf |archive-date=August 20, 2010 |df=mdy }}</ref>
+* {{cvt|365|hp|kW|0}} at 5000&nbsp;rpm, {{cvt|420|lbft|Nm|0}} at 2250&nbsp;rpm
+** 2015–2017 [[Ford Expedition|Ford Expedition/Expedition EL]]
+* {{cvt|380|hp|kW|0}} at 5250&nbsp;rpm, {{cvt|460|lbft|Nm|0}} at 2750&nbsp;rpm
+** 2015–2017 [[Lincoln Navigator|Lincoln Navigator/Navigator L]]
+<gallery>
+File:Frontendcutright.jpg
+File:3.5ecoboostfront.jpg
+File:3.5EcoboostPiston.jpg
+File:3.5EcoboostCombustion.jpg
+File:3.5Ecoboostrear.jpg
+</gallery>
+
+===3.5 L (D35; second generation) {{Anchor|D35}}===
+{{Infobox Automobile engine
+| name = D35 3.5 L Ecoboost V-6
+| configuration = [[V6|60° V6]]
+| displacement = {{cvt|3497|cc|cuin|0}}
+| bore = {{cvt|92.51|mm|in|2}}
+| stroke = {{cvt|86.7|mm|in|2}}
+| block = Cast aluminum
+| head = Aluminum alloy
+| valvetrain = 24 valve [[DOHC]] roller finger follower
+| timing = Chain
+| compression = 9.0-10.5:1
+| turbocharger = Twin turbochargers
+| fuelsystem = Port and direct injection
+| predecessor = [[#3.5_L_(first_generation)|Ecoboost 3.5 L V6 (first generation)]]
+}}
+The second generation 3.5L EcoBoost V6 (codename D35) was first introduced for the [[Ford GT#Second generation (2016–2022)|2017 Ford GT]] at the 2015 Detroit Auto Show, as well as the 2017 F-150, 2018 Expedition and 2018 Navigator later on.<ref>{{cite web |url= http://www.caranddriver.com/news/2017-ford-gt-official-photos-and-info-news | title= 2017 Ford GT: The Star-Spangled, 647hp and 550 pounds feet Hypercar! | work= Car & Driver| last=Stoklosa | first= Alexander}}</ref> 
+
+The most prominent change compared to the first generation is the addition of port fuel injection, while retaining the direct injectors. The port fuel injection was partly added due to the fuel output needs on the 3.5L HO Raptor engine, but also has several other benefits. It will prevent carbon buildup on the intake valves and keep them clean due to fuel passing over the valves. Under certain engine conditions such as low rpm and low loads, the high-pressure fuel pump and direct injection system will deactivate and the engine will only use the port fuel injection, reducing efficiency losses from driving the [[Fuel pump#High-pressure mechanical pumps|high pressure fuel pump]]. Both systems will operate at cold start, which will reduce the increased emissions that direct injection suffers caused by cold cylinder walls and lower fuel atomization.
+
+Changes to the turbochargers include electronically actuated wastegates, turbine wheels that are now made with lighter Mar-M-247 super-alloy which increases responsiveness, and the same diameter 51&nbsp;mm turbine wheels that now have sharper vane angles allowing between {{cvt|2.5-16|psi|bar}} higher boost. The turbochargers continue to be supplied by Borg Warner.
+
+The cam drive system was changed from a single primary chain to a stronger two primary chain system, with separate chains driving each cylinder bank. In addition to the dual primary chains, the side plates on the chains were also thickened. The cam chain drive sprocket on the crankshaft is now a double gear arrangement to drive the two primary chains. These two changes were done to improve the harmonics, and are also stronger to help minimize the chain stretch that can occur over time on the 1st generation 3.5L EcoBoost.
+
+The camshafts were made hollow for weight savings, along with the addition of a roller-finger follower valvetrain. The compression ratio was increased from 10.0:1 to 10.5:1 on lower output versions; higher output versions such as the 3.5L EcoBoost HO in the F-150 Raptor, have lower compression ratios like 10.0:1 and as low as 9.0:1 in the Ford GT.
+
+The camshaft VCT (phaser) design was changed to improve reliability and reduce the development of an engine start-up tapping/rattling noise over time. Ford uses a single piston cooling jet per cylinder, but the oil volume was increased. The underside of the pistons were also redesigned to better transfer heat into the oil.
+
+The engine features auto start/stop, which decreases emissions during city driving by shutting the engine off in extended idling periods.
+
+The engines are {{cvt|4|lbs|kg}} lighter than the previous 3.5L EcoBoost.<ref>{{cite web |url=https://www.wardsauto.com/engines/ford-touts-second-gen-ecoboost-v-6-10-speed-trans-17-f-150 | title=Ford Touts Second-Gen EcoBoost V-6, 10-Speed Trans for '17 F-150 |first=Bob | last= Gritzinger| work= WardsAuto.com | date= May 4, 2016| access-date= March 19, 2019}}</ref>
+
+==== Variable camshaft timing phaser issues ====
+VCT units in Ford and Lincoln vehicles with this engine from the 2020 model year and before are found to be failing around 40-80k miles, requiring a replacement to resolve. Ford has issued multiple service bulletins, with the most recent being Customer Satisfaction Program 21N03 – Supplement #4.<ref>{{cite web |date=March 25, 2022 |title=Customer Satisfaction Program 21N03 |url=https://static.nhtsa.gov/odi/tsbs/2022/MC-10209366-0001.pdf |publisher=Ford Motor Company}}</ref> This program extends warranty coverage under certain conditions for a VCT replacement due to tapping phasers. The latest VCT part number (ML3Z prefix) is a significant redesign and so far has been durable and not shown the rattling/tapping issue develop.
+
+====Applications====
+* {{cvt|310|hp|kW|0}} at 5000&nbsp;rpm, {{cvt|400|lbft|Nm|0}} at 2500&nbsp;rpm
+** 2020–present [[Ford Transit]]
+* {{cvt|375|hp|kW|0}} at 5000&nbsp;rpm, {{cvt|470|lbft|Nm|0}} at 3500&nbsp;rpm
+** 2017–2020 [[Ford F-Series (thirteenth generation)|Ford F-150]]
+* {{cvt|375|hp|kW|0}} at 5000&nbsp;rpm, {{cvt|470|lbft|Nm|0}} at 2250&nbsp;rpm
+** 2018–2021 [[Ford Expedition]]
+* {{cvt|380|hp|kW|0}} at 5000&nbsp;rpm, {{cvt|470|lbft|Nm|0}} at 2250&nbsp;rpm
+** 2022–2024 [[Ford Expedition]]
+* {{cvt|400|hp|kW|0}} at 5000&nbsp;rpm, {{cvt|480|lbft|Nm|0}} at 3250&nbsp;rpm
+** 2018–2021 Ford Expedition Platinum
+* {{cvt|400|hp|kW|0}} at 5000&nbsp;rpm, {{cvt|480|lbft|Nm|0}} at 2250&nbsp;rpm
+** 2022–present Ford Expedition Platinum
+*{{cvt|400|hp|kW|0}} at 6000&nbsp;rpm, {{cvt|500|lbft|Nm|0}} at 3100&nbsp;rpm
+**2021–present [[Ford F-Series (fourteenth generation)|Ford F-150]]
+*{{cvt|430|hp|kW|0}} at 6000&nbsp;rpm, {{cvt|570|lbft|Nm|0}} at 3000&nbsp;rpm ([[Hybrid vehicle drivetrain|FHEV]])
+**2021–present [[Ford F-Series (fourteenth generation)|Ford F-150]]
+*{{cvt|440|hp|kW|0}} at 5000&nbsp;rpm, {{cvt|510|lbft|Nm|0}} at 3250&nbsp;rpm, 10.0:1 compression ratio
+**2022–present Ford Expedition Timberline & Limited Stealth Performance Packages
+* {{cvt|450|hp|kW|0}} at 5500&nbsp;rpm, {{cvt|510|lbft|Nm|0}} at 3000&nbsp;rpm, 10.0:1 compression ratio
+** 2018–present [[Lincoln Navigator]]
+* {{cvt|450|hp|kW|0}} at 5000&nbsp;rpm, {{cvt|510|lbft|Nm|0}} at 3500&nbsp;rpm, 10.0:1 compression ratio
+** 2017–2020 Ford F-150 High Output<!-- The 'High Output' might exclusively be available in the Raptor, or it might be an optional upgrade for non Raptor trims -->
+** 2017–2020 [[Ford F-Series (thirteenth generation)#F-150 Raptor|Ford F-150 Raptor]]
+* {{cvt|450|hp|kW|0}} at 5850&nbsp;rpm, {{cvt|510|lbft|Nm|0}} at 3000&nbsp;rpm
+** 2021–present [[Ford F-Series (thirteenth generation)#F-150 Raptor|Ford F-150 Raptor]]
+* {{cvt|506|hp|kW|0}} at 5200&nbsp;rpm, {{cvt|550|lbft|Nm|0}} at 4000&nbsp;rpm
+** 2024– [[Noble M500]]
+* {{cvt|647|hp|kW|0}} at 6250&nbsp;rpm, {{cvt|550|lbft|Nm|0}} at 5900&nbsp;rpm, 9.0:1 compression ratio
+** 2017–2019 [[Ford GT]]
+*{{cvt|650|hp|kW|0}} at 5500&nbsp;rpm, {{cvt|571|Nm|lbft|0|order=flip}} at 2500&nbsp;rpm
+**2024- [[Adamastor (company)|Adamastor]] Furia<ref>{{Cite web |title=Furia Supercar {{!}} Adamastor - Adamastor Supercar |url=https://www.adamastor.com.pt/furia-supercar |access-date=2024-05-27 |website=Furia Supercar {{!}} Adamastor - Adamastor Supercar |language=en}}</ref>
+*{{cvt|660|hp|kW|0}} at 6250&nbsp;rpm, {{cvt|550|lbft|Nm|0}} at 5900&nbsp;rpm, 9.0:1 compression ratio
+**2020–2022 [[Ford GT]]<ref>{{Cite web |title=Ford GT Full Specs, Features and Price |url=https://carbuzz.com/cars/ford/gt/ford-gt |access-date=2021-04-25 |website=CarBuzz |language=en-us }}{{Dead link|date=January 2025 |bot=InternetArchiveBot |fix-attempted=yes }}</ref>
+
+====Motorsports====
+* [[Ford GT#Ford GT LM GTE-Pro by Ford Chip Ganassi Racing|Ford GT LM GTE-Pro]]
+
+==See also==
+* [[Ford Duratec engine]]
+* [[List of Ford engines]]
+* [[Ford PowerShift transmission]]
+
+==References==
+{{Reflist|30em}}
+
+{{Commons category|Ford EcoBoost engine}}
+
+{{Ford Taurus}}
+{{Ford engine timeline}}
+
+{{DEFAULTSORT:Ford Ecoboost Engine}}
+[[Category:Ford engines|EcoBoost]]
+[[Category:2009 introductions]]
+[[Category:2000s automobile engines]]
+[[Category:Land Rover engines]]
+[[Category:Mazda engines]]
+[[Category:Straight-four engines]]
+[[Category:Straight-three engines]]
+[[Category:V6 engines]]
+[[Category:Volvo engines]]

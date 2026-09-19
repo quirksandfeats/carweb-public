@@ -1,0 +1,776 @@
+{{short description|Car model}}
+{{distinguish|Cadillac Seville}}
+{{for|the body style|Coupé de ville}}
+{{Use American English|date=April 2026}}
+{{Use mdy dates|date=April 2026}}
+{{Infobox automobile
+| name = Cadillac DeVille
+| image = 2004 Cadillac Deville DHS -- NHTSA.jpg{{!}}border
+| caption = A 2004 Cadillac DeVille DHS
+| manufacturer = [[Cadillac]]
+| production = 1958–2005
+| model_years = 1959–2005
+| assembly = 
+| class = [[luxury car|Full-size luxury car]]
+| layout = [[FR layout]] (1959–1984)<br>[[Front-engine, front-wheel-drive layout|Transverse front-engine, front-wheel drive]] (1985–2005)
+| predecessor = [[Cadillac Series 62]]
+| successor = [[Cadillac DTS]]
+}}
+
+The '''Cadillac DeVille''' is a model name used by [[Cadillac]] over eight generations, originally to designate a trim level of the 1949 [[Cadillac Series 62]] and later for a standalone model in the brand range. The last model marketed specifically as a ''DeVille'' was the 2005 full-size sedan, at the time, Cadillac's largest model.
+
+For 2006, the ''DeVille'' nameplate was retired, when the model line was carried forward (with minor revisions) as the [[Cadillac DTS]],   (DeVille Touring Sedan) using a nomenclature adopted by the [[Cadillac STS]]  (Seville Touring Sedan) and [[Cadillac CTS|CTS]] (Catera Touring Sedan).
+
+== Early history ==
+[[File:Cadillac Coupe De Ville 1950.jpg|thumb|left|1950 Cadillac Series 62 Coupe de Ville]]
+[[File:1955 Cadillac Coupe de Ville (29417015946).jpg|thumb|left|Cadillac Coupe de Ville badging]]
+<!-- Deleted image removed: [[File:Cadillac Series 62 Sedan 1956. four doors. Spielvogel.jpg|thumb|left|1956 Cadillac Series 62 Sedan]] -->
+
+The name "DeVille" is derived from the French ''de la ville'' or ''de ville'' meaning "of the town".<ref name="cadillacdatabase1">{{cite web |url=http://www.cadillacdatabase.net/Dbas_txt/Factd-g.htm |title=Cadillac Terms and Definitions D - G |publisher=Cadillacdatabase.net |access-date=December 30, 2011 |url-status=dead |archive-url=https://web.archive.org/web/20120111154213/http://www.cadillacdatabase.net/Dbas_txt/Factd-g.htm |archive-date=January 11, 2012 }}</ref>  In French coach building parlance, a coupé de ville, from the French ''couper'' (to cut), i.e., shorten or reduce, was a short four-wheeled closed carriage with an inside seat for two and an outside seat for the driver, and this smaller vehicle was intended for use in the town or city (de ville). An (unshortened) limousine or (in the United States) town car has a division between the passenger and driver compartments and, if the driver's seat is outside, it may be called a ''sedanca de ville'' or town car.<ref name="cadillacdatabase1"/>
+
+[[File:53CoupeDeville.jpg|alt=1953 Cadillac Coupe de Ville in Crystal and Gloss Green two-tone|thumb|1953 Cadillac Coupe de Ville in Crystal and Gloss Green two-tone]]
+The first Cadillac "Coupe de Ville" was shown during the [[General Motors Motorama#1949|1949 Motorama]]. It was built on a [[Cadillac Sixty Special]] chassis and featured a dummy air-scoop, chrome trim around front wheel openings, and a one-piece windshield and rear glass. The interior was black and trimmed in gray leather, including the headliner, to match the roof color. It was equipped with a telephone in the [[glove compartment]], a vanity case and a secretarial pad in the rear armrest, power windows and highly decorative chrome interior trim.<ref name="cadillacdatabase2"/>
+
+The prototype "Coupe de Ville" was used by GM President Charles E. Wilson until 1957 when he gave it to his secretary. At some time during this period, it acquired a dark [[Vinyl top|Vicodec roof]].<ref name="cadillacdatabase2">{{cite web |title=Cadillac Terms and Definitions A - C |url=http://www.cadillacdatabase.net/Dbas_txt/Facta-c.htm |url-status=live |archive-url=https://web.archive.org/web/20120111112255/http://www.cadillacdatabase.net/Dbas_txt/Facta-c.htm |archive-date=January 11, 2012 |access-date=December 30, 2011 |publisher=Cadillacdatabase.net}}</ref> The prototype "Coupe de Ville" was found and restored in the 2010s; it was in a private collection in London, Ontario, Canada as of 2017. {{Citation needed|date=January 2024|reason=Cited source does not seem to mention the private collection referenced here}}
+
+[[File:1955CoupeDeville.jpg|alt=1955 Cadillac Coupe DeVille in Pecos Beige and Tangier Tan Two Tone |thumb|1955 Cadillac Coupe DeVille in Pecos Beige and Cocobar Two Tone ]]
+The [[Cadillac Series 62]] Coupe de Ville was introduced late in the 1949 model year. Along with the [[Buick Roadmaster]] [[Buick Riviera|Riviera]], and the [[Oldsmobile 98]] Holiday, it was among the first pillarless [[hardtop]] coupes ever produced. At US$3,496 (${{formatnum:{{Inflation|US|3496|1949}}}} in {{Inflation-year|US}} dollars {{inflation-fn|US}}) it was only a dollar less than the Series 62 convertible, and like the convertible, it came with power windows standard. It was luxuriously trimmed, with leather upholstery and chrome 'bows' in the headliner to simulate the ribs of a convertible top.<ref name="kowalke1997"/><ref name="gunnell2005"/>
+
+In its first year, the Series 62 Coupe de Ville sold 2,150 units. The 1950 sales more than doubled to 4,507. In 1951, sales more than doubled again to 10,241, exceeding the sales for the Series 62 Club Coupe that year. In 1951, Coupe de Ville chrome script appeared on the rear roof pillar for the first time, to further distinguish it from the Series 62 Club Coupe.<ref name="kowalke1997">{{cite book|title=Standard Catalog of American Cars 1946–1975|last=Kowalke|first=Ron|publisher=Krause publications|year=1997|isbn=0-87341-521-3|url-access=registration|url=https://archive.org/details/standardcatalogo00beve}}</ref><ref name="gunnell2005">{{cite book|title=Standard Catalog of Cadillac 1903–2005|last=Gunnell|first=John|publisher=Krause publications|year=2005|isbn=0873492897}}</ref>
+
+In 1956, the Series 62 Coupe de Ville was joined by the Series 62 Sedan de Ville, Cadillac's first standard production 4-door hardtop. Similarly to the Coupe de Ville, it was also more expensive and more luxuriously trimmed than the standard 4-door Series 62. With 41,732 sold, it also easily outsold the Series 62 sedan in its first year. Given their sales success, the Coupe de Ville and Sedan de Ville were moved to their own separate series in 1959, the Series 6300, being joined by a DeVille convertible in 1964.<ref name="kowalke1997"/><ref name="gunnell2005"/>
+
+{{clear}}
+
+==First generation (1959–1960)==
+{{Infobox automobile
+| name         = First generation
+| image        = Cadillac Coupe de Ville, Weston Park Transport Show 2015 (16763492833).jpg
+| caption      = 1959 Cadillac Coupe de Ville
+| model_years  = 1959–1960
+| assembly     = [[Detroit Assembly]], [[Detroit, Michigan]], U.S. 
+| platform     = [[GM C platform (RWD)|C-body]]
+| body_style   = 4-door 6-window [[hardtop]]<br>4-door 4-window [[hardtop]]<br>2-door [[hardtop]]
+| layout       = [[FR layout]]
+| engine       = {{convert|390|cuin|L|1|abbr=on}} [[Cadillac V8 engine#390|OHV]] [[V8 engine|V8]]
+| transmission = 4-speed [[Hydra-Matic]] [[automatic transmission|automatic]]
+| wheelbase    = {{convert|130.0|in|mm|0|abbr=on}}<ref name="gunnell2005"/>
+| length       = {{convert|225.0|in|mm|0|abbr=on}}<ref name="gunnell2005"/>
+| width        = 1959: {{convert|80.2|in|mm|0|abbr=on}}<ref name="gunnell2005"/><br>1960: {{convert|79.9|in|mm|0|abbr=on}}<ref name="gunnell2005"/>
+| height       = {{convert|56.2|in|mm|0|abbr=on}}
+| weight       = {{convert|4900|-|5100|lb|kg|abbr=on}}
+| designer     = [[Bill Mitchell (designer)|Bill Mitchell]]
+| related      = [[Cadillac Eldorado]]<br>[[Cadillac Sixty Special]]<br>[[Cadillac Series 62]]<br>[[Buick Electra]]<br>[[Oldsmobile 98]]
+}}
+[[File:Cadillac Sedan de Ville BW 2017-07-16 13-07-24.jpg|left|thumb|1959 Cadillac Sedan de Ville]]
+[[File:1959 Cadillac Coupe Deville3.jpg|thumb|left|1959 Cadillac Coupe de Ville (rear)]]
+[[File:1960 Cadillac DeVille (1).jpg|thumb|left|1960 Cadillac Coupe de Ville]]
+[[File:CoupeDeVille-1960-interior.jpg|left|thumb|1960 Cadillac Coupe de Ville interior]]
+The 1959 [[Cadillac]] is remembered for its huge, sharp tailfins with dual bullet taillights, two distinctive rooflines and roof pillar configurations, new jewel-like grille patterns, and matching deck lid beauty panels.<ref>{{cite web |url=http://oldcarbrochures.com/static/NA/Cadillac/1959_Cadillac/1959_Cadillac_Comparison_Folder/1959%20Cadillac%20Comparison%20Folder-04.html |title=Directory Index: Cadillac/1959_Cadillac/1959_Cadillac_Comparison_Folder |access-date=February 24, 2015 |url-status=live |archive-url=https://web.archive.org/web/20150225010824/http://oldcarbrochures.com/static/NA/Cadillac/1959_Cadillac/1959_Cadillac_Comparison_Folder/1959%20Cadillac%20Comparison%20Folder-04.html |archive-date=February 25, 2015 }}</ref> In 1959, the [[Cadillac Series 62|Series 62]] were moved from the Series 62 to their own series, the '''Series 6200'''.  De Villes and 2-door [[Cadillac Eldorado|Eldorados]] became the '''Series 6300''' and '''Series 6400''' respectively, though they all, including the 4-door Eldorado [[Cadillac Brougham|Brougham]] (which was moved from the '''[[Cadillac Series 70|Series 70]]''' to '''Series 6900'''), shared the same {{convert|130|in|mm|0|abbr=on}} wheelbase. Engine output was an even 325&nbsp;hp (242&nbsp;kW) from the {{convert|390|cuin|L|1|abbr=on}} engine. The DeVille Series had script nameplates on the rear fenders. Standard equipment included power brakes with 15-inch wheels,<ref>{{cite web|url=http://oldcarbrochures.com/static/NA/Cadillac/1959_Cadillac/1959_Cadillac_Comparison_Folder/1959%20Cadillac%20Comparison%20Folder-04.html |title=Directory Index: Cadillac/1959_Cadillac/1959_Cadillac_Comparison_Folder |publisher=Oldcarbrochures.com |access-date=August 18, 2022}}</ref> [[power steering]], automatic transmission, back-up lamps, windshield wipers, two-speed wipers, wheel discs, outside rearview mirror, vanity mirror, [[oil filter]], power windows and two-way power seats. Plain [[fender skirt]]s covered the rear wheels, and 4-doors were available in either four-window or six-window hardtop configurations. Over 53,000 DeVilles were sold in their first year as a separate series, accounting for roughly 37% of all Cadillacs sold.
+
+The 1960 Cadillacs had smoother, more restrained styling. General changes included a full-width grille, the elimination of pointed front bumper guards, more restrained use of chrome trim, lower tailfins with oval-shaped nacelles, and front fender-mounted directional indicator lamps. De Villes were distinguished by special script nameplates on the rear fenders. Four-window and six-window hardtop sedans were offered again. 
+
+Four-window sedans featured a one-piece wraparound backlight and flat-top roof. Six-window sedans had a sloping rear window and roofline. Standard equipment included power brakes, power steering, automatic transmission, dual back-up lamps, windshield wipers, two-speed wipers, wheel discs, outside rearview mirror, vanity mirror, oil filter, power windows and a two-way power seats. Technical highlights were finned rear drums and an X-frame construction. Interiors were done in Chadwick cloth or optional Cambray cloth and leather combinations.
+{{clear}}
+
+==Second generation (1961–1964)<span class="anchor" id="2"></span><span class="anchor" id="1961"></span>==
+{{Infobox automobile
+| name         = Second generation
+| image        = 1961 Cadillac six window Sedan Deville fvl.jpg
+| caption      = 1961 Cadillac Sedan de Ville
+| model_years  = 1961&ndash;1964
+| assembly     = [[Detroit Assembly]], [[Detroit, Michigan]], U.S. 
+| body_style   = 4-door 6-window [[hardtop]]<br>4-door 4-window [[hardtop]]<br>4-door Town Sedan 6-Window [[hardtop]]<br>4-door Park Avenue 4-Window [[hardtop]]<br>2-door [[hardtop]]<br>2-door [[convertible (car)|convertible]]
+| wheelbase    = {{convert|129.5|in|mm|0|abbr=on}}<ref name="gunnell2005"/>
+| length       = 1961–62 (except for Town Sedan or Park Avenue): {{convert|222.0|in|mm|0|abbr=on}}<ref name="gunnell2005"/><br>1961 Town Sedan: {{convert|215.0|in|mm|0|abbr=on}}<ref name="gunnell2005"/><br>1962–63 Park Avenue: {{convert|215.0|in|mm|0|abbr=on}}<ref name="gunnell2005"/><br />1963 (except for Park Avenue): {{convert|223.0|in|mm|0|abbr=on}}<ref name="gunnell2005"/><br />1964: {{convert|223.5|in|mm|0|abbr=on}}<ref name="gunnell2005"/>
+| layout       = [[FR layout]]
+| engine       = {{convert|390|cuin|L|1|abbr=on}} [[Cadillac V8 engine#390|OHV]] [[V8 engine|V8]]<br>{{convert|429|cuin|L|1|abbr=on}} [[Cadillac V8 engine#429|OHV]] [[V8 engine|V8]]
+| transmission = 4-speed [[Hydra-Matic]] [[automatic transmission|automatic]]<br>3-speed [[Turbo-Hydramatic#Super Turbine 400 / THM400 / 3L80 / 3L80HD|TH-400]], [[automatic transmission|automatic]]
+| width        = 1961: {{convert|79.8|in|mm|0|abbr=on}}<ref name="gunnell2005"/><br>1962: {{convert|79.9|in|mm|0|abbr=on}}<ref name="gunnell2005"/><br>1963: {{convert|79.7|in|mm|0|abbr=on}}<ref name="gunnell2005"/><br>1964: {{convert|79.5|in|mm|0|abbr=on}}<ref name="gunnell2005"/>
+| height       = 1961–62: {{convert|56.3|in|mm|0|abbr=on}}<br>1963–64: {{convert|56.6|in|mm|0|abbr=on}}
+| weight       = {{convert|4700|-|4900|lb|kg|abbr=on}}
+| designer     = [[Bill Mitchell (designer)|Bill Mitchell]]
+| related      = [[Cadillac Eldorado]]<br>[[Cadillac Sixty Special]]<br>[[Cadillac Series 62]]<br>[[Buick Electra]]<br>[[Oldsmobile 98]]
+}}
+
+[[File:1961 Cadillac Coupe Deville (09).jpg|thumb|left|1961 Cadillac Coupe de Ville]]
+[[File:1961 Cadillac Coupe Deville (13).jpg|left|thumb|1961 Cadillac Coupe de Ville interior]]
+[[File:Cadillac Sedan DeVille 1962 exhibited at Schaffen-Diest 2013.jpg|thumb|left|1962 Cadillac Sedan de Ville]]
+[[File:1963 Cadillac Coupe de Ville (1).jpg|thumb|left|1963 Cadillac Coupe de Ville]]
+[[File:Cadillac sedan rear -- 08-20-2009.jpg|thumb|left|Short-rear-decked 1963 Cadillac Sedan de Ville Park Avenue]]
+[[File:Cadillac De Ville convertible arriving Schaffen-Diest.JPG|thumb|left|1964 Cadillac DeVille convertible]]
+
+Cadillac was restyled and re-engineered for 1961. The new grille slanted back towards both the bumper and the hood lip, along the horizontal plane, and sat between dual headlamps. New forward slanting front pillars with non-wraparound windshield glass were seen. The revised backlight treatment had crisp angular lines with thin pillars on some models and heavier semi-blind quarter roof posts on others. De Ville models featured front series designation scripts and lower body "skeg fins" trimmed with a thin, three-quarter-length spear molding running from behind the front wheel opening to the rear of the car. Standard equipment included power brakes, power steering, automatic transmission, dual backup lights, windshield washer, dual speed wipers, wheel discs, plain fender skirts, outside rearview mirror, vanity mirror, oil filter, power windows and 2-way power seats. Rubberized front and rear coil springs replaced the trouble prone [[air suspension]] system. Four-barrel induction systems were now the sole power choice and dual exhausts were no longer available. A&nbsp;new {{cvt|7|in|cm|0}} shorter rear-decked four-door Town Sedan hardtop appeared mid-season.
+
+A mild facelift characterized Cadillac styling trends for 1962. A flatter grille with a thicker horizontal center bar and more delicate cross-hatched insert appeared. Ribbed chrome trim panel, seen ahead of the front wheel housings in 1961, were now replaced with cornering lamps and front fender model and series identification badges were eliminated. More massive front bumper end pieces appeared and housed rectangular parking lamps. At the rear, tail lamps were now housed in vertical nacelles designed with an angled peak at the center. A vertically ribbed rear beauty panel appeared on the deck lid latch panel. Cadillac script also appeared on the lower left side of the radiator grille. The short-deck [[hardtop]] Town Sedan was moved from the De Ville series to the Series 6200, being replaced by a short-deck Park Avenue.<ref>Flory, J. "Kelly", Jr. ''American Cars 1960–1972'' (Jefferson, NC: McFarland & Coy, 2004), p.147.</ref> In addition, all short deck Cadillac models went from being 6-window sedans in 1961 to 4-window sedans in 1962 and 1963. Standard equipment included all of the previous year's equipment plus remote controlled outside rearview mirror, five tubeless black wall tires, heater and defroster and front cornering lamps. Cadillac refined the ride and quietness, with more insulation in the floor and behind the firewall.<ref>Flory, p.147.</ref> DeVille sales as a separate series exceeded their sales level as a trim level for the first time ever at 71,883 units, or nearly 45% of Cadillac's total sales.
+
+Cadillac was restyled again for 1963. Exterior changes imparted a bolder and longer look. Hoods and deck lids were redesigned. The front fenders projected {{convert|4.625|in}} further forward than in 1962 while the tailfins were trimmed down somewhat to provide a lower profile. Body-side sculpturing was eliminated. The slightly V-shaped radiator grille was taller and now incorporated outer extensions that swept below the flush-fender dual headlamps. Smaller circular front parking lamps were mounted in those extensions. A DeVille signature script was incorporated above the lower beltline molding near the rear of the body. A total of 143 options including bucket seats with [[wool]], [[leather]], or [[nylon]] upholstery fabrics and wood veneer facings on dash, doors, and seatbacks, set an all-time record for interior appointment choices. Standard equipment was the same as the previous year. The [[engine displacement]] and output remained the same, {{convert|390|cid|L|1|abbr=on}} and {{convert|325|hp|kW|abbr=on}}.<ref>Flory, p.211.</ref>
+
+A minor facelift followed in 1964. New up front was a bi-angular grille that formed a V-shape along both its vertical and horizontal planes. The main horizontal grille bar was now carried around the body sides. Outer grille extension panels again housed the parking and cornering lamps. It was the 17th consecutive year for the Cadillac tailfins with a new fine-blade design carrying on the tradition. Short-deck models were discontinued.  Performance improvements including a larger V-8 were the dominant changes for the model run. Equipment features were same as in 1963 for the most part. Comfort Control, a completely automatic heating and air conditioning system controlled by a dial thermostat on the instrument panel, was introduced as an industry first. The engine was bumped to {{convert|429|cid|L|0|abbr=on}}, with 340&nbsp;hp (253.5&nbsp;kW) available. Performance gains from the new engine showed best in the lower range, at 20 to 50&nbsp;mph traffic driving speeds. A new technical feature was the Turbo-Hydramatic transmission, also used in the Eldorado and the Sixty Special. A De Ville script above the lower belt molding was continued as an identifier. This was the first year for the De Ville convertible. De Ville sales reached 110,379 units, accounting for nearly two thirds of all Cadillacs sold.{{cn|date=June 2024}}
+{{-}}
+
+==Third generation (1965–1970)<span class="anchor" id="3"></span><span class="anchor" id="1965"></span>==
+{{Infobox automobile
+| name         = Third generation
+| image        = 1965 Cadillac.jpg
+| caption      = 1965 Cadillac Sedan de Ville
+| model_years  = 1965–1970
+| assembly     = [[Detroit Assembly]], [[Detroit, Michigan]], U.S. 
+| layout       = [[FR layout]]
+| platform     = [[GM C platform (RWD)|C-body]]
+| engine       = {{convert|429|cuin|L|1|abbr=on}} [[Cadillac V8 engine#429|OHV]] [[V8 engine|V8]]<br>{{convert|472|cuin|L|1|abbr=on}} [[Cadillac V8 engine#472|OHV]] [[V8 engine|V8]]
+| transmission = 3-speed [[Turbo-Hydramatic#Super Turbine 400 / THM400 / 3L80 / 3L80HD|TH-400]], [[automatic transmission|automatic]]
+| wheelbase    = {{convert|129.5|in|mm|0|abbr=on}}<ref name="gunnell2005"/><ref>{{cite web |url=http://www.oldcarbrochures.com/static/NA/Cadillac/1965_Cadillac/1965_Cadillac_Brochure_1/1965%20Cadillac-21.html |title=Directory Index: Cadillac/1965_Cadillac/1965_Cadillac_Brochure_1 |publisher=Oldcarbrochures.com |access-date=November 20, 2011 |url-status=live |archive-url=https://web.archive.org/web/20131019011410/http://www.oldcarbrochures.com/static/NA/Cadillac/1965_Cadillac/1965_Cadillac_Brochure_1/1965%20Cadillac-21.html |archive-date=October 19, 2013 }}</ref>
+| length       = 1965–67: {{convert|224.0|in|mm|0|abbr=on}}<br />1968: {{convert|224.7|in|mm|0|abbr=on}}<ref name="gunnell2005"/><br />1969–70: {{convert|225.0|in|mm|0|abbr=on}}<ref name="gunnell2005"/>
+|body_style    = 4-door [[hardtop]]<br>4-door [[Sedan (automobile)|sedan]]<br>2-door [[hardtop]]<br />2-door [[convertible (car)|convertible]]
+| width        = 1965–68: {{convert|79.9|in|mm|0|abbr=on}}<br>1969–70: {{convert|79.8|in|mm|0|abbr=on}}
+| height       = 1965–68: {{convert|55.6|in|mm|0|abbr=on}}<br>1969–70: {{convert|56.2|in|mm|0|abbr=on}}
+| weight       = {{convert|4600|-|4900|lb|kg|abbr=on}}
+| designer     = [[Bill Mitchell (designer)|Bill Mitchell]]
+| related      = [[Cadillac Eldorado]]<br>[[Cadillac Calais]]<br>[[Buick Electra]]<br>[[Oldsmobile 98]]
+}}
+
+[[File:1965 Cadillac Coupe Deville.jpg|thumb|left|1965 Cadillac Coupe de Ville]]
+[[File:1965 Cadillac Deville convertible dashboard1.jpg|thumb|left|1965 Cadillac de Ville convertible (interior)]]
+[[File:1966 Cadillac deVille convertible (6997954902).jpg|thumb|left|1966 Cadillac De Ville Convertible]]
+[[File:1967 Cadillac DeVille (16439709295).jpg|left|thumb|1967 Cadillac Sedan de Ville]]
+[[File:1968 Cadillac Coupe Deville fvl1.jpg|thumb|left|1968 Cadillac Coupe de Ville]]
+[[File:1969 Cadillac Sedan Deville fvl.jpg|thumb|left|1969 Cadillac Sedan de Ville]]
+[[File:1970 Cadillac DeVille convertible, front right, 06-16-2024.jpg|thumb|left|1970 Cadillac DeVille convertible]]
+
+As it had been since De Ville became a separate series, De Ville denoted Cadillac's mainstream model, falling between the [[Cadillac Calais|Calais]] (which had replaced the [[Cadillac Series 62|Series 62]]) and the [[Cadillac Sixty Special|Sixty Special]] and [[Cadillac Eldorado|Eldorado]]. The De Ville was redesigned for 1965 but rode on the same {{convert|129.5|in|mm|adj=on}} wheelbase. Tailfins were canted slightly downward, and sharp, distinct body lines replaced the rounded look. Also new were a straight rear bumper and vertical lamp clusters. The headlight pairs switched from horizontal to vertical, thus permitting a wider grille. Curved, frameless side windows appeared, and convertibles acquired tempered-glass backlights. New standard features included lamps for luggage, glove, and rear passenger compartments, as well as front and rear safety belts. Power was still supplied by the 340 horsepower {{convert|429|CID|cc|abbr=on}} V8, which would be replaced by the {{convert|472|CID|cc|abbr=on}} for 1968. Cadillac dropped the X-frame and used a new perimeter frame.<ref>{{cite web|url=http://oldcarbrochures.com/static/NA/Cadillac/1965_Cadillac/1965_Cadillac_Brochure_1/1965%20Cadillac-20.html |title=Directory Index: Cadillac/1965_Cadillac/1965_Cadillac_Brochure_1 |publisher=Oldcarbrochures.com |access-date=August 18, 2022}}</ref> Pillared sedans appeared on the De Ville series for the first time, while six-window hardtop sedans were dropped. A padded vinyl roof was a $121 extra-cost option on the hardtop model. All four DeVille models had small "[[Tiffany & Co.|Tiffany-like]]" script nameplates on the ends of their rear fenders just above the chrome [[side molding]].
+
+In 1966, changes included a somewhat coarser mesh for the radiator grille insert, which was now divided by a thick, bright metal horizontal center bar housing rectangular parking lamps at the outer ends. Separate rectangular cornering lamps replaced the integral grille extension designs. There was generally less chrome on all Cadillac models this year. De Ville scripts were still above the rear tip of the horizontal body rub moldings. Cadillac crests and V-shaped moldings at the front and rear were identifiers. Cadillac "firsts" this season included variable-ratio steering and optional front seats with carbon-cloth heating pads built into the cushions and seatbacks. Comfort and convenience innovations were headrests, reclining seats and an AM/FM stereo system. Automatic level control was available. Engineering improvements made to the perimeter frame increased ride and handling ease. Newly designed piston and oil rings and a new engine mounting system and patented quiet exhaust were used.
+
+The 1967 De Villes were extensively restyled. Prominent styling features were given a powerful frontal appearance with forward-leaning front end, long, sculptured body lines, and redefined rear fenders that had more than just a hint of tail fins in them. The full-width, forward-thrusted "eggcrate" grille was flanked by dual stacked headlights for the third consecutive year. The squarer cornered grille insert had blades that seemed to emphasize its vertical members and it appeared both above the bumper and through a horizontal slot cut into it. Rectangular parking lamps were built into the outer edges of the grille. Rear end styling revisions were highlighted by metal divided tail lamps and a painted lower bumper section. Coupe de Villes got a new roofline, inspired by the Florentine show car created for the 1964 [[New York City|New York]] World's Fair, that gave rear seat passengers added privacy. As on that show car, the quarter window glass retracted rearward into a sail panel. Minor trim variations and slightly richer interiors separated De Ville from [[Cadillac Calais|Calais]]. Tiffany style chrome signature scripts were again found above the body side molding on the rear fenders. New standard DeVille features included non-glare [[rear-view mirror]], electric clock, Automatic Climate Controls, padded dashboard, Hazard Warning system, outboard seatbelt retractors and rear cigarette lighters in all styles. A slide-out fuse box and safety front seat back lock for two-door models were additional Cadillac advances for the 1967 model year. Technical improvements included a revised engine valve train, different [[carburetor]], Mylar printed circuit instrument panel, re-tuned body mounts, and a new engine fan with clutch for quieter operation. A GM-designed Energy Absorbing steering column and safety wheel became standard for all models.
+
+In 1968, grilles had an insert with finer mesh and step down outer section which held the rectangular parking lights just a little higher than before. Rear end styling was modestly altered with the deck lid having more of a rake. The most obvious change was an {{convert|8.5|in|adj=on}} longer hood designed to accommodate recessed windshield wiper-washers, which now came with three speeds standard. Of 20 exterior paint color combinations, 14 were totally new. On the inside enriched appointments included molded inner door panels with illuminated reflectors and a selection of 147 upholstery combinations, 76 in cloth, 67 in leather and four in vinyl. New standard features included a Light Group, a Mirror Group, a trip odometer and an ignition key warning buzzer. The DeVille also gained a new {{convert|472|CID|cc|abbr=on}} [[V8 engine|V8]] engine rated at 375&nbsp;hp (SAE gross). 1968 was also the last year for the "stacked" dual headlights, which were replaced with side-by-side dual headlights in 1969. This was also the last year for vent windows.  Side marker lights in the rear bumper as well as
+front fender were also added.  Side mirror changed from a round to rectangular shape.
+Also of note front disc brakes were available starting in 1968.  Cars built after January 1, 1968, got front shoulder belts per Federal safety standards.
+
+In 1969, DeVille was restyled in the Eldorado image. An Eldorado-like front fender treatment evolved and helped to emphasize a stronger horizontal design line. Rear quarters were extended to give the car a longer look. There was an all new grille with dual horizontal headlamps positioned in the outboard step down areas of the grille. The hood was again extended, a total of {{convert|2.5|in}} to add the impression of extra length. The roofline was squarer and the rear deck and bumper more sculptured. A new ventilation system eliminated the need for vent windows, which provided a longer sleeker look and improved visibility. New standard features included front and rear (except on convertibles) center seat armrests.  The ignition switch was moved from the instrument panel to the steering column, and included a steering wheel and transmission lock, one year ahead of a mandated Federal standard.
+
+In 1970, a facelift included a grille with 13 vertical blades set against a delicately cross-hatched rectangular opening. The bright metal headlamp surrounds were bordered with body color to give it a more refined look. Narrow vertical "vee" tail lights were seen again, but now had additional smaller V-shaped bottom lenses pointing downward below the bumper. Wheel discs and winged crest fender tip emblems were new. Exterior distinctions came from a De Ville script above the rear end of the belt molding and from the use of long rectangular back up light lenses set into the lower bumper as opposed to the smaller square lens used on the Calais. A new feature was a body color border around the edge of the vinyl top covering, when this option was ordered. The 1970 model year was both the last year that De Ville offered a convertible body style and for pillared sedans until hardtops were permanently dropped in 1977.  A total of 181,719 De Villes were sold for that model year, accounting for 76% of all Cadillacs.{{cn|date=June 2024}}
+{{-}}
+
+==Fourth generation (1971–1976)<span class="anchor" id="4"></span><span class="anchor" id="1971"></span>==
+{{Infobox automobile
+| name = Fourth generation
+| image = 1973 Cadillac Sedan Deville.jpg
+| caption = 1973 Cadillac Sedan de Ville
+| model_years = 1971–1976
+| assembly = [[Detroit Assembly]], [[Detroit, Michigan]], U.S. <br>[[Linden Assembly]], [[Linden, New Jersey]], U.S.
+| layout = [[FR layout]]
+| platform = [[GM C platform (RWD)|C-body]]
+| wheelbase = {{convert|130.0|in|mm|0|abbr=on}}
+| body_style = 4-door [[hardtop]]<ref>{{cite web |author=John Barach |url=http://www.100megsfree4.com/cadillac/cad1970/cad71d.htm |title=Cadillac history 1971 |publisher=100megsfree4.com |access-date=November 20, 2010 |url-status=live |archive-url=https://web.archive.org/web/20100911104351/http://100megsfree4.com/cadillac/cad1970/cad71d.htm |archive-date=September 11, 2010 }}</ref><br>2-door [[hardtop]]<br>2-door [[coupe]]
+| engine = {{convert|472|cuin|L|1|abbr=on}} [[Cadillac V8 engine#472|OHV]] [[V8 engine|V8]]<br /> {{convert|500|cuin|L|1|abbr=on}} [[Cadillac V8 engine#500|OHV]] [[V8 engine|V8]]
+| transmission = 3-speed [[Turbo-Hydramatic#Super Turbine 400 / THM400 / 3L80 / 3L80HD|TH-400]] [[Automatic transmission|automatic]]
+| length = 1971: {{convert|225.8|in|mm|0|abbr=on}}<br>1972: {{convert|227.4|in|mm|0|abbr=on}}<br />1973: {{convert|227.8|in|mm|0|abbr=on}}<br />1974–76: {{convert|230.7|in|mm|0|abbr=on}}
+| width = {{convert|79.8|in|mm|0|abbr=on}}
+| height = 1971–73: {{convert|54.5|in|mm|0|abbr=on}}<br>1974: {{convert|54.6|in|mm|0|abbr=on}}<br>1975–76: {{convert|54.3|in|mm|0|abbr=on}}
+| weight = {{convert|4900|-|5400|lb|kg|abbr=on}}
+| related = [[Cadillac Calais]]<br>[[Buick Electra]]<br>[[Oldsmobile 98]]<br>[[Buick Estate]]<br>[[Oldsmobile Custom Cruiser]]<br>[[Pontiac Grand Safari]]<br />[[Pontiac Safari]]<br />[[Chevrolet Kingswood]]<br/>[[Chevrolet Townsman]]
+| designer = [[Bill Mitchell (designer)|Bill Mitchell]]
+}}
+
+[[File:1971 Cadillac Coupe Deville (17).jpg|thumb|left|1971 Cadillac Coupe de Ville]]
+[[File:1971 Cadillac Fleetwood El Deora Wagon (34745326926).jpg|thumb|left|1971 Cadillac Fleetwood El Deora Wagon]]
+[[File:1972 Cadillac Coupe deVille, front left, 07-20-2024.jpg|thumb|left|1972 Cadillac Coupe de Ville]]
+[[File:1973 Cadillac Coupe Deville (1).jpg|thumb|left|1973 Cadillac Coupe de Ville]]
+[[File:1973 Cadillac Coupe Deville (11).jpg|thumb|left|1973 Cadillac Coupe de Ville (interior)]]
+[[File:1974 Cadillac Coupe DeVille red.jpg|thumb|left|1974 Cadillac Coupe de Ville]]
+[[File:1974 Cadillac Coupe Deville rvl.jpg|thumb|left|1974 Cadillac Coupe de Ville (rear)]]
+[[File:1975 Cadillac Coupe Deville fvr.jpg|thumb|left|1975 Cadillac Coupe de Ville]]
+[[File:1976 Cadillac Coupe Deville (9459532865).jpg|thumb|left|1976 Cadillac Coupe de Ville]]
+
+As with all GM full-size lines, the De Ville was completely redesigned for 1971. The new GM full-size bodies, at {{convert|64.3|in}} front shoulder room ({{convert|62.1|in|disp=sqbr}} on Cadillac) and {{convert|63.4|in}} rear shoulder room ({{convert|64.0|in|disp=sqbr}} on Cadillac) set a record for interior width that would not be matched by any car until the full-size GM rear-wheel-drive models of the early to mid-1990s.
+
+Pairs of individually housed squared-off headlamps were set wider apart. The V-shaped grille had an eggcrate style insert and was protected by massive vertical guards framing a rectangular license plate indentation. A wide hood with full-length windsplints, a prominent center crease and hidden windshield wipers was seen. A Cadillac crest decorated the nose and new indicator lamps appeared atop each front fender. Horizontal beltline molding ran from behind the front wheel housing, almost to the rear, stopping where an elliptical bulge in the body came to a point and where thin rectangular side markers were placed above and below the chrome strip. The rear wheel openings were again housed in fender skirts. Tail lamps were of the same type as before but were no longer divided by a chrome bar. Long horizontal back-up lamps were set in the bumper, on either side of a deeply recessed license plate housing. DeVilles were set apart visually by thin bright metal rocker panel steps and signature script on the front fenders bearing the series name. The bottoms of the rear fenders were decorated with a bright metal beauty panel that was wider than the rocker panel strips and blended into the molding running along the bottom of the fender skirt.
+
+The standard engine remained the [[Cadillac V8 engine#472|472]], however, in line with GMs edict for all engines to run on unleaded fuel, the compression ratio was lowered from 10:1 to 8.5:1, reducing the SAE gross horsepower from 375 to 345. Torque dropped from {{convert|525|lb·ft|N.m|abbr=on}} to {{convert|500|lb·ft|N.m|abbr=on}}.<ref>{{cite web|url=http://www.oldcarbrochures.com/static/NA/Cadillac/1971_Cadillac/1971_Cadillac_Brochure_1/1971%20Cadillac-19.html |title=Directory Index: Cadillac/1971_Cadillac/1971_Cadillac_Brochure_1 |publisher=Oldcarbrochures.com |access-date=August 18, 2022}}</ref> Interiors were redesigned, featuring a new curved instrument panel and new seating configurations. A rear "lamp monitor", a fiber-optic system which monitored the taillamps, turn signals and brake lights, was new and positioned on the shelf behind the rear seat.
+
+In November 1971, a showroom-stock 1971 Coupe de Ville placed third in the annual coast-to-coast Cannonball Run, posting the highest average speed of the event, {{convert|84.6|mi/h|km/h|abbr=on}} (excluding stops) and averaging {{convert|8.9|mpgus|L/100 km mpgimp|abbr=on}}.
+
+In 1972, a modest frontal revision placed more emphasis on horizontal grille blades. The parking lamps were moved from the bumper to between the square bezeled headlamps, which were now set wider apart. V-shaped emblems made a return on hood and deck lid. New standard features included a bumper impact system, automatic parking brake release, passenger assist straps and flow through ventilation system. New De Ville signature script was affixed to the sides of the rear roof panels. Sales reached a record 194,811.
+
+New energy absorbing bumpers were seen on all GM cars in 1973 and it brought styling refinements to De Ville. Grilles were widened and had an intricate eggcrate design. Larger vertical rectangles housed the parking lamps between wide spaced headlamps which had square bezels but round lenses. Bumpers ran fully across the front and wrapped around each end. Vertical guards were spaced much further apart at a point outboard of the grille. The rear end had a bumper with a flatter upper section housing an angled license plate recess. Border outline moldings vertically "veed" paralleled the fender edge shape at the rear bodysides. Single horizontally mounted rectangular rear side marker lamps were placed over and under the rear tip of the thin beltline trim. Cadillac script was seen on the front fender sides below the belt molding behind the wheel opening. Inside, "soft-pillow" door panels with larger, sturdier pull-straps were new. The rear "lamp monitor" was repositioned from the rear seat shelf to the headliner just above the rear window. An Illuminated vanity mirror was an available option. This was the final year for hardtop Coupe de Villes. Sales set a new record at 216,243.{{cn|date=June 2024}}
+
+In 1974, a wide eggcrate grille was used. Dual round headlamps were mounted close together in square bezels. Further outboard were double deck wraparound parking lamps. Shorter vertical grille guards appeared in about the same position as before. Rear fendersides were flatter without the elliptical bulge. The thin beltline molding was positioned lower by several inches. The rear end had vertical bumper ends with integrated side marker lights. New taillamps were positioned horizontally beneath the trunk lid. Both bumpers, especially the rear, protruded further from the body. Unlike the other "C" body GM coupes, the Coupe de Ville was no a longer true hardtop, instead sporting large wide "coach" windows giving a thick center pillar look. They retained their frameless door glass, however.  The Sedan de Ville continued as a true hardtop however, and would remain so until the 1977 model. A new curved, two-tiered instrument panel housed a new quartz controlled digital clock. New standard features included an integral litter container. A Space Saver spare tire was standard when DeVilles were ordered with optional white sidewall steel belted radial tires.
+
+1974 also saw the introduction of the optional "[[Air Cushion Restraint System]]". One of the first production examples of what are now more commonly called airbags, this option provided protection for front seat occupants in the case of a frontal collision. One bag was located in the steering wheel, the other in the dashboard in front of the front seat passenger. The glove box was replaced with a lockable storage compartment under the dashboard. The option was expensive and therefore unpopular with customers and was discontinued after the 1976 model year. Cadillac would not offer airbags again until the 1990 model year.
+
+A new option package was a fully padded '''Cabriolet''' roof treatment. It incorporated a [[Landau (automobile)|landau]]-style top with bright metal forward divider strip. Another new option package was the '''d'Elegance''' package. Similar to the Sixty Special Brougham's package of the same name, it featured [[velour]] upholstery, Deluxe padded doors, front seatback storage pockets, deep pile carpeting, floor mats, see-through standup hood ornament and vinyl tape accent stripes. The "d'Elegance" name remained with the De Ville series as a package through 1984. For 1997, it became a separate model designation for the sedan.
+
+Styling changes for 1975 brought dual rectangular headlamps flanked by rectangular cornering lights wrapped around squared-off front fenders. A new cross hatched grille also appeared, with Cadillac script on the header. Sedans now featured thin opera windows set within the D-pillars. New standard equipment included front fender lamp monitors, power door locks, high energy ignition, steel-belted radial whitewall tires. The 210&nbsp;hp 500 V8 used exclusively in the Eldorado since 1970, replaced the 472 as the standard engine. Electronic fuel injection became optional in March 1975. Another option was the Astroroof with sliding sunshade that permitted use as an electrically operated sunroof or a transparent closed skylight. An ordinary painted sunroof panel was also available. Inside, new hinged door pull handles replaced the former door pull straps.
+
+In 1976, the grille saw a new and finer crosshatching pattern. Cornering lamps received new horizontal silver trim; taillamp
+bezels also gained new silver trim. Eight different color accent stripes were available. Vinyl tops were now integral padded Elk grain material. New trims included sporty plaids, plush velours, knits and 11 distinctive genuine leathers. Coupe de Villes had a new vinyl roof whose top molding served as a continuation of the door "belt" molding. A Controlled (limited-slip) Differential continued as an option for extra traction. An optional illuminated entry and theft deterrence system was optional. The new [[ACDelco|Delco Freedom]] battery, never needed water added.<ref>{{cite web |url=http://www.oldcarbrochures.com/static/NA/Cadillac/1976_Cadillac/1976%20Cadillac%20Full%20Line%20Brochure/image3.html |title=1976 Cadillac Full Line Brochure |access-date=May 15, 2017 |url-status=live |archive-url=https://web.archive.org/web/20180509191541/http://www.oldcarbrochures.com/static/NA/Cadillac/1976_Cadillac/1976%20Cadillac%20Full%20Line%20Brochure/image3.html |archive-date=May 9, 2018 }}</ref> New turbine-vaned and wire wheel covers were offered. A new option locked the doors when the transmission lever was shifted to "Drive". Cadillac also offered Track Master, a computerized skid prevention system that automatically pumped the back brakes in an emergency to shorten stopping distance. New options included a push-button Weather Band built into the AM/FM stereo signal-seeking radio, loose pillow style seats for d'Elegance packages, plus power passenger and manual driver seatback recliners for 50/50 front seats. Of the 15 standard and six optional [[Metallic paint#Fire-Frost and Firemist|Firemist]] exterior paint colors, 13 were new this year. New standard features included Soft-Ray [[tinted glass]], spare tire cover, trunk mat, washer fluid level indicator, and steel belted radial whitewall tires.
+
+During 1975-76, a small number of Coupe de Villes were converted into a [[coupe utility]], similar to a [[Chevrolet El Camino]], but much more upscale. Coachbuilding company Traditional Coach Works manufactured 204 of these, called the '''Cadillac Mirage''', to Cadillac's standards, such that one could be ordered through a participating Cadillac dealer.<ref name=Mirage1>[http://www.facereplace.com/mirage/History%20of%20the%20Cadillac%20Mirage.htm History of the Cadillac Mirage – facereplace.com]</ref> The floor bed could carry flat plywood 4-foot × 8-foot sheets with the tailgate closed, while the two-seat front cabin offered driver and passenger a plush ride. A storage area behind the seats was used for golf-clubs or small articles of value, out of view. A metal cover with a lock on it was available for the rear bed, just as a trunk would also have.<ref>[https://www.youtube.com/watch?v=f_kJlN_Sm0o Cadillac Mirage video review – The Drive]</ref><ref>{{cite web |title=Cadillac didn't build station wagons in 1976, but someone did |url=https://journal.classiccars.com/2019/11/04/cadillac-didnt-build-station-wagons-in-1976-but-someone-did/ |website=The Classic Cars Journal.com |date=November 4, 2019 |publisher=The Collector Car Network, Inc |access-date=March 11, 2022}}</ref><ref>{{cite web |title=1970 Cadillac Fleetwood Wagon Is a Rare Bird, Packs Numbers-Matching V8 |url=https://www.autoevolution.com/news/1970-cadillac-fleetwood-wagon-is-a-rare-bird-packs-numbers-matching-v8-169041.html# |website=Autoevolution |date=September 9, 2021 |publisher=SoftNews Net SRL. |access-date=March 11, 2022}}</ref>
+{{clear}}
+
+==Fifth generation (1977–1984)<span class="anchor" id="5"></span><span class="anchor" id="1977"></span>==
+{{Infobox automobile
+| name = Fifth generation
+| image = 1977 Cadillac Coupe Deville (01).jpg
+| caption = 1977 Cadillac Coupe de Ville
+| production = 1977–1984
+| assembly = {{ubl | [[Detroit Assembly]], [[Detroit]], [[Michigan]] (1977–1984) | [[Linden Assembly]], [[Linden, New Jersey]] (1977–1978) | [[South Gate Assembly]], [[South Gate, California]] (1979–1980) }}
+| designer = [[Bill Mitchell (designer)|Bill Mitchell]]
+| body_style = 4-door [[Sedan (automobile)|sedan]]<br>2-door [[coupe]]
+| platform = [[GM C platform (RWD)|C-body]]
+| related = [[Cadillac Fleetwood Brougham]]<br>[[Buick Electra]]<br>[[Oldsmobile 98]]
+| layout = [[FR layout]]
+| engine = {{ubl
+  | '''[[Petrol engine|Gasoline]]:'''
+  | {{convert|250|cuin|L|1|abbr=on}} [[Cadillac High Technology engine#HT-4100|''HT-4100'']] [[V8 engine|V8]]
+  | {{convert|252|cuin|L|1|abbr=on}} [[Buick V6 engine#LC4|''LC4'']] [[V6]]
+  | {{convert|368|cuin|L|1|abbr=on}} [[Cadillac V8-6-4 engine|''L62'']] V8
+  | {{convert|425|cuin|L|1|abbr=on}} [[Cadillac V8 engine#425|''L33/L35'']] V8
+  | '''[[Diesel engine|Diesel]]:'''
+  | {{convert|350|cuin|L|1|abbr=on}} [[Oldsmobile Diesel engine#LF9|''LF9'']] V8 }}
+| transmission = 3-speed [[Turbo-Hydramatic#Super Turbine 400 / THM400 / 3L80 / 3L80HD|TH-400]] [[Automatic transmission|automatic]]<br>3-speed [[Turbo-Hydramatic#THM350|TH-350C]] [[Automatic transmission|automatic]]<br>4-speed [[Turbo-Hydramatic#THM200-4R|TH-200-4R]] [[Automatic transmission|automatic]]
+| wheelbase = 1977–79: {{convert|121.5|in|mm|0|abbr=on}}<br>1980–82: {{convert|121.4|in|mm|0|abbr=on}}<br>1983–84: {{convert|121.5|in|mm|0|abbr=on}}
+| length = 1977–79: {{convert|221.2|in|mm|0|abbr=on}}<br />1980–84: {{convert|221.0|in|mm|0|abbr=on}}
+| width = {{convert|76.4|in|mm|0|abbr=on}}
+| height = 1977: {{convert|57.2|in|mm|0|abbr=on}}<br>1978–84 4-door: {{convert|56.7|in|mm|0|abbr=on}}<br>2-door: {{convert|54.6|in|mm|0|abbr=on}}
+| weight = {{convert|4000|-|4400|lb|kg|abbr=on}}
+}}
+
+[[File:Cadillac 1977 Sedan de Ville .jpg|thumb|left|1977 Cadillac Sedan de Ville]]
+[[File:1978 Cadillac Coupe de Ville, front left (Cruisin' the River Lowellville Car Show, June 19th, 2023).jpg|thumb|left|1978 Cadillac Coupe de Ville]]
+[[File:1979 Cadillac Coupe DeVille, front 5.19.19.jpg|thumb|left|1979 Cadillac Coupe de Ville]]
+[[File:1979 Cadillac Coupé deVille.jpg|thumb|left|1979 Cadillac Coupe de Ville (rear)]]
+[[File:1980 Cadillac Coupe Deville fvl2.jpg|thumb|left|1980 Cadillac Coupe de Ville]]
+[[File:1980 Cadillac Sedan DeVille (14).jpg|thumb|left|1980 Cadillac Sedan de Ville]]
+[[File:1980 Cadillac Coupe Deville interier1.jpg|thumb|left|1980 Cadillac Coupe de Ville (interior)]]
+[[File:1981 Cadillac Sedan Deville D'elegance rvr.jpg|left|thumb|1981 Cadillac Sedan de Ville rear]]
+[[File:1982 Cadillac Coupe DeVille side view.jpg|thumb|left|1982 Cadillac Coupe de Ville]]
+[[File:1983 Cadillac Coupé de Ville.jpg|thumb|left|1983 Cadillac Coupe de Ville]]
+[[File:Cadillac Sedan de Ville 2012-07-15 15-12-36.JPG|thumb|left|1984 Cadillac Sedan de Ville]]
+
+1977 was Cadillac's 75th anniversary, and saw the introduction of the downsized DeVille coupes and sedans. These new cars featured a higher roofline, resulting in a vehicle that was over {{convert|9|in}} shorter, {{convert|4|in}} narrower, and 1/2 ton lighter than the previous year, but with a larger trunk and more headroom and legroom. These were also the first DeVilles ever to be marketed without [[fender skirts]] over the rear wheels. The old door pull straps returned for 1977-80. The 500 in<sup>3</sup> V8 (which produced 190 horsepower) was replaced for 1977 by a 180-horsepower 425 in<sup>3</sup> V8 variant of similar design. The reduction in size and weight was implemented to improve fuel economy and emissions in response to the United States Federal Government's passage of [[Corporate Average Fuel Economy]] regulations.
+
+For 1977, the lineup included the two-door Coupe de Ville for US$9,654 (${{formatnum:{{Inflation|US|9654|1977}}}} in {{Inflation-year|US}} dollars {{inflation-fn|US}}) and four-door Sedan de Ville for US$9,864 (${{formatnum:{{Inflation|US|9864|1977}}}} in {{Inflation-year|US}} dollars {{inflation-fn|US}}). The $650 d'Elegance package, an interior dress-up option carried over from the previous generation of De Villes, continued for both models. 3-sided, wrap-around tail lamps were a 1977 feature only. 
+
+Coupe de Ville's popular "Cabriolet" option, priced at $348, included a rear-half padded vinyl roof covering and opera lamps. An optional electronic fuel-injected version of the standard 7.0-liter powerplant, adding {{convert|15|hp}}, was available for an additional $647. Sales figures were 138,750 Coupe de Villes and 95,421 Sedan de Villes for an all-time sales record of 234,171 De Villes sold.
+
+In addition to a redesigned grille and hood ornament, 1978 saw slim, vertical tail lamps inset into chrome bumper end caps with built-in side marker lamps (Cadillac would retain this "vertical tail lamp inset" design feature on the De Ville through 1984, and again from 1989 through 1999). New for 1978, a "Phaeton" package was optional for De Ville. Available on both coupe and sedan, the $1,929 Phaeton package featured a simulated convertible-top, special pin striping, wire wheel discs, and "Phaeton" script in place of the usual "Coupe de Ville" or "Sedan de Ville" script on the rear fenders. Inside were leather upholstered seats and a leather-wrapped steering wheel matching the exterior color. 
+
+The package was available in "Cotillion White" (with Dark Blue roof), "Platinum Silver" (with a Black roof), or "Arizona Beige" (with a Dark Brown roof). Coupe de Ville's popular Cabriolet roof package was priced at $369, while the d'Elegance package (for coupe or sedan) was available at $689. Electronic [[fuel injection]], which added {{convert|15|hp}}, was available at $744. Electronic level control - which used suspension-mounted sensors and air filled rear shocks - kept the car's height level regardless of passengers and cargo weight, was available for $140. Sales dropped slightly from 1977 to 117,750 for the $10,444 Coupe de Ville, and 88,951 for Sedan de Ville, priced at $10,668 (${{formatnum:{{Inflation|US|10668|1977}}}} in {{Inflation-year|US}} dollars {{inflation-fn|US}}).
+
+With bigger changes coming for 1980, the 1979 models received few alterations, which included a new grille design with "Cadillac" script on the header above the grille and a new, lightweight aluminum hood. The "Phaeton" package, now priced at $2,029, was still available in three colors, but with two new replacement colors: "Western Saddle [[Metallic paint#Fire-Frost and Firemist|Firemist]] " (with leather interior in "Antique Saddle") replacing the "Arizona Beige", and "Slate [[Metallic paint#Fire-Frost and Firemist|Firemist]] t" (with leather interior in "Antique Gray") replacing "Platinum Silver". 
+
+The d'Elegance package was back, at $725, which included Venetian velour upholstery (in four colors) with a 50/50 split front seat, overhead assist handles, Tangier carpeting, door pull handles, and "d'Elegance" emblems among other niceties. In addition to the $783 "fuel-injection" option, there was the choice of a 350 in<sup>3</sup> LF9 diesel V8 (built by [[Oldsmobile]]) for $849. Coupe de Ville's cabriolet package, priced at $384, was available in 17 colors. Production rose slightly to 121,890 for Coupe de Ville ($11,728), and 93,211 for Sedan de Ville ($12,093).
+
+1980 saw the discontinuation of the 7 liter V8, which had generated power of {{convert|145|kW||0|abbr=on}} and 0-60&nbsp;mph in 10.9 seconds, with a top speed of {{convert|187|km/h||0|abbr=on}}<ref>{{cite web|url=https://www.automobile-catalog.com/car/1979/186815/cadillac_sedan_de_vlle_7_0l_v-8_efi.html|title = Detailed specs review of 1979 Cadillac Sedan de Ville 7.0L V-8 EFi offered since September 1978 for North America}}</ref> with a new ''[[Malaise era]]'' 368 CID (6.0 L) V8., generating power of {{convert|112|kW||0|abbr=on}} and 0-60&nbsp;mph in 13.6 seconds, with a top speed of {{convert|171|km/h||0|abbr=on}}.<ref>{{cite web|url=https://www.automobile-catalog.com/car/1980/186980/cadillac_sedan_de_vlle_6_0l_v-8.html|title=Detailed specs review of 1980 Cadillac Sedan de Ville 6.0L V-8 offered since October 1979 for North America}}</ref>
+
+Late in the 1980 model year, V6 power (in the form of a 4-bbl 252 CID engine manufactured by [[Buick]]) was offered as a credit option. Cadillac had not offered an engine with fewer than 8 cylinders since 1914 with the [[Cadillac Model 30]].
+
+The entire auto industry suffered miserable sales during the 1980 model year; despite new sheetmetal and a multitude of other improvements and refinements, sales of the Coupe de Ville fell to 55,490 (less than half of the 1979 figures) cars, while the Sedan de Ville was down by nearly half with 49,188 cars sold.
+
+The 1980 Cadillac Coupe and Sedan de Ville received a major facelift, with a more aerodynamic nose, nearly vertical rear window, new trunk lid and higher, straighter rear fenders capped by wider chrome taillamp bezels. The cars took on a more upright, formal silhouette and appeared heavier and somewhat longer, though in actuality they were slightly shorter than the 1977-79 models.
+The Phaeton option was discontinued, but the $1,005 d'Elegance package remained. The Coupe de Ville now wore full, bright side window surround moldings, whereas the sedan had body-color door frames with a thin chrome bead around the window opening, as used from 1977 to 1979. 
+
+The chromed-plastic grille held a very diplomatic, [[Rolls-Royce (car)|Rolls-Royce]] inspired design, with thick vertical bars, featuring the 'Cadillac' script on the driver's side grille header. The 1980 grille cast was used again for the 1989 to 1992 [[Cadillac Brougham]]. Unlike the pre-1980 models, the rear window glass for both coupe and sedan models was now the same, as the coupes did away with the sporty slanted rear window and adopted the formal near vertical look shared with the sedans. Pricing for DeVille was $12,899 for the coupe; $13,282 for the sedan. 
+Oldsmobile's 5.7-liter diesel V8 was still an available option at $924, as was the popular Cabriolet roof option for Coupe de Ville at $350.
+
+1981's biggest news was the introduction of Cadillac's modulated-displacement 368 in<sup>3</sup> V8-6-4 engine. Developed by the [[Eaton Corporation]] - with design elements that had been tested for over {{convert|500000|mi|km}} - allowed various engine computers to decide how many cylinders were needed to power the car for optimal fuel economy. The theory was 8 cylinders from a complete stop, 6 cylinders during usual driving, and just four cylinders at cruising speed. The changes in cylinder operation were slight, and most drivers did not detect any difference in operation.<ref name="HMN"/>
+
+In some cases, reliability and component failure led to customer complaints. Cadillac defended its micro-processor controlled powerplant, and even offered special extended warranties to customers. [[Hemmings Motor News]] has described the operation of this engine in practice - "Disaster doesn't quite cover the scope of what happened."<ref name="HMN">{{cite web|url=https://www.hemmings.com/stories/article/cadillac-v-8-6-4|title=Cadillac V-8-6-4 A variable displacement engine that tried to split the difference between power and economy|author=Jeff Koch|date=April 2008|publisher=Hemmings Motor News|access-date=September 9, 2020}}</ref>
+
+Also available was [[Oldsmobile]]'s 5.7-liter V-8 diesel engine. The {{convert|125|hp}} [[Buick]] V6, teamed with an automatic transmission, returned for 1981 after a short initial offering in the spring of 1980. Coupe de Ville was priced at $13,450, while Sedan de Ville, priced at $13,847, now had the unique option of an available automatic seat belt system - the first offered on a GM vehicle. With the automatic shoulder/lap belt system (only for the outboard front seat passengers), the shoulder point was moved from the upper B-pillar to the upper door glass frame, and the belt reel was moved from the floor onto the door itself, installed in the lower corner. 
+
+You could theoretically leave the seat belt latched at all times, and simply get in and out of the vehicle without having to unfasten the belt. The $150 option (which re-appeared as standard equipment on the Brougham from 1990 to 1992), was available only on V6-powered Sedan de Villes. The [[V6]] option itself was a $165 credit over the standard V8 in De Ville. A new grille design was made up of small squares, similar to the pattern from 1979, while the same chromed grille surround from 1980 continued. The egg-crate 1981 grille cast was used again for the 1987 and 1988 [[Cadillac Brougham]] models. 
+
+A new Electronic Climate Control panel did away with the slide lever and thumb wheel in favor of a digital display which allowed the driver to set the interior temperature to a single degree - from 65 to 85 (or "max" settings at 60 and 90 degrees). Option groups included the $1,005 d'Elegance package (available on both models), and the Cabriolet package (for Coupe de Ville) at $363. Sales were up slightly from 1980: 89,991 sedans versus 62,724 coupes (figures include DeVille and Fleetwood models).
+
+Exterior changes for 1982 were minimal, including a new thin vertical bar grille design (which was used through 1986) with the same grille surround from the past two years, and a new standard wheel cover design. Cadillac introduced a new aluminum-block 249-cubic-inch 4.1-liter HT series V8 engine to replace the V8-6-4, which was now available only in the Fleetwood limousine through 1984. This new power plant featured a closed-loop digital fuel injection system, free-standing cast-iron cylinders within a cast-aluminum block, and was coupled with a 4-speed automatic-overdrive transmission. 
+
+Other engine options included the Buick V6 or Oldsmobile's diesel V8. Inside, the Electronic Climate Control had an updated fascia that now included an "Outside Temperature" button. Previously, the outside temperature was available through an illuminated thermometer mounted to the driver's outside mirror. With the new front-drive [[compact car|compact]] [[Cadillac Cimarron]] taking over as Cadillac's entry-level model, the $15,249 Coupe de Ville was now a step-up. Sedan de Ville was priced at $15,699. Sales totals for 1982 included 50,130 coupes and 86,020 sedans (figures include combined De Ville and Fleetwood models).
+
+For 1983, slight reworkings under the hood added 10 horsepower (now rated at 135) to the standard 4.1-liter powerplant. Meanwhile, the Buick V6 credit-option was dropped. There were a few minor exterior changes for 1983. While the grille design was a carry-over from the previous year (and would be through 1986), the Cadillac script moved from the chrome header onto near the bottom of the grille itself. The wide parking lamps below the quad headlamps now had clear frosted lenses (previous years they were amber), with satin gold-colored winged Cadillac emblems centered on each lens. 
+
+A very minor change in the rear was the deletion of the chrome tips on both sides of the lower deck lid trim. These little chrome corner pieces, mounted on the filler panels, were prone to pitting as they were made of a different material than the bright aluminum trunk trim and upper license late surround. Coupe de Ville's popular Cabriolet roof package added $415 to its $15,970 sticker price. While both models, including the $16,441 Sedan de Ville, could be ordered with the $1,150 d'Elegance package. Sales figures looked healthy, with a total of 109,004 De Ville and Fleetwood models).
+
+Because of a delay in production of the new downsized front-drive De Villes, their debut was pushed back from 1984 to 1985. As a result, the 1984 De Villes were essentially a rerun of the 1983 models. 1984 would also be the last time De Ville used the "V" emblem below the Cadillac crest, as all Cadillac models (except Cimarron) from 1985 on, would use the wreath & crest emblem - formerly, a Fleetwood exclusive. Minor changes included new body-color side moldings and a revised exhaust system with a revamped catalytic converter. The diesel V8 was now available at no additional charge. While the optional d'Elegance package remained at $1,150, the Cabriolet option for Coupe de Ville went up to $420. 
+
+For 1984, sales figures show a total four-door production of 107,920 units, and an additional 50,840 two-door units. Figures include the de Ville and Fleetwood models. The new front-drive 1985 Coupe de Ville and Sedan de Ville arrived in Cadillac showrooms during the spring of 1984, about six months earlier than most new-car introductions, so both the 1984 rear-drive and totally redesigned 1985 front-drive models were being produced at separate assembly plants and sold simultaneously for nearly half a year.
+
+''' Size comparison between 1974 and 1977 Cadillac Sedan de Ville '''
+{| class="wikitable" style="text-align:center; font-size:91%;"
+!
+!1974 Cadillac Sedan de Ville
+!1977 Cadillac Sedan de Ville
+|-
+|Wheelbase || {{Convert|130.0|in|mm|0|abbr=on}} || {{Convert|121.5|in|mm|0|abbr=on}}
+|-
+|Overall Length || {{Convert|230.7|in|mm|0|abbr=on}} || {{Convert|221.2|in|mm|0|abbr=on}}
+|-
+|Width|| {{Convert|79.8|in|mm|0|abbr=on}} || {{Convert|76.4|in|mm|0|abbr=on}}
+|-
+|Height|| {{Convert|54.3|in|mm|0|abbr=on}} || {{Convert|57.2|in|mm|0|abbr=on}}
+|-
+|Front Headroom|| {{Convert|39.2|in|mm|0|abbr=on}} || {{Convert|39.0|in|mm|0|abbr=on}}
+|-
+|Front Legroom|| {{Convert|41.9|in|mm|0|abbr=on}} || {{Convert|42.0|in|mm|0|abbr=on}}
+|-
+|Front Hip Room|| {{Convert|57.8|in|mm|0|abbr=on}} || {{Convert|55.0|in|mm|0|abbr=on}}
+|-
+|Front Shoulder Room|| {{Convert|62.1|in|mm|0|abbr=on}} || {{Convert|59.4|in|mm|0|abbr=on}}
+|-
+|Rear Headroom|| {{Convert|38.2|in|mm|0|abbr=on}} || {{Convert|38.1|in|mm|0|abbr=on}}
+|-
+|Rear Legroom–ins.|| {{Convert|40.1|in|mm|0|abbr=on}} || {{Convert|41.2|in|mm|0|abbr=on}}
+|-
+|Rear Hip Room|| {{Convert|58.0|in|mm|0|abbr=on}} || {{Convert|55.7|in|mm|0|abbr=on}}
+|-
+|Rear Shoulder Room|| {{Convert|64.0|in|mm|0|abbr=on}} || {{Convert|59.4|in|mm|0|abbr=on}}
+|-
+|Luggage Capacity|| {{Convert|15.9|cuft|L|0|abbr=on}} || {{Convert|19.5|cuft|L|0|abbr=on}}
+|}
+'''Production Figures: (The source considers the Fleetwood Brougham as an option package for the DeVille, not a separate model)'''
+{| class="wikitable"
+|+Cadillac DeVille Production Figures<ref name="flammang1976">{{Cite book |last=Flammang |first=James M. |title=Standard catalog of American cars, 1976-1999 |date=1999 |publisher=Krause Publications |others=Ron Kowalke |isbn=0-87341-755-0 |edition=3rd |location=Iola, WI |oclc=43301709}}</ref>
+!
+!Coupe de Ville
+!Sedan de Ville
+!Yearly Total
+|-
+|'''1977'''
+|138,750
+|123,421
+|'''262,171'''
+|-
+|'''1978'''
+|117,750
+|125,751
+|'''243,501'''
+|-
+|'''1979'''
+|121,890
+|135,411
+|'''257,301'''
+|-
+|'''1980'''
+|57,790
+|78,847
+|'''136,637'''
+|-
+|'''1981'''
+|62,724
+|86,991
+|'''149,715'''
+|-
+|'''1982'''
+|50,130
+|86,020
+|'''136,150'''
+|-
+|'''1983'''
+|65,670
+|109,004
+|'''174,674'''
+|-
+|'''1984'''
+|50,840
+|107,920
+|'''158,760'''
+|-
+!Total
+!665,544
+!853,365
+!<u>1,518,909</u>
+|}
+
+<big>'''Engines:'''</big><br/>
+{| class="wikitable" style="float:left; margin-left:1em;"
+|-
+! style="background:#e8f4f8;" | Years
+! style="background:#e8f4f8;" | Displacement
+! style="background:#e8f4f8;" | Power
+! style="background:#e8f4f8;" | Torque
+|-
+| 1981–1982 || {{convert|252|cuin|L|1|abbr=on}} ''[[Buick V6 engine#4.1|Buick]]'' [[V6 engine|V6]] || {{convert|125|hp|kW|abbr=on}} || {{convert|205|lbft|Nm||abbr=on}}
+|-
+| 1982–1984 || {{convert|250|cuin|L|1|abbr=on}}  ''[[Cadillac High Technology engine#HT-4100|HT-4100]]'' [[V8 engine|V8]] || {{convert|135|hp|kW|abbr=on}} || {{convert|190|lbft|Nm||abbr=on}}
+|-
+| 1980–1984 || {{convert|350|cuin|L|1|abbr=on}} ''[[Oldsmobile Diesel engine#LF9|LF9]]'' [[Diesel engine|Diesel]] [[V8 engine|V8]] || {{convert|105|hp|kW|abbr=on}} || {{convert|205|lbft|Nm||abbr=on}}
+|-
+| 1980–1981 || {{convert|368|cuin|L|1|abbr=on}} ''[[Cadillac V8-6-4 engine|L62 V8-6-4]]'' [[V8 engine|V8]] || {{convert|145|hp|kW|abbr=on}} || {{convert|270|lbft|Nm||abbr=on}}
+|-
+| 1977–1979 || {{convert|425|cuin|L|1|abbr=on}} ''[[Cadillac V8 engine#425|L33]]'' [[V8 engine|V8]] || {{convert|180|hp|kW|abbr=on}} || {{convert|320|lbft|Nm||abbr=on}}
+|-
+| 1977–1979 || {{convert|425|cuin|L|1|abbr=on}} ''[[Cadillac V8 engine#425|L35]]'' [[V8 engine|V8]] || {{convert|195|hp|kW|abbr=on}} || {{convert|320|lbft|Nm||abbr=on}}
+|}
+
+{{clear}}
+
+==Sixth generation (1985–1993)<span class="anchor" id="6"></span><span class="anchor" id="1985"></span>==
+{{see also|Cadillac Fleetwood#1985|l1=1985–1992 Cadillac Fleetwood}}
+{{Infobox automobile
+| name         = Sixth generation
+| image        = 1988 Cadillac Coupe de Ville, front left, 09-28-2024.jpg
+| caption      = 1988 Cadillac Coupe de Ville
+| model_years  = 1985&ndash;1993
+| assembly     = [[Orion Assembly]], [[Lake Orion, Michigan]], U.S.
+| layout       = [[Front-engine, front-wheel-drive layout#Front-engine transversely mounted / Front-wheel drive|Transverse front-engine, front-wheel drive]]
+| platform     = [[GM C platform (FWD)|C-body]]
+| related      = [[Cadillac Sixty Special]]<br>[[Cadillac Fleetwood]]<br>[[Buick Electra]]<br>[[Buick Park Avenue]]<br>[[Oldsmobile 98]]<br>[[Cadillac Series 75]]
+| body_style   = 4-door [[sedan (car)|sedan]]<br>2-door [[coupe]]
+| designer = [[Irv Rybicki]]
+| wheelbase    = 1985–88: {{convert|110.8|in|mm|abbr=on}}<br>1989–93 2-doors: {{convert|110.8|in|abbr=on}}<br>1989–93 4-doors:{{convert|113.8|in|abbr=on}}
+| engine       = {{ubl
+  | '''[[Petrol engine|Gasoline]]:'''
+  | 4.1 L ''[[Cadillac High Technology engine#HT-4100|HT-4100]]'' [[V8 engine|V8]]
+  | 4.5 L ''[[Cadillac High Technology engine#4.5|HT-4500]]'' [[V8 engine|V8]]
+  | 4.9 L ''[[Cadillac High Technology engine#L26 4.9|HT-4900]]'' [[V8 engine|V8]]
+  | '''[[Diesel engine|Diesel]]:''' 
+  | 4.3 L ''[[Oldsmobile Diesel engine#LS2|LS2]]'' [[V6 engine|V6]]
+}}
+| transmission = 4-speed [[GM 4T60 transmission|TH-440-T4]] [[automatic transmission|automatic]]<br>4-speed [[GM 4T60 transmission|4T60]] [[automatic transmission|automatic]]<br>4-speed [[GM 4T60-E transmission|4T60E]] [[automatic transmission|automatic]]
+| length       = 1985–86: {{convert|195.0|in|mm|abbr=on}}<br>1987–88: {{convert|196.5|in|mm|abbr=on}}<br>1989 2-door: {{convert|202.3|in|mm|abbr=on}}<br>1989 4-door: {{convert|205.3|in|mm|abbr=on}}<br>1990 2-door: {{convert|202.7|in|mm|abbr=on}}<br>1991–93 2-door: {{convert|202.6|in|mm|abbr=on}}<br>1990–93 4-door: {{convert|205.6|in|mm|abbr=on}}
+| width =1985–88: {{convert|71.7|in|mm|abbr=on}}<br>1989: {{convert|72.5|in|mm|abbr=on}}<br>1990: {{convert|71.7|in|mm|abbr=on}}<br>1991–93: {{convert|73.4|in|mm|abbr=on}}
+| height       = 1985–89: {{convert|55.0|in|mm|abbr=on}}<br>1990–93 2-door: {{convert|54.9|in|mm|abbr=on}}<br>1990–93 4-door: {{convert|55.2|in|mm|abbr=on}}
+| weight       = {{convert|3500|-|3900|lb|kg|abbr=on}}
+}}
+
+[[File:85 Cadillac Coupe de Ville (2).jpg|thumb|left|200px|1985 Coupe de Ville]]
+[[File:1986 Cadillac Sedan Deville (1).jpg|thumb|left|200px|1986 Sedan de Ville with aftermarket roof and coach lamp]]
+[[File:85-88 Cadillac Coupe de Ville.jpg|thumb|left|200px|1987 Coupe de Ville with factory "Cabriolet roof"]]
+[[File:1987 Cadillac Coupe Deville "Spring Special Edition" (05).jpg|thumb|left|200px|1987 Coupe de Ville (interior)]]
+[[File:Cadillac-Sedan-de-Ville.jpg|thumb|left|200px|1988 Sedan de Ville]]
+[[File:89-93 Cadillac Coupe de Ville.jpg|thumb|left|200px|1989 Coupe de Ville]]
+[[File:1989-93 Cadillac DeVille.jpg|thumb|left|200px|1991 Sedan de Ville]]
+[[File:1992 Cadillac Sedan DeVille in Royal Maroon, Rear Right, 06-17-2022.jpg|left|thumb|200x200px|1992 Sedan de Ville (rear)]]
+[[File:1992 Cadillac Sedan de Ville Limousine.jpg|thumb|left|200px|A 1992 Sedan de Ville Limousine]]
+
+The sixth-generation Deville marked a [[Sea change (idiom)|sea change]] for General Motors and Cadillac. Under the direction of [[Irvin Rybicki|Irv Rybicki]], GM completely redesigned the DeVille, downsizing the model yet again, foregoing its rear drive configuration, and introducing a new front-drive platform, the [[GM C platform (FWD)|C platform (C-Body)]]{{dash}}using the first transversely mounted V8 engine in series production.
+
+The new C-Body models (along with their [[Oldsmobile Ninety-Eight#Eleventh generation (1985–1990)|Oldsmobile]] and [[Buick Electra#Sixth generation (1985–1990)|Buick]] counterparts) were significantly shorter, narrower, lighter and more fuel-efficient than the platform they replaced and were noted for having nearly the same key interior dimensions as their predecessors and a much more nearly flat passenger compartment floor<ref name="floor">{{cite web
+ |title        = PS Drives GMs 85 Luxury Cars
+ |publisher    = Popular Science, April 1985
+ |author       = [[Jim Dunne (automotive spy photographer)|Jim Dunne]]
+ |date         = April 1984
+ |url          = https://books.google.com/books?id=sQAAAAAAMBAJ&dq=buick+electra+1985&pg=PA96}}</ref>{{dash}}albeit with thinner seats and dramatically less upper tumblehome, locating windshield as well as side glass closer to passengers.<ref name="floor"/>
+
+Production of the new C-body commenced December 1983 at the [[Orion Assembly]] Plant in [[Orion Township, Michigan]]; the redesigned models were introduced on April 5, 1984;<ref>{{cite web | url=https://www.chicagotribune.com/news/ct-xpm-1985-06-21-8502100121-story.html | title=9.9% Financing Set on Gm C-Body Cars | website=[[Chicago Tribune]] | date=21 June 1985 }}</ref> and marketing began in early 1984 for the 1985 model year{{dash}}with the front cover of the 1985 Deville brochure calling the sixth generation, the "Cadillac of Tomorrow".
+
+Cadillac's [[Cadillac High Technology engine#HT-4100|HT-4100]] [[V8 engine|V8]] remained the standard engine, mounted transversely and coupled with a [[GM 4T60 transmission|440-T4]] [[Automatic transmission|automatic]]. Oldsmobile's 4.3L V6 diesel was optional for 1985, but was dropped the following year, after only 1,088 Devilles/Fleetwoods were ordered with it for 1985.<ref name=“Flammang”>{{cite book |last1=Flammang |first1=James |title=Standard Catalog of American Cars: 1976-1999 |date=1999|publisher=Krause Publications |location=Iola, WI |isbn=0873417550 |pages=160 |edition=3rd}}</ref> Of GM's front-drive C-Body models, Cadillac was the only line to offer a V8 engine; the others were equipped with a Buick-derived 3.0 or 3.8 V6 engine, or for 1985 only, Oldsmobile's 4.3L V6 diesel engine. Later Deville model years would use larger variants of the Cadillac HT V8.  All C-bodies used four-wheel independent suspension.
+
+The sixth-generation DeVille was available as a [[sedan (car)|sedan]] or [[coupe]].  At introduction, in part due to an extended model year (beginning in April 1984), sales of the new downsized 1985 DeVille and Fleetwood models reached nearly 200,000 units. After the sixth generation's initial development and launch, GM reconsidered the marketplace and provided an extensive 1989 facelift that added considerable length{{dash}}and associated weight.
+
+<big>'''Model year changes:'''</big>
+
+'''1986:''' An [[anti-lock braking system]], developed by Teves, became available. A 2-position automatic rear-view mirror utilized two electronic 'eyes' and a small motor to dim when headlights appeared from behind. A factory-installed cellular telephone joined the option list at an astonishing $2,850. The standard space-saver spare tire now sat horizontally in the trunk, doing away with the small covered storage cubby in the spare tire well from last year. 
+
+The optional aluminum wheels had new flush-fitting center caps (last year's design featured exposed capped lugs), and bumper rub strips were changed from black to gray. Borrowed from the front-wheel-drive Fleetwood line, the narrow lower body side molding from the 1985 DeVille was replaced with a considerably wider one, which extended to the rear fenders only on the Fleetwood. The trim surround from the rear window gave the formal appearance of a smaller window opening. 
+
+Inside, a more tailored look was applied to the seat trim. Coupe de Ville's popular cabriolet option, featuring a padded vinyl covering over the rear half of the roof, was priced at $698. Pricing for the Coupe de Ville was $19,669, with Sedan de Ville at $19,990. The transverse-mounted Cadillac 4.1-liter V-8 continued from the previous year, but with five more horsepower.
+
+The 1986 Cadillac used a 90-degree overhead valve V-8 engine with an aluminum block and cast iron heads displacing 249 cu in (4.1 liters) with a bore & stroke: 3.47 x 3.31 in, compression ratio: 8.5:1 making {{convert|135|hp|abbr=on}} at 4,200 rpm and: 200&nbsp;lbf·ft (270 N·m) of torgue at 2,200 rpm. The engine had five main bearings, and used hydraulic valve lifters.
+
+Also introduced in 1986 was the '''Deville Touring Sedan''' and '''Deville Touring Coupe''' trim levels, which included a rear deck lid spoiler, body-color tail lamp bezels, front air dam with fog lamps, rear seat headrests, leather upholstery, and a performance enhancement package among other features. The package was available for $2,880. In addition, the Touring Coupe featured removable vertical louvers on the trailing edge of the side windows.
+
+'''1987:''' 1987 saw a new front-end design including revised cornering lamps in front and one-piece composite headlamps flanked a trapezoid-shaped grille with a bold egg-crate texture. Elongated fender caps were in back - upping the overall length by {{convert|1.5|in}}, but much more dramatic in appearance with new wrap-around tail lamps. This new 3-sided tail lamp style was similar to the tail lamp design used on the 1977 DeVille. 
+
+Unlike the new one-piece headlamps, the changes to the rear-end in 1987 had little to do with engineering, but rather, feedback from Cadillac's customer base who felt the 1985-86 car looked too short. Although the 1987 revamp was still quite similar to the 1986 model (so much in fact that it still used the previous year's deck lid), the design was more in-tune with the look that traditional Cadillac buyers were used to.
+
+Pricing for 1987 included Coupe de Ville at $21,316, and Sedan de Ville at $21,659.  Fleetwood d'Elegance at $26,104, and the new Fleetwood Sixty-Special was available for $34,850. The Touring option, priced at $2,880 over DeVille's base cost, also included aluminum wheels mounted on 15-inch Goodyear Eagle GT tires. At the end of the 1988 model year, Cadillac discontinued the slow-selling DeVille-based Touring Coupe and Sedan; the 4-door variant would return in 1992.
+
+'''1988:''' To mitigate a nearly $2,000 (~${{Format price|{{Inflation|index=US-GDP|value=2000|start_year=1988}}}} in {{Inflation/year|US-GDP}}) price increase, several previously optional items were made standard, including tilt steering column, telescopic steering wheel, power trunk release, split-bench front seating, cruise control, and variable delay windshield wipers. Under the hood was a new 155&nbsp;hp 4.5 L V8 and heavy-duty battery. Pricing rose to $23,049 for Coupe de Ville, and $23,404 for Sedan de Ville.
+
+Cadillac's main competition in this time frame continued to be Lincoln, which, alongside their successful Town Car, was now fielding an all-new front-wheel-drive Continental (based on the [[Ford Taurus]]). The [[Lincoln Continental#Eighth generation (1988–1994)|Continental]] went into production with a six-cylinder engine so as to be considered a larger front-wheel-drive alternative to the [[Acura Legend#First generation (1986–1990)|Acura Legend]] that appeared in 1986, with a front-wheel-drive platform and a V6 engine.
+
+'''1989 Facelift:''' For the 1989 model year, Cadillac introduced a significantly revised Deville, restyled under the direction of [[Irvin Rybicki|Irv Rybicki]] with a {{convert|113.8|in|mm|abbr=on}} wheelbase for the Sedan de Ville, increased from {{convert|110.8|in|mm|abbr=on}}{{dash}}along with a heavily revised rear roof and backlight; a rear parcel shelf with storage compartment on four-door models (2-door models retained a narrow carpeted parcel shelf); dent resistant composite (plastic) front fenders, and larger luggage compartment by {{convert|2|cuft|m3}} over the previous model year. 
+
+Carried over were the {{Convert|155|hp|kW|0|abbr=on}} 4.5-liter engine, introduced for 1988, dash, and the front doors, on both the coupe and sedan. All Devilles featured a grille, slightly narrower at the top than bottom. The Coupe de Ville and Fleetwood coupe retained the previous year's interior, wheelbase, and doors{{dash}}all hidden between the new front and rear styling. Previously optional equipment, made standard for 1989, included electrically powered outside mirrors and the AM/FM/cassette player stereo. New options included a driver's side [[airbag]], [[Bose Corporation|Bose]] compact disc player, electrically heated windshield, and full reversible carpeted floor mats.
+
+'''1990:''' For 1990, DeVille and Fleetwood lost their telescopic steering column, but retained the tilt feature in exchange for an [[airbag]] mounted onto the newly standard leather-trimmed steering wheel. Engine output was up an additional {{convert|25|hp}} from sequential multi-port fuel injection. 1990 models also received GM's PASS Key theft-deterrent system which used a coded electronic pellet embedded into the ignition key. Other new features for 1990 included a non-illuminated vanity mirror on the driver's visor (a passenger side visor mirror had been standard equipment for decades now), door edge guards (previously optional), "clam shell" front center armrest with storage, and manual seat-back recliners for driver and passenger.  In addition to ongoing competition from Lincoln, new competition came from the 1990 debut of [[Toyota]]'s [[Lexus LS400]] and the [[Infiniti Q45]] from Nissan.  The [[Acura Legend]] had also been gaining momentum in the luxury market since its 1986 introduction.
+
+'''1991:''' For this model year, Cadillac introduced a {{Convert|200|hp|kW|-1|abbr=on}} 4.9-liter version of its V8 [[Cadillac High Technology engine#L26 4.9|HT (High Technology) engine series]], along with revised bumper and body-side moldings{{dash}}and a revised grille shape, now slightly narrower at the bottom than top, the inverse of the previous iteration's shape.  The revised grille held the Cadillac crest and was now attached to the forward edge of the hood, and lifted up along with the hood when raised. The secondary hood release latch was at the bottom of the grille instead of its previous location above the passenger side headlight. 
+
+In addition to the new engine and minor front-end restyling, several previously optional features became standard this year, including the [[anti-lock braking system]], accent striping, automatic door locks, Twilight Sentinel headlamp control, [[Smart glass|electrochromic]] inside rear-view mirror, and electric rear window and side mirror defogger. New standard features included rear-seat air conditioning vents, central door unlocking from the driver's door and luggage compartment, sun visors with shaded slide-out extensions, rear window lock-out switch, brake / transmission interlock safety switch, and an oil life indicator through the fuel data center. Other new features included the available remote keyless entry system, and the optional illuminated mirrors now featured a slide switch that offered variable intensity lighting.
+
+Also for the 1991 model year, Cadillac introduced the ''DeVille Touring Sedan'' trim level, making 1,500 available beginning in April 1991.<ref>''Orlando Sentinel'' - "Expert Reviews - 1991 Cadillac DeVille TS" by Richard Truett dated August 8, 1991</ref> The Touring Sedan was offered in five monochromatic paint schemes: Carmine Red; Cotillion White; Black; Dark Slate Gray metallic; and Black Sapphire Metallic. It included larger 16 x 6.5-inch forged aluminum wheels with a wreath and crest center caps, P215/60R16 Goodyear GA all-season radial tires; quicker 17:1 steering ratio; and a model-specific deep tan interior{{dash}}marketed as ''Beechwood,'' with leather seating areas and revised seat contouring with integral lumbar support; six-way power seats and recliners for driver and passenger; as well as genuine American Walnut wood accents on the doors and instrument panel. Further equipment included a grille-mounted wreath and crest replacing the stand-up hood ornament; side door moldings with "TOURING SEDAN" lettering; body-color, breakaway outside rearview mirrors; body-color door handles; and a cloisonne deck lid lock cover.<ref>Detroit Auto Show Press Release from Cadillac Motor Car Division dated January 7, 1991</ref>
+
+For 1991–1993, Cadillac offered a "Spring Edition" package for the Sedan de Ville and Coupe de Ville in the U.S. This package included full “Phaeton” cabriolet roof (installed by ASC), body-color door handles, gold trim package, perforated leather seats, digital instrument cluster, security system and “lace” aluminum wheels.
+
+'''1992:''' For 1992, the Touring Sedan continued as a limited edition option. Besides the special features included in the initial 1,500 models from 1991, it featured on Touring Sedans, like other DeVille models, the "Symphony Sound" stereo with cassette was standard, while the optional [[Delco Electronics|Delco]]/[[Bose Corporation|Bose]] music system was available with cassette or single-slot CD player. Introduced for 1992, speed-sensitive suspension and traction control (both standard on Touring Sedan when introduced in '91) were available at extra cost on DeVille. Approximately 5,300 Touring Sedans were produced for 1992.<ref>Standard Catalog of American Cars 1976-1999, 3rd edition, Flammang & Kowalke. Krause publications 1999.</ref>
+
+'''1993:''' The previously optional speed-sensitive suspension, ''Computer Command Ride'', became standard equipment, and now included a new speed-sensitive steering system. Minor trim changes included black-out trim in the grille (used on the 1992 Touring Sedan), and deletion of the chrome strip from the glass divider on the sedan's rear doors.
+
+The 2-door body style had been declining in sales for several years, and as a result, the 1994 redesign went into production solely as a 4-door. Production of the coupe ended in July 1993. 
+{{clear}}
+
+<big>'''1990-1993 Coupe de Ville production details:'''</big><br/>
+
+Declining popularity led to the discontinuation of GM's last full-size, six passenger two-door with the 1993 model year. (The other two C-body coupes, the Oldsmobile Ninety Eight and Buick Electra, were discontinued at the end of the 1987 model year, while the related [[General Motors H platform (FWD)|H-body]] Oldsmobile Eighty Eight and Buick LeSabre coupes were dropped when their sedan counterparts were redesigned for 1992.)
+
+'''1990:''' Cadillac made 17,507 coupes. The full-vinyl roof was included in the ''Spring Edition'' package (with 4,413 built), which also included perforated leather seat inserts. The most popular color was white (5,292 made) and least was medium dark gray (193 made). A]l two-doors featured white-wall Michelin tires, and this was the last year for plain wheel covers (2,788 made). 479 two-doors were exported: Canada (383), Japan (81), and Saudi Arabia (15). The 1990 Coupe de Ville was priced at $26,960.<ref name="Flammang, James 1999">Flammang, James ''Standard Catalog of American Cars 1976–1999 3rd Edition'' (Iola, WI: Krause Publications, Inc 1999)</ref>
+
+'''1991:''' Cadillac manufactured 10,057 examples.  Of those, 9,799 featured optional leather (in dark maroon, 19 were made, 11 in leather and 2 in velour). The most popular exterior color was white (2,967 made); least was medium dark gray (58 made). 3,397 ''Spring Edition'' were made. 1,122 featured the optional [[Bose Corporation|Bose]] sound system (752 with cassette, 370 with compact disc). Cadillac produced 164 for export: Canada (126), Japan (23), Persian Gulf countries (5), Puerto Rico and U.S> Virgin Islands (3), and Europe (7). Pricing was $30,205 for Coupe de Ville.<ref name="Flammang, James 1999"/>
+
+'''1992:''' Cadillac made 6,980 examples; the most popular color was white (1,879 made) and least was ''Mary Kay Pink'' (1 made) $30,205 (~${{Format price|{{Inflation|index=US-GDP|value=30205|start_year=1992}}}} in {{Inflation/year|US-GDP}}). 2,635 were ''Spring Edition'' models. 89 examples featured the standard painted-roof. 144 were manufactured for export, 129 for Canada and 15 for Japan. The base MSRP was $31,740.<ref name="Flammang, James 1999"/>
+
+'''1993:''' 4,711 were made, all featuring minor trim changes including black-out grille trim. Standard equipment included the full-vinyl roof, with 3,606 made; 1,105 were made with the optional partial vinyl roof ($170); and no paint-roof examples were made. The most popular color was white (1,147 made) and the least made color was dark maroon (24 made). The four wheel choices included standard-design cast aluminum wheels (2,012 cars); optional $235 lace-design aluminum wheel (1,766 cars), optional $235 locking wire wheel disc (749 cars), and the $1,195 chromed aluminum wheel (184 cars). 
+
+18 examples featured the no-charge blackwall [[Michelin]] radial tires and 4,693 models featured white-walls. 3,036 had mono-tone paint, and others had a lower body accent color: silver,1,130; dark red, 275; medium gray, 177; and beige, 93. 4,168 had the standard Symphony Sound system, and 543 featured the optional [[Bose Corporation|Bose]] stereo (310 with cassette, 233 with compact disc). 
+
+Nearly all examples had leather upholstery (most popular: neutral, with 1,236 made), and 239 featured velour interiors (least made: taupe, 24 made). No export models were made, and 523 of the 4,711 included California emission equipment. The base price of the 1993 Coupe de Ville was $33,915.<ref name="Flammang, James 1999"/>
+
+<big>'''Overall sixth-generation production:'''<ref name="flammang1976"/></big>{{Clarify|date=April 2025|reason=the numbers in this table do not agree with the text above.}}
+
+{| class="wikitable"
+!
+!Coupe de Ville
+!Sedan de Ville
+!Yearly Total
+|-
+|'''1985'''
+|37,485
+|151,763
+|'''189,248'''
+|-
+|'''1986'''
+|36,350
+|129,857
+|'''166,207'''
+|-
+|'''1987'''
+|32,700
+|N/A
+|
+|-
+|'''1988'''
+|26,420
+|N/A
+|
+|-
+|'''1989'''
+|4,108
+|122,693
+|'''126,801'''
+|-
+|'''1990'''
+|2,438
+|131,717
+|'''134,155'''
+|-
+|'''1991'''
+|12,134
+|135,776
+|'''147,910'''
+|-
+|'''1992'''
+|8,423
+|133,808
+|'''142,231'''
+|-
+|'''1993'''
+|4,711
+|125,963
+|'''130,674'''
+|-
+!Total
+!105,649
+!931,577
+!<u>1,037,226</u>
+|}
+{{clear}}
+
+==Seventh generation (1994–1999)<span class="anchor" id="7"></span><span class="anchor" id="1994"></span>==
+{{Infobox automobile
+| name = Seventh generation
+| image = 1994-1996 Cadillac Deville -- 01-28-2010.jpg
+| caption = 1994–1996 Cadillac Sedan DeVille
+| model_years = 1994–1999
+| aka = Cadillac Concours (Asia)
+| assembly = [[Detroit/Hamtramck Assembly]], [[Hamtramck, Michigan]], U.S.
+| body_style = 4-door [[Sedan (automobile)|sedan]]
+| layout = [[Front-engine, front-wheel-drive layout#Front-engine transversely mounted / Front-wheel drive|Transverse front-engine, front-wheel drive]]
+| platform = [[GM K platform (FWD)|K-body]]
+| wheelbase = {{convert|2890|mm|in|1|abbr=on|order=flip}}
+| length = 1994–96: {{convert|209.7|in|mm|0|abbr=on}}<br />1997–99: {{convert|209.8|in|mm|0|abbr=on}}
+| width = {{convert|76.5|in|mm|0|abbr=on}}
+| height = 1994–96: {{convert|56.4|in|mm|0|abbr=on}}<br />1997–99: {{convert|56.0|in|mm|0|abbr=on}}
+| weight = {{convert|4000|-|4300|lb|kg|abbr=on}}
+| engine = {{ubl
+  | '''[[Petrol engine|Gasoline]]:'''
+  | 4.9 L ''[[Cadillac High Technology engine#L26 4.9|L26]]'' [[V8 engine|V8]]
+  | 4.6 L ''[[Northstar engine series|LD8 Northstar]]'' [[V8 engine|V8]]
+  | 4.6 L ''[[Northstar engine series|L37 Northstar]]'' [[V8 engine|V8]]
+}}
+| transmission = 4-speed [[GM 4T80 transmission|4T80-E]] [[automatic transmission|automatic]]
+| designer = [[Chuck Jordan (automobile designer)|Chuck Jordan]]
+| related = [[Cadillac Seville]]
+}}
+
+[[File:1994 Cadillac DeVille (04).jpg|thumb|right|1994–1996 Cadillac Sedan DeVille]]
+[[File:1996 Cadillac DeVille (4).jpg|right|thumb|1996 Cadillac DeVille interior]]
+[[File:97-99 Cadillac DeVille.jpg|thumb|right|1997–1999 Cadillac DeVille]]
+
+For 1994, Cadillac redesigned the ''Sedan DeVille'', using a lengthened version of GM's front-drive [[GM K platform (FWD)|K-platform]] shared with the [[Cadillac Seville|Seville]] rather than the [[GM C platform|C-body]] used by the previous-generation Deville, Oldsmobile Ninety Eight, and Buick Park Avenue. This was the first generation in which the two-door ''Coupe DeVille'' was not available, having been discontinued due to low sales of the prior-generation model. 1996 was the last model year Cadillac marketed this car as the "Sedan DeVille".
+
+Designed by [[Chuck Jordan (automobile designer)|Chuck Jordan]] under the design direction of [[Wayne Cherry]], the restyled Sedan Deville rode on a {{convert|113.8|in|adj=on}} wheelbase and featured {{convert|117.5|cuft}} of passenger volume and a {{convert|20|cuft|l}} trunk.<ref name="mtrend">{{cite web
+ |title        = 1994 Cadillac Deville Concours
+ |publisher    = Motor Trend
+ |author       = Jeff Bartlett
+ |work = MotorTrend
+ |date         = August 2, 1995
+|url          = https://www.motortrend.com/reviews/1994-cadillac-deville-concours/}}</ref> Production moved to [[Hamtramck, Michigan]].
+
+For 1994 and 1995, the base ''Deville'' retained the ''[[Cadillac High Technology engine#L26 4.9|4.9L L26 V8]]'' while the ''DeVille Concours'' was available with the new 270&nbsp;hp (201&nbsp;kW) [[GM Premium V engine#LD8|''LD8'' Northstar]] [[V8 engine|V8]]. In 1996, the high-output [[GM Premium V engine#L37|''L37'' Northstar]] generating {{Convert|300|hp|kW|-1|abbr=on}} became standard in the Concours series, while the standard-output Northstar replaced the 4.9L V8 in base models.
+
+All 1994 DeVille models included a passenger-side front [[airbag]] (in addition to the standard driver-side airbag); digital instrumentation with integrated message center; dual-zone front HVAC system with controls located to the right of the instrument cluster and on the front passenger door panel; automatic lighting, marketed as ''Twilight Sentinel,''; a leather wrapped, tilt-adjustable steering wheel with buttons for radio and HVAC control; and a six-speaker audio system with AM/FM/Cassette stereo. Cloth seating, marketed as ''Saratoga Cloth'', was standard{{dash}}as was front and rear bench seating for six passengers.
+
+Options included AM/FM/Cassette/CD stereo; eleven-speaker premium audio system; leather-trimmed seating surfaces; full power adjustments, and front bucket seats.
+
+Aside from the Northstar engine, the 1994 ''Deville Concours'' featured an [[active suspension|adaptive, continuously variable road sensing suspension]] initially marketed as ''CVRSS'' and later as ''[[MagneRide]]'', a first on the ''DeVille'' series. 
+
+=== 1997-1999 Facelift ===
+All ''DeVille'' models received a facelift for the 1997 model year. The name was shortened from ''Sedan DeVille'' to simply ''DeVille'', and an upscale ''d'Elegance'' trim line with distinctive gold trim and badging was added to replace the ''[[Cadillac Fleetwood]]''.
+
+Exterior revisions for 1997 included a revised front fascia, updated interior, and new rear fender design that saw the rear wheel skirts deleted in favor of a rounded design. Trims and body mouldings were revised depending on trim level: a double chrome trim was now used in the base ''DeVille'', chrome and gold trim and gold hood ornament was exclusive to the ''d'Elegance'', and chrome and body colored trim for the ''Concours''. The updated interior received a new dashboard design that concealed the passenger airbag seams, revised door panels with standard door-mounted front side-airbags, and an optional [[OnStar]] system.
+
+Luxury features available with the D'Elegance package included special wheels and rear illuminated vanity mirrors. The ''Concours'', which remained the most performance-oriented model of the lineup, received real-time damping and [[Electronic stability control]] as standard.
+
+A limited-edition ''Fleetwood Limited'', based on a stretched-wheelbase ''DeVille'', was available for 1998 and 1999. These models used a longer 118-inch wheelbase and were built by Superior Coachbuilders; unique exterior features included skirted rear wheels and ''Fleetwood Limited'' badging. Optional interior features included dual solid-wood rear writing tables, an in-car VCR player and foldaway LCD TV, and dual rear vanity mirrors. Costing significantly more than a standard DeVille before options, only 781 examples were built across both model years.<ref>{{Cite web |title=1998 Cadillac Fleetwood |url=https://www.grautogallery.com/vehicles/12935/request.original_url |access-date=2025-08-29 |website=GR Auto Gallery |language=en-US}}</ref><ref>{{Cite web |title=1998 Cadillac Fleetwood Limited Superior Coach 1-page Car Brochure Leaflet Card |url=https://www.ebay.com/itm/374862422751 |access-date=2025-08-29 |website=eBay |language=en-us}}</ref>
+
+Production of the seventh-generation ''DeVille'' ceased in July 1999. 
+
+<big>'''Seventh Generation Deville Production:'''</big><ref name="flammang1976"/>
+
+{| class="wikitable"
+!
+!Yearly Total
+|-
+|'''1994'''
+|120,352
+|-
+|'''1995'''
+|109,066
+|-
+|'''1996'''
+|100,251
+|-
+|'''1997'''
+|99,601
+|-
+|'''1998'''
+|111,030
+|-
+|'''1999'''
+|*
+|}
+<nowiki>*</nowiki>Production figures for 1999 were not provided
+
+<big>'''Seventh Generation Deville Engines:'''</big>
+
+{| class="wikitable"
+|-
+!Model
+!Year
+!Engine
+!Power
+!Torque
+|-
+|rowspan=2|Base||1994–1995||4.9&nbsp;L ''[[Cadillac High Technology engine#L26 4.9|L26]]'' [[V8 engine|V8]]||200&nbsp;hp (149&nbsp;kW) at 4100&nbsp;[[Revolutions per minute|rpm]]||275&nbsp;[[lb·ft]] (373&nbsp;N·m) at 3000&nbsp;rpm
+|-
+|1996–1999||4.6&nbsp;L [[GM Premium V engine#LD8|LD8 Northstar]] [[V8 engine|V8]]||275&nbsp;hp (205&nbsp;[[Kilowatt|kW]]) at 5750&nbsp;rpm||300&nbsp;lb·ft (407&nbsp;N·m) at 4000&nbsp;rpm
+|-
+|rowspan=3|Concours||1994||rowspan=2|4.6&nbsp;L [[GM Premium V engine#LD8|LD8 Northstar]] [[V8 engine|V8]]||270&nbsp;hp (201&nbsp;kW)||300&nbsp;lb·ft (407&nbsp;N·m)
+|-
+|1995||275&nbsp;hp (205&nbsp;kW) at 5750&nbsp;rpm||275&nbsp;lb·ft (373&nbsp;N·m) at 4750&nbsp;rpm
+|-
+|1996–1999||4.6&nbsp;L [[GM Premium V engine#L37|L37 Northstar]] [[V8 engine|V8]]||300&nbsp;hp (224&nbsp;kW) at 6000&nbsp;rpm||295&nbsp;lb·ft (400&nbsp;N·m) at 4400&nbsp;rpm
+|}
+
+{{clear}}
+
+==Eighth generation (2000–2005)==
+{{Infobox automobile
+| name         = Eighth generation
+| image        = Cadillac Deville -- 10-30-2009.jpg
+| caption      = 2000–2005 Cadillac DeVille
+|production=August 1999–June 2005
+| model_years  = 2000–2005
+| assembly     = [[Detroit/Hamtramck Assembly]], [[Hamtramck, Michigan]], U.S.
+| body_style   = 4-door [[sedan (automobile)|sedan]]
+| layout       = [[Front-engine, front-wheel-drive layout#Front-engine transversely mounted / Front-wheel drive|Transverse front-engine, front-wheel drive]]
+| platform     = [[GM G platform (FWD)|G platform]]<ref name="Frame">{{cite web|last=Frame|first=Phil|title=GM H Cars move to G Platform|url=http://www.autonews.com/apps/pbcs.dll/article?AID=/19950116/ANA/501160730#axzz2TYYYR1jT|work=[[Automotive News]]|access-date=May 17, 2013|archive-url=https://archive.today/20130616065939/http://www.autonews.com/apps/pbcs.dll/article?AID=/19950116/ANA/501160730%23axzz2TYYYR1jT|archive-date=June 16, 2013|url-status=live|date=January 16, 1995|url-access=subscription}}</ref>/GMX270
+| related      = [[Cadillac Seville]]<br>[[Buick Riviera]]<br>[[Buick LeSabre]]<br>[[Buick Park Avenue]]<br>[[Oldsmobile Aurora]]<br>[[Pontiac Bonneville]]
+| wheelbase    = {{convert|115.3|in|mm|0|abbr=on}}
+| length       = {{convert|207.2|in|mm|0|abbr=on}}
+| width        = {{convert|74.5|in|mm|0|abbr=on}}
+| height       = {{convert|56.7|in|mm|0|abbr=on}}
+| weight       = {{convert|4000|lb|kg||abbr=on}}
+| engine       = {{ubl
+  | '''[[Petrol engine|Gasoline]]:'''
+  | 4.6 L ''[[Northstar engine series|LD8 Northstar]]'' [[V8 engine|V8]]
+  | 4.6 L ''[[Northstar engine series|L37 Northstar]]'' V8
+}}
+| transmission = 4-speed [[GM 4T80 transmission|4T80]] [[automatic transmission|automatic]]
+| designer     = [[Wayne Cherry]]
+| successor = [[Cadillac DTS]]
+}}
+[[File:2004 Cadillac DeVille, rear left, 06-07-2024.jpg|left|thumb|2004 Cadillac DeVille, rear view]]
+The 2000 model year was the first substantial redesign since 1994, marking the Deville's move to the revised [[GM G platform (FWD)|G platform]].<ref name="Frame2">{{cite web|last=Frame|first=Phil|title=GM H Cars move to G Platform|url=https://www.autonews.com/article/19950116/ANA/501160730/gm-h-cars-move-to-g-platform|work=[[Automotive News]]|access-date=May 17, 2013|archive-url=https://web.archive.org/web/20220622233341/https://www.autonews.com/article/19950116/ANA/501160730/gm-h-cars-move-to-g-platform|date=January 16, 1995|archive-date=June 22, 2022}}</ref> Production started in August 1999. The exterior was redesigned, achieving a more aerodynamic drag coefficient of 0.30, and the revised interior featured new door panels and seats, with standard seat-mounted front side-airbags, along with minor dash and radio face revisions.
+
+The ''DeVille DHS'' name replaced the ''d'Elegance'' trim level and added an optional power rear window sunshade, heated/massaging front seats and heated rear seats. The performance ''DeVille Concours'' was renamed the ''Deville DTS'' (DeVille Touring Sedan), in anticipation of the forthcoming renaming of the entire line.  The Deville DTS was newly available with stability control, [[continuously variable road sensing suspension]] ([[CVRSS]]), and onboard navigation.
+
+Cadillac offered [[automotive night vision]], marketed as '''Night Vision''' on the DeVille, as a worldwide first in series production,<ref>{{cite web |url=http://ask.cars.com/2008/09/what-are-led-ta.html |title=What are LED taillights? |publisher=Ask.cars.com |date=September 16, 2008 |access-date=May 7, 2009 |url-status=live |archive-url=http://archive.wikiwix.com/cache/20130327072052/http://ask.cars.com/2008/09/what-are-led-ta.html |archive-date=March 27, 2013 }}</ref> subsequently discontinued in 2004.<ref>{{cite web |last=Keegan |first=Walter J |url=http://www.autoblog.com/2004/11/17/cadillac-kills-passive-night-vision-system/ |title=Cadillac kills passive night-vision system |website=Autoblog.com |date=November 17, 2004 |access-date=December 8, 2009 |url-status=live |archive-url=https://web.archive.org/web/20090711163954/http://www.autoblog.com/2004/11/17/cadillac-kills-passive-night-vision-system |archive-date=July 11, 2009 }}</ref> The system was developed with [[Raytheon]] and used a ''passive infrared'' sensor camera mounted behind the vehicle's grille. Infrared radiation was picked up by the sensor, processed by computer and then displayed on the windshield using an [[automotive head-up display]].  Information was displayed as a black-and-white image with warmer objects in white, while cooler objects appear black.<ref>{{cite web |first=Brent |last=Romans |url=http://www.edmunds.com/apps/vdpcontainers/do/vdp/articleId=44088/pageNumber=3 |title=Full Test: 2000 Cadillac DeVille DTS |publisher=Edmunds.com |date=January 1, 1999 |access-date=December 8, 2009 |url-status=dead |archive-url=https://web.archive.org/web/20051125041219/http://www.edmunds.com/apps/vdpcontainers/do/vdp/articleId%3D44088/pageNumber%3D3 |archive-date=November 25, 2005 }}</ref><ref>{{cite web|first=Frank|last=Vale|url=http://www.vxm.com/Impact.cadillac.nitevision.html |title=21st-Cadillac Night Vision |publisher=Vxm.com |date=December 13, 2006 |access-date=December 8, 2009| archive-url= https://web.archive.org/web/20100109162439/http://www.vxm.com/Impact.cadillac.nitevision.html| archive-date= January 9, 2010 <!--DASHBot-->| url-status=live}}</ref><ref>{{cite press release|publisher=GM|date=January 16, 2000|title=Cadillac Introduces "Night Vision" Technology|url=http://archives.media.gm.com/ca/gm/en/news/releases/archived%20releases/8f8b67f39a2b5d948525696d00711289.htm|access-date=December 29, 2014|archive-date=July 2, 2017|archive-url=https://web.archive.org/web/20170702225427/https://archives.media.gm.com/ca/gm/en/news/releases/archived%20releases/8f8b67f39a2b5d948525696d00711289.htm|url-status=dead}}</ref> Because the system outputs a standard NTSC composite video signal and the used parts are somewhat easy and inexpensive to find, it has become a popular choice for fitting thermal night vision to other vehicles.<ref>{{cite web|publisher=Corvette Online|date=March 25, 2014|title=Video: DIY'er Fits Cadillac Thermal Image Night Vision to his C6|url=http://www.corvetteonline.com/news/video-diyer-fits-caddilac-thermal-image-night-vision-to-his-c6/|url-status=live|archive-url=https://web.archive.org/web/20141229221355/http://www.corvetteonline.com/news/video-diyer-fits-caddilac-thermal-image-night-vision-to-his-c6/|archive-date=December 29, 2014}}</ref>
+
+In late-2000, comedian [[Tim Allen]] designed a high performance variant of the Deville. The TAD Deville DTSi (TAD is short for "Tim Allen Design") features stiffer suspension, 18-inch Konig wheels with [[Goodyear Tire and Rubber Company|Goodyear]] Eagle F1 tires, and 14-inch cross-drilled brake rotors with [[Brembo]] calipers. The Northstar V8 was tuned to generate 398 horsepower at 6400 rpm.<ref>{{cite magazine |url=https://www.caranddriver.com/reviews/a15139707/tim-allen-design-cadillac-deville-dtsi-specialty-file/ |title=Tim Allen Design Cadillac DeVille DTSi |first=John |last=Phillips |magazine=[[Car and Driver]] |date=November 1, 2000 |access-date=July 4, 2022}}</ref>
+
+In 2002 for the 2003 model year, the Deville received a mild, mid-cycle facelift. 
+
+The last model to carry the ''DeVille'' nameplate was assembled at [[Detroit/Hamtramck Assembly]] in June 2005, replaced for 2006 by the renamed and slightly revised [[Cadillac DTS|DTS]], effectively a ''de facto'' ninth generation Deville.
+
+{| class="wikitable"
+|-
+!Model
+!Year
+!Engine
+!Power
+!Torque
+|-
+|rowspan=2|Base / DHS||2000–2001||rowspan=2|4.6&nbsp;L [[GM Premium V engine#LD8|LD8 Northstar]] [[V8 engine|V8]]||275&nbsp;hp (205&nbsp;kW) at 5750&nbsp;rpm||300&nbsp;lb·ft (407&nbsp;N·m) at 4750&nbsp;rpm
+|-
+|2002–2005||275&nbsp;hp (205&nbsp;kW) at 5600&nbsp;rpm||300&nbsp;lb·ft (407&nbsp;N·m) at 4000&nbsp;rpm
+|-
+|rowspan=2|DTS||2000–2004||rowspan=2|4.6&nbsp;L [[GM Premium V engine#L37|L37 Northstar]] [[V8 engine|V8]]||300&nbsp;hp (224&nbsp;kW) at 6000&nbsp;rpm||295&nbsp;lb·ft (400&nbsp;N·m) at 4400&nbsp;rpm
+|-
+|2005||290&nbsp;hp (216&nbsp;kW) at 5600&nbsp;rpm||285&nbsp;lb·ft (386&nbsp;N·m) at 4400&nbsp;rpm
+|}
+{{-}}
+
+== References ==
+{{reflist}}
+
+==External links==
+{{Commons category}}
+* {{webarchive| url=https://web.archive.org/web/20030801091834/http://www.cadillac.com/cadillacjsp/models/deville/index.html| date=August 1, 2003| title=Cadillac DeVille official site}}
+
+{{Cadillac timeline}}
+{{Cadillac}}
+{{Cadillac vehicles}}
+{{Authority control}}
+
+{{DEFAULTSORT:Cadillac Sedan de Ville}}
+[[Category:Cadillac vehicles|de Ville]]
+[[Category:Front-wheel-drive vehicles]]
+[[Category:Rear-wheel-drive vehicles]]
+[[Category:Full-size vehicles]]
+[[Category:1950s cars]]
+[[Category:1960s cars]]
+[[Category:1970s cars]]
+[[Category:1980s cars]]
+[[Category:1990s cars]]
+[[Category:2000s cars]]
+[[Category:Cars introduced in 1949]]
+[[Category:Cars discontinued in 2005]]
+[[Category:Motor vehicles manufactured in the United States]]
+[[Category:Flagship vehicles]]
+[[Category:Limousines]]

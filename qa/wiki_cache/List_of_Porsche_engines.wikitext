@@ -1,0 +1,3086 @@
+{{Short description|none}}
+
+{{Multiple issues|
+{{More citations needed|date=February 2008}}
+{{No footnotes|date=February 2008}}
+}}
+
+The following is '''lists of [[internal combustion engine|piston engines]]''' developed/used by [[Germany|German]] car manufacturer '''[[Porsche]].'''
+{{Expand list|date=August 2008}}
+
+== Automotive engines ==
+
+=== [[Porsche 64]] ===
+*1939 {{cvt|1100|cc|L|1|order=flip}} {{cvt|40|PS|kW bhp|0}} or {{cvt|50|PS|kW bhp|0}} [[Air-cooled engine|air-cooled]] [[flat four engine|boxer flat-four]]<ref>{{cite web |url=https://1300ccm.de/weitersehen/berlin-rom-wagen_art69317.html |website=1300ccm.de |title=Porsche oder Volkswagen? Der Berlin-Rom-Wagen |date=14 December 2010 |trans-title=Porsche or Volkswagen? The Berlin-Rom-Wagen |language=de |access-date=2018-08-25 }}{{Dead link|date=May 2026 |bot=InternetArchiveBot }}</ref>
+
+=== [[Porsche 356]] ===
+356
+*1948–1953 {{cvt|1086|cc|L|1|order=flip}} {{cvt|29|kW|PS bhp|0}} {{cvt|70|Nm|lbft}} Type 369 [[Air-cooled engine|air-cooled]], [[Four-stroke engine|four-stroke]], [[Overhead valve engine|OHV]] [[flat four engine|boxer flat-four]] (1100)
+*1950–1954 {{cvt|1286|cc|L|1|order=flip}} {{cvt|32|kW|PS bhp|0}} {{cvt|81|Nm|lbft}} Type 506 air-cooled, four-stroke, OHV boxer flat-four (1300)
+*1954 {{cvt|1286|cc|L|1|order=flip}} Type 506/1 air-cooled, four-stroke, OHV boxer flat-four (1300 A)
+*1953–1954/1954–1957 {{cvt|1286|cc|L|1|order=flip}} {{cvt|44|kW|PS bhp|0}} Type 589 air-cooled, four-stroke, OHV boxer flat-four (1300 S)
+*{{cvt|1488|cc|L|1|order=flip}} {{cvt|40|kW|PS bhp|0}} {{cvt|106|Nm|lbft}} air-cooled, four-stroke, OHV boxer flat-four (1500)
+*1951–1952 Type 527 air-cooled, four-stroke, OHV boxer flat-four (1500)
+*1952–1953 Type 546 air-cooled, four-stroke, OHV boxer flat-four (1500)
+*1954–1955 Type 546/2 air-cooled, four-stroke, OHV boxer flat-four (1500)
+*{{cvt|1488|cc|L|1|order=flip}} {{cvt|51|kW|PS bhp|0}} {{cvt|108|Nm|lbft}} air-cooled, four-stroke, OHV boxer flat-four (1500 S)
+*1952–1953 {{cvt|1488|cc|L|1|order=flip}} Type 528 air-cooled, four-stroke, OHV boxer flat-four (1500 S)
+*1954–1955 {{cvt|1488|cc|L|1|order=flip}} Type 528/2 air-cooled, four-stroke, OHV boxer flat-four (1500 S)
+
+{{Table alignment}}
+{| class="wikitable defaultcenter col2left"
+|+ Porsche 356 engines
+|-
+! Type !! Model !! Engine !! MY !! Engine numbers !! Technical data
+|-
+| 356 || Coupe/Cabrio || 369 || 50 || 00101>00411 || 4 Cyl / 1.1L / {{cvt|29|kW|hp|0}}
+|-
+| colspan=6 | —
+|-
+| 356 || Coupe/Cabrio || 369 || 51 || 00412>00999<br />10001>10137 || 4 Cyl / 1.1L / {{cvt|29|kW|hp|0}}
+|-
+| 356 || Coupe/Cabrio || 506 || 51 || 01001>01099<br />20001>20821 || 4 Cyl / 1.3L / {{cvt|32|kW|hp|0}}
+|-
+| colspan=6 | —
+|-
+| 356 || Coupe/Cabrio || 527 || 52 || 30001>30737 || 4 Cyl / 1.5L / {{cvt|44|kW|hp|0}}
+|-
+| 356 || Cabrio || 369 || 52 || 10138>10151 || 4 Cyl / 1.1L / {{cvt|29|kW|hp|0}}
+|-
+| 356 || Coupe || 508 || 52 || 20822>21297 || 4 Cyl / 1.3L / {{cvt|32|kW|hp|0}}
+|-
+| 356 || Cabrio || 527 || 52 || 30738>30750 || 4 Cyl / 1.5L / {{cvt|44|kW|hp|0}}
+|-
+| colspan=6 | —
+|-
+| 356 || Coupe || 546 || 53 || 30751>31025 || 4 Cyl  / 1.5L / {{cvt|40|kW|hp|0}}
+|-
+| 356 || Cabrio || 528 || 53 || 40001>40117 || 4 Cyl / 1.5L / {{cvt|51|kW|hp|0}}
+|-
+| 356 || Coupe/Cabrio || 369 || 53 || 10152>10161 || 4 Cyl / 1.1L / {{cvt|29|kW|hp|0}}
+|-
+| 356 || Coupe/Cabrio || 506 || 53 || 21298>21636 || 4 Cyl / 1.3L / {{cvt|32|kW|hp|0}}
+|-
+| 356 || Coupe/Cabrio || 546 || 53 || 31026>32569 || 4 Cyl / 1.5L / {{cvt|40|kW|hp|0}}
+|-
+| 356 || Coupe/Cabrio || 528 || 53 || 40118>40685 || 4 Cyl / 1.5L / {{cvt|40|kW|hp|0}}
+|-
+| colspan=6 | —
+|-
+| 356 || Coupe/Cabrio || 589 || 54 || 50001>50017 || 4 Cyl / 1.3L / {{cvt|44|kW|hp|0}}
+|-
+| 356 || Coupe/Cabrio/Speedster || 369 || 54 || 10162>10199 || 4 Cyl  /1.1L / {{cvt|29|kW|hp|0}}
+|-
+| 356 || Coupe/Cabrio/Speedster || 506 || 54 || 21637>21780 || 4 Cyl / 1.3L / {{cvt|32|kW|hp|0}}
+|-
+| 356 || Coupe/Cabrio/Speedster || 589 || 54 || 50018>50019 || 4 Cyl / 1.3L / {{cvt|44|kW|hp|0}}
+|-
+| 356 || Coupe/Cabrio/Speedster || 506/1 || 54 || 21781>21999 || 4 Cyl  /1.3L / {{cvt|32|kW|hp|0}}
+|-
+| 356 || Coupe/Cabrio/Speedster || 546 || 54 || 32570>33899 || 4 Cyl / 1.5L / {{cvt|40|kW|hp|0}}
+|-
+| 356 || Coupe/Cabrio/Speedster || 528 || 54 || 40686>40999 || 4 Cyl / 1.5L / {{cvt|51|kW|hp|0}}
+|-
+| colspan=6 | —
+|-
+| 356 || Coupe/Cabrio/Speedster || 506/2 || 55 || 22001>22021 || 4 Cyl / 1.3L / {{cvt|32|kW|hp|0}}
+|-
+| 356 || Coupe/Cabrio/Speedster || 589/2 || 55 || 50101>50127 || 4 Cyl / 1.3L  {{cvt|44|kW|hp|0}}
+|-
+| 356 || Coupe/Cabrio/Speedster || 546/2 || 55 || 33901>34119 || 4 Cyl / 1.5L / {{cvt|40|kW|hp|0}}
+|-
+| 356 || Coupe/Cabrio/Speedster || 528/2 || 55 || 41001>41048 || 4 Cyl / 1.5L / {{cvt|51|kW|hp|0}}
+|-
+| 356 || Coupe/Cabrio/Speedster || 506/2 || 55 || 22022>22245 || 4 Cyl / 1.3L / {{cvt|32|kW|hp|0}}
+|-
+| 356 || Coupe/Cabrio/Speedster || 589/2 || 55 || 50101>50127 || 4 Cyl / 1.3L / {{cvt|44|kW|hp|0}}
+|-
+| 356 || Coupe/Cabrio/Speedster || 546/2 || 55 || 34120>35790 || 4 Cyl / 1.5L / {{cvt|40|kW|hp|0}}
+|-
+| 356 || Coupe/Cabrio/Speedster || 528/2 || 55 || 41049>41999 || 4 Cyl / 1.5L / {{cvt|51|kW|hp|0}}
+|}
+
+356 A
+*{{cvt|1286|cc|L|1|order=flip}} {{cvt|32|kW|PS bhp|0}} {{cvt|81|Nm|lbft}} Type 506 air-cooled, four-stroke, OHV boxer flat-four (1300)
+*{{cvt|1286|cc|L|1|order=flip}} Type 506/2 air-cooled, four-stroke, OHV boxer flat-four (1300 A)
+*1953–1954/1954–1957 {{cvt|1286|cc|L|1|order=flip}} {{cvt|44|kW|PS bhp|0}} Type 589 air-cooled, four-stroke, OHV boxer flat-four (1300 S)
+*1955–1957 {{cvt|1498|cc|L|1|order=flip}} Type 547/1 air-cooled, four-stroke, [[Overhead camshaft#Dual overhead camshaft|DOHC]] boxer flat-four (Carrera 1500 GS/GT)
+*1958 {{cvt|1498|cc|L|1|order=flip}} Type 692/0 air-cooled, four-stroke, DOHC boxer flat-four (Carrera 1500 GT)
+*1958 {{cvt|1498|cc|L|1|order=flip}} Type 692/1 air-cooled, four-stroke, DOHC boxer flat-four (Carrera 1500 GT)
+*{{cvt|1582|cc|L|1|order=flip}} Type 616/1 air-cooled, four-stroke, OHV boxer flat-four (1600)
+*{{cvt|1582|cc|L|1|order=flip}} Type 616/2 air-cooled, four-stroke, OHV boxer flat-four (1600 S)
+*{{cvt|1587|cc|L|1|order=flip}} Type 692/2 air-cooled, four-stroke, DOHC boxer flat-four (Carrera 1600 GS)
+
+{{Table alignment}}
+{| class="wikitable defaultcenter col2left"
+|+ Porsche 356 A engines
+|-
+! Type !! Model !! Engine !! MY !! Engine numbers !! Technical data
+|-
+| 356 A || Carrera GS || 547/1 || 56 || P90501>P90959 || 4 Cyl / 1.6L / {{cvt|73|kW|hp|0}}
+|-
+| 356 A || Carrera GT || 547/1 || 56 || P90501>P90959 || 4 Cyl / 1.6L / {{cvt|80|kW|hp|0}}
+|-
+| 356 A || Coupe/Cabrio/Speedster || 506/2 || 56 || 22246>22273 || 4 Cyl / 1.3L / {{cvt|32|kW|hp|0}}
+|-
+| 356 A || Coupe/Cabrio/Speedster || 589/2 || 56 || 50128>50135 || 4 Cyl / 1.3L / {{cvt|44|kW|hp|0}}
+|-
+| 356 A || Coupe/Cabrio/Speedster || 616/1 || 56 || 60001>60608 || 4 Cyl / 1.6L / {{cvt|44|kW|hp|0}}
+|-
+| 356 A || Coupe/Cabrio/Speedster || 616/2 || 56 || 80001>80110 || 4 Cyl / 1.6L / {{cvt|55|kW|hp|0}}
+|-
+| 356 A || Coupe/Cabrio/Speedster || 506/2 || 56 || 22274>22471 || 4 Cyl / 1.3L / {{cvt|32|kW|hp|0}}
+|-
+| 356 A || Coupe/Cabrio/Speedster || 589/2 || 56 || 50136>50155 || 4 Cyl / 1.3L / {{cvt|44|kW|hp|0}}
+|-
+| 356 A || Coupe/Cabrio/Speedster || 616/1 || 56 || 60609>63926 || 4 Cyl  /1.6L / {{cvt|44|kW|hp|0}}
+|-
+| 356 A || Coupe/Cabrio/Speedster || 616/2 || 56 || 80111>80756 || 4 Cyl  /1.6L / {{cvt|55|kW|hp|0}}
+|-
+| colspan=6 | —
+|-
+| 356 A || Carrera GS || 547/1 || 57 || P90501/P90959 || 4 Cyl / 1.6L / {{cvt|73|kW|hp|0}}
+|-
+| 356 A || Carrera GT || 547/1 || 57 || P90501/P90959 || 4 Cyl / 1.6L / {{cvt|80|kW|hp|0}}
+|-
+| 356 A || Coupe/Cabrio/Speedster || 506/2 || 57 || 22472>22999 || 4 Cyl / 1.3L / {{cvt|32|kW|hp|0}}
+|-
+| 356 A || Coupe/Cabrio/Speedster || 589/2 || 57 || 50156>50999 || 4 Cyl / 1.3L / {{cvt|44|kW|hp|0}}
+|-
+| 356 A || Coupe/Cabrio/Speedster || 616/1 || 57 || 63927>66999 || 4 Cyl / 1.6L / {{cvt|44|kW|hp|0}}
+|-
+| 356 A || Coupe/Cabrio/Speedster || 616/2 || 57 || 80757>81199 || 4 Cyl / 1.6L / {{cvt|55|kW|hp|0}}
+|-
+| colspan=6 | —
+|-
+| 356 A || Carrera GS || 547/1 || 58 || P90501>P90959 || 4 Cyl / 1.6L / {{cvt|73|kW|hp|0}}
+|-
+| 356 A || Carrera GT || 547/1 || 58 || P90501>P90959 || 4 Cyl / 1.6L / {{cvt|80|kW|hp|0}}
+|-
+| 356 A || Coupe/Cabrio/Speedster || 616/1 || 58 || 67001>68216 || 4 Cyl / 1.6L / {{cvt|44|kW|hp|0}}
+|-
+| 356 A || Coupe/Cabrio/Speedster || 616/2 || 58 || 81201>81521 || 4 Cyl / 1.6L / {{cvt|55|kW|hp|0}}
+|-
+| 356 A || Coupe/Cabrio/Speedster || 616/1 || 58 || 68217>72468 || 4 Cyl / 1.6L / {{cvt|44|kW|hp|0}}
+|-
+| 356 A || Coupe/Cabrio/Speedster || 616/2 || 58 || 81522>83145 || 4 Cyl / 1.6L / {{cvt|55|kW|hp|0}}
+|-
+| colspan=6 | —
+|-
+| 356 A || Carrera GS || 547/1 || 59 || P90501>P90959 || 4 Cyl / 1.6L / {{cvt|73|kW|hp|0}}
+|-
+| 356 A || Carrera GT || 547/1 || 59 || P90501>P90959 || 4 Cyl / 1.6L / {{cvt|80|kW|hp|0}}
+|-
+| 356 A || Carrera GT || 692/0 || 59 || P91001>P91037 || 4 Cyl / 1.6L / {{cvt|80|kW|hp|0}}
+|-
+| 356 A || Carrera GT || 692/1 || 59 || P92001>P92014 || 4 Cyl / 1.6L / {{cvt|80|kW|hp|0}}
+|-
+| 356 A || Carrera GS || 692/2 || 59 || P93001>P93062 || 4 Cyl / 1.6L / {{cvt|77|kW|hp|0}}
+|-
+| 356 A || Coupe/Cabrio/Speedster || 616/1 || 59 || 72469>79999 || 4 Cyl / 1.6L / {{cvt|44|kW|hp|0}}
+|-
+| 356 A || Coupe/Cabrio/Speedster || 616/2 || 59 || 83146>84770 || 4 Cyl / 1.6L / {{cvt|55|kW|hp|0}}
+|}
+
+356 B
+*{{cvt|1582|cc|L|1|order=flip}} Type 616/1 air-cooled, four-stroke, OHV boxer flat-four (1600)
+*1960–1962 {{cvt|1582|cc|L|1|order=flip}} Type 616/2 air-cooled, four-stroke, OHV boxer flat-four (1600 S)
+*{{cvt|1582|cc|L|1|order=flip}} Type 616/7 air-cooled, four-stroke, OHV boxer flat-four (1600 Super 90)
+*1962–1963 {{cvt|1582|cc|L|1|order=flip}} Type 616/12 air-cooled, four-stroke, OHV boxer flat-four (1600 S)
+*1960 {{cvt|1588|cc|L|1|order=flip}} Type 692/3 air-cooled, four-stroke, DOHC boxer flat-four (1600 Carrera GS GT, Carrera GTL [[Abarth]])
+*1961 {{cvt|1588|cc|L|1|order=flip}} Type 692/3A air-cooled, four-stroke, DOHC boxer flat-four (1600 Carrera GS GT)
+*1962–1963 {{cvt|1966|cc|L|1|order=flip}} Type 587/1 air-cooled, four-stroke, DOHC boxer flat-four (2000 Carrera 2 GS)
+*1963 {{cvt|1966|cc|L|1|order=flip}} Type 587/2 air-cooled, four-stroke, DOHC boxer flat-four (2000 Carrera 2 GS GT)
+
+{{Table alignment}}
+{| class="wikitable defaultcenter col2left"
+|+ Porsche 356 B engines
+|-
+! Type !! Model !! Engine !! MY !! Engine numbers !! Technical data
+|-
+| 356 B || Carrera GS || 692/2 || 59 || P93001>P93062 || 4 Cyl / 1.6L / {{cvt|77|kW|hp|0}}
+|-
+| 356 B || Carrera GS || 692/2 || 59 || P93100>P93138 || 4 Cyl / 1.6L / {{cvt|77|kW|hp|0}}
+|-
+| colspan=6 | — 
+|-
+| 356 B || Coupe/Cabrio/Roadster || 616/1 || 60 || 600101>604700 || 4 Cyl / 1.6L / {{cvt|44|kW|hp|0}}
+|-
+| 356 B || Coupe/Cabrio/Roadster || 616/2 || 60 || 084771>088320 || 4 Cyl / 1.6L / {{cvt|55|kW|hp|0}}
+|-
+| 356 B || Coupe/Cabrio/Roadster || 616/7 || 60 || 800101>802000 || 4 Cyl / 1.6L / {{cvt|66|kW|hp|0}}
+|-
+| 356 B || Carrera GT || 692/3 || 60 || P95001>P95114 || 4 Cyl / 1.6L / {{cvt|85|kW|hp|0}}
+|-
+| colspan=6 | —
+|-
+| 356 B || Coupe/Cabrio/Roadster || 616/1 || 61 || 604701>606799 || 4 Cyl / 1.6L / {{cvt|44|kW|hp|0}}
+|-
+| 356 B || Coupe/Cabrio/Roadster || 616/2 || 61 || 088321>089999 || 4 Cyl / 1.6L / {{cvt|55|kW|hp|0}}
+|-
+| 356 B || Coupe -Karmann- || 616/2 || 61 || 085001>085670 || 4 Cyl / 1.6L / {{cvt|55|kW|hp|0}}
+|-
+| 356 B || Coupe/Cabrio/Roadster || 616/7 || 61 || 802001>803999 || 4 Cyl / 1.6L / {{cvt|66|kW|hp|0}}
+|-
+| 356 B || Carrera GT/Abarth GLT || 692/3A || 61 || P96001>P96050 || 4 Cyl / 1.6L / {{cvt|99|kW|hp|0}}
+|-
+| colspan=6 | —
+|-
+| 356 B || Coupe/Cabrio/Roadster || 616/1 || 62 || 606801>608900 || 4 Cyl / 1.6L / {{cvt|44|kW|hp|0}}
+|-
+| 356 B || Coupe/Cabrio/Roadster || 616/12 || 62 || 700001>702800 || 4 Cyl / 1.6L / {{cvt|55|kW|hp|0}}
+|-
+| 356 B || Coupe/Cabrio/Roadster || 616/7 || 62 || 804001>805600 || 4 Cyl / 1.6L / {{cvt|66|kW|hp|0}}
+|-
+| 356 B || Carrera GS || 587/1 || 62 || P97001>P97446 || 4 Cyl / 2.0L / {{cvt|96|kW|hp|0}}
+|-
+| colspan=6 | —
+|-
+| 356 B || Coupe/Cabrio || 616/1 || 63 || 608901>611200 || 4 Cyl / 1.6L / {{cvt|44|kW|hp|0}}
+|-
+| 356 B || Coupe -Karmann- || 616/1 || 63 || 600501>600600 || 4 Cyl / 1.6L / {{cvt|44|kW|hp|0}}
+|-
+| 356 B || Coupe/Cabrio || 616/12 || 63 || 702801>707200 || 4 Cyl / 1.6L / {{cvt|55|kW|hp|0}}
+|-
+| 356 B || Coupe -Karmann- || 616/12 || 63 || 700501>701200 || 4 Cyl / 1.6L / {{cvt|55|kW|hp|0}}
+|-
+| 356 B || Coupe/Cabrio || 616/7 || 63 || 805601>807400 || 4 Cyl / 1.6L / {{cvt|66|kW|hp|0}}
+|-
+| 356 B || Coupe -Karmann- || 616/7 || 63 || 800501>801000 || 4 Cyl / 1.6L / {{cvt|66|kW|hp|0}}
+|-
+| 356 B || Carrera GS || 587/1 || 63 || P97001>P97446 || 4 Cyl / 2.0L / {{cvt|96|kW|hp|0}}
+|-
+| 356 B || Carrera GS/GT || 587/2 || 63 || P98005>P98032 || 4 Cyl / 2.0L / {{cvt|118|kW|hp|0}}
+|}
+
+356 C
+*{{cvt|1582|cc|L|1|order=flip}} Type 616/15 air-cooled, four-stroke, OHV boxer flat-four (1600 C)
+*{{cvt|1582|cc|L|1|order=flip}} Type 616/16 air-cooled, four-stroke, OHV boxer flat-four (1600 SC)
+*{{cvt|1582|cc|L|1|order=flip}} Type 616/26 air-cooled, four-stroke, OHV boxer flat-four (1600 SC, police)
+*{{cvt|1966|cc|L|1|order=flip}} Type 587/1 air-cooled, four-stroke, DOHC boxer flat-four (Carrera 2)
+*{{cvt|1966|cc|L|1|order=flip}} Type 587/2 air-cooled, four-stroke, DOHC boxer flat-four (Carrera 2)
+
+{{Table alignment}}
+{| class="wikitable defaultcenter col2left"
+|+ Porsche 356 C engines
+|-
+! Type !! Model !! Engine !! MY !! Engine numbers !! Technical data
+|-
+| 356 C || Coupe/Cabrio || 616/15 || 64 || 710001>716804 || 4 Cyl / 1.6L / {{cvt|55|kW|hp|0}}
+|-
+| 356 C || Coupe -Karmann- || 616/15 || 64 || 730001>733027 || 4 Cyl / 1.6L / {{cvt|55|kW|hp|0}}
+|-
+| 356 C || Coupe/Cabrio || 616/16 || 64 || 810001>813562 || 4 Cyl / 1.6L / {{cvt|70|kW|hp|0}}
+|-
+| 356 C || Coupe -Karmann- || 616/16 || 64 || 820001>821701 || 4 Cyl / 1.6L / {{cvt|70|kW|hp|0}}
+|-
+| colspan=6 | —
+|-
+| 356 C || Coupe/Cabrio || 616/15 || 65 || 716805> || 4 Cyl / 1.6L / {{cvt|55|kW|hp|0}}
+|-
+| 356 C || Coupe/Cabrio || 616/15 || 65 || 733028> || 4 Cyl / 1.6L / {{cvt|55|kW|hp|0}}
+|-
+| 356 C || Coupe/Cabrio || 616/16 || 65 || 813563> || 4 Cyl / 1.6L / {{cvt|70|kW|hp|0}}
+|-
+| 356 C || Coupe/Cabrio || 616/16 || 65 || 821702> || 4 Cyl / 1.6L / {{cvt|70|kW|hp|0}}
+|}
+
+=== [[Cisitalia Grand Prix|Porsche Type 360 Cisitalia Grand Prix]] ===
+{{see|Porsche Type 360 Cisitalia Grand Prix engine}}
+*1946–1949 {{cvt|1500|cc|L|1|order=flip}} {{cvt|224–287|kW|PS bhp|0}} {{cvt|251-262|Nm|lbft}} [[Air-cooled engine|air-cooled]], [[Four-stroke engine|four-stroke]], [[Overhead camshaft#Dual overhead camshaft|DOHC]], four-valve [[Flat-twelve engine|flat-12]]
+
+=== [[Porsche 550]] ===
+*1953–1957 {{cvt|1498|cc|L|1|order=flip}} {{cvt|81|kW|PS bhp|0}} {{cvt|117|Nm|lbft}} Type 547 [[Air-cooled engine|air-cooled]], [[Four-stroke engine|four-stroke]], [[Overhead camshaft#Dual overhead camshaft|DOHC]], eight-valve [[flat-four engine|boxer flat-four]] (550/1500 RS)
+*1956–1957 {{cvt|1498|cc|L|1|order=flip}} {{cvt|99|kW|PS bhp|0}} {{cvt|145|Nm|lbft}} Type 547 [[Air-cooled engine|air-cooled]], [[Four-stroke engine|four-stroke]], [[Overhead camshaft#Dual overhead camshaft|DOHC]], eight-valve [[flat-four engine|boxer flat-four]] (550 A/1500 RS)
+
+=== [[Porsche 718]] / [[Porsche 787]] ===
+{{see|Porsche 547 engine}}
+[[File:Porsche 771 engine rear-left Porsche Museum.jpg|thumb|right|Type 771 flat-eight]]
+* 1957 {{cvt|1498|cc|L|1|order=flip}} {{cvt|105|kW|PS bhp|0}} {{cvt|146|Nm|0}} Type 547 air-cooled, four-stroke, DOHC, eight-valve boxer flat-four (718/1500 RSK Spyder)
+* 1959 {{cvt|1498|cc|L|1|order=flip}} {{cvt|110|kW|PS bhp|0}} {{cvt|147|Nm|0}} Type 547 air-cooled, four-stroke, DOHC, eight-valve boxer flat-four (718/2 Monoposto)
+* 1958–1961 {{cvt|1587|cc|L|1|order=flip}} {{cvt|118|kW|PS bhp|0}} {{cvt|147|Nm|0}} Type 547 air-cooled, four-stroke, DOHC, eight-valve boxer flat-four (718/1600 RSK Spyder, 718 RS 60, 718 RS 61)
+* 1961 {{cvt|1981|cc|L|1|order=flip}} {{cvt|176|kW|PS bhp|0}} {{cvt|205|Nm|0}} [[Porsche flat-eight engines#Type 771|Type 771]] air-cooled, four-stroke, DOHC boxer flat-eight (718 W-RS)
+* 1962 {{cvt|1981|cc|L|1|order=flip}} {{cvt|154|kW|PS bhp|0}} {{cvt|192|Nm|0}} Type 771 air-cooled, four-stroke, DOHC boxer flat-eight (718 RS 61, 718 GTR)
+
+=== [[Porsche 804]] ===
+{{see|Porsche 753 engine}}
+* 1962 {{cvt|1492|cc|L|1|order=flip}} {{cvt|135|kW|PS bhp|0}} {{cvt|153|Nm|0}} air-cooled, four-stroke, boxer flat-eight
+
+=== [[Porsche 904|Porsche 904 Carrera GTS]] ===
+* 1963–1965 {{cvt|1966|cc|L|1|order=flip}} {{cvt|114|kW|PS bhp|0}} {{cvt|169|Nm|0}} air-cooled, four-stroke, boxer flat-four (904 Coupé)
+* 1963–1965 {{cvt|1966|cc|L|1|order=flip}} {{cvt|132|kW|PS bhp|0}} {{cvt|196|Nm|0}} air-cooled, four-stroke, boxer flat-four (904 Coupé)
+* 1965 {{cvt|1991|cc|L|1|order=flip}} {{cvt|155|kW|PS bhp|0}} {{cvt|196|Nm|0}} air-cooled, four-stroke, boxer flat-six (904/6 Coupé)
+* 1964 {{cvt|2195|cc|L|1|order=flip}} {{cvt|198|kW|PS bhp|0}} {{cvt|230|Nm|0}} Type 771 air-cooled, four-stroke, boxer flat-eight (904/8 Coupé)
+* 1965 {{cvt|1982|cc|L|1|order=flip}} {{cvt|191|kW|PS bhp|0}} {{cvt|210|Nm|0}} Type 771 air-cooled, four-stroke, boxer flat-eight (904/8 Bergspyder)
+
+=== [[Porsche 906|Porsche 906 Carrera 6]] ===
+[[File:1966 Porsche 906 Coupé (906-120), engine.jpg|thumb|Type 906 six-cylinder engine; this example has been brought up to 2.5 litres]]
+* 1965–1966 {{cvt|1981|cc|L|1|order=flip}} {{cvt|191|kW|PS bhp|0}} {{cvt|210|Nm|0}} Type 771 air-cooled, four-stroke, boxer flat-eight (906/8 Bergspyder)
+* 1966 {{cvt|1991|cc|L|1|order=flip}} {{cvt|155|kW|PS bhp|0}} {{cvt|196|Nm|0}} air-cooled, four-stroke, boxer flat-six (906 Coupé)
+* 1966 {{cvt|1991|cc|L|1|order=flip}} {{cvt|162|kW|PS bhp|0}} {{cvt|206|Nm|0}} air-cooled, four-stroke, boxer flat-six (906 Coupé, 906 Langheck Coupé)
+* 1966 {{cvt|2195|cc|L|1|order=flip}} {{cvt|198|kW|PS bhp|0}} {{cvt|230|Nm|0}} Type 771 air-cooled, four-stroke, boxer flat-eight (906/8 Coupé)
+
+=== [[Porsche 907]] ===
+* 1967 {{cvt|1991|cc|L|1|order=flip}} {{cvt|162|kW|PS bhp|0}} {{cvt|206|Nm|0}} Type 901 air-cooled, four-stroke, boxer flat-six (907 Langheck)
+* 1968 {{cvt|2195|cc|L|1|order=flip}} {{cvt|198|kW|PS bhp|0}} {{cvt|230|Nm|0}} Type 771 air-cooled, four-stroke, boxer flat-eight (907 Langheck, 907 Kurzheck)
+* 1968 {{cvt|1981|cc|L|1|order=flip}} {{cvt|198|kW|PS bhp|0}} {{cvt|211|Nm|0}} Type 771 air-cooled, four-stroke, boxer flat-eight (907 Kurzheck)
+
+=== [[Porsche 908]] ===
+* 1968–1971 {{cvt|1991|cc|L|1|order=flip}} {{cvt|162|kW|PS bhp|0}} {{cvt|206|Nm|0}} [[Porsche flat-eight engines#Type 908|Type 908]] air-cooled, four-stroke, boxer flat-eight (908 Coupé, 908/02 Spyder, 908/03 Spyder)
+
+=== [[Porsche 909]] ===
+* 1968 {{cvt|1981|cc|L|1|order=flip}} {{cvt|202|kW|PS bhp|0}} {{cvt|202|Nm|0}} Type 771 air-cooled, four-stroke, boxer flat-eight (909 Bergspyder)
+
+=== [[Porsche 910|Porsche 910 Carrera 10]] ===
+* 1966–1968 {{cvt|1991|cc|L|1|order=flip}} {{cvt|162|kW|PS bhp|0}} {{cvt|206|Nm|0}} Type 901 air-cooled, four-stroke, boxer flat-six (910 Coupé)
+* 1967–1968 {{cvt|2195|cc|L|1|order=flip}} {{cvt|198|kW|PS bhp|0}} {{cvt|230|Nm|0}} Type 771 air-cooled, four-stroke, boxer flat-eight (910/8 Coupé)
+* 1967–1968 {{cvt|1981|cc|L|1|order=flip}} {{cvt|198|kW|PS bhp|0}} {{cvt|211|Nm|0}} Type 771 air-cooled, four-stroke, boxer flat-eight (910/8 Bergspyder)
+
+=== Porsche 911===
+See [[Porsche 911]]
+[[File:Porsche 901-01 engine front-left Porsche Museum.jpg|thumb|right|901/05 boxer flat-six]]
+[[File:1968 Porsche 911 S coupe (9596184097).jpg|thumb|right|901/02 on 1968 911S]]
+[[File:1973 Porsche 911 T Coupé Motor 911-57.jpg|thumb|right|911/57 on 1973 911T]]
+Early 911's (1963-73)
+*1963 {{cvt|1991|cc|L|1|order=flip}} {{cvt|96|kW|PS bhp|0}} (at 6,200&nbsp;rpm) {{cvt|162|Nm|lbft|0}} (at 4,600&nbsp;rpm) air-cooled OHC 12-valve boxer flat-six (901)
+*1964–1968 {{cvt|1991|cc|L|1|order=flip}} {{cvt|96|kW|PS bhp|0}} (at 6,100&nbsp;rpm) {{cvt|174|Nm|lbft|0}} (at 4,200&nbsp;rpm) air-cooled OHC 12-valve boxer flat-six (911, 911 L)
+*1967  {{cvt|1991|cc|L|1|order=flip}} Type 916 engine air-cooled four-stroke, twin cam boxer flat-six (911R based on 906 engine)
+*1967–1969 {{cvt|1991|cc|L|1|order=flip}} {{cvt|118|kW|PS bhp|0}} (at 6,600&nbsp;rpm) {{cvt|179|Nm|lbft|0}} (at 5,200&nbsp;rpm) air-cooled OHC 12-valve boxer flat-six (911 S)
+*1968–1969 {{cvt|1991|cc|L|1|order=flip}} {{cvt|81|kW|PS bhp|0}} (at 5,800&nbsp;rpm) {{cvt|157|Nm|lbft|0}} (at 4,200&nbsp;rpm) air-cooled OHC 12-valve boxer flat-six (911 T)
+*1969 {{cvt|1991|cc|L|1|order=flip}} {{cvt|103|kW|PS bhp|0}} (at 6,500&nbsp;rpm) {{cvt|175|Nm|lbft|0}} (at 4,500&nbsp;rpm) air-cooled OHC 12-valve boxer flat-six (911 E)
+*1970–1971 {{cvt|2195|cc|L|1|order=flip}} {{cvt|92|kW|PS bhp|0}} (at 5,800&nbsp;rpm) {{cvt|176|Nm|lbft|0}} (at 4,200&nbsp;rpm) air-cooled OHC 12-valve boxer flat-six (911 T 2.2)
+*1970–1971 {{cvt|2195|cc|L|1|order=flip}} {{cvt|114|kW|PS bhp|0}} (at 6,200&nbsp;rpm) {{cvt|191|Nm|lbft|0}} (at 4,500&nbsp;rpm) air-cooled OHC 12-valve boxer flat-six (911 E 2.2)
+*1970–1971 {{cvt|2195|cc|L|1|order=flip}} {{cvt|132|kW|PS bhp|0}} (at 6,500&nbsp;rpm) {{cvt|199|Nm|lbft|0}} (at 5,200&nbsp;rpm) air-cooled OHC 12-valve boxer flat-six (911 S 2.2)
+*1971–1973 {{cvt|2341|cc|L|1|order=flip}} {{cvt|96|kW|PS bhp|0}} (at 5,600&nbsp;rpm) {{cvt|196|Nm|lbft|0}} (at 4,000&nbsp;rpm) air-cooled OHC 12-valve boxer flat-six (911 T 2.4)
+*1972–1973 {{cvt|2341|cc|L|1|order=flip}} {{cvt|121|kW|PS bhp|0}} (at 6,200&nbsp;rpm) {{cvt|206|Nm|lbft|0}} (at 4,500&nbsp;rpm) air-cooled OHC 12-valve boxer flat-six (911 E 2.4)
+*1972–1973 {{cvt|2341|cc|L|1|order=flip}} {{cvt|140|kW|PS bhp|0}} (at 6,500&nbsp;rpm) {{cvt|216|Nm|lbft|0}} (at 5,200&nbsp;rpm) air-cooled OHC 12-valve boxer flat-six (911 S 2.4)
+*1972 {{cvt|2687|cc|L|1|order=flip}} {{cvt|154|kW|PS bhp|0}} (at 6,300&nbsp;rpm) {{cvt|255|Nm|lbft|0}} (at 5,100&nbsp;rpm) air-cooled OHC 12-valve boxer flat-six (911 Carrera RS 2.7)
+
+Post–1974 911's (Impact [[Bumper cars|Bumper Cars]])
+*1973–1975 {{cvt|2687|cc|L|1|order=flip}} {{cvt|110|kW|PS bhp|0}} (at 5,700&nbsp;rpm) {{cvt|235|Nm|lbft|0}} (at 3,800&nbsp;rpm) air-cooled OHC 12-valve boxer flat-six (911)
+*1974–1975 {{cvt|2687|cc|L|1|order=flip}} {{cvt|129|kW|PS bhp|0}} (at 5,800&nbsp;rpm) {{cvt|235|Nm|lbft|0}} (at 4,000&nbsp;rpm) air-cooled OHC 12-valve boxer flat-six (911 S)
+*1974–1976 {{cvt|2687|cc|L|1|order=flip}} {{cvt|154|kW|PS bhp|0}} (at 6,300&nbsp;rpm) {{cvt|255|Nm|lbft|0}} (at 5,100&nbsp;rpm) air-cooled OHC 12-valve boxer flat-six (911 Carrera 2.7)
+*1974 {{cvt|2994|cc|L|1|order=flip}} {{cvt|169|kW|PS bhp|0}} (at 6,200&nbsp;rpm) {{cvt|274|Nm|lbft|0}} (at 5,000&nbsp;rpm) air-cooled OHC 12-valve boxer flat-six (911 Carrera RS 3.0)
+*1975–1978 {{cvt|2687|cc|L|1|order=flip}} {{cvt|121|kW|PS bhp|0}} (at 5,800&nbsp;rpm) {{cvt|235|Nm|lbft|0}} (at 4,000&nbsp;rpm) air-cooled OHC 12-valve boxer flat-six (911)
+*1975–1977 {{cvt|2993|cc|L|1|order=flip}} {{cvt|147|kW|PS bhp|0}} (at 6,000&nbsp;rpm) {{cvt|255|Nm|lbft|0}} (at 4,200&nbsp;rpm) air-cooled OHC 12-valve boxer flat-six (911 Carrera 3.0)
+*1977–1979 {{cvt|2993|cc|L|1|order=flip}} {{cvt|132|kW|PS bhp|0}} (at 5,500&nbsp;rpm) {{cvt|265|Nm|lbft|0}} (at 4,200&nbsp;rpm) air-cooled OHC 12-valve boxer flat-six (911 SC)
+*1979–1980 {{cvt|2993|cc|L|1|order=flip}} {{cvt|138|kW|PS bhp|0}} (at 5,500&nbsp;rpm) {{cvt|265|Nm|lbft|0}} (at 4,200&nbsp;rpm) air-cooled OHC 12-valve boxer flat-six (911 SC)
+*1980–1983 {{cvt|2993|cc|L|1|order=flip}} {{cvt|150|kW|PS bhp|0}} (at 5,900&nbsp;rpm) {{cvt|267|Nm|lbft|0}} (at 4,300&nbsp;rpm) air-cooled OHC 12-valve boxer flat-six (911 SC)
+*1984 {{cvt|2994|cc|L|1|order=flip}} {{cvt|184|kW|PS bhp|0}} (at 7,000&nbsp;rpm) {{cvt|250|Nm|lbft|0}} (at 6,500&nbsp;rpm) air-cooled OHC 12-valve boxer flat-six (911 Carrera SC/RS)
+*1984–1989 {{cvt|3164|cc|L|1|order=flip}} {{cvt|170|kW|PS bhp|0}} (at 5,900&nbsp;rpm) {{cvt|284|Nm|lbft|0}} (at 4,800&nbsp;rpm) air-cooled OHC 12-valve boxer flat-six (911 Carrera 3.2)
+*1986–1989 {{cvt|3164|cc|L|1|order=flip}} {{cvt|153-160|kW|PS bhp|0}} (at 5,900&nbsp;rpm) {{cvt|165|Nm|lbft|0}} (at 4,800&nbsp;rpm) air-cooled OHC 12-valve boxer flat-six (911 Carrera 3.2 with [[catalytic converter]])
+*1987 {{cvt|3164|cc|L|1|order=flip}} {{cvt|170|kW|PS bhp|0}} (at 5,900&nbsp;rpm) {{cvt|284|Nm|lbft|0}} (at 4,800&nbsp;rpm) air-cooled OHC 12-valve boxer flat-six (911 Carrera CS)
+
+==== 930 ====
+See [[Porsche 911 (930)]]
+*1974–1977 {{cvt|2993|cc|L|1|order=flip}} {{cvt|191|kW|PS bhp|0}} (at 5,500&nbsp;rpm) {{cvt|343|Nm|lbft|0}} (at 4,000&nbsp;rpm) Typ 930/50, /52, and /54 air-cooled turbo OHC 12-valve boxer flat-six (911 Turbo 3.0)
+*1976–1977 {{cvt|2993|cc|L|1|order=flip}} {{cvt|180|kW|PS bhp|0}} Typ 930/51 and /53 air-cooled turbo OHC 12-valve boxer flat-six (911 Turbo 3.0 for USA, Canada and Japan)
+*1978–1989 {{cvt|3299|cc|L|1|order=flip}} {{cvt|221|kW|PS bhp|0}} (at 5,500&nbsp;rpm) {{cvt|430|Nm|lbft|0}} (at 4,000&nbsp;rpm) Typ 930/60 air-cooled turbo OHC 12-valve boxer flat-six (911 Turbo 3.3)
+*1978–1985 {{cvt|3299|cc|L|1|order=flip}} {{cvt|195|kW|PS bhp|0}} Typ 930/60 air-cooled turbo OHC 12-valve boxer flat-six (911 Turbo 3.3 for USA, Canada and Japan)
+*1986–1989 {{cvt|3299|cc|L|1|order=flip}} {{cvt|282|hp|kW PS bhp|0|order=out}} Typ 930/60 air-cooled turbo OHC 12-valve boxer flat-six (911 Turbo 3.3 for USA, Canada and Japan)
+*1984–1989 {{cvt|3299|cc|L|1|order=flip}} {{cvt|243|kW|PS bhp|0}} (at 5,750&nbsp;rpm) {{cvt|430|Nm|lbft|0}} (at 4,000&nbsp;rpm) Typ 930/60 air-cooled turbo OHC 12-valve boxer flat-six (911 Turbo 3.3 with Performancekit WLS)
+
+{{Table alignment}}
+{| class="wikitable sortable defaultcenter col1left"
+|+ Porsche 930 engines
+|-
+! Vehicle !! Engine !! MY !! Engine numbers !! Technical data
+|-
+| 911 Coupe || 901/01 || 1965 || 900001> || 6 Cyl / 2.0L / {{cvt|95|kW|hp|0}}
+|-
+| 911 Coupe || 901/01 || 1966 || 903551> || 6 Cyl / 2.0L / {{cvt|95|kW|hp|0}}
+|-
+| 911 Coupe || 901/05 || 1966 || 907001> || 6 Cyl / 2.0L / {{cvt|95|kW|hp|0}}
+|-
+| 911 Coupe || 901/05 || 1967 || 909001> || 6 Cyl / 2.0L / {{cvt|95|kW|hp|0}}
+|-
+| 911 Targa || 901/05 || 1967 || 911001> || 6 Cyl / 2.0L / {{cvt|95|kW|hp|0}}
+|-
+| 911 S Coupe/Targa || 901/02 || 1967 || 960001> || 6 Cyl / 2.0L / {{cvt|117|kW|hp|0}}
+|-
+| 911 T Coupe/Targa || 901/03 || 1968 || 2080001> || 6 Cyl / 2.0L / {{cvt|80|kW|hp|0}}
+|-
+| 911  T Coupe/Targa SPM || 901/13 || 1968 || 2180001> || 6 Cyl / 2.0L / {{cvt|81|kW|hp|0}}
+|-
+| 911 L Coupe/Targa || 901/06 || 1968 || 3080001> || 6 Cyl / 2.0L / {{cvt|95|kW|hp|0}}
+|-
+| 911 L Coupe/Targa SPM || 901/07 || 1968 || 3180001> || 6 Cyl / 2.0L / {{cvt|96|kW|hp|0}}
+|-
+| 911 S Coupe/Targa || 901/02 || 1968 || 4080001> || 6 Cyl / 2.0L / {{cvt|117|kW|hp|0}}
+|-
+| 911 S Coupe/Targa SPM || 901/08 || 1968 || 4180001> || 6 Cyl / 2.0L / {{cvt|118|kW|hp|0}}
+|-
+| 911 Coupe/Targa (USA)(CDN) || 901/14 || 1968 || 3280001> || 6 Cyl / 2.0L / {{cvt|95|kW|hp|0}}
+|-
+| 911 Coupe/Targa (USA)(CDN) || 901/17 || 1968 || 3380001> || 6 Cyl / 2.0L / {{cvt|96|kW|hp|0}}
+|-
+| 911 L Coupe/Targa (USA)(CDN) || 901/14 || 1968 || 3280001> || 6 Cyl / 2.0L / {{cvt|95|kW|hp|0}}
+|-
+| 911 L Coupe/Targa (USA)(CDN) || 901/17 || 1968 || 3380001> || 6 Cyl / 2.0L / {{cvt|96|kW|hp|0}}
+|-
+| 911 T Coupe/Targa || 901/03 || 1969 || 6190001> || 6 Cyl / 2.0L / {{cvt|80|kW|hp|0}}
+|-
+| 911 T Coupe/Targa SPM || 901/13 || 1969 || 6193001> || 6 Cyl / 2.0L / {{cvt|81|kW|hp|0}}
+|-
+| 911 E Coupe/Targa || 901/09 || 1969 || 6293001> || 6 Cyl / 2.0L / {{cvt|103|kW|hp|0}}
+|-
+| 911 E Coupe/Targa SPM || 901/11 || 1969 || 6298001> || 6 Cyl / 2.0L / {{cvt|103|kW|hp|0}}
+|-
+| 911 S Coupe/Targa || 901/10 || 1969 || 6398001> || 6 Cyl / 2.0L / {{cvt|125|kW|hp|0}}
+|-
+| 911 T Coupe (USA)(CDN) || 901/16 || 1969 || 6195001> || 6 Cyl / 2.0L / {{cvt|80|kW|hp|0}}
+|-
+| 911 T Coupe (USA)(CDN) SPM || 901/19 || 1969 || 6198001> || 6 Cyl / 2.0L / {{cvt|81|kW|hp|0}}
+|-
+| 911 T || 911/03 || 1970 || 610 0001>> || 6 Cyl / 2.2L / {{cvt|92|kW|hp|0}}
+|-
+| 911 T SPM || 911/06 || 1970 || 610 3001>> || 6 Cyl / 2.2L / {{cvt|92|kW|hp|0}}
+|-
+| 911  E || 911/01 || 1970 || 620 0001>> || 6 Cyl / 2.2L / {{cvt|114|kW|hp|0}}
+|-
+| 911 E SPM || 911/04 || 1970 || 620 8001>> || 6 Cyl / 2.2L / {{cvt|114|kW|hp|0}}
+|-
+| 911 S || 911/02 || 1970 || 630 0001>> || 6 Cyl / 2.2L / {{cvt|132|kW|hp|0}}
+|-
+| 911 T (USA)(CDN) || 911/07 || 1970 || 610 5001>> || 6 Cyl / 2.2L / {{cvt|92|kW|hp|0}}
+|-
+| 911 T SPM (USA)(CDN) || 911/08 || 1970 || 610 8001>> || 6 Cyl / 2.2L / {{cvt|92|kW|hp|0}}
+|-
+| 911 T || 911/03 || 1971 || 611 0001>> || 6 Cyl / 2.2L / {{cvt|92|kW|hp|0}}
+|-
+| 911 T SPM || 911/06 || 1971 || 611 9001>> || 6 Cyl / 2.2L / {{cvt|92|kW|hp|0}}
+|-
+| 911 E || 911/01 || 1971 || 621 0001>> || 6 Cyl / 2.2L / {{cvt|114|kW|hp|0}}
+|-
+| 911  E SPM || 911/04 || 1971 || 621 8001>> || 6 Cyl / 2.2L / {{cvt|114|kW|hp|0}}
+|-
+| 911 S || 911/02 || 1971 || 631 0001>> || 6 Cyl / 2.2L / {{cvt|132|kW|hp|0}}
+|-
+| 911 T (USA)(CDN) || 911/07 || 1971 || 611 4001>> || 6 Cyl / 2.2L / {{cvt|92|kW|hp|0}}
+|-
+| 911 T SPM (USA)(CDN) || 911/08 || 1971 || 611 9501>> || 6 Cyl / 2.2L / {{cvt|92|kW|hp|0}}
+|-
+| 911 TV || 911/57 || 1972 || 652 0001>> || 6 Cyl / 2.4L / {{cvt|96|kW|hp|0}}
+|-
+| 911 TV SPM || 911/67 || 1972 || 652 9001>> || 6 Cyl / 2.4L / {{cvt|96|kW|hp|0}}
+|-
+| 911 E || 911/52 || 1972 || 622 0001>> || 6 Cyl / 2.4L / {{cvt|121|kW|hp|0}}
+|-
+| 911 E SPM || 911/62 || 1972 || 622 9001>> || 6 Cyl / 2.4L / {{cvt|121|kW|hp|0}}
+|-
+| 911 S || 911/53 || 1972 || 632 0001>> || 6 Cyl / 2.4L / {{cvt|140|kW|hp|0}}
+|-
+| 911 S SPM || 911/63 || 1972 || 632 9001>> || 6 Cyl / 2.4L / {{cvt|140|kW|hp|0}}
+|-
+| 911 TE (USA)(CDN) || 911/51 || 1972 || 612 0001>> || 6 Cyl / 2.4L / {{cvt|103|kW|hp|0}}
+|-
+| 911 TE SPM (USA)(CDN) || 911/61 || 1972 || 612 9001>> || 6 Cyl / 2.4L / {{cvt|103|kW|hp|0}}
+|-
+| 911 TV || 911/57 || 1973 || 653 0001>> || 6 Cyl / 2.4L / {{cvt|96|kW|hp|0}}
+|-
+| 911 TV SPM || 911/67 || 1973 || 653 9001>> || 6 Cyl / 2.4L / {{cvt|96|kW|hp|0}}
+|-
+| 911 E || 911/52 || 1973 || 623 0001>> || 6 Cyl / 2.4L / {{cvt|121|kW|hp|0}}
+|-
+| 911 E SPM || 911/62 || 1973 || 623 9001>> || 6 Cyl / 2.4L / {{cvt|121|kW|hp|0}}
+|-
+| 911 S || 911/53 || 1973 || 633 0001>> || 6 Cyl / 2.4L / {{cvt|140|kW|hp|0}}
+|-
+| 911 S SPM || 911/63 || 1973 || 633 9001>> || 6 Cyl / 2.4L / {{cvt|140|kW|hp|0}}
+|-
+| 911 Carrera || 911/83 || 1973 || 663 0001>> || 6 Cyl / 2.7L / {{cvt|155|kW|hp|0}}
+|-
+| 911 TE (USA)(CDN) || 911/51 || 1973 || 613 0001>> || 6 Cyl / 2.4L / {{cvt|103|kW|hp|0}}
+|-
+| 911 TE SPM (USA)(CDN) || 911/61 || 1973 || 613 9001>> || 6 Cyl / 2.4L / {{cvt|103|kW|hp|0}}
+|-
+| 911 TK (USA)(CDN) || 911/91 || 1973 || 613 3001>> || 6 Cyl / 2.4L / {{cvt|103|kW|hp|0}}
+|-
+| 911 TK SPM (USA)(CDN) || 911/96 || 1973 || 613 9301>> || 6 Cyl / 2.4L / {{cvt|103|kW|hp|0}}
+|-
+| 911 || 911/92 || 1974 ||4 614 0001>> || 6 Cyl / 2.7L / {{cvt|110|kW|hp|0}}
+|-
+| 911 SPM || 911/97 || 1974 ||4 614 9001>> || 6 Cyl / 2.7L / {{cvt|110|kW|hp|0}}
+|-
+| 911 S || 911/93 || 1974 ||4 634 0001>> || 6 Cyl / 2.7L / {{cvt|129|kW|hp|0}}
+|-
+| 911 S SPM || 911/98 || 1974 ||4 634 9001>> || 6 Cyl / 2.7L / {{cvt|129|kW|hp|0}}
+|-
+| 911 Carrera 2.7 || 911/83 || 1974 ||4 664 0001>> || 6 Cyl / 2.7L / {{cvt|154|kW|hp|0}}
+|-
+| 911 Carrera (USA)(CDN) || 911/93 || 1974 ||4 634 0001>> || 6 Cyl / 2.7L / {{cvt|129|kW|hp|0}}
+|-
+| 911 Carrera SPM (USA)(CDN) || 911/98 || 1974 ||4 634 9001>> || 6 Cyl / 2.7L / {{cvt|129|kW|hp|0}}
+|-
+| 911 || 911/41 || 1975 ||5 615 0001>> || 6 Cyl / 2.7L / {{cvt|110|kW|hp|0}}
+|-
+| 911 SPM || 911/46 || 1975 ||5 615 9001>> || 6 Cyl / 2.7L / {{cvt|110|kW|hp|0}}
+|-
+| 911 S || 911/42 || 1975 ||5 635 0001>> || 6 Cyl / 2.7L / {{cvt|129|kW|hp|0}}
+|-
+| 911 S SPM || 911/47 || 1975 ||5 635 9001>> || 6 Cyl / 2.7L / {{cvt|129|kW|hp|0}}
+|-
+| 911 Carrera 2.7 || 911/83 || 1975 ||5 665 0001>> || 6 Cyl / 2.7L / {{cvt|154|kW|hp|0}}
+|-
+| 911 S Carrera (USA)(CDN) || 911/43 || 1975 ||5 645 0001>> || 6 Cyl / 2.7L / {{cvt|121|kW|hp|0}}
+|-
+| 930 S Carrera SPM (USA)(CDN) || 911/48 || 1975 ||5 645 9001>> || 6 Cyl / 2.7L / {{cvt|121|kW|hp|0}}
+|-
+| 911 S Carrera (CAL) || 911/44 || 1975 ||5 655 0001>> || 6 Cyl / 2.7L / {{cvt|118|kW|hp|0}}
+|-
+| 911 S Carrera SPM (CAL) || 911/49 || 1975 ||5 655 9001>> || 6 Cyl / 2.7L / {{cvt|118|kW|hp|0}}
+|-
+| 911 || 911/81 || 1976 ||6 636 0001>> || 6 Cyl / 2.7L / {{cvt|121|kW|hp|0}}
+|-
+| 911 SPM || 911/86 || 1976 ||6 636 9001>> || 6 Cyl / 2.7L / {{cvt|121|kW|hp|0}}
+|-
+| 911 Carrera 2.7 || 911/83 || 1976 ||6 666 8001>> || 6 Cyl / 2.7L / {{cvt|154|kW|hp|0}}
+|-
+| 911 Carrera 3.0 || 930/02 || 1976 ||6 666 0001>> || 6 Cyl / 3.0L / {{cvt|147|kW|hp|0}}
+|-
+| 911 Carrera 3.0 SPM || 930/12 || 1976 ||6 666 9001>> || 6 Cyl / 3.0L / {{cvt|147|kW|hp|0}}
+|-
+| 911 S (USA)(CDN) || 911/82 || 1976 ||6 646 0001>> || 6 Cyl / 2.7L / {{cvt|121|kW|hp|0}}
+|-
+| 911 S SPM (USA)(CDN) || 911/89 || 1976 ||6 656 9001>> || 6 Cyl / 2.7L / {{cvt|121|kW|hp|0}}
+|-
+| 911 S (CAL) || 911/84 || 1976 ||6 656 0001>> || 6 Cyl / 2.7L / {{cvt|121|kW|hp|0}}
+|-
+| 911 (J) || 911/41 || 1976 ||6 616 0001>> || 6 Cyl / 2.7L / {{cvt|110|kW|hp|0}}
+|-
+| 911 S (J) || 911/81 || 1976 ||6 636 0001>> || 6 Cyl / 2.7L / {{cvt|121|kW|hp|0}}
+|-
+| 911 S SPM (J) || 911/86 || 1976 ||6 636 9001>> || 6 Cyl / 2.7L / {{cvt|121|kW|hp|0}}
+|-
+| 911 || 911/81 || 1977 ||7 637 0001>> || 6 Cyl / 2.7L / {{cvt|121|kW|hp|0}}
+|-
+| 911 SPM || 911/86 || 1977 ||7 637 9001>> || 6 Cyl / 2.7L / {{cvt|121|kW|hp|0}}
+|-
+| 911 Carrera 3.0 || 930/02 || 1977 ||7 667 0001>> || 6 Cyl / 3.0L / {{cvt|147|kW|hp|0}}
+|-
+| 911 Carrera 3.0 SPM || 930/12 || 1977 ||7 667 9001>> || 6 Cyl / 3.0L / {{cvt|147|kW|hp|0}}
+|-
+| 911 S (USA)(CDN) || 911/85 || 1977 ||7 627 0001>> || 6 Cyl / 2.7L / {{cvt|121|kW|hp|0}}
+|-
+| 911 S SPM (USA)(CDN) || 911/90 || 1977 ||7 627 9001>> || 6 Cyl / 2.7L / {{cvt|121|kW|hp|0}}
+|-
+| 911 S (J) || 911/94 || 1977 ||7 617 0001>> || 6 Cyl / 2.7L / {{cvt|121|kW|hp|0}}
+|-
+| 911 S SPM (J) || 911/99 || 1977 ||7 617 9001>> || 6 Cyl / 2.7L / {{cvt|121|kW|hp|0}}
+|-
+| 911 SC || 930/03 || 1978 ||8 638 0001>9000 || 6 Cyl / 3.0L / {{cvt|132|kW|hp|0}}
+|-
+| 911 SC SPM || 930/13 || 1978 ||8 638 9001>> || 6 Cyl / 3.0L / {{cvt|132|kW|hp|0}}
+|-
+| 930 Turbo || 930/60 || 1978 ||8 678 0001>> || 6 Cyl / 3.3L / {{cvt|221|kW|hp|0}}
+|-
+| 911 SC (USA)(CDN) || 930/04 || 1978 ||8 628 0001>> || 6 Cyl / 3.0L / {{cvt|132|kW|hp|0}}
+|-
+| 930 Turbo (USA)(CDN) || 930/61 || 1978 ||8 688 0001>> || 6 Cyl / 3.3L / {{cvt|195|kW|hp|0}}
+|-
+| 911 SC (CAL) || 930/06 || 1978 ||8 658 0001>> || 6 Cyl / 3.0L / {{cvt|132|kW|hp|0}}
+|-
+| 930 Turbo (CAL) || 930/63 || 1978 ||8 688 1001>> || 6 Cyl / 3.3L / {{cvt|195|kW|hp|0}}
+|-
+| 911 SC (J) || 930/05 || 1978 ||8 618 0001>9000 || 6 Cyl / 3.0L / {{cvt|132|kW|hp|0}}
+|-
+| 911 SC SPM || 930/15 || 1978 ||8 618 9001>> || 6 Cyl / 3.0L / {{cvt|132|kW|hp|0}}
+|-
+| 930 Turbo || 930/62 || 1978 ||8 678 2001>> || 6 Cyl / 3.3L / {{cvt|195|kW|hp|0}}
+|-
+| 911 SC || 930/03 || 1979 ||9 639 0001>9000 || 6 Cyl / 3.0L / {{cvt|132|kW|hp|0}}
+|-
+| 911  SC SPM || 930/13 || 1979 ||9 639 9001>> || 6 Cyl / 3.0L / {{cvt|132|kW|hp|0}}
+|-
+| 930 Turbo || 930/60 || 1979 ||9 679 0001>> || 6 Cyl / 3.3L / {{cvt|221|kW|hp|0}}
+|-
+| 911 SC (USA)(CDN) || 930/04 || 1979 ||9 629 0001>> || 6 Cyl / 3.0L / {{cvt|132|kW|hp|0}}
+|-
+| 930 Turbo (USA)(CDN) || 930/64 || 1979 ||9 689 0001>> || 6 Cyl / 3.3L / {{cvt|195|kW|hp|0}}
+|-
+| 911 SC (CAL) || 930/06 || 1979 ||9 659 0001>> || 6 Cyl / 3.0L / {{cvt|132|kW|hp|0}}
+|-
+| 930 Turbo (CAL) || 930/63 || 1979 ||9 689 1001>2000 || 6 Cyl / 3.3L / {{cvt|195|kW|hp|0}}
+|-
+| 911 SC (J) || 930/05 || 1979 ||9 619 0001>9000 || 6 Cyl / 3.0L / {{cvt|132|kW|hp|0}}
+|-
+| 911 SC SPM || 930/15 || 1979 ||9 619 9001>> || 6 Cyl / 3.0L / {{cvt|132|kW|hp|0}}
+|-
+| 930 Turbo (J) || 930/65 || 1979 ||9 679 1001>2000 || 6 Cyl / 3.3L / {{cvt|195|kW|hp|0}}
+|-
+| 911 SC || 930/09 || 1980 ||A 630 0001>8000 || 6 Cyl / 3.0L / {{cvt|138|kW|hp|0}}
+|-
+| 911 SPM || 930/19 || 1980 ||A 630 9001>9999 || 6 Cyl / 3.0L / {{cvt|138|kW|hp|0}}
+|-
+| 930 Turbo || 930/60 || 1980 ||A 670 0001>1000 || 6 Cyl / 3.3L / {{cvt|221|kW|hp|0}}
+|-
+| 911 SC (USA)(CDN) || 930/07 || 1980 ||A 640 0001>9999 || 6 Cyl / 3.0L / {{cvt|132|kW|hp|0}}
+|-
+| 911 SC (J) || 930/08 || 1980 ||A 630 8001>9000 || 6 Cyl / 3.0L / {{cvt|132|kW|hp|0}}
+|-
+| 930 Turbo (J) || 930/65 || 1980 ||A 670 8001>9000 || 6 Cyl / 3.3L / {{cvt|195|kW|hp|0}}
+|-
+| 911 SC || 930/10 || 1981 ||B 631 0001>8000 || 6 Cyl / 3.0L / {{cvt|150|kW|hp|0}}
+|-
+| 930 Turbo || 930/60 || 1981 ||B 671 0001>1000 || 6 Cyl / 3.3L / {{cvt|221|kW|hp|0}}
+|-
+| 911 SC (USA)(CDN) || 930/16 || 1981 ||B 641 0001>9999 || 6 Cyl / 3.0L / {{cvt|132|kW|hp|0}}
+|-
+| 930 Turbo (CDN) || 930/60 || 1981 ||B 671 0001>1000 || 6 Cyl / 3.3L / {{cvt|221|kW|hp|0}}
+|-
+| 911 SC (J) || 930/17 || 1981 ||B 631 8001>9000 || 6 Cyl / 3.0L / {{cvt|132|kW|hp|0}}
+|-
+| 911 SC || 930/10 || 1982 ||C 63C 0001>8000 || 6 Cyl / 3.0L / {{cvt|150|kW|hp|0}}
+|-
+| 930 Turbo || 930/60 || 1982 ||C 67C 0001>1000 || 6 Cyl / 3.3L / {{cvt|221|kW|hp|0}}
+|-
+| 911 SC (USA)(CDN) || 930/16 || 1982 ||C 64C 0001>9999 || 6 Cyl / 3.0L / {{cvt|132|kW|hp|0}}
+|-
+| 930 Turbo (CDN) || 930/60 || 1982 ||C 67C 0001>1000 || 6 Cyl / 3.3L / {{cvt|221|kW|hp|0}}
+|-
+| 911 SC || 930/17 || 1982 ||C 63C 8001>9000 || 6 Cyl / 3.0L / {{cvt|132|kW|hp|0}}
+|-
+| 911 SC || 930/10 || 1983 ||D 63D 0001>8000 || 6 Cyl / 3.0L / {{cvt|150|kW|hp|0}}
+|-
+| 930 Turbo || 930/66 || 1983 ||D 67D 0001>1000 || 6 Cyl / 3.3L / {{cvt|221|kW|hp|0}}
+|-
+| 911 SC (USA)(CDN) || 930/16 || 1983 ||D 64D 0001>9999 || 6 Cyl / 3.0L / {{cvt|132|kW|hp|0}}
+|-
+| 930 Turbo (CDN) || 930/66 || 1983 ||D 67D 0001>1000 || 6 Cyl / 3.3L / {{cvt|221|kW|hp|0}}
+|-
+| 911 SC (J) || 930/17 || 1983 ||D 63D 8001>9000 || 6 Cyl / 3.0L / {{cvt|132|kW|hp|0}}
+|-
+| 911 Carrera || 930/20 || 1984 ||E 63E 00001>10000 || 6 Cyl / 3.2L / {{cvt|170|kW|hp|0}}
+|-
+| 911 Carrera (USA)(CDN)(J) || 930/21 || 1984 ||E 64E 00001>10000 || 6 Cyl / 3.2L / {{cvt|152|kW|hp|0}}
+|-
+| 930 Turbo || 930/66 || 1984 ||E 67E 00001>01000 || 6 Cyl / 3.3L / {{cvt|221|kW|hp|0}}
+|-
+| 911 Carrera || 930/20 || 1985 ||F 63F 00001>10000 || 6 Cyl / 3.2L / {{cvt|170|kW|hp|0}}
+|-
+| 911 Carrera (USA)(CDN)(J)/M298 || 930/21 || 1985 ||F 64F 00001>10000 || 6 Cyl / 3.2L / {{cvt|152|kW|hp|0}}
+|-
+| 911 Carrera (AUS)(S)(CH) || 930/26 || 1985 ||F 63F 10001>11000 || 6 Cyl / 3.2L / {{cvt|170|kW|hp|0}}
+|-
+| 930 Turbo || 930/66 || 1985 ||F 67F 00001>01000 || 6 Cyl / 3.3L / {{cvt|221|kW|hp|0}}
+|-
+| 911 Carrera || 930/20 || 1986 ||G 63G 00001>10000 || 6 Cyl / 3.2L / {{cvt|170|kW|hp|0}}
+|-
+| 911 Carrera (USA)(CDN)(J)(AUS)/M298 || 930/21 || 1986 ||G 64G 00001>10000 || 6 Cyl / 3.2L / {{cvt|152|kW|hp|0}}
+|-
+| 911 Carrera (S)(CH) || 930/26 || 1986 ||G 63G 10001>11000 || 6 Cyl / 3.2L / {{cvt|170|kW|hp|0}}
+|-
+| 930 Turbo || 930/66 || 1986 ||G 67G 00001>02000 || 6 Cyl / 3.3L / {{cvt|221|kW|hp|0}}
+|-
+| 930 Turbo (USA) || 930/68 || 1986 ||G 68G 00001>02000 || 6 Cyl / 3.3L / {{cvt|209|kW|hp|0}}
+|-
+| 911 Carrera || 930/20 || 1987 ||H 63H 00001>10000 || 6 Cyl / 3.2L / {{cvt|170|kW|hp|0}}
+|-
+| 911 Carrera (catalytic conv.) || 930/25 || 1987 ||H 64H 00001>10000 || 6 Cyl / 3.2L / {{cvt|160|kW|hp|0}}
+|-
+| 911 Carrera (S) || 930/26 || 1987 ||H 63H 10001>11000 || 6 Cyl / 3.2L / {{cvt|170|kW|hp|0}}
+|-
+| 930 Turbo || 930/66 || 1987 ||H 67H 00001>05000 || 6 Cyl / 3.3L / {{cvt|221|kW|hp|0}}
+|-
+| 930 Turbo (USA) || 930/68 || 1987 ||H 68H 00001>05000 || 6 Cyl / 3.3L / {{cvt|210|kW|hp|0}}
+|-
+| 911 Carrera || 930/20 || 1988 ||J 63J 00001>10000 || 6 Cyl / 3.2L / {{cvt|170|kW|hp|0}}
+|-
+| 911 Carrera (catalytic conv.) || 930/25 || 1988 ||J 64J 00001>10000 || 6 Cyl / 3.2L / {{cvt|160|kW|hp|0}}
+|-
+| 911 Carrera (S) || 930/26 || 1988 ||J 63J 10001>11000 || 6 Cyl / 3.2L / {{cvt|170|kW|hp|0}}
+|-
+| 930 Turbo || 930/66 || 1988 ||J 67J 00001>05000 || 6 Cyl / 3.3L / {{cvt|221|kW|hp|0}}
+|-
+| 930 Turbo (USA) || 930/68 || 1988 ||J 68J 00001>05000 || 6 Cyl / 3.3L / {{cvt|210|kW|hp|0}}
+|-
+| 911 Carrera || 930/20 || 1989 ||K 63K 00001>10000 || 6 Cyl / 3.2L / {{cvt|170|kW|hp|0}}
+|-
+| 911 Carrera (catalytic conv.) || 930/25 || 1989 ||K 64K 00001>10000 || 6 Cyl / 3.2L / {{cvt|160|kW|hp|0}}
+|-
+| 930 Turbo || 930/66 || 1989 ||K 67K 00001>05000 || 6 Cyl / 3.3L / {{cvt|221|kW|hp|0}}
+|-
+| 930 Turbo (USA)(CDN) || 930/68 || 1989 ||K 68K 00001>05000 || 6 Cyl / 3.3L / {{cvt|210|kW|hp|0}}
+|}
+
+==== 964 ====
+See [[Porsche 911 (964)]]
+*1989–1994 {{cvt|3600|cc|L|1|order=flip}} {{cvt|184|kW|PS bhp|0}} (at 6,100&nbsp;rpm) {{cvt|310|Nm|lbft|0}} (at 4,800&nbsp;rpm) air-cooled OHC 12-valve boxer flat-six (911 Carrera 2, Carrera 4, Carrera 30 Jahre 911, Carrera RS America, Speedster)
+*1991–1992 {{cvt|3600|cc|L|1|order=flip}} {{cvt|191|kW|PS bhp|0}} (at 6,200&nbsp;rpm) {{cvt|325|Nm|lbft|0}} (at 4,800&nbsp;rpm) air-cooled OHC 12-valve boxer flat-six (911 Carrera RS)
+*1991–1994 {{cvt|3299|cc|L|1|order=flip}} {{cvt|235|kW|PS bhp|0}} (at 5,750&nbsp;rpm) {{cvt|450|Nm|lbft|0}} (at 4,400&nbsp;rpm) air-cooled turbo OHC 12-valve boxer flat-six (911 Turbo)
+*1991–1992 {{cvt|3299|cc|L|1|order=flip}} {{cvt|280|kW|PS bhp|0}} (at 6,000&nbsp;rpm) {{cvt|490|Nm|lbft|0}} (at 4,800&nbsp;rpm) air-cooled turbo OHC 12-valve boxer flat-six (911 Turbo S)
+*1993–1994 {{cvt|3600|cc|L|1|order=flip}} {{cvt|265|kW|PS bhp|0}} (at 5,500&nbsp;rpm) {{cvt|520|Nm|lbft|0}} (at 4,200&nbsp;rpm) air-cooled turbo OHC 12-valve boxer flat-six (911 Turbo 3.6)
+*1993 {{cvt|3746|cc|L|1|order=flip}} {{cvt|221|kW|PS bhp|0}} (at 6,500&nbsp;rpm) {{cvt|360|Nm|lbft|0}} (at 5,250&nbsp;rpm) air-cooled OHC 12-valve boxer flat-six (911 Carrera RS 3.8)
+
+*1990–1991 {{cvt|3600|cc|L|1|order=flip}} {{cvt|195|kW|PS bhp|0}} (at 6,100&nbsp;rpm) {{cvt|310|Nm|lbft|0}} (at 4,800&nbsp;rpm) air-cooled OHC 12-valve boxer flat-six (911 Cup)
+*1992–1993 {{cvt|3600|cc|L|1|order=flip}} {{cvt|202|kW|PS bhp|0}} (at 6,100&nbsp;rpm) {{cvt|314|Nm|lbft|0}} (at 4,800&nbsp;rpm) air-cooled OHC 12-valve boxer flat-six (911 Cup)
+*1994 {{cvt|3746|cc|L|1|order=flip}} {{cvt|239|kW|PS bhp|0}} (at 6,900&nbsp;rpm) air-cooled OHC 12-valve boxer flat-six (911 Carrera RSR 3.8)
+
+{{Table alignment}}
+{| class="wikitable defaultcenter col1left"
+|+ Porsche 964 engines
+|-
+! Vehicle !! Engine !! MY !! Engine numbers !! Technical data
+|-
+| 964 Carrera 4 || M64.01 || 1989 || K 62K 00501>10000 || 6 Cyl / 3.6L / {{cvt|184|kW|hp|0}}
+|-
+| 964 Carrera 2/4 || M64.01 || 1990 || L 62L 00501>50000 || 6 Cyl / 3.6L / {{cvt|184|kW|hp|0}}
+|-
+| 964 Carrera 2 Tiptronic || M64.02 || 1990 || L 62L 50501>60000 || 6 Cyl / 3.6L / {{cvt|184|kW|hp|0}}
+|-
+| 964 Carrera 2/4 || M64.01 || 1991 || M 62M 00501>20000 || 6 Cyl / 3.6L / {{cvt|184|kW|hp|0}}
+|-
+| 964 Carrera 2 Tiptronic || M64.02 || 1991 || M 62M 50501>60000 || 6 Cyl / 3.6L / {{cvt|184|kW|hp|0}}
+|-
+| 964 Turbo || M30.69 || 1991 || M 61M 00501>50000 || 6 Cyl / 3.3L / {{cvt|235|kW|hp|0}}
+|-
+| 964 Carrera 2/4 || M64.01 || 1992 || N 62N 00501>20000 || 6 Cyl / 3.6L / {{cvt|184|kW|hp|0}}
+|-
+| 964 Carrera 2 Tiptronic || M64.02 || 1992 || N 62N 50501>60000 || 6 Cyl / 3.6L / {{cvt|184|kW|hp|0}}
+|-
+| 964 Carrera RS || M64.03 || 1992 || N 62N 80501>90000 || 6 Cyl / 3.6L / {{cvt|191|kW|hp|0}}
+|-
+| 964 Turbo || M30.69 || 1992 || N 61N 00501>20000 || 6 Cyl / 3.3L / {{cvt|235|kW|hp|0}}
+|-
+| 964 Carrera 2/4 || M64.01 || 1993 || P 62P 00501>20000 || 6 Cyl / 3.6L / {{cvt|184|kW|hp|0}}
+|-
+| 964 Carrera 2 Tiptronic || M64.02 || 1993 || P 62P 50501>60000 || 6 Cyl / 3.6L / {{cvt|184|kW|hp|0}}
+|-
+| 964 Turbo 3.6 || M64.50 || 1993 || P 61P 00501>20000 || 6 Cyl / 3.6L / {{cvt|265|kW|hp|0}}
+|-
+| 964 Carrera 2/4 || M64.01 || 1994 || R 62R 00501>20000 || 6 Cyl / 3.6L / {{cvt|184|kW|hp|0}}
+|-
+| 964 Carrera 2 Tiptronic || M64.02 || 1994 || R 62R 50501>60000 || 6 Cyl / 3.6L / {{cvt|184|kW|hp|0}}
+|-
+| 964 Turbo 3.6 || M64.50 || 1994 || R 61R 00501>20000 || 6 Cyl / 3.6L / {{cvt|265|kW|hp|0}}
+|}
+
+==== 993 ====
+See [[Porsche 911 (993)]]
+*1993–1995 {{cvt|3600|cc|L|1|order=flip}} {{cvt|200|kW|PS bhp|0}} (at 6,100&nbsp;rpm) {{cvt|330|Nm|lbft|0}} (at 5,000&nbsp;rpm) air-cooled OHC 12-valve boxer flat-six (911 Carrera 2, Carrera 4)
+*1995 {{cvt|3746|cc|L|1|order=flip}} {{cvt|221|kW|PS bhp|0}} (at 6,500&nbsp;rpm) {{cvt|355|Nm|lbft|0}} (at 5,400&nbsp;rpm) air-cooled OHC 12-valve boxer flat-six (911 Carrera RS)
+*1995–1998 {{cvt|3600|cc|L|1|order=flip}} {{cvt|316|kW|PS bhp|0}} (at 5,750&nbsp;rpm) {{cvt|540|Nm|lbft|0}} (at 5,400&nbsp;rpm) air-cooled OHC 12-valve boxer flat-six (911 GT2)
+*1996–1998 {{cvt|3600|cc|L|1|order=flip}} {{cvt|210|kW|PS bhp|0}} (at 6,500&nbsp;rpm) {{cvt|340|Nm|lbft|0}} (at 5,250&nbsp;rpm) air-cooled OHC 12-valve boxer flat-six (911 Carrera 2, Carrera 4, Carrera S, Carrera 4S)
+*1996–1998 {{cvt|3600|cc|L|1|order=flip}} {{cvt|220|kW|PS bhp|0}} (at 6,500&nbsp;rpm) {{cvt|340|Nm|lbft|0}} (at 5,250&nbsp;rpm) air-cooled OHC 12-valve boxer flat-six (911 Carrera 2, Carrera 4, Carrera S, Carrera 4S with Performancekit WLS)
+*1996–1998 {{cvt|3600|cc|L|1|order=flip}} {{cvt|300|kW|PS bhp|0}} (at 5,750&nbsp;rpm) {{cvt|540|Nm|lbft|0}} (at 4,500&nbsp;rpm) biturbo air-cooled OHC 12-valve boxer flat-six (911 Turbo)
+*1996–1998 {{cvt|3600|cc|L|1|order=flip}} {{cvt|316|kW|PS bhp|0}} (at 5,750&nbsp;rpm) {{cvt|540|Nm|lbft|0}} (at 4,500&nbsp;rpm) biturbo air-cooled OHC 12-valve boxer flat-six (911 Turbo with Performancekit WLS 1)
+*1997–1998 {{cvt|3600|cc|L|1|order=flip}} {{cvt|330|kW|PS bhp|0}} (at 5,750&nbsp;rpm) {{cvt|540|Nm|lbft|0}} (at 4,500&nbsp;rpm) biturbo air-cooled OHC 12-valve boxer flat-six (911 Turbo with Performancekit WLS 2, Turbo S)
+
+*1994–1995 {{cvt|3746|cc|L|1|order=flip}} {{cvt|228|kW|PS bhp|0}} (at 6,100&nbsp;rpm) {{cvt|360|Nm|lbft|0}} (at 5,500&nbsp;rpm) air-cooled OHC 12-valve boxer flat-six (911 Cup 3.8)
+*1996–1997 {{cvt|3746|cc|L|1|order=flip}} {{cvt|232|kW|PS bhp|0}} (at 6,200&nbsp;rpm) {{cvt|370|Nm|lbft|0}} (at 5,500&nbsp;rpm) air-cooled OHC 12-valve boxer flat-six (911 Cup 3.8)
+*1997–1998 {{cvt|3746|cc|L|1|order=flip}} {{cvt|257|kW|PS bhp|0}} (at 7,000&nbsp;rpm) {{cvt|380|Nm|lbft|0}} (at 5,500&nbsp;rpm) air-cooled OHC 12-valve boxer flat-six (911 Cup 3.8 RSR)
+*1995–1998 {{cvt|3600|cc|L|1|order=flip}} {{cvt|330|kW|PS bhp|0}} (at 5,750&nbsp;rpm) {{cvt|540|Nm|lbft|0}} (at 5,400&nbsp;rpm) biturbo air-cooled OHC 12-valve boxer flat-six (911 GT2 R)
+*1998 {{cvt|3600|cc|L|1|order=flip}} {{cvt|345|kW|PS bhp|0}} (at 5,750&nbsp;rpm) {{cvt|665|Nm|lbft|0}} biturbo air-cooled OHC 12-valve boxer flat-six (911 GT2 R)
+*1995–1997 {{cvt|3600|cc|L|1|order=flip}} {{cvt|442|kW|PS bhp|0}} (at 7,000&nbsp;rpm) biturbo air-cooled OHC 12-valve boxer flat-six (911 GT2 Evolution)
+
+{{Table alignment}}
+{| class="wikitable defaultcenter col1left"
+|+ Porsche 993 engines
+|-
+! Vehicle !! Engine !! MY !! Engine numbers !! Technical data
+|-
+| 993 Carrera || M64.05 || 1994 || R 63R 00501>20000 || 6 Cyl / 3.6L / {{cvt|200|kW|hp|0}}
+|-
+| 993 Carrera (USA)(CDN) || M64.07 || 1994 || R 64R 00501>20000 || 6 Cyl / 3.6L / {{cvt|200|kW|hp|0}}
+|-
+| 993 Carrera Tiptronic || M64.06 || 1994 || R 63R 50501>60000 || 6 Cyl / 3.6L / {{cvt|200|kW|hp|0}}
+|-
+| 993 Carrera Tiptronic (USA/CDN) || M64.08 || 1994 || R 64R 50501>60000 || 6 Cyl / 3.6L / {{cvt|200|kW|hp|0}}
+|-
+| 993 Carrera || M64.05 || 1995 || S 63S 00501>20000 || 6 Cyl / 3.6L / {{cvt|200|kW|hp|0}}
+|-
+| 993 Carrera (USA)(CDN) || M64.07 || 1995 || S 64S 00501>20000 || 6 Cyl / 3.6L / {{cvt|200|kW|hp|0}}
+|-
+| 993 Carrera RS || M64.20 || 1995 || S 63S 85501>90000 || 6 Cyl / 3.75L / {{cvt|220|kW|hp|0}}
+|-
+| 993 Carrera Tiptronic || M64.06 || 1995 || S 63S 50501>60000 || 6 Cyl / 3.6L / {{cvt|200|kW|hp|0}}
+|-
+| 993 Carrera Tiptronic (USA/CDN) || M64.08 || 1995 || S 64S 50501>60000 || 6 Cyl / 3.6L / {{cvt|200|kW|hp|0}}
+|-
+| 993 Carrera 4 || M64.05 || 1995 || S 63S 00501>20000 || 6 Cyl / 3.6L / {{cvt|200|kW|hp|0}}
+|-
+| 993 Carrera 4 (USA)(CDN) || M64.07 || 1995 || S 64S 00501>20000 || 6 Cyl / 3.6L / {{cvt|200|kW|hp|0}}
+|-
+| 993 Turbo || M64.60 || 1995 || S 61T 00501>20000 || 6 Cyl / 3.6L / {{cvt|300|kW|hp|0}}
+|-
+| 993 Carrera || M64.21 || 1996 || T 63T 00501>20000 || 6 Cyl / 3.6L / {{cvt|210|kW|hp|0}}
+|-
+| 993 Carrera (USA)(CDN) || M64.23 || 1996 || T 64T 00501>20000 || 6 Cyl / 3.6L / {{cvt|210|kW|hp|0}}
+|-
+| 993 Carrera RS || M64.20 || 1996 || T 63T 85501>90000 || 6 Cyl / 3.75L / {{cvt|220|kW|hp|0}}
+|-
+| 993 Carrera Tiptronic || M64.22 || 1996 || T 63T 50501>60000 || 6 Cyl / 3.6L / {{cvt|210|kW|hp|0}}
+|-
+| 993 Carrera Tiptronic (USA/CDN) || M64.24 || 1996 || T 64T 50501>60000 || 6 Cyl / 3.6L / {{cvt|210|kW|hp|0}}
+|-
+| 993 Carrera 4 || M64.21 || 1996 || T 63T 00501>20000 || 6 Cyl / 3.6L / {{cvt|210|kW|hp|0}}
+|-
+| 993 Carrera 4 (USA)(CDN) || M64.23 || 1996 || T 64T 00501>20000 || 6 Cyl / 3.6L / {{cvt|210|kW|hp|0}}
+|-
+| 993 Turbo || M64.60 || 1996 || T 61T 00501>20000 || 6 Cyl / 3.6L / {{cvt|300|kW|hp|0}}
+|-
+| 993 Carrera || M64.21 || 1997 || V 63V 00501>20000 || 6 Cyl / 3.6L / {{cvt|210|kW|hp|0}}
+|-
+| 993 Carrera (USA)(CDN) || M64.23 || 1997 || V 64V 00501>20000 || 6 Cyl / 3.6L / {{cvt|210|kW|hp|0}}
+|-
+| 993 Carrera Tiptronic || M64.22 || 1997 || V 63V 50501>60000 || 6 Cyl / 3.6L / {{cvt|210|kW|hp|0}}
+|-
+| 993 Carrera TIP (USA/CDN) || M64.24 || 1997 || V 64V 50501>60000 || 6 Cyl / 3.6L / {{cvt|210|kW|hp|0}}
+|-
+| 993 Carrera 4 || M64.21 || 1997 || V 63V 00501>20000 || 6 Cyl / 3.6L / {{cvt|210|kW|hp|0}}
+|-
+| 993 Carrera 4 (USA)(CDN) || M64.23 || 1997 || V 64V 00501>20000 || 6 Cyl / 3.6L / {{cvt|210|kW|hp|0}}
+|-
+| 993 Turbo || M64.60 || 1997 || V 61V 00501>20000 || 6 Cyl / 3.6L / {{cvt|300|kW|hp|0}}
+|}
+
+==== 996 ====
+{{Main|Porsche 911 (996)}}
+[[File:2005 Porsche 996 GT3 engine bay.jpg|thumb|right|2005 911 GT3 engine bay]]
+[[File:Porsche GT3 engine without cover (6293636286).jpg|thumb|right|911 GT3 Cup engine bay]]
+*1998–2001 {{cvt|3387|cc|L|1|order=flip}} {{cvt|300|PS|kW bhp|0}} {{cvt|350|Nm|lbft|0}} [[Water cooling|water-cooled]] [[Overhead camshaft|DOHC]] 24-valve boxer flat-six ([[VarioCam]]) (Carrera)
+*1999–2004 {{cvt|3600|cc|L|1|order=flip}} {{cvt|420|PS|kW bhp|0}} {{cvt|560|Nm|lbft|0}} water cooled [[Twin-turbo|biturbo]] DOHC 24-valve boxer flat-six (Turbo)
+*1999–2001 {{cvt|3600|cc|L|1|order=flip}} {{cvt|360|PS|kW bhp|0}} {{cvt|370|Nm|lbft|0}} water-cooled DOHC 24-valve boxer flat six (GT3)
+*2000–2003 {{cvt|3600|cc|L|1|order=flip}} {{cvt|462|PS|kW bhp|0}} {{cvt|620|Nm|lbft|0}} water cooled biturbo DOHC 24-valve boxer flat-six (GT2)
+*2002–2004 {{cvt|3596|cc|L|1|order=flip}} {{cvt|320|PS|kW bhp|0}} {{cvt|370|Nm|lbft|0}} water-cooled DOHC 24-valve boxer flat-six (VarioCam Plus) (Carrera, Carrera 4, Carrera 4S, Targa)
+*2004–2005 {{cvt|3600|cc|L|1|order=flip}} {{cvt|450|PS|kW bhp|0}} {{cvt|620|Nm|lbft|0}} water cooled biturbo DOHC 24-valve boxer flat-six (Turbo S)
+*2004–2005 {{cvt|3600|cc|L|1|order=flip}} {{cvt|381|PS|kW bhp|0}} {{cvt|385|Nm|lbft|0}} water-cooled DOHC 24-valve boxer flat six (GT3)
+*2004–2005 {{cvt|3600|cc|L|1|order=flip}} {{cvt|483|PS|kW bhp|0}} {{cvt|640|Nm|lbft|0}} water cooled biturbo DOHC 24-valve boxer flat-six (GT2)
+
+*1998 {{cvt|3600|cc|L|1|order=flip}} {{cvt|265|kW|PS bhp|0}} (at 7,200&nbsp;rpm) {{cvt|360|Nm|lbft|0}} (at 6,250&nbsp;rpm) water-cooled DOHC 24-valve boxer flat six (911 GT3 Cup)
+*1999–2001 {{cvt|3600|cc|L|1|order=flip}} {{cvt|272|kW|PS bhp|0}} (at 7,200&nbsp;rpm) {{cvt|370|Nm|lbft|0}} (at 6,250&nbsp;rpm) water-cooled DOHC 24-valve boxer flat six (911 GT3 Cup)
+*2002–2003 {{cvt|3600|cc|L|1|order=flip}} {{cvt|280|kW|PS bhp|0}} (at 7,200&nbsp;rpm) {{cvt|380|Nm|lbft|0}} (at 6,250&nbsp;rpm) water-cooled DOHC 24-valve boxer flat six (911 GT3 Cup)
+*2004 {{cvt|3600|cc|L|1|order=flip}} {{cvt|287|kW|PS bhp|0}} (at 7,200&nbsp;rpm) {{cvt|390|Nm|lbft|0}} (at 6,500&nbsp;rpm) water-cooled DOHC 24-valve boxer flat six (911 GT3 Cup)
+*1999–2001 {{cvt|3600|cc|L|1|order=flip}} {{cvt|302|kW|PS bhp|0}} (at 8,200&nbsp;rpm) water-cooled DOHC 24-valve boxer flat six (911 GT3 R, GT3 RS)
+*2005–2008 {{cvt|3600|cc|L|1|order=flip}} {{cvt|294|kW|PS bhp|0}} (at 7,000&nbsp;rpm) {{cvt|400|Nm|lbft|0}} (at 6,500&nbsp;rpm) water-cooled DOHC 24-valve boxer flat six (911 GT3 RSR)
+
+{{Table alignment}}
+{| class="wikitable defaultcenter col1left"
+|+ Porsche 996 engines
+|-
+! Vehicle !! Engine !! MY !! Engine numbers !! Technical data
+|-
+| 996 Carrera || M96.01 || 1998 || W66W 00501>60000  || 6 Cyl / 3.4L / {{cvt|220|kW|hp|0}}
+|-
+| 996 Carrera || M96.01 || 1999 || X66X 00501>60000  || 6 Cyl / 3.4L / {{cvt|220|kW|hp|0}}
+|-
+| 996 Carrera +M620 C4 || M96.02 || 1999 || X68X 00501>60000  || 6 Cyl / 3.4L / {{cvt|220|kW|hp|0}}
+|-
+| 996 Carrera 2/4 || M96.04 || 2000 || Y66Y 00501>60000  || 6 Cyl / 3.4L / {{cvt|220|kW|hp|0}}
+|-
+| 996 Carrera 2/4 || M96.04 || 2001 || 1661 00501>60000  || 6 Cyl / 3.4L / {{cvt|220|kW|hp|0}}
+|-
+| 996 Carrera 2/4/4S FL || M96.03 || 2002 || 2662 00501>60000  || 6 Cyl / 3.6L / {{cvt|232|kW|hp|0}}
+|-
+| 996 Carrera 2/4/4S FL || M96.03 || 2003 || 3663 00501>60000  || 6 Cyl / 3.6L / {{cvt|235|kW|hp|0}}
+|-
+| 996 Carrera 2/4/4S FL || M96.03 || 2004 || 4664 00501>60000  || 6 Cyl / 3.6L / {{cvt|235|kW|hp|0}}
+|-
+| 996 Carrera 2 40th Jahre || M96.03S || 2004 || 4664 00501>60000  || 6 Cyl / 3.6L / {{cvt|254|kW|hp|0}}
+|-
+| 996 Carrera 2/4/4S FL || M96.03 || 2005 || 5665 00501>60000  || 6 Cyl / 3.6L / {{cvt|235|kW|hp|0}}
+|-
+| 996 GT3 || M96.76 || 2000 || Y63Y 21501>23000  || 6 Cyl / 3.6L / {{cvt|265|kW|hp|0}}
+|-
+| 996 GT3 || M96.76 || 2001 || 1631 21501>23000  || 6 Cyl / 3.6L / {{cvt|265|kW|hp|0}}
+|-
+| 996 GT3 || M96.79 || 2004 || 4634 24501>26000  || 6 Cyl / 3.6L / {{cvt|280|kW|hp|0}}
+|-
+| 996 GT3 RS || M96.79 || 2004 || 4634 26501>27000  || 6 Cyl / 3.6L / {{cvt|280|kW|hp|0}}
+|-
+| 996 GT3 || M96.79 || 2005 || 5635 24501>26000  || 6 Cyl / 3.6L / {{cvt|280|kW|hp|0}}
+|-
+| 996 Turbo || M96.70 || 2001 || 1641 00501>60000  || 6 Cyl / 3.6L / {{cvt|309|kW|hp|0}}
+|-
+| 996 Turbo GT2 || M96.70S || 2001 || 1641 00501>60000  || 6 Cyl / 3.6L / {{cvt|340|kW|hp|0}}
+|-
+| 996 Turbo || M96.70 || 2002 || 2642 00501>60000  || 6 Cyl / 3.6L / {{cvt|309|kW|hp|0}}
+|-
+| 996 Turbo GT2 || M96.70S || 2002 || 2642 00501>60000  || 6 Cyl / 3.6L / {{cvt|340|kW|hp|0}}
+|-
+| 996 Turbo || M96.70 || 2003 || 3643 00501>60000  || 6 Cyl / 3.6L / {{cvt|309|kW|hp|0}}
+|-
+| 996 Turbo GT2 || M96.70S || 2003 || 3643 20501>60000  || 6 Cyl / 3.6L / {{cvt|340|kW|hp|0}}
+|-
+| 996 Turbo || M96.70 || 2004 || 4644 00501>60000  || 6 Cyl / 3.6L / {{cvt|309|kW|hp|0}}
+|-
+| 996 Turbo GT2 || M96.70S || 2004 || 4644 20501>60000  || 6 Cyl / 3.6L / {{cvt|340|kW|hp|0}}
+|-
+| 996 Turbo IX50 kit || M96.70E || 2004 || 4644 30501>40000  || 6 Cyl / 3.6L / {{cvt|336|kW|hp|0}}
+|-
+| 996 Turbo || M96.70 || 2005 || 5645 00501>20000  || 6 Cyl / 3.6L / {{cvt|309|kW|hp|0}}
+|-
+| 996 Turbo GT2 || M96.70S || 2005 || 5645 20501>30000  || 6 Cyl / 3.6L / {{cvt|360|kW|hp|0}}
+|-
+| 996 Turbo IX50 kit || M96.70E || 2005 || 5645 30501>40000  || 6 Cyl / 3.6L / {{cvt|336|kW|hp|0}}
+|}
+
+==== 997 ====
+See [[Porsche 911 (997)]]
+[[File:Porsche 911 (997) Carrera S - Flickr - The Car Spy (15).jpg|thumb|right|2006 911 Carrera S engine bay]]
+[[File:2006 Porsche 911 (997) Turbo - Flickr - The Car Spy (3).jpg|thumb|right|2007 911 Turbo engine bay]]
+[[File:Porsche 911 (997) GT3 RS 3.6 - capot arrière ouvert 2.jpg|thumb|right|2007 911 GT3 engine bay]]
+*2006–2008 {{cvt|3596|cc|L|1|order=flip}} {{cvt|325|PS|kW bhp|0}} {{cvt|370|Nm|lbft|0}} water-cooled DOHC 24-valve boxer flat-six (VarioCam Plus) (Carrera/Targa 4)
+*2006–2008 {{cvt|3824|cc|L|1|order=flip}} {{cvt|355|PS|kW bhp|0}} {{cvt|400|Nm|lbft|0}} water-cooled DOHC 24-valve boxer flat-six (VarioCam Plus) (Carrera S/Targa 4S)
+*2006–2008 {{cvt|3824|cc|L|1|order=flip}} {{cvt|381|PS|kW bhp|0}} {{cvt|415|Nm|lbft|0}} water-cooled DOHC 24-valve boxer flat-six (VarioCam Plus) (Carrera S powerkit)
+*2007–2009 {{cvt|3600|cc|L|1|order=flip}} {{cvt|480|PS|kW bhp|0}} {{cvt|620|Nm|lbft|0}} water-cooled biturbo DOHC 24-valve boxer flat-six (VarioCam Plus) (Turbo)
+*2007–2009 {{cvt|3600|cc|L|1|order=flip}} {{cvt|415|PS|kW bhp|0}} {{cvt|405|Nm|lbft|0}} water-cooled DOHC 24-valve boxer flat-six (VarioCam) (GT3/GT3 RS)
+*2008–2010 {{cvt|3600|cc|L|1|order=flip}} {{cvt|530|PS|kW bhp|0}} {{cvt|680|Nm|lbft|0}} water-cooled DOHC 24-valve boxer flat-six (VarioCam Plus) (GT2)
+
+*2005–2008 {{cvt|3600|cc|L|1|order=flip}} {{cvt|294|kW|PS bhp|0}} (at 7,000&nbsp;rpm) {{cvt|400|Nm|lbft|0}} (at 6,500&nbsp;rpm) water-cooled DOHC 24-valve boxer flat six (911 GT3 Cup)
+*2008–2010 {{cvt|3600|cc|L|1|order=flip}} water-cooled DOHC 24-valve boxer flat six (911 GT3 Cup S)
+*2006–2010 {{cvt|3800|cc|L|1|order=flip}} {{cvt|335|kW|PS bhp|0}} (at 8,500&nbsp;rpm) {{cvt|435|Nm|lbft|0}} water-cooled DOHC 24-valve boxer flat six (911 GT3 RSR)
+
+997 II
+[[File:2010 Porsche 997 GT3 RS 3.8 engine bay.jpg|thumb|right|2010 911 GT3 RS engine bay]]
+*2008–2012 {{cvt|3614|cc|L|1|order=flip}} {{cvt|345|PS|kW bhp|0}} {{cvt|390|Nm|lbft|0}} water-cooled DOHC 24-valve boxer flat-six (VarioCam Plus, [[Gasoline Direct Injection|DFI]]) (Carrera/Targa 4)
+*2008–2012 {{cvt|3800|cc|L|1|order=flip}} {{cvt|385|PS|kW bhp|0}} {{cvt|420|Nm|lbft|0}} water-cooled DOHC 24-valve boxer flat-six (VarioCam Plus, DFI) (Carrera S/Targa 4S)
+*2009–2012 {{cvt|3797|cc|L|1|order=flip}} {{cvt|435|PS|kW bhp|0}} {{cvt|430|Nm|lbft|0}} water-cooled DOHC 24-valve boxer flat-six (VarioCam) (GT3)
+*2009–2012 {{cvt|3797|cc|L|1|order=flip}} {{cvt|450|PS|kW bhp|0}} {{cvt|430|Nm|lbft|0}} water-cooled DOHC 24-valve boxer flat-six (VarioCam) (GT3 RS)
+*2009–2013 {{cvt|3800|cc|L|1|order=flip}} {{cvt|500|PS|kW bhp|0}} {{cvt|650|Nm|lbft|0}} water-cooled biturbo DOHC 24-valve boxer flat-six (VarioCam) (Turbo)
+*2009–2012 {{cvt|3800|cc|L|1|order=flip}} {{cvt|408|PS|kW bhp|0}} {{cvt|420|Nm|lbft|0}} water-cooled DOHC 24-valve boxer flat-six (VarioCam) (GTS/Sport Classic/Speedster)
+*2010–2013 {{cvt|3800|cc|L|1|order=flip}} {{cvt|530|PS|kW bhp|0}} {{cvt|700|Nm|lbft|0}} water-cooled biturbo DOHC 24-valve boxer flat-six (VarioCam Plus) (Turbo S)
+*2010 {{cvt|3600|cc|L|1|order=flip}} {{cvt|620|PS|kW bhp|0}} {{cvt|700|Nm|lbft|0}} water-cooled biturbo DOHC 24-valve boxer flat-six (VarioCam Plus) (GT2 RS)
+*2011 {{cvt|3996|cc|L|1|order=flip}} {{cvt|500|PS|kW bhp|0}} {{cvt|460|Nm|lbft|0}} water-cooled DOHC 24-valve boxer flat-six (GT3 RS 4.0)
+
+*2009–2013 {{cvt|3996|cc|L|1|order=flip}} {{cvt|331|kW|PS bhp|0}} (at 7,500&nbsp;rpm) water-cooled DOHC 24-valve boxer flat-six (GT3 Cup 3.8)
+*2011–2013 {{cvt|3800|cc|L|1|order=flip}} {{cvt|338|kW|PS bhp|0}} water-cooled DOHC 24-valve boxer flat six (911 GT3 RSR)
+*2010–2013 {{cvt|3800|cc|L|1|order=flip}} {{cvt|368|kW|PS bhp|0}} water-cooled DOHC 24-valve boxer flat six (911 GT3 R)
+*2010–2011 {{cvt|3996|cc|L|1|order=flip}} {{cvt|373|kW|PS bhp|0}} water-cooled DOHC 24-valve boxer flat six and {{cvt|163|kW|PS bhp|0}} from two electric motors (911 GT3 R Hybrid)
+
+{{Table alignment}}
+{| class="wikitable defaultcenter col1left"
+|+ Porsche 997 engines
+|-
+! Vehicle !! Engine !! MY !! Engine numbers !! Technical data
+|-
+| 997 Coupe/Cabrio || M96.05 || 2005 || 5 695 00501>20000 || 6 Cyl / 3.6L / {{cvt|239|kW|hp|0}}
+|-
+| 997 Coupe S/Cabrio S || M97.01 || 2005 || 5 685 00501>60000 || 6 Cyl / 3.8L / {{cvt|261|kW|hp|0}}
+|-
+| 997 Coupe/Cabrio || M96.05 || 2006 || 6 696 00501>20000 || 6 Cyl / 3.6L / {{cvt|239|kW|hp|0}}
+|-
+| 997 Coupe S/Cabrio S || M97.01 || 2006 || 6 686 00501>60000 || 6 Cyl / 3.8L / {{cvt|261|kW|hp|0}}
+|-
+| 997 Coupe/Cabrio || M96.05 || 2007 || 7 697 00501>20000 || 6 Cyl / 3.6L / {{cvt|239|kW|hp|0}}
+|-
+| 997 Coupe S/Cabrio S || M97.01 || 2007 || 7 687 00501>40000 || 6 Cyl / 3.8L / {{cvt|261|kW|hp|0}}
+|-
+| 997 Coupe S/Cabrio S kit X51 || M97.01S || 2007 || 7 687 40501>60000 || 6 Cyl / 3.8L / {{cvt|280|kW|hp|0}}
+|-
+| 997 Coupe/Cabrio || M96.05 || 2008 || 8 698 00501>20000 || 6 Cyl / 3.6L / {{cvt|239|kW|hp|0}}
+|-
+| 997 Coupe S/Cabrio S || M97.01 || 2008 || 8 688 00501>40000 || 6 Cyl / 3.8L / {{cvt|261|kW|hp|0}}
+|-
+| 997 Coupe S/Cabrio S kit X51 || M97.01S || 2008 || 8 688 40501>60000 || 6 Cyl / 3.8L / {{cvt|280|kW|hp|0}}
+|-
+| 997 Coupe/Cabrio/Targa || MA1.02 || 2009 || 9 __9 00501>99999 || 6 Cyl / 3.6L / {{cvt|253|kW|hp|0}}
+|-
+| 997 Coupe S/Cabrio S/Targa S || MA1.01 || 2009 || 9 __9 00501>99999 || 6 Cyl / 3.8L / {{cvt|283|kW|hp|0}}
+|-
+| 997 Coupe/Cabrio/Targa || MA1.02 || 2010 || A __A 00501>99999 || 6 Cyl / 3.6L / {{cvt|254|kW|hp|0}}
+|-
+| 997 Coupe S/Cabrio S/Targa S || MA1.01 || 2010 || A __A 00501>99999 || 6 Cyl / 3.8L / {{cvt|283|kW|hp|0}}
+|-
+| 997 Coupe S(Sport Classic)X51 || MA1.01 || 2010 || A S_A 00501>60000 || 6 Cyl / 3.8L / {{cvt|300|kW|hp|0}}
+|-
+| 997 Coupe/Cabrio/Targa || MA1.02 || 2011 || B __B 00501>60000 || 6 Cyl / 3.6L / {{cvt|254|kW|hp|0}}
+|-
+| 997 Coupe S/Cabrio S/Targa S || MA1.01 || 2011 || B __B 00501>60000 || 6 Cyl / 3.8L / {{cvt|283|kW|hp|0}}
+|-
+| 997 Coupe S/Cabrio S X51 || MA1.01 || 2011 || B S_B 00501>60000 || 6 Cyl / 3.8L / {{cvt|300|kW|hp|0}}
+|-
+| 997 Coupe/Cabrio/Targa || MA1.02 || 2012 || C __C 00501>60000 || 6 Cyl / 3.6L / {{cvt|254|kW|hp|0}}
+|-
+| 997 Coupe S/Cabrio S/Targa S || MA1.01 || 2012 || C __C 00501>60000 || 6 Cyl / 3.8L / {{cvt|283|kW|hp|0}}
+|-
+| 997 Coupe S/Cabrio S X51 || MA1.01 || 2012 || C S C 00501>60000 || 6 Cyl / 3.8L / {{cvt|300|kW|hp|0}}
+|-
+| 997 GT3 || M97.76 || 2007 || 7 617 23501>26000 || 6 Cyl / 3.6L / {{cvt|305|kW|hp|0}}
+|-
+| 997 GT3 || M97.76 || 2008 || 8 618 23501>26000 || 6 Cyl / 3.6L / {{cvt|305|kW|hp|0}}
+|-
+| 997 GT3 || M97.76 || 2009 || 9 619 23501>26000 || 6 Cyl / 3.6L / {{cvt|305|kW|hp|0}}
+|-
+| 997 GT3 || M97.77 || 2010 || A 61A 23501>26000 || 6 Cyl / 3.8L / {{cvt|320|kW|hp|0}}
+|-
+| 997 GT3 || M97.77 || 2011 || B 61B 23501>26000 || 6 Cyl / 3.8L / {{cvt|320|kW|hp|0}}
+|-
+| 997 GT3 RS || M97.77R || 2011 || B 61B 28501>30000 || 6 Cyl / 3.8L / {{cvt|331|kW|hp|0}}
+|-
+| 997 GT3 RS 4.0 || M97.74 || 2011 || B 61B 31501>32000 || 6 Cyl / 4.0L / {{cvt|368|kW|hp|0}}
+|-
+| 997 Turbo || M97.70 || 2007 || 7 627 00501>18000 || 6 Cyl / 3.6L / {{cvt|353|kW|hp|0}}
+|-
+| 997 Turbo || M97.70 || 2008 || 8 628 00501>18000 || 6 Cyl / 3.6L / {{cvt|353|kW|hp|0}}
+|-
+| 997 Turbo GT2 || M97.70S || 2008 || 8 628 20501>28000 || 6 Cyl / 3.6L / {{cvt|390|kW|hp|0}}
+|-
+| 997 Turbo || M97.70 || 2009 || 9 629 00501>18000 || 6 Cyl / 3.6L / {{cvt|353|kW|hp|0}}
+|-
+| 997 Turbo +I114 || M97.70 || 2009 || 9 629 18501>20000 || 6 Cyl / 3.6L / {{cvt|353|kW|hp|0}}
+|-
+| 997 Turbo GT2 || M97.70S || 2009 || 9 629 20501>28000 || 6 Cyl / 3.6L / {{cvt|390|kW|hp|0}}
+|-
+| 997 Turbo GT2 +I114 || M97.70S || 2009 || 9 629 28501>30000 || 6 Cyl / 3.6L / {{cvt|390|kW|hp|0}}
+|-
+| 997 Turbo || MA1.70 || 2010 || A __A 00501>60000 || 6 Cyl / 3.8L / {{cvt|368|kW|hp|0}}
+|-
+| 997 Turbo || MA1.70 || 2011 || B __B 00501>60000 || 6 Cyl / 3.8L / {{cvt|368|kW|hp|0}}
+|-
+| 997 Turbo S +I092 || MA1.70 || 2011 || B S_B 00501>60000 || 6 Cyl / 3.8L / {{cvt|390|kW|hp|0}}
+|-
+| 997 GT2 RS || M97.70 || 2011 || B 62B 30501>40000 || 6 Cyl / 3.6L / {{cvt|456|kW|hp|0}}
+|-
+| 997 Turbo || MA1.70 || 2012 || C __C 00501>60000 || 6 Cyl / 3.8L / {{cvt|368|kW|hp|0}}
+|-
+| 997 Turbo S +I092 || MA1.70 || 2012 || C S_C 00501>60000 || 6 Cyl / 3.8L / {{cvt|390|kW|hp|0}}
+|-
+| 997 Turbo || MA1.70 || 2013 || D __D 00501>60000 || 6 Cyl / 3.8L / {{cvt|368|kW|hp|0}}
+|-
+| 997 Turbo S +I092 || MA1.70 || 2013 || D S_D 00501>60000 || 6 Cyl / 3.8L / {{cvt|390|kW|hp|0}}
+|}
+
+==== 991 ====
+See [[Porsche 911 (991)]]
+[[File:Porsche 991 Motor IAA.jpg|thumb|right|2012 911 Carrera S engine bay]]
+*2011–2015 {{cvt|3436|cc|L|1|order=flip}} {{cvt|350|PS|kW bhp|0}} {{cvt|390|Nm|lbft|0}} water-cooled DOHC 24-valve boxer flat-six (VarioCam Plus) (Carrera/Targa 4)
+*2011–2015 {{cvt|3800|cc|L|1|order=flip}} {{cvt|400|PS|kW bhp|0}} {{cvt|440|Nm|lbft|0}} water-cooled DOHC 24-valve boxer flat-six (VarioCam Plus) (Carrera S/Targa 4S)
+*2011–2015 {{cvt|3800|cc|L|1|order=flip}} {{cvt|430|PS|kW bhp|0}} {{cvt|440|Nm|lbft|0}} water-cooled DOHC 24-valve boxer flat-six (VarioCam Plus) (Carrera GTS/Targa 4 GTS)
+*2013–2015 {{cvt|3800|cc|L|1|order=flip}} {{cvt|520|PS|kW bhp|0}} {{cvt|660|Nm|lbft|0}} water-cooled biturbo DOHC 24-valve boxer flat-six (VarioCam Plus) (Turbo)
+*2013–2015 {{cvt|3800|cc|L|1|order=flip}} {{cvt|560|PS|kW bhp|0}} {{cvt|700|Nm|lbft|0}} water-cooled biturbo DOHC 24-valve boxer flat-six (VarioCam Plus) (Turbo S)
+*2013–2015 {{cvt|3800|cc|L|1|order=flip}} {{cvt|475|PS|kW bhp|0}} {{cvt|440|Nm|lbft|0}} water-cooled DOHC 24-valve boxer flat-six (VarioCam) (GT3)
+*2015–2016 {{cvt|3996|cc|L|1|order=flip}} {{cvt|500|PS|kW bhp|0}} {{cvt|460|Nm|lbft|0}} water-cooled DOHC 24-valve boxer flat-six (VarioCam) (GT3 RS, R)
+
+*2013–2017 {{cvt|3800|cc|L|1|order=flip}} {{cvt|460|PS|kW bhp|0}} (restricted) water-cooled DOHC 24-valve boxer flat-six (GT3 Cup)
+*2015–2017 {{cvt|3996|cc|L|1|order=flip}} {{cvt|470|PS|kW bhp|0}} (restricted) water-cooled DOHC 24-valve boxer flat-six (RSR)
+*2015–2018 {{cvt|3996|cc|L|1|order=flip}} {{cvt|500|PS|kW bhp|0}} (restricted) water-cooled DOHC 24-valve boxer flat-six (GT3 R)
+
+991 II
+*2015–2019 {{cvt|2981|cc|L|1|order=flip}} {{cvt|370|PS|kW bhp|0}} {{cvt|450|Nm|lbft|0}} water-cooled biturbo DOHC 24-valve boxer flat-six (VarioCam Plus) (Carrera/Targa)
+*2015–2019 {{cvt|2981|cc|L|1|order=flip}} {{cvt|420|PS|kW bhp|0}} {{cvt|500|Nm|lbft|0}} water-cooled biturbo DOHC 24-valve boxer flat-six (VarioCam Plus) (Carrera S/Targa S)
+*2016–2019 {{cvt|3800|cc|L|1|order=flip}} {{cvt|540|PS|kW bhp|0}} {{cvt|660|Nm|lbft|0}} water-cooled biturbo DOHC 24-valve boxer flat-six (VarioCam Plus) (Turbo)
+*2016–2019 {{cvt|3800|cc|L|1|order=flip}} {{cvt|580|PS|kW bhp|0}} {{cvt|700|Nm|lbft|0}} water-cooled biturbo DOHC 24-valve boxer flat-six (VarioCam Plus) (Turbo S)
+*2017–2019 {{cvt|3996|cc|L|1|order=flip}} {{cvt|500|PS|kW bhp|0}} {{cvt|460|Nm|lbft|0}} water-cooled DOHC 24-valve boxer flat-six (VarioCam) (GT3)
+*2017–2019 {{cvt|3800|cc|L|1|order=flip}} {{cvt|607|PS|kW bhp|0}} {{cvt|750|Nm|lbft|0}} water-cooled biturbo DOHC 24-valve boxer flat-six (VarioCam Plus) (Turbo S Exclusive)
+*2017–2019 {{cvt|3800|cc|L|1|order=flip}} {{cvt|700|PS|kW bhp|0}} {{cvt|750|Nm|lbft|0}} water-cooled biturbo DOHC 24-valve boxer flat-six (VarioCam Plus) (GT2 RS)
+*2018–2019 {{cvt|3996|cc|L|1|order=flip}} {{cvt|520|PS|kW bhp|0}} {{cvt|470|Nm|lbft|0}} water-cooled DOHC 24-valve boxer flat-six (VarioCam) (GT3 RS)
+
+*2017–present {{cvt|3996|cc|L|1|order=flip}} {{cvt|485|PS|kW bhp|0}} (restricted) water-cooled DOHC 24-valve boxer flat-six (GT3 Cup)
+*2017–2019 {{cvt|3996|cc|L|1|order=flip}} {{cvt|510|PS|kW bhp|0}} (restricted) water-cooled DOHC 24-valve boxer flat-six (RSR)
+*2018–present {{cvt|3996|cc|L|1|order=flip}} {{cvt|550|PS|kW bhp|0}} (restricted) water-cooled DOHC 24-valve boxer flat-six (GT3 R)
+*2019–present {{cvt|4192|cc|L|1|order=flip}} {{cvt|515|PS|kW bhp|0}} (restricted) water-cooled DOHC 24-valve boxer flat-six (RSR)
+
+{{Table alignment}}
+{| class="wikitable defaultcenter col1left"
+|+ Porsche 991 engines
+|-
+! Vehicle !! Engine !! MY !! Engine numbers !! Technical data
+|-
+| 991 S || MA1.03 || 2012 || C __C 00501>60000 || 6 Cyl / 3.8L / {{cvt|294|kW|hp|0}}
+|-
+| 991 || MA1.04 || 2012 || C __C 00501>60000 || 6 Cyl / 3.4L / {{cvt|257|kW|hp|0}}
+|-
+| 991 S || MA1.03 || 2013 || D __D 00501>60000 || 6 Cyl / 3.8L / {{cvt|294|kW|hp|0}}
+|-
+| 991 || MA1.04 || 2013 || D __D 00501>60000 || 6 Cyl / 3.4L / {{cvt|257|kW|hp|0}}
+|-
+| 991 S || MA1.03 || 2014 || E __E 00501>60000 || 6 Cyl / 3.8L / {{cvt|294|kW|hp|0}}
+|-
+| 991 || MA1.04 || 2014 || E __E 00501>60000 || 6 Cyl / 3.4L / {{cvt|257|kW|hp|0}}
+|-
+| 991 S || MA1.03 || 2015 || F __F 00501>60000 || 6 Cyl / 3.8L / {{cvt|294|kW|hp|0}}
+|-
+| 991 || MA1.04 || 2015 || F __F 00501>60000 || 6 Cyl / 3.4L / {{cvt|257|kW|hp|0}}
+|-
+| 991 S || MA1.03 || 2016 || G __G 00501>60000 || 6 Cyl / 3.8L / {{cvt|294|kW|hp|0}}
+|-
+| 991 || MA1.04 || 2016 || G __G 00501>60000 || 6 Cyl / 3.4L / {{cvt|257|kW|hp|0}}
+|-
+| 991 S || MAB.03 || 2017 || H __C 00501>60000 || 6 Cyl / 3.8L / {{cvt|294|kW|hp|0}}
+|-
+| 991 || MAB.04 || 2017 || H _ C 00501>60000 || 6 Cyl / 3.4L / {{cvt|257|kW|hp|0}}
+|-
+| 991 S HP || MDC.HA || 2017 || H __C 00501>60000 || 6 Cyl / 3.0L / {{cvt|309|kW|hp|0}}
+|-
+| 991 S HP C33 || MDC.H || 2017 || H __C 00501>60000 || 6 Cyl / 3.0L / {{cvt|309|kW|hp|0}}
+|-
+| 991 S HP || MDC.JA || 2017 || H __C 00501>60000 || 6 Cyl / 3.0L / {{cvt|331|kW|hp|0}}
+|-
+| 991 LP || MDC.KA || 2017 || H __C 00501>60000 || 6 Cyl / 3.0L / {{cvt|272|kW|hp|0}}
+|-
+| 991 S HP || MDC.HA || 2018 || J __C 00501>60000 || 6 Cyl / 3.0L / {{cvt|309|kW|hp|0}}
+|-
+| 991 S HP C33 || MDC.H || 2018 || J __C 00501>60000 || 6 Cyl / 3.0L / {{cvt|309|kW|hp|0}}
+|-
+| 991 S HP || MDC.JA || 2018 || J __C 00501>60000 || 6 Cyl / 3.0L / {{cvt|331|kW|hp|0}}
+|-
+| 991 S HP C33 || MDC.J || 2018 || J __C 00501>60000 || 6 Cyl / 3.0L / {{cvt|331|kW|hp|0}}
+|-
+| 991 LP || MDC.KA || 2018 || J __C 00501>60000 || 6 Cyl / 3.0L / {{cvt|272|kW|hp|0}}
+|-
+| 991 LP C33 || MDC.K || 2018 || J __C 00501>60000 || 6 Cyl / 3.0L / {{cvt|272|kW|hp|0}}
+|-
+| 991 GT3 || MA1.75 || 2014 || E __E 00501>60000 || 6 Cyl / 3.8L / {{cvt|350|kW|hp|0}}
+|-
+| 991 GT3 || MA1.75 || 2015 || F __F 00501>60000 || 6 Cyl / 3.8L / {{cvt|350|kW|hp|0}}
+|-
+| 991 GT3 RS || MA1.76 || 2015 || F __F 00501>60000 || 6 Cyl / 4.0L / {{cvt|373|kW|hp|0}}
+|-
+| 991 GT3 || MA1.75 || 2016 || G __G 00501>60000 || 6 Cyl / 3.8L / {{cvt|350|kW|hp|0}}
+|-
+| 991 GT3 RS || MA1.76 || 2016 || G __G 00501>60000 || 6 Cyl / 4.0L / {{cvt|368|kW|hp|0}}
+|-
+| 991 R || MA1.76 || 2016 || G __G 00501>60000 || 6 Cyl / 4.0L / {{cvt|373|kW|hp|0}}
+|-
+| 991 GT3 || MA1.75 || 2017 || H __H 00501>60000 || 6 Cyl / 3.8L / {{cvt|350|kW|hp|0}}
+|-
+| 991 GT3 RS || MA1.76 || 2017 || H __H 00501>60000 || 6 Cyl / 4.0L / {{cvt|383|kW|hp|0}}
+|-
+| 991 GT3 || MDG.GA || 2018 || J __J 00501>60000 || 6 Cyl / 4.0L / {{cvt|368|kW|hp|0}}
+|-
+| 991 GT3 C33 || MDG.G || 2018 || J __J 00501>60000 || 6 Cyl / 4.0L / {{cvt|368|kW|hp|0}}
+|-
+| 991 Turbo || MA1.71 || 2014 || E __E 00501>60000 || 6 Cyl / 3.8L / {{cvt|383|kW|hp|0}}
+|-
+| 991 Turbo || MA1.71 || 2015 || F __F 00501>60000 || 6 Cyl / 3.8L / {{cvt|383|kW|hp|0}}
+|-
+| 991 Turbo || MA1.71 || 2016 || G __G 00501>60000 || 6 Cyl / 3.8L / {{cvt|383|kW|hp|0}}
+|-
+| 991 II Turbo || MDA.BA || 2017 || H __H 00501>60000 || 6 Cyl / 3.8L / {{cvt|397|kW|hp|0}}
+|-
+| 991 II Turbo S || MDB.CA || 2017 || H __H 00501>60000 || 6 Cyl / 3.8L / {{cvt|426|kW|hp|0}}
+|-
+| 991 II Turbo || MDA.BA || 2018 || J __J 00501>60000 || 6 Cyl / 3.8L / {{cvt|397|kW|hp|0}}
+|-
+| 991 II Turbo C33 || MDA.B || 2018 || J __J 00501>60000 || 6 Cyl / 3.8L / {{cvt|397|kW|hp|0}}
+|-
+| 991 II Turbo S || MDB.CA || 2018 || J __J 00501>60000 || 6 Cyl / 3.8L / {{cvt|426|kW|hp|0}}
+|-
+| 991 II Turbo S C33 || MDB.C || 2018 || J __J 00501>60000 || 6 Cyl / 3.8L / {{cvt|426|kW|hp|0}}
+|-
+| 991 II GT2 RS || MDH.NA || 2018 || J __J 00501>60000 || 6 Cyl / 3.8L / {{cvt|515|kW|hp|0}}
+|-
+| 991 II Turbo S Exclusive || MDB.CB || 2018 || J __J 00501>60000 || 6 Cyl / 3.8L / {{cvt|446|kW|hp|0}}
+|}
+
+==== 992 ====
+See [[Porsche 911 (992)]]
+*2019–present {{cvt|2981|cc|L|1|order=flip}} {{cvt|385|PS|kW bhp|0}} (at 6,500&nbsp;rpm) {{cvt|450|Nm|lbft|0}} (at 1,950–5,000&nbsp;rpm) water-cooled biturbo DOHC 24-valve boxer flat-six (VarioCam Plus) (Carrera)
+*2019–present {{cvt|2981|cc|L|1|order=flip}} {{cvt|450|PS|kW bhp|0}} (at 6,500&nbsp;rpm) {{cvt|530|Nm|lbft|0}} (at 2,300–5,000&nbsp;rpm) water-cooled biturbo DOHC 24-valve boxer flat-six (VarioCam Plus) (Carrera S)
+*2020–present {{cvt|3745|cc|L|1|order=flip}} {{cvt|650|PS|kW bhp|0}} (at 6,750&nbsp;rpm) {{cvt|800|Nm|lbft|0}} (at 2,500–4,000&nbsp;rpm) water-cooled biturbo DOHC 24-valve boxer flat-six (VarioCam Plus) (Turbo S)
+*2024–present {{cvt|3591|cc|L|1|order=flip}} {{cvt|549|PS|kW bhp|0}} (at 6,750&nbsp;rpm) {{cvt|569|Nm|lbft|0}} (at 2,500–4,000&nbsp;rpm) water-cooled turbo DOHC 24-valve boxer flat-six (VarioCam Plus) + Electric motor (GTS T-Hybrid)
+
+=== [[Porsche 911 GT1]] (9R1) ===
+* 1996 {{cvt|3200|cc|L|1|order=flip}} {{cvt|440|kW|PS bhp|0}} {{cvt|600|Nm|0}} water-cooled biturbo DOHC 24-valve boxer flat-six 
+* 1997 {{cvt|3164|cc|L|1|order=flip}} {{cvt|400|kW|PS bhp|0}} {{cvt|600|Nm|0}} water-cooled biturbo DOHC 24-valve boxer flat-six  (911 GT1 Evo, 911 GT1 Straßenversion, 911 GT1 Evo Straßenversion)
+* 1998 {{cvt|3220|cc|L|1|order=flip}} {{cvt|404|kW|PS bhp|0}} {{cvt|630|Nm|0}} water-cooled biturbo DOHC 24-valve boxer flat-six  (911 GT1-98, 911 GT1-98 Straßenversion)
+
+=== [[Porsche 912]] ===
+* 1965–1969 {{cvt|1582|cc|L|1|order=flip}} {{cvt|66|kW|PS bhp|0}} {{cvt|121.6|Nm|0}} air-cooled, four-stroke, boxer [[flat-four engine|flat-four]] (912 Coupé, 912 Targa)
+* 1976 {{cvt|1971|cc|L|1|order=flip}} {{cvt|66|kW|PS bhp|0}} air-cooled, four-stroke, boxer flat-four (912E)
+
+{{Table alignment}}
+{| class="wikitable defaultcenter col1left"
+|+ Porsche 912 engines
+|-
+! Vehicle !! Engine !! MY !! Engine numbers !! Technical data
+|-
+| 912 Coupe || 616/36 || 1966 || 740001> || 4 Cyl / 1.6L / {{cvt|66|kW|hp|0}}
+|-
+| 912 Coupe/Karmann || 616/36 || 1966 || 830001> || 4 Cyl / 1.6L / {{cvt|66|kW|hp|0}}
+|-
+| 912 Coupe || 616/36 || 1967 || 750001> || 4 Cyl / 1.6L / {{cvt|66|kW|hp|0}}
+|-
+| 912 Coupe/Targa/Karmann || 616/36 || 1967 || 836001> || 4 Cyl / 1.6L / {{cvt|66|kW|hp|0}}
+|-
+| 912 Coupe/Targa/Karmann || 616/36 || 1968 || 1080001> || 4 Cyl / 1.6L / {{cvt|66|kW|hp|0}}
+|-
+| 912 Coupe/Targa/Karmann (USA)(CDN) || 616/39 || 1968 || 1280001> || 4 Cyl / 1.6L / {{cvt|66|kW|hp|0}}
+|-
+| 912 Coupe/Targa/Karmann || 616/36 || 1969 || 4090001> || 4 Cyl / 1.6L / {{cvt|66|kW|hp|0}}
+|-
+| 912 Coupe/Targa (USA)(CDN) || 616/40 || 1969 || 4093001> || 4 Cyl / 1.6L / {{cvt|66|kW|hp|0}}
+|-
+| 912E Coupe || 923.02 || 1976 || 6 406 0001>> || 4 Cyl / 2.0L / {{cvt|66|kW|hp|0}}
+|}
+
+=== [[Porsche 914]] ===
+914/4
+*1969–1972 {{cvt|1679|cc|L|1|order=flip}} {{cvt|59|kW|PS bhp|0}} air-cooled, four-stroke [[flat-four engine|flat-four]]
+*1974–1975 {{cvt|1795|cc|L|1|order=flip}} {{cvt|63|kW|PS bhp|0}} air-cooled, four-stroke flat-four
+*1973–1976 {{cvt|1971|cc|L|1|order=flip}} {{cvt|74|kW|PS bhp|0}} air-cooled, four-stroke flat-four
+
+{{Table alignment}}
+{| class="wikitable defaultcenter col1left"
+|+ Porsche 914 engines
+|-
+! Vehicle !! Engine !! MY !! Engine numbers !! Technical data
+|-
+| 914 || 022 || 1970 || 0 W0 000 001 >> || 4 Cyl / 1.7L / {{cvt|59|kW|hp|0}}
+|-
+| 914 || 022 || 1971 || 1 W 057461 >> || 4 Cyl / 1.7L / {{cvt|59|kW|hp|0}}
+|-
+| 914 || 022 || 1972 || 2 W0 129 582 >> || 4 Cyl / 1.7L / {{cvt|59|kW|hp|0}}
+|-
+| 914 || 022 || 1972 || 2 EA0 000 001>> || 4 Cyl / 1.7L / {{cvt|59|kW|hp|0}}
+|-
+| 914 || 022 || 1973 || 3 W0 170 001 >> || 4 Cyl / 1.7L / {{cvt|59|kW|hp|0}}
+|-
+| 914 (USA) || 022 || 1973 || 3 EA0 057001 >> || 4 Cyl / 1.7L / {{cvt|59|kW|hp|0}}
+|-
+| 914 (CAL) || 022 || 1973 || 3 EB0 000 001>> || 4 Cyl / 1.7L / {{cvt|53|kW|hp|0}}
+|-
+| 914-2.0 (USA) || 039 || 1973 || 3 GA0 000 001>> || 4 Cyl / 2.0L / {{cvt|70|kW|hp|0}}
+|-
+| 914-2.0 || 039 || 1973 || 3 GB0 000 001>> || 4 Cyl / 2.0L / {{cvt|74|kW|hp|0}}
+|-
+| 914-1.8V || 021 || 1974 || 4 AN0 000 001>> || 4 Cyl / 1.8L / {{cvt|63|kW|hp|0}}
+|-
+| 914-1.8 (USA)(CAL) || 022 || 1974 || 4 EC0 000 001>> || 4 Cyl / 1.8L / {{cvt|56|kW|hp|0}}
+|-
+| 914-2.0 (USA) || 039 || 1974 || 4 GA0 006 766>> || 4 Cyl / 2.0L / {{cvt|70|kW|hp|0}}
+|-
+| 914-2.0 || 039 || 1974 || 4 GB0 007 402>> || 4 Cyl / 2.0L / {{cvt|74|kW|hp|0}}
+|-
+| 914-1.8V || 021 || 1975 || 5 AN0 008 798>> || 4 Cyl / 1.8L / {{cvt|63|kW|hp|0}}
+|-
+| 914-1.8 (USA)(CAL) || 022 || 1975 || 5 EC0 037 552>> || 4 Cyl / 1.8L / {{cvt|56|kW|hp|0}}
+|-
+| 914-2.0 || 039 || 1975 || 5 GB0 009 822>> || 4 Cyl / 2.0L / {{cvt|74|kW|hp|0}}
+|-
+| 914-2.0 (USA)(CAL) || 039 || 1975 || 5 GC0 000 001>> || 4 Cyl / 2.0L / {{cvt|65|kW|hp|0}}
+|-
+| 914-1.8V || 021 || 1976 || 6 AN0 008 899>> || 4 Cyl / 1.8L / {{cvt|63|kW|hp|0}}
+|-
+| 914-1.8 (USA)(CAL) || 022 || 1976 || 6 EC0 045 073>> || 4 Cyl / 1.8L / {{cvt|56|kW|hp|0}}
+|-
+| 914-2.0 || 039 || 1976 || 6 GB0 010 779>> || 4 Cyl / 2.0L / {{cvt|74|kW|hp|0}}
+|-
+| 914-2.0 || 039 || 1976 || 6 GC0 002 915>> || 4 Cyl / 2.0L / {{cvt|65|kW|hp|0}}
+|}
+
+914/6, 916
+*1970–1972 {{cvt|1991|cc|L|1|order=flip}} {{cvt|81|kW|PS bhp|0}} air-cooled, four-stroke [[flat-six engine|flat-six]] (2.0)
+*1970–1972 {{cvt|1991|cc|L|1|order=flip}} {{cvt|140|kW|PS bhp|0}} air-cooled, four-stroke [[flat-six engine|flat-six]] ([[Porsche 914-6 GT|914/6 R, 914/6 GT]])
+*1970–1972 {{cvt|2341|cc|L|1|order=flip}} {{cvt|140|kW|PS bhp|0}} air-cooled, four-stroke flat-six (916) (2.4)
+*1970–1972 {{cvt|2687|cc|L|1|order=flip}} {{cvt|154|kW|PS bhp|0}} air-cooled, four-stroke flat-six (916) (2.7)
+
+{{Table alignment}}
+{| class="wikitable defaultcenter col1left"
+|+ Porsche 914/6, 916 engines
+|-
+! Vehicle !! Engine !! MY !! Engine numbers !! Technical data
+|-
+| 914-6 || 901.36 || 1970 || 0 640 0001 >> || 6 Cyl / 2.0L / {{cvt|81|kW|hp|0}}
+|-
+| 914-6 SPM || 901.37 || 1970 || 0 640 3001 >> || 6 Cyl / 2.0L / {{cvt|81|kW|hp|0}}
+|-
+| 914-6 (USA) || 901.38 || 1970 || 0 640 4001 >> || 6 Cyl / 2.0L / {{cvt|81|kW|hp|0}}
+|-
+| 914-6 (USA) SPM || 901.39 || 1970 || 0 640 7001 >> || 6 Cyl / 2.0L / {{cvt|81|kW|hp|0}}
+|-
+| 914-6 || 901.36 || 1971 || 1 641 0001 >> || 6 Cyl / 2.0L / {{cvt|81|kW|hp|0}}
+|-
+| 914-6 SPM || 901.37 || 1971 || 1 641 3001 >> || 6 Cyl / 2.0L / {{cvt|81|kW|hp|0}}
+|-
+| 914-6 (USA) || 901.38 || 1971 || 1 641 4001 >> || 6 Cyl / 2.0L / {{cvt|81|kW|hp|0}}
+|-
+| 914-6 (USA) SPM || 901.39 || 1971 || 1 641 7001 >> || 6 Cyl / 2.0L / {{cvt|81|kW|hp|0}}
+|-
+| 914-6 (USA) || 901.38 || 1972 || 2 642 0001 >> || 6 Cyl / 2.0L / {{cvt|81|kW|hp|0}}
+|}
+
+914/8 prototypes
+*1969 {{cvt|2926|cc|L|1|order=flip}} {{cvt|192|kW|PS bhp|0}} [[Porsche flat-eight engines#Type 908|Type 908]] air-cooled, four-stroke [[Flat-eight engine|flat-eight]]
+*1969 {{cvt|2926|cc|L|1|order=flip}} {{cvt|220|kW|PS bhp|0}} [[Porsche flat-eight engines#Type 908|Type 908]] air-cooled, four-stroke flat-eight
+
+=== [[Porsche 917]] ===
+{{see|Porsche flat-twelve engine}}
+[[File:Porsche 912 engine (for 917-30) cutaway Porsche Museum.jpg|thumb|right|917/30: Type 912 180° V12]]
+[[File:Porsche 917-16 Spyder 1970 engine 2009-03-14 A.JPG|thumb|right|917/16 Spyder: V16]]
+* 1969 {{cvt|4494|cc|L|1|order=flip}} {{cvt|383|kW|PS bhp|0}} {{cvt|460|Nm|0}} Type 912 air-cooled, four-stroke 180° V12 (917 Langheck, 917 Kurzheck)
+* 1970 {{cvt|4999|cc|L|1|order=flip}} {{cvt|442|kW|PS bhp|0}} {{cvt|549|Nm|0}} Type 912 air-cooled, four-stroke 180° V12 (917 Langheck, 917 Kurzheck, 917 Spyder, 917/20)
+* 1971 {{cvt|4999|cc|L|1|order=flip}} {{cvt|463|kW|PS bhp|0}} {{cvt|588|Nm|0}} Type 912 air-cooled, four-stroke 180° V12 (917 Langheck, 917 Kurzheck)
+* 1971 {{cvt|6643|cc|L|1|order=flip}} {{cvt|551|kW|PS bhp|0}} {{cvt|735|Nm|0}} air-cooled, four-stroke 180° V16 (917/16 Spyder prototype)
+* 1971 {{cvt|4494|cc|L|1|order=flip}} {{cvt|626|kW|PS bhp|0}} {{cvt|834|Nm|0}} Type 912 air-cooled, four-stroke, turbo 180° V12 (917/10 TC)
+* 1972 {{cvt|4999|cc|L|1|order=flip}} {{cvt|736|kW|PS bhp|0}} {{cvt|981|Nm|0}} Type 912 air-cooled, four-stroke, turbo 180° V12 (917/10 TC)
+* 1973 {{cvt|5374|cc|L|1|order=flip}} {{cvt|810|kW|PS bhp|0}} {{cvt|1098|Nm|0}} Type 912 air-cooled, four-stroke, turbo 180° V12 (917/30)
+
+=== [[Porsche 918]] ===
+[[File:Martini Porsche 921.jpg|thumb|right|918 Spyder engine deck]]
+*2013–2015 {{cvt|4593|cc|L|1|order=flip}} {{cvt|447|kW|PS bhp|0}} [[V8 engine|V8]] (derived from the {{cvt|3397|cc|L|1|order=flip}} MR6 V8 of the [[Porsche RS Spyder]])
+
+=== [[Porsche 919 Hybrid]] (9R9) ===
+[[File:Rennsport Reunion VI (31269554058).jpg|thumb|right|919 Evo: 2.0L V4 turbo hybrid]]
+* 2014 {{cvt|2000|cc|L|1|order=flip}} {{cvt|370|kW|PS bhp|0}} turbo-charged V4 plus {{cvt|184|kW|PS bhp|0}} electric motor
+* 2015–2017 {{cvt|2000|cc|L|1|order=flip}} {{cvt|370|kW|PS bhp|0}} turbo-charged V4 plus {{cvt|294|kW|PS bhp|0}} electric motor
+* 2018 {{cvt|2000|cc|L|1|order=flip}} {{cvt|535|kW|PS bhp|0}} turbo-charged V4 plus {{cvt|328|kW|PS bhp|0}} electric motor (919 Evo)
+
+=== [[Porsche 924]] (924/931/932/937/938/939/946/947) ===
+[[File:Early 924 motor.jpg|thumb|right|1976 924 engine bay]]
+924
+*1976–1985 {{cvt|1984|cc|L|1|order=flip}} {{cvt|92|kW|PS bhp|0}} (at 5800&nbsp;rpm) {{cvt|165|Nm|lbft|0}} (at 3500&nbsp;rpm) SOHC inline-four-cylinder
+
+924 Turbo (931/932)
+*1978–1981 {{cvt|1984|cc|L|1|order=flip}} {{cvt|125|kW|PS bhp|0}} (at 5500&nbsp;rpm) {{cvt|245|Nm|lbft|0}} (at 3500&nbsp;rpm) water-cooled SOHC turbo inline-four-cylinder
+*1981–1984 {{cvt|1984|cc|L|1|order=flip}} {{cvt|130|kW|PS bhp|0}} (at 5500&nbsp;rpm) {{cvt|250|Nm|lbft|0}} (at 3500&nbsp;rpm) water-cooled SOHC turbo inline-four-cylinder
+
+924 Carrera GT/Carrera GTS/Carrera GTS Clubsport (937/938)
+*1981–1984 {{cvt|1984|cc|L|1|order=flip}} {{cvt|154|kW|PS bhp|0}} (at 6000&nbsp;rpm) {{cvt|250|Nm|lbft|0}} (at 3500&nbsp;rpm) M31/70 SOHC turbo inline-four-cylinder (Carrera GTS)
+*1981 {{cvt|1984|cc|L|1|order=flip}} {{cvt|180|kW|PS bhp|0}} (at 6250&nbsp;rpm) {{cvt|335|Nm|lbft|0}} (at 3000&nbsp;rpm) M31/70 SOHC turbo inline-four-cylinder (Carrera GTS)
+*1981 {{cvt|1984|cc|L|1|order=flip}} {{cvt|199|kW|PS bhp|0}} (at 6500&nbsp;rpm) {{cvt|335|Nm|lbft|0}} (at 5500&nbsp;rpm) M31/70 SOHC turbo inline-four-cylinder (Carrera GTS Clubsport)
+
+924 Carrera GTP/Carrera GTP Le Mans/Carrera GTR (939)
+*1980 {{cvt|1984|cc|L|1|order=flip}} {{cvt|235|kW|PS bhp|0}} (at 7000&nbsp;rpm) {{cvt|383|Nm|lbft|0}} (at 4500&nbsp;rpm) M31/70 SOHC turbo inline-four-cylinder (Carrera GTP)
+*1981 {{cvt|1984|cc|L|1|order=flip}} {{cvt|276|kW|PS bhp|0}} (at 6500&nbsp;rpm) {{cvt|405|Nm|lbft|0}} (at 5600&nbsp;rpm) M31/70 SOHC turbo inline-four-cylinder (Carrera GTR)
+*1981 {{cvt|2479|cc|L|1|order=flip}} {{cvt|301|kW|PS bhp|0}} (at 6500&nbsp;rpm) DOHC turbo inline-four-cylinder (Carrera GTP Le Mans)
+
+924S (946/947)
+*1986–1987 {{cvt|2479|cc|L|1|order=flip}} {{cvt|110|kW|PS bhp|0}} (at 5800&nbsp;rpm) {{cvt|190|Nm|lbft|0}} (at 3000&nbsp;rpm) SOHC inline-four-cylinder
+*1988 {{cvt|2479|cc|L|1|order=flip}} {{cvt|118|kW|PS bhp|0}} (at 5900&nbsp;rpm) {{cvt|210|Nm|lbft|0}} (at 4500&nbsp;rpm) SOHC inline-four-cylinder
+
+{{Table alignment}}
+{| class="wikitable defaultcenter col1left"
+|+ Porsche 924 engines
+|-
+! Vehicle !! Engine !! MY !! Engine numbers !! Technical data
+|-
+| 924 || 047.8 || 1976 || 6 XK 000001>> || 4 Cyl / 2.0L / {{cvt|92|kW|hp|0}}
+|-
+| 924 || 047.8 || 1977 || 7 XK 000001>> || 4 Cyl / 2.0L / {{cvt|92|kW|hp|0}}
+|-
+| 924 M249 || 047.9 || 1977 || 7 XK 000001>> || 4 Cyl / 2.0L / {{cvt|92|kW|hp|0}}
+|-
+| 924 (GB)(AUS) || 047.8 || 1977 || 7 XJ 000001>> || 4 Cyl / 2.0L / {{cvt|92|kW|hp|0}}
+|-
+| 924 M249 (GB)(AUS) || 047.9 || 1977 || 7 XJ 000001>> || 4 Cyl / 2.0L / {{cvt|92|kW|hp|0}}
+|-
+| 924 (USA)(CDN) || 047.6 || 1977 || 7 XH 000001>> || 4 Cyl / 2.0L / {{cvt|74|kW|hp|0}}
+|-
+| 924 (USA)(CDN) || 047.4 || 1977 || 7 XG 300001>> || 4 Cyl / 2.0L / {{cvt|85|kW|hp|0}}
+|-
+| 924 M249 (USA)(CDN) || 047.5 || 1977 || 7 XG 300001>> || 4 Cyl / 2.0L / {{cvt|85|kW|hp|0}}
+|-
+| 924 (CAL)(J) || 047.6 || 1977 || 7 XF 000001>> || 4 Cyl / 2.0L / {{cvt|74|kW|hp|0}}
+|-
+| 924 (CAL) || 047.4 || 1977 || 7 XE 100050>> || 4 Cyl / 2.0L / {{cvt|85|kW|hp|0}}
+|-
+| 924 M249 (CAL) || 047.5 || 1977 || 7 XE 100050>> || 4 Cyl / 2.0L / {{cvt|85|kW|hp|0}}
+|-
+| 924 (J) || 047.4 || 1977 || 7 XG 300050>> || 4 Cyl / 2.0L / {{cvt|85|kW|hp|0}}
+|-
+| 924 M249 (J) || 047.5 || 1977 || 7 XG 300050>> || 4 Cyl / 2.0L / {{cvt|85|kW|hp|0}}
+|-
+| 924 || 047.8 || 1978 || 8 XK 000001>> || 4 Cyl / 2.0L / {{cvt|92|kW|hp|0}}
+|-
+| 924 || 047.8 || 1978 || 8 XJ 000001>> || 4 Cyl / 2.0L / {{cvt|92|kW|hp|0}}
+|-
+| 924 M249 || 047.9 || 1978 || 8 XK 000001>> || 4 Cyl / 2.0L / {{cvt|92|kW|hp|0}}
+|-
+| 924 M249 || 047.9 || 1978 || 8 XJ 000001>> || 4 Cyl / 2.0L / {{cvt|92|kW|hp|0}}
+|-
+| 924 (USA)(CDN)(J) || 047.4 || 1978 || 8 XG 000001>> || 4 Cyl / 2.0L / {{cvt|85|kW|hp|0}}
+|-
+| 924 M249 (USA)(CDN)(J) || 047.5 || 1978 || 8 XG 000001>> || 4 Cyl / 2.0L / {{cvt|85|kW|hp|0}}
+|-
+| 924 (CAL) || 047.4 || 1978 || 8 XE 000001>> || 4 Cyl / 2.0L / {{cvt|85|kW|hp|0}}
+|-
+| 924 M249 (CAL) || 047.5 || 1978 || 8 XE 000001>> || 4 Cyl / 2.0L / {{cvt|85|kW|hp|0}}
+|-
+| 924 || 047.8 || 1979 || 9 XK 000001>> || 4 Cyl / 2.0L / {{cvt|92|kW|hp|0}}
+|-
+| 924 || 047.8 || 1979 || 9 XJ 000001>> || 4 Cyl / 2.0L / {{cvt|92|kW|hp|0}}
+|-
+| 924 M249 || 047.9 || 1979 || 9 XK 000001>> || 4 Cyl / 2.0L / {{cvt|92|kW|hp|0}}
+|-
+| 924 M249 || 047.9 || 1979 || 9 XJ 000001>> || 4 Cyl / 2.0L / {{cvt|92|kW|hp|0}}
+|-
+| 924 (USA)(CDN)(J) || 047.4 || 1979 || 9 XG 000001>> || 4 Cyl / 2.0L / {{cvt|85|kW|hp|0}}
+|-
+| 924 M249 (USA)(CDN)(J) || 047.5 || 1979 || 9 XG 000001>> || 4 Cyl / 2.0L / {{cvt|85|kW|hp|0}}
+|-
+| 924 (CAL) || 047.4 || 1979 || 9 XE 000001>> || 4 Cyl / 2.0L / {{cvt|85|kW|hp|0}}
+|-
+| 924 M249 (CAL) || 047.5 || 1979 || 9 XE 000001>> || 4 Cyl / 2.0L / {{cvt|85|kW|hp|0}}
+|-
+| 924 Turbo || M31.01 || 1979 || 9 31 010001>> || 4 Cyl / 2.0L / {{cvt|125|kW|hp|0}}
+|-
+| 924 || 047.8 || 1980 || A XK....... || 4 Cyl / 2.0L / {{cvt|92|kW|hp|0}}
+|-
+| 924 || 047.8 || 1980 || A XJ....... || 4 Cyl / 2.0L / {{cvt|92|kW|hp|0}}
+|-
+| 924 M249 || 047.9 || 1980 || A XK....... || 4 Cyl / 2.0L / {{cvt|92|kW|hp|0}}
+|-
+| 924 M249 || 047.9 || 1980 || A XJ....... || 4 Cyl / 2.0L / {{cvt|92|kW|hp|0}}
+|-
+| 924 Turbo || M31.01 || 1980 || A 00001>09999 || 4 Cyl / 2.0L / {{cvt|125|kW|hp|0}}
+|-
+| 924 (USA)(CDN)(J) || 047E || 1980 || A VC....... || 4 Cyl / 2.0L / {{cvt|85|kW|hp|0}}
+|-
+| 924 M249 (USA)(CDN)(J) || 047F || 1980 || A VC....... || 4 Cyl / 2.0L / {{cvt|85|kW|hp|0}}
+|-
+| 924 Turbo (USA)(CDN)(J) || M31.02 || 1980 || A 00001>09999 || 4 Cyl / 2.0L / {{cvt|110|kW|hp|0}}
+|-
+| 924 || 047.8 || 1981 || B XK....... || 4 Cyl / 2.0L / {{cvt|92|kW|hp|0}}
+|-
+| 924 || 047.8 || 1981 || B XJ....... || 4 Cyl / 2.0L / {{cvt|92|kW|hp|0}}
+|-
+| 924 M249 || 047.9 || 1981 || B XK....... || 4 Cyl / 2.0L / {{cvt|92|kW|hp|0}}
+|-
+| 924 M249 || 047.9 || 1981 || B XJ....... || 4 Cyl / 2.0L / {{cvt|92|kW|hp|0}}
+|-
+| 924 Turbo || M31.03 || 1981 || B 00001>09999 || 4 Cyl / 2.0L / {{cvt|130|kW|hp|0}}
+|-
+| 924 Carrera GT || M31.50 || 1981 || B 00001>09999 || 4 Cyl / 2.0L / {{cvt|154|kW|hp|0}}
+|-
+| 924 (USA)(CDN)(J) || 047.E || 1981 || B VC....... || 4 Cyl / 2.0L / {{cvt|85|kW|hp|0}}
+|-
+| 924 M249 (USA)(CDN)(J) || 047.F || 1981 || B VC....... || 4 Cyl / 2.0L / {{cvt|85|kW|hp|0}}
+|-
+| 924 Turbo (USA)(CDN)(J) || M31.04 || 1981 || B 00001>09999 || 4 Cyl / 2.0L / {{cvt|115|kW|hp|0}}
+|-
+| 924 || 047.8 || 1982 || C XK....... || 4 Cyl / 2.0L / {{cvt|92|kW|hp|0}}
+|-
+| 924 || 047.8 || 1982 || C XJ....... || 4 Cyl / 2.0L / {{cvt|92|kW|hp|0}}
+|-
+| 924 M249 || 047.9 || 1982 || C XK....... || 4 Cyl / 2.0L / {{cvt|92|kW|hp|0}}
+|-
+| 924 M249 || 047.9 || 1982 || C XJ....... || 4 Cyl / 2.0L / {{cvt|92|kW|hp|0}}
+|-
+| 924 Turbo || M31.03 || 1982 || C 00001>09999 || 4 Cyl / 2.0L / {{cvt|130|kW|hp|0}}
+|-
+| 924 (USA)(CDN)(J) || 047.E || 1982 || C VC....... || 4 Cyl / 2.0L / {{cvt|85|kW|hp|0}}
+|-
+| 924 (USA)(CDN)(J) || 047.F || 1982 || C VC....... || 4 Cyl / 2.0L / {{cvt|85|kW|hp|0}}
+|-
+| 924 Turbo (USA)(CDN)(J) || M31.04 || 1982 || C 00001>09999 || 4 Cyl / 2.0L / {{cvt|115|kW|hp|0}}
+|-
+| 924 || 047.8 || 1983 || D XK....... || 4 Cyl / 2.0L / {{cvt|92|kW|hp|0}}
+|-
+| 924 || 047.8 || 1983 || D XJ....... || 4 Cyl / 2.0L / {{cvt|92|kW|hp|0}}
+|-
+| 924 M249 || 047.9 || 1983 || D XJ....... || 4 Cyl / 2.0L / {{cvt|92|kW|hp|0}}
+|-
+| 924 Turbo (I) || M31.03 || 1983 || D 00001>09999 || 4 Cyl / 2.0L / {{cvt|130|kW|hp|0}}
+|-
+| 924 || 047.8 || 1984 || E XK....... || 4 Cyl / 2.0L / {{cvt|92|kW|hp|0}}
+|-
+| 924 || 047.8 || 1984 || E XJ....... || 4 Cyl / 2.0L / {{cvt|92|kW|hp|0}}
+|-
+| 924 M249 || 047.9 || 1984 || E XJ....... || 4 Cyl / 2.0L / {{cvt|92|kW|hp|0}}
+|-
+| 924 Turbo (I) || M31.03 || 1984 || E 00001>09999 || 4 Cyl / 2.0L / {{cvt|130|kW|hp|0}}
+|-
+| 924 || 047.8 || 1985 || F XK....... || 4 Cyl / 2.0L / {{cvt|92|kW|hp|0}}
+|-
+| 924 || 047.8 || 1985 || F XJ....... || 4 Cyl / 2.0L / {{cvt|92|kW|hp|0}}
+|-
+| 924 M249 || 047.9 || 1985 || F XJ....... || 4 Cyl / 2.0L / {{cvt|92|kW|hp|0}}
+|-
+| 924 S || M44.07 || 1986 || G 43G 00001>60000 || 4 Cyl / 2.5L / {{cvt|110|kW|hp|0}}
+|-
+| 924 S || M44.08 || 1986 || G 43G 60001>90000 || 4 Cyl / 2.5L / {{cvt|110|kW|hp|0}}
+|-
+| 924 S || M44.07 || 1987 || H 43H 00001>60000 || 4 Cyl / 2.5L / {{cvt|110|kW|hp|0}}
+|-
+| 924 S || M44.08 || 1987 || H 43H 60001>90000 || 4 Cyl / 2.5L / {{cvt|110|kW|hp|0}}
+|-
+| 924 S || M44.09 || 1988 || J 46J 00001>60000 || 4 Cyl / 2.5L / {{cvt|118|kW|hp|0}}
+|-
+| 924 S || M44.10 || 1988 || J 46J 60001>70000 || 4 Cyl / 2.5L / {{cvt|118|kW|hp|0}}
+|}
+
+=== [[Porsche 928]] ===
+[[File:1987 Porsche 928 S4 V8.jpg|thumb|right|1987 928 V8]]
+*1977–1982 {{cvt|4474|cc|L|1|order=flip}} {{cvt|176|kW|PS bhp|0}} (at 5,500&nbsp;rpm) {{cvt|350|Nm|lbft|0}} (at 3,600&nbsp;rpm) water-cooled SOHC V8 (928)
+*1980–1984 {{cvt|4664|cc|L|1|order=flip}} {{cvt|221|kW|PS bhp|0}} (at 5,900&nbsp;rpm) {{cvt|385|Nm|lbft|0}} (at 4,500&nbsp;rpm) water-cooled SOHC V8 (928 S)
+*1984–1986 {{cvt|4664|cc|L|1|order=flip}} {{cvt|228|kW|PS bhp|0}} (at 5,900&nbsp;rpm) {{cvt|400|Nm|lbft|0}} (at 4,100&nbsp;rpm) water-cooled SOHC V8 (928 S, [[Porsche 928#Porsche 942|942]])
+*1986 {{cvt|4957|cc|L|1|order=flip}} {{cvt|212|kW|PS bhp|0}} (at 5,750&nbsp;rpm) {{cvt|410|Nm|lbft|0}} (at 2,700&nbsp;rpm) water-cooled DOHC V8 (928 S)
+*1987–1991 {{cvt|4957|cc|L|1|order=flip}} {{cvt|235|kW|PS bhp|0}} (at 6,000&nbsp;rpm) {{cvt|430|Nm|lbft|0}} (at 3,000&nbsp;rpm) water-cooled DOHC V8 (928 S4, S4 Clubsport)
+*1989–1991 {{cvt|4957|cc|L|1|order=flip}} {{cvt|243|kW|PS bhp|0}} (at 6,200&nbsp;rpm) {{cvt|430|Nm|lbft|0}} (at 4,100&nbsp;rpm) water-cooled DOHC V8 (928 GT)
+*1992–1995 {{cvt|5397|cc|L|1|order=flip}} {{cvt|257|kW|PS bhp|0}} (at 5,700&nbsp;rpm) {{cvt|500|Nm|lbft|0}} (at 4,250&nbsp;rpm) water-cooled DOHC V8 (928 GTS)
+
+{{Table alignment}}
+{| class="wikitable defaultcenter col1left"
+|+ Porsche 928 engines
+|-
+! Vehicle !! Engine !! MY !! Engine numbers !! Technical data
+|-
+| 928 || M28.01 || 1978 || 8 818 0001>9000 || 8 Cyl / 4.5L / {{cvt|177|kW|hp|0}}
+|-
+| 928 M249 || M28.02 || 1978 || 8 818 9001>9999 || 8 Cyl / 4.5L / {{cvt|177|kW|hp|0}}
+|-
+| 928 (USA)(CDN)(J) || M28.03 || 1978 || 8 828 0001>9000 || 8 Cyl / 4.5L / {{cvt|169|kW|hp|0}}
+|-
+| 928 M249 (USA)(CDN)(J) || M28.04 || 1978 || 8 828 9001>9999 || 8 Cyl / 4.5L / {{cvt|169|kW|hp|0}}
+|-
+| 928 || M28.01 || 1979 || 9 819 0001>5000 || 8 Cyl / 4.5L / {{cvt|177|kW|hp|0}}
+|-
+| 928 M249 || M28.02 || 1979 || 9 819 5001>9999 || 8 Cyl / 4.5L / {{cvt|177|kW|hp|0}}
+|-
+| 928 (USA)(CDN)(J) || M28.03 || 1979 || 9 829 0001>5000 || 8 Cyl / 4.5L / {{cvt|169|kW|hp|0}}
+|-
+| 928 M249 (USA)(CDN)(J) || M28.04 || 1979 || 9 829 5001>9999 || 8 Cyl / 4.5L / {{cvt|169|kW|hp|0}}
+|-
+| 928 || M28.09 || 1980 || A 800 0001>5000 || 8 Cyl / 4.5L / {{cvt|177|kW|hp|0}}
+|-
+| 928 M249 || M28.10 || 1980 || A 800 5001>5999 || 8 Cyl / 4.5L / {{cvt|177|kW|hp|0}}
+|-
+| 928 S || M28.11 || 1980 || A 820 0001>1000 || 8 Cyl / 4.7L / {{cvt|221|kW|hp|0}}
+|-
+| 928 S M249 || M28.12 || 1980 || A 820 5001>6000 || 8 Cyl / 4.7L / {{cvt|221|kW|hp|0}}
+|-
+| 928 (USA)(CDN)(J) || M28.13 || 1980 || A 810 0001>5000 || 8 Cyl / 4.5L / {{cvt|170|kW|hp|0}}
+|-
+| 928 M249 (USA)(CDN)(J) || M28.14 || 1980 || A 810 5001>9999 || 8 Cyl / 4.5L / {{cvt|170|kW|hp|0}}
+|-
+| 928 || M28.09 || 1981 || B 801 0001>5000 || 8 Cyl / 4.5L / {{cvt|177|kW|hp|0}}
+|-
+| 928 M249 || M28.10 || 1981 || B 801 5001>8000 || 8 Cyl / 4.5L / {{cvt|177|kW|hp|0}}
+|-
+| 928 S || M28.11 || 1981 || B 821 0001>5000 || 8 Cyl / 4.7L / {{cvt|221|kW|hp|0}}
+|-
+| 928 S M249 || M28.12 || 1981 || B 821 5001>8000 || 8 Cyl / 4.7L / {{cvt|221|kW|hp|0}}
+|-
+| 928 (USA)(CDN) || M28.15 || 1981 || B 811 0001>5000 || 8 Cyl / 4.5L / {{cvt|170|kW|hp|0}}
+|-
+| 928 M249 (USA)(CDN) || M28.16 || 1981 || B 811 5001>8000 || 8 Cyl / 4.5L / {{cvt|170|kW|hp|0}}
+|-
+| 928 (J) || M28.17 || 1981 || B 801 8001>9000 || 8 Cyl / 4.5L / {{cvt|170|kW|hp|0}}
+|-
+| 928 M249 (J) || M28.18 || 1981 || B 801 9001>9999 || 8 Cyl / 4.5L / {{cvt|170|kW|hp|0}}
+|-
+| 928 || M28.09 || 1982 || C 80C 0001>5000 || 8 Cyl / 4.5L / {{cvt|177|kW|hp|0}}
+|-
+| 928 M249 || M28.10 || 1982 || C 80C 5001>8000 || 8 Cyl / 4.5L / {{cvt|177|kW|hp|0}}
+|-
+| 928 S || M28.11 || 1982 || C 82C 0001>5000 || 8 Cyl / 4.7L / {{cvt|221|kW|hp|0}}
+|-
+| 928 S M249 || M28.12 || 1982 || C 82C 5001>8000 || 8 Cyl / 4.7L / {{cvt|221|kW|hp|0}}
+|-
+| 928 (USA)(CDN) || M28.15 || 1982 || C 81C 0001>5000 || 8 Cyl / 4.5L / {{cvt|170|kW|hp|0}}
+|-
+| 928 M249 (USA)(CDN) || M28.16 || 1982 || C 81C 5001>8000 || 8 Cyl / 4.5L / {{cvt|170|kW|hp|0}}
+|-
+| 928 (J) || M28.17 || 1982 || C 80C 8001>9000 || 8 Cyl / 4.5L / {{cvt|170|kW|hp|0}}
+|-
+| 928 M249 (J) || M28.18 || 1982 || C 80C 9001>9999 || 8 Cyl / 4.5L / {{cvt|170|kW|hp|0}}
+|-
+| 928 S || M28.11 || 1983 || D 82D 0001>5000 || 8 Cyl / 4.7L / {{cvt|221|kW|hp|0}}
+|-
+| 928 S M249 || M28.12 || 1983 || D 82D 5001>8000 || 8 Cyl / 4.7L / {{cvt|221|kW|hp|0}}
+|-
+| 928 S (USA)(CDN) || M28.19 || 1983 || D 81D 0001>5000 || 8 Cyl / 4.7L / {{cvt|178|kW|hp|0}}
+|-
+| 928 S M249 (USA)(CDN) || M28.20 || 1983 || D 81D 5001>8000 || 8 Cyl / 4.7L / {{cvt|178|kW|hp|0}}
+|-
+| 928 S (J) || M28.20 || 1983 || D 81D 9001>9999 || 8 Cyl / 4.7L / {{cvt|178|kW|hp|0}}
+|-
+| 928 S || M28.21 || 1984 || E 82E 00001>05000 || 8 Cyl / 4.7L / {{cvt|228|kW|hp|0}}
+|-
+| 928 S M249 || M28.22 || 1984 || E 82E 05001>10000 || 8 Cyl / 4.7L / {{cvt|228|kW|hp|0}}
+|-
+| 928 S (USA)(CDN) || M28.19 || 1984 || E 81E 00001>05000 || 8 Cyl / 4.7L / {{cvt|178|kW|hp|0}}
+|-
+| 928 S M249 (USA)(CDN) || M28.20 || 1984 || E 81E 05001>10000 || 8 Cyl / 4.7L / {{cvt|178|kW|hp|0}}
+|-
+| 928 S (J) || M28.20 || 1984 || E 81E 05001>10000 || 8 Cyl / 4.7L / {{cvt|178|kW|hp|0}}
+|-
+| 928 S || M28.21 || 1985 || F 82F 00001>05000 || 8 Cyl / 4.7L / {{cvt|228|kW|hp|0}}
+|-
+| 928 S M249 || M28.22 || 1985 || F 82F 05001>10000 || 8 Cyl / 4.7L / {{cvt|228|kW|hp|0}}
+|-
+| 928 S M298 || M28.43 || 1985 || F 81F 00001>05000 || 8 Cyl / 4.7L / {{cvt|200|kW|hp|0}}
+|-
+| 928 S M299 || M28.44 || 1985 || F 81F 05001>10000 || 8 Cyl / 4.7L / {{cvt|200|kW|hp|0}}
+|-
+| 928 S (USA)(CDN) || M28.43 || 1985 || F 81F 00001>05000 || 8 Cyl / 4.7L / {{cvt|200|kW|hp|0}}
+|-
+| 928 S M249 (USA)(CDN) || M28.44 || 1985 || F 81F 05001>10000 || 8 Cyl / 4.7L / {{cvt|200|kW|hp|0}}
+|-
+| 928 S (J) || M28.44 || 1985 || F 81F 05001>10000 || 8 Cyl / 4.7L / {{cvt|200|kW|hp|0}}
+|-
+| 928 S || M28.21 || 1986 || G 82G 00001>05000 || 8 Cyl / 4.7L / {{cvt|228|kW|hp|0}}
+|-
+| 928 S M249 || M28.22 || 1986 || G 82G 05001>10000 || 8 Cyl / 4.7L / {{cvt|228|kW|hp|0}}
+|-
+| 928 S M298 || M28.45 || 1986 || G 89G 00001>05000 || 8 Cyl / 4.7L / {{cvt|212|kW|hp|0}}
+|-
+| 928 S M299 || M28.46 || 1986 || G 89G 05001>10000 || 8 Cyl / 4.7L / {{cvt|212|kW|hp|0}}
+|-
+| 928 S M251 (CH)(S) || M28.22 || 1986 || G 82G 05001>10000 || 8 Cyl / 4.7L / {{cvt|228|kW|hp|0}}
+|-
+| 928 S (AUS) || M28.46 || 1986 || G 89G 05001>10000 || 8 Cyl / 4.7L / {{cvt|212|kW|hp|0}}
+|-
+| 928 S (USA)(CDN) || M28.43 || 1986 || G 81G 00001>05000 || 8 Cyl / 4.7L / {{cvt|215|kW|hp|0}}
+|-
+| 928 S M249 (USA)(CDN) || M28.44 || 1986 || G 81G 05001>10000 || 8 Cyl / 4.7L / {{cvt|215|kW|hp|0}}
+|-
+| 928 S (J) || M28.44 || 1986 || G 81G 05001>10000 || 8 Cyl / 4.7L / {{cvt|215|kW|hp|0}}
+|-
+| 928 S4 || M28.41 || 1987 || H 81H 00001>05000 || 8 Cyl / 5.0L / {{cvt|235|kW|hp|0}}
+|-
+| 928 S4 M249 || M28.42 || 1987 || H 81H 05001>10000 || 8 Cyl / 5.0L / {{cvt|235|kW|hp|0}}
+|-
+| 928 S4/CS M637 || M28.41 || 1988 || J 81J 00001>05000 || 8 Cyl / 5.0L / {{cvt|235|kW|hp|0}}
+|-
+| 928 S4 M249 || M28.42 || 1988 || J 81J 05001>10000 || 8 Cyl / 5.0L / {{cvt|235|kW|hp|0}}
+|-
+| 928 S4/CS M637 || M28.41 || 1989 || K 81K 00001>05000 || 8 Cyl / 5.0L / {{cvt|235|kW|hp|0}}
+|-
+| 928 S4 M249 || M28.42 || 1989 || K 81K 05001>10000 || 8 Cyl / 5.0L / {{cvt|235|kW|hp|0}}
+|-
+| 928 GT || M28.47 || 1989 || K 85K 00061>50000 || 8 Cyl / 5.0L / {{cvt|243|kW|hp|0}}
+|-
+| 928 S4 || M28.42 || 1990 || L 81L 50001>60000 || 8 Cyl / 5.0L / {{cvt|235|kW|hp|0}}
+|-
+| 928 GT || M28.47 || 1990 || L 85L 00061>50000 || 8 Cyl / 5.0L / {{cvt|243|kW|hp|0}}
+|-
+| 928 S4 || M28.42 || 1991 || M 81M 50001>60000 || 8 Cyl / 5.0L / {{cvt|235|kW|hp|0}}
+|-
+| 928 GT || M28.47 || 1991 || M 85M 00001>50000 || 8 Cyl / 5.0L / {{cvt|243|kW|hp|0}}
+|-
+| 928 GTS || M28.49 || 1992 || N 85N 00501>20000 || 8 Cyl / 5.4L / {{cvt|257|kW|hp|0}}
+|-
+| 928 GTS M249 || M28.50 || 1992 || N 81N 50501>60000 || 8 Cyl / 5.4L / {{cvt|257|kW|hp|0}}
+|-
+| 928 GTS || M28.49 || 1993 || P 85P 00501>20000 || 8 Cyl / 5.4L / {{cvt|257|kW|hp|0}}
+|-
+| 928 GTS M249 || M28.50 || 1993 || P 81P 50501>60000 || 8 Cyl / 5.4L / {{cvt|257|kW|hp|0}}
+|-
+| 928 GTS || M28.49 || 1994 || R 85R 00501>20000 || 8 Cyl / 5.4L / {{cvt|257|kW|hp|0}}
+|-
+| 928 GTS M249 || M28.50 || 1994 || R 81R 50501>60000 || 8 Cyl / 5.4L / {{cvt|257|kW|hp|0}}
+|-
+| 928 GTS || M28.49 || 1995 || S 85S 00501>20000 || 8 Cyl / 5.4L / {{cvt|257|kW|hp|0}}
+|-
+| 928 GTS M249 || M28.50 || 1995 || S 81S 50501>60000 || 8 Cyl / 5.4L / {{cvt|257|kW|hp|0}}
+|}
+
+=== [[Porsche 934.99]] ===
+* 1976 {{cvt|2994|cc|L|1|order=flip}} {{cvt|485|kW|PS bhp|0}} {{cvt|588|Nm|0}} Type 930 air-cooled, four-stroke, bi-turbo boxer flat-six
+* 1977 {{cvt|2994|cc|L|1|order=flip}} {{cvt|540|kW|PS bhp|0}} {{cvt|607|Nm|0}} Type 930 air-cooled, four-stroke, bi-turbo boxer flat-six
+* 1979 {{cvt|2994|cc|L|1|order=flip}} {{cvt|600|kW|PS bhp|0}} Type 930 air-cooled, four-stroke, bi-turbo boxer flat-six
+
+=== [[Porsche 935]] ===
+* 1976–1977 {{cvt|2857|cc|L|1|order=flip}} {{cvt|433|kW|PS bhp|0}} {{cvt|588|Nm|0}} air-cooled turbo boxer flat-six (935, 935/77)
+* 1976 {{cvt|2857|cc|L|1|order=flip}} {{cvt|463|kW|PS bhp|0}} {{cvt|588|Nm|0}} air-cooled bi-turbo boxer flat-six (935/77)
+* 1977 {{cvt|1425|cc|L|1|order=flip}} {{cvt|279|kW|PS bhp|0}} air-cooled turbo boxer flat-six (935/2.0 Baby)
+* 1978 {{cvt|2857|cc|L|1|order=flip}} {{cvt|441|kW|PS bhp|0}} {{cvt|588|Nm|0}} air-cooled bi-turbo boxer flat-six (935/78)
+* 1978 {{cvt|3211|cc|L|1|order=flip}} {{cvt|620|kW|PS bhp|0}} {{cvt|785|Nm|0}} bi-turbo boxer flat-six (air-cooled cylinders, water-cooled heads) (935/78 Moby Dick) 
+* 1979–1980 {{cvt|3124|cc|L|1|order=flip}} {{cvt|500|kW|PS bhp|0}} {{cvt|706|Nm|0}} air-cooled turbo boxer flat-six (935/79, 935/80)
+
+=== [[Porsche 936]] ===
+* 1976 {{cvt|2142|cc|L|1|order=flip}} {{cvt|382|kW|PS bhp|0}} {{cvt|480|Nm|0}} air-cooled turbo boxer flat-six (936 Spyder)
+* 1977 {{cvt|2142|cc|L|1|order=flip}} {{cvt|397|kW|PS bhp|0}} {{cvt|490|Nm|0}} air-cooled bi-turbo boxer flat-six (936/77 Spyder)
+* 1978 {{cvt|2140|cc|L|1|order=flip}} {{cvt|426|kW|PS bhp|0}} bi-turbo boxer flat-six (air-cooled cylinders, water-cooled heads) (936/78 Spyder)
+* 1981 {{cvt|2650|cc|L|1|order=flip}} {{cvt|455|kW|PS bhp|0}} {{cvt|539|Nm|0}} bi-turbo boxer flat-six (air-cooled cylinders, water-cooled heads) (936/81 Spyder)
+
+=== [[Porsche 944]] (944/951) ===
+[[File:1986 Porsche 944 engine.jpg|thumb|right|1986 944 engine bay]]
+*1982–1988 {{cvt|2479|cc|L|1|order=flip}} {{cvt|120|kW|PS bhp|0}} (at 5,800&nbsp;rpm) {{cvt|205|Nm|lbft|0}} (at 3,000&nbsp;rpm) water-cooled SOHC inline four-cylinder (944)
+*1985–1987 {{cvt|2479|cc|L|1|order=flip}} {{cvt|110|kW|PS bhp|0}} (at 5,800&nbsp;rpm) {{cvt|195|Nm|lbft|0}} (at 3,000&nbsp;rpm) water-cooled SOHC inline four-cylinder (944)
+*1988–1989 {{cvt|2479|cc|L|1|order=flip}} {{cvt|118|kW|PS bhp|0}} (at 5,800&nbsp;rpm) {{cvt|210|Nm|lbft|0}} (at 4,500&nbsp;rpm) water-cooled SOHC inline four-cylinder (944)
+*1989–1991 {{cvt|2681|cc|L|1|order=flip}} {{cvt|121|kW|PS bhp|0}} (at 5,800&nbsp;rpm) {{cvt|225|Nm|lbft|0}} (at 4,200&nbsp;rpm) water-cooled SOHC inline four-cylinder (944)
+*1986–1988 {{cvt|2479|cc|L|1|order=flip}} {{cvt|140|kW|PS bhp|0}} (at 6,000&nbsp;rpm) {{cvt|230|Nm|lbft|0}} (at 4,300&nbsp;rpm) water-cooled DOHC inline four-cylinder (944 S)
+*1988–1991 {{cvt|2990|cc|L|1|order=flip}} {{cvt|155|kW|PS bhp|0}} (at 5,800&nbsp;rpm) {{cvt|280|Nm|lbft|0}} (at 4,000&nbsp;rpm) water-cooled DOHC inline four-cylinder (944 S2)
+
+951
+*1985–1988 {{cvt|2479|cc|L|1|order=flip}} {{cvt|162|kW|PS bhp|0}} (at 5,800&nbsp;rpm) {{cvt|330|Nm|lbft|0}} (at 3,500&nbsp;rpm) water-cooled SOHC turbo inline four-cylinder (944 Turbo)
+*1988–1991 {{cvt|2479|cc|L|1|order=flip}} {{cvt|184|kW|PS bhp|0}} (at 6,000&nbsp;rpm) {{cvt|350|Nm|lbft|0}} (at 4,000&nbsp;rpm) water-cooled SOHC turbo inline four-cylinder (944 Turbo, Turbo S)
+
+{{Table alignment}}
+{| class="wikitable defaultcenter col1left"
+|+ Porsche 944 engines
+|-
+! Vehicle !! Engine !! MY !! Engine numbers !! Technical data
+|-
+| 944 || M44.01 || 1982 || C 41C 0001>5000 || 4 Cyl / 2.5L / {{cvt|120|kW|hp|0}}
+|-
+| 944 M249 || M44.03 || 1982 || C 41C 5001>8000 || 4 Cyl / 2.5L / {{cvt|120|kW|hp|0}}
+|-
+| 944 || M44.01 || 1983 || D 41D 0001>E999 || 4 Cyl / 2.5L / {{cvt|120|kW|hp|0}}
+|-
+| 944 M249 || M44.03 || 1983 || D 41D 5001>9999 || 4 Cyl / 2.5L / {{cvt|120|kW|hp|0}}
+|-
+| 944 (USA)(CDN)(J) || M44.02 || 1983 || D 43D 0001>J999 || 4 Cyl / 2.5L / {{cvt|110|kW|hp|0}}
+|-
+| 944 M249 (USA)(CDN)(J) || M44.04 || 1982 || D 43D 5001>9999 || 4 Cyl / 2.5L / {{cvt|110|kW|hp|0}}
+|-
+| 944 || M44.01 || 1984 || E 41E 00001>20000 || 4 Cyl / 2.5L / {{cvt|120|kW|hp|0}}
+|-
+| 944 M249 || M44.03 || 1984 || E 41E 20001>30000 || 4 Cyl / 2.5L / {{cvt|120|kW|hp|0}}
+|-
+| 944 (USA)(CDN)(J) || M44.02 || 1984 || E 43E 00001>20000 || 4 Cyl / 2.5L / {{cvt|110|kW|hp|0}}
+|-
+| 944 M249 (USA)(CDN)(J) || M44.04 || 1984 || E 43E 20001>30000 || 4 Cyl / 2.5L / {{cvt|110|kW|hp|0}}
+|-
+| 944 || M44.01 || 1985 || F 41F 40001>50000 || 4 Cyl / 2.5L / {{cvt|120|kW|hp|0}}
+|-
+| 944 M249 || M44.03 || 1985 || F 41F 50001>60000 || 4 Cyl / 2.5L / {{cvt|120|kW|hp|0}}
+|-
+| 944 (USA)(CDN)(J) || M44.02 || 1985 || F 43F 40001>50000 || 4 Cyl / 2.5L / {{cvt|110|kW|hp|0}}
+|-
+| 944 M249 (USA)(CDN)(J) || M44.04 || 1985 || F 43F 50001>60000 || 4 Cyl / 2.5L / {{cvt|110|kW|hp|0}}
+|-
+| 944 || M44.05 || 1985 || F 41F 00001>20000 || 4 Cyl / 2.5L / {{cvt|120|kW|hp|0}}
+|-
+| 944 M249 || M44.06 || 1985 || F 41F 20001>30000 || 4 Cyl / 2.5L / {{cvt|120|kW|hp|0}}
+|-
+| 944 || M44.07 || 1985 || F 43F 00001>20000 || 4 Cyl / 2.5L / {{cvt|110|kW|hp|0}}
+|-
+| 944 M249 || M44.08 || 1985 || F 43F 20001>30000 || 4 Cyl / 2.5L / {{cvt|110|kW|hp|0}}
+|-
+| 944 || M44.05 || 1986 || G 41G 00001>20000 || 4 Cyl / 2.5L / {{cvt|120|kW|hp|0}}
+|-
+| 944 M298 || M44.06 || 1986 || G 41G 20001>30000 || 4 Cyl / 2.5L / {{cvt|120|kW|hp|0}}
+|-
+| 944 M298 || M44.07 || 1986 || G 43G 00001>60000 || 4 Cyl / 2.5L / {{cvt|110|kW|hp|0}}
+|-
+| 944 M299 || M44.08 || 1986 || G 43G 60001>90000 || 4 Cyl / 2.5L / {{cvt|110|kW|hp|0}}
+|-
+| 944 Turbo || M44.50 || 1986 || G 44G 00001>00400 || 4 Cyl / 2.5L / {{cvt|162|kW|hp|0}}
+|-
+| 944 Turbo || M44.51 || 1986 || G 45G 00001>20000 || 4 Cyl / 2.5L / {{cvt|162|kW|hp|0}}
+|-
+| 944 || M44.05 || 1987 || H 41H 00001>20000 || 4 Cyl / 2.5L / {{cvt|120|kW|hp|0}}
+|-
+| 944 M249 || M44.06 || 1987 || H 41H 20001>30000 || 4 Cyl / 2.5L / {{cvt|120|kW|hp|0}}
+|-
+| 944 M298 || M44.07 || 1987 || H 43H 00001>60000 || 4 Cyl / 2.5L / {{cvt|110|kW|hp|0}}
+|-
+| 944 M299 || M44.08 || 1987 || H 43H 60001>90000 || 4 Cyl / 2.5L / {{cvt|110|kW|hp|0}}
+|-
+| 944 S || M44.40 || 1987 || H 42H 00001>50000 || 4 Cyl / 2.5L / {{cvt|140|kW|hp|0}}
+|-
+| 944 Turbo || M44.51 || 1987 || H 45H 00001>10000 || 4 Cyl / 2.5L / {{cvt|162|kW|hp|0}}
+|-
+| 944 || M44.09 || 1988 || J 46J 00001>60000 || 4 Cyl / 2.5L / {{cvt|118|kW|hp|0}}
+|-
+| 944 M249 || M44.10 || 1988 || J 46J 60001>70000 || 4 Cyl / 2.5L / {{cvt|118|kW|hp|0}}
+|-
+| 944 S || M44.40 || 1988 || J 42J 00001>50000 || 4 Cyl / 2.5L / {{cvt|140|kW|hp|0}}
+|-
+| 944 Turbo || M44.51 || 1988 || J 45J 00001>10000 || 4 Cyl / 2.5L / {{cvt|162|kW|hp|0}}
+|-
+| 944 Turbo S || M44.52 || 1988 || J 47J 00061>10000 || 4 Cyl / 2.5L / {{cvt|184|kW|hp|0}}
+|-
+| 944 || M44.11 || 1989 || K 46K 00001>60000 || 4 Cyl / 2.7L / {{cvt|121|kW|hp|0}}
+|-
+| 944 M249 || M44.12 || 1989 || K 46K 60001>70000 || 4 Cyl / 2.7L / {{cvt|121|kW|hp|0}}
+|-
+| 944 S2 || M44.41 || 1989 || K 42K 00001>50000 || 4 Cyl / 3.0L / {{cvt|155|kW|hp|0}}
+|-
+| 944 Turbo || M44.52 || 1989 || K 47K 00001>10000 || 4 Cyl / 2.5L / {{cvt|184|kW|hp|0}}
+|-
+| 944 S2 || M44.41 || 1990 || L 42L 00001>50000 || 4 Cyl / 3.0L / {{cvt|155|kW|hp|0}}
+|-
+| 944 Turbo || M44.52 || 1990 || L 47L 00001>10000 || 4 Cyl / 2.5L / {{cvt|184|kW|hp|0}}
+|-
+| 944 S2 || M44.41 || 1991 || M 42M 00001>50000 || 4 Cyl / 3.0L / {{cvt|155|kW|hp|0}}
+|-
+| 944 Turbo || M44.52 || 1991 || M 47M 00001>01000 || 4 Cyl / 2.5L / {{cvt|184|kW|hp|0}}
+|}
+
+=== [[Porsche 956]] ===
+[[File:Porsche 956 engine and rear suspension (6293631818).jpg|thumb|right|956: 2.6L flat-six twin turbo]]
+*1982–1983 {{cvt|2649|cc|L|1|order=flip}} {{cvt|455|kW|PS bhp|0}} {{cvt|630|Nm|lbft|0}} DOHC 24-valve boxer flat-six (air-cooled cylinders, water-cooled heads)
+*1983–1984 {{cvt|2649|cc|L|1|order=flip}} {{cvt|470|kW|PS bhp|0}} {{cvt|630|Nm|lbft|0}} DOHC 24-valve boxer flat-six (air-cooled cylinders, water-cooled heads)
+
+=== [[Porsche 959]] ===
+[[File:Porsche 959 engine.jpg|thumb|right|959: 2.8L flat-six twin turbo]]
+*1987–1988 {{cvt|2849|cc|L|1|order=flip}} {{cvt|450|PS|kW bhp|0}} {{cvt|500|Nm|lbft|0}} DOHC 24-valve boxer flat-six (air-cooled cylinders, water-cooled heads)
+*1987–1988 {{cvt|2849|cc|L|1|order=flip}} {{cvt|515|PS|kW bhp|0}} DOHC 24-valve boxer flat-six (air-cooled cylinders, water-cooled heads) (959 S)
+
+{{Table alignment}}
+{| class="wikitable defaultcenter col1left"
+|+ Porsche 959 engines
+|-
+! Vehicle !! Engine !! MY !! Engine numbers !! Technical data
+|-
+| 959 Coupe || 959.50 || 1987 || H 65H 00001-01000 || 6 Cyl / 2.85L / {{cvt|330|kW|hp|0}}
+|-
+| 959 Coupe || 959.50 || 1988 || J 65H 00001-01000 || 6 Cyl / 2.85L / {{cvt|330|kW|hp|0}}
+|}
+
+=== [[Porsche 961]] ===
+* 1986–1987 {{cvt|2847|cc|L|1|order=flip}} {{cvt|500|kW|PS bhp|0}} {{cvt|656|Nm|0}} Type 935/82 bi-turbo boxer flat-six (air-cooled cylinders, water-cooled heads)
+
+=== [[Porsche 962]] ===
+* 1984–1991 {{cvt|2869|cc|L|1|order=flip}} {{cvt|500|kW|PS bhp|0}} four-stroke turbo boxer flat-six (air-cooled cylinders, water-cooled heads)
+
+=== [[Porsche 968]] ===
+[[File:Porsche 968 engine.jpg|thumb|right|968: 3.0L inline-four]]
+*1991–1995 {{cvt|2990|cc|L|1|order=flip}} {{cvt|176|kW|PS bhp|0}} (at 6,200&nbsp;rpm) {{cvt|305|Nm|lbft|0}} (at 4,100&nbsp;rpm) water-cooled DOHC [[Multi-valve|16-valve]] inline-four-cylinder (968, 968 CS)
+*1993–1994 {{cvt|2990|cc|L|1|order=flip}} {{cvt|227|kW|PS bhp|0}} (at 5,400&nbsp;rpm) {{cvt|500|Nm|lbft|0}} (at 3,000&nbsp;rpm) water-cooled turbo SOHC 16-valve inline-four-cylinder (968 Turbo S)
+*1993–1994 {{cvt|2990|cc|L|1|order=flip}} {{cvt|257|kW|PS bhp|0}} (at 6,900&nbsp;rpm) {{cvt|500|Nm|lbft|0}} (at 3,000&nbsp;rpm) water-cooled turbo SOHC 16-valve inline-four-cylinder (968 Turbo RS)
+
+{{Table alignment}}
+{| class="wikitable defaultcenter col1left"
+|+ Porsche 968 engines
+|-
+! Vehicle !! Engine !! MY !! Engine numbers !! Technical data
+|-
+| 968 || M44.43 || 1992 || N 42N 00501>20000 || 4 Cyl / 3.0L / {{cvt|176|kW|hp|0}}
+|-
+| 968 M249 || M44.44 || 1992 || N 42N 50501>60000 || 4 Cyl / 3.0L / {{cvt|176|kW|hp|0}}
+|-
+| 968 || M44.43 || 1993 || P 42P 00501>20000 || 4 Cyl / 3.0L / {{cvt|176|kW|hp|0}}
+|-
+| 968 M249 || M44.44 || 1993 || P 42P 50501>60000 || 4 Cyl / 3.0L / {{cvt|176|kW|hp|0}}
+|-
+| 968 || M44.43 || 1994 || R 42R 00501>20000 || 4 Cyl / 3.0L / {{cvt|176|kW|hp|0}}
+|-
+| 968 M249 || M44.44 || 1994 || R 42R 50501>60000 || 4 Cyl / 3.0L / {{cvt|176|kW|hp|0}}
+|-
+| 968 || M44.43 || 1995 || S 42S 00501>20000 || 4 Cyl / 3.0L / {{cvt|176|kW|hp|0}}
+|-
+| 968 M249 || M44.44 || 1995 || S 42S 50501>60000 || 4 Cyl / 3.0L / {{cvt|176|kW|hp|0}}
+|}
+
+=== Porsche Boxster ===
+See [[Porsche Boxster and Cayman]]
+==== 986 ====
+See [[Porsche Boxster (986)]]
+
+* 1997–1999 {{cvt|2480|cc|L|1|order=flip}} {{cvt|204|PS|kW bhp|0}} {{cvt|245|Nm|lbft|0}} water-cooled [[Overhead camshaft#Dual overhead camshaft|DOHC]] 24-valve [[Flat engine#Boxer engine|Boxer]] [[Flat-six engine|flat-six]] "M96.20"
+* 2000–2002 {{cvt|2687|cc|L|1|order=flip}} {{cvt|220|PS|kW bhp|0}} {{cvt|260|Nm|lbft|0}} water-cooled [[Overhead camshaft#Dual overhead camshaft|DOHC]] 24-valve [[Flat engine#Boxer engine|Boxer]] [[Flat-six engine|flat-six]] ([[VarioCam]]) "M96.22"
+* 2003–2004 {{cvt|2687|cc|L|1|order=flip}} {{cvt|228|PS|kW bhp|0}} {{cvt|260|Nm|lbft|0}} water-cooled [[Overhead camshaft#Dual overhead camshaft|DOHC]] 24-valve [[Flat engine#Boxer engine|Boxer]] [[Flat-six engine|flat-six]] ([[VarioCam|VarioCam Plus]]) "M96.23"
+* 2000–2002 {{cvt|3179|cc|L|1|order=flip}} {{cvt|252|PS|kW bhp|0}} {{cvt|305|Nm|lbft|0}} water-cooled [[Overhead camshaft#Dual overhead camshaft|DOHC]] 24-valve [[Flat engine#Boxer engine|Boxer]] [[Flat-six engine|flat-six]] ([[VarioCam]]) "M96.21" (Boxster S)
+* 2003–2004 {{cvt|3179|cc|L|1|order=flip}} {{cvt|260|PS|kW bhp|0}} {{cvt|310|Nm|lbft|0}} water-cooled [[Overhead camshaft#Dual overhead camshaft|DOHC]] 24-valve [[Flat engine#Boxer engine|Boxer]] [[Flat-six engine|flat-six]] ([[VarioCam|VarioCam Plus]]) "M96.24" (Boxster S)
+* 2004 {{cvt|3179|cc|L|1|order=flip}} {{cvt|265|PS|kW bhp|0}} {{cvt|310|Nm|lbft|0}} water-cooled [[Overhead camshaft#Dual overhead camshaft|DOHC]] 24-valve [[Flat engine#Boxer engine|Boxer]] [[Flat-six engine|flat-six]] ([[VarioCam|VarioCam Plus]]) "M96.24" (Boxster S "50 Jahre 550 Spyder")
+
+{{Table alignment}}
+{| class="wikitable defaultcenter col1left"
+|+ Porsche 986 engines
+|-
+! Vehicle !! Engine !! MY !! Engine numbers !! Technical data <ref>{{cite web|url=https://www.porsche.com/all/media/pdf/originalparts/en/E_986_KATALOG.pdf|title=E_986_KATALOG.pdf|publisher=Porsche|access-date=2019-10-13}}</ref>
+|-
+| Boxster || M96.20 || 1997 || V 65V 00501>60000 || 6 Cyl / 2.5L / {{cvt|150|kW|hp|0}}
+|-
+| Boxster || M96.20 || 1998 || W 65W 00501>60000 || 6 Cyl / 2.5L / {{cvt|150|kW|hp|0}}
+|-
+| Boxster || M96.20 || 1999 || X 65X 00501>60000 || 6 Cyl / 2.5L / {{cvt|150|kW|hp|0}}
+|-
+| Boxster || M96.22 || 2000 || Y 65Y 00501>60000 || 6 Cyl / 2.7L / {{cvt|160|kW|hp|0}}
+|-
+| Boxster || M96.22 || 2001 || 1 651 00501>60000 || 6 Cyl / 2.7L / {{cvt|162|kW|hp|0}}
+|-
+| Boxster || M96.22 || 2002 || 2 652 00501>60000 || 6 Cyl / 2.7L / {{cvt|162|kW|hp|0}}
+|-
+| Boxster || M96.23 || 2003 || 3 653 00501>60000 || 6 Cyl / 2.7L / {{cvt|168|kW|hp|0}}
+|-
+| Boxster || M96.23 || 2004 || 4 654 00501>60000 || 6 Cyl / 2.7L / {{cvt|168|kW|hp|0}}
+|-
+| Boxster S || M96.21 || 2000 || Y 67Y 00501>60000 || 6 Cyl / 3.2L / {{cvt|185|kW|hp|0}}
+|-
+| Boxster S || M96.21 || 2001 || 1 671 00501>60000 || 6 Cyl / 3.2L / {{cvt|185|kW|hp|0}}
+|-
+| Boxster S || M96.21 || 2002 || 2 672 00501>60000 || 6 Cyl / 3.2L / {{cvt|185|kW|hp|0}}
+|-
+| Boxster S || M96.24 || 2003 || 3 673 00501>60000 || 6 Cyl / 3.2L / {{cvt|191|kW|hp|0}}
+|-
+| Boxster S || M96.24 || 2004 || 4 674 00501>60000 || 6 Cyl / 3.2L / {{cvt|191|kW|hp|0}}
+|}
+
+==== 987 ====
+See [[Porsche Boxster and Cayman (987)]]
+
+* 2004–2006 {{cvt|2687|cc|L|1|order=flip}} {{cvt|240|PS|kW bhp|0}} {{cvt|270|Nm|lbft|0}} water-cooled [[Overhead camshaft#Dual overhead camshaft|DOHC]] 24-valve [[Flat engine#Boxer engine|Boxer]] [[Flat-six engine|flat-six]] ([[VarioCam]]) "M96.25"
+* 2006–2008 {{cvt|2687|cc|L|1|order=flip}} {{cvt|245|PS|kW bhp|0}} {{cvt|273|Nm|lbft|0}} water-cooled [[Overhead camshaft#Dual overhead camshaft|DOHC]] 24-valve [[Flat engine#Boxer engine|Boxer]] [[Flat-six engine|flat-six]] ([[VarioCam|VarioCam Plus]]) "M97.20"
+* 2004–2006 {{cvt|3179|cc|L|1|order=flip}} {{cvt|280|PS|kW bhp|0}} {{cvt|320|Nm|lbft|0}} water-cooled [[Overhead camshaft#Dual overhead camshaft|DOHC]] 24-valve [[Flat engine#Boxer engine|Boxer]] [[Flat-six engine|flat-six]] ([[VarioCam|VarioCam Plus]]) "M96.26" (Boxster S)
+* 2006–2009 {{cvt|3387|cc|L|1|order=flip}} {{cvt|295|PS|kW bhp|0}} {{cvt|340|Nm|lbft|0}} water-cooled [[Overhead camshaft#Dual overhead camshaft|DOHC]] 24-valve [[Flat engine#Boxer engine|Boxer]] [[Flat-six engine|flat-six]] ([[VarioCam|VarioCam Plus]]) "M97.21" (Boxster S)
+* 2007–2008 {{cvt|3387|cc|L|1|order=flip}} {{cvt|303|PS|kW bhp|0}} {{cvt|340|Nm|lbft|0}} water-cooled [[Overhead camshaft#Dual overhead camshaft|DOHC]] 24-valve [[Flat engine#Boxer engine|Boxer]] [[Flat-six engine|flat-six]] ([[VarioCam|VarioCam Plus]]) "M97.22" (Boxster "RS 60 Spyder Edition", Boxster S "[[Porsche Design]] Edition 2")
+
+{{Table alignment}}
+{| class="wikitable defaultcenter col1left"
+|+ Porsche 987 engines
+|-
+! Vehicle !! Engine !! MY !! Engine numbers !! Technical data <ref>{{cite web|url=https://www.porsche.com/all/media/pdf/originalparts/en/KAT027_RDW_GB_987-1.pdf|title=KAT027_RDW_GB_987-1.pdf|publisher=Porsche|access-date=2019-10-13}}</ref>
+|-
+| Boxster || M96.25 || 05 5 || 615 00501>60000 || 6 Cyl / 2.7L / {{cvt|176|kW|hp|0}}
+|-
+| Boxster || M96.25 || 06 6 || 616 00501>60000 || 6 Cyl / 2.7L / {{cvt|176|kW|hp|0}}
+|-
+| Boxster || M97.20 || 07 7 || 657 00501>60000 || 6 Cyl / 2.7L / {{cvt|180|kW|hp|0}}
+|-
+| Boxster || M97.20 || 08 8 || 658 00501>60000 || 6 Cyl / 2.7L / {{cvt|180|kW|hp|0}}
+|-
+| colspan=6 | —
+|-
+| Boxster "S" || M96.26 || 05 5 || 625 00501>60000 || 6 Cyl / 3.2L / {{cvt|206|kW|hp|0}}
+|-
+| Boxster "S" || M96.26 || 06 6 || 626 00501>60000 || 6 Cyl / 3.2L / {{cvt|206|kW|hp|0}}
+|-
+| Boxster "S" || M97.21 || 07 7 || 677 00501>60000 || 6 Cyl / 3.4L / {{cvt|217|kW|hp|0}}
+|-
+| Boxster "S" || M97.21 || 08 8 || 678 00501>60000 || 6 Cyl / 3.4L / {{cvt|217|kW|hp|0}}
+|-
+| colspan=6 | —
+|-
+| Boxster "S" RS Spyder || M97.22 || 08 8 || 668 00501>60000 || 6 Cyl / 3.4L / {{cvt|223|kW|hp|0}}
+|}
+
+987 II
+
+* 2009–2012 {{cvt|2893|cc|L|1|order=flip}} {{cvt|255|PS|kW bhp|0}} {{cvt|290|Nm|lbft|0}} water-cooled [[Overhead camshaft#Dual overhead camshaft|DOHC]] 24-valve [[Flat engine#Boxer engine|Boxer]] [[Flat-six engine|flat-six]] ([[VarioCam|VarioCam Plus]]) "MA1.20"
+* 2009–2012 {{cvt|3436|cc|L|1|order=flip}} {{cvt|310|PS|kW bhp|0}} {{cvt|360|Nm|lbft|0}} water-cooled [[Overhead camshaft#Dual overhead camshaft|DOHC]] 24-valve [[Flat engine#Boxer engine|Boxer]] [[Flat-six engine|flat-six]] ([[VarioCam|VarioCam Plus]]) "MA1.21" (Boxster S)
+* 2010–2011 {{cvt|3436|cc|L|1|order=flip}} {{cvt|320|PS|kW bhp|0}} {{cvt|370|Nm|lbft|0}} water-cooled [[Overhead camshaft#Dual overhead camshaft|DOHC]] 24-valve [[Flat engine#Boxer engine|Boxer]] [[Flat-six engine|flat-six]] ([[VarioCam|VarioCam Plus]]) "MA1.22" (Boxster Spyder)
+
+{{Table alignment}}
+{| class="wikitable defaultcenter col1left"
+|+ Porsche 987 II engines
+|-
+! Vehicle !! Engine !! MY !! Engine numbers !! Technical data <ref>{{cite web|url=https://www.porsche.com/all/media/pdf/originalparts/en/KAT033_RDW_GB_987-2.pdf|title=KAT033_RDW_GB_987-2.pdf|publisher=Porsche|access-date=2019-10-13}}</ref>
+|-
+| Boxster || MA1.20 || 09 9 || __9 00501>99999 || 6 Cyl / 2.9L / {{cvt|188|kW|hp|0}}
+|-
+| Boxster || MA1.20 || 10 A || __A 00501>99999 || 6 Cyl / 2.9L / {{cvt|188|kW|hp|0}}
+|-
+| Boxster || MA1.20 || 11 B || __B 00501>60000 || 6 Cyl / 2.9L / {{cvt|188|kW|hp|0}}
+|-
+| Boxster || MA1.20 || 12 C || __C 00501>60000 || 6 Cyl / 2.9L / {{cvt|188|kW|hp|0}}
+|-
+| colspan=6 | —
+|-
+| Boxster "S" || MA1.21 || 09 9 || __9 00501>99999 || 6 Cyl / 3.4L / {{cvt|228|kW|hp|0}}
+|-
+| Boxster "S" || MA1.21 || 10 A || __A 00501>99999 || 6 Cyl / 3.4L / {{cvt|228|kW|hp|0}}
+|-
+| Boxster "S" || MA1.21 || 11 B || __B 00501>60000 || 6 Cyl / 3.4L / {{cvt|228|kW|hp|0}}
+|-
+| Boxster "S" || MA1.21 || 12 C || __C 00501>60000 || 6 Cyl / 3.4L / {{cvt|228|kW|hp|0}}
+|-
+| colspan=6 | —
+|-
+| Boxster Spyder || MA1.21 || 11 B || C_B 50501>60000 || 6 Cyl / 3.4L / {{cvt|235|kW|hp|0}}
+|-
+| Boxster Spyder || MA1.21 || 12 C || C_C 50501>60000 || 6 Cyl / 3.4L / {{cvt|235|kW|hp|0}}
+|}
+
+==== 981 ====
+See [[Porsche Boxster and Cayman (981)]]
+
+* 2012–2014 {{cvt|2706|cc|L|1|order=flip}} {{cvt|265|PS|kW bhp|0}} {{cvt|280|Nm|lbft|0}} water-cooled [[Overhead camshaft#Dual overhead camshaft|DOHC]] 24-valve [[Flat engine#Boxer engine|Boxer]] [[Flat-six engine|flat-six]] ([[VarioCam|VarioCam Plus]]) "MA1.22"
+* 2014–2016 {{cvt|3436|cc|L|1|order=flip}} {{cvt|315|PS|kW bhp|0}} {{cvt|360|Nm|lbft|0}} water-cooled [[Overhead camshaft#Dual overhead camshaft|DOHC]] 24-valve [[Flat engine#Boxer engine|Boxer]] [[Flat-six engine|flat-six]] ([[VarioCam|VarioCam Plus]]) "MA1.23" (Boxster S)
+* 2014–2016 {{cvt|3436|cc|L|1|order=flip}} {{cvt|330|PS|kW bhp|0}} {{cvt|370|Nm|lbft|0}} water-cooled [[Overhead camshaft#Dual overhead camshaft|DOHC]] 24-valve [[Flat engine#Boxer engine|Boxer]] [[Flat-six engine|flat-six]] ([[VarioCam|VarioCam Plus]]) "MA1.23" (Boxster GTS)
+* 2015–2016 {{cvt|3800|cc|L|1|order=flip}} {{cvt|375|PS|kW bhp|0}} {{cvt|420|Nm|lbft|0}} water-cooled [[Overhead camshaft#Dual overhead camshaft|DOHC]] 24-valve [[Flat engine#Boxer engine|Boxer]] [[Flat-six engine|flat-six]] ([[VarioCam|VarioCam Plus]]) "<span style="color:red">MA1.24</span>" (Boxster Spyder)
+
+{{Table alignment}}
+{| class="wikitable defaultcenter col1left"
+|+ Porsche 981 engines
+|-
+! Vehicle !! Engine !! MY !! Engine numbers !! Technical data <ref>{{cite web|url=https://www.porsche.com/all/media/pdf/originalparts/en/KAT039_RDW_GB_981-1.pdf|title=KAT039_RDW_GB_981-1.pdf|publisher=Porsche|access-date=2019-10-13}}</ref>
+|-
+| Boxster || MA1.22 || 12 C || __C 00501>60000 || 6 Cyl / 2.7L / {{cvt|195|kW|hp|0}}
+|-
+| Boxster || MA1.22 || 13 D || __D 00501>60000 || 6 Cyl / 2.7L / {{cvt|195|kW|hp|0}}
+|-
+| Boxster || MA1.22 || 14 E || __E 00501>60000 || 6 Cyl / 2.7L / {{cvt|195|kW|hp|0}}
+|-
+| Boxster || MA1.22 || 15 F || __F 00501>60000 || 6 Cyl / 2.7L / {{cvt|195|kW|hp|0}}
+|-
+| Boxster || MA1.22 || 16 G || __G 00501>60000 || 6 Cyl / 2.7L / {{cvt|195|kW|hp|0}}
+|-
+| colspan=6 | —
+|-
+| Boxster "S" || MA1.23 || 12 C || __C 00501>60000 || 6 Cyl / 3.4L / {{cvt|232|kW|hp|0}}
+|-
+| Boxster "S" || MA1.23 || 13 D || __D 00501>60000 || 6 Cyl / 3.4L / {{cvt|232|kW|hp|0}}
+|-
+| Boxster "S" || MA1.23 || 14 E || __E 00501>60000 || 6 Cyl / 3.4L / {{cvt|232|kW|hp|0}}
+|-
+| Boxster "S" || MA1.23 || 15 F || __F 00501>60000 || 6 Cyl / 3.4L / {{cvt|232|kW|hp|0}}
+|-
+| Boxster "S" || MA1.23 || 16 G || __G 00501>60000 || 6 Cyl / 3.4L / {{cvt|232|kW|hp|0}}
+|-
+| colspan=6 | —
+|-
+| Boxster Spyder || <span style="color:red">MDB.XA</span> || 16 G || DBX 00501>60000 || 6 Cyl / 3.8L / {{cvt|276|kW|hp|0}}<ref>{{cite web|url=https://www.porsche.com/all/media/pdf/originalparts/en/KAT046_RDW_GB_981%20Spyder.pdf|title=KAT046_RDW_GB_981%20Spyder.pdf|publisher=Porsche|access-date=2019-10-13}}</ref>
+|}
+
+Note: MA1.24 is classified as the "Remark". MDB.XA is the "Engine Type".
+
+==== 982 (718) ====
+See [[Porsche 718 Boxster and Cayman (982)]]
+* 2016–present {{cvt|1988|cc|L|1|order=flip}} {{cvt|250|PS|kW bhp|0}} {{cvt|310|Nm|lbft|0}} water-cooled turbo [[Overhead camshaft#Dual overhead camshaft|DOHC]] 16-valve [[Flat engine#Boxer engine|Boxer]] [[Flat-four engine|flat-four]] ([[VarioCam|VarioCam Plus]]) "<span style="color:red">MA2.20</span>" (718 Boxster for Chinese market)
+* 2016–present {{cvt|1988|cc|L|1|order=flip}} {{cvt|300|PS|kW bhp|0}} {{cvt|380|Nm|lbft|0}} water-cooled turbo [[Overhead camshaft#Dual overhead camshaft|DOHC]] 16-valve [[Flat engine#Boxer engine|Boxer]] [[Flat-four engine|flat-four]] ([[VarioCam|VarioCam Plus]]) "<span style="color:red">MA2.20</span>" (718 Boxster, 718 Boxster T)
+* 2016–present {{cvt|2497|cc|L|1|order=flip}} {{cvt|350|PS|kW bhp|0}} {{cvt|420|Nm|lbft|0}} water-cooled turbo [[Overhead camshaft#Dual overhead camshaft|DOHC]] 16-valve [[Flat engine#Boxer engine|Boxer]] [[Flat-four engine|flat-four]] ([[VarioCam|VarioCam Plus]]) "<span style="color:red">MA2.22</span>" (718 Boxster S)
+* 2017–present {{cvt|2497|cc|L|1|order=flip}} {{cvt|365|PS|kW bhp|0}} {{cvt|430|Nm|lbft|0}} water-cooled turbo [[Overhead camshaft#Dual overhead camshaft|DOHC]] 16-valve [[Flat engine#Boxer engine|Boxer]] [[Flat-four engine|flat-four]] ([[VarioCam|VarioCam Plus]]) "MA2.22" (718 Boxster GTS)
+* 2019–present {{cvt|3995|cc|L|1|order=flip}} {{cvt|420|PS|kW bhp|0}} {{cvt|420|Nm|lbft|0}} water-cooled [[Overhead camshaft#Dual overhead camshaft|DOHC]] 24-valve [[Flat engine#Boxer engine|Boxer]] [[Flat-six engine|flat-six]] ([[VarioCam|VarioCam Plus]]) (718 Spyder)
+*2020–present {{cvt|3995|cc|L|1|order=flip}} {{cvt|400|PS|kW bhp|0}} {{cvt|420|Nm|lbft|0}} water-cooled [[Overhead camshaft#Dual overhead camshaft|DOHC]] 24-valve [[Flat engine#Boxer engine|Boxer]] [[Flat-six engine|flat-six]] ([[VarioCam|VarioCam Plus]]) (718 Boxster GTS 4.0)
+
+{{Table alignment}}
+{| class="wikitable defaultcenter col1left"
+|+ Porsche 982 engines
+|-
+! Vehicle !! Engine !! MY !! Engine numbers !! Technical data <ref>{{cite web|url=https://www.porsche.com/all/media/pdf/originalparts/en/KAT048_RDW_GB_982.pdf|title=KAT048_RDW_GB_982.pdf|publisher=Porsche|access-date=2019-10-13}}</ref>
+|-
+| Boxster CN || <span style="color:red">MDD.PA</span> || 17 H || __G 00501>60000 || 4 Cyl / 2.0L / {{cvt|184|kW|hp|0}}
+|-
+| Boxster || <span style="color:red">MDD.PB</span> || 17 H || __G 00501>60000 || 4 Cyl / 2.0L / {{cvt|220|kW|hp|0}}
+|-
+| colspan=6 | —
+|-
+| Boxster "S" || <span style="color:red">MDD.NC</span> || 17 H || __G 00501>60000 || 4 Cyl / 2.5L / {{cvt|257|kW|hp|0}}
+|}
+
+Note: MA2.20, MA2.22 are classified as the "Remark". MDD.PA, MDD.PB, MDD.NC are the "Engine Type".
+
+=== [[Porsche Carrera GT]] (980) ===
+[[File:Porsche Carrera GT Engine.JPG|thumb|right|Carrera GT: 5.7L V10]]
+[[File:Porsche Carrera GT engine rear-left Porsche Museum.jpg|thumb|right|Carrera GT: 5.7L V10]]
+{{Main|Porsche V10 engine}}
+*2004–2006 {{cvt|5733|cc|L|1|order=flip}} {{cvt|450|kW|PS bhp|0}} V10 (derived from [[Porsche LMP2000]])
+
+{{Table alignment}}
+{| class="wikitable defaultcenter col1left"
+|+ Porsche 980 engines
+|-
+! Vehicle !! Engine !! MY !! Engine numbers !! Technical data
+|-
+| 980 Carrera GT || M80.01 || 04 4 || 994 00501>20000 || 10 Cyl / 5.7L / {{cvt|450|kW|hp|0}}
+|-
+| 980 Carrera GT || M80.01 || 05 5 || 905 30501>60000 || 10 Cyl / 5.7L / {{cvt|450|kW|hp|0}}
+|-
+| 980 Carrera GT || M80.01 || 06 6 || 906 00501>60000 || 10 Cyl / 5.7L / {{cvt|450|kW|hp|0}}
+|}
+
+=== [[Porsche Boxster/Cayman|Porsche Cayman]] (987/981/982) ===
+987 (987c)
+
+* 2006–2009 {{cvt|2687|cc|L|1|order=flip}} {{cvt|245|PS|kW bhp|0}} {{cvt|273|Nm|lbft|0}} water-cooled [[Overhead camshaft#Dual overhead camshaft|DOHC]] 24-valve [[Flat engine#Boxer engine|Boxer]] [[Flat-six engine|flat-six]] ([[VarioCam|VarioCam Plus]]) "M97.20"
+* 2005–2009 {{cvt|3387|cc|L|1|order=flip}} {{cvt|295|PS|kW bhp|0}} {{cvt|340|Nm|lbft|0}} water-cooled [[Overhead camshaft#Dual overhead camshaft|DOHC]] 24-valve [[Flat engine#Boxer engine|Boxer]] [[Flat-six engine|flat-six]] ([[VarioCam|VarioCam Plus]]) "M97.21" (Cayman S, Cayman S "Porsche Design Edition 1")
+* 2008–2009 {{cvt|3387|cc|L|1|order=flip}} {{cvt|303|PS|kW bhp|0}} {{cvt|340|Nm|lbft|0}} water-cooled [[Overhead camshaft#Dual overhead camshaft|DOHC]] 24-valve [[Flat engine#Boxer engine|Boxer]] [[Flat-six engine|flat-six]] ([[VarioCam|VarioCam Plus]]) "M97.22" (Cayman S Sport)
+
+{{Table alignment}}
+{| class="wikitable defaultcenter col1left"
+|+ Porsche 987c engines
+|-
+! Vehicle !! Engine !! MY !! Engine numbers !! Technical data<ref>{{cite web|url=https://www.porsche.com/all/media/pdf/originalparts/en/KAT028_RDW_GB_987C-1.pdf|title=KAT028_RDW_GB_987C-1.pdf|publisher=Porsche|access-date=2019-10-13}}</ref>
+|-
+| Cayman || M97.20 || 07 7 || 657 00501>60000 || 6 Cyl / 2.7L / {{cvt|180|kW|hp|0}}
+|-
+| Cayman || M97.20 || 08 8 || 658 00501>60000 || 6 Cyl / 2.7L / {{cvt|180|kW|hp|0}}
+|-
+| colspan=6 | —
+|-
+| Cayman "S" || M97.21 || 06 6 || 676 00501>60000 || 6 Cyl / 3.4L / {{cvt|217|kW|hp|0}}
+|-
+| Cayman "S" || M97.21 || 07 7 || 677 00501>60000 || 6 Cyl / 3.4L / {{cvt|217|kW|hp|0}}
+|-
+| Cayman "S" || M97.21 || 08 8 || 678 00501>60000 || 6 Cyl / 3.4L / {{cvt|217|kW|hp|0}}
+|-
+| colspan=6 | —
+|-
+| Cayman "S Sport" || M97.22 || 08 8 || 668 00501>60000 || 6 Cyl / 3.4L / {{cvt|223|kW|hp|0}}
+|}
+
+987 II (987c)
+
+* 2009–2012 {{cvt|2893|cc|L|1|order=flip}} {{cvt|265|PS|kW bhp|0}} {{cvt|300|Nm|lbft|0}} water-cooled [[Overhead camshaft#Dual overhead camshaft|DOHC]] 24-valve [[Flat engine#Boxer engine|Boxer]] [[Flat-six engine|flat-six]] ([[VarioCam|VarioCam Plus]]) "MA1.20"
+* 2009–2012 {{cvt|3436|cc|L|1|order=flip}} {{cvt|320|PS|kW bhp|0}} {{cvt|370|Nm|lbft|0}} water-cooled [[Overhead camshaft#Dual overhead camshaft|DOHC]] 24-valve [[Flat engine#Boxer engine|Boxer]] [[Flat-six engine|flat-six]] ([[VarioCam|VarioCam Plus]]) "MA1.21" (Cayman S)
+* 2010–2011 {{cvt|3436|cc|L|1|order=flip}} {{cvt|330|PS|kW bhp|0}} {{cvt|370|Nm|lbft|0}} water-cooled [[Overhead camshaft#Dual overhead camshaft|DOHC]] 24-valve [[Flat engine#Boxer engine|Boxer]] [[Flat-six engine|flat-six]] ([[VarioCam|VarioCam Plus]]) "MA1.21" (Cayman R, Cayman S Black Edition)
+
+{{Table alignment}}
+{| class="wikitable defaultcenter col1left"
+|+ Porsche 987c II engines
+|-
+! Vehicle !! Engine !! MY !! Engine numbers !! Technical data<ref>{{cite web|url=https://www.porsche.com/all/media/pdf/originalparts/en/KAT034_RDW_GB_987C-2.pdf|title=KAT034_RDW_GB_987C-2.pdf|publisher=Porsche|access-date=2019-10-13}}</ref>
+|-
+| Cayman || MA1.20 || 09 9 || C_9 00501>99999 || 6 Cyl / 2.9L / {{cvt|195|kW|hp|0}}
+|-
+| Cayman || MA1.20 || 10 A || C_A 00501>99999 || 6 Cyl / 2.9L / {{cvt|195|kW|hp|0}}
+|-
+| Cayman || MA1.20 || 11 B || C_B 00501>99999 || 6 Cyl / 2.9L / {{cvt|195|kW|hp|0}}
+|-
+| Cayman || MA1.20 || 12 C || C_C 00501>99999 || 6 Cyl / 2.9L / {{cvt|195|kW|hp|0}}
+|-
+| colspan=6 | —
+|-
+| Cayman "S" || MA1.21 || 09 9 || C_9 00501>99999 || 6 Cyl / 3.4L / {{cvt|235|kW|hp|0}}
+|-
+| Cayman "S" || MA1.21 || 10 A || C_A 00501>99999 || 6 Cyl / 3.4L / {{cvt|235|kW|hp|0}}
+|-
+| Cayman "S" || MA1.21 || 11 B || C_B 00501>99999 || 6 Cyl / 3.4L / {{cvt|235|kW|hp|0}}
+|-
+| Cayman "S" || MA1.21 || 12 C || C_C 00501>99999 || 6 Cyl / 3.4L / {{cvt|235|kW|hp|0}}
+|-
+| colspan=6 | —
+|-
+| Cayman "R" || MA1.21 || 12 C || R_C 00501>99999 || 6 Cyl / 3.4L / {{cvt|243|kW|hp|0}}
+|}
+
+981 (981c)
+
+* 2012–2016 {{cvt|2706|cc|L|1|order=flip}} {{cvt|275|PS|kW bhp|0}} {{cvt|290|Nm|lbft|0}} water-cooled [[Overhead camshaft#Dual overhead camshaft|DOHC]] 24-valve [[Flat engine#Boxer engine|Boxer]] [[Flat-six engine|flat-six]] ([[VarioCam|VarioCam Plus]]) "MA1.22"
+* 2012–2016 {{cvt|3436|cc|L|1|order=flip}} {{cvt|325|PS|kW bhp|0}} {{cvt|370|Nm|lbft|0}} water-cooled [[Overhead camshaft#Dual overhead camshaft|DOHC]] 24-valve [[Flat engine#Boxer engine|Boxer]] [[Flat-six engine|flat-six]] ([[VarioCam|VarioCam Plus]]) "MA1.23" (Cayman S)
+* 2014–2016 {{cvt|3436|cc|L|1|order=flip}} {{cvt|340|PS|kW bhp|0}} {{cvt|380|Nm|lbft|0}} water-cooled [[Overhead camshaft#Dual overhead camshaft|DOHC]] 24-valve [[Flat engine#Boxer engine|Boxer]] [[Flat-six engine|flat-six]] ([[VarioCam|VarioCam Plus]]) "MA1.23" (Cayman GTS)
+* 2015–2016 {{cvt|3800|cc|L|1|order=flip}} {{cvt|385|PS|kW bhp|0}} {{cvt|420|Nm|lbft|0}} water-cooled [[Overhead camshaft#Dual overhead camshaft|DOHC]] 24-valve [[Flat engine#Boxer engine|Boxer]] [[Flat-six engine|flat-six]] ([[VarioCam|VarioCam Plus]]) "<span style="color:red">MA1.24</span>" (Cayman GT4)
+
+{{Table alignment}}
+{| class="wikitable defaultcenter col1left"
+|+ Porsche 981c engines
+|-
+! Vehicle !! Engine !! MY !! Engine numbers !! Technical data<ref>{{cite web|url=https://www.porsche.com/all/media/pdf/originalparts/en/KAT040_RDW_GB_981C-1.pdf|title=KAT040_RDW_GB_981C-1.pdf|publisher=Porsche|access-date=2019-10-13}}</ref>
+|-
+| Cayman || MA1.22 || 13 D || __D 00501>60000 || 6 Cyl / 2.7L / {{cvt|195|kW|hp|0}}
+|-
+| Cayman || MA1.22 || 14 E || __E 00501>60000 || 6 Cyl / 2.7L / {{cvt|195|kW|hp|0}}
+|-
+| Cayman || MA1.22 || 15 F || __F 00501>60000 || 6 Cyl / 2.7L / {{cvt|195|kW|hp|0}}
+|-
+| colspan=6 | —
+|-
+| Cayman "S" || MA1.23 || 13 D || __D 00501>60000 || 6 Cyl / 3.4L / {{cvt|239|kW|hp|0}}
+|-
+| Cayman "S" || MA1.23 || 14 E || __E 00501>60000 || 6 Cyl / 3.4L / {{cvt|239|kW|hp|0}}
+|-
+| Cayman "S" || MA1.23 || 15 F || __F 00501>60000 || 6 Cyl / 3.4L / {{cvt|239|kW|hp|0}}
+|-
+| Cayman "S" || MA1.23 || 16 G || __G 00501>60000 || 6 Cyl / 3.4L / {{cvt|239|kW|hp|0}}
+|-
+| colspan=6 | —
+|-
+| Cayman GT4 || <span style="color:red">MDB.XA</span> || 15 F || DBX 00501>60000 || 6 Cyl / 3.8L / {{cvt|283|kW|hp|0}} <ref>{{cite web|url=https://www.porsche.com/all/media/pdf/originalparts/en/KAT045_RDW_GB_981C%20GT4.pdf|title=KAT045_RDW_GB_981C%20GT4.pdf|publisher=Porsche|access-date=2019-10-13}}</ref>
+|-
+| Cayman GT4 || <span style="color:red">MDB.XA</span> || 16 G || DBX 00501>60000 || 6 Cyl / 3.8L / {{cvt|283|kW|hp|0}}
+|}
+
+Note: MA1.24 is classified as the "Remark". MDB.XA is the "Engine Type".
+
+982 (718)
+
+* 2016–present {{cvt|1988|cc|L|1|order=flip}} {{cvt|250|PS|kW bhp|0}} {{cvt|310|Nm|lbft|0}} water-cooled turbo [[Overhead camshaft#Dual overhead camshaft|DOHC]] 16-valve [[Flat engine#Boxer engine|Boxer]] [[Flat-four engine|flat-four]] ([[VarioCam|VarioCam Plus]]) "<span style="color:red">MA2.20</span>" (718 Cayman for Chinese market)
+* 2016–present {{cvt|1988|cc|L|1|order=flip}} {{cvt|300|PS|kW bhp|0}} {{cvt|380|Nm|lbft|0}} water-cooled turbo [[Overhead camshaft#Dual overhead camshaft|DOHC]] 16-valve [[Flat engine#Boxer engine|Boxer]] [[Flat-four engine|flat-four]] ([[VarioCam|VarioCam Plus]]) "<span style="color:red">MA2.20</span>" (718 Cayman, 718 Cayman T)
+* 2016–present {{cvt|2497|cc|L|1|order=flip}} {{cvt|350|PS|kW bhp|0}} {{cvt|420|Nm|lbft|0}} water-cooled turbo [[Overhead camshaft#Dual overhead camshaft|DOHC]] 16-valve [[Flat engine#Boxer engine|Boxer]] [[Flat-four engine|flat-four]] ([[VarioCam|VarioCam Plus]]) "<span style="color:red">MA2.22</span>" (718 Cayman S)
+* 2017–present {{cvt|2497|cc|L|1|order=flip}} {{cvt|365|PS|kW bhp|0}} {{cvt|430|Nm|lbft|0}} water-cooled turbo [[Overhead camshaft#Dual overhead camshaft|DOHC]] 16-valve [[Flat engine#Boxer engine|Boxer]] [[Flat-four engine|flat-four]] ([[VarioCam|VarioCam Plus]]) "<span style="color:red">MA2.22</span>" (718 Cayman GTS)
+* 2019–present {{cvt|3995|cc|L|1|order=flip}} {{cvt|420|PS|kW bhp|0}} {{cvt|420|Nm|lbft|0}} water-cooled [[Overhead camshaft#Dual overhead camshaft|DOHC]] 24-valve [[Flat engine#Boxer engine|Boxer]] [[Flat-six engine|flat-six]] ([[VarioCam|VarioCam Plus]]) (718 Cayman GT4)
+*2020–present {{cvt|3995|cc|L|1|order=flip}} {{cvt|400|PS|kW bhp|0}} {{cvt|420|Nm|lbft|0}} water-cooled [[Overhead camshaft#Dual overhead camshaft|DOHC]] 24-valve [[Flat engine#Boxer engine|Boxer]] [[Flat-six engine|flat-six]] ([[VarioCam|VarioCam Plus]]) (718 Cayman GTS 4.0)
+
+{{Table alignment}}
+{| class="wikitable defaultcenter col1left"
+|+ Porsche 982 engines
+|-
+! Vehicle !! Engine !! MY !! Engine numbers !! Technical data<ref>[https://www.design911.com/uploads/pdfs/PET/718_982_Cayman_2017.pdf "KAT_050"], ''[[Porsche]]'', 2 October 2017. Retrieved on 14 October 2019.</ref>
+|-
+| Cayman CN || <span style="color:red">MDD.PA</span> || 17 H || DDP 501>060000 || 4 Cyl / 2.0L / {{cvt|184|kW|hp|0}}
+|-
+| Cayman CN || <span style="color:red">MDD.PA</span> || 18 J || DDP 501>060000 || 4 Cyl / 2.0L / {{cvt|184|kW|hp|0}}
+|-
+| Cayman || <span style="color:red">MDD.PB</span> || 17 H || DDP 501>060000 || 4 Cyl / 2.0L / {{cvt|220|kW|hp|0}}
+|-
+| Cayman || <span style="color:red">MDD.PB</span> || 18 J || DDP 501>060000 || 4 Cyl / 2.0L / {{cvt|220|kW|hp|0}}
+|-
+| Cayman C33 || <span style="color:red">MDD.P</span> || 18 1 || DDP 501>060000 || 4 Cyl / 2.0L / {{cvt|220|kW|hp|0}}
+|-
+| colspan=6 | —
+|-
+| Cayman "S" || <span style="color:red">MDD.NC</span> || 17 H || DDN 501>060000 || 4 Cyl / 2.5L / {{cvt|257|kW|hp|0}}
+|-
+| Cayman S/GTS || <span style="color:red">MDD.NC</span> || 18 J || DDN 501>060000 || 4 Cyl / 2.5L / {{cvt|257|kW|hp|0}}
+|-
+| Cayman S/GTS C33 || <span style="color:red">MDD.N</span> || 18 J || DDN 501>060000 || 4 Cyl / 2.5L / {{cvt|257|kW|hp|0}}
+|}
+
+Note: MA2.20, MA2.22 are classified as the "Remark". MDD.PA, MDD.PB, MDD.P, MDD.NC, MDD.N are the "Engine Type".
+
+===<span class="anchor" id="Cayenne"></span> [[Porsche  Cayenne]] (9PA/92A/9Y0/9YA) ===
+[[File:Porsche  Cayenne GTS and Porsche Hybrid Drive.jpg|thumb|right| Cayenne hybrid drivetrain]]
+
+9PA/E1/955
+*2004–2007 {{cvt|3189|cc|L|1|order=flip}} {{cvt|184|kW|PS bhp|0}} (at 6,000&nbsp;rpm) {{cvt|310|Nm|lbft|0}} (at 2,500–5,500&nbsp;rpm) VR6 (Cayenne)
+*2003–2007 {{cvt|4511|cc|L|1|order=flip}} {{cvt|250|kW|PS bhp|0}} (at 6,000&nbsp;rpm) {{cvt|420|Nm|lbft|0}} (at 2,500–5,500&nbsp;rpm) V8 (Cayenne S)
+*2003–2007 {{cvt|4511|cc|L|1|order=flip}} {{cvt|331|kW|PS bhp|0}} (at 6,000&nbsp;rpm) {{cvt|620|Nm|lbft|0}} (at 2,250–4,750&nbsp;rpm) V8 (Cayenne Turbo)
+*2005–2007 {{cvt|4511|cc|L|1|order=flip}} {{cvt|368|kW|PS bhp|0}} (at 6,000&nbsp;rpm) {{cvt|700|Nm|lbft|0}} (at 2,250–4,500&nbsp;rpm) V8 (Cayenne Turbo Performancekit WLS)
+*2006–2007 {{cvt|4511|cc|L|1|order=flip}} {{cvt|383|kW|PS bhp|0}} (at 5,500&nbsp;rpm) {{cvt|720|Nm|lbft|0}} (at 2,750–3,750&nbsp;rpm) V8 (Cayenne Turbo S)
+
+{{Table alignment}}
+{| class="wikitable defaultcenter col1left"
+|+ Porsche 9PA/E1/955 engines
+|-
+! Vehicle !! Engine !! MY !! Engine numbers !! Technical data
+|-
+| Cayenne S || M48.00 || 03 3 || 813 00501>60000 || 8 Cyl / 4.5L / {{cvt|250|kW|hp|0}}
+|-
+| Cayenne Turbo || M48.50 || 03 3 || 823 00501>60000 || 8 Cyl / 4.5L / {{cvt|331|kW|hp|0}}
+|-
+| colspan=6 | —
+|-
+| Cayenne || M02.2Y || 04 4 || BFD 00501>60000 || 6 Cyl / 3.2L / {{cvt|184|kW|hp|0}}
+|-
+| Cayenne S || M48.00 || 04 4 || 814 00501>60000 || 8 Cyl / 4.5L / {{cvt|250|kW|hp|0}}
+|-
+| Cayenne Turbo || M48.50 || 04 4 || 824 00501>60000 || 8 Cyl / 4.5L / {{cvt|331|kW|hp|0}}
+|-
+| colspan=6 | —
+|-
+| Cayenne || M02.2Y || 05 5 || BFD 00501>60000 || 6 Cyl / 3.2L / {{cvt|184|kW|hp|0}}
+|-
+| Cayenne S || M48.00 || 05 5 || 815 00501>60000 || 8 Cyl / 4.5L / {{cvt|250|kW|hp|0}}
+|-
+| Cayenne Turbo || M48.50 || 05 5 || 825 00501>60000 || 8 Cyl / 4.5L / {{cvt|331|kW|hp|0}}
+|-
+| colspan=6 | —
+|-
+| Cayenne || BFD M02.2Y || 06 6 || 616 00501>60000 || 6 Cyl / 3.2L / {{cvt|184|kW|hp|0}}
+|-
+| Cayenne S || M48.00 || 06 6 || 816 00501>60000 || 8 Cyl / 4.5L / {{cvt|250|kW|hp|0}}
+|-
+| Cayenne Turbo || M48.50 || 06 6 || 826 00501>60000 || 8 Cyl / 4.5L / {{cvt|331|kW|hp|0}}
+|}
+
+9PA/E1/957
+*2007–2010 {{cvt|3598|cc|L|1|order=flip}} {{cvt|213|kW|PS bhp|0}} (at 6,200&nbsp;rpm) {{cvt|385|Nm|lbft|0}} (at 3,000&nbsp;rpm) VR6 (Cayenne)
+*2007–2010 {{cvt|4806|cc|L|1|order=flip}} {{cvt|283|kW|PS bhp|0}} (at 6,200&nbsp;rpm) {{cvt|500|Nm|lbft|0}} (at 3,500&nbsp;rpm) V8 (Cayenne S)
+*2008–2010 {{cvt|4806|cc|L|1|order=flip}} {{cvt|298|kW|PS bhp|0}} (at 6,500&nbsp;rpm) {{cvt|500|Nm|lbft|0}} (at 3,500&nbsp;rpm) V8 (Cayenne GTS)
+*2007–2010 {{cvt|4806|cc|L|1|order=flip}} {{cvt|368|kW|PS bhp|0}} (at 6,000&nbsp;rpm) {{cvt|700|Nm|lbft|0}} (at 4,500&nbsp;rpm) V8 (Cayenne Turbo)
+*2008–2010 {{cvt|4806|cc|L|1|order=flip}} {{cvt|404|kW|PS bhp|0}} (at 6,000&nbsp;rpm) {{cvt|750|Nm|lbft|0}} (at 2,250–4,500&nbsp;rpm) V8 (Cayenne Turbo S)
+
+*2009–2010 {{cvt|2967|cc|L|1|order=flip}} {{cvt|176|kW|PS bhp|0}} (at 4,000–4,400&nbsp;rpm) {{cvt|550|Nm|lbft|0}} (at 2,000–2,250&nbsp;rpm) V6 (Cayenne Diesel)
+
+{{Table alignment}}
+{| class="wikitable defaultcenter col1left"
+|+ Porsche 9PA/E1/957 engines
+|-
+! Vehicle !! Engine !! MY !! Engine numbers
+|-
+| Cayenne S || 4801 || 2008 || 838 00501>99999
+|-
+| Cayenne GTS || 4801 || 2008 || 858 00501>99999
+|-
+| Cayenne Turbo || 4851 || 2008 || 848 00501>99999
+|-
+| Cayenne Turbo +E81 || 4851 || 2008 || 868 00501>99999
+|-
+| Cayenne || 5501 || 2008 || 638 01001>99999
+|-
+| Cayenne diesel || 059D || 2009 || CAS 0001>999999
+|-
+| Cayenne S || 4801 || 2009 || __9 00501>99999
+|-
+| Cayenne GTS || 4801 || 2009 || G_9 00501>99999
+|-
+| Cayenne Turbo || 4851 || 2009 || __9 00501>99999
+|-
+| Cayenne Turbo +E81 || 4851 || 2009 || S_9 00501>99999
+|-
+| Cayenne Turbo +E8A || 4851 || 2009 || T_9 00501>99999
+|-
+| Cayenne || 5501 || 2009 || 639 01001>99999
+|-
+| Cayenne diesel || 059D || 2010 || CAS 0001>999999
+|-
+| Cayenne S || 4801 || 2010 || __A 00501>99999
+|-
+| Cayenne GTS || 4801 || 2010 || G_A 00501>99999
+|-
+| Cayenne Turbo || 4851 || 2010 || __A 00501>99999
+|-
+| Cayenne Turbo +E81 || 4851 || 2010 || S_A 00501>99999
+|-
+| Cayenne Turbo +E8A || 4851 || 2010 || T_A 00501>99999
+|-
+| Cayenne || 5501 || 2010 || 63A 01001>99999
+|}
+
+92A/E2/958
+*2010–2016 {{cvt|3598|cc|L|1|order=flip}} {{cvt|220|kW|PS bhp|0}} (at 6,300&nbsp;rpm) {{cvt|400|Nm|lbft|0}} (at 3,000&nbsp;rpm) VR6 (Cayenne)
+*2010–2014 {{cvt|4806|cc|L|1|order=flip}} {{cvt|294|kW|PS bhp|0}} (at 6,500&nbsp;rpm) {{cvt|500|Nm|lbft|0}} (at 3,500&nbsp;rpm) V8 (Cayenne S)
+*2014–2017 {{cvt|3604|cc|L|1|order=flip}} {{cvt|309|kW|PS bhp|0}} (at 6,000&nbsp;rpm) {{cvt|550|Nm|lbft|0}} (at 1,350–4,500&nbsp;rpm) biturbo V6 (Cayenne S)
+*2010–2014 {{cvt|2995|cc|L|1|order=flip}} {{cvt|245|kW|PS bhp|0}} supercharged V6 (Cayenne S Hybrid)
+*2014–2017 {{cvt|2995|cc|L|1|order=flip}} {{cvt|272|kW|PS bhp|0}} supercharged V6 (Cayenne S E-Hybrid)
+*2012–2015 {{cvt|4806|cc|L|1|order=flip}} {{cvt|309|kW|PS bhp|0}} (at 6,500&nbsp;rpm) {{cvt|515|Nm|lbft|0}} (at 3,500&nbsp;rpm) V8 (Cayenne GTS)
+*2015–2017 {{cvt|3604|cc|L|1|order=flip}} {{cvt|324|kW|PS bhp|0}} (at 6,000&nbsp;rpm) {{cvt|600|Nm|lbft|0}} (at 1,600–5,000&nbsp;rpm) biturbo V6 (Cayenne GTS)
+*2010–2014 {{cvt|4806|cc|L|1|order=flip}} {{cvt|368|kW|PS bhp|0}} (at 6,000&nbsp;rpm) {{cvt|700|Nm|lbft|0}} (at 2,250–4,500&nbsp;rpm) biturbo V8 (Cayenne Turbo)
+*2014–2017 {{cvt|4806|cc|L|1|order=flip}} {{cvt|382|kW|PS bhp|0}} (at 6,000&nbsp;rpm) {{cvt|750|Nm|lbft|0}} (at 2,250–4,000&nbsp;rpm) biturbo V8 (Cayenne Turbo)
+*2013–2015 {{cvt|4806|cc|L|1|order=flip}} {{cvt|405|kW|PS bhp|0}} (at 6,000&nbsp;rpm) {{cvt|750|Nm|lbft|0}} (at 2,250–4,500&nbsp;rpm) biturbo V8 (Cayenne Turbo S)
+*2015–2017 {{cvt|4806|cc|L|1|order=flip}} {{cvt|419|kW|PS bhp|0}} (at 6,000&nbsp;rpm) {{cvt|800|Nm|lbft|0}} (at 2,500–4,000&nbsp;rpm) biturbo V8 (Cayenne Turbo S)
+
+*2010–2018 {{cvt|2967|cc|L|1|order=flip}} {{cvt|176|kW|PS bhp|0}} (at 3,800–4,400&nbsp;rpm) {{cvt|550|Nm|lbft|0}} (at 1,750–2,750&nbsp;rpm) turbo V6 (Cayenne Diesel)
+*2015–2018 {{cvt|2967|cc|L|1|order=flip}} {{cvt|193|kW|PS bhp|0}} (at 4,000&nbsp;rpm) {{cvt|580|Nm|lbft|0}} (at 1,750–2,500&nbsp;rpm) turbo V6 (Cayenne Diesel)
+*2012–2014 {{cvt|4134|cc|L|1|order=flip}} {{cvt|281|kW|PS bhp|0}} (at 3,750&nbsp;rpm) {{cvt|850|Nm|lbft|0}} (at 2,000–2,750&nbsp;rpm) turbo V8 (Cayenne S Diesel)
+*2014–2018 {{cvt|4134|cc|L|1|order=flip}} {{cvt|283|kW|PS bhp|0}} (at 3,750&nbsp;rpm) {{cvt|850|Nm|lbft|0}} (at 2,000–2,750&nbsp;rpm) turbo V8 (Cayenne S Diesel)
+
+{{Table alignment}}
+{| class="wikitable defaultcenter col1left"
+|+ Porsche 92A/E2/958 engines
+|-
+! Vehicle !! Engine !! MY !! Engine numbers
+|-
+| Cayenne diesel || 059E || 2011 || CAS 0001>999999
+|-
+| Cayenne CHINA ID11 || 06EC || 2011 || __B 00501>99999
+|-
+| Cayenne hybrid || 06EC || 2011 || __B 00501>99999
+|-
+| Cayenne S || 4802 || 2011 || __B 00501>59999
+|-
+| Cayenne S I1A5 || 4802 || 2011 || _VB 00501>59999
+|-
+| Cayenne Turbo || 4852 || 2011 || __B 00501>99999
+|-
+| Cayenne || 5502 || 2011 || __B 01001>99999
+|-
+| Cayenne hybrid (C33) || CGE || 2012 || CGE 0001>999999
+|-
+| Cayenne hybrid || CGEA || 2012 || CGE 0001>999999
+|-
+| Cayenne hybrid I553 || CGFA || 2012 || CGF 0001>999999
+|-
+| Cayenne CHINA ID11 || CJT || 2012 || CJT 0001>999999
+|-
+| Cayenne diesel (C33) || CRC || 2012 || CRC 0001>999999
+|-
+| Cayenne diesel || CRCA || 2012 || CRC 0001>999999
+|-
+| Cayenne diesel (C22/C20) || CRCB || 2012 || CRC 0001>999999
+|-
+| Cayenne S || 4802 || 2012 || __C 00501>99999
+|-
+| Cayenne S I1A5 || 4802 || 2012 || _VC 00501>99999
+|-
+| Cayenne Turbo || 4852 || 2012 || __C 00501>99999
+|-
+| Cayenne Turbo kit (IE81) || 4852 || 2012 || S_C 00501>99999
+|-
+| Cayenne || 5502 || 2012 || __C 01001>99999
+|-
+| Cayenne hybrid (C33) || CGE || 2013 || CGE 0001>999999
+|-
+| Cayenne hybrid || CGEA || 2013 || CGE 0001>999999
+|-
+| Cayenne hybrid I553 || CGFA || 2013 || CGF 0001>999999
+|-
+| Cayenne CHINA ID11 || CJT || 2013 || CJT 0001>999999
+|-
+| Cayenne CHINA ID11 || CJTB || 2013 || CJT 0001>999999
+|-
+| Cayenne diesel (USA.CDN) || CNRB || 2013 || CNR 0001>999999
+|-
+| Cayenne diesel (C33) || CRC || 2013 || CRC 0001>999999
+|-
+| Cayenne diesel || CRCA || 2013 || CRC 0001>999999
+|-
+| Cayenne diesel (C22/C20) || CRCB || 2013 || CRC 0001>999999
+|-
+| Cayenne V8 diesel (IDD8) || CUDB || 2013 || CUD 0001>999999
+|-
+| Cayenne S || 4802 || 2013 || __D 00501>99999
+|-
+| Cayenne S I1A5 || 4802 || 2013 || _VD 00501>99999
+|-
+| Cayenne GTS || 4802 || 2013 || G_D 00501>99999
+|-
+| Cayenne GTS I1A5 || 4802 || 2013 || GVD 00501>99999
+|-
+| Cayenne Turbo || 4852 || 2013 || __D 00501>99999
+|-
+| Cayenne Turbo kit (IE81) || 4852 || 2013 || S_D 00501>99999
+|-
+| Cayenne || 5502 || 2013 || __D 01001>99999
+|-
+| Cayenne hybrid (C33) || CGE || 2014 || CGE 0001>999999
+|-
+| Cayenne hybrid || CGEA || 2014 || CGE 0001>999999
+|-
+| Cayenne hybrid I553 || CGFA || 2014 || CGF 0001>999999
+|-
+| Cayenne CHINA ID11 || CJT || 2014 || CJT 0001>999999
+|-
+| Cayenne diesel (USA.CDN) || CNRB || 2014 || CNR 0001>999999
+|-
+| Cayenne diesel (C33) || CRC || 2014 || CRC 0001>999999
+|-
+| Cayenne diesel || CRCA || 2014 || CRC 0001>999999
+|-
+| Cayenne diesel (C22/C20) || CRCB || 2014 || CRC 0001>999999
+|-
+| Cayenne V8 diesel (IDD8) || CUDB || 2014 || CUD 0001>999999
+|-
+| Cayenne S || 4802 || 2014 || __E 00501>99999
+|-
+| Cayenne S I1A5 || 4802 || 2014 || _VE 00501>99999
+|-
+| Cayenne GTS || 4802 || 2014 || G_E 00501>99999
+|-
+| Cayenne GTS I1A5 || 4802 || 2014 || GVE 00501>99999
+|-
+| Cayenne Turbo || 4852 || 2014 || __E 00501>99999
+|-
+| Cayenne Turbo kit (IE81) || 4852 || 2014 || S_E 00501>99999
+|-
+| Cayenne Turbo S (IE8A) || 4852 || 2014 || T_E 00501>99999
+|-
+| Cayenne || 5502 || 2014 || __E 01001>99999
+|-
+| Cayenne || CEYA || 2015 || CEY 0001>999999
+|-
+| Cayenne V8 Turbo || CFTB || 2015 || CFT 0501>999999
+|-
+| Cayenne hybrid (C33) || CGE || 2015 || CGE 0001>999999
+|-
+| Cayenne hybrid || CGEA || 2015 || CGE 0001>999999
+|-
+| Cayenne hybrid I553 || CGFA || 2015 || CGF 0001>999999
+|-
+| Cayenne CHINA ID11 || CJT || 2015 || CJT 0001>999999
+|-
+| Cayenne diesel (USA.CDN) || CNRB || 2015 || CNR 0001>999999
+|-
+| Cayenne V8 diesel (IDD8) || CUDC || 2015 || CUD 0001>999999
+|-
+| Cayenne V6 Turbo || CURA || 2015 || CUR 0501>999999
+|-
+| Cayenne diesel || CVVA || 2015 || CVV 0001>999999
+|-
+| Cayenne diesel (C07) || CVVB || 2015 || CVV 0001>999999
+|-
+| Cayenne diesel (C22) || CVVC || 2015 || CVV 0001>999999
+|-
+| Cayenne V6 Turbo GTS || CXZA || 2015 || CXZ 0501>999999
+|-
+| Cayenne || CEYA || 2016 || CEY 0001>999999
+|-
+| Cayenne V8 Turbo || CFTB || 2016 || CFT 0501>999999
+|-
+| Cayenne hybrid (C33) || CGE || 2016 || CGE 0001>999999
+|-
+| Cayenne hybrid || CGEA || 2016 || CGE 0001>999999
+|-
+| Cayenne hybrid I553 || CGFA || 2016 || CGF 0001>999999
+|-
+| Cayenne CHINA ID11 || CJT || 2016 || CJT 0001>999999
+|-
+| Cayenne diesel (USA.CDN) || CNRB || 2016 || CNR 0001>999999
+|-
+| Cayenne V8 diesel (IDD8) || CUDC || 2016 || CUD 0001>999999
+|-
+| Cayenne V6 Turbo || CURA || 2016 || CUR 0501>999999
+|-
+| Cayenne diesel || CVVA || 2016 || CVV 0001>999999
+|-
+| Cayenne diesel (C07) || CVVB || 2016 || CVV 0001>999999
+|-
+| Cayenne diesel (C22) || CVVC || 2016 || CVV 0001>999999
+|-
+| Cayenne V6 Turbo GTS || CXZA || 2016 || CXZ 0501>999999
+|-
+| Cayenne V8 Turbo S || CYXA || 2016 || CYX 0501>999999
+|-
+| Cayenne || CEYA || 2017 || CEY 0001>999999
+|-
+| Cayenne V8 Bi-Turbo || CFTB || 2017 || CFT 0501>999999
+|-
+| Cayenne hybrid (C33) || CGE || 2017 || CGE 0001>999999
+|-
+| Cayenne hybrid || CGEA || 2017 || CGE 0001>999999
+|-
+| Cayenne hybrid I553 || CGFA || 2017 || CGF 0001>999999
+|-
+| Cayenne CHN VNM ID11 || CJT || 2017 || CJT 0001>999999
+|-
+| Cayenne diesel (USA.CDN) || CNRB || 2017 || CNR 0001>999999
+|-
+| Cayenne diesel || CRCA || 2017 || CRC 0001>999999
+|-
+| Cayenne V8 diesel (IDD8) || CUDC || 2017 || CUD 0001>999999
+|-
+| Cayenne V6 Bi-Turbo || CURA || 2017 || CUR 0501>999999
+|-
+| Cayenne diesel || CVVA || 2017 || CVV 0001>999999
+|-
+| Cayenne diesel (C07) || CVVB || 2017 || CVV 0001>999999
+|-
+| Cayenne diesel (C22) || CVVC || 2017 || CVV 0001>999999
+|-
+| Cayenne V6 Bi-Turbo GTS || CXZA || 2017 || CXZ 0501>999999
+|-
+| Cayenne V8 Bi-Turbo S || CYXA || 2017 || CYX 0501>999999
+|-
+| Cayenne || CEYA || 2018 || CEY 0001>999999
+|-
+| Cayenne V8 Bi-Turbo (C33) || CFT || 2018 || CFT 0501>999999
+|-
+| Cayenne V8 Bi-Turbo || CFTB || 2018 || CFT 0501>999999
+|-
+| Cayenne hybrid (C33) || CGE || 2018 || CGE 0001>999999
+|-
+| Cayenne hybrid || CGEA || 2018 || CGE 0001>999999
+|-
+| Cayenne hybrid I553 || CGFA || 2018 || CGF 0001>999999
+|-
+| Cayenne CHN VNM ID11 || CJT || 2018 || CJT 0001>999999
+|-
+| Cayenne diesel (USA.CDN) || CNRB || 2018 || CNR 0001>999999
+|-
+| Cayenne diesel || CRCA || 2018 || CRC 0001>999999
+|-
+| Cayenne V8 diesel (IDD8) || CUDC || 2018 || CUD 0001>999999
+|-
+| Cayenne V6 Bi-Turbo C33) || CUR || 2018 || CUR 0501>999999
+|-
+| Cayenne V6 Bi-Turbo || CURA || 2018 || CUR 0501>999999
+|-
+| Cayenne diesel || CVVA || 2018 || CVV 0001>999999
+|-
+| Cayenne diesel (C07) || CVVB || 2018 || CVV 0001>999999
+|-
+| Cayenne diesel (C22) || CVVC || 2018 || CVV 0001>999999
+|-
+| Cayenne V6 Bi-Turbo GTS || CXZA || 2018 || CXZ 0501>999999
+|-
+| Cayenne V6 Bi-Turbo GTS C33) || CXZA || 2018 || CXZ 0501>999999
+|-
+| Cayenne V8 Bi-Turbo S || CYXA || 2018 || CYX 0501>999999
+|-
+| Cayenne V8 Bi-Turbo S C33) || CYXA || 2018 || CYX 0501>999999
+|}
+
+9Y0/9YA/9YB/PO536
+*2017–present {{cvt|2995|cc|L|1|order=flip}} {{cvt|250|kW|PS bhp|0}} (at 5,300–6,400&nbsp;rpm) {{cvt|450|Nm|lbft|0}} (at 1,350–5,300&nbsp;rpm) EA839 water-cooled turbo DOHC 24-valve V6 (VarioCam Plus) (Cayenne,  Cayenne Coupé,  Cayenne E-Hybrid,  Cayenne Coupé E-Hybrid)
+*2017–present {{cvt|2894|cc|L|1|order=flip}} {{cvt|324|kW|PS bhp|0}} (at 5,700–6,600&nbsp;rpm) {{cvt|550|Nm|lbft|0}} (at 1,800–5,500&nbsp;rpm) EA839 water-cooled biturbo DOHC 24-valve V6 (VarioCam Plus) (Cayenne S)
+*2017–2018 {{cvt|3996|cc|L|1|order=flip}} {{cvt|404|kW|PS bhp|0}} (at 5,750–6,000&nbsp;rpm) {{cvt|770|Nm|lbft|0}} (at 1,960–4,500&nbsp;rpm) EA825 water-cooled biturbo DOHC 32-valve V8 (VarioCam Plus) (Cayenne Turbo)
+*2019–present {{cvt|3996|cc|L|1|order=flip}} {{cvt|404|kW|PS bhp|0}} (at 5,750–6,000&nbsp;rpm) {{cvt|770|Nm|lbft|0}} (at 2,000–4,500&nbsp;rpm) EA825 water-cooled biturbo DOHC 32-valve V8 (VarioCam Plus) (Cayenne Turbo,  Cayenne Coupé Turbo,  Cayenne Turbo S E-Hybrid,  Cayenne Coupé Turbo S E-Hybrid)
+
+=== [[Porsche Macan]] (95B) ===
+95B
+*2014–2018 {{cvt|1984|cc|L|1|order=flip}} {{cvt|174|kW|PS bhp|0}} (at 5000–6800&nbsp;rpm) {{cvt|350|Nm|lbft|0}} (at 1450–4500&nbsp;rpm) [[List of Volkswagen Group petrol engines#EA888|VW EA888]] turbo inline four-cylinder
+*2016–2018 {{cvt|1984|cc|L|1|order=flip}} {{cvt|185|kW|PS bhp|0}} (at 5000–6800&nbsp;rpm) {{cvt|370|Nm|lbft|0}} (at 1600–4500&nbsp;rpm) [[List of Volkswagen Group petrol engines#EA888|VW EA888]] turbo inline four-cylinder
+*2014–2018 {{cvt|2997|cc|L|1|order=flip}} {{cvt|250|kW|PS bhp|0}} (at 5500–6500&nbsp;rpm) {{cvt|460|Nm|lbft|0}} (at 1450–5000&nbsp;rpm) turbo V6 (Macan S)
+*2015–2018 {{cvt|2997|cc|L|1|order=flip}} {{cvt|265|kW|PS bhp|0}} (at 6000&nbsp;rpm) {{cvt|500|Nm|lbft|0}} (at 1650–4000&nbsp;rpm) turbo V6 (Macan GTS)
+*2014–2018 {{cvt|3604|cc|L|1|order=flip}} {{cvt|294|kW|PS bhp|0}} (at 6000&nbsp;rpm) {{cvt|550|Nm|lbft|0}} (at 1350–4500&nbsp;rpm) turbo V6 (Macan Turbo)
+*2016–2018 {{cvt|3604|cc|L|1|order=flip}} {{cvt|324|kW|PS bhp|0}} (at 6000&nbsp;rpm) {{cvt|600|Nm|lbft|0}} (at 1500–4500&nbsp;rpm) turbo V6 (Macan Turbo with Performance Package)
+
+*2014–2018 {{cvt|2967|cc|L|1|order=flip}} {{cvt|155|kW|PS bhp|0}} (at 2750–4000&nbsp;rpm) {{cvt|580|Nm|lbft|0}} (at 1750–2500&nbsp;rpm) turbo V6 (Macan S Diesel)
+*2014–2018 {{cvt|2967|cc|L|1|order=flip}} {{cvt|184|kW|PS bhp|0}} (at 3500–4600&nbsp;rpm) {{cvt|580|Nm|lbft|0}} (at 1750–2500&nbsp;rpm) turbo V6 (Macan S Diesel)
+*2014–2018 {{cvt|2967|cc|L|1|order=flip}} {{cvt|190|kW|PS bhp|0}} (at 4000–4250&nbsp;rpm) {{cvt|580|Nm|lbft|0}} (at 1750–2500&nbsp;rpm) turbo V6 (Macan S Diesel)
+
+95B II
+*2018–present {{cvt|1984|cc|L|1|order=flip}} {{cvt|180|kW|PS bhp|0}} (at 5000–6750&nbsp;rpm) {{cvt|370|Nm|lbft|0}} (at 1600–4500&nbsp;rpm) [[List of Volkswagen Group petrol engines#EA888|VW EA888]] turbo inline four-cylinder
+*2018–present {{cvt|2995|cc|L|1|order=flip}} {{cvt|260|kW|PS bhp|0}} (at 5400–6400&nbsp;rpm) {{cvt|480|Nm|lbft|0}} (at 1360–4800&nbsp;rpm) VW EA839 turbo V6 (Macan S)
+*2019–present {{cvt|2894|cc|L|1|order=flip}} {{cvt|280|kW|PS bhp|0}} (at 5200–6700&nbsp;rpm) {{cvt|520|Nm|lbft|0}} (at 1750–5000&nbsp;rpm) VW EA839 bi-turbo V6 (Macan GTS)
+*2019–present {{cvt|2894|cc|L|1|order=flip}} {{cvt|324|kW|PS bhp|0}} (at 5700–6600&nbsp;rpm) {{cvt|550|Nm|lbft|0}} (at 1800–5600&nbsp;rpm) VW EA839 bi-turbo V6 (Macan Turbo)
+
+{{Table alignment}}
+{| class="wikitable defaultcenter col1left"
+|+ Porsche 95B/95B II engines
+|-
+! Vehicle !! Engine !! MY !! Engine numbers
+|-
+| Macan V6 TDI || CDUD || 2014 || CDU 0001>999999
+|-
+| Macan V6 TDI || CTBA || 2014 || CTB 0001>999999
+|-
+| Macan V6 TDI || CTBB || 2014 || CTB 0001>999999
+|-
+| Macan V6 TDI || CTBC || 2014 || CTB 0001>999999
+|-
+| Macan Turbo || CTLA || 2014 || CTL 0001>999999
+|-
+| Macan S || CTMA || 2014 || CTM 0001>999999
+|-
+| Macan V6 TDI || CDUD || 2015 || CDU 0001>999999
+|-
+| Macan (C33) || CNC || 2015 || CNC 0001>999999
+|-
+| Macan || CNCC || 2015 || CNC 0001>999999
+|-
+| Macan V6 TDI || CTBA || 2015 || CTB 0001>999999
+|-
+| Macan V6 TDI || CTBB || 2015 || CTB 0001>999999
+|-
+| Macan V6 TDI || CTBC || 2015 || CTB 0001>999999
+|-
+| Macan Turbo || CTLA || 2015 || CTL 0001>999999
+|-
+| Macan S || CTMA || 2015 || CTM 0001>999999
+|-
+| Macan C39 (KOR) || CYNA || 2015 || CYN 0001>999999
+|-
+| Macan V6 TDI || CDUD || 2016 || CDU 0001>999999
+|-
+| Macan (C33) || CNC || 2016 || CNC 0001>999999
+|-
+| Macan || CNCC || 2016 || CNC 0001>999999
+|-
+| Macan V6 TDI || CNRB || 2016 || CNR 0001>999999
+|-
+| Macan V6 TDI BiN5 || CPNB || 2016 || CPN 0001>999999
+|-
+| Macan V6 TDI || CTBA || 2016 || CTB 0001>999999
+|-
+| Macan V6 TDI || CTBB || 2016 || CTB 0001>999999
+|-
+| Macan V6 TDI || CTBC || 2016 || CTB 0001>999999
+|-
+| Macan Turbo || CTLA || 2016 || CTL 0001>999999
+|-
+| Macan S || CTMA || 2016 || CTM 0001>999999
+|-
+| Macan C39 (KOR) || CYNA || 2016 || CYN 0001>999999
+|-
+| Macan R4 TFSI (USA) || CYNB || 2016 || CYN 0001>999999
+|-
+| Macan R4 TFSI || CYPA || 2016 || CYP 0001>999999
+|-
+| Macan Bi-Turbo GTS || DCNA || 2016 || DCN 0001>999999
+|-
+| Macan V6 TDI || CDUD || 2017 || CDU 0001>999999
+|-
+| Macan (C33) || CNC || 2017 || CNC 0001>999999
+|-
+| Macan || CNCC || 2017 || CNC 0001>999999
+|-
+| Macan V6 TDI || CNRB || 2017 || CNR 0001>999999
+|-
+| Macan V6 TDI BiN5 || CPNB || 2017 || CPN 0001>999999
+|-
+| Macan V6 TDI || CTBA || 2017 || CTB 0001>999999
+|-
+| Macan V6 TDI || CTBB || 2017 || CTB 0001>999999
+|-
+| Macan V6 TDI || CTBC || 2017 || CTB 0001>999999
+|-
+| Macan Turbo || CTLA || 2017 || CTL 0001>999999
+|-
+| Macan S || CTMA || 2017 || CTM 0001>999999
+|-
+| Macan C39 (KOR) || CYNA || 2017 || CYN 0001>999999
+|-
+| Macan R4 TFSI (USA) || CYNB || 2017 || CYN 0001>999999
+|-
+| Macan R4 TFSI || CYPA || 2017 || CYP 0001>999999
+|-
+| Macan Bi-Turbo GTS C33 || DCN || 2017 || DCN 0001>999999
+|-
+| Macan Bi-Turbo GTS || DCNA || 2017 || DCN 0001>999999
+|-
+| Macan Turbo kit C33 || DHK || 2017 || DHK 0001>999999
+|-
+| Macan Turbo kit || DHKA || 2017 || DHK 0001>999999
+|-
+| Macan V6 TDI || CDUD || 2018 || CDU 0001>999999
+|-
+| Macan (C33) || CNC || 2018 || CNC 0001>999999
+|-
+| Macan || CNCC || 2018 || CNC 0001>999999
+|-
+| Macan V6 TDI || CNRB || 2018 || CNR 0001>999999
+|-
+| Macan V6 TDI || CTBA || 2018 || CTB 0001>999999
+|-
+| Macan V6 TDI || CTBB || 2018 || CTB 0001>999999
+|-
+| Macan V6 TDI || CTBC || 2018 || CTB 0001>999999
+|-
+| Macan Turbo C33 || CTL || 2018 || CTL 0001>999999
+|-
+| Macan Turbo || CTLA || 2018 || CTL 0001>999999
+|-
+| Macan S C33 || CTM || 2018 || CTM 0001>999999
+|-
+| Macan S || CTMA || 2018 || CTM 0001>999999
+|-
+| Macan C39 (KOR) || CYNA || 2018 || CYN 0001>999999
+|-
+| Macan R4 TFSI (USA) || CYNB || 2018 || CYN 0001>999999
+|-
+| Macan R4 TFSI C33 || CYP || 2018 || CYP 0001>999999
+|-
+| Macan R4 TFSI || CYPA || 2018 || CYP 0001>999999
+|-
+| Macan Bi-Turbo GTS C33 || DCN || 2018 || DCN 0001>999999
+|-
+| Macan Bi-Turbo GTS || DCNA || 2018 || DCN 0001>999999
+|-
+| Macan Turbo kit C33 || DHK || 2018 || DHK 0001>999999
+|-
+| Macan Turbo kit || DHKA || 2018 || DHK 0001>999999
+|-
+| Macan R4 TFSI C33 || DLH || 2018 || DHK 0001>999999
+|-
+| Macan R4 TFSI C33 || DLHB || 2018 || DHK 0001>999999
+|}
+
+=== [[Porsche Panamera]] (970/971) ===
+[[File:Porsche Panamera Engine.jpg|thumb|right|Panamera Turbo: 4.8L V8 twin turbo]]
+970
+
+*2010–2013 {{cvt|3605|cc|L|1|order=flip}} {{cvt|300|PS|kW bhp|0}} (at 6,200&nbsp;rpm) {{cvt|400|Nm|lbft|0}} (at 4,250&nbsp;rpm) water-cooled DOHC 24-valve V6 (VarioCam Plus)
+*2009–2013 {{cvt|4806|cc|L|1|order=flip}} {{cvt|400|PS|kW bhp|0}} (at 6,500&nbsp;rpm) {{cvt|500|Nm|lbft|0}} (at 3,500–5,000&nbsp;rpm) water-cooled DOHC 32-valve V8 (VarioCam Plus) (Panamera S/4S)
+*2011–2013 {{cvt|2995|cc|L|1|order=flip}} {{cvt|380|PS|kW bhp|0}} (at 5,500&nbsp;rpm) {{cvt|580|Nm|lbft|0}} (at 1,750–5,250&nbsp;rpm) water-cooled supercharged DOHC 24-valve V6 (Panamera S Hybrid)
+*2009–2013 {{cvt|4806|cc|L|1|order=flip}} {{cvt|430|PS|kW bhp|0}} (at 6,700&nbsp;rpm) {{cvt|520|Nm|lbft|0}} (at 3,500&nbsp;rpm) water-cooled DOHC 32-valve V8 (VarioCam Plus) (Panamera GTS)
+*2009–2013 {{cvt|4806|cc|L|1|order=flip}} {{cvt|500|PS|kW bhp|0}} (at 6,000&nbsp;rpm) {{cvt|700|Nm|lbft|0}} (at 2,250–4,500&nbsp;rpm) water-cooled biturbo DOHC 32-valve V8 (VarioCam Plus) (Panamera Turbo)
+*2011–2013 {{cvt|4806|cc|L|1|order=flip}} {{cvt|550|PS|kW bhp|0}} (at 6,000&nbsp;rpm) {{cvt|750|Nm|lbft|0}} (at 2,500–4,000&nbsp;rpm) water-cooled biturbo DOHC 32-valve V8 (VarioCam Plus) (Panamera Turbo S)
+*2011–2013 {{cvt|2967|cc|L|1|order=flip}} {{cvt|250|PS|kW bhp|0}} (at 3,800–4,000&nbsp;rpm) {{cvt|550|Nm|lbft|0}} (at 1,750–2,750&nbsp;rpm) water-cooled DOHC 24-valve V6 (Panamera Diesel)
+
+*2013–2016 {{cvt|3605|cc|L|1|order=flip}} {{cvt|310|PS|kW bhp|0}} (at 6,200&nbsp;rpm) {{cvt|400|Nm|lbft|0}} (at 3,750&nbsp;rpm) water-cooled DOHC 24-valve V6 (VarioCam Plus)
+*2013–2016 {{cvt|2997|cc|L|1|order=flip}} {{cvt|420|PS|kW bhp|0}} (at 6,000&nbsp;rpm) {{cvt|520|Nm|lbft|0}} (at 1,750–5,000&nbsp;rpm) water-cooled biturbo DOHC 24-valve V6 (VarioCam Plus) (Panamera S/4S/4S Executive)
+*2013–2016 {{cvt|2995|cc|L|1|order=flip}} {{cvt|416|PS|kW bhp|0}} (at 5,500&nbsp;rpm) {{cvt|590|Nm|lbft|0}} (at 1,750–5,250&nbsp;rpm) water-cooled supercharged DOHC 24-valve V6 (Panamera S E-hybrid)
+*2013–2016 {{cvt|4806|cc|L|1|order=flip}} {{cvt|440|PS|kW bhp|0}} (at 6,700&nbsp;rpm) {{cvt|520|Nm|lbft|0}} (at 3,500&nbsp;rpm) water-cooled DOHC 32-valve V8 (VarioCam Plus) (Panamera GTS)
+*2013–2016 {{cvt|4806|cc|L|1|order=flip}} {{cvt|520|PS|kW bhp|0}} (at 6,000&nbsp;rpm) {{cvt|700–770|Nm|lbft|0}} (at 2,250–4,500&nbsp;rpm) water-cooled biturbo DOHC 32-valve V8 (VarioCam Plus) (Panamera Turbo/Turbo Executive)
+*2013–2016 {{cvt|4806|cc|L|1|order=flip}} {{cvt|570|PS|kW bhp|0}} (at 6,000&nbsp;rpm) {{cvt|750–800|Nm|lbft|0}} (at 2,250–5,000&nbsp;rpm) water-cooled biturbo DOHC 32-valve V8 (VarioCam Plus) (Panamera Turbo S/Turbo S Executive)
+*2013–2015 {{cvt|2967|cc|L|1|order=flip}} {{cvt|300|PS|kW bhp|0}} (at 3,800–4,000&nbsp;rpm) {{cvt|650|Nm|lbft|0}} (at 1,750–2,750&nbsp;rpm) water-cooled DOHC 24-valve V6 (Panamera Diesel)
+
+{{Table alignment}}
+{| class="wikitable defaultcenter col1left"
+|+ Porsche 970 engines
+|-
+! Vehicle !! Engine !! MY !! Engine numbers
+|-
+| Panamera S I338 || 4820 || 2010 || __A 00501>99999
+|-
+| Panamera S I339 || 4840 || 2010 || __A 00501>99999
+|-
+| Panamera Turbo I339 || 4870 || 2010 || __A 00501>99999
+|-
+| Panamera I338 || 4620 || 2011 || __B 00501>59999
+|-
+| Panamera I338 I145 || 4620 || 2011 || _VB 00501>59999
+|-
+| Panamera I339 || 4640 || 2011 || __B 00501>59999
+|-
+| Panamera I339 I145 || 4640 || 2011 || _VB 00501>59999
+|-
+| Panamera S I338 || 4820 || 2011 || __B 00501>59999
+|-
+| Panamera S I339 || 4840 || 2011 || __B 00501>59999
+|-
+| Panamera Turbo I339 || 4870 || 2011 || __B 00501>59999
+|-
+| Panamera hybrid (C33) || CGE || 2012 || CGE 0001>999999
+|-
+| Panamera hybrid || CGEA || 2012 || CGE 0001>999999
+|-
+| Panamera hybrid I553 || CGFA || 2012 || CGF 0001>999999
+|-
+| Panamera diesel (C33) || CRC || 2012 || CRC 0001>999999
+|-
+| Panamera diesel (C22/C20) || CRCB || 2012 || CRC 0001>999999
+|-
+| Panamera diesel || CRCC || 2012 || CRC 0001>999999
+|-
+| Panamera I338 || 4620 || 2012 || __C 00501>60000
+|-
+| Panamera I338 I145 || 4620 || 2012 || _VC 00501>60000
+|-
+| Panamera I339 || 4640 || 2012 || __C 00501>60000
+|-
+| Panamera I339 I145 || 4640 || 2012 || _VC 00501>60000
+|-
+| Panamera S I338 || 4820 || 2012 || __C 00501>60000
+|-
+| Panamera S I338 I145 || 4820 || 2012 || _VC 00501>60000
+|-
+| Panamera S I339 || 4840 || 2012 || __C 00501>60000
+|-
+| Panamera S I339 I145 || 4840 || 2012 || _VC 00501>60000
+|-
+| Panamera Turbo || 4870 || 2012 || __C 00501>60000
+|-
+| Panamera Turbo IX80 || 4870 || 2012 || S_C 00501>60000
+|-
+| Panamera Turbo I016 || 4870 || 2012 || T_C 00501>60000
+|-
+| Panamera hybrid (C33) || CGE || 2013 || CGE 0001>999999
+|-
+| Panamera hybrid || CGEA || 2013 || CGE 0001>999999
+|-
+| Panamera hybrid I553 || CGFA || 2013 || CGF 0001>999999
+|-
+| Panamera diesel (C33) || CRC || 2013 || CRC 0001>999999
+|-
+| Panamera diesel (C22/C20) || CRCB || 2013 || CRC 0001>999999
+|-
+| Panamera diesel || CRCC || 2013 || CRC 0001>999999
+|-
+| Panamera I339 || 4620 || 2013 || __D 00501>60000
+|-
+| Panamera I338 I145 || 4620 || 2013 || _VD 00501>60000
+|-
+| Panamera I339 || 4640 || 2013 || __D 00501>60000
+|-
+| Panamera I339 I145 || 4640 || 2013 || _VD 00501>60000
+|-
+| Panamera S I338 || 4820 || 2013 || __D 00501>60000
+|-
+| Panamera S I338 I145 || 4820 || 2013 || _VD 00501>60000
+|-
+| Panamera S I339 || 4840 || 2013 || __D 00501>60000
+|-
+| Panamera S I339 I145 || 4840 || 2013 || _VD 00501>60000
+|-
+| Panamera GTS I339 I015 || 4840 || 2013 || G_D 00501>60000
+|-
+| Panamera GTS I339 I015 I145 || 4840 || 2013 || GVD 00501>60000
+|-
+| Panamera Turbo || 4870 || 2013 || __D 00501>60000
+|-
+| Panamera Turbo IX80 || 4870 || 2013 || S_D 00501>60000
+|-
+| Panamera Turbo I016 || 4870 || 2013 || T_D 00501>60000
+|-
+| Panamera hybrid (C33) || CGE || 2014 || CGE 0001>999999
+|-
+| Panamera hybrid || CGEA || 2014 || CGE 0001>999999
+|-
+| Panamera hybrid I553 || CGFA || 2014 || CGF 0001>999999
+|-
+| Panamera diesel (C33) || CRC || 2014 || CRC 0001>999999
+|-
+| Panamera diesel (C22/C20) || CRCB || 2014 || CRC 0001>999999
+|-
+| Panamera diesel || CRCC || 2014 || CRC 0001>999999
+|-
+| Panamera || CWAA || 2014 || CWA 0001>999999
+|-
+| Panamera Turbo || CWBA || 2014 || CWB 0001>999999
+|-
+| Panamera Turbo I016 || CWCA || 2014 || CWC 0001>999999
+|-
+| Panamera S I144 || CWDA || 2014 || CWD 0001>999999
+|-
+| Panamera S I143 (C33) || CWF || 2014 || CWF 0001>999999
+|-
+| Panamera S I143 || CWFA || 2014 || CWF 0001>999999
+|-
+| Panamera diesel || CWJA || 2014 || CWJ 0001>999999
+|-
+| Panamera I145 || CXNA || 2014 || CXN 0001>999999
+|-
+| Panamera GTS I339 || CXPA || 2014 || CXP 0001>999999
+|-
+| Panamera GTS I339 I145 || CXRA || 2014 || CXR 0001>999999
+|-
+| Panamera hybrid (C33) || CGE || 2015 || CGE 0001>999999
+|-
+| Panamera hybrid || CGEA || 2015 || CGE 0001>999999
+|-
+| Panamera hybrid I553 || CGFA || 2015 || CGF 0001>999999
+|-
+| Panamera diesel (C22/C20) || CRCB || 2015 || CRC 0001>999999
+|-
+| Panamera diesel || CRCC || 2015 || CRC 0001>999999
+|-
+| Panamera || CWAA || 2015 || CWA 0001>999999
+|-
+| Panamera Turbo || CWBA || 2015 || CWB 0001>999999
+|-
+| Panamera Turbo I016 || CWCA || 2015 || CWC 0001>999999
+|-
+| Panamera S (C33) I144 || CWD || 2015 || CWD 0001>999999
+|-
+| Panamera S I144 || CWDA || 2015 || CWD 0001>999999
+|-
+| Panamera S (C33) I143 || CWF || 2015 || CWF 0001>999999
+|-
+| Panamera diesel || CWJA || 2015 || CWJ 0001>999999
+|-
+| Panamera I145 || CXNA || 2015 || CXN 0001>999999
+|-
+| Panamera GTS I339 || CXPA || 2015 || CXP 0001>999999
+|-
+| Panamera GTS I339 I145 || CXRA || 2015 || CXR 0001>999999
+|-
+| Panamera hybrid (C33) || CGE || 2016 || CGE 0001>999999
+|-
+| Panamera hybrid || CGEA || 2016 || CGE 0001>999999
+|-
+| Panamera hybrid I553 || CGFA || 2016 || CGF 0001>999999
+|-
+| Panamera diesel (C22/C20) || CRCB || 2016 || CRC 0001>999999
+|-
+| Panamera diesel || CRCC || 2016 || CRC 0001>999999
+|-
+| Panamera || CWAA || 2016 || CWA 0001>999999
+|-
+| Panamera Turbo (C33) || CWB || 2016 || CWB 0001>999999
+|-
+| Panamera Turbo || CWBA || 2016 || CWB 0001>999999
+|-
+| Panamera Turbo I016 (C33) || CWC || 2016 || CWC 0001>999999
+|-
+| Panamera Turbo I016 || CWCA || 2016 || CWC 0001>999999
+|-
+| Panamera S (C33) I144 || CWD || 2016 || CWD 0001>999999
+|-
+| Panamera S I144 || CWDA || 2016 || CWD 0001>999999
+|-
+| Panamera S (C33) I143 || CWF || 2016 || CWF 0001>999999
+|-
+| Panamera diesel || CWJA || 2016 || CWJ 0001>999999
+|-
+| Panamera I145 || CXNA || 2016 || CXN 0001>999999
+|-
+| Panamera GTS I339 || CXPA || 2016 || CXP 0001>999999
+|-
+| Panamera GTS I339 I145 (C33) || CXR || 2016 || CXR 0001>999999
+|-
+| Panamera GTS I339 I145 || CXRA || 2016 || CXR 0001>999999
+|}
+
+971
+
+*2016–2018 {{cvt|2995|cc|L|1|order=flip}} {{cvt|330|PS|kW bhp|0}} (at 5,400–6,400&nbsp;rpm) {{cvt|450|Nm|lbft|0}} (at 1,340–4,900&nbsp;rpm) EA839 water-cooled turbo DOHC 24-valve V6 (VarioCam Plus) (Panamera/Panamera Sport Turismo/Panamera 4/4 Sport Turismo/4 E-Hybrid/4 E-Hybrid Sport Turismo/4 Executive)
+*2016–2018 {{cvt|2894|cc|L|1|order=flip}} {{cvt|440|PS|kW bhp|0}} (at 5,650–6,600&nbsp;rpm) {{cvt|550|Nm|lbft|0}} (at 1,750–5,500&nbsp;rpm) EA839 water-cooled biturbo DOHC 24-valve V6 (VarioCam Plus) (Panamera 4S/4S Sport Turismo/4S Executive)
+*2016–2018 {{cvt|3996|cc|L|1|order=flip}} {{cvt|550|PS|kW bhp|0}} (at 5,750–6,000&nbsp;rpm) {{cvt|770|Nm|lbft|0}} (at 1,960–4,500&nbsp;rpm) EA825 water-cooled biturbo DOHC 32-valve V8 (VarioCam Plus) (Panamera Turbo/Turbo Sport Turismo/Turbo Executive/Turbo S E-Hybrid/Turbo S E-Hybrid Sport Turismo)
+*2016–2017 {{cvt|3956|cc|L|1|order=flip}} {{cvt|422|PS|kW bhp|0}} (at 3,500–5,000&nbsp;rpm) {{cvt|850|Nm|lbft|0}} (at 1,000–3,250&nbsp;rpm) EA898 water-cooled biturbo DOHC 32-valve V8 (Panamera 4S Diesel)
+
+*2019–present {{cvt|2995|cc|L|1|order=flip}} {{cvt|330|PS|kW bhp|0}} (at 5,400–6,400&nbsp;rpm) {{cvt|450|Nm|lbft|0}} (at 1,750–4,900&nbsp;rpm) EA839 water-cooled turbo DOHC 24-valve V6 (VarioCam Plus) (Panamera 4/4 Sport Turismo/4 Executive/4 Edition 10 Jahre/4 Sport Turismo Edition 10 Jahre/4 E-Hybrid/4 E-Hybrid Sport Turismo/4 E-Hybrid Executive/4 E-Hybrid Edition 10 Jahre)
+*2019–present {{cvt|2894|cc|L|1|order=flip}} {{cvt|440|PS|kW bhp|0}} (at 5,650–6,600&nbsp;rpm) {{cvt|550|Nm|lbft|0}} (at 2,000–5,500&nbsp;rpm) EA839 water-cooled biturbo DOHC 24-valve V6 (VarioCam Plus) (Panamera 4S/4S Sport Turismo/4S Executive)
+*2018–present {{cvt|3996|cc|L|1|order=flip}} {{cvt|460|PS|kW bhp|0}} (at 6,000–6,500&nbsp;rpm) {{cvt|620|Nm|lbft|0}} (at 1,800–4,500&nbsp;rpm) EA825 water-cooled biturbo DOHC 32-valve V8 (VarioCam Plus) (Panamera GTS/GTS Sport Turismo)
+*2018–present {{cvt|3996|cc|L|1|order=flip}} {{cvt|550|PS|kW bhp|0}} (at 5,750–6,000&nbsp;rpm) {{cvt|770|Nm|lbft|0}} (at 2,000–4,500&nbsp;rpm) EA825 water-cooled biturbo DOHC 32-valve V8 (VarioCam Plus) (Panamera Turbo/Turbo Sport Turismo/Turbo Executive/Turbo S E-Hybrid/Turbo S E-Hybrid Sport Turismo/Turbo S E-Hybrid Executive)
+
+{{Table alignment}}
+{| class="wikitable defaultcenter col1left"
+|+ Porsche 971 engines
+|-
+! Vehicle !! Engine !! MY !! Engine numbers !! Technical data
+|-
+| Panamera V6 Bi Turbo || MCS.ZA || 17 H || CSZ 0001>999999 || 6 Cyl / 2.9L / {{cvt|324|kW|hp|0}}
+|-
+| Panamera V6 Bi Turbo C33 || MCS.Z || 17 HCSZ  ||CSZ  0001>999999 || 6 Cyl / 2.9L / {{cvt|324|kW|hp|0}}
+|-
+| Panamera V6 Turbo || MCX.TA || 17 HCSZ  ||CSZ  0001>999999 || 6 Cyl / 3.0L / {{cvt|243|kW|hp|0}}
+|-
+| Panamera V6 Turbo C33 || MCX.T || 17 HCSZ  ||CSZ  0001>999999 || 6 Cyl / 3.0L / {{cvt|243|kW|hp|0}}
+|-
+| Panamera V8 diesel || MDB.UC || 17 HCSZ  ||CSZ  0001>999999 || 8 Cyl / 4.0L / {{cvt|310|kW|hp|0}}
+|-
+| Panamera PHEV || MDG.PA || 17 HCSZ  ||CSZ  0001>999999 || 6 Cyl / 2.9L / {{cvt|243|kW|hp|0}}
+|-
+| Panamera PHEV C33 || MDG.P || 17 HCSZ  ||CSZ  0001>999999 || 6 Cyl / 2.9L / {{cvt|243|kW|hp|0}}
+|-
+| Panamera V8 Bi Turbo 0K0 || MCV.DA || 17 H || CVD 0001>999999 || 8 Cyl / 4.0L / {{cvt|404|kW|hp|0}}
+|-
+| colspan=6 | —
+|-
+| Panamera V6 Bi Turbo || MCS.ZA || 18 J || CSZ 0001>999999 || 6 Cyl / 2.9L / {{cvt|324|kW|hp|0}}
+|-
+| Panamera V6 Turbo || MCX.TA || 18 J || CXT 0001>999999 || 6 Cyl / 3.0L / {{cvt|243|kW|hp|0}}
+|-
+| Panamera V8 diesel || MDB.UC || 18 J || DBU 0001>999999 || 8 Cyl / 4.0L / {{cvt|310|kW|hp|0}}
+|-
+| Panamera PHEV || MDG.PA || 18 J || DGP 0001>999999 || 6 Cyl / 2.9L / {{cvt|243|kW|hp|0}}
+|-
+| Panamera V8 Bi Turbo 0K0 || MCV.DA || 18 J || CVD 0001>999999 || 8 Cyl / 4.0L / {{cvt|404|kW|hp|0}}
+|-
+| Panamera PHEV V8 Bi Turbo 0K3 || MCV.DA || 18 J || CVD 0001>999999 || 8 Cyl / 4.0L / {{cvt|404|kW|hp|0}}
+|-
+| Panamera PHEV V8 Bi Turbo 0K3 || MCV.D || 18 J || CVD 0001>999999 || 8 Cyl / 4.0L / {{cvt|404|kW|hp|0}}
+|-
+| Panamera Diesel || MDE.PA || 18 J || DEP 0001>999999 || 6 Cyl / 3.0L / {{cvt|221|kW|hp|0}}
+|-
+| Panamera Diesel || MDE.PB || 18 J || DEP 0001>999999 || 6 Cyl / 3.0L / {{cvt|184|kW|hp|0}}
+|-
+| Panamera Diesel || MDE.RC || 18 J || DEP 0001>999999 || 6 Cyl / 3.0L / {{cvt|155|kW|hp|0}}
+|-
+| Panamera Diesel || MDE.RA || 18 J || DEP 0001>999999 || 6 Cyl / 3.0L / {{cvt|190|kW|hp|0}}
+|}
+
+=== [[Porsche RS Spyder]] (9R6) ===
+[[File:Porsche 9R6 RS Spyder - engine, gearbox and rear axle.jpg|thumb|right|RS Spyder: 3.4L MR6 V8]]
+* 2005–2010 {{cvt|3397|cc|L|1|order=flip}} MR6, DOHC, 32-valve, 90-degree V8
+
+=== [[Porsche Taycan]] (J1) ===
+[[File:Porsche Taycan at IAA 2019 IMG 0184.jpg|thumb|Taycan J1 platform]]
+*2019–present {{cvt|390|kW|PS hp|0}} ({{cvt|320|kW|PS hp|0}} without launch control/overboost) {{cvt|640|Nm|lbft|0}} of two [[Synchronous motor#Permanent-magnet|AC synchronous permanent magnet electric motors]] with 79.2 kWh liquid-cooled [[lithium-ion battery]] (4S)
+*2019–present {{cvt|420|kW|PS hp|0}} ({{cvt|360|kW|PS hp|0}} without launch control/overboost) {{cvt|650|Nm|lbft|0}} of two AC synchronous permanent magnet electric motors with 93.4 kWh liquid-cooled lithium-ion battery (4S with Performance Battery Plus)
+*2019–present {{cvt|500|kW|PS hp|0}} ({{cvt|460|kW|PS hp|0}} without launch control/overboost) {{cvt|850|Nm|lbft|0}} of two AC synchronous permanent magnet electric motors with 93.4 kWh liquid-cooled lithium-ion battery (Turbo)
+*2019–present {{cvt|560|kW|PS hp|0}} ({{cvt|460|kW|PS hp|0}} without launch control/overboost) {{cvt|1050|Nm|lbft|0}} of two AC synchronous permanent magnet electric motors with 93.4 kWh 723 V (835 V full, 610 V empty) 396 cell liquid-cooled lithium-ion battery (Turbo S)
+
+=== [[Arrows A11|Footwork Arrows A11C]] ===
+[[File:Porsche 3512 engine rear-left 2019 Prototyp Museum.jpg|thumb|right|Footwork Arrows A11C: 3.5L V12]]
+* 1991 {{cvt|3499|cc|L|1|order=flip}} [[Porsche 3512]] 80° V12
+
+=== McLaren MP4 ===
+[[File:TAG TTE PO1 engine front-right Porsche Museum.jpg|thumb|right|McLaren MP4/2: 1.5L V6 twin-turbo]]
+* 1983 {{cvt|1499|cc|L|1|order=flip}} TAG-Porsche TTE PO1 90° V6 ([[McLaren MP4/1]])
+* 1984–1986 {{cvt|1499|cc|L|1|order=flip}} {{cvt|485-597|kW|PS bhp|0}} TAG-Porsche TTE PO1 90° V6 ([[McLaren MP4/2]])
+* 1987 {{cvt|1499|cc|L|1|order=flip}} {{cvt|480-590|kW|PS bhp|0}} TAG-Porsche TTE PO1 90° V6 ([[McLaren MP4/3]])
+
+=== Porsche 9M0 ===
+{{see|Porsche Indy V8 engine}}
+*{{cvt|2650|cc|L|1|order=flip}} {{cvt|515-552|kW|PS bhp|0}} [[March Engineering|March]]-Porsche 9M0 90° Indy V8
+
+===Hemi-head engines===
+Some notable [[Hemi engine|hemi-head engines]] designed and used by Porsche in commercial production and race cars include the following:
+{{Table alignment}}
+{| class="wikitable defaultcenter col1left"
+!Year
+!Displacement
+!Power
+!Power per Litre
+!Notes
+|-
+|1964||2.0&nbsp;L||{{cvt|96|kW|hp|0}} at 6100&nbsp;rpm||65&nbsp;hp (48&nbsp;kW)/L||
+|-
+|1966||2.0&nbsp;L||{{cvt|157|kW|hp|0}}||105&nbsp;hp (78&nbsp;kW)/L||Carrera 6 race
+|-
+|1966||2.0&nbsp;L||{{cvt|119|kW|hp|0}} at 6600&nbsp;rpm||80&nbsp;hp (60&nbsp;kW)/L||S
+|-
+|1970||2.2&nbsp;L||{{cvt|134|kW|hp|0}} at 6800&nbsp;rpm||81&nbsp;hp (60&nbsp;kW)/L||S
+|-
+|1971||4.9&nbsp;L||{{cvt|470|kW|hp|0}}||128&nbsp;hp (95&nbsp;kW)/L||[[Porsche 917|917]] race
+|-
+|1973||5.4&nbsp;L||{{cvt|820|kW|hp|0}} at 7800&nbsp;rpm||203&nbsp;hp (151&nbsp;kW)/L||[[Porsche 917|917/30]] race, forced induction
+|-
+|1973||2.4&nbsp;L||{{cvt|142|kW|hp|0}} at 6500&nbsp;rpm||79&nbsp;hp (59&nbsp;kW)/L||S
+|-
+|1974||2.2&nbsp;L||{{cvt|373|kW|hp|0}}||227&nbsp;hp (169&nbsp;kW)/L||RSR T race, forced induction
+|-
+|1976||3.0&nbsp;L||{{cvt|194|kW|hp|0}}||86&nbsp;hp (64&nbsp;kW)/L||[[turbocharged]]
+|-
+|1985–95||5.0–5.4&nbsp;L||288–316–326–345&nbsp;hp (257&nbsp;kW)||66&nbsp;hp (49&nbsp;kW)/L||[[Porsche 928|928]] 32 valve, S, S4, GT, GTS
+|}
+
+== Heavy vehicle engines ==
+
+=== [[Porsche Junior]] engines ===
+* 1957–1961 {{cvt|822|cc|cuin}} {{cvt|10.3|kW|PS bhp}} air-cooled, four-stroke, single-cylinder diesel (Junior 4, 108 K/KH, 108 L/LH, 108 S, 108 V)<ref>{{cite web |url=http://porsche-traktor.com/porsche-diesel-junior-108-k-kh/ |website=porsche-traktor.com |title=Porsche-Diesel Junior 108 K / KH |language=de |access-date=2018-08-25}}</ref>
+* 1961–1963 {{cvt|875|cc}} {{cvt|11.2|kW|PS bhp}} air-cooled, four-stroke, single-cylinder diesel (Junior 109 G (V))<ref>{{cite web |url=http://porsche-traktor.com/porsche-diesel-junior-109-g-v/ |website=porsche-traktor.com |title=Porsche-Diesel Junior 109 G (V) |language=de |access-date=2018-08-25}}</ref>
+
+=== Porsche Standard engines ===
+
+*1960–1961 {{cvt|1374|cc|L|1|order=flip}} {{cvt|14.6|kW|PS bhp}} air-cooled, four-stroke, two-cylinder diesel (Standard T 217)<ref>{{cite web |url=http://porsche-traktor.com/porsche-diesel-standard-t-217/ |website=porsche-traktor.com |title=Porsche-Diesel Standard T 217 |language=de |access-date=2018-08-25}}</ref>
+*1957–1958 {{cvt|1531|cc|L|1|order=flip}} {{cvt|16|kW|PS bhp}} air-cooled, four-stroke, two-cylinder diesel (Standard AP/S)<ref>{{cite web |url=http://porsche-traktor.com/porsche-diesel-standard-ap-s/ |website=porsche-traktor.com |title=Porsche-Diesel Standard AP/S  |language=de |access-date=2018-08-25}}</ref>
+*1958–1960 {{cvt|1644|cc|L|1|order=flip}} {{cvt|14.6|kW|PS bhp}} air-cooled, four-stroke, two-cylinder diesel (Standard AP, U 218)<ref name="StandardAP">{{cite web |url=http://porsche-traktor.com/porsche-diesel-standard-ap/ |website=porsche-traktor.com |title=Porsche-Diesel Standard AP |language=de |access-date=2018-08-25}}</ref>
+*1958–1960 {{cvt|1644|cc|L|1|order=flip}} {{cvt|16.1|kW|PS bhp}} air-cooled, four-stroke, two-cylinder diesel (Standard AP, U 218)<ref name="StandardAP" />
+*1957–1960 {{cvt|1644|cc|L|1|order=flip}} {{cvt|18.3|kW|PS bhp}} air-cooled, four-stroke, two-cylinder diesel (Standard N 208, H 218, V 218)<ref>{{cite web |url=http://porsche-traktor.com/porsche-diesel-standard-n-208/ |website=porsche-traktor.com |title=Porsche-Diesel Standard N 208 |language=de |access-date=2018-08-25}}</ref>
+*1961–1962 {{cvt|1629|cc|L|1|order=flip}} {{cvt|19|kW|PS bhp}} air-cooled, four-stroke, two-cylinder diesel (Standard Star 238)<ref>{{cite web |url=http://porsche-traktor.com/porsche-diesel-standard-star-238/ |website=porsche-traktor.com |title=Porsche-Diesel Standard Star 238 |language=de |access-date=2018-08-25}}</ref>
+*1960–1963 {{cvt|1750|cc|L|1|order=flip}} {{cvt|22.1|kW|PS bhp}} air-cooled, four-stroke, two-cylinder diesel (Standard Star 219)<ref>{{cite web |url=http://porsche-traktor.com/porsche-diesel-standard-star-219/ |website=porsche-traktor.com |title=Porsche-Diesel Standard Star 219 |language=de |access-date=2018-08-25}}</ref>
+
+=== [[Porsche Super]] engines ===
+
+*1957–1962 {{cvt|2467|cc|L|1|order=flip}} {{cvt|27.8|kW|PS bhp}} [[Air-cooled engine|air-cooled]], four-stroke, three-cylinder [[Diesel engine|diesel]] (Super N 308, L 308, S 308, B 308)<ref>{{cite web |url=http://porsche-traktor.com/porsche-diesel-super-n-308/ |website=porsche-traktor.com |title=Porsche-Diesel Super N 308 |language=de |access-date=2018-08-25}}</ref>
+*1960–1961 {{cvt|2467|cc|L|1|order=flip}} {{cvt|29.4|kW|PS bhp}} air-cooled, four-stroke, three-cylinder diesel (Super L 318, L 319)<ref>{{cite web |url=http://porsche-traktor.com/porsche-diesel-super-l-318/ |website=porsche-traktor.com |title=Porsche-Diesel L 318 |language=de |access-date=2018-08-25}}</ref>
+*1961–1963 {{cvt|2625|cc|L|1|order=flip}} {{cvt|26|kW|PS bhp}} air-cooled, four-stroke, three-cylinder diesel (Super Export 329, Export 339)<ref>{{cite web |url=http://porsche-traktor.com/porsche-diesel-super-export-329/#Porsche_Diesel_Schlepper_219_238_Super_Export_329_339 |website=porsche-traktor.com |title=Porsche-Diesel Super Export 329 |language=de |access-date=2018-08-25}}</ref>
+*1962–1963 {{cvt|2625|cc|L|1|order=flip}} {{cvt|22|kW|PS bhp}} air-cooled, four-stroke, three-cylinder diesel (Super 339)<ref>{{cite web |url=http://porsche-traktor.com/porsche-diesel-super-339/ |website=porsche-traktor.com |title=Porsche-Diesel Super 339 |language=de |access-date=2018-08-25}}</ref>
+*1961–1963 {{cvt|2625|cc|L|1|order=flip}} {{cvt|29.3|kW|PS bhp}} air-cooled, four-stroke, three-cylinder diesel (Super S 309, B 309)<ref>{{cite web |url=http://porsche-traktor.com/porsche-diesel-super-s-309/ |website=porsche-traktor.com |title=Porsche-Diesel Super S 309 |language=de |access-date=2018-08-25}}</ref>
+
+=== Porsche Master engines ===
+
+*1958–1960 {{cvt|3288|cc|L|1|order=flip}} {{cvt|36.6|kW|PS bhp}} air-cooled, four-stroke, four-cylinder diesel (Master 408, 418)<ref>{{cite web |url=http://porsche-traktor.com/porsche-diesel-master-408/ |website=porsche-traktor.com |title=Porsche-Diesel Master 408 |language=de |access-date=2018-08-25}}</ref>
+*1960–1963 {{cvt|3500|cc|L|1|order=flip}} {{cvt|36.8|kW|PS bhp}} air-cooled, four-stroke, four-cylinder diesel (Master 409, 419, 429)<ref>{{cite web |url=http://porsche-traktor.com/porsche-diesel-master-409/ |website=porsche-traktor.com |title=Porsche-Diesel Master 409 |language=de |access-date=2018-08-25}}</ref>
+
+== Aircraft engines ==
+[[File:Porsche aircraft engine-2012-08-11.jpg|thumb|right|PFM 3200 3.2L flat-six]]
+[[File:Porsche PFM 3200 engine rear-left Porsche Museum.jpg|thumb|right|PFM 3200 3.2L flat-six]]
+* 1984–1990 3.2 L [[Porsche PFM 3200]] air-cooled flat-six
+
+==See also==
+* [[Flat engine]]
+
+==References==
+{{reflist|30em}}
+
+==External links==
+
+{{Porsche vehicles}}
+
+{{DEFAULTSORT:Porsche}}
+[[Category:Porsche| ]]
+[[Category:German technology-related lists|Porsche engine]]
+[[Category:Lists of automobile engines]]

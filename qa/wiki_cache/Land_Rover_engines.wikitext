@@ -1,0 +1,299 @@
+{{Use dmy dates|date=January 2017}}
+{{Use British English|date=January 2017}}
+[[File:Land Rover 2.25 on engine stand.JPG|thumb|Land Rover 2.25-litre on engine stand]]
+
+Engines used by the British company [[Land Rover]] in its [[4×4]] [[vehicle]]s have included [[Straight-four engine|four-cylinder]] [[petrol engine]]s, and four- and [[Straight-five engine|five-cylinder]] [[diesel engine]]s. [[Straight-six engine]]s have been used for Land Rover vehicles built under licence. Land Rover has also used various four-cylinder, [[V8 engine|V8]], and [[V6 engine]]s developed by other companies, but this article deals only with engines developed specifically for Land Rover vehicles.
+
+Initially, the engines used were modified versions of standard [[Rover Company|Rover]] car petrol engines, but the need for dedicated in-house units was quickly realised. The first engine in the series was the 1.6-litre petrol of 1948, and this design was improved. A brand-new Petrol engine of 2286cc was introduced in 1958. This basic engine existed in both petrol and diesel form, and was steadily modified over the years to become the 200Tdi diesel. A substantial redesign resulted in the 300Tdi of 1994, which ceased production in 2006. Over 1.2 million engines in the series have been built.<ref>Based on minimum estimate from production figures accumulated from sources listed below, mainly Taylor (1988) and Dymock (2006)</ref>
+
+From 1998, the Td5 engine was fitted to Land Rover products. This five-cylinder [[turbodiesel]] was unrelated in any way to the four-cylinder designs and was originally intended for use in both Rover cars and Land Rover 4×4s, but it only reached production in its Land Rover form.<ref name="Robson, 2003, p.142">Robson, 2003, p.142</ref> It was produced between 1998 and 2007, with 310,000 built.<ref name="Gould, 2007, p.127">Gould, 2007, p.127</ref>
+
+Production of these engines originally took place at Rover's satellite factory (and ex-[[Bristol Hercules]] engine plant) at [[Acocks Green]] in [[Birmingham]]: vehicle assembly took place at the main [[Solihull plant|Rover works at Solihull]]. After Land Rover was created as a distinct division of [[British Leyland]] in 1979, production of Rover cars at Solihull ceased in 1982. A new engine [[assembly line]] was built in the space vacated by the car lines, and engine production started at Solihull in 1983.<ref>Gould, 2007, p.93</ref> The engine line at Solihull closed in 2007 when Land Rover began using [[Ford Motor Company|Ford]] and [[Jaguar Cars|Jaguar]] engines built at [[Dagenham]] (diesel engines) and [[Bridgend]] (petrol engines).
+
+Some Land Rover engines have also been used in cars, vans, and boats.
+
+This article only covers engines developed and produced specifically for Land Rover vehicles. It does not cover engines developed outside the company but used in its products, such as the [[Rover V8]], the [[Rover IOE engine|Rover IOE]] petrol engines or the current range of [[Ford Motor Company|Ford]]/[[Ingenium engine family|Jaguar]]-derived engines. The engines are listed below in the chronological order of their introduction.
+
+==Description and specifications==
+
+===2-litre diesel===
+{{Infobox automobile engine
+|name=2-litre diesel
+|image=Rover 2-litre diesel.JPG
+|caption=Engine fitted to a Series I Land Rover, which has been restored in a non-original colour scheme.
+|production=1957–1962
+|configuration=[[Straight-four engine|Inline-4 cylinder]]
+|block=[[Cast iron]]
+|head=Cast iron
+|valvetrain=[[Overhead valve|OHV]], [[chain drive]] [[camshaft]], push-rod operated
+|displacement={{cvt|2052|cc|L cc cuin|1|order=out}}
+|bore={{cvt|85.7|mm|in}}
+|stroke={{cvt|88.9|mm|in}}
+|compression=22.5:1
+|fueltype=[[Diesel engine|Diesel]]
+|fuelsystem=CAV DPA rotary pump and CAV Pintaux injectors
+|power={{cvt|51|hp}} at 3,500&nbsp;rpm
+|torque={{cvt|87|lbft|Nm|0}} at 2,000&nbsp;rpm
+}}
+Throughout the 1950s, demand was increasing for a [[diesel engine|diesel-engined]] Land Rover.<ref name="Dymock, 2006, p.92">Dymock, 2006, p.92</ref> Diesel technology had improved, making small-capacity, high-speed engines practical. Diesel power had also become prominent in industrial and agricultural uses throughout the world, and fleet users of Land Rovers were often in the situation where their Land Rovers were the only petrol-engined vehicles in their fleet, making spares, servicing, and fuel supply more complex.<ref>Taylor, 1988, p.30</ref> The Rover Motor Company was in talks with [[Standard Motor Company|Standard-Triumph]] in 1954, with the possibility of a merger. Standard were Britain's pioneers of road-going small diesel engines with the 20C engine fitted to [[Ferguson TE20|Ferguson tractors]] and the [[Standard Vanguard]] car (Britain's first diesel car). Rover engineers were able to study Standard's diesel designs as part of these. The merger was called off, but Rover had gained vital experience and knowledge in developing small diesel engines.<ref name="Robson, 2003, p.33">Robson, 2003, p.33</ref><ref>Taylor, 1988, p. 31</ref> The result was a [[Cylinder (engine)|wet-liner]] four-cylinder engine. [[Fuel injection]] equipment was from [[Lucas Industries|CAV]], and the engine used [[Ricardo plc|Ricardo's]] ''Comet'' [[Indirect injection#Swirl chamber|swirl chambers]], but with Rover-developed ''dimples'' to produce quieter and smoother running. [[Glow plug (diesel engine)|Heater plugs]] were fitted to each combustion chamber to improve starting.<ref name="Robson, 2003, p.33"/> The engine was launched in the Land Rover in 1957. The vehicle had to have an extra {{cvt|2|in}} let into the chassis in the engine bay to enable the new engine to fit.<ref>Taylor, 1988, p.32</ref> The engine's power output and speed range were close enough to the existing petrol engine to allow the same transmission unit to be used on all vehicles.<ref name="Dymock, 2006, p.92"/><ref>Taylor, 1988, p.29, quoting Rover brochure</ref><ref name="Robson, 2003, p.38">Robson, 2003, p.38</ref>
+
+'''Used in''': [[Land Rover Series#Series I|Land Rover Series I]] and [[Land Rover Series II|Series II]]
+
+{{anchor |11H|13H|10H}}
+{{clear}}
+
+===2.25-litre petrol (Engine Codes 10H, 11H and 13H)===
+{{Infobox automobile engine
+|name=2.25-litre petrol
+|image=Land Rover Series 2a 2.25L Petrol.jpg
+|caption=Land Rover Series 2a 2.25L Petrol
+|production=1958–1985
+|configuration=Inline-4 cylinders
+|block=Cast iron
+|head=cast iron
+|valvetrain=OHV, chain drive camshaft, push-rod operated
+|displacement={{cvt|2286|cc|L cc cuin|1|order=out}}
+|bore={{cvt|90.47|mm|in}}
+|stroke={{cvt|88.9|mm|in}}
+|compression=7.0:1/8.0:1
+|fueltype=[[Petrol engine|Petrol]]
+|fuelsystem=[[Solex Carburetor|Solex]] (up to 1971), [[Zenith 36IV Carburettor|Zenith]] (up to 1983) or [[Weber 34ICH carburetor]] (post-1983)<ref>Hodder, 200</ref>
+|power= {{cvt|74|hp}} at 4,200&nbsp;rpm (in standard, non-emissions-controlled tune and 8.0:1 CR)
+|torque={{cvt|120|lbft|Nm|0}} at 2,000&nbsp;rpm (in standard, non-emissions-controlled tune and 8.0:1 CR)
+|
+}}
+The [[Land Rover Series II|Series II]] Land Rover launched in 1958 was larger, heavier, and more complex than the original, and the need was ever-present for higher powered engines.<ref name="Taylor, 2007">Taylor, 2007</ref> Also, the Rover petrol engines in use at the time, with the archaic [[Rover IOE engine|inlet-over-exhaust]] valve layout, were approaching the age of 20 years in design terms. A new, larger petrol engine specifically developed for the Land Rover was needed.<ref>Taylor, 1988, p.35</ref> The existing 2-litre diesel engine was used as a basis, but with a radically changed internal structure.<ref name="Robson, 2003, p. 37">Robson, 2003, p. 37</ref> The new engine was a dry-liner type, and a wider bore was used to improve low-speed torque output.<ref>Dymock, 2006, p. 96</ref> Despite the numerous changes, the petrol engine could use the same machining line as the diesel, establishing a design commonly used between Land Rover's petrol and diesel engines that would survive for decades.<ref name="Taylor, 2007"/><ref name="Robson, 2003, p. 37"/> The 2.25-litre petrol was the most popular engine option right up to the mid-1980s, and established a worldwide reputation for reliability and longevity.<ref name="Taylor, 2007"/><ref>Hodder, 2000, p. 120</ref> The engine's relatively low compression ratio and general strong design made it tolerant of poor quality fuel and oil, as well as infrequent servicing. With proper maintenance, these engines can easily survive more than {{convert|250000|mi|km}} of service. This was partly due to the commonality between petrol and diesel versions making the petrol version somewhat over-engineered for the job; they retained the extraordinary strength characteristics of the diesel while being much less stressed. The engine castings were produced by Bean Industries Limited, a Sheffield-based foundry, using "[http://www.historywebsite.co.uk/articles/Tipton/Bean/Cars.htm Bilchrome]" an in-house developed iron for cylinders. The only major change to the design was the fitting of a five-bearing crankshaft in 1980, which improved bottom-end strength and refinement.<ref>Hodder, 2000, p. 119-applies to mileage life and crankshaft modification</ref> Despite its utilitarian origins, the 2.25-litre petrol is a quiet, smooth-running engine, and this enabled Rover to fit it to their P4 saloon car as the Rover 80.<ref>Dymock. 2006, p. 96</ref> Various power outputs were available for this engine depending on the compression ratio and the amount of emissions-regulation equipment fitted.<ref name="Taylor, 2007"/><ref>USA magazine ''Popular Imported Cars'' quoted {{cvt|65|hp}} for an emissions-controlled engine in a Jan. 1974 test.</ref><ref>Dymock, 2006 quotes as much as {{cvt|81|bhp}} in a few instances.</ref><ref>Robson, 2003,
+p.38</ref>
+
+'''Used in''': [[Land Rover Series II]], [[Land Rover Series III|Series III]], and [[Land Rover Defender 90|Ninety/One Ten/127]]; also [[Rover P4]] 80<ref>Dymock, 2006, p. 128</ref>
+
+{{anchor |10J}}
+{{clear}}
+
+===2.25-litre diesel (Engine Code 10J)===
+{{Infobox automobile engine
+|name=2.25-litre diesel
+|configuration=Inline-4 cylinders
+|block=Cast iron
+|head=cast iron
+|valvetrain=OHV, chain drive camshaft, push-rod operated
+|displacement={{cvt|2286|cc|L cc cuin|1|order=out}}
+|bore={{cvt|90.47|mm|in}}
+|stroke={{cvt|88.9|mm|in}}
+|compression=23.0:1
+|fueltype=Diesel
+|fuelsystem=CAV DPA rotary pump and CAV Pintaux injectors
+|power={{cvt|62|hp}} at 4,000&nbsp;rpm
+|torque={{cvt|103|lbft|Nm|0}} at 1,800&nbsp;rpm
+|production=1962–1984
+}}
+The Series II Land Rover was a sales success, but room for improvements remained. In 1962, the slightly altered Series IIA was launched. The biggest update was an improved diesel engine, as well as some suspension and steering system changes.<ref>Taylor, 1988, p.40</ref> This shared many parts with its petrol-fuelled sibling, including the block, valve gear, cooling systems, and lubrication systems.<ref>Taylor, 1988, p.40–41</ref> A forged [[crankshaft]] was used for added strength, and different pistons were needed.<ref>Land Rover Series III Workshop Manual, p. 04-1 details shared components and differences</ref> The cylinder head used the same basic casting, but was very different internally, being in essence an updated version of that used on the original 2-litre engine, to which the new diesel bore a strong external resemblance. Like the 2.25-litre petrol, the 2.25-litre diesel was a dry-liner design. It was built on the same production line as the petrol engine and the flexibility of the basic design was much in evidence; for example, where the diesel engines had their fuel injector pumps, the petrol engine had its [[distributor]] fitted. Although it offered a modest improvement in power and a useful jump in torque, the main benefit of the new diesel engine was that it was much quieter and more efficient than the older unit.<ref>Taylor, 1988, p. 41</ref> It also proved to be much more reliable in service.<ref name="Taylor, 2007"/> Like the petrol engine, the diesel was upgraded to a five-bearing crankshaft in 1980. The engine was fitted to the [[Austin FX4]] "Black Cab" between 1982 and 1985. FX4s fitted with the engine were designated FX4R (R for Rover). In this application, the engine gained a reputation for very short service life and unreliability. This was caused by the significantly greater times spent at idle speed in the Black Cab than in the Land Rover. Solihull engineers had warned [[Carbodies]], builders of the FX4R, that this would cause problems because at idle speed the engine's oil pressure was low enough that the automatic tensioner unit for the [[timing belt (camshaft)|timing chain]] did not operate fully. Many hours spent at idle speed (taxi drivers tended to leave the engines idling for long periods when waiting for passengers or when off-duty, or in stationary traffic in [[London]]) stretched the timing chains, causing incorrect [[fuel injection]] timing, which greatly reduced engine life.
+
+The 10J engine was adapted into a marine engine by Mercury of the US and sold under the Mercruiser 165 name.<ref name="Robson, 2003, p.38"/><ref>Dymock, 2006, p. 98</ref>
+
+'''Used in''': [[Land Rover Series II]], [[Land Rover Series III|Series III]], and [[Land Rover Defender#Ninety & One Ten|One Ten]]; also [[Austin FX4|Carbodies FX4]] (also called Austin FX4) and sold as a [[Mercury Marine|Mercury]] marine engine. Also, evidence exists of the 10J engine being offered as a conversion for Volga saloon cars by a Belgium-based company.<ref>Taylor, 1988, p.53</ref>
+
+{{anchor |11J|13J|12J|14J|15J}}
+===2.5-litre diesel engine (Engine Code 11J, 12J, 13J, 14J and 15J)===
+{{Infobox automobile engine
+|name=2.5-litre diesel
+|image=File:Land Rover 2.5L NA Diesel.jpg
+|caption=13J Land Rover 2.5L N/A Diesel in a 1994 Military Defender 110
+|configuration=Inline-4 cylinders
+|block=Cast iron
+|head=cast iron
+|valvetrain=OHV, belt-driven camshaft, push-rod operated
+|displacement={{cvt|2495|cc|L cc cuin|1|order=out}}
+|bore={{cvt|90.47|mm|in}}
+|stroke={{cvt|97|mm|in|2}}
+|compression=21.0:1
+|fueltype=Diesel
+|fuelsystem=Lucas-CAV DPS rotary pump and CAV Pintaux injectors
+|power={{cvt|68|hp}} at 4,200&nbsp;rpm
+|torque={{cvt|114|lbft|Nm|0}} at 1,800&nbsp;rpm
+|production=1984–1994
+}}
+Land Rover's [[Land Rover Defender#Ninety & One Ten|radically updated product line]] was launched in 1983. Initially only the long-wheelbase One Ten was available, and it was sold with the same engine line-up as the preceding Series III model- 2.25-litre petrol and diesel engines and the 3.5-litre Rover V8.<ref name="Taylor, 2007"/><ref>Dymock, 2006, p. 124</ref> However, Land Rover planned a series of rolling improvements.<ref>Hodder, 2000, p. 40</ref> Launched shortly before the short-wheelbase Ninety model in 1984 was a 2.5-litre diesel engine. This was little more than an updated version of the existing diesel unit<ref>Taylor, 1988, p. 76 + 78</ref> (at this time 22 years old). The stroke was lengthened to improve torque, and an updated cylinder head was used to reduce noise and emissions. A more modern injector pump improved fuel economy and an improved [[Glow plug (diesel engine)|glow plug]] system improved cold-starting performance. The most significant change was the swapping of the chain-driven camshaft for one driven by a [[cambelt|fibre-toothed belt]], which also drove the repositioned injector pump.<ref name="Land Rover Workshop Manual">Land Rover Workshop Manual</ref><ref>Taylor, 1995, p.18</ref> The drive vacated by the injector pump was used to power a vacuum pump for the [[vacuum servo|brake servo]] system. To reduce engine weight, extensive use of [[aluminium]] castings was made for the cambelt case, vacuum pump, rocker cover, and other parts.<ref>Taylor, 1988, p. 76</ref> Other small improvements were made such as the fitment of a spin-on cartridge [[oil filter]] instead of older, harder-to-change element type, and the fitting of under-piston oil jets. In the mid-1980s Land Rover was part of the [[Land Rover Group]], responsible for production of the [[Freight Rover]] van.
+
+The 2.5-litre diesel was also fitted to the [[LDV Convoy#300 Series|Freight Rover 300 series]] and the FX4 taxi. Engines for these applications had slight design changes, such as higher-mounted injector pumps and nonwaterproof cambelt cases. They received the designations 14J and 15J, respectively. Being fitted with a [[timing belt (camshaft)|timing belt]] rather than a chain, the 15J engine suffered none of the reliability problems in the FX4 that its 10J predecessor had encountered (see above). The engine became a special order-only option after the introduction of turbodiesel engines (see below), but remained in production (and popular with military and some commercial buyers) until 1994.<ref name="Land Rover Workshop Manual"/><ref>Robson, 2003, p. 98–99</ref> The [[British Army]] used this engine in the vast majority of the 20,000 Land Rovers it bought between 1985 and 1994.<ref>Dymock. 2006, p.198</ref> A manufacturing flaw with pistons combined with Army maintenance practises (such as a tendency to over-fill the sump with oil) caused the engines to over-breathe and ingest their oil, leading to [[piston]] failure. Late military-specification engines had a centrifugal separator in the breather system, allowing excess oil to drain back to the sump. These engines were designated 13J.<ref>Robson, 2003, p. 98</ref><ref>Dymock, 2006, p.129</ref> and 11J (ref Land Rover Defender Military 110 1991 Supplementary Parts Catalogue). These later, modified engines were the first in their class (small-capacity, high-speed diesels) to pass the [[Ministry of Defence (United Kingdom)|Ministry of Defence]]'s arduous 500-hour durability trial.
+
+'''Used in''': [[Land Rover Defender#Ninety & One Ten|Land Rover Ninety/One Ten/127]], and [[Land Rover Defender#Defender|Defender]]; also [[LDV Convoy#300 Series|Freight Rover 300]] and [[Austin FX4|Carbodies FX4]] (also called Austin FX4).
+
+{{anchor |17H}}
+===2.5-litre petrol engine (Engine Code 17H)===
+{{Infobox automobile engine
+| name = 2.5-litre petrol
+| configuration = Inline-4 cylinders
+| block = Cast iron
+| head = cast iron
+| valvetrain = OHV, chain drive camshaft, push-rod operated
+| displacement = {{cvt|2495|cc|L cc cuin|1|order=out}}
+| bore = {{cvt|90.47|mm|in}}
+| stroke = {{cvt|97|mm|in|2}}
+| compression = 8.0:1
+| fueltype = Petrol
+| fuelsystem = Weber DMTL 32/34 Carburettor
+| power = {{cvt|83|hp}} at 4,200&nbsp;rpm
+| torque = {{cvt|133|lbft|Nm|0}} at 2,000&nbsp;rpm
+| production = 1985–1994
+}}
+At the launch of the Ninety, Land Rover had insisted that development of the 2.5-litre petrol engine would not be undertaken.<ref>Taylor, 1988, p.82</ref> Buyer demand and economics, though, made the change inevitable. The larger petrol engine was launched in 1985 (having been developed under the codename ''Project Harrier''), and like its 2.25-litre predecessor, it had much in common with the diesel engine.<ref>Robson, 2003, p.88—confirms initial denial of 2.5-litre petrol and describes petrol/diesel parts commonality</ref> The block was identical, as were most ancillary parts. The key difference was that the petrol engine retained its timing chain,<ref>Hodder, 2000, p.114</ref> since it lacked the need to drive an injector pump. The cylinder head was adapted to use [[Gasoline#Lead|unleaded fuel]]. As before, the engine was smooth and refined, and provided the Land Rover with adequate road performance.<ref>Robson, 2003, p.88</ref> However, as fuel prices rose and diesel engines improved, sales of the petrol engines fell, especially in Europe. It remained a popular option in Africa and other areas where fuel prices or the simplicity of the engine made it an attractive option. It remained available until 1994, although by this time sales had dwindled to almost nothing in the face of a new generation of refined diesel engines.<ref name="Taylor, 2007"/><ref name="Taylor, 1995, p.33">Taylor, 1995, p.33</ref><ref>Robson, 2003, p.78</ref> By this time, buyers were limited to those with specific reasons to buy petrol-engined vehicles - for example several [[Law enforcement in the United Kingdom|police forces in the UK]] bought fleets of 2.5 petrol Defenders in the mid-1990s because diesel-engined vehicles would have caused maintenance and logistical problems when operated alongside the fleet of standard patrol cars, all of which were petrol fueled.<ref>Dymock, 2006, p.128</ref>
+
+'''Used in''': [[Land Rover Defender#Ninety & One Ten|Land Rover Ninety/One Ten/127]] and [[Land Rover Defender#Defender|Defender]]
+
+{{anchor |19J}}
+{{clear}}
+
+===Diesel Turbo (Engine Code 19J)===
+{{Infobox automobile engine
+|image=LR19JTurbo.JPG
+|name=Diesel Turbo
+|caption=A late [[turbo-diesel engine]], incorporating all the design changes.
+|production=1986–1989
+|configuration=Inline-4 cylinders
+|block=Cast iron
+|head=cast iron
+|valvetrain=OHV, belt-driven camshaft, push-rod operated
+|displacement={{cvt|2495|cc|L cc cuin|1|order=out}}
+|bore={{cvt|90.47|mm|in}}
+|stroke={{cvt|97|mm|in|2}}
+|compression=21.0:1
+|fueltype=Diesel
+|fuelsystem=Lucas-CAV DPS rotary pump and CAV Pintaux injectors
+|turbocharger=[[Garrett AiResearch|Garrett]] T2
+|power={{cvt|85|hp}} at 4,250&nbsp;rpm
+|torque={{cvt|150|lbft|Nm|0}} at 1,800&nbsp;rpm
+}}
+Land Rover's global sales collapsed during the early 1980s,<ref>Taylor, 1988, p.71</ref> mainly due to foreign competition offering larger, more powerful, more comfortable vehicles. Land Rover suffered from poor build quality and materials during the 1970s, and by 1983, the then-current Series III model was distinctly outdated, despite recent improvements.<ref name="Hodder, 2000, p.84">Hodder, 2000, p.84</ref> Land Rover decided to focus the sales of its Ninety/One Ten/127 range on the UK and Europe, for which it required a diesel engine with significantly better performance than the {{cvt|68|hp}} 2.5-litre type then in production. Project Falcon was started in 1984 to develop a turbocharged version of this engine.<ref>Hodder, 2000, p.49</ref> The resulting engine was Land Rover's first production [[turbodiesel]] and their first engine to be given a marketing name - the Diesel Turbo,<ref>Taylor, 1988, p.84</ref> a name given to differentiate it from the [[VM Motori]]-built turbodiesel then being used in the [[Range Rover Classic|Range Rover]], which was sold as the Turbo D.<ref>Taylor, 1995, p.26</ref> The Diesel Turbo, although essentially the same as the 2.5-litre diesel, had numerous additions and modifications to allow it to cope with the stresses of turbocharging. New pistons with [[Teflon]]-coated crowns and [[Nimonic]] steel exhaust valves were used to withstand higher combustion temperatures. The crankshaft was cross-drilled for improved strength and cooling. The block was modified to allow an oil feed/drain system to the [[turbocharger]], and the cooling system was improved with an eight-bladed [[viscous coupling|viscous]] fan and integral oil cooler. The engine was fitted with a high-capacity breather system to cope with the greater volumes of air flow through the engine.<ref name="Taylor, 2007"/><ref>Dymock, 2006, p.132-covers all engineering changes/development of this engine</ref> Despite the inherent age of the design, it performed well in tests against its rivals and provided the vital blend of performance and economy the Land Rover had needed for many years.<ref name="Hodder, 2000, p.84"/> It was the first diesel model to match the petrol engine's 4-ton towing limit and the first to be able to exceed the UK national speed limit of {{cvt|70|mph|km/h|0}}.<ref>Taylor, 1988, p.85</ref> However, early engines suffered several failures. Most serious were failed main and big-end bearings and splits or cracks in the block.<ref name="Dymock, 2006, p.132">Dymock, 2006, p.132</ref> In 1988, a new block and an improved design of bearing and bearing cap was fitted, which solved these issues. The engine's higher internal temperatures meant that the cooling system also had to be maintained to a much higher standard than the earlier engines. Further changes were made in 1989, this time to the breather system to prevent oil being drawn into the [[air filter]]. Despite these issues, the Diesel Turbo was a strong seller. It was the standard engine for the UK and European markets and Land Rover's sales increased after its introduction.<ref name="Taylor, 1995, p.33"/><ref>Taylor, 1988, p.89</ref> Time has shown that these engines can turn in long service lives if maintained as required—like many early turbodiesels, a lack of maintenance causes failure.<ref name="Dymock, 2006, p.132"/><ref>Hodder, 2000, p.125–6</ref><ref>Robson, 2003, p.79</ref>
+
+'''Used in''': [[Land Rover Defender#Ninety & One Ten|Land Rover Ninety/One Ten/127]] and [[Land Rover Llama]] prototype.
+{{clear}}
+
+=== <span class="anchor" id="200Tdi"></span><span class="anchor" id="11L"></span><span class="anchor" id="12L"></span><span class="anchor" id="13L"></span> 200Tdi (engine code: 11L, 12L, 13L and 14L) ===
+{{Infobox automobile engine
+|name=200Tdi
+|image=Land Rover 200Tdi engine.JPG
+|caption=This Defender-spec 200Tdi has been retrofitted into an earlier vehicle. It lacks the [[intercooler]] fitted to the standard engine and has the [[alternator]] mounted in a different location.
+|configuration=Inline-4 cylinders
+|block=Cast iron
+|head=[[Aluminium alloy]]
+|valvetrain=OHV, belt-driven camshaft, push-rod operated
+|displacement={{cvt|2495|cc|L cc cuin|1|order=out}}
+|bore={{cvt|90.47|mm|in}}
+|stroke={{cvt|97|mm|in|2}}
+|compression=19.0:1
+|fueltype=Diesel
+|fuelsystem=VE rotary pump + two-stage injectors
+|management=[[Robert Bosch GmbH|Bosch]]
+|turbocharger=Garrett T2
+|power={{cvt|113|hp}} at 4,250&nbsp;rpm ([[Land Rover Discovery#Discovery Series I (1989–1998)|Discovery]] and [[Range Rover Classic|Range Rover]]); {{cvt|109|hp}} at 3,900&nbsp;rpm ([[Land Rover Defender#Defender|Defender]])
+|torque={{cvt|195|lbft|Nm|0}} at 1,800&nbsp;rpm (Discovery and Range Rover); {{cvt|188|lbft|Nm|0}} at 1,800&nbsp;rpm (Defender)
+|production=1989–1994
+}}
+In 1989, Land Rover had launched the [[Land Rover Discovery#Discovery Series I (1989–1998)|Discovery]] its [[Range Rover Classic|Range Rover]]-based family 4×4 that quickly became Europe's top-selling 4×4.<ref>Dymock, 2006, p.162</ref> One of the key reasons for its success was its ground-breaking turbo-diesel engine. The 200Tdi was one of the first mass-produced, small-capacity direct-injection diesels,<ref>Hodder, 2000, p.67</ref> with the attendant improvements in power and efficiency that system brings. Developed under the codename ''Gemini'', the 200Tdi was planned from the start to be used on all Land Rover's products.<ref name="Taylor, 2007"/> For production reasons, it had to be machined on the existing machinery, so used the same block and crankshaft as the existing 2.5-litre diesel engines. It also used many ancillary parts used on the older engines.<ref name="Dymock, 2006, p.142">Dymock, 2006, p.142</ref><ref>Hodder, 2000, p.68</ref> An [[aluminium alloy]] [[cylinder head]] reduced weight and noise, a new [[Robert Bosch GmbH|Bosch]] injection system gave improved running characteristics and better starting performance. An intercooler boosted power and efficiency further. Lessons learnt from the Diesel Turbo were included, such as the fitment of an inertial separator in the breather system to remove oil before crankcase gases were returned to the air intake. Initially turbocharged and [[naturally aspirated engine|naturally aspirated]] diesel versions and a carburettor-fed petrol version were to be produced. The direct-injection system meant that only machining of the injector sockets was needed to allow the fitment of spark plugs. However, the performance and economy of the turbodiesel version was such that the other variants were not produced.<ref name="Taylor, 2007"/> The 200Tdi was launched in the Discovery in 1989. It was then fitted to the utility Land Rover (renamed the [[Land Rover Defender#Defender|Defender]]) in late 1990.<ref>Robson, 2003, p.96</ref> For this application, the engine was slightly detuned. In the Discovery the 200Tdi used all-new components, but packaging restraints in the Defender meant that the 200Tdi in this role shared many exterior parts (such as the timing belt system and case) with the Diesel Turbo. Most obviously, the turbocharger was retained in the Diesel Turbo's high mounting position on top of the manifolds in the Defender, rather than being tucked under the manifolds in the original Discovery version.<ref name="Dymock, 2006, p.134">Dymock, 2006, p.134</ref> In 1992, the engine was fitted to the Range Rover. In the Range Rover it has a 14L engine number. Although the older petrol and naturally aspirated diesel units were theoretically still available, the 200Tdi had better performance and economy than either of them, so dominated the sales figures.<ref>Robson, 2003, p.99</ref> It is still highly regarded by Land Rover enthusiasts and has established itself as a powerful and long-lived unit that with proper maintenance can exceed {{convert|300000|mi|km}} of use.<ref name="Dymock, 2006, p.134"/><ref>Hodder, 2000, p.127</ref><ref name="Robson, 2003, p.98">Robson, 2003, p.98</ref>
+
+'''Used in''': Land Rover Defender, Discovery, and Range Rover
+{{clear}}
+
+=== <span class="anchor" id="300Tdi"></span><span class="anchor" id="16L"></span><span class="anchor" id="23L"></span> 300Tdi (engine code: 16L, 19L, 20L, 21L, & 25L) ===
+{{Infobox automobile engine
+|image=Land Rover 300Tdi engine.JPG
+|name=300Tdi
+|caption=A 300Tdi, seen here in a Discovery Series I. Unlike the previous Tdi engine a single version of a 300Tdi was used for all Land Rover models.
+|configuration=Inline-4 cylinders
+|block=Cast iron
+|head=Aluminium alloy
+|valvetrain=OHV, belt-driven camshaft, push-rod operated
+|displacement={{cvt|2495|cc|L cc cuin|1|order=out}}
+|bore={{cvt|90.47|mm|in}}
+|stroke={{cvt|97|mm|in|2}}
+|compression=19.0:1
+|fueltype=Diesel
+|fuelsystem=VE rotary pump and two-stage injectors (with EDC system on versions with [[automatic transmission]])
+|management=Bosch
+|turbocharger=[[AlliedSignal]] T25
+|power={{cvt|111|hp}} at 4,250&nbsp;rpm (versions with [[manual transmission]]); {{cvt|122|hp}} at 4,250&nbsp;rpm (versions with automatic transmission)
+|torque={{cvt|195|lbft|Nm|0}} at 1,800&nbsp;rpm (versions with manual transmission); {{cvt|210|lbft|Nm|0}} at 1,800&nbsp;rpm (versions with automatic transmission)
+|production=1994–2006
+}}
+Although the 200Tdi engine had been an undoubted technological and sales success, it had certain limitations and flaws. Despite the numerous differences, it was still in essence a direct-injection version of the older Diesel Turbo engine.<ref name="Dymock, 2006, p.134"/> It was also considered rather raucous and unrefined, especially for use in the Discovery and Range Rover models.<ref>Robson, 2003, p.106</ref> A special version of the engine had to be produced to fit the Defender, and problems with weak [[head gasket]] had been identified.<ref>Hodder, 2000, p.114 + 127</ref> The British Army (and some other military buyers) had not opted for the 200Tdi because it could not be fitted with a 24-volt generator for powering radio equipment – instead the Army continued to buy vehicles with 2.5-litre naturally aspirated diesels.<ref name="Dymock, 2006, p.142"/> Upcoming [[European emission standards|European diesel emissions regulations]] (Euro I) meant that Land Rover would be forced to radically alter the engine anyway. The resulting development project (coded Romulus) produced the 300Tdi engine.
+
+Although externally very similar to the Discovery/Range Rover version of its predecessor, 208 changes were made. These included modifications to the [[cylinder block|block]], [[cylinder head]], fuel injector system and ancillary systems. The [[crankshaft]], [[piston]]s and [[connecting rod]]s were significantly altered over the 200Tdi.<ref>Robson, 2003, p.107—covers number and nature of design changes</ref> The most obvious external changes were the fitting of a rubber acoustic cover over the engine to reduce noise and the change to a single [[serpentine belt]] to drive the ancillaries instead of the multiple V-belts of the older engines. Emissions regulation included the fitting of an [[exhaust gas recirculation]] system. Power and torque outputs remained the same, and the engine had been specifically designed to be compatible with all the models in the Land Rover range without any changes. This meant that the Defender engines were fitted in the same tune as the Discovery/Range Rover engines.<ref name="Dymock, 2006, p.142" />
+
+The 300Tdi was noticeably smoother and quieter than the 200Tdi, but was generally found to not be quite as economical in real-world use.<ref>Hodder, 2000, p.128</ref> It turned out that the Euro I emissions regulations were not as severe as Land Rover anticipated, so the 300Tdi was able to remain in production until the introduction of the Euro III rules.
+
+When fitted to vehicles with an automatic transmission, power was increased to {{cvt|122|hp|0}} to make up for the power losses in the transmission. These engines (designated 23L) had Bosch Electronic Diesel Control systems, where the mechanical injector system was controlled by a drive-by-wire electronic throttle to reduce emissions.<ref>Dymock, 2006, p.172</ref>
+
+The 300Tdi was replaced in 1998 by the 5-cylinder Td5, bringing to an end the line of Land Rover 4-cylinder engines that can be traced back to 1957. The Td5 engine was loosely based on the Rover Group's [[Rover L-series engine|L-series diesel engine]]. The 300Tdi remained in production in Brazil, and was offered as an option on rest of world (non-UK/Europe) models.
+
+Following [[Ford Motor Company|Ford's]] acquisition of Land Rover in 2000, the engine was used in Brazilian-built Ford [[pick-up truck]]s as well.<ref name="Taylor, 2007" /> Increasingly restrictive emissions laws worldwide and falling sales led to production of the 300Tdi ending in 2006. A much-modified 2.8-litre version was built by International Engines in Brazil until 2010, and was available as an after-market fitment to Land Rovers through specialist converters.<ref name="Robson, 2003, p.98" /><ref>Dymock, 2006, p.140</ref> International then became [[MWM International Motores]] and a further update of the 300Tdi design was launched as the 3.0 Power Stroke. Although based around the same block and basic architecture as the 300Tdi the Power Stroke has major differences such as electronic [[common rail]] injection and new [[crossflow cylinder head]] with [[Overhead camshaft]].
+
+'''Used in''': [[Land Rover Defender#Defender|Land Rover Defender]], [[Land Rover Discovery#Discovery Series I (1989–1998)|Discovery]], and [[Range Rover Classic|Range Rover "Classic"]]; also various Brazil-assembled Ford pickup trucks.
+{{clear}}
+
+=== <span class="anchor" id="Td5"></span> Td5 (engine codes: 10P, 15P and 16P)===
+{{Infobox automobile engine
+|name=Td5
+|image=File:Land Rover Discovery 2 10P Engine.jpg
+|caption=Land Rover Discovery 2 Td5 10P
+|production=1998–2007
+|configuration=Inline-5 cylinders
+|block=Cast iron
+|head=Aluminium alloy
+|valvetrain=[[Overhead camshaft|OHC]], chain-driven camshaft
+|displacement={{cvt|2498|cc|L cc cuin|1|order=out}}
+|bore={{cvt|84.45|mm|in}}
+|stroke={{cvt|88.95|mm|in}}
+|compression=19.5:1
+|fueltype=Diesel
+|fuelsystem=[[LucasVarity|Lucas]] Electronic Unit Injection
+|turbocharger=Garrett GT2052S
+|power={{cvt|122|hp|0}} at 4,850&nbsp;rpm (Defender version), {{cvt|136|hp|0}} at 4,850&nbsp;rpm (Discovery version)
+|torque={{cvt|221|lbft|Nm|0}} at 1,950&nbsp;rpm (manual transmission), {{cvt|232|lbft|Nm|0}} at 1,950&nbsp;rpm (automatic transmission)
+}}
+
+By the mid-1990s the [[Rover Group]] was looking to rationalise its engine ranges and produce new designs that would be able to meet emissions legislation for the foreseeable future. The recently released [[Rover K-series engine|K-Series]] petrol engine range would be extended to cover that sector, but Rover had no in-house diesel engines suitable for both its cars and its 4×4s.<ref name="Robson, 2003, p.142"/> The 300Tdi could not be fitted to any of the car range and was about to fall foul of the upcoming [[European emission standards|Euro III emissions standards]]. The existing [[Rover L-series engine|L-series]] 2-litre diesel was not suitable for use in Land Rover products and could not be developed into such a unit.
+
+It was decided to design a new diesel engine family that could be produced in various capacities and states of tune suitable for all of Rover's needs. The development was codenamed Project Storm and design responsibility was given to Land Rover who were to build the engines.<ref name="Gould, 2007, p.127"/> The result was a range of engines using the L-Series as a base—the bore/stroke dimensions were the same and the Storm engine used the same [[piston]] and [[connecting rod]] assemblies. The Storm used [[Unit Injector|Electronic Unit Injection]] by [[LucasVarity|Lucas]] (at the time this technology was rare on small-capacity engine, being used only on large [[commercial vehicle]]s) and a cross-flow aluminium alloy [[cylinder head]] on a cast-iron [[engine block|block]]. The designers had aimed at increasing servicing intervals so the engine incorporated both conventional and centrifugal [[oil filter]]s. The electronic systems included an [[Anti-stall (engine)|anti-stall]] system to allow heavy loads to be started from rest at idle speed and two programmed operating modes for road and off-road use.<ref name="Gould, 2007, p.127"/> The overhead camshaft (operating both valves and the unit injectors) was driven by a duplex chain assembly. The Storm design encompassed 4-, 5- and 6-cylinder engines (of 2, 2.5 and 3 litres respectively).
+
+In the event the takeover of the Rover Group by [[BMW]], who brought their own range of diesel engines, made the Storm engine largely redundant.<ref>Robson, 2003, p.143</ref> Only the [[Straight-five engine|5-cylinder]] version made it to production as the powerplant for the [[Land Rover Defender|Defender]] and the new [[Land Rover Discovery#Discovery Series II (L318; 1998–2004)|Discovery Series II]] as the 'Td5' in 1998. Offering more power and greater refinement than the 300Tdi the Td5 greatly improved the appeal of the Discovery but caused concern amongst many operators of the Defender due to its electronic [[engine management system]]s which were considered to be less reliable and more difficult to repair 'in the field' than the mechanical injection systems used on previous Land Rover diesel engines. In deference to these concerns (including those voiced by the [[British Army]]) Land Rover kept the 300Tdi in production for fitment to special-order vehicles (see above). Early engines suffered two isolated mechanical failures—sudden and complete failure of the oil pump drive and 'cylinder head shuffle' caused by weak retaining studs. Both these faults were fixed within 2 years of the engine starting production and the Td5 is now considered somewhat reliable, despite some common electrical gremlins such as the injector harness being prone to oil contamination. In 2002 the engine was improved to reach Euro 3 antipollution stage, and an [[EGR Valve]] system was introduced. Electronics were also updated to improve the low-speed throttle response which had been prone to producing a jerky power delivery in off-road or towing situations.
+
+The engine has proved itself on numerous expeditions in hostile terrain (including Land Rover's own [[Land Rover G4 Challenge|G4 Challenge]]).<ref>Dymock, 2006, p.264</ref> The engine's mechanical strength and electronic control systems makes the Td5 much more tuneable than the older engines. Numerous aftermarket companies produced tuning upgrades offering as much as {{cvt|180|hp|kW PS|0}}. The Td5 was replaced in the Discovery by the [[Ford AJD-V6/PSA DT17|AJD-V6]] unit in 2004 and the Ford [[Duratorq#2.4|ZSD-424]] in the Defender in 2007. Production of the Td5 at Solihull ceased that year making it the last Land Rover-designed-and-built engine.<ref>Dymock, 2006, p.182</ref>
+
+'''Used in''': [[Land Rover Defender]] and [[Land Rover Discovery]].
+
+==Santana engines==
+In 1956, the Rover Company held talks with Spanish engineering company 'Metalúrgica de Santa Ana S.A.' (later to be renamed [[Santana Motor]]) with the aim of starting Land Rover assembly in Spain. Under the terms of the agreement Santana would initially build Land Rovers from [[Complete knock down|Complete Knock Down]] kits shipped from Britain, but locally manufactured content would gradually be increased until the entire vehicles were built from scratch in Spain. Santana would also have exclusive sales rights in Spain, South America, Central America and North Africa, selling both Santana- and Land Rover-badged vehicles in these markets where necessary. Production at Santana started in 1958. From 1962 Santana began to improve and modify the Land Rover design to meet the demands of its own markets. These were the common demands of more power, better ride comfort and improved refinement. To this end Santana produced several unique versions of the Land Rover engine designs it had rights to. These included {{convert|104|hp|adj=on}} {{convert|3.4|L|cuin|adj=on}} petrol and {{convert|94|hp|adj=on}} {{convert|3.4|L|cuin|adj=on}} diesel [[straight-6|six-cylinder]] versions of the 2.25-litre petrol and diesel engines in 1977 and a {{convert|75|hp|adj=on}} turbocharged version of the 2.25 diesel in 1982.
+
+In the early 1980s when Land Rover was looking for ways to improve its engine range, especially its diesels, the Santana engines were looked at. The 6-cylinder version was considered too large and heavy for the [[Range Rover Classic|Range Rover]] but a turbocharged 5-cylinder variant was considered since it provided an ideal blend of power, weight and size. The 2.25TD was studied to provide development information for the Diesel Turbo engine. In the end production reasons meant that Land Rover favoured [[Rover V8#Project Iceberg|a diesel version of the Rover V8]] instead. When that engine did not reach production Range Rover diesel engines were bought-in from [[VM Motori]].
+
+==References==
+{{reflist|colwidth=30em}}
+
+==Bibliography==
+*Dymock, E, 2006, ''The Land Rover File'', Dove Publishing, {{ISBN|0-9534142-8-0}}
+*Gould, M, 2007, ''The Land Rover Scrapbook'', Porter Press, {{ISBN|978-0-9556564-0-8}}
+*Hodder, M, 2000, ''You & Your: Land Rover Ninety, One Ten & Defender'', Haynes Publishing, {{ISBN|1-85960-667-9}}
+*Robson, G, 2003, ''Land Rover: Series One to Freelander'', Crowood Press, {{ISBN|1-86126-558-1}}
+*Taylor, J, 1988, ''The Land Rover, A Collector's Guide, 1948–1988'', Motor Racing Publications (4th Edition), ISNM 0-947981-25-X
+*Taylor, J, 1995, ''Land Rover 90 and 110 1983–1990, Owners and Buyers Guide'', Yesteryear Books, {{ISBN|1-873078-17-X}}
+*Taylor, J, 2007, ''Land Rover: 60 Years of the 4×4 Workhorse'', Crowood Press, {{ISBN|978-1-86126-965-2}}
+
+Reprints of contemporary Road Tests as published in:
+*''Land Rover Series III 1971–1985'', published by Brooklands Books
+
+Official Publications:
+*''Land Rover Series III Repair Operations Manual'', 1981, Land Rover Ltd. (LR Part Number: AKM3648)
+*''Land Rover 90/110/Defender Workshop Manual'', re-published edition by Brooklands Books 2008 (LR Part Number: SLR621EM)
+
+==External links==
+{{Commons category}}
+* [https://www.landrover.com/index.html Land Rover International]
+* [http://www.landroverusa.com/index.html Land Rover USA]
+* [http://www.landrover-me.com/en/index.html Land Rover MENA]
+
+{{DEFAULTSORT:Land Rover Engines}}
+[[Category:Land Rover engines| ]]
+[[Category:Lists of automobile engines]]
+[[Category:Straight-four engines]]
+[[Category:Straight-five engines]]

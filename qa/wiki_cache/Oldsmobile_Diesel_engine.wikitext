@@ -1,0 +1,166 @@
+{{Infobox automobile engine
+| name = Oldsmobile Diesel engine
+| image = GM Olds' Diesel logo on a Buick.jpg
+| caption = Badge of the Oldsmobile Diesel on a Buick
+| manufacturer = [[Oldsmobile]]
+| aka = 
+| production = 1978–1985
+| predecessor = 
+| successor = [[Detroit Diesel V8 engine]]
+| configuration = [[V6 engine|V6]]<br>[[V8 engine|V8]]
+| displacement = {{ubl|'''V6''':
+ | {{convert|262.55|cuin|cc|0|abbr=on}}
+ | '''V8''':
+ | {{convert|260.54|cuin|cc|0|abbr=on}}
+ | {{convert|350.06|cuin|cc|0|abbr=on}}
+ }}
+| bore = {{ubl|{{convert|3+1/2|in|mm|1|abbr=on}}<ref name="Diesel Technical Magazine">{{cite web|title=Oldsmobile Diesel Technical Magazine|url=http://a350diesel.tripod.com/350tech.html|access-date=20 Dec 2013}}</ref>|{{convert|4.057|in|mm|abbr=on}}<ref name="Diesel Technical Magazine" />}}
+| stroke = {{convert|3.385|in|mm|abbr=on}}<ref name="Diesel Technical Magazine" />
+| block = [[Cast iron]]
+| head = [[Cast iron]]
+| valvetrain = [[Overhead valve]] 2 valves x cyl.
+| compression = 22.5:1,<ref name="Diesel Technical Magazine" /> 21.6:1<ref name="Diesel Technical Magazine" />
+| fuelsystem = [[Indirect injection]]
+| management = 
+| fueltype = [[Diesel engine|Diesel]]
+| oilsystem = [[Wet sump]]
+| coolingsystem = [[Radiator (engine cooling)|Water-cooled]]
+| power = {{convert|85-120|bhp|kW|0|abbr=on}}
+| specpower = 
+| torque = {{convert|160-220|lbft|Nm|0|abbr=on}}
+| length = 
+| width = 
+| height = 
+| diameter = 
+| weight = 
+}}
+
+The '''Oldsmobile Diesel''' [[internal combustion engine|engine]] is a series of [[V6 engine|V6]] and [[V8]] [[Diesel engine|diesel]] engines produced by [[General Motors]] from 1978 to 1985. Their design was based on the [[Oldsmobile V8 engine#350|Olds 350]] gasoline engine architecture.
+A {{convert|350|CID|L|1|abbr=on}} V8 was introduced in 1978, followed by a {{convert|261|CID|L|1|abbr=on}} V8 only for the 1979 model year. In 1982, a {{convert|263|CID|L|1|abbr=on}} V6 became available for both [[front-wheel drive]] and [[rear-wheel drive]] vehicles. 
+
+Sales peaked in 1981 at approximately 310,000 units, which represented 60% of the total U.S. passenger vehicle diesel market. This success was short-lived as the V8 version suffered severe reliability issues. Although GM carried out several redesigns, by the time the engine was trouble-free, the damage to its reputation had been done, and it was discontinued after the 1985 model year. The later design V6 diesel did not have the problems of the V8. 
+
+The shortcomings of the engine, and the publicity around it, negatively affected American light diesel engine sales for years to come.
+
+The 5.7L Oldsmobile V8 is often confused with and tarnishes the reputation of its immediate successor, the reliable and economical 6.2L [[Detroit Diesel V8 engine]], put into numerous GMC C/K light truck and G van applications from 1982 to the early 90's, and also the military HMMWV.
+
+==Design==
+While designing the original 350 cu in diesel, Oldsmobile left the head bolt design and pattern unchanged to enable them to use the same tooling as for the gasoline engines, unlike a proper gasoline to diesel conversion.<ref name=popmech>{{cite magazine | url = https://www.popularmechanics.com/cars/a6599/top-automotive-engineering-failures-oldsmobile-diesels/ | archive-url = https://web.archive.org/web/20160612081206/https://www.popularmechanics.com/cars/a6599/top-automotive-engineering-failures-oldsmobile-diesels/ | archive-date = 2016-06-12 | title = The Top Automotive Engineering Failures: Oldsmobile Diesels | last = Wojdyla | first = Ben | date = 2011-05-04 | magazine = Popular Mechanics | publisher = Hearst Magazine Media, Inc. }}</ref> This led to catastrophic head bolt failures as diesel engines have [[compression ratio]]s that are as much as three times higher than a gasoline engine.<ref name=popmech/> 
+
+In addition to the head bolt issues, General Motors also decided not to install a water separator in order to cut costs.<ref name=popmech/> Low quality diesel fuel was a common problem at the time and most diesels were thus equipped to keep the [[injection pump|injector pumps]] from corroding. Many owners tried to solve this by adding [[anhydrous alcohol]], a common trick to deal with water in fuel, but this instead dissolved fuel pump seals and other parts. 
+
+The stretchy fuel-pump timing chain was a minor problem in light of the other issues. Poor dealer service training only made all the problems worse.<ref name=popmech/> 
+
+General Motors also carried out several redesigns of the V8's heads, bolts, and various other parts, but by the time the engine was trouble-free the reputation damage had already been done. The upgraded engines, as built by model year 1981, were identified as "350 DX" on the block.<ref name=LD24>{{cite web | work = The Autopian | url = https://www.theautopian.com/lets-look-back-at-chevys-first-diesel-pickup-an-engineering-disaster-based-on-a-gas-v8/ | date = 2024-03-04 | title = Let's Look Back At Chevy's First Diesel Pickup, An Engineering Disaster Based On A Gas V8 | first = Lewin | last = Day }}</ref>
+
+===Problems===
+One Oldsmobile engineer who had worked on the V8 diesel told his GM bosses not to release the hastily developed engine. Needing to meet upcoming [[CAFE]] standards, GM forced him into early retirement and released the unfinished engine nonetheless.<ref name=NYT1>{{cite journal | url = https://www.nytimes.com/1983/03/27/business/the-saga-of-the-gm-diesel-lemons-lawsuits-and-soon-an-ftc-decision.html | title = The Saga of the G.M. Diesel: Lemons, Lawsuits and Soon an F.T.C. Decision | date = 1983-03-27 | last = Decourcy Hinds | first = Michael | journal = [[New York Times]] | page = 8 }}</ref>
+
+Simultaneous problems with GM's new [[Turbo-Hydramatic#THM200|THM200]] automatic transmission made the overall problem worse. The [[California Air Resources Board]] (CARB) had been unable to certify the diesel V8 for sale in the state in 1979 and early 1980 as the test cars issued to CARB broke down before the tests could be completed. Of the nine cars supplied to CARB, all suffered engine problems and seven had transmission failures.<ref name=NYT1/> 
+
+Myriad lawsuits were filed as several grassroots groups formed to try to get General Motors to acknowledge the issues.<ref name=NYT1/> In 1980 the [[Federal Trade Commission]] filed a complaint that included the diesel engine issues and the transmission troubles, as well as camshaft issues with gasoline V8s.<ref name=NYT1/> General Motors kept marketing the diesel to the fullest, with 19 of the 23 Oldsmobile models in 1981 being available with the 5.7 L diesel.<ref name=old156>{{cite book | ref = SCO | title = Standard Catalog of Oldsmobile 1897–1997 |first1 = John |last1 = Chevedden |first2 = Ron |last2 = Kowalke |publisher = Krause Publications | date = 2012 | location = Iola, WI | page = 156 | isbn = 978-1-4402-3235-0 }}</ref>
+
+The sales and reliability woes were compounded by a decline in gas prices as well as poor fuel quality issues, including large volumes of diesel fuel containing water or foreign particles.<ref name="phr">{{cite web|url=http://www.hotrod.com/features/0408phr-worst-automobile-engines/ | archive-url = https://web.archive.org/web/20150412003328/http://www.hotrod.com/features/0408phr-worst-automobile-engines/ | archive-date = 2015-04-12 | title= Better Off Dead | last = Fish | first = Randy | date= 2014-08-23 }}</ref>
+
+A [[class action lawsuit]] eventually forced General Motors to pay up to 80 percent of the costs of new engines. A large number of cars simply had their broken diesels replaced with conventional gasoline engines. Used car price guides have always indicated much lower prices for diesel-engined cars and they remain undesirable in the collector's market.<ref name=StOld/>
+
+The 4.3 L diesel released in 1982 did not have the same problems as the V8, as it has a denser bolt pattern and Oldsmobile's engineers were given more time to develop and test it.<ref name=popmech/>
+
+Nonetheless, Oldsmobile diesel's reputation for unreliability and anemic performance damaged the North American passenger diesel market for the next 30 years.<ref name="edmunds">{{cite web|url=http://blogs.edmunds.com/karl/2007/06/talk-back-tuesday-every-diesel-has-or-will-have-its-day.html|title=What's Hot|access-date=11 Jan 2014|archive-url=https://web.archive.org/web/20120216032930/http://blogs.edmunds.com/karl/2007/06/talk-back-tuesday-every-diesel-has-or-will-have-its-day.html|archive-date=16 February 2012|url-status=dead}}</ref><ref name="theautochannel">{{cite web|url=http://www.theautochannel.com/news/writers/bhagin/1998/fs9845.html|title=Technical: Diesel Redux |access-date=11 Jan 2014}}</ref> 
+
+==V8==
+V8 engines by [[Regular Production Option|RPO]] code included:
+===LF9===
+The LF9 is a 350 cu in (5.7 L) diesel V8 produced from 1978 to 1985. From 1978 through 1980, the engine featured the original "D" block casting and produced 120 hp (89 kW) at 3,600 rpm and 220 lb⋅ft (298 N⋅m) of torque at 1,900 rpm. For the 1981 model year, General Motors introduced the heavily reinforced "DX" block; while light-duty pickup trucks and vans maintained the 120 hp rating for its final year in those applications, passenger car variants were detuned via revised injection pump calibration to produce 105 hp (78 kW) at 3,200 rpm and 205 lb⋅ft (278 N⋅m) of torque at 1,600 rpm to improve fuel economy and lower peak cylinder pressures. Maximum engine speed across all years was governed between 4,200 and 4,400 rpm.
+
+Applications:
+*1981 [[Buick Century]]
+*1980–1984 [[Buick Electra]]
+*1980–1985 [[Buick LeSabre]]
+*1981–1985 [[Buick Regal]]
+*1981–1985 [[Buick Riviera]]
+*1979–1984 [[Cadillac de Ville]]
+*1979–1985 [[Cadillac Eldorado]]
+*1979–1985 [[Cadillac Fleetwood Brougham]]
+*1978–1985 [[Cadillac Seville]]
+*1980–1982 [[Checker Marathon]]
+*1981–1985 [[Chevrolet Caprice]]
+*1982–1984 [[Chevrolet El Camino]]
+*1981–1985 [[Chevrolet Impala]]
+*1982–1983 [[Chevrolet Malibu]]
+*1982–1984 [[Chevrolet Monte Carlo]]
+*1978–1981 [[Chevrolet C/K (third generation)|Chevrolet C10 pickup]] (2WD, Automatic only)<ref name=LD24/>
+*1978–1981 [[Chevrolet C/K (third generation)|GMC C1500 pickup]] (2WD, Automatic only)<ref name=LD24/>
+*1982–1984 [[GMC Caballero]]
+*1978–1985 [[Oldsmobile Custom Cruiser]]
+*1978–1983 [[Oldsmobile Cutlass|Oldsmobile Cutlass Cruiser]]
+*1978–1980 [[Oldsmobile Cutlass|Oldsmobile Cutlass Salon]]
+*1978–1985 [[Oldsmobile Cutlass Supreme|Oldsmobile Cutlass Supreme/Cutlass Calais]]
+*1978–1985 [[Oldsmobile Delta 88]]
+*1978–1984 [[Oldsmobile Ninety-Eight]]
+*1979–1985 [[Oldsmobile Toronado]]
+*1980–1984 [[Pontiac Bonneville]]
+*1980–1981 [[Pontiac Catalina]]
+*1981–1984 [[Pontiac Grand Prix]]
+*1981–1985 [[Pontiac Parisienne]]
+
+===LF7===
+The short-lived '''LF7''' is a {{convert|260|CID|L|1|abbr=on}} V8 putting out {{convert|90|hp|kW|0|abbr=on}} and {{convert|160|lbft|Nm|0|abbr=on}} torque.
+
+Applications:
+*1979 [[Oldsmobile Cutlass|Oldsmobile Cutlass Salon]]
+*1979 [[Oldsmobile Cutlass Supreme|Oldsmobile Cutlass Supreme/Cutlass Calais]]
+
+==V6==
+[[File:R. E. Olds Transportation Museum July 2018 54 (c. 1983 Oldsmobile V6 experimental diesel engine).jpg|thumb|1983 V6 experimental at the [[RE Olds Transportation Museum]]]]
+
+In 1982, GM introduced a 4.3-liter V6 for [[Longitudinal engine|longitudinal]] and [[Transverse engine|transverse]] applications. All versions of the engine were rated at {{convert|85|bhp|kW|0|abbr=on}} at 3600&nbsp;rpm and {{convert|165|lbft|Nm|0|abbr=on}} at 1600&nbsp;rpm.  It did not have the same problems as the V8, as it has a denser bolt pattern and Oldsmobile's engineers were given more time to develop and test it.<ref name=popmech/>
+
+Engines by [[Regular Production Option|RPO]] code included:
+
+===LT6===
+The '''LT6''' was produced from 1982 to 1984 and installed in rear-wheel drive vehicles.
+
+Applications:
+*1982–1984 [[Buick Regal]]
+*1982–1983 [[Chevrolet Malibu]]
+*1982–1983 [[Chevrolet Monte Carlo]]
+*1982–1984 [[Oldsmobile Cutlass Supreme|Oldsmobile Cutlass Supreme/Cutlass Calais]]
+
+===LT7===
+The '''LT7''' is a transverse engine version produced from 1982 to 1985.
+
+Applications:
+*1982–1985 [[Buick Century]]
+*1982–1985 [[Chevrolet Celebrity]]
+*1982–1985 [[Oldsmobile Cutlass Ciera]]
+*1982–1985 [[Pontiac 6000]]
+
+===LS2===
+The '''LS2''' was produced only in 1985 and installed in front-wheel drive vehicles.
+
+Applications:
+*1985 [[Buick Electra]]
+*1985 [[Cadillac de Ville series|Cadillac de Ville]]
+*1985 [[Cadillac Fleetwood]]
+*1985 [[Oldsmobile Ninety-Eight]]
+
+==Discontinuation==
+While customer complaints started dropping off after 1981, sales did too: diesels sold 43 percent less in 1982.<ref name=NYT1/> The downward sales slide continued, not helped by stricter emissions standards - for the 1984 model year the diesel V8 was no longer offered in California for that very reason.<ref name=old168>[[#SCO|Chevedden and Kowalke]], p. 168</ref> 
+
+General Motors had built a whole new plant for the V6 diesel, but sales thereof never broke 30,000 annually. Production ran at less than ten percent of capacity and much of the tooling had never even been unpacked by the time it was discontinued.<ref name=Wards85>{{cite journal | ref = WYB85 | title = GM Ends Nine-Year Term as Diesel Engine Manufacturer | journal = Ward's Automotive Yearbook 1985 |publisher=Ward's Communications, Inc | location = Detroit, MI | last = Zoia | first = David | volume = 47 | date = 1985 | page = 37 | isbn = ((0910589005)) }}</ref>
+
+In December 1984, General Motors announced the Oldsmobile Diesel engines would be discontinued during the 1985 model year.<ref name=StOld>[[#SCO|Chevedden and Kowalke]], p. 130</ref> GM continued to offer [[List of Isuzu engines#Isuzu_F_engine|Isuzu's 4FB1]] 1.8-liter four cylinder diesel in the [[Chevrolet Chevette|Chevrolet Chevette/Pontiac 1000]], but after only 588 of these were sold in 1986, the company went on to abandon the diesel passenger car segment entirely for many decades.<ref name=Wards87>{{cite journal | ref = WYB87 | title = 6-cyl Engines Increased Share in '86 at the Expense of V-8 Installations | journal = Ward's Automotive Yearbook 1987 |publisher=Ward's Communications, Inc | location = Detroit, MI | last = Stoddard | first = Haig | volume = 49 | date = 1987 | page = 48 | isbn = ((0910589007)) }}</ref> 
+
+Although the engines were unreliable because of the head and problems with the ancillaries, the Oldsmobile diesels' strong blocks continue to see use in gasoline-powered race engines.<ref name="phr"/><ref name="autoweek">{{cite magazine |url=http://www.autoweek.com/news.cms?newsId=102354 | archive-url = https://web.archive.org/web/20151023160447/https://www.gminsidenews.com/forums/f12/ghosts-diesels-past-failed-cars-20-years-ago-still-haunt-gm-u-s-market-14650/ | archive-date = 2015-10-23 | title=Ghosts of Diesels Past: Failed cars from 20 years ago still haunt GM, U.S. market | magazine = Autoweek| date = 2005-05-13 | first = Richard | last = Truett }}</ref>
+
+==References==
+{{reflist}}
+
+{{GM late engine timeline}}
+
+[[Category:Oldsmobile engines|Diesel]]
+[[Category:V6 engines]]
+[[Category:V8 engines]]
+[[Category:Diesel engines]]
+[[Category:1970s automobile engines]]

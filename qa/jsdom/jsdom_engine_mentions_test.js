@@ -82,7 +82,13 @@ const GOLF = fs.readFileSync(path.join(CACHE, "Volkswagen_Golf.wikitext"), "utf-
   // are four different engines, not two. They were collapsed to one apiece
   // while this read the field as a flat bag of links with no idea which line
   // each came from -- so the 1.5 and the 2.0 were the same thing.
-  check("the W213's engines are found", m.length === 11, names.join(", "));
+  check("the W213's engines are found", m.length === 12, names.join(", "));
+  // The twelfth is "2.0 L ''M270'' plug-in hybrid turbo I4" -- named without
+  // a link, because the line above it linked the same engine. See
+  // engineFieldEntries.
+  check("...including the one named without a link of its own",
+        m.some(x => x.name === "M270" && /plug-in hybrid/.test(x.said)),
+        JSON.stringify(m.filter(x => x.name === "M270").map(x => x.said)));
   check("...one entry per line of the infobox, so two variants of one engine are two",
         m.filter(x => x.name === "M264").length === 2 &&
         m.filter(x => x.name === "M264").map(x => x.variant).join("|") ===
