@@ -6763,6 +6763,30 @@ Rules:
           if ((o.type === "model" || o.type === "family") && norm(o.make) === norm(before)) o.make = rec.label;
         });
       }
+      // Real user request: "if I rename the model in the nameplate then this
+      // should also propagate down to its generations as well so i dont have
+      // to rename each one individually." A generation's label carries its
+      // nameplate's name with a suffix on it -- "E-Class (W213)", "Suburban
+      // Ninth generation (2000)", "GLA X156" -- so renaming the nameplate and
+      // not them leaves the two disagreeing on every card and in search.
+      //
+      // Only where the old name is actually IN the label, and only as a whole
+      // word: a generation named by its code alone ("W124") has nothing to
+      // rewrite, and a partial match would corrupt it. A generation that was
+      // renamed by hand keeps its own name -- its own record is the more
+      // specific instruction.
+      if (n.type === "family" && before && before !== rec.label) {
+        const re = new RegExp("(^|[^\\p{L}\\p{N}])" +
+                              before.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") +
+                              "(?![\\p{L}\\p{N}])", "u");
+        (n.generations || []).forEach(gid => {
+          if (store.renames[gid]) return;          // renamed by hand, leave it
+          const g = byIdLocal.get(gid);
+          if (!g || !g.label || !re.test(g.label)) return;
+          g.label = g.label.replace(re, (m, lead) => lead + rec.label);
+          g.renamedWithFamily = true;
+        });
+      }
       // A person's name also appears as free text in each car's own
       // designers/engineers arrays (what the detail card's "drawn by" line
       // reads) -- update those too, or the card and the graph disagree.

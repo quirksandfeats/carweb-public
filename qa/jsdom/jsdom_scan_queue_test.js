@@ -211,6 +211,17 @@ const ids = () => LF.jobs().map(j => j.targetId + ":" + j.state).join(" ");
   const panel = window.document.getElementById("llmqueue-panel");
   check("the Tools menu offers the queue when serve.py is answering", !!btn && !btn.hidden);
   btn.onclick(new window.Event("click"));
+  // Real bug report: "the 'scan queue' button doesn't work on serve.py." It
+  // opened the panel 800px down the page -- anchored to its own trigger,
+  // which is an item partway down the Tools dropdown, rather than to the
+  // Tools button in the top bar like every other panel here. Off the bottom
+  // of the screen looks exactly like a button that does nothing.
+  const toolsBtn = window.document.getElementById("toolsmenu-btn");
+  check("...anchored to the Tools button, not to an item inside the dropdown",
+        !/getElementById\("llmqueuebtn"\)\.getBoundingClientRect/.test(
+          fs.readFileSync(path.join(APP, "app.js"), "utf-8")) && !!toolsBtn);
+  check("...and clamped to the viewport so a long queue is still reachable",
+        !!panel.style.maxHeight, panel.style.maxHeight);
   check("...and opening it lists what is in the queue",
         !panel.hidden && /Alpha/.test(window.document.getElementById("llmqueue-list").textContent),
         window.document.getElementById("llmqueue-list").textContent.trim().slice(0, 80));

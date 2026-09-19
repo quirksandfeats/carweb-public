@@ -61,6 +61,9 @@ body{
 .tab{
   font-family:var(--sans); font-size:11.5px; font-weight:600; letter-spacing:.05em; text-transform:uppercase;
   padding:8px 13px; background:transparent; border:0; cursor:pointer; color:var(--ink2);
+  /* #viewtabs clips (overflow:hidden, for its rounded ends), so a label that
+     does not fit would be cut mid-word rather than wrapped. */
+  white-space:nowrap;
 }
 .tab+.tab{border-left:1px solid var(--hairline)}
 .tab.active{background:var(--ink); color:var(--paper)}
@@ -448,6 +451,14 @@ main{flex:1; position:relative; min-height:0}
 #navmenu > *{flex:none; width:100%; max-width:100%}
 #navmenu #viewtabs,#navmenu #layertoggle{display:flex; width:100%}
 #navmenu #viewtabs .tab,#navmenu #layertoggle button{flex:1 1 0; padding-block:10px}
+/* Real user report: "re-size the text in the powertrain button, since on
+   mobile, the text appears cut off." Four tabs sharing one row leaves about
+   a quarter of a phone's width each, which is narrower than the word
+   "Powertrain" -- and #viewtabs clips rather than wraps. Two rows of two,
+   and the label is allowed to shrink rather than be cut. */
+#navmenu #viewtabs{flex-wrap:wrap}
+#navmenu #viewtabs .tab{flex:1 1 45%; min-width:0; font-size:11px; letter-spacing:.03em;
+  padding-inline:6px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
 #navmenu #platformsonly,#navmenu #llmrequest-btn{width:100%; justify-content:center; padding-block:10px}
 #navmenu #yearfilter{width:100%}
 #navmenu #llmrequest-wrap{position:static}
@@ -795,6 +806,11 @@ main{flex:1; position:relative; min-height:0}
 }
 #llmrequest-panel[hidden]{display:none}
 #llmqueue-panel[hidden]{display:none}
+/* The Tools dropdown can put this panel's own anchor near the bottom of a
+   laptop screen, so it is clamped to the viewport in JS (maxHeight) and
+   scrolls rather than running off the bottom -- which is what made it look
+   like the button did nothing at all. */
+#llmqueue-panel{overflow-y:auto; overscroll-behavior:contain}
 #genphotos-panel[hidden]{display:none}
 .lrq-head{display:flex; align-items:center; justify-content:space-between; gap:10px}
 .lrq-head strong{font-family:var(--serif); font-size:16px; font-weight:600}

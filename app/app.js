@@ -203,7 +203,17 @@ window.CarWeb = (function () {
       gens.sort((a, b) => a.year - b.year);
       for (let i = 0; i < gens.length - 1; i++) {
         const g = gens[i], next = gens[i + 1];
-        if (g.end == null) g.end = next.year;
+        // Real user report, the A-Class: "the first generation seems to only
+        // have the starting year. However the wikipedia has both starting and
+        // end year." Not the model's doing -- the build-time DBpedia layer
+        // gives some generations no end year at all, and others an end year
+        // equal to their start (A-Class W176: "2012-2012", really 2012-2018).
+        // A generation that is followed by another one years later did not
+        // stop in its first year, so both shapes are treated as unknown and
+        // bounded by the next generation's start. A genuinely one-year
+        // generation followed immediately by its successor is left alone.
+        const degenerate = g.end != null && g.end === g.year && next.year > g.year + 1;
+        if (g.end == null || degenerate) g.end = next.year;
       }
       // ...and then the family's OWN end year, which build_family_layer.py
       // could only leave null: it closes a family solely when every member
@@ -3731,13 +3741,16 @@ window.CarWeb = (function () {
       rangeBar.style.left = ((r.lo - r.min) / span * 100) + "%";
       rangeBar.style.right = (100 - (r.hi - r.min) / span * 100) + "%";
     }
+    // One year of clearance, both ways -- see setYearRange, which enforces it
+    // for every caller. Done here too so the thumb stops where it will land
+    // rather than snapping back a year after the fact.
     lo.addEventListener("input", () => {
-      const v = Math.min(+lo.value, +hi.value);
+      const v = Math.min(+lo.value, +hi.value - 1);
       api.setYearRange(v, +hi.value);
       render();
     });
     hi.addEventListener("input", () => {
-      const v = Math.max(+hi.value, +lo.value);
+      const v = Math.max(+hi.value, +lo.value + 1);
       api.setYearRange(+lo.value, v);
       render();
     });
@@ -6098,17 +6111,30 @@ window.CarWeb = (function () {
       refreshAddState();
     };
 
+    // Real bug report: "the 'scan queue' button doesn't work on serve.py."
+    // It did work -- it opened the panel 800 pixels down the page, off the
+    // bottom of the screen, which looks exactly like a button that does
+    // nothing. Every other panel here anchors to a button in the top bar;
+    // this one anchored to its own trigger, which is an item partway down
+    // the Tools dropdown. So it anchors to the Tools BUTTON instead, and is
+    // clamped to the viewport either way, because the dropdown can be long
+    // enough to put any item near the bottom of a laptop screen.
     function positionPanel() {
-      const r = trigger.getBoundingClientRect();
-      panel.style.top = (r.bottom + 6) + "px";
+      const anchor = document.getElementById("toolsmenu-btn") || trigger;
+      const r = anchor.getBoundingClientRect();
       panel.style.left = "auto";
       panel.style.right = Math.max(0, window.innerWidth - r.right) + "px";
+      panel.style.top = (r.bottom + 6) + "px";
+      // Measured after it is on screen: a hidden element has no height.
+      // maxHeight (with overflow-y:auto in the stylesheet) is what keeps a
+      // long queue reachable rather than running off the bottom.
+      panel.style.maxHeight = Math.max(160, window.innerHeight - (r.bottom + 6) - 12) + "px";
     }
     function openPanel() {
-      positionPanel();
       panel.hidden = false;
       const menu = document.getElementById("toolsmenu");
       if (menu) menu.hidden = true;
+      positionPanel();
       if (!chosen) setChosen(dtNode && scannable(dtNode) ? dtNode : null);
       refreshQueueUi();
       (chosen ? addBtn : carEl).focus();
@@ -6149,6 +6175,10 @@ window.CarWeb = (function () {
     });
     trigger.onclick = (e) => { e.stopPropagation(); if (panel.hidden) openPanel(); else closePanel(); };
     closeBtn.onclick = closePanel;
+    // The same outside-click close every other panel here has.
+    document.addEventListener("click", e => {
+      if (!panel.hidden && e.target !== trigger && !panel.contains(e.target)) closePanel();
+    });
     document.addEventListener("keydown", e => { if (e.key === "Escape" && !panel.hidden) closePanel(); });
     window.addEventListener("resize", () => { if (!panel.hidden) positionPanel(); });
     // Opening a car while the panel is up retargets it, so clicking around
@@ -6497,9 +6527,23 @@ window.CarWeb = (function () {
     if (n.type !== "model" && n.type !== "family" && n.type !== "make" && n.type !== "person") return true;
     return !yearFilterSet || yearFilterSet.has(n.id);
   }
+  // Real bug report: "If I place both the start and end date to be at the end
+  // (or at the start of time), then I cannot actually move them back again,
+  // presumably because one overlaps the other and i cannot access the correct
+  // one." Exactly that: two range inputs stacked on one track, both thumbs on
+  // the same pixel, and only the one on top can be grabbed -- so the range was
+  // stuck at a single year with no way out but clearing the stored setting.
+  // Kept a year apart here rather than in the slider's own handlers, so every
+  // caller is covered: the handlers, ensureYearVisible, and a value restored
+  // from localStorage that was already collapsed before this existed.
   function setYearRange(lo, hi) {
     lo = Math.max(DATA_MIN_YEAR, Math.min(lo, hi));
     hi = Math.min(DATA_MAX_YEAR, Math.max(lo, hi));
+    if (hi <= lo && DATA_MAX_YEAR > DATA_MIN_YEAR) {
+      // Push the one that has room. At the very end of the range that has to
+      // be the low thumb, and at the very start the high one.
+      if (hi < DATA_MAX_YEAR) hi = lo + 1; else lo = hi - 1;
+    }
     if (lo === yearLo && hi === yearHi) return;
     yearLo = lo; yearHi = hi;
     // Remembered so a deliberate range survives a reload -- see YEAR_RANGE_KEY.

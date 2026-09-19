@@ -24,10 +24,13 @@
     <span class="wm-sub">makes · models · the people behind them, 1886–today</span>
   </button>
   <nav id="viewtabs" role="tablist">
+    <!-- Real user request: "I want powertrain tab to be to the right of the
+         graph tab". They are the same renderer with the layer flipped (see
+         app.js's graphMode), so they belong next to each other. -->
     <button class="tab active" data-view="graph" role="tab">Graph</button>
+    <button class="tab" data-view="power" role="tab">Powertrain</button>
     <button class="tab" data-view="timeline" role="tab">Timeline</button>
     <button class="tab" data-view="sixdeg" role="tab">Six Degrees</button>
-    <button class="tab" data-view="power" role="tab">Powertrain</button>
   </nav>
   <div id="layertoggle" title="people layer">
     <button data-layer="none">None</button>
