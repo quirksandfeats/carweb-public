@@ -1631,7 +1631,19 @@ window.CarWeb = (function () {
     box.appendChild(det);
     engines.forEach(({ other, l }) => {
       const eng = other.type === "enginevar" ? engineOfVariant(other, index) : other;
-      const sub = [other.type === "enginevar" ? other.label : null,
+      // A car runs several engines off one article far more often than not:
+      // the 1960 Suburban's infobox names three Turbo-Thrifts, 230, 250 and
+      // 292 cu in. Each is its own row, so each has to say WHICH -- until
+      // the article is read and they become named variants, the only thing
+      // that tells them apart is what the car's own line said.
+      const said = l.saidSpecs || {};
+      const which = other.type === "enginevar" ? other.label
+                  : (l.variantHint || said.displacement || null);
+      const sub = [which,
+                   other.type !== "enginevar" && l.variantHint && said.displacement &&
+                     String(l.variantHint).toLowerCase().replace(/[^a-z0-9]/g, "") !==
+                     String(said.displacement).toLowerCase().replace(/[^a-z0-9]/g, "")
+                       ? said.displacement : null,
                    fmtYearRun(l.yearStart, l.yearEnd),
                    isEngineUnread(eng) ? "not read yet" : null].filter(Boolean).join(" · ");
       row(eng ? eng.label : other.label, sub, () => api.goto(other.id), null, det);

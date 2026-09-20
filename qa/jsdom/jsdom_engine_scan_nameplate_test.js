@@ -129,7 +129,10 @@ const DATA = window.CARDATA;
     const r = await LF.scanEnginesFor(fam, DATA.nodes, DATA.links);
     check("both generations were read", r.scanned >= 1, JSON.stringify(r));
     check("engines came out of it", r.engines === 9, r.engines);
-    check("...connected to the generation that ran them", r.fitted === 9, r.fitted);
+    // Twelve for nine: the W213 names the M270/M274 article three times and
+    // the M260/M264 twice, and those are different engines sharing a page.
+    check("...connected to the generation that ran them, one per engine named",
+          r.fitted === 12, r.fitted);
     check("...as real nodes", DATA.nodes.filter(n => n.type === "engine").length === before + 9,
           DATA.nodes.filter(n => n.type === "engine").length - before);
     check("the W212, whose article is not here, is skipped rather than guessed at",
@@ -203,7 +206,7 @@ const DATA = window.CARDATA;
           LF.engineScanEntryFor(G213).engines.length);
     check("...without duplicating a single node", DATA.nodes.filter(n => n.type === "engine").length === 9,
           DATA.nodes.filter(n => n.type === "engine").length);
-    check("...or a single connection", DATA.links.filter(l => l.type === "fitted").length === 9,
+    check("...or a single connection", DATA.links.filter(l => l.type === "fitted").length === 12,
           DATA.links.filter(l => l.type === "fitted").length);
   }
 

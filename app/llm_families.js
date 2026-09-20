@@ -10511,12 +10511,26 @@ Rules:
     if (!carNode) return { engines: 0, fitted: 0, revived: 0, deleted: 0, added: [] };
     if (!mentions || !mentions.length) return { engines: 0, fitted: 0, revived: 0, deleted: 0, added: [] };
     const byId = new Map(nodes.map(n => [n.id, n]));
+    // A car can run SEVERAL engines off one article, and they are not the
+    // same engine. The 1960 Chevrolet Suburban's infobox names three
+    // Turbo-Thrifts -- 230, 250 and 292 cu in -- all linking
+    // "Chevrolet Turbo-Thrift engine"; keying an edge on engine+car alone
+    // kept the first and threw the other two away, which is most of why a
+    // nameplate whose generations each run half a dozen engines came back
+    // showing two. The variant the car's own line named is part of which
+    // engine this edge is about. Once that article is read, each of these
+    // edges is moved onto its own variant node -- see bindCarsToVariants,
+    // which already works link by link.
+    const engineVariantPart = l => "|" + [norm(l.variantHint || ""),
+      norm((l.saidSpecs || {}).displacement || ""),
+      norm((l.saidSpecs || {}).fuel || "")].join("|");
     const linkKey = new Set();
     for (const l of links) {
       const s0 = typeof l.source === "string" ? l.source : l.source && l.source.id;
       const t0 = typeof l.target === "string" ? l.target : l.target && l.target.id;
-      linkKey.add(s0 + "|" + t0 + "|" + l.type);
-      linkKey.add(t0 + "|" + s0 + "|" + l.type);
+      const extra = l.type === "fitted" ? engineVariantPart(l) : "";
+      linkKey.add(s0 + "|" + t0 + "|" + l.type + extra);
+      linkKey.add(t0 + "|" + s0 + "|" + l.type + extra);
     }
     let engines = 0, fitted = 0, revived = 0, deleted = 0;
     const revive = !!(opts && opts.revive);
@@ -10563,9 +10577,15 @@ Rules:
         if (revive && reviveEngineNode(n, links, byId)) revived++;
         else { deleted++; continue; }
       }
-      const k = n.id + "|" + carNode.id + "|fitted";
+      // The same shape engineMentions and mergeEngineHits agree on: two
+      // readings it kept apart must not be merged back together here. The
+      // W213 names the M270/M274 article three times, for three engines.
+      const part = "|" + [norm(mention.variant || picked || ""),
+        norm((mention.specs || {}).displacement || ""),
+        norm((mention.specs || {}).fuel || "")].join("|");
+      const k = n.id + "|" + carNode.id + "|fitted" + part;
       if (!linkKey.has(k)) {
-        linkKey.add(k); linkKey.add(carNode.id + "|" + n.id + "|fitted");
+        linkKey.add(k); linkKey.add(carNode.id + "|" + n.id + "|fitted" + part);
         links.push({ source: n.id, target: carNode.id, type: "fitted",
                      llmGenerated: true, fromCar: true,
                      // Either the anchor the link carried, or the code the
@@ -11036,11 +11056,24 @@ Rules:
   // gathering this info from both possible locations and appending them to
   // each other, if they exist in both places, obviously checking if there's
   // overlap to prevent duplicate engines appearing for the same car."
+  // What makes two engine readings the same engine. Deliberately the same
+  // shape engineMentions dedupes with: one article and one display name are
+  // routinely SEVERAL engines. The Chevrolet Suburban's 2015 infobox lists
+  // "5.3 L ... EcoTec3" and "6.2 L ... EcoTec3" -- one title, one name, two
+  // engines -- and its 1960 infobox names seven, of which title+name alone
+  // sees four. Keying on the pair dropped the rest silently, so a nameplate
+  // whose generations each run half a dozen engines came back with two or
+  // three each and looked like a model that had not read the article.
+  function engineHitKey(hit) {
+    const sp = (hit && hit.specs) || {};
+    return [norm(hit.title), norm(hit.name), norm(hit.variant || ""),
+            norm(sp.displacement || ""), norm(sp.fuel || "")].join("|");
+  }
   function mergeEngineHits(a, b) {
     const out = [], seen = new Set();
     for (const hit of (a || []).concat(b || [])) {
       if (!hit || !hit.title) continue;
-      const key = norm(hit.title) + "|" + norm(hit.name);
+      const key = engineHitKey(hit);
       if (seen.has(key)) continue;
       seen.add(key);
       out.push(hit);

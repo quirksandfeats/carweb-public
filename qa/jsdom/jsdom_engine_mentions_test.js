@@ -141,7 +141,13 @@ const GOLF = fs.readFileSync(path.join(CACHE, "Volkswagen_Golf.wikitext"), "utf-
   const nodesBefore = DATA.nodes.length;
   const r = LF.recordEngineMentions(W213, car, DATA.nodes, DATA.links);
   check("nine engine nodes appear", r.engines === 9, r.engines);
-  check("...connected to the car that named them", r.fitted === 9, r.fitted);
+  // Twelve connections for nine engines, and that is the point: the W213's
+  // infobox names the M270/M274 article three times (M274 DE20 LA 2.0,
+  // M274 DE16 LA 1.6, M270 2.0) and the M260/M264 twice. Those are different
+  // engines sharing a page, so they are different connections -- keying an
+  // edge on engine+car alone kept one of each and lost the rest.
+  check("...connected to the car that named them, one per engine the list names",
+        r.fitted === 12, r.fitted);
   const eng = DATA.nodes.find(n => n.type === "engine" && n.label === "M256");
   check("...and each is marked unresearched, because nothing read its article",
         !!eng && eng.unresearched === true, eng && JSON.stringify(eng.unresearched));
