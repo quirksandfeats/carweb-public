@@ -2180,8 +2180,16 @@ window.CarWeb = (function () {
       return;
     }
     if (entry.status === "error") {
-      el.innerHTML = `<div class="llm-status llm-error">Local LLM check failed: ${esc(entry.error || "unknown error")}</div>
+      // A call the token ceiling cut short is a different problem from a
+      // model that answered nonsense, and what it actually said is the only
+      // way to tell which -- kept on the entry since the W108/W109, where
+      // neither was recoverable after the fact. See errorDetail.
+      const d = entry.detail || {};
+      el.innerHTML = `<div class="llm-status llm-error">Local LLM check failed: ${esc(entry.error || "unknown error")}
+          ${d.raw ? debugToggleHtml({ raw: d.raw }) : ""}</div>
+        <div class="llm-debug" hidden></div>
         <div class="llm-actions"><button class="llm-btn llm-retry-plain">Try again</button></div>`;
+      if (d.raw) wireDebugToggle(el, { raw: d.raw });
       el.querySelector(".llm-retry-plain").onclick = () => {
         el.innerHTML = `<div class="llm-status">🤖 trying again…</div>`;
         window.LlmFamilies.retryNode(n, "", nodes).then(() => afterLlmCheck(n));

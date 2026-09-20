@@ -1094,10 +1094,19 @@ class Handler(http.server.SimpleHTTPRequestHandler):
             # stays simple (choices[0].message.content), plus the raw
             # timings for anyone who wants them (not currently read by the
             # client, but harmless to include).
+            # finish_reason travels with the answer. Real incident, the
+            # Mercedes-Benz W108/W109: the reply was cut at the ceiling, the
+            # browser got JSON with no closing brace, and the only thing it
+            # could say was "returned something that isn't JSON" -- which
+            # reads like a broken model rather than a call that ran out of
+            # room. This terminal already knew (see the CUT OFF line above);
+            # the page had no way to.
             response_payload = {
                 "model": LLAMA_MODEL_ALIAS,
-                "choices": [{"message": {"role": "assistant", "content": "".join(content_parts)}}],
+                "choices": [{"message": {"role": "assistant", "content": "".join(content_parts)},
+                             "finish_reason": finish_reason or None}],
                 "timings": final_timings,
+                "maxTokens": chat_req.get("max_tokens"),
             }
             self._json(200, response_payload)
             return

@@ -427,6 +427,17 @@ check("dropping a running request breaks the claim first rather than refusing",
       'if st == 409' in src and '"running"' in src
       and src.index("/api/request/release") < src.index("print(\"removed 1 request\")"))
 
+# ---- the one serve.py line that must never be filtered -------------------
+# A call the token ceiling cut short did not answer its question. serve.py
+# says so on a [req-N] line, and [req-N] is exactly what the noise filter
+# drops -- so the W108/W109's "check failed" had its explanation printed and
+# thrown away in the same terminal.
+check("the cut-off line is kept out of the noise filter",
+      "SERVE_KEEP" in src and "CUT OFF" in src)
+check("...and the filter consults it first",
+      "for rx in SERVE_KEEP" in src
+      and src.index("for rx in SERVE_KEEP") < src.rindex("for rx in SERVE_NOISE"))
+
 print()
 print("ALL GREEN" if not fails else "FAILURES: " + str(fails))
 sys.exit(1 if fails else 0)

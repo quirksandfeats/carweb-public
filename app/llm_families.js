@@ -879,7 +879,11 @@ window.LlmFamilies = (function () {
   // {...} (or [...]) span, before giving up. Deliberately does NOT try to
   // repair genuinely malformed JSON -- a truncated or invented object should
   // still fail loudly rather than be half-guessed at.
-  function parseLlmJson(content) {
+  // `meta` is what serve.py said about the call itself -- {finishReason,
+  // maxTokens}. A reply cut off at the ceiling and a reply that is genuine
+  // nonsense both arrive here as text that will not parse; only this tells
+  // them apart, and they need completely different answers from a person.
+  function parseLlmJson(content, meta) {
     const text = String(content == null ? "" : content).trim();
     if (!text) throw new Error("empty response from llama.cpp");
     try { return JSON.parse(text); } catch (e) { /* fall through to the recovery paths below */ }
@@ -899,7 +903,31 @@ window.LlmFamilies = (function () {
         try { return JSON.parse(text.slice(first, last + 1)); } catch (e) { /* genuinely malformed -- fall through */ }
       }
     }
-    throw new Error("llama.cpp returned something that isn't JSON: " + text.slice(0, 160));
+    const cut = meta && meta.finishReason === "length";
+    const err = new Error(cut
+      ? ("the model ran past the " + (meta.maxTokens || "token") +
+         "-token ceiling without finishing its answer -- it was still going when it was stopped" +
+         " (raise LLAMA_MAX_TOKENS, or retry: this is usually the model looping)")
+      : ("llama.cpp returned something that isn't JSON: " + text.slice(0, 160)));
+    // The whole reply, not the 160 characters the message has room for. The
+    // W108/W109 failure could not be diagnosed afterwards because nothing
+    // kept what the model actually said.
+    err.rawText = text;
+    err.finishReason = (meta && meta.finishReason) || null;
+    err.cutOff = !!cut;
+    throw err;
+  }
+
+  // Everything an error entry should carry about a failed call. The message
+  // alone is not enough to tell a ceiling hit from a broken reply, and the
+  // reply itself was never kept -- so a "check failed" could not be looked
+  // into afterwards, only re-run and hoped at.
+  function errorDetail(e) {
+    const out = {};
+    if (e && e.cutOff) out.cutOff = true;
+    if (e && e.finishReason) out.finishReason = e.finishReason;
+    if (e && e.rawText) out.raw = String(e.rawText).slice(0, 8000);
+    return Object.keys(out).length ? out : null;
   }
 
   // `purpose` is a short human-readable label for what this particular call
@@ -964,9 +992,13 @@ window.LlmFamilies = (function () {
       throw new Error(body.hint || body.error || ("llama.cpp request failed: " + r.status));
     }
     const j = await r.json();
-    const content = j && j.choices && j.choices[0] && j.choices[0].message && j.choices[0].message.content;
+    const choice = j && j.choices && j.choices[0];
+    const content = choice && choice.message && choice.message.content;
     if (!content) throw new Error("empty response from llama.cpp");
-    return parseLlmJson(content);
+    return parseLlmJson(content, {
+      finishReason: choice && choice.finish_reason,
+      maxTokens: j && j.maxTokens,
+    });
   }
 
   const SYSTEM_PROMPT = `You extract car production-generation data, who designed/engineered each generation, and every shared-platform/rebadge/sister-model relationship to a DIFFERENT nameplate, from Wikipedia infobox wikitext, section headings, and short paragraph excerpts.
@@ -2194,7 +2226,7 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
         store.families[node.id] = entry; await persist();
         return entry;
       } catch (e) {
-        const entry = { status: "error", checkedAt: new Date().toISOString(), error: String(e.message || e), attempts: 1 };
+        const entry = { status: "error", checkedAt: new Date().toISOString(), error: String(e.message || e), attempts: 1, detail: errorDetail(e) };
         if (engagedId !== node.id) return entry; // walked away mid-check -- don't persist a transient error
         store.families[node.id] = entry; await persist();
         return entry;
@@ -2316,7 +2348,7 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
         if (entry.status !== "provisional") await persist();
         return entry;
       } catch (e) {
-        const entry = { status: "error", checkedAt: new Date().toISOString(), error: String(e.message || e), attempts: 1 };
+        const entry = { status: "error", checkedAt: new Date().toISOString(), error: String(e.message || e), attempts: 1, detail: errorDetail(e) };
         store.families[node.id] = entry; await persist();
         return entry;
       } finally {
@@ -2357,8 +2389,8 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
       } catch (e) {
         const entry = Object.assign({}, existing, {
           status: "error", checkedAt: new Date().toISOString(), error: String(e.message || e),
-          attempts: (existing.attempts || 0) + 1,
-        });
+          detail: errorDetail(e),
+          attempts: (existing.attempts || 0) + 1 });
         if (engagedId !== node.id) return entry;
         store.families[node.id] = entry; await persist();
         return entry;
@@ -6133,7 +6165,7 @@ Rules:
         await persist();
         return entry;
       } catch (e) {
-        const entry = { status: "error", checkedAt: new Date().toISOString(), error: String(e.message || e) };
+        const entry = { status: "error", checkedAt: new Date().toISOString(), error: String(e.message || e), detail: errorDetail(e) };
         if (!store.relations) store.relations = {};
         store.relations[key] = entry;
         return entry;
@@ -8255,7 +8287,7 @@ Rules:
         await persist();
         return entry;
       } catch (e) {
-        const entry = { status: "error", checkedAt: new Date().toISOString(), error: String(e.message || e), attempts: 1, manualRecheck: true };
+        const entry = { status: "error", checkedAt: new Date().toISOString(), error: String(e.message || e), attempts: 1, manualRecheck: true, detail: errorDetail(e) };
         store.recheck[fam.id] = entry; await persist();
         return entry;
       } finally {
@@ -11425,7 +11457,7 @@ Rules:
         await persist();
         return entry;
       } catch (e) {
-        const entry = { status: "error", checkedAt: new Date().toISOString(), error: String(e.message || e) };
+        const entry = { status: "error", checkedAt: new Date().toISOString(), error: String(e.message || e), detail: errorDetail(e) };
         store.genResearch[gen.id] = entry; await persist();
         return entry;
       } finally {
@@ -11513,7 +11545,7 @@ Rules:
         store.recheck[fam.id] = entry; await persist();
         return entry;
       } catch (e) {
-        const entry = { status: "error", checkedAt: new Date().toISOString(), error: String(e.message || e), attempts: 1 };
+        const entry = { status: "error", checkedAt: new Date().toISOString(), error: String(e.message || e), attempts: 1, detail: errorDetail(e) };
         if (engagedId !== fam.id) return entry;
         store.recheck[fam.id] = entry; await persist();
         return entry;
@@ -11554,8 +11586,8 @@ Rules:
       } catch (e) {
         const entry = Object.assign({}, existing, {
           status: "error", checkedAt: new Date().toISOString(), error: String(e.message || e),
-          attempts: (existing.attempts || 0) + 1,
-        });
+          detail: errorDetail(e),
+          attempts: (existing.attempts || 0) + 1 });
         if (engagedId !== fam.id) return entry;
         store.recheck[fam.id] = entry; await persist();
         return entry;

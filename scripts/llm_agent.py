@@ -366,6 +366,11 @@ def port_open(port):
 # mode of a keep list is silence about the one thing that mattered. The full
 # stream, filtered or not, still goes into `tail`, which is what start_serve
 # prints if serve.py never comes up. --verbose relays the lot.
+# The one [req-N] line that is never noise: a call the token ceiling had to
+# cut short did not answer its question, and the client can only say so in a
+# one-line error. Real case, the Mercedes-Benz W108/W109 -- "check failed"
+# in the log, with the explanation filtered out of the same terminal.
+SERVE_KEEP = [re.compile(r"^\[req-\d+\].*CUT OFF")]
 SERVE_NOISE = [
     re.compile(r'^\d+\.\d+\.\d+\.\d+ - "'),      # HTTP access log
     re.compile(r"^\[req-\d+\]"),                    # per-request token progress
@@ -378,6 +383,8 @@ SERVE_NOISE = [
 
 
 def _is_serve_noise(line):
+    if any(rx.search(line) for rx in SERVE_KEEP):
+        return False
     return any(rx.search(line) for rx in SERVE_NOISE)
 
 
