@@ -1621,12 +1621,20 @@ window.CarWeb = (function () {
       engines.forEach(e => { if (e.other.type === "enginevar") covered.add(e.other.engineOf); });
       if (covered.size) engines = engines.filter(e => !covered.has(e.other.id));
     }
-    if (!engines.length) return;
+    // Engines the car's own list names with no article behind them. The
+    // Suburban's 1973 infobox names seven and links one: the other six are
+    // real engines with nothing to follow, so they are shown as the line
+    // stated them -- no node, no link, nothing to click. See
+    // unlinkedEngineMentions.
+    const scan = LFam.engineScanEntryFor ? LFam.engineScanEntryFor(n.id) : null;
+    const unlinked = (scan && scan.unlinked) || [];
+    if (!engines.length && !unlinked.length) return;
     const det = document.createElement("details");
     det.className = "dt-power-fold";
     if (activeView === "power") det.open = true;
     const sum = document.createElement("summary");
-    sum.textContent = engines.length === 1 ? "Engine" : `Engines (${engines.length})`;
+    const total = engines.length + unlinked.length;
+    sum.textContent = total === 1 ? "Engine" : `Engines (${total})`;
     det.appendChild(sum);
     box.appendChild(det);
     engines.forEach(({ other, l }) => {
@@ -1647,6 +1655,14 @@ window.CarWeb = (function () {
                    fmtYearRun(l.yearStart, l.yearEnd),
                    isEngineUnread(eng) ? "not read yet" : null].filter(Boolean).join(" · ");
       row(eng ? eng.label : other.label, sub, () => api.goto(other.id), null, det);
+    });
+    // row() with no click handler renders disabled, which is exactly right:
+    // there is nothing to open.
+    unlinked.forEach(u => {
+      const sp = u.specs || {};
+      const b = row(u.name, [fmtYearRun(sp.yearStart, sp.yearEnd), "no article"]
+                              .filter(Boolean).join(" · "), null, null, det);
+      b.title = u.said || u.name;
     });
   }
   // Whether an engine's own article has actually been read. `unresearched` is

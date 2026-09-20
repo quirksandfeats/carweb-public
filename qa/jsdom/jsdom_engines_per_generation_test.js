@@ -118,5 +118,58 @@ const section = title => {
   check("the engine count is reported, not silently zero", r.fitted === 7, r.fitted);
 }
 
+// ---------- engines the list names with no article to follow ----------
+// The 1973 generation's infobox names seven and links exactly one.
+{
+  const s73 = section("Seventh generation (1973)");
+  const linked = LF.engineMentions(s73);
+  check("the one engine with an article is still the only engine node",
+        linked.length === 1 && /Detroit Diesel/.test(linked[0].name),
+        linked.map(h => h.name).join(", "));
+
+  const bare = LF.unlinkedEngineMentions(s73);
+  check("the other six are kept as stated", bare.length === 6, bare.map(u => u.name).join(", "));
+  // In the units the line used. The wikitext says {{convert|350|cuin|...}};
+  // "350 cu in" is what it states, and the linked engines on the same page
+  // are recorded the same way.
+  check("...named by what the line said, not by an invented code",
+        bare.some(u => u.name === "350 cu in V8 (petrol)") &&
+        bare.some(u => u.name === "454 cu in V8 (petrol)"),
+        bare.map(u => u.name).join(", "));
+  check("...carrying the fuel heading they sat under",
+        bare.every(u => u.specs.fuel === "petrol"),
+        bare.map(u => u.specs.fuel).join(", "));
+  check("...and the years the line gave, where it gave any",
+        bare.some(u => u.specs.yearStart === 1976 && u.specs.yearEnd === 1988),
+        JSON.stringify(bare.map(u => [u.specs.yearStart, u.specs.yearEnd])));
+  check("...with no code invented for any of them",
+        bare.every(u => !/[A-Z]{1,2}\d{2,}/.test(u.name)), bare.map(u => u.name).join(", "));
+  check("the linked one is NOT repeated among them",
+        !bare.some(u => /diesel/i.test(u.specs.fuel || "") && /379|6\.2/.test(u.name)),
+        bare.map(u => u.name).join(", "));
+}
+// A line with no link of its own that names an engine linked elsewhere in the
+// same field is that engine, not a bare spec -- the GLA's second M270.
+{
+  const gla = fs.readFileSync(path.join(CACHE, "Mercedes-Benz_GLA.wikitext"), "utf-8");
+  const bare = LF.unlinkedEngineMentions(gla);
+  check("an engine linked elsewhere in the same list is not demoted to a bare spec",
+        !bare.some(u => /m270|m274/i.test(u.said || "")), bare.map(u => u.said).join(" | "));
+}
+// ---------- and they never become nodes or edges ----------
+{
+  const nodes = [{ id: "mk-u", type: "make", label: "Chevrolet", year: 1911 },
+                 { id: "m-u-1973", type: "model", label: "Suburban Seventh generation",
+                   make: "Chevrolet", year: 1973, end: 1991 }];
+  const links = [];
+  const s73 = section("Seventh generation (1973)");
+  LF.recordEngineMentionsFrom(LF.engineMentions(s73), nodes[1], nodes, links);
+  check("only the engine with an article gets a node",
+        nodes.filter(n => n.type === "engine").length === 1,
+        nodes.filter(n => n.type === "engine").map(n => n.label).join(", "));
+  check("...and only it gets a connection",
+        links.filter(l => l.type === "fitted").length === 1);
+}
+
 console.log("\n" + fails + " failure(s)");
 process.exit(fails ? 1 : 0);

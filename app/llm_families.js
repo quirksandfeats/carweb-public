@@ -10287,8 +10287,20 @@ Rules:
     if (m) out.yearEnd = +m[1];
     m = /\((?:since|from)\s*(\d{4})\)/i.exec(t);
     if (m) out.yearStart = +m[1];
-    m = /\((\d{4})\s*[-–—]\s*(\d{4}|present)\)/i.exec(t);
-    if (m) { out.yearStart = +m[1]; if (/^\d{4}$/.test(m[2])) out.yearEnd = +m[2]; }
+    // "(1976-88)" is how an engine list routinely writes a range, and it was
+    // read as no range at all. A two-digit end belongs to the start's
+    // century, rolling forward when it reads as earlier than the start
+    // ("1998-02" is 2002, not 1902).
+    m = /\((\d{4})\s*[-–—]\s*(\d{4}|\d{2}|present)\)/i.exec(t);
+    if (m) {
+      out.yearStart = +m[1];
+      if (/^\d{4}$/.test(m[2])) out.yearEnd = +m[2];
+      else if (/^\d{2}$/.test(m[2])) {
+        let end = Math.floor(out.yearStart / 100) * 100 + +m[2];
+        if (end < out.yearStart) end += 100;
+        out.yearEnd = end;
+      }
+    }
     return out;
   }
 
@@ -10356,6 +10368,58 @@ Rules:
 
   // Split an "| engine =" field into one entry per engine, carrying each
   // line's own specs and whichever fuel heading it sits under.
+  // The engines a car's infobox names with no article behind them. Real case,
+  // the Chevrolet Suburban's 1973 generation, whose seven-engine list links
+  // exactly one of them:
+  //
+  //   | engine = {{ubl
+  //   |'''Gasoline:'''
+  //   |{{convert|350|cuin|L|1|abbr=on}} V8
+  //   |{{convert|454|cuin|L|1|abbr=on}} V8
+  //   |'''Diesel:'''
+  //   |{{convert|379|cuin|L|1|abbr=on}} [[Detroit Diesel V8 engine#6.2L|...]]
+  //
+  // Six real engines with nothing to follow. They cannot become engine nodes
+  // -- there is no article, no code, and inventing one would be worse than
+  // the gap -- but the car did run them, and the line says what they were.
+  // Recorded against the generation as plain named specs: no node, no edge,
+  // nothing to click.
+  //
+  // A line whose engine is linked somewhere else in the same field is NOT
+  // one of these: engineFieldEntries has already given it that link (the
+  // GLA's second M270), and it comes back from engineMentions as an ordinary
+  // engine.
+  function unlinkedEngineMentions(wikitext) {
+    const out = [], seen = new Set();
+    const makes = knownMakeNames();
+    for (const field of engineFields(String(wikitext || ""))) {
+      for (const entry of engineFieldEntries(field, makes)) {
+        if (entry.links.length) continue;
+        const sp = entry.specs || {};
+        // Something that states an engine, not a stray note: a displacement,
+        // or a layout and a cylinder count.
+        if (!sp.displacement && !(sp.layout && sp.cylinders)) continue;
+        const key = [norm(sp.displacement || ""), norm(sp.layout || ""),
+                     sp.cylinders || "", norm(sp.fuel || ""),
+                     norm(sp.induction || "")].join("|");
+        if (seen.has(key)) continue;
+        seen.add(key);
+        out.push({ name: engineSpecLabel(sp), specs: sp, said: entry.text });
+      }
+    }
+    return out;
+  }
+  // "5.7 L V8", "2.0 L turbo I4 (diesel)" -- what the line said, in the
+  // order a person would say it. Never a code, because the line carried none.
+  function engineSpecLabel(sp) {
+    const s = sp || {};
+    const layout = s.layout && s.cylinders ? s.layout + s.cylinders : null;
+    const head = [s.displacement, s.induction === "turbocharged" ? "turbo" : null, layout]
+      .filter(Boolean).join(" ");
+    const tail = [s.fuel, s.hybrid ? "hybrid" : null].filter(Boolean).join(", ");
+    return (head || "engine") + (tail ? ` (${tail})` : "");
+  }
+
   function engineFieldEntries(field, makes) {
     const lines = splitEngineField(field);
     const out = [];
@@ -10408,13 +10472,13 @@ Rules:
     return out;
   }
 
-  function engineMentions(wikitext) {
+  // EVERY engine field in the text, not just the first. A merged,
+  // single-article nameplate gives each generation its own infobox -- the
+  // Mercedes-Benz G-Class is the case already on record for years and
+  // designers -- and reading only the first one would report the engines of
+  // whichever era happens to come first in the document.
+  function engineFields(wikitext) {
     const src = String(wikitext || "");
-    // EVERY engine field, not just the first. A merged, single-article
-    // nameplate gives each generation its own infobox -- the Mercedes-Benz
-    // G-Class is the case already on record for years and designers -- and
-    // reading only the first one would report the engines of whichever era
-    // happens to come first in the document.
     const fields = [];
     const fieldRx = /\|\s*engines?\s*=/gi;
     let m;
@@ -10431,6 +10495,11 @@ Rules:
       }
       fields.push(src.slice(m.index + m[0].length, end));
     }
+    return fields;
+  }
+  function engineMentions(wikitext) {
+    const src = String(wikitext || "");
+    const fields = engineFields(src);
     if (!fields.length) return [];
     const makes = knownMakeNames();
     const out = [];
@@ -11120,13 +11189,24 @@ Rules:
       // is the source where one does not -- the Suburban has no per-generation
       // articles at all and twelve per-generation infoboxes. Where both exist
       // they are appended and de-duplicated, which is what the user asked for.
-      let hits = [];
+      let hits = [], unlinked = [];
       let readTitle = null, unreadable = false;
+      // Engines the list names with no article behind them -- see
+      // unlinkedEngineMentions. Gathered from the same two places as the
+      // rest, kept apart from them because they never become nodes.
+      const addUnlinked = more => {
+        for (const u of more) {
+          if (unlinked.some(x => x.name === u.name)) continue;
+          unlinked.push(u);
+        }
+      };
       if (title) {
         let wikitext = null;
         try { wikitext = (await fetchArticleDigest(title)).wikitext; } catch (e) { wikitext = null; }
-        if (wikitext) { hits = engineMentions(wikitext); readTitle = title; }
-        else unreadable = true;
+        if (wikitext) {
+          hits = engineMentions(wikitext); readTitle = title;
+          addUnlinked(unlinkedEngineMentions(wikitext));
+        } else unreadable = true;
       }
       let fromSection = null;
       if (famWikitext) {
@@ -11140,6 +11220,11 @@ Rules:
           note(`powertrain: ${car.label} -- ${hits.length - before} more engine(s) from ` +
                `"${umbrella}" § ${fromSection.title}`);
         }
+        addUnlinked(unlinkedEngineMentions(fromSection.body));
+      }
+      if (unlinked.length) {
+        note(`powertrain: ${car.label} -- ${unlinked.length} engine(s) named with no article ` +
+             `to follow, kept as stated: ${unlinked.map(u => u.name).join(", ")}`);
       }
 
       // Recorded even when nothing was found, and saying WHICH kind of nothing
@@ -11155,7 +11240,7 @@ Rules:
         store.engineScans[car.id] = {
           checkedAt: new Date().toISOString(),
           sourceTitle: readTitle || (fromSection && umbrella) || null,
-          status, engines: [],
+          status, engines: [], unlinked,
         };
         note(`powertrain: ${car.label} -- ` + (
           unreadable ? `could not read "${title}"`
@@ -11169,7 +11254,7 @@ Rules:
         checkedAt: new Date().toISOString(),
         sourceTitle: readTitle || umbrella || null,
         section: fromSection ? fromSection.title : null,
-        engines: hits,
+        engines: hits, unlinked,
       };
       note(`powertrain: ${car.label} -- ${hits.length} engine(s) in ` +
            `"${readTitle || umbrella}"`);
@@ -12110,7 +12195,8 @@ Rules:
     forceRecheckEngine,
     clearEngineScansFor, note, nameplateSectionForCar, mergeEngineHits,
     mergeEngines, undoEngineMerge, allEngineMerges, applyEngineMerges,
-    engineMentions, recordEngineMentions, recordEngineMentionsFrom, applyEngineMentions,
+    engineMentions, unlinkedEngineMentions, engineSpecLabel,
+    recordEngineMentions, recordEngineMentionsFrom, applyEngineMentions,
     looksLikeEngineArticleTitle, engineIdFromTitle,
     articleFromNameplateSection, findGenerationArticle,
     orphanedEntries, orphanKind, pruneStandInOrphans, clearRenamedOrphans,
