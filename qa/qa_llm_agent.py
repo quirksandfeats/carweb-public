@@ -379,6 +379,18 @@ check("...and the page boots with the queue held, not running",
       "index.html?agent=1" in pass_src)
 check("a target this build cannot scan is skipped rather than waited on",
       "not-scannable" in pass_src)
+# Real bug report: a scan requested from the phone came back "done: nothing
+# found" with no other trace. The node the request named was not in this graph
+# -- a rebuild, a merge or a reset can retire or rename one between the request
+# being made and the machine waking up -- and the run skipped it silently.
+check("a requested car that is no longer in the graph is matched by name instead",
+      "matched it by name to" in pass_src and "CarWeb.searchAll(q)" in pass_src)
+check("...and says which id it could not find when even that fails",
+      "no such car in this graph" in pass_src)
+check("...and the person who asked is told that, not \"nothing found\"",
+      "couldn't find" in src and "renamed, merged or cleared" in src)
+check("the id is logged next to the name when a request is claimed",
+      "requested car: {job.get('targetLabel') or job['targetId']} [{job['targetId']}]" in src)
 
 print()
 print("ALL GREEN" if not fails else "FAILURES: " + str(fails))
