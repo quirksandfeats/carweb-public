@@ -8702,7 +8702,10 @@ Rules:
       const code = (key && !multiName && !norm(title).startsWith(key) && name)
         ? (name + " " + title) : title;
       out.push({ code, applications: engineApplicationsIn(sec.body),
-                 specs: engineSpecsFromSection(sec.body, inherited, sec.title) });
+                 specs: engineSpecsFromSection(sec.body, inherited, sec.title),
+                 // What a car's link can point at, so the car can be matched
+                 // to this variant later. See bindCarsToVariants.
+                 anchors: sec.anchors || [] });
     }
     return out;
   }
@@ -9402,6 +9405,9 @@ Rules:
         // Carried onto the node so the card and the hover card can show them
         // without reaching back into the store. Only what the article stated.
         if (v.specs) vn.specs = v.specs;
+        // The ids a car's link can point at ("#2.0 L (2010-2015)"), kept so
+        // bindCarsToVariants can match one without re-reading the article.
+        if (v.anchors && v.anchors.length) vn.anchors = v.anchors;
         if (eng.variants.indexOf(vid) < 0) eng.variants.push(vid);
         addLink(eng.id, vid, "enginegen");
         // Variants run in article order, which is the order they were
@@ -9438,9 +9444,85 @@ Rules:
       // dropped once it holds one to a generation of that nameplate.
       dropNameplateEdgesUnderGenerations(eng, nodes, links);
     }
+    // Now that its variants exist, every car that arrived from an infobox
+    // mention can be moved onto the one its own line named. See
+    // bindCarsToVariants.
+    bindCarsToVariants(eng, nodes, links);
 
     return { engine: eng, variants: variantCount, fitted: fittedCount, minted, cars };
   }
+
+
+  // ---------- a car's own line, matched to the variant it names ----------
+  // Real user request, the Jaguar XE: "following the ford ecoboost link would
+  // prove to be relevant, along with taking the information that the engine is
+  // a 2.0L and it is an Inline 4, to find the associated engine variant in the
+  // ford ecoboost wikipedia link (which is a huge family of engines)."
+  //
+  // The car's infobox line says which one: the anchor it linked
+  // ("#2.0 L (2010-2015)"), the code it displayed ("M177" out of a page
+  // covering three), and failing both its displacement and layout. All three
+  // are recorded on the edge when the car is read (see
+  // recordEngineMentionsFrom) -- this is what spends them, once the family's
+  // article has actually been read and its variants exist. Until then the edge
+  // stays on the engine, which is the honest answer: nothing yet says which of
+  // its variants this car has.
+  //
+  // Deliberately conservative. A hint that matches two variants matches
+  // neither, and a car whose line said nothing distinguishing stays where it
+  // is rather than being assigned to the first plausible variant.
+  function bindCarsToVariants(eng, nodes, links) {
+    if (!eng || !(eng.variants || []).length) return 0;
+    const byIdLocal = new Map(nodes.map(n => [n.id, n]));
+    const vars = (eng.variants || []).map(id => byIdLocal.get(id)).filter(v => v && !v.retired);
+    if (!vars.length) return 0;
+    const endOf = v => (typeof v === "string" ? v : (v && v.id));
+    const uniquely = pick => {
+      const hits = vars.filter(pick);
+      return hits.length === 1 ? hits[0] : null;
+    };
+    let moved = 0;
+    for (const l of links) {
+      if (l.type !== "fitted" || l.retired) continue;
+      if (endOf(l.source) !== eng.id && endOf(l.target) !== eng.id) continue;
+      const carId = endOf(l.source) === eng.id ? endOf(l.target) : endOf(l.source);
+      const car = byIdLocal.get(carId);
+      if (!car || isPowertrainType(car)) continue;
+      const hint = l.variantHint ? norm(l.variantHint) : "";
+      const said = l.saidSpecs || {};
+      let v = null;
+      // 1. The anchor or code the car's own link carried. Exact first, then
+      //    contained -- "M177" names the "M176/M177/M178 M177" variant.
+      if (hint) {
+        v = uniquely(x => norm(x.label) === hint) ||
+            uniquely(x => (x.anchors || []).some(a => norm(a) === hint)) ||
+            uniquely(x => norm(x.label).indexOf(hint) >= 0);
+      }
+      // 2. Failing that, the displacement it stated. A family page's variants
+      //    differ by exactly this.
+      if (!v && said.displacement) {
+        const want = norm(said.displacement);
+        v = uniquely(x => x.specs && norm(x.specs.displacement || "") === want);
+      }
+      if (!v) continue;
+      // Re-pointed rather than added: the car has ONE of these engines, and
+      // drawing it to the family as well is the "if the engine var is there
+      // for the car, then only show the engine var" case.
+      const already = links.some(o => o !== l && o.type === "fitted" && !o.retired &&
+        ((endOf(o.source) === v.id && endOf(o.target) === carId) ||
+         (endOf(o.target) === v.id && endOf(o.source) === carId)));
+      if (already) { l.retired = true; l.retiredReason = "the variant already carries this car"; moved++; continue; }
+      if (endOf(l.source) === eng.id) l.source = v.id; else l.target = v.id;
+      l.boundToVariant = true;
+      moved++;
+    }
+    if (moved) {
+      note(`powertrain: ${eng.label} -- ${moved} car(s) moved onto the variant their own ` +
+           "infobox named, rather than the engine family");
+    }
+    return moved;
+  }
+  function isPowertrainType(n) { return !!n && (n.type === "engine" || n.type === "enginevar"); }
 
   // An engine (with its variants) must not be drawn to a nameplate AND to one
   // of that nameplate's generations. The rule is the user's own: "so long as
@@ -9688,7 +9770,26 @@ Rules:
   // that moment is to the car itself. The car is queued for its own check (see
   // scheduleEngineCascade), and when that check splits it into generations
   // this is what moves the engine down onto the right one.
+  // The tidying that has to see every engine at once, read or not.
+  //
+  // applyEngines replays the engines with a stored article and cleans up after
+  // each -- but in the real graph that is eleven engines out of a hundred and
+  // thirty-five. The rest arrived as a MENTION on a car's infobox and have
+  // never been read, so none of it ever reached them: twenty-four were drawn
+  // to a nameplate AND to one of its own generations, three were still called
+  // "Oldsmobile" after the maker, and two after the index they were found in.
+  function tidyPowertrain(nodes, links) {
+    const out = { relabelled: 0, dropped: 0, bound: 0 };
+    try { out.relabelled = relabelMisnamedEngines(nodes); } catch (e) { /* best effort */ }
+    for (const n of nodes) {
+      if (!n || n.type !== "engine" || n.retired) continue;
+      try { out.bound += bindCarsToVariants(n, nodes, links); } catch (e) { /* ditto */ }
+      try { out.dropped += dropNameplateEdgesUnderGenerations(n, nodes, links); } catch (e) { /* ditto */ }
+    }
+    return out;
+  }
   function restitchEngineEdges(nodes, links) {
+    relabelMisnamedEngines(nodes);
     // Counted over the whole pass rather than per call: applying an engine's
     // stored article already drops its own stale nameplate edges on the way
     // through, so the loop below usually finds nothing left to do and a
@@ -10483,6 +10584,40 @@ Rules:
     const wp = String((n && n.wp) || "").split("#")[0].trim();
     if (!wp) return null;
     return norm(wp.replace(/\s+engines?(\s*\([^()]*\))?$/i, ""));
+  }
+  // An engine named after something that is not its name.
+  //
+  // Found by auditing the real graph after the naming rules were fixed: the
+  // rules stop NEW ones, but three engines were still called "Oldsmobile"
+  // (the maker, taken from "[[Oldsmobile V8 engine|Oldsmobile]]") and two
+  // were called "List of Isuzu" and "List of Porsche" (an index, taken from
+  // its own title). A node keeps whatever it was called until something
+  // renames it, and its article has said the answer all along.
+  function relabelMisnamedEngines(nodes) {
+    let fixed = 0;
+    for (const n of nodes) {
+      if (!n || n.type !== "engine" || n.retired || !n.wp) continue;
+      const entry = store.engines[n.id];
+      const art = entry && entry.article;
+      // An index: the engine is the section, and the node's name is whatever
+      // the link's anchor said -- never "List of ...".
+      const anchor = String(n.wp).indexOf("#") >= 0 ? String(n.wp).split("#").slice(1).join("#") : "";
+      let better = null;
+      if (/^list of\b/i.test(String(n.label))) {
+        better = stripEngineMarkup(anchor.replace(/_/g, " ")) || null;
+      } else if (looksLikeMarqueOnly(n.label, knownMakeNames()) &&
+                 norm(stripEngineSuffix(n.wp)) !== norm(n.label)) {
+        // "Oldsmobile" where the article is "Oldsmobile V8 engine".
+        better = (art && art.shortName) || stripEngineSuffix(n.wp) || null;
+      }
+      if (!better || norm(better) === norm(n.label)) continue;
+      note(`powertrain: "${n.label}" renamed to "${better}" -- its old name was ` +
+           (/^list of/i.test(String(n.label)) ? "the index it was found in" : "its maker"));
+      n.label = better;
+      n.relabelled = true;
+      fixed++;
+    }
+    return fixed;
   }
   function autoMergeDuplicateEngines(nodes, links) {
     const engines = nodes.filter(n => n && n.type === "engine" && !n.retired);
@@ -11656,7 +11791,8 @@ Rules:
     // minting/splicing. See schedulePartnerCheck's own comment for the Honda
     // Odyssey / Acura MDX report this closes.
     onSplitReady: f => splitListeners.push(f),
-    restitchEngineEdges, autoMergeDuplicateEngines,
+    restitchEngineEdges, autoMergeDuplicateEngines, tidyPowertrain,
+    bindCarsToVariants, relabelMisnamedEngines,
     reviewProvisionalRelations,
     pendingWork,
     // the work queue -- one user-requested pass at a time, in order, kept

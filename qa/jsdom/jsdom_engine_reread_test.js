@@ -320,10 +320,14 @@ const liveCar = () => {
     check("...and its engine is not listed as a second engine",
           rows.filter(r => /^M177\b/.test(r) && !/M177 A/.test(r)).length === 0,
           rows.join(" | "));
+    // The count is of the rows, whatever they are. It is three here because
+    // section 5 gave this car an M178 too, and bindCarsToVariants has since
+    // moved that edge onto the M178 variant -- which is the point: the card
+    // lists variants, never the family beside them.
+    const shown = (det.querySelector("summary").textContent.match(/\((\d+)\)/) || [])[1];
     check("...so the count is of what is shown",
-          /Engines? ?\(?\d*\)?/.test(det.querySelector("summary").textContent) &&
-          !/\(3\)/.test(det.querySelector("summary").textContent),
-          det.querySelector("summary").textContent);
+          Number(shown) === rows.filter(r => r).length,
+          shown + " vs " + rows.filter(r => r).length + " rows");
 
     // On the canvas too: the engine-level edge is the redundant one, and
     // hiding it must not take the variant's edge with it.

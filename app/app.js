@@ -78,6 +78,20 @@ window.CarWeb = (function () {
       const merged = window.LlmFamilies.applyEngineMerges
         ? window.LlmFamilies.applyEngineMerges(nodes, links) : 0;
       if (merged) console.info(`[carweb] powertrain: ${merged} engine merge(s) replayed`);
+      // ...and the tidying that has to see every engine at once, read or not:
+      // an engine still named after its maker or after the index it was found
+      // in, a car drawn to a nameplate AND to one of its generations, and a
+      // car that can now be moved onto the variant its own infobox named.
+      // applyEngines only ever reached the engines with a stored article,
+      // which in the real graph is eleven of a hundred and thirty-five.
+      if (window.LlmFamilies.tidyPowertrain) {
+        const t = window.LlmFamilies.tidyPowertrain(nodes, links);
+        if (t.relabelled || t.dropped || t.bound) {
+          console.info(`[carweb] powertrain: ${t.relabelled} renamed, ${t.dropped} link(s) ` +
+                       `dropped from a nameplate its generation already covers, ` +
+                       `${t.bound} car(s) moved onto a specific variant`);
+        }
+      }
       if (r.engines || m.engines) {
         console.info(`[carweb] powertrain: ${r.engines} engine(s) read, ${r.variants} variant(s), ` +
                      `${m.engines} mentioned but unread, ${r.fitted + m.fitted} fitted connection(s)`);

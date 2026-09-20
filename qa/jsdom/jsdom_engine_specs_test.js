@@ -168,6 +168,45 @@ const DATA = window.CARDATA;
         /I4/.test(vmeta) && /285 kW/.test(vmeta), vmeta);
   check("...without borrowing the family's displacement", !/1991 cc/.test(vmeta), vmeta);
 
+  // ---------- 5. the car's own line picks which variant it has ----------
+  // Real user request, the Jaguar XE: "taking the information that the engine
+  // is a 2.0L and it is an Inline 4, to find the associated engine variant in
+  // the ford ecoboost wikipedia link (which is a huge family of engines)."
+  // The line's anchor, code and displacement are recorded on the edge when the
+  // car is read; this is what spends them once the variants exist.
+  {
+    const car = { id: "m-testspec-car", type: "model", label: "Roadster", make: "TestSpec",
+                  year: 2021, end: null, designers: [], engineers: [] };
+    DATA.nodes.push(car);
+    // Two cars: one that named a variant outright, one that only stated a
+    // displacement, and one that said nothing distinguishing.
+    const eng2 = DATA.nodes.find(n => n.type === "engine" && /M139/.test(n.label));
+    DATA.links.push({ source: eng2.id, target: car.id, type: "fitted", fromCar: true,
+                      variantHint: "M139 (310 kW version)", saidSpecs: { displacement: "2.0 L" } });
+    const car2 = { id: "m-testspec-car2", type: "model", label: "Coupe", make: "TestSpec",
+                   year: 2022, end: null, designers: [], engineers: [] };
+    DATA.nodes.push(car2);
+    DATA.links.push({ source: eng2.id, target: car2.id, type: "fitted", fromCar: true,
+                      variantHint: null, saidSpecs: { displacement: "9.9 L" } });
+    cw.spliceIntoIndexes(DATA.nodes.length - 2, DATA.links.length - 2);
+    const moved = LF.bindCarsToVariants(eng2, DATA.nodes, DATA.links);
+    const endOf = v => (v && v.id) || v;
+    const partnerOf = id => DATA.links.filter(l => l.type === "fitted" && !l.retired &&
+      [endOf(l.source), endOf(l.target)].indexOf(id) >= 0)
+      .map(l => DATA.nodes.find(n => n.id === (endOf(l.source) === id ? endOf(l.target) : endOf(l.source))))
+      .filter(Boolean);
+    check("a car that named its variant is moved onto it", moved >= 1,
+          JSON.stringify(partnerOf(car.id).map(n => n.label)));
+    check("...the one it named", partnerOf(car.id).some(n => /310 kW/.test(n.label)),
+          partnerOf(car.id).map(n => n.label).join(", "));
+    check("...and no longer hangs off the family as well",
+          !partnerOf(car.id).some(n => n.type === "engine"),
+          partnerOf(car.id).map(n => n.label + ":" + n.type).join(", "));
+    check("a car whose line matches no variant stays on the engine",
+          partnerOf(car2.id).some(n => n.type === "engine"),
+          partnerOf(car2.id).map(n => n.label + ":" + n.type).join(", "));
+  }
+
   console.log("\n" + (fails === 0 ? "ALL GREEN" : fails + " FAILURE(S)"));
   process.exit(fails === 0 ? 0 : 1);
 })();
