@@ -195,17 +195,47 @@ A request is a suggestion, so it can be withdrawn.
   .venv/bin/python scripts/llm_agent.py --drop m-buick-century   # one, by car
   .venv/bin/python scripts/llm_agent.py --drop <job id>          # one, by job
   .venv/bin/python scripts/llm_agent.py --clear                  # all of them
+  .venv/bin/python scripts/llm_agent.py --release                # unstick the running one
+  .venv/bin/python scripts/llm_agent.py --release <job id>       # ...a specific one
   ```
+
+  Short ids work everywhere a job id does: the eight characters the log and
+  the panel print are enough.
 
 - **By hand:** dashboard → Workers KV → CARWEB_JOBS → KV Pairs → `job:queue`
   is a plain JSON array. Editing it there works and is the last resort.
 
-Two rules. **A request being scanned right now cannot be withdrawn** — the
-agent is mid-pass on it and its own `/done` is what closes it out, so dropping
-it would leave that result with nowhere to land; `--clear` leaves it in place
-too. And **emptying the whole queue needs the agent token**, not the
-passphrase: if the passphrase ever leaks, one person should not be able to
-wipe everyone else's requests in a click.
+Two rules. **A request being scanned right now cannot be withdrawn from the
+site** — the agent is mid-pass on it and its own `/done` is what closes it
+out, so dropping it would leave that result with nowhere to land; `--clear`
+leaves it in place too. And **emptying the whole queue needs the agent token**,
+not the passphrase: if the passphrase ever leaks, one person should not be
+able to wipe everyone else's requests in a click.
+
+### Killing a run that died
+
+A run that is Ctrl-C'd, crashes, or loses the machine never posts `/done`, so
+the car it claimed stays marked `running`. The agent will not stampede a claim
+it did not make, so the next run just says:
+
+```
+job 09914899 (Mercedes-Benz E-Class) is already marked running for 41 min; leaving it alone
+```
+
+and nothing behind it moves. Two ways out:
+
+- `--release` hands the claim back. The job keeps its place at the head of the
+  queue and the next run claims it again. `--release` on its own takes
+  whichever job is marked running; `--release <id>` names one.
+- `--drop <id>` on a running job now breaks the claim and removes the request
+  entirely — that is the kill. From the machine, with the agent token, that
+  claim is ours to break: either this run left it behind or no run did.
+
+And if nobody does either, a claim older than **90 minutes** (`STALE_CLAIM_SECONDS`
+in `src/worker.js` — longer than any real pass) is treated as abandoned the
+next time the queue is read, and the job goes back to waiting by itself. A
+claim younger than that is never taken away underneath a live run: one at a
+time is the whole point.
 
 ## The agent
 

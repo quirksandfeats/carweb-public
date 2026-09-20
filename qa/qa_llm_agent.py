@@ -411,6 +411,22 @@ check("a target skipped for being over budget says so",
 check("the id is logged next to the name when a request is claimed",
       "requested car: {job.get('targetLabel') or job['targetId']} [{job['targetId']}]" in src)
 
+# ---- getting a stuck claim back --------------------------------------------
+# A run that is Ctrl-C'd or dies never posts /done, so the job it claimed stays
+# marked running and the agent -- which deliberately will not stampede someone
+# else's claim -- sits there logging "leaving it alone" for ever. There has to
+# be a way to say "that run is dead".
+check("a claim that is being left alone says how long it has been held",
+      "_claim_age(job)" in src and "leaving it alone" in src)
+check("...and says how to take it back", "--release" in src and "--drop" in src)
+check("there is a flag that hands a stuck claim back to the queue",
+      '"--release"' in src and "/api/request/release" in src)
+check("releasing with no id means the one that is running",
+      'nargs="?", const=""' in src)
+check("dropping a running request breaks the claim first rather than refusing",
+      'if st == 409' in src and '"running"' in src
+      and src.index("/api/request/release") < src.index("print(\"removed 1 request\")"))
+
 print()
 print("ALL GREEN" if not fails else "FAILURES: " + str(fails))
 sys.exit(1 if fails else 0)

@@ -62,6 +62,14 @@ const jobKey = targetId => JOB_PREFIX + targetId;
 // simply have been off all week. Applied to the whole list: anything older
 // than this is dropped when the queue is next read.
 const JOB_TTL_SECONDS = 60 * 60 * 24 * 2;
+// A claim is not a lock for ever. The agent claims a job, runs the pass and
+// posts /done -- but a run that is Ctrl-C'd, crashes, or loses the machine
+// never posts anything, and the job it claimed would otherwise sit marked
+// "running" until the TTL took it, blocking every later request behind it
+// (the agent deliberately will not stampede a job someone else is on). So a
+// claim that is older than one very long pass is treated as abandoned and the
+// job goes back to waiting, to be claimed again by the next run.
+const STALE_CLAIM_SECONDS = 60 * 90;
 
 const json = (body, status = 200) =>
   new Response(JSON.stringify(body), {
@@ -104,6 +112,19 @@ function jobView(j) {
     targetId: j.targetId || null, targetLabel: j.targetLabel || "",
   };
 }
+// The queue prints short ids (the first eight characters) in the agent's log
+// and in the panel, so those are what someone types back at it. An eight-hex
+// prefix of a UUID is unambiguous in a list capped at 25.
+function matchJob(queue, id) {
+  id = String(id == null ? "" : id).trim();
+  if (!id) return null;
+  const exact = queue.find(j => j.id === id || j.targetId === id);
+  if (exact) return exact;
+  if (id.length < 6) return null;
+  const hits = queue.filter(j => String(j.id).startsWith(id));
+  return hits.length === 1 ? hits[0] : null;
+}
+
 function publicView(queue, last) {
   const q = fresh(queue);
   return {
@@ -134,9 +155,27 @@ export default {
     const getQueue = async () => {
       const listed = await env.JOBS.list({ prefix: JOB_PREFIX, limit: 200 });
       const jobs = await Promise.all(listed.keys.map(k => env.JOBS.get(k.name, "json")));
-      return fresh(jobs.filter(Boolean)).sort((a, b) =>
+      const queue = fresh(jobs.filter(Boolean)).sort((a, b) =>
         String(a.queuedAt).localeCompare(String(b.queuedAt)) ||
         String(a.targetId).localeCompare(String(b.targetId)));
+      // Hand back an abandoned claim before anyone reads the list, so a dead
+      // run cannot wedge the queue. Written back so the next reader sees the
+      // same thing rather than each one deciding for itself.
+      const cutoff = Date.now() - STALE_CLAIM_SECONDS * 1000;
+      const stale = queue.filter(j => {
+        if (j.state !== "running") return false;
+        const t = Date.parse(j.claimedAt);
+        return !isFinite(t) || t < cutoff;
+      });
+      if (stale.length) {
+        await Promise.all(stale.map(j => {
+          j.state = "queued";
+          j.claimedAt = null;
+          j.releasedAt = new Date().toISOString();
+          return putJob(j);
+        }));
+      }
+      return queue;
     };
     const putJob = async j => await env.JOBS.put(jobKey(j.targetId), JSON.stringify(j),
                                                  { expirationTtl: JOB_TTL_SECONDS });
@@ -225,8 +264,7 @@ export default {
         const keep = queue.filter(j => j.state === "running");
         return json({ ok: true, removed: doomed.length, ...publicView(keep, await getLast()) });
       }
-      const id = String(body.id || "").trim();
-      const job = id ? queue.find(j => j.id === id || j.targetId === id) : null;
+      const job = matchJob(queue, body.id);
       if (!job) return json({ ok: false, error: "no-job" }, 404);
       if (job.state === "running") {
         return json({ ok: false, error: "running",
@@ -262,6 +300,23 @@ export default {
       job.claimedAt = new Date().toISOString();
       await putJob(job);
       return json({ ok: true, already: false, job });
+    }
+
+    // Let go of a claim without recording a result: the job goes back to
+    // waiting so the next run picks it up. This is the by-hand version of the
+    // stale-claim rule above, for when you know the run is dead and do not
+    // want to wait the ninety minutes out.
+    if (path === "/api/request/release" && request.method === "POST") {
+      const body = await readJson(request) || {};
+      const queue = await getQueue();
+      const job = matchJob(queue, body.id) || (String(body.id || "").trim()
+                    ? null : queue.find(j => j.state === "running"));
+      if (!job) return json({ ok: false, error: "no-job" }, 404);
+      job.state = "queued";
+      job.claimedAt = null;
+      job.releasedAt = new Date().toISOString();
+      await putJob(job);
+      return json({ ok: true, job: jobView(job), ...publicView(queue, await getLast()) });
     }
 
     if (path === "/api/request/done" && request.method === "POST") {

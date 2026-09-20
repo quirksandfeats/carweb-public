@@ -342,6 +342,57 @@ const bearer = tok => ({ authorization: "Bearer " + tok });
     t("a failed run is reported as failed", after.last.state === "failed" && /llama-server/.test(after.last.summary), JSON.stringify(after.last));
   }
 
+  // ---- a claim left behind by a dead run does not wedge the queue ---------
+  //
+  // The agent will not stampede a job someone else has claimed, so a run that
+  // is Ctrl-C'd or crashes mid-pass used to leave its car marked running for
+  // the full two-day TTL, with every later request stuck behind it and no way
+  // to say so. Two ways out: it ages out by itself, or it is handed back.
+  {
+    const env = fakeEnv();
+    await worker.fetch(post("/api/request/queue", { passphrase: PASS, targetId: "m-a-stuck", targetLabel: "Stuck Car" }), env);
+    await worker.fetch(post("/api/request/queue", { passphrase: PASS, targetId: "m-z-behind", targetLabel: "Behind It" }), env);
+    const head = await (await worker.fetch(req("/api/request/jobs", { headers: bearer(TOKEN) }), env)).json();
+    await worker.fetch(post("/api/request/claim", { id: head.job.id }, bearer(TOKEN)), env);
+
+    // --- by hand, by the short id the log prints ---------------------------
+    const shortId = head.job.id.slice(0, 8);
+    const rel = await worker.fetch(post("/api/request/release", { id: shortId }, bearer(TOKEN)), env);
+    const relBody = await rel.json();
+    t("a stuck claim can be handed back by the short id the log prints",
+      rel.status === 200 && relBody.job.state === "queued", JSON.stringify(relBody.job || relBody));
+    t("...and it keeps its place at the head rather than going to the back",
+      relBody.queue[0].targetId === "m-a-stuck", JSON.stringify(relBody.queue.map(j => j.targetId)));
+    const reclaim = await (await worker.fetch(post("/api/request/claim", {}, bearer(TOKEN)), env)).json();
+    t("...so the next run claims it again", reclaim.ok && !reclaim.already &&
+      reclaim.job.targetId === "m-a-stuck", JSON.stringify(reclaim.job));
+
+    t("releasing needs the agent token, not the passphrase",
+      (await worker.fetch(post("/api/request/release", { passphrase: PASS, id: shortId }), env)).status === 401);
+    t("releasing something that is not there 404s",
+      (await worker.fetch(post("/api/request/release", { id: "no-such-car" }, bearer(TOKEN)), env)).status === 404);
+
+    // --- by itself, once the claim is older than any real pass -------------
+    const key = "job:car:m-a-stuck";
+    const held = JSON.parse(await env.JOBS.get(key));
+    held.claimedAt = new Date(Date.now() - 1000 * 60 * 120).toISOString();
+    await env.JOBS.put(key, JSON.stringify(held));
+    const aged = await (await worker.fetch(req("/api/request/jobs", { headers: bearer(TOKEN) }), env)).json();
+    t("a claim older than one very long pass is treated as abandoned",
+      aged.job.targetId === "m-a-stuck" && aged.job.state === "queued", JSON.stringify(aged.job));
+    t("...and that is written back, not decided afresh by each reader",
+      JSON.parse(await env.JOBS.get(key)).state === "queued");
+
+    // A claim that is merely long-running is NOT taken away underneath a live
+    // run -- the whole point of one-at-a-time is that nothing else starts.
+    await worker.fetch(post("/api/request/claim", { id: head.job.id }, bearer(TOKEN)), env);
+    const busy = JSON.parse(await env.JOBS.get(key));
+    busy.claimedAt = new Date(Date.now() - 1000 * 60 * 20).toISOString();
+    await env.JOBS.put(key, JSON.stringify(busy));
+    const still = await (await worker.fetch(req("/api/request/jobs", { headers: bearer(TOKEN) }), env)).json();
+    t("a twenty-minute-old claim is left alone", still.job.state === "running", JSON.stringify(still.job));
+  }
+
   // ---- unknown routes under our own prefix 404, they do not fall through ---
   {
     const env = fakeEnv();

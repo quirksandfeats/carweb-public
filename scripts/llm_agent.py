@@ -48,6 +48,7 @@ Stdlib + playwright only. serve.py starts and stops llama-server itself, so
 stopping serve.py is what "closes the program running locally".
 """
 import argparse
+import datetime as dt
 import json
 import os
 import re
@@ -233,6 +234,20 @@ def api(path, method="GET", body=None, timeout=30):
         return 0, {}
 
 
+def _claim_age(job):
+    """Seconds since the job was claimed, or None if it does not say."""
+    stamp = (job or {}).get("claimedAt")
+    if not stamp:
+        return None
+    try:
+        t = dt.datetime.fromisoformat(str(stamp).replace("Z", "+00:00"))
+    except ValueError:
+        return None
+    if t.tzinfo is None:
+        t = t.replace(tzinfo=dt.timezone.utc)
+    return max(0, int((dt.datetime.now(dt.timezone.utc) - t).total_seconds()))
+
+
 def wait_for_job(poll_seconds, give_up_after):
     """Returns a job dict, or None once give_up_after seconds have passed.
     give_up_after of 0 means wait forever."""
@@ -248,8 +263,15 @@ def wait_for_job(poll_seconds, give_up_after):
             return job
         if job:
             # Someone (probably an earlier run of this script that died) has
-            # it claimed. Don't stampede it.
-            log(f"job {job['id'][:8]} is already marked running; leaving it alone")
+            # it claimed. Don't stampede it -- but say how long it has been
+            # like that and how to take it back, because a claim left by a
+            # dead run otherwise looks like the queue silently doing nothing.
+            held = _claim_age(job)
+            since = f" for {held // 60} min" if held is not None else ""
+            log(f"job {job['id'][:8]} ({job.get('targetLabel') or job.get('targetId')}) "
+                f"is already marked running{since}; leaving it alone")
+            log(f"  if that run is dead: llm_agent.py --release {job['id'][:8]} "
+                f"to requeue it, or --drop {job['id'][:8]} to remove it")
         if give_up_after and time.time() - started >= give_up_after:
             return None
         time.sleep(poll_seconds)
@@ -1088,20 +1110,39 @@ def main():
                     help="remove one queued request, by job id or by the car's node id")
     ap.add_argument("--clear", action="store_true",
                     help="remove every queued request (anything already running is left alone)")
+    ap.add_argument("--release", nargs="?", const="", default=None, metavar="ID_OR_CAR",
+                    help="hand back a request that is stuck marked running -- it goes to the "
+                         "back of nothing, keeps its place, and the next run claims it again. "
+                         "With no value, the one currently marked running.")
     args = ap.parse_args()
 
     if shutil.which("git") is None:
         sys.exit("git is not on PATH")
-    if args.queue or args.drop or args.clear:
+    if args.queue or args.drop or args.clear or args.release is not None:
         if not TOKEN:
             sys.exit(NO_TOKEN)
-        if args.clear:
+        if args.release is not None:
+            st, d = api("/api/request/release", "POST", {"id": args.release})
+            if st != 200:
+                sys.exit(f"could not release that ({st}): {d.get('message') or d.get('error')}")
+            j = (d or {}).get("job") or {}
+            print(f"released {j.get('targetLabel') or j.get('targetId') or 'it'} "
+                  f"-- waiting again, the next run picks it up")
+        elif args.clear:
             st, d = api("/api/request/cancel", "POST", {"all": True})
             if st != 200:
                 sys.exit(f"could not clear the queue ({st}): {d.get('message') or d.get('error')}")
             print(f"removed {d.get('removed', 0)} request(s)")
         elif args.drop:
             st, d = api("/api/request/cancel", "POST", {"id": args.drop})
+            if st == 409 and (d or {}).get("error") == "running":
+                # It is marked running. From here -- with the agent token, on
+                # the machine that does the scanning -- that claim is ours to
+                # break: either this run left it behind or no run did. Hand it
+                # back, then remove it, so --drop means dropped either way.
+                rs, _ = api("/api/request/release", "POST", {"id": args.drop})
+                if rs == 200:
+                    st, d = api("/api/request/cancel", "POST", {"id": args.drop})
             if st != 200:
                 sys.exit(f"could not remove that ({st}): {d.get('message') or d.get('error')}")
             print("removed 1 request")
