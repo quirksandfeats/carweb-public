@@ -1,0 +1,558 @@
+{{About||the film|Buick Riviera (film)}}
+{{Use American English|date=May 2026}}
+{{Use mdy dates|cs1-dates=ly|date=June 2023}}
+{{Infobox automobile
+|image=SEPT 16TH BUICK RIVIERA HOLLYWOOD PHOTO PATRICE RAUNET.jpg
+|caption=1963 Buick Riviera
+|name=Buick Riviera
+|predecessor=[[Buick Super]]
+|manufacturer=[[Buick]] ([[General Motors]])
+|model_years=1963–1993<br/>1995–1999
+|class=[[Personal luxury car]]
+}}
+
+The '''Buick Riviera''' is a [[personal luxury car]] that was marketed by [[Buick]] from 1963 to 1999, with the exception of the 1994 model year.
+
+As [[General Motors]]' first entry into the personal luxury car market segment, the Riviera was highly praised by automotive journalists upon its high-profile debut. It was a ground-up design on a new [[GM E platform]] debuting for the 1963 model year and was also Buick's first unique Riviera model.
+
+Unlike its subsequent GM E platform stablemates, the [[Oldsmobile Toronado]] and [[Cadillac Eldorado]], the Riviera was initially a front engine/rear-wheel drive platform, switching to [[front-wheel drive]] starting with the 1979 model year.
+
+While the early models stayed close to their original form, eight subsequent generations varied substantially in size and styling. A total of 1,127,261 Rivieras were produced.
+
+The Riviera name was resurrected for two [[concept car]]s that were displayed at auto shows in 2007 and in 2013.
+__TOC__
+{{clear}}
+==Origins==
+
+===The Riviera name===
+[[File:1949 Buick Roadmaster Riviera Coupé - Flickr - exfordy.jpg|thumb|1949 Buick Roadmaster Riviera (one of the first [[hardtop]]s)]]
+[[File:1959 Buick Electra 225 Riviera Sedan side.jpg|thumb|1959 Buick Electra 225 Riviera]]
+
+The name ''Riviera'', [[Italian language|Italian]] for ''coastline'', was chosen to evoke the allure and affluence of the [[French Riviera]]. It first entered the [[Buick]] line in 1949, as the designation for the new two-door pillarless [[hardtop]], described in advertising as "stunningly smart". The [[Buick Roadmaster]] Riviera coupe (along with the [[Cadillac De Ville|Cadillac Coupe de Ville]] and [[Oldsmobile 98]] Holiday coupe) constituted the first mass production use of this body style, which was to become popular over the next 30 years. Buick added a two-door Riviera hardtop to the [[Buick Super|Super]] the following year, the [[Buick Special|Special]] in 1951, and the [[Buick Century|Century]] upon its return, after a 12-year absence, in 1954.
+
+From 1951 to 1953 the ''Riviera'' designation was given to the existing long-wheelbase versions of the four-door Buick Roadmaster and Super [[sedan (car)|sedan]]s. The 1951–53 Buick Roadmaster and Super four-door Riviera sedans feature more standard features, more plush interior trim, and a wheelbase (and overall length) that is {{convert|4.0|in|mm|0}} longer than a regular Buick Roadmaster or Super four-door sedan. The 1951–52 Buick Super four-door Riviera sedan is still {{convert|0.75|in|mm|0}} shorter in wheelbase and length than the regular Buick Roadmaster and {{convert|4.75|in|mm|0}} shorter than the Roadmaster four-door Riviera sedan. In 1953, with the move from the [[Buick Straight-8 engine|Fireball]] [[straight-eight engine|straight-eight]] to the more compact [[Buick V8 engine|Fireball]] [[V8 engine|V8]] engine, the Roadmaster and Super four-door Riviera sedans became the same length.
+
+In the middle of the 1955 model year, Buick and [[Oldsmobile]] introduced the world's first mass-produced four-door hardtops, with Buick offering it only on the Century and Special models, and the ''Riviera'' designation was also applied to these body styles. Four-door Riviera hardtops were added to the Roadmaster and Super lines at the beginning of the following model year. However, since it was a body style designation and not a model, the Riviera name does not usually appear on the car.
+
+In 1959, Buick became much more selective in applying the Riviera name. From then until 1962 it only was used to denote a premium trimmed six-window hardtop style which it initially shared exclusively with [[Cadillac]] (the Oldsmobile 98 would receive it in 1961) and was available only on the [[Buick Electra|Electra 225]]. The last usage of the term ''Riviera'' to describe a luxury trim level was 1963, as the formal designation of the #4829 Electra 225 Riviera four-door hardtop, the same year the E-body model two-door hardtop coupe Riviera made its debut.
+
+===Debut as a personal luxury car===
+[[File:Sloan Museum at Courtland Center December 2018 06 (1963 Buick Silver Arrow).jpg|thumb|1963 Buick Silver Arrow concept car]]
+
+In the late 1950s, GM lacked a [[personal luxury car]] to compete with the highly successful [[Ford Thunderbird]]—a uniquely styled, two-door that had dramatically increased in popularity when expanded from a two-seater to a four-passenger car— and the [[Chrysler 300 letter series#1957 300C|Chrysler 300C]]. To fill this gap, an experimental [[Cadillac]] design, the '''XP-715''', was created, dubbed the "LaSalle" after a former GM luxury marque. Its angular look was reportedly inspired by GM styling chief [[Bill Mitchell (designer)|Bill Mitchell]]'s visit to [[London]] during the period, when he was struck by the sight of a custom-bodied [[Rolls-Royce car|Rolls-Royce]]. He later said that "knife-edged" styling was what he wanted for the new model, but with a lower profile. The design itself was penned by stylist Ned Nickles.<ref>{{cite web |title=Buick Riviera’s sexy styling in the ’60s |url=https://collectorsautosupply.com/blog/buick-rivieras-sexy-styling-in-the-60s/ |publisher=collectorsautosupply.com |quote=Then in 1963 the Riviera name was transferred to a completely new Buick aimed at the Thunderbird.}}</ref>
+
+When Cadillac passed on the venture in 1960 the project was thrown open for competition by the other GM Divisions. Buick, desperate to revive its flagging sales, won the competition by enlisting the aid of the [[McCann-Erickson]] advertising agency to create its presentation.<ref>{{cite web |url=https://cardesignnews.com/articles/concept-car-of-the-week/2017/05/cadillac-personal-luxury-car-concepts |title=Cadillac Personal Luxury Car Concepts |work=Car Design News |access-date=23 February 2019 |archive-date=2019-02-24  |archive-url=https://web.archive.org/web/20190224001824/https://cardesignnews.com/articles/concept-car-of-the-week/2017/05/cadillac-personal-luxury-car-concepts |url-status=dead }}</ref><ref>{{cite web |title=1961 Cadillac LaSalle XP-715 |url= http://automobilebrandsofthepast.blogspot.com/2013/07/1961-cadillac-la-salle-xp-715.html?m=1 |work=Automobile Brands of the Past|date=3 July 2013 |access-date=23 February 2019}}</ref> Initially referred to as the "Buick LaSalle" and later "Buick Riviera" concept cars,<ref>{{cite web|url= https://gmphotostore.com/1963-buick-la-salle-concept-car-poster/ |title=1963 Buick La Salle Concept Car Poster |website=GMPhotoStore |access-date=12 November 2019}}</ref><ref>{{cite web |url= https://gmphotostore.com/1963-buick-riviera-show-car-poster/ |title=1963 Buick Riviera Show Car Poster|website=GMPhotoStore |access-date=12 November 2019}}</ref><ref name="lasallefront">{{cite web|url= https://gmphotostore.com/1963-buick-la-salle-concept-poster/ |title=1963 Buick La Salle Concept Poster (front view) |website=GMPhotoStore |access-date=12 November 2019}}</ref> the finished design was adapted to a shortened version of Buick's existing [[chassis|cruciform frame]]. It was again introduced as a concept car in 1963 called the Buick Riviera Silver Arrow.<ref>{{cite web|url= http://www.conceptcarz.com/vehicle/z15603/Buick-Riviera-Silver-Arrow-I.aspx |title=1963 Buick Riviera Silver Arrow I |website=Conceptcarz |first=Daniel |last=Vaughan |date=September 2007 |access-date=12 November 2019}}</ref>
+
+Of the first generation Riviera, 112,544 units were produced in three years, divided into exactly 40,000 vehicles in the 1963 model year, as well as 37,658 for 1964 and the last model year 1965 with 34,586 vehicles.
+
+{{Clear}}
+
+==First generation (1963–1965)==
+{{Infobox automobile
+| image = Buick Riviera silver.jpg
+| caption = 
+| name = First generation
+| model_years = 1963–1965
+| body_style = 2-door [[hardtop]]
+| layout = [[FR layout]]
+| platform = [[GM E platform|E-body]]
+| assembly = [[Buick City]], [[Flint, Michigan]]
+| designer = [[Bill Mitchell (automobile designer)|Bill Mitchell]]
+| engine = {{cvt|401|cuin|L|1}} [[Buick V8 engine#401|Nailhead]] [[V8 engine|V8]]<br/>{{cvt|425|cuin|L|1}} [[Buick V8 engine#425|Nailhead]] [[V8 engine|V8]]
+| transmission = Twin Turbine [[Dynaflow]] [[Automatic transmission|automatic]] (1963)<br/>3-speed [[Turbo-Hydramatic|TH-400]] [[Automatic transmission|automatic]] (1964-1965)
+| wheelbase = {{cvt|117.0|in|mm|0}}
+| length = {{cvt|208.0|in|mm|0}}<ref>{{cite web|title=1963 Buick Riviera Brochure |page=16 |url= http://www.oldcarbrochures.com/static/NA/Buick/1963_Buick/1963%20Buick_Riviera_Brochure/1963%20Buick%20Riviera-16.html |website=Oldcarbrochures.com |access-date=2012-11-08}}</ref>
+| width = {{cvt|76.3|in|mm|0}}–{{cvt|76.6|in|mm|0}}
+| height = {{cvt|53.0|in|mm|0}}
+}}
+[[File:1964 Buick Riviera (29369827551).jpg|thumb|left|1964 Buick Riviera]]
+[[File:1965 Buick Riviera (14344695097) (cropped).jpg|left|thumb|1965 Buick Riviera]]
+[[File:Buick Riviera interior white.jpg|left|thumb|Interior]]
+The production Riviera was introduced on October 4, 1962, as a 1963 model, its distinctive bodyshell was unique to the marque, unusual for a GM product. The design was substantially the same as the original, less expensively [[hidden headlights]] concealed in the fender grilles.<ref name="lasallefront" /> The elegant ground-up styling sported the new "[[Coke bottle styling|Coke bottle look]]" introduced the year before on the arresting [[Studebaker Avanti]], with a tapered midsection surrounded by flaring fenders. There was no trace of the "[[Buick#Sweepspear|Sweepspear]]" used on [[Beltline (automotive)|beltline]]s of earlier Buicks with the Riviera package.<ref name="Gunnell 1987">{{cite book |editor=Gunnell, John|title=The Standard Catalog of American Cars 1946–1975 |edition=2nd |place=Iola, WI |publisher=Kraus Publications|pages=50–92|year=1987 |isbn=978-0-87341-096-0}}</ref>
+
+It rode a [[cruciform]] frame similar to the standard Buick chassis, but shorter and narrower, with a {{cvt|2|in|mm}} narrower track. Its [[wheelbase]] of {{convert|117.0|in|mm}} and overall length of {{convert|208.0|in|mm}} were {{cvt|6.0|in|mm}} and {{cvt|7.7|in|mm}} shorter, respectively, than a [[Buick LeSabre]], but slightly longer than a contemporary [[Ford Thunderbird (third generation)|Thunderbird]]. At {{convert|3998|lb|kg}},{{sfnp|Flory|2004|p=210}} it was about {{cvt|390|lb|kg}} lighter than either. It shared the standard [[Buick V8 engine]]s, with a displacement of either {{cvt|401|cuin|L|1}} or {{cvt|425|cuin|L|1}}, and the unique continuously variable design [[Dynaflow|twin turbine]] [[automatic transmission]]. Power brakes were standard, using Buick's massive "Al-Fin" ([[aluminum]] finned) drums of {{cvt|12.0|in|mm}} diameter. [[Power steering]] was standard equipment, with an overall [[steering ratio]] of 20.5:1, giving 3.5 turns lock-to-lock.
+
+The Riviera's [[suspension (vehicle)|suspension]] used Buick's standard design, with [[double wishbone suspension|double wishbones]] in the front and a [[live axle]] located by [[trailing arm]]s and a lateral [[Panhard rod|track bar]] in the rear, but the [[roll center]]s were lowered to reduce body lean. Although its [[coil spring]]s were actually slightly softer than other Buicks, the Riviera's lighter weight made its ride somewhat firmer. While still biased towards [[understeer]], contemporary testers considered it one of the most driveable American cars, with an excellent balance of comfort and agility.
+
+Buick's {{cvt|325|hp|kW|0}} {{cvt|401|cuin|L|1}} "Nailhead" V-8 was initially the only available engine,{{sfnp|Flory|2004|p=204}} fitted with dual exhaust as standard equipment, and the turbine drive the only transmission.{{sfnp|Flory|2004|p=206}} Base price was $4,333 (${{formatnum:{{Inflation|US|4333|1962}}}} in {{Inflation-year|US}} dollars {{inflation-fn|US}}),{{sfnp|Flory|2004|p=210}} running upwards of $5,000 delivered with typical options (${{formatnum:{{Inflation|US|5000|1962}}}} in {{Inflation-year|US}} dollars {{inflation-fn|US}}). Buick announced an optional {{cvt|340|hp|kW|0}} {{cvt|425|cuin|L|1}} version of the Nailhead in December 1962. Total production was deliberately limited to 40,000 vehicles (in a year that Buick sold 440,000 units overall) to emphasize the Riviera's exclusivity and to increase demand; only 2,601 were delivered with the delayed availability larger engine in the 1963 model year.
+
+With the same power as the bigger Buicks and less weight, the Riviera had improved all-around performance: ''[[Motor Trend]]'' recorded {{convert|0|-|60|mph|km/h}} in 8 seconds or less, the standing {{convert|1/4|mi|m}} in about 16 seconds, and an observed top speed of {{convert|115|mph|km/h}}. Fuel economy was {{cvt|13.2|mpgus}}. Front leg room was {{convert|40.1|in|mm|0}}.<ref>{{cite web |title=1965 Buick Full Line Brochure |page=44 |website=Oldcarbrochures.com |url=http://oldcarbrochures.com/static/NA/Buick/1965_Buick/1965_Buick_Full_Line_Brochure/1965%20Buick%20Full%20Line-44.html |access-date=12 November 2019}}</ref>
+
+Inside, the Riviera featured a luxurious four-place cabin with front [[bucket seat]]s and bucket-style seats in the rear. A center console with a floor shifter and storage compartment built into the instrument panel divided the front. Upholstery choices included all-vinyl, cloth and vinyl, or optional leather. A deluxe interior option included real walnut inserts on the doors and below the rear side windows. Extra-cost options included a tilt steering wheel, power windows, power driver's seat, air conditioning, a remote-controlled side-view mirror, and white sidewall tires.
+
+Minimal trim and mechanical changes were made for 1964, with the most identifiable distinguishing features being a raised stylized "R" hood emblem and "R" emblems replacing the Buick crests in the taillight lenses. The interior is distinguished by moving the heater controls from controls under the dashboard eyebrow to slide controls in the forward fairing of the center console. Leather was dropped as an option, and the [[Dynaflow]] twin-turbine transmission was replaced by a new three-speed [[Super Turbine 400]]. This was a GM Turbo Hydra-Matic. It used a two-speed "D" and 'L" selector, but could automatically downshift from third to second until the car reached a suitable speed to downshift to first. This was the first year of the stylized "R" emblem, a trademark that would continue throughout the remainder of Riviera's 36-year production run.<ref>{{cite web|url= http://www.rivowners.org/features/evolution/images/64/64hood.jpg |title=Image of Riviera hood ornament |website=Riviera Owners Association |access-date=12 November 2019}}</ref> The engine was upgraded to the previously optional {{cvt|340|hp|kW|0}} {{cvt|425|cuin|L|1}} V8. A {{cvt|360|hp|kW|0}} 'Super Wildcat' version was available, with dual Carter AFB four-barrel [[carburetor]]s.[[File:GM Heritage Center - 029 - Cars - Riviera GS.jpg|thumb|1965 Buick Riviera GS]]
+In 1965 the {{cvt|401|cuin|L|1}} V8 returned as the standard engine, and the "Gran Sport" version made its debut, powered by the Super Wildcat V8, a {{cvt|360|hp|kW|0}} engine equipped with two Carter 625 CFM carburetors, a distributor with different advance, and outfitted with a more aggressive 3.42 axle ratio. A heavy-duty suspension was the separate H2 option but was not part of the Gran Sport option. It offered a quicker ratio steering box and firmer rated springs. The Super Turbine 400 transmission now had a variable pitch torque converter, but was fitted with a three-speed gear selector. The Gran Sport stock dual exhaust pipes were increased from {{convert|2.0|in|mm}} to {{convert|2.25|in|mm}} inside diameter and had fewer turns to reduce backpressure. Externally, the headlamps, now vertically arranged, were hidden behind clamshell doors in the leading edges of each fender, as had been in the original design. The non-functional side scoops between the doors and rear wheel arches were removed, and the taillights moved from the body into the rear bumper.<ref>{{cite web|url= http://www.rivowners.org/features/evolution/images/65/65-rear.jpg |title=Image of rear quarter of car |work=Riviera Owners Association |access-date=12 November 2019}}</ref> A [[vinyl roof]] became available as an option, offered only in black, and the tilt steering wheel, optional in previous years, was now standard equipment.
+
+Total sales for the 1963 through 1965 model years was 112,244. The Riviera was well received by the motoring press and considered a great success, giving the Thunderbird its first real competition as America's preeminent [[personal luxury car]].
+
+It has since earned Milestone status from the Milestone Car Society. [[Jaguar Cars|Jaguar]] founder and designer [[William Lyons|Sir William Lyons]] remarked that Mitchell had done "a very wonderful job," and [[Sergio Pininfarina]] declared it "one of the most beautiful American cars ever built; it has marked a very impressive return to simplicity of American car design." At its debut at the [[Paris Motor Show|Paris Auto Show]], [[Raymond Loewy]] said the Riviera was the most handsome American production car—apart from his own [[Studebaker Avanti]], in his view the Riviera's only real competition for 1963.<ref>{{cite web|author=((Auto Editors of Consumer Guide)) |title=1963-1965 Buick Riviera |date=15 October 2007 |website=auto.howstuffworks.com |url= https://auto.howstuffworks.com/1963-1965-buick-riviera.htm |access-date=12 November 2019 |url-status=dead |archive-url=https://web.archive.org/web/20191112214442/https://auto.howstuffworks.com/1963-1965-buick-riviera.htm |archive-date=2019-11-12}}</ref> The first-generation Riviera is considered a styling landmark and has become a collectible car.<ref>{{cite web |url= https://musclecarclub.com/buick-riviera |title=Riviera History 1963-1975 |work=Muscle Car Club |date=7 January 2015 |access-date=12 November 2019}}</ref>
+
+{| class="wikitable"
+|+Buick Riviera Production Figures<ref name="Gunnell 1987"/>
+!
+!Yearly Total
+|-
+|'''1963'''
+|40,000
+|-
+|'''1964'''
+|37,958
+|-
+|'''1965'''
+|34,586
+|-
+|}
+
+==Second generation (1966–1970)==
+{{Infobox automobile
+| image = 1966 Buick Riviera -Side View.jpg
+| caption = 1966 Buick Riviera GS
+| name = Second generation
+| model_years = 1966–1970
+| body_style = 2-door [[hardtop]]
+| layout = [[FR layout]]
+| platform = [[GM E platform|E-body]]
+| assembly = [[Flint, Michigan]] ([[Buick City]])
+| engine = {{cvt|425|cuin|L|1}} [[Buick V8 engine#425|Nailhead]] [[V8 engine|V8]]<br/>{{cvt|430|cuin|L|1}} [[Buick V8 engine#430|Buick]] V8<br/>{{cvt|455|cuin|L|1}} [[Buick V8 engine#455|Buick]] V8
+| transmission = 3-speed [[Turbo-Hydramatic|TH-400]] automatic
+| wheelbase = {{cvt|119.0|in|mm|0}}<ref>{{cite web |title=1968 Buick Riviera| pages=14–15 |url=http://www.oldcarbrochures.com/new/171110/1968%20Buick%20Riviera/1968%20Buick%20Riviera-14-15.html |website=Oldcarbrochures.com |access-date=2012-11-08}}</ref>
+| length = {{cvt|211.2|in|mm|0}} (1966–67)<ref>{{cite web|title=1966 Buick Riviera brochure |page=12 |url=http://www.oldcarbrochures.com/static/NA/Buick/1966_Buick/1966_Buick_Riviera_Brochure/1966%20Buick%20Riviera-12.html |website=Oldcarbrochures.com |access-date=2012-11-08}}</ref><br/> {{cvt|215.2|in|mm|0}} (1968–1970)
+| width = {{cvt|78.8|in|mm|0}} <br/> {{cvt|79.3|in|mm|0}} (1970)
+| height = {{cvt|53.2|–|53.6|in|mm|0}}
+| related = [[Cadillac Eldorado]]<br/>[[Oldsmobile Toronado]]
+| designer = Dave Holls<ref>{{cite web |title=Remembering A Great Automotive Designer: Dave Holls |first = Robert |last = Tate |url= https://www.motorcities.org/story-of-the-week/2019/remembering-a-great-automotive-designer-dave-holls |work = MotorCities |via=Oldcarbrochures.com |date=2019-02-13 |access-date=2024-10-19}}</ref>
+}}
+[[File:1966 Buick Riviera GS - Rear View.jpg|left|thumb|1966 Buick Riviera GS rear ]]
+[[File:1967 Buick Riviera, front left, 06-24-2024.jpg|thumb|left|1967 Buick Riviera]]
+[[File:Riviera GS.JPG|thumb|left|1968 Buick Riviera GS]]
+[[File:2nd Buick Riviera.jpg|left|thumb|1969 model (headlights deployed)]]
+[[File:1970 Buick Rivera Coupe (32986452965).jpg|thumb|left|1970 Buick Riviera]]
+
+The Riviera was redesigned for the 1966 model year.<ref>{{cite web|title=1966 Buick Riviera brochure |page=4 |url=http://www.oldcarbrochures.com/static/NA/Buick/1966_Buick/1966_Buick_Riviera_Brochure/1966%20Buick%20Riviera-04.html |website=Oldcarbrochures.com |access-date=2012-11-08}}</ref> It retained its [[Vehicle frame#X-frame|cruciform X-frame]], powertrain, and brakes, but its new body was longer, wider, and {{convert|200|lb|kg}} heavier. Vent windows, a feature GM had introduced in the 1930s, were absent. Headlamps remained concealed, but now pivoted behind the grille when not in use, and they were once again horizontal. The car's added weight slowed acceleration with the unchanged 425 engine. The Gran Sport package remained available as an option. Rear seat belts<ref>{{cite web |title=1966 Buick Riviera brochure |page=11 |url= http://www.oldcarbrochures.com/static/NA/Buick/1966_Buick/1966_Buick_Riviera_Brochure/1966%20Buick%20Riviera-11.html |website=Oldcarbrochures.com |access-date=2012-11-08}}</ref> and AM/FM radio<ref>{{cite web |url=http://www.oldcarbrochures.com/static/NA/Buick/1967_Buick/1967_Buick_Riviera_Owners_Manual/1967%20Buick%20Riviera%20Manual%20Page%2018.html |page=18 |title=1967 Buick Riviera Owners Manual |website=Oldcarbrochures.com |access-date=2012-11-08}}</ref> were optional.
+
+The new front-wheel drive [[Oldsmobile Toronado]] shared the Riviera platform, and, a year later, the also front-wheel drive [[Cadillac Eldorado]] &mdash; the Riviera retaining the rear-wheel drive layout.
+
+Inside, the four-place cabin with front and rear bucket seats and center console were replaced by a choice of bucket seats or conventional bench seats as standard equipment, making the Riviera a full six-passenger car for the first time. Optionally available was a Strato-bench seat with armrest or Strato bucket seats with either a short console or a full-length operating console with a horseshoe-shaped floor shifter and storage compartment. Both the buckets and Strato-bench seat were available with a reclining seat option for the passenger's side. Sales for 1966 rebounded to 45,308, a new record.
+
+For 1967, Buick replaced the 425 "Nailhead" with a {{cvt|430|cuin|L|1}} [[Buick V8 engine|V8]]. Its {{cvt|360|hp|kW|0}} and {{cvt|475|lbft|Nm|0}} of torque were a performance improvement. Gasoline mileage improved slightly, but remained low. Powerful [[disc brake]]s with Bendix four-piston calipers became optional for the front wheels but most Riviera continued to be ordered with Buick's highly capable ribbed aluminum brake drums. Cosmetically, changes were few and were limited to the addition of a wide, full-width, center-mounted horizontal chrome grille bar that stretched over the headlight doors and outboard parking lights. Sales were 42,799 for the 1967 model year. The Riviera had full instrumentation.<ref>{{cite web |title=1967 Buick Riviera Owners Manual |page=29 |url=http://www.oldcarbrochures.com/static/NA/Buick/1967_Buick/1967_Buick_Riviera_Owners_Manual/1967%20Buick%20Riviera%20Manual%20Page%2029.html |website=Oldcarbrochures.com |access-date=2012-11-08}}</ref>
+
+1967 saw the introduction of U.S. mandated safety equipment to improve occupant crash protection, including an energy-absorbing steering column, non-protruding control knobs, 4-way hazard flasher, soft interior surfaces, locking seatbacks (on 2-door models), a dual-circuit hydraulic braking system (with warning light), and shoulder belt anchors. 
+
+1968 models had reshaped loop-type bumpers that surrounded both the vehicle's recessed crosshatch front grille and tail lamps. Hidden wiper arms debuted. Federally mandated side marker lights appeared, as inverted trapezoids on the lower leading edges of the front fenders, and circular in the rear. The interior was restyled and for the first time shared its instrument panel with the other full-size Buick models. Shoulder belts for front outboard occupants were made standard on all cars built from January 1, 1968. Mechanically, the transmission lost its variable pitch torque converter. A tilt steering wheel was standard.<ref>{{cite web |title=1968 Buick Riviera brochure |page=15 |url=http://www.oldcarbrochures.com/static/NA/Buick/1968_Buick/1968%20Buick%20Riviera/image8.html |website=Oldcarbrochures.com |access-date=12 November 2019}}</ref> Sales set another new record in 1968, as 49,284 units were sold.
+
+For the 1969 model year, grilles gained a pattern of fine vertical bars overlaid by two wider horizontal bars. Front marker lights became far shorter and square. Front outboard headrests were revised. The ignition switch was moved from the instrument panel to the steering column and locked the steering wheel and selector lever when the key was removed (a security feature that became mandatory for the 1970 model year). Chrome side trim was revised, as well. At the rear, the reverse lights moved from the rear bumper to new three-section tail-light lenses. Sales for 1969 were 52,872.
+
+The 1970 Riviera was restyled, incorporating design cues from Bill Mitchell's 1968 "Silver Arrow II" concept car.{{sfnp|Savage|1993|p=51}} Exposed quad headlamps were nearly flush-mounted, while the new front bumper wrapped around and over the new vertical bar grille. A pronounced side trim and skirted rear wheels were standard, with optional exposed wheels. The rear used revised bumper and taillights. The engine was upgraded to {{cvt|455|cuin|L|1}}, the largest engine Buick offered to date, rated at {{cvt|370|hp|kW|0}} gross, {{cvt|245|hp|kW|0}} net, and over {{cvt|500|lbft|Nm|-1}} of torque. 1970 sales were 37,366. The second-generation Riviera proved more successful than the first, with 227,669 units sold over the five years it was built.
+
+{{clear}}
+
+==Third generation (1971–1973)==
+{{Infobox automobile
+| image = 1972 Buick Riviera in Finland.jpg
+| caption = 1972 Buick Riviera
+| name = Third generation
+| model_years = 1971–1973
+| body_style = 2-door [[hardtop]]
+| designer = [[Jerry Hirshberg]] under [[Bill Mitchell (automobile designer)|Bill Mitchell]]
+| layout = [[FR layout]]
+| assembly = [[Flint, Michigan]], United States ([[Buick City]])
+| platform = [[GM E platform|E-body]]
+| engine = {{cvt|455|cuin|L|1}} [[Buick V8 engine#455|Buick]] [[V8 engine|V8]]
+| transmission = 3-speed [[Turbo-Hydramatic|TH-400]] automatic
+| wheelbase = {{cvt|122.0|in|mm|0}}<ref>{{cite web |url=http://www.oldcarbrochures.com/static/NA/Buick/1971_Buick/1971_Buick_Riviera_Brochure/1971%20Buick%20Riviera%20Brochure-03.html |title=1971 Buick Riviera Brochure |page=3 |website=Oldcarbrochures.com |access-date=2012-11-08}}</ref>
+| length = {{cvt|217.4|in|mm|0}} (1971)<br/> {{cvt|218.3|in|mm|0}} (1972)<br/> {{cvt|223.4|in|mm|0}} (1973)
+| width = {{cvt|79.9|in|mm|0}}
+| height = {{cvt|54.0|in|mm|0}}
+| weight = {{cvt|4247|lb}}
+| related = [[Cadillac Eldorado]]<br/>[[Oldsmobile Toronado]]
+}}
+
+[[File:1971 Buick Riviera (15117991390).jpg|thumb|left|1971 Buick Riviera]]
+[[File:1972 Buick Riviera (37289777492).jpg|left|thumb|1972 Buick Riviera rear]]
+[[File:1973 Buick Riviera (24375794184).jpg|left|thumb|1973 Buick Riviera]]
+[[File:1971 Buick Riviera coupe (8706820216).jpg|thumb|left|1971 Buick Riviera interior]]
+[[File:Buick Riviera 1971 engine.jpg|thumb|left|V8 engine of a 1971 Buick Riviera]]
+
+The Riviera was radically redesigned for the 1971 model year with flowing and dramatic "boat-tail" styling.<ref>{{cite web |title=buick-riviera-1973a.jpg|work=Muscle Car Club|url=http://www.musclecarclub.com/musclecars/buick-riviera/images/buick-riviera-1973a.jpg |archive-url=https://web.archive.org/web/20030124110238/http://musclecarclub.com/musclecars/buick-riviera/images/buick-riviera-1973a.jpg|archive-date=2003-01-24|url-status=dead}}</ref> Designed under [[Bill Mitchell (automobile designer)|Bill Mitchell's]] direction, it was penned by [[Jerry Hirshberg]], future head of design for [[Nissan]], mating the two-piece [[Custom car#Language|vee-butted]]{{sfnp|Flory|2004|p=792}} [[fastback]] rear window, inspired by the 1963 [[Chevrolet Corvette (C2)|Corvette Sting Ray]] coupe, to the Riviera's platform.
+
+The design was originally intended for the smaller [[GM A platform|A-body]] or its related [[GM G platform|G-body]], as shown by a full scale clay model of an A-body based boat-tail Riviera recently revealed.<ref name=Deans>{{cite web |url=http://www.deansgarage.com/2020/1971-boat-tail-riviera-a-body/ |title=1971 Boat-Tail Riviera A-body |archive-url=https://web.archive.org/web/20201130131251/http://www.deansgarage.com/2020/1971-boat-tail-riviera-a-body/ |archive-date=2020-11-30 |first=Bruce |last=Brooks |work=Dean's Garage |publisher=Performance Design |date=2020-06-09}}</ref> Given the late stage of the 1968-72 A/G platform evolution and accretive cost to add another version to it, GM Management decreed that the next Riviera use the full sized [[GM B platform]] body&mdash;expanded for 1971 by {{cvt|3|in|mm}} in wheelbase and more than {{cvt|120|lb|kg}} heavier&mdash; which produced controversial looks, making for a sharp departure from those of the Toronado and Eldorado. (''Collectible Automobile'' ran an article about 1971–76 full-sized Buicks in which one sketch design for their 2-door coupes which was rejected resembled the 1971–73 Riviera).
+
+This generation introduced a much more visual representation of the "[[Buick#Sweepspear|sweepspear]]", with a more faithful representation to the version that appeared on 1950s Buicks in both the side molding and [[Beltline (automotive)|beltline]].{{sfnp|Savage|1993|p=54}} Large, round wheel openings were intended to convey more of a sporty air.{{sfnp|Savage|1993|p=54}}{{Clarify|reason=what does it mean by "more sporty air"? that language is confusing for most readers, including me, is there a better word that could be used?|date=January 2022}} The only engine available was Buick's own [[Buick V8 engine#455|455&nbsp;ci V8 engine]] producing {{cvt|315|hp|kW|0}}, with {{cvt|330|hp|kW|0}} with the Gran Sport (GS) package.{{sfnp|Savage|1993|p=63}}
+
+The 455 engine had a lower [[compression ratio]] to meet [[United States Environmental Protection Agency|EPA]] emissions requirements, together with the shift from [[Horsepower#SAE gross power|SAE gross]] to [[Horsepower#SAE net power|SAE net]] ratings this reduced claimed power to {{cvt|255|hp|kW|0}}, with {{cvt|265|hp|kW|0}} in the Gran Sport. Performance remained reasonably brisk, with a 0–60&nbsp;mph time of 8.1 seconds for the GS, but the Riviera's sporty image was rapidly fading.{{According to whom|date=January 2022}} One noteworthy advance was Buick's '''Max Trac''' [[Traction control system|traction control]].<ref>{{cite web |url=http://www.oldcarbrochures.com/static/NA/Buick/1971_Buick/1971_Buick_Riviera_Brochure/1971%20Buick%20Riviera%20Brochure-05.html |title=1971 Buick Riviera Brochure |page=5 |website=Oldcarbrochures.com |access-date=2012-11-08}}</ref> The 1971 Riviera also features GM's "Full-Flo" ventilation system and two large deck lid louvers are prominent on the trunk lid.
+
+Despite these features, Riviera sales for 1971 dropped to 33,810,{{sfnp|Flory|2004|p=798}} the lowest to date. The 1972 Riviera received a new, egg-crate grille, more substantial front bumpers to prepare for the new [[Bumper (automobile)#5mph|5-mph impact legislation]], restyled taillight trim, and the louvers were removed from the trunk lid. The 1972 Riviera also featured a redesigned ventilation system, and the 455 engine switched to net power ratings, {{cvt|225|hp|kW|0}} or {{cvt|250|hp|kW|0}} in the Gran Sport, although the actual drop in net power was only {{cvt|5|hp|kW|0}}. Sales remained stagnant at 33,728, a drop of 82 from the prior year.{{sfnp|Flory|2004|p=876}}
+
+For 1973, the Riviera underwent a number of changes.{{sfnp|Savage|1993|p=60}} The front bumper was redesigned to be thicker and featured bumper guards as standard in order to meet 1974 impact-bumper standards, the grille was switched back to horizontal slats, and the front lamps were moved from the bumper and were now integrated into the headlights, wrapping around the corners of the car. Sluggish sales of the third generation Riviera led GM to believe that the boattail deck lid was too radical for most customers' tastes, so in 1973 it was blunted and made slightly shorter. The taillights, meanwhile, were moved down from the sheet metal and into the bumper, and the rear license plate location was moved from the left side of the bumper to the center.{{sfnp|Savage|1993|p=60}} The {{cvt|250|hp|kW|0}} engine became standard, with {{cvt|260|hp|kW|0}} with the '''Stage One''' package. This also included a limited-slip [[Differential (mechanical device)|differential]] and a chrome-plated air cleaner. The "Gran Sport" package was still available as a separate option package consisting of a ride-and-handling package that included a rear stabilizer bar, JR78-15 whitewall steel-belted radial tires, a specially tuned "radial roadability" suspension, additional sound insulation and special "Gran Sport" badging. The design changes however only led to a marginal increase in sales, with 34,080 being produced for the model year.
+
+{{clear}}
+
+==Fourth generation (1974–1976)==
+{{Infobox automobile
+ | image = Buick Riviera (Rassemblement Saint-Bruno-De-Montarville '10).jpg
+ | caption = 1976 Buick Riviera
+ | name= Fourth generation
+ | model_years = 1974–1976
+ | body_style= 2-door [[coupe]]
+ | layout= [[FR layout]]
+ | platform= [[GM E platform|E-body]]
+ | assembly= [[Flint, Michigan]], United States ([[Buick City]])
+ | engine= {{cvt|455|cuin|L|1}} [[Buick V8 engine#455|Buick]] [[V8 engine|V8]]
+ | transmission= 3-speed [[Turbo-Hydramatic|TH-400]] automatic
+ | wheelbase= {{cvt|122.0|in|mm|0}}
+ | length= {{cvt|226.4|in|mm|0}} (1974)<br/> {{cvt|223.0|in|mm|0}} (1975)
+ | width= {{cvt|80.0|in|mm|0}}
+ | height= {{cvt|54.0|in|mm|0}}
+ | related = [[Cadillac Eldorado]]<br/>[[Oldsmobile Toronado]]
+}}
+
+Although carrying over the same platform, mechanicals, and some body panels seen on the "Third Generation" Riviera, Buick replaced its distinctive 'boat tail' roofline with a more conventional-looking "Colonnade" treatment which was more in line with its [[Buick LeSabre|LeSabre]] and [[Buick Electra|Electra]] brethren than its front-wheel drive cousins. This turned the car from a [[hardtop|hardtop coupe]] into a [[coupe|pillared coupe]], as it featured wide B pillars and fixed quarter [[opera window]]s. A [[vinyl roof|landau half-vinyl roof]] option was available. The car did retain its forward-jutting grille, albeit in a slightly modified form. Thus modified, the car looked far less distinctive than its predecessors, and even its platform mates, the [[Oldsmobile Toronado]] and [[Cadillac Eldorado]].
+[[File:1974 Buick Riviera.jpg|left|thumb|1974 Buick Riviera]]
+The tamer-looking Riviera was no lighter, and its standard 455 V8 lost more power, dropping to {{cvt|230|hp|kW|0}} and {{cvt|245|hp|kW|0}} for standard and Stage One models respectively. [[Limited-slip differential|Max Trac]] was dropped from the option list after 1974 due to a lack of buyer interest. The revised styling did not improve sales, which fell to 20,129 in 1974, although it is impossible to determine how much this was a result of the [[1973 oil crisis|energy crisis]] and how much was due to the tame appearance.{{sfnp|Savage|1993|p=61}} This generation introduced a novelty that later became federally mandated in a modified form, two high-mounted taillights above the trunk and below the rear window, which was shared on its platform twin the Toronado.
+
+For 1975, the Riviera received an updated front fascia, which lost its forward-jutting theme through the redesign of the fiberglass front end cap. Quad rectangular headlights were mounted horizontally. The new vertical-bar grille echoed the "stand-up" theme that many GM cars of the day incorporated. Parking lights wrapped around the fender sides. The Stage One performance package was dropped for 1975, though the Gran Sport handling package would continue to be offered. The standard engine's output dipped to {{cvt|205|hp|kW|0}}. Sales for 1975 were 17,306.
+
+Minor changes greeted 1976 models, the most notable of which was a new crosshatch grille insert. The Gran Sport handling package was replaced by an 'S/R' package that had similar sporting pretensions. Sales rallied slightly to 20,082 for 1976.<ref name="production">{{cite web|url= http://www.rivowners.org/features/productn.html |title=Riviera Production Numbers |publisher=Riviera Owners Association | archive-url= https://web.archive.org/web/20070307022310/http://www.rivowners.org/features/productn.html |archive-date=2007-03-07 |url-status=dead }}</ref>
+
+{{Clear}}
+
+==Fifth generation (1977–1978)==
+{{Infobox automobile
+ | image=1978 Buick Riviera.png
+ | assembly= [[Flint, Michigan]], United States ([[Buick City]])
+ | name= Fifth generation
+ | model_years = 1977–1978
+ | body_style= 2-door [[coupe]]
+ | platform= [[GM B platform|B-body]]
+ | layout = [[FR layout]]
+ | engine= {{cvt|350|cuin|L|1}} [[Buick V8 engine#350|Buick]] [[V8 engine|V8]]<br/>{{cvt|403|cuin|L|1}} [[Oldsmobile V8 engine#403|Oldsmobile]] [[V8 engine|V8]]
+ | related=[[Buick LeSabre]]<br/>[[Buick Estate]]<br/>[[Chevrolet Caprice]]<br/>[[Chevrolet Impala]]<br/>[[Oldsmobile 88]]<br/>[[Oldsmobile Custom Cruiser]]<br/>[[Pontiac Bonneville|Pontiac Bonneville/Parisienne]]<br/>[[Pontiac Catalina|Pontiac Catalina/Laurentian]]
+ | transmission= 3-speed [[Turbo-Hydramatic|TH-400]] automatic
+ | wheelbase= {{cvt|115.9|in|mm|0}}
+ | length= {{cvt|218.2|in|mm|0}}
+}}
+[[File:1977 Buick Riviera (29693444621).jpg|thumb|left|1977 Buick Riviera]]
+[[File:1978 Buick Riviera rear.png|thumb|left|1978 Buick Riviera rear]][[File:1978 Buick Riviera LXXV special edition interior.jpg|thumb|left|The interior of a 1978 Buick Riviera LXXV]]Buick downsized the Riviera for 1977 onto the new smaller [[GM B platform]]. While the other E-bodies were front wheel drive since 1966 (1967 for Cadillac's Eldorado), the Buick E platform used a rear-wheel-drive B-body undercarriage (along with the cruciform frame of pre-1965 GMs for the 1966–70 generation). All B-bodies (including C and D platform GM RWDs) were downsized for the 1977 model year which prompted the short-lived 1977/78 generation.
+
+It was, in most respects, a [[Buick LeSabre]] coupe with unique styling (with quarter windows mimicking the 1975–78 Cadillac Eldorado). Unlike its LeSabre counterpart, the front fascia is vertical as opposed to slanted. Compared to the previous generation, it was reduced to a wheelbase of {{cvt|115.9|in|mm}}, down {{cvt|6.1|in|mm}}, and an overall length of {{cvt|218.2|in|mm}}, down {{cvt|4.8|in|mm}}. Weight was reduced by approximately {{convert|660|lb|kg}}. The 455 engine was replaced by a {{cvt|350|cuin|L|1}} [[Buick V8 engine]] with {{cvt|155|hp|kW|0}} or an [[Oldsmobile V8 engine|Oldsmobile-built {{cvt|403|cuin|L|1}}]] with {{cvt|185|hp|kW|0}}. California models had a {{cvt|170|hp|kW|0}} [[Oldsmobile V8 engine#350|Oldsmobile 350]].<ref name="Evolution">{{cite web |url= http://www.rivowners.org/features/evolution/index.html |title=Evolution of the Riviera |publisher=Riviera Owners Association |access-date=2007-02-17}}</ref>
+
+Sales were up modestly to 26,138 for 1977 and then fell to 20,535 for 1978,<ref name="production" /> although this was a stopgap model until the all-new [[GM E platform|E-body]] cars would be ready for 1979. The 1977 and 1978 Rivieras were produced on the downsized GM B platform before the 1979 redesign on the FWD E-platform.
+
+===75th Anniversary Package===
+For 1978, a special "LXXV" edition was released to commemorate Buick's 75th anniversary on the market. Production total was 2,889 and included special silver & black paint with gray leather seats with black trim, four-wheel disc brakes, brushed chrome trim, deep pile carpeting, and special LXXV name plates.
+
+'''Production Figures'''
+{| class="wikitable"
+|+Buick Riviera Production Figures{{sfnp|Flammang|1999|p=}}
+!
+!Coupe
+|-
+|'''1977'''
+|26,138
+|-
+|'''1978'''
+|20,535
+|-
+!'''Total'''
+!'''<u>46,673</u>'''
+|}
+
+{{clear}}
+
+==Sixth generation (1979–1985)==
+{{Infobox automobile
+ | image= 1984 Buick Riviera coupe in two-tone blue, front left.jpg
+ | caption = 1984 Buick Riviera Coupe
+ | name= Sixth generation
+ | model_years = 1979–1985
+ | body_style= 2-door [[convertible]]<br/>2-door [[coupe]]
+ | platform= [[GM E platform|E-body]]
+ | layout= [[Front-engine, front-wheel-drive layout|Longitudinal front-engine, front-wheel drive]]
+ | assembly= [[Linden Assembly]], [[Linden, New Jersey]] [[United States]]
+ | engine= {{cvt|231|cuin|L|1}} [[Buick V6 engine#LD5|Buick]] [[V6]]<br/>{{cvt|231|cuin|L|1}} [[Buick V6 engine#LD5|Buick V6]] [[Turbocharger|Turbocharged]]<br/>{{cvt|252|cuin|L|1}} [[Buick V6 engine#4.1|Buick]] [[V6]]<br/>{{cvt|307|cuin|L|1}} [[Oldsmobile V8 engine#307|Oldsmobile]] [[V8 engine|V8]]<br/>{{cvt|350|cuin|L|1}} [[Oldsmobile V8 engine#350|Oldsmobile]] V8<br/>{{cvt|350|cuin|L|1}} [[Oldsmobile V8 engine#LF9 Diesel|Oldsmobile]] diesel [[V8 engine|V8]]
+ | transmission= 3-speed TH-325 [[Automatic transmission|automatic]]<br/>4-speed THM325-4L automatic
+ | wheelbase= {{cvt|114.0|in|mm|0}}<ref name="oldcarbrochures.org">{{cite web |url=http://oldcarbrochures.org/New-Brochures---September/1984-Buick-Riviera-Brochure-Cdn/1984-Buick-Riviera-Brochure-Cdn--05 |title=1984 Buick Riviera brochure (Canadian) |website=Oldcarbrochures.com |access-date=2016-09-16 |url-status=dead |archive-url=https://web.archive.org/web/20160917083705/http://oldcarbrochures.org/New-Brochures---September/1984-Buick-Riviera-Brochure-Cdn/1984-Buick-Riviera-Brochure-Cdn--05 |archive-date=2016-09-17 }}</ref>
+ | length= {{cvt|206.0|in|mm|0}}
+ | width= {{cvt|72.8|in|mm|0}}<ref name="oldcarbrochures.org"/>
+ | related = [[Cadillac Eldorado]]<br/>[[Oldsmobile Toronado]]
+}}
+
+[[File:BuickRivera.jpg|thumb|left|Buick Riviera coupe]]
+Buick presented the 1979 model year [[front wheel drive]] Riviera, its first front-drive production model. Built on a {{cvt|114|in|mm}} wheelbase, it once again shared its mechanical design and [[GM E platform|platform]] with the [[Cadillac Eldorado]] and [[Oldsmobile Toronado]]. The Olds 403 and Buick 350 were dropped, but the Olds 350 remained, as did a new [[turbocharger|turbocharged]] [[Buick V6 engine]] of {{cvt|231|cuin|L|1}} displacement with {{cvt|185|hp|kW|0}} which was installed in the Riviera S-Type, shared with the [[Buick Regal#Second generation (1978)|Regal Sport Coupe]] turbo for the 1980 model year.{{sfnp|Flammang|1999|p=}} The Riviera became ''[[Motor Trend]]''{{'s}} [[Car of the Year]]. Sales more than doubled, to 52,181 for 1979 and 48,621 for the similar 1980 models.<ref name="Evolution"/>
+
+[[File:1983 Buick Riviera XX, front right (Hershey 2019).jpg|thumb|left|The 1983 Buick Riviera XX special edition]]
+[[File:1984 Riviera Convertible.jpg|thumb|left|Rear view of 1984 Riviera convertible]]
+1981 saw the Turbo renamed '''[[T-Type]]''' and the demise of the 350 engine in favor of the [[Oldsmobile V8 engine|Oldsmobile-built {{cvt|307|cuin|L|1}}]] with {{cvt|140|hp|kW|0}} (phased in during the 1980 MY). The standard engine was now Buick's {{cvt|125|hp|kW|0}} {{cvt|252|cuin|L|1}} [[V6]], and a new option was an Oldsmobile [[diesel engine]] with a mere {{cvt|105|hp|kW|0}} offered through 1985. 1982 also saw the first-ever Riviera [[convertible]], although relatively few were built, owing to a high price - US$23,944 (${{formatnum:{{Inflation|US|23944|1982}}}} in {{Inflation-year|US}} dollars {{inflation-fn|US}}).{{sfnp|Flammang|1999|p=}} The Riviera convertible was available in white or red [[Metallic paint#Fire-Frost and Firemist|Firemist]] with red leather. A [[:File:Indypacecar1983.jpg|twin-turbocharged Riviera convertible]] was chosen to be the pace car at the 1983 [[Indianapolis 500]], tuned to produce {{cvt|410|hp|kW|0}}.<ref name=specialed>{{cite magazine |title=Special Edition Coupes – 1983 Buick Riviera, 1985 Ford Thunderbird |url=https://www.hemmings.com/blog/article/special-edition-coupes-1983-buick-riviera-1985-ford-thunderbird/ |magazine=Hemmings |last=Traver Adolphus |first=David |date=September 2012 |publisher=American City Business Journals}}</ref> Most convertible Rivieras had the V8 engine, which saw an increase in rated SAE net HP to 150 for both convertibles and coupes fitted with it from 1982 through the 1985 model year.
+
+In 1983,  a special edition of 500 "Riviera XX" was offered, celebrating twenty years since the introduction of the first Riviera (502 were built in the end). These have a special two-tone exterior paint, real wire wheels, a leather, and walnut interior as well as [[Fineness#Karat|24-karat]] gold plated "Riviera XX" badging.<ref name=specialed/> The Riviera XX also received a special grille, which then became part of the 1984 model year facelift model.<ref name=specialed/> Overall sales made the 1980s Riviera a great success, reaching 65,305 for the 1985 model year.<ref name="production"/>
+
+'''Production Figures'''
+{| class="wikitable"
+|+Buick Riviera Production Figures{{sfnp|Flammang|1999|p=}}
+!
+!Coupe
+!T Type
+!Convertible
+!Yearly Total
+|-
+|'''1979'''
+|37,881
+|14,300
+| -
+|'''52,181'''
+|-
+|'''1980'''
+|41,404
+|7,217
+| -
+|'''48,621'''
+|-
+|'''1981'''
+|48,017
+|3,990
+| -
+|'''52,007'''
+|-
+|'''1982'''
+|42,823
+|N/A
+|1,248
+|'''44,071'''
+|-
+|'''1983'''
+|47,153
+|1,331
+|1,750
+|'''50,234'''
+|-
+|'''1984'''
+|56,210
+|1,153
+|500
+|'''57,863'''
+|-
+|'''1985'''
+|63,836
+|1,069
+|400
+|'''65,305'''
+|-
+!'''Total'''
+!'''337,324'''
+!'''29,060'''
+!'''3,898'''
+!'''<u>370,282</u>'''
+|}
+{{clear}}
+
+==Seventh generation (1986–1993)==
+{{Infobox automobile
+ | image= Buick Riviera T-Type -- 10-29-2010.jpg
+ | caption = 1986–1988 Riviera T-Type (pre-facelift)
+ | name= Seventh generation
+ | model_years = 1986–1993
+ | body_style= 2-door [[coupe]]
+ | platform= [[GM E platform|E-body]]
+ | layout= [[Front-engine, front-wheel-drive layout|Transverse front-engine, front-wheel drive]]
+ | assembly= [[Detroit/Hamtramck Assembly]], [[Michigan]], United States
+ | engine= 3.8 L ''[[Buick V6 engine#LG2|LG2]]/[[Buick V6 engine#LG3|LG3]]/[[Buick V6 engine#LN3|LN3]]/[[Buick V6 engine#L27|L27]]'' [[Overhead valve engine|OHV]] [[V6 engine|V6]]
+ | transmission= 4-speed [[GM 4T60 transmission|THM440-T4]] [[Automatic transmission|automatic]]
+ | wheelbase={{cvt|108.0|in|mm|0}}
+ | length=1986–88: {{cvt|187.8|in|mm|0}}<br />1989-93 {{cvt|198.3|in|mm|0}}
+ | width=1986–88: {{cvt|71.7|in|mm|0}}<br/>1989–93: {{cvt|73.1|in|mm|0}}
+ | height=1986–88: {{cvt|53.5|in|mm|0}}<br/>1989–1990: {{cvt|53.6|in|mm|0}}<br/>1991–93: {{cvt|52.9|in|mm|0}}
+ | weight= {{cvt|3309|lb|kg|0}}
+ | related = [[Cadillac Eldorado]]<br/>[[Oldsmobile Toronado]]<br/>[[Buick Reatta]]
+}}
+
+[[File:Buick-TouchScreen-x.jpg|thumb|left|Buick Graphic Control]]
+The [[GM E platform|E-body]] coupes were converted to [[Monocoque|unibody construction]] and transverse front-wheel drive &mdash; and was further downsized for 1986, to a {{cvt|108|in|mm|0}} wheelbase. The V6 was now the only engine, fitted with sequential fuel injection (SFI) and was rated initially at {{cvt|140|hp|kW|0}} SAE ([[Buick V6 engine#LG2|LG2]]) and {{cvt|200|lbft|Nm|0}} of torque. It used the Turbo-[[Hydramatic]] 440-T4 [[automatic transmission]] with a 2.84:1 final drive ratio. The 3.8 was the only engine used for the seventh generation Riviera, although its power climbed incrementally over the years. For 1987, the engine was changed to the [[Buick V6 engine#LG3|LG3]] with roller lifters rather than flat lifters, power increased to {{cvt|150|hp|kW|0}} SAE while the torque remained unchanged. This was replaced by the [[Buick V6 engine#LN3|LN3]], with power and torque up to {{cvt|165|hp|kW|0}} and {{cvt|210|lbft|Nm|0}} respectively thanks to multi-port fuel injection, balance shafts, and other improvements. The LN3 was used from 1988 until 1990. For the last three model years Buick used the [[Buick V6 engine#L27|L27]] iteration with sequential, tuned port fuel injection (TPI), which gained a few more horsepower and more mid-range torque from a new, two-piece intake manifold with longer runners. Power crept up to {{cvt|170|hp|kW|0}} at 4,800&nbsp;rpm, torque was up to {{cvt|220|lbft|Nm|0}} at 3,200&nbsp;rpm.
+[[File:1987 Buick Riviera in Silver, rear left side.jpg|left|thumb|1986–1989 Riviera rear (pre-facelift)]]
+This generation featured the ''Graphic Control Center'' (GCC), an advanced electronic instrumentation system which employed a dash-mounted {{convert|9|in|mm|adj=on}} monochrome touchscreen [[Cathode-ray tube|CRT]] display. The GCC controlled the vehicle's climate control system and stereo, and also supplied advanced instrumentation such as a [[trip computer]], vehicle diagnostics, and a maintenance reminder feature. Four-wheel disc brakes were standard. With a choice of three suspension packages available, up to the performance-oriented FE3 setting, handling was notably improved. The Riviera placed fourth for ''[[Motor Trend]]''{{'}}s 1986 Car of the Year contest. 
+
+The seventh generation Riviera saw the installation of Dynaride, which was an air compressor that would pressurize the rear [[Chapman strut]]s to maintain a level overall ride height. A badge was installed on the dashboard to the left of the steering column on all vehicles equipped. It was not available on vehicles equipped with Gran Touring Suspension.
+
+[[File:Buick Riviera -- 07-23-2009.jpg|thumb|left|1989–1993 Riviera (facelift)]]
+
+[[File:89 Buick Riviera (8731450251).jpg|thumb|left|1989–1993 Riviera rear (facelift)]]
+
+Fuel economy was notably improved for the 1986 Riviera. Prices increase to $19,831 (${{formatnum:{{Inflation|US|19831|1986}}}} in {{Inflation-year|US}} dollars{{inflation-fn|US}}) for the base model and $21,577 for the [[T-Type]] (${{formatnum:{{Inflation|US|21577|1986}}}} in {{Inflation-year|US}} dollars{{inflation-fn|US}}). Sales declined to 22,138 for 1986, 15,223 for 1987, and 8,625 for 1988. 1988 also saw the introduction of Buick's [[Buick Reatta|Reatta]] coupe, a two-seat personal luxury car.
+
+The Riviera was restyled for 1989, adding {{convert|11|in|mm}} to the overall length (on an unchanged wheelbase). Sales rose to 21,189 for 1989, but dropped to a low of 4,555 for 1993, the abbreviated final model year of this generation.<ref name="production"/> 
+
+{| class="wikitable"
+|+Seventh-generation production figures{{sfnp|Flammang|1999|p=}}
+!
+!Yearly Total
+|-
+|'''1986'''
+|22,138
+|-
+|'''1987'''
+|15,223
+|-
+|'''1988'''
+|8,625
+|-
+|'''1989'''
+|21,189
+|-
+|'''1990'''
+|22,526
+|-
+|'''1991'''
+|13,168
+|-
+|'''1992'''
+|12,324
+|-
+|'''1993'''
+|4,555
+|-
+!'''Total'''
+!'''<u>119,748</u>'''
+|}
+{{Clear}}
+
+==Eighth generation (1995–1999)<span class="anchor" id="8"></span><span class="anchor" id="1995"></span>==
+{{Infobox automobile
+ | image= 1996 Buick Riviera Supercharged, front left, 12-08-2022.jpg
+ | name= Eighth generation
+ | production = May 23, 1994 – November 25, 1998
+ | model_years = 1995–1999
+ | body_style= 2-door [[coupe]]
+ | platform= [[GM G platform (FWD)|G II-body]]
+ | layout= [[Front-engine, front-wheel-drive layout|Transverse front-engine, front-wheel drive]]
+ | engine= {{ubl
+  | 3.8 L ''[[Buick V6 engine#Series II|L36]]'' [[V6 engine|V6]]
+  | 3.8 L ''[[Buick V6 engine#Series I|L67]]'' [[Supercharger|SC]] V6
+  }}
+ | transmission= 4-speed 4T60E [[Automatic transmission|automatic]] (1995–1996 N/A)<br/> 4-speed 4T60E-HD automatic (1996 Supercharged)<br/>4-speed [[GM 4T65E-HD transmission#4T65E-HD|4T65E-HD]] automatic (1997–1999)
+ | wheelbase= {{cvt|113.8|in|mm|0}}
+ | length= {{cvt|207.0|in|mm|0}}
+ | width= {{cvt|75.0|in|mm|0}}
+ | height= {{cvt|55.2|in|mm|0}}
+ | weight= {{cvt|3788|lb|kg|0}}
+ | designer= William L. Porter<br/>Andy Hansel, Asst. Chief Designer<br/>Paul Tatseos, Design Chief, Interior
+ | related=[[Oldsmobile Aurora]]<br/>[[Cadillac Seville]]<br/>[[Buick Park Avenue]]
+ | assembly=[[Orion Township, Michigan]], U.S. ([[Orion Assembly]])
+}}
+
+After a hiatus for the 1994 model year, the Riviera returned for the 1995 model year with a complete redesign. The {{cvt|205|hp|kW|0}} [[naturally aspirated]] 3800 V6 was the standard engine, with an optional [[supercharger|supercharged]] 3800 V6 rated at {{cvt|225|hp|kW|0}} and {{cvt|275|lbft|Nm|0}}. The eighth generation was manufactured in [[Orion Township, Michigan]], using the same Cadillac-derived [[GM G platform (FWD)|G platform]] as the 4-door [[Oldsmobile Aurora]]. The first of 41,422 1995 Rivieras was manufactured on May 23, 1994.{{cn|date=November 2023}}
+
+In 1996, the supercharged engine's output increased to {{cvt|240|hp|kW|0}} and {{cvt|280|lbft|Nm|0}}, paired with a 4T60E-HD transmission. 18,036 Rivieras were manufactured in 1996.
+
+For the 1997 model year, engineers revised the suspension revisions, removing weight. An upgraded [[GM 4T65E-HD transmission#4T65E-HD|4T65E-HD transmission]] featuring a larger {{cvt|258|mm|in|1|order=flip}} [[torque converter]] and heavy-duty [[gearbox]] were added. 18,827 were made in 1997.
+[[File:1999 Buick Riviera 3.8L, rear 8.25.19.jpg|left|thumb|1999 Buick Riviera rear ]]
+For 1998, the {{cvt|240|hp|kW|0}} supercharged V6 became standard. GM's [[OnStar]] service was added as an option, along with minor interior design changes and features including new passenger heated seats and the removal of the front "55/45" 3-seater split bench option. A total of 10,953 units were produced for 1998.
+
+With sales of all coupes declining in the North American market, GM discontinued the Riviera. 1999 was the car's last model year with production of 1,956 cars ending on November 25, 1998. The final 200 cars, marketed as ''Silver Arrow'' models, carried special silver paint and trim,<ref>{{cite web|url=http://www.rivowners.org/silver.html |title=Special Report |work=Riviera Owners Association |access-date=12 November 2019}}</ref> recalling several earlier ''Silver Arrow'' concept cars using the earliest Riviera by [[Bill Mitchell (designer)|Bill Mitchell]].
+
+The Eighth-generation Riviera's supercharged [[Overhead valve|OHV]] V6 enabled a {{convert|0|-|60|mph|km/h}} time of under 7 seconds and a standing {{convert|1/4|mi|m}} in 15.5 seconds With EPA mileage estimates of {{cvt|18|mpgus}} / {{cvt|27|mpgus}} (city/highway).
+
+{| class="wikitable"
+|+Eighth-generation production figures{{sfnp|Flammang|1999|p=}}
+!
+!Yearly Total
+|-
+|'''1995'''
+|41,422
+|-
+|'''1996'''
+|17,389
+|-
+|'''1997'''
+|18,199
+|-
+|'''1998'''
+|10,613
+|-
+|'''1999'''
+|1,956
+|-
+!'''Total'''
+!'''<u>89,579</u>'''
+|}
+
+===Engines===
+{| class=wikitable
+|-
+!Year
+!Engine
+!Power
+!Torque
+|-
+|1995–1997||3.8&nbsp;L ''[[Buick V6 engine#Series II|L36 3800 Series II]]'' V6||{{cvt|205|hp|kW|0}} at 5200&nbsp;rpm||{{cvt|230|lbft|Nm|0}} at 4000&nbsp;rpm
+|-
+|1995||3.8&nbsp;L ''[[Buick V6 engine#Series I|L67 3800 Series I]]'' Supercharged V6||{{cvt|225|hp|kW|0}} at 5000&nbsp;rpm||{{cvt|275|lbft|Nm|0}} at 3200&nbsp;rpm
+|-
+|1996–1999||3.8&nbsp;L ''[[Buick V6 engine#Series II|L67 3800 Series II]]'' Supercharged V6||{{cvt|240|hp|kW|0}} at 5200&nbsp;rpm||{{cvt|280|lbft|Nm|0}} at 3600&nbsp;rpm
+|}
+
+{{Clear}}
+
+==Concept cars==
+
+===2007 concept===
+{{Infobox automobile
+| image = NAIAS 304.JPG
+| body_style = 2-door 4-seater [[coupe]]
+| doors = [[Gull-wing door|gullwing]]
+| name = 2007 Riviera Concept
+| designer = [[James C. Shyr]] 
+| wheelbase = {{cvt|2870|mm|in|1}}
+| length = {{cvt|4710|mm|in|1}}
+| width = {{cvt|1940|mm|in|1}}
+| height = {{cvt|1415|mm|in|1}}
+}}
+
+At the 2007 [[Shanghai Motor Show]], Buick debuted a [[concept car|concept]] coupe named Riviera, based on the [[GM Epsilon II platform]].<ref>{{cite web|last=Nunez |first=Alex |url= http://www.autoblog.com/2007/04/14/shanghai-motor-show-preview-buick-riviera-concept/ |title=Shanghai Motor Show Preview: Buick Riviera Concept |website=Autoblog.com |date=2007-04-14 |access-date=2011-09-13}}</ref><ref>{{cite web|url= http://news.carjunky.com/the-buick-riviera-concept-cdf465.shtml |title=The Buick Riviera Concept : Car Makes And Models |website=News.carjunky.com |access-date=2011-09-13}}</ref> The concept was later shown at the [[North American International Auto Show#2008|2008 North American International Auto Show]].
+
+It was designed by the [[Pan Asia Technical Automotive Center]] ([[PATAC]]). The design was inspired by classic Buicks, ancient Chinese artifacts, and modern electronic icons. It includes "icy green" backlighting, Shell Blue body, [[gull-wing door]]s, a 2+2 seating configuration, and 21-inch 10-spoke forged aluminum wheels.
+{{Clear}}
+
+===2013 concept===
+{{Infobox automobile
+| image = Buick Riviera Concept at Auto Shanghai 2013.JPG
+| body_style = 2-door 4-seater [[coupe]]
+| doors = [[Gull-wing door|gullwing]]
+| name = 2013 Riviera Concept
+| engine = 
+| motor = 4x Motors (1 per wheel)
+| drivetrain = [[PHEV|Dual-mode W-PHEV]]
+}}
+
+Another concept Riviera was shown at the 2013 [[Shanghai Motor Show]], again developed by the [[Pan Asia Technical Automotive Center]] [[PATAC]]. It has gull-wing doors and a plug-in electric driveline as well as [[four wheel steering]], electromagnetically controlled suspension with air springs, built in [[4G LTE]] connection, transparent [[A pillar]] and wireless charging.<ref>{{cite magazine |last=Kable|first=Greg|title=Best in Show: Buick Riviera |magazine=Autoweek |date=May 13, 2013|volume=63|issue=10 |page=8}}</ref><ref>{{cite magazine|url= https://www.roadandtrack.com/new-cars/news/a4308/shanghai-2013-buick-riviera-coupe-concept-first-look/|title=Buick unveils new Riviera concept in Shanghai|date=2013-04-19 |magazine=Road & Track|access-date=2018-05-02}}</ref>
+
+{{Clear}}
+
+==References==
+{{Reflist|30em}}
+
+'''Works cited'''
+* {{Cite book |editor-last=Flammang |editor-first=James M. |title=Standard Catalog of American Cars: 1976–1999 |year=1999 |edition=3rd |location=Iola, WI |publisher=Krause Publications |others=Ron Kowalke |isbn=978-0-87341-755-6 |oclc=43301709}}
+* {{cite book |last=Flory |first=J. "Kelly" Jr. |year=2004 |title=American Cars 1960–1972 |publisher=McFarland}}
+* {{cite magazine |last=Savage |first=Jeff S. |date=Winter 1993 |magazine=AutoPhyle |volume=2 |issue=4 |title=Electra with a Centurion and a Le Sabre and a boat-tail Riviera |location=Watsonville, CA}}
+
+
+{{Buick Vehicles}}
+{{Buick postwar timeline}}
+{{Buick}}
+{{Sloan Museum}}
+{{Authority control}}
+
+[[Category:1960s cars]]
+[[Category:1970s cars]]
+[[Category:1980s cars]]
+[[Category:1990s cars]]
+[[Category:Buick vehicles|Riviera]]
+[[Category:Coupés]]
+[[Category:Front-wheel-drive vehicles]]
+[[Category:Motor vehicles manufactured in the United States]]
+[[Category:Rear-wheel-drive vehicles]]
+[[Category:Cars introduced in 1963]]
+[[Category:Cars discontinued in 1998]]
+[[Category:Personal luxury cars]]
+
+==External links==
+{{Commons category}}

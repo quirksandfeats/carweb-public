@@ -1,0 +1,186 @@
+{{short description|Mid-size sedans}}
+{{More citations needed|date=December 2018}}
+{{Use dmy dates|date=June 2020}}
+{{Infobox automobile
+| name         = Isuzu Aska
+| image        = 1983 Isuzu Florian Aska 2000 Turbo LS (retouched).jpg
+| manufacturer = [[Isuzu]]
+| production   = 1983–2002
+| predecessor  = [[Isuzu Florian]]
+| class        = [[Family car]]
+| body_style   = 4-door [[Sedan (automobile)|sedan]]
+}}
+The '''Isuzu Aska''' was a nameplate used by [[Isuzu]] of Japan to denote its [[midsize car|mid-size]] [[sedan (car)|sedan]]s from 1983 to 2002. Originally the Aska was a version of [[General Motors]]' [[GM J platform|J-car]] produced by Isuzu, but after Isuzu pulled out of manufacturing passenger cars the nameplate was applied to [[badge engineering|rebadged]] versions of the [[Subaru Legacy]] (1990 to 1993) and [[Honda Accord]] (1994 to 2002) sold through Isuzu's Japanese distribution network.
+
+The Aska replaced the [[Isuzu Florian]] in Isuzu's lineup and was discontinued in 2002 without a replacement.
+
+The name comes from the [[Japanese language|Japanese]] word, "Asuka", which is the old name of the [[Asuka, Nara|Asuka Village]] in the [[Nara Prefecture]] of Japan. Because the name "Asuka" is likely to be mispronounced in foreign countries, the "u" was taken away from the name, presenting the model as the "Aska".
+__TOC__
+{{clear}}
+
+==First generation (1983&ndash;1989)==
+{{Infobox automobile
+| image        = JJ120 ASKA irmscher.jpg
+| name         = First generation
+| aka          = {{ubl | Isuzu Florian Aska | Isuzu Uhuru (Kenya) | Chevrolet JJ | Chevrolet Aska | Holden Aska (Indonesia) | [[Holden Camira]] (JJ) (New Zealand)}}
+| production   = 1983&ndash;1989
+| assembly     = {{ubl
+  | Japan: [[Kawasaki, Kanagawa]] ([[Isuzu#Japan|Kawasaki Plant]])
+  | Chile: [[Arica]] (GM Chile)
+  | Ecuador: [[Quito]] ([[Aymesa|AYMESA]])
+  }}
+| engine       = {{ubl
+  | '''[[Petrol engine|petrol]]:'''
+  | 1,817&nbsp;cc ''[[List of Isuzu engines#4ZB1|4ZB1]]'' [[Straight-four engine|I4]] (JJ110)
+  | 1,995&nbsp;cc ''[[List of Isuzu engines#4ZC1|4ZC1]]'' I4 (JJ120)
+  | 1,995&nbsp;cc ''[[List of Isuzu engines#4ZC1|4ZC1-T]]'' [[Turbocharger|turbo]] I4 (JJ120)
+  | '''[[Diesel engine|diesel]]:'''
+  | 1,995&nbsp;cc ''[[List of Isuzu engines#4FC1|4FC1]]'' I4 (JJ510)
+  | 1,995&nbsp;cc ''[[List of Isuzu engines#4FC1|4FC1-T]]'' [[Turbo-diesel|turbo]] I4 (JJ510)
+  }}
+| transmission = {{ubl
+  | 4/5-speed [[manual transmission|manual]]
+  | 3-speed [[automatic transmission|automatic]]
+  | 5-speed [[semi-automatic transmission|semi-automatic]] ([[NAVi5]])
+  }}
+| layout      = [[Front-engine, front-wheel-drive layout|Transverse front-engine, front-wheel drive]]
+| platform    = [[GM J platform]]
+| related     = {{ubl
+  | [[Holden Camira]]
+  | [[Opel Ascona#C|Opel Ascona C]]
+  }}
+}}
+
+The original Aska was developed as a part of GM's ''J-car'' program and was a replacement for Isuzu's dated [[Isuzu Florian|Florian]]. In contrast to fellow J-cars from other GM divisions, the Aska only came in one body style, a four-door sedan (the [[station wagon]] body style on the Florian was always relatively unpopular). The Isuzu J-car variant differed most notably in the rear styling from other J-car variants. From 1983 to 1984, the Aska was known as the "Florian Aska", before being renamed simply "Aska" in 1985.<ref>[https://www.google.com/search?rlz=1C1CHBF_enGB842GB842&biw=1357&bih=624&tbm=bks&ei=3XqqXoeyK6mk1fAP_cmpqA4&q=%22Isuzu%2C+on+the+other+hand%2C+is+heavily+counting+on+Florian+Aska+series+vehicles+announced+in+March.+The+Japanese+version+of+General+Motors%27+J-car%2C+the+Florian+Aska+is+expected+to+do+just+as+well+in+the+Japanese+market+as+its+European+version%22&oq=%22Isuzu%2C+on+the+other+hand%2C+is+heavily+counting+on+Florian+Aska+series+vehicles+announced+in+March.+The+Japanese+version+of+General+Motors%27+J-car%2C+the+Florian+Aska+is+expected+to+do+just+as+well+in+the+Japanese+market+as+its+European+version%22&gs_l=psy-ab.3...30247.30247.0.32480.1.1.0.0.0.0.0.0..0.0....0...1c.2.64.psy-ab..1.0.0....0.pPmJxKSRyLo ''The Oriental Economist''] Tanzan Ishibashi, 1983, page 19</ref>
+
+The car was launched in March 1983 with carburetted 1.8 and 2.0 litre gasoline engines and a [[diesel engine|diesel]], going on sale a month later. In August 1983 the Turbodiesel followed, with {{convert|89|PS|kW|abbr=on}}. In October 1983, a [[turbocharged]] and fuel injected version of the 2.0 litre engine, which developed 150&nbsp;PS, joined the lineup as the LJ Turbo.<ref name=TAM85>{{Cite book | title = Quattroruote: Tutte le Auto del Mondo 1985 | editor = Mastrostefano, Raffaele | publisher = Editoriale Domus S.p.A | ref = TAM85 | year = 1985 | page = 485 | language = Italian | location = Milano | isbn = 88-7212-012-8 }}</ref> In November 1985 a version branded by the German [[Car tuning|tuner]] '''[[Irmscher]]''' (specializing in Opels, they cooperated with Isuzu on some other models as well), this version featured a distinctive body kit and became somewhat of a cult object among some car fans in Japan.
+
+In September 1984 the innovative (but ultimately unsuccessful) [[semi-automatic transmission|semi-automatic]] [[NAVi5]] system became available for the naturally-aspirated Aska 2.0.<ref name="CG80">{{cite book | title = 別冊CG: 自動車アーカイヴ 80年代の日本 |trans-title=Car Graphic: Car Archives Vol. 11, '80s Japanese Cars | publisher = Nigensha | ref = CG80 | year = 2007 | language = Japanese | page = 242 | location = Tokyo | isbn = 978-4-544-91018-6 }}</ref> This was an [[automated manual transmission]] with an electronically operated clutch, long before Alfa Romeo's [[Selespeed]]. In March 1985 the diesel also became available with the NAVi5 transmission, and from September 1986 the LG Turbodiesel was also available with it. The Aska underwent a very subtle facelift in July 1985, which was also when the "Florian" portion of the car's name was dropped.<ref name="CG80"/>
+
+The first generation Aska was discontinued in March 1989; production totaled 108,512 cars. Isuzu did not have a contender in this segment for about a year's time until the second generation Aska was presented.
+
+<gallery widths=220 heights=150>
+File:Isuzu Aska Irmscher Turbo.jpg|Isuzu Aska [[Irmscher]] Turbo (JJ120)
+File:1983 Isuzu Florian Aska 2000 Turbo LS rear.jpg|Rear View
+File:Chevrolet Aska Limited 1987 (33463087574).jpg|1985 Chevrolet Aska 1.8 Limited (Chile)
+</gallery>
+
+===Export markets===
+===<small>South America (Chile, Ecuador)</small>===
+From 1984, the Aska was assembled in [[Arica]], [[Chile]] from [[Complete knock down|CKD]] kits and sold as '''Chevrolet Aska''' in the Chilean domestic market and in [[Ecuador]]. Chilean Askas came in three equipment levels (LT, Limited, and Deluxe), with two engines and either automatic or five-speed manual transmissions. While the two lesser versions both received a {{cvt|91|PS|kW|0}} 1.8-litre coupled to the five-speed, the Deluxe got the larger 2-litre with {{cvt|100|PS|kW|0}}, only fitted with the automatic transmission.<ref>{{citation | title = Chevrolet Aska ''(advertisement)'' | url = https://www.flickr.com/photos/ifhp97/4588034361/sizes/o | year = 1986 | publisher = GM Automotriz Chile (GMAC) }}</ref>
+
+===<small>South-East Asia and New Zealand</small>===
+The Aska was exported to [[Southeast Asia]], where it was known as the '''Isuzu JJ'''.<ref>[https://books.google.com/books?id=vjMcAQAAMAAJ&q=%22holden+camira%22+%22isuzu+aska%22 ''Singapore Business''], Volume 8, Issues 1-6, Singapore Press Holdings, 1984, page 108</ref> It was also exported to [[New Zealand]] as the [[Holden Camira]] (JJ) between 1984 and 1987.<ref>[https://paperspast.natlib.govt.nz/newspapers/CHP19860410.2.129.3 Camira SLE one of better handling Japanese cars], ''[[The Press]]'', 10 April 1986, page 22</ref> This replaced the Australian-sourced JD Camira, because its predecessor, the JB Camira, had fared badly in the New Zealand market.<ref>[https://paperspast.natlib.govt.nz/newspapers/CHP19850117.2.76.1 New Camira put through paces], ''[[The Press]]'', 17 January 1985, page 10</ref> However, the JD series wagon was retained, albeit imported concurrently from Australia rather than locally assembled.<ref>[https://paperspast.natlib.govt.nz/newspapers/CHP19850919.2.205.1 An honest-to-goodness waggon], ''[[The Press]]'', 19 September 1985, page 40</ref> [[Holden New Zealand|General Motors New Zealand]] switched back to the updated Australian version (JE) in 1987 due to the strengthening of Japanese Yen. In [[Indonesia]], the two-liter version with {{convert|74|kW|PS|abbr=on}} was briefly sold as the "Holden Aska" alongside the 1.6-liter Camira.<ref>{{cite magazine | url = https://books.google.com/books?id=0BtPAQAAIAAJ&q=%22Holden+Aska%22 | title = Kebakaran di gudang PT Udatin Panjung Perak | trans-title = Fire at PT Udatin Panjung Perak warehouse | language = id | magazine = Tempo | volume = 15 | issue = 31 | publisher = Badan Usaha Jaya Press | location = Japansan Jaya Raya | date = 25 September 1985 | page = 59 }}</ref>
+
+{{Multiple image
+| align             = left
+| direction         = horizontal
+| width             = 
+| image1            = 1984-1987 Holden Camira (JJ) sedan 01.jpg
+| image2            = 1984-1987 Holden Camira (JJ) sedan 02.jpg
+| caption2          = 1984–1987 Holden Camira (JJ), New Zealand
+}}
+
+{{Clear}}
+
+==Second generation (1990&ndash;1993)==
+{{Infobox automobile
+| image        = Isuzu aska bcl 2.0cxtypeg 1 f.jpg
+| name         = Second generation
+| production   = 1990&ndash;1993
+| assembly     = Japan: [[Ōta, Gunma]] (Subaru)
+| engine       = 1.8&nbsp;L ''[[Subaru EJ engine#EJ18|EJ18]]'' [[Flat-four engine|H4]]<br>2.0&nbsp;L ''[[Subaru EJ engine#EJ20|EJ20]]'' H4
+| transmission = 5-speed [[manual transmission|manual]]<br>4-speed [[automatic transmission|automatic]]
+| layout       = [[FF layout|FF]] (standard)<br>[[All-wheel drive|AWD]] (optional on 2.0L)
+| aka          = [[Subaru Legacy (first generation)|Subaru Legacy]]<br>Isuzu Aska CX<br>Isuzu Aska E/T/V
+}}
+With the exception of the American market, the J platform did not continue into the 1990s. Not having the resources to develop a mid-size car on their own, Isuzu forged a short-lived alliance with [[Subaru]]. This provided for Isuzu to supply Subaru with [[Isuzu Bighorn]]s (rebadged as the Subaru Bighorn), while Isuzu rebadged Subaru's mid-size [[Subaru Legacy|Legacy]] sedan as the Isuzu Aska, beginning in June 1990. Both rebadged models were sold only in the Japanese market.<ref>{{cite web|title=Isuzu Aska Second Generation 1990–1993|periodical=Gaukmotors.co.uk|publisher=|url=http://gaukmotors.co.uk/motorpedia/car-make/isuzu/aska-second-generation-19901993|url-status=|format=|access-date=2022-10-31|archive-url=|archive-date=|last=|date=|year=|language=en|pages=|quote=}}</ref> There was also a [[Subaru Leone#Third generation|Subaru Leone]] Van version briefly available, badged as the '''Isuzu Geminett II'''.
+
+The [[Subaru EJ engine|EJ series]] engine was offered in both 1.8 and 2.0&nbsp;liter [[Engine displacement|displacement]]s. The engine has either single or double [[overhead camshaft]] architecture and [[pent-roof combustion chamber|pent-roof]], [[Crossflow cylinder head|cross flow]] cylinder firing chambers.
+ 
+The 2.0 liter fuel delivery was managed with [[Fuel injection#Multi-point injection|sequential multiport fuel injection]], and the 1.8 liter engine used a modified fuel delivery system with single point throttle body fuel injection called [[Fuel injection#SPI|SPFI]]. The DOHC 2.0 liter [[Naturally-aspirated engine|non turbocharged]] engine had a dual stage [[Inlet manifold|intake manifold]].
+
+The 2.0 liter vehicle came optional with Subaru's AWD system while the 1.8 came with FWD only. As with all other Askas, this was only ever available with four-door saloon bodywork. The Aska was discontinued in May 1993, as the Subaru deal came to an end.
+
+<gallery widths = 200 heights=145>
+Isuzu Aska BCL 2.0.jpg|Isuzu Aska 2.0 CX (BCL; pre-facelift)
+Isuzu Aska BCL 2.0 rear.jpg|Pre-facelift; rear
+Isuzu aska bcl 2.0cxtypeg 1 r.jpg|Isuzu Aska 2.0 CX type-G (facelift; rear)
+</gallery>
+
+{{Clear}}
+
+==Third generation (1994&ndash;1997)==
+{{Infobox automobile
+| name         = Third generation
+| image        = ISUZU ASKA3-1.jpg
+| production   = 1994&ndash;1997
+| assembly     = Japan: [[Sayama]] (Honda Sayama Automobile Plant)
+| engine       = 2.0&nbsp;L ''F20B1'' [[Straight-four engine|I4]]
+| transmission = 5-speed [[manual transmission|manual]]<br />4-speed [[automatic transmission|automatic]]
+| body_style   = 4-door [[sedan (automobile)|sedan]]
+| layout       = [[FF layout|FF]]
+| aka          = [[Honda Accord#Fifth generation (1994)|Honda Accord]]
+| length       = {{convert|4675|mm|in|1|abbr=on}}
+| width        = {{convert|1760|mm|in|1|abbr=on}}
+| height       = {{convert|1410|mm|in|1|abbr=on}}
+}}
+Later, Isuzu entered a more substantial model-exchange alliance with [[Honda]]. Among other models, it encompassed the rebadging of the [[Honda Accord#Fifth generation (1994)|Honda Accord]] sedan as the Isuzu Aska. This model was presented in March 1994, after stock of the Legacy-based, previous generation Aska had been sold out. The only difference to the Accord was the grille and logos.
+
+It was only offered with a two-liter four-cylinder engine, combined with a four-speed automatic transmission. The model code assigned to it by Isuzu was '''CJ1'''. Production came to an end in September 1997, with sales from stock continuing for another two months.
+
+<gallery widths=200 heights=115>
+3rd generation Isuzu Aska.jpg|Isuzu Aska (3rd Gen), front
+3rd generation Isuzu Aska rear.jpg|Isuzu Aska (3rd Gen), rear
+</gallery>
+
+{{Clear}}
+
+==Fourth generation (1998&ndash;2002) ==
+{{Infobox automobile
+| name         = Fourth generation
+| image        = ISUZU ASKA4-1.jpg
+| production   = 1998&ndash;2002
+| assembly     = Japan: [[Sayama]] ([[List of Honda facilities#Japan|Honda Sayama Plant]])
+| body_style   = 4-door [[sedan (automobile)|sedan]]
+| layout       = [[FF layout|FF]]
+| engine       = 1.8&nbsp;L ''F18B'' [[Straight-four engine|I4]]<br />2.0&nbsp;L ''F20B1'' I4
+| transmission = 5-speed [[Manual transmission|manual]]<br />4-speed [[Automatic transmission|automatic]]
+| aka          = [[Honda Accord#Sixth generation (1998)|Honda Accord]]<br />[[Honda Torneo]]
+| length       = {{cvt|4635|mm|in|1}}
+| width        = {{cvt|1695|mm|in|1}}
+| height       = {{cvt|1420|mm|in|1}}
+}}
+Introduced in November 1997, this was the second generation of Accord-based Askas - thus the third generation Aska was the fifth generation Accord and the fourth was the sixth generation Accord sedan. The Aska remained a Japanese-only model and was discontinued in 2002. Model codes were '''CJ2''' for the 1.8 and '''CJ3''' for the 2.0. The engines produce {{cvt|140|and|150|PS|kW|0}} respectively and both were available with either a five-speed manual or a four-speed automatic transmission. The differences between this and the Accord were limited to the grille, logos, and wheels. One additional change was that the engine head cover had the Honda logo removed, with only "VTEC" remaining.
+
+The fourth generation Aska received a light facelift in June 2000. This change included new bumpers, redesigned taillights, interior updates, and cleaner engines. Production ended in March 2002, with sales from stock continuing until September. This marked the end of Isuzu passenger car sales, 49 years after their first car was presented.
+
+<gallery widths=200 heights=150>
+Isuzu ASKA LF (CJ2) rear.JPG|Isuzu Aska, 4th Gen. <br>(pre-facelift) (CJ2), rear
+Isuzu_aska_cj3_lj_1_f.jpg|Isuzu Aska, 4th Gen. <br>(facelift) (CJ3), front
+Isuzu aska cj3 lj 1 r.jpg|Isuzu Aska, 4th Gen. <br>(facelift) (CJ3), rear
+</gallery>
+
+{{Clear}}
+
+==References==
+{{reflist}}
+
+==External links==
+* {{in lang|ja}} [http://www10.big.or.jp/~wizard/isuzu_aska/ Photos of the Irmscher Aska]
+* {{in lang|ja}} [http://www.geocities.co.jp/MotorCity/2653/ Isuzu Aska Owners' Club "J2" (1st-gen Askas)]
+
+{{commons category}}
+{{Isuzu modern timeline}}
+
+[[Category:Isuzu vehicles|Aska]]
+[[Category:Front-wheel-drive vehicles]]
+[[Category:All-wheel-drive vehicles]]
+[[Category:Mid-size cars]]
+[[Category:Sedans]]
+[[Category:Cars introduced in 1983]]
+<!-- [[Category:1980s cars]] Not needed because [[Category:Cars introduced in 1983]] parent cat overrules it. See [[WP:SUBCAT]] -->
+[[Category:1990s cars]]
+[[Category:2000s cars]]
+[[Category:Cars powered by boxer engines]]
+[[Category:Cars discontinued in 2002]]

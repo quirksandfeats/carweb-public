@@ -232,5 +232,41 @@ const names = ms => ms.map(m => m.name).join(", ");
         noAnchor.length === 0, JSON.stringify(noAnchor));
 }
 
+// ---------- 2. the Duramax, and the Riviera the LF9 was reported against ----------
+{
+  const DMAX = read("Duramax_V8_engine");
+  const a = LF.readEngineArticle(DMAX, "Duramax V8 engine", "Duramax V8 engine");
+  // "Duramax V8 engine" was read as an engine called "V8" with variants "V8
+  // LB7" and "V8 L5P": the rule that turns "Mercedes-Benz M139" into "M139"
+  // took "Duramax" for a marque, because "V8" looks like a designation. An
+  // engine is never called V8 -- that is its cylinder layout.
+  check("an engine is not named after its own cylinder layout",
+        a.shortName === "Duramax V8", a.shortName);
+  check("...and its variants are named for it, without the layout",
+        a.variants.map(v => v.code).join(", ") === "Duramax LB7, Duramax L5P, Duramax L5D",
+        a.variants.map(v => v.code).join(", "));
+  check("...with the layout kept where it belongs, on the specs",
+        a.specs.layout === "V" && a.specs.cylinders === 8, LF.engineSpecSummary(a.specs));
+  // "GM Duramax engine" is a redirect to this page -- the same bytes -- so the
+  // two must not become two engines. See engineArticleKey.
+  const GM = read("GM_Duramax_engine");
+  check("a redirect to the same page really is the same page", GM === DMAX);
+
+  // The Riviera, from the report: the LF9's "1981-1985 Buick Riviera" has a
+  // generation to land on once the nameplate is split.
+  const RIV = read("Buick_Riviera");
+  const fam = { type: "family", label: "Riviera", make: "Buick", wp: "Buick Riviera" };
+  const sec = LF.nameplateSectionForCar(
+    { label: "Riviera Sixth generation", type: "model", familyOf: "f", year: 1979, end: 1985 }, fam, RIV);
+  check("the generation the LF9's years point at is found",
+        sec && /Sixth generation \(1979/.test(sec.title), sec && sec.title);
+  const m = LF.engineMentions(sec.body);
+  check("...and its own section names that diesel",
+        m.some(x => /LF9/.test(x.name)), m.map(x => x.name).join(", "));
+  check("...alongside the petrols, told apart by displacement",
+        new Set(m.map(x => x.specs.displacement)).size >= 4,
+        JSON.stringify(m.map(x => [x.name, x.specs.displacement])));
+}
+
 console.log("\n" + (fails === 0 ? "ALL GREEN" : fails + " FAILURE(S)"));
 process.exit(fails === 0 ? 0 : 1);

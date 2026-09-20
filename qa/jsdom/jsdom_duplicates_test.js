@@ -185,6 +185,28 @@ const DATA = window.CARDATA;
         cw.byId.get("eng-testdup-duramax-lb7").retired, cw.byId.get("eng-testdup-duramax-lb7").retired);
   check("...and the engine it belongs to is the one kept", !dmax.retired);
 }
+// A redirect is the one way two nodes can be the same article without looking
+// like it. "GM Duramax engine" redirects to "Duramax V8 engine" -- the same
+// page, byte for byte -- so a car that linked the first would mint a node
+// beside the one the second already has.
+{
+  const v8 = { id: "eng-testdup-duramax-v8", type: "engine", label: "Duramax Diesel engine",
+               wp: "Duramax V8 engine", variants: [] };
+  const viaRedirect = { id: "eng-testdup-gm-duramax", type: "engine", label: "Duramax",
+                        wp: "GM Duramax engine", unresearched: true, variants: [] };
+  DATA.nodes.push(v8, viaRedirect);
+  cw.spliceIntoIndexes(0, 0);
+  LF.autoMergeDuplicateEngines(DATA.nodes, DATA.links);
+  check("(precondition) an unlearned redirect looks like two different engines",
+        !cw.byId.get("eng-testdup-gm-duramax").retired);
+  LF.rememberRedirect("GM Duramax engine", "Duramax V8 engine");
+  LF.autoMergeDuplicateEngines(DATA.nodes, DATA.links);
+  check("...and once the redirect is known they are one",
+        DATA.nodes.find(n => n.id === "eng-testdup-gm-duramax").retired,
+        DATA.nodes.find(n => n.id === "eng-testdup-gm-duramax").retired);
+  check("...keeping the one that names the article it actually is", !v8.retired);
+}
+
 // Two genuinely different engines are not touched.
 {
   const a = { id: "eng-testdup-alpha", type: "engine", label: "Alpha", wp: "TestDup Alpha engine", variants: [] };

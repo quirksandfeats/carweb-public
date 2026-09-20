@@ -275,6 +275,10 @@ window.LlmFamilies = (function () {
     // prunedDecisions spells out: a key that only exists once something has
     // been written would be wiped by the next boot's first persist().
     lastJob: bootData.lastJob || null,
+    // Wikipedia title -> what it redirects to, learned whenever an article is
+    // fetched. Declared here for the reason prunedDecisions spells out: a key
+    // created only on demand is wiped by the next boot's first persist().
+    wpRedirects: bootData.wpRedirects || {},
   };
 
   // Whether /api/llm-families was actually reachable at boot — if not (e.g.
@@ -527,6 +531,18 @@ window.LlmFamilies = (function () {
     // straight back to the nameplate's own page. Comparing resolved titles
     // is the only reliable way to tell those two cases apart.
     const out = { wikitext, digest: extractDigest(wikitext), resolvedTitle: (j.parse && j.parse.title) || title };
+    // Remembered, because a redirect is the one way two engine nodes can be
+    // the same article without looking like it. "GM Duramax engine" is a
+    // redirect to "Duramax V8 engine" -- same page, byte for byte -- and a car
+    // that linked the first would mint a node beside the one the second
+    // already has. Learned here, spent in engineArticleKey.
+    if (out.resolvedTitle && norm(out.resolvedTitle) !== norm(title)) {
+      store.wpRedirects = store.wpRedirects || {};
+      if (store.wpRedirects[title] !== out.resolvedTitle) {
+        store.wpRedirects[title] = out.resolvedTitle;
+        persist();
+      }
+    }
     cacheArticle(title, out);
     return out;
   }
@@ -8699,8 +8715,11 @@ Rules:
       // "M176/M177/M178 M177" is not the name of anything. See
       // splitMultiEngineTitle.
       const multiName = String(name || "").indexOf("/") >= 0;
-      const code = (key && !multiName && !norm(title).startsWith(key) && name)
-        ? (name + " " + title) : title;
+      // The layout is not part of the name: the Duramax's variants are the
+      // "Duramax LB7" and the "Duramax L5P", not the "Duramax V8 LB7".
+      const prefix = String(name || "").replace(/\s+(?:[VWIFH]\s?-?\d{1,2}|(?:straight|inline|flat|boxer)[\s-]?\w+)$/i, "").trim();
+      const code = (key && !multiName && !norm(title).startsWith(key) && prefix)
+        ? (prefix + " " + title) : title;
       out.push({ code, applications: engineApplicationsIn(sec.body),
                  specs: engineSpecsFromSection(sec.body, inherited, sec.title),
                  // What a car's link can point at, so the car can be matched
@@ -8903,10 +8922,16 @@ Rules:
     // fallback -- what was asked for IS the engine. See isEngineListTitle.
     const listed = isEngineListTitle(title);
     if (!listed && (!asked || isSpec || isBareMarque)) asked = titleShort || asked || String(info.name || "");
-    const short = asked
-      .replace(/\s+engines?$/i, "")
-      .replace(/^[A-Z][A-Za-z-]*\s+(?=[A-Za-z]{0,2}\d)/, "")
-      .trim();
+    // The marque comes off a designation -- "Mercedes-Benz M139" is the M139 --
+    // but NOT off a layout. Real bug, the Duramax: "Duramax V8 engine" was
+    // read as an engine called "V8", with variants "V8 LB7" and "V8 L5P",
+    // because "V8" looks like a designation to a rule that only checks for a
+    // letter or two and a digit. An engine is never called V8; that is its
+    // cylinder layout, and the word in front of it is its name.
+    const stripped = asked.replace(/\s+engines?$/i, "").trim();
+    const afterMarque = stripped.replace(/^[A-Z][A-Za-z-]*\s+(?=[A-Za-z]{0,2}\d)/, "");
+    const short = (afterMarque !== stripped && LAYOUT_ENGINE_TITLE.test(afterMarque))
+      ? stripped : afterMarque.trim();
     // Real user report: "It seems that because this is a wikipedia page for
     // more than one engine, it thinks it's wrong. In this case, the LLM should
     // search explicitly for the single engine that it is referring to, in this
@@ -10593,10 +10618,25 @@ Rules:
   // Both fold into the node that has the article, using the merge machinery
   // that already exists -- so the decision is recorded, replayed at boot, and
   // undoable from the same place as a hand-made merge.
+  // Exposed so a redirect learned elsewhere (or by a test) can be recorded
+  // without a fetch.
+  function rememberRedirect(from, to) {
+    if (!from || !to || norm(from) === norm(to)) return;
+    store.wpRedirects = store.wpRedirects || {};
+    if (store.wpRedirects[from] === to) return;
+    store.wpRedirects[from] = to;
+    persist();
+  }
   function engineArticleKey(n) {
-    const wp = String((n && n.wp) || "").split("#")[0].trim();
+    const entry = n && store.engines[n.id];
+    // What it resolved to when it was read, then what a redirect said, then
+    // what it claims. All three are the same page where they differ at all.
+    let wp = String((entry && entry.sourceTitle) || (n && n.wp) || "").split("#")[0].trim();
+    for (let i = 0; i < 4 && store.wpRedirects && store.wpRedirects[wp]; i++) {
+      wp = String(store.wpRedirects[wp]).split("#")[0].trim();
+    }
     if (!wp) return null;
-    return norm(wp.replace(/\s+engines?(\s*\([^()]*\))?$/i, ""));
+    return norm(stripEngineSuffix(wp));
   }
   // An engine named after something that is not its name.
   //
@@ -11806,7 +11846,7 @@ Rules:
     // minting/splicing. See schedulePartnerCheck's own comment for the Honda
     // Odyssey / Acura MDX report this closes.
     onSplitReady: f => splitListeners.push(f),
-    restitchEngineEdges, autoMergeDuplicateEngines, tidyPowertrain,
+    restitchEngineEdges, autoMergeDuplicateEngines, tidyPowertrain, rememberRedirect,
     bindCarsToVariants, relabelMisnamedEngines,
     reviewProvisionalRelations,
     pendingWork,
