@@ -782,6 +782,8 @@ def describe(row):
         return "generation list re-checked, waiting for you"
     if st == "none":
         return "no hidden generations"
+    if st == "same-article":
+        return "same article as another car -- nothing of its own to split"
     if st == "error":
         return "check failed"
     return st or "checked"
@@ -974,7 +976,8 @@ def do_job(job, args):
         cascade_stats = cascade
         split = cascade.get("agent_split") or [nid for nid, st in done if st == "confirmed"]
         waiting = [nid for nid, st in done if st == "provisional" or (st or "").startswith("recheck")]
-        nothing = [nid for nid, st in done if st in ("rejected", "none", "error")]
+        nothing = [nid for nid, st in done
+                   if st in ("rejected", "none", "error", "same-article")]
         bits = [f"{len(done)} seed(s) at cascade depth {cascade['depth']}",
                 f"{cascade['after']} cars now have an entry"]
         if cascade["cascaded"]:

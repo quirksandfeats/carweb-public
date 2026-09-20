@@ -560,6 +560,21 @@ window.LlmFamilies = (function () {
     try { await fetchArticleDigest(title); return true; }
     catch (e) { return false; }
   }
+  // The title Wikipedia actually served, anchor dropped and redirect
+  // followed. Real bug, twice in one run: a car was minted from the mention
+  // "Chevrolet Suburban#Fifth generation (1960)" and kept the anchor as its
+  // article, and the Chevrolet Veraneio's own title redirects to the
+  // Suburban's page. Both then read the SUBURBAN's article and proposed the
+  // Suburban's twelve generations under a node that is not the Suburban.
+  // Storing what was asked for rather than what came back is what let a
+  // second node claim an article the graph already had.
+  async function resolvedWikipediaTitle(title) {
+    if (!title) return null;
+    try {
+      const r = await fetchArticleDigest(title);
+      return (r && r.resolvedTitle) || String(title).split("#")[0].trim() || title;
+    } catch (e) { return null; }
+  }
   async function searchWikipediaTitle(query) {
     try {
       const url = "https://en.wikipedia.org/w/api.php?action=query&list=search&format=json&origin=*&srlimit=3&srsearch=" +
@@ -573,9 +588,13 @@ window.LlmFamilies = (function () {
   }
   async function findWikipediaTitleFor(makeLabel, modelLabel) {
     const guess = `${makeLabel} ${modelLabel}`.trim();
-    if (await tryWikipediaTitle(guess)) return guess;
+    const direct = await resolvedWikipediaTitle(guess);
+    if (direct) return direct;
     const searched = await searchWikipediaTitle(guess);
-    if (searched && searched !== guess && await tryWikipediaTitle(searched)) return searched;
+    if (searched && searched !== guess) {
+      const resolved = await resolvedWikipediaTitle(searched);
+      if (resolved) return resolved;
+    }
     return null;
   }
   // A user-supplied Wikipedia URL, used when the automatic guess/search
@@ -2042,7 +2061,7 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
   const MAX_SUB_ARTICLES = 6;
   async function buildCheckMaterial(node, priorProposal, feedback) {
     const wp = node.wp || node.label;
-    let { wikitext, digest } = await fetchArticleDigest(wp);
+    let { wikitext, digest, resolvedTitle } = await fetchArticleDigest(wp);
     // ---------- follow {{Main|...}} sub-articles (the Kia Pride case) ----------
     // Only when the main article delegates AND doesn't already describe the
     // generations itself: if the headings/cues already carry the detail,
@@ -2074,7 +2093,7 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
       }
     }
     const messages = buildMessages(node, digest, priorProposal, feedback);
-    return { wp, wikitext, digest, messages };
+    return { wp, wikitext, digest, messages, resolvedTitle: resolvedTitle || wp };
   }
   // `manualRaw`, when supplied, skips the real askLlamaCpp() call entirely
   // and validates/applies THAT response instead -- the other half of the
@@ -2091,7 +2110,7 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
   // before this feature existed -- including the playground's own preview
   // path, which deliberately never runs a real network call at all.
   async function runCheck(node, priorProposal, feedback, manualRaw, nodes) {
-    const { wp, wikitext, messages } = await buildCheckMaterial(node, priorProposal, feedback);
+    const { wp, wikitext, messages, resolvedTitle } = await buildCheckMaterial(node, priorProposal, feedback);
     const raw = manualRaw !== undefined ? manualRaw
       : await askLlamaCpp(messages, `${node.make || ""} ${node.label}`.trim() + " · split");
     const clean = validate(raw, wikitext);
@@ -2107,7 +2126,7 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
     // already in hand. Costs one regex over a string that was fetched anyway,
     // and is the whole of "after a car is searched, the information about the
     // engine also gets revealed" -- nothing here follows an engine article.
-    return { wp, wikitext, clean, raw, dropped, messages };
+    return { wp, wikitext, clean, raw, dropped, messages, resolvedTitle };
   }
 
   // ---------- public: check a node for the first time ----------
@@ -2126,6 +2145,14 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
     }
     const p = (async () => {
       try {
+        // Whatever route minted this node, the article it points at may
+        // already belong to another car -- see nodeOwningArticle.
+        const same0 = await sameArticleOwner(node, nodes);
+        if (same0) {
+          const same = sameArticleEntry(same0.owner, same0.title);
+          store.families[node.id] = same; await persist();
+          return same;
+        }
         const { wp, wikitext, clean, raw, dropped } = await runCheck(node, null, null, undefined, nodes);
         // What this car ran, noted but not followed. See recordEngineMentions.
         const engineHits = engineMentions(wikitext);
@@ -2196,6 +2223,66 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
   // real Yes/No decision, same discipline as everywhere else in this file)
   // and shares checkNode's own inFlight map, so a car that's independently
   // opened directly around the same time doesn't trigger two llama.cpp calls.
+  // ---------- one article, one car ----------
+  // Two nodes in the same run read the Chevrolet Suburban's article and each
+  // proposed its twelve generations: one minted from a section link
+  // ("Chevrolet Suburban#Fifth generation (1960)"), one the Chevrolet
+  // Veraneio, whose own title redirects onto that page. Confirming either
+  // would have built a second Suburban under the wrong name.
+  //
+  // Both upstream causes are fixed above (a mention's anchor is dropped, and
+  // a looked-up title is stored as what Wikipedia served). This is the
+  // backstop, and it is the one that generalises: whatever route got us here,
+  // if the article this check just read is already some other live node's
+  // article, the generations in it belong to that node and have been -- or
+  // will be -- found there. Recorded rather than silently dropped, so the
+  // panel can say which car it is the same as.
+  function articleKeyOf(title) {
+    const bare = String(title || "").split("#")[0].trim();
+    if (!bare) return "";
+    const red = (store.wpRedirects && store.wpRedirects[bare]) || bare;
+    return norm(red);
+  }
+  function nodeOwningArticle(nodes, title, selfId) {
+    const key = articleKeyOf(title);
+    if (!key || !Array.isArray(nodes)) return null;
+    let best = null;
+    for (const n of nodes) {
+      if (!n || n.retired || n.id === selfId) continue;
+      if (n.type !== "model" && n.type !== "family") continue;
+      if (articleKeyOf(n.wp) !== key) continue;
+      // A car that has been read, or that is already a nameplate, is the one
+      // holding this article -- prefer it over another unread candidate.
+      const weight = (n.type === "family" || n.generations ? 2 : 0)
+                   + (entryFor(n.id) ? 1 : 0);
+      if (!best || weight > best.weight) best = { node: n, weight };
+    }
+    return best ? best.node : null;
+  }
+  // Asked before the model is, because a check on an article the graph
+  // already has is wasted from the first token. The fetch is the same cached
+  // one buildCheckMaterial would do a moment later, so this costs nothing
+  // when it finds nothing.
+  async function sameArticleOwner(node, nodes) {
+    if (!Array.isArray(nodes) || !node || !node.wp) return null;
+    let title = node.wp;
+    try {
+      const r = await fetchArticleDigest(node.wp);
+      if (r && r.resolvedTitle) title = r.resolvedTitle;
+    } catch (e) { /* the check itself will report the fetch failing */ }
+    return nodeOwningArticle(nodes, title, node.id) ? { owner: nodeOwningArticle(nodes, title, node.id), title } : null;
+  }
+  function sameArticleEntry(owner, title) {
+    return {
+      status: "same-article",
+      checkedAt: new Date().toISOString(),
+      sourceTitle: title || null,
+      sameAs: owner.id,
+      sameAsLabel: [owner.make, owner.label].filter(Boolean).join(" "),
+      attempts: 1,
+    };
+  }
+
   function checkNodeCascade(node, nodes) {
     if (!serverAvailable) return Promise.resolve({ status: "unavailable" });
     const existing = entryFor(node.id);
@@ -2208,6 +2295,12 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
     }
     const p = (async () => {
       try {
+        const same0 = await sameArticleOwner(node, nodes);
+        if (same0) {
+          const same = sameArticleEntry(same0.owner, same0.title);
+          store.families[node.id] = same; await persist();
+          return same;
+        }
         const { wp, clean, raw, dropped } = await runCheck(node, null, null, undefined, nodes);
         const entry = {
           status: clean.generations.length > 1 ? "provisional" : "none",
@@ -2616,7 +2709,11 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
   // provisional Yes/No review instead.
   function findMatchingNameplate(nodes, text, excludeFamId) {
     if (!text) return null;
-    const key = norm(text);
+    // A mention can arrive as a link into a section of an article
+    // ("Chevrolet Suburban#Fifth generation (1960)"). The car it names is the
+    // article's car; with the anchor left on, nothing matched and a second
+    // Suburban got minted from it.
+    const key = norm(String(text).split("#")[0]);
     if (!key) return null;
     const eligible = n => (n.type === "model" || n.type === "family") &&
       n.id !== excludeFamId && n.familyOf !== excludeFamId;
@@ -2931,7 +3028,11 @@ Rules:
   // spelled differently", so the model is filed under the real marque instead
   // of a brand-new duplicate one being minted beside it.
   function mintRelatedNode(nodes, links, text, makeVariant, originId) {
-    const trimmed = String(text || "").trim();
+    // "Chevrolet Suburban#Fifth generation (1960)" is a link into a section
+    // of the Suburban's article. The car it names is the Suburban. Kept whole
+    // it became its own nameplate, re-read the same article and proposed the
+    // Suburban's generations a second time.
+    const trimmed = String(text || "").split("#")[0].trim();
     if (!trimmed) return null;
     // Also checked here, not just in validate(), because an ALREADY-PERSISTED
     // proposal from before that filter existed replays through this path on
@@ -11841,6 +11942,7 @@ Rules:
     // The one-hop cascade budget -- see cascadeMaxDepth's own comment, and
     // serve.py's CASCADE_MAX_DEPTH for where it's configured.
     cascadeAllowedFrom, cascadeDepthOf: depthOf, cascadeMaxDepth: () => cascadeMaxDepth,
+    articleKeyOf, nodeOwningArticle,
     // Fired when a related PARTNER turns out to hide generations and has been
     // confirmed as a nameplate -- app.js subscribes and does the actual
     // minting/splicing. See schedulePartnerCheck's own comment for the Honda
@@ -11957,7 +12059,7 @@ Rules:
     // the platform guard existed replays through mintRelatedNode on every
     // boot, so the guard has to hold HERE too, not just in validate() -- and
     // that second line of defence is worth a test of its own.
-    mintRelatedNode,
+    mintRelatedNode, findMatchingNameplate,
     // Exposed for the regression suite: the identity-match year veto (see
     // verifySharedPlatformMention's own comment on the Daewoo Arcadia/Magnus
     // case). Worth pinning down directly rather than through a whole check

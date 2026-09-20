@@ -2189,6 +2189,7 @@ window.CarWeb = (function () {
       return;
     }
     if (entry.status === "none") return renderLlmNone(el, n, entry);
+    if (entry.status === "same-article") return renderLlmSameArticle(el, n, entry);
     if (entry.status === "no-wiki-link") return renderLlmNoWikiLink(el, n);
     // "confirmed" (already a real family by now), "deleted"
     // (nameplate undone, designers/engineers fell back to the plain model --
@@ -2355,6 +2356,25 @@ window.CarWeb = (function () {
   // said" disclosure — the raw model output and anything it claimed that
   // got dropped by the hallucination guard — so it's possible to tell a
   // genuine miss from the guard just being strict.
+  // The article this car points at is already another car's article -- a
+  // section link ("...#Fifth generation (1960)") or a redirect. Whatever it
+  // says has been read there, so nothing is proposed here. Said out loud,
+  // with a way over to the car that does own it, because a silent skip looks
+  // exactly like a check that found nothing.
+  function renderLlmSameArticle(el, n, entry) {
+    const key = "same:" + n.id;
+    if (dismissedLlm.has(key)) return;
+    const owner = byId.get(entry.sameAs);
+    const name = esc(entry.sameAsLabel || (owner ? (owner.make ? owner.make + " " : "") + owner.label : "another car"));
+    el.innerHTML = `
+      <div class="llm-status">${llmCloseBtn(key)}🤖 this is the same Wikipedia article as
+        ${owner ? `<a href="#" class="llm-sameas">${name}</a>` : name} — read it there</div>
+      <div class="llm-attempts">${esc(entry.sourceTitle || "")}</div>`;
+    wireLlmClose(el, key, () => { el.innerHTML = ""; });
+    const a = el.querySelector(".llm-sameas");
+    if (a) a.onclick = (ev) => { ev.preventDefault(); dtNode = null; openDetail(owner); };
+  }
+
   function renderLlmNone(el, n, entry) {
     const key = "none:" + n.id;
     if (dismissedLlm.has(key)) return;
