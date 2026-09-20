@@ -496,6 +496,16 @@
     <button id="unconfirmedrel-close">✕</button>
   </div>
   <p class="llmdebug-note"></p>
+  <!-- Real user request: "Check in the 'unconfirmed relationships' cars and
+       see if you can come up with even more rules that would correctly
+       automatically confirm or deny a relationship." Three rules that need no
+       model call, run on demand and reported line by line rather than
+       deciding quietly at boot. See llm_families.js's
+       reviewProvisionalRelations. -->
+  <div class="lrq-actions">
+    <button id="unconfirmedrel-review" class="lrq-ghost" hidden>⚖ Decide what the graph can settle</button>
+  </div>
+  <div id="unconfirmedrel-reviewed" class="lrq-status"></div>
   <div id="unconfirmedrel-list"></div>
 </div>
 

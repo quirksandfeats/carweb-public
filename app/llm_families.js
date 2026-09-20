@@ -7525,6 +7525,10 @@ Rules:
         // decision can actually be made from that panel.
         reason: e.reason || null, codeA: e.codeA || null, codeB: e.codeB || null,
         genIdA: e.genIdA || null, genIdB: e.genIdB || null,
+        // Whether the match pinned down a generation on both sides or stopped
+        // at the nameplate -- what reviewProvisionalRelations needs to tell a
+        // coarse duplicate of a confirmed specific pair from a real proposal.
+        matchLevel: e.matchLevel || null,
         // Both set only by the manual "LLM re-check" flow (reworkRelationsForFamily) --
         // `rework` marks a freshly (re)proposed provisional entry, `reworkPending`
         // marks an ALREADY-confirmed entry the re-check could no longer back up
@@ -7533,6 +7537,125 @@ Rules:
       };
     }).sort((a, b) => (a.checkedAt || "").localeCompare(b.checkedAt || ""));
   }
+
+  // ---------- the unconfirmed pile, looked at again ----------
+  // Real user request: "Check in the 'unconfirmed relationships' cars and see
+  // if you can come up with even more rules that would correctly automatically
+  // confirm or deny a relationship. If you can't then that's also fine, leave
+  // it as it is."
+  //
+  // What was actually sitting there: 33 platform proposals, 32 of them filed
+  // with the same reason -- "proposed by overlapping production years only, on
+  // top of a nameplate name that only matched as a substring". That is the
+  // weakest evidence this file produces, which is why they were held back. But
+  // a proposal can be settled by the graph AROUND it rather than by more
+  // reading, and three rules do that without a model call or a guess.
+  //
+  // Deliberately a pass the user runs, from the panel where the pile is, and
+  // one that says what it did and why -- rather than something that quietly
+  // decides at boot. Every decision it makes is an ordinary confirm or reject
+  // and is undone the ordinary way.
+  function relationYears(node) {
+    if (!node) return null;
+    const y = Number.isFinite(node.year) ? node.year : null;
+    if (y == null) return null;
+    return { from: y, to: Number.isFinite(node.end) ? node.end : null };
+  }
+  function yearsOverlap(a, b) {
+    if (!a || !b) return null;                 // not knowable, not a verdict
+    const aTo = a.to == null ? 9999 : a.to, bTo = b.to == null ? 9999 : b.to;
+    return Math.min(aTo, bTo) - Math.max(a.from, b.from);
+  }
+  function reviewProvisionalRelations(nodes, links) {
+    const byIdLocal = new Map(nodes.map(n => [n.id, n]));
+    const all = allRelationEntries ? allRelationEntries() : [];
+    const pending = all.filter(e => e && e.status === "provisional");
+    const out = { confirmed: [], rejected: [], left: 0 };
+    if (!pending.length) return out;
+
+    // Every confirmed platform pair, as a graph of its own.
+    const partners = new Map();
+    const pairOf = e => [e.genIdA || e.famA, e.genIdB || e.famB];
+    const addPartner = (a, b) => {
+      if (!a || !b) return;
+      if (!partners.has(a)) partners.set(a, new Set());
+      partners.get(a).add(b);
+    };
+    const confirmedPairs = new Set();
+    all.forEach(e => {
+      if (!e || e.status !== "confirmed" || e.relType !== "platform") return;
+      const [a, b] = pairOf(e);
+      addPartner(a, b); addPartner(b, a);
+      confirmedPairs.add([a, b].sort().join("|"));
+    });
+    const famOf = id => {
+      const n = byIdLocal.get(id);
+      return (n && (n.familyOf || n.id)) || id;
+    };
+
+    for (const e of pending) {
+      const [aId, bId] = pairOf(e);
+      const a = byIdLocal.get(aId), b = byIdLocal.get(bId);
+      const ya = relationYears(a), yb = relationYears(b);
+      const overlap = yearsOverlap(ya, yb);
+
+      // RULE 1 -- reject: two cars that were never in production at the same
+      // time do not share a platform generation. These were proposed BY
+      // overlapping years, so a pair that no longer overlaps is one whose
+      // resolution moved to a different generation than the one proposed.
+      if (overlap != null && overlap < -1) {
+        rejectRelation(e.id);
+        out.rejected.push({ e, why: `built ${Math.abs(overlap)} years apart -- ` +
+          `${a.label} ${ya.from}-${ya.to || "now"}, ${b.label} ${yb.from}-${yb.to || "now"}` });
+        continue;
+      }
+
+      // RULE 2 -- reject: a nameplate-level proposal between two nameplates
+      // that already have a CONFIRMED generation-level match. The specific one
+      // is the answer; the coarse one is the same fact, less exactly, and
+      // drawing both is what the generation rule exists to prevent.
+      if (e.matchLevel === "nameplate") {
+        const already = [...confirmedPairs].some(k => {
+          const [x, y] = k.split("|");
+          const f = [famOf(x), famOf(y)].sort().join("|");
+          return f === [famOf(aId), famOf(bId)].sort().join("|");
+        });
+        if (already) {
+          rejectRelation(e.id);
+          out.rejected.push({ e, why: "a specific generation pair between these two is already confirmed" });
+          continue;
+        }
+      }
+
+      // RULE 3 -- confirm: both sides are already confirmed to share a
+      // platform with the same third car, at the same time. Platform sharing
+      // is transitive for one generation -- if the Corsa F and the 208 P21 are
+      // both confirmed against the Mokka B, they are on it as each other's --
+      // and the years have to agree, so a long-lived third car cannot bridge
+      // two eras.
+      const common = [...(partners.get(aId) || [])].filter(x => (partners.get(bId) || new Set()).has(x));
+      const viaOk = common.filter(cid => {
+        const c = byIdLocal.get(cid);
+        const yc = relationYears(c);
+        const oa = yearsOverlap(ya, yc), ob = yearsOverlap(yb, yc);
+        return (oa == null || oa >= 0) && (ob == null || ob >= 0);
+      });
+      if (viaOk.length && (overlap == null || overlap >= 0)) {
+        confirmRelation(e.id);
+        const via = viaOk.map(id => (byIdLocal.get(id) || {}).label || id).slice(0, 3);
+        out.confirmed.push({ e, why: `both already share a platform with ${via.join(", ")}` });
+        continue;
+      }
+      out.left++;
+    }
+    if (out.confirmed.length || out.rejected.length) {
+      note(`relationships: reviewed ${pending.length} unconfirmed -- ` +
+           `${out.confirmed.length} confirmed, ${out.rejected.length} rejected, ${out.left} left for you`);
+      persist();
+    }
+    return out;
+  }
+
   // Full (not summary) relation entries touching a given node id on either
   // side -- used by app.js's unresolvedFamilyRelations to surface a
   // resolvePlatformMention-discovered proposal (see its own comment) even
@@ -9566,13 +9689,19 @@ Rules:
   // scheduleEngineCascade), and when that check splits it into generations
   // this is what moves the engine down onto the right one.
   function restitchEngineEdges(nodes, links) {
+    // Counted over the whole pass rather than per call: applying an engine's
+    // stored article already drops its own stale nameplate edges on the way
+    // through, so the loop below usually finds nothing left to do and a
+    // per-call total would report zero for a pass that moved plenty.
+    const countFitted = () => links.filter(l => l.type === "fitted" && !l.retired).length;
+    const was = countFitted();
     const r = applyEngines(nodes, links);
-    let dropped = 0;
     for (const n of nodes) {
       if (!n || n.type !== "engine" || n.retired) continue;
-      try { dropped += dropNameplateEdgesUnderGenerations(n, nodes, links); }
+      try { dropNameplateEdgesUnderGenerations(n, nodes, links); }
       catch (e) { /* one engine's edges are not worth failing the pass for */ }
     }
+    const dropped = Math.max(0, was + (r.fitted || 0) - countFitted());
     return Object.assign({ dropped }, r);
   }
 
@@ -11528,6 +11657,7 @@ Rules:
     // Odyssey / Acura MDX report this closes.
     onSplitReady: f => splitListeners.push(f),
     restitchEngineEdges, autoMergeDuplicateEngines,
+    reviewProvisionalRelations,
     pendingWork,
     // the work queue -- one user-requested pass at a time, in order, kept
     // across reloads. See its own section above.

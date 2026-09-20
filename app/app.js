@@ -4217,6 +4217,41 @@ window.CarWeb = (function () {
     const list = document.getElementById("unconfirmedrel-list");
     if (!btn || !panel || !list || !LF) return;
     const note = panel.querySelector(".llmdebug-note");
+    const reviewBtn = document.getElementById("unconfirmedrel-review");
+    const reviewOut = document.getElementById("unconfirmedrel-reviewed");
+    if (reviewBtn) {
+      reviewBtn.onclick = () => {
+        const nodesBefore = nodes.length, linksBefore = links.length;
+        let r = null;
+        try { r = LF.reviewProvisionalRelations(nodes, links); }
+        catch (e) {
+          if (reviewOut) { reviewOut.className = "lrq-status err"; reviewOut.textContent = "Couldn't review those: " + e.message; }
+          return;
+        }
+        // A confirmed relation is only a stored decision until something
+        // wires it into the graph -- the same call boot makes.
+        if (LF.applyResolvedRelations) LF.applyResolvedRelations(nodes, links);
+        spliceIntoIndexes(nodesBefore, linksBefore);
+        buildSim();
+        refreshCounts();
+        Graph.touch();
+        if (reviewOut) {
+          const lines = []
+            .concat(r.confirmed.map(x => `✓ ${label2(x.e)} — ${x.why}`))
+            .concat(r.rejected.map(x => `✕ ${label2(x.e)} — ${x.why}`));
+          reviewOut.className = "lrq-status" + (lines.length ? " ok" : "");
+          reviewOut.innerHTML = lines.length
+            ? `<b>${r.confirmed.length} confirmed, ${r.rejected.length} rejected, ${r.left} left for you.</b><br>` +
+              lines.map(esc).join("<br>")
+            : `Nothing the graph can settle on its own — all ${r.left} still need you.`;
+        }
+        refresh();
+      };
+    }
+    const label2 = e => {
+      const { aLabel, bLabel } = labelsFor(e);
+      return `${aLabel} ↔ ${bLabel}`;
+    };
 
     // No human-readable title lives on a relation entry itself (just the two
     // involved node ids + relType) -- same division of labor as the LLM
@@ -4247,6 +4282,17 @@ window.CarWeb = (function () {
         note.textContent = pending.length === 0
           ? "Nothing waiting on you right now."
           : `${pending.length} relationship${pending.length === 1 ? "" : "s"} the LLM proposed but hasn't been confirmed or rejected yet.`;
+      }
+      // Real user request: "Check in the 'unconfirmed relationships' cars and
+      // see if you can come up with even more rules that would correctly
+      // automatically confirm or deny a relationship." Offered here, where
+      // the pile is, rather than run quietly at boot: every decision it makes
+      // is an ordinary confirm or reject and is undone the ordinary way, so
+      // it is worth showing what it did. See llm_families.js's
+      // reviewProvisionalRelations.
+      if (reviewBtn) {
+        const real = pending.filter(e => e.status === "provisional").length;
+        reviewBtn.hidden = !(LF.serverAvailable && LF.reviewProvisionalRelations && real);
       }
       list.innerHTML = "";
       if (pending.length === 0) {
