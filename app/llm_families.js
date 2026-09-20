@@ -9272,8 +9272,21 @@ Rules:
     return rest ? target + " " + rest : display;
   }
 
+  // "Isuzu engines", not "List of Isuzu". Real user point: "make sure that the
+  // link to the engine for a particular car doesn't say 'list of ___
+  // engines'." An index read whole IS a real thing -- a maker's engine
+  // families, which is what was asked for -- but it is that maker's engines,
+  // not a list.
+  function indexNodeLabel(title) {
+    const marque = String(title || "").split("#")[0]
+      .replace(/^list of\s+/i, "").replace(ENGINE_SUFFIX_RE, "").trim();
+    return marque ? marque + " engines" : null;
+  }
   function engineNodeFrom(article, title) {
-    const label = String(article.name || article.shortName || title || "").trim();
+    let label = String(article.name || article.shortName || title || "").trim();
+    if (isEngineListTitle(title) && (!String(title).includes("#"))) {
+      label = indexNodeLabel(title) || label;
+    }
     if (!label) return null;
     // From the TITLE, not the label: a mention of this engine on some car's
     // page knows only the article title, and both have to land on one node.
@@ -10604,7 +10617,9 @@ Rules:
       const anchor = String(n.wp).indexOf("#") >= 0 ? String(n.wp).split("#").slice(1).join("#") : "";
       let better = null;
       if (/^list of\b/i.test(String(n.label))) {
-        better = stripEngineMarkup(anchor.replace(/_/g, " ")) || null;
+        // The anchor names one engine out of the index; with no anchor the
+        // node IS the index, and it is that maker's engines.
+        better = stripEngineMarkup(anchor.replace(/_/g, " ")) || indexNodeLabel(n.wp) || null;
       } else if (looksLikeMarqueOnly(n.label, knownMakeNames()) &&
                  norm(stripEngineSuffix(n.wp)) !== norm(n.label)) {
         // "Oldsmobile" where the article is "Oldsmobile V8 engine".

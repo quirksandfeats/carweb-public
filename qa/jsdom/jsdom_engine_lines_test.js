@@ -202,6 +202,25 @@ const names = ms => ms.map(m => m.name).join(", ");
         p.variants.map(v => v.code).join(", "));
   check("...and what it does return is a short tail, not its whole contents",
         p.variants.length <= 6, p.variants.length + ": " + p.variants.map(v => v.code).join(", "));
+  // Scanned as itself, the node it becomes is that maker's engines -- never
+  // "List of Isuzu". "make sure that the link to the engine for a particular
+  // car doesn't say 'list of ___ engines'."
+  {
+    const nodes = [], links = [];
+    LF.applyEngineArticleWith(a, "List of Isuzu engines", nodes, links, new Map(), { cascade: false });
+    const hub = nodes.find(n => n.type === "engine");
+    check("...and the node it becomes is named for the maker, not for the list",
+          hub && hub.label === "Isuzu engines", hub && hub.label);
+    check("...with its engine families as its variants",
+          nodes.filter(n => n.type === "enginevar").length >= 15,
+          nodes.filter(n => n.type === "enginevar").slice(0, 4).map(n => n.label).join(", "));
+    // ...and one already in the graph under the old name is renamed.
+    const stale = [{ id: "eng-list-of-x", type: "engine", label: "List of Isuzu",
+                     wp: "List of Isuzu engines", variants: [] }];
+    LF.relabelMisnamedEngines(stale);
+    check("...and one already in the graph under the old name is renamed",
+          stale[0].label === "Isuzu engines", stale[0].label);
+  }
   // ...and the mention side: a car's link to an index is only followed when
   // it says which engine.
   const withAnchor = LF.engineMentions("| engine = 2.0 L [[List of Isuzu engines#4ZE1|4ZE1]] I4");
