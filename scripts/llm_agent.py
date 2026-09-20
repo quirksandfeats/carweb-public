@@ -520,12 +520,17 @@ def _run_pass_in(browser, targets, budget_seconds, per_node_seconds,
         # panel writes them into llm_families.json), and those are worked
         # through in the order they were asked for, ahead of this run's own
         # targets -- which is the point of the queue.
-        started = page.evaluate(
+        # NOT named `started`: that is this run's start timestamp, a parameter
+        # of this function, and the budget check below subtracts it from the
+        # clock. Shadowing it with a queue length of 0 made "now minus zero"
+        # larger than any budget, so every target was silently skipped and
+        # every requested scan came back having done nothing.
+        queued_already = page.evaluate(
             "() => { const LF = window.LlmFamilies; "
             "if (!LF || !LF.startJobs) return null; LF.startJobs(); "
             "return LF.jobs().length; }")
-        if started:
-            log(f"scan queue: {started} request(s) already waiting -- those run first")
+        if queued_already:
+            log(f"scan queue: {queued_already} request(s) already waiting -- those run first")
 
         depth = page.evaluate("() => window.LlmFamilies.cascadeMaxDepth()")
         rows_before = entry_rows(page)
@@ -534,7 +539,13 @@ def _run_pass_in(browser, targets, budget_seconds, per_node_seconds,
         log(f"cascade depth {depth}; {entries_before} cars already have an entry")
 
         for nid in targets:
-            if time.time() - started > budget_seconds:
+            spent = time.time() - started
+            if spent > budget_seconds:
+                # Said out loud. This was silent, and when a bug put `started`
+                # at zero it skipped every target without a word -- which
+                # looked from the outside like the model finding nothing.
+                log(f"SKIPPED [{nid}] -- {spent / 60:.0f} min spent, past the "
+                    f"{budget_seconds / 60:.0f} min budget")
                 skipped.append(nid)
                 continue
             exists = page.evaluate("(id) => !!CarWeb.byId.get(id)", nid)

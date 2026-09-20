@@ -389,6 +389,25 @@ check("...and says which id it could not find when even that fails",
       "no such car in this graph" in pass_src)
 check("...and the person who asked is told that, not \"nothing found\"",
       "couldn't find" in src and "renamed, merged or cleared" in src)
+# Real bug, and the reason every requested scan did nothing for three runs:
+# the call that starts the page's work queue was assigned to `started` -- the
+# name of this run's start TIMESTAMP, a parameter of the same function. It came
+# back 0 (an empty queue), so the budget check below it computed "now minus
+# zero", decided the run was 56 years over budget, and skipped every target
+# without a word. Asserted structurally rather than by grepping a name: any
+# rebinding of `started` inside that function is the same bug again.
+import ast as _ast
+_tree = _ast.parse(src)
+_fn = next((n for n in _ast.walk(_tree)
+            if isinstance(n, _ast.FunctionDef) and n.name == "_run_pass_in"), None)
+check("the pass that drives the browser exists", _fn is not None)
+_rebinds = [t.id for n in _ast.walk(_fn) if isinstance(n, _ast.Assign)
+            for t in n.targets if isinstance(t, _ast.Name) and t.id == "started"] if _fn else []
+check("...and never rebinds the timestamp its budget is measured against",
+      not _rebinds, ", ".join(_rebinds) or "(clean)")
+check("a target skipped for being over budget says so",
+      "past the" in pass_src and "min budget" in pass_src)
+
 check("the id is logged next to the name when a request is claimed",
       "requested car: {job.get('targetLabel') or job['targetId']} [{job['targetId']}]" in src)
 
