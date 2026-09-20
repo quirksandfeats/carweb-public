@@ -47,18 +47,40 @@ for page in "${PAGES[@]}"; do
     continue
   fi
   url="https://en.wikipedia.org/w/api.php?action=parse&page=${page}&prop=wikitext&format=json&formatversion=2&redirects=1"
-  body=$(curl -sS --compressed --max-time 60 \
-              -H 'User-Agent: carweb-fixtures/1.0 (local regression fixtures)' \
-              "$url")
-  if [ -z "$body" ]; then echo "FAILED  $page (no response)"; continue; fi
+  # Retried with backoff, and the HTTP status kept. The first run of this
+  # script lost its last three pages to "bad json" -- which was Wikipedia
+  # answering an HTML error page after ten requests in ten seconds, reported
+  # as if the article were broken.
+  body=""
+  for attempt in 1 2 3; do
+    resp=$(curl -sS --compressed --max-time 60 -w '\n%{http_code}' \
+                -H 'User-Agent: carweb-fixtures/1.0 (local regression fixtures; contact via repo)' \
+                -H 'Accept: application/json' \
+                "$url" 2>/dev/null)
+    code=$(printf '%s' "$resp" | tail -n1)
+    body=$(printf '%s' "$resp" | sed '$d')
+    case "$code" in
+      200) break ;;
+      429|503|500|502|504)
+        echo "retry   $page (HTTP $code, attempt $attempt)"
+        body=""; sleep $((attempt * 5)) ;;
+      *)
+        echo "FAILED  $page (HTTP $code)"
+        printf '%s' "$body" | head -c 120; echo
+        body=""; break ;;
+    esac
+  done
+  if [ -z "$body" ]; then echo "FAILED  $page (no usable response)"; continue; fi
   printf '%s' "$body" > "$OUT/.raw.json"
   python3 -c '
 import json, sys, io
 out, page, src = sys.argv[1], sys.argv[2], sys.argv[3]
+raw = io.open(src, encoding="utf-8", errors="replace").read()
 try:
-    d = json.load(io.open(src, encoding="utf-8"))
+    d = json.loads(raw)
 except Exception as e:
-    print("FAILED  %s (bad json: %s)" % (page, e)); raise SystemExit(0)
+    print("FAILED  %s (not json: %s)" % (page, raw[:100].replace("\n", " ")))
+    raise SystemExit(0)
 if "error" in d:
     print("FAILED  %s (%s)" % (page, d["error"].get("info", "?"))); raise SystemExit(0)
 wt = d.get("parse", {}).get("wikitext", "")
@@ -68,5 +90,5 @@ if not wt:
 io.open(out, "w", encoding="utf-8").write(wt)
 print("fetched %s  (%d chars)" % (page, len(wt)))
 ' "$file" "$page" "$OUT/.raw.json"
-  sleep 1
+  sleep 2
 done
