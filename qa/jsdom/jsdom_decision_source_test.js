@@ -12,6 +12,7 @@ const fs = require("fs"), path = require("path");
 const APP = path.resolve(__dirname, "..", "..", "app");
 
 let fails = 0;
+const pendingChecks = [];
 const t = (n, c, e) => { if (!c) fails++; console.log((c ? "PASS " : "FAIL ") + n + (e !== undefined ? "  -- " + e : "")); };
 
 function freshLF() {
@@ -55,10 +56,17 @@ function freshLF() {
   t("the earlier decision is not retroactively reattributed",
     LF.entryFor("m-one").decidedBy === "user", LF.entryFor("m-one").decidedBy);
 
-  t("the mark is written to disk, not just held in memory",
-    written.length >= 2 &&
-    written[written.length - 1].families["m-two"].decidedBy === "agent",
-    JSON.stringify(written[written.length - 1] && written[written.length - 1].families["m-two"]));
+  // Checked once the writes have landed. persist() keeps one write in flight
+  // and one waiting behind it (the overnight crash), so the body carrying
+  // m-two goes out when the one carrying m-one returns -- a moment later,
+  // not in the same breath.
+  pendingChecks.push(async () => {
+    await new Promise(r => setTimeout(r, 20));
+    t("the mark is written to disk, not just held in memory",
+      written.length >= 2 &&
+      written[written.length - 1].families["m-two"].decidedBy === "agent",
+      JSON.stringify(written[written.length - 1] && written[written.length - 1].families["m-two"]));
+  });
 
   t("both are still confirmed -- this records WHO, it does not gate anything",
     LF.entryFor("m-one").status === "confirmed" && LF.entryFor("m-two").status === "confirmed");
@@ -76,5 +84,8 @@ function freshLF() {
   t("and it can be handed back", LF.decisionSource() === "user");
 }
 
-console.log("\n" + fails + " failure(s)");
-process.exit(fails ? 1 : 0);
+(async () => {
+  for (const f of pendingChecks) await f();
+  console.log("\n" + fails + " failure(s)");
+  process.exit(fails ? 1 : 0);
+})();

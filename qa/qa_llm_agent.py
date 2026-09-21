@@ -438,6 +438,21 @@ check("...and the filter consults it first",
       "for rx in SERVE_KEEP" in src
       and src.index("for rx in SERVE_KEEP") < src.rindex("for rx in SERVE_NOISE"))
 
+# ---- picking a crashed cascade back up ------------------------------------
+# The overnight run crashed with 130 cars queued behind the one running, and
+# lost all of them: the queue lived only in the page. The page writes it down
+# now; the agent has to actually pick it up.
+check("every pass resumes the saved cascade before its own targets",
+      "LF.resumeCascade(CarWeb.nodes)" in pass_src
+      and pass_src.index("resumeCascade") < pass_src.index("for nid in targets:"))
+check("...and waits for it when there is no target of its own",
+      "if not targets and resumed:" in pass_src)
+check("there is a --resume that does only that", '"--resume"' in src)
+check("...which does not fall into the empty-review-queue early exit",
+      'not targets and not getattr(args, "resume", False)' in src)
+check("--watch says when there is something left over",
+      "left over from an earlier cascade" in src)
+
 print()
 print("ALL GREEN" if not fails else "FAILURES: " + str(fails))
 sys.exit(1 if fails else 0)

@@ -317,6 +317,17 @@ def review_queue_ids(path=None):
     return out
 
 
+def saved_cascade_count(path=None):
+    """How many cars an earlier cascade queued and never checked -- the
+    page's pendingCascade, read straight off disk so it can be reported
+    before anything starts."""
+    try:
+        d = json.load(open(path or LLM_FAMILIES, encoding="utf-8"))
+    except Exception:
+        return 0
+    return len(d.get("pendingCascade") or {})
+
+
 def already_scanned(path=None):
     try:
         d = json.load(open(path or LLM_FAMILIES, encoding="utf-8"))
@@ -561,11 +572,24 @@ def _run_pass_in(browser, targets, budget_seconds, per_node_seconds,
         if queued_already:
             log(f"scan queue: {queued_already} request(s) already waiting -- those run first")
 
+        # The cascade a previous run queued and never got to -- a crash, a
+        # Ctrl+C, the budget. Written down as it was queued (see the page's
+        # resumeCascade), so it is picked back up here rather than lost.
+        resumed = page.evaluate(
+            "() => { const LF = window.LlmFamilies; "
+            "return LF && LF.resumeCascade ? LF.resumeCascade(CarWeb.nodes) : 0; }")
+        if resumed:
+            log(f"resuming: {resumed} car(s) an earlier run queued and never got to")
+
         depth = page.evaluate("() => window.LlmFamilies.cascadeMaxDepth()")
         rows_before = entry_rows(page)
         entries_before = len(rows_before)
         agent_before = agent_confirmed(page)
         log(f"cascade depth {depth}; {entries_before} cars already have an entry")
+
+        if not targets and resumed:
+            # Nothing new to open: the resumed cascade IS the pass.
+            settle_cascade(page, settle_seconds, quiet_seconds)
 
         for nid in targets:
             spent = time.time() - started
@@ -954,7 +978,10 @@ def do_job(job, args):
             return
 
     seed_labels = {}
-    if args.targets:
+    if getattr(args, "resume", False):
+        # The saved cascade is the whole of the work; the page picks it up.
+        targets = []
+    elif args.targets:
         # An explicit list is taken as given -- including nodes that already
         # have an entry, since "check this one again" is the whole reason to
         # name it by hand.
@@ -969,7 +996,7 @@ def do_job(job, args):
         log(f"requested car: {job.get('targetLabel') or job['targetId']} [{job['targetId']}]")
     else:
         targets = [nid for nid in review_queue_ids() if nid not in already_scanned()][: args.seeds]
-    if not targets:
+    if not targets and not getattr(args, "resume", False):
         finish(jid, "done", "nothing left in the review queue to scan")
         return
 
@@ -1082,6 +1109,9 @@ def main():
     ap = argparse.ArgumentParser(description="Run a queued Car Web LLM scan.")
     ap.add_argument("--watch", action="store_true", help="keep waiting for jobs instead of giving up")
     ap.add_argument("--now", action="store_true", help="scan immediately without waiting for a job")
+    ap.add_argument("--resume", action="store_true",
+                    help="pick up the cascade an earlier run queued and never finished "
+                         "(a crash, Ctrl+C, the budget), then commit and push as usual")
     ap.add_argument("--poll-seconds", type=int, default=60)
     ap.add_argument("--wait-minutes", type=int, default=10, help="how long --once waits for a job")
     # How many cars a run scans is governed by the CASCADE, not by a count
@@ -1188,9 +1218,22 @@ def main():
         for nid in todo[args.seeds: args.seeds + 8]:
             print("  " + nid)
         return
+    if args.resume:
+        n = saved_cascade_count()
+        if not n:
+            print("nothing saved to resume -- every car the cascade queued has been checked")
+            return
+        log(f"resuming {n} car(s) the cascade queued and never checked")
+        do_job(None, args)
+        return
     if args.now:
         do_job(None, args)
         return
+    if args.watch:
+        n = saved_cascade_count()
+        if n:
+            log(f"note: {n} car(s) left over from an earlier cascade -- the next pass picks "
+                "them up first, or run --resume to do just those now")
     if not TOKEN:
         sys.exit(NO_TOKEN)
 

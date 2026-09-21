@@ -36,6 +36,7 @@ const APP = path.resolve(__dirname, "..", "..", "app");
 const html = fs.readFileSync(path.join(APP, "index.html"), "utf-8");
 
 let fails = 0;
+const later = [];
 function check(name, cond, extra) {
   console.log((cond ? "PASS " : "FAIL ") + name + (extra !== undefined ? " -- " + extra : ""));
   if (!cond) fails++;
@@ -228,6 +229,11 @@ console.log("\n--- what a purge actually wipes ---");
   };
   LF.deleteNode(cw.byId.get(LLMCAR), cw.nodes, cw.links, null);
   LF.purgeDeletion(LLMCAR, cw.nodes, cw.links);
+  // Read once the writes have landed: persist() keeps one in flight and one
+  // waiting behind it, so the purge's own body goes out when the delete's
+  // returns -- a moment later, not in the same breath.
+  later.push(async () => {
+  await new Promise(r => setTimeout(r, 30));
   check("the store was written back", !!lastBody);
   if (lastBody) {
     check("its families entry is gone", !(LLMCAR in lastBody.families));
@@ -248,6 +254,7 @@ console.log("\n--- what a purge actually wipes ---");
     check("the deletion record is gone", !(LLMCAR in lastBody.deletions));
     check("...replaced by a tombstone", LLMCAR in lastBody.purged);
   }
+  });
 }
 
 console.log("\n--- a purged car cannot come back ---");
@@ -275,11 +282,13 @@ console.log("\n--- a purged hand-added car stays gone across a reload ---");
   };
   LF.deleteNode(cw.byId.get(USERCAR), cw.nodes, cw.links, null);
   LF.purgeDeletion(USERCAR, cw.nodes, cw.links);
-  check("the userCars entry is gone from the file", lastBody && !(USERCAR in lastBody.userCars));
-
-  const w2 = freshWindow(lastBody);
-  check("...so the next boot never re-creates it",
-    !w2.CarWeb.byId.has(USERCAR) || w2.CarWeb.byId.get(USERCAR).retired);
+  later.push(async () => {
+    await new Promise(r => setTimeout(r, 30));   // the purge's write follows the delete's
+    check("the userCars entry is gone from the file", lastBody && !(USERCAR in lastBody.userCars));
+    const w2 = freshWindow(lastBody);
+    check("...so the next boot never re-creates it",
+      !w2.CarWeb.byId.has(USERCAR) || w2.CarWeb.byId.get(USERCAR).retired);
+  });
 }
 
 console.log("\n--- purging a HARVESTED car (which data.js rebuilds every boot) ---");
@@ -293,10 +302,13 @@ console.log("\n--- purging a HARVESTED car (which data.js rebuilds every boot) -
   };
   LF.deleteNode(cw.byId.get(HARD), cw.nodes, cw.links, null);
   LF.purgeDeletion(HARD, cw.nodes, cw.links);
-  const w2 = freshWindow(lastBody);
-  check("it is still hidden on the next boot", w2.CarWeb.byId.get(HARD).retired);
-  check("...and still not on the restorable list", !w2.LlmFamilies.allDeletions().some(d => d.id === HARD));
-  check("...while the rest of its make is fine", !w2.CarWeb.byId.get(FAM).retired);
+  later.push(async () => {
+    await new Promise(r => setTimeout(r, 30));   // the purge's write follows the delete's
+    const w2 = freshWindow(lastBody);
+    check("it is still hidden on the next boot", w2.CarWeb.byId.get(HARD).retired);
+    check("...and still not on the restorable list", !w2.LlmFamilies.allDeletions().some(d => d.id === HARD));
+    check("...while the rest of its make is fine", !w2.CarWeb.byId.get(FAM).retired);
+  });
 }
 
 // ============ 3. unmerge ============
@@ -392,5 +404,8 @@ console.log("\n--- unmerge is offered only for a nameplate ---");
   check("...and hidden for a plain model", sec.hidden);
 }
 
-console.log(`\n${fails === 0 ? "ALL PASS" : fails + " FAILED"}`);
-process.exit(fails ? 1 : 0);
+(async () => {
+  for (const f of later) await f();
+  console.log(`\n${fails === 0 ? "ALL PASS" : fails + " FAILED"}`);
+  process.exit(fails ? 1 : 0);
+})();

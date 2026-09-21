@@ -102,7 +102,27 @@ for (const f of [...html.matchAll(/<script src="([^"]+)"><\/script>/g)].map(m =>
                  { source: FAM, target: G1, type: "generation" },
                  { source: FAM, target: G2, type: "generation" },
                  { source: MK, target: STRAY, type: "made" });
-    window.LLM_FAMILIES = { families: {}, relations: {}, recheck: {}, __serverAvailable: true };
+    // The exact state the first long run left behind: each deferring to the
+    // other, so nobody read the article. And beside it a deferral that is
+    // fine, because the car it points at did read it.
+    D.nodes.push({ id: "m-samesrc-tahoe", type: "model", label: "Tahoe", make: "Samesrc",
+                   wp: "Samesrc Tahoe", year: 1995, designers: [], engineers: [] });
+    D.nodes.push({ id: "m-samesrc-yukon", type: "model", label: "Yukon", make: "Samesrc",
+                   wp: "Samesrc Tahoe", year: 1992, designers: [], engineers: [] });
+    D.nodes.push({ id: "m-samesrc-reader", type: "model", label: "Reader", make: "Samesrc",
+                   wp: "Samesrc Reader", year: 2000, designers: [], engineers: [] });
+    D.nodes.push({ id: "m-samesrc-follower", type: "model", label: "Follower", make: "Samesrc",
+                   wp: "Samesrc Reader", year: 2001, designers: [], engineers: [] });
+    D.links.push({ source: MK, target: "m-samesrc-tahoe", type: "made" },
+                 { source: MK, target: "m-samesrc-yukon", type: "made" },
+                 { source: MK, target: "m-samesrc-reader", type: "made" },
+                 { source: MK, target: "m-samesrc-follower", type: "made" });
+    window.LLM_FAMILIES = { families: {
+        "m-samesrc-tahoe": { status: "same-article", sameAs: "m-samesrc-yukon", checkedAt: "x" },
+        "m-samesrc-yukon": { status: "same-article", sameAs: "m-samesrc-tahoe", checkedAt: "x" },
+        "m-samesrc-reader": { status: "none", checkedAt: "x", proposal: { hasMultipleGenerations: false, generations: [] } },
+        "m-samesrc-follower": { status: "same-article", sameAs: "m-samesrc-reader", checkedAt: "x" },
+      }, relations: {}, recheck: {}, __serverAvailable: true };
   }
   ev(f);
 }
@@ -151,6 +171,30 @@ const DATA = window.CARDATA;
         !LF.allEntries().some(e => e.id === STRAY && e.status === "provisional"));
   check("the redirect was learned, not just the title that was asked for",
         asked.indexOf("Samesrc Veraneio") >= 0, asked.join(" | "));
+
+  // ---------- never in a circle, never waiting on nobody ----------
+  // Real failure, the first long run: 121 of 216 deferrals pointed at a car
+  // that never read the article. The Tahoe deferred to the Yukon, whose title
+  // resolves onto the Tahoe's page, and the Yukon had deferred to the Tahoe.
+  check("a deferral is not a reading", !LF.holdsReading(cw.byId.get("m-samesrc-tahoe")));
+  check("the boot repair clears both halves of a circle",
+        !LF.entryFor("m-samesrc-tahoe") && !LF.entryFor("m-samesrc-yukon"),
+        JSON.stringify([LF.entryFor("m-samesrc-tahoe"), LF.entryFor("m-samesrc-yukon")]));
+  check("...and keeps a deferral to a car that did read the article",
+        (LF.entryFor("m-samesrc-follower") || {}).status === "same-article");
+
+  {
+    const OWN = "m-samesrc-sprint", MINTED = "llm-related-samesrc-sprint-van";
+    DATA.nodes.push({ id: OWN, type: "model", label: "Sprint", make: "Samesrc",
+                      wp: "Samesrc Sprint", year: 1995, designers: [], engineers: [] });
+    DATA.nodes.push({ id: MINTED, type: "model", label: "Sprint Van", make: "Samesrc",
+                      wp: "Samesrc Sprint", llmCreatedNode: true, llmGenerated: true,
+                      year: 1996, designers: [], engineers: [] });
+    check("with nobody having read it, a minted car hands it to the article's own car",
+          (LF.nodeOwningArticle(DATA.nodes, "Samesrc Sprint", MINTED) || {}).id === OWN);
+    check("...and the article's own car is told to read it itself",
+          LF.nodeOwningArticle(DATA.nodes, "Samesrc Sprint", OWN) === null);
+  }
 
   console.log("\n" + fails + " failure(s)");
   process.exit(fails ? 1 : 0);

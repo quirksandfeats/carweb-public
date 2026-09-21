@@ -279,6 +279,8 @@ window.LlmFamilies = (function () {
     // fetched. Declared here for the reason prunedDecisions spells out: a key
     // created only on demand is wiped by the next boot's first persist().
     wpRedirects: bootData.wpRedirects || {},
+    // The cascade's own to-do list, written down. See rememberCascade.
+    pendingCascade: bootData.pendingCascade || {},
   };
 
   // Whether /api/llm-families was actually reachable at boot — if not (e.g.
@@ -445,8 +447,20 @@ window.LlmFamilies = (function () {
     return !!n && n.type === "family";
   }
 
-  async function persist() {
-    if (!serverAvailable) return;
+  // One write in flight, and at most one more waiting behind it that every
+  // caller in the meantime shares.
+  //
+  // Real failure: a depth-7 cascade left running overnight crashed the
+  // headless page ("Page crashed") with 130 checks queued. Every entry, every
+  // engine scan and every relation called this, and each call serialised the
+  // WHOLE store -- 6.6 MB by then, and growing with the run -- into a request
+  // body of its own, with nothing stopping dozens of them being alive at
+  // once. Coalescing loses nothing: the waiting write serialises the store
+  // at the moment it starts, so it carries every change made up to then, and
+  // anyone who awaited persist() still resolves only once their change is on
+  // disk. It also stops an older body landing after a newer one.
+  let persistInFlight = null, persistWaiting = null;
+  async function writeStore() {
     try {
       await fetch("/api/llm-families", {
         method: "POST",
@@ -456,6 +470,20 @@ window.LlmFamilies = (function () {
     } catch (e) {
       console.warn("LlmFamilies: could not persist llm_families.json", e);
     }
+  }
+  function startWrite() {
+    const p = writeStore().finally(() => { if (persistInFlight === p) persistInFlight = null; });
+    persistInFlight = p;
+    return p;
+  }
+  function persist() {
+    if (!serverAvailable) return Promise.resolve();
+    if (persistWaiting) return persistWaiting;
+    if (persistInFlight) {
+      persistWaiting = persistInFlight.then(() => { persistWaiting = null; return startWrite(); });
+      return persistWaiting;
+    }
+    return startWrite();
   }
 
   // Say what the page is doing, in serve.py's terminal. Everything in this
@@ -2275,26 +2303,70 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
     const red = (store.wpRedirects && store.wpRedirects[bare]) || bare;
     return norm(red);
   }
+  // Who reads an article two cars point at. Real failure, the first long
+  // run with this guard: 121 of 216 "same-article" entries deferred to a car
+  // that never read the article either. The Chevrolet Tahoe deferred to the
+  // GMC Yukon (whose title resolves onto the Tahoe's page) and the Yukon had
+  // already deferred to the Tahoe -- each counted the other's entry as proof
+  // it had been read, when that entry was itself a deferral. Forty more
+  // pointed at a car the cascade never reached, so nobody ever read the page.
+  //
+  // Two rules make exactly one reader:
+  //   - Defer only to a car that HOLDS a reading: a nameplate, or an entry
+  //     that is an actual answer (confirmed / none / provisional). A deferral
+  //     is not a reading, and an error is not one either.
+  //   - When nobody holds one yet, the article's own car reads it -- the one
+  //     whose name IS the title, and a car that was in the graph before over
+  //     one the LLM minted -- and a lesser car hands the check over to it
+  //     rather than waiting on something that may never be scheduled.
+  const READING_STATUSES = new Set(["confirmed", "none", "provisional"]);
+  function holdsReading(n) {
+    if (!n || n.retired) return false;
+    if (n.type === "family") return true;
+    const e = entryFor(n.id);
+    return !!e && READING_STATUSES.has(e.status);
+  }
+  function articleRank(n, key) {
+    const named = norm(`${n.make || ""} ${n.label || ""}`) === key || norm(n.label) === key;
+    return (named ? 2 : 0) + (n.llmCreatedNode ? 0 : 1);
+  }
+  function outranks(a, b, key) {
+    const ra = articleRank(a, key), rb = articleRank(b, key);
+    return ra !== rb ? ra > rb : String(a.id) < String(b.id);
+  }
   function nodeOwningArticle(nodes, title, selfId) {
     const key = articleKeyOf(title);
     if (!key || !Array.isArray(nodes)) return null;
-    let best = null;
+    let self = null;
+    const same = [];
     for (const n of nodes) {
-      if (!n || n.retired || n.id === selfId) continue;
+      if (!n || n.retired) continue;
+      if (n.id === selfId) { self = n; continue; }
       if (n.type !== "model" && n.type !== "family") continue;
       if (articleKeyOf(n.wp) !== key) continue;
-      // A car that has been read, or that is already a nameplate, is the one
-      // holding this article -- prefer it over another unread candidate.
-      const weight = (n.type === "family" || n.generations ? 2 : 0)
-                   + (entryFor(n.id) ? 1 : 0);
-      if (!best || weight > best.weight) best = { node: n, weight };
+      same.push(n);
     }
-    return best ? best.node : null;
+    if (!same.length) return null;
+    // 1. Somebody has already read it: that is where its generations live.
+    //    A nameplate first, then a car that was here before one minted.
+    const holders = same.filter(holdsReading);
+    if (holders.length) {
+      holders.sort((a, b) => (b.type === "family") - (a.type === "family") ||
+                             (outranks(a, b, key) ? -1 : 1));
+      return holders[0];
+    }
+    // 2. Nobody has. Hand it to a better-placed car that is still able to
+    //    read it -- never to one that deferred or failed.
+    const able = same.filter(n => {
+      if (n.type !== "model" || n.familyOf || !n.wp) return false;
+      const e = entryFor(n.id);
+      return !e || !(e.status === "same-article" || e.status === "error");
+    });
+    const better = self ? able.filter(n => outranks(n, self, key)) : able;
+    if (!better.length) return null;          // this car is the right one to read it
+    better.sort((a, b) => (outranks(a, b, key) ? -1 : 1));
+    return better[0];
   }
-  // Asked before the model is, because a check on an article the graph
-  // already has is wasted from the first token. The fetch is the same cached
-  // one buildCheckMaterial would do a moment later, so this costs nothing
-  // when it finds nothing.
   async function sameArticleOwner(node, nodes) {
     if (!Array.isArray(nodes) || !node || !node.wp) return null;
     let title = node.wp;
@@ -2302,7 +2374,39 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
       const r = await fetchArticleDigest(node.wp);
       if (r && r.resolvedTitle) title = r.resolvedTitle;
     } catch (e) { /* the check itself will report the fetch failing */ }
-    return nodeOwningArticle(nodes, title, node.id) ? { owner: nodeOwningArticle(nodes, title, node.id), title } : null;
+    const owner = nodeOwningArticle(nodes, title, node.id);
+    if (!owner) return null;
+    // The owner has not read it yet: make sure it does. Without this a
+    // deferral could point at a car the cascade was never going to reach.
+    if (!holdsReading(owner) && owner.type === "model" && !entryFor(owner.id)) {
+      try { checkNodeCascade(owner, nodes); } catch (e) { /* its own entry records any failure */ }
+    }
+    return { owner, title };
+  }
+  // A deferral is only good while the car it points at holds a reading. One
+  // that points at a deferral, a failure, or a car never read is dropped, so
+  // this car is checked again -- which is what undoes the circular ones the
+  // first long run left behind. Run at boot; cheap, and a no-op once clean.
+  function repairSameArticleEntries(nodes) {
+    const byIdLocal = new Map((nodes || []).map(n => [n.id, n]));
+    let dropped = 0;
+    for (const [id, e] of Object.entries(store.families || {})) {
+      if (!e || e.status !== "same-article") continue;
+      if (holdsReading(byIdLocal.get(e.sameAs))) continue;
+      delete store.families[id];
+      // Back on the cascade's list, so the next pass actually reads it.
+      if (!store.pendingCascade[id]) {
+        store.pendingCascade[id] = { depth: null, from: null, at: new Date().toISOString(),
+                                     reason: "deferred to a car that never read the article" };
+      }
+      dropped++;
+    }
+    if (dropped) {
+      note(`llm: ${dropped} "same article" deferral(s) pointed at a car that never read ` +
+           "the article -- cleared so those cars are checked again");
+      persist();
+    }
+    return dropped;
   }
   function sameArticleEntry(owner, title) {
     return {
@@ -3200,6 +3304,7 @@ Rules:
       : depthOf(originId || engagedId) + 1;
     if (mintedDepth > cascadeMaxDepth) return;
     cascadeDepth.set(node.id, mintedDepth);
+    rememberCascade(node.id, mintedDepth, originId || engagedId);
     wpLookupScheduled.add(node.id);
     findWikipediaTitleFor(node.make, node.label).then(title => {
       if (!title) return; // nothing found automatically -- leave it for a manual paste later
@@ -3214,6 +3319,9 @@ Rules:
       console.warn("LlmFamilies: background Wikipedia lookup failed for " + node.id, e);
     }).finally(() => {
       wpLookupScheduled.delete(node.id);
+      // An answer, or no article to be found at all: either way there is
+      // nothing left for a resumed cascade to do with this car.
+      if (entryFor(node.id) || !node.wp) forgetCascade(node.id);
       notifyFactsUpdate(); // reuse the same "something about this node changed in the background" signal app.js already listens for
     });
   }
@@ -3282,6 +3390,31 @@ Rules:
     const depth = depthOf(originId) + 1;
     if (depth > cascadeMaxDepth) return;
     cascadeDepth.set(node.id, depth);
+    queuePartnerCheck(node, nodes, depth, originId);
+  }
+  // ---------- the cascade's to-do list, on disk ----------
+  // Real failure: a depth-7 cascade crashed the page overnight with 130 cars
+  // queued behind the one running -- "still working on Peugeot 407, Buick
+  // Velite 7, Chevrolet Bolt EUV, Opel Cascada (+134 more)" -- and every one
+  // of them was lost, because the queue lived only in the page. Everything
+  // already FINISHED was safe (each check persists as it lands); what the
+  // cascade had decided to do next was not written anywhere.
+  //
+  // So it is written down the moment a car joins the queue, crossed off the
+  // moment its check lands, and whatever is left the next time is picked up
+  // by resumeCascade -- by the agent at the start of every pass, or on
+  // request. A page load never starts it by itself.
+  function rememberCascade(nodeId, depth, from) {
+    if (!nodeId || store.pendingCascade[nodeId]) return;
+    store.pendingCascade[nodeId] = { depth: depth == null ? null : depth,
+                                     from: from || null, at: new Date().toISOString() };
+    persist();
+  }
+  function forgetCascade(nodeId) {
+    if (store.pendingCascade[nodeId]) { delete store.pendingCascade[nodeId]; persist(); }
+  }
+  function queuePartnerCheck(node, nodes, depth, originId) {
+    rememberCascade(node.id, depth, originId);
     partnerCheckScheduled.add(node.id);
     partnerQueue = partnerQueue
       .then(() => {
@@ -3302,8 +3435,47 @@ Rules:
         notifySplitReady(node);
       })
       .catch(e => { console.warn("LlmFamilies: partner generation check failed for " + node.id, e); })
-      .then(() => { partnerCheckScheduled.delete(node.id); notifyFactsUpdate(); });
+      .then(() => {
+        partnerCheckScheduled.delete(node.id);
+        // Crossed off only once it has an answer. A car handed on to the
+        // Wikipedia lookup stays on the list until THAT lands (see
+        // scheduleWpLookupAndCheck), so nothing falls between the two.
+        if (entryFor(node.id)) forgetCascade(node.id);
+        notifyFactsUpdate();
+      });
   }
+  // Pick the written-down cascade back up. Each car is checked at the depth
+  // it was queued at, so the walk continues exactly as far as it would have
+  // and no further. A car that has since been checked, merged, retired or
+  // split is simply crossed off. Returns how many were queued.
+  function resumeCascade(nodes) {
+    if (!serverAvailable || !Array.isArray(nodes)) return 0;
+    const byIdLocal = new Map(nodes.map(n => [n.id, n]));
+    let queued = 0, first = null;
+    for (const [id, rec] of Object.entries(store.pendingCascade || {})) {
+      const n = byIdLocal.get(id);
+      const live = n && !n.retired && n.type === "model" && !n.familyOf;
+      if (!live || entryFor(id)) { delete store.pendingCascade[id]; continue; }
+      if (partnerCheckScheduled.has(id) || inFlight.has(id) || wpLookupScheduled.has(id)) continue;
+      // Unknown depth (a car recovered after the fact, not queued by a live
+      // cascade) is checked itself but not followed further.
+      const depth = rec && Number.isFinite(rec.depth) ? rec.depth : cascadeMaxDepth;
+      cascadeDepth.set(id, Math.min(depth, cascadeMaxDepth));
+      queuePartnerCheck(n, nodes, depth, rec && rec.from);
+      if (!first) first = id;
+      queued++;
+    }
+    // The cascade only follows partners while something is engaged (see
+    // schedulePartnerCheck's boot-replay guard). A resumed pass has nobody at
+    // the keyboard, so the first resumed car stands in -- without touching
+    // anyone's depth, which setEngaged would reset to zero.
+    if (first && !engagedId) engagedId = first;
+    persist();
+    if (queued) note(`llm: picking the cascade back up -- ${queued} car(s) it had queued ` +
+                     "and never got to");
+    return queued;
+  }
+  function pendingCascadeCount() { return Object.keys(store.pendingCascade || {}).length; }
 
   // ---------- "is there still LLM work outstanding?" ----------
   // Real bug report, the Dacia Duster: its article named the Renault Captur,
@@ -3337,6 +3509,7 @@ Rules:
     const running = jobList().filter(j => j.state === "running").map(j => j.targetId)
                              .filter(id => !checks.includes(id));
     return { checks, partners, lookups, queued, running,
+             saved: pendingCascadeCount(),
              total: checks.length + partners.length + lookups.length +
                     queued.length + running.length };
   }
@@ -7923,6 +8096,9 @@ Rules:
     // nothing" (see the module header), dismissals are part of that layer
     // too now that they're persisted.
     store.dismissed = {};
+    // A list of cars to go and check, left over from a graph that no longer
+    // exists, would restart a cascade nobody asked for on the next pass.
+    store.pendingCascade = {};
     await persist();
   }
   // Recheck entries don't need deleteEntry()'s tombstone dance: an override
@@ -12092,7 +12268,11 @@ Rules:
     // The one-hop cascade budget -- see cascadeMaxDepth's own comment, and
     // serve.py's CASCADE_MAX_DEPTH for where it's configured.
     cascadeAllowedFrom, cascadeDepthOf: depthOf, cascadeMaxDepth: () => cascadeMaxDepth,
-    articleKeyOf, nodeOwningArticle,
+    articleKeyOf, nodeOwningArticle, holdsReading, repairSameArticleEntries,
+    resumeCascade, pendingCascadeCount,
+    // The write coalescing, for the suite to hammer. Same function the
+    // page uses; nothing else calls it from outside.
+    persistForTests: () => persist(),
     // Fired when a related PARTNER turns out to hide generations and has been
     // confirmed as a nameplate -- app.js subscribes and does the actual
     // minting/splicing. See schedulePartnerCheck's own comment for the Honda

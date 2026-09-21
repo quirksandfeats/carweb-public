@@ -140,6 +140,14 @@ window.CarWeb = (function () {
   if (window.LlmFamilies && window.LlmFamilies.foldCodeDuplicateModels) {
     window.LlmFamilies.foldCodeDuplicateModels(nodes, links);
   }
+  // A "same article" deferral is only good while the car it points at has
+  // actually read that article. After every nameplate above is in place --
+  // a family counts as having read its own -- drop any that point at a
+  // deferral, a failure or a car never read, so those cars are checked again.
+  // See repairSameArticleEntries.
+  if (window.LlmFamilies && window.LlmFamilies.repairSameArticleEntries) {
+    window.LlmFamilies.repairSameArticleEntries(nodes);
+  }
   if (window.LlmFamilies) window.LlmFamilies.applySharedPlatformForSingleGen(nodes, links);
   // Its twin for the people half of a single-generation verdict -- the Audi
   // Nuvolari report, where the check found "Massimo Frascella" and the

@@ -126,10 +126,20 @@ const winA = freshWindow({
   const clearPositiveBtn = winA.document.getElementById("llmdebug-clearpositive");
   check("window A: bulk clear button exists and is enabled", !!clearPositiveBtn && !clearPositiveBtn.disabled);
   clearPositiveBtn.onclick();
-  check("window A: bulk clear also persisted (dismissed map now includes the applied:<id> key too)",
-    !!(lastPersistedBody && lastPersistedBody.dismissed && Object.keys(lastPersistedBody.dismissed).some(k => k.includes(FAM_ID))),
-    lastPersistedBody && lastPersistedBody.dismissed);
 }
+
+(async () => {
+// persist() keeps one write in flight and one waiting behind it, so the body
+// carrying the bulk clear goes out when the first one returns -- a moment
+// later, not in the same breath. Wait for it, the way a reload would.
+await new Promise(r => setTimeout(r, 30));
+// Exact key: "fam-test-dismisspersist" is a prefix of the relation's own
+// "fam-test-dismisspersist-a", so a substring test passed on the relation's
+// dismissal alone and never looked at the family's.
+check("window A: bulk clear also persisted (dismissed map now includes the applied:<id> key too)",
+  !!(lastPersistedBody && lastPersistedBody.dismissed &&
+     Object.keys(lastPersistedBody.dismissed).some(k => k.split(":").slice(1).join(":") === FAM_ID)),
+  lastPersistedBody && JSON.stringify(lastPersistedBody.dismissed));
 
 // ---------- window B: fresh boot, seeded with exactly what window A persisted -- simulates a real page reload ----------
 const winB = freshWindow({
@@ -156,7 +166,6 @@ const winB = freshWindow({
 }
 
 // ---------- "Clear ALL" in the debug panel must also wipe dismissals, not just leave them stranded ----------
-(async () => {
   const winC = freshWindow({
     seed,
     llmFamilies: Object.assign({ __serverAvailable: true }, lastPersistedBody || {}),
