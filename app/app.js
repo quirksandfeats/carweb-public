@@ -1055,10 +1055,14 @@ window.CarWeb = (function () {
   // simply dive back next tick. Same shape as d3's own collision force, which
   // moves nodes rather than asking them: an overlap is not a preference to be
   // weighed against other preferences, and neither is this.
-  function ringClearanceForce() {
+  function ringClearanceForce() { ringClearanceOver(nodes); }
+  // The same rule over just some nodes: a local relax only moves its own
+  // patch, so only that patch can have wandered into a bubble. Checking all
+  // twelve thousand every step was most of what a local step cost.
+  function ringClearanceOver(list) {
     if (!expandedFamilies.size) return;
     eachRing(ring => {
-      nodes.forEach(n => {
+      list.forEach(n => {
         if (n === ring.fam || ring.gens.has(n.id)) return;
         // Pinned: it belongs to some other ring, which has its own claim on
         // where it is. Two overlapping rings is a layout problem, not a
@@ -6759,6 +6763,20 @@ window.CarWeb = (function () {
   nodes.forEach(n => n.r = radius(n));
 
   let sim;
+  // The layout's own parameters, named so a local relax (see the Graph's
+  // relaxLocally) settles a patch of the graph by exactly the same rules the
+  // whole-graph simulation uses.
+  function simLinkDistance(l) {
+    return l.type === "made" ? 60 : (l.type === "designed" || l.type === "engineered") ? 110
+         : (l.type === "succession" || l.type === "gensucc") ? 34 : 46;
+  }
+  function simLinkStrength(l) {
+    return l.type === "made" ? 0.55 : (l.type === "designed" || l.type === "engineered") ? 0.08
+         : (l.type === "succession" || l.type === "gensucc") ? 0.5 : 0.35;
+  }
+  function simChargeStrength(d) {
+    return d.type === "make" ? -900 : d.type === "person" ? -160 : -46;
+  }
   function buildSim() {
     // d3's link force resolves every endpoint up front and THROWS on one it
     // cannot find, which unwinds out of here and leaves no usable simulation
@@ -6815,13 +6833,9 @@ window.CarWeb = (function () {
     simNodes.forEach(seedNewNode);
     sim = d3.forceSimulation(simNodes)
       .force("link", d3.forceLink(simLinks).id(d => d.id)
-        .distance(l => l.type === "made" ? 60 : (l.type === "designed" || l.type === "engineered") ? 110
-                 : (l.type === "succession" || l.type === "gensucc") ? 34 : 46)
-        .strength(l => l.type === "made" ? 0.55 : (l.type === "designed" || l.type === "engineered") ? 0.08
-                 : (l.type === "succession" || l.type === "gensucc") ? 0.5 : 0.35))
+        .distance(simLinkDistance).strength(simLinkStrength))
       .force("charge", d3.forceManyBody()
-        .strength(d => d.type === "make" ? -900 : d.type === "person" ? -160 : -46)
-        .theta(0.95).distanceMax(1400))
+        .strength(simChargeStrength).theta(0.95).distanceMax(1400))
       .force("collide", d3.forceCollide(d => d.r + 2.5).iterations(1))
       .force("x", d3.forceX(0).strength(0.018))
       .force("y", d3.forceY(0).strength(0.026))
@@ -6843,6 +6857,90 @@ window.CarWeb = (function () {
     let focusSet = null, focusRoot = null;
     let dirty = true, simActive = 0;
 
+    // ---------- settling one patch of the graph, not all of it ----------
+    // Real user report, same overnight graph: every click stuttered. Each
+    // focus reheated the WHOLE simulation for 26 frames, each zoom-level
+    // change for 40, and one whole-graph step on 12,224 nodes measured about
+    // 150 ms -- four to six seconds of a frozen canvas, most of it spent
+    // moving nodes nobody could see.
+    //
+    // A relax now runs a small simulation over the patch that is actually
+    // changing -- what is on screen, or the focused set and the area around
+    // it -- by the layout's own rules (simLinkDistance and friends). It works
+    // on stand-ins and copies positions back, so it never touches the main
+    // simulation's own bookkeeping: d3 indexes every node it holds, and a
+    // second simulation over the same objects would renumber them under it.
+    // Nodes on the patch's outer edge and neighbours just outside it are held
+    // still, so the patch settles against its surroundings instead of
+    // drifting apart from them. Too big a patch (zoomed right out) and it is
+    // skipped: at that scale nobody can see what a relax would change.
+    const LOCAL_MAX = 1500;
+    let localSim = null, localLeft = 0, localPairs = null, localRefs = null, localBoost = 1;
+    let lastRelax = null;   // for the suite
+    function relaxLocally(rect, ids, nticks, alpha) {
+      if (!sim) return false;
+      const pool = sim.nodes();
+      const inside = n => rect && n.x >= rect[0] && n.x <= rect[2] && n.y >= rect[1] && n.y <= rect[3];
+      const want = new Set();
+      for (const n of pool) {
+        if (!Number.isFinite(n.x) || !Number.isFinite(n.y)) continue;
+        if ((ids && ids.has(n.id)) || inside(n)) want.add(n);
+      }
+      if (!want.size || want.size > LOCAL_MAX) { lastRelax = { skipped: true, size: want.size }; return false; }
+      // The outer 15% of the rectangle is the frame: present, pushing and
+      // pulling, but not moving.
+      let inner = null;
+      if (rect) {
+        const px = (rect[2] - rect[0]) * 0.15, py = (rect[3] - rect[1]) * 0.15;
+        inner = [rect[0] + px, rect[1] + py, rect[2] - px, rect[3] - py];
+      }
+      const held = n => (n.fx != null || n.fy != null) ||
+        (inner && !(ids && ids.has(n.id)) &&
+         (n.x < inner[0] || n.x > inner[2] || n.y < inner[1] || n.y > inner[3]));
+      const proxy = new Map();
+      const mk = (n, fixed) => {
+        let p = proxy.get(n);
+        if (p) return p;
+        p = { id: n.id, type: n.type, r: n.r, x: n.x, y: n.y, vx: 0, vy: 0, ref: n, fixed };
+        if (fixed) { p.fx = n.fx != null ? n.fx : n.x; p.fy = n.fy != null ? n.fy : n.y; }
+        proxy.set(n, p);
+        return p;
+      };
+      want.forEach(n => mk(n, held(n)));
+      const plinks = [];
+      const lf = sim.force("link");
+      for (const l of (lf ? lf.links() : [])) {
+        const a = l.source, b = l.target;
+        if (!a || !b || typeof a !== "object" || typeof b !== "object") continue;
+        const ina = want.has(a), inb = want.has(b);
+        if (!ina && !inb) continue;
+        // A neighbour just outside still pulls -- held where it is.
+        if (!Number.isFinite(a.x) || !Number.isFinite(b.x)) continue;
+        plinks.push({ source: mk(a, !ina || held(a)), target: mk(b, !inb || held(b)), type: l.type });
+      }
+      const pnodes = [...proxy.values()];
+      localSim = d3.forceSimulation(pnodes).stop().alpha(alpha)
+        .force("link", d3.forceLink(plinks).distance(simLinkDistance).strength(simLinkStrength))
+        .force("charge", d3.forceManyBody().strength(simChargeStrength).theta(0.95).distanceMax(1400))
+        .force("collide", d3.forceCollide(d => (d.r + 2.5) * localBoost).iterations(1));
+      localPairs = pnodes.filter(p => !p.fixed);
+      localRefs = localPairs.map(p => p.ref);
+      localLeft = nticks;
+      simActive = 0;   // never both at once: they would fight over the same positions
+      lastRelax = { skipped: false, size: want.size, moving: localPairs.length, total: pnodes.length };
+      dirty = true;
+      return true;
+    }
+    function localTick() {
+      localSim.tick();
+      for (const p of localPairs) { p.ref.x = p.x; p.ref.y = p.y; }
+      // The bubble around an expanded nameplate still has to stay clear; its
+      // rule works on the real nodes, so run it there and read back.
+      ringClearanceOver(localRefs);
+      for (const p of localPairs) { p.x = p.ref.x; p.y = p.ref.y; }
+      if (--localLeft <= 0) { localSim = null; localPairs = null; localRefs = null; }
+    }
+
     // Real user report: zooming in is just a camera move, so two nodes that
     // happen to sit nearly on top of each other in the precomputed layout
     // stay just as jammed together at any zoom level -- there's no way to
@@ -6859,9 +6957,11 @@ window.CarWeb = (function () {
     function applySpacing(band) {
       spacingBand = band;
       const boost = 1 + Math.min(band, 5) * 0.35;
+      localBoost = boost;
+      // Kept on the main simulation too, so anything that runs it later
+      // respects the same spacing -- set, not run.
       sim.force("collide", d3.forceCollide(d => (d.r + 2.5) * boost).iterations(1));
-      sim.alpha(0.12);
-      simActive = Math.max(simActive, 40);
+      relaxLocally(viewRect(0), null, 40, 0.12);
       dirty = true;
     }
     const K_MIN = 0.22, K_MAX = 9; // must match the scaleExtent below
@@ -7352,16 +7452,69 @@ window.CarWeb = (function () {
       ctx.lineTo(l.tn.x, l.tn.y);
     }
 
+    // ---------- drawing, batched ----------
+    // Real user report, after an overnight LLM run grew the graph to 12,224
+    // nodes and 32,544 links: "a large slowdown in rendering and refreshing
+    // and low frame rate". Measured on that graph, one frame issued 19,800
+    // separate stroke() calls -- every edge its own path, each with its own
+    // setLineDash, colour, width and alpha -- and 10,100 separate fill()s, and
+    // did it for every edge and node whether or not it was on screen. Canvas
+    // state changes are the expensive part, and that was ~90,000 of them per
+    // frame, on every pan, hover and zoom.
+    //
+    // Now: edges and nodes are grouped by how they look, and each group is
+    // one path and one stroke/fill. Anything wholly outside the viewport is
+    // skipped. The picture is the same; the order in which two overlapping
+    // things of DIFFERENT styles stack can differ, which is invisible at this
+    // density -- and a focused set now always draws on top of the faded rest.
+    const EDGE_STYLE = {
+      platform:   { col: () => C.accent,   a: 0.75, w: 1.9, dash: [5, 4] },
+      related:    { col: () => C.accent,   a: 0.3,  w: 1,   dash: [2.5, 4] },
+      succession: { col: () => C.ink2,     a: 0.3,  w: 1.2, dash: null },
+      fitted:     { col: () => C.ink2,     a: 0.4,  w: 1.1, dash: null },
+      enginesucc: { col: () => C.gensucc,  a: 0.8,  w: 1.6, dash: null },
+      gensucc:    { col: () => C.gensucc,  a: 0.8,  w: 1.8, dash: null },
+      designed:   { col: () => C.designer, a: 0.27, w: 1.1, dash: null },
+      engineered: { col: () => C.engineer, a: 0.5,  w: 1.4, dash: null },
+      _:          { col: () => C.muted,    a: 0.26, w: 1,   dash: null },
+    };
+    // Back to front: the quiet structural lines first, the lines that carry
+    // meaning (succession, platform) last so they sit on top.
+    const EDGE_ORDER = ["_", "designed", "engineered", "related", "fitted", "succession",
+                        "platform", "enginesucc", "gensucc"];
+    // The world-space rectangle on screen, grown by `margin` world units.
+    function viewRect(margin) {
+      const k = t.k, m = margin || 0;
+      const x0 = -t.x / k, y0 = -t.y / k;
+      return [x0 - m, y0 - m, x0 + W / k + m, y0 + H / k + m];
+    }
+    // Both ends on the same outside side of the rectangle: the segment cannot
+    // cross it. Conservative -- an edge cutting a corner diagonally is drawn.
+    function edgeOffscreen(a, b, R) {
+      return (a.x < R[0] && b.x < R[0]) || (a.x > R[2] && b.x > R[2]) ||
+             (a.y < R[1] && b.y < R[1]) || (a.y > R[3] && b.y > R[3]);
+    }
+    let lastFont = null;
+    function setFont(f) { if (f !== lastFont) { ctx.font = f; lastFont = f; } }
+
     function draw() {
       ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
       ctx.clearRect(0, 0, W, H);
       ctx.translate(t.x, t.y); ctx.scale(t.k, t.k);
+      lastFont = null;
       const k = t.k;
       const aSet = activeSet();
       const edgeScale = aSet ? 1 : edgeZoomScale(k);
       refreshFrameRings();
+      // An edge bowed around an expanded nameplate's bubble can swing out
+      // past its own endpoints, so the cull leaves room for the widest ring.
+      let ringPad = 0;
+      for (const ring of frameRings) ringPad = Math.max(ringPad, (ring.clear || ring.r || 0) * 2);
+      const RE = viewRect(40 / k + ringPad);
+      const RN = viewRect(40 / k);
 
-      // edges
+      // ---- edges ----
+      const buckets = new Map();   // style key + "|" + on -> links
       for (const l of links) {
         // Structural hub->child links, not drawn: the radial ring is what
         // shows that relationship, for an engine's variants exactly as for a
@@ -7376,100 +7529,116 @@ window.CarWeb = (function () {
         if (!l.sn || !l.tn) continue;
         if (!Number.isFinite(l.sn.x) || !Number.isFinite(l.sn.y) ||
             !Number.isFinite(l.tn.x) || !Number.isFinite(l.tn.y)) continue;
+        if (edgeOffscreen(l.sn, l.tn, RE)) continue;
         if (!linkInLayer(l) || !platformsTypeOk(l) || !inGraphView(l.sn) || !inGraphView(l.tn)) continue;
         const on = (!aSet || (aSet.has(l.sn.id) && aSet.has(l.tn.id)));
-        let alpha = (on ? 1 : 0.045) * (on ? edgeScale : 1);
-        ctx.beginPath();
-        pathForLink(l);
-        if (l.type === "platform") {
-          ctx.strokeStyle = C.accent; ctx.globalAlpha = alpha * 0.75;
-          ctx.lineWidth = 1.9 / k; ctx.setLineDash([5 / k, 4 / k]);
-        } else if (l.type === "related") {
-          ctx.strokeStyle = C.accent; ctx.globalAlpha = alpha * 0.3;
-          ctx.lineWidth = 1 / k; ctx.setLineDash([2.5 / k, 4 / k]);
-        } else if (l.type === "succession") {
-          ctx.strokeStyle = C.ink2; ctx.globalAlpha = alpha * 0.3;
-          ctx.lineWidth = 1.2 / k; ctx.setLineDash([]);
-        } else if (l.type === "fitted") {
-          // An engine into a car: the powertrain layer's ordinary connection,
-          // drawn as the main layer draws "made".
-          ctx.strokeStyle = C.ink2; ctx.globalAlpha = alpha * 0.4;
-          ctx.lineWidth = 1.1 / k; ctx.setLineDash([]);
-        } else if (l.type === "enginesucc") {
-          ctx.strokeStyle = C.gensucc; ctx.globalAlpha = alpha * 0.8;
-          ctx.lineWidth = 1.6 / k; ctx.setLineDash([]);
-        } else if (l.type === "gensucc") {
-          // generation-to-generation succession within the SAME nameplate
-          // (e.g. G-Class W463 -> W464 -> W465) -- a solid, more saturated
-          // line so this reads as distinct from an ordinary cross-nameplate
-          // succession link at a glance.
-          ctx.strokeStyle = C.gensucc; ctx.globalAlpha = alpha * 0.8;
-          ctx.lineWidth = 1.8 / k; ctx.setLineDash([]);
-        } else if (l.type === "designed") {
-          ctx.strokeStyle = C.designer; ctx.globalAlpha = alpha * 0.27;
-          ctx.lineWidth = 1.1 / k; ctx.setLineDash([]);
-        } else if (l.type === "engineered") {
-          ctx.strokeStyle = C.engineer; ctx.globalAlpha = alpha * 0.5;
-          ctx.lineWidth = 1.4 / k; ctx.setLineDash([]);
-        } else {
-          ctx.strokeStyle = C.muted; ctx.globalAlpha = alpha * 0.26;
-          ctx.lineWidth = 1 / k; ctx.setLineDash([]);
+        const key = (EDGE_STYLE[l.type] ? l.type : "_") + (on ? "|1" : "|0");
+        let arr = buckets.get(key);
+        if (!arr) { arr = []; buckets.set(key, arr); }
+        arr.push(l);
+      }
+      for (const pass of ["|0", "|1"]) {
+        const on = pass === "|1";
+        for (const type of EDGE_ORDER) {
+          const arr = buckets.get(type + pass);
+          if (!arr || !arr.length) continue;
+          const st = EDGE_STYLE[type];
+          ctx.strokeStyle = st.col();
+          ctx.globalAlpha = (on ? edgeScale : 0.045) * st.a;
+          ctx.lineWidth = st.w / k;
+          ctx.setLineDash(st.dash ? st.dash.map(v => v / k) : []);
+          ctx.beginPath();
+          for (const l of arr) pathForLink(l);
+          ctx.stroke();
         }
-        ctx.stroke();
       }
       ctx.setLineDash([]);
 
-      // nodes
+      // ---- nodes ----
+      // Fills grouped by colour and by faded/not; the rings some nodes carry
+      // grouped the same way, drawn over the fills.
+      const fills = new Map(), rings = new Map(), extras = [];
+      const add = (map, key, item) => { let a = map.get(key); if (!a) { a = []; map.set(key, a); } a.push(item); };
       for (const n of nodes) {
         if (!n || !Number.isFinite(n.x) || !Number.isFinite(n.y)) continue; // see the same guard on edges above
+        if (n.x < RN[0] - n.r || n.x > RN[2] + n.r || n.y < RN[1] - n.r || n.y > RN[3] + n.r) continue;
         if (!inGraphView(n)) continue;
         const on = visible(n);
-        ctx.globalAlpha = on ? 1 : 0.09;
         const r = Math.max(n.r, 2.6 / k) * (n === hoverN ? 1.35 : 1);
-        if (n.type === "make") {
-          ctx.beginPath(); ctx.arc(n.x, n.y, r, 0, 2 * Math.PI);
-          ctx.fillStyle = C.ink; ctx.fill();
-        } else if (n.type === "model") {
-          ctx.beginPath(); ctx.arc(n.x, n.y, r, 0, 2 * Math.PI);
-          ctx.fillStyle = n.heritage ? C.heritage : C.accent; ctx.fill();
-          drawDbGarageRings(n, r, k);
-        } else if (n.type === "family") {
-          ctx.beginPath(); ctx.arc(n.x, n.y, r, 0, 2 * Math.PI);
-          ctx.fillStyle = n.heritage ? C.heritage : C.accent; ctx.fill();
+        const tag = on ? "|1" : "|0";
+        let fill;
+        if (n.type === "make") fill = C.ink;
+        else if (n.type === "model" || n.type === "family") fill = n.heritage ? C.heritage : C.accent;
+        else if (n.type === "engine") fill = C.ink;
+        else if (n.type === "enginevar") fill = C.engvar;
+        else fill = C.card;
+        add(fills, fill + tag, { n, r });
+        if (n.type === "family") {
           // thin innermost ring marks a family as expandable/collapsible,
           // nested inside the db-gold-ring and garage-dashed-ring if present.
-          ctx.beginPath(); ctx.arc(n.x, n.y, r + 1.8 / k, 0, 2 * Math.PI);
-          ctx.lineWidth = 1.1 / k; ctx.strokeStyle = C.ink; ctx.stroke();
-          drawDbGarageRings(n, r, k);
+          add(rings, C.ink + "|" + (1.1 / k) + tag, { x: n.x, y: n.y, r: r + 1.8 / k });
         } else if (n.type === "engine") {
           // Real user request: "it would make more sense for the engines in
           // the powertrain tab to adopt the same coloring as if it were the
-          // 'makes' nodes from the Graph tab, followed by the yellowish color
-          // you chose for the engine variants, followed by the standard
-          // orange for the car nodes." Which is the same hierarchy the main
-          // layer draws: the hub in ink, its children in accent.
-          ctx.beginPath(); ctx.arc(n.x, n.y, r, 0, 2 * Math.PI);
-          ctx.fillStyle = C.ink; ctx.fill();
-          // The expandable ring a nameplate gets, in accent rather than ink
-          // so it reads against an ink centre.
-          ctx.beginPath(); ctx.arc(n.x, n.y, r + 2 / k, 0, 2 * Math.PI);
-          ctx.lineWidth = 1.2 / k; ctx.strokeStyle = C.accent; ctx.stroke();
-        } else if (n.type === "enginevar") {
-          ctx.beginPath(); ctx.arc(n.x, n.y, r, 0, 2 * Math.PI);
-          ctx.fillStyle = C.engvar; ctx.fill();
-        } else {
-          ctx.beginPath(); ctx.arc(n.x, n.y, r, 0, 2 * Math.PI);
-          ctx.fillStyle = C.card; ctx.fill();
-          personStroke(n, r);
+          // 'makes' nodes from the Graph tab" -- the hub in ink, and the
+          // expandable ring a nameplate gets, in accent so it reads against it.
+          add(rings, C.accent + "|" + (1.2 / k) + tag, { x: n.x, y: n.y, r: r + 2 / k });
+        } else if (n.type === "person") {
+          // Designer / engineer rim, split in two for someone who is both
+          // while both layers are on. Widths rounded to a quarter pixel so
+          // people of similar degree share a stroke; nobody can see 0.1 px.
+          const d = hasRole(n, "designer"), e = hasRole(n, "engineer");
+          const w = Math.round(Math.max(2, r * 0.42) * 4) / 4;
+          if (d && e && layer === "both") {
+            add(rings, C.designer + "|" + w + tag, { x: n.x, y: n.y, r, a1: -Math.PI / 2, a2: Math.PI / 2 });
+            add(rings, C.engineer + "|" + w + tag, { x: n.x, y: n.y, r, a1: Math.PI / 2, a2: 3 * Math.PI / 2 });
+          } else {
+            const useEng = e && (layer === "engineers" || !d);
+            add(rings, (useEng ? C.engineer : C.designer) + "|" + w + tag, { x: n.x, y: n.y, r });
+          }
         }
-        if (n === selected) {
-          ctx.beginPath(); ctx.arc(n.x, n.y, r + 5 / k, 0, 2 * Math.PI);
-          ctx.lineWidth = 1.6 / k; ctx.strokeStyle = C.ink; ctx.stroke();
+        if ((n.type === "model" || n.type === "family") && (n.db || n.garage)) extras.push({ n, r, on });
+      }
+      for (const pass of ["|0", "|1"]) {
+        ctx.globalAlpha = pass === "|1" ? 1 : 0.09;
+        for (const [key, arr] of fills) {
+          if (!key.endsWith(pass)) continue;
+          ctx.fillStyle = key.slice(0, -2);
+          ctx.beginPath();
+          for (const { n, r } of arr) { ctx.moveTo(n.x + r, n.y); ctx.arc(n.x, n.y, r, 0, 2 * Math.PI); }
+          ctx.fill();
         }
+        for (const [key, arr] of rings) {
+          if (!key.endsWith(pass)) continue;
+          const parts = key.slice(0, -2).split("|");
+          ctx.strokeStyle = parts[0]; ctx.lineWidth = +parts[1];
+          ctx.beginPath();
+          for (const g of arr) {
+            const a1 = g.a1 == null ? 0 : g.a1, a2 = g.a2 == null ? 2 * Math.PI : g.a2;
+            ctx.moveTo(g.x + Math.cos(a1) * g.r, g.y + Math.sin(a1) * g.r);
+            ctx.arc(g.x, g.y, g.r, a1, a2);
+          }
+          ctx.stroke();
+        }
+      }
+      // The few nodes with a database or garage mark, one by one: there are
+      // a handful, and the garage ring is dashed.
+      for (const { n, r, on } of extras) {
+        ctx.globalAlpha = on ? 1 : 0.09;
+        drawDbGarageRings(n, r, k);
+      }
+      if (selected && Number.isFinite(selected.x) && inGraphView(selected)) {
+        const r = Math.max(selected.r, 2.6 / k) * (selected === hoverN ? 1.35 : 1);
+        ctx.globalAlpha = visible(selected) ? 1 : 0.09;
+        ctx.beginPath(); ctx.arc(selected.x, selected.y, r + 5 / k, 0, 2 * Math.PI);
+        ctx.lineWidth = 1.6 / k; ctx.strokeStyle = C.ink; ctx.stroke();
       }
 
       // labels — draw makes first (big to small), then designers, then models,
-      // skipping any label that would collide in screen space.
+      // skipping any label that would collide in screen space. Whether a label
+      // is shown at all is decided BEFORE its font is set: setting the font
+      // parses it, and doing that for every one of ten thousand nodes to draw
+      // a hundred and fifty labels was a measurable share of each frame.
       ctx.textAlign = "center"; ctx.textBaseline = "top";
       const placed = [];
       const collides = (x, y, w, h) => {
@@ -7478,31 +7647,34 @@ window.CarWeb = (function () {
         placed.push([x, y, w, h]);
         return false;
       };
+      const LR = viewRect(220 / k);
       for (const n of LABEL_ORDER) {
+        if (!Number.isFinite(n.x) || n.x < LR[0] || n.x > LR[2] || n.y < LR[1] || n.y > LR[3]) continue;
         const on = visible(n);
         if (!on) continue;
-        let show = false, col = C.ink2, fs;
+        let show = false;
+        if (n.type === "make") show = k > 0.55 || n.deg >= 12;
+        else if (n.type === "person") show = k > 1.15 || n.deg >= 14 || !!focusSet || n === hoverN || n === selected;
+        else show = k > 1.6 || !!focusSet || n === hoverN || n === selected;
+        if (!show) continue;
+        let col = C.ink2, fs;
         if (n.type === "make") {
-          show = k > 0.55 || n.deg >= 12;
           fs = Math.min(30, (9.5 + Math.min(n.deg, 30) * 0.11) / Math.min(k, 1));
-          ctx.font = `600 ${fs}px Inter, sans-serif`; col = C.ink;
+          setFont(`600 ${fs}px Inter, sans-serif`); col = C.ink;
         } else if (n.type === "person") {
-          show = k > 1.15 || n.deg >= 14 || !!focusSet || n === hoverN || n === selected;
           fs = (n.deg >= 9 ? 12.5 : 11.5) / Math.min(k, 1.15);
-          ctx.font = `italic 600 ${fs}px Georgia, serif`;
+          setFont(`italic 600 ${fs}px Georgia, serif`);
           col = hasRole(n, "engineer") && (layer === "engineers" || !hasRole(n, "designer")) ? C.engineer : C.designer;
         } else {
-          show = k > 1.6 || !!focusSet || n === hoverN || n === selected;
           fs = 10.5 / Math.min(k, 1.3);
-          ctx.font = `500 ${fs}px Inter, sans-serif`; col = C.ink2;
+          setFont(`500 ${fs}px Inter, sans-serif`);
         }
-        if (!show) continue;
         const label = n.type === "make" ? n.label.toUpperCase() : n.label;
         const y = n.y + Math.max(n.r, 2.6 / k) + 3.5 / k;
         const w = ctx.measureText(label).width;
         const isHot = n === hoverN || n === selected;
         if (!isHot && collides((n.x - w / 2) * k + t.x, y * k + t.y, w * k, fs * 1.25 * k)) continue;
-        ctx.globalAlpha = on ? 0.95 : 0.1;
+        ctx.globalAlpha = 0.95;
         ctx.lineWidth = 3.4 / Math.min(k, 1); ctx.strokeStyle = C.paper; ctx.strokeText(label, n.x, y);
         ctx.fillStyle = col; ctx.fillText(label, n.x, y);
       }
@@ -7526,7 +7698,8 @@ window.CarWeb = (function () {
     // than requiring a manual refresh.
     function loop() {
       try {
-        if (simActive > 0) { sim.tick(); simActive--; dirty = true; }
+        if (localSim) { localTick(); dirty = true; }
+        else if (simActive > 0) { sim.tick(); simActive--; dirty = true; }
         if (dirty) { draw(); dirty = false; }
       } catch (e) {
         console.error("Graph render loop error (skipping this frame):", e);
@@ -7811,7 +7984,25 @@ window.CarWeb = (function () {
       const tf = d3.zoomIdentity.translate(viewCenterX(), viewCenterY()).scale(k).translate(-cx, -cy);
       d3.select(canvas).transition().duration(850).ease(d3.easeCubicInOut).call(zoom.transform, tf);
     }
-    function reheat(nticks) { sim.alpha(0.16); simActive = nticks; }
+    // After a focus: the focused set, and the area its bounding box covers,
+    // settle -- the rest of the graph stays exactly where it is. A focused
+    // set spread too wide for that falls back to the set alone.
+    function reheat(nticks) {
+      const ids = focusSet || null;
+      let rect = null;
+      if (ids && ids.size) {
+        let x0 = Infinity, y0 = Infinity, x1 = -Infinity, y1 = -Infinity;
+        ids.forEach(id => {
+          const n = byId.get(id);
+          if (!n || !Number.isFinite(n.x)) return;
+          x0 = Math.min(x0, n.x); y0 = Math.min(y0, n.y); x1 = Math.max(x1, n.x); y1 = Math.max(y1, n.y);
+        });
+        if (Number.isFinite(x0)) rect = [x0 - 160, y0 - 160, x1 + 160, y1 + 160];
+      } else {
+        rect = viewRect(0);
+      }
+      if (!relaxLocally(rect, ids, nticks, 0.16) && ids) relaxLocally(null, ids, nticks, 0.16);
+    }
     // Recomputes the current focus set from scratch — used after a live
     // structural change (e.g. an LLM-confirmed generation split just minted
     // new nodes) so a family that's currently focused immediately includes
@@ -7943,6 +8134,10 @@ window.CarWeb = (function () {
       // and "does this still hold once the layout has been allowed to fight
       // back" is only answerable by running the forces.
       simTick(n) { for (let i = 0; i < (n || 1); i++) sim.tick(); dirty = true; },
+      // The last local relax -- how big a patch, how much of it moved -- and
+      // a way to run it out by hand, since a headless test has no frames.
+      relaxStats: () => lastRelax,
+      relaxRun() { while (localSim) localTick(); dirty = true; },
     };
   })();
 

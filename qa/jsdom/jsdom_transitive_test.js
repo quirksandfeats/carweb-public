@@ -110,7 +110,14 @@ const pairs = r => r.map(x => [x.aId, x.cId].sort().join("~")).sort();
 // Real user request: "I also want that the program lets me configure how many
 // hops to do, similar to how there's a setting for picking the number of hops
 // for the LLM to perform for the models."
-{
+//
+// Run once the rest of the file has: persist() keeps one write in flight and
+// one waiting behind it, so what reaches disk after two back-to-back changes
+// is known only once the second write has gone out -- this waits for it, as
+// a reload would.
+const later = [];
+later.push(async () => {
+  const settle = () => new Promise(r => setTimeout(r, 20));
   const { JSDOM } = require("jsdom");
   const APP = path.resolve(__dirname, "..", "..", "app");
   let saved = null;
@@ -133,6 +140,7 @@ const pairs = r => r.map(x => [x.aId, x.cId].sort().join("~")).sort();
   t("serve.py's TRANSITIVE_MAX_HOPS is the default", LF.transitiveMaxHops() === 2, LF.transitiveMaxHops());
   LF.setTransitiveMaxHops(3);
   t("the app's own setting overrides it", LF.transitiveMaxHops() === 3, LF.transitiveMaxHops());
+  await settle();
   t("the override is written to disk",
     saved && saved.settings && saved.settings.transitiveMaxHops === 3,
     JSON.stringify(saved && saved.settings));
@@ -141,6 +149,7 @@ const pairs = r => r.map(x => [x.aId, x.cId].sort().join("~")).sort();
   LF.setTransitiveMaxHops(3);
 
   LF.rejectTransitive("transitive:a|c", { note: "not really related" });
+  await settle();
   t("a rejection is written to disk",
     saved.transitive && saved.transitive["transitive:a|c"].status === "rejected");
 
@@ -160,7 +169,7 @@ const pairs = r => r.map(x => [x.aId, x.cId].sort().join("~")).sort();
     props.length === 1 && props[0].status === "provisional", JSON.stringify(props));
   t("turning hops down to 0 stops proposals entirely",
     (LF3.setTransitiveMaxHops(0), LF3.transitiveProposals(nodes, links).length === 0));
-}
+});
 
 // ---- answering a stuck match from connections already in the graph -------
 // "where the LLM doesn't quite have enough information to confirm itself and
@@ -206,5 +215,8 @@ const pairs = r => r.map(x => [x.aId, x.cId].sort().join("~")).sort();
   t("no graph passed means no answer, never a crash", answer(A, B, null, null) === null);
 }
 
-console.log("\n" + fails + " failure(s) (total)");
-process.exit(fails ? 1 : 0);
+(async () => {
+  for (const f of later) await f();
+  console.log("\n" + fails + " failure(s) (total)");
+  process.exit(fails ? 1 : 0);
+})();

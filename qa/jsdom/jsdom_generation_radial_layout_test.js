@@ -42,14 +42,18 @@ function fakeCtx() {
   };
   return new Proxy(h, { get(t, k) { return k in t ? t[k] : noop; }, set() { return true; } });
 }
-// The path a single stroke was built from: everything between the beginPath
-// that precedes it and the stroke itself.
+// The path each edge was drawn as. Edges of one style share a single stroke
+// now (the renderer batches them -- one stroke per style, not one per edge),
+// so a stroke is split back into its sub-paths: each starts with its own
+// moveTo, which is exactly one edge.
 function strokes() {
   const out = [];
-  let cur = null;
+  let cur = null, open = false;
   for (const op of drawn) {
-    if (op[0] === "begin") { cur = []; continue; }
-    if (op[0] === "stroke") { if (cur) out.push(cur); cur = null; continue; }
+    if (op[0] === "begin") { open = true; cur = null; continue; }
+    if (op[0] === "stroke") { if (cur) out.push(cur); cur = null; open = false; continue; }
+    if (!open) continue;
+    if (op[0] === "moveTo") { if (cur) out.push(cur); cur = [op]; continue; }
     if (cur) cur.push(op);
   }
   return out;
