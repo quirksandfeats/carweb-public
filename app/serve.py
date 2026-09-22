@@ -225,7 +225,7 @@ LLAMA_SPEC_DRAFT_N_MAX = int(os.environ.get("LLAMA_SPEC_DRAFT_N_MAX", "3"))
 # of any one click predictable. Raise it (or set the CASCADE_MAX_DEPTH
 # environment variable) to let one click fill in more of a platform family at
 # once; 0 disables the automatic partner check entirely.
-CASCADE_MAX_DEPTH = int(os.environ.get("CASCADE_MAX_DEPTH", "7"))
+CASCADE_MAX_DEPTH = int(os.environ.get("CASCADE_MAX_DEPTH", "1"))
 # ---- transitive relationships --------------------------------------------
 # Real user request: "if car A and car B are related, and car B and car C are
 # related, then car A and C are also related", with the number of hops
