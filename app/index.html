@@ -8,8 +8,38 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..900,50&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
+<style>
+  /* The loading screen. Inline, not in styles.css, so it paints with the
+     very first frame instead of waiting on a stylesheet. The bar moves by
+     transform only: that runs on the compositor, so it keeps moving even
+     while JavaScript is busy building the graph and nothing else can draw. */
+  #bootloader{position:fixed; inset:0; z-index:9999; display:flex; align-items:center;
+    justify-content:center; background:#f6f1e7; color:#17140f;
+    font-family:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    transition:opacity .35s ease}
+  #bootloader.done{opacity:0; pointer-events:none}
+  #bootloader .bl-box{width:min(420px, calc(100vw - 48px))}
+  #bootloader .bl-title{font-family:"Fraunces",Georgia,serif; font-size:28px; font-weight:600;
+    letter-spacing:-.01em; margin:0 0 18px}
+  #bootloader .bl-track{height:6px; background:#e4dccb; border-radius:3px; overflow:hidden}
+  #bootloader .bl-bar{height:100%; width:100%; background:#c2451d; border-radius:3px;
+    transform-origin:0 50%; transform:scaleX(0); will-change:transform}
+  #bootloader .bl-row{display:flex; justify-content:space-between; gap:12px; margin-top:10px;
+    font-size:13px; color:#4a4335}
+  #bootloader .bl-pct{font-variant-numeric:tabular-nums; color:#17140f; font-weight:500}
+  #bootloader.failed .bl-bar{background:#8a7f6c}
+  #bootloader.failed .bl-step{color:#c2451d}
+</style>
 </head>
 <body>
+<div id="bootloader" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"
+     aria-label="Loading The Car Web">
+  <div class="bl-box">
+    <div class="bl-title">The Car Web</div>
+    <div class="bl-track"><div class="bl-bar"></div></div>
+    <div class="bl-row"><span class="bl-step">Starting…</span><span class="bl-pct">0%</span></div>
+  </div>
+</div>
 <header id="topbar">
   <!-- On a phone the wordmark is the menu. Real user request: "at the top
        left, there should be the title 'The Car Web'. I want this to also act
@@ -728,43 +758,198 @@
   <span id="counts"></span>
 </footer>
 
+<!-- The page's scripts, in the order they run. A list rather than live
+     tags: the loader below runs them one at a time so the loading bar can be
+     redrawn between steps -- with plain tags the browser runs them back to
+     back and paints nothing until the whole graph is built. The regression
+     suite reads this same list to load the page, so there is one order. -->
+<template id="boot-scripts">
 <script src="d3.min.js"></script>
 <script src="data.js"></script>
 <script src="llm_families_data.js"></script>
-<script>
-  // Synchronously seed window.LLM_FAMILIES (deliberately blocking — this is
-  // a same-machine request to serve.py, sub-millisecond) so it's ready
-  // before app.js builds its node/link indexes below. If serve.py's
-  // /api/llm-families route is reachable, that's the live, writable source
-  // of truth. Otherwise (still on file://, or a plain `python3 -m
-  // http.server` with no /api routes) fall back to llm_families_data.js —
-  // the `<script>`-loadable mirror serve.py regenerates on every write —
-  // loaded just above, so a plain double-clicked index.html shows the exact
-  // same confirmed generations as the live session that produced them. Only
-  // the live XHR path can check new cars or record new decisions; the
-  // static fallback is read-only (serverAvailable stays false), which is
-  // exactly what gates the interactive controls in llm_families.js.
-  (function () {
-    try {
-      var xhr = new XMLHttpRequest();
-      xhr.open("GET", "/api/llm-families", false);
-      xhr.send(null);
-      if (xhr.status === 200) {
-        var data = JSON.parse(xhr.responseText);
-        data.__serverAvailable = true;
-        window.LLM_FAMILIES = data;
-        return;
-      }
-    } catch (e) { /* file://, or no serve.py — fall through to the static mirror */ }
-    window.LLM_FAMILIES = Object.assign(
-      { families: {} }, window.LLM_FAMILIES_STATIC, { __serverAvailable: false }
-    );
-  })();
-</script>
 <script src="llm_families.js"></script>
 <script src="app.js"></script>
 <script src="timeline.js"></script>
 <script src="sixdeg.js"></script>
-<script>CarWeb.boot();</script>
+</template>
+<script>
+  // ---------- loading, with a bar ----------
+  // Real user request: "Is there a way to add a progress bar when I refresh
+  // the page, since it still takes a while due to the large number of
+  // nodes... preferably with a percentage or progress bar."
+  //
+  // Measured in a real browser on the graph after the overnight run: the
+  // downloads are well under a second; nearly all of the wait is app.js
+  // building the graph, in one uninterrupted piece of JavaScript during which
+  // the page cannot redraw anything at all. So:
+  //   - each script is its own step, with a frame drawn between steps, so
+  //     the label and percentage are current whenever the page CAN draw;
+  //   - a long step animates the bar toward its end over how long that step
+  //     took last time (remembered in this browser), by transform, which the
+  //     compositor keeps moving while JavaScript is busy. The percentage text
+  //     updates at step boundaries -- text needs the page, the bar does not.
+  //   - the LLM layer is asked of serve.py first, and the 5.7 MB static
+  //     mirror is only loaded when serve.py is not there to ask (file://,
+  //     the hosted site). It used to be loaded every time and thrown away.
+  //   - it says which step failed, and stays up, if one does.
+  // window.__carwebReady is set once the graph is drawn: the page no longer
+  // finishes loading at DOMContentLoaded, so anything driving it (the agent,
+  // the QA scripts) waits on that instead.
+  (function () {
+    var root = document.getElementById("bootloader");
+    var bar = root.querySelector(".bl-bar");
+    var stepEl = root.querySelector(".bl-step");
+    var pctEl = root.querySelector(".bl-pct");
+    var srcs = [];
+    var tpl = document.getElementById("boot-scripts");
+    var holder = tpl.content || tpl;
+    Array.prototype.forEach.call(holder.querySelectorAll("script[src]"), function (el) {
+      srcs.push(el.getAttribute("src"));
+    });
+
+    function remembered(key, fallback) {
+      try { var v = +localStorage.getItem("carweb.boot." + key); return v > 0 ? v : fallback; }
+      catch (e) { return fallback; }
+    }
+    function remember(key, ms) {
+      try { localStorage.setItem("carweb.boot." + key, String(Math.round(ms))); } catch (e) {}
+    }
+    // `animateMs`: glide there over that long instead of stepping. The text
+    // cannot move with it -- nothing but the compositor draws while the graph
+    // is being built -- so during a glide the number is replaced by how long
+    // this step took last time, rather than showing where the bar is headed.
+    function show(frac, label, animateMs, guessed) {
+      var pct = Math.max(0, Math.min(100, Math.round(frac * 100)));
+      bar.style.transition = animateMs ? "transform " + animateMs + "ms cubic-bezier(.2,.6,.4,1)" : "transform .2s ease-out";
+      bar.style.transform = "scaleX(" + Math.max(0, Math.min(1, frac)) + ")";
+      if (label) stepEl.textContent = label;
+      if (animateMs) {
+        // The very first load has nothing to go on, and says so.
+        var secs = Math.max(1, Math.round(animateMs / 1000));
+        pctEl.textContent = guessed ? "…" : "about " + secs + " s";
+      } else {
+        pctEl.textContent = pct + "%";
+      }
+      root.setAttribute("aria-valuenow", String(pct));
+    }
+    // Two frames: the first is where the change is committed, the second is
+    // after it has actually been put on screen.
+    function painted() {
+      return new Promise(function (r) { requestAnimationFrame(function () { requestAnimationFrame(r); }); });
+    }
+    function loadScript(src) {
+      return new Promise(function (resolve, reject) {
+        var el = document.createElement("script");
+        el.src = src; el.async = false;
+        el.onload = function () { resolve(); };
+        el.onerror = function () { reject(new Error("could not load " + src)); };
+        document.body.appendChild(el);
+      });
+    }
+    // serve.py's live, writable copy of the LLM layer; the static mirror only
+    // when it is not there. Same decision as before, now made BEFORE the
+    // mirror is fetched rather than after.
+    function loadLlmLayer() {
+      return new Promise(function (resolve) {
+        var xhr;
+        try {
+          xhr = new XMLHttpRequest();
+          xhr.open("GET", "/api/llm-families", true);
+        } catch (e) { xhr = null; }
+        var fallBack = function () {
+          loadScript("llm_families_data.js").then(function () {
+            window.LLM_FAMILIES = Object.assign(
+              { families: {} }, window.LLM_FAMILIES_STATIC, { __serverAvailable: false });
+            resolve();
+          }, function () {
+            window.LLM_FAMILIES = { families: {}, __serverAvailable: false };
+            resolve();
+          });
+        };
+        if (!xhr) return fallBack();
+        xhr.onload = function () {
+          if (xhr.status === 200) {
+            try {
+              var data = JSON.parse(xhr.responseText);
+              data.__serverAvailable = true;
+              window.LLM_FAMILIES = data;
+              return resolve();
+            } catch (e) { /* not JSON: not serve.py */ }
+          }
+          fallBack();
+        };
+        xhr.onerror = fallBack;
+        try { xhr.send(null); } catch (e) { fallBack(); }
+      });
+    }
+
+    // Weights: roughly how much of the wait each step is, measured. The long
+    // steps get their own animation; the short ones just move the bar.
+    var LABELS = {
+      "d3.min.js": "Loading the drawing library…",
+      "data.js": "Loading the cars…",
+      "llm_families_data.js": "Loading the LLM results…",
+      "llm_families.js": "Loading the LLM layer…",
+      "app.js": "Building the graph…",
+      "timeline.js": "Loading the timeline…",
+      "sixdeg.js": "Loading six degrees…",
+    };
+    var WEIGHT = { "d3.min.js": 3, "data.js": 3, "llm_families_data.js": 4, "llm_families.js": 1,
+                   "app.js": 78, "timeline.js": 1, "sixdeg.js": 1 };
+    var BOOT_WEIGHT = 9, LONG = { "app.js": true };
+    var total = BOOT_WEIGHT;
+    srcs.forEach(function (s) { total += WEIGHT[s] || 1; });
+
+    var done = 0;
+    function failed(where, err) {
+      root.classList.add("failed");
+      stepEl.textContent = "Stopped while " + where.toLowerCase().replace(/…$/, "") +
+                           " — " + (err && err.message ? err.message : err);
+      console.error("CarWeb: loading failed while " + where, err);
+    }
+
+    (async function () {
+      show(0, "Starting…");
+      await painted();
+      for (var i = 0; i < srcs.length; i++) {
+        var src = srcs[i];
+        var label = LABELS[src] || ("Loading " + src + "…");
+        var w = WEIGHT[src] || 1;
+        var t0 = performance.now();
+        // A long step: head for 95% of its share over the time it took last
+        // time, and let the compositor carry the bar there while this page
+        // is too busy to draw anything else.
+        if (LONG[src]) {
+          show(done / total, label);
+          await painted();
+          var est = remembered(src, 0);
+          show((done + w * 0.95) / total, null, est || 6000, !est);
+          await painted();
+        } else {
+          show(done / total, label);
+          await painted();
+        }
+        try {
+          if (src === "llm_families_data.js") await loadLlmLayer();
+          else await loadScript(src);
+        } catch (e) { failed(label, e); return; }
+        if (LONG[src]) remember(src, performance.now() - t0);
+        done += w;
+        show(done / total);
+      }
+      show(done / total, "Laying out and drawing…");
+      await painted();
+      var tb = performance.now();
+      try { CarWeb.boot(); } catch (e) { failed("Laying out and drawing…", e); return; }
+      remember("boot", performance.now() - tb);
+      show(1, "Ready");
+      await painted();
+      window.__carwebReady = true;
+      try { window.dispatchEvent(new Event("carweb:ready")); } catch (e) {}
+      root.classList.add("done");
+      setTimeout(function () { if (root.parentNode) root.parentNode.removeChild(root); }, 450);
+    })();
+  })();
+</script>
 </body>
 </html>

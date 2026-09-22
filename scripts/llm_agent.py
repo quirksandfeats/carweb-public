@@ -538,7 +538,12 @@ def _run_pass_in(browser, targets, budget_seconds, per_node_seconds,
         # "agent" first and that happens below, after the page has loaded. See
         # llm_families.js's jobsAllowed.
         page.goto(f"http://localhost:{PORT}/index.html?agent=1", wait_until="domcontentloaded", timeout=60000)
-        page.wait_for_timeout(3000)
+        # The page loads its scripts one at a time behind a progress bar now,
+        # so DOMContentLoaded is the START of loading, not the end. It says
+        # when the graph is actually built and drawn. Generous: a big graph on
+        # a busy machine takes a while, and giving up early is a failed run.
+        page.wait_for_function("() => window.__carwebReady === true", timeout=300000)
+        page.wait_for_timeout(500)
 
         if not page.evaluate("() => !!(window.LlmFamilies && window.LlmFamilies.serverAvailable)"):
             # run_pass's finally closes the browser on every exit, this one

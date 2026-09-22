@@ -2559,9 +2559,90 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
 
   // ---------- name -> person-node matching (mirrors data_src/build_data.py's slug()/norm()) ----------
   const COMBINING_MARKS_RE = new RegExp("[\\u0300-\\u036f]", "g");
+  // Remembered, because it is asked the same question millions of times.
+  // Measured on the graph after the overnight run: 14.5 of the 37 seconds a
+  // page load spent building the graph were this one function, re-deriving
+  // the same few thousand car labels over and over -- every related-car
+  // mention replayed at boot compares itself against every node's name.
+  // Pure (same text in, same text out), so a cache cannot change an answer.
+  // Bounded, and simply dropped when full rather than managed: a fresh start
+  // costs one pass over the labels.
+  const NORM_CACHE_MAX = 200000;
+  const normCache = new Map();
+  // A node's normalised names, kept on the node and recomputed only when its
+  // make or label actually changes (a rename). findMatchingNameplate compares
+  // a mention against every node, once per mention replayed at boot; this is
+  // what makes each of those comparisons a string compare rather than a
+  // string build, a cache lookup and a regex. Not enumerable, so it never
+  // leaks into anything that serialises a node.
+  function nameKeysOf(n) {
+    let c = n.__nameKeys;
+    if (!c || c.m !== n.make || c.l !== n.label) {
+      c = { m: n.make, l: n.label, full: norm(`${n.make} ${n.label}`), bare: norm(n.label),
+            make: norm(n.make) };
+      if (Object.prototype.hasOwnProperty.call(n, "__nameKeys")) n.__nameKeys = c;
+      else Object.defineProperty(n, "__nameKeys", { value: c, writable: true, configurable: true, enumerable: false });
+    }
+    return c;
+  }
+  // nodes.find(n => n.id === id), without the scan. The graph's node array is
+  // only ever appended to -- nothing is spliced out; a deleted car is marked
+  // retired -- so the index grows with it and stays exact. The first node
+  // with an id wins, exactly as find() would answer.
+  const nodeIndexes = new WeakMap();
+  function nodeWithId(nodes, id) {
+    let ix = nodeIndexes.get(nodes);
+    if (!ix) { ix = { len: 0, map: new Map() }; nodeIndexes.set(nodes, ix); }
+    if (ix.len > nodes.length || (ix.len && nodes[ix.len - 1] !== ix.last)) {
+      ix.len = 0; ix.map = new Map();   // not the array it was: start again
+    }
+    for (; ix.len < nodes.length; ix.len++) {
+      const n = nodes[ix.len];
+      if (n && !ix.map.has(n.id)) ix.map.set(n.id, n);
+    }
+    ix.last = nodes.length ? nodes[nodes.length - 1] : null;
+    const hit = ix.map.get(id);
+    // Belt and braces for a caller that edits an id in place.
+    return hit && hit.id === id ? hit : nodes.find(n => n.id === id);
+  }
+  // "Is there already a link of this type between these two?" without a
+  // scan of every link. Unlike nodes, links ARE spliced (app.js drops
+  // unresolvable ones), so the index checks that the array still ends where
+  // it did and starts again if not; and a hit is re-verified against the
+  // link's CURRENT endpoints, so a link re-pointed since can never answer
+  // for the pair it used to join. Only the engine layer re-points links in
+  // place, never a platform one -- which is what this is asked about.
+  const linkIndexes = new WeakMap();
+  function linkPairKey(type, a, b) { return type + "|" + (a < b ? a + "|" + b : b + "|" + a); }
+  function endId(v) { return typeof v === "string" ? v : (v && v.id); }
+  function hasLinkBetween(links, type, a, b) {
+    let ix = linkIndexes.get(links);
+    if (!ix || ix.len > links.length || (ix.len && links[ix.len - 1] !== ix.last)) {
+      ix = { len: 0, last: null, map: new Map() };
+      linkIndexes.set(links, ix);
+    }
+    for (; ix.len < links.length; ix.len++) {
+      const l = links[ix.len];
+      if (!l) continue;
+      const k = linkPairKey(l.type, endId(l.source), endId(l.target));
+      let arr = ix.map.get(k);
+      if (!arr) { arr = []; ix.map.set(k, arr); }
+      arr.push(l);
+    }
+    ix.last = links.length ? links[links.length - 1] : null;
+    const cands = ix.map.get(linkPairKey(type, a, b));
+    return !!cands && cands.some(l => l.type === type &&
+      ((endId(l.source) === a && endId(l.target) === b) || (endId(l.source) === b && endId(l.target) === a)));
+  }
   function norm(s) {
-    return String(s).normalize("NFKD").replace(COMBINING_MARKS_RE, "")
+    const str = String(s);
+    let v = normCache.get(str);
+    if (v !== undefined) return v;
+    v = str.normalize("NFKD").replace(COMBINING_MARKS_RE, "")
       .toLowerCase().replace(/[^a-z0-9]+/g, "");
+    if (normCache.size >= NORM_CACHE_MAX) normCache.clear();
+    normCache.set(str, v);
+    return v;
   }
   function slugify(s) {
     let t = String(s).normalize("NFKD").replace(COMBINING_MARKS_RE, "").toLowerCase().replace(/ß/g, "ss");
@@ -2697,11 +2778,11 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
     const makeKey = norm(make);
     const nameKey = norm(nameplateLabel);
     if (!key || !makeKey) return null;
-    const eligible = n => n.type === "model" && !n.retired && n.id !== famId && n.familyOf !== famId && norm(n.make) === makeKey;
+    const eligible = n => n.type === "model" && !n.retired && n.id !== famId && n.familyOf !== famId && nameKeysOf(n).make === makeKey;
     // Tier 1: the node's own whole label is an exact match -- a genuinely
     // standalone car whose label IS just the bare code (or happens to equal
     // it exactly), the highest-confidence case.
-    for (const n of nodes) { if (eligible(n) && norm(n.label) === key) return n; }
+    for (const n of nodes) { if (eligible(n) && nameKeysOf(n).bare === key) return n; }
     // Tier 2: a combined-designation label ("R107 and C107") names this
     // code as one of its distinct parts -- see this function's own comment
     // above for the real bug report this fixes.
@@ -2855,7 +2936,8 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
       n.id !== excludeFamId && n.familyOf !== excludeFamId;
     for (const n of nodes) {
       if (!eligible(n)) continue;
-      if (norm(`${n.make} ${n.label}`) === key || norm(n.label) === key) return { node: n, loose: false };
+      const nk = nameKeysOf(n);
+      if (nk.full === key || nk.bare === key) return { node: n, loose: false };
     }
     // Real user report: "There are some instances where there now exists a
     // duplicate of a car, model, generation, etc. For example, there currently
@@ -2884,8 +2966,11 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
     // node's bare label, e.g. "the Toyota GT86 (badged as the Scion FR-S in
     // some markets)" containing "GT86" -- only accepted when exactly one
     // node matches this way, never on a guess between several.
-    let loose = nodes.filter(n => eligible(n) && norm(n.label).length > 2 &&
-      (key.includes(norm(n.label)) || norm(n.label).includes(key)));
+    let loose = nodes.filter(n => {
+      if (!eligible(n)) return false;
+      const b = nameKeysOf(n).bare;
+      return b.length > 2 && (key.includes(b) || b.includes(key));
+    });
     // Real bug report: a mention like "Toyota Corolla (E140/E150)" loosely
     // matched BOTH the specific generation node "Corolla (E140)" (already
     // in the graph) AND its own parent family node "Corolla" (whose bare
@@ -4354,7 +4439,7 @@ Rules:
       // deterministic guess (which may have found nothing, or found the
       // wrong/coarser thing), since this is exactly the case a formatting
       // mismatch would otherwise fall through on.
-      const node = nodes.find(n => n.id === sanity.matchId);
+      const node = nodeWithId(nodes, sanity.matchId);
       if (node) found = { node, loose: true, llmVerified: true, verifyReason: sanity.reason, verifyConfidence: sanity.confidence };
       // else: matched id no longer resolves to a real node -- stay safe,
       // keep whatever the deterministic matcher already found (or null).
@@ -4421,7 +4506,9 @@ Rules:
     // a family, already checked, or already a generation of something else.
     schedulePartnerCheck(match, nodes, famId);
     if (match.type === "family" && match.generations && match.generations.length >= 2) {
-      const byIdLocal = new Map(nodes.map(n => [n.id, n]));
+      // Looked up, not rebuilt: a fresh map of every node per mention was
+      // most of what this function cost at boot. See nodeWithId.
+      const byIdLocal = { get: id => nodeWithId(nodes, id) };
       // Try the strong signal first: an explicit chassis/generation code
       // named right alongside this nameplate's mention in the source text
       // (see extractExplicitGenCode's own comment for the exact bug report
@@ -4562,8 +4649,7 @@ Rules:
         // either one keeps this coarse fallback from quietly reappearing.
         const coarseKey = relKey(famId, match.id, "platform");
         if (store.rejectedRelations[coarseKey]) return;
-        const already = links.some(l => l.type === "platform" &&
-          ((idOf(l.source) === famId && idOf(l.target) === match.id) || (idOf(l.source) === match.id && idOf(l.target) === famId)));
+        const already = hasLinkBetween(links, "platform", famId, match.id);
         // note carries the original mention text forward onto the coarse
         // link -- app.js's unresolvedFamilyRelations reads it straight back
         // off as the interactive disambiguation flow's "note" (see its own
@@ -6518,6 +6604,23 @@ Rules:
     // once -- 62 links appearing from a single Yes click, which is how this
     // surfaced. Guard just the resolution loop instead, and always run the
     // rollup.
+    // Both questions this loop asks of every confirmed relation -- "is its
+    // resolved link already here?" and "which original connection does it
+    // supersede?" -- used to be a scan of every link, twice per relation:
+    // 2,900 relations x 32,000 links after the overnight run, three of the
+    // 37 seconds a page load took. Indexed once instead. Same answers: the
+    // original is the FIRST matching link in array order, exactly as find()
+    // returned, and links this loop adds are resolved ones, which are never
+    // candidates for "original".
+    const resolvedSeen = new Set();
+    const firstOriginal = new Map();
+    const pairOf = (type, a, b) => type + "|" + (a < b ? a + "|" + b : b + "|" + a);
+    for (const l of links) {
+      if (l.llmResolvedKey) resolvedSeen.add(l.type + "|" + l.llmResolvedKey);
+      if (l.llmResolved) continue;
+      const k = pairOf(l.type, idOf(l.source), idOf(l.target));
+      if (!firstOriginal.has(k)) firstOriginal.set(k, l);
+    }
     Object.keys(store.relations || {}).forEach(key => {
       const entry = store.relations[key];
       if (entry.status !== "confirmed") return;
@@ -6525,16 +6628,16 @@ Rules:
       const genB = followSuperseded(byId, byId.get(entry.genIdB));
       const famA = byId.get(entry.famA), famB = byId.get(entry.famB);
       if (!genA || !genB || !famA || !famB) return;
-      const already = links.some(l => l.type === entry.relType && l.llmResolvedKey === key);
+      const already = resolvedSeen.has(entry.relType + "|" + key);
       if (!already) {
         links.push({ source: genA.id, target: genB.id, type: entry.relType, llmResolved: true, llmResolvedKey: key });
+        resolvedSeen.add(entry.relType + "|" + key);
       }
       // Find the original family<->family (or family<->model) connection
       // this resolution supersedes and tag it (idempotent -- setting the
       // same fields again on a later boot is harmless). Excludes the
       // newly-resolved link itself via llmResolved, not array position.
-      const orig = links.find(l => l.type === entry.relType && !l.llmResolved &&
-        ((idOf(l.source) === famA.id && idOf(l.target) === famB.id) || (idOf(l.source) === famB.id && idOf(l.target) === famA.id)));
+      const orig = firstOriginal.get(pairOf(entry.relType, famA.id, famB.id)) || null;
       if (orig) {
         const s = idOf(orig.source), t = idOf(orig.target);
         // Only ever tag mirrorSourceFam/mirrorTargetFam for a side that's a
@@ -10064,13 +10167,14 @@ Rules:
   function applyEngineMentions(nodes, links) {
     const byId = new Map(nodes.map(n => [n.id, n]));
     let engines = 0, fitted = 0;
+    const shared = {};   // see recordEngineMentionsFrom
     const replay = (carId, hits) => {
       const car = byId.get(carId);
       if (!car || car.retired || !hits || !hits.length) return;
       // No revive: a boot replay is not a deliberate read, and undoing the
       // user's delete on every page load would make it impossible to delete
       // an engine at all.
-      const r = recordEngineMentionsFrom(hits, car, nodes, links);
+      const r = recordEngineMentionsFrom(hits, car, nodes, links, { shared });
       engines += r.engines; fitted += r.fitted;
       r.added.forEach(n => byId.set(n.id, n));
     };
@@ -10752,10 +10856,23 @@ Rules:
   }
   const POWERTRAIN_LINK_TYPES = new Set(["fitted", "enginegen", "enginesucc"]);
   function recordEngineMentionsFrom(mentions, carNode, nodes, links, opts) {
-    rememberMakeNames(nodes);
+    // `opts.shared`: one set of indexes reused across a whole replay instead
+    // of rebuilt per car. Measured after the overnight run: the boot replay
+    // called this ~1,900 times and each call re-indexed all 12,000 nodes and
+    // 32,000 links from scratch -- 7 of the 37 seconds a page load took.
+    // Reused only while it is exact: this call's own additions go into it as
+    // they are made, and a call that added an engine (which can run the
+    // duplicate merge, which re-points existing links) drops it, so the next
+    // call rebuilds.
+    const shared = opts && opts.shared;
+    if (!shared || !shared.makesKnown) {
+      rememberMakeNames(nodes);
+      if (shared) shared.makesKnown = true;
+    }
     if (!carNode) return { engines: 0, fitted: 0, revived: 0, deleted: 0, added: [] };
     if (!mentions || !mentions.length) return { engines: 0, fitted: 0, revived: 0, deleted: 0, added: [] };
-    const byId = new Map(nodes.map(n => [n.id, n]));
+    const reuse = !!(shared && shared.byId && shared.linkKey);
+    const byId = reuse ? shared.byId : new Map(nodes.map(n => [n.id, n]));
     // A car can run SEVERAL engines off one article, and they are not the
     // same engine. The 1960 Chevrolet Suburban's infobox names three
     // Turbo-Thrifts -- 230, 250 and 292 cu in -- all linking
@@ -10769,13 +10886,16 @@ Rules:
     const engineVariantPart = l => "|" + [norm(l.variantHint || ""),
       norm((l.saidSpecs || {}).displacement || ""),
       norm((l.saidSpecs || {}).fuel || "")].join("|");
-    const linkKey = new Set();
-    for (const l of links) {
-      const s0 = typeof l.source === "string" ? l.source : l.source && l.source.id;
-      const t0 = typeof l.target === "string" ? l.target : l.target && l.target.id;
-      const extra = l.type === "fitted" ? engineVariantPart(l) : "";
-      linkKey.add(s0 + "|" + t0 + "|" + l.type + extra);
-      linkKey.add(t0 + "|" + s0 + "|" + l.type + extra);
+    const linkKey = reuse ? shared.linkKey : new Set();
+    if (!reuse) {
+      for (const l of links) {
+        const s0 = typeof l.source === "string" ? l.source : l.source && l.source.id;
+        const t0 = typeof l.target === "string" ? l.target : l.target && l.target.id;
+        const extra = l.type === "fitted" ? engineVariantPart(l) : "";
+        linkKey.add(s0 + "|" + t0 + "|" + l.type + extra);
+        linkKey.add(t0 + "|" + s0 + "|" + l.type + extra);
+      }
+      if (shared) { shared.byId = byId; shared.linkKey = linkKey; }
     }
     let engines = 0, fitted = 0, revived = 0, deleted = 0;
     const revive = !!(opts && opts.revive);
@@ -10850,8 +10970,12 @@ Rules:
     // than as a separate chore: a node that turns out to be the same engine as
     // one already here folds in immediately, instead of sitting beside it.
     if (added.length) {
-      try { autoMergeDuplicateEngines(nodes, links); }
+      let merged = 1;   // unknown counts as "something moved"
+      try { merged = autoMergeDuplicateEngines(nodes, links).merged; }
       catch (e) { console.warn("LlmFamilies: engine duplicate check failed", e); }
+      // A merge re-points links the shared index was keyed on. No merge, and
+      // the index is still exact: this call's own additions are already in it.
+      if (shared && merged) { shared.byId = null; shared.linkKey = null; }
     }
     return { engines, fitted, revived, deleted, mentions, added };
   }

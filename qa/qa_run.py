@@ -18,7 +18,7 @@ with sync_playwright() as p:
     pg.on("pageerror", lambda e: errs.append(str(e)))
     pg.on("console", lambda m: errs.append(m.text) if m.type == "error" and "ERR_" not in m.text and "Failed to load resource" not in m.text else None)
     pg.goto(BASE, wait_until="domcontentloaded", timeout=20000)
-    pg.wait_for_timeout(2600)
+    pg.wait_for_function("() => window.__carwebReady === true", timeout=180000)  # see index.html\'s loader
 
     # ---------- data sanity in page ----------
     sanity = pg.evaluate("""() => {

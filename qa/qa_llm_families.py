@@ -65,7 +65,7 @@ with sync_playwright() as p:
     pg.on("console", lambda m: errs.append(m.text) if m.type == "error"
           and "ERR_" not in m.text and "Failed to load resource" not in m.text else None)
     pg.goto(BASE, wait_until="domcontentloaded", timeout=20000)
-    pg.wait_for_timeout(2600)
+    pg.wait_for_function("() => window.__carwebReady === true", timeout=180000)  # see index.html\'s loader
 
     avail = pg.evaluate("() => window.LlmFamilies && window.LlmFamilies.serverAvailable")
     check("served via serve.py, LlmFamilies sees the server as available", avail is True)
@@ -118,7 +118,8 @@ with sync_playwright() as p:
 
     # ---------- retry flow ----------
     reset_file()
-    pg.reload(wait_until="domcontentloaded"); pg.wait_for_timeout(2200)
+    pg.reload(wait_until="domcontentloaded")
+    pg.wait_for_function("() => window.__carwebReady === true", timeout=180000)
     # the toggle's on/off state persists across reloads via localStorage —
     # it's already on from earlier in this run, so don't re-click (that would
     # just flip it back off).
