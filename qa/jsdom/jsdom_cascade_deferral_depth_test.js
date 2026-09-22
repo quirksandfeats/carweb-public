@@ -47,7 +47,22 @@ for (const f of [...html.matchAll(/<script src="([^"]+)"><\/script>/g)].map(m =>
     // The partner, and the car that owns its article
     D.nodes.push({ id: "m-t-acadian", type: "model", label: "Acadian", make: "Chevrolet", wp: "Testmobile Chevette", year: 1976 });
     D.nodes.push({ id: "m-t-chevette", type: "model", label: "Chevette", make: "Testmobile", wp: "Testmobile Chevette", year: 1975 });
-    window.LLM_FAMILIES = { families: {}, relations: {}, recheck: {}, settings: { cascadeMaxDepth: 1 }, __serverAvailable: true };
+    // A car nobody asked about, which names a car that was never checked
+    D.nodes.push({ id: "m-t-faraway", type: "model", label: "Faraway", make: "Chevrolet", wp: "Chevrolet Faraway", year: 1960 });
+    D.nodes.push({ id: "m-t-unchecked", type: "model", label: "Unchecked", make: "Chevrolet", wp: "Chevrolet Unchecked", year: 1961 });
+    D.nodes.push({ id: "m-t-unchecked2", type: "model", label: "Unchecked Two", make: "Chevrolet", wp: "Chevrolet Unchecked Two", year: 1962 });
+    D.nodes.push({ id: "fam-t-plate", type: "family", label: "Plate", make: "Chevrolet", wp: "Chevrolet Plate", year: 1990, generations: ["g-t-plate-1"] });
+    D.nodes.push({ id: "g-t-plate-1", type: "model", label: "Plate Mk1", make: "Chevrolet", familyOf: "fam-t-plate", wp: "Chevrolet Plate", year: 1990 });
+    D.nodes.push({ id: "m-t-deferrer", type: "model", label: "No. 4", make: "Chevrolet", wp: "Chevrolet No. 4", year: 2021 });
+    const now = new Date().toISOString();
+    window.LLM_FAMILIES = { families: {
+        // "DS No. 4" -> "DS N°4": the car it defers to is minted later in
+        // boot, from the proposal that named it, and has a confirmed entry.
+        "m-t-deferrer": { status: "same-article", checkedAt: now, sourceTitle: "Chevrolet No. 4",
+                          sameAs: "llm-related-t-ghost", sameAsLabel: "Chevrolet N°4", attempts: 1 },
+        "llm-related-t-ghost": { status: "confirmed", checkedAt: now, sourceTitle: "Chevrolet No. 4",
+                                 proposal: { hasMultipleGenerations: false, generations: [] } },
+      }, relations: {}, recheck: {}, settings: { cascadeMaxDepth: 1 }, __serverAvailable: true };
   }
   window.eval(fs.readFileSync(path.join(APP, f), "utf-8"));
 }
@@ -55,6 +70,9 @@ const cw = window.CarWeb; cw.boot();
 const LF = window.LlmFamilies;
 
 (async () => {
+  check("a deferral to a car minted later in boot, which holds a reading, is kept",
+        (LF.entryFor("m-t-deferrer") || {}).status === "same-article", JSON.stringify(LF.entryFor("m-t-deferrer")));
+  check("...and is not put back on the resume list", !LF.pendingWork().saved, LF.pendingWork().saved);
   check("a car started on behalf of another is one hop further out",
         LF.placeInCascade("m-t-acadian", "m-t-clicked") === 1, LF.cascadeDepthOf("m-t-acadian"));
   check("...and a distance once given is kept", LF.placeInCascade("m-t-acadian", "m-t-chevette") === 1);
@@ -66,6 +84,25 @@ const LF = window.LlmFamilies;
         LF.cascadeDepthOf("m-t-chevette") === 1, LF.cascadeDepthOf("m-t-chevette"));
   check("...so, at depth 1, the owner's own partners are not followed",
         !LF.cascadeAllowedFrom("m-t-chevette"));
+
+  // ---------- a replay of someone else's stored mentions ----------
+  // The second half of the same report: after a check lands, the page
+  // replays every platform mention in the graph, and each one naming a car
+  // with no entry scheduled it -- from origins nobody engaged.
+  LF.setBackgroundAllowed(true);
+  LF.setEngaged("m-t-clicked");
+  const before = LF.pendingWork().partners.length;
+  LF.schedulePartnerCheck(cw.byId.get("m-t-unchecked"), cw.nodes, "m-t-faraway");
+  check("a mention replayed from a car outside the cascade schedules nothing",
+        LF.pendingWork().partners.length === before && !LF.pendingWork().checks.includes("m-t-unchecked"),
+        JSON.stringify(LF.pendingWork()));
+  check("...so the car it names is still at no distance", LF.cascadeDepthIn("m-t-unchecked", cw.nodes) === null);
+  LF.setEngaged("g-t-plate-1");
+  check("a nameplate counts as engaged when one of its generations is open",
+        LF.cascadeDepthIn("fam-t-plate", cw.nodes) === 0);
+  LF.schedulePartnerCheck(cw.byId.get("m-t-unchecked2"), cw.nodes, "fam-t-plate");
+  check("...and its own mentions are still followed", LF.cascadeDepthOf("m-t-unchecked2") === 1,
+        LF.cascadeDepthIn("m-t-unchecked2", cw.nodes));
 
   console.log(fails ? `\n${fails} FAILED` : "\nALL GREEN");
   process.exit(fails ? 1 : 0);

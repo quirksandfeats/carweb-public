@@ -220,7 +220,7 @@ function run(cascadeMaxDepth) {
   const src = require("fs").readFileSync(
     require("path").resolve(__dirname, "..", "..", "app", "llm_families.js"), "utf-8");
   check("a newly-created car's distance is measured from the car whose check found it",
-    /depthOf\(originId \|\| engagedId\) \+ 1/.test(src));
+    /cascadeDepthIn\(originId \|\| engagedId, nodes\)/.test(src) && /: fromDepth \+ 1;/.test(src));
   check("...and the discovering car is actually passed in, not assumed",
     /mintRelatedNode\(nodes, links, mentionText, makeVariant, famId\)/.test(src) &&
     /scheduleWpLookupAndCheck\(modelNode, nodes, originId\)/.test(src));

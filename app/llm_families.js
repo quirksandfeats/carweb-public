@@ -359,6 +359,19 @@ window.LlmFamilies = (function () {
   // Would a partner discovered from `originId` be within the limit? Exposed so
   // app.js's own relation-panel cascade honours the same budget rather than
   // keeping a second, separately-drifting rule.
+  // The distance of a car that is part of this session's cascade, or null
+  // when it is not part of one. A nameplate and its own generations are one
+  // car for this: opening a generation engages the generation, while its
+  // mentions are resolved against the nameplate.
+  function cascadeDepthIn(id, nodes) {
+    if (!id) return null;
+    if (cascadeDepth.has(id)) return cascadeDepth.get(id);
+    const n = Array.isArray(nodes) ? nodes.find(x => x && x.id === id) : null;
+    if (!n) return null;
+    if (n.familyOf && cascadeDepth.has(n.familyOf)) return cascadeDepth.get(n.familyOf);
+    const gens = (n.generations || []).filter(g => cascadeDepth.has(g)).map(g => cascadeDepth.get(g));
+    return gens.length ? Math.min(...gens) : null;
+  }
   function cascadeAllowedFrom(originId) { return depthOf(originId) + 1 <= cascadeMaxDepth; }
   // A check started on someone else's behalf is at a known distance, and
   // has to be told so before it starts: a car with no recorded distance
@@ -2435,7 +2448,15 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
       // A nameplate never defers (see sameArticleOwner); one that did is
       // cleared so its next check reads its own page.
       const selfIsNameplate = !!self && self.type === "family";
-      if (!selfIsNameplate && holdsReading(byIdLocal.get(e.sameAs))) continue;
+      // A car the LLM minted is not in the graph yet when this runs at boot
+      // (it is minted later, from the proposal that named it), so it is
+      // judged by its stored entry instead. Real case: "DS No. 4" deferred to
+      // the confirmed "DS N°4", looked unread at every boot, was cleared and
+      // put back on the resume list -- and every run "resumed" that one car.
+      const target = byIdLocal.get(e.sameAs);
+      const targetHolds = target ? holdsReading(target)
+        : READING_STATUSES.has((entryFor(e.sameAs) || {}).status);
+      if (!selfIsNameplate && targetHolds) continue;
       delete store.families[id];
       // Back on the cascade's list, so the next pass actually reads it.
       if (!store.pendingCascade[id]) {
@@ -3602,9 +3623,13 @@ Rules:
     // A car that already has a depth (schedulePartnerCheck assigns one before
     // routing here for a partner with no article link yet) keeps it -- only a
     // genuinely new car needs one derived.
+    // Same rule as schedulePartnerCheck: minted while replaying some other
+    // car's stored mentions is not part of this cascade.
+    const fromDepth = cascadeDepthIn(originId || engagedId, nodes);
+    if (!cascadeDepth.has(node.id) && fromDepth == null) return;
     const mintedDepth = cascadeDepth.has(node.id)
       ? cascadeDepth.get(node.id)
-      : depthOf(originId || engagedId) + 1;
+      : fromDepth + 1;
     if (mintedDepth > cascadeMaxDepth) return;
     // Its article is already known (found by an earlier session): nothing to
     // look up, so go straight to the check. This used to RETURN for any car
@@ -3725,7 +3750,16 @@ Rules:
     // The depth budget (see cascadeMaxDepth's own comment). Without this,
     // applying a partner's split re-enters this same function for ITS
     // partners, and one click walks the graph indefinitely.
-    const depth = depthOf(originId) + 1;
+    // Only from a car that is actually part of a cascade this session. Real
+    // report: one C-Class request queued over a hundred unrelated cars.
+    // After a check lands, the page replays every stored platform mention in
+    // the graph (applySharedPlatformForSingleGen and friends); with LLM work
+    // now allowed, each mention of a car with no entry scheduled it -- from
+    // the Peugeot 206, the Pontiac Solstice, the FSO Warszawa -- and an origin
+    // with no recorded distance counted as depth 0, so all of them passed.
+    const from = cascadeDepthIn(originId, nodes);
+    if (from == null) return;
+    const depth = from + 1;
     if (depth > cascadeMaxDepth) return;
     cascadeDepth.set(node.id, depth);
     queuePartnerCheck(node, nodes, depth, originId);
@@ -13077,6 +13111,7 @@ Rules:
     additiveRecheck, diffGenerationCodes,
     resolvePendingOwnGenerations, ownGenerationCode, sameArticleOwner,
     placeInCascade, cascadeDepthOf: id => depthOf(id),
+    schedulePartnerCheck, cascadeDepthIn,
     indexSectionEngine, isGenericIndexSection, generationNodeLabel, looksLikeCodeLink,
     relabelMisnamedEngines, engineArticleKey,
     // The section-reading half of the generation-article lookup, exposed so
