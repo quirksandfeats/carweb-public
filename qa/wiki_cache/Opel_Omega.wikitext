@@ -1,0 +1,75 @@
+<!-- TRIMMED fixture: the real article's headings and infoboxes only (en.wikipedia.org, Opel_Omega, 2026-09-22); prose and non-essential infobox fields removed. -->
+{{Infobox automobile
+| name         = Opel Omega
+| manufacturer = [[Opel]] ([[General Motors]])
+| production   = September 1986 – June 2003
+| predecessor  = [[Opel Rekord Series E]] (1986)<br />[[Opel Commodore]] (1986)<br />[[Opel Senator]] (1994)<br />[[Vauxhall Carlton]] (1994)
+| successor    = [[Opel Signum]] (indirect)
+}}
+==Omega A (1986–1994)==
+{{Infobox automobile
+| name = Omega A
+| production = September 1986 – August 1993<br />August 1992–1998 (Brazil)
+| assembly = {{ubl |Germany: [[Rüsselsheim]] |Brazil: [[São Caetano do Sul]] |Yugoslavia: [[Kikinda]] ([[IDA-Opel]])}}
+| engine = {{ubl
+ | '''Petrol'''
+ | 1.8 L ''[[GM Family II engine#1.8|Family II]]'' [[Inline-four engine|I4]]
+ | 2.0 L ''[[GM Family II engine#2.0|Family II]]'' I4
+ | 2.4 L [[Opel cam-in-head engine#2.4 litre I4|''C24NE'']] I4
+ | 2.6 L [[Opel cam-in-head engine#2.6 litre I6|''C26NE'']] [[Straight-six engine|I6]]
+ | 3.0 L ''[[Opel cam-in-head engine#3.0 litre I6|CIH]]'' I6
+ | 3.0 L [[Irmscher]] [[Opel cam-in-head engine#3.0 litre I6|''C30XEI'']] I6 (Evo 500)
+ | 3.6 L Irmscher [[Opel cam-in-head engine#3.6i I6|''C36NE'']]
+ | 3.6 L [[Opel cam-in-head engine#Lotus 3.6 Twin-turbo I6|''C36GET'']] [[twin-turbo]] I6 ([[Lotus Omega]])
+ | 4.0 L Irmscher [[Opel cam-in-head engine#C40SE|''C40SE'']] I6
+ | '''Diesel'''
+ | 2.3 L ''[[Opel cam-in-head engine#23YD|23YD]]'' I4
+ | 2.3 L ''[[Opel cam-in-head engine#23YDT|23YDT/23DTR]]'' [[Turbodiesel]] I4
+ }}
+}}
+===Development===
+===Markets===
+===Engines===
+===Notable trim levels and special variants===
+====Omega Diamant====
+====Omega 3000====
+====Omega Evolution 500====
+====Lotus Omega====
+==Omega B (1994–2003)==
+{{Infobox automobile
+| name = Omega B
+| production = April 1994 – June 2003
+| assembly = {{ubl |Germany: [[Rüsselsheim]] |Thailand: [[Rayong]] ([[General Motors Thailand|Opel/GM]])}}
+| engine = {{ubl
+  | '''[[Petrol engine|Petrol]]:'''
+  | 2.0&nbsp;L ''[[X20SE]]'' [[Straight-four engine|I4]]
+  | 2.0&nbsp;L ''[[X20XEV]]'' [[DOHC]] [[Multi-valve|16V]] I4
+  | 2.2&nbsp;L ''[[Y22XE]]/[[Z22XE]]'' DOHC 16V I4
+  | 2.5&nbsp;L ''[[X25XE]]'' 24V [[V6 engine|V6]]
+  | 2.6&nbsp;L ''[[Y26SE]]'' V6
+  | 3.0&nbsp;L ''[[X30XE]]'' 24V V6
+  | 3.2&nbsp;L ''[[Y32SE]]'' V6
+  | '''[[Diesel engine|Diesel]]'''
+  | 2.0&nbsp;L ''[[GM Ecotec Diesel (1997)|X20DTH]]'' 16V [[Common rail|DTI]] I4
+  | 2.2&nbsp;L ''[[GM Ecotec Diesel (1997)|Y22DTH]]'' 16V DTI I4
+  | 2.5&nbsp;L ''[[BMW M51#M57D25|U25TD]]/[[BMW M51#M57D25|X25TD]]'' [[Turbodiesel|TD]] [[Straight-six engine|I6]]
+  | 2.5&nbsp;L ''[[BMW M57#M57D25|Y25DT]]'' DTI I6
+  }}
+| successor =
+}}
+===Facelift (B2; 1999–2003)===
+===Engines===
+==Omega V8 (prototypes)==
+{{Infobox automobile
+|name = Omega V8 (prototypes)
+|manufacturer = [[Opel]]
+|production = 1999–2001 ([[prototype|prototypes only]])
+|assembly = Germany: [[Rüsselsheim]]
+|engine = 5.7 L [[GM LS engine|LS1]] [[V8 engine|V8]]
+}}
+===Omega V8.com===
+===Omega V8===
+==Worldwide markets==
+===End of the Omega===
+==References==
+==External links==

@@ -2922,6 +2922,18 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
   // format); falls back to splitting off the last whitespace-separated
   // token (this file's own `${label} ${code}` format) when there are no
   // parens at all.
+  // A generation's name. The code usually needs its nameplate in front
+  // ("SL-Class" + "R129"), but sometimes already carries it: the Opel Omega's
+  // generations are "Omega A" and "Omega B", and gluing the nameplate on
+  // again gave "Opel Omega Omega B".
+  function generationNodeLabel(base, code) {
+    const b = String(base || "").trim(), c = String(code || "").trim();
+    if (!c) return b;
+    if (!b) return c;
+    const lb = b.toLowerCase(), lc = c.toLowerCase();
+    if (lc === lb || lc.startsWith(lb + " ") || lc.startsWith(lb + "-") || lc.startsWith(lb + " (")) return c;
+    return b + " " + c;
+  }
   function trailingCode(label) {
     const s = String(label || "").trim();
     const paren = s.match(/^(.*?)\s*\(([^()]+)\)\s*$/);
@@ -5239,7 +5251,7 @@ Rules:
           });
         }
         const gn = {
-          id: gid, type: "model", label: `${orig.label} ${g.code}`, make: orig.make,
+          id: gid, type: "model", label: generationNodeLabel(orig.label, g.code), make: orig.make,
           // Prefer the LLM's own extracted years, then the standalone
           // duplicate's real, harvested years (the R107 case: DBpedia knew
           // 1971-1989 even if the umbrella-article read didn't), then the
@@ -10016,6 +10028,54 @@ Rules:
   // engines'." An index read whole IS a real thing -- a maker's engine
   // families, which is what was asked for -- but it is that maker's engines,
   // not a list.
+  // A section of a "List of X engines" index, as an engine.
+  //
+  // The section IS the engine -- "List of PSA engines#EB" is the EB, and the
+  // EB2DTS / EB2LTEDH2 / EB2FA the cars call it are its variants. Named with
+  // the index's maker so "EB" and "Z" mean something on their own: "PSA EB",
+  // "Suzuki Z". A section that only groups engines by shape ("Four-cylinder",
+  // "3 cylinder", "Petrol") names nothing; there the car's own word for it is
+  // the engine ("Viva", "Fox").
+  //
+  // Real user report: engines renamed "Four-cylinder" and "3 cylinder", and a
+  // whole index folded into one node, because every section of an index was
+  // treated as the same article.
+  const GENERIC_SECTION_RE = new RegExp("^(?:" + [
+    "(?:(?:inline|straight|flat|boxer|v|w)[- ]?)?(?:\\d+|one|two|three|four|five|six|eight|ten|twelve|sixteen)[- ]?cyl(?:inder)?s?(?: engines?)?",
+    "(?:inline|straight|flat|boxer|v|w)[- ]?(?:twin|three|four|five|six|eight|ten|twelve|\\d+)(?: engines?)?",
+    "(?:petrol|gasoline|diesel|electric|hybrid|lpg|cng|rotary|wankel|turbocharged|naturally aspirated)(?: engines?)?",
+    "[IVWH]\\d{1,2}", "other(?: engines?)?", "engines?", "current(?: engines?)?", "former(?: engines?)?",
+  ].join("|") + ")$", "i");
+  function isGenericIndexSection(anchor) {
+    return GENERIC_SECTION_RE.test(String(anchor || "").replace(/_/g, " ").trim());
+  }
+  function indexMarque(title) {
+    return String(title || "").split("#")[0].replace(/_/g, " ").trim()
+      .replace(/^list of\s+/i, "").replace(/^(?:discontinued|current|former)\s+/i, "")
+      .replace(ENGINE_SUFFIX_RE, "")
+      .replace(/\s+(?:petrol|gasoline|diesel|spark-ignition|compression-ignition)$/i, "").trim();
+  }
+  function indexSectionEngine(title, anchor, name) {
+    const a = String(anchor || "").replace(/_/g, " ").trim();
+    const shown = String(name || "").trim();
+    const marque = indexMarque(title);
+    const makes = knownMakeNames();
+    const withMarque = lab => {
+      const words = lab.split(/\s+/);
+      const ownMarque = makes && (makes.has(norm(words[0])) ||
+        (words.length > 2 && makes.has(norm(words[0] + " " + words[1]))));
+      return marque && !ownMarque && !norm(lab).startsWith(norm(marque)) ? marque + " " + lab : lab;
+    };
+    if (!a || isGenericIndexSection(a)) {
+      if (!shown || isGenericIndexSection(shown)) return null;
+      const label = withMarque(stripEngineSuffix(shown) || shown);
+      return { id: engineIdFor(label), label, variant: null, generic: true };
+    }
+    const lab = stripEngineSuffix(a) || a;
+    const label = withMarque(lab);
+    const variant = shown && norm(shown) !== norm(lab) && norm(shown) !== norm(label) ? shown : null;
+    return { id: engineIdFor(label), label, variant, generic: false };
+  }
   function indexNodeLabel(title) {
     const marque = String(title || "").split("#")[0]
       .replace(/^list of\s+/i, "").replace(ENGINE_SUFFIX_RE, "").trim();
@@ -10944,6 +11004,24 @@ Rules:
     if (!shown) return true;
     return shown.startsWith(code.toUpperCase()) || code.toUpperCase().startsWith(shown);
   }
+  // An engine linked by its code alone. Real case, the Opel Omega B:
+  //   2.0 L ''[[X20SE]]'' I4 ... ''[[GM Ecotec Diesel (1997)|X20DTH]]'' ...
+  //   ''[[BMW M51#M57D25|U25TD]]''
+  // Each title is a redirect to (or a section of) the engine's article, and
+  // none of them says "engine", so every one of the eleven was kept as plain
+  // text while its hover showed the very code the page links. Accepted when
+  // the title IS a code, or when the text shown is one -- except where the
+  // link is plainly to a technology ("[[Multi-valve|16V]]", "[[Common
+  // rail|DTI]]") rather than to an engine.
+  const TECH_LINK_TITLE_RE = /^(?:multi-?valve|dohc|sohc|ohv|ohc|overhead (?:camshaft|valve)|common rail|turbo-?diesel|turbocharger|supercharger|twin-?turbo|fuel injection|direct injection|variable valve timing|petrol engine|diesel engine|straight-\w+ engine|inline-\w+ engine|v\d+ engine|flat-\w+ engine|intercooler|hybrid.*|electric motor)$/i;
+  function looksLikeCodeLink(title, display) {
+    const t = String(title || "").trim();
+    if (!t || TECH_LINK_TITLE_RE.test(t) || /\bengines?\b/i.test(t)) return false;
+    const shown = String(display || "").replace(/'{2,}/g, "").trim();
+    const isCode = w => ENGINE_CODE_WORD_RE.test(w) && !/^\d+V$/i.test(w) && !/^\d+(?:\.\d+)?L$/i.test(w);
+    if (isCode(t)) return !shown || norm(shown) === norm(t) || isCode(shown);
+    return !!shown && isCode(shown);
+  }
   function engineLinksIn(line, makes) {
     const out = [];
     const rx = /\[\[([^\]|]+)(?:\|([^\]]*))?\]\]/g;
@@ -10971,7 +11049,8 @@ Rules:
       // not something that can go in a graph. See isEngineListTitle.
       if (isEngineListTitle(title)) { if (!anchor) continue; }
       else if (!looksLikeEngineArticleTitle(raw) && !(anchor && /\bengines?\b/i.test(title)) &&
-               !looksLikeMarqueCodeTitle(title, (m[2] || "").trim(), makes)) continue;
+               !looksLikeMarqueCodeTitle(title, (m[2] || "").trim(), makes) &&
+               !looksLikeCodeLink(title, (m[2] || "").trim())) continue;
       out.push({ title, anchor, display: (m[2] || "").trim() });
     }
     return out;
@@ -11290,20 +11369,28 @@ Rules:
       // sections are unrelated engines that only share a maker, so the
       // SECTION is the engine and the article is merely where it is written.
       const listed = isEngineListTitle(mention.title) && mention.variant;
-      const id = listed ? engineIdFor(mention.name || mention.variant)
-                        : engineIdFromTitle(mention.title);
+      const sec = listed ? indexSectionEngine(mention.title, mention.variant, mention.name) : null;
+      if (listed && !sec) continue;
+      const id = sec ? sec.id : engineIdFromTitle(mention.title);
       let n = byId.get(id);
       if (!n) {
         n = { id, type: "engine",
               // Named for the article, not for whichever of its engines this
               // car happens to use -- an unread node called "M177" whose page
               // is the M176/M177/M178 is a node that lies about its own scope.
-              label: listed ? (mention.name || mention.variant)
+              label: sec ? sec.label
                    // A link into one SECTION of the article names only that
                    // section: "[[Honda C engine#C25A|C25A]]" must not name
                    // the whole C-series node "C25A" -- the next Legend
                    // generation's C32A is on the same node.
                    : (multi || mention.variant) ? engineTitleLabel(mention.title)
+                   // A code the article's title does not contain is one of
+                   // its engines, not its name: "[[GM Ecotec Diesel
+                   // (1997)|X20DTH]]" and the Y22DTH on the next line are
+                   // one node, and it is not called X20DTH.
+                   : (mention.name && !norm(mention.title).includes(norm(mention.name)) &&
+                      ENGINE_CODE_WORD_RE.test(String(mention.name).trim()))
+                     ? engineTitleLabel(mention.title)
                    : (mention.name || mention.title),
               wp: listed ? mention.title + "#" + mention.variant : mention.title,
               make: null, year: null, end: null, llmGenerated: true, unresearched: true,
@@ -11321,7 +11408,8 @@ Rules:
       // The same shape engineMentions and mergeEngineHits agree on: two
       // readings it kept apart must not be merged back together here. The
       // W213 names the M270/M274 article three times, for three engines.
-      const part = "|" + [norm(mention.variant || picked || ""),
+      const hint = sec ? sec.variant : (mention.variant || picked || null);
+      const part = "|" + [norm(hint || ""),
         norm((mention.specs || {}).displacement || ""),
         norm((mention.specs || {}).fuel || "")].join("|");
       const k = n.id + "|" + carNode.id + "|fitted" + part;
@@ -11331,7 +11419,7 @@ Rules:
                      llmGenerated: true, fromCar: true,
                      // Either the anchor the link carried, or the code the
                      // link displayed for a page covering several engines.
-                     variantHint: mention.variant || picked || null,
+                     variantHint: hint,
                      // What the car's own line said: displacement, layout,
                      // induction, fuel, years. Kept so a family page with
                      // dozens of variants can be narrowed to the right one --
@@ -11380,6 +11468,21 @@ Rules:
       .map(id => byIdLocal.get(id))
       .filter(m => m && !m.retired && m.type === "engine" && m.id !== primaryId);
     if (!members.length) return false;
+    // A merge the automatic pass made when every section of an index looked
+    // like one article -- all of Isuzu's engines in one node, Fox folded into
+    // Duratec. Different sections are different engines; the record is
+    // dropped rather than replayed.
+    const involved = [primary].concat(members);
+    if (involved.some(x => isEngineListTitle(x.wp))) {
+      const keys = new Set(involved.map(x => engineArticleKey(x)));
+      if (keys.size > 1 || keys.has(null)) {
+        delete store.engineMerges[primaryId];
+        note(`powertrain: undid a merge of ${involved.length} engines from different sections of ` +
+             `"${String(primary.wp).split("#")[0]}" -- they are separate engines`);
+        persist();
+        return false;
+      }
+    }
 
     const linkKey = new Set();
     for (const l of links) {
@@ -11534,6 +11637,15 @@ Rules:
       wp = String(store.wpRedirects[wp]).split("#")[0].trim();
     }
     if (!wp) return null;
+    // Every section of an index shares its title, and they are different
+    // engines: "List of Isuzu engines" is thirty of them. Keyed on the
+    // section, and not at all where the section only groups by shape.
+    if (isEngineListTitle(wp)) {
+      const own = String((n && n.wp) || "");
+      const anchor = own.indexOf("#") >= 0 ? own.slice(own.indexOf("#") + 1) : "";
+      if (!anchor || isGenericIndexSection(anchor)) return null;
+      return "index:" + norm(wp) + "#" + norm(anchor);
+    }
     return norm(stripEngineSuffix(wp));
   }
   // An engine named after something that is not its name.
@@ -11556,10 +11668,21 @@ Rules:
       let better = null;
       if (/^list of\b/i.test(String(n.label))) {
         // The anchor names one engine out of the index; with no anchor the
-        // node IS the index, and it is that maker's engines.
-        better = stripEngineMarkup(anchor.replace(/_/g, " ")) || indexNodeLabel(n.wp) || null;
-      } else if (looksLikeMarqueOnly(n.label, knownMakeNames()) &&
+        // node IS the index, and it is that maker's engines. A section that
+        // only groups engines by shape ("Four-cylinder") names none of them,
+        // so it is no better a name than the index -- left for the next read.
+        if (anchor) {
+          const sec = indexSectionEngine(n.wp, stripEngineMarkup(anchor.replace(/_/g, " ")), null);
+          better = sec && !sec.generic ? sec.label : null;
+        } else better = indexNodeLabel(n.wp) || null;
+      } else if (!isEngineListTitle(n.wp) && knownMakeNames() &&
+                 knownMakeNames().has(norm(n.label)) &&
+                 norm(stripEngineSuffix(n.wp)).startsWith(norm(n.label)) &&
                  norm(stripEngineSuffix(n.wp)) !== norm(n.label)) {
+        // Only a label that IS a maker's name, on an article that starts with
+        // it. Before, anything capitalised with no digit passed as a maker --
+        // "JB-DET", "ATM" -- and was "corrected" back to the index it came
+        // from, then forward again on the next pass, on every load.
         // "Oldsmobile" where the article is "Oldsmobile V8 engine".
         better = (art && art.shortName) || stripEngineSuffix(n.wp) || null;
       }
@@ -11780,14 +11903,22 @@ Rules:
     if (want.bare) {
       const exact = cands.filter(x => norm(x.title) === norm(want.bare));
       if (exact.length) return exact[0];
+      // "Omega A" against "Omega A (1986–1994)": the heading with its years.
+      const base = t => norm(String(t).replace(/\s*\([^()]*\)\s*$/, ""));
+      const byBase = pick(cands.filter(x => base(x.title) === norm(want.bare)));
+      if (byBase) return byBase;
     }
     if (want.years) {
       const byYear = pick(cands.filter(x => x.title.indexOf(want.years) >= 0));
       if (byYear) return byYear;
     }
     if (want.code) {
+      // A word of the heading, not any substring of it: code "A" is in every
+      // heading that has the letter a.
       const k = norm(want.code);
-      const byCode = pick(cands.filter(x => norm(x.title).indexOf(k) >= 0));
+      const words = t => String(t).normalize("NFKD").toLowerCase().split(/[^a-z0-9]+/).filter(Boolean);
+      const byCode = pick(cands.filter(x => words(x.title).indexOf(k) >= 0 ||
+                                            (k.length >= 3 && norm(x.title).indexOf(k) >= 0)));
       if (byCode) return byCode;
     }
     if (want.ord) {
@@ -12134,9 +12265,15 @@ Rules:
     const rx = /\[\[([^\]|#]+)(?:\|[^\]]*)?\]\]/g;
     let m;
     while ((m = rx.exec(body))) links.push({ title: m[1].trim(), at: m.index });
+    // The code has to be a WORD of the title. Real case, the Opel Omega A:
+    // code "A", and "IDA-Opel" -- the Yugoslav plant in its assembly line --
+    // contains both "a" and "opel", so the generation's engines were read
+    // from a factory's page and came back empty.
+    const words = t0 => String(t0).normalize("NFKD").toLowerCase().split(/[^a-z0-9]+/).filter(Boolean);
     for (const l of links) {
       const t = norm(l.title);
-      if (!t.includes(key)) continue;
+      const w = words(l.title);
+      if (!(w.indexOf(key) >= 0 || (key.length >= 4 && t.includes(key)))) continue;
       if (mk && !t.includes(mk)) continue;     // same marque, or it is some other car entirely
       return l.title;
     }
@@ -12579,7 +12716,7 @@ Rules:
             }
           });
         }
-        gn = { id: gid, type: "model", label: `${fam.label} ${fresh.code}`, make: fam.make,
+        gn = { id: gid, type: "model", label: generationNodeLabel(fam.label, fresh.code), make: fam.make,
                familyOf: famId, wp: (dup && dup.wp) || fam.wp, llmGenerated: true };
         nodes.push(gn);
         byId.set(gid, gn);
@@ -12910,6 +13047,8 @@ Rules:
     resolveWeakRelations, makeRelationship, weakProposalRejection,
     additiveRecheck, diffGenerationCodes,
     resolvePendingOwnGenerations, ownGenerationCode, sameArticleOwner,
+    indexSectionEngine, isGenericIndexSection, generationNodeLabel, looksLikeCodeLink,
+    relabelMisnamedEngines, engineArticleKey,
     // The section-reading half of the generation-article lookup, exposed so
     // the suite can drive it against real cached wikitext without a network.
     wikitextSections, hatnoteArticle, proseArticle, sectionForCode,
