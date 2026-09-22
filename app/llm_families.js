@@ -11966,7 +11966,9 @@ Rules:
   // links were understood, said "no engines" long after the reader could
   // find both. Bump this whenever the reader learns something, and every
   // older read is redone the next time its car is checked.
-  const ENGINE_SCAN_VERSION = 2;
+  // 3: engines linked by code alone (the Opel Omega B), and a generation
+  // matched to its own section by heading rather than any letter in it.
+  const ENGINE_SCAN_VERSION = 3;
   function engineScanIsCurrent(rec) { return !!rec && (rec.v || 1) >= ENGINE_SCAN_VERSION; }
   // Every car whose engines should be (re-)read: read by an older reader, or
   // checked but never engine-read at all (the Daihatsu Thor). A nameplate
