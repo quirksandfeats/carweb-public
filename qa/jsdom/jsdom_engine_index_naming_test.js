@@ -112,6 +112,14 @@ const fitted = id => D.links.filter(l => !l.retired && l.type === "fitted" &&
         bTitles.includes("X20SE") && bTitles.includes("GM Ecotec Diesel (1997)") && bTitles.includes("BMW M57"),
         JSON.stringify(bTitles));
   check("...with nothing left unlinked", !(b.unlinked || []).length, JSON.stringify(b.unlinked));
+  const bNames = (b.engines || []).map(x => x.name);
+  check("two engines written on one line as alternatives are both kept",
+        bNames.includes("Y22XE") && bNames.includes("Z22XE") && bNames.includes("U25TD") && bNames.includes("X25TD"),
+        JSON.stringify(bNames));
+  const z = (b.engines || []).find(x => x.name === "Z22XE") || {};
+  check("...each with the line's own specs", (z.specs || {}).displacement === "2.2 L", JSON.stringify(z.specs));
+  const plain = LF.engineMentions("{{Infobox automobile\n| engine = 2.0 L [[Ford EcoBoost engine|EcoBoost]] [[Turbocharger|turbo]] [[Inline-four engine|I4]]\n}}");
+  check("...while a line with one engine and describing links still gives one engine", plain.length === 1, plain.length);
   const a = LF.engineScanEntryFor("g-t-omega-a") || {};
   check("the Omega A's engines come from its own section", (a.engines || []).length >= 10 &&
         (a.engines || []).some(x => x.title === "Opel cam-in-head engine"), `${(a.engines || []).length} / ${a.sourceTitle}`);

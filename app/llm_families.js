@@ -11051,7 +11051,7 @@ Rules:
       else if (!looksLikeEngineArticleTitle(raw) && !(anchor && /\bengines?\b/i.test(title)) &&
                !looksLikeMarqueCodeTitle(title, (m[2] || "").trim(), makes) &&
                !looksLikeCodeLink(title, (m[2] || "").trim())) continue;
-      out.push({ title, anchor, display: (m[2] || "").trim() });
+      out.push({ title, anchor, display: (m[2] || "").trim(), at: m.index, end: rx.lastIndex });
     }
     return out;
   }
@@ -11159,7 +11159,17 @@ Rules:
       const links = engineLinksIn(line, makes);
       const specs = engineSpecsFromText(line);
       if (fuel && !specs.fuel) specs.fuel = fuel;
-      out.push({ text: bare, links, specs });
+      // Two engines on one line, written as alternatives. Real case, the Opel
+      // Omega B: "2.2 L [[Y22XE]]/[[Z22XE]] DOHC 16V I4". Normally only the
+      // first link on a line is the engine and the rest describe it, so
+      // Z22XE was read as a description and lost. Links joined only by "/"
+      // (or "or", "&") are each an engine, with the line's specs.
+      const JOIN_RE = /^[\s'"]*(?:\/|or|&)[\s'"]*$/i;
+      let k = 0;
+      while (k + 1 < links.length && JOIN_RE.test(line.slice(links[k].end, links[k + 1].at))) k++;
+      const lead = links.slice(0, k + 1);
+      out.push({ text: bare, links: links.length ? [lead[0]].concat(links.slice(k + 1)) : [], specs });
+      lead.slice(1).forEach(l => out.push({ text: bare, links: [l], specs: Object.assign({}, specs), alternative: true }));
     }
     // Real user report, the Mercedes-Benz GLA: its first generation runs five
     // engines and only four were found. The fifth is written
@@ -11968,7 +11978,8 @@ Rules:
   // older read is redone the next time its car is checked.
   // 3: engines linked by code alone (the Opel Omega B), and a generation
   // matched to its own section by heading rather than any letter in it.
-  const ENGINE_SCAN_VERSION = 3;
+  // 4: two engines on one line written as alternatives ("Y22XE/Z22XE").
+  const ENGINE_SCAN_VERSION = 4;
   function engineScanIsCurrent(rec) { return !!rec && (rec.v || 1) >= ENGINE_SCAN_VERSION; }
   // Every car whose engines should be (re-)read: read by an older reader, or
   // checked but never engine-read at all (the Daihatsu Thor). A nameplate
