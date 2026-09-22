@@ -53,6 +53,7 @@ for (const f of [...html.matchAll(/<script src="([^"]+)"><\/script>/g)].map(m =>
     D.nodes.push({ id: "m-t-unchecked2", type: "model", label: "Unchecked Two", make: "Chevrolet", wp: "Chevrolet Unchecked Two", year: 1962 });
     D.nodes.push({ id: "fam-t-plate", type: "family", label: "Plate", make: "Chevrolet", wp: "Chevrolet Plate", year: 1990, generations: ["g-t-plate-1"] });
     D.nodes.push({ id: "g-t-plate-1", type: "model", label: "Plate Mk1", make: "Chevrolet", familyOf: "fam-t-plate", wp: "Chevrolet Plate", year: 1990 });
+    D.nodes.push({ id: "m-t-series70", type: "model", label: "Series 70", make: "Chevrolet", wp: "Chevrolet Series 70", year: 1936 });
     D.nodes.push({ id: "m-t-deferrer", type: "model", label: "No. 4", make: "Chevrolet", wp: "Chevrolet No. 4", year: 2021 });
     const now = new Date().toISOString();
     window.LLM_FAMILIES = { families: {
@@ -62,7 +63,10 @@ for (const f of [...html.matchAll(/<script src="([^"]+)"><\/script>/g)].map(m =>
                           sameAs: "llm-related-t-ghost", sameAsLabel: "Chevrolet N°4", attempts: 1 },
         "llm-related-t-ghost": { status: "confirmed", checkedAt: now, sourceTitle: "Chevrolet No. 4",
                                  proposal: { hasMultipleGenerations: false, generations: [] } },
-      }, relations: {}, recheck: {}, settings: { cascadeMaxDepth: 1 }, __serverAvailable: true };
+      }, relations: {}, recheck: {}, settings: { cascadeMaxDepth: 1 }, __serverAvailable: true,
+      // What the first version of the generation-name rule did to it.
+      renames: { "m-t-series70": { label: "Series", previousLabel: "Series 70", kind: "model", auto: true,
+                                   renamedAt: now, reason: "split under 70, one of its own generations" } } };
   }
   window.eval(fs.readFileSync(path.join(APP, f), "utf-8"));
 }
@@ -70,6 +74,13 @@ const cw = window.CarWeb; cw.boot();
 const LF = window.LlmFamilies;
 
 (async () => {
+  // ---------- a model name is not a generation code ----------
+  check("an automatic rename that cut a model number off is undone",
+        cw.byId.get("m-t-series70").label === "Series 70", cw.byId.get("m-t-series70").label);
+  for (const l of ["Series 70", "Pacifica (minivan)", "Barracuda (1970)", "200 / 25", "BMC ADO16"])
+    check(`"${l}" does not end in a generation code`, !LF.ownCodeShape(l));
+  for (const l of ["Silvia (S13)", "80 (B1)", "Escort Mk3", "B-Class (W247)"])
+    check(`"${l}" does`, !!LF.ownCodeShape(l));
   check("a deferral to a car minted later in boot, which holds a reading, is kept",
         (LF.entryFor("m-t-deferrer") || {}).status === "same-article", JSON.stringify(LF.entryFor("m-t-deferrer")));
   check("...and is not put back on the resume list", !LF.pendingWork().saved, LF.pendingWork().saved);

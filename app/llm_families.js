@@ -2506,12 +2506,31 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
   //     and nobody has to rename it by hand afterwards.
   // A code has to carry a digit or sit in brackets: "Grand Cherokee" does not
   // end in a generation code just because a generation is called Cherokee.
+  // Whether a name ends in something shaped like a chassis/generation code
+  // ("S13", "B1", "Mk3", "W247") rather than being part of the car's name.
+  // Real damage from the looser first version, which renamed Cadillac
+  // "Series 70" to "Series", "Pacifica (minivan)" to "Pacifica", "Barracuda
+  // (1970)" to "Barracuda" and "200 / 25" to "200 /": a bare number, a year
+  // and a word are part of a name, and so is anything after a make name
+  // ("BMC ADO16"). A code needs both a letter and a digit.
+  function ownCodeShape(label) {
+    const tc = trailingCode(String(label || "").trim());
+    if (!tc || !tc.base || !tc.code) return null;
+    const code = tc.code.trim(), base = tc.base.trim();
+    if (!/[A-Za-z]/.test(code) || !/\d/.test(code) || /\s/.test(code)) return null;
+    if (/^(?:19|20)\d\d$/.test(code)) return null;
+    if (/[\/&+,-]$/.test(base) || !/[A-Za-z0-9]$/.test(base)) return null;
+    const makes = knownMakeNames();
+    if (makes && makes.has(norm(base))) return null;
+    // "BMC ADO16": an acronym in front of a design code is a maker's name for
+    // the car, not a nameplate and its generation.
+    if (!/\)\s*$/.test(String(label)) && /^[A-Z]{2,5}$/.test(base)) return null;
+    return tc;
+  }
   function ownGenerationCode(node, gens) {
     const label = String((node && node.label) || "").trim();
-    const tc = trailingCode(label);
-    if (!tc || !tc.base || !tc.code) return null;
-    const inBrackets = /\)\s*$/.test(label);
-    if (!inBrackets && !/\d/.test(tc.code)) return null;
+    const tc = ownCodeShape(label);
+    if (!tc) return null;
     const k = norm(tc.code);
     if (k.length < 2) return null;
     const hit = (gens || []).find(g => {
@@ -7500,6 +7519,21 @@ Rules:
   // another car in the graph.
   function nameMisnamedNameplates(nodes) {
     const byIdLocal = new Map(nodes.map(n => [n.id, n]));
+    // Undo the renames the first, looser version of this rule made -- see
+    // ownCodeShape. Only automatic ones, never a name set by hand.
+    let undone = 0;
+    for (const [id, rec] of Object.entries(store.renames || {})) {
+      if (!rec || !rec.auto || !rec.previousLabel) continue;
+      if (!/^(?:split under |its page is the whole )/.test(String(rec.reason || ""))) continue;
+      if (ownCodeShape(rec.previousLabel)) continue;
+      delete store.renames[id];
+      const node = byIdLocal.get(id);
+      if (node && node.label === rec.label) node.label = rec.previousLabel;
+      note(`llm: "${rec.label}" given its name back ("${rec.previousLabel}") -- ` +
+           "its last word is part of the name, not a generation code");
+      undone++;
+    }
+    if (undone) persist();
     let n = 0;
     for (const fam of nodes) {
       if (!fam || fam.retired || fam.type !== "family" || store.renames[fam.id]) continue;
@@ -13110,7 +13144,7 @@ Rules:
     resolveWeakRelations, makeRelationship, weakProposalRejection,
     additiveRecheck, diffGenerationCodes,
     resolvePendingOwnGenerations, ownGenerationCode, sameArticleOwner,
-    placeInCascade, cascadeDepthOf: id => depthOf(id),
+    placeInCascade, cascadeDepthOf: id => depthOf(id), ownCodeShape,
     schedulePartnerCheck, cascadeDepthIn,
     indexSectionEngine, isGenericIndexSection, generationNodeLabel, looksLikeCodeLink,
     relabelMisnamedEngines, engineArticleKey,

@@ -203,6 +203,19 @@ window.CarWeb = (function () {
   // here for the one case that can't be prevented at mint time, a HARVESTED
   // car that data.js rebuilds from scratch on every boot.
   if (window.LlmFamilies) window.LlmFamilies.applyPurges(nodes, links);
+  // The platform/people replay once more, now that renames, deletions and
+  // purges have run. The same pass runs after every check (see
+  // applySharedPlatformLive), and it has to see the same graph there as it
+  // did here -- otherwise a stored mention that matched a car under its old
+  // name at load matches nothing after the first check and a brand-new car is
+  // created for it mid-run. Real report: "Cadillac Series 70", "Pontiac
+  // Acadian", "Daewoo Kalos" and others appearing from nowhere, queued, after
+  // a C-Class request. Idempotent, so on an unchanged graph this adds nothing.
+  if (window.LlmFamilies) {
+    window.LlmFamilies.applySharedPlatformForSingleGen(nodes, links);
+    window.LlmFamilies.applyPeopleForSingleGen(nodes, links);
+    window.LlmFamilies.applyResolvedRelations(nodes, links);
+  }
   // Deliberately last of the replay passes, not in the middle of them. It
   // reads every family's final generation list, and the four calls above are
   // the ones that retire generations -- an unmerge, a rename, a delete, a
