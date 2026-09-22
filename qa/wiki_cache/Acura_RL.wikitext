@@ -1,0 +1,390 @@
+{{overly detailed|date=June 2019}}
+{{Use American English|date=July 2025}}
+{{Use mdy dates|date=July 2025}}
+{{Short description|Mid-size luxury car by Acura (1996-2012)}}
+{{Infobox automobile
+| name = Acura RL
+| image = 2005 Acura RL -- NHTSA.jpg
+| caption = 2005 Acura RL (US)
+| manufacturer = [[Honda]]
+| aka = [[Honda Legend]]
+| production = 1995–2012<ref>{{Cite web |url=https://www.carscoops.com/2012/06/honda-reportedly-ending-production-of/ |title=Honda to End Production of Acura RL-Based Legend and Accord-Based Inspire in Japan |work=Carscoop |access-date=August 11, 2021 |archive-url=https://web.archive.org/web/20210811170640/https://www.carscoops.com/2012/06/honda-reportedly-ending-production-of/ |archive-date=2021-08-11 |url-status=dead }}</ref>
+| model_years = 1996–2012
+| assembly = Japan: [[Sayama, Saitama]] ([[List of Honda facilities#Japan|Sayama Plant]])
+| class = [[Mid-size]] [[luxury car]] ([[E-segment|E]])
+| body_style = 4-door [[sedan (automobile)|sedan]]
+| predecessor = [[Acura Legend]]
+| successor = [[Acura RLX]]
+}}
+
+The '''Acura RL''' is a [[mid-size]] [[luxury car]] that was manufactured by the [[Acura]] division of [[Honda]] for the 1996–2012 [[model year]]s over two generations. The RL was the [[flagship]] of the marque, having succeeded the [[Acura Legend]], and was replaced in 2013 by the [[Acura RLX]]. All models of the Legend, RL and RLX lines have been adapted from the [[Japanese domestic market]] [[Honda Legend]]. The model name "RL" is an abbreviation for "Refined Luxury."<ref>{{cite web|url=http://www.hondanews.com/categories/755/releases/4413 |title=Acura Media Newsroom: 2009 Acura RL - Introduction |publisher=Hondanews.com |access-date=2010-10-03 |url-status=dead |archive-url=https://web.archive.org/web/20090729062824/http://hondanews.com/categories/755/releases/4413 |archive-date=2009-07-29 }}</ref>
+
+The first-generation Acura RL was a [[badge engineering|rebadged]] version of the third-generation Honda Legend, and was first introduced to the [[North America]]n market in 1996, to replace the second-generation [[Acura Legend]]. The second-generation Acura RL was a rebadged version of the fourth-generation Honda Legend, introduced to the North American market in September 2004, as a 2005 model. This iteration of the RL received an extensive [[Facelift (automobile)|mid-generational facelift]] for the 2009 model year, and a further update for 2011. The third-generation debuted for the 2014 model year as the '''[[Acura RLX]]'''.
+__TOC__
+{{Clear}}
+
+==First generation (1996)==
+{{Infobox automobile
+| name = First generation
+| image = 1st Acura RL.jpg
+| caption = 1996–1998 Acura 3.5RL (base)
+| aka = [[Honda Legend]]
+| production = December 1995–2004<ref>{{cite web |url=http://www.vadengmpp.com/recalls/acura/1996/rl/nhtsa-10307.html |title=GM Recalls - 1996 Acura Rl 10307 |publisher=Vadengmpp.com |year=1996 |access-date=16 June 2014 |archive-date=3 March 2016 |archive-url=https://web.archive.org/web/20160303234315/http://www.vadengmpp.com/recalls/acura/1996/rl/nhtsa-10307.html |url-status=dead }}</ref>
+| model_years = 1996–2004
+| designer = Mitsuhiro Honda<br>Tamotsu Okamoto (1993)<ref>{{cite web|url=https://patents.google.com/patent/USD373334 |title=Patent USD373334 - Automobile |publisher=Google Patents |date=3 September 1996 |access-date=16 June 2014}}</ref>
+| layout = [[Front-engine, front-wheel-drive layout|Front-engine, front-wheel-drive]]
+| engine = 3.5 L [[V6]] [[Honda C engine#C35A|C35A1]]
+| transmission = 4-speed [[automatic transmission|automatic]]
+| wheelbase = {{convert|114.6|in|mm|0|abbr=on}}
+| length = 1996–1998: {{convert|195.1|in|mm|0|abbr=on}}<br />1999–2001: {{convert|196.6|in|mm|0|abbr=on}}<br />2002–2004: {{convert|196.7|in|mm|0|abbr=on}}
+| width = 1996–1998: {{convert|71.3|in|mm|0|abbr=on}}<br />1999–2001: {{convert|71.4|in|mm|0|abbr=on}}<br />2002–2004: {{convert|71.7|in|mm|0|abbr=on}}
+| height = 1996–1998: {{convert|54.5|in|mm|0|abbr=on}}<br />1999–2001: {{convert|56.5|in|mm|0|abbr=on}}<br />2002–2004: {{convert|54.5|in|mm|0|abbr=on}}
+| weight = 1,660–1,778kg (3,660–3,920lb)
+| model_code = KA9
+}}
+
+===1996 (KA9)===
+In 1996, Acura introduced the Acura 3.5RL, known internally as "KA9," to replace the Legend. Acura dropped the Legend name when market research showed that consumers referred to Acura products by their model names, "Legend" and "Integra," and did not necessarily associate the names with Honda's "Acura" brand.<ref>{{cite web|title=The absolute best vehicle under $100,000.web |url=http://www.edmunds.com/insideline/do/Features/articleId=116299 |quote=Acura Legend and RL |publisher=Edmunds.com |access-date=2009-04-28 |url-status=dead |archive-url=https://web.archive.org/web/20090206103621/http://www.edmunds.com/insideline/do/Features/articleId%3D116299 |archive-date=2009-02-06 }}</ref><ref>{{cite web|url=http://www.edmunds.com/acura/rl/history.html |title=Acura RL History |publisher=Edmunds.com |date=1986-03-27 |access-date=2009-04-28}}</ref>
+
+The 3.5RL's longitudinally mounted V6 gasoline engine had its center-line mounted in-line with the car's axis, and not transversely (i.e., 90 degrees offset from the vehicle axis) like most other front-wheel-drive cars. As a result, the longitudinal placement of the engine allowed for a smaller turning radius and easy in-town maneuverability, as well as 56/44 front/rear [[weight distribution]] for the 1996MY. Some of the engine's internals such as the connecting rods and the crankshaft are forged. The connecting rods in particular are of note as they use a new process called "block forging".<ref name=":0">{{Cite web |date=1995-12-05 |title=1996 Acura 3.5 RL Press Kit |url=https://hondanews.com/en-US/releases/release-150644c8dab34ff9a2244d004c34c9de-1996-acura-3-5-rl-powertrain |access-date=2025-01-21 |website=Honda Newsroom |language=en}}</ref> The engine also employs a [[balance shaft]] in order to reduce NVH. A 4-speed automatic transmission equipped with Gradelogic is standard for all trim levels. The 3.5RL uses a [[Double wishbone suspension|double wishbone]] front and [[Multi-link suspension|multilink]] rear suspension. Both the front and rear suspension uses coil springs with progressive shock absorbers. Some bushings on this car are liquid filled in order to reduce harshness over bumps. This car uses speed-sensitive rack and pinion steering. Furthermore, some models were equipped with TCS also known as traction control. A powered moonroof is standard for all models. OE tire size was 215/60R16 mounted on 16x6.5" rims. The body was finished in a 23 step, 5-coat, 4-bake paint process. An optional HDD based GPS navigation system was available in California for 1996. A cellular phone fitted in the center console was an optional extra.<ref name=":0" />
+
+=== 1998 ===
+In 1998, the pre-facelift 3.5RLs received minor improvements. The Base and Premium trims received a new directional, spiral rim design. A one-year Special Edition trim level was offered which included two 2-tone paint schemes and unique 16x6.5" 7-spoke alloy rims.<ref>{{Cite web |date=1997-04-24 |title=1998 Acura 3.5 RL Press Kit |url=https://acuranews.com/en-US/releases/release-2f8e6706fb28edf49acab8004c34c97a-1998-acura-3-5-rl-safety |access-date=2025-01-21 |website=Acura Newsroom |language=en}}</ref>
+{{Multiple image
+| align             = left
+| direction         = vertical
+| width             = 220
+| image1            = 1998 Acura 3.5 RL Special Edition, rear left, 09-10-2022.jpg
+| caption1          = Rear view (Special-Edition)
+| image2            = 2002 Acura 3.5 RL in Shoreline Mist Metallic, front left.jpg
+| caption2          = 2002 Acura 3.5RL (USA)
+| image3            = 2004 Acura 3.5RL V6 (facelift), rear 7.7.19.jpg
+| caption3          = Rear view (facelift) (2004)
+| image4            = 
+| caption4          = 
+}}
+
+=== 1999 ===
+For the 1999 model year, the 1999 3.5RL received a front and rear facelift with integrated foglights, revised bumpers, hood, headlights, taillights, trunk, and fenders as well as driver and front passenger side-impact airbags. The suspension and chassis were stiffened, and new 8-spoke 16x7" alloy wheels were fitted. HID low-beam headlights became standard. Aerodynamics were improved as drag coefficient was reduced to 0.32 from 0.34 and lift coefficient was decreased to 0.102 from 0.155. The interior design changed somewhat, as some wood was removed from the dashboard. The steering wheel has changed in design with a floating horn switch instead of the 2 horn buttons on the 96-98' RLs. Homelink became standard. The brakes were revised to be larger than pre-facelift models. Front and rear brake rotors are larger and thicker and new calipers are used to house bigger brake pads. New control arms were fitted to improve handling.<ref>{{Cite web |date=1998-06-01 |title=1999 Acura 3.5 RL Press Kit |url=https://acuranews.com/en-US/releases/release-162cc3565e97082a3de006004c34c954-1999-acura-3-5-rl-introduction |access-date=2025-01-21 |website=Acura Newsroom |language=en}}</ref>
+
+=== 2000 ===
+In 1999, a larger navigation system screen was added for the 2000 model year. Along with that larger screen came the conversion to easy-to-replace DVD map databases. The emissions systems were revised to allow the car to be granted "LEV" status. The TCS system was replaced with the VSA system. VSA is an electronic stability program that allows the car to mitigate under and oversteer using both the anti-lock braking system and TCS to improve stability in harsh cornering situations.<ref>{{Cite web |date=2000-04-08 |title=2000 Acura 3.5 RL Press Kit |url=https://acuranews.com/en-US/releases/release-07854372be0f5d0cf5ff66004c34c8eb-2000-acura-3-5-rl-introduction |access-date=2025-01-21 |website=Acura Newsroom |language=en}}</ref>
+
+=== 2001 ===
+For the 2001 model year, the 3.5RL had child seat latches added to the rear deck, and a manual trunk release was added as well.<ref>{{Cite web |date=2001-01-03 |title=2001 Acura 3.5 RL Press Kit |url=https://acuranews.com/en-US/releases/release-5ec5f24403704ae3ef884b004c34c8b0-2001-acura-3-5-rl-introduction |access-date=2025-01-21 |website=Acura Newsroom |language=en}}</ref>
+
+=== 2002 ===
+The 2002 model year 3.5RL received painted lower trim and mudflaps along with redesigned 7-spoke alloys and a newer, sportier suspension setup which included new springs, dampers, larger and solid sway bars, and new front upper control arms. A new dual-diaphragm master cylinder was fitted to allow for increased braking with reduced pedal force. The ABS was revised and became 4 channel all the time. The OE tire size changed to 225/55R16. OE tires were the Michelin Pilot HX MXM4 rated at 94V. The revised engine produced {{Convert|225|hp|kW|0|abbr=on}} and {{convert|231|lbft|Nm|0|abbr=on}} of torque due to a new variable-muffler. More insulation was added in the engine compartment for 2002. OnStar became standard for the 2002 model year. The Onstar antenna is mounted on the roof.<ref>{{Cite web |date=2001-09-27 |title=2002 Acura 3.5 RL Press Kit |url=https://acuranews.com/en-US/releases/release-f9b978c6775576493f66ee004c34c7ce-2002-acura-3-5-rl-introduction |access-date=2025-01-21 |website=Acura Newsroom |language=en}}</ref> Service was terminated in 2008 with the discontinuation of the 1G AMPS service in the U.S.
+
+=== 2003 ===
+For the 2003 model year, RLs received clear turn signal lenses in the rear lights, a new 10-spoke alloy wheel design, larger emblems, and various interior upgrades including new wood staining and a new interior color scheme.<ref>{{Cite web |date=2002-09-19 |title=2003 Acura 3.5 RL Press Kit |url=https://acuranews.com/en-US/releases/release-e2f807b67bedea5fe71ab7004c34c683-2003-acura-3-5-rl-introduction |access-date=2025-01-21 |website=Acura Newsroom |language=en}}</ref>
+
+=== 2004 ===
+For the 2004 model year, the 3.5RL offered as standard equipment a revised navigation system and integrated satellite radio in the Continental United States in addition to a redesigned center console and chrome door lock pulls. The 2004 3.5RL was the first production saloon car to offer satellite radio as standard equipment. As a result, the antenna design was revised to include a body-colored base for the XM radio. The Bose audio system saw 2 new tweeters added next to the 6.5" speakers in the front door. The 6-Disc CD changer was moved on the dashboard instead of inside the trunk like previous years. As a result, the climate control system was revised to have the controls integrated with the navigation system instead of analog dials and buttons like on previous years. The amplifier was revised to accommodate the new tweeters. New gauges were fitted for the 2004 model year. A new, thicker steering wheel was fitted for the 2004MY as well as a new steering wheel airbag. In the lower 48 there was only one available factory trim level. The only options available were dealer options.<ref>{{Cite web |date=2003-03-06 |title=2004 Acura 3.5 RL Press Kit |url=https://acuranews.com/en-US/releases/release-fc1531deede6c238229174004c34c62d-2004-acura-3-5-rl-introduction |access-date=2025-01-21 |website=Acura Newsroom |language=en}}</ref>
+
+The 1996–2004 3.5RL's engine was the last in the Acura lineup not to use Honda's [[variable valve timing]] system ([[VTEC]]), This 3.5&nbsp;L 90-degree V6 engine was internally designated as the C35A, and was the last of the [[Honda C engine]] V6 engines used in Honda and Acura lineups, being replaced by the newer [[Honda J engine]] 60-degree V6 engines. The 2004 RL was also the last Acura to use the numeric designation (i.e., 3.5) for its [[engine displacement]].
+
+{{Clear}}
+
+==Second generation (2005)==
+{{Infobox automobile
+| name = Second generation
+| image = 05-08 Acura RL.jpg
+| caption = 2005–2008 Acura RL
+| aka = [[Honda Legend]]
+| production = August 2004–June 16, 2012
+| model_years = 2005–2012
+| designer = Toshinobu Minami (2002)
+| layout = [[Front-engine, four-wheel-drive layout|Front-engine, all-wheel-drive]]
+| engine = 2005–2008: 3.5L J35A8 V6 {{convert|290|hp|0|abbr=on}}<br />2009–2012: 3.7L J37A2 V6 {{convert|300|hp|0|abbr=on}}
+| transmission = 2005–2010: 5-speed automatic with sequential sport shift<br />2011: 6-speed automatic
+| wheelbase = 2005–2009: {{convert|110.2|in|mm|0|abbr=on}}
+| length = 2005–2008: {{convert|193.6|in|mm|0|abbr=on}}<br />2009–2012: {{convert|195.8|in|mm|0|abbr=on}}
+| width = 2005–2009: {{convert|72.7|in|mm|0|abbr=on}}
+| height = 2005–2008: {{convert|57.1|in|mm|0|abbr=on}} <br />2009–2012: {{convert|57.2|in|mm|0|abbr=on}}
+| model_code = KB1/KB2
+}}
+
+===2005 (KB1)===
+[[File:2007 Acura RL 3.5L rear 12.8.18.jpg|thumb|left|2005-2008 Acura RL (USA)]]
+The new-generation car, known internally as "KB1," was launched in late 2004 for the 2005 model year. The car was born as Prototype version at [[New York International Auto Show#2004|2004 New York International Auto Show]]. 
+
+Without the rumored [[V8 engine]], it featured an [[all-wheel drive]] system marketed by Acura as "Super Handling-All Wheel Drive" ([[SH-AWD]]). It integrated [[active differential]]s with the all-wheel-drive system and traction control to improve handling, similar to the "ATTS" system featured on the 1997 [[Honda Prelude]] ''SH''. 
+
+SH-AWD was the first all-wheel-drive system to vary the distribution of power not only from front to back, but also side to side in the rear using a technique called torque vectoring. The RL can direct up to 70% of available torque to the rear wheels, and up to 100% of that available rear torque can be directed to just one wheel. In combination with a specially designed planetary gear-set which can over-drive the rear wheels at up to five percent greater speed than the front wheels, the torque directed to one wheel, or torque vectoring, can have a steering effect. 
+
+As the car speeds around a curve, torque vectored to the outside rear wheel will push the rear end around the curve faster, just as paddling the outside oar of a row boat faster than the inside oar will cause the row boat to turn, to minimize the understeer common in front-heavy vehicles.
+
+The second-generation RL used a 60-degree [[Honda J engine|J-series]] 3.5&nbsp;L V6 [[SOHC]] VTEC gasoline engine delivering {{cvt|300|hp|kW|0}}, (later revised to {{cvt|290|hp|kW|0}} due to amended SAE testing procedures). To give the car a more sporty feel, the car featured drive-by-wire throttle control and a five-speed sequential sport shifting [[automatic transmission]] with shift paddles mounted on the steering wheel. As with the first-generation Acura RL, the second-generation Acura RL required premium unleaded fuel rated at 91 (R+M)/2 octane.
+
+A first for the RL was the use of aluminum four-piston front brake calipers over 12.6-inch cast-iron ventilated front rotors. These multi-piston calipers, derived from racing applications, are extremely rigid. In the rear, 12.2-inch cast-iron ventilated discs attached to their hub with lightweight aluminum collets were gripped by one-piston aluminum brake calipers.<ref name="hondanews.com">{{cite web|url=http://www.hondanews.com/categories/757/releases/2079 |archive-url=https://archive.today/20130103180818/http://www.hondanews.com/categories/757/releases/2079 |url-status=dead |archive-date=2013-01-03 |title=Acura Media Newsroom: 2005 Acura RL Chassis |publisher=Hondanews.com |date=2004-08-31 |access-date=2009-04-28 }}</ref> The RL was equipped with unique five-spoke 17-inch alloy wheels and Michelin Pilot HX MXM4 245/50R17 98V<ref name="hondanews.com"/> all season grand touring tires.
+
+New features on the 2005 RL included a [[advanced key|keyless entry system]] that allowed the driver to both lock and unlock the car by touching the door handle without having to use the key fob and a keyless start system that used a physical switch in the steering column that was similar to an ignition key but was non-removable. 
+
+A new 260 watt, ten speaker [[Bose Corporation|Bose]] DVD-Audio [[5.1]] sound system specially equalized for the RL cabin featured several Bose technologies.<ref>{{cite web|url=http://www.hondanews.com/categories/757/releases/2720 |archive-url=https://archive.today/20130103024208/http://www.hondanews.com/categories/757/releases/2720 |url-status=dead |archive-date=2013-01-03 |title=Acura Media Newsroom: 2006 Acura RL - Interior |publisher=Hondanews.com |date=2005-08-17 |access-date=2009-09-19 }}</ref> Bose AudioPilot is a noise compensation technology which analyzes background environmental cabin noise and uses an algorithm based on cabin acoustics to boost certain portions of the musical signal so that it may be heard more clearly above environmental sound "clutter" without any apparent change in volume.<ref>{{cite web|url=http://www.bose.com/controller?event=VIEW_STATIC_PAGE_EVENT&url=/automotive/innovations/audiopilot.jsp |title=AudioPilot - Innovations - Bose Automotive Systems Division |publisher=Bose.com |access-date=2009-09-19}}</ref> 
+
+Bose Centerpoint processes stereo and matrix surround sound recordings to allow play through the 5.1 sound system even though the source may only be a stereo sound track. Bose Active Noise Cancellation (ANC) rounded out the suite. The ANC was always on, whether the stereo was on or not. The ANC took input from two microphones placed in the cabin to analyze drivetrain-related low-frequency sound waves entering the cabin. The ANC sent information to the sound system to create a precisely shaped and timed reverse-phased audio signal from the door speakers and the subwoofer. The result was a dramatic reduction in perceived engine and exhaust noise.
+
+[[XM Satellite Radio]], integrated [[Bluetooth]] hands-free technology for wireless phone use, voice recognition technology with over 560 voice commands to control the navigation system, wireless phone, audio system, heating and ventilation controls rounded out the cabin's technological features. 
+
+Heating and air conditioning systems were tied into a solar sensor and GPS positioning so that cabin temperature remained constant in a mixed sun and shade situation. Based on sun position and cabin orientation, the system could automatically send additional cooling air to the sunny side of the car to keep that occupant comfortable, while not freezing out the occupant on the shady side.
+
+The [[Alpine Electronics]] DVD-based navigation system was integrated with an 8-inch LCD and a multi-use Interface Dial, which could move up, down, left and right like a mouse, turn like a knob, scroll through preset menus, and click when pushed to act as a selector button. Unlike many in-car navigation systems, the Alpine DVD-based navigation unit allowed the driver to change destinations and routes "on the fly" while driving, rather than being locked out unless the car was in Park. 
+
+The tightly integrated voice recognition system worked with the navigation system and could recognize spoken city and street names. Also unique at the time was two-way communication via AcuraLink satellite communication. Using a facility of XM Radio service, the system could send a variety of messages to the car, including service appointment reminders (appointments first made via Internet) or important messages such as recall notices. 
+
+The use of [[OnStar]] was carried over from the previous generation RL. Use of digital/analog trimode (two digital bands and one analog band) technology allowed the 2005 RL OnStar technology to survive the planned 2007 phase-out of the analog OnStar to fully digital OnStar service.
+
+Other new RL features included the [[Adaptive Front-lighting System|Active Front Lighting System]], in which the high intensity discharge headlamps swiveled in concert with the steering up to twenty degrees, for improved night cornering vision. Light emitting diodes ([[LED]]) replaced traditional incandescent bulbs in the tail and brake lights, the turn signals integrated in the side mirror housings, and many interior cabin lights.
+
+[[File:Image-'08AcuraRL.jpg|thumb|left|Engine bay of the Acura RL]]
+The 2005 RL was also the first Honda vehicle to use the ''Advanced Compatibility Engineering'' (ACE) body structure, which has since proliferated throughout every newly introduced Honda and Acura vehicle design. The ACE structure features extensive use of high-tensile steel and lightweight aluminum components in a front-mounted polygonal main frame, designed to engage vehicles of differing size and weight in a frontal collision and spread the forces through multiple structural pathways, while preventing or minimizing cabin deformation. 
+
+In practical terms, this means in an [[SUV]] versus ACE structure car collision, there is a greater chance that the ACE body structure will engage with the SUV's frame and dissipate collision forces around the passenger compartment. In non-ACE car structures, the SUV frame has a much greater chance of missing or overriding the car's major structural components and there is a greater chance of deformation in the passenger compartment.
+
+The 2005 RL car structure used aluminum alloy in the hood, front fenders, trunk lid and frame, front and rear subframes, suspension arms, front knuckles and bumper beams. Magnesium was used in the intake manifold, and the two-piece center [[drive shaft]] was made of a carbon reinforced composite. The new RL featured extensive aerodynamic design treatment including details such as flush side glass, plus underbody covers and diffusers to reduce lift, resulting in a very low [[drag coefficient]] of 0.29.
+
+=== 2006 ===
+For 2006, the Acura RL was also offered in a second trim level, the optional 'Technology Package' which included three new features: [[adaptive cruise control]] (ACC), [[Precrash system|Collision Mitigation Braking System]], and [[Michelin PAX System]] [[run-flat tire]]s on unique PAX 235&nbsp;mm x 460&nbsp;mm A ("A" for asymmetric) aluminum alloy wheels with unique 245-680R460A Michelin Pilot HX MXM4 all-season Grand Touring type radials designed for the [[Michelin PAX System]]. The metric sized, run-flat Michelin PAX System wheels and tires are equivalent to {{convert|18|x|9|in|abbr=on}} wheels and 245/45-R18 conventional tires. 
+
+The previously standard color-matched mud guards were removed in 2006. All 2006 models had a slight change to the navigation system that allowed the installation of an optional [[backup camera|rearview camera]].<ref>{{cite web|url=http://www.hondanews.com/categories/761/releases/3056?archive=2006 |title=Acura Media Newsroom: 2006 Acura Pricing |publisher=Hondanews.com |access-date=2009-04-28 |url-status=dead |archive-url=https://web.archive.org/web/20100213033636/http://hondanews.com/categories/761/releases/3056?archive=2006 |archive-date=2010-02-13 }}</ref>
+
+=== 2007 ===
+For 2007, the Acura RL was offered in three trim levels: a "standard" or "base" package; a newly defined "Technology Package;" and the highest level trim, the "Technology Package with CMBS/PAX."
+
+Base model cars were well equipped, but deleted certain features such as the navigation system and Adaptive Front Lighting System (AFS), and substituted plastic simulated wood for the dashboard maple wood trim.
+
+Technology Package cars were essentially the same as the 2005 and 2006 standard models, coming with navigation and AFS, while adding as standard equipment a rear backup camera and a 3.5&nbsp;mm stereo input jack for an iPod and other MP3 devices.
+
+The Technology Package plus CMBS/PAX trim level had no 2005 equivalent, though it was most similar to the 2006 Technology Package that had also included ACC/CMBS and PAX technologies. While the label "CMBS/PAX" might appear to indicate ACC was dropped as a feature, in reality, ACC was an extension of the CMBS system, and so was included.
+
+An integrated rearview camera could be added to the non-navigation Base model as a dealer installed option. The Base model optional rearview camera was installed in the same manner and position as on the 2006 models, mounted in the center of the trunk trim, with the trunk release button displaced to the right of center (passenger side). The factory-installed rearview camera is installed driver's side of the center-mounted trunk release.
+
+In 2005 and 2006, all models came standard with "genuine curly maple wood dashboard trim." With the introduction of three trim levels, the base model received faux wood trim which cars equipped with the Technology Package and the Technology Package with CMBS/PAX continued to use genuine wood trim. OnStar was deleted as a feature from all trim levels. Colors were added and deleted.<ref>{{cite web|url=http://www.hondanews.com/categories/761/releases/3793?archive=2007 |title=Acura Media Newsroom: 2007 Acura Pricing |publisher=Hondanews.com |date=2006-09-22 |access-date=2009-04-28 |url-status=dead |archive-url=https://web.archive.org/web/20100213032455/http://hondanews.com/categories/761/releases/3793?archive=2007 |archive-date=2010-02-13 }}</ref>
+
+=== 2008 ===
+The 2008 Acura RL continued unchanged in the U.S. market from the 2007 model, with three trim levels. Colors were added and deleted.<ref>{{cite web|url=http://www.hondanews.com/categories/761/releases/4046?archive=2008 |title=Acura Media Newsroom: 2008 Acura Pricing |publisher=Hondanews.com |date=2007-08-22 |access-date=2009-04-28 |url-status=dead |archive-url=https://web.archive.org/web/20100213030956/http://hondanews.com/categories/761/releases/4046?archive=2008 |archive-date=2010-02-13 }}</ref>
+
+In Canada, the 2008 Acura RL was available in two different models, Base and Elite Package. The Elite Package added Collision Mitigation Braking System (CMBS), Active Front Lighting System (AFS), Adaptive Cruise Control (ACC), heated and cooled ventilated front seats, and burled maple wood trim.
+
+===2005–2008 A-Spec Performance Package===
+
+For the 2005–2008 models, Acura offered an [[Acura A-Spec and Type-S models|A-Spec]] package for the RL. The dealer-installed package consisted of a [[body kit]], badging, revised suspension and different wheels. The package was first announced at a late 2004 [[SEMA (association)|Specialty Equipment Market Association]] (SEMA) trade show in Las Vegas.<ref>{{cite web |url=http://hondanews.com/channels/corporate/releases/507bb9ac-d672-8ee1-cc4e-f0004c34c2c1?query=acura+rl+a-spec |title=Honda Media Newsroom - Corporate - Acura Announces RL A-SPEC Package At SEMA |publisher=Hondanews.com |access-date=2010-10-03 |archive-date=2011-07-23 |archive-url=https://web.archive.org/web/20110723020859/http://hondanews.com/channels/corporate/releases/507bb9ac-d672-8ee1-cc4e-f0004c34c2c1?query=acura+rl+a-spec |url-status=dead }}</ref> The A-Spec package for sale was distinctly different from the Acura RL A-Spec Concept Vehicle announced and shown as a striking dark red one-of-a-kind custom creation in early 2005 at the [[Detroit Auto Show]].<ref>{{cite web |url=http://hondanews.com/channels/corporate/releases/d094a92d-ea6b-4f7a-dc34-48004c34c29e?query=acura+rl+a-spec |title=Honda Media Newsroom - Corporate - Acura RL A-SPEC Concept Vehicle Displayed at North American International Auto Show |publisher=Hondanews.com |access-date=2010-10-03 |archive-date=2011-07-23 |archive-url=https://web.archive.org/web/20110723020928/http://hondanews.com/channels/corporate/releases/d094a92d-ea6b-4f7a-dc34-48004c34c29e?query=acura+rl+a-spec |url-status=dead }}</ref>
+
+The performance part of the package included the A-Spec sport suspension and A-Spec 18-inch alloy wheels, which allowed the use of more sports-oriented lower profile tires.
+
+The A-Spec sport suspension changed out the four spring and damper ([[shock absorber]]) strut assemblies. The A-Spec suspension featured lowering springs (approximately 0.75&nbsp;inch) and re-valved dampers. The ride was stiffer, but not overly so, and handling was improved with less body roll, more controlled cornering and enhanced feel. 
+
+Acura chose to make the RL's A-Spec suspension more compliant than the very stiff A-Spec sport suspension upgrade for the Acura TL, in keeping with the two different missions of the cars: luxury for the RL, luxury sport for the TL. Acura RL A-Spec retained the same suspension geometry as the stock Acura RL suspension alignment specifications.
+
+The other A-Spec performance upgrade was a set of A-Spec 18x8 inch alloy wheels. The 10-spoke lightweight design was about the same weight as the 5-spoke, 17x8" standard wheels. Recommended tires were either the Michelin Pilot Sport PS2 ultra high-performance summer tires or Michelin Pilot Sport A/S ultra-high-performance all-season tires sized in 245/45R18. Alternatively, less sport-oriented Michelin Pilot HX MXM4 Grand Touring All Season tires were also available in the same size.
+
+The A-Spec appearance package consisted of a front air dam, side skirts, rear bumper air diffuser, an "A-Spec" badge on the trunk lid, and a subtle trunk decklid lip style spoiler all of which were designed to give the car a more aggressive "aero" look. The parts came pre-painted from the factory to match factory colors. All parts were dealer installable. If the dealer installed the A-Spec parts at the time of purchase, the original new car warranty of four years/50,000 miles would apply. If installed after purchase, the normal one year/12,000 mile parts warranty would apply.
+
+As of the 2009 mid-model change, A-Spec options were no longer offered. However, Acura moved to a firmer standard suspension for 2009, plus larger and wider {{convert|18|x|8|in|abbr=on}} inch standard wheels and lower-profile 245/45-18 size tires. More aggressive "aero" look body work was also standard, and a revised trunk decklid spoiler was made available as a dealer installed option.
+
+===2009 mid-model change (KB2)===
+[[File:2009-2011 Acura RL -- 06-06-2011.jpg|thumb|right|2009–2010 Acura RL (USA)]]
+
+For the 2009 model year, the RL received an extensive [[facelift (automobile)|mid-model change]] (MMC), and made its introduction at the [[Chicago Auto Show]] on February 6, 2008, marketed by Acura as "the most extensive Acura MMC ever". The new sedan was designated KB2 in the VIN codes, differentiating it from the 2005–2008 KB1 chassis VIN code. The revised sedan was released on July 1, 2008, to dealerships. 
+
+The engine is upgraded to 3.7 liters with {{cvt|300|hp|kW|0}}. While on paper, the engine may seem to be the same unit as shared with the [[Acura MDX]], it is actually a variant that introduces, for the first time ever on an SOHC Honda [[V6]], an implementation of the Honda [[VTEC]] variable valve train technology on both intake and exhaust for improved horsepower and torque. Heretofore, all previous SOHC Honda [[V6 engine|V6]] engines with VTEC used the technology on the intake side only.<ref>{{cite web|url=http://acuranews.com/channels/acura-automobiles/archive/2009/releases/2009-acura-rl-powertrain?query=rl|title=Acura Media Newsroom: 2009 Acura RL - Powertrain|publisher=Hondanews.com|access-date=2009-04-28|archive-date=2014-11-01|archive-url=https://web.archive.org/web/20141101013029/http://acuranews.com/channels/acura-automobiles/archive/2009/releases/2009-acura-rl-powertrain?query=rl|url-status=dead}}</ref> 
+
+Engine emissions were reduced to meet the stricter [[United States Environmental Protection Agency|U.S. Environmental Protection Agency]] (EPA) TIER 2 – BIN 5 and [[California Air Resources Board]] ULEV-2 standards. Implementation of the SH-AWD was adjusted for earlier intervention and a greater rear-wheel bias for better handling dynamics.
+
+The MMC RL suspension was upgraded with higher-rate coil springs, larger diameter anti-sway bars and stiffer bushings all around.<ref>{{cite web|url=http://www.hondanews.com/categories/757/releases/4410 |title=Acura Media Newsroom: 2009 Acura RL - Chassis |publisher=Hondanews.com |access-date=2009-04-28 |url-status=dead |archive-url=https://web.archive.org/web/20080720042343/http://www.hondanews.com/categories/757/releases/4410 |archive-date=2008-07-20 }}</ref> The MMC RL was equipped with a new larger front anti-sway bar of hollow construction, 30mm diameter overall with a 6.5mm wall thickness, and a larger rear solid anti-sway bar, 19mm in diameter.<ref name="categories1">{{cite web|url=http://www.hondanews.com/categories/759/releases/4414 |title=Acura Media Newsroom: 2009 Acura RL - Specifications |publisher=Hondanews.com |access-date=2009-04-28 |url-status=dead |archive-url=https://web.archive.org/web/20080704052658/http://www.hondanews.com/categories/759/releases/4414 |archive-date=2008-07-04 }}</ref> The pre-MMC models sported a solid 29mm front and 17mm rear sway bar.<ref name="categories2006">{{cite web|url=http://www.hondanews.com/categories/759/releases/2715?archive=2006 |title=Acura Media Newsroom: 2006 Acura RL Specifications |publisher=Hondanews.com |date=2005-08-17 |access-date=2009-04-28 |url-status=dead |archive-url=https://web.archive.org/web/20100213033822/http://hondanews.com/categories/759/releases/2715?archive=2006 |archive-date=2010-02-13 }}</ref>
+
+Standard 18- x 8-inch seven-spoke alloy wheels with 245/45-18 tires replaced the previous years' 17- x 8-inch five-spoke offerings for not only the Base and Tech package models, but also for the highest trim level, the ACC/CMBS equipped model. Previous years' ACC/CMBS equipped models were equipped with [Michelin PAX System] run-flat tires on 18-inch equivalent (460&nbsp;mm diameter) five-spoke wheels.
+
+Inside, the front seats were revised for greater comfort and to allow a slight increase in rear leg room. The passenger front seat received the same full 10-way power control as the driver's seat. Both front seats featured active head restraint systems, and the existing seat-heating feature was supplemented by six levels of cooling ventilation. Controls for heating and air conditioning were simplified, and additional individual vent controls were added for the driver and passenger. The shift gear no longer had a gated sequence, but moved straight fore and aft like the ones in the [[Acura TSX]] and [[Acura TL]]. Simulated woodgrain trim was added to the steering wheel and the top of the shifter, to emphasize the RL's upscale aspirations compared to its less costly TL and TSX siblings.
+
+Additional insulation, improved acoustic isolation, windshield design, and a new implementation of the Active Noise Cancellation system (ANC) combined to make the 2009 RL's interior quieter in a variety of conditions. Whereas the former ANC was set to cancel out only low frequency noises from the engine and exhaust, the MMC system, called Active Sound Control, was expanded in its range to cancel some higher frequency road and tire noise. Unlike its predecessor ANC, Active Sound Control became linked to throttle position and engine RPM to provide a quieter cockpit during normal cruising, yet allowed more of the new 3.7 L engine's "muscular sound" to be heard at higher engine speeds and higher velocities.
+
+An additional microphone as well as some switchable directionality was added to the HFL (Hands Free Link) and Voice Activated Navigation and Convenience controls. When the system was in "accept commands" mode, the new microphone system provided more accurate system "understanding" of the driver's voice. Extraneous sounds, such as other voices in the cabin and wind noise, were better distinguished and filtered out by the dual microphone system. Directionality was removed when an HFL voice call was established, so that all passengers could still participate in a phone call as in the pre-MMC model. The number of voice recognition commands was increased to over 700,<ref>{{cite web|url=http://www.hondanews.com/categories/757/releases/4409 |title=Acura Media Newsroom: 2009 Acura RL - Interior |publisher=Hondanews.com |access-date=2009-04-28 |url-status=dead |archive-url=https://web.archive.org/web/20080906203808/http://www.hondanews.com/categories/757/releases/4409 |archive-date=2008-09-06 }}</ref> up from 560<ref>{{cite web|url=http://www.hondanews.com/categories/757/releases/2075 |title=Acura Media Newsroom: 2005 Acura RL Interior Part 2 |publisher=Hondanews.com |date=2004-08-31 |access-date=2009-04-28 |url-status=dead |archive-url=https://web.archive.org/web/20100709212433/http://www.hondanews.com/categories/757/releases/2075 |archive-date=2010-07-09 }}</ref> previously.
+
+The infotainment system improved on previous versions, adding XM satellite-linked traffic flow reporting, continuously updated real-time weather reporting and the capability to reroute based on traffic conditions. The sound system was unchanged, but device integration was improved with the addition of Bluetooth stereo streaming and a USB port that allowed integration and operation of an [[Apple iPod|iPod]] and other [[MP3]] type devices. Also new was the ability to display iPod music libraries or other media devices (such as a USB flash drive, ) including folders and playlist information.
+
+New shifter and center console arrangements were added, including a Sport mode. The steering wheel paddle shifters were reprogrammed for faster response, and the paddle shifters could be operated in both Drive and Sport modes. In pre-MMC models, the gear selector had to be put in manual mode for the paddle shifters to operate.
+
+In exterior length, the 2009 RL grew slightly by {{convert|2.2|in|mm}}. The height grew by {{convert|0.1|in|mm}}, while the width, track and wheelbase remained the same,.<ref name="categories1"/><ref name="categories2006"/> The front end including the hood, and the rear including the trunkline, were revised, and the headlights and taillights were redesigned. The RL received the controversial "Power Plenum" grille that was introduced on the 2009 TL and was later joined by the facelifted 2009 [[Acura TSX]].
+
+Curb weights increased for 2009. The MMC Base weighed in at 4083lbs, the Technology Package model 4085lbs, and the ACC/CMBS with no PAX weighed 4110.<ref>{{cite web |url=http://www.acura.com/Chassis.aspx?model=RL |title=2010 Acura RL &#124; Specifications |publisher=Acura.com |access-date=2009-09-19 |archive-url=https://web.archive.org/web/20090203184159/http://www.acura.com/Chassis.aspx?model=RL |archive-date=2009-02-03 |url-status=dead }}</ref> The equivalent 2006 pre-MMC Technology Package had weighed 4012lbs, and the pre-MMC with ACC/CMBS/PAX weighed 4074lbs.<ref>{{cite web|url=http://www.hondanews.com/categories/759/releases/2715?archive=2006 |title=Acura Media Newsroom: 2006 Acura RL Specifications |publisher=Hondanews.com |date=2005-08-17 |access-date=2009-09-19 |url-status=dead |archive-url=https://web.archive.org/web/20100213033822/http://hondanews.com/categories/759/releases/2715?archive=2006 |archive-date=2010-02-13 }}</ref>
+
+For 2009, the Michelin PAX Run Flat Tire system was no longer offered in combination with the CMBS/ACC package. ACC became featured alongside CMBS as part of the package name, after a two-year hiatus. Colors were also added and deleted.<ref>{{cite web |title=Acura Media Newsroom: 2009 Acura Pricing |url=http://www.hondanews.com/categories/761/releases/4609 |url-status=dead |archive-url=https://web.archive.org/web/20090421222718/http://hondanews.com/categories/761/releases/4609 |archive-date=21 April 2009 |access-date=2009-04-28 |publisher=Hondanews.com}}</ref>
+
+The 2010 Acura RL continued with few changes in the U.S. from the 2009 model. 
+
+=== 2011 update ===
+[[File:2012 Acura RL -- 04-11-2012 1.JPG|thumb|right|2011–2012 Acura RL (US)]]
+The 2011 Acura RL received a third, smaller facelift for the 2011 model year.
+
+The six-speed automatic transmission, first introduced on the 2010 [[Acura ZDX]], finally replaced the RL's five-speed automatic, long criticized by the press as outdated.<ref>{{cite web|url=http://www.motortrend.com/roadtests/sedans/1002_luxury_sport_sedan_comparison/2009_acura_rl.html |title=2009 Acura RL - Luxury Sport Sedan Comparison |publisher=Motor Trend |access-date=2011-06-17| archive-url= https://web.archive.org/web/20110629113015/http://www.motortrend.com/roadtests/sedans/1002_luxury_sport_sedan_comparison/2009_acura_rl.html| archive-date= 29 June 2011 | url-status= live}}</ref> The transmission upgrade was credited for an EPA gas mileage improvement to {{cvt|17|mpgUS}} city, {{cvt|24|mpgUS}} highway, and {{cvt|20|mpgUS}} combined.<ref name="ReferenceA">{{cite web|url=http://hondanews.com/channels/acura-automobiles-rl/releases/2011-acura-rl-delivers-more-refinement-and-improved-performance |title=Acura Media Newsroom - RL - 2011 Acura RL Delivers More Refinement and Improved Performance |publisher=Hondanews.com |date=2010-12-21 |access-date=2011-06-17 |url-status=dead |archive-url=https://web.archive.org/web/20110723021204/http://hondanews.com/channels/acura-automobiles-rl/releases/2011-acura-rl-delivers-more-refinement-and-improved-performance |archive-date=2011-07-23 }}</ref> In addition, 0-60 times were said to decrease by 0.5 seconds, to 6.0 seconds.<ref name="caranddriver.com"/> There have been reports that the 2009 facelift was originally the introduction candidate for the six-speed feature within the Acura lineup, but that the transmission was still undergoing testing and was not yet ready at that time.
+
+The available options were repacked into the Technology package and the Advance package. The Technology package was unchanged from the 2010 model year aside from adding factory-installed parking sensors for the first time, while the Advance package added the CMBS and ACC systems, power folding side-view mirrors and genuine wood trim except on the steering wheel and gearshift.
+
+The RL exterior was updated for 2011 with a toned-down version of the controversial "power plenum" front grille. Inside, the RL offered a new interior color (Sea Coast), new Dark Burlwood interior trim, and thin-thread stitching on the steering wheel.<ref name="caranddriver.com">{{cite web |url=http://www.caranddriver.com/reviews/car/10q4/2011_acura_rl_sh-awd-first_drive_review |title=2011 Acura RL Test: Acura RL Review – Car and Driver |publisher=Caranddriver.com |date= 2010-12-20|access-date=2011-06-17 |url-status=dead |archive-url=https://web.archive.org/web/20101224063319/http://www.caranddriver.com/reviews/car/10q4/2011_acura_rl_sh-awd-first_drive_review |archive-date=2010-12-24 }}</ref>
+
+Unique new {{convert|18|x|8|in|abbr=on}} diameter 15-spoke aluminum wheels included a new noise quieting technology: a [[polypropylene]] "Helmholtz resonator" that encircled the center portion of the inside of the wheel. The resonator served to suppress specific frequencies between 100 and 500 hertz, specifically resonances generated by rough road surfaces such as highway seams. In combination with increased floorboard insulation, this decreased interior noise by 1.3&nbsp;dB, or 15%.<ref name="ReferenceA"/> The [[Helmholtz resonance|Helmholtz resonators]] in the wheels were touted as a "world's first" for a passenger vehicle. A diagram showed an elastomer-type ring with multiple hollow chambers surrounding the center line of the wheel circumference. This resonator was designed to absorb the resonances generated by rough road surfaces such as highway seams.
+
+=== 2012 ===
+[[File:2011 Acura RL SH-AWD rear view.jpg|thumb|right|2011–2012 Acura RL (US)]]
+The 2012 Acura RL appears to be a carryover from the 2011 refresh with no substantive changes.<ref>{{cite web |url=http://www.acuranews.com/channels/acura-automobiles-rl/releases/2012-acura-rl-overview |access-date=March 15, 2013 |title=Honda Media Newsroom |archive-date=April 10, 2013 |archive-url=https://archive.today/20130410043505/http://www.acuranews.com/channels/acura-automobiles-rl/releases/2012-acura-rl-overview |url-status=dead }}</ref> The color Platinum Frost Metallic had been dropped in 2011, but appears to be added back in 2012.<ref name="ReferenceB">{{Cite web |url=http://www.acuranews.com/channels/acura-automobiles-rl/releases/2012-acura-rl-body |title=Honda Media Newsroom |access-date=2013-03-15 |archive-date=2013-04-10 |archive-url=https://archive.today/20130410043433/http://www.acuranews.com/channels/acura-automobiles-rl/releases/2012-acura-rl-body |url-status=dead }}</ref>
+
+==Reception==
+The second-generation 2005 Acura RL appeared on ''[[Car and Driver]]''{{'}}s [[Car and Driver Ten Best|Ten Best list]] for 2005. The car also garnered a [[CNET]] "Editor's Choice" Award for Top Tech Car in 2005. The SH-AWD all-wheel-drive system was lauded by ''[[Popular Science (magazine)|Popular Science]]'' as one of the best automotive innovations of 2004. In October 2010, the Acura RL was named by ''[[Consumer Reports]]''<ref>{{cite web|url=http://blogs.consumerreports.org/cars/2010/10/consumer-reports-2010-annual-car-reliability-survey-gm-makes-big-strides-while-honda-toyota-dominate-pr.html?CMP=OTC-NEWS4 |archive-url=https://archive.today/20120709155953/http://blogs.consumerreports.org/cars/2010/10/consumer-reports-2010-annual-car-reliability-survey-gm-makes-big-strides-while-honda-toyota-dominate-pr.html?CMP=OTC-NEWS4 |url-status=dead |archive-date=2012-07-09 |title=Consumer Reports Cars Blog: Consumer Reports' 2010 Annual Car Reliability Survey: GM makes big strides, while Honda, Toyota dominate |publisher=Blogs.consumerreports.org |date=2010-10-26 |access-date=2010-11-24 }}</ref> as the most reliable new car among luxury sedans. 
+
+In a comparison of 2006–2007 model year mid-luxury sedans with all-wheel drive, the RL compared favorably to a [[Mercedes-Benz E-Class|Mercedes-Benz E300]] [[4MATIC]] and a [[BMW 5 Series|BMW 528xi]].<ref>{{cite web|url=http://www.wheels.ca/article/47657 |title=Comparison: Acura RL, Mercedes E 300, BMW 528xi |publisher=Wheels.ca |access-date=2011-06-17}}</ref><ref>{{cite web|url=http://www.automobile.com/2006-acura-rl.html |title=2006 Acura RL |publisher=Automobile.com |access-date=2011-06-17| archive-url= https://web.archive.org/web/20110707192038/http://www.automobile.com/2006-acura-rl.html| archive-date= 7 July 2011 | url-status= live}}</ref> Subsequent moves by Audi and BMW to design and market their own versions of torque vectoring all-wheel-drive systems bear out the innovative nature of the SH-AWD design.
+
+While critically acclaimed, sales did not meet expectations. Despite the mid-generational update, only 2,043 cars were sold in the U.S. in 2009, a 55 percent drop from 2008. Among Japanese luxury flagships marketed in America during the first six months of 2010, Acura sold only 872 RLs, compared to 5,650 [[Lexus LS]] and 6,602 [[Infiniti M]] sedans.<ref name="Leftlanenews.com">{{cite web|url=http://www.leftlanenews.com/honda-to-end-acura-rl-production.html |title=Acura RL to remain brand's flagship car |publisher=Leftlanenews.com |access-date=2010-11-24}}</ref><ref name="wheels.ca">{{cite web|url=http://www.wheels.ca/article/784179 |title=John LeBlanc's 10 worst redesigns |publisher=Wheels.ca |access-date=2011-06-17| archive-url= https://web.archive.org/web/20110716143901/http://www.wheels.ca/article/784179| archive-date= 16 July 2011 | url-status= live}}</ref> Only 379 RLs were sold in North America in 2012.<ref name="blogs.wsj.com">{{cite news| url=https://blogs.wsj.com/drivers-seat/2013/03/30/review-2014-acura-rlx/ | work=The Wall Street Journal | title=Review: 2014 Acura RLX | date=2013-03-30}}</ref>
+
+Enthusiasts and dealers said that the RL was not competitive because it lacked the full-size dimensions (the back seat was regarded as tight for a car of this size),<ref>{{cite web|first=Eddie |last=Alterman |url=http://www.caranddriver.com/reviews/2014-acura-rlx-fwd-test-review |title=2014 Acura RLX FWD Test |publisher=[[Car and Driver]] |date=June 2013 |access-date=16 June 2014}}</ref> a V8 engine option and the better handling and balanced rear-wheel drive of its larger rivals in the mid-luxury segment.<ref name="Leftlanenews.com" /><ref name="wheels.ca" /><ref>{{cite news| url=https://www.nytimes.com/2013/06/02/automobiles/autoreviews/eyes-on-the-prize-gadgets-at-the-ready.html | work=The New York Times | first=Lawrence | last=Ulrich | title=Eyes on the Prize, Gadgets at the Ready | date=2013-05-31}}</ref><ref>{{cite web |url=http://www.motortrend.com/roadtests/sedans/1104_2011_chrysler_300c_hyundai_genesis_comparison/viewall.html |title=2011 Chrysler 300C vs 2011 Hyundai Genesis Comparison |publisher=Motor Trend |access-date=2012-08-11 |archive-date=2012-07-30 |archive-url=https://web.archive.org/web/20120730222756/http://www.motortrend.com/roadtests/sedans/1104_2011_chrysler_300c_hyundai_genesis_comparison/viewall.html |url-status=dead }}</ref> The 2009 refresh and 2011 update did not keep the RL competitive enough in acceleration or fuel economy, considering that other marques had released new generations of their mid-size luxury sedans.
+
+The refreshed RL received criticism regarding its infotainment system, which wasn't updated to the newer hard-drive based systems on Acura models and instead used an outdated DVD-based navigation system with poor graphics quality, while its integration with mobile phones and media players was slow and clunky. In comparison, BMW and Mercedes-Benz had released new versions of [[Idrive|iDrive]] and [[COMAND]] around the same time, whereas the RL used the same infotainment system that was introduced in 2005 with only feature updates added throughout production.
+
+Other competitors that were midway through their model cycle, such as the 2004-07 [[BMW 5 Series (E60)|BMW 5 Series]] and 2005–08 [[Audi A6]] received updated engines with turbocharging/supercharging; the resulting 2008 BMW 535i and 2009 Audi A6 3.0T proved more powerful and fuel-efficient than the 2009 Acura RL. 
+
+The RL's styling, while generally considered handsome, was not viewed as inspiring or passionate enough to alert buyers to its technological features or stand out in a crowded field. The RL had a Honda family look that lacked the presence and panache of its competitors and at first glance somewhat resembled a [[Honda Accord]] despite the fact that the RL competed in a different price bracket, whereas less expensive Acura models had more distinctive, youthful styling.
+
+The 2009 model was criticized for its "power plenum" grille, a bright horizontal pentagon of chrome that formed a shield across the upper center which was poorly integrated into the RL's older, more conservative design.<ref>{{cite web|url=http://www.carlist.com/newcars/2006/ncr1215.html |title=2006 Acura RL on |publisher=Carlist.com |access-date=2011-06-17| archive-url= https://web.archive.org/web/20110708121253/http://www.carlist.com/newcars/2006/ncr1215.html| archive-date= 8 July 2011 | url-status= live}}</ref><ref name="John LeBlanc's 10 worst redesigns">{{cite web|url=http://www.wheels.ca/article/784179 |title=John LeBlanc's 10 worst redesigns |publisher=Wheels.ca |access-date=2010-08-13}}</ref>
+
+Some have suggested that the Acura RL's failure in the market was due to its initial pricing which was perceived to be out of its bracket. Honda Japan believed that the new RL offered more features and performance than the base version of its luxury competitors and suggested that it could charge more, though Honda Canada disagreed.
+
+It can also be argued that RL lacked buyer appeal. Customers spending over $45,000 on a luxury car would often want the prestige associated with one of the German manufacturers, or they would buy a vehicle that was a better value than the German cars that also provided similar features, such as a V8 engine and a rear-wheel-drive platform.
+
+The RL also competed with the TL in Acura showrooms. The TL gave the Acura customer most of the core features that the RL offered but at a much lower price. Many Acura customers couldn't justify the RL's higher price because the SH-AWD system and the added technology features weren't compelling enough to purchase an RL over a competing vehicle. Furthermore, they did not perceive the Acura brand as being on par with its German rivals and expected more value from the Japanese marque.
+
+In 2009, the new generation of the [[Acura TL]] was released. The TL's SH-AWD trim level with the Technology package used the same engine, the SH-AWD system, similar dimensions,<ref>{{cite web|first=Alex L. |last=Dykes |url=http://www.thetruthaboutcars.com/2012/05/review-2012-acura-rl/ |title=Review: 2012 Acura RL |publisher=The Truth About Cars |date=13 May 2012 |access-date=16 June 2014}}</ref> an upgraded infotainment system and many of the RL's other key features for only $44,900 CAD, rendering the costlier and aging RL superfluous in Acura's own showrooms.<ref name="Autos.canada.com" /><ref>{{cite web | url = http://www.leftlanenews.com/acura-rlx-first-drive-review.html | title = First Drive: 2014 Acura RLX [Review] | first = Drew | last = Johnson | work = Left Lane News | access-date = 2013-02-16 | archive-date = 2013-02-17 | archive-url = https://web.archive.org/web/20130217051908/http://www.leftlanenews.com/acura-rlx-first-drive-review.html | url-status = dead }}</ref>
+
+The damage from Honda Japan's alleged hubris was done, perhaps giving the RL an unfavorable image that could not be removed, even though Honda Canada reduced the RL's price as well as releasing a decontented trim to make the vehicle more competitive.<ref name="Autos.canada.com">{{cite web |url=http://autos.canada.com/news/story.html?id=ebd3dab9-f974-4fc2-a4e1-d321bdf1bb5b |title=Driving.ca - Road test: 2009 Acura RL |publisher=Autos.canada.com |access-date=2010-10-03 |archive-date=2011-05-21 |archive-url=https://web.archive.org/web/20110521004336/http://autos.canada.com/news/story.html?id=ebd3dab9-f974-4fc2-a4e1-d321bdf1bb5b |url-status=dead }}</ref> 
+
+Although other Japanese manufacturers have had limited success in the mid-luxury market which has been dominated by German manufacturers, the [[Lexus GS]] and [[Infiniti M]] still sold considerably better than the Acura RL. Late in its production lifespan the RL also faced competition from the [[Hyundai Genesis]], which was similarly refined while also featuring rear wheel drive and an optional V8 engine at a very competitive price.
+
+The RL is appealing as a used luxury car, as it offers many luxury features at a lower-than-expected price and is expected to be more reliable than an equivalent European car. However, its low popularity means that RL-specific components could be hard to source and repair costs can be more expensive.
+
+== Safety ==
+From 2005 to 2008, Acura RL has been ranked #1 and has achieved the best car safety score (46.4) in [[Informed for LIFE]]'s "2003–2009 Vehicle risk index SCOREs".<ref>{{cite web
+ |title=2003–2009 Vehicle risk index SCOREs 
+ |url=http://www.informedforlife.org/demos/FCKeditor/UserFiles/File/1MasterSCOREr.pdf
+ |access-date=2008-05-10 
+ |url-status=usurped
+ |archive-url=https://web.archive.org/web/20081230073956/http://www.informedforlife.org/demos/FCKeditor/UserFiles/File/1MasterSCOREr.pdf 
+ |archive-date=2008-12-30 
+}}</ref> For both the 2009 and 2010 model years, the Acura RL received a five-star crash safety ratings from the [[National Highway Traffic Safety Administration]] (NHTSA).<ref>{{cite web |title=Safercar.gov |url=http://www.safercar.gov/Vehicle%20Shoppers/5-Star+Safety+Ratings/1990-2010%20Vehicles/2010%20Detail?ID=7576 |url-status=dead |archive-url=https://web.archive.org/web/20101015040608/http://www.safercar.gov/Vehicle%20Shoppers/5-Star+Safety+Ratings/1990-2010%20Vehicles/2010%20Detail?ID=7576 |archive-date=2010-10-15 |access-date=2010-08-13 |publisher=Safercar.gov}}</ref><ref>{{cite web |title=Safercar.gov |url=http://www.safercar.gov/portal/site/safercar/menuitem.db847bd57e3dc1f885dfc38c35a67789/?vgnextoid=c95df2905bf54110VgnVCM1000002fd17898RCRD&vgnextrefresh=1&ID=7993 |access-date=2010-08-13 |publisher=Safercar.gov}}</ref> 
+
+For the 2009 model year, the Acura RL received a Top Safety Pick designation from the [[Insurance Institute for Highway Safety]] (IIHS) earning a "Good" rating on frontal offset, side impact and rear crash protection tests. When a roof strength (rollover) evaluation was added to the battery of tests in 2010, the RL was rated only "Marginal" in this category, causing it to lose the Top Safety Pick award.<ref>{{cite web|url=http://www.iihs.org/ratings/roof/detailsbyclass.aspx?10 |title=Roof strength evaluations: Large luxury cars |publisher=Iihs.org |access-date=2010-08-13 |archive-url=https://web.archive.org/web/20100808073315/http://www.iihs.org/ratings/roof/detailsbyclass.aspx?10 |archive-date=8 August 2010 |url-status=dead }}</ref>
+
+The Acura RL consistently garnered National Highway Traffic Safety Administration (NHTSA) Five Star (the highest rating) ratings for Frontal, Side and Rollover crash testing. The injury measures on the driver in the front test were some of the lowest ever recorded in a NHTSA test at the time.
+
+The Acura RL incorporated many modern and some unique safety features including:
+
+* Active head restraints -These were introduced in the 2009 facelift and reduce neck injury by moving forward to keep the occupant's head from snapping backwards during a rear impact. This improved the rear crash protection rating for the 2005–2008 models from Marginal to Good for the 2009 model year.
+* [[stability control|Vehicle Stability Assist]]  - a system unique to Honda/Acura vehicles that uses the SH-AWD, ABS, yaw, lateral G, speed and steering angle sensors to maintain vehicle stability.
+* Electronic [[Traction Control|traction control]] - uses individual wheel ABS sensors and engine modulation to reduce wheel slippage.
+* [[Electronic brakeforce distribution]] - redistributes front and rear brake pressures during sudden braking.
+* [[Brake Assist]] - "learns" the driver's braking habits, rate of pressure and total pressure applied, then quickly activates full ABS in a perceived panic stop.
+* Two-stage front airbags - minimizes injury due to deployment geometry (deploying upward rather than forward into the occupant) and speed<ref name="corporate1">{{cite web|url=http://corporate.honda.com/safety/details.aspx?id=airbag |title=Honda Safety - Airbag Innovation |publisher=Corporate.honda.com |date=2006-03-02 |access-date=2009-04-28| archive-url= https://archive.today/20090418025002/http://corporate.honda.com/safety/details.aspx?id=airbag| archive-date= 18 April 2009 | url-status= live}}</ref>
+* Side airbags including Occupant Position Detection Sensor (OPDS) system - detects weight and positioning of passenger in the front seat and disables the passenger front side air bag deployment if the system calculates that deployment could cause injury to the occupant, such as a child or small-statured adult<ref name="corporate1" />
+* [[LATCH]] child seat anchors
+* [[Tire Pressure Monitoring System]] (TPMS]) - provides individual pressure readings for each tire and tire position in a graphical display, and alerts the driver in the event of low or no pressure
+* {{convert|5|mi/h|km/h|abbr=on}} bumpers
+
+From the 2006 model year forward, the Acura RL features an optional [[precrash system]] called the Collision Mitigation Braking System (CMBS), which can alert drivers of objects up to 330 feet ahead. If the driver gets dangerously close and does not take evasive action, the RL first provides visible and audible alerts. If the driver does not respond, the electronic pre tensioning seat belt system tugs on the shoulder belts. If the driver still does not react and the collision is deemed unavoidable, the RL retracts and locks seatbelts and brakes hard. Depending on the situation, all three stages may blend together as if one.
+
+The same CMBS millimeter wave radar was also used to operate the optional [[Adaptive Cruise Control]] (ACC) feature. The driver selected a cruise speed and could set a timed following distance of 2.0, 1.5 or 1.0 seconds. When the ACC detected a target at any distance up to 330 feet ahead, the engine throttle would be modulated to keep the timed following distance. If throttle modulation did not provide enough slowing, the car would also apply the brakes to help maintain the chosen distance.
+
+RL/Legend models in all markets featured energy-absorbing hood and fender supports and deformable windshield wiper pivots to minimize pedestrian injury.<ref>{{cite web |date=2006-02-28 |title=Honda Worldwide &#124; February 28, 2006 "Honda Line-up at The Geneva Salon 2006 Tackles Future Challenges Through Innovation and Diversity" |url=http://world.honda.com/news/2006/4060228Geneva2006/ |url-status=dead |archive-url=https://web.archive.org/web/20081016103539/http://world.honda.com/news/2006/4060228Geneva2006/ |archive-date=October 16, 2008 |access-date=2009-04-28 |publisher=World.honda.com}}</ref>
+
+From 2006 through 2008, [[Michelin PAX System]] run-flat tires were also offered as an option. This system allowed the car to run up to {{convert|125|mi|km}} at {{convert|50|mi/h|km/h}} with a flat
+
+===Recalls===
+
+There have been two recalls on the second-generation Acura RL, based on defects in parts used in both Acura and Honda vehicles.
+
+In December 2007, certain 2005–2008 model Acura RLs were subject to a safety recall for the power steering hose.<ref>{{cite web |title=Important Safety Recall Notice |date=December 2007 |url=http://owners.acura.com/Maintenance/RecallsShow.aspx?campaignMasterNo=Q65_EN&url=/Documentum/Campaigns/Q65.htm |access-date=July 29, 2011 |url-status=dead |archive-url=https://web.archive.org/web/20120328083758/http://owners.acura.com/Maintenance/RecallsShow.aspx?campaignMasterNo=Q65_EN&url=%2FDocumentum%2FCampaigns%2FQ65.htm |archive-date=March 28, 2012 }}</ref> Prolonged high under-hood temperatures may cause the power steering hose to deteriorate prematurely and may cause the hose to crack and leak power steering oil. Oil leaking onto a hot catalytic converter will generate smoke and possibly lead to an under-hood fire. Affected vehicles were to be inspected and repaired, as applicable, at no charge. Reportedly, this recall extended to both 2005–2008 Acura RL and 2004–2008 [[Acura TL]] models.
+
+In December 2010, certain 2005–2007 model Acura RLs were subject to a safety recall for potential leaking of the brake master cylinder seal.<ref>{{cite web|url=http://owners.acura.com/Documentum/Campaigns/R52_English_64.pdf |title=Important Safety Recall Notice |work=Acura Owners |date=December 2010 |access-date=16 June 2014}}</ref> A seal in the brake master cylinder may be susceptible to damage following the use of brake fluid other than the recommended Acura or (Honda) Genuine DOT3 brake fluid. If the seal is damaged, it can result in a brake fluid leak under certain conditions. If a leak should occur, the driver might see a low brake fluid indicator light or a BRAKE FLUID LOW or CHECK BRAKE SYSTEM message. If the driver continues to drive the vehicle after receiving this message without refilling the brake fluid reservoir, it could result in a brake pedal that feels soft or spongy, and may eventually affect braking performance, increasing the risk of a crash. Affected vehicles were to be inspected and repaired, as applicable, at no charge. Reportedly, this recall applied to both 2005–2007 Acura RL and 2005–2007 [[Honda Odyssey (international)|Honda Odyssey]] models.
+
+==Successor==
+In April 2012, the [[Acura RLX]] concept was introduced by [[Honda]], and the production model debuted at the [[Los Angeles Auto Show]]. The initial available trim of the RLX was front-wheel drive; later the all-wheel drive version was released featuring a 377-horsepower hybrid engine mated to a seven-speed dual-clutch transmission.<ref>{{cite web|url=http://www.insideline.com/acura/rlx/2014/2014-acura-rlx-debut-set-for-2012-los-angeles-auto-show.html |title=2014 Acura RLX Debut Set for 2012 Los Angeles Auto Show|publisher=Inside Line |date=2012-09-21 |access-date=2012-09-26}}</ref>
+
+==Sales==
+{| class=wikitable style="font-size:97%"
+|-
+! Calendar year
+! Total US sales<ref>http://news.honda.com/newsandviews/local_news_content/{{dead link|date=June 2017 |bot=InternetArchiveBot |fix-attempted=yes }}[5147g]_Honda_2015_Digital_FactBook.pdf</ref>
+|-
+ | 1996
+ | 15,848
+ |-
+ | 1997
+ | 16,004
+ |-
+ | 1998
+ | 15,024
+ |-
+ | 1999
+ | 13,366
+ |-
+ | 2000
+ | 14,827
+ |-
+ | 2001
+ | 10,723
+ |-
+ | 2002
+ | 9,392
+ |-
+ | 2003
+ | 6,829
+ |-
+ | 2004
+ | 8,753
+ |-
+ | 2005
+ | 17,572
+ |-
+ | 2006
+ | 11,501
+ |-
+ | 2007
+ | 6,262
+ |-
+ | 2008
+ | 4,517
+ |-
+ | 2009
+ | 2,043
+ |-
+ | 2010
+ | 2,037
+ |-
+ | 2011
+ | 1,096
+ |-
+ | 2012
+ | 379
+|}
+
+==Sources==
+{{Reflist|30em}}
+
+==External links==
+{{Commons category}}
+*[http://www.acura.com/ Acura USA]
+*[http://www.acura.com/index.aspx?initPath=RL Official page of RL model]
+
+{{Acura}}
+{{Authority control}}
+
+{{DEFAULTSORT:Acura Rl}}
+[[Category:Acura vehicles|RL]]
+[[Category:All-wheel-drive vehicles]]
+[[Category:Executive cars]]
+[[Category:Flagship vehicles]]
+[[Category:Full-size vehicles]]
+[[Category:Front-wheel-drive vehicles]]
+[[Category:Sports sedans]]
+[[Category:2000s cars]]
+[[Category:2010s cars]]
+[[Category:Cars introduced in 1996]]
+[[Category:Cars discontinued in 2012]]

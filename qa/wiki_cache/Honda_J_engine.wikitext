@@ -1,0 +1,507 @@
+{{Infobox automobile engine
+| name = Honda J engine
+| image = Honda J35A Engine.JPG
+| manufacturer = [[Honda Motor Manufacturing]]
+| production = 1996–present
+| configuration = 60° [[V6 engine|V6]]
+| valvetrain = [[SOHC]] [[Multivalve#Four valves|4-valve]] with [[VTEC]]<br />[[DOHC]] [[Multivalve#Four valves|4-valve]] (J30AC and J35Y8)
+| predecessor = [[Honda C engine]]
+| fueltype = Gasoline
+| fuelsystem = {{Unbulleted list|[[PGM-FI]]|[[Multi-point fuel injection]]|[[Gasoline direct injection|Direct injection]]}}
+| coolingsystem = [[Radiator (engine cooling)|Water-cooled]]
+| compression = 9.8:1, 10.0:1, 10.5:1, 11.0:1, 11.2:1, 11.5:1
+| block = [[Aluminum]]
+| head = [[Aluminum]]
+| displacement = {{Unbulleted list|{{cvt|2495|cc|L cc cuin|1|order=out}}|{{cvt|2997|cc|L cc cuin|1|order=out}}|{{cvt|3210|cc|L cc cuin|1|order=out}}|{{cvt|3471|cc|L cc cuin|1|order=out}}|{{cvt|3664|cc|L cc cuin|1|order=out}}}}
+| bore = {{Unbulleted list|{{cvt|86|mm|in|2}}|{{cvt|89|mm|in}}|{{cvt|90|mm|in|2}}}}
+| stroke = {{Unbulleted list|{{cvt|71.6|mm|in|2}}|{{cvt|86|mm|in|2}}|{{cvt|93|mm|in|2}}|{{cvt|96|mm|in|2}}}}
+| power = {{cvt|200-355|hp|kW|0}}
+| torque = {{cvt|177-354|lbft|Nm|0}}
+| weight = {{cvt|250-360|lb}}
+| management = [[Variable Cylinder Management|VCM]]<br />[[Variable-length intake manifold|IMRC]]
+| redline = 6,900
+| turbocharger = [[Twin scroll|Twin-scroll]] (J30AC)
+| emissions control = [[Catalytic converter]] (some versions)
+}}
+The '''J-series''' is [[Honda]]'s fourth production V6 engine family introduced in 1996, after the [[Honda C engine|C-series]], which consisted of three dissimilar versions. The J-series engine was designed in Japan, with engineering taking place in the United States.<ref>{{cite web|url=https://hondanews.com/en-US/releases/release-783a79afaae80f8a718501004c34c918-1999-acura-cl-design-and-manufacturing|title=1999 Acura CL- Design And Manufacturing|publisher=hondanews.com|date=1999-11-30|access-date=2025-11-29}}</ref><ref>{{cite web|url=https://global.honda/en/about/history-digest/75years-history/chapter3/section2_8/page3.html|title=The Challenge to Produce the 60° V6 J Engine Independently in the U.S.|publisher=global.honda|access-date=2025-11-29}}</ref> It is built at Honda's [[Anna, Ohio]], and [[Lincoln, Alabama]], engine plants.
+
+The J-series is a 60° [[V6 engine|V6]] unlike Honda's existing 90° [[Honda C engine|C-series]] engines. Also unlike the C series, the J-series was specifically and only designed for [[transverse engine|transverse]] mounting. It has a shorter bore spacing ({{cvt|98|mm|in|2}}), shorter [[connecting rod]]s and a special smaller crankshaft than the C-series to reduce its size. All J-series engines are gasoline-powered, use four valves per cylinder, and have a single timing belt that drives the overhead camshafts. [[VTEC]] [[variable valve timing]] is used on almost all applications, with exceptions being the [[Honda J engine#J30AC|J30AC]] and [[Honda J engine#J35Y8 – VCM|J35Y8]] (which use Variable Timing Control [VTC] instead).
+
+One unique feature of some J-family engine models is Honda's [[Variable Cylinder Management]] (VCM) system. Initially, the system turns off one bank of cylinders under light loads, turning the V6 into a [[straight-3]]. Some versions were able to turn off one bank of cylinders or one cylinder on opposing banks, allowing for three-cylinder use under light loads and four-cylinder use under medium loads.
+
+==J25==
+The '''J25A''' was used only in the Japanese domestic [[Honda Inspire|Inspire]]/[[Honda Inspire|Saber]] models. The J25A displaced {{cvt|2495|cc|L cc cuin|1|order=out}}. Its bore and stroke was {{cvt|86x71.6|mm|in|2}}. The J25A used a 10.5:1 compression ratio and was a [[SOHC]] [[VTEC]] design. Output was {{cvt|200|hp|kW|0}} at 6200&nbsp;rpm and {{cvt|24.5|kgm|Nm lbft|0}} of torque at 4600&nbsp;rpm. It had a variable [[intake manifold]] to optimize torque output across varying engine speeds and engine response.<ref>{{cite web |url=http://world.honda.com/news/1998/4981015.html |title=Honda Japan Introduced the New Inspire/Saber Series Developed and Produced in the U.S. Oct 15, 1998 |publisher=World.honda.com |access-date=2012-01-27 |url-status=live |archive-url=https://web.archive.org/web/20121009041714/http://world.honda.com/news/1998/4981015.html |archive-date=2012-10-09 }}</ref>
+
+=== J25A ===
+* 1998–2003 [[Honda Inspire]]
+* 1999 [[Honda Saber]]
+
+==J30==
+The J30A displaces {{cvt|2997|cc|L cc cuin|1|order=out}} and is a [[SOHC]] [[VTEC]] design. Its bore and stroke is {{cvt|86x86|mm|in|2}}. Output for the J30A1 was initially {{cvt|200|hp|kW|0}} and {{cvt|195|lbft|Nm|0}} of torque, later increased to {{cvt|210|hp|kW|0}} and {{cvt|200|lbft|Nm|0}} of torque. The J30A4 pushed output to {{cvt|242|hp|kW|0}} and {{cvt|212|lbft|Nm|0}} using a three-way VTEC system, a higher (10.0:1) [[compression ratio]] and a novel [[exhaust manifold]] cast as one piece with the cylinder head. It weighs nearly {{cvt|20|lb}} less and is an inch shorter than J30A1. This version was on the [[Ward's 10 Best Engines]] list for 2003 and 2004. The [[Integrated Motor Assist|IMA]] [[hybrid car|hybrid]] version was on the list for 2005. In 2006 Honda created the J30A5 to mark the 30th anniversary of the Accord. It boosted output to {{cvt|244|hp|kW|0}} ([[Horsepower#SAE net power|SAE Net]] 08/04) and {{cvt|211|lbft|Nm|0}} (SAE Net 08/04) of torque. According to Honda, horsepower gains were achieved with improvements to the airflow of the intake and exhaust system.
+=== J30A – VCM ===
+* 2003–2007 [[Honda Inspire]] ([[Japanese domestic market|JDM]], marked as J30A-60 250ps)<ref name="caranddriver.com">{{cite web |date=November 2007 |title=Honda Inspire JP |url=https://www.honda.co.jp/auto-archive/inspire/2007/ }}</ref>
+* 2004–2013 [[Honda Elysion]] (JDM, RR3/RR4)
+* Displacement: {{cvt|2997|cc|L cc cuin|1|order=out}}
+* Bore and stroke: {{cvt|86x86|mm|in|2}}
+* Power: {{cvt|247|hp|kW|0}} at 6,000 rpm
+* Torque: {{cvt|296|Nm|lbft}} at 5,000 rpm
+* [[Variable-length intake manifold|IMRC]] (Intake Manifold Resonance Control) for increased torque at low rpm
+* Redline: 6,800&nbsp;rpm
+* Compression: 10.5:1
+* Valve train : SOHC i-VTEC (belt-driven, intake2, exhaust2)
+* [[Variable Cylinder Management]] (VCM) : (3 and 6 cylinder operation)<ref>{{Cite web |title=Honda｜インスパイア（2007年11月終了モデル）｜メカニズム |url=https://www.honda.co.jp/auto-archive/inspire/2007/mechanism/ |access-date=2007-11-01 |website=www.honda.co.jp}}</ref>
+* Induction: Naturally Aspirated
+* Fuel Delivery:Multi-point fuel injection (Honda [[PGM-FI]])
+* Emissions control systems : Catalytic converter,EGR,PCV[[File:J30A Honda inspire.jpg|thumb|213x213px|J30A - Honda Inspire]][[File:Honda Elysion vcm.jpg|thumb|J30A i-vtec VCM on Honda Elysion]]
+
+=== J30A1 ===
+* 1996–1999 [[Acura CL|Acura 3.0CL]]<ref>{{cite web|url=http://news.honda.com/newsandviews/article.aspx?id=8903-en|title=More Than Half of Acura's U.S. Vehicle Sales in Brand's 30-year History Have Been Made in North America - Honda.com|website=news.honda.com|url-status=live|archive-url=https://web.archive.org/web/20170909005954/http://news.honda.com/newsandviews/article.aspx?id=8903-en|archive-date=2017-09-09}}</ref>
+* 1998–2002 [[Honda Accord]] ''V6''<ref>{{cite web|url=http://www.adandp.media/articles/the-accord's-awesome-launch|title=The Accord's Awesome Launch|first=Gary S.|last=Vasilash|website=www.adandp.media|url-status=live|archive-url=https://web.archive.org/web/20180511233414/https://www.adandp.media/articles/the-accord's-awesome-launch|archive-date=2018-05-11}}</ref>
+* 1999–2003 [[Honda Avancier (station wagon)|Honda Avancier]]
+
+=== J30A3 ===
+* 1998–2002 [[Honda Accord]] ''V6''
+* 1997–2003 [[Honda Odyssey (international)|Honda Odyssey]] (''Prestige'' & ''Absolute'' models)
+
+=== J30A4 ===
+* 2003–2007 [[Honda Accord]] ''V6'' (USDM)<ref>{{cite web|url=https://ohio.honda.com/our-story#timeline|title=Welcome to Honda Manufacturing of Ohio|website=ohio.honda.com|url-status=live|archive-url=https://web.archive.org/web/20170909005810/https://ohio.honda.com/our-story#timeline|archive-date=2017-09-09}}</ref>
+* Displacement: {{cvt|2997|cc|L cc cuin|1|order=out}}
+* Bore and stroke: {{cvt|86x86|mm|in|2}}
+* Power: {{cvt|242|hp|kW|0}} at 5,500 rpm (Thai Domestic Market 220hp): Drive by wire for reducing gas emissions)
+* Torque: {{cvt|288|Nm|lbft|0}} at 5,000 rpm
+* Compression: 10.0:1
+* Induction: Naturally Aspirated 
+* Fuel Delivery: Multi-point fuel injection (PGM-FI)
+* Valve Train: 24-Valve SOHC VTEC
+
+=== J30A5 ===
+* 2005–2007 [[Honda Accord]] ''V6''
+* 2013–2016 [[Honda Accord]] (China only, with VCM ,261ps)
+* Displacement: {{cvt|2997|cc|L cc cuin|1|order=out}}
+* Bore and stroke: {{cvt|86x86|mm|in|2}}
+* Power: {{cvt|244|hp|kW|0}} at 6244&nbsp;rpm
+* Torque: {{cvt|211|lbft|Nm|0}} at 5000&nbsp;rpm
+* Redline: 6,800&nbsp;rpm
+* Fuel cut: 7,000rpm
+* Compression: 10.0:1
+* Valve Train: 24-Valve SOHC i-VTEC
+
+=== J30AC ===
+(Turbo)
+* 2021–2025 [[Acura TLX#second|Acura TLX Type-S]]
+* 2022+ [[Acura MDX|Acura MDX Type-S]]
+* Displacement: {{cvt|2997|cc|L cc cuin|1|order=out}}
+* Bore and stroke: {{cvt|86x86|mm|in|2}}
+* Power: {{cvt|355|hp|kW|0}} at 5500&nbsp;rpm
+* Torque: {{cvt|354|lbft|Nm|0}} at 1400–5000&nbsp;rpm<ref>{{cite web|url=https://www.acura.com/tlx/features |title=2021 Acura TLX Features &#124; SH AWD Sedan |publisher=Acura.com |date= |accessdate=2021-11-24}}</ref>
+* Compression: 9.8:1
+* Valve Train: 24-Valve DOHC with VTC
+
+=== J30Y1 ===
+* 2013–2018 [[Acura RDX]] (China)
+* 2017–2020 [[Acura MDX]] (Sport Hybrid)
+* Displacement: {{cvt|2997|cc|L cc cuin|1|order=out}}
+* Bore and stroke: {{cvt|86x86|mm|in|2}}
+* Power (engine only): 257 hp at 6300&nbsp;rpm
+* Power (combined): 321 hp at 6300&nbsp;rpm
+* Torque (combined): 289 lb⋅ft (392 N⋅m) at 5000&nbsp;rpm
+* Valve train: 24-Valve SOHC
+* Induction/Fuel Delivery: Naturally Aspirated – Direct Injection
+
+=== JNA1 ===
+* 2005–2007 [[Honda Accord Hybrid]]<ref>{{cite web|url=http://www.nbcnews.com/id/6134289/ns/us_news-environment/t/hondas-accord-hybrid-outdrives-its-sibling/|title=Honda's Accord Hybrid outdrives its sibling|website=[[NBC News]]|date=30 September 2004|url-status=dead|archive-url=https://web.archive.org/web/20170909052118/http://www.nbcnews.com/id/6134289/ns/us_news-environment/t/hondas-accord-hybrid-outdrives-its-sibling/|archive-date=9 September 2017}}</ref>
+* Displacement: {{cvt|2997|cc|L cc cuin|1|order=out}}
+* Bore and stroke: {{cvt|86x86|mm|in|2}}
+* Power: {{cvt|240|hp|kW}} at 5400&nbsp;rpm + IMA hybrid {{cvt|15|hp|kW}} = {{cvt|255|hp|kW}}
+* Torque: {{cvt|232|lbft|Nm|0}} at 4500&nbsp;rpm
+* Compression: 10.5:1
+* Valve Train: 24-Valve SOHC i-VTEC
+
+==J32==
+The '''J32A''' displaces {{cvt|3210|cc|L cc cuin|1|order=out}} and is a [[SOHC]] [[VTEC]] design. Its bore and stroke is {{cvt|89x86|mm|in|2}}. Output was {{cvt|225|hp|kW|0}} at 5600&nbsp;rpm and {{cvt|217|lbft|Nm|0}} at 4700&nbsp;rpm for the J32A1, with the J32A2 raising output to {{cvt|260|hp|kW|0}} at 6200&nbsp;rpm and {{cvt|232|lbft|Nm|0}} at 3500–5500&nbsp;rpm. A more aggressive camshaft, more free flowing intake/exhaust, and a 2-stage intake manifold produced a {{cvt|33.55|hp|kW}} increase over the J32A1. The J32A3's output in the 2004/2005 TL is {{cvt|270|hp|kW|0}}. Due to changes in SAE testing methods, 2006–2008 model years have a reduced output rating of {{cvt|258|hp|kW|0}}, despite being mechanically identical. The J32A3 includes a one-piece exhaust manifold cast with the cylinder head, first introduced on the J30A4.
+
+=== J32A1 ===
+*  1999–2003 [[Acura TL]]<ref>{{cite news|last1=Passell|first1=Perer|title=Behind the wheel/Acura 3.2TL; The Luxuries add up except on the sticker|url=https://www.nytimes.com/1998/11/08/automobiles/behind-the-wheel-acura-3.2tl-the-luxuries-add-up-except-on-the-sticker.html|website=New York Times|access-date=8 September 2017|date=November 8, 1998|url-status=live|archive-url=https://web.archive.org/web/20170909052058/http://www.nytimes.com/1998/11/08/automobiles/behind-the-wheel-acura-3.2tl-the-luxuries-add-up-except-on-the-sticker.html|archive-date=9 September 2017}}</ref>
+*  2001–2003 [[Acura CL]]<ref>{{cite web|last1=Smith|first1=Steven Cole|title=2001 Acura 3.2 CL|url=http://www.caranddriver.com/reviews/2001-acura-32-cl-first-drive-review|website=Car and Driver|publisher=Hearst Communications|access-date=8 September 2017|date=February 2000|url-status=live|archive-url=https://web.archive.org/web/20170909004600/http://www.caranddriver.com/reviews/2001-acura-32-cl-first-drive-review|archive-date=9 September 2017}}</ref>
+* 1998–2003 [[Honda Inspire]]
+
+=== J32A2 ===
+*   2001–2003 [[Acura CL]] ''Type-S''
+*   Bore and Stroke: 89mm x 86mm
+*   10.5:1 Compression
+*   {{Convert|260|bhp|0|abbr=on}} at 6100 rpm and {{Convert|232|lbft|0|abbr=on}} of torque at 3500-5500 rpm
+*   2002–2003 [[Acura TL]] ''Type-S''
+*   2002–2003 [[Honda Inspire]] ''Type-S''<ref name="caranddriver.com"/>
+
+=== J32A3 ===
+*  2004–2008 [[Acura TL]]<ref name="caranddriver.com"/>
+*3.2-liter SOHC V-6 aluminum alloy engine
+*Bore Stroke (All J32's) : 89mm x 86mm (3.5in x 3.386 in)
+*11:1 Compression (High Compression Piston Domes)
+* (2004–2005) {{cvt|270|hp|kW|0}} at 6200&nbsp;rpm and {{cvt|238|lbft|Nm|0}} of torque at 5000&nbsp;rpm
+* (2006–2008) Readout changed to SAE standards, Revised to {{cvt|258|hp|kW|0}}at 6200&nbsp;rpm and {{cvt|233|lbft|Nm|0}} of torque at 5000&nbsp;rpm - *No change was made to engine, only SAE readout which changed the HP numbers
+* 2007–2008 (With revised bellhousing) Acura TL
+*Variable Valve Timing and Lift Electronic Control (VTEC)
+*Dual-stage induction system 
+*Cold-air intake system
+*Computer-controlled Programmed Fuel Injection ([[PGM-FI]])
+*Direct ignition system
+*Unique exhaust manifolds that are cast directly into the head
+*High flow close-coupled catalytic converters
+* VTEC engagement: 4,700&nbsp;rpm
+
+==J35==
+
+===J35A===
+The '''J35A''' is a SOHC VTEC design. Its weight is {{cvt|360|lb|0}} running. The [[Honda Marine]] BF200-series marine engine shares its internals with the J35A.<ref>{{cite web|url=https://www.caranddriver.com/features/a33610119/the-engine-youre-driving-might-live-a-cooler-life-on-the-water/|title=The Engine You're Driving Might Live a Cooler Life on the Water|first=David|last=Beard|work=Car and Driver |date=15 August 2020}}</ref>
+
+====J35A1====
+*1999–2001 [[Honda Odyssey (North America)|Honda Odyssey]]<ref>{{cite web|url=http://www.adandp.media/articles/building-the-odyssey-honda's-biggest-vehicle|title=Building the Odyssey: Honda's Biggest Vehicle|first=Gary S.|last=Vasilash|website=www.adandp.media|url-status=live|archive-url=https://web.archive.org/web/20180511233415/https://www.adandp.media/articles/building-the-odyssey-honda's-biggest-vehicle|archive-date=2018-05-11}}</ref>
+* Displacement: {{cvt|3471|cc|L cc cuin|1|order=out}}
+* Bore and stroke: {{cvt|89x93|mm|in|2}}
+* Power: Premium – {{cvt|210|hp|kW|0}} Regular -{{cvt|205|hp|kW|0}}
+* Torque: Premium – {{cvt|229|lbft|Nm|0}} Regular – {{cvt|217|lbft|Nm|0}}
+* Fuel Delivery: Programmed Fuel Injection (PGM-FI)
+
+====J35A3====
+* 2001–2002 [[Acura MDX]]<ref>{{cite web|url=https://www.forbes.com/2005/04/20/cx_dl_0420show.html|title=Acura MDX Vs. Volvo XC90|first=Dan|last=Lienert|website=[[Forbes]]|url-status=live|archive-url=https://web.archive.org/web/20170909054831/https://www.forbes.com/2005/04/20/cx_dl_0420show.html|archive-date=2017-09-09}}</ref>
+* Displacement: {{cvt|3471|cc|L cc cuin|1|order=out}}
+* Bore and stroke: {{cvt|89x93|mm|in|2}}
+* Power: {{cvt|240|hp|kW|0}} at 5800&nbsp;rpm
+* Torque: {{cvt|242|lbft|Nm|0}} at 4500&nbsp;rpm
+* Fuel Delivery: Programmed Fuel Injection (PGM-FI)
+
+====J35A4====
+* 2002–2004 [[Honda Odyssey (North America)|Honda Odyssey]]<ref>{{cite web|url=http://news.honda.com/newsandviews/article.aspx?id=2003112043784|title=2002 Honda Odyssey – Introduction|website=news.honda.com|url-status=live|archive-url=https://web.archive.org/web/20170909005847/http://news.honda.com/newsandviews/article.aspx?id=2003112043784|archive-date=2017-09-09}}</ref>
+* 2003–2004 [[Honda Pilot]]<ref>{{cite web|url=http://world.honda.com/news/2002/c020327b-eng.html|title=2002 Production-Ready Pilot Steers Course For Honda Lineup|website=world.honda.com|url-status=live|archive-url=https://web.archive.org/web/20170909052134/http://world.honda.com/news/2002/c020327b-eng.html|archive-date=2017-09-09}}</ref>
+* Displacement: {{cvt|3471|cc|L cc cuin|1|order=out}}
+* Bore and stroke: {{cvt|89x93|mm|in|2}}
+* Power: {{cvt|240|hp|kW|0}} at 5400&nbsp;rpm
+* Torque: {{cvt|242|lbft|Nm|0}} at 4500&nbsp;rpm
+* Compression: 10.0:1
+* Fuel Delivery: Programmed Fuel Injection (PGM-FI)
+* Valve Train: 24-valve SOHC VTEC
+
+====J35A5====
+* 2003–2006 [[Acura MDX]]<ref>{{cite web|url=https://www.newspapers.com/newspage/78770135/|title=-Tribune from Alexandria, Indiana|date=October 16, 2002|page=15|url-status=live|archive-url=https://web.archive.org/web/20170909052741/https://www.newspapers.com/newspage/78770135/|archive-date=September 9, 2017}}</ref>
+* Displacement: {{cvt|3471|cc|L cc cuin|1|order=out}}
+* Bore and stroke: {{cvt|89x93|mm|in|2}}
+* Power: {{cvt|265|hp|kW|0}} at 5800&nbsp;rpm
+* Torque: {{cvt|250|lbft|Nm|0}} at 3500&nbsp;rpm
+* Compression: 10.0:1
+* Fuel Delivery: Programmed Fuel Injection (PGM-FI)
+* Valve Train: 24-valve SOHC VTEC
+
+====J35A6====
+* 2005–2006 [[Honda Odyssey (North America)|Honda Odyssey]] (LX, EX)
+* 2007–2010 [[Honda Odyssey (North America)|Honda Odyssey]] (LX, EX) (with revised bellhousing)
+* 2005 [[Honda Pilot]]
+* Displacement: {{cvt|3471|cc|L cc cuin|1|order=out}}
+* Bore and stroke: {{cvt|89x93|mm|in|2}}
+* Power: {{cvt|255|hp|kW|0}} at 5600&nbsp;rpm
+* Torque: {{cvt|250|lbft|Nm|0}} at 4500&nbsp;rpm
+* Compression: 10.0:1
+* Fuel Delivery: Programmed Fuel Injection (PGM-FI)
+* Valve Train: 24-valve SOHC VTEC
+* VTEC engagement: 4,600 rpm<ref name=":1">{{Cite web |date=2004-09-01 |title=2005 Honda Odyssey Press Kit |url=http://hondanews.com/en-US/honda-automobiles/releases/2005-honda-odyssey-press-kit |access-date=2025-11-09 |website=Honda Automobiles Newsroom |language=en}}</ref>
+
+==== J35A7 – VCM ====
+[[Variable Cylinder Management]] (VCM) Piston Oil Jets
+* 2005–2006 [[Honda Odyssey (North America)|Honda Odyssey]] (EX-L, Touring)
+* 2007–2010 [[Honda Odyssey (North America)|Honda Odyssey]] (EX-L, Touring) (with revised bellhousing)
+* Displacement: {{cvt|3471|cc|L cc cuin|1|order=out}}
+* Bore and stroke: {{cvt|89x93|mm|in|2}}
+* Power: {{cvt|255|hp|kW|0}} at 5600 rpm
+* Torque: {{cvt|250|lbft|Nm|0}} at 4500 rpm
+* Compression: 10.5:1
+* Fuel Delivery: Programmed Fuel Injection (PGM-FI)
+* Valve Train: 24-valve SOHC i-VTEC*
+* VCM (Gen 1): 3 or 6 cylinder mode (2005–2007 [[Honda Odyssey (North America)|Honda Odyssey]] (EX-L, Touring))
+* VCM (Gen 2): 3, 4 or 6 cylinder mode (2008–2010 [[Honda Odyssey (North America)|Honda Odyssey]] (EX-L, Touring))
+* VTEC engagement: 4,600 rpm<ref name=":1" />
+<nowiki>*</nowiki>''Note, Honda's 4-cylinder i-VTEC technology uniquely employs VTEC + Variable Timing Control (VTC). Honda's V6 i-VTEC engines uniquely employs VTEC + Variable Cylinder Management (VCM).''
+
+====J35A8====
+* 2004–2008 [[Honda Legend]] KB1 (designation as "J35A" on block)
+*2005–2008 [[Acura RL]]<ref>{{cite web|url=http://www.caranddriver.com/reviews/acura-rl-road-test|title=Acura RL – Road Test – Reviews|publisher=Car and Driver|url-status=live|archive-url=https://web.archive.org/web/20170909053144/http://www.caranddriver.com/reviews/acura-rl-road-test|archive-date=2017-09-09|date=December 2004}}</ref>
+* 2007–2008 [[Acura TL]] Type-S<ref>{{cite web |url=https://www.cars.com/articles/2006/09/2007_acura_tl_a/ |title=2007 Acura TL and TL Type-S News &#124; Cars.com |access-date=2017-09-08 |url-status=live |archive-url=https://web.archive.org/web/20170909052147/https://www.cars.com/articles/2006/09/2007_acura_tl_a/ |archive-date=2017-09-09 }}</ref>
+* Displacement: {{cvt|3471|cc|L cc cuin|1|order=out}}
+* Bore and stroke: {{cvt|89x93|mm|in|2}}
+* Power: {{cvt|286|hp|kW|0}} at 6200&nbsp;rpm<ref name="J35A8">{{cite web |url=http://www.hondanews.com/channels/acura-automobiles/archive/2006/releases/2007-acura-tl-specifications |title=2007 Acura TL – Specifications |publisher=Hondanews.com |access-date=2012-06-10 |url-status=dead |archive-url=https://web.archive.org/web/20131202234416/http://www.hondanews.com/channels/acura-automobiles/archive/2006/releases/2007-acura-tl-specifications |archive-date=2013-12-02 }}</ref>
+* Torque: {{cvt|256|lbft|Nm|0}} at 5000&nbsp;rpm<ref name="J35A8" />
+* Power: Acura RL: 290 hp at 6,200&nbsp;rpm
+*Torque: Acura RL: 260 lb.-ft. at 5,000&nbsp;rpm
+* Compression: 11.0:1
+* Fuel Delivery: Programmed Fuel Injection (PGM-FI)
+* Valve Train: 24-valve SOHC VTEC
+* VTEC engagement: 4,950 rpm
+* On the [[Ward's 10 Best Engines]] list for 2005
+
+====J35A9====
+* 2006–2008 [[Honda Ridgeline]]
+* 2006–2008 [[Honda Pilot]] (4WD models)<ref>{{cite web|url=http://www.hondanews.com/releases/honda-pilot-receives-new-look-and-new-technology-for-2006?page_size=60&query=active+noise+cancellation&page=1|title=Honda Pilot Receives New Look and New Technology for 2006|date=9 September 2005|url-status=live|archive-url=https://web.archive.org/web/20170909052416/http://www.hondanews.com/releases/honda-pilot-receives-new-look-and-new-technology-for-2006?page_size=60&query=active+noise+cancellation&page=1|archive-date=2017-09-09}}</ref>
+* Displacement: {{cvt|3471|cc|L cc cuin|1|order=out}}
+* Bore and stroke: {{cvt|89x93|mm|in|2}}
+* Power: {{cvt|247|hp|kW|0}} at 5750&nbsp;rpm 
+* Torque: {{cvt|245|lbft|Nm|0}} at 4500&nbsp;rpm
+* Compression: 10.0:1
+* Fuel Delivery: Programmed Fuel Injection (PGM-FI)
+* VTEC engagement: 4,400&nbsp;rpm
+
+===J35S===
+
+====J35S1====
+* 2004–2007 [[Saturn Vue]] also referred to as GM L66
+*Displacement: {{cvt|3471|cc|L cc cuin|1|order=out}}
+* Bore and stroke: {{cvt|89x93|mm|in|2}}
+* Power: {{cvt|248|hp|kW|0}} at 5800&nbsp;rpm
+* Torque: {{cvt|242|lbft|Nm|0}} at 4500&nbsp;rpm
+* Fuel Delivery: Programmed Fuel Injection (PGM-FI)
+*Has revised bell housing Honda round style along with revised cylinder heads with single exit port
+*Renamed J35A5 from the 2003–2006 Acura MDX with different cam profiles; uses the h5 awd/fwd automatic transmission (and transfer case if applicable) along with the same wire harness and ECU
+
+===J35Z===
+The J35Z engines use a die-cast aluminum block with cast-iron cylinder sleeves.
+
+==== J35Z1 – VCM ====
+* 2006–2008 [[Honda Pilot]] (front-wheel drive only)
+* Displacement: {{cvt|3471|cc|L cc cuin|1|order=out}}
+* Bore and stroke: {{cvt|89x93|mm|in|2}}
+* Compression: 10.5:1
+* Power: {{cvt|244|hp|kW|0}} at 5,750 rpm
+* Torque: {{cvt|240|lbft|Nm|0}} at 4,500 rpm
+* Fuel Delivery: Programmed Fuel Injection (PGM-FI)
+* Valve Train: 24-valve SOHC i-VTEC
+* VCM (Gen 1): 3 or 6 cylinder mode
+
+==== J35Z2 – VCM ====
+[[File:Honda J35A VCM Engine.JPG|200px|thumb|J35Z2]]
+* 2008–2012 [[Honda Accord]] V6 (5AT)
+* 2010–2012 [[Honda Crosstour|Honda Accord Crosstour]]
+* 2013–2018 [[Acura RDX]]
+* 2007–2012 [[Honda Inspire]] (Japanese market, marked as J35A-80 280ps)
+* Displacement: {{cvt|3471|cc|L CID|1|order=flip}}
+* Bore and stroke: {{cvt|89x93|mm|in|2}}
+* Compression: 10.5:1 
+* Power: {{cvt|268|hp|kW|0}} at 6,200 rpm (2008–2012 [[Honda Accord]] V6 (5AT)
+* Power: {{cvt|271|hp|kW|0}} at 6,200 rpm (2010–2012 [[Honda Crosstour|Honda Accord Crosstour]])
+* Power: {{cvt|273|hp|kW|0}} at 6,200 rpm (2013–2015 [[Acura RDX]])
+* Power: {{cvt|279|hp|kW|0}} at 6,200 rpm) (2016–2018 [[Acura RDX]])
+* Torque: {{cvt|248|lbft|Nm|0}} at 5,000 rpm (2008–2012 [[Honda Accord]] V6 (5AT)
+* Torque: {{cvt|254|lbft|Nm|0}} at 5,000 rpm (2010–2012 [[Honda Crosstour|Honda Accord Crosstour]])
+* Torque: {{cvt|251|lbft|Nm|0}} at 5,100 rpm) (2013–2015 [[Acura RDX]])
+* Torque: {{cvt|252|lbft|Nm|0}} at 4,900 rpm) (2016–2018 [[Acura RDX]])
+* Fuel Delivery: Programmed Fuel Injection (PGM-FI)
+* Valve Train: 24-valve SOHC i-VTEC
+* VCM (Gen 2): 3, 4 or 6 cylinder mode
+* VCM (Gen 3): 3 or 6 cylinder mode (only 2016–2018 [[Acura RDX]])
+* Redline: 6,900 rpm
+
+==== J35Z3 ====
+* 2008–2012 [[Honda Accord]] V6 (6MT)
+* Displacement: {{cvt|3471|cc|L CID|1|order=flip}}
+* Bore and stroke: {{cvt|89x93|mm|in|2}}
+* Compression: 10.5:1
+* Power: {{cvt|268|hp|kW|0}} at 6,200 rpm<ref>{{cite web |last1=Gillies |first1=Mark |title=2008 Honda Accord Coupe EX-L V-6 |url=https://www.caranddriver.com/reviews/a15149883/2008-honda-accord-coupe-ex-l-v-6-short-take-road-test/ |website=Car and Driver |access-date=1 February 2021 |date=1 March 2008}}</ref>
+* Torque: {{cvt|254|lbft|Nm|0}} at 5,000 rpm
+* Fuel Delivery: Programmed Fuel Injection (PGM-FI)
+* Valve Train: 24-valve SOHC VTEC
+* VTEC engagement: 5,000 rpm<ref>{{Cite web |date=2007-08-21 |title=2008 Honda Accord Press Kit |url=http://hondanews.com/en-US/releases/2008-honda-accord-introduction |access-date=2026-03-31 |website=Honda Newsroom |language=en}}</ref>
+
+==== J35Z4 – VCM ====
+* 2009–2015 [[Honda Pilot#Second generation (YF3/4; 2008)|Honda Pilot]]
+* Displacement: {{cvt|3471|cc|L CID|1|order=flip}}
+* Bore and stroke: {{cvt|89x93|mm|in|2}}
+* Compression: 10.5:1
+* Power: {{cvt|250|hp|kW|0}} at 5,700 rpm
+* Torque: {{cvt|253|lbft|Nm|0}} at 4,800 rpm
+* Fuel Delivery: Programmed Fuel Injection (PGM-FI)
+* Valve Train: 24-valve SOHC i-VTEC
+* VCM (Gen 2): 3, 4 or 6 cylinder mode
+
+==== J35Z5 ====
+* 2009–2014 [[Honda Ridgeline]]
+* Displacement: {{cvt|3471|cc|L CID|1|order=flip}}
+* Bore and stroke: {{cvt|89x93|mm|in|2}}
+* Compression: 10.0:1
+* Power: {{cvt|250|hp|kW|0}} at 5,700 rpm
+* Torque: {{cvt|247|lbft|Nm|0}} at 4,300 rpm
+* Fuel Delivery: Programmed Fuel Injection (PGM-FI)
+* Valve Train: 24-valve SOHC VTEC
+
+==== J35Z6 ====
+* 2010–2014 [[Acura TSX]] V6
+* 2009–2014 [[Acura TL]] (non SH-AWD)
+* Displacement: {{cvt|3471|cc|L CID|1|order=flip}}
+* Bore and stroke: {{cvt|89x93|mm|in|2}}
+* Compression: 11.2:1
+* Power: {{cvt|280|hp|kW|0}} at 6,200 rpm
+* Torque: {{cvt|254|lbft|Nm|0}} at 5,000 rpm
+* Fuel Delivery: Programmed Fuel Injection (PGM-FI)
+* Valve Train: 24-valve SOHC VTEC
+
+==== J35Z8 – VCM ====
+* 2011–2017 [[Honda Odyssey (North America)]]
+* Displacement: {{cvt|3471|cc|L cc cuin|1|order=out}}
+* Bore and stroke: {{cvt|89x93|mm|in|2}}
+* Compression: 10.5:1
+* Power: {{cvt|248|hp|kW|0}} at 5,700 rpm)
+* Torque: {{cvt|250|lbft|Nm|0}} at 4,800 rpm
+* Fuel Delivery: Programmed Fuel Injection (PGM-FI)
+* Valve Train: 24-valve SOHC i-VTEC
+* VCM (Gen 2): 3, 4 or 6 cylinder mode
+
+===J35Y===
+
+==== J35Y1 – VCM ====
+* 2013–2017 [[Honda Accord]] V6 (6AT)
+* 2013–2015 [[Honda Crosstour]]
+* Displacement: {{cvt|3471|cc|L CID|1|order=flip}}
+* Bore and stroke: {{cvt|89x93|mm|in|2}}
+* Compression: 10.5:1
+* Power: {{cvt|278|hp|kW|0}} at 6,200 rpm
+* Torque: {{cvt|252|lbft|Nm|0}} at 4,900 rpm
+* Fuel Delivery: Programmed Fuel Injection (PGM-FI) (Earth Dreams™ Technology)
+* Valve Train: 24-valve SOHC i-VTEC (VTEC on intake valves only)
+* VCM (Gen 3): 3 or 6 cylinder mode
+* Redline: 6,800 rpm<ref>{{cite web|url=https://owners.honda.com/vehicles/information/2014/Accord-Coupe/specs#mid^CT2B8EJNW|title = Vehicle Specifications &#124; 2014 Honda Accord Coupe &#124; Honda Owners Site}}</ref>
+* Fuel Cut off: 7,200 rpm
+* VTEC engagement: 5,150 rpm<ref name=":0">{{cite web|url=http://news.honda.com/newsandviews/article.aspx?id=8599-en|title=2016 Powertrain|website=news.honda.com|access-date=2016-12-06|url-status=live|archive-url=https://web.archive.org/web/20161220230126/http://news.honda.com/newsandviews/article.aspx?id=8599-en|archive-date=2016-12-20}}</ref>
+
+==== J35Y2 ====
+* 2013–2017 [[Honda Accord]] V6 (6MT)
+* Displacement: {{cvt|3471|cc|L CID|1|order=flip}}
+* Bore and stroke: {{cvt|89x93|mm|in|2}}
+* Compression: 10.0:1<ref name="honda.com">{{cite web|url=http://automobiles.honda.com/accord-coupe/specifications.aspx|title=2018 Honda Accord – Redesigned Midsize Sedan|website=Honda Automobiles|url-status=live|archive-url=http://archive.wikiwix.com/cache/20140127171528/http://automobiles.honda.com/accord-coupe/specifications.aspx|archive-date=2014-01-27}}</ref>
+* Power: {{cvt|278|hp|kW|0}} at 6,200 rpm
+* Torque: {{cvt|252|lbft|Nm|0}} at 4,900 rpm
+* Fuel Delivery: Programmed Fuel Injection (PGM-FI) (Earth Dreams™ Technology)
+* Valve Train: 24-valve SOHC VTEC (VTEC on intake valves only)
+* Redline: 6,800 rpm
+* Fuel cutoff: 7,200 rpm
+* VTEC engagement: 4,900 rpm<ref name=":0" />
+
+==== J35Y4 – VCM ====
+* 2014–2020 [[Acura RLX]] / [[Honda Legend]]
+* Displacement: {{cvt|3471|cc|L CID|1|order=flip}}
+* Bore and stroke: {{cvt|89x93|mm|in|2}}
+* Compression: 11.5:1
+* Power: {{cvt|310|hp|kW|0}} at 6,500 rpm
+* Torque: {{cvt|272|lbft|Nm|0}} at 4,500 rpm
+* Fuel Delivery: Direct Injection (Earth Dreams™ Technology)
+* Valve Train: 24-valve SOHC i-VTEC (VTEC on intake valves only)
+* VCM (Gen 3): 3 or 6 cylinder mode
+* Redline: 6,800 rpm
+* Fuel cutoff: 7,200 rpm
+* VTEC engagement: 5,000 rpm<ref>{{Cite web |date=2013-02-15 |title=2014 Acura RLX Press Kit |url=http://acuranews.com/en-US/releases/2014-acura-rlx-press-kit |access-date=2025-11-09 |website=Acura Newsroom |language=en}}</ref>
+
+==== J35Y5 – VCM ====
+* 2014–present [[Acura MDX]]
+* Displacement: {{cvt|3471|cc|L CID|1|order=flip}}
+* Bore and stroke: {{cvt|89x93|mm|in|2}}
+* Compression: 11.5:1
+*Power: {{cvt|290|hp|kW|0}} at 6,200&nbsp;rpm
+*Torque: {{cvt|267|lbft|Nm|0}} at 4,500&nbsp;rpm
+*Fuel Delivery: Direct Injection (Earth Dreams™ Technology)
+*Valve Train: 24-valve SOHC i-VTEC (VTEC on intake valves only)
+*VCM (Gen 3): 3 or 6 cylinder mode
+*Redline: 6,800 rpm
+*Fuel cutoff: 7,200 rpm
+*VTEC engagement: 4,950 rpm<ref>{{cite web | url=https://hondanews.com/en-US/releases/release-2a4a937df0b943c284e14f6d469348af-press-kit-2014-acura-mdx | title=2014 Acura MDX Press Kit | date=31 May 2013 }}</ref> 
+[[File:Honda3.5V6.jpg|thumb|Honda Pilot J35Y6]]
+
+==== J35Y6 - VCM ====
+* 2015–2020 [[Acura TLX]]
+* 2016–2022 [[Honda Pilot]]
+* 2017–present  [[Honda Ridgeline]]
+* 2018–present  [[Honda Odyssey (North America)]]<ref>{{cite web|url=http://hondanews.com/releases/all-new-2018-honda-odyssey-minivan-begins-mass-production-in-alabama|title=All-New 2018 Honda Odyssey Minivan Begins Mass Production in Alabama|date=25 April 2017|url-status=live|archive-url=https://web.archive.org/web/20170909005043/http://hondanews.com/releases/all-new-2018-honda-odyssey-minivan-begins-mass-production-in-alabama|archive-date=2017-09-09}}</ref>
+* 2019–2025 [[Honda Passport]]
+* Displacement: {{cvt|3471|cc|L CID|1|order=flip}}
+* Bore and stroke: {{cvt|89x93|mm|in|2}}
+* Compression: 11.5:1
+*Power: {{cvt|290|hp|kW|0}} at 6,200 rpm (2015–2020 [[Acura TLX]])
+*Power: {{cvt|280|hp|kW|0}} at 6,000 rpm
+*Torque: {{cvt|267|lb.ft|Nm|0}} at 4,500 rpm (2015–2020 [[Acura TLX]])
+*Torque: {{cvt|262|lb.ft|Nm|0}} at 4,700 rpm
+*Fuel Delivery: Direct Injection (Earth Dreams™ Technology)
+*Valve Train: 24-valve SOHC i-VTEC (VTEC intake valves only)
+*VCM (Gen 3): 3 or 6 cylinder mode
+*Redline: 6,800 rpm
+*Fuel cutoff: 7,200 rpm
+*VTEC engagement: 5,000 rpm (2015–2020 [[Acura TLX]])<ref>{{Cite web |date=2014-08-04 |title=2015 Acura TLX Press Kit |url=http://hondanews.com/en-US/releases/2015-acura-tlx-overview |access-date=2026-03-31 |website=Honda Newsroom |language=en}}</ref>
+*VTEC engagement: 5,350 rpm<ref>{{cite web|title=Honda Odyssey 2018 Press Kit|date=15 May 2017 |url=https://hondanews.com/en-US/releases/2018-honda-odyssey-press-kit-overview}}</ref>
+
+==== J35Y8 – VCM ====
+* 2023–present [[Honda Pilot#fourth|Honda Pilot]]<ref>{{cite web |last1=Vanderwerp |first1=Dave |title=Honda's New 3.5-Liter V-6 Goes DOHC, Drops VTEC |url=https://www.caranddriver.com/news/a42662418/honda-35-v-6-engine-dohc/ |website=Car and Driver |access-date=2 February 2023 |language=en-us |date=26 January 2023}}</ref>
+* 2026–present [[Honda Passport#Fourth_generation_(2026)|Honda Passport]]<ref>{{Cite web |last=Panait |first=Mircea |date=September 24, 2024 |title=2026 Honda Passport Getting New-ish V6 Engine, To Be Revealed This Fall |url=https://www.autoevolution.com/news/2026-honda-passport-getting-new-ish-v6-engine-to-be-revealed-this-fall-240290.html#:~:text=To%20achieve%20SULEV30%20compliance%2C%20the,of%20a%2010%2Dspeed%20auto.}}</ref>
+* Displacement: {{cvt|3471|cc|L CID|1|order=flip}}
+*Bore and stroke: 89 mm × 93 mm (3.50 in × 3.66 in)
+*Compression: 11.5:1
+*Power: {{cvt|285|hp|kW|0}} at 6,100 rpm
+*Torque: {{cvt|262|lbft|Nm|0}} at 5,000 rpm
+*Fuel Delivery: Direct Injection (Earth Dreams™ Technology)
+*Valve Train: 24-valve DOHC with VTC (Variable Timing Control)
+*VCM (Gen 4): 3 or 6 cylinder mode
+
+==J37==
+The J37 uses a [[Die casting|die-cast]] aluminum block with aluminum [[cylinder liner]]s. Primarily due to the cylinder liners being made from aluminum instead of cast-iron the engine weighs less than the J35Z engines. The intake manifold is made from a cast magnesium alloy.
+
+=== J37A1 ===
+* 2007–2013 [[Acura MDX]]
+* Displacement: {{cvt|3664|cc|L CID|1|order=flip}}
+* Bore and stroke: {{cvt|90x96|mm|in|2}}
+* Compression: 11.0:1 (2007–2009); 11.2:1 (2010–2013)
+* Power; torque: {{cvt|300|hp|kW|0}} at 6,000&nbsp;rpm; {{cvt|275|lbft|Nm|0}} at 5,000&nbsp;rpm (2007–2009)
+* Power; torque: {{cvt|300|hp|kW|0}} at 6,300&nbsp;rpm; {{cvt|270|lbft|Nm|0}} at 4,500&nbsp;rpm (2010–2013)
+* Fuel Delivery: Programmed Fuel Injection (PGM-FI)
+* Valve Train: 24-valve SOHC VTEC
+* VTEC engagement (2007–2009): 4,500 rpm<ref>{{Cite web |date=2006-09-09 |title=2007 Acura MDX Press Kit |url=http://acuranews.com/en-US/releases/2007-acura-mdx-introduction |access-date=2025-11-09 |website=Acura Newsroom |language=en}}</ref>
+* VTEC engagement (2010–2013): 4,800 rpm<ref>{{Cite web |date=2009-07-28 |title=2010 Acura MDX Press Kit |url=http://hondanews.com/en-US/releases/2010-acura-mdx-introduction |access-date=2025-11-09 |website=Honda Newsroom |language=en}}</ref>
+
+=== J37A2 ===
+* 2009–2012 [[Acura RL]]
+* Displacement: {{cvt|3664|cc|L CID|1|order=flip}}
+* Bore and stroke: {{cvt|90x96|mm|in|2}}
+* Compression: 11.2:1
+* Power; torque: {{cvt|300|hp|kW|0}} at 6,300&nbsp;rpm; {{cvt|271|lbft|Nm|0}} at 5,000&nbsp;rpm
+* Fuel Delivery: Programmed Fuel Injection (PGM-FI)
+* Valve Train: 24-valve SOHC VTEC
+* VTEC engagement: 4,900 rpm<ref>{{Cite web |date=2008-02-07 |title=2009 Acura RL Press Kit |url=http://acuranews.com/en-US/releases/2009-acura-rl-introduction |access-date=2025-11-09 |website=Acura Newsroom |language=en}}</ref>
+
+=== J37A4 ===
+* 2008–2012 [[Honda Legend]]
+* 2009–2014 [[Acura TL]] SH-AWD
+* Displacement: {{cvt|3664|cc|L CID|1|order=flip}}
+* Bore and stroke: {{cvt|90x96|mm|in|2}}
+* Compression: 11.2:1
+* Power; torque: {{cvt|305|hp|kW|0}} at 6,300&nbsp;rpm; {{cvt|273|lbft|Nm|0}} at 5,000&nbsp;rpm
+* Fuel Delivery: Programmed Fuel Injection (PGM-FI)
+* Valve Train: 24-valve SOHC VTEC
+* VTEC engagement: 4,700 rpm<ref>{{Cite web |date=2011-03-09 |title=2012 Acura TL Press Kit |url=http://acuranews.com/en-US/releases/2012-acura-tl-overview |access-date=2025-11-09 |website=Acura Newsroom |language=en}}</ref>
+
+=== J37A5 ===
+* 2010–2013 [[Acura ZDX]]
+* Displacement: {{cvt|3664|cc|L CID|1|order=flip}}
+* Bore and stroke: {{cvt|90x96|mm|in|1}}
+* Compression: 11.2:1<ref>{{cite web|url=http://hondanews.com/channels/acura-automobiles-zdx-Technical/releases/2010-acura-zdx-powertrain |archive-url=https://web.archive.org/web/20120303135313/http://hondanews.com/channels/acura-automobiles-zdx-Technical/releases/2010-acura-zdx-powertrain |url-status=dead|archive-date=2012-03-03 |title=2010 Acura ZDX – Powertrain |publisher=Hondanews.com |access-date=2012-01-27 }}</ref>
+* Power; torque: {{cvt|300|hp|kW|0}} at 6,300&nbsp;rpm; {{cvt|270|lbft|Nm|0}} at 4,500&nbsp;rpm
+* Fuel Delivery: Programmed Fuel Injection (PGM-FI)
+* Valve Train: 24-valve SOHC VTEC (VTEC intake valves only)<ref>{{cite web | url=https://acuranews.com/en-US/releases/release-cc58b978ac99b0cf6d48c4004c34bb0c-2010-acura-zdx-introduction | title=2010 Acura ZDX Press Kit | date=16 August 2009 }}</ref>
+* VTEC engagement: 4,800 rpm<ref>{{Cite web |date=2009-08-16 |title=2010 Acura ZDX Press Kit |url=http://acuranews.com/en-US/releases/2010-acura-zdx-introduction |access-date=2025-11-09 |website=Acura Newsroom |language=en}}</ref>
+
+==See also==
+* [[List of Honda engines]]
+* [[List of GM engines|Engines used in GM Vehicles]]
+
+==References==
+<references/>
+
+== External links ==
+* ''[[Car and Driver]]'' magazine, November 1996, p111
+
+{{Honda}}{{Honda automotive engine timeline (1971-1999)}}{{Honda automotive engine timeline (2000-present)}}
+
+[[Category:Honda engines|J]]
+[[Category:1996 introductions]]
+[[Category:V6 engines]]
+[[Category:Gasoline engines by model]]

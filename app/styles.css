@@ -102,10 +102,17 @@ body{
 #searchresults{ right:auto; left:0; }
 .sr-item{display:flex; gap:10px; align-items:baseline; padding:9px 13px; cursor:pointer; border-bottom:1px solid var(--paper2)}
 .sr-item:hover,.sr-item.sel{background:var(--paper2)}
-.sr-type{font-size:9.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--card); padding:2px 6px; border-radius:3px; flex:none}
+.sr-type{font-size:9.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--card); padding:2px 6px; border-radius:3px; flex:none;
+  /* Every type gets a background: white text on none is the unreadable
+     "ENGINE" tag -- engines and variants had no rule of their own. */
+  background:var(--ink2)}
 .sr-type.model{background:var(--accent)} .sr-type.make{background:var(--ink)}
 .sr-type.person{background:var(--designer)}
 .sr-type.family{background:var(--accent); box-shadow:inset 0 0 0 1.5px var(--ink)}
+/* The powertrain graph's own colours: the engine hub in ink with an accent
+   ring, a variant in amber. */
+.sr-type.engine{background:var(--ink); box-shadow:inset 0 0 0 1.5px var(--accent)}
+.sr-type.enginevar{background:var(--engvar); color:var(--ink)}
 .sr-label{font-size:13.5px} .sr-sub{margin-left:auto; font-size:11px; color:var(--muted)}
 
 /* ---------- views ---------- */
@@ -593,6 +600,15 @@ main{flex:1; position:relative; min-height:0}
   background:var(--card); border:1px solid var(--ink); box-shadow:8px 8px 0 rgba(23,20,15,.13); z-index:41; padding:18px;
 }
 #unconfirmedrel[hidden]{display:none}
+#pendingsplits{
+  position:absolute; top:76px; right:18px; width:340px; max-height:calc(100% - 150px); overflow:auto;
+  background:var(--card); border:1px solid var(--ink); box-shadow:8px 8px 0 rgba(23,20,15,.13); z-index:41; padding:18px;
+}
+#pendingsplits[hidden]{display:none}
+.psp-codes{display:block; font-size:11px; color:var(--muted); margin-top:2px}
+.psp-rule{display:inline-block; font-size:9.5px; letter-spacing:.08em; text-transform:uppercase;
+  color:var(--gensucc); border:1px solid var(--gensucc2); border-radius:3px; padding:0 4px; margin-left:4px}
+.psp-fewer{color:var(--accent)}
 .ucr-empty{font-size:11.5px; color:var(--muted); font-style:italic}
 /* Real user request: "the user should directly be able to accept or
    decline this relationship" right in this list. .ucr-row is now a plain

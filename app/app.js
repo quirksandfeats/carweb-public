@@ -1620,6 +1620,10 @@ window.CarWeb = (function () {
     //
     // Open on the Powertrain tab, where engines are the whole point of
     // looking, and shut on every other tab.
+    // A nameplate with generations shows no engines of its own: every engine
+    // is on the generation that ran it. Real case, the Nissan Silvia, whose
+    // card listed all seven generations' engines at once.
+    if (n.type === "family" && (n.generations || []).some(id => byId.has(id))) return;
     let engines = powertrainEdgesFor(n, index).filter(e => isPowertrain(e.other));
     // Real user report on the SL R232's card: "notice that the engine and the
     // enginevar is specified in the list of engines... if the engine var is
@@ -2031,6 +2035,15 @@ window.CarWeb = (function () {
       await scanEnginesLive(n);
     });
     LF.onJobChange(() => { refreshQueueUi(); });
+    // Every check, from anywhere, reads that car's engines. See notifyChecked.
+    if (LF.onChecked) {
+      LF.onChecked(n => {
+        const live = n && byId.get(n.id);
+        if (!live || live.retired) return;
+        recordEnginesLive();
+        scanEnginesLive(live);
+      });
+    }
   }
 
   // A job asked for, and whatever the card should say about it right now.
@@ -3028,7 +3041,18 @@ window.CarWeb = (function () {
   //
   // No model call: an infobox field is a regex. The cost is one Wikipedia
   // fetch per generation, once ever, and the result is stored.
+  // One read per car at a time: a check now asks for its engines from inside
+  // the check (see llm_families.js's notifyChecked) and the panel's own path
+  // still asks too, so the second ask joins the first instead of racing it.
+  const engineReadRuns = new Map();
   function scanEnginesLive(node) {
+    if (!node) return Promise.resolve();
+    if (engineReadRuns.has(node.id)) return engineReadRuns.get(node.id);
+    const run = scanEnginesLiveOnce(node).finally(() => engineReadRuns.delete(node.id));
+    engineReadRuns.set(node.id, run);
+    return run;
+  }
+  function scanEnginesLiveOnce(node) {
     const LFam = window.LlmFamilies;
     if (!LFam || !LFam.scanEnginesFor || !node) return Promise.resolve();
     const nodesBefore = nodes.length, linksBefore = links.length;
@@ -4485,6 +4509,137 @@ window.CarWeb = (function () {
     // onFactsUpdate hook already used to refresh other live surfaces.
     if (LF.onFactsUpdate) LF.onFactsUpdate(() => { if (!panel.hidden) refresh(); });
     refresh();
+  }
+
+  // ---------- pending generation splits ----------
+  // Every split the LLM proposed that is waiting on you, reachable from the
+  // Tools menu like Unconfirmed Relationships. Clicking a row opens the car.
+  // See llm_families.js's pendingSplits for what can end up here.
+  function initPendingSplitsPanel() {
+    const LF = window.LlmFamilies;
+    const btn = document.getElementById("pendingsplitsbtn");
+    const panel = document.getElementById("pendingsplits");
+    const list = document.getElementById("pendingsplits-list");
+    if (!btn || !panel || !list || !LF || !LF.pendingSplits) return;
+    const note = panel.querySelector(".llmdebug-note");
+    const applyAll = document.getElementById("pendingsplits-applyall");
+    const status = document.getElementById("pendingsplits-status");
+    const nameOf = r => (r.make ? r.make + " " : "") + r.label;
+
+    function accept(r) {
+      const n = byId.get(r.id);
+      if (!n) return false;
+      if (r.kind === "recheck") { applyFamilyOverrideConfirm(n); return true; }
+      LF.confirmNode(r.id);
+      applyLlmConfirmSilent(n);
+      return true;
+    }
+    function refresh() {
+      const rows = LF.pendingSplits(nodes);
+      btn.hidden = !LF.serverAvailable;
+      btn.textContent = rows.length ? `✂ Pending Generation Splits (${rows.length})` : "✂ Pending Generation Splits";
+      const auto = rows.filter(r => r.meetsRule);
+      if (note) {
+        note.textContent = rows.length === 0 ? "Nothing waiting on you right now."
+          : `${rows.length} split${rows.length === 1 ? "" : "s"} waiting. ` +
+            (auto.length ? `${auto.length} ${auto.length === 1 ? "has" : "have"} at least as many generations as the car ` +
+                           "already had, which would now be applied automatically." : "");
+      }
+      if (applyAll) {
+        applyAll.hidden = !auto.length;
+        applyAll.textContent = `✓ Apply the ${auto.length} that meet the rule`;
+      }
+      list.innerHTML = "";
+      if (!rows.length) {
+        const empty = document.createElement("div");
+        empty.className = "ucr-empty";
+        empty.textContent = "None right now.";
+        list.appendChild(empty);
+        return;
+      }
+      rows.forEach(r => {
+        const row = document.createElement("div");
+        row.className = "ucr-row";
+        const fewer = r.now < r.had;
+        const meta = r.kind === "recheck"
+          ? `re-check: <span class="${fewer ? "psp-fewer" : ""}">${r.had} → ${r.now} generations</span>`
+          : `split into ${r.now} generations`;
+        row.innerHTML = `
+          <button type="button" class="ucr-pair-btn">
+            <span class="ucr-pair">${esc(nameOf(r))}${r.meetsRule ? '<span class="psp-rule">meets rule</span>' : ""}</span>
+            <span class="ucr-meta">${meta}${r.sourceTitle ? " — " + esc(r.sourceTitle) : ""}</span>
+            <span class="psp-codes">${esc(r.codes.join(" · "))}</span>
+            ${r.discrepancy ? `<span class="ucr-reason">${esc(r.discrepancy)}</span>` : ""}
+          </button>
+          <div class="ucr-actions">
+            <button type="button" class="ucr-yes" title="apply this split">✓ Apply</button>
+            <button type="button" class="ucr-no" title="keep the car as it is">✕ Decline</button>
+          </div>`;
+        row.querySelector(".ucr-pair-btn").onclick = () => {
+          const n = byId.get(r.id);
+          if (!n) return;
+          panel.hidden = true;
+          if (activeView !== "graph") switchView("graph");
+          Graph.gotoNode(n);
+        };
+        row.querySelector(".ucr-yes").onclick = () => { accept(r); refresh(); };
+        row.querySelector(".ucr-no").onclick = () => { LF.declineSplit(r.id, r.kind); refresh(); };
+        list.appendChild(row);
+      });
+    }
+    if (applyAll) {
+      applyAll.onclick = () => {
+        const rows = LF.pendingSplits(nodes).filter(r => r.meetsRule);
+        let n = 0;
+        for (const r of rows) { try { if (accept(r)) n++; } catch (e) { console.warn("CarWeb: could not apply split", r.id, e); } }
+        if (status) { status.className = "lrq-status ok"; status.textContent = `Applied ${n} split${n === 1 ? "" : "s"}.`; }
+        refresh();
+      };
+    }
+    btn.onclick = () => { refresh(); panel.hidden = !panel.hidden; };
+    document.getElementById("pendingsplits-close").onclick = () => { panel.hidden = true; };
+    if (LF.onFactsUpdate) LF.onFactsUpdate(() => refresh());
+    refresh();
+  }
+
+  // ---------- re-read engines for every car that is due ----------
+  // Real user report: "Now I'm noticing a lot more cars also not having their
+  // engines listed." A car's engine read is remembered, and many were read by
+  // an older reader -- or never read, because the check that found them did
+  // not ask. Checking a car now re-reads it; this does the backlog in one go.
+  // No model call: one or two Wikipedia fetches per car, one car at a time,
+  // with progress on the button itself. Stops cleanly if pressed again.
+  function initRereadEngines() {
+    const LF = window.LlmFamilies;
+    const btn = document.getElementById("rereadenginesbtn");
+    if (!btn || !LF || !LF.engineReadsDue) return;
+    const label = () => {
+      const due = LF.engineReadsDue(nodes).length;
+      btn.textContent = due ? `⚙ Re-read Engines (${due} due)` : "⚙ Re-read Engines";
+    };
+    btn.hidden = !LF.serverAvailable;
+    label();
+    let running = false, stop = false;
+    btn.onclick = async () => {
+      if (running) { stop = true; btn.textContent = "⚙ Stopping after this car…"; return; }
+      const due = LF.engineReadsDue(nodes);
+      if (!due.length) { label(); return; }
+      running = true; stop = false;
+      let done = 0, engines = 0;
+      for (const n of due) {
+        if (stop) break;
+        btn.textContent = `⚙ Re-reading ${done + 1}/${due.length} — ${n.make ? n.make + " " : ""}${n.label} (click to stop)`;
+        const before = links.length;
+        try { await scanEnginesLive(n); } catch (e) { /* its own record says what failed */ }
+        engines += links.length - before;
+        done++;
+      }
+      running = false;
+      if (LF.note) LF.note(`powertrain: re-read engines for ${done} car(s)` + (stop ? " (stopped)" : ""));
+      label();
+      if (dtNode) renderPowertrain(dtNode);
+    };
+    if (LF.onFactsUpdate) LF.onFactsUpdate(() => { if (!running) label(); });
   }
 
   // ---------- Add Car: manually add a make/model, then run the normal discovery flow ----------
@@ -6596,7 +6751,9 @@ window.CarWeb = (function () {
     items.forEach(n => {
       const d = document.createElement("div");
       d.className = "sr-item";
-      const chip = n.type === "person" ? personRoleWord(n).replace(" & ", "+") : (n.type === "family" ? "nameplate" : n.type);
+      const chip = n.type === "person" ? personRoleWord(n).replace(" & ", "+")
+                 : n.type === "family" ? "nameplate"
+                 : n.type === "enginevar" ? "variant" : n.type;
       d.innerHTML = `<span class="sr-type ${n.type}">${chip}</span>
         <span class="sr-label">${(n.type === "model" || n.type === "family") ? n.make + " " + n.label : n.label}</span>
         <span class="sr-sub">${(n.type === "model" || n.type === "family") ? n.year : (n.country || "")}</span>`;
@@ -8406,6 +8563,8 @@ window.CarWeb = (function () {
       initLlmDebugPanel();
       initLlmPlaygroundPanel();
       initUnconfirmedRelPanel();
+      initPendingSplitsPanel();
+      initRereadEngines();
       initAddCarPanel();
       initAddEnginePanel();
       initModifyCarPanel();
@@ -8422,7 +8581,7 @@ window.CarWeb = (function () {
       // dead-end. initToolsMenu() below drops the whole Tools button once every
       // item inside it is hidden, so gating them here removes the menu itself.
       if (!(window.LlmFamilies && window.LlmFamilies.serverAvailable)) {
-        for (const id of ["llmdebugbtn", "llmplaygroundbtn", "unconfirmedrelbtn",
+        for (const id of ["llmdebugbtn", "llmplaygroundbtn", "unconfirmedrelbtn", "pendingsplitsbtn", "rereadenginesbtn",
                           "modifycarbtn", "deletebtn", "genphotosbtn"]) {
           const el = document.getElementById(id);
           if (el) el.hidden = true;

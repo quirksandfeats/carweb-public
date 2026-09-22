@@ -1,0 +1,214 @@
+{{Use dmy dates|date=April 2022}}
+{{Infobox automobile
+| image        = DaimlerConquest I think ca 1955.jpg
+| caption      = 1955 DJ256 Conquest Century (Mark I)
+| name         = Daimler Conquest<br />DJ250 to DJ261
+| aka          = Daimler Century <ref>{{Cite web |url=https://www.ebay.ca/itm/DAIMLER-CENTURY-2-5-SALOON-TYPE-DJ260-DJ256-ORIG-55-FACTORY-UK-SALES-BROCHURE/233177291123?hash=item364a731973:g:-78AAOSwopRYbAmD&vxp=mtr |title=Sales brochure archived at web.archive.org |access-date=2019-04-18 |archive-url=https://web.archive.org/web/20190418231453/https://www.ebay.ca/itm/DAIMLER-CENTURY-2-5-SALOON-TYPE-DJ260-DJ256-ORIG-55-FACTORY-UK-SALES-BROCHURE/233177291123?hash=item364a731973:g:-78AAOSwopRYbAmD&vxp=mtr |archive-date=2019-04-18 |url-status=live }}</ref>
+| manufacturer = [[Daimler Company|The Daimler Company Limited]]
+| production   = 1953&ndash;January 1958
+| class        = [[Executive car]] ([[E-segment|E]]) 
+| body_style   = {{unbulleted list|4-door [[Sedan (car)|saloon]]|2-door [[drophead coupe]]|2-door [[Roadster (automobile)|roadster]]}}
+| engine       = {{convert|2433|cc|L cuin||abbr=on}} [[straight-6]]<br />Conquest: 75 bhp, cast iron head, single Zenith carb.<br />Conquest Century: 100 bhp, aluminium alloy head, twin SU carbs.
+| transmission = preselector gearbox with fluid flywheel (1953–1956)<br />optional B-W automatic (1956–1958)<br /> cars DJ260 or DJ261
+| length       = {{convert|177|in|mm|0|abbr=on}}<ref name=Motor1953/>
+| width        = {{convert|65.5|in|mm|0|abbr=on}}<ref name=Motor1953/>
+| height       = {{convert|65|in|mm|0|abbr=on}}<ref name=Motor1953/>
+| weight       = {{convert|1397|kg|lb|0|abbr=on}}
+| wheelbase    = {{convert|104|in|mm|0|abbr=on}}<ref name=Motor1953/>
+| predecessor  = [[Daimler Consort]]
+| successor    = No immediate successor, then [[Daimler 250|Daimler 2.5 V8]] in 1962
+| designer     = 
+| sp = uk
+| assembly     = United Kingdom: [[Coventry]]
+}}
+The '''Daimler Conquest''' is an [[automobile]] which was produced by [[Daimler Company|The Daimler Company Limited]] in the [[United Kingdom]] from 1953 to 1958. Based on the [[Lanchester Fourteen]], the Conquest replaced the [[Daimler Consort]]. Sales were affected by increasing prices and by the fuel shortage caused by the [[Suez Crisis]], and production ended by January 1958, before a replacement model was in production.
+
+==Engine==
+
+The standard 1953 Conquest used a [[straight-six engine]] developed from the [[inline-four engine]] used in Lanchester's Fourteen and Leda models. The engine was made from cast iron and had a single [[Zenith carburettor]] and a [[compression ratio]] of 6.6:1. With a bore of {{convert|76.2|mm|in||abbr=on}} and a stroke of {{convert|88.9|mm|in||abbr=on}}, the engine displaced {{convert|2433|cc|L cuin||abbr=on}} and delivered {{convert|75|bhp|abbr=on}}.
+
+The 1954 Conquest Century model had an alloy head with larger valves, higher compression, high lift cams, and twin [[SU carburettor]]s.<ref name="Conquest">Title:"Classic and Sportscar" magazine, Published: April 1996, Article: "Futile Conquests?", Page 116 - 119, {{ISSN|0263-3183}}</ref>  These modifications raised the power to {{convert|100|bhp|abbr=on}} at 4400&nbsp;rpm.<ref name=Century20>''The Times'', Friday, 5 Mar 1954; pg. 4; Issue 52872; col F, "New Daimler Model".</ref><ref name=Roadtest>''The Times'', Tuesday, 16 Aug 1955; pg. 2; Issue 53300; col F, "Quality Tells In The Daimler Conquest Century Travelling FAST In Comfort from our motoring correspondent".</ref>
+
+==Body, chassis, and running gear==
+
+===Origins===
+
+The body was a slightly modified version of that used on the earlier [[Lanchester Fourteen]].<ref name=Autocar1971>{{cite magazine| title = 75 Years of Daimler: A look back at one of the first car manufacturers in this country| series = 134|magazine=[[Autocar (magazine)|Autocar]] | volume =  (nbr 3914)| pages =16–19|date = 1 April 1971}}</ref> Apart from the grille and fog lamps, the Conquest was identical to the Lanchester Fourteen and Leda.  While the Fourteen had been coachbuilt of steel on a timber frame, the Leda had an all-steel body, on which the Conquest's was based.<ref name="Conquest"/><ref name=Leda/> The whole car appeared to have been developed within four months of Bernard Docker, then managing director of BSA, taking on the additional responsibility of managing director of Daimler in January 1953.
+
+Presented as a new car, the {{convert|75|hp|kW|abbr=on}} Conquest originated in the 1950 Fourteen or Leda, produced by Daimler's subsidiary, Lanchester.<ref name="Conquest"/><ref name=Leda>''The Times'', Wednesday, 11 Oct 1950; pg. 3; Issue 51819; col C, "Lanchester Fourteen. Features Of New Model", from our motoring correspondent, Coventry 10 October.</ref><ref name=Conq>''The Times'', Wednesday, 6 May 1953; pg. 3; Issue 52614; col G, "New Daimler Car. 'Conquest' Saloon Model".</ref> The chassis was suitably modified to accommodate its new 2.4-litre 6-cylinder engine.
+
+===Specifications===
+The usual Daimler large cruciform chassis had a double wishbone front suspension, with laminated torsion bars, telescopic dampers, and an anti-roll bar, while the rear suspension used leaf springs with telescopic dampers.
+
+All cars featured automatic chassis lubrication to 21 points, using a pump controlled by exhaust heat at startup.{{citation needed|date=December 2017}}
+
+Cam and peg steering was used, and Girling hydro-mechanical brakes:  hydraulic front, mechanical rear.{{citation needed|date=December 2017}} The cars had an {{convert|2642|mm|in|0|abbr=on}} wheelbase.<ref name="Conquest"/>
+
+The Century specification included a stronger four-pinion{{clarify|date=December 2017}} differential, replacing the Conquest's two-pinion differential.  The Century's brakes were also upgraded with increased lining area.{{citation needed|date=December 2017}}
+
+In January 1955, a number of upgrades were announced. There was four inches more leg-space for rear seat passengers. In addition, doors now opened wider and there were "further interior embellishments".<ref>"Daimler Conquest." display advertisement, ''The Times'' Tuesday, 18 Jan 1955; pg. 5; Issue 53142.</ref>
+
+In October 1955, the Mark II models were announced for the [[British International Motor Show|Earls Court Motor Show]], available as before in Conquest (75 bhp) and Conquest Century (100 bhp) form.  However, the Daimler Conquest Century was now called the '''Daimler Century''' in marketing literature. The built-in fog lamps were now replaced by independent valance-mounted fog and driving lamps and their former location became ducts for the heater and air vent.
+
+===Body styles===
+Conquest was offered in the following models:<ref name=Bodies group=note>The '''Daimler Conquest''' was made in the three following body shapes:
+* 1. DJ250, DJ256, 4-door, 4/5-seat saloon
+* 2. DJ252 drophead coupé, 2-door, 4-seat convertible version of the saloon
+* 3. DJ254 2-door, open 2-seater and 3-seat drophead (convertible) coupé
+Numbers like DJ251, DJ257 etc. denote left-hand drive cars, DJ260 was used for cars fitted with Borg-Warner automatic gearbox</ref>
+
+====Standard production models====
+{{Gallery
+|title=Conquest saloon<ref name=Conq/> (1953&ndash;1956)
+|align=none
+|footer=
+|File:1952 Daimler Conquest 2.5litre 5877692283.jpg|
+ alt1=
+ |DJ250<br />front
+|File:1952 Daimler Conquest 2.5 4625023792.jpg|
+ alt2=
+ |DJ250<br />rear
+|File:1952 Daimler Conquest 2.5litre 3601656166.jpg|
+ alt3=
+ |DJ250<br />side
+}}
+{{Gallery
+|title=Conquest Century saloon<ref name=Century20 /> (1954&ndash;1958)
+|align=none
+|footer=
+|File:1954 Daimler Conquest-Century FJ-06-RH.jpg|
+ alt1=
+ |DJ256 Century<br />Note chrome screen surround
+|File:1957 Daimler Conquest Century II DJ256 right-rear saloon.jpg|
+ alt2=
+ |DJ256 Century Mark II<br />Note flashes by boot handle
+|File:1957 Daimler Conquest Century 9659451587.jpg|
+ alt3=
+ |DJ260 Century Mark II<br />Independent fog / driving lamps
+}}
+
+====Models produced in limited numbers====
+{{Gallery
+|title=Conquest and Conquest Century drophead coupé 4-seater<ref name=Coupe>''The Times'', Friday, Oct 02, 1953; pg. 4; Issue 52742; col G. "Paris Motor Show"</ref> (1954&ndash;1955)
+|align=none
+|footer=DJ253 is the left hand drive version of the DJ252<ref name=Bodies group=note/>
+|File:Bonhams - The Paris Sale 2012 - Daimler Conquest Century Drophead Coupé - 1956 - 002.jpg |
+ alt1=
+ |DJ253<br />front
+|File:Daimler Conquest Century Drophead Coupe.jpg |
+ alt2=
+ |DJ252<br />side
+|File:Bonhams - The Paris Sale 2012 - Daimler Conquest Century Drophead Coupé - 1956 - 001.jpg|
+ alt3= 
+ |DJ253<br />rear
+}}
+{{Gallery
+|title=Conquest open 2-seater Roadster<ref name=Roadster>''The Times'', Tuesday, Oct 20, 1953; pg. 5; Issue 52757; col E, "More New Car Models".</ref> (1953&ndash;1955)
+|align=none
+|footer=
+|File:1955 Daimler Conquest Roadster.jpg |
+ alt1=
+ |DJ254
+|File:Hellens Manor - geograph.org.uk - 1366069.jpg |
+ alt2=
+ |DJ254
+}}
+{{Gallery
+|title=Conquest drophead coupé 3-seater (1955&ndash;1957)
+|align=none
+|footer=
+|File:Daimler Conquest Century 3-str drophead coupé 5918250030 6453e6affc o.jpg|
+|File:1957 Daimler Conquest (Mark II) Century drophead coupe (2011-03-23) 03.jpg|
+ alt2=
+ |{{center|DJ254}}
+|File:Daimler Conquest drophead coupé.jpg
+}}
+
+==Performance==
+[[File:Daimler 1954.jpg|thumb|1954–1955 Daimler Conquest Century drophead coupé. Hood power-assisted from the ''[[Coupe de Ville|de ville]]'' position shown.]]
+[[File:1957 Daimler Conquest (Mark II) Century drophead coupe (2011-03-23) 01.jpg|thumb|1955–1957 Daimler drophead coupé]]
+
+The Conquest's engine produced {{convert|75|hp|abbr=on}} at 4000 rpm, and {{convert|124|lbft|Nm|0|abbr=on}} of torque at 2000 rpm. In Century form the dry liner, pushrod engine with its balanced crank and large water jacket, delivered {{convert|100|hp|abbr=on}} at 4000 rpm, and {{convert|130|lbft|Nm|0|abbr=on}} of torque at 2400 rpm. A Daimler four-speed preselector gearbox with "fluid flywheel" was used.
+
+The Saloon had steel bodies weighing {{convert|1397|kg|lb|abbr=on}} (Conquest: {{convert|81|mph|km/h|abbr=on}}, 0-60&nbsp;mph: 20.4 seconds. Conquest Century: {{convert|90|mph|km/h|abbr=on}}).
+
+The open two-seater Roadster had an aluminium body, except for the bonnet, and aluminium castings were used instead of a traditional timber frame. The Roadster pioneered the Century specification of the Conquest engine, though when it debuted in the Roadster, it was said to produce just 90&nbsp;bhp. (100&nbsp;mph, 0-60&nbsp;mph: 14.5 seconds, 25.5 [[hundredweight|cwt]] (1300&nbsp;kg))
+
+The 4-seater drophead coupé had a powered roof folding mechanism and shared few body parts with the Roadster. ({{convert|87|mph|km/h|abbr=on}}), 0-60&nbsp;mph: 16.3 seconds)
+
+The New Drophead had steel to the B-pillars, and alloy from there back, apart from steel inner rear guards. ({{convert|89|mph|km/h|abbr=on}}), 0-60&nbsp;mph: 19.7 seconds)
+
+The lighter Roadster was slightly taller geared; while the heavier New Drophead also was slightly lower geared. Other differences to the Conquest saloon (1) include {{convert|1/2|in|mm|adj=mid|-wider}} brakes, and steering that was 2½ turns lock-to-lock instead of 3¼.<ref name="Conquest"/>
+
+A saloon tested by [[The Motor (magazine)|The Motor]] magazine in 1953 had a top speed of {{convert|81.6|mph|km/h|abbr=on}} and could accelerate from 0-{{convert|60|mph|km/h|abbr=on}} in 24.3 seconds. A fuel consumption of {{convert|20.3|mpgimp|L/100 km mpgus}} was recorded. The test car cost £1511 including taxes.<ref name=Motor1953>{{cite magazine |title = The 2.5 litre Daimler Conquest Road Test|magazine=[[The Motor (magazine)|The Motor]]| date = 6 May 1953}}</ref>
+
+==Production history==
+
+The Conquest saloon was released to the public in 1953 as a replacement for the Daimler Consort, but was shorter and lighter, with better performance. The Daimler Conquest  was meant to be an affordable Daimler, priced at [[Pound sterling|£]]1066. (That price may well be linked to the name Conquest.{{citation needed|date=December 2017}}) It was pedigree with pace, at a reasonable price. They still had luxurious, well-appointed traditional wood-grain and leather interiors. Actual construction was by another [[Birmingham Small Arms|BSA]] subsidiary, '[[Carbodies]]'.
+
+The open 2-seater Conquest Roadster was first shown to the public<ref name=Roadster/> at the Motor Show in 1953 with the tuned engine later known as the Century engine. The Roadster was not available to the public till 1954.
+
+The Daimler Conquest Century, released in 1954<ref name=Century20/> was the best seller of the range with 4818 of them produced. A hundred-horsepower, hence the Century name.
+
+The Conquest Roadster was dropped from production in 1955. The dropheads had outsold them by over 3:1. Then a new drophead 4-seater and a drophead coupé version of the 2-seater Roadster were introduced at the 1955 Motor Show. This Mark II Conquest Roadster drophead coupé had a sideways-facing single rear seat, making the car a 2- or 3-seater and with wind-up side windows in place of the clip-on side-curtains of the continuing Mark II open 2-seater Conquest Roadster.
+
+Two of the roadsters, at least, were coach-built as fixed head coupés.<ref name=hardtop>''The Times'', Thursday, 30 Sep 1954; pg. 3; Issue 53050; col B, "New Daimler Models: Additions To Large-Car Market".</ref>
+
+There is one fibreglass new drophead, and one fibreglass fixed head coupé (with a Hillman Minx Californian three piece rear window){{citation needed|date=December 2017}}
+
+One-offs seem to have been mostly done on Roadster allocated chassis, so there may have been even fewer roadsters built than officially indicated.
+
+In October 1956,<ref>''The Times'', Friday, 12 Oct 1956; pg. 7; Issue 53660; col B.</ref> Conquest Century buyers were offered the choice of an automatic transmission or the traditional [[Preselector gearbox|preselector]] system. Time was changing gear. Preselector gearboxes faded away as modern automatic transmissions took their place. Currency restrictions had meant that until [[Borg-Warner]] built a British plant, automatic transmissions were only available on export cars.
+
+=== Pricing ===
+The price of the Conquest was reduced in April 1956 by 12%<ref>''The Times'', Tuesday, 1 May 1956; pg. 10; Issue 53519; col D, "Prices Reduced Of Two Daimler Cars"</ref> and again in September 1956 by between 7% and 16%:
+*Conquest Saloon Mk II £862 cut by 16%{{clarify|date=December 2017|are these prices before or after the cuts?}}
+*Century Saloon Mk II £996 cut by 12%
+*2½ litre Drophead Coupé £1,262 cut by 7%
+*One—O—Four Saloon £1,596 cut by 15%
+*One—O—Four Lady's model £1,729 cut by 16%<ref>''The Times'', Tuesday, 4 Sep 1956; pg. 8; Issue 53627, col C, "Daimler Car Prices Cut"  Plans To Reach Wider Market.</ref>
+
+The [[Suez Crisis]] in the summer of 1956 had brought Europe petrol rationing which began France on 29 November and two weeks later in Britain. In Britain the restriction lasted until mid May 1957 bringing, amongst other economic dislocation, short time working to the British motor industry.<ref name=Rationing group=note>Oil Crisis in Europe. The story in headlines:
+* Petrol Rationing For France. ''The Times'', Wednesday, 28 Nov 1956; pg. 7; Issue 53700. ''(took effect the following day)''
+* Less Traffic On The Roads. ''The Times'', Tuesday, 18 Dec 1956; pg. 4; Issue 53717 ''(British rationing took effect December 17, 1956)''
+* More Short Time In Car Industry. ''The Times'', Tuesday,  1 Jan 1957; pg. 8; Issue 53727
+* Road Deaths Down By One-Third. ''The Times'', Tuesday,  29 Jan 1957; pg. 8; Issue 53751
+* Petrol Ration Up 50 P.C. Next Month. ''The Times'', Tuesday, 19 Mar 1957; pg. 8; Issue 53793
+* Petrol Rationing To Stay "For Time Being".  From Our Political Correspondent. ''The Times'' Tuesday,  16 Apr 1957; pg. 10; Issue 53817
+* Six Months' Coupons In New Petrol Books. ''The Times'' Wednesday,  17 Apr 1957; pg. 10; Issue 53818
+* Traffic Grows As Petrol Is Freed. ''The Times'' Thursday, 16 May 1957; pg. 9; Issue 53842</ref>
+
+The Roadster had started out priced close to the [[Jaguar XK120]] at £1673, but by the time the New Drophead was released the price was £280 more than an XK140. While Jaguars became less expensive, the hand-built Daimlers escalated in price. Jaguars sold in large numbers, and Daimlers sold in small numbers with frequent model changes.{{Citation needed|date=October 2013}}
+
+Daimler's problems became increasingly obvious.<ref name="Conquest"/> In 1960 Daimler was bought by Jaguar, who wanted the additional factory space. Four years after the Conquest ceased production, Daimler introduced the [[Daimler 250|250]] to the same market segment. The 250, using a {{convert|2548|cc|cid|abbr=on}} [[Daimler V8 engines|proprietary V8]] in a [[Jaguar Mark 2]] body shell, proved the best selling Daimler motor car ever, with more than 17,000 sold between 1962 and 1969.<ref>{{Cite book |last1= Douglas-Scott-Montagu|first1= Edward John Barrington|author-link1= Edward Douglas-Scott-Montagu, 3rd Baron Montagu of Beaulieu|last2= Burgess-Wise|first2= David|author-link2= David Burgess-Wise |name-list-style= amp |others= Foreword by [[Prince Philip, Duke of Edinburgh|HRH The Duke of Edinburgh]]|year= 1995|title= Daimler Century: The full history of Britain's oldest car maker|location= Sparkford, Nr Yeovil, Somerset, UK|publisher= Patrick Stephens|isbn= 1-85260-494-8|page= 279}}</ref>
+
+==Production figures==
+
+*4568 Daimler Conquest Saloons (1)
+*4818 Conquest Century Saloons (1)
+*65 Conquest Roadsters, (3)
+*234 Conquest Century Drophead Coupés, (2)
+*54 Conquest Century New Drophead Coupés (3) (A.K.A. the Mark II)<ref name="Conquest"/>
+
+In August 1956, a press release<ref>''The Times'', Saturday, 25 Aug 1956; pg. 10; Issue 53619; col G, "Daimler's Plan To Raise Production".</ref> endeavoured to relieve the workforce's belief all production was to stop. In the chairman's speech to the November 1958 shareholders' AGM he advised the only cars made in the year ended 31 July 1958 were the 3½ and 4½ litre models
+
+==Notes==
+<references group="note"/>
+
+==References==
+{{reflist}}
+
+==External links==
+Useful for disambiguation
+* [https://web.archive.org/web/20110813094915/http://cgi.ebay.com.my/1954-Daimler-Conquest-Saloon-Sales-Brochure-/370128189627?pt=LH_DefaultDomain_0&hash=item562d5bf8bb 1953 sales brochure; Out of pedigree comes pace. The new Daimler Conquest, top class car in the medium price field] scroll down
+* [https://web.archive.org/web/20121015010139/http://cgi.ebay.com/ws/eBayISAPI.dll?ViewItem&item=260342682146 1956 sales brochure; Get there swifter safer fresher - Drive Daimler] scroll down
+* [http://www.simoncars.co.uk/daimler/slides/ac_Daimler%20Conquest%20Century%201956%20head.jpg Mark II Conquest with horn grilles]
+* [https://www.flickr.com/photos/sherlock77/1999468/ Roadster without its clip-on sidescreens for weather protection]
+* [http://www.auctiva.com/hostedimages/showimage.aspx?gid=271878&ppid=1122&image=279306013&images=279306013&formats=0&format=0 Ad for full range, ''Punch'' 5 May 1954]
+
+{{Post-war Daimler cars}}
+
+[[Category:Daimler vehicles|Conquest]]
+[[Category:Cars introduced in 1953]]
+[[Category:Cars discontinued in 1958]]
+[[Category:Rear-wheel-drive vehicles]]

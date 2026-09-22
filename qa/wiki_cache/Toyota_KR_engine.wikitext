@@ -1,0 +1,115 @@
+{{Refimprove|date=December 2010}}
+
+{{Infobox automobile engine
+| name = Toyota KR engine
+| manufacturer = [[Daihatsu]]
+| image = Toyota 1KR-FE engine 001.JPG
+| production = 2004–present
+| caption = 1KR-FE in a [[Daihatsu Boon#M300|Daihatsu Sirion]]
+| configuration = [[Straight-three engine|Straight-3]]
+| block = Aluminium
+| head = Aluminium
+| valvetrain = [[DOHC]] [[Multi-valve#Four valves|4 valves x cyl.]] with [[VVT-i]]
+| fueltype = [[Petrol engine|Gasoline]]
+| fuelsystem = [[Multi-point fuel injection]]
+| coolingsystem = [[Radiator (engine cooling)|Water-cooled]]
+| weight = {{convert|69|kg|abbr=on|0}}
+| displacement = {{convert|998|cc|L|1|abbr=on|disp=flip}}
+| bore = {{convert|71|mm|abbr=on}}
+| stroke = {{convert|84|mm|2|abbr=on}}
+| turbocharger = On 1KR-VET only
+| power = {{convert|65-98|PS|kW bhp PS|abbr=on|0|order=out}}
+| torque = {{convert|85-140|Nm|lbft|abbr=on|0}}
+| predecessor = {{unbulleted list
+  | ''[[Daihatsu E-series engine#EJ-series (1 litre)|Daihatsu EJ engine]]'' ([[Inline-three engine|I3]])
+  | ''[[Toyota SZ engine#1SZ-FE|Toyota 1SZ-FE]]'' ([[Inline-four engine|I4]])
+  }}
+}}
+
+The '''[[Toyota]] KR engine family''' is a [[Straight-three engine|straight-3]] [[piston engine]], designed by [[Daihatsu]], a subsidiary of Toyota. The 1KR series uses aluminium engine blocks and chain driven [[DOHC]] cylinder heads. It uses [[multi-point fuel injection]], and has [[Multi-valve#Four valves|4 valves per cylinder]]. Some versions have [[VVT-i]] variable valve timing. The engine typically weighs {{convert|69|kg|abbr=on|round=5}} with all ancillaries but no fluids.
+
+{{TOC limit|2}}
+
+==1KR-FE==
+The '''1KR-FE''' is a {{convert|998|cc|L|1|abbr=on|disp=flip}} version built in [[Japan]] and [[Poland]]. Bore and stroke is {{convert|71x84|mm|2|abbr=on}}, with a [[compression ratio]] of 10.5:1. Output is {{convert|67|PS|kW+bhp|abbr=on|0}} at 6000&nbsp;rpm with {{convert|91|Nm|lbft|abbr=on|0}} of torque at 4800&nbsp;rpm - and a rev-limit of 6500&nbsp;rpm - or {{convert|71|PS|kW+bhp|abbr=on|0}} at 6000&nbsp;rpm with {{convert|94|Nm|lbft|0|abbr=on}} of torque at 3600&nbsp;rpm. When originally on sale it met [[European emission standards#Emission standards for passenger cars|European emission standard EU4]] requirements and had {{CO2}} levels of 109&nbsp;g/km, but current applications meet [[European emission standards#Emission standards for passenger cars|European emission standard EU5]] and can have {{CO2}} levels as low as 99&nbsp;g/km.<ref>{{cite web |url=https://leasing.com/green-cars/peugeot/108/ |title=PEUGEOT 108: green cars with CO2 emissions under 120g/km |work=TheGreenCarWebsite |accessdate=2014-02-12}}</ref> This engine has been given the 2007, 2008, 2009 and 2010<ref>{{cite news |url=http://www.autoblog.com/photos/mercedes-benz-amg-v8#3112998 |title=International Engine of the Year Photo Gallery |first=Sam |last=Abuelsamid |work=Autoblog |date=2010-06-24 |accessdate=2014-02-12}}</ref> [[International Engine of the Year]] awards in the sub-1.0 liter category.
+
+The engine was also adapted to meet [[European emission standards#Emission standards for passenger cars|European emission standard EU6]] and can have {{CO2}} levels as low as 88/89&nbsp;g/km in [[Toyota Aygo]] or [[Citroën C1]]/[[Peugeot 108]] since 2014 in [[New European Driving Cycle|NEDC]].
+
+=== Applications ===
+* [[Daihatsu Boon|Daihatsu Boon/Toyota Passo/Daihatsu Sirion/Subaru Justy]]
+* [[Toyota Aygo]]/[[Citroën C1]] (2005–2021)
+* [[Toyota Vitz#Second generation (XP90; 2005)|Vitz/Yaris (XP90)]]/[[Toyota Vitz#Third generation (XP130; 2005)|Vitz/Yaris (XP130)]]/[[Toyota Yaris (XP210)|Yaris (XP210)]] (2005–present)
+* [[Toyota Belta]] (2006–2012)
+* [[Toyota iQ]] (2008–2015)
+* [[Daihatsu Cuore]] L276 (2007–2013)
+* [[Peugeot 107]] (2005–2014)
+* [[Peugeot 108]] (2014–2021)
+* [[Daihatsu Thor|Daihatsu Thor/Toyota Tank/Toyota Roomy/Subaru Justy]] (2016–present)
+
+==1KR-DE==
+[[File:Toyota Wigo G - Engine.jpg|thumb|1KR-DE engine in a [[Toyota Wigo]]]]
+
+The '''1KR-DE''' is the non-[[VVT-i]] variant of the 1KR engine made by Daihatsu. It produces less power and [[torque]] than the 1KR-FE. Output is {{convert|65|PS|kW+bhp|abbr=on|0}} at 6000&nbsp;rpm and {{convert|85|Nm|lbft|0|abbr=on}} of torque at 3600&nbsp;rpm. Bore and stroke is {{convert|71x84|mm|2|abbr=on}}, while the [[engine displacement]] is {{convert|998|cc|L|1|order=flip|abbr=on}}.<ref>{{cite web |url=http://www.toyota.astra.co.id/product/agya/ |title=Toyota Agya - Specifications |work=www.toyota.co.id |accessdate=2014-09-17}}</ref><ref>{{cite web |url=http://daihatsu.co.id/products/specification/ayla |title=Daihatsu Ayla - Specifications |work=www.daihatsu.co.id |accessdate=2014-09-17}}</ref>
+
+The 1KR-DE was specially designed for the Indonesian [[Low Cost Green Car (Indonesia)|LCGC]] (Low Cost Green Car) market to reduce cost. The cylinder head cover is made from a lightweight plastic-resin material. The [[exhaust manifold]] is integrated to the cylinder head together with the [[catalytic converter]] and [[oxygen sensor]] to save even more weight as well as helping the engine to warm up quicker, reducing total exhaust emissions. There was an overall saving of {{convert|10|kg|lb||abbr=on}}. <ref>{{cite web |url=http://www.otosia.com/berita/7-keunggulan-mesin-agya-ayla.html |title=7 Agya Engineering Excellence - Ayla |trans-title=7 Keunggulan Mesin Agya - Ayla |language=Indonesian |work=Otosia.com |date=2012-09-24 |accessdate=2014-03-04}}</ref>
+
+=== Applications ===
+* [[Daihatsu Ayla]] (2013–2023)
+* [[Toyota Agya|Toyota Agya/Wigo]] (2013–2017)
+* [[Daihatsu Hi-Max]], based on [[Daihatsu Hijet#tenth|tenth generation Hijet Truck]] (2016–2019)<ref>{{cite web |url=http://daihatsu.co.id/product/hi-max |title=Astra Daihatsu Indonesia - Daihatsu Hi-Max specification |work=Astra Daihatsu Motor |accessdate=2016-11-11 |archive-date=2018-05-18 |archive-url=https://web.archive.org/web/20180518061235/http://daihatsu.co.id/product/hi-max |url-status=dead }}</ref>
+
+==1KR-DE2==
+The '''1KR-DE2''' is the more powerful variant of the 1KR-DE engine which is redesigned by [[Perodua]]. It produces {{convert|66|PS|kW+bhp|abbr=on|0}} at 6000&nbsp;rpm and {{convert|90|Nm|lbft|0|abbr=on}} of torque at 3600&nbsp;rpm. Like the 1KR-DE, bore and stroke are at {{convert|71x84|mm|2|abbr=on}}, respectively and [[engine displacement]] remains at {{convert|998|cc|L|1|order=flip|abbr=on}}<ref>{{cite web |url=http://paultan.org/2014/09/15/perodua-axia-launched/ |title=Perodua Axia Launched |last=Tan |first=Paul |work=paultan.org |date=2014-09-15 |accessdate=2014-09-17}}</ref><ref>{{cite web |url=http://www.perodua.com.my/ourcars/axia-advance/specifications |title=Perodua Axia Specifications |work=perodua.com.my |date=2014-09-15 |accessdate=2014-09-17}}</ref> The 1KR-DE2 achieves [[European emission standards#Emission standards for passenger cars|Euro IV]] emission standard and it is very fuel efficient due to the ECO Mode, where the engine will exchange drop one cylinder for every two cycles{{Citation needed|reason=Could not find any reliable search results to substantiate this feature claim.|date=September 2021}}, effectively achieving the economy of a {{convert|600|cc|L|1|order=flip|abbr=on}} engine, surpasses the 1KR-DE. The compression ratio for this engine is 11:1.<ref>{{cite web |url=http://paultan.org/2014/09/15/perodua-axia-launched/perodua_axia_specs_-008/ |title=Perodua Axia Launched |last=Tan |first=Paul |work=paultan.org |date=2014-09-15 |accessdate=2014-09-17}}</ref>
+
+=== Applications ===
+* [[Perodua Axia]] (2014–2017)
+
+==1KR-VE==
+[[File:1KR-VE.jpg|thumb|1KR-VE engine in a [[Perodua Bezza]]]]
+
+The '''1KR-VE''' is a more powerful variant made by Perodua specifically improved version from the 1KR-DE2 which is made for the newest edition in the Perodua family.<ref>{{cite news |last=Tan |first=Danny |date=2023-02-14 |title=2023 Perodua Axia D74A launched – 1.0L D-CVT; DNGA; larger body; G, X, SE, AV variants, fr RM38.6k |work=paultan.org |location=Malaysia |url=https://paultan.org/2023/02/14/2023-perodua-axia-d74a-launched-1-0l-d-cvt-dnga-larger-body-g-x-se-av-variants-fr-rm38-6k/ |access-date=2023-02-16}}</ref> New 1.0-litre VVT-i engine is lighter & compact for better [[Fuel consumption in automobiles|fuel consumption]], better performance, reduced vibration & noise level. It was specifically made for the 1.0-litre variant for Perodua's first solely in-house manufactured car which is the Perodua Bezza. It is a modified and refined version of the 1KR-DE2 engine from the Perodua Axia. The new 1KR-VE engine produces {{convert|68|PS|kW+bhp|abbr=on|0}} at 6,000&nbsp;rpm and {{convert|91|Nm|lbft|abbr=on|0}} at 4,400&nbsp;rpm, offering a mild {{convert|1|hp||abbr=on}} and {{convert|1|Nm|lbft||abbr=on}} increase over the Axia's 1KR-DE2 plant. Perodua claims ECE fuel consumption figures of {{convert|22.8|km/L||abbr=on}} for the manual variant and {{convert|21.3|km/L||abbr=on}} with the automatic, both exhibiting a {{convert|1.2|km/L||abbr=on}} improvement over the old 1KR-DE2. The new 1KR-VE engine now features variable-valve timing with intelligence (VVT-i) on the intake valves. Several minor changes and refinements were also introduced for increased [[fuel efficiency]] and more linear power delivery. Notable changes include a higher 11.5:1 compression ratio, a high-tumble intake port, a longer [[intake manifold]], micro fuel spray injection and low-friction valve lifters.
+
+=== Applications ===
+*[[Perodua Bezza]] (2016–present)
+*[[Daihatsu Sigra]] (2016–present)
+*[[Perodua Axia (B200)]] (2017–present)
+*[[Perodua Axia (A300)]] (2023–present)
+*[[Toyota Wigo (B100)]] (2017–2023)
+*[[Toyota Wigo (A350)]] (2023–present)
+*[[Toyota Agya]] (2017–2021)
+* [[Daihatsu Ayla]] (2023–present)
+
+==1KR-VET==
+[[File:2021 Toyota Raize 1.0 Turbo S GR Sport A250RA 1KR-VET engine (20210521).jpg|thumb|1KR-VET engine in a [[Toyota Raize]]]]
+
+The '''1KR-VET''' (996 cc) is a [[turbocharged]] version of the 1KR-FE with lowered compression ratio of 9.5:1 and redline of 6200 rpm. Produced by Daihatsu for use in the top-of-the-range version of the [[Daihatsu Thor]] and the [[Daihatsu Rocky (A200)|A200/A250 series Rocky]]. It delivers {{convert|98|PS|kW bhp|abbr=on}} and {{convert|140|–|149|Nm|lbft|0|abbr=on}} of torque.
+
+=== Applications ===
+*[[Daihatsu Thor|Daihatsu Thor/Toyota Tank/Toyota Roomy/Subaru Justy]] (2016–present)
+*[[Daihatsu Rocky (A200)|Daihatsu Rocky/Toyota Raize]] (2019–present)
+*[[Perodua Ativa]] (2021–present)
+
+{{clear}}
+
+==1KR-B52==
+Revised version used in PSA Citroën C1/Peugeot 108 since 2016. First appeared in Citroën C1 UrbanRide and Elle special editions and later rolled out to all. The engine was modified to meet the Euro 6.2 emission standard<ref>{{cite news |url=https://www.carsuk.net/2018-citroen-c1-updated-with-new-elle-and-urban-ride-c1-editions-too/ |title=2018 Citroen C1 updated, with new 'Elle' and 'Urban Ride' C1 Editions too | work=Cars UK |date=2018-04-18 |access-date=2021-02-06}}</ref> whilst boosting performance to {{convert|73|PS|kW bhp|abbr=on}} and economy up to 58.8 mpg on combined WLTP cycle while keeping emissions at 110 g/km co2 on WLTP cycle.{{cn|date=June 2022|reason=Where do the hp, mpg and emissions figures come from?}}
+
+=== Applications ===
+* [[Citroën C1]]/[[Peugeot 108]] (2016–2021)
+* [[Toyota Aygo X]] (2022–2025)
+
+==See also==
+{{commons category|Toyota KR engines}}
+* [[List of Toyota engines]]
+
+==References==
+{{Reflist}}
+
+{{DEFAULTSORT:Toyota Kr Engine}}
+[[Category:Toyota engines|KR]]
+[[Category:Daihatsu engines]]
+[[Category:Peugeot engines]]
+[[Category:PSA engines]]
+[[Category:Straight-three engines]]
+[[Category:Gasoline engines by model]]
+[[Category:2000s automobile engines]]

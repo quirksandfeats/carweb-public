@@ -1,0 +1,558 @@
+{{Use dmy dates|date=September 2019}}
+{{infobox automobile
+| name         = Mercedes-Benz SL
+| image        = Mercedes-AMG SL 43 IMG 8050.jpg
+| caption = Mercedes-Benz SL43 ([[Mercedes-Benz SL-Class (R232)|R232]])
+| manufacturer = {{ubl
+ | [[Daimler-Benz]] (1954–1998)
+ | [[DaimlerChrysler]] (1998–2007)
+ | [[Daimler AG]] (2007–2020)
+ | [[Mercedes-Benz Group]]<br />(2022–present)
+ }}
+| aka = [[Mercedes-AMG SL-Class (R232)|Mercedes-AMG SL]] (2022–present)
+| production = 1954–present
+| assembly = {{ubl
+ | West Germany: [[Untertürkheim|Stuttgart-Untertürkheim]], (Mercedes-Benz Werk Untertürkheim; 1954–1963); [[Sindelfingen|Stuttgart-Sindelfingen]] (Mercedes-Benz Plant Sindelfingen; 1963–1989)
+ | Germany: [[Bremen]] (Mercedes-Benz Werk; 1989–present)
+ | South Africa: [[East London, Eastern Cape|East London]] (Mercedes-Benz Greenfields)
+ }}
+| class = [[Sports car]]/[[Grand tourer]] ([[S-segment|S]])
+| body_style = {{ubl
+ |2-door [[coupé]]
+ |2-door [[Roadster (automobile)|roadster]]
+ }}
+| layout = {{ubl
+ |[[Front-engine, rear-wheel-drive]] (1954–2021, SL43; 2022–present)
+ |[[Front-engine, all-wheel-drive]] ([[4matic]], 2022–present)
+ }}
+| predecessor = {{ubl
+ |[[Mercedes-Benz SSK]]
+ |[[Mercedes-Benz 540K]]
+ }}
+}}
+
+The '''Mercedes-Benz SL-Class''' (marketed as '''[[Mercedes-AMG SL-Class (R232)|Mercedes-AMG SL]]''' since 2022) is a [[grand touring]] [[sports car]] manufactured by [[Mercedes-Benz]] since 1954. The designation "''SL"'' derives from the [[German language|German]] term "''Super-Leicht",'' which translates to "Super Light" in English.
+
+Initially, the first [[Mercedes-Benz W194|300 SL]] was a [[Sports car racing|racing sports car]] built in 1952 
+with no intention of developing a street version. In 1954, an [[United States|American]] importer [[Max Hoffman]] suggested the street version of 300 SL for the wealthy performance car enthusiasts in the [[United States]] where the market for the [[personal luxury car]] was booming after the [[Second World War]].
+{{TOC_left}}
+{{clear}}
+
+==Abbreviation of SL==
+Whether the abbreviation ''SL'' was derived from a 1931 [[Mercedes-Benz S-Series#Model SSKL (WS06RS)|Mercedes-Benz SSKL]] (Super Sport Kurz Leicht—Super Sport Short Light) isn't known. At the public introduction of [[Mercedes-Benz W194|300 SL]] in 1952, Mercedes-Benz did not define the abbreviation ''SL''.
+
+The German magazine, {{lang|de|[[Auto Motor und Sport]]}}, declared in its 2012 special edition issue of Mercedes-Benz SL that [[Rudolf Uhlenhaut]]—in his notarised letter—indicated the abbreviation meant ''Super Leicht''.<ref name="AMS-Heft10-2012">{{citation|surname1=Jochen Übler |periodical=Auto, Motor und Sport, Mercedes SL-Spezial 2012 |title=Trimm's Leicht |issue=10| at=pp.&nbsp;14–17| issn=0005-0806| date=19 April 2012| language=de}}</ref> This contradicted with the abbreviation proposed by Engelen, Riedner, and Seufert who worked with Rudolf Uhlenhaut: they indicated the abbreviation means ''Sport Leicht''.<ref>{{citation|surname1=Günter Engelen|surname2=Mike Riedner|surname3=Hans-Dieter Seufert |title=Mercedes-Benz 300 SL |edition=2 |at=p.&nbsp;31 |isbn=3-613-01268-5 |date=1999 |publisher=Motorbuch-Verlag |language=de}}</ref> On 15 March 2021, {{lang|de|Auto Motor und Sport}} published a photocopy of an undated "Informations-Unterlage" (press release) from 1952 in its issue, showing the definition of ''SL'' as ''<u>s</u>uper-<u>l</u>eicht''.<ref>{{cite magazine|magazine=auto motor und sport |lang=de |date=15 March 2021 |department=Intro |title=Mercedes SL: Allrad, 800 PS, AMG-Technik |issue=8/2021 |page=13}}</ref>
+
+Mercedes-Benz used ''Sport Leicht'' and ''Super Leicht'' interchangeably until 2017 when a chance discovery in its corporate archive clarified the abbreviation stood for "Super Leicht".<ref name="Classic-1-2002">{{citation|surname1=[[Gerold Lingnau]] |periodical=Mercedes-Benz Classic |title=300SL – Die Ikone wird fünfzig |issue=1 |at=pp.&nbsp;10–22 |issn=1610-8043 |date=2002 |language=de}}</ref><ref>{{cite web|url=http://media.daimler.com/marsMediaSite/ko/de/9904191 |title=Motorsport als Zündfunke: Der Mercedes-Benz 300 SL Rennsportwagen der Baureihe W 194 (1952–1953) |language=de |accessdate=25 July 2017 |work=Daimler Media}}</ref>
+
+According to the [[German language|German]] definition, ''Leicht'' means ''light'' (as in weight, amount, and feeling, for instance) or ''easy'' (as in little effort). For this abbreviation in English language, the definition ''light'' is used.
+
+==W198 and W121 (1954–1963)==
+{{Main|Mercedes-Benz W194|Mercedes-Benz 300 SL|Mercedes-Benz 190 SL}}
+{{infobox automobile
+| name = First generation
+| image = Mercedes (1240346857).jpg
+| caption = Mercedes-Benz 300 SL (W198)
+| production = 1954–1963
+| platform = [[Mercedes-Benz 190 SL|Mercedes-Benz W121 BII]] (190 SL)<br />[[Mercedes-Benz W198]] (300 SL)
+| engine = {{ubl
+ | '''Petrol:'''
+ | 1.9&nbsp;L [[Straight-4|I4]]
+ | 3.0&nbsp;L M198 [[Straight-six engine|I6]]
+ | }}
+| transmission = 4-speed [[Manual transmission|manual]]
+| wheelbase = {{convert|2400|mm|in|1|abbr=on}}
+| length = {{convert|4520|mm|in|1|abbr=on}}
+| width = {{convert|1790|mm|in|1|abbr=on}}
+| height = {{convert|1300|mm|in|1|abbr=on}}
+}}
+The 300 SL was a road-going version of the W194 racing car with extensive modifications to the body. The 300 SL in coupé form was introduced in 1954, featuring its trademark [[Gull-wing doors|gullwing]] doors. In 1957, the [[Roadster (automobile)|roadster]] succeeded the coupé and had the larger conventional passenger doors and larger form-fitting headlamps and was in production until 1963.
+
+In 1955, the smaller 190 SL presented an attractive, more affordable alternative to the exclusive Mercedes-Benz 300 SL, sharing its basic styling, engineering, detailing, and fully independent suspension. Both cars had double wishbones in front and swing axles at the rear. Instead of the 300 SL's expensive purpose-built W198 tubular spaceframe, the 190 SL used a shortened unitary floorpan modified from the W121 base saloon. A 1.9-litre [[straight-4|four-cylinder in-line engine]] was used instead of the 300 SL's engine.
+
+Both the 300 SL roadster and 190 SL have a soft fabric folding top and an optional removable hardtop. The production for 300 SL and 190 SL ended in 1963 with the introduction of the W113 SL-Class.
+
+===Model range===
+*'''300 SL''' (Gullwing): 1954–1957, 3.0&nbsp;L [[Straight-six engine|I6]]
+*'''300 SL''' (Roadster): 1957–1963, 3.0&nbsp;L I6
+*'''190 SL''': 1955–1963, 1.9&nbsp;L [[Straight-4|I4]]
+
+<gallery widths="200px" heights="150px">
+File:Mercedes.Benz 300 SL Gullwing (7475449370).jpg|Mercedes Benz 300 SL (W198)
+File:Mercedes-Benz 300 SL (5797515234).jpg|Mercedes Benz 300 SL Roadster (W198)
+File:Mercedes R121 190SL (1960) lVA 100kb.jpg|Mercedes Benz 190 SL (W121)
+</gallery>
+{{clear}}
+
+==W113 (1963–1971)==
+{{Main|Mercedes-Benz W113}}
+{{infobox automobile
+| name = Second generation
+| image = 1969 Mercedes-Benz 280 SL (W 113) roadster (2011-10-31) 01.jpg
+| production = 1963–1971
+| platform = [[Mercedes-Benz W113]]
+| engine = {{ubl
+ | '''Petrol:'''
+ | 2.3&nbsp;L [[Straight-six engine|I6]]
+ | 2.5&nbsp;L I6
+ | 2.8&nbsp;L I6
+ | }}
+| transmission = {{ubl
+ | 4-speed manual
+ | 5-speed manual
+ | 4-speed [[automatic transmission|automatic]]
+ | }}
+| length = {{convert|4285|mm|in|1|abbr=on}}
+| width = {{convert|1760|mm|in|1|abbr=on}}
+| height = {{convert|1305|mm|in|1|abbr=on}}
+| designer = [[Paul Bracq]]<br/>[[Béla Barényi]]<br/>[[Friedrich Geiger]]
+}}
+[[File:1969 Mercedes-Benz 280 SL (W 113) roadster (2011-10-31) 02.jpg|thumbnail|left|1969 Mercedes-Benz 280 SL roadster (Australia)]]
+
+Replacing both the 300 SL and 190 SL, the 230 SL was introduced in 1963 with a distinctive concave roofline that earned the nickname "pagoda top". The W113 featured a low waistline, large curved greenhouse windows, detachtable hardtop, and a new 2.3-litre [[straight-six engine]].
+
+For 1967, the engine was enlarged to 2.5 litres, and 230 SL was renamed as 250 SL. The changes were made to the interior with new dashboard padding, switches and knobs, steering wheel, and door pockets (US model only). The wheel covers fitted to 250 SL and 280 SL replaced the smaller hubcaps. A year later in 1968, the engine was enlarged again to 2.8 litres, and the 250 SL was changed to 280 SL.
+
+===Model range===
+*'''230 SL''': 1963–1967, 2.3&nbsp;L [[Straight-six engine|I6]]
+*'''250 SL''': 1967–1968, 2.5&nbsp;L I6
+*'''280 SL''': 1968–1971, 2.8&nbsp;L I6
+{{clear}}
+
+==R107 (1971–1989)==
+{{Main|Mercedes-Benz R107 and C107}}
+{{infobox automobile
+| name = Third generation
+| image = 1978 Mercedes-Benz 350 SL (R107) roadster (25009397464).jpg
+| production = 1971–1989
+| platform = [[Mercedes-Benz R107 and C107]]
+| engine = {{ubl
+ | '''Petrol:'''
+ | 2.8&nbsp;L [[Straight-six engine|I6]]
+ | 3.0&nbsp;L I6
+ | 3.5&nbsp;L [[V8]]
+ | 3.8&nbsp;L V8
+ | 4.2&nbsp;L V8
+ | 4.5&nbsp;L V8
+ | 5.0&nbsp;L V8
+ | 5.6&nbsp;L V8
+ | }}
+| transmission = {{ubl
+ | 4-speed manual
+ | 5-speed manual
+ | 3-speed automatic
+ | 4-speed automatic
+ | }}
+| wheelbase = {{convert|96.7|in|mm|0|abbr=on}}
+| length = {{convert|180.3|in|mm|0|abbr=on}}
+| width = {{convert|70.5|in|mm|0|abbr=on}}
+| height = {{convert|51.1|in|mm|0|abbr=on}}
+}}
+[[File:1978 Mercedes-Benz 350 SL (R107) roadster (25639941255).jpg|left|thumb|Mercedes-Benz 350 SL roadster (Australia)]]
+In 1971, R107 was introduced with new design language and safety features that spread to the subsequent Mercedes-Benz models. For the first time, the V8 engines were fitted to the SL-Class. With the production from 1971 to 1989, R107 was one of few longest-produced vehicles from Mercedes-Benz. R107 received a very minor update in 1972 with new rubber-edged wing mirrors from W116 and a major update in 1985 for 1986 model year. The engine options were updated in 1980 for the 1981 model year with new aluminium V8 engines from [[Mercedes-Benz W126|W126 S-Class]] introduced in 1979 while the 2.8-litre six-cylinder in-line engine carried over. It was updated again in 1985 for the 1986 model year with new 3.0-litre six-cylinder in-line engine from [[W124]] and enlarged 4.2- and 5.5-litre V8 engines while the 5.0-litre V8 engine carried over.
+
+The SLC Coupe is much rarer, produced from 1971 – 1981, as 280, 350, 380 and 450 SLC. With the 450 SLC, 450 SLC 5.0 and 500 SLC models, Daimler-Benz took part in major rallies at the end of the 1970s such as the 30,000&nbsp;km long Vuelta à la America del Sud (1977), the Safari Rally (1979) and the Bandama Rally.
+
+The R107 received its first update in 1985 with deeper front air dam, revised brake system with larger discs and four piston calipers, driver's side airbag (standard for US market and extra-cost option for the European market), and, for the European market, catalysator option. The 5-mph bumpers and four round sealed-beam headlamps fitted to the US models remained unchanged despite the revised [[Federal Motor Vehicle Safety Standards|US FMVSS]] regulations that allowed the 2.5-mph bumpers and form-fitting headlamps, starting with 1982 and 1983 model years respectively. The US model received the third brake lamp mounted on the trunk in 1986.
+
+The 560 SL was sold in the United States, Canada, Japan, and Australia only.
+
+===Model range===
+*'''280 SL''': 1974–1985, 2.8&nbsp;L [[Straight-six engine|I6]]
+*'''300 SL''': 1986–1989, 3.0&nbsp;L I6
+*'''350 SL''': 1971–1980, 3.5&nbsp;L [[V8]]
+*'''350 SL (4.5)''': 1972, 4.5&nbsp;L V8 (exclusive for the US market)
+*'''380 SL''': 1981–1985, 3.8&nbsp;L V8
+*'''420 SL''': 1986–1989, 4.2&nbsp;L V8
+*'''450 SL''': 1973–1980, 4.5&nbsp;L V8
+*'''500 SL''': 1981–1989, 5.0&nbsp;L V8
+*'''560 SL''': 1986–1989, 5.5&nbsp;L V8
+{{clear}}
+
+==R129 (1989–2001)==
+{{Main|Mercedes-Benz SL-Class (R129)}}
+{{infobox automobile
+| name = Fourth generation
+| image = 1991 Mercedes 300SL-24 Automatic 3.0 Front.jpg
+| production = 1989–2001
+| platform = [[Mercedes-Benz R129]]
+| engine = {{ubl
+ | '''Petrol:'''
+ | 2.8&nbsp;L [[Straight-six engine|I6]]
+ | 2.8&nbsp;L {{convert|204|hp|kW|0|abbr=on}} [[V6]]
+ | 3.0&nbsp;L {{convert|190|hp|kW|0|abbr=on}} I6
+ | 3.0&nbsp;L {{convert|231|hp|kW|0|abbr=on}} I6
+ | 3.2&nbsp;L {{convert|231|hp|kW|0|abbr=on}} I6
+ | 3.2&nbsp;L {{convert|224|hp|kW|0|abbr=on}} V6
+ | 5.0&nbsp;L {{convert|326|hp|kW|0|abbr=on}} [[V8]]
+ | 5.0&nbsp;L {{convert|306|hp|kW|0|abbr=on}} V8
+ | 5.4&nbsp;L {{convert|354|hp|kW|0|abbr=on}} V8
+ | 6.0&nbsp;L {{convert|381|hp|kW|0|abbr=on}} V8
+ | 6.0&nbsp;L {{convert|394|hp|kW|0|abbr=on}} [[V12 engine|V12]]
+ | 7.0&nbsp;L {{convert|496|hp|kW|0|abbr=on}} V12
+ | 7.3&nbsp;L {{convert|518|hp|kW|0|abbr=on}} V12
+ | }}
+| transmission = {{ubl
+ | 5-speed [[Manual transmission|manual]]
+ | 4-speed [[Automatic transmission|automatic]]
+ | 5-speed [[Automatic transmission|automatic]]
+ | }}
+| wheelbase = {{convert|99.0|in|mm|0|abbr=on}}
+| length = 1997–2002: {{convert|177.1|in|mm|0|abbr=on}}<br>1989–1996: {{convert|176.0|in|mm|0|abbr=on}}<br>1992–96 V12: {{convert|178.0|in|mm|0|abbr=on}}
+| width = {{convert|71.3|in|mm|0|abbr=on}}
+| height = 1992–2002: {{convert|51.3|in|mm|0|abbr=on}}<br>1989–1991: {{convert|50.7|in|mm|0|abbr=on}}
+}}
+[[File:1991 Mercedes 300 SL-24 Automatic 3.0 Rear.jpg|left|thumb|Mercedes-Benz SL 320 (UK)]]
+The R129 was introduced in 1989 as a two-passenger convertible with a removable hardtop — the first Mercedes to feature a fully automatic, hydraulically operated fabric convertible top; V8 and (later) V12 engines with four valves per cylinder; projector lens HID headlamps (introduced in 1995); and an automatic rollbar, which self-deployed in a rollover event. The retractable rollbar could also be raised or lowered manually using a switch on the console, and facilitated occupant safety without compromising aesthetics. In 1992, R129 was the first SL-Class to offer a V12 engine (600 SL/SL 600) and to have official AMG variants (500 SL 6.0 AMG, SL 60 AMG (V8), SL 70 AMG (V12), SL 73 AMG (V12), and then SL 55 AMG (V8)). The R129 was the last SL-Class offered with a manual gearbox.
+
+For the US market, R129 was the first SL-Class offered with six-cylinder in-line engine from 300 SL-24 (named as 300SL) since the 1971. For 1995, a larger 3.2-litre engine was introduced in the SL 320, subsequently dropped from the US market in 1998. 
+
+The 1994 R129 introduced a minor cosmetic and technical updates; revised engine optionals; as well as a new nomenclature. The 3.0-litre in-line six engines, initially fitted with 12-valve (300 SL) and 24-valve (300 SL-24) heads, was revised to one engine in two displacements (2.8 and 3.2 litres) with both utilizing a 24-valve head. The V8 and V12 were carried over with no changes. 300 SL and 300 SL-24 became SL 280 and SL 320 while 500 SL and 600 SL were renamed as SL 500 and SL 600.
+
+In 1998, R129 received the major cosmetic and technical updates with revised engines to include the V6, V8, and V12 engines from the new [[Mercedes-Benz S-Class (W220)|W220 S-Class]]. All of those updated engines had three valves and two spark plugs per cylinder.
+
+===Model range===
+*'''SL 280''': (1993–2001), 2.8&nbsp;L [[Straight-six engine|I6]]
+*'''SL 280''': (1998–2001), 2.8&nbsp;L [[V6]]
+*'''300 SL''': (1989–1993), 3.0&nbsp;L I6
+*'''300 SL-24''': (1989–1993), 3.0&nbsp;L I6
+*'''SL 320''': (1993–1998), 3.2&nbsp;L I6
+*'''SL 320''': (1998–2001), 3.2&nbsp;L V6
+*'''500 SL''': (1989–1993), 5.0&nbsp;L [[V8]]
+*'''500 SL 6.0 AMG''': (1991–1992), 6.0&nbsp;L V8
+*'''SL 500''': (1993–1998), 5.0&nbsp;L V8
+*'''SL 55 AMG''': (1999–2001), 5.4&nbsp;L V8
+*'''600 SL''': (1992–1993), 6.0&nbsp;L [[V12 engine|V12]]
+*'''SL 600''': (1993–2001), 6.0&nbsp;L V12
+*'''SL 60 AMG''': (1993–1998), 6.0&nbsp;L V8
+*'''SL 70 AMG''': (1998–2001), 7.0&nbsp;L V12
+*'''SL 73 AMG''': (1995 and 1998–2001), 7.3&nbsp;L V12
+
+{{clear}}
+
+==R230 (2000–2011)==
+{{Main|Mercedes-Benz SL-Class (R230)}}
+{{infobox automobile
+| name = Fifth generation
+| image = 2006-2008 Mercedes-Benz SL 350 (R 230) roadster (2011-01-12) 01.jpg
+| caption = 2006 facelift SL 350 (RHD; Australia)
+| production = 2001–2011
+| wheelbase = {{convert|100.8|in|mm|0|abbr=on}}
+| length = {{convert|178.5|in|mm|0|abbr=on}}
+| platform = [[Mercedes-Benz R230]]
+| width = 2005–07: {{convert|71.5|in|mm|0|abbr=on}}<br>2002–04: {{convert|72.0|in|mm|0|abbr=on}}
+| height = {{convert|51.0|in|mm|0|abbr=on}}
+| engine = {{ubl
+ | '''Petrol:'''
+ | 3.0 L {{Convert|170|kW|hp|0|abbr=on}} [[V6]]
+ | 3.5 L {{Convert|200–232|kW|hp|0|abbr=on}} V6
+ | 3.7 L {{Convert|180|kW|hp|0|abbr=on}} V6
+ | 5.0 L {{Convert|225–285|kW|hp|0|abbr=on}} [[V8]]
+ | 5.4 L {{Convert|350–380|kW|hp|0|abbr=on}} Supercharged V8
+ | 5.5 L {{Convert|285|kW|hp|0|abbr=on}} V8
+ | 5.5 L {{Convert|368–380|kW|hp|0|abbr=on}} [[BiTurbo]] [[V12 engine|V12]]
+ | 6.0 L {{Convert|368–493|kW|hp|0|abbr=on}} BiTurbo V12
+ | 6.2 L {{Convert|386|kW|hp|0|abbr=on}} V8
+ | }}
+| transmission = {{ubl
+ | 5-speed automatic
+ | 7-speed automatic
+ | }}
+}}
+[[File:2004 Mercedes-Benz SL 350 (R 230) roadster (2010-12-04) 02.jpg|left|thumb|Mercedes-Benz SL 350 roadster (Australia)]]
+The R230, introduced in 2001, continues the evolution of R129 with smoother body design and new peanut-shaped headlamp design. The fifth-generation SL-Class featured a 'Vario Roof' [[retractable hardtop]], as introduced on the 1996 [[SLK Class]]: [[Active Body Control|Active Body Control (ABC)]] active suspension system, [[Keyless Go]] keyless entry and smart key, and [[Sensotronic Brake Control|Sensotronic Brake Control (SBC)]] electro-hydraulic power brake system. The SBC proved troublesome, and was later disabled by Mercedes-Benz in a large recall campaign due to the difficulties in modulating the brake effort.
+[[File:2004 Mercedes-Benz SL 350 (R 230) roadster (2010-12-04) 01.jpg|thumb|2004 pre-facelift SL 350 ]]
+In 2006, R230 received a minor cosmetic update and revised engine options. 
+[[File:Mercedes SL II.Facelift front.jpg|thumb|2008 facelift Mercedes SL front]]
+The R230 SL underwent a significant facelift in 2008 featuring new and revised engines and a new front end that evokes the classic 300 SL with a large grille featuring a prominent 3-pointed star and twin "power domes" on the bonnet, the car also features new headlights with an optional "Intelligent Light System" and a new speed sensitive steering system. The SL 63 AMG replaced the SL 55 AMG. A high-performance version of R230, SL 65 AMG Black Series, was offered as a coupe only body type. A total of 169,433 SL R230s were ever produced. The most common model is SL500 (~100,000 units). The rarest is SL65 AMG with only 3,055 units (350 of which SL65 AMG Black Series).
+
+===Model range===
+*'''SL 280''': (2008–2009), 3.0&nbsp;L [[V6]]
+*'''SL 300''': (2009–2011), 3.0&nbsp;L V6
+*'''SL 350 (3.7)''': (2003–2006), 3.7&nbsp;L V6
+*'''SL 350 (3.5)''': (2006–2011), 3.5&nbsp;L V6
+*'''SL 500 (5.0)''': (2001–2006), 5.0&nbsp;L [[V8]]
+*'''SL 500 (5.5)''': (2006–2011), 5.5&nbsp;L V8, marketed as '''SL&nbsp;550''' exclusively in North America
+*'''SL 55 AMG''': (2001–2008), 5.4&nbsp;L V8
+*'''SL 600''': (2002–2011), 5.5&nbsp;L [[V12 engine|V12]]
+*'''SL 63 AMG''': (2008–2011), 6.2&nbsp;L V8
+*'''SL 65 AMG''': (2004–2011), 6.0&nbsp;L V12
+*'''SL 65 AMG Black Series''': (2008–2011), 6.0&nbsp;L V12
+{{clear}}
+
+== R231 (2011–2020) ==
+{{main|Mercedes-Benz SL-Class (R231)}}
+{{infobox automobile
+| name = Sixth generation
+| image = Mercedes-Benz SL 350 (R 231) – Frontansicht geschlossen, 22. Mai 2013, Düsseldorf.jpg
+| production = 2011–2020
+| platform = [[Mercedes-Benz R231]]
+| engine = {{ubl
+ | '''Petrol:'''
+ | 3.0 L {{Convert|245–270|kW|hp|0|abbr=on}} [[V6]] [[Biturbo]]
+ | 3.5 L {{Convert|225|kW|hp|0|abbr=on}} V6
+ | 4.7 L {{Convert|320-335|kW|hp|0|abbr=on}} [[V8]] Biturbo
+ | 5.5 L {{Convert|395-430|kW|hp|0|abbr=on}} V8 Biturbo
+ | 6.0 L {{Convert|463|kW|hp|0|abbr=on}} [[V12 engine|V12]] Biturbo
+ | }}
+| transmission = {{ubl
+ | 7-speed automatic
+ | 9-speed automatic
+ | }}
+| wheelbase = {{convert|2585|mm|in|1|abbr=on}}
+| length = {{convert|4612|mm|in|1|abbr=on}}
+| width = {{convert|1877|mm|in|1|abbr=on}}
+| height = {{convert|1315|mm|in|1|abbr=on}}
+}}
+[[File:Mercedes-Benz SL 350 AMG Line (R 231) – Heckansicht, 22. März 2014, Düsseldorf.jpg|left|thumb|Mercedes-Benz SL 350 AMG Line (Germany)]]
+Mercedes-Benz launched the sixth generation SL, internally designated R231, at the [[North American International Auto Show#2012|North American International Auto Show]] in January 2012.  The R231 introduced aluminum bodywork, its weight advantage offset by higher safety and convenience equipment.
+
+New features included a system marketed as 'FrontBass', which used space in the aluminium structure ahead of the front footwells as resonance spaces for the bass loudspeakers.  Additionally, standard equipment included an adaptive windscreen wipe/wash system which supplied fluid from the wiper blade itself, as needed and depending on the direction of wipe. The R231 was available with two suspension systems: semi-active adjustable damping as standard and active suspension system ABC (Active Body Control) as an extra-cost option. Both types featured electro-mechanical, speed-sensitive power steering, which allowed the variable steering ratio across the steering wheel angle.
+
+The R231 was longer and wider than its predecessor. Shoulder room is increased by {{convert|37|mm|in|1|abbr=on}} and elbow room {{convert|28|mm|in|1|abbr=on}}.
+
+[[File:Mercedes-Benz SL550 (2016) by Japan specification.jpg|thumb|left]]
+[[File:Mercedes-Benz, GIMS 2019, Le Grand-Saconnex (GIMS1258).jpg|thumb|left]]
+A mid-cycle update was introduced in 2016 for the 2017 model year along with revised engine and transmission options. A 9G-TRONIC Plus 9-speed automatic transmission was fitted to the SL-Class for the first time (SL 400/SL 450 and SL 500) while AMG SPEEDSHIFT MCT and AMG SPEEDSHIFT Plus 7G-TRONIC 7-speed automatic transmissions for SL 63 AMG and SL 65 AMG respectively remained unchanged. SL 350 was renamed as SL 400 (SL 450 for the North American market).
+
+R231 had a revised front end, front grille treatment, and larger non-functional side 'vents' behind the front wheels. It also received adaptive LED front headlights with integrated daytime running lights and turn signals, leaving the below-bumper intake area free from lighting. The LED tail lights received single-colour red lenses (for North American market) or red-and-amber lenses (for the European and international markets) instead of the red and white lenses of the pre-facelift models.
+
+A slight revision to the folding 'Vario-roof' hardtop meant it could deploy at up to {{convert|40|km/h|mph|0|abbr=on}} without the luggage compartment partition having to be deployed in a separate manual operation.
+
+===Model range===
+*'''SL 350''': (2012–2014), 3.5&nbsp;L [[V6]] (sold as a 2015 Model year in Japan)
+*'''SL 400/SL 450''': (2014–2020), 3.0&nbsp;L V6 (SL 450 is exclusive to the North American market)
+*'''SL 500/SL 550''': (2012–2020), 4.7&nbsp;L [[V8]] (SL 550 is exclusive to the North American market)
+*'''SL 63 AMG''': (2012–2018), 5.5&nbsp;L V8
+*'''SL 65 AMG''': (2012–2018), 6.08&nbsp;L [[V12 engine|V12]]
+{{clear}}
+
+== R232 (2022–present) ==
+{{main|Mercedes-Benz SL (R232)}}
+{{infobox automobile
+| name = Seventh generation
+| image = 2022 Mercedes-AMG SL 55.jpg
+| production = 2022–present
+| engine = {{ubl
+ | '''Petrol:'''
+ |2.0 L {{Convert|280|kW|hp|0|abbr=on}} ''[[Mercedes-Benz M139 engine|M139]]'' mild hybrid turbo (''EQ Boost'') I4
+ | 4.0 L {{Convert|350-430|kW|hp|0|abbr=on}} [[M177]] V8 [[Biturbo]]
+ | }}
+| transmission = {{ubl
+ | 9-speed automatic AMG Speedshift
+ | }}
+| wheelbase = {{convert|2700|mm|in|1|abbr=on}}
+| length = {{convert|4705|mm|in|1|abbr=on}}
+| width = {{convert|1915|mm|in|1|abbr=on}}
+| height = {{convert|1359|mm|in|1|abbr=on}}
+}}
+
+[[File:2022 Mercedes-AMG SL 55 rear white.jpg|thumb|left|Rear view]]
+The seventh generation of the SL-Class was presented in October 2021. The R232 is confirmed to be an AMG model only, designating it as Mercedes-AMG SL-Class. There are three powertrains, the entry-level powertrain being a 2.0L I4 mild hybrid engine found in the SL 43, producing 280&nbsp;kW (375&nbsp;hp). Two of the powertrains are 4.0L V8 [[Biturbo]] gasoline engines, with the SL 55 developing a maximum of {{convert|350|kW|PS bhp|0|abbr=on}} & {{convert|700|Nm|lbft|0|abbr=on}}, and the SL 63 developing a maximum of {{convert|430|kW|PS bhp|0|abbr=on}} & {{convert|800|Nm|lbft|0|abbr=on}}. Both versions are available only with all-wheel-drive, a first for the SL-Class. The R232 is reverting to the soft fabric roof rather than the heavier [[retractable hardtop]] that was fitted to the R230 and R231.<ref>{{cite web|url=https://www.autoblog.com/2021/03/12/mercedes-sl-next-generation-amg-only-all-wheel-drive/?guccounter=1&guce_referrer=aHR0cHM6Ly9kdWNrZHVja2dvLmNvbS8&guce_referrer_sig=AQAAALQB02PjUmG-0WtR27fcJeD0cAm_vZ3vFh_GNB5ricCx3muyEth5JttLgP0KxIwbhikPm6H1kfTbWsP8X2EQDf9xAQXlQp2R44ehPz9Xws0WOC7EFcXoIRV7SR7MLJHOPOkH8Li9Q2-lPh9yEDW1CNGkAM9uxCVf_1wu3A_4JCsD |title=Don't call me Benz: 2022 Mercedes SL next-gen will be AMG-only and AWD |first=Ronald |last=Glon |date=12 March 2021 |work=Autoblog}}</ref><ref name="autocar">{{cite web|url=https://www.autocar.co.uk/car-news/new-cars/2022-mercedes-amg-sl-gets-four-seats-4wd-and-577bhp-v8|title=2022 Mercedes-AMG SL gets four seats, 4WD and 577bhp V8|author=Greg Kable|date=28 October 2021|accessdate=29 October 2021}}</ref>
+
+This generation is the first SL-Class to have the 2+2 seating configuration as standard rather than optional fitment since 1989 with the introduction of R129. While R107 was built to be two-seater convertible, the owners could opt for the 2+2 seating configuration when ordering their R107 or for the retrofit kit to be installed in their R107 at later date. The rear seats are optimal for the passengers whose height is up to 1.5 metres.
+
+The dashboard is symmetrical along with the 12.3-inch digital instrument cluster and an 11.9-inch touchscreen panel in the centre. The instrument cluster is placed within a binnacle as to reduce the reflections from the sunlight and improve the legibility when the roof is folded down. The touchscreen panel in the centre is electrically tiltable to the vertical position for the same reason.
+
+==Sales==
+{| class="wikitable"
+|-
+! Calendar year
+! US sales
+|-
+| 2001
+| 4,217<ref>{{cite web|url=http://www.thefreelibrary.com/Mercedes-Benz+USA+Records+Highest+Sales+in+Its+History.-a096075297|title=Mercedes-Benz USA Records Highest Sales in Its History. – Free Online Library|publisher=Thefreelibrary.com|date=3 January 2003|access-date=21 September 2017}}</ref>
+|-
+| 2002
+| 13,717
+|-
+| 2003
+| 13,318<ref>{{cite news|url=http://www.theautochannel.com/news/2005/01/04/313903.html|title=2004 Highest Year on Record for Mercedes-Benz USA|publisher=Theautochannel.com|access-date=21 September 2017}}</ref>
+|-
+| 2004
+| 12,885
+|-
+| 2005
+| 10,080<ref>{{cite news|url=http://www.theautochannel.com/news/2007/01/03/032870.html|title=Mercedes-Benz Rings in the New Year with Record 2006 Sales|publisher=Theautochannel.com|access-date=21 September 2017}}</ref>
+|-
+| 2006
+| 8,462
+|-
+| 2007
+| 6,126<ref>{{cite web|url=http://www.emercedesbenz.com/Jan09/05_001548_Mercedes_Benz_USA_Sales_Drop_32_Percent_In_December_2008.html|title=Mercedes-Benz USA's Sales Drop 32.1 Percent In December 2008 &#124; eMercedesBenz – The Unofficial Mercedes-Benz Weblog|publisher=eMercedesBenz|date=5 January 2009|access-date=21 September 2017|archive-url=https://archive.today/20120729125348/http://www.emercedesbenz.com/Jan09/05_001548_Mercedes_Benz_USA_Sales_Drop_32_Percent_In_December_2008.html|archive-date=29 July 2012|url-status=dead}}</ref>
+|-
+| 2008
+| 5,464
+|-
+| 2009
+| 4,025<ref>{{cite news|url=http://www.prnewswire.com/news-releases/highest-sales-month-for-the-year-at-21469-brings-mercedes-benz-to-an-18-percent-increase-for-2010-112881769.html|title=Highest Sales Month for the Year at 21,469 Brings Mercedes-Benz to an 18 Percent Increase for 2010|location=New Jersey|publisher=[[PR Newswire]]|date=4 January 2011|access-date=21 September 2017}}</ref>
+|-
+| 2010
+| 1,449
+|-
+| 2011
+| 4,899<ref>{{cite web|url=http://daveknowscars.com/2012/01/09/mercedes-sales-2011-best-on-record-strong-december-sales-report-caps-off-2011-with-264460-vehicles-sold/|title=Mercedes Sales 2011 Best on Record! Strong December Sales Report Caps off 2011 with 264,460 Vehicles Sold|publisher=daveknowscars.com|date=9 January 2012|archive-url=https://web.archive.org/web/20120113143246/http://daveknowscars.com/2012/01/09/mercedes-sales-2011-best-on-record-strong-december-sales-report-caps-off-2011-with-264460-vehicles-sold/|archive-date=13 January 2012|url-status=dead}}</ref>
+|-
+|2012
+| 5,233
+|-
+|2013
+| 7,007<ref>{{cite web|title=MERCEDES-BENZ ACHIEVES ITS HIGHEST YEAR EVER WITH 312,534 UNITS SOLD IN 2013|url=https://www.mbusa.com/mercedes/about_us/press?pressId=ccc532b9fc663410VgnVCM1000007c184335____|work=Mercedes-Benz|access-date=21 September 2017|date=3 January 2014|url-status=dead|archive-url=https://web.archive.org/web/20170921144055/https://www.mbusa.com/mercedes/about_us/press?pressId=ccc532b9fc663410VgnVCM1000007c184335____|archive-date=21 September 2017}}</ref>
+|-
+|2014
+| 5,030
+|-
+|2015
+| 4,060
+|-
+|2016
+| 3,722
+|-
+|2017
+| 2,940
+|-
+|2018
+| 2,126
+|}
+
+==See also==
+* [[Lexus LC]]
+* [[BMW 8 Series]]
+
+==References==
+
+===Notes===
+{{Reflist}}
+
+===Bibliography===
+<!-- last updated November 2021 -->
+
+====General====
+{{refbegin}}
+* {{Alfieri: Mercedes-Benz SL}}
+* {{cite book |last1=Allner |first1=Michael |title=Mercedes-Benz SL: R 129 |date=2018 |publisher=Motorbuch Verlag |location=Stuttgart |isbn=9783613041011 |language=de}}
+* {{Baaden: Das neue grosse Mercedes SL}}
+* {{Barrett: Illustrated Buyer's Guide Mercedes-Benz|edition=Second}}
+* {{Bass: Mercedes-Benz Pagoda 230, 250 & 280 SL}}
+* {{Bass: Mercedes-Benz 280-560SL & SLC: W107 series|author-mask=5}}
+* {{cite book |last1=Boddy |first1=William |title=Mercedes-Benz 300SL: Gull-wing & Roadster; 3 litre 6 cylinder |date=1983 |publisher=Osprey Publishing |series=Osprey AutoHistory series |location=London |isbn=0850455014}}
+* {{Bols: Mercedes-Benz Personenwagen}}
+* {{Brooklands: On Mercedes Sports & GT Cars 1970-1980}}
+* {{Brooklands: On Mercedes 1952-1962|editor-mask=6}}
+* {{Brooklands: On Mercedes 1963-1970|editor-mask=6}}
+* {{Brooklands: On Mercedes 1971-1979|editor-mask=6}}
+* {{Brooklands: Mercedes 190 & 300|editor-mask=6}}
+* {{Brooklands: Mercedes SLs & SLCs Gold Portfolio 1971-1989|editor-mask=6}}
+* {{Brooklands: Mercedes SLs Performance Portfolio 1989-1994|editor-mask=6}}
+* {{cite book |editor-last=Clarke |editor-first=R.M. |title=Mercedes 230 250 280SL Gold Portfolio 1963–1971 |series=Road Test Portfolio Series |date=1997 |publisher=Brooklands Books |location=Cobham, Surrey, UK |isbn=1855203049 |editor-mask=6}}
+* {{Brooklands: Mercedes-Benz SLs & SLCs Ultimate Portfolio 1971-1989|editor-mask=6}}
+* {{Brooklands: Mercedes-Benz SL SLK CLK Portfolio 1990-2003|editor-mask=6}}
+* {{cite book |editor-last=Clarke |editor-first=R.M. |title=Mercedes-Benz SLs & SLCs Ultimate Portfolio 1971-1989 |series=Road Test Portfolio Series |date=2005 |publisher=Brooklands Books |location=Cobham, Surrey, UK |isbn=1855206773 |editor-mask=6}}
+* {{Brooklands: Mercedes AMG Gold Portfolio 1983-1999|editor-mask=6}}
+* {{Brooklands: Mercedes AMG Ultimate Portfolio 2000|editor-mask=6}}
+* {{Brooklands: Mercedes 230SL|editor-mask=6}}
+* {{Brooklands: Mercedes-Benz 190SL 300SL 300SLR|editor-mask=6}}
+* {{cite book |last1=Engelen |first1=Günter |title=Mercedes-Benz SL 280–SL 600: Vom Mythos zur Offenbarung |trans-title=Mercedes-Benz SL 280-SL 600: From Myth to Revelation |date=1994 |publisher=Motorbuch Verlag |location=Stuttgart |isbn=3613015471 |language=de}}
+* {{cite book |last1=Engelen |first1=Günter |last2=Riedner |first2=Mike |title=Mercedes- Benz 300 SL: Vom Rennsport zur Legende |trans-title=Mercedes- Benz 300 SL: From Racing to Legend |date=1999 |publisher=Motorbuch Verlag |location=Stuttgart |isbn=3613012685 |language=de |author-mask=7}}
+* {{Oswald: Mercedes-Benz Personenwagen|author-mask=7|volume=3}}
+* {{cite book |last1=Engelen |first1=Günter |title=Mercedes-Benz 280 SL – 500 SLC: der Schritt zur Modellvielfalt |trans-title=Mercedes-Benz 280 SL - 500 SLC: The Step towards Model Variety |date=2002 |publisher=Motorbuch Verlag |location=Stuttgart |isbn=3613014084 |edition=3rd |language=de |author-mask=7}}
+* {{cite book |last1=Engelen |first1=Günter |title=Faszination SL: 190 SL (W 121) 1955–1962  |trans-title=Fascination SL: 190 SL (W 121) 1955–1962 |date=2005 |publisher=Motorbuch Verlag |location=Stuttgart |isbn=361302568X |language=en,de |author-mask=7}}
+* {{cite book |last1=Engelen |first1=Günter |title=Faszination SL: R 129 |trans-title=Fascination SL: R 129 |date=2006 |publisher=Heel Verlag |location=Königswinter, Germany |isbn=3898805565 |language=en,de |author-mask=7}}
+* {{cite book |last1=Engelen |first1=Günter |title=Faszination SL: 300 SL Roadster (W 198 II) |trans-title=Fascination SL: 300 SL Roadster (W 198 II) |date=2007 |publisher=Heel Verlag |location=Königswinter, Germany |isbn=9783898808057 |language=en,de |author-mask=7}}
+* {{cite book |last1=Engelen |first1=Günter |title=Mercedes-Benz 190 SL – 280 SL: Vom Barock zur Pagode |trans-title=Mercedes-Benz 190 SL – 280 SL: From Baroque to Pagoda |date=2013 |publisher=Motorbuch Verlag |location=Stuttgart |isbn=9783613031173 |language=de |author-mask=7}}
+* {{cite book |last1=Engelen |first1=Günter |title=Mercedes-Benz SL 280 – SL 73 AMG: Die Baureihe R 129 |trans-title=Mercedes-Benz SL 280 – SL 73 AMG: The R 129 series |date=2014 |publisher=Motorbuch Verlag |location=Stuttgart |isbn=9783613036895 |language=de |author-mask=7}}
+* {{cite book |last1=Engelen |first1=Günter |title=Mercedes-Benz SL: Die Baureihe R 107 |trans-title=Mercedes-Benz SL: The R 107 series |date=2015 |publisher=Motorbuch Verlag |location=Stuttgart |isbn=9783613037540 |language=de |author-mask=7}}
+* {{Günther: Das grosse Mercedes-SL-Buch}}
+* {{Hofner: Mercedes-Benz Automobile|volume=2}}
+* {{Hofner: Mercedes-Benz Typenkunde|author-mask=7|volume=3}}
+* {{cite book |last1=Hofner |first1=Heribert |title=Mercedes-Benz SL: Die Baureihe 107 - Trendsetter und Dauerbrenner |trans-title=Mercedes-Benz SL: The 107 Series – Trendsetters and Evergreens |date=2017 |publisher=Heel Verlag |location=Königswinter, Germany |isbn=9783958434226 |language=de |author-mask=7}}
+* {{Holmes: Ultimate Convertibles| pages=96–99}}
+* {{cite book|last=Howard|first=Colin|title=Mercedes Benz SL: 1971–2001|date=2014|publisher=CP Press|location=Hockley, Essex, UK|isbn=9780957194045}}
+* {{cite book|last=Howard|first=Colin|title=Mercedes Benz SL: 2002–2014|date=2014|publisher=CP Press|location=Hockley, Essex, UK|isbn=9780957666443 |author-mask=7}}
+* {{Deutsche Autos|volume=6}}
+* {{Mercedes-Benz (Koch)|author-mask=7|volume=2}}
+* {{cite book |last1=Kleissl |first1=Hans |last2=Niemann |first2=Harry |title=Mercedes-Benz 300 SL: Das Jahrhundertauto |trans-title=Mercedes-Benz 300 SL: The Car of the Century |date=2021 |publisher=Motorbuch Verlag |location=Stuttgart |isbn=9783613043848 |language=de}}
+* {{Koehling: Mercedes-Benz, The Modern SL Cars}}
+* {{Koehling: Mercedes-Benz the Early SL Cars|author-mask=8}}
+* {{Mercedes-Benz The 1960s|author-mask=8|volume=2}}
+* {{cite book |last1=Koehling |first1=Bernd S. |title=Mercedes-Benz: Everything you want to know about the SL R129 - From the 300SL to the SL73 AMG |date=2021 |publisher=Independently published |isbn=9798735682073 |author-mask=8}}
+* {{cite book|last=Kornblatt|first=Myles|title=Mercedes W113: The Complete Story|series=Crowood AutoClassic Series|date=2014|publisher=The Crowood Press|location=Ramsbury, Marlborough, UK|isbn=9781847976956}}
+* {{Laban: Mercedes SL Series}}
+* {{Larimer: Mercedes-Benz Buyer's Guide}}
+* {{Lehbrink: Faszination Mercedes| chapter=xx| pages=xx-->}}
+* {{Lintelmann: Mercedes-Benz SL}}
+* {{cite book|last=Long|first=Brian|year=2010|title=Mercedes-Benz SL & SLC 107 Series 1971 to 1989|location=Dorchester, Dorset, UK |publisher=Veloce Publishing|isbn=9781845842994}}
+* {{cite book|last=Long|first=Brian |year=2011 |title=Mercedes-Benz SL W113 Series 1963 to 1971|location=Dorchester, Dorset, UK |publisher=Veloce Publishing|isbn=9781845843045 |author-mask=5}}
+* {{cite book|last=Long|first=Brian|year=2013|title=Mercedes-Benz SL R129 Series 1989 to 2001|location=Dorchester, Dorset, UK |publisher=Veloce Publishing|isbn=9781845844486 |author-mask=5}}
+* {{cite book|last=Long|first=Brian|year=2015|title=Mercedes-Benz SL R230 Series 2001 to 2011|location=Dorchester, Dorset, UK |publisher=Veloce Publishing|isbn=9781845847470 |author-mask=5}}
+* {{cite book |last1=Ludvigsen |first1=Karl |author-link=Karl Ludvigsen |title=Mercedes-Benz 300SL: Racing Cars 1952-1953 |series=Ludvigsen Library Series |date=2002 |publisher=Iconografix |location=Hudson, WI, USA |isbn=1583880674}}
+* {{cite book |last1=Ludvigsen |first1=Karl |author-link=Karl Ludvigsen |title=Mercedes-Benz 300SLR: The Fabulous 1955 World-Championship Sports-Racer |series=Ludvigsen Library Series |date=2004 |publisher=Iconografix |location=Hudson, WI, USA |isbn=1583881220 |author-mask=7}}
+* {{cite book |last1=Ludvigsen |first1=Karl |title=Mercedes-Benz 300SL: Gullwings and Roadsters 1954-1964 |series=Ludvigsen Library Series |date=2005 |publisher=Iconografix |location=Hudson, WI, USA |isbn=1583881379 |author-mask=7}}
+* {{McComb: Mercedes-Benz V8s}}
+* {{cite book |last=Meredith |first=Laurence |title=Essential Mercedes SL: 190SL & Pagoda models – the cars and their story 1955-71 |date=1997 |publisher=Bay View Books |location=Bideford, Devon, UK |isbn=1870979893}}
+* {{Meredith: Mercedes-Benz SL Sports Cars|author-mask=8}}
+* {{Niemann: Personenwagen von Mercedes-Benz}}
+* {{Nitskey: Mercedes-Benz Production Models Book 1946-1995}}
+* {{Noakes: Mercedes SL Series}}
+* {{cite book |last1=Noakes |first1=Andrew |author-link1=Andrew Noakes |title=Mercedes-Benz SL and SLC 107-Series 1971–1989: The Complete Story |series=Crowood AutoClassics Series |date=2017 |publisher=The Crowood Press |location=Ramsbury, Marlborough, UK |isbn=9781785003653 |author-mask=7}}
+* {{cite book |last1=Olson |first1=John R. |title=The SL Experience: Five Decades of the Mercedes-Benz SL |date=2001 |publisher=Independently published |location=Minneapolis, MN, USA |isbn=0963539426}}
+* {{Deutsche Autos|volume=4}}
+* {{Oswald: Mercedes-Benz Personenwagen|author-mask=7|volume=2}}
+* {{cite book |last=Parish |first=Julian |title=Mercedes-Benz SL: R129-series 1989 to 2001 |series=The Essential Buyer's Guide series |year=2016 |publisher=Veloce Publishing |location=Dorchester, Dorset, UK |isbn=9781845848989 }}
+* {{cite book |editor-last=Pitt |editor-first=Colin |title=Mercedes Benz SL and SLC Gold Portfolio |date=2009 |publisher=C P Press |location=Hockley, Essex, UK |isbn=978-1841557045}}
+* {{Pitt: Mercedes-Benz SL & SLR|editor-mask=4}}
+* {{cite book |last1=Riedner |first1=Mike |title=Mercedes-Benz SL |series=Die exclusiven Wagen der Welt series|date=1993 |publisher=Stocker-Schmid / Stuttgart: Motorbuch Verlag |location=Zürich |isbn=3727671130 |language=de}}
+* {{Mercedes-Benz (Koch)|volume=1}}
+* {{Schlegelmilch: Mercedes}}
+* {{cite book |last1=Schrader |first1=Halwart |title=Mercedes-Benz R/C 107 |series=Schrader-Typen-Chronik series |date=2015 |publisher=Motorbuch Verlag |location=Stuttgart |isbn=9783613034372 |language=de}}
+* {{Sessler: Mercedes-Benz SL Series}}
+* {{cite book |last1=Setright |first1=L. J. K. |author-link=L. J. K. Setright |title=Mercedes-Benz SL & SLC |series=Osprey AutoHistory series |date=1986 |publisher=Osprey Publishing |location=London |isbn=0850456983 |edition=rev.}}
+* {{Staud: Faszination und Mythos}}
+* {{Mercedes-Benz since 1945|pages=8–24, 63–76, 103–136, 139–144 |volume=1}}
+* {{Mercedes-Benz since 1945|pages=9–26, 73–84, 126–132, 135, 140–141, 143 |author-mask=6|volume=2}}
+* {{Mercedes-Benz since 1945|pages=9–60, 61–88, 127–129, 132–134, 139–140, 142 |author-mask=6|volume=3}}
+* {{Mercedes-Benz since 1945|pages=8–16 |author-mask=6|volume=4}}
+* {{Taylor: Mercedes-Benz: Cars of the 1990s|pages=8–20, 36–51 |author-mask=6}}
+* {{Taylor: Factory-Original Mercedes SL|author-mask=6}}
+* {{cite book |last=Vieweg |first=Christof |year=2001 |title=Alles über die Mercedes-Benz SL-Klasse: SL 500 und SL 55 AMG |trans-title=Everything about the Mercedes-Benz SL-Class: SL 500 and SL 55 AMG |series=Technik transparent series |location=Stuttgart |publisher=DaimlerChrysler |isbn=3932786173 |language=de}}
+* {{Wirth: Mercedes-Benz Supercars}}
+* {{cite book |last1=Zeichner |first1=Walter |title=Mercedes-Benz 190 SL: 1955-63 |series=Schiffer Automotive Series |date=1989 |publisher=Schiffer Publishing |location=West Chester, PA, USA |isbn=0887402097}}
+* {{cite book |last1=Zoporowski |first1=Tobias |title=Mercedes-Benz SL (R129): Alle Modelle von 1989 bis 2001 |trans-title=Mercedes-Benz SL (R129): All models from 1989 to 2001 |series=Praxisratgeber Klassikerkauf series |date=2016 |publisher=Heel Verlag |location=Königswinter, Germany |isbn=9783958433571 |language=de}}
+{{refend}}
+
+====Workshop manuals====
+{{refbegin}}
+* {{cite book |last1=Ball |first1=Kenneth |title=Mercedes-Benz 280, 1968-72 Autobook: Workshop Manual for Mercedes-Benz 280 S, 280 SE, 280 SEL, 280 SL, 1968-72 |date=1972 |publisher=Autopress |location=Brighton, UK |isbn=0851472931}}
+* {{Chilton: Mercedes-Benz: 1968-73|ref=none}}
+* {{Freeman: Mercedes-Benz: 1959-70}}
+* {{Mellon: Mercedes: Coupes 1974-84 Repair Manual}}
+* {{Meredith: Original Mercedes SL}}
+* {{cite book|last1=Schauwecker|first1=Steve|last2=Haynes|first2=John H.|title=Mercedes-Benz 350 and 450: 1971 through 1980 3.5 and 4.5&nbsp;liter V8: 350 SL, 450 SE, 450 SEL, 450 SL, 450 SLC: series 107 and 116 models with fuel-injected V8 engines and automatic transmissions|series=Haynes Service and Repair Manual Series|year=1987|publisher=Haynes|location=Sparkford, UK|isbn=0856966983}}
+* {{Mercedes-Benz Technical Companion}}
+{{refend}}
+
+==External links==
+{{Commons category|Mercedes-Benz SL-Class}}
+*{{official website|https://web.archive.org/web/20140316045419/http://www5.mercedes-benz.com/en/vehicles/passenger-cars/sl-class/}}
+
+{{Mercedes-Benz}}
+{{Mercedes-Benz timeline 1990–2019}}
+{{Mercedes-Benz timeline 2020 to date}}
+{{Mercedes-Benz SL-Class lineage}}
+
+[[Category:Mercedes-Benz vehicles|SL-Class]]
+[[Category:Cars introduced in 1954]]
+[[Category:1960s cars]]
+[[Category:1970s cars]]
+[[Category:1980s cars]]
+[[Category:1990s cars]]
+[[Category:2000s cars]]
+[[Category:2010s cars]]
+[[Category:2020s cars]]
+[[Category:Grand tourers]]
+[[Category:Coupés]]
+[[Category:Hardtop convertibles]]
+[[Category:Roadsters]]
+[[Category:Rear-wheel-drive vehicles]]
+[[Category:All-wheel-drive vehicles]]
+[[Category:Cars powered by V12 engines]]

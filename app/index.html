@@ -352,6 +352,8 @@
   <button id="llmdebugbtn" class="toolsmenu-item" role="menuitem" title="reset the LLM generation-check layer (clear everything, or one car at a time)" hidden>🧹 LLM Debug</button>
   <button id="llmplaygroundbtn" class="toolsmenu-item" role="menuitem" title="see the exact prompt sent to the local LLM, and try a response by hand" hidden>🧪 Playground</button>
   <button id="unconfirmedrelbtn" class="toolsmenu-item" role="menuitem" title="browse every discovered relationship you haven't confirmed or rejected yet" hidden>🔗 Unconfirmed Relationships</button>
+  <button id="pendingsplitsbtn" class="toolsmenu-item" role="menuitem" title="generation splits the LLM proposed that are waiting for you" hidden>✂ Pending Generation Splits</button>
+  <button id="rereadenginesbtn" class="toolsmenu-item" role="menuitem" title="read engines again for every checked car whose engine read is missing or out of date -- no model, Wikipedia only" hidden>⚙ Re-read Engines</button>
   <!-- Re-reads each scanned article and recomputes ONLY the per-generation
        photo. Separate from a re-check on purpose: a generation's codes,
        years and credits are already settled (and, for a confirmed family,
@@ -520,6 +522,22 @@
      confident enough to propose but that wasn't auto-approved -- it still
      needs an explicit yes/no from you (see llm_families.js's store.relations,
      status "provisional"). Clicking a row flies the graph to both cars. -->
+<!-- Generation splits waiting on you. Real user request: approvals for a
+     nameplate split "should also appear for me in an easy to access location
+     ... similar to how there is a button for 'unconfirmed relationships'."
+     See llm_families.js's pendingSplits. -->
+<div id="pendingsplits" hidden>
+  <div class="llmdebug-head">
+    <h3>✂ Pending Generation Splits</h3>
+    <button id="pendingsplits-close">✕</button>
+  </div>
+  <p class="llmdebug-note"></p>
+  <div class="lrq-actions">
+    <button id="pendingsplits-applyall" class="lrq-ghost" hidden></button>
+  </div>
+  <div id="pendingsplits-status" class="lrq-status"></div>
+  <div id="pendingsplits-list"></div>
+</div>
 <div id="unconfirmedrel" hidden>
   <div class="llmdebug-head">
     <h3>🔗 Unconfirmed Relationships</h3>

@@ -60,7 +60,11 @@ window.fetch = (url, opts) => {
     return Promise.resolve({ ok: true, json: async () => ({ parse: { wikitext: { "*": WIKITEXT } } }) });
   }
   if (url === "/api/llm/chat") {
-    ollamaCallCount++;
+    // Only the generation question counts: a first split now applies itself,
+    // and a car that became a nameplate goes on to ask which of its
+    // generations each platform relation is about -- a different question,
+    // asked once, not the same one again.
+    if (/· split"/.test(String(opts && opts.body))) ollamaCallCount++;
     const payload = {
       hasMultipleGenerations: true,
       generations: [
@@ -172,8 +176,13 @@ async function main() {
     const postsBefore2c = posts.length;
     window.LlmFamilies.setEngaged(null);   // nobody is looking at anything
     const cascadeEntry = await window.LlmFamilies.checkNodeCascade(windstar, window.CarWeb.nodes);
-    check("(fixture) the background check really did produce a provisional proposal",
-      cascadeEntry && cascadeEntry.status === "provisional", cascadeEntry && cascadeEntry.status);
+    // A plain car's first split no longer waits for anyone ("if the llm finds
+    // the same number of generations or more ... automatically replace it"),
+    // so it comes back confirmed. What must still hold is below: nothing
+    // PROVISIONAL from a background check reaches the disk.
+    check("(fixture) the background check really did produce a proposal",
+      cascadeEntry && (cascadeEntry.status === "provisional" || cascadeEntry.status === "confirmed"),
+      cascadeEntry && cascadeEntry.status);
     check("a provisional proposal nobody asked for is never written to disk",
       !posts.slice(postsBefore2c).some(p => p.families && p.families["m-ford-windstar"] &&
         p.families["m-ford-windstar"].status === "provisional"),

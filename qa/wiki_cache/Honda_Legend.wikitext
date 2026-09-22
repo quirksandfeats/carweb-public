@@ -1,0 +1,331 @@
+{{Hatnote|See [[Acura Legend]], [[Acura RL]] and [[Acura RLX]] for information on the North American model.}}
+
+{{Infobox automobile
+|name         = Honda Legend
+|image        = 2015-2018 Honda Legend Hybrid EX 4WD 3.5 DAA-KC2 (20220911).jpg
+|aka          = [[Acura Legend]] (1986–1995)<br />[[Daewoo Arcadia]] (1994–1999)<br />[[Acura RL]] (1996–2012)<br />[[Acura RLX]] (2014–2020)
+|manufacturer = [[Honda]]
+|production   = 1985–2012<br />2014–2021
+|class        = [[Executive car]]
+|body_style   = 4-door [[Sedan (automobile)|saloon]]<br />2-door [[coupé]] (1987–1995)
+|layout       = [[Transverse engine|Transverse]] [[Front-engine, front-wheel drive layout|front-engine, front-wheel-drive]] (KA1–6)<br />[[Longitudinal engine|Longitudinal]] [[Front-engine, front-wheel-drive layout|front-engine, front-wheel-drive]] (KA7–9)<br />[[Transverse engine|Transverse]] [[Front-engine, four-wheel-drive layout|front-engine, all-wheel-drive]] (SH-AWD; KB & KC)
+}}
+
+The {{nihongo|'''Honda Legend'''|ホンダ・レジェンド|Honda Rejendo}} is a series of [[V6 engine|V6]]-engined [[executive car]]s that was produced by [[Honda]] between 1985 and 2021, and served as its flagship vehicle. The Legend has also been sold under the [[Acura Legend]], [[Acura RL|RL]] and [[Acura RLX|RLX]] nameplates — the successive flagship vehicles of Honda's luxury Acura division in North America from 1986 until 2020.
+
+==<span class="anchor" id="KA1"></span>First generation (KA1–6; 1985)==
+{{Infobox automobile
+| name = First generation (KA1–KA6)
+| image = 1989 Honda Legend (KA4) sedan (2015-07-15) 01.jpg
+| aka = [[Acura Legend]]
+| production = 1985–1990
+| assembly = Japan: [[Sayama, Saitama]] ([[List of Honda facilities#Japan|Sayama Plant]])<br />United Kingdom: [[Cowley, Oxfordshire]], [[England]] ([[Honda of the UK Manufacturing|HUKM]]: 1986–1988)
+| designer = Tetsuya Mizuno, Yukio Kurosu, Yoshio Ui (1982)<ref>{{cite web|title= Patent USD301436|url=https://www.google.com.ar/patents/USD301436| via=google.com.ar}}</ref><br />Akio Koike (1987, refresh)<ref>{{cite web |title= Patent USD323635S |url=https://patents.google.com/patent/USD323635S/en?q=(automobile)&q=design&assignee=honda&before=priority:19960101&after=priority:19890101&oq=(automobile)+design+assignee:honda+before:priority:19960101+after:priority:19890101| via= google.com}}</ref>
+| body_style = 4-door [[Sedan (automobile)|sedan]]<br />2-door [[coupé]]
+| layout = [[Front-engine, front-wheel drive layout|Front-engine, front-wheel-drive]]
+| related = [[Rover 800]]<br />[[Sterling (marque)|Sterling]]
+| engine = {{ubl
+  | 2.0 L ''[[Honda C engine#C20A|C20A]]'' [[V6 engine|V6]] (Japan)
+  | 2.0 L ''[[Honda C engine#C20A|C20AT]]'' [[Turbocharger|turbo]] V6 (Japan)
+  | 2.5 L ''[[Honda C engine#C25A|C25A]]'' V6
+  | 2.7 L ''[[Honda C engine#C27A|C27A]]'' V6
+}}
+| transmission = 5-speed [[manual transmission|manual]]<br />4-speed [[automatic transmission|automatic]]
+| wheelbase = Sedan: {{convert|2760|mm|in|1|abbr=on}}<br />Coupe: {{convert|106.5|in|mm|0|abbr=on|order=flip}}
+| length = '86–'88 Sedan: {{convert|4810|mm|in|1|abbr=on}}<br />'89–'90 Sedan: {{convert|190.6|in|mm|0|abbr=on|order=flip}}<br />2.0 Sedan: {{convert|4690|mm|in|1|abbr=on}}<br />Coupe: {{convert|188|in|mm|1|abbr=on|order=flip}}
+| width = '86–'88 Sedan: {{convert|1735|mm|in|1|abbr=on}}<br />'89–'90 Sedan: {{convert|68.9|in|mm|0|abbr=on|order=flip}}<br />2.0 Sedan: {{convert|1690|mm|in|1|abbr=on}}<br />Coupe: {{convert|68.7|in|mm|0|abbr=on|order=flip}}
+| height = Sedan: {{convert|1390|mm|in|1|abbr=on}}<br />Coupe: {{convert|53.9|in|mm|0|abbr=on|order=flip}}
+}}
+
+[[File:1st generation Honda Legend.jpg|thumb|left|First generation Legend sedan]]
+
+The first-generation Legend, introduced to Japan on October 22, 1985, was the first production Honda vehicle to offer only a [[SOHC]] [[V6]] engine worldwide. The introduction of the Legend also coincided with the launch of a new dealership sales channel in Japan, called ''[[Honda#Clio|Honda Clio]]''. The Legend was the result of a joint venture with Britain's [[Austin Rover Group]] called Project XX that started in November 1981 with the Austin Rover-Honda XX letter of intent signed by the two companies to replace the [[Rover SD1]] and to provide a luxury vehicle for Honda, and was codenamed as HX. The [[Rover Company]] had a long-established reputation as a luxury car maker in the United Kingdom and Europe, demonstrated by the [[Rover P5]] and [[Rover P6]], and Honda wanted to introduce a luxury car for the Japanese, European and North American markets. Rover also wanted to return to the American market when previously they had reportedly sold only 1,500 cars in 1971, and a brief return in 1980, selling 800 Rover SD1s by offering the [[Sterling (car)|Sterling]] which was also a result of the ARG-Honda partnership.<ref>{{cite web |url=http://www.aronline.co.uk/index.htm?xxstoryf.htm | editor-first = Keith | editor-last = Adams | title = Rover 800: Honda saves the day | work = Austin Rover Online | url-status=dead |archive-url=https://web.archive.org/web/20111003054246/http://www.aronline.co.uk/index.htm?xxstoryf.htm |archive-date=2011-10-03 }}</ref> The development work was carried out at Rover's [[Canley]], [[Coventry]] plant and Honda's [[Tochigi Prefecture]] development centre. Design work concluded on the Legend in 1982, with a design patent being filed on September 27, 1982, at the Japan Patent Office under application number 1982-043493 and registered on September 19, 1984, under patent number 0640105.<ref>{{cite web| url= https://www.j-platpat.inpit.go.jp/c1800/DE/JP-0640105/C5F5FBACF481482B7A736C8E96CC665A837C63A87C3931B56538EBBDCF58D637/35/en| title= Patent Registration Number JP, 0640105, S; Application JP, 1982-043493| website= j-platpat.inpit.go.jp| access-date= June 18, 2020}}</ref>
+
+[[File:1989 Honda Legend (KA4) sedan (2015-07-15) 02.jpg|thumb|left|1989 Honda Legend sedan]]
+
+Honda and [[British Leyland]]/Rover agreed that Legends would be built at [[Plant Oxford|Cowley]] for the British market.<ref name=Independent94/> However, few UK built Legends passed Honda's quality control standards, and many simply ended up being used as in-plant transport.<ref name=Independent94>{{cite news|url=https://www.independent.co.uk/news/business/how-honda-let-rover-go-to-strangers-belief-in-its-partners-independence-was-only-one-reason-that-the-japanese-giant-failed-to-acquire-it-bmw-also-had-the-cash-1392300.html |title=How Honda let Rover go to strangers |first1= David |last1= Bowen |first2= Terry |last2= McCarthy | first3= John |last3= Eisenhammer |date=February 6, 1994 |work=The Independent }}</ref> In the end, only 4,409 Legends were built in the UK, from 1986 until 1988.<ref>{{cite web | url = http://www.aronline.co.uk/blogs/facts-and-figures/history/history-production-figures/ | title = History: Production Figures | first1 = Keith | last1 = Adams | first2 = Declan | last2 = Berridge | work = Austin Rover Online | date = 25 August 2011 | url-status = dead | archive-url = https://web.archive.org/web/20130114035801/http://www.aronline.co.uk/blogs/facts-and-figures/history/history-production-figures/ | archive-date = 2013-01-14 }}</ref> All US-market Legends were built in Japan.
+
+===Japanese market===
+Honda wanted to expand its model range above the [[Honda Accord#Second generation (1982)|Honda Accord]], and offer a premium level sedan that would appeal to wealthy middle-aged customers who were the traditional buyers of the [[Toyota Crown#Seventh generation (S120; 1983)|Toyota Crown]], [[Mazda Luce]] and [[Nissan Cedric#Sixth generation Y30|Nissan Cedric]]/[[Nissan Gloria#Seventh generation Y30|Gloria]]. In 1981, Honda had introduced a luxury level version of the Accord, called the [[Honda Vigor]], but realized that they needed to manufacture a larger, more exclusive sedan with similar dimensions to the Crown, Luce, Cedric and Gloria. When the Legend was introduced worldwide, the optional equipment list was minimal as commonly identified equipment regarded as luxury in nature was included as standard equipment, leaving the only option the choice between a manual or automatic transmission.
+
+The major mechanical difference between the Legend and the Toyota, Mazda and Nissan sedans was that the Legend was front-wheel drive, which Honda stated was "quite simply the most logical means to the ends the engineers desired: a true luxury car with a low, aerodynamic hood; a spacious interior with a nearly flat floor, and the superior traction that results from placing the engine and drivetrain transversely over the drive wheels." This provided the Legend with a front-end heavy 63/37 front to rear weight distribution ratio, similar to the [[NSU Ro 80]].<ref>{{cite book| title= The Automobile| year= 2007 |publisher= International Masters Publishers AB |isbn= 978-1-905704-63-7| page= 374}}</ref> The ride was engineered to appeal towards the luxury car market and not necessarily towards the performance market, and the front to rear weight distribution ratio reflected this goal. Efforts to minimize [[torque steer]] were achieved by the [[half shaft]]s and the angles of the joints at the ends of those shafts being equalized, helping the Legend to accelerate in a straight line.
+
+The Japanese-spec Legend was offered in three trim levels; the V6Xi with the 2.5 L [[Honda C engine#C25A|C25A]] V6 engine, with the slightly shorter and narrower V6Gi and V6Zi using the 2.0 L [[Honda C engine#C20A|C20A]] V6. The V6Gi had the same level of equipment and luxury features as the V6Xi, whereas the V6Zi had reduced content and a lower price. The V6 engines were available with electronic, multi-port sequential fuel injection Honda called Programmed Fuel Injection, or [[PGM-FI]] and a [[variable length intake manifold]] on the smaller 2.0-liter V6. The larger 2.5 engine was upgraded to the [[Honda C engine#C27A|C27A]] 2.7 liters of displacement for model year 1988 and added a variable length intake manifold. The engine benefited from Honda's successes with its endeavors in [[Formula One]] racing in 1964, and Honda's F1 racing car, the [[Honda RA271]]. Transmission selections were either a four-speed automatic transaxle with a computer controlled lockup [[torque converter#Lock-up torque converters|torque converter]], or a five-speed manual transaxle.
+
+In order for the sedan to comply with Japanese [[Vehicle size class#Japan|vehicle size requirements]] and reduced tax liability, the car with the 2.0 L V6 was slightly shorter and narrower for Japanese buyers by reducing the extension of the front and rear bumper covers, and reducing the overall width to {{convert|1695|mm|in|1|abbr=on}}. This also offered an alternative to the traditional Crown and Cedric/Gloria customer base due to the sedan being in the smaller size classification and reduced tax liability but with a comparable level of luxury equipment found in the larger cars, and the same amount of interior space due to the front-wheel drive powertrain, with a wheelbase advantage of {{convert|30|mm|in|1|abbr=on}} over the Cedric/Gloria and Crown. To address the issue of durability, the Legend was manufactured as a pillared sedan instead of a four-door [[hardtop]], a body style still offered at the time by Toyota and Nissan on the Crown and Cedric/Gloria. The slightly smaller body style also allowed the Legend to compete with the upscale [[Toyota Cresta]] and [[Toyota Chaser|Chaser]] and the [[Nissan Laurel]].
+
+The Legend offered many Honda "firsts", such as a driver side airbag, vehicle speed sensitive power assist rack and pinon steering, anti-lock brakes, seat belt pre-tensioners with Emergency Locking Retractors (called E.L.R.), a choice of 100% wool or cloth [[moquette]] upholstery, and [[Traction control system|"TCS" Traction control]], the first front-wheel drive car to use traction control. Attention was given to make sure the Legend was quiet, so Honda used computer simulation using [[Nastran|NASTRAN]], a stress analysis program created by [[NASA]], helping the car achieve a [[Automobile drag coefficient|drag coefficient]] of 0.32 and an interior noise level of 63&nbsp;dB (measured while the vehicle was travelling at {{convert|100|km/h|mi/h|1|abbr=on}} using a manual transmission in 5th gear), and by using triple seals around the tops of door openings.
+
+The Legend was introduced with a [[double wishbone]] suspension for the front wheels, and a modified [[Chapman strut]] with [[trailing arm]] rear suspension Honda called "RF (Reduced Friction) Strut Rear Suspension" with progressive rate rear coil springs that stiffen as they compress to combine smooth ride and good handling. The rear coil spring was separate from the strut and positioned so that vertical pressure was supported by the [[lower control arm]]. The term Reduced Friction referred to the minimizing of forces that create friction in the [[shock absorbers]], providing more efficient damping for the full suspension stroke. The rear suspension was upgraded to double wishbone starting with the 1988 model year worldwide.
+
+Notable owners of the first generation Legend were [[Soichiro Honda]] the founder of Honda, [[Satoru Nakajima]], [[Tyrrell Racing]] F1 driver in 1990, and [[Ayrton Senna]]. The Legend V6Xi was used as the [[pace car]] for the [[Suzuka Circuit]] for 1986.
+
+===="Wing Turbo" version====
+In October 1988, Honda upgraded the [[Honda C engine#C20A|C20A]] V6 engine used exclusively in the KA5 series Legend with a [[variable geometry turbocharger]], calling it the "Wing Turbo" in a [https://www.youtube.com/watch?v=LCux0lXR-mE Japanese TV commercial] to address the modest power available from the previous engine with [[variable length intake manifold]] used in earlier models. The turbocharger turbine housing had four vanes made from heat resistant [[Inconel]] alloy surrounding the turbine wheel (on the inlet side of it) that would fluctuate based on engine load and transmission gearing above 2,000 rpm to allow for increased airflow into the engine as needed. The turbo compressor could generate as much as {{convert|450|mmHg|psi}} of boost, and was paired with a water cooled [[intercooler]] installed inside the [[Inlet manifold|intake plenum]] between the [[cylinder bank]]s to produce {{convert|140|kW|PS bhp|0|abbr=on}} net at 6000 rpm and a maximum torque of {{convert|24.6|kgm|Nm lbft|abbr=on}} at 3,500 rpm.<ref name= revives>{{cite web |url= http://dwolsten.tripod.com/articles/jan89a.html |title= Honda revives turbo |work= Automotive Engineering International |publisher= republished online|via= dwolsten.tripod.com |access-date=2010-09-26}}</ref><ref>{{cite web| url= https://www.youtube.com/watch?v=6QdqfocsajY&NR=1  |archive-url=https://ghostarchive.org/varchive/youtube/20211222/6QdqfocsajY |archive-date=2021-12-22 |url-status=live|title= New Exhaust Honda Legend Turbo| date= November 18, 2008| author= waldo782 | via= YouTube.com}}{{cbignore}}</ref> The turbo was installed not necessarily to make the engine more powerful, but rather to increase fuel efficiency and reduce emissions, as the Japanese pay a tax on the amount of emissions the car produces.
+
+According to an excerpt of ''Automotive Engineering'' in January 1989, "The movable wings are positive pressure- and vacuum-operated, their angle changes are controlled by an eight-bit 36-kilobyte computer that also manages fuel injection. Positive pressure to the wing actuator is supplied by the turbo's supercharge pressure, controlled by a frequency solenoid valve, and negative pressure is generated by intake vacuum and accumulated in a reservoir which is also solenoid controlled. The CPU is fed signals including boost pressure, intake temperature, coolant temperature, throttle opening, engine [[revolutions per minute|rpm]], and vehicle speed. The Wing Turbo is not fitted with a conventional [[wastegate]].
+
+On idling and steady-state cruising that do not require supercharging, the movable flags—or wings—which are fully opened, allow exhaust gas to enter the enlarged nozzle area and pass through the turbine smoothly with little resistance. At the beginning of full acceleration, the wings close fully, reducing the nozzle area through which accelerated gas enters and strikes the turbine blades forcefully, gaining boost quickly. When maximum boost is obtained, the movable wings begin to close gradually, until the vehicle reaches a desired cruising velocity whereby the wings open fully. The nozzle area varies continuously according to operating and load conditions."<ref name= revives />
+
+The turbo was installed just above the automatic transmission unit; a manual transmission was not offered. This engine was only offered in Japan using the more compact sedan body style, labeled as "2.0 Ti Exclusive" and "2.0 Ti". The engine was used for just two years, due to the introduction of the second generation Legend in 1990 with the much larger [[Honda C engine#C32A|C32A]] V6, and as such Wing Turbo sedans are extremely rare. Much of the research on this engine contributed to the [[VTEC]] [[Honda C engine#C30A|C30A]] V6 engine used in the 1990 [[Honda NSX]]. The Legend Turbo can be identified as by a "TURBO" badge attached to the front grille on the bottom right hand side and a "V6Ti" rear badge.
+
+===North American market===
+{{Hatnote|See [[Acura Legend]] and [[Acura RL]] for information on the North American model.}}
+
+===European market===
+The Honda Legend was introduced for the 1987 model year and was virtually identical in equipment offered and vehicle dimensions to the North American model, with one trim designation called the V6-2.5i. This means very few options were available other than the choice of transmission, and an air conditioning system identical to the North American version. The Europeans were offered an optional "Special Equipment Pack" that offered cruise control, aluminium alloy wheels, a driver's seat with power lumbar support, height, fore/aft and reclining adjusters, adjustable rear headrests, a 4-speaker stereo system provided by [[Philips]] and headlight wipers. Front and rear mud flaps were standard in undisclosed countries but not all. The radio volume control rocker switch and preset radio scan button installed on the instrument binnacle was not offered.
+
+===Legend coupe and other changes===
+[[File:1990 Honda Legend (KA3) coupe (2015-07-06).jpg|right|thumb|Honda Legend coupe (Australia)]]
+
+The Legend Coupe was introduced February 6, 1987, with a larger displacement 2.7-liter V6 engine featuring a variable intake system for increased torque and a rear double wishbone suspension which wasn't available on the sedan until 1989 model year. Incidentally, the Japanese coupe was both longer and wider, which increased its tax liability, yet it had a shorter wheelbase by {{convert|2.2|in|mm|0|abbr=on}}.
+
+Starting with the introduction of the 1988 model year, the trim level "Exclusive" was introduced, offering genuine wood trim provided by [[Tendo Mokko]] on the dashboard and center console with a very large selection of available wood type and hues to choose from, [[automatic headlight]]s, headlight washer/wipers, separate rear passenger climate control, and chrome-plated power folding mirrors and door handles with infrared remote keyless entry. October 14, 1988 saw a minor restyle offered for the interior and dashboard, to provide a more luxurious appearance in comparison to the Nissan and Toyota uplevel sedans the Legend was competing with. Due to the success Honda had with the Legend, it served as an inspiration for many vehicles from multiple manufacturers, including the [[Subaru Legacy (first generation)|Subaru Legacy]] with which it shares many visual resemblances and dimensions both inside and out.
+
+===Engine specifications===
+{| class="wikitable"
+|-
+! Engine!!Displacement (cc) / bore×stroke!!Horsepower!!Torque
+|-
+|C20A V6 SOHC 24 valve PGM-FI||rowspan="2" | 1996&nbsp;cc / 82.0×63.0&nbsp;mm||{{convert|145|PS|kW hp||abbr=on}} at 6300&nbsp;rpm||{{convert|172|Nm|lbft||abbr=on}} at 5000&nbsp;rpm
+|-
+|C20A turbo V6 SOHC 24 valve PGM-FI||{{convert|190|PS|kW hp|0|abbr=on}} at 6000&nbsp;rpm||{{convert|241|Nm|lbft||abbr=on}} at 3500&nbsp;rpm
+|-
+|C25A V6 SOHC 24 valve PGM-FI||2493&nbsp;cc / 84.0×75.0&nbsp;mm||{{convert|165|PS|kW hp||abbr=on}} at 6000&nbsp;rpm||{{convert|211|Nm|lbft||abbr=on}} at 4500&nbsp;rpm
+|-
+|C27A V6 SOHC 24 valve PGM-FI||2675&nbsp;cc / 87.0×75.0&nbsp;mm||{{convert|180|PS|kW hp|0|abbr=on}} at 6000&nbsp;rpm||{{convert|226|Nm|lbft||abbr=on}} at 4500&nbsp;rpm
+|}
+{{Clear}}
+
+==Second generation (KA7/8; 1990)==
+{{Infobox automobile
+| name = Second generation (KA7/KA8)
+| image = 1994 Honda Legend (KA7) sedan (2010-09-23) 01.jpg
+| aka = [[Acura Legend]]<br />Daewoo Arcadia
+| production = 1990–1995
+| assembly = Japan: [[Sayama, Saitama]] ([[List of Honda facilities#Japan|Sayama Plant]])
+| body_style = 4-door [[Sedan (automobile)|sedan]]<br />2-door [[coupé]]
+| layout = [[Front-engine, front-wheel-drive layout|Longitudinal front-engine, front-wheel-drive]]
+| related = [[Honda Accord]]<br />[[Honda Inspire]]<br />[[Acura Vigor|Honda Vigor]]<br />[[Honda Ascot]]
+| engine = 3.2 L ''[[Honda C engine#C32A|C32A]]'' [[V6]]
+| transmission = 4-speed automatic<br />5-speed manual<br />6-speed manual
+| wheelbase = Sedan: {{cvt|2910|mm|in|1}}<br />Coupé: {{cvt|2830|mm|in|1}}
+| length = Sedan: {{cvt|4940|mm|in|1}}<br />Coupé: {{cvt|4880|mm|in|1}}
+| width = {{cvt|1810|mm|in|1}}
+| height = Sedan: {{cvt|1405|mm|in|1}}<br />Coupé: {{cvt|1370|mm|in|1}}
+| predecessor = [[Daewoo Imperial]] (Daewoo Arcadia)
+| successor = [[Daewoo Magnus]] (Daewoo Arcadia)
+}}
+
+The second generation model was introduced on October 24, 1990, and continued to offer both a sedan and coupé. The Rover 800 was not updated to the new platform, and instead continued with the old XX platform. In Japan, this Legend was also known as the "Super Legend" due to the much larger 3.2 C32A engine, which was now the only engine offered in the Legend. The Type I engine was rated at {{cvt|215|PS|kW bhp|0}}, and the Type II was rated at {{cvt|235|PS|kW bhp|0}} and was included with the Touring system. This Legend benefited from much of the research and testing done for Honda's new mid-engined high performance sports car, the [[Honda NSX]], and the Legend was used as a test platform for new NSX technologies and research. Honda mounted the engine longitudinally behind the front axle, for what they called a [[Front-mid-engine, front-wheel-drive layout|"front-wheel-drive midship"]] layout. Nonetheless, the 60/40 weight distribution was still heavily biased towards the front wheels.<ref name="TV1091.7">{{cite magazine | ref = DK91 | title = Trimning i det tysta | trans-title = Quiet tuning | language = sv | magazine = [[Teknikens Värld]] | publisher = Specialtidningsförlaget AB | location = Stockholm, Sweden | page = 7 | date = 1991-05-16 | issue = 10 | volume = 43 | first = Dag | last = Klingsten }}</ref> Honda introduced a passenger side airbag on this model, and used [[Safety engineering|off-set collision testing]] to improve collision performance and safety.
+
+Trim level designations were changed to α ("Alpha") for the top level vehicle, and β ("Beta") for the lower grade. No other trim levels were offered. The "Alpha" was very well equipped, offering ABS, leather or 100% wool moquette upholstery, projector beam headlights, and dual-zone air conditioning.
+
+The customer base served by the slightly smaller first generation Legend was now offered the completely revised CB5 series [[Honda Vigor]] and [[Honda Inspire]] sold at different Japanese Honda retail sales locations ''Honda Clio'' and ''Honda Verno''. The business practice of offering the previous generation Legend in two sizes so that it could comply with [[Vehicle size class#Japan|Japanese dimension and engine displacement regulations]] was ceded to the Inspire and Vigor, where both vehicles were offered in two versions so as to comply with the regulations, while offering Japanese buyers more choices. The installation of the larger 3.2-litre engine obligated Japanese buyers for higher amounts of annual [[Road tax#Japan|road tax]] over the smaller engines in the previous generation.
+
+The [[Japanese Domestic Market]] version of the 1990 Legend (second generation) was the second vehicle offered with a [[automotive navigation system|navigation system]] called the [[Electro Gyrocator]] (first being the 1981 Honda Accord and Vigor), although it was not satellite-based and instead relied on a gas [[gyroscope]] ([[Inertial navigation system]]).<ref name="TV1091.7"/> September 29, 1992 saw an upgrade to the "Alpha" trim level, called the Touring Series, which added the Honda Progressive Damper suspension system, and included upgraded calipers for the front and rear disc brakes, and increased the wheel size to 16 inches. A [[Luxman]] premium sound system was added to the options list. The prefectural police department of Aomori used "Beta" sedans with the Type II engine for traffic monitoring.
+
+<gallery widths=200 heights=130>
+2nd generation Honda Legend Coupe.jpg|Honda Legend coupé (Japan)
+2nd generation Honda Legend Coupe rear.jpg|Honda Legend coupé (Japan; rear view)
+1994 Honda Legend (KA7) sedan (2010-09-23) 02.jpg|Honda Legend sedan (Australia)
+</gallery>
+
+===Daewoo Arcadia===
+[[File:20100812 daewoo arcadia 01.jpg|thumb|left|Daewoo Arcadia (South Korea)]]
+The second-generation Legend was also manufactured by [[GM Daewoo|Daewoo]] in South Korea from 1994 to 1999 under the name of '''Daewoo Arcadia ([[:ko:대우 아카디아]])''', for the Korean market, replacing the [[Daewoo Imperial]].<ref>{{cite web| url = http://autocade.net/index.php/Daewoo_Arcadia | title = Daewoo Arcadia | work = Autocade | publisher = JY&A Media | access-date = 2009-10-17}}</ref>
+
+It was named for the region in Greece called [[Arcadia (utopia)|Arcadia]], a region regarded in [[Greek mythology]] as a [[utopia]]n garden.
+
+During this period, Honda had a loose alliance with Daewoo, and the Arcadia was larger than [[Hyundai Grandeur]] and [[Kia Potentia]] competitors. Daewoo Motors (GM Korea's predecessor) sold more than 800 vehicles. The Arcadia was essentially the base level Legend. At the time of the Arcadia's introduction, it had a large engine for a car in Korea, with a 220-horsepower V6 3.2 C32A,<ref>{{cite web |title=Daewoo Arcadia (CE) 3.2 i V6 24V LX (220 Hp) Automatic - Full specifications |url=https://www.auto-data.net/en/daewoo-arcadia-ce-3.2-i-v6-24v-lx-220hp-automatic-24048 |website=www.auto-data.net |access-date=18 July 2026}}</ref> and the starting price was a high 41.9 million won. ABS, dual airbags, safety belt pre-tensioners, and advanced car safety features for the time, commensurate with a focus on protecting the passengers. Some of the features included driver's seat position memory function and front heated seats, push-button door opening and closing devices, automatic climate control air conditioning. After the acquisition of [[SsangYong Motor Company|SsangYong]] by Daewoo, the Arcadia was succeeded by the somewhat larger [[Daewoo Chairman|Chairman]] (a rebadged SsangYong). Remaining stock of Arcadia sedans were reduced in price, and the Arcadia ended production in December of that year.
+{{Clear}}
+
+==Third generation (KA9; 1995)==
+{{Infobox automobile
+| name = Third generation (KA9)
+| image = 1996-1998 Honda Legend (KA9) sedan (2011-05-26).jpg
+| aka = [[Acura RL|Acura 3.5RL]]
+| production = 1995–2004
+| assembly = Japan: [[Sayama, Saitama]] ([[List of Honda facilities#Japan|Sayama Plant]])
+| body_style = 4-door [[Sedan (automobile)|sedan]]
+| layout = [[Front-engine, front-wheel-drive layout|Longitudinal front-engine, front-wheel-drive]]
+| related = 
+| engine = 3.5 L ''[[Honda C engine#C35A|C35A]]'' [[V6]]
+| transmission = 4-speed [[Automatic transmission|automatic]]
+| wheelbase = {{convert|114.6|in|mm|0|abbr=on|order=flip}}
+| length = 1996–1998: {{convert|195.1|in|mm|0|abbr=on|order=flip}}<br />1999–2001: {{convert|196.6|in|mm|0|abbr=on|order=flip}}<br />2002–2004: {{convert|196.7|in|mm|0|abbr=on|order=flip}}
+| width = 1996–1998: {{convert|71.3|in|mm|0|abbr=on|order=flip}}<br />1999–2001: {{convert|71.4|in|mm|0|abbr=on|order=flip}}<br />2002–2004: {{convert|71.7|in|mm|0|abbr=on|order=flip}}
+| height = 1996–1998: {{convert|54.5|in|mm|0|abbr=on|order=flip}}<br />1999–2001: {{convert|56.5|in|mm|0|abbr=on|order=flip}}<br />2002–2004: {{convert|54.5|in|mm|0|abbr=on|order=flip}}
+}}
+
+{{Multiple image | align = left | direction = vertical | width = 220
+| image1 = 1998 Honda Legend (KA9) sedan (rear).jpg
+| caption1 = 1998 Honda Legend sedan (Australia; pre-facelift)
+| image2 = Legend-Teito.jpg
+| caption2 = Honda Legend sedan (Japan; facelift)
+| image3 = 2000 Honda Legend (KA9) sedan (2015-05-29).jpg
+| caption3 = 2000 Honda Legend sedan (Australia; facelift)
+| image4 = Interior Honda Legend KA9 FL.jpg
+| caption4 = Interior
+}}
+
+The third generation Legend appeared on October 26, 1995, continuing the Honda tradition of front-wheel drive, and increasing the engine displacement to 3.5 L with the horsepower remaining at {{convert|215|PS|kW bhp|1|abbr=on}}. The actual Honda internal platform code for this vehicle is E-KA9.
+
+In an attempt by Honda to dispute the call for the Legend to be offered with a V8 to be considered an international premium level luxury car, this generation had a wheelbase that compared to the Infiniti Q45 at {{convert|2830|mm|in|1|abbr=on}} with a length at {{convert|5056|mm|in|1|abbr=on}}, and the Lexus LS at {{convert|2850|mm|in|1|abbr=on}} wheelbase and {{convert|4996|mm|in|1|abbr=on}} length. The Legend also had very similar dimensions to the front-wheel drive, V8 sedan [[Mitsubishi Proudia]] which was sold only in Japan. In Japan, the Legend continued to compete with the Toyota Crown, the Mitsubishi Debonair, the Mazda Luce, and the Nissan Cedric and Gloria at the executive sedan segment.
+
+The trim level "Exclusive" returned as the upper level car, with the standard grade vehicle known as "Euro", with the more performance tuned suspension. The wood trim used was more upscale for the "Exclusive" vehicle with a lower grade wood used on the "Euro". Both vehicles were very well equipped. The instruments used were simplified from previous versions, but 100% wool moquette upholstery was still offered, along with optional leather. Honda's internet-based navigation system [[Internavi]] was introduced with this generation on Japanese domestic vehicles. The [[Luxman]] premium sound system was still available. The styling was said to more closely resemble the [[Mercedes-Benz W124|Mercedes-Benz E-Class]] and a [[transponder]] key security system was offered. Starting with this generation, [[Air filter#Automotive cabin air filters|cabin air filters]] (also known as pollen filters) were installed as standard equipment and are located behind the glove compartment internationally.
+
+September 21, 1998 saw a minor styling change, with the front grille cutting into the front bumper, providing a more prominent front grille. Emphasis was increased on providing a luxurious sense of style, both inside and out. Side impact airbags now complemented the dual front airbags as standard equipment. The steering wheel can be automatically adjusted based on the position of the driver's seat, thereby optimizing a safe distance between the driver and the airbag installed in the steering wheel.
+
+September 24, 1999 saw the engine meet emission regulations to comply with California LEV requirements.
+
+June 19, 2003 saw the interior updated, and maple wood was offered for interior decoration. Electro-luminescent instruments were offered, as well as a higher grade of leather interior.
+
+The third-generation model was offered as a sedan only. A mid-term facelift came in 1999.
+
+In the U.S. market, when the Legend coupe was discontinued, they were offered the [[Acura CL]] two-door coupé that was based on the American market [[Honda Accord]] coupé, so as to continue offering a premium vehicle in this niche.
+
+===North American model===
+{{Hatnote|See  [[Acura RL]] for information on the North American model.}}{{Clear}}
+
+==Fourth generation (KB1/2; 2004)==
+{{Infobox automobile
+| name        = Fourth generation (KB1/KB2)
+| image       = 2007 Honda Legend.JPG
+| caption     = 2005–08 Honda Legend (KB1) (Japan)
+| aka         = [[Acura RL]]
+| production  = 2004–2012
+| model_years = 2005–2012
+| assembly    = Japan: [[Sayama, Saitama]] ([[List of Honda facilities#Japan|Sayama Plant]])
+| designer    = Toshinobu Minami (2002)
+| body_style   = 4-door [[Sedan (automobile)|sedan]]
+| layout       = [[Front-engine, four-wheel drive layout|Front-engine, four-wheel-drive]]
+| related      = [[Honda Accord]] (USA-spec)<br />[[Honda Odyssey (North America)]]<br />[[Honda Inspire]]<br />[[Honda Elysion]]
+| engine       = {{ubl
+  | 3.5&nbsp;L ''[[Honda J35|J35A]]'' [[V6 engine|V6]] (2004–2008)
+  | 3.7&nbsp;L ''[[Honda J37|J37A4]]'' V6 (2008–2012)
+}}
+| transmission = {{ubl
+  | 5-speed [[Automatic transmission|automatic]] (2004–2010)
+  | 6-speed automatic (2011–2012)
+}}
+| wheelbase    = {{convert|110.2|in|mm|0|abbr=on|order=flip}}
+| length       = 2004–'08: {{convert|193.6|in|mm|0|abbr=on|order=flip}}<br />2008–'12: {{convert|195.8|in|mm|0|abbr=on|order=flip}}
+| width        = {{convert|72.7|in|mm|0|abbr=on|order=flip}}
+| height       = 2004–'08: {{convert|57.1|in|mm|0|abbr=on|order=flip}}<br />2008–'12: {{convert|57.2|in|mm|0|abbr=on|order=flip}}
+}}
+
+{{Hatnote|See [[Acura RL]] for information on the North American model.}}
+The swoopier, shorter fourth-generation Honda Legend was launched on October 7, 2004, and became [[Japan Car of the Year|Japan's Car of the Year]] for 2004–2005, marking the fourth time in five years that Honda has taken the award. Its reduced dimensions over the third generation model seem to suggest a return to what made the Legend so popular with the first generation, being a top level sedan that offered something different from its competitors. The 2011 model marks the 25th anniversary of Honda Legend production.
+{{Multiple image | align = left | direction = vertical | width = 220
+| image1 = Honda Legend front 20070831.jpg
+| caption1 = 2005–2008 Honda Legend (KB1) (Europe)
+| image2 = 4thLegendkouki.jpg
+| image3 = 4thLegendkoukirear.jpg
+| caption3 = 2009–2012 Honda Legend (KB2) (Japan)
+| image4 = Legendinterior.jpg
+| caption4 = Honda Legend KB2 interior
+}}
+In an attempt to address market driven requests that the Legend needed to be a rear-wheel drive sedan with a V8 engine, Honda introduced four-wheel drive technology on the Legend, called "Super Handling All-Wheel Drive" ([[SH-AWD]]), which earned Honda the Japan Car of the Year, and Mosuto 2005 Annual RJC technology of the Year award. This generation Legend is only available with the Super Handling All-Wheel Drive powertrain. Due to continuous product improvement efforts over past generations, the series CP3 North American Honda Accord (Honda Inspire in some markets) shares wheelbase, length, width and engine displacement almost exactly with this generation Legend, with a reduced price in many international markets. The Legend does have a higher level of standard features and optional equipment but not by much.
+
+Select-Shift was introduced on the 5-speed automatic transmission. The newly designed J35A 3.5-liter V6 was changed from a 90 degree "V", in use since the first 1986 C25A V6 engine, to a 60 degree layout, while [[VTEC]] was added to improve efficiency (M-TEC was added by the MUGEN division, called the "M1 package"). In a move echoing the many "firsts" introduced by the first generation Legend, the horsepower no longer complied with the self-imposed horsepower restrictions of the Japanese auto industry.<ref>{{cite web|url=http://search.japantimes.co.jp/cgi-bin/fv20080413pl.html |title=Why Japan finally got its foot off the brake |publisher=Search.japantimes.co.jp |date=2008-04-13 |access-date=2012-01-29}}</ref> The engine is capable of {{convert|300|PS|kW bhp|0|abbr=on}}.
+
+Perhaps to accommodate the all-wheel drive setup, the engine was reoriented from a longitudinal installation used since 1990, to a transverse installation, which was the original orientation of the first generation model. Honda began to expand the Acura division into Mexico, Hong Kong and China. Plans to introduce the Acura brand in Japan haven't been formally announced, relying on speculation. This generation Legend shares large sedan duties with the [[Honda Inspire]], known in North America as the [[Honda Accord]] starting with model year 2003 (series UC1) and continuing with the series CP3 sedan. September 15, 2005 saw a mild body restyle, which included a rear [[backup camera]]. The Akita and Kumamoto Prefectures adopted this Legend as the official car for local senior government officials.
+
+In the UK, the Legend is only offered in one trim, the EX. Buyers can also choose to pay extra for the ADAS (Advanced Driver Assist System) package. The ADAS package includes Honda's CMBS (Collision Mitigation Braking System), and LKAS (Lane Keeping Assist System).
+
+The Legend received a Mid-Model Change (MMC) for the 2009 model year. Among the usual upgrades, the Honda Legend offered some additional optional safety features, including [[lane departure warning system|Lane Keeping Assistance System (LKAS)]]. The LKAS could actually make small steering adjustments to keep a car in lane so long as the radius of the turn was more than 220 meters, which was the legal minimum in Japan. The LKAS would relinquish control at the slightest steering input so the driver had control at all times. [[Intelligent Night Vision]] with the world's first pedestrian detection feature, and a standard pop-up hood for pedestrian safety.<ref>{{cite web |url=http://world.honda.com/HDTV/IntelligentNightVision/200408/ |title=Intelligent Night Vision |publisher=World.honda.com |access-date=2010-09-26 |url-status=dead |archive-url=https://web.archive.org/web/20091108165118/http://world.honda.com/HDTV/IntelligentNightVision/200408/ |archive-date=2009-11-08 }}</ref><ref>{{cite web|url=http://www.carpages.co.uk/honda/honda_intelligent_night_vision_system_26_10_04.asp |title=Honda Night Vision |publisher=Carpages.co.uk |access-date=2010-09-26}}</ref>
+The night vision system uses a separate [[Head-up display|heads up]] type display projected on the center bottom of the windshield. The infrared cameras do not require a light source, and the software is able to detect human like figures, surround the image with a red box and give audible caution tones. The pop-up hood uses a series of sensors that can detect a pedestrian-like object being thrown onto the hood. An actuator will pop the hood up at the rear, close to the base of the windshield, 10&nbsp;cm (4&nbsp;inches) to help minimize pedestrian injuries, especially head trauma. All markets feature energy absorbing hood and fender supports and deformable windshield wiper pivots to minimize pedestrian injury. Honda's internet-based navigation system [[Internavi]] is standard equipment on Japanese domestic vehicles.
+
+In October 2010, it is reported that Brake Defect from Honda Legend were delivered to customers before the problem is discovered. Honda says that it doesn't know how many of its vehicles have suffered a faulty brake system. The U.S. Honda outfit says it will replace the faulty seal and, if leaking has occurred, the brake booster will be replaced as well. At least some owners in the UAE, Saudi Arabia and other GCC countries are likely affected. Honda told that no stop-sale is issued.<ref>{{cite web|url=http://www.drivearabia.com/news/2010/10/24/honda-odyssey-legend-2005-2007-recall-for-toyota-defect/ |title=Honda Odyssey & Legend 2005–2007 recall for Toyota defect |date=October 24, 2010|author=Mashfique Hussain Chowdhury |publisher=drivearabia.com }}</ref>
+
+In June 2012, Honda Japan announced the Legend and Inspire were to stop being produced at the Sayama, Saitama, Japan plant.
+{{Clear}}
+
+===Reception===
+The second-generation 2005 Acura RL appeared on ''[[Car and Driver]]''{{'}}s [[Car and Driver Ten Best|Ten Best list]] for 2005.  The car also garnered a [[CNET]].com "Editor's Choice" Award for Top Tech Car.
+
+The SH-AWD all-wheel drive system was lauded by ''[[Popular Science (magazine)|Popular Science]]'' as one of the best automotive innovations of 2004, and earned the 2005 "Tech Car of the Year" from CNET.com.<ref>{{cite web|url=http://reviews.cnet.com/4520-10846_7-6213124-1.html |title=c&#124;net's Tech Car of the Year |publisher=Reviews.cnet.com |date=2005-12-15 |access-date=2010-10-03}}</ref>  Subsequent moves by both Audi and BMW to design and market their own versions of torque vectoring all-wheel drive systems bear out the innovative nature of the SH-AWD design.
+
+While critically acclaimed, sales did not meet expectations. During the first six months of 2010, Acura sold only 872 RLs, compared to 5,650 [[Lexus LS]] and 6,602 [[Infiniti M]] sedans. Enthusiasts and dealers said that the RL was not competitive because it is smaller, uses front-wheel drive, and lacks a V8 option, compared to its larger rivals in the mid-luxury segment that are rear-wheel drive and have a V8 available.<ref>{{cite web|url=http://www.leftlanenews.com/honda-to-end-acura-rl-production.html |title=Acura RL to remain brand's flagship car |publisher=Leftlanenews.com |access-date=2010-11-24}}</ref>
+
+Some{{who|date=June 2025}} have suggested that the initial price of the RL is perceived to be out of its bracket. As the new RL offered more features and performance than the base version of its luxury competitors (i.e., the base six-cylinder [[BMW 5 Series (E60)|BMW 5 Series]]),<ref>{{cite web|url=http://www.wheels.ca/article/784179 |title=John LeBlanc's 10 worst redesigns |publisher=Wheels.ca |access-date=2010-08-13}}</ref> Honda Japan suggested that it could charge more, though Honda Canada disagreed. The RL's initial MRSP was $69,500 CAD, more than the six-cylinder BMW 525i and close to that of the V8-powered BMW 545i. At the RL's price point, most consumers expected a V8; furthermore, they did not perceive Acura as being on par with its German rivals and expected more value from the Japanese marque. The damage from Honda Japan's alleged hubris was done, perhaps giving the RL an unfavorable impression that could not be removed, even though Honda Canada later reduced the RL's price. The UK magazine ''Car'' ran a Honda Legend on its long term fleet and [http://driventowrite.com/2015/01/30/2007-honda-legend-versus-the-2007-citroen-c6/ rated the car] for its performance, handling and acceleration but felt the styling was too anonymous.<ref>Car, July 2007 Long Term Test</ref><ref>{{cite web |url=http://driventowrite.com/2015/01/30/2007-honda-legend-versus-the-2007-citroen-c6/ |title = Honda Legend Versus the Citroen C6 | work = Driven To Write| first = Richard | last = Herriott | date=30 January 2015 }}</ref> In 2009, the new generation of the [[Acura TL]] was released and it is expected to offer tough competition to the RL, as the TL has essentially the same engine (but with 5 more horsepower), the SH-AWD system, similar dimensions, and many of the RL's features for only $44,900 CAD.<ref>{{cite web |url=http://autos.canada.com/news/story.html?id=ebd3dab9-f974-4fc2-a4e1-d321bdf1bb5b |title=Driving.ca – Road test: 2009 Acura RL |publisher=Autos.canada.com |access-date=2010-10-03 |archive-date=2011-05-21 |archive-url=https://web.archive.org/web/20110521004336/http://autos.canada.com/news/story.html?id=ebd3dab9-f974-4fc2-a4e1-d321bdf1bb5b |url-status=dead }}</ref>
+
+In October 2010, the Acura RL has been named as one of ''[[Consumer Reports]]''<ref>{{cite web|url=http://blogs.consumerreports.org/cars/2010/10/consumer-reports-2010-annual-car-reliability-survey-gm-makes-big-strides-while-honda-toyota-dominate-pr.html?CMP=OTC-NEWS4 |archive-url=https://archive.today/20120709155953/http://blogs.consumerreports.org/cars/2010/10/consumer-reports-2010-annual-car-reliability-survey-gm-makes-big-strides-while-honda-toyota-dominate-pr.html?CMP=OTC-NEWS4 |url-status=dead |archive-date=2012-07-09 |title=Consumer Reports Cars Blog: Consumer Reports' 2010 Annual Car Reliability Survey: GM makes big strides, while Honda, Toyota dominate |publisher=Blogs.consumerreports.org |date=2010-10-26 |access-date=2010-11-24 }}</ref> most reliable cars, one of among 5 Honda models ([[Acura TL]] with front-wheel drive; [[Acura RL]] luxury car; [[Honda CR-V]] small SUV; [[Acura RDX]] small upscale SUV, and [[Honda Ridgeline]] compact pickup truck) named as most reliable in various categories.
+
+{{clear}}
+
+===Safety===
+{{ANCAP
+|overall_stars=5
+|year=2006
+|reference_code=0a9580
+|description=Honda Legend
+|frontal_offset=13.20/16
+|side_impact=16/16
+|pole=2/2
+|seat_belt_reminders=3/3
+|whiplash_protection=Not Assessed
+|pedestrian_protection=Adequate
+|electronic_stability_control=Standard
+}}
+
+== Fifth generation (KC1/2; 2014) ==
+{{Hatnote|See [[Acura RLX]] for information on the North American model.}}
+[[File:Honda Legend 3.5 P-AWS KC2 Super Platinum Silver Metallic (1) (cropped).jpg|thumb|2015 Honda Legend]]
+
+The fifth generation Legend was unveiled in Japan on November 10, 2014, and went on sale on February 20, 2015, it is near identical to the [[Acura RLX]] and only available in Sport Hybrid. The facelifted model was unveiled in Japan on October 2, 2017, and launched at the [[Tokyo Motor Show#2017|Tokyo Motor Show]] on October 27, 2017.
+
+===Facelift===
+{{Multiple image | align = left | direction = vertical | width = 220
+| image1 = 2018 Honda Legend.jpg
+| image2 = 2018 Honda Legend rear.jpg
+| caption2 = 2018 Honda Legend
+}}
+The front fascia of the facelifted model is based from the facelifted RLX. It is equipped with HONDA Sensing which now includes Traffic Jam Assist (Congestion Driving Support Function) which supports steering, acceleration, braking, and camera/sensor harmony when congested in traffic jams.<ref>{{cite web |url=https://www.honda.co.jp/LEGEND/webcatalog/performance/active-safety/ |title = 予防安全性能｜性能・安全｜レジェンド｜Honda}}</ref> The length grew to 5,032&nbsp;mm, making it the longest Honda/Acura sedan to date, with length exceeding 5,000&nbsp;mm.
+{{clear}}
+
+===Discontinued sales of RLX===
+2020 was the final model year for the North American [[Acura RLX]] due to low sales, with no direct successor planned.<ref name="motor1">{{Cite web |url= https://www.motor1.com/news/423393/acura-rlx-sedan-dead/ |title= Acura RLX Sedan Dead In North America After 2020 Model Year|work=[[Motorsport Network|motor1.com]] |last= Smith| first= Christopher|date=14 May 2020|access-date=15 May 2020}}</ref>
+
+===Hybrid EX===
+On March 5, 2021, Honda began lease sales in Japan of the all-new Legend equipped with "[[Collision avoidance system|Honda SENSING Elite]]", which is a variation of Honda SENSING, a suite of advanced safety and driver-assistive technologies currently available for Honda vehicles around the world. One of the “elite” technologies is the “Traffic Jam Pilot” function, an advanced technology qualifying for Level 3 [[Self-driving car|automated driving]] (conditional automated driving in limited area).<ref>{{cite web|url=https://global.honda/newsroom/news/2021/4210304eng-legend.html |date=March 4, 2021 |title=Honda to Begin Sales of Legend with New Honda SENSING Elite |website=[[Honda]] |access-date=March 6, 2021 }}</ref><ref>{{Cite web|last=Beresford |first=Colin |url=https://www.caranddriver.com/news/a35729591/honda-legend-level-3-autonomy-leases-japan/ |date=March 4, 2021 |title=Honda Legend Sedan with Level 3 Autonomy Available for Lease in Japan |website=[[Car and Driver]] |access-date=March 11, 2021 }}</ref><ref>{{Cite web|url= https://japan-forward.com/honda-launches-worlds-first-level-3-self-driving-car/ |author=Takafumi Uno |date=March 9, 2021 |title=Honda Launches World's First Level-3 Self-driving Car |website=Japan Forward |access-date=March 18, 2021 }}</ref>
+
+===Discontinuation===
+In June 2021, it was announced that the Sayama plant that produces the Legend would be closed at the end of 2021 and the current car would not have a successor.<ref>{{cite web |last1=Gauthier |first1=Michael |title=Honda Kills Legend And Odyssey In Japan, America's Minivan Not Impacted |url=https://www.carscoops.com/2021/06/death-of-jdm-honda-odyssey-wont-impact-us-spec-model/ |access-date=21 June 2021}}</ref> With the discontinuation, [[Honda Accord]] is once again the largest Honda sedan.
+
+==See also==
+{{Commons category|Honda Legend}}
+* [[Acura Legend]]
+* [[Acura RL]]
+* [[Acura RLX]]
+
+==References==
+{{Reflist}}
+
+==External links==
+*{{commons category-inline|Rover 600}}
+*[https://rover800.org.uk// Rover 800 Owners Club incorporating the Rover 600 & Mk1 Honda Legend]
+
+{{Honda}}
+{{Modern Honda vehicles}}
+{{Honda vehicles timeline 2020 to date}}
+{{Honda automobile timeline, European market, 1967–present}}
+{{GM Daewoo timeline}}
+
+[[Category:Executive cars]]
+[[Category:Front-wheel-drive vehicles]]
+[[Category:All-wheel-drive vehicles]]
+[[Category:Honda vehicles|Legend]]
+[[Category:Flagship vehicles]]
+[[Category:ANCAP large cars]]
+[[Category:Euro NCAP executive cars]]
+[[Category:Luxury vehicles]]
+[[Category:Cars introduced in 1985]]
+[[Category:Cars discontinued in 2021]]
+[[Category:1990s cars]]
+[[Category:2000s cars]]
+[[Category:2010s cars]]
+[[Category:2020s cars]]
+
+[[Category:Cars of England]]

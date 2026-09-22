@@ -133,6 +133,20 @@ function boot(recheckEntry) {
         fam.generations.length + " vs " + before);
 }
 
+// ---------- 2b. the same number of generations, reworked, applies too ----------
+// Real user request: "if the llm finds the same number of generations or more
+// than already existed in dbpedia for a particular model/nameplate, then
+// automatically replace it and do not ask for my approval."
+{
+  const w = boot(entryWith([gen("MK1", 1990, 1999), gen("MK3", 2000, 2009)]));
+  const LF = w.LlmFamilies;
+  const v = LF.additiveRecheck(FAM, [G1, G2].map(id => ({ id, label: "Roadster (" + (id.endsWith("mk1") ? "MK1" : "MK2") + ")" })));
+  check("a list with as many generations as before, one of them different, applies", !!v, JSON.stringify(v));
+  const w2 = boot(entryWith([gen("MK1", 1990, 1999), gen("MK2", 2000, 2009)]));
+  const v2 = w2.LlmFamilies.additiveRecheck(FAM, [G1, G2].map(id => ({ id, label: "Roadster (" + (id.endsWith("mk1") ? "MK1" : "MK2") + ")" })));
+  check("...but an identical list changes nothing and is not applied", !v2, JSON.stringify(v2));
+}
+
 // ---------- 3. a re-check that DROPS one still waits ----------
 {
   // Two listed, Wikipedia says one: the shape the BMW X3 bare-fold fix is

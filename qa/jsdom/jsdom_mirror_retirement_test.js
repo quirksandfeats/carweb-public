@@ -213,10 +213,14 @@ check("precondition: mirror link exists", !!mirrorLink);
 
 (async () => {
   // ---------- Fix A: accept the Feature 4 override, verify real designer link ----------
+  // Two generations for two: under the "same number or more replaces it"
+  // rule this applies itself at boot, with no button to press. Either way
+  // the result below must be the same.
   cw.openDetail(x3);
   const yesBtn = window.document.querySelector(".dt-llmcheck .llm-yes");
-  check("Feature 4 discrepancy Accept button rendered", !!yesBtn);
-  yesBtn.onclick();
+  const autoApplied = x3.generations.some(id => (cw.byId.get(id) || {}).label.includes("G01/F97"));
+  check("Feature 4 override applied (automatically, or via its Accept button)", autoApplied || !!yesBtn);
+  if (!autoApplied && yesBtn) yesBtn.onclick();
 
   const bare = cw.byId.get(BARE_ID);
   check("bogus bare X3 generation retired", bare.retired === true);

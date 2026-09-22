@@ -2193,10 +2193,26 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
   // `nodes`, when supplied by the caller (app.js passes its own live graph
   // array), enables the extra LLM sanity-check duplicate pass -- see
   // runCheck's own comment. Optional; omitting it just skips that pass.
+  // After any check: an explicit one (a person asked, or a queued request)
+  // re-reads this car's engines from scratch; an automatic one reads them if
+  // they were never read, or were read by an older reader. See notifyChecked.
+  function engineReadAfterCheck(node, opts) {
+    if (!node) return;
+    if (opts && opts.explicit) {
+      clearEngineScansFor(node, (node.generations || []).map(id => ({ id })));
+    }
+    notifyChecked(node, opts);
+  }
   function checkNode(node, nodes, opts) {
     if (!serverAvailable) return Promise.resolve({ status: "unavailable" });
     const existing = entryFor(node.id);
-    if (existing) return Promise.resolve(existing); // already checked — never re-run automatically
+    if (existing) {
+      // Already checked: the generation answer is not asked again -- but a
+      // person pressing the button still gets the engines read. That was the
+      // Mercedes SL: an LLM check found an answer on file and did nothing.
+      if (opts && opts.explicit) engineReadAfterCheck(node, opts);
+      return Promise.resolve(existing); // already checked — never re-run automatically
+    }
     if (inFlight.has(node.id)) return inFlight.get(node.id);
     if (!node.wp) {
       const entry = { status: "no-wiki-link", checkedAt: new Date().toISOString() };
@@ -2214,6 +2230,8 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
           return same;
         }
         const { wp, wikitext, clean, raw, dropped } = await runCheck(node, null, null, undefined, nodes);
+        const genOf = await resolveOwnGeneration(node, nodes, clean, wp);
+        if (genOf) { store.families[node.id] = genOf; await persist(); return genOf; }
         // What this car ran, noted but not followed. See recordEngineMentions.
         const engineHits = engineMentions(wikitext);
         const entry = {
@@ -2226,6 +2244,7 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
           engines: engineHits,
           debug: { raw, dropped },
         };
+        if (entry.status === "provisional" && autoApplyFirstSplit(node, entry)) return entry;
         if (entry.status === "provisional") {
           // Real bug report: an explicit LLM search on the Opel Astra ran
           // twice, ~100 seconds each, produced a full generation proposal
@@ -2263,6 +2282,7 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
       }
     })();
     inFlight.set(node.id, p);
+    p.then(() => engineReadAfterCheck(node, opts), () => {});
     return p;
   }
 
@@ -2369,6 +2389,10 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
   }
   async function sameArticleOwner(node, nodes) {
     if (!Array.isArray(nodes) || !node || !node.wp) return null;
+    // A nameplate owns its article by being one. Real case, the Mercedes-Benz
+    // SL: its nameplate deferred to another node sharing the page, so its own
+    // check read nothing -- no generations re-read, no engines.
+    if (node.type === "family") return null;
     let title = node.wp;
     try {
       const r = await fetchArticleDigest(node.wp);
@@ -2392,7 +2416,11 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
     let dropped = 0;
     for (const [id, e] of Object.entries(store.families || {})) {
       if (!e || e.status !== "same-article") continue;
-      if (holdsReading(byIdLocal.get(e.sameAs))) continue;
+      const self = byIdLocal.get(id);
+      // A nameplate never defers (see sameArticleOwner); one that did is
+      // cleared so its next check reads its own page.
+      const selfIsNameplate = !!self && self.type === "family";
+      if (!selfIsNameplate && holdsReading(byIdLocal.get(e.sameAs))) continue;
       delete store.families[id];
       // Back on the cascade's list, so the next pass actually reads it.
       if (!store.pendingCascade[id]) {
@@ -2419,6 +2447,95 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
     };
   }
 
+  // ---------- is this car really a generation of a nameplate? ----------
+  // Real user request: "if a car gets checked in any way... it should also
+  // check whether the car being checked is a generation or is a nameplate, or
+  // is a standalone model... If the car is identified as being a generation
+  // of a nameplate, then it should find the name of the nameplate itself and
+  // do the research for the entire nameplate... That way cars like the nissan
+  // s13 will be properly identified as a generation to begin with rather than
+  // as a nameplate."
+  //
+  // The tell is in the answer the check already has. "Nissan Silvia (S13)"
+  // points at the Silvia's article, the model reads seven generations off it,
+  // and one of them is S13 -- the car's own name ends in the code of one of
+  // the generations its page describes. That car is that generation. Then:
+  //   - the nameplate is already in the graph and has been read: this car is
+  //     the same article as it (and its matching generation folds in by code,
+  //     as the GLA X156 does);
+  //   - the nameplate is in the graph but unread: it is given the article if
+  //     it had none and checked, and this car defers to it;
+  //   - there is no nameplate: this car BECOMES it -- renamed to the base
+  //     name ("Silvia") and split as normal, so S13 is one of its generations
+  //     and nobody has to rename it by hand afterwards.
+  // A code has to carry a digit or sit in brackets: "Grand Cherokee" does not
+  // end in a generation code just because a generation is called Cherokee.
+  function ownGenerationCode(node, gens) {
+    const label = String((node && node.label) || "").trim();
+    const tc = trailingCode(label);
+    if (!tc || !tc.base || !tc.code) return null;
+    const inBrackets = /\)\s*$/.test(label);
+    if (!inBrackets && !/\d/.test(tc.code)) return null;
+    const k = norm(tc.code);
+    if (k.length < 2) return null;
+    const hit = (gens || []).find(g => {
+      const c = String((g && g.code) || "");
+      if (norm(c) === k) return true;
+      return chassisCodesIn(c).some(x => norm(x) === k) ||
+             c.split(/[^A-Za-z0-9]+/).some(w => w && norm(w) === k);
+    });
+    return hit ? { base: tc.base, code: tc.code, gen: hit } : null;
+  }
+  function nameplateNamed(node, base, nodes) {
+    const mk = norm(node.make), bk = norm(base);
+    return (nodes || []).find(n => n && n !== node && !n.retired && !n.familyOf &&
+      (n.type === "family" || n.type === "model") &&
+      nameKeysOf(n).make === mk && nameKeysOf(n).bare === bk) || null;
+  }
+  // Returns an entry to record for `node` when it turned out to be a
+  // generation of another car, or null to carry on (possibly after renaming
+  // `node` to its nameplate's name, which the caller does not need to know).
+  async function resolveOwnGeneration(node, nodes, clean, title) {
+    if (!clean || !Array.isArray(clean.generations) || clean.generations.length < 2) return null;
+    const own = ownGenerationCode(node, clean.generations);
+    if (!own) return null;
+    const plate = nameplateNamed(node, own.base, nodes);
+    if (plate) {
+      if (!plate.wp && node.wp) { plate.wp = node.wp; store.wpLinks[plate.id] = node.wp; }
+      if (!holdsReading(plate) && plate.type === "model" && !entryFor(plate.id)) {
+        try { checkNodeCascade(plate, nodes); } catch (e) { /* its own entry records it */ }
+      }
+      note(`llm: ${node.make} ${node.label} is the ${own.code} generation of the ${node.make} ` +
+           `${plate.label} -- that nameplate holds its article`);
+      return Object.assign(sameArticleEntry(plate, title), { generationOf: plate.id, code: own.code });
+    }
+    // No nameplate in the graph: this car is it. Recorded like any rename, so
+    // it can be reverted from the same place, and marked as automatic.
+    if (!store.renames[node.id]) {
+      store.renames[node.id] = { label: own.base, previousLabel: node.label, kind: node.type,
+                                 renamedAt: new Date().toISOString(), auto: true,
+                                 reason: `its page is the whole ${own.base}; ${own.code} is one generation` };
+      note(`llm: ${node.make} ${node.label} renamed to ${node.make} ${own.base} -- its article ` +
+           `covers every generation, and ${own.code} is one of them`);
+      node.label = own.base;
+      node.renamed = true;
+    }
+    return null;
+  }
+
+  // A plain model split for the first time. The graph had it as one car, so
+  // any list of two or more is "the same number of generations or more" --
+  // applied without asking, the way a cascade partner's first split already
+  // was. Only a nameplate that already has generations can be asked to shrink,
+  // and that is the one case left for a person (see additiveRecheck).
+  function autoApplyFirstSplit(node, entry) {
+    if (!node || !entry || entry.status !== "provisional") return false;
+    if (node.type !== "model" || node.familyOf) return false;
+    store.families[node.id] = entry;
+    confirmNode(node.id);
+    notifySplitReady(node);
+    return true;
+  }
   function checkNodeCascade(node, nodes) {
     if (!serverAvailable) return Promise.resolve({ status: "unavailable" });
     const existing = entryFor(node.id);
@@ -2438,6 +2555,8 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
           return same;
         }
         const { wp, clean, raw, dropped } = await runCheck(node, null, null, undefined, nodes);
+        const genOf = await resolveOwnGeneration(node, nodes, clean, wp);
+        if (genOf) { store.families[node.id] = genOf; await persist(); return genOf; }
         const entry = {
           status: clean.generations.length > 1 ? "provisional" : "none",
           checkedAt: new Date().toISOString(),
@@ -2449,6 +2568,7 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
           cascadeDiscovered: true,
         };
         store.families[node.id] = entry;
+        if (autoApplyFirstSplit(node, entry)) return entry;
         if (entry.status !== "provisional") await persist();
         return entry;
       } catch (e) {
@@ -2460,6 +2580,7 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
       }
     })();
     inFlight.set(node.id, p);
+    p.then(() => engineReadAfterCheck(node, null), () => {});
     return p;
   }
 
@@ -2503,6 +2624,8 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
       }
     })();
     inFlight.set(node.id, p);
+    // A retry is a person asking again: read the engines afresh too.
+    p.then(() => engineReadAfterCheck(node, { explicit: true }), () => {});
     return p;
   }
 
@@ -2555,6 +2678,63 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
   // now, not just this one.
   function rejectNode(nodeId) {
     delete store.families[nodeId];
+  }
+
+  // ---------- generation splits waiting on a person ----------
+  // Real user request: "if a car is asking me for approval for a generation
+  // nameplate, then it should also appear for me in an easy to access
+  // location in serve.py for me to confirm the split (if it's absolutely
+  // necessary for me to confirm the split), similar to how there is a button
+  // for 'unconfirmed relationships'."
+  //
+  // Two kinds. A plain model's FIRST split ("first") -- which now applies
+  // itself as it is found (see autoApplyFirstSplit), so these are only the
+  // ones found before that rule, or by a path that could not apply them.
+  // And a nameplate's re-check that came back with a different list
+  // ("recheck"): applied by itself when it is at least as long as what the
+  // nameplate has (see additiveRecheck), so what is left here is a SHORTER
+  // list -- the one case that really wants a person. `meetsRule` says which
+  // rows the automatic rule would have applied anyway.
+  function pendingSplits(nodes) {
+    const byIdLocal = new Map((nodes || []).map(n => [n.id, n]));
+    const out = [];
+    for (const [id, e] of Object.entries(store.families || {})) {
+      if (!e || e.status !== "provisional") continue;
+      const n = byIdLocal.get(id);
+      if (!n || n.retired) continue;
+      const gens = (e.proposal && e.proposal.generations) || [];
+      const had = n.type === "family" ? (n.generations || []).length : 1;
+      out.push({ id, kind: "first", make: n.make || "", label: n.label, had, now: gens.length,
+                 codes: gens.map(g => g.code), sourceTitle: e.sourceTitle || n.wp || null,
+                 checkedAt: e.checkedAt || null,
+                 meetsRule: n.type === "model" && !n.familyOf && gens.length >= 2 });
+    }
+    for (const [id, e] of Object.entries(store.recheck || {})) {
+      if (!e || e.status !== "provisional") continue;
+      const fam = byIdLocal.get(id);
+      if (!fam || fam.retired) continue;
+      const gens = (e.proposal && e.proposal.generations) || [];
+      const genNodes = (fam.generations || []).map(g => byIdLocal.get(g)).filter(g => g && !g.retired);
+      out.push({ id, kind: "recheck", make: fam.make || "", label: fam.label, had: genNodes.length,
+                 now: gens.length, codes: gens.map(g => g.code), sourceTitle: e.sourceTitle || fam.wp || null,
+                 checkedAt: e.checkedAt || null, discrepancy: e.discrepancy || null,
+                 meetsRule: !!additiveRecheck(id, genNodes, nodes) });
+    }
+    return out.sort((a, b) => (b.meetsRule - a.meetsRule) || (a.make + a.label).localeCompare(b.make + b.label));
+  }
+  // Declining is remembered: a split declined here is not proposed again by
+  // the next automatic pass. A re-check can always be asked for by hand.
+  function declineSplit(id, kind) {
+    if (kind === "recheck") {
+      delete store.recheck[id];
+    } else {
+      const e = store.families[id];
+      if (!e) return false;
+      e.status = "rejected"; e.decidedAt = new Date().toISOString(); e.decidedBy = decisionSource;
+    }
+    persist();
+    notifyFactsUpdate();
+    return true;
   }
 
   // ---------- name -> person-node matching (mirrors data_src/build_data.py's slug()/norm()) ----------
@@ -3478,6 +3658,29 @@ Rules:
   // skips anything already confirmed. So the MDX's generations were found,
   // stored, and then sat there with nothing left to apply them. Same listener
   // shape as onFactsUpdate; app.js subscribes once at boot.
+  // ---------- "a car was just checked -- read its engines" ----------
+  // Real user report: "I hope it's clear that regardless of whether a car is
+  // a nameplate or a model, that its engine info should still be checked...
+  // Maybe the problem is that when I press the LLM check button on a
+  // particular car, it doesn't also check the engine since the logic isn't
+  // the same?" It wasn't. The engine read was started by some callers of a
+  // check and not others: the panel's button did it, a cascade partner that
+  // came back single-generation did not (the Daihatsu Thor was checked and
+  // never engine-read), and a check that found an answer already on file did
+  // nothing at all. Every check now says so here, from inside the check
+  // itself, and app.js -- the one place that can splice engines into the
+  // live graph -- reads them. Same code whether the check was a click, a
+  // queued request, the agent or the cascade.
+  const checkedListeners = [];
+  function onChecked(f) { if (typeof f === "function") checkedListeners.push(f); }
+  function notifyChecked(node, opts) {
+    if (!node) return;
+    const e = entryFor(node.id);
+    // A car that deferred to another's article reads nothing of its own.
+    if (e && e.status === "same-article") return;
+    checkedListeners.forEach(f => { try { f(node, opts || {}); } catch (err) { /* one listener cannot stop the rest */ } });
+  }
+  let engineReadsInFlight = 0;
   const splitListeners = [];
   function notifySplitReady(node) {
     splitListeners.forEach(f => { try { f(node); } catch (e) { /* one bad listener shouldn't break the others */ } });
@@ -3620,9 +3823,9 @@ Rules:
     const running = jobList().filter(j => j.state === "running").map(j => j.targetId)
                              .filter(id => !checks.includes(id));
     return { checks, partners, lookups, queued, running,
-             saved: pendingCascadeCount(),
+             saved: pendingCascadeCount(), engineReads: engineReadsInFlight,
              total: checks.length + partners.length + lookups.length +
-                    queued.length + running.length };
+                    queued.length + running.length + engineReadsInFlight };
   }
 
   // ---------- the work queue ----------
@@ -7228,7 +7431,70 @@ Rules:
   // so all of them have to be updated together or the graph ends up with
   // children still claiming the old marque. Handled here rather than left to
   // the caller so it can't be forgotten at one of the call sites.
+  // A nameplate that was split under one of its own generations' names --
+  // "Nissan Silvia (S13)" holding S10 through S15 -- is given its base name,
+  // the same way a new check would have named it (see resolveOwnGeneration).
+  // Never over a name set by hand, and never where the base name is already
+  // another car in the graph.
+  function nameMisnamedNameplates(nodes) {
+    const byIdLocal = new Map(nodes.map(n => [n.id, n]));
+    let n = 0;
+    for (const fam of nodes) {
+      if (!fam || fam.retired || fam.type !== "family" || store.renames[fam.id]) continue;
+      const gens = (fam.generations || []).map(id => byIdLocal.get(id)).filter(g => g && !g.retired);
+      if (gens.length < 2) continue;
+      const own = ownGenerationCode(fam, gens.map(g => ({ code: g.label })));
+      if (!own || nameplateNamed(fam, own.base, nodes)) continue;
+      store.renames[fam.id] = { label: own.base, previousLabel: fam.label, kind: fam.type,
+                                renamedAt: new Date().toISOString(), auto: true,
+                                reason: `split under ${own.code}, one of its own generations` };
+      n++;
+    }
+    if (n) {
+      note(`llm: ${n} nameplate(s) were named after one of their own generations -- given ` +
+           "their base name (revert from the rename list if that is wrong)");
+      persist();
+    }
+    return n;
+  }
+  // The same question for a split still waiting in the pending list: "Audi
+  // 80 (B1)" proposing B1..B5 is the Audi 80, not a car with five
+  // generations of its own. Where the Audi 80 is already in the graph the
+  // proposal is dropped and B1 recorded as one of its generations; where it
+  // is not, the car is given the base name and the split stays proposed.
+  function resolvePendingOwnGenerations(nodes) {
+    const byIdLocal = new Map(nodes.map(n => [n.id, n]));
+    let folded = 0, renamed = 0;
+    for (const [id, e] of Object.entries(store.families || {})) {
+      if (!e || e.status !== "provisional" || store.renames[id]) continue;
+      const node = byIdLocal.get(id);
+      if (!node || node.retired || node.type !== "model" || node.familyOf) continue;
+      const gens = (e.proposal && e.proposal.generations) || [];
+      if (gens.length < 2) continue;
+      const own = ownGenerationCode(node, gens);
+      if (!own) continue;
+      const plate = nameplateNamed(node, own.base, nodes);
+      if (plate) {
+        store.families[id] = Object.assign(sameArticleEntry(plate, e.sourceTitle || node.wp || null),
+                                           { generationOf: plate.id, code: own.code });
+        folded++;
+      } else {
+        store.renames[id] = { label: own.base, previousLabel: node.label, kind: node.type,
+                              renamedAt: new Date().toISOString(), auto: true,
+                              reason: `its page is the whole ${own.base}; ${own.code} is one generation` };
+        renamed++;
+      }
+    }
+    if (folded || renamed) {
+      note(`llm: pending splits -- ${folded} were a generation of a nameplate already in the graph, ` +
+           `${renamed} renamed to their nameplate's name`);
+      persist();
+    }
+    return { folded, renamed };
+  }
   function applyRenames(nodes) {
+    try { resolvePendingOwnGenerations(nodes); } catch (e) { console.warn("LlmFamilies: pending generation check failed", e); }
+    try { nameMisnamedNameplates(nodes); } catch (e) { console.warn("LlmFamilies: nameplate naming check failed", e); }
     if (!store.renames || !Object.keys(store.renames).length) return;
     const byIdLocal = new Map(nodes.map(n => [n.id, n]));
     Object.keys(store.renames).forEach(id => {
@@ -8322,7 +8588,16 @@ Rules:
     const fresh = (entry.proposal && entry.proposal.generations) || [];
     if (!fresh.length) return null;
     const { addedFresh, removedOld } = diffGenerationCodes(genNodes, fresh);
-    if (removedOld.length || !addedFresh.length) return null;
+    // Real user rule: "if the llm finds the same number of generations or
+    // more than already existed in dbpedia for a particular model/nameplate,
+    // then automatically replace it and do not ask for my approval." Wider
+    // than the rule this started as (nothing dropped, at least one added):
+    // a list the same length or longer replaces the old one outright, even
+    // if a code or two differs. Only a SHORTER list -- the model finding
+    // fewer generations than the nameplate already has -- waits for a person.
+    const had = (genNodes || []).length;
+    if (fresh.length < had) return null;
+    if (!addedFresh.length && !removedOld.length) return null;   // nothing would change
     // "Adds a generation" has a second shape that is not purely additive at
     // all: applyFamilyOverride does not always MINT the new generation. If the
     // car already exists somewhere else in the graph -- a never-grouped
@@ -8337,7 +8612,8 @@ Rules:
         !!findDuplicateGeneration(nodes, g.code, famId, fam && fam.make, fam && fam.label));
       if (absorbs) return null;
     }
-    return { added: addedFresh.map(g => g.code), had: (genNodes || []).length, now: fresh.length };
+    return { added: addedFresh.map(g => g.code), removed: removedOld.map(g => g.label || g.code || g.id),
+             had, now: fresh.length };
   }
 
   // ---------- manual "LLM re-check": relation side ----------
@@ -10197,6 +10473,11 @@ Rules:
     const replay = (carId, hits) => {
       const car = byId.get(carId);
       if (!car || car.retired || !hits || !hits.length) return;
+      // A nameplate with generations carries no engines of its own: they
+      // belong to the generations, which are read separately. Real case, the
+      // Nissan Silvia -- read once as a plain car, before it was split, which
+      // put all seven generations' engines on the nameplate's own card.
+      if (car.type === "family" && (car.generations || []).length) return;
       // No revive: a boot replay is not a deliberate read, and undoing the
       // user's delete on every page load would make it impossible to delete
       // an engine at all.
@@ -10640,6 +10921,29 @@ Rules:
   // survivor is the engine: an infobox writes the engine's own name first and
   // qualifies it afterwards ("2.0 L [[Ford EcoBoost engine|Ford EcoBoost]]
   // [[Turbocharger|turbo]] [[Inline-four engine|I4]]").
+  // "[[Honda J35|J35A]]" -- a marque and an engine code, with no "engine"
+  // in the title. Real case, the Honda Legend's fourth generation: both of
+  // its engines are linked this way (the titles redirect to sections of
+  // "Honda J engine"), and requiring the word "engine" dropped them to plain
+  // text -- which is why the card said "no article" while its hover showed
+  // the very code the page links. Only inside an engine field (that is the
+  // only place this is asked), only a code with at least three characters
+  // and a digit, and only when the text shown is that code or starts with
+  // it -- so a car article that happens to be linked in an engine line
+  // ("Honda S2000") is not mistaken for an engine unless it is displayed as
+  // an engine code as well.
+  const ENGINE_CODE_WORD_RE = /^(?=[A-Z0-9-]*\d)(?=[A-Z0-9-]*[A-Z])[A-Z0-9][A-Z0-9-]{2,}$/;
+  function looksLikeMarqueCodeTitle(title, display, makes) {
+    const t = String(title || "").trim();
+    const sp = t.lastIndexOf(" ");
+    if (sp <= 0) return false;
+    const marque = t.slice(0, sp), code = t.slice(sp + 1);
+    if (!ENGINE_CODE_WORD_RE.test(code)) return false;
+    if (!(makes && makes.has && makes.has(norm(marque)))) return false;
+    const shown = String(display || "").replace(/'{2,}/g, "").trim().toUpperCase();
+    if (!shown) return true;
+    return shown.startsWith(code.toUpperCase()) || code.toUpperCase().startsWith(shown);
+  }
   function engineLinksIn(line, makes) {
     const out = [];
     const rx = /\[\[([^\]|]+)(?:\|([^\]]*))?\]\]/g;
@@ -10666,7 +10970,8 @@ Rules:
       // points at one; without one it says only "an Isuzu engine", which is
       // not something that can go in a graph. See isEngineListTitle.
       if (isEngineListTitle(title)) { if (!anchor) continue; }
-      else if (!looksLikeEngineArticleTitle(raw) && !(anchor && /\bengines?\b/i.test(title))) continue;
+      else if (!looksLikeEngineArticleTitle(raw) && !(anchor && /\bengines?\b/i.test(title)) &&
+               !looksLikeMarqueCodeTitle(title, (m[2] || "").trim(), makes)) continue;
       out.push({ title, anchor, display: (m[2] || "").trim() });
     }
     return out;
@@ -10695,11 +11000,12 @@ Rules:
   // one of these: engineFieldEntries has already given it that link (the
   // GLA's second M270), and it comes back from engineMentions as an ordinary
   // engine.
-  function unlinkedEngineMentions(wikitext) {
+  function unlinkedEngineMentions(wikitext, context) {
     const out = [], seen = new Set();
     const makes = knownMakeNames();
+    const ctx = context ? articleEngineLinks(context, makes) : null;
     for (const field of engineFields(String(wikitext || ""))) {
-      for (const entry of engineFieldEntries(field, makes)) {
+      for (const entry of engineFieldEntries(field, makes, ctx)) {
         if (entry.links.length) continue;
         const sp = entry.specs || {};
         // Something that states an engine, not a stray note: a displacement,
@@ -10710,23 +11016,57 @@ Rules:
                      norm(sp.induction || "")].join("|");
         if (seen.has(key)) continue;
         seen.add(key);
-        out.push({ name: engineSpecLabel(sp), specs: sp, said: entry.text });
+        out.push({ name: engineSpecLabel(sp, entry.text), specs: sp, said: entry.text });
       }
     }
     return out;
   }
   // "5.7 L V8", "2.0 L turbo I4 (diesel)" -- what the line said, in the
   // order a person would say it. Never a code, because the line carried none.
-  function engineSpecLabel(sp) {
+  // The engine code a line names, if any: "J35A" in "3.5 L J35A V6". Not a
+  // layout ("V6"), not a displacement, not a year.
+  function engineCodeIn(text) {
+    const t = stripEngineMarkup(String(text || "")).replace(/&nbsp;/g, " ");
+    for (const w of t.split(/[^A-Za-z0-9-]+/)) {
+      if (!w || !ENGINE_CODE_WORD_RE.test(w)) continue;
+      if (/^[VWIHLBU]\d{1,2}$/i.test(w) || /^\d{4}$/.test(w) || /^\d+(?:CC|L|HP|PS|KW|NM)$/i.test(w)) continue;
+      return w;
+    }
+    return null;
+  }
+  function engineSpecLabel(sp, said) {
     const s = sp || {};
     const layout = s.layout && s.cylinders ? s.layout + s.cylinders : null;
     const head = [s.displacement, s.induction === "turbocharged" ? "turbo" : null, layout]
       .filter(Boolean).join(" ");
     const tail = [s.fuel, s.hybrid ? "hybrid" : null].filter(Boolean).join(", ");
-    return (head || "engine") + (tail ? ` (${tail})` : "");
+    // Named by its code when the line gives one ("J35A, 3.5 L V6"): the code
+    // is what anyone looking for the engine will search for.
+    const code = engineCodeIn(said);
+    const base = (head || "engine") + (tail ? ` (${tail})` : "");
+    return code ? `${code} · ${base}` : base;
   }
 
-  function engineFieldEntries(field, makes) {
+  // Every engine link in a whole article, keyed by the code-like words it
+  // shows -- so a generation's section, read on its own, can still resolve a
+  // code the same page links in another generation's engine field.
+  function articleEngineLinks(wikitext, makes) {
+    const map = new Map();
+    for (const field of engineFields(String(wikitext || ""))) {
+      for (const line of splitEngineField(field)) {
+        const links = engineLinksIn(String(line || ""), makes);
+        if (!links.length) continue;
+        const l = links[0];
+        [l.display, l.anchor, stripEngineSuffix(l.title)].forEach(t => {
+          String(t || "").split(/[^A-Za-z0-9-]+/).forEach(w => {
+            if (w && w.length >= 3 && /\d/.test(w) && !map.has(norm(w))) map.set(norm(w), l);
+          });
+        });
+      }
+    }
+    return map;
+  }
+  function engineFieldEntries(field, makes, contextLinks) {
     const lines = splitEngineField(field);
     const out = [];
     let fuel = null;
@@ -10765,6 +11105,10 @@ Rules:
         });
       });
     });
+    // A code the same field did not link, but the rest of the article does.
+    if (contextLinks && contextLinks.size) {
+      for (const [k, v] of contextLinks) if (!linked.has(k)) linked.set(k, v);
+    }
     if (linked.size) {
       out.forEach(e => {
         if (e.links.length) return;
@@ -10803,18 +11147,20 @@ Rules:
     }
     return fields;
   }
-  function engineMentions(wikitext) {
+  // `context`: the whole article, when `wikitext` is only one section of it.
+  function engineMentions(wikitext, context) {
     const src = String(wikitext || "");
     const fields = engineFields(src);
     if (!fields.length) return [];
     const makes = knownMakeNames();
+    const ctx = context ? articleEngineLinks(context, makes) : null;
     const out = [];
     const seen = new Set();
     // One entry per LINE, because a line is one engine -- and the rest of the
     // line is what says which engine, when the link goes to a family page
     // holding dozens. See engineFieldEntries.
     for (const field of fields) {
-      for (const entry of engineFieldEntries(field, makes)) {
+      for (const entry of engineFieldEntries(field, makes, ctx)) {
         // At most one link on a line is the engine, and it is the first that
         // survives engineLinksIn. A line with none (the Land Rover series'
         // "1.6 L I4 (1948-1951)") names an engine with no article to read, so
@@ -10953,7 +11299,11 @@ Rules:
               // car happens to use -- an unread node called "M177" whose page
               // is the M176/M177/M178 is a node that lies about its own scope.
               label: listed ? (mention.name || mention.variant)
-                   : multi ? engineTitleLabel(mention.title)
+                   // A link into one SECTION of the article names only that
+                   // section: "[[Honda C engine#C25A|C25A]]" must not name
+                   // the whole C-series node "C25A" -- the next Legend
+                   // generation's C32A is on the same node.
+                   : (multi || mention.variant) ? engineTitleLabel(mention.title)
                    : (mention.name || mention.title),
               wp: listed ? mention.title + "#" + mention.variant : mention.title,
               make: null, year: null, end: null, llmGenerated: true, unresearched: true,
@@ -11478,7 +11828,42 @@ Rules:
 
   // Read the engines for one car, or for every generation of a nameplate.
   // Done once per car and remembered, so re-opening a nameplate is free.
+  // Which version of the reader a stored engine read came from. A read is
+  // remembered so a nameplate's articles are not fetched on every check --
+  // but a remembered "no engines" from an older, weaker reader was being kept
+  // for good: the Honda Legend's fourth generation, read before its engine
+  // links were understood, said "no engines" long after the reader could
+  // find both. Bump this whenever the reader learns something, and every
+  // older read is redone the next time its car is checked.
+  const ENGINE_SCAN_VERSION = 2;
+  function engineScanIsCurrent(rec) { return !!rec && (rec.v || 1) >= ENGINE_SCAN_VERSION; }
+  // Every car whose engines should be (re-)read: read by an older reader, or
+  // checked but never engine-read at all (the Daihatsu Thor). A nameplate
+  // with generations stands for them -- scanEnginesFor reads each of its
+  // generations -- and a car that deferred to another's article reads none.
+  function engineReadsDue(nodes) {
+    const out = [];
+    for (const n of nodes || []) {
+      if (!n || n.retired || n.familyOf) continue;
+      if (n.type === "family") {
+        const gens = n.generations || [];
+        if (gens.some(id => !engineScanIsCurrent(store.engineScans[id]))) out.push(n);
+        continue;
+      }
+      if (n.type !== "model") continue;
+      const e = store.families[n.id];
+      const rec = store.engineScans[n.id];
+      if (rec && !engineScanIsCurrent(rec)) { out.push(n); continue; }
+      if (!rec && e && e.status !== "same-article" && e.status !== "no-wiki-link" && n.wp) out.push(n);
+    }
+    return out;
+  }
   async function scanEnginesFor(node, nodes, links) {
+    engineReadsInFlight++;
+    try { return await scanEnginesForInner(node, nodes, links); }
+    finally { engineReadsInFlight--; }
+  }
+  async function scanEnginesForInner(node, nodes, links) {
     const out = { engines: 0, fitted: 0, scanned: 0, skipped: 0, revived: 0, deleted: 0 };
     if (!serverAvailable || !node) return out;
     const byIdLocal = new Map(nodes.map(n => [n.id, n]));
@@ -11490,7 +11875,7 @@ Rules:
     // The nameplate's own article, read ONCE for the whole pass: it is what
     // says where each generation's article is, and fetching it per generation
     // would be the same page six times.
-    const pending = targets.filter(c => c && !c.retired && !store.engineScans[c.id]);
+    const pending = targets.filter(c => c && !c.retired && !engineScanIsCurrent(store.engineScans[c.id]));
     if (!pending.length) return out;
     note(`powertrain: reading engines for ${node.label} -- ` +
          `${pending.length} car(s) to check, from their own articles and from ` +
@@ -11506,7 +11891,7 @@ Rules:
     }
     for (const car of targets) {
       if (!car || car.retired) continue;
-      if (store.engineScans[car.id]) { out.skipped++; continue; }
+      if (engineScanIsCurrent(store.engineScans[car.id])) { out.skipped++; continue; }
       let title = null;
       try { title = engineArticleFor(car, fam, famWikitext, umbrella); } catch (e) { title = null; }
 
@@ -11539,14 +11924,31 @@ Rules:
         try { fromSection = nameplateSectionForCar(car, fam, famWikitext); } catch (e) { fromSection = null; }
       }
       if (fromSection) {
-        const secHits = engineMentions(fromSection.body);
+        const secHits = engineMentions(fromSection.body, famWikitext);
         if (secHits.length) {
           const before = hits.length;
           hits = mergeEngineHits(hits, secHits);
           note(`powertrain: ${car.label} -- ${hits.length - before} more engine(s) from ` +
                `"${umbrella}" § ${fromSection.title}`);
         }
-        addUnlinked(unlinkedEngineMentions(fromSection.body));
+        addUnlinked(unlinkedEngineMentions(fromSection.body, famWikitext));
+      }
+      // No article of its own and no section of its own -- but a nameplate
+      // page with ONE engine field describes every generation it covers.
+      // Real case, the Daimler Conquest: a single infobox for the whole car,
+      // no per-generation headings, so the model's Mark I and Mark II each
+      // came back "no article" and neither showed an engine. With several
+      // engine fields there is no telling which is this car's, so nothing is
+      // guessed.
+      let wholePage = false;
+      if (!title && !fromSection && famWikitext && !hits.length && engineFields(famWikitext).length === 1) {
+        hits = engineMentions(famWikitext);
+        addUnlinked(unlinkedEngineMentions(famWikitext));
+        wholePage = true;
+        if (hits.length || unlinked.length) {
+          note(`powertrain: ${car.label} -- read from "${umbrella}", whose one engine field ` +
+               "covers every generation");
+        }
       }
       if (unlinked.length) {
         note(`powertrain: ${car.label} -- ${unlinked.length} engine(s) named with no article ` +
@@ -11562,11 +11964,11 @@ Rules:
       if (!hits.length) {
         const status = unreadable ? "unreadable"
                      : title ? "no-engines"
-                     : fromSection ? "no-engines" : "no-article";
+                     : (fromSection || wholePage) ? "no-engines" : "no-article";
         store.engineScans[car.id] = {
           checkedAt: new Date().toISOString(),
-          sourceTitle: readTitle || (fromSection && umbrella) || null,
-          status, engines: [], unlinked,
+          sourceTitle: readTitle || ((fromSection || wholePage) && umbrella) || null,
+          status, engines: [], unlinked, v: ENGINE_SCAN_VERSION,
         };
         note(`powertrain: ${car.label} -- ` + (
           unreadable ? `could not read "${title}"`
@@ -11579,8 +11981,8 @@ Rules:
       store.engineScans[car.id] = {
         checkedAt: new Date().toISOString(),
         sourceTitle: readTitle || umbrella || null,
-        section: fromSection ? fromSection.title : null,
-        engines: hits, unlinked,
+        section: fromSection ? fromSection.title : (wholePage ? "(the whole page)" : null),
+        engines: hits, unlinked, v: ENGINE_SCAN_VERSION,
       };
       note(`powertrain: ${car.label} -- ${hits.length} engine(s) in ` +
            `"${readTitle || umbrella}"`);
@@ -12419,7 +12821,7 @@ Rules:
     // serve.py's CASCADE_MAX_DEPTH for where it's configured.
     cascadeAllowedFrom, cascadeDepthOf: depthOf, cascadeMaxDepth: () => cascadeMaxDepth,
     articleKeyOf, nodeOwningArticle, holdsReading, repairSameArticleEntries,
-    resumeCascade, pendingCascadeCount,
+    resumeCascade, pendingCascadeCount, onChecked, pendingSplits, declineSplit, engineReadsDue,
     // The write coalescing, for the suite to hammer. Same function the
     // page uses; nothing else calls it from outside.
     persistForTests: () => persist(),
@@ -12507,6 +12909,7 @@ Rules:
     setDecisionSource, decisionSource: () => decisionSource,
     resolveWeakRelations, makeRelationship, weakProposalRejection,
     additiveRecheck, diffGenerationCodes,
+    resolvePendingOwnGenerations, ownGenerationCode, sameArticleOwner,
     // The section-reading half of the generation-article lookup, exposed so
     // the suite can drive it against real cached wikitext without a network.
     wikitextSections, hatnoteArticle, proseArticle, sectionForCode,

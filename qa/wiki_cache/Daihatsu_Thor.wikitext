@@ -1,0 +1,177 @@
+{{use dmy dates|date=November 2019}}{{Use British English|date=March 2025}}
+{{Short description|Mini MPV produced by Daihatsu}}
+{{Infobox automobile
+| name = Daihatsu Thor
+| image = Daihatsu THOR G"SA II" (DBA-M900S) front.jpg
+| caption = Daihatsu Thor G SA II (M900S, pre-facelift)
+| manufacturer = [[Daihatsu]]
+| aka = {{unbulleted list
+  | Toyota Roomy
+  | Toyota Tank (2016–2020)
+  | [[Subaru Justy]]
+  }}
+| model_code = M900
+| production = November 2016 – present
+| assembly = Japan: [[Ikeda, Osaka|Ikeda]], [[Osaka Prefecture|Osaka]] (Ikeda plant)<ref>{{cite web |title=Notice Regarding the Operation of Domestic Plants (as of May 18) |url=https://www.daihatsu.com/news/2020/20200518-2.pdf |publisher=Daihatsu Motor Co., Ltd. |date=18 May 2020}}</ref>
+| class = [[Mini MPV]]<!-- Not a kei car since its engine is 996 cc in displacement (a kei car must have a maximum engine displacement of 660 cc) -->
+| body_style = 5-door [[minivan]]
+| layout = {{unbulleted list
+  | [[Front-engine, front-wheel-drive layout|Front-engine, front-wheel-drive]]
+  | [[Front-engine, four-wheel-drive layout|Front-engine, four-wheel-drive]]
+  }}
+| related = [[Daihatsu Boon#M700|Daihatsu Boon (M700)]]
+| engine = {{unbulleted list
+  | '''[[Petrol engine|Petrol]]:'''
+  | 996&nbsp;cc ''[[Toyota KR engine#1KR-FE|1KR-FE]]'' [[Straight-three engine|I3]]
+  | 996&nbsp;cc ''[[Toyota KR engine#1KR-VET|1KR-VET]]'' [[Turbocharger|turbo]] I3
+  }}
+| powerout = {{unbulleted list
+  | {{convert|51|kW|hp PS|abbr=on|0}} (''1KR-FE'')
+  | {{convert|72|kW|hp PS|abbr=on|0}} (''1KR-VET'')
+  }}
+| transmission = [[Continuous variable transmission|CVT]]
+| wheelbase = {{convert|2490|mm|in|1|abbr=on}}
+| length = {{convert|3700|–|3725|mm|in|1|abbr=on}}
+| width = {{convert|1670|mm|in|1|abbr=on}}
+| height = {{convert|1735|mm|in|1|abbr=on}}
+| weight = {{unbulleted list
+  | {{convert|1070|–|1110|kg|lb|0|abbr=on}} (FWD)
+  | {{convert|1130|–|1140|kg|lb|0|abbr=on}} (4WD)
+  }}
+| predecessor = {{unbulleted list
+  | [[Daihatsu Coo]] (Thor)<!-- The "Materia" nameplate was only used in Europe -->
+  | [[Toyota bB#QNC20|Toyota bB]] (Roomy/Tank)
+  | [[Toyota Ractis]] (Roomy/Tank)
+  | [[Subaru Dex]] (Justy)
+  | [[Subaru Trezia]] (Justy)
+  }}
+| sp = uk
+}}
+
+The {{nihongo|'''Daihatsu Thor'''|ダイハツ・トール|Daihatsu Tōru|lead=yes}} (also called {{nihongo|'''Toyota Roomy'''/'''Tank'''|トヨタ・ルーミー/トヨタ・タンク|Toyota Rūmī/Toyota Tanku|lead=yes}} and {{nihongo|'''Subaru Justy'''|スバル・ジャスティ|Subaru Jasuti|lead=yes}}) is a [[mini MPV]] with [[Sliding door (car)|sliding doors]]<!-- Not a kei car since its engine is 996 cc in displacement (a kei car must have a maximum engine displacement of 660 cc) --> designed and manufactured by [[Daihatsu]], and sold by Daihatsu, [[Toyota]] and [[Subaru]].<ref>{{cite news |url=http://topauto.site/tank-vs-thor-toyota-daihatsu-and-subaru-showed-a-family-of-mitrofanov/ |title=Tank vs Thor: Toyota, Daihatsu and Subaru showed a family of Mitrofanov |work=Top Auto |date=2017-02-23 |access-date=2017-04-15 |archive-url=https://web.archive.org/web/20170517014029/http://topauto.site/tank-vs-thor-toyota-daihatsu-and-subaru-showed-a-family-of-mitrofanov/ |archive-date=17 May 2017 |url-status=dead }}</ref> It is a five-seat MPV based on the [[Daihatsu Boon#M700|M700 series Boon]] and was introduced on 9 November 2016<ref>{{cite news |url=http://techon.nikkeibp.co.jp/atclen/news_en/15mk/111600962/?ST=msbe |title=Many Plastic Parts Used for 'Thor/Roomy/Tank' Minivan |first=Takashi |last=Takada |work=Nikkei Technology Online |location=Japan |date=2016-11-16 |access-date=2017-04-15}}</ref> as the successor to the [[Daihatsu Coo|Coo]].<!-- The "Materia" nameplate was only used in Europe --> It sits below the [[Toyota Sienta|Sienta]] in Toyota's minivan line-up.
+
+The Thor is currently sold only in Japan. It is not a [[kei car]], as the exterior dimensions and the engine displacement of 996&nbsp;cc exceed the [[Vehicle size class#Japan|class regulations]], but the small engine still incurs a modest annual [[Road tax#Japan|road tax]] obligation. From 2016 until 2020, the Tank was exclusive to ''[[Toyopet Store]]'' and ''[[Netz Store]]'', while the Roomy was once exclusive to ''[[Toyota Store]]'' and ''[[Toyota Corolla Store|Corolla Store]]''.<ref>{{cite news |url=http://blog.ihs.com/toyota-launches-all-new-minivan-model-in-japan,-also-sold-under-daihatsu-and-subaru-brands |title=Toyota launches all-new minivan model in Japan, also sold under Daihatsu and Subaru brands |work=IHS Markit Automotive Blog |date=2016-11-09 |access-date=2017-04-15}}</ref>
+
+For the pre-facelift models, the regular Thor shared its front bumper shape with the Tank (both regular and Custom models) and the Justy Custom (with a redesigned upper grille and cross-hatched lower grille). The Thor Custom's bumper shape is shared with the Roomy (both regular and Custom models) and the regular Justy (with black grille slats instead of chrome). The Roomy uses standard taillights, while the Tank uses clear lens lights, which are reserved for the Custom versions of Thor and Justy. All Custom versions also wear an additional front splitter and chrome rear bootlid trim.
+
+==Facelift==
+The Thor and Roomy received a [[Facelift (automotive)|facelift]] on 15 September 2020, along with the discontinuation of the Tank model due to the merger of several of the Japanese Toyota dealership chains.<ref>{{Cite press release | url=https://global.toyota/jp/newsroom/toyota/33670235.html | archive-url = https://web.archive.org/web/20241203230717/https://global.toyota/jp/newsroom/toyota/33670235.html | archive-date = 2024-12-03 | date = 2020-09-15 | title=ルーミーをマイナーチェンジ | trans-title = Roomy gets minor change | language = ja | work = Toyota Global Newsroom }}</ref> It was followed by the facelifted Justy in 24 September (the Justy Custom model being discontinued).<ref>{{Cite press release|url=https://www.subaru.co.jp/press/news/2020_09_24_9025/| archiveurl = https://web.archive.org/web/20241201175719/https://www.subaru.co.jp/press/news/2020_09_24_9025/ | archivedate = 2024-12-01 | date = 2020-09-24 | title = Subaru 「ジャスティ」一部改良モデルを発売 | trans-title = Subaru releases partially improved "Justy" model | language = ja | publisher = Subaru Corporation }}</ref>
+
+The facelifted regular Thor shared its front styling with the regular Roomy, while the Thor Custom is shared with the Roomy Custom and the Justy.
+
+== Gallery ==
+
+=== Thor ===
+;Pre-facelift
+<gallery widths="200" heights="150">
+File:Daihatsu THOR G"SA II" (DBA-M900S) rear.jpg|Thor G "SA II" (M900S)
+File:2016-2020 Daihatsu Thor Custom G.jpg|Thor Custom G "Limited SA III" (M900S)
+File:2016-2020 Daihatsu Thor Custom G rear.jpg|Thor Custom G "Limited SA III" (M900S)
+File:Daihatsu THOR CUSTOM G Turbo"SA II" (DBA-M900S-GBVJ) interior.jpg|Interior
+</gallery>
+
+;Facelift
+<gallery widths="200" heights="150">
+File:Daihatsu THOR G (5BA-M900S-GBGE) front.jpg|Thor G (M900S)
+File:2020 Daihatsu Thor Custom G.jpg|Thor Custom G (M900S)
+File:2020 Daihatsu Thor Custom G rear.jpg|Thor Custom G (M900S)
+File:Daihatsu THOR CUSTOM G Turbo PREMIUM AERO PACK (4BA-M900S-GBVJ) interior.jpg|Interior
+</gallery>
+
+=== Roomy/Tank ===
+;Pre-facelift
+<gallery widths="200" heights="150">
+File:Toyota ROOMY X"S" (DBA-M900A-AGBME) front.jpg|Toyota Roomy X"S" (M900A)
+File:2016-2020 Toyota Roomy G rear.jpg|Roomy G (M900A)
+File:Toyota ROOMY CUSTOM G-T (DBA-M900A-AGBVJ) front.jpg|Roomy Custom G-T (M900A)
+File:2019 Toyota Tank G in Fine Blue Mica Metallic, front right.jpg|Toyota Tank G (M900A)
+File:The rearview of Toyota TANK CUSTOM G-T 2WD (DBA-M900A-BGBVJ).jpg|Tank G-T (M900A)
+File:Toyota TANK CUSTOM G-T (DBA-M900A) front.jpg|Tank Custom G-T (M900A)
+File:Toyota TANK CUSTOM G-T (DBA-M900A-BGBVJ) rear.jpg|Tank Custom G-T (M900A)
+</gallery>
+
+;Facelift
+<gallery widths="200" heights="150">
+File:The frontview of Toyota ROOMY G 4WD (5BA-M910A-GBGE).jpg|Roomy G 4WD (M910A)
+File:2020 Toyota Roomy Custom G-T.jpg|Roomy Custom G-T (M900A)
+</gallery>
+
+=== Justy ===
+<gallery widths="200" heights="150">
+File:Subaru JUSTY GS Smart Assist (DBA-M900F) front.jpg|Subaru Justy GS SA (M900F; pre-facelift)
+File:SUBARU JUSTY CUSTOM RS 20171216 001.jpg|Justy Custom RS (M900F; pre-facelift)
+File:Subaru JUSTY 2WD.jpg|Justy (M900F; facelift)
+</gallery>
+
+{{clear}}
+
+== Sales ==
+{| class="wikitable"
+|+
+! rowspan="2" |Year
+! colspan="2" |Japan
+|-
+!Toyota Roomy<ref>{{Cite web |title=トヨタ ルーミー 新車販売台数/売れ行き(生産台数)と生産状況は？工場とラインの稼働状況も - 株式会社アイディーインフォメーション |trans-title=Toyota Roomy New car sales volume/sales (production volume) and production status? Factory and line operating status - ID Information Co., Ltd. |url=https://id-information.co.jp/kuruma/roomy_hanbaidaisu/ |access-date=2024-04-05 |website=id-information.co.jp |language=ja}}</ref>
+!Daihatsu Thor
+|-
+|2016
+|8,675
+|
+|-
+|2017
+|78,690
+|
+|-
+|2018
+|86,265
+|25,982<ref>{{Cite web |date=2019-01-24 |title=2018年に最も売れたクルマはどれ？ 新車販売台数ランキング（普通＆小型乗用車 編） |trans-title=Which car was the best selling car in 2018? New car sales ranking (regular & small passenger cars) |url=https://kurukura.jp/article/190122-61-01/ |access-date=2024-04-05 |website=KURU KURA（くるくら） {{!}} クルマのある暮らしをもっと豊かに、もっと楽しく |language=ja}}</ref>
+|-
+|2019
+|91,650
+|26,736<ref>{{Cite web |date=2020-01-24 |title=どうしてダイハツの車がトヨタでも売られているの？ |trans-title=Why are Daihatsu cars also sold by Toyota? |url=https://nara-daihatsu.co.jp/koriyama5853 |access-date=2024-04-05 |website=奈良ダイハツ株式会社 |language=ja}}</ref>
+|-
+|2020
+|87,242
+|1,325<ref>{{Cite web |last= |date=2021-01-08 |title=【国産乗用車編】2020年12月＆2020年1月～12月の登録車新車販売台数ランキング50を一挙公開！12月度も累計も全てトヨタ新型ヤリスが圧勝！ |trans-title=[Domestic passenger cars] The 50 registered new car sales rankings for December 2020 and January to December 2020 are released at once! The new Toyota Yaris wins by a landslide in December and cumulatively! |url=https://creative311.com/?p=110141 |access-date=2024-04-05 |website=Creative Trend |language=ja}}</ref>
+|-
+|2021
+|134,801
+|14,780<ref>{{Cite web |last= |date=2022-01-11 |title=【国産乗用車編】2021年12月＆1月～12月度最新版の登録車新車販売台数ランキング！やはりトヨタ新型ヤリス／カローラシリーズは強かった！レクサス新型NXも46位にランクイン {{!}} ページ 2 |trans-title=[Domestic passenger cars] Latest version of registered new car sales ranking for December & January to December 2021! As expected, the new Toyota Yaris/Corolla series was strong! The new Lexus NX also ranks 46th {{!}} Page 2 |url=https://creative311.com/?p=132960 |access-date=2024-04-05 |website=Creative Trend |language=ja}}</ref>
+|-
+|2022
+|109,236
+|11,527<ref>{{Cite web |date=2023-04-10 |title=トヨタ「ルーミー」とダイハツ「トール」、買うならどちらがオススメ？気になる2台の違いをチェック！【福井県で軽自動車を買うならカーボへ】 |trans-title=Which would you recommend to buy, Toyota “Roomy” or Daihatsu “Thor”? Check out the differences between the two cars! [If you want to buy a light car in Fukui Prefecture, go to Carbo] |url=https://www.cavo-kei.jp/blog/2023/03/10/%e3%83%88%e3%83%a8%e3%82%bf%e3%80%8c%e3%83%ab%e3%83%bc%e3%83%9f%e3%83%bc%e3%80%8d%e3%81%a8%e3%83%80%e3%82%a4%e3%83%8f%e3%83%84%e3%80%8c%e3%83%88%e3%83%bc%e3%83%ab%e3%80%8d%e3%80%81%e8%b2%b7%e3%81%86/ |access-date=2024-04-05 |website=ブログ｜カーボ・軽未使用車専門店｜軽自動車買うなら福井最大級300台在庫 |language=ja}}</ref>
+|-
+|2023
+|100,800
+|
+|-
+|2024
+|67,698
+|14,780
+|}
+
+== References ==
+{{reflist}}
+
+== External links ==
+{{Commons category multi|Daihatsu Thor|Toyota Roomy|Toyota Tank|Subaru Justy (M900F/M910F)}}
+* {{Official website|https://www.daihatsu.co.jp/lineup/thor/}} (Thor)
+* {{Official website|https://toyota.jp/roomy/}} (Roomy)
+* {{Official website|https://www.subaru.jp/justy/justy/}} (Justy)
+
+{{Daihatsu}}
+{{Daihatsu timeline}}
+{{Daihatsu timeline, 2020–present}}
+{{Toyota Motor Corporation}}
+{{Toyota road van timeline, 1985–date}}
+{{Subaru}}
+{{Subaru vehicles}}
+
+[[Category:Daihatsu vehicles|Thor]]
+[[Category:Cars introduced in 2016]]<!-- <nowiki>[[Category:2010s cars]]</nowiki> is not needed because already included in [[Category:Cars introduced in 2016]]. See [[WP:SUBCAT]] -->
+[[Category:2020s cars]]
+[[Category:Mini MPVs]]
+[[Category:Front-wheel-drive vehicles]]
+[[Category:All-wheel-drive vehicles]]
+[[Category:Vehicles with continuously variable transmission]]
