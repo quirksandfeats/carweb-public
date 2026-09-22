@@ -192,10 +192,16 @@ function run(cascadeMaxDepth) {
     /const mintedDepth = /.test(src) && /cascadeDepth\.set\(node\.id, mintedDepth\)/.test(src));
   check("...and the budget is enforced on it, like any other hop",
     /if \(mintedDepth > cascadeMaxDepth\) return;/.test(src));
-  const fn = src.slice(src.indexOf("function scheduleWpLookupAndCheck"),
-                       src.indexOf("function scheduleWpLookupAndCheck") + 2600);
+  // The whole function, not a fixed slice of it: a comment added above the
+  // line this looks for once pushed it past the cut and failed the check on
+  // code whose order had not changed.
+  const at = src.indexOf("function scheduleWpLookupAndCheck");
+  const fn = src.slice(at, src.indexOf("\n  }\n", at));
+  const budget = fn.indexOf("mintedDepth > cascadeMaxDepth");
   check("...before any check is scheduled for it, not after",
-    fn.indexOf("mintedDepth > cascadeMaxDepth") < fn.indexOf("wpLookupScheduled.add"), "order");
+    budget > 0 && fn.indexOf("wpLookupScheduled.add") > budget, "order");
+  check("...including a car whose article is already known, which goes straight to its check",
+    budget > 0 && fn.indexOf("queuePartnerCheck(") > budget, "order");
 
   const app = require("fs").readFileSync(
     require("path").resolve(__dirname, "..", "..", "app", "app.js"), "utf-8");

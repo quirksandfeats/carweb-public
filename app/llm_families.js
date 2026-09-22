@@ -3316,6 +3316,16 @@ Rules:
       llmGenerated: true, llmCreatedNode: true,
     };
     if (cached && cached.source) modelNode.factsSource = cached.source;
+    // Its Wikipedia article, if a previous session found one. Real bug: every
+    // car this function mints -- 233 of the 356 saved links on the graph after
+    // the overnight run -- came back from a reload WITHOUT its article. Saved
+    // links are applied early in boot (applyWpLinks), and these cars only come
+    // into being later, re-minted from the relations that named them, so
+    // nothing ever gave them theirs. The card then offered to paste a link
+    // that was already saved, and a check went to look one up, found it
+    // "already known", and did nothing -- which is how 77 cars sat on the
+    // resume list through run after run without ever being checked.
+    if (store.wpLinks && store.wpLinks[modelId]) modelNode.wp = store.wpLinks[modelId];
     nodes.push(modelNode);
     links.push({ source: makeNode.id, target: modelNode.id, type: "made" });
     // "A very big attempt at finding the years for any new models... that
@@ -3356,7 +3366,7 @@ Rules:
   function scheduleWpLookupAndCheck(node, nodes, originId) {
     if (!serverAvailable) return;
     if (!backgroundAllowed) return;   // see setBackgroundAllowed -- never on a bare page load
-    if (wpLookupScheduled.has(node.id) || node.wp || store.wpLinks[node.id]) return;
+    if (wpLookupScheduled.has(node.id)) return;
     // Real bug report: one click on the Mercedes G-Class, with the depth limit
     // set to 1, walked off into the Chevrolet Cobalt, Opel Astra, Golf GTI and
     // KSU Gazal-1 -- none of which the G-Class article mentions at all -- and
@@ -3388,6 +3398,18 @@ Rules:
       ? cascadeDepth.get(node.id)
       : depthOf(originId || engagedId) + 1;
     if (mintedDepth > cascadeMaxDepth) return;
+    // Its article is already known (found by an earlier session): nothing to
+    // look up, so go straight to the check. This used to RETURN for any car
+    // with an article, on the reasoning that such a car was handled
+    // elsewhere -- but for a car the LLM minted, nothing else ever handled
+    // it, so one whose article had been found once was never checked again.
+    if (!node.wp && store.wpLinks[node.id]) node.wp = store.wpLinks[node.id];
+    if (node.wp) {
+      if (entryFor(node.id) || inFlight.has(node.id) || partnerCheckScheduled.has(node.id)) return;
+      cascadeDepth.set(node.id, mintedDepth);
+      queuePartnerCheck(node, nodes, mintedDepth, originId || engagedId);
+      return;
+    }
     cascadeDepth.set(node.id, mintedDepth);
     rememberCascade(node.id, mintedDepth, originId || engagedId);
     wpLookupScheduled.add(node.id);
@@ -3504,6 +3526,10 @@ Rules:
     partnerQueue = partnerQueue
       .then(() => {
         if (entryFor(node.id)) return null;       // decided while this was queued behind something else
+        // A saved article counts. scheduleWpLookupAndCheck deliberately does
+        // nothing for a car with one on file, so handing it such a car was a
+        // silent no-op -- the other half of the 77-car loop above.
+        if (!node.wp && store.wpLinks[node.id]) node.wp = store.wpLinks[node.id];
         if (!node.wp) { scheduleWpLookupAndCheck(node, nodes); return null; }
         return checkNodeCascade(node, nodes);
       })
@@ -12397,6 +12423,7 @@ Rules:
     // The write coalescing, for the suite to hammer. Same function the
     // page uses; nothing else calls it from outside.
     persistForTests: () => persist(),
+    scheduleWpLookupAndCheckForTests: (node, nodes) => scheduleWpLookupAndCheck(node, nodes),
     // Fired when a related PARTNER turns out to hide generations and has been
     // confirmed as a nameplate -- app.js subscribes and does the actual
     // minting/splicing. See schedulePartnerCheck's own comment for the Honda

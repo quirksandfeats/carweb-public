@@ -87,11 +87,25 @@ for (const f of [...html.matchAll(/<script src="([^"]+)"><\/script>/g)].map(m =>
                    generations: [GEN], designers: [], engineers: [] });
     D.nodes.push({ id: GEN, type: "model", label: "Fam Gen", make: "Resume", familyOf: FAM,
                    year: 1990, designers: [], engineers: [] });
+    D.nodes.push({ id: "m-resume-host", type: "model", label: "Host", make: "Resume", wp: "Resume Host",
+                   year: 1980, designers: [], engineers: [] });
+    D.links.push({ source: MK, target: "m-resume-host", type: "made" });
     D.links.push({ source: MK, target: CAR, type: "made" }, { source: MK, target: DONE, type: "made" },
                  { source: MK, target: FAM, type: "made" }, { source: FAM, target: GEN, type: "generation" });
     window.LLM_FAMILIES = {
-      families: { [DONE]: { status: "none", checkedAt: "x" } },
+      families: {
+        [DONE]: { status: "none", checkedAt: "x" },
+        // A single-generation result naming a related car that is not in the
+        // graph -- the shape that brings the real ones back (the GMC Yukon is
+        // re-minted every boot from the Hummer H2's result, just like this).
+        "m-resume-host": { status: "none", checkedAt: "x", sourceTitle: "Resume Host",
+          proposal: { hasMultipleGenerations: false, generations: [
+            { code: "Host", yearStart: 1980, yearEnd: 1989, designers: [], engineers: [],
+              sharedPlatforms: ["Resume Zqxwv"] } ] } },
+      },
       relations: {}, recheck: {},
+      // A car the LLM minted in an earlier session, with its article saved.
+      wpLinks: { "llm-related-resume-zqxwv": "Resume Car" },
       pendingCascade: {
         [CAR]:  { depth: 2, from: "m-somewhere", at: "x" },
         [GONE]: { depth: 1, from: null, at: "x" },         // not in the graph any more
@@ -137,6 +151,27 @@ const LF = window.LlmFamilies;
   check("...and crossed off the saved list once it has an answer",
         LF.pendingCascadeCount() === 0, LF.pendingCascadeCount());
   check("resuming again finds nothing to do", LF.resumeCascade(cw.nodes) === 0);
+
+  // ---------- a minted car keeps its saved article across a reload ----------
+  // Real failure: 233 of 356 saved links went missing on every reload -- the
+  // saved links are applied early in boot and minted cars only come into
+  // being later -- and 77 of those cars then sat on the resume list through
+  // run after run: "no article, go and look one up" -> "one is on file,
+  // nothing to do" -> never checked.
+  {
+    const ghost = cw.byId.get("llm-related-resume-zqxwv");
+    check("the related car is re-minted at boot from the result that named it (precondition)", !!ghost);
+    check("a re-minted car comes back with the article saved for it",
+          ghost && ghost.wp === "Resume Car", ghost && ghost.wp);
+    // And it is actually checked when resumed, not handed to a lookup that
+    // does nothing for a car with an article on file.
+    LF.setBackgroundAllowed(true);
+    const before = llmCalls;
+    LF.scheduleWpLookupAndCheckForTests(ghost, cw.nodes);
+    for (let i = 0; i < 40 && !LF.entryFor(ghost.id); i++) await new Promise(r => setTimeout(r, 25));
+    check("a car whose article is already known goes straight to its check",
+          !!LF.entryFor(ghost.id), JSON.stringify(LF.entryFor(ghost.id)) + ` (${llmCalls - before} model call(s))`);
+  }
 
   // ---------- writes: one in flight, one waiting ----------
   await new Promise(r => setTimeout(r, 50));
