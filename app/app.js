@@ -3447,6 +3447,9 @@ window.CarWeb = (function () {
       if (!llmCheckAllowedFor(c.famA.id)) return; // same gate as the single-car generation check
       el.appendChild(box);
       box.innerHTML = `<div class="llm-status">🤖 checking if ${esc(c.famB.make + " " + c.famB.label)} is also a nameplate…</div>`;
+      // One hop from the car on screen, not a new starting point -- see
+      // llm_families.js's placeInCascade.
+      if (window.LlmFamilies.placeInCascade) window.LlmFamilies.placeInCascade(c.famB.id, c.famA.id);
       window.LlmFamilies.checkNodeCascade(c.famB, nodes).then(entry => {
         applySharedPlatformLive(); // a "none" cascade result can still carry its own single-generation platform mention
         if (dtNode !== c.famA) return;

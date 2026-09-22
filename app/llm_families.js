@@ -360,6 +360,20 @@ window.LlmFamilies = (function () {
   // app.js's own relation-panel cascade honours the same budget rather than
   // keeping a second, separately-drifting rule.
   function cascadeAllowedFrom(originId) { return depthOf(originId) + 1 <= cascadeMaxDepth; }
+  // A check started on someone else's behalf is at a known distance, and
+  // has to be told so before it starts: a car with no recorded distance
+  // counts as the one the user clicked (depth 0), and its partners then pass
+  // the budget again. Real report: one C-Class request grew to over a
+  // hundred unrelated cars -- each "same article" deferral kicked its owner's
+  // check at depth 0, whose partners deferred and kicked theirs, and so on.
+  // `sameAs` is for a car reading the SAME article (same distance); without
+  // it the car is one hop further out.
+  function placeInCascade(id, fromId, sameAs) {
+    if (!id || cascadeDepth.has(id)) return depthOf(id);
+    const d = depthOf(fromId) + (sameAs ? 0 : 1);
+    cascadeDepth.set(id, d);
+    return d;
+  }
   // Real user request: "when I hit 'llm re-check', I want it to essentially do
   // a re-check of the entire car that I selected, as well as its cascade max
   // depth length that I would normally do when I check a car using LLM for the
@@ -2403,6 +2417,7 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
     // The owner has not read it yet: make sure it does. Without this a
     // deferral could point at a car the cascade was never going to reach.
     if (!holdsReading(owner) && owner.type === "model" && !entryFor(owner.id)) {
+      placeInCascade(owner.id, node.id, true);
       try { checkNodeCascade(owner, nodes); } catch (e) { /* its own entry records any failure */ }
     }
     return { owner, title };
@@ -2503,6 +2518,7 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
     if (plate) {
       if (!plate.wp && node.wp) { plate.wp = node.wp; store.wpLinks[plate.id] = node.wp; }
       if (!holdsReading(plate) && plate.type === "model" && !entryFor(plate.id)) {
+        placeInCascade(plate.id, node.id, true);
         try { checkNodeCascade(plate, nodes); } catch (e) { /* its own entry records it */ }
       }
       note(`llm: ${node.make} ${node.label} is the ${own.code} generation of the ${node.make} ` +
@@ -13060,6 +13076,7 @@ Rules:
     resolveWeakRelations, makeRelationship, weakProposalRejection,
     additiveRecheck, diffGenerationCodes,
     resolvePendingOwnGenerations, ownGenerationCode, sameArticleOwner,
+    placeInCascade, cascadeDepthOf: id => depthOf(id),
     indexSectionEngine, isGenericIndexSection, generationNodeLabel, looksLikeCodeLink,
     relabelMisnamedEngines, engineArticleKey,
     // The section-reading half of the generation-article lookup, exposed so
