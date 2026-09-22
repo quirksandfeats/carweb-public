@@ -140,6 +140,12 @@ window.CarWeb = (function () {
   if (window.LlmFamilies && window.LlmFamilies.foldCodeDuplicateModels) {
     window.LlmFamilies.foldCodeDuplicateModels(nodes, links);
   }
+  // And for a plain car that IS a nameplate's overview article under a
+  // different name ("C-Class" beside the W202-W206 nameplate "C"). See
+  // foldUmbrellaModels.
+  if (window.LlmFamilies && window.LlmFamilies.foldUmbrellaModels) {
+    window.LlmFamilies.foldUmbrellaModels(nodes, links);
+  }
   // A "same article" deferral is only good while the car it points at has
   // actually read that article. After every nameplate above is in place --
   // a family counts as having read its own -- drop any that point at a

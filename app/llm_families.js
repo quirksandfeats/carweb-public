@@ -7788,6 +7788,70 @@ Rules:
     return folded;
   }
 
+  // ---------- a nameplate's own article, sitting beside it as a plain car ----------
+  // Real user report: "the mercedes c class scan does not automatically check
+  // that there already exist generations for its nameplate ... the
+  // generations are already currently listed but they do not get merged into
+  // one nameplate either."
+  //
+  // The graph had the C-Class twice: a nameplate built from the W202-W206
+  // articles, labelled just "C", and the umbrella "Mercedes-Benz C-Class"
+  // article as a plain car. Both point at the same page ("Mercedes-Benz C"
+  // redirects to it), so a check on the plain car rightly deferred to the
+  // nameplate -- and stopped there, leaving two cars on screen. The
+  // name-based pass above cannot see it ("C" is not "C-Class").
+  //
+  // The plain car IS the nameplate: its article is the nameplate's overview.
+  // It is folded into the nameplate (supersedeStandalone -- nothing is lost,
+  // every link and credit moves over), and the nameplate takes the article's
+  // own name where its current one is a stub of it. Deterministic, every
+  // load, like the passes above; `unmergedDuplicates` undoes it. A car whose
+  // years start BEFORE the nameplate's first generation is an earlier era
+  // and is left to the name-based pass.
+  function nameplateArticleOf(fam, byIdLocal) {
+    if (fam.wp) return fam.wp;
+    const gens = (fam.generations || []).map(id => byIdLocal.get(id)).filter(Boolean);
+    const bare = gens.find(g => g.wp && norm(g.label) === norm(fam.label));
+    if (bare) return bare.wp;
+    return fam.make && fam.label ? `${fam.make} ${fam.label}` : null;
+  }
+  function foldUmbrellaModels(nodes, links) {
+    const byIdLocal = new Map(nodes.map(n => [n.id, n]));
+    const fams = new Map();
+    for (const f of nodes) {
+      if (!f || f.retired || f.type !== "family" || !(f.generations || []).length) continue;
+      const key = articleKeyOf(nameplateArticleOf(f, byIdLocal));
+      if (!key) continue;
+      if (fams.has(key)) fams.set(key, null);          // two nameplates on one page: ambiguous
+      else fams.set(key, f);
+    }
+    let folded = 0;
+    for (const m of nodes.slice()) {
+      if (!m || m.retired || m.type !== "model" || m.familyOf || !m.wp) continue;
+      if ((m.generations || []).length) continue;
+      const fam = fams.get(articleKeyOf(m.wp));
+      if (!fam || norm(fam.make) !== norm(m.make)) continue;
+      // "A-Class (W/V/Z177)", "Astra (LD)": a code or year in brackets is one
+      // generation carrying the nameplate's article, not the overview itself.
+      if (/\)\s*$/.test(String(m.label))) continue;
+      if (nameplateKey(m.label) !== nameplateKey(fam.label)) continue;
+      if (store.unmergedDuplicates[fam.id + "|" + m.id]) continue;
+      const first = Math.min(...(fam.generations || []).map(id => (byIdLocal.get(id) || {}).year)
+        .filter(y => y != null));
+      if (m.year != null && Number.isFinite(first) && m.year < first) continue;
+      supersedeStandalone(nodes, links, m, fam, fam.id, `${fam.make} ${fam.label}`);
+      if (!fam.wp) fam.wp = m.wp;
+      // "C" is a stub of "C-Class"; the article's own name is the better one.
+      if (!store.renames[fam.id] && norm(m.label).length > norm(fam.label).length &&
+          norm(`${m.make} ${m.label}`) === articleKeyOf(m.wp)) {
+        fam.label = m.label;
+      }
+      note(`graph: "${m.make} ${m.label}" is the nameplate's own article -- folded into ` +
+           `"${fam.make} ${fam.label}" (${(fam.generations || []).length} generations)`);
+      folded++;
+    }
+    return folded;
+  }
   function mergeDuplicateNameplates(nodes, links) {
     const byIdLocal = new Map(nodes.map(n => [n.id, n]));
     let merged = 0;
@@ -13144,7 +13208,7 @@ Rules:
     resolveWeakRelations, makeRelationship, weakProposalRejection,
     additiveRecheck, diffGenerationCodes,
     resolvePendingOwnGenerations, ownGenerationCode, sameArticleOwner,
-    placeInCascade, cascadeDepthOf: id => depthOf(id), ownCodeShape,
+    placeInCascade, cascadeDepthOf: id => depthOf(id), ownCodeShape, foldUmbrellaModels,
     schedulePartnerCheck, cascadeDepthIn,
     indexSectionEngine, isGenericIndexSection, generationNodeLabel, looksLikeCodeLink,
     relabelMisnamedEngines, engineArticleKey,

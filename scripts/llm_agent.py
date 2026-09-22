@@ -611,7 +611,18 @@ def _run_pass_in(browser, targets, budget_seconds, per_node_seconds,
                     f"{budget_seconds / 60:.0f} min budget")
                 skipped.append(nid)
                 continue
-            exists = page.evaluate("(id) => !!CarWeb.byId.get(id)", nid)
+            # A car folded into another since the request was made (the plain
+            # "C-Class" into its W202-W206 nameplate) points at where it went.
+            moved = page.evaluate(
+                "(id) => { let n = CarWeb.byId.get(id), hops = 0; "
+                "while (n && n.retired && n.supersededBy && hops++ < 5) n = CarWeb.byId.get(n.supersededBy); "
+                "return n && n.id !== id && !n.retired ? n.id : null; }", nid)
+            if moved:
+                log(f"[{nid}] is now part of [{moved}] -- checking that instead")
+                if labels is not None and nid in labels:
+                    labels[moved] = labels[nid]
+                nid = moved
+            exists = page.evaluate("(id) => { const n = CarWeb.byId.get(id); return !!n && !n.retired; }", nid)
             if not exists:
                 # Real bug report: a scan requested from the phone came back
                 # "done: nothing found" with no other trace. The node named in
