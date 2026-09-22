@@ -507,7 +507,12 @@ def run_pass(targets, budget_seconds, per_node_seconds, settle_seconds=300, quie
     entry to land. Opening a node with the check armed is exactly what a human
     does, and it is the code path that ships -- no second implementation to
     drift from it."""
-    from playwright.sync_api import sync_playwright   # imported late so --help works without it
+    try:
+        from playwright.sync_api import sync_playwright   # imported late so --help works without it
+    except ImportError:
+        raise RuntimeError("playwright is not installed for " + sys.executable + " -- run: "
+                           "python3 -m venv .venv && .venv/bin/pip install -q playwright && "
+                           ".venv/bin/python -m playwright install chromium")
 
     done, errors, skipped = [], [], []
     started = time.time()
@@ -1256,7 +1261,25 @@ def main():
         continue
 
 
+def use_repo_venv():
+    """playwright lives in the repo's .venv (Homebrew's Python refuses a
+    system-wide install). Run with plain `python3` and this switches to the
+    venv's interpreter before anything starts, instead of failing after
+    serve.py and the model are already up."""
+    import importlib.util
+    if importlib.util.find_spec("playwright") is not None:
+        return
+    venv_py = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
+                           ".venv", "bin", "python")
+    if os.path.exists(venv_py) and os.path.realpath(sys.executable) != os.path.realpath(venv_py) \
+            and not os.environ.get("CARWEB_AGENT_REEXEC"):
+        os.environ["CARWEB_AGENT_REEXEC"] = "1"
+        os.execv(venv_py, [venv_py, os.path.abspath(__file__)] + sys.argv[1:])
+
+
 if __name__ == "__main__":
+    if not any(a in ("-h", "--help") for a in sys.argv[1:]):
+        use_repo_venv()
     install_signal_handlers()
     try:
         main()
