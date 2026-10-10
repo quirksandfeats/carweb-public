@@ -156,6 +156,13 @@ const bearer = tok => ({ authorization: "Bearer " + tok });
 
     const reclaim = await (await worker.fetch(post("/api/request/claim", { id }, bearer(TOKEN)), env)).json();
     t("re-claiming the same job is not an error", reclaim.ok && reclaim.already === true);
+    // A long run renews its claim so the 90-minute stale rule does not hand
+    // its job back to the queue while it is still being worked on.
+    await new Promise(r => setTimeout(r, 15));
+    const renewed = await (await worker.fetch(post("/api/request/claim", { id, renew: true }, bearer(TOKEN)), env)).json();
+    t("a renewing claim restarts the stale clock",
+      renewed.renewed === true && renewed.job.claimedAt > claimed.job.claimedAt && renewed.job.state === "running",
+      JSON.stringify(renewed.job));
 
     const done = await (await worker.fetch(post("/api/request/done", { id, summary: "12 provisional generations" }, bearer(TOKEN)), env)).json();
     t("finishing records the result", done.ok && done.job.state === "done" && done.job.finishedAt);

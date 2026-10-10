@@ -564,6 +564,10 @@ def _run_pass_in(browser, targets, budget_seconds, per_node_seconds,
         if page.evaluate("() => window.LlmFamilies.decisionSource()") != "agent":
             raise RuntimeError("this build cannot stamp agent decisions -- refusing to "
                                "confirm anything unattributed")
+        # The only time limit on the cascade is per car: one that is stuck is
+        # given up on after --node-timeout and the rest carry on.
+        page.evaluate("(ms) => window.LlmFamilies.setCarTimeout && window.LlmFamilies.setCarTimeout(ms)",
+                      per_node_seconds * 1000)
 
         # Only now is it safe to let the queue run. It may already hold
         # requests a person left in it at the keyboard (the Tools > Scan Queue
@@ -603,7 +607,7 @@ def _run_pass_in(browser, targets, budget_seconds, per_node_seconds,
 
         for nid in targets:
             spent = time.time() - started
-            if spent > budget_seconds:
+            if budget_seconds and spent > budget_seconds:
                 # Said out loud. This was silent, and when a bug put `started`
                 # at zero it skipped every target without a word -- which
                 # looked from the outside like the model finding nothing.
@@ -711,8 +715,9 @@ def _run_pass_in(browser, targets, budget_seconds, per_node_seconds,
             # the run.
             deadline = time.time() + per_node_seconds
             last_rows = entry_rows(page)
-            while time.time() < deadline and time.time() - started < budget_seconds:
+            while time.time() < deadline and (not budget_seconds or time.time() - started < budget_seconds):
                 page.wait_for_timeout(1000)
+                renew_claim()
                 state = page.evaluate("""(id) => {
                       const LF = window.LlmFamilies;
                       const e = LF.entryFor(id), r = LF.recheckEntryFor(id);
@@ -922,13 +927,21 @@ def pending_work(page):
               const p = LF && LF.pendingWork ? LF.pendingWork() : null;
               if (!p) return null;
               const cw = window.CarWeb;
-              const name = id => { const n = cw.byId.get(id);
+              const name = key => { const id = String(key).replace(/^recheck:/, ""); const n = cw.byId.get(id);
                 return n ? ((n.make ? n.make + " " : "") + n.label) : id; };
-              return { total: p.total,
+              return { total: p.total, abandoned: p.abandoned || [],
                        names: [...p.checks, ...p.partners, ...p.lookups].map(name) };
             }""")
     except Exception:
         return None
+
+
+def report_abandoned(page):
+    pend = pending_work(page)
+    gave_up = (pend or {}).get("abandoned") or []
+    if gave_up:
+        log(f"  gave up on {len(gave_up)} car(s) that never answered within --node-timeout "
+            f"(kept for --resume): " + ", ".join(gave_up[:8]))
 
 
 def settle_cascade(page, settle_seconds, quiet_seconds=60):
@@ -965,6 +978,7 @@ def settle_cascade(page, settle_seconds, quiet_seconds=60):
     while idle < settle_seconds:
         page.wait_for_timeout(3000)
         idle += 3
+        renew_claim()
         now = entry_rows(page)
         if len(now) != len(last):
             report_new(now, last, "cascade")
@@ -990,7 +1004,9 @@ def settle_cascade(page, settle_seconds, quiet_seconds=60):
         if len(now) == len(last):
             quiet += 3
             if quiet >= quiet_seconds:
+                report_abandoned(page)
                 return
+    report_abandoned(page)
     log(f"  nothing has moved for {settle_seconds}s; moving on")
     pend = pending_work(page)
     if pend and pend["total"]:
@@ -1029,9 +1045,28 @@ def push_result(summary, detail=""):
     return True
 
 
+# A run has no overall time limit any more, but the Worker hands a claim back
+# to the queue after 90 minutes (STALE_CLAIM_SECONDS), for runs that died. A
+# long, live run renews its claim well inside that, so the site does not show
+# the request as waiting again while it is being worked on.
+CLAIM_RENEW_SECONDS = 30 * 60
+_claim = {"jid": None, "at": 0.0}
+
+
+def renew_claim():
+    if not _claim["jid"] or time.time() - _claim["at"] < CLAIM_RENEW_SECONDS:
+        return
+    _claim["at"] = time.time()
+    try:
+        api("/api/request/claim", "POST", {"id": _claim["jid"], "renew": True})
+    except Exception:
+        pass
+
+
 # ------------------------------------------------------------------ the run --
 def do_job(job, args):
     jid = job["id"] if job else None
+    _claim["jid"], _claim["at"] = jid, time.time()
     if job:
         status, d = api("/api/request/claim", "POST", {"id": jid})
         if status == 409:
@@ -1064,7 +1099,8 @@ def do_job(job, args):
         finish(jid, "done", "nothing left in the review queue to scan")
         return
 
-    log(f"{len(targets)} seed(s), budget {args.budget_minutes} min")
+    log(f"{len(targets)} seed(s), " + (f"budget {args.budget_minutes} min" if args.budget_minutes
+        else f"no time limit -- a car gives up after {args.node_timeout}s without an answer"))
     proc, state, summary, detail, user_summary = None, "done", "", "", ""
     try:
         proc = start_serve(args.cascade_depth, verbose=getattr(args, "verbose", False))
@@ -1196,7 +1232,12 @@ def main():
     ap.add_argument("--settle-quiet", type=int, default=60,
                     help="how many seconds with nothing new written counts as the "
                          "cascade being finished")
-    ap.add_argument("--budget-minutes", type=int, default=45, help="wall-clock cap on the scanning phase")
+    # Real user request: "I want it to go on until all scans have been
+    # completed in the current run." No overall cap unless asked for; a car
+    # that hangs is given up on by --node-timeout instead.
+    ap.add_argument("--budget-minutes", type=int, default=0,
+                    help="optional wall-clock cap on the scanning phase; 0 (default) = none, "
+                         "run until every car is done")
     ap.add_argument("--node-timeout", type=int, default=600,
                     help="give up on one car after this many seconds with NOTHING new "
                          "written; any new entry resets it")

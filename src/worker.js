@@ -295,6 +295,13 @@ export default {
       const queue = await getQueue();
       const job = body && body.id ? queue.find(j => j.id === body.id) : queue[0];
       if (!job) return json({ ok: false, error: "no-job" }, 404);
+      // A live run renewing its own claim (the agent does this every half hour,
+      // since a run is no longer cut off at 45 minutes): restart the stale clock.
+      if (job.state === "running" && body && body.renew) {
+        job.claimedAt = new Date().toISOString();
+        await putJob(job);
+        return json({ ok: true, already: true, renewed: true, job });
+      }
       if (job.state === "running") return json({ ok: true, already: true, job });
       job.state = "running";
       job.claimedAt = new Date().toISOString();

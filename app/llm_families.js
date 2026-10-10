@@ -3814,6 +3814,37 @@ Rules:
   }
   const partnerCheckScheduled = new Set();
   let partnerQueue = Promise.resolve();
+  // ---------- one stuck car does not hold up the rest ----------
+  // Real user request: "I want it to go on until all scans have been completed
+  // in the current run. The only thing that it should have a 'budget' for is
+  // if it gets stuck running on a particular car or model, then in that case
+  // there should be a timeout." The cascade's queue runs one car at a time, so
+  // a car whose check never comes back used to stop every car behind it. Now
+  // the queue gives up on that one car after `carTimeoutMs` and goes on; the
+  // car stays on the saved to-do list (pendingCascade) for --resume, and a
+  // late answer is still kept if it ever arrives. The agent sets the limit
+  // from its --node-timeout.
+  let carTimeoutMs = 10 * 60 * 1000;
+  function setCarTimeout(ms) { if (Number.isFinite(ms) && ms > 0) carTimeoutMs = ms; }
+  const abandoned = new Map();   // id -> label, while its late check is still running
+  const TIMED_OUT = {};
+  function withCarTimeout(car, work) {
+    const label = `${car.make ? car.make + " " : ""}${car.label || car.id}`;
+    const p = Promise.resolve().then(work);
+    p.then(() => abandoned.delete(car.id), () => abandoned.delete(car.id));
+    let timer = null;
+    const limit = new Promise(res => { timer = setTimeout(() => res(TIMED_OUT), carTimeoutMs); });
+    return Promise.race([p, limit]).then(r => {
+      clearTimeout(timer);
+      if (r !== TIMED_OUT) return r;
+      abandoned.set(car.id, label);
+      rememberCascade(car.id, cascadeDepth.has(car.id) ? cascadeDepth.get(car.id) : null, null);
+      note(`scan: gave up on ${label} after ${Math.round(carTimeoutMs / 1000)}s with no answer -- ` +
+           "moving on to the rest; it stays on the list for --resume");
+      return null;
+    }, e => { clearTimeout(timer); throw e; });
+  }
+
   // ---------- a requested scan is a full one ----------
   // Real user request: "when I do a request scan on the webapp, it should
   // recheck all of the relationships as well, and go all the layers deep,
@@ -3852,14 +3883,14 @@ Rules:
     partnerCheckScheduled.add(car.id);
     note(`scan: ${car.make ? car.make + " " : ""}${car.label} -- reading it again (${depth} hop(s) out)`);
     partnerQueue = partnerQueue
-      .then(async () => {
+      .then(() => withCarTimeout(car, async () => {
         if (plate) { if (freshRecheckRunner) await freshRecheckRunner(car); return; }
         const entry = await checkNodeCascade(car, nodes, { fresh: true });
         if (entry && entry.status === "provisional" && car.type === "model" && !car.familyOf) {
           confirmNode(car.id);
           notifySplitReady(car);
         }
-      })
+      }))
       .catch(e => { console.warn("LlmFamilies: fresh re-check failed for " + car.id, e); })
       .then(() => { partnerCheckScheduled.delete(car.id); notifyFactsUpdate(); });
     return true;
@@ -3915,7 +3946,7 @@ Rules:
     rememberCascade(node.id, depth, originId);
     partnerCheckScheduled.add(node.id);
     partnerQueue = partnerQueue
-      .then(() => {
+      .then(() => withCarTimeout(node, () => {
         if (entryFor(node.id)) return null;       // decided while this was queued behind something else
         // A saved article counts. scheduleWpLookupAndCheck deliberately does
         // nothing for a car with one on file, so handing it such a car was a
@@ -3923,7 +3954,7 @@ Rules:
         if (!node.wp && store.wpLinks[node.id]) node.wp = store.wpLinks[node.id];
         if (!node.wp) { scheduleWpLookupAndCheck(node, nodes); return null; }
         return checkNodeCascade(node, nodes);
-      })
+      }))
       .then(entry => {
         // A partner that turns out to hide generations becomes a real
         // nameplate for the FIRST time here -- which is exactly the case the
@@ -3999,7 +4030,9 @@ Rules:
   // of these is non-zero. Ids rather than a bare count so the terminal can
   // name what it is waiting for.
   function pendingWork() {
-    const checks = [...inFlight.keys()];
+    // A check the queue gave up on is not outstanding work: the run does not
+    // wait on it (see withCarTimeout).
+    const checks = [...inFlight.keys()].filter(k => !abandoned.has(String(k).replace(/^recheck:/, "")));
     const partners = [...partnerCheckScheduled].filter(id => !inFlight.has(id));
     const lookups = [...wpLookupScheduled];
     // Requests waiting in the queue count as outstanding work. This is what
@@ -4010,7 +4043,7 @@ Rules:
     const queued = jobList().filter(j => j.state !== "running").map(j => j.targetId);
     const running = jobList().filter(j => j.state === "running").map(j => j.targetId)
                              .filter(id => !checks.includes(id));
-    return { checks, partners, lookups, queued, running,
+    return { checks, partners, lookups, queued, running, abandoned: [...abandoned.values()],
              saved: pendingCascadeCount(), engineReads: engineReadsInFlight,
              total: checks.length + partners.length + lookups.length +
                     queued.length + running.length + engineReadsInFlight };
@@ -13524,7 +13557,7 @@ Rules:
     resolvePendingOwnGenerations, ownGenerationCode, sameArticleOwner,
     placeInCascade, cascadeDepthOf: id => depthOf(id), ownCodeShape, foldUmbrellaModels,
     schedulePartnerCheck, cascadeDepthIn,
-    beginFreshScan, endFreshScan, freshScanActive, setFreshRecheckRunner,
+    beginFreshScan, endFreshScan, freshScanActive, setFreshRecheckRunner, setCarTimeout,
     checkInFlight: id => inFlight.has(id) || inFlight.has("recheck:" + id),
     indexSectionEngine, isGenericIndexSection, generationNodeLabel, looksLikeCodeLink,
     relabelMisnamedEngines, engineArticleKey,

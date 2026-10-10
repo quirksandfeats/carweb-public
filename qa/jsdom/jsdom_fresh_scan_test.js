@@ -30,7 +30,7 @@ const sleep = ms => new Promise(r => setTimeout(r, ms));
 const T = "2026-01-01T00:00:00.000Z";
 const none = { status: "none", checkedAt: T, sourceTitle: "x", proposal: { hasMultipleGenerations: false, generations: [] }, attempts: 1, feedback: [] };
 
-function boot(cascadeMaxDepth) {
+function boot(cascadeMaxDepth, hang) {
   const checked = [];
   const dom = new JSDOM(html, { url: "http://localhost:8077/index.html", runScripts: "outside-only" });
   const { window } = dom;
@@ -58,6 +58,7 @@ function boot(cascadeMaxDepth) {
         const mm = user.match(/^Car:\s*(.+)$/m);
         const car = mm ? mm[1].trim() : "";
         checked.push(car);
+        if (hang && hang.test(car)) return new Promise(() => {});   // a check that never comes back
         const reply = /Fam/.test(car)
           ? { hasMultipleGenerations: true, generations: [
               { code: "F1", yearStart: 2000, yearEnd: 2005, designers: [], engineers: [], sharedPlatforms: [] },
@@ -147,6 +148,22 @@ const saw = (checked, name) => checked.some(c => c.includes(name));
     await sleep(2000);
     check("no partner checked before is read again", !saw(checked, "Pee") && !saw(checked, "Queue"), JSON.stringify(checked));
   }
+  console.log("\n--- one car that never answers does not hold up the rest ---");
+  {
+    const { cw, checked, LF } = boot(3, /Pee/);
+    LF.setCarTimeout(400);
+    const s = cw.byId.get("m-fresht-s");
+    cw.openDetail(s);
+    cw.requestScan(s);
+    await sleep(3000);
+    check("the stuck car was asked", saw(checked, "Pee"), JSON.stringify(checked));
+    check("the car queued behind it is still checked", saw(checked, "Fam"), JSON.stringify(checked));
+    const pw = LF.pendingWork();
+    check("the stuck car is reported as given up on", (pw.abandoned || []).some(x => /Pee/.test(x)), JSON.stringify(pw.abandoned));
+    check("...and is not counted as outstanding work, so the run can finish",
+      !pw.checks.includes("m-fresht-p") && pw.total === 0, JSON.stringify(pw));
+  }
+
   console.log("\n" + (fails === 0 ? "ALL GREEN" : fails + " FAILURE(S)"));
   process.exit(fails === 0 ? 0 : 1);
 })();

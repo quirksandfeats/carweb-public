@@ -152,6 +152,13 @@ check("a seed's answer must be newer than what was on file before the scan",
       "before = page.evaluate(" in open(agent.__file__).read() and 'before[k + "At"]' in open(agent.__file__).read())
 check("a re-check that changed nothing is not counted as awaiting review",
       'waiting = [nid for nid, st in done if st in ("provisional", "recheck:provisional")]' in open(agent.__file__).read())
+check("there is no overall time limit unless one is asked for",
+      'ap.add_argument("--budget-minutes", type=int, default=0,' in open(agent.__file__).read()
+      and "if budget_seconds and spent > budget_seconds:" in open(agent.__file__).read())
+check("a stuck car is given up on by the page after --node-timeout",
+      "setCarTimeout" in open(agent.__file__).read())
+check("a long run renews its claim before the Worker's 90-minute stale rule",
+      agent.CLAIM_RENEW_SECONDS < 90 * 60 and '"renew": True' in open(agent.__file__).read())
 check("an unknown status still prints something",
       agent.describe({}) == "checked", agent.describe({}))
 
