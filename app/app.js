@@ -1329,7 +1329,12 @@ window.CarWeb = (function () {
       const run = fmtYearRun(n.year, n.end);
       const d = n.designers && n.designers.length ? `<br>drawn by ${n.designers.join(" · ")}` : "";
       const e = n.engineers && n.engineers.length ? `<br>engineered by ${n.engineers.join(" · ")}` : "";
-      return `${n.make} · ${run}${d}${e}`;
+      // Other markets' names, from the infobox's "also called" (read with
+      // the engines -- see llm_families.js's akaNames).
+      const LFam = window.LlmFamilies;
+      const aka = LFam && LFam.aliasesFor ? LFam.aliasesFor(n.id) : [];
+      const a = aka.length ? `<br>also called ${aka.map(esc).join(" · ")}` : "";
+      return `${n.make} · ${run}${d}${e}${a}`;
     }
     // An engine fell through to the person branch below and came out
     // "· 0 cars in the web" -- personCreditedCars knows nothing about a
@@ -2061,8 +2066,32 @@ window.CarWeb = (function () {
         if (!live || live.retired) return;
         recordEnginesLive();
         scanEnginesLive(live);
+        followSuccession(live);
       });
     }
+  }
+  // Real user request: "I would like that also the successors and
+  // predecessors are being counted as part of the cascade branch-out as
+  // well." The car on screen already walks its own (its relation panel lists
+  // succession links), but a car the cascade reached further out only followed
+  // the cars its article named as sharing a platform -- the Lykan HyperSport
+  // was checked and its successor, the Fenyr SuperSport, never was. Each
+  // predecessor/successor is one more hop, under the same depth budget, and
+  // schedulePartnerCheck refuses anything outside the current cascade.
+  function followSuccession(n) {
+    const LF = window.LlmFamilies;
+    if (!LF || !LF.schedulePartnerCheck) return;
+    const fam = n.familyOf ? byId.get(n.familyOf) : n;
+    if (!fam) return;
+    const own = [fam, ...(fam.generations || []).map(id => byId.get(id))].filter(Boolean);
+    const seen = new Set();
+    own.forEach(car => (adj.get(car.id) || []).forEach(({ n: o, l }) => {
+      if (l.type !== "succession" || l.retired) return;
+      o = liveRelationEndpoint(o);
+      if (!o || o.type !== "model" || o.familyOf || seen.has(o.id)) return;
+      seen.add(o.id);
+      LF.schedulePartnerCheck(o, nodes, car.id);
+    }));
   }
 
   // A job asked for, and whatever the card should say about it right now.
@@ -3588,7 +3617,13 @@ window.CarWeb = (function () {
   async function freshenGenerationsBeforeMatch(box, c) {
     const LF = window.LlmFamilies;
     if (!LF || !LF.generationGapFor || !LF.checkNode) return;
-    const sides = [c.famA, c.famB].filter(n => n && n.wp && !LF.entryFor(n.id));
+    // Never a nameplate: a nameplate's generation list is re-read by its own
+    // re-check, not by the plain-model check. Real failure, the Boxster and
+    // Cayman: a queued re-check and this both read the article at once, this
+    // one's reply broke, and the run reported the car as failed while the
+    // re-check had in fact applied.
+    const sides = [c.famA, c.famB].filter(n => n && n.wp && n.type !== "family" && !LF.entryFor(n.id) &&
+      !(LF.checkInFlight && LF.checkInFlight(n.id)));
     if (!sides.length) return;
     let gaps;
     try {
@@ -6757,7 +6792,9 @@ window.CarWeb = (function () {
       if (isPerson(n) && !nodeInLayer(n)) continue;  // respect the designer/engineer layer toggle only
       const hay = ((n.type === "model" || n.type === "family") ? n.make + " " + n.label : n.label).toLowerCase();
       const extra = ((n.type === "model" || n.type === "family")
-        ? ((n.designers || []).join(" ") + " " + (n.engineers || []).join(" ")).toLowerCase() : "");
+        ? ((n.designers || []).join(" ") + " " + (n.engineers || []).join(" ") + " " +
+           // "Renault Symbol" finds the Dacia Logan: its other markets' names.
+           ((window.LlmFamilies && window.LlmFamilies.aliasesFor) ? window.LlmFamilies.aliasesFor(n.id).join(" | ") : "")).toLowerCase() : "");
       let s = -1;
       if (hay.startsWith(q)) s = 0;
       else if (hay.includes(q)) s = 1;

@@ -244,6 +244,10 @@ window.LlmFamilies = (function () {
     // "the model read this generation's whole article"; this only means "the
     // infobox's engine field was looked at", which costs no model call.
     engineScans: bootData.engineScans || {},
+    // What each car is also called in other markets, from its infobox's
+    // "aka" field -- the Dacia Logan's Renault Symbol. Read alongside the
+    // engines (same article, same pass, no model call). id -> {names, from}.
+    aliases: bootData.aliases || {},
     // What the orphan prune cleared, one line per decision -- see
     // pruneStandInOrphans and clearRenamedOrphans.
     //
@@ -959,6 +963,16 @@ window.LlmFamilies = (function () {
       }
     }
     const cut = meta && meta.finishReason === "length";
+    // Real failure, the Porsche Boxster and Cayman: the model finished
+    // ("stop", not cut off) with every generation written out in full and
+    // only the outermost "}" missing. That is not a half-written answer, so
+    // the missing closers are added back -- but only closers, only when the
+    // text ends on a finished value outside any string, and never for a
+    // reply that hit the token ceiling.
+    if (!cut && first >= 0) {
+      const closed = closeUnbalancedJson(text.slice(first));
+      if (closed) { try { return JSON.parse(closed); } catch (e) { /* genuinely malformed */ } }
+    }
     const err = new Error(cut
       ? ("the model ran past the " + (meta.maxTokens || "token") +
          "-token ceiling without finishing its answer -- it was still going when it was stopped" +
@@ -971,6 +985,31 @@ window.LlmFamilies = (function () {
     err.finishReason = (meta && meta.finishReason) || null;
     err.cutOff = !!cut;
     throw err;
+  }
+
+  // `text` with the brackets it left open closed again, or null when that is
+  // not the only thing wrong with it. At most two closers: one forgotten
+  // brace is a slip, a dozen is a reply that stopped halfway.
+  function closeUnbalancedJson(text) {
+    const stack = [];
+    let inStr = false, esc = false;
+    for (const ch of text) {
+      if (inStr) {
+        if (esc) esc = false;
+        else if (ch === "\\") esc = true;
+        else if (ch === '"') inStr = false;
+        continue;
+      }
+      if (ch === '"') inStr = true;
+      else if (ch === "{" || ch === "[") stack.push(ch);
+      else if (ch === "}" || ch === "]") {
+        const open = stack.pop();
+        if (!open || (open === "{") !== (ch === "}")) return null;
+      }
+    }
+    if (inStr || !stack.length || stack.length > 2) return null;
+    if (!/[}\]"\d]\s*$|(?:true|false|null)\s*$/.test(text)) return null;
+    return text + stack.reverse().map(o => (o === "{" ? "}" : "]")).join("");
   }
 
   // Everything an error entry should carry about a failed call. The message
@@ -7785,6 +7824,95 @@ Rules:
         break;
       }
     }
+    return folded + foldGenerationTwins(nodes, links);
+  }
+
+  // ---------- a generation's twin the chassis-code pass cannot see ----------
+  // Real user report: "the cayman and boxster 982 generation has no engine
+  // information, even though the wikipedia article that is linked contains
+  // that information." There were two 982s: the nameplate's generation
+  // "Boxster and Cayman 982", which had read its engines, and a plain car
+  // "718 Boxster and Cayman (982)" beside it, which never had. Same with
+  // "Boxster (986)". The pass above missed both -- a code of digits alone is
+  // not a chassis code there (it would match "Peugeot 405" to anything), and
+  // "718 Boxster and Cayman" is not the same name as "Boxster and Cayman".
+  //
+  // Two rules, each safe on its own:
+  //   - the plain car's article IS the generation's own article (after
+  //     redirects: "Porsche 982" -> "Porsche 718 Boxster and Cayman (982)");
+  //   - or its bracketed code is the code of exactly one generation of the
+  //     same make, the names agree word for word on the shorter side
+  //     ("Boxster" within "Boxster and Cayman"), and the years agree.
+  function nameWords(label) {
+    return String(label || "").normalize("NFKD").replace(COMBINING_MARKS_RE, "").toLowerCase()
+      .replace(/\s*\([^()]*\)\s*$/, "").split(/[^a-z0-9]+/).filter(Boolean);
+  }
+  // The same name, give or take a model number in front ("718 Boxster and
+  // Cayman"), or one half of a joined name ("Boxster" of "Boxster and
+  // Cayman"). Not any subset: "Prius" is not the "Prius Plug-in Hybrid".
+  function wordsAgree(a, b) {
+    const same = (x, y) => x.length > 0 && x.join(" ") === y.join(" ");
+    if (same(a, b)) return true;
+    const named = w => w.filter(t => !/^\d+$/.test(t));
+    if (named(a).length >= 2 && same(named(a), named(b))) return true;
+    const halves = w => w.join(" ").split(/\band\b/).map(h => h.trim().split(" ").filter(Boolean));
+    return (halves(b).length > 1 && halves(b).some(h => same(a, h))) ||
+           (halves(a).length > 1 && halves(a).some(h => same(b, h)));
+  }
+  function trailingGenCode(label) {
+    const s = String(label || "").trim();
+    const br = s.match(/\(([^()]+)\)\s*$/);
+    const tok = br ? br[1].trim() : (s.split(/\s+/).pop() || "");
+    return /\d/.test(tok) && !/^(?:19|20)\d\d(?:\s*[-\u2013].*)?$/.test(tok) ? norm(tok) : "";
+  }
+  function foldGenerationTwins(nodes, links) {
+    const byIdLocal = new Map(nodes.map(n => [n.id, n]));
+    const byArticle = new Map(), byCode = new Map();
+    for (const g of nodes) {
+      if (!g || g.retired || g.type !== "model" || !g.familyOf) continue;
+      const fam = byIdLocal.get(g.familyOf);
+      if (!fam || fam.retired) continue;
+      const wp = g.wp || store.wpLinks[g.id];
+      const key = wp ? articleKeyOf(wp) : "";
+      // The nameplate's own page names every generation; only a page of the
+      // generation's own says which car it is.
+      if (key && key !== articleKeyOf(nameplateArticleOf(fam, byIdLocal))) {
+        byArticle.set(key, byArticle.has(key) ? null : g);
+      }
+      const code = trailingGenCode(g.label);
+      if (code) {
+        const k = norm(g.make) + "|" + code;
+        if (!byCode.has(k)) byCode.set(k, []);
+        byCode.get(k).push(g);
+      }
+    }
+    let folded = 0;
+    for (const m of nodes.slice()) {
+      if (!m || m.retired || m.type !== "model" || m.familyOf || !m.make) continue;
+      if ((m.generations || []).length) continue;
+      const agrees = g => {
+        const fam = byIdLocal.get(g.familyOf);
+        if (!fam || norm(g.make) !== norm(m.make)) return false;
+        if (!wordsAgree(nameWords(m.label), nameWords(fam.label))) return false;
+        return m.year == null || g.year == null || Math.abs(m.year - g.year) <= 1;
+      };
+      // Same make, same name, same years, as well as the same page: a
+      // generation's link can point into another car's article.
+      let gen = m.wp ? byArticle.get(articleKeyOf(m.wp)) : null;
+      let why = "the same article";
+      if (gen && !agrees(gen)) gen = null;
+      if (!gen && /\)\s*$/.test(String(m.label))) {
+        const code = trailingGenCode(m.label);
+        const cands = (code && byCode.get(norm(m.make) + "|" + code) || []).filter(agrees);
+        if (cands.length === 1) { gen = cands[0]; why = "code " + code; }
+      }
+      if (!gen || gen === m || gen.retired) continue;
+      if (store.unmergedDuplicates[gen.id + "|" + m.id]) continue;
+      const fam = byIdLocal.get(gen.familyOf);
+      supersedeStandalone(nodes, links, m, gen, fam.id, fam.make + " " + fam.label);
+      note(`graph: "${m.make} ${m.label}" is the same car as "${gen.label}" (${why}) -- folded in`);
+      folded++;
+    }
     return folded;
   }
 
@@ -11997,6 +12125,85 @@ Rules:
     });
     return bestN >= 2 ? best : null;
   }
+  // ---------- "also called" ----------
+  // Real user request: "I want that the info card for models/nameplates/
+  // generations to also include the pseudonyms in different markets (for
+  // example, dacia logan and renault symbol)." That is the infobox's `aka`
+  // field. The first one in `wikitext` only: a section's own infobox, or an
+  // article's lead one -- never another generation's further down the page.
+  function infoboxFieldValue(wikitext, fieldRx) {
+    const src = String(wikitext || "");
+    const m = fieldRx.exec(src);
+    if (!m) return null;
+    let i = m.index + m[0].length, depth = 0, end = src.length;
+    for (; i < src.length; i++) {
+      const two = src.substr(i, 2);
+      if (two === "{{" || two === "[[") { depth++; i++; continue; }
+      if (two === "}}" || two === "]]") {
+        if (depth === 0) { end = i; break; }
+        depth--; i++; continue;
+      }
+      if (src[i] === "|" && depth === 0 && /^\|\s*[a-z_0-9]+\s*=/i.test(src.slice(i, i + 40))) { end = i; break; }
+    }
+    return src.slice(m.index + m[0].length, end);
+  }
+  const LIST_TEMPLATES_RE = /^(?:plain ?list|ubl|unbulleted list|hlist|flatlist|bulleted list|ublist|collapsible list)$/i;
+  function akaNames(wikitext, ownName) {
+    let v = infoboxFieldValue(wikitext, /\|\s*aka\s*=/i);
+    if (!v) return [];
+    v = v.replace(/<!--[\s\S]*?-->/g, "")
+         .replace(/<ref[^>]*\/>/gi, "")
+         .replace(/<ref[^>]*>[\s\S]*?<\/ref>/gi, "")
+         .replace(/\[\[([^\[\]|]*)\|([^\[\]]*)\]\]/g, "$2")
+         .replace(/\[\[([^\[\]]*)\]\]/g, "$1");
+    // Innermost template first: a list becomes lines, {{nowrap|X}} becomes X,
+    // anything else ({{citation needed}}, a flag) goes.
+    for (let guard = 0; guard < 50 && /\{\{/.test(v); guard++) {
+      const before = v;
+      v = v.replace(/\{\{([^{}]*)\}\}/g, (all, body) => {
+        const parts = body.split("|").map(x => x.trim());
+        const name = parts.shift() || "";
+        const args = parts.filter(x => !/^[a-z_]+\s*=/i.test(x));
+        if (LIST_TEMPLATES_RE.test(name)) return "\n" + args.join("\n") + "\n";
+        if (/^(?:nowrap|nobr|lang|lang-[a-z]+|transl|small|nobold)$/i.test(name)) return args[args.length - 1] || "";
+        return "";
+      });
+      if (v === before) break;
+    }
+    v = v.replace(/<br\s*\/?>/gi, "\n").replace(/<[^>]+>/g, "").replace(/'{2,}/g, "").replace(/&nbsp;/g, " ");
+    const out = [];
+    const own = norm(ownName || "");
+    v.split(/\n|\s*\*\s*/).forEach(line => {
+      // Commas between names, not inside a bracket: "Renault Symbol (Europe, Turkey)".
+      let depth = 0, cur = "";
+      const pieces = [];
+      for (const ch of line) {
+        if (ch === "(") depth++;
+        if (ch === ")") depth = Math.max(0, depth - 1);
+        if ((ch === "," || ch === ";") && depth === 0) { pieces.push(cur); cur = ""; } else cur += ch;
+      }
+      pieces.push(cur);
+      pieces.forEach(p => {
+        const name = p.replace(/\s+/g, " ").replace(/^[\s:\-\u2013]+|[\s:\-\u2013]+$/g, "").trim();
+        if (!name || name.length > 80 || !/[a-z]/i.test(name)) return;
+        if (own && norm(name) === own) return;
+        if (out.some(x => norm(x) === norm(name))) return;
+        out.push(name);
+      });
+    });
+    return out.slice(0, 20);
+  }
+  // The lead of an article: what comes before its first heading.
+  function articleLead(wikitext) {
+    const src = String(wikitext || "");
+    const h = src.search(/\n==[^=]/);
+    return h >= 0 ? src.slice(0, h) : src;
+  }
+  function aliasesFor(id) {
+    const e = store.aliases[id];
+    return (e && e.names) || [];
+  }
+
   function engineArticleFor(car, fam, famWikitext, umbrella) {
     if (!car) return null;
     const famWp = (fam && fam.wp) || umbrella || null;
@@ -12127,7 +12334,8 @@ Rules:
   // 3: engines linked by code alone (the Opel Omega B), and a generation
   // matched to its own section by heading rather than any letter in it.
   // 4: two engines on one line written as alternatives ("Y22XE/Z22XE").
-  const ENGINE_SCAN_VERSION = 4;
+  // 5: also reads the infobox's "also called" names (see akaNames).
+  const ENGINE_SCAN_VERSION = 5;
   function engineScanIsCurrent(rec) { return !!rec && (rec.v || 1) >= ENGINE_SCAN_VERSION; }
   // Every car whose engines should be (re-)read: read by an older reader, or
   // checked but never engine-read at all (the Daihatsu Thor). A nameplate
@@ -12181,6 +12389,11 @@ Rules:
     if (umbrella) {
       try { famWikitext = (await fetchArticleDigest(umbrella)).wikitext; } catch (e) { famWikitext = null; }
     }
+    // The nameplate's own names, from its own page's lead infobox.
+    if (fam && famWikitext) {
+      const names = akaNames(articleLead(famWikitext), `${fam.make || ""} ${fam.label || ""}`);
+      store.aliases[fam.id] = { names, from: umbrella, checkedAt: new Date().toISOString() };
+    }
     for (const car of targets) {
       if (!car || car.retired) continue;
       if (engineScanIsCurrent(store.engineScans[car.id])) { out.skipped++; continue; }
@@ -12203,12 +12416,21 @@ Rules:
           unlinked.push(u);
         }
       };
+      const aka = [];
+      const addAka = (text, from) => {
+        akaNames(text, `${car.make || ""} ${car.label || ""}`).forEach(a => {
+          if (!aka.some(x => norm(x) === norm(a))) aka.push(a);
+        });
+        if (aka.length && !akaFrom) akaFrom = from;
+      };
+      let akaFrom = null;
       if (title) {
         let wikitext = null;
         try { wikitext = (await fetchArticleDigest(title)).wikitext; } catch (e) { wikitext = null; }
         if (wikitext) {
           hits = engineMentions(wikitext); readTitle = title;
           addUnlinked(unlinkedEngineMentions(wikitext));
+          addAka(articleLead(wikitext), title);
         } else unreadable = true;
       }
       let fromSection = null;
@@ -12224,6 +12446,7 @@ Rules:
                `"${umbrella}" § ${fromSection.title}`);
         }
         addUnlinked(unlinkedEngineMentions(fromSection.body, famWikitext));
+        addAka(fromSection.body, `${umbrella} § ${fromSection.title}`);
       }
       // No article of its own and no section of its own -- but a nameplate
       // page with ONE engine field describes every generation it covers.
@@ -12236,12 +12459,15 @@ Rules:
       if (!title && !fromSection && famWikitext && !hits.length && engineFields(famWikitext).length === 1) {
         hits = engineMentions(famWikitext);
         addUnlinked(unlinkedEngineMentions(famWikitext));
+        addAka(articleLead(famWikitext), umbrella);
         wholePage = true;
         if (hits.length || unlinked.length) {
           note(`powertrain: ${car.label} -- read from "${umbrella}", whose one engine field ` +
                "covers every generation");
         }
       }
+      store.aliases[car.id] = { names: aka, from: akaFrom, checkedAt: new Date().toISOString() };
+      if (aka.length) note(`names: ${car.label} -- also called ${aka.join(" · ")}`);
       if (unlinked.length) {
         note(`powertrain: ${car.label} -- ${unlinked.length} engine(s) named with no article ` +
              `to follow, kept as stated: ${unlinked.map(u => u.name).join(", ")}`);
@@ -13210,6 +13436,7 @@ Rules:
     resolvePendingOwnGenerations, ownGenerationCode, sameArticleOwner,
     placeInCascade, cascadeDepthOf: id => depthOf(id), ownCodeShape, foldUmbrellaModels,
     schedulePartnerCheck, cascadeDepthIn,
+    checkInFlight: id => inFlight.has(id) || inFlight.has("recheck:" + id),
     indexSectionEngine, isGenericIndexSection, generationNodeLabel, looksLikeCodeLink,
     relabelMisnamedEngines, engineArticleKey,
     // The section-reading half of the generation-article lookup, exposed so
@@ -13228,6 +13455,7 @@ Rules:
     engineSpecsFor, engineSpecSummary, engineSpecsFromInfobox, engineSpecsFromSection,
     isEngineListTitle, stripEngineSuffix, engineFieldEntries, splitEngineField,
     scheduleEngineCascade, scanEnginesFor, engineScanEntryFor, engineArticleFor,
+    aliasesFor, akaNames,
     forceRecheckEngine,
     clearEngineScansFor, note, nameplateSectionForCar, mergeEngineHits,
     mergeEngines, undoEngineMerge, allEngineMerges, applyEngineMerges,

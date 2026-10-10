@@ -707,10 +707,18 @@ def _run_pass_in(browser, targets, budget_seconds, per_node_seconds,
                       return { status: (e && e.status) || null, recheck: (r && r.status) || null,
                                engine: (g && g.status) || null };
                     }""", nid)
-                if state["status"] or state["recheck"] or state["engine"]:
+                # A nameplate's answer is its re-check. Another pass can leave a
+                # plain-check entry on it too (the Boxster and Cayman got an
+                # error there while its re-check applied), and reading that
+                # one first reported a finished run as "check failed".
+                if kind == "family":
+                    answer = state["recheck"] and ("recheck:" + state["recheck"])
+                else:
+                    answer = (state["status"] or state["engine"]
+                              or (state["recheck"] and ("recheck:" + state["recheck"])))
+                if answer:
                     settled = True
-                    st = (state["status"] or state["engine"]
-                          or ("recheck:" + state["recheck"]))
+                    st = answer
                     done.append((nid, st))
                     rows = entry_rows(page)
                     log(f"  {name} -- {describe(rows.get(nid, {'status': st}))}")
@@ -816,7 +824,9 @@ def entry_rows(page):
             const gens = (e && e.proposal && e.proposal.generations) || [];
             out[id] = {
               label: n ? ((n.make ? n.make + " " : "") + n.label) : id,
-              status: (e && e.status) || (r ? "recheck:" + r.status : null),
+              // A nameplate is answered by its re-check; see the seed wait.
+              status: (n && n.type === "family" && r) ? "recheck:" + r.status
+                      : (e && e.status) || (r ? "recheck:" + r.status : null),
               gens: gens.length,
             };
           });
@@ -830,6 +840,12 @@ def describe(row):
         return f"split into {gens} generations" if gens else "split"
     if st == "provisional":
         return f"{gens} generations proposed, waiting for you" if gens else "waiting for you"
+    if st == "recheck:applied":
+        return "generation list re-checked and applied"
+    if st == "recheck:none":
+        return "generation list re-checked, nothing changed"
+    if st == "recheck:error":
+        return "check failed"
     if st and st.startswith("recheck"):
         return "generation list re-checked, waiting for you"
     if st == "none":

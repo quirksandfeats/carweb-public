@@ -142,6 +142,12 @@ check("a car with nothing to find says that plainly",
       agent.describe({"status": "none"}) == "no hidden generations")
 check("a failed check is not reported as a result",
       agent.describe({"status": "error"}) == "check failed")
+check("an applied nameplate re-check is reported as done, not as waiting",
+      agent.describe({"status": "recheck:applied"}) == "generation list re-checked and applied")
+check("a failed nameplate re-check is reported as failed",
+      agent.describe({"status": "recheck:error"}) == "check failed")
+check("a nameplate seed is answered by its re-check, not by another pass's entry on it",
+      'if kind == "family":' in open(agent.__file__).read())
 check("an unknown status still prints something",
       agent.describe({}) == "checked", agent.describe({}))
 
