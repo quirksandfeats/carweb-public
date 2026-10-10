@@ -3166,6 +3166,7 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
     (dup.engineers || []).forEach(d => eset.add(d));
     gn.engineers = [...eset];
     const dupId = dup.id;
+    let sameFamily = null;
     const n0 = links.length; // snapshot -- don't re-scan links this loop just pushed
     for (let i = 0; i < n0; i++) {
       const l = links[i];
@@ -3174,6 +3175,11 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
       if (s !== dupId && t !== dupId) continue;
       const otherId = s === dupId ? t : s;
       if (otherId === gn.id || otherId === famId || otherId === dupId) continue;
+      // A link to one of the nameplate's own generations is internal once the
+      // dup is part of it: the Prius overview's "succeeded by the XW50",
+      // carried onto the nameplate, made the Prius succeed its own generation.
+      if (!sameFamily) sameFamily = new Set(nodes.filter(n => n.familyOf === famId).map(n => n.id));
+      if (sameFamily.has(otherId)) continue;
       const ns = s === dupId ? gn.id : s, nt = t === dupId ? gn.id : t;
       const exists = links.some(l2 => l2.type === l.type &&
         ((idOf(l2.source) === ns && idOf(l2.target) === nt) || (idOf(l2.source) === nt && idOf(l2.target) === ns)));
@@ -7985,6 +7991,23 @@ Rules:
     let merged = 0;
     duplicateNameplatePairs(nodes).forEach(({ fam, dup }) => {
       if (store.unmergedDuplicates[fam.id + "|" + dup.id]) return;
+      // Real user report: the Boxster and Cayman listed its own overview
+      // page as a fifth "generation" running 1996 to now. An umbrella article
+      // is an earlier era only when it starts BEFORE the nameplate's first
+      // generation (Aston Martin's 1972 Vantage, the 1963 Porsche 911). One
+      // that starts with or after it is the overview of the generations
+      // already there -- the Corolla's 1966-1970 is its E10, the Audi R8's
+      // 2006-2024 is both of its generations -- and it is folded into the
+      // nameplate itself rather than listed beside them.
+      const firstGen = Math.min(...(fam.generations || []).map(id => byIdLocal.get(id))
+        .filter(g => g && !g.retired && g !== dup && g.year != null).map(g => g.year));
+      if (Number.isFinite(firstGen) && !(dup.year != null && dup.year < firstGen)) {
+        supersedeStandalone(nodes, links, dup, fam, fam.id, `${fam.make} ${fam.label}`);
+        if (!fam.wp && dup.wp) fam.wp = dup.wp;
+        if (dup.db) fam.db = true;
+        merged++;
+        return;
+      }
       dup.familyOf = fam.id;
       dup.mergedFromDuplicate = fam.id;
       if (!links.some(l => l.type === "generation" && idOf(l.source) === fam.id && idOf(l.target) === dup.id)) {

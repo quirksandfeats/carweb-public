@@ -203,6 +203,37 @@ function boot({ cascadeMaxDepth = 1, extraNodes = [], extraLinks = [], store = {
     check("searching another market's name finds the car", cw.searchAll("renault symbol").some(x => x.id === n.id));
   }
 
+  // ---------- 5. a nameplate's overview page is not one of its generations ----------
+  console.log("\n--- 5. the overview page beside a nameplate ---");
+  {
+    const mk = (id, label, year, end, extra) => Object.assign({ id, type: "model", label, make: "UmbTest", year, end }, extra || {});
+    const nodesU = [
+      { id: "mk-umbtest", type: "make", label: "UmbTest", year: 1950 },
+      { id: "fam-umbtest-roadster", type: "family", label: "Roadster", make: "UmbTest", year: 1996, end: null,
+        generations: ["m-umbtest-roadster-r1", "m-umbtest-roadster-r2"], designers: [], engineers: [] },
+      mk("m-umbtest-roadster-r1", "Roadster (R1)", 1996, 2004, { familyOf: "fam-umbtest-roadster" }),
+      mk("m-umbtest-roadster-r2", "Roadster (R2)", 2005, null, { familyOf: "fam-umbtest-roadster" }),
+      mk("m-umbtest-roadster", "Roadster", 1996, null, { wp: "UmbTest Roadster" }),
+      { id: "fam-umbtest-coupe", type: "family", label: "Coupe", make: "UmbTest", year: 2005, end: null,
+        generations: ["m-umbtest-coupe-c2"], designers: [], engineers: [] },
+      mk("m-umbtest-coupe-c2", "Coupe (C2)", 2005, null, { familyOf: "fam-umbtest-coupe" }),
+      mk("m-umbtest-coupe", "Coupe", 1972, 1973, { wp: "UmbTest Coupe" }),
+    ];
+    const linksU = nodesU.filter(n => n.type !== "make").map(n => ({ source: n.id, target: "mk-umbtest", type: "made" }))
+      .concat(nodesU.filter(n => n.familyOf).map(n => ({ source: n.familyOf, target: n.id, type: "generation" })))
+      .concat([{ source: "m-umbtest-roadster", target: "m-umbtest-roadster-r2", type: "succession" }]);
+    const { cw } = boot({ extraNodes: nodesU, extraLinks: linksU });
+    const fam = cw.byId.get("fam-umbtest-roadster"), over = cw.byId.get("m-umbtest-roadster");
+    check("an overview page spanning the generations is folded into the nameplate, not listed as one",
+      over.retired && over.supersededBy === fam.id && !fam.generations.includes(over.id), JSON.stringify(fam.generations));
+    check("...and its link to one of the nameplate's own generations is not carried onto the nameplate",
+      !cw.links.some(l => l.type === "succession" && !l.retired &&
+        [l.source.id || l.source, l.target.id || l.target].sort().join() === [fam.id, "m-umbtest-roadster-r2"].sort().join()));
+    const coupe = cw.byId.get("fam-umbtest-coupe"), early = cw.byId.get("m-umbtest-coupe");
+    check("an overview page of an EARLIER era is still that era's generation",
+      !early.retired && early.familyOf === coupe.id && coupe.generations[0] === early.id, JSON.stringify(coupe.generations));
+  }
+
   console.log("\n" + (fails === 0 ? "ALL GREEN" : fails + " FAILURE(S)"));
   process.exit(fails === 0 ? 0 : 1);
 })();
