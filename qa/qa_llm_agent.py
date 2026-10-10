@@ -148,6 +148,10 @@ check("a failed nameplate re-check is reported as failed",
       agent.describe({"status": "recheck:error"}) == "check failed")
 check("a nameplate seed is answered by its re-check, not by another pass's entry on it",
       'if kind == "family":' in open(agent.__file__).read())
+check("a seed's answer must be newer than what was on file before the scan",
+      "before = page.evaluate(" in open(agent.__file__).read() and 'before[k + "At"]' in open(agent.__file__).read())
+check("a re-check that changed nothing is not counted as awaiting review",
+      'waiting = [nid for nid, st in done if st in ("provisional", "recheck:provisional")]' in open(agent.__file__).read())
 check("an unknown status still prints something",
       agent.describe({}) == "checked", agent.describe({}))
 

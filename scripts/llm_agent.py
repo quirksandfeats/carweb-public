@@ -675,6 +675,20 @@ def _run_pass_in(browser, targets, budget_seconds, per_node_seconds,
             # redirect ("Mercedes-Benz M177 engine" ->
             # ".../M176/M177/M178 engine") cannot land the result on a
             # different id and leave this wait hanging forever.
+            # What was on file BEFORE this scan. A car scanned before already
+            # has an answer, and the second Boxster and Cayman scan reported
+            # that old answer ("re-checked and applied") one second in, while
+            # the new read had not even started. Only a newer answer counts.
+            before = page.evaluate("""(id) => {
+                      const LF = window.LlmFamilies;
+                      const e = LF.entryFor(id), r = LF.recheckEntryFor(id);
+                      const g = LF.engineEntryFor ? LF.engineEntryFor(id) : null;
+                      return { status: (e && e.status) || null, recheck: (r && r.status) || null,
+                               engine: (g && g.status) || null,
+                               statusAt: (e && e.checkedAt) || null, recheckAt: (r && r.checkedAt) || null,
+                               engineAt: (g && (g.checkedAt || g.readAt)) || null,
+                               freshErrAt: (e && e.lastFreshError && e.lastFreshError.at) || null };
+                    }""", nid)
             queued = page.evaluate(
                 "(id) => { const n = CarWeb.byId.get(id); if (!n) return null; "
                 "CarWeb.openDetail(n); "
@@ -699,14 +713,27 @@ def _run_pass_in(browser, targets, budget_seconds, per_node_seconds,
             last_rows = entry_rows(page)
             while time.time() < deadline and time.time() - started < budget_seconds:
                 page.wait_for_timeout(1000)
-                state = page.evaluate(
-                    """(id) => {
+                state = page.evaluate("""(id) => {
                       const LF = window.LlmFamilies;
                       const e = LF.entryFor(id), r = LF.recheckEntryFor(id);
                       const g = LF.engineEntryFor ? LF.engineEntryFor(id) : null;
                       return { status: (e && e.status) || null, recheck: (r && r.status) || null,
-                               engine: (g && g.status) || null };
+                               engine: (g && g.status) || null,
+                               statusAt: (e && e.checkedAt) || null, recheckAt: (r && r.checkedAt) || null,
+                               engineAt: (g && (g.checkedAt || g.readAt)) || null,
+                               freshErrAt: (e && e.lastFreshError && e.lastFreshError.at) || null };
                     }""", nid)
+                new = lambda k: state[k + "At"] and state[k + "At"] != before[k + "At"]
+                if not new("status"):
+                    state["status"] = None
+                if not new("recheck"):
+                    state["recheck"] = None
+                if not new("engine"):
+                    state["engine"] = None
+                # A fresh read that failed keeps the old answer and notes the
+                # failure beside it.
+                if state["freshErrAt"] and state["freshErrAt"] != before["freshErrAt"]:
+                    state["status"] = "error"
                 # A nameplate's answer is its re-check. Another pass can leave a
                 # plain-check entry on it too (the Boxster and Cayman got an
                 # error there while its re-check applied), and reading that
@@ -1046,9 +1073,9 @@ def do_job(job, args):
             args.settle_seconds, args.settle_quiet, seed_labels)
         cascade_stats = cascade
         split = cascade.get("agent_split") or [nid for nid, st in done if st == "confirmed"]
-        waiting = [nid for nid, st in done if st == "provisional" or (st or "").startswith("recheck")]
+        waiting = [nid for nid, st in done if st in ("provisional", "recheck:provisional")]
         nothing = [nid for nid, st in done
-                   if st in ("rejected", "none", "error", "same-article")]
+                   if st in ("rejected", "none", "error", "same-article", "recheck:none", "recheck:error")]
         bits = [f"{len(done)} seed(s) at cascade depth {cascade['depth']}",
                 f"{cascade['after']} cars now have an entry"]
         if cascade["cascaded"]:

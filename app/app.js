@@ -2023,20 +2023,29 @@ window.CarWeb = (function () {
       if (!n || n.retired) return;
       const el = llmCheckBody(n.id);
       if (el) el.innerHTML = `<div class="llm-status">🤖 checking Wikipedia for hidden generations…</div>`;
+      // A requested scan is a full one: this car is read again even with an
+      // answer on file, and so is everything it reaches (see
+      // llm_families.js's beginFreshScan).
+      // Only for a scan someone asked for (Request Scan), not for 🤖 LLM Check
+      // opening a card.
+      const full = !!(job.detail && job.detail.full);
+      if (full) startFreshScan(n);
+      if (full && LF.entryFor(n.id) && LF.checkNodeCascade) await LF.checkNodeCascade(n, nodes, { fresh: true });
       // explicit: the user clicked this car's own check. Keep the result even
       // if they navigate or the page reloads while it runs -- see checkNode.
-      await LF.checkNode(n, nodes, { explicit: true });
+      else await LF.checkNode(n, nodes, { explicit: true });
       afterLlmCheck(n);
     });
+    if (LF.setFreshRecheckRunner) LF.setFreshRecheckRunner(fam => freshRecheckNameplate(byId.get(fam.id) || fam));
     LF.registerJobRunner("family-recheck", async job => {
       const n = byId.get(job.targetId);
       if (!n || n.retired) return;
-      await runManualRecheckNow(n, llmCheckBody(n.id), false);
+      await runManualRecheckNow(n, llmCheckBody(n.id), false, !!(job.detail && job.detail.full));
     });
     LF.registerJobRunner("family-recheck-deep", async job => {
       const n = byId.get(job.targetId);
       if (!n || n.retired) return;
-      await runManualRecheckNow(n, llmCheckBody(n.id), true);
+      await runManualRecheckNow(n, llmCheckBody(n.id), true, !!(job.detail && job.detail.full));
     });
     LF.registerJobRunner("gen-research", async job => {
       const n = byId.get(job.targetId);
@@ -2078,20 +2087,58 @@ window.CarWeb = (function () {
   // was checked and its successor, the Fenyr SuperSport, never was. Each
   // predecessor/successor is one more hop, under the same depth budget, and
   // schedulePartnerCheck refuses anything outside the current cascade.
+  //
+  // During a requested scan every connection is a hop -- platform, related
+  // and succession -- and a partner that was checked before is read again
+  // (schedulePartnerCheck hands it to the scan; see beginFreshScan).
   function followSuccession(n) {
     const LF = window.LlmFamilies;
     if (!LF || !LF.schedulePartnerCheck) return;
     const fam = n.familyOf ? byId.get(n.familyOf) : n;
     if (!fam) return;
+    const full = !!(LF.freshScanActive && LF.freshScanActive());
+    const types = full ? ["succession", "platform", "related"] : ["succession"];
     const own = [fam, ...(fam.generations || []).map(id => byId.get(id))].filter(Boolean);
+    const ownIds = new Set(own.map(c => c.id));
     const seen = new Set();
     own.forEach(car => (adj.get(car.id) || []).forEach(({ n: o, l }) => {
-      if (l.type !== "succession" || l.retired) return;
+      if (types.indexOf(l.type) < 0 || l.retired) return;
       o = liveRelationEndpoint(o);
-      if (!o || o.type !== "model" || o.familyOf || seen.has(o.id)) return;
+      if (!o || seen.has(o.id) || ownIds.has(o.id)) return;
+      if (o.type !== "model" && o.type !== "family") return;
+      if (!full && (o.type !== "model" || o.familyOf)) return;
       seen.add(o.id);
       LF.schedulePartnerCheck(o, nodes, car.id);
     }));
+  }
+  function startFreshScan(n) {
+    const LF = window.LlmFamilies;
+    if (!LF || !LF.beginFreshScan) return;
+    if (LF.setEngaged) LF.setEngaged(n.id);
+    if (LF.resetCascadeFrom) LF.resetCascadeFrom(n.id);
+    if (LF.setBackgroundAllowed) LF.setBackgroundAllowed(true);
+    LF.beginFreshScan(n.id);
+  }
+  // A nameplate the scan reached, read again: the same re-check its own
+  // button runs, without making it the cascade's new starting point, and
+  // without forgetting what Andy rejected on it.
+  async function freshRecheckNameplate(fam) {
+    const LF = window.LlmFamilies;
+    if (!fam || fam.retired || !LF.forceRecheckFamily) return;
+    const genNodes = currentGenNodes(fam);
+    const nodesBefore = nodes.length, linksBefore = links.length;
+    const res = await LF.forceRecheckFamily(familyCheckTarget(fam, genNodes), genNodes, nodes, links,
+                                            { keepRejections: true });
+    spliceIntoIndexes(nodesBefore, linksBefore);
+    if (nodes.length !== nodesBefore) buildSim();
+    if (res && res.status === "provisional") autoAcceptAdditiveRecheck(fam);
+    refreshYearFilter();
+    indexMirrorReplacements();
+    refreshCounts();
+    Graph.touch();
+    recordEnginesLive();
+    await scanEnginesLive(fam);
+    followSuccession(fam);
   }
 
   // A job asked for, and whatever the card should say about it right now.
@@ -2601,7 +2648,7 @@ window.CarWeb = (function () {
     row.querySelector(".llm-recheck-btn").onclick = () => runManualRecheck(fam, row, false);
     el.appendChild(row);
   }
-  function runManualRecheckNow(fam, row, deep) {
+  function runManualRecheckNow(fam, row, deep, full) {
     {
       if (row) row.innerHTML = `<div class="llm-status">🤖 re-checking Wikipedia for anything that's changed…</div>`;
       const genNodes = currentGenNodes(fam);
@@ -2633,6 +2680,8 @@ window.CarWeb = (function () {
       if (LF.setEngaged) LF.setEngaged(fam.id);
       if (LF.resetCascadeFrom) LF.resetCascadeFrom(fam.id);
       if (LF.setBackgroundAllowed) LF.setBackgroundAllowed(true);
+      // A full scan: cars checked before are read again too (beginFreshScan).
+      if (full && LF.beginFreshScan) LF.beginFreshScan(fam.id);
       return LF.forceRecheckFamily(familyCheckTarget(fam, genNodes), genNodes, nodes, links).then(async res => {
         if (dtNode === fam) renderLlmCheck(fam);
         const sayRow = m => { if (row && row.isConnected) row.innerHTML = `<div class="llm-status llm-error">${m}</div>`; };
@@ -2656,6 +2705,8 @@ window.CarWeb = (function () {
         // generation-to-generation. Same call the ordinary detail-panel render
         // makes, so there is one code path for both, not two that can drift.
         if (dtNode === fam) renderRelationChecks(fam);
+        // ...and every car it is connected to, checked before or not.
+        followSuccession(fam);
         if (deep && res && res.status !== "unavailable" && res.status !== "no-wiki-link") {
           // Awaited: the deep half is the longer half, and a queue that
           // started the next request while six generation articles were still
@@ -2667,8 +2718,11 @@ window.CarWeb = (function () {
     }
   }
   function runManualRecheck(fam, row, deep) {
+    // The re-check buttons are a person asking for a full pass, same as
+    // Request Scan.
     return enqueueLlmJob({ kind: deep ? "family-recheck-deep" : "family-recheck", targetId: fam.id,
-                           label: (fam.make ? fam.make + " " : "") + fam.label }, null, row);
+                           label: (fam.make ? fam.make + " " : "") + fam.label,
+                           detail: { full: true } }, null, row);
   }
   // The deep half: each generation's own article, in turn. Read AFTER the
   // nameplate re-check above rather than alongside it, because that pass is
@@ -8759,7 +8813,13 @@ window.CarWeb = (function () {
     // whatever its own card's check would do", which is what the queue panel
     // and the agent both want.
     llmJobSpecFor,
-    requestScan: n => { const spec = llmJobSpecFor(n); return spec ? enqueueLlmJob(spec) : null; },
+    // A requested scan is a full one: see llm_families.js's beginFreshScan.
+    requestScan: n => {
+      const spec = llmJobSpecFor(n);
+      if (!spec) return null;
+      spec.detail = Object.assign({}, spec.detail || {}, { full: true });
+      return enqueueLlmJob(spec);
+    },
     scanEngineNow, runManualRecheckNow, runGenerationResearchNow,
     graphTransform: () => Graph.state().t,
   };

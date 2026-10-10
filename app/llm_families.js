@@ -422,6 +422,7 @@ window.LlmFamilies = (function () {
   let engagedId = null;
   function setEngaged(nodeId) {
     engagedId = nodeId || null;
+    if (freshScan && nodeId && nodeId !== freshSeed) { freshScan = null; freshSeed = null; }
     // A car the user actually selected is depth 0 by definition -- including
     // one that was itself reached as a partner earlier. That's what makes the
     // one-hop default lossless: anything the cascade declined to follow is
@@ -2631,10 +2632,14 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
     notifySplitReady(node);
     return true;
   }
-  function checkNodeCascade(node, nodes) {
+  // `opts.fresh`: a requested scan reading this car again even though it has
+  // an answer on file (see beginFreshScan). A failed fresh read keeps the
+  // answer it had rather than replacing it with an error.
+  function checkNodeCascade(node, nodes, opts) {
     if (!serverAvailable) return Promise.resolve({ status: "unavailable" });
+    const fresh = !!(opts && opts.fresh);
     const existing = entryFor(node.id);
-    if (existing) return Promise.resolve(existing);
+    if (existing && !fresh) return Promise.resolve(existing);
     if (inFlight.has(node.id)) return inFlight.get(node.id);
     if (!node.wp) {
       const entry = { status: "no-wiki-link", checkedAt: new Date().toISOString() };
@@ -2668,6 +2673,11 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
         return entry;
       } catch (e) {
         const entry = { status: "error", checkedAt: new Date().toISOString(), error: String(e.message || e), attempts: 1, detail: errorDetail(e) };
+        if (fresh && existing && existing.status !== "error") {
+          existing.lastFreshError = { at: entry.checkedAt, error: entry.error };
+          await persist();
+          return existing;
+        }
         store.families[node.id] = entry; await persist();
         return entry;
       } finally {
@@ -2675,7 +2685,7 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
       }
     })();
     inFlight.set(node.id, p);
-    p.then(() => engineReadAfterCheck(node, null), () => {});
+    p.then(() => engineReadAfterCheck(node, fresh ? { explicit: true } : null), () => {});
     return p;
   }
 
@@ -3804,10 +3814,61 @@ Rules:
   }
   const partnerCheckScheduled = new Set();
   let partnerQueue = Promise.resolve();
+  // ---------- a requested scan is a full one ----------
+  // Real user request: "when I do a request scan on the webapp, it should
+  // recheck all of the relationships as well, and go all the layers deep,
+  // etc... since it should be a full thorough complete check." A second scan
+  // of the Boxster and Cayman stopped at cars the first had already checked
+  // (the Ruf CTR3, and the Lykan behind it): every hop skipped a car with an
+  // answer on file, so nothing past it was reached either.
+  //
+  // While a requested scan runs, every car it reaches -- plain model or
+  // nameplate, checked before or not -- is read again once, and its own
+  // connections are followed in turn, up to the cascade depth. A nameplate is
+  // re-read by app.js (setFreshRecheckRunner), which can splice what it finds
+  // into the live graph. Ends when the user opens a different car.
+  let freshScan = null, freshSeed = null, freshRecheckRunner = null;
+  function beginFreshScan(seedId) { freshScan = new Set(seedId ? [seedId] : []); freshSeed = seedId || null; }
+  function endFreshScan() { freshScan = null; freshSeed = null; }
+  function freshScanActive() { return !!freshScan; }
+  function setFreshRecheckRunner(f) { freshRecheckRunner = typeof f === "function" ? f : null; }
+  // True when the fresh scan has dealt with `node` (queued it, or decided it
+  // is out of reach); false when the ordinary first-time path should take it.
+  function scheduleFreshRecheck(node, nodes, originId) {
+    if (node.retired) return true;
+    const find = id => nodes.find(x => x && x.id === id);
+    const car = node.familyOf ? (find(node.familyOf) || node) : node;
+    if (!car || car.retired || freshScan.has(car.id)) return true;
+    const plate = car.type === "family";
+    if (!plate && car.type !== "model") return true;
+    if (!plate && !entryFor(car.id)) return false;
+    if (partnerCheckScheduled.has(car.id) || inFlight.has(car.id) || inFlight.has("recheck:" + car.id)) return true;
+    const from = cascadeDepthIn(originId, nodes);
+    if (from == null) return true;
+    const depth = from + 1;
+    if (depth > cascadeMaxDepth) return true;
+    if (!cascadeDepth.has(car.id) || cascadeDepth.get(car.id) > depth) cascadeDepth.set(car.id, depth);
+    freshScan.add(car.id);
+    partnerCheckScheduled.add(car.id);
+    note(`scan: ${car.make ? car.make + " " : ""}${car.label} -- reading it again (${depth} hop(s) out)`);
+    partnerQueue = partnerQueue
+      .then(async () => {
+        if (plate) { if (freshRecheckRunner) await freshRecheckRunner(car); return; }
+        const entry = await checkNodeCascade(car, nodes, { fresh: true });
+        if (entry && entry.status === "provisional" && car.type === "model" && !car.familyOf) {
+          confirmNode(car.id);
+          notifySplitReady(car);
+        }
+      })
+      .catch(e => { console.warn("LlmFamilies: fresh re-check failed for " + car.id, e); })
+      .then(() => { partnerCheckScheduled.delete(car.id); notifyFactsUpdate(); });
+    return true;
+  }
   function schedulePartnerCheck(node, nodes, originId) {
     if (!serverAvailable || !node) return;
     if (!backgroundAllowed) return;               // the user hasn't asked for any LLM work
     if (!engagedId) return;                       // boot-time replay -- see the comment above
+    if (freshScan && scheduleFreshRecheck(node, nodes, originId)) return;
     if (node.type !== "model" || node.familyOf || node.retired) return;
     if (entryFor(node.id)) return;                // already checked at some point -- never re-run automatically
     if (partnerCheckScheduled.has(node.id) || inFlight.has(node.id)) return;
@@ -3850,6 +3911,7 @@ Rules:
     if (store.pendingCascade[nodeId]) { delete store.pendingCascade[nodeId]; persist(); }
   }
   function queuePartnerCheck(node, nodes, depth, originId) {
+    if (freshScan) freshScan.add(node.id);
     rememberCascade(node.id, depth, originId);
     partnerCheckScheduled.add(node.id);
     partnerQueue = partnerQueue
@@ -9130,7 +9192,7 @@ Rules:
   // single explicit button click on a nameplate the user is looking at
   // right now, so its result is worth keeping even if they've since
   // navigated elsewhere by the time the LLM responds.
-  function forceRecheckFamily(fam, genNodes, nodes, links) {
+  function forceRecheckFamily(fam, genNodes, nodes, links, opts) {
     if (!serverAvailable) return Promise.resolve({ status: "unavailable" });
     if (!fam.wp) {
       // Persisted (mirrors checkNode's own no-wiki-link handling) so the
@@ -9148,7 +9210,8 @@ Rules:
     // included. See clearEngineScansFor.
     const engineScansCleared = clearEngineScansFor(fam, genNodes);
     note(`re-check: ${fam.label} from scratch -- forgetting ${engineScansCleared} stored ` +
-         "engine scan(s) and every earlier rejection, so both get rediscovered");
+         ((opts && opts.keepRejections) ? "engine scan(s), so they get read again"
+                                         : "engine scan(s) and every earlier rejection, so both get rediscovered"));
     const p = (async () => {
       try {
         const { wp, wikitext, clean, raw, dropped } = await runCheck(fam, null, null, undefined, nodes);
@@ -9173,7 +9236,9 @@ Rules:
         // rediscover them from scratch rather than silently finding
         // everything blacklisted. Cleared BEFORE reworkRelationsForFamily
         // below, which is what does the rediscovering.
-        clearRejectionsFor(fam.id);
+        // Not for a car a scan merely reached: what Andy rejected on it stays
+        // rejected unless he re-checks that car himself.
+        if (!(opts && opts.keepRejections)) clearRejectionsFor(fam.id);
         reworkRelationsForFamily(fam, nodes, links, clean.generations, removedOld);
         entry.peopleAdded = applyFreshPeopleCredits(fam, nodes, links, clean.generations, removedOld);
         await persist();
@@ -13459,6 +13524,7 @@ Rules:
     resolvePendingOwnGenerations, ownGenerationCode, sameArticleOwner,
     placeInCascade, cascadeDepthOf: id => depthOf(id), ownCodeShape, foldUmbrellaModels,
     schedulePartnerCheck, cascadeDepthIn,
+    beginFreshScan, endFreshScan, freshScanActive, setFreshRecheckRunner,
     checkInFlight: id => inFlight.has(id) || inFlight.has("recheck:" + id),
     indexSectionEngine, isGenericIndexSection, generationNodeLabel, looksLikeCodeLink,
     relabelMisnamedEngines, engineArticleKey,
