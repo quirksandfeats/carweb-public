@@ -372,7 +372,9 @@ check("...but a genuinely long line is still bounded", len(cut) <= 66, len(cut))
 # engines." An engine is not checked the way a car is -- no generations to
 # split -- so a queued engine used to be opened and then waited on until the
 # per-node timeout, every time.
-pass_src = src.split("def _run_pass_in")[1]
+# From the page setup on: a crashed tab is reopened by the same setup, so it
+# lives in prepare_page now rather than inline in the pass.
+pass_src = src.split("def prepare_page")[1]
 check("the pass asks what kind of node each target is",
       "return n ? n.type : null" in pass_src)
 check("...and reads an engine's article instead of checking it for generations",
@@ -469,6 +471,81 @@ check("...which does not fall into the empty-review-queue early exit",
       'not targets and not getattr(args, "resume", False)' in src)
 check("--watch says when there is something left over",
       "left over from an earlier cascade" in src)
+
+# ---- a crashed page is reopened, and a car that keeps crashing it is set aside ----
+class _FakePage:
+    def __init__(self, log_):
+        self.log = log_
+    def on(self, *a): pass
+    def close(self): self.log.append("close")
+    def goto(self, *a, **k): self.log.append("goto")
+    def wait_for_function(self, *a, **k): pass
+    def wait_for_timeout(self, *a, **k): pass
+    def click(self, *a, **k): pass
+    def evaluate(self, js, arg=None):
+        if "serverAvailable" in js: return True
+        if "llmCheckOn" in js: return True
+        if "decisionSource()" in js: return "agent"
+        if "deferJobs" in js:
+            self.log.append(("deferJobs", list(arg))); return len(arg)
+        if "startJobs" in js: return 0
+        if "resumeCascade" in js:
+            self.log.append(("resume", list(arg or []))); return 3
+        return None
+
+
+class _FakeBrowser:
+    def __init__(self):
+        self.log, self.pages = [], 0
+    def new_page(self, **k):
+        self.pages += 1
+        return _FakePage(self.log)
+
+
+fb = _FakeBrowser()
+lp = agent.LivePage(fb, 600, [])
+lp.open()
+crash = Exception("Page.wait_for_timeout: Page crashed")
+check("a crashed page is recognised as one", agent.is_page_crash(crash))
+check("...and an ordinary error is not", not agent.is_page_crash(Exception("timeout 30000ms exceeded")))
+lp.current = ("m-x", "Test X")
+lp.recover(crash)
+check("a crash opens a fresh page", fb.pages == 2, fb.pages)
+check("...and asks it to pick the saved work back up, nothing set aside yet",
+      ("resume", []) in fb.log, fb.log)
+lp.current = ("m-x", "Test X"); lp.recover(crash)
+lp.current = ("m-x", "Test X"); lp.recover(crash)
+check("the third crash on the same car sets it aside", [i for i, _ in lp.set_aside] == ["m-x"], lp.set_aside)
+check("...the reopened page is told to leave it out of the queue and the cascade",
+      ("deferJobs", ["m-x"]) in fb.log and ("resume", ["m-x"]) in fb.log, fb.log)
+lp.current = ("m-y", "Test Y"); lp.recover(crash)
+check("a different car starts its own count", [i for i, _ in lp.set_aside] == ["m-x"] and lp.crashes["m-y"] == 1)
+calls = []
+orig_settle = agent.settle_cascade
+agent.settle_cascade = lambda *a, **k: calls.append("settle") or "settled"
+try:
+    def _boom():
+        raise Exception("Page crashed")
+    out = agent.guarded(lp, _boom, 900, 60)
+finally:
+    agent.settle_cascade = orig_settle
+check("after a crash the run carries on by waiting for the resumed work, not by failing",
+      out == "settled" and calls == ["settle"], (out, calls))
+try:
+    agent.guarded(lp, lambda: (_ for _ in ()).throw(ValueError("something else")), 900, 60)
+    raised = False
+except ValueError:
+    raised = True
+check("any other error still fails the run as before", raised)
+lp2 = agent.LivePage(_FakeBrowser(), 600, [])
+lp2.open()
+stopped = False
+try:
+    for _ in range(agent.CRASHES_PER_RUN + 1):
+        lp2.current = ("m-%d" % _, "car"); lp2.recover(crash)
+except RuntimeError:
+    stopped = True
+check("a page that crashes over and over stops the run instead of looping forever", stopped)
 
 print()
 print("ALL GREEN" if not fails else "FAILURES: " + str(fails))

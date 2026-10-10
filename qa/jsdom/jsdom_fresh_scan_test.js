@@ -30,7 +30,7 @@ const sleep = ms => new Promise(r => setTimeout(r, ms));
 const T = "2026-01-01T00:00:00.000Z";
 const none = { status: "none", checkedAt: T, sourceTitle: "x", proposal: { hasMultipleGenerations: false, generations: [] }, attempts: 1, feedback: [] };
 
-function boot(cascadeMaxDepth, hang) {
+function boot(cascadeMaxDepth, hang, storeOverride) {
   const checked = [];
   const dom = new JSDOM(html, { url: "http://localhost:8077/index.html", runScripts: "outside-only" });
   const { window } = dom;
@@ -94,11 +94,10 @@ function boot(cascadeMaxDepth, hang) {
     { source: "m-fresht-p", target: "m-fresht-q", type: "succession" },
     { source: "m-fresht-q", target: "m-fresht-r", type: "related" });
   const rejectedKey = "fam-fresht-fam|m-something-else|platform";
-  window.LLM_FAMILIES = {
+  window.LLM_FAMILIES = Object.assign(storeOverride ? JSON.parse(JSON.stringify(storeOverride)) : {
     families: { "m-fresht-s": none, "m-fresht-p": none, "m-fresht-q": none },
     relations: {}, recheck: {}, rejectedRelations: { [rejectedKey]: true },
-    __serverAvailable: true, __config: { cascadeMaxDepth },
-  };
+  }, { __serverAvailable: true, __config: { cascadeMaxDepth } });
   load("llm_families.js");
   load("app.js");
   load("timeline.js");
@@ -162,6 +161,53 @@ const saw = (checked, name) => checked.some(c => c.includes(name));
     check("the stuck car is reported as given up on", (pw.abandoned || []).some(x => /Pee/.test(x)), JSON.stringify(pw.abandoned));
     check("...and is not counted as outstanding work, so the run can finish",
       !pw.checks.includes("m-fresht-p") && pw.total === 0, JSON.stringify(pw));
+  }
+
+  // ---------- the page crashes mid-scan, and a new page picks it up ----------
+  console.log("\n--- a full scan survives the page crashing: the saved list carries it on ---");
+  {
+    // The first page gets stuck on Queue (it never answers), which is where
+    // it "crashes": everything it saved is what a new page has to go on.
+    const first = boot(3, /Queue/);
+    first.LF.setCarTimeout(60000);
+    const s1 = first.cw.byId.get("m-fresht-s");
+    first.cw.openDetail(s1);
+    first.cw.requestScan(s1);
+    await sleep(3000);
+    const saved = JSON.parse(JSON.stringify(first.saved.last));
+    check("the scan in progress is on disk, with what it has already read",
+      saved.fullScan && saved.fullScan.done["m-fresht-s"] && saved.fullScan.done["m-fresht-p"], JSON.stringify(saved.fullScan));
+    check("...and the car it was on is on the saved list, marked as part of the scan",
+      saved.pendingCascade["m-fresht-q"] && saved.pendingCascade["m-fresht-q"].fresh, JSON.stringify(saved.pendingCascade));
+
+    const second = boot(3, null, saved);
+    const n = second.LF.resumeCascade(second.cw.nodes, { cascade: true });
+    await sleep(3000);
+    check("a new page picks the scan back up", n >= 1, n);
+    check("...reads the car it was stuck on", saw(second.checked, "Queue"), JSON.stringify(second.checked));
+    check("...and keeps branching out from it", saw(second.checked, "Arr"), JSON.stringify(second.checked));
+    check("...without reading again what the first page already had",
+      !saw(second.checked, "Ess") && !saw(second.checked, "Pee") && !saw(second.checked, "Fam"), JSON.stringify(second.checked));
+    check("the finished scan is closed off", second.LF.finishFullScan() === 0 &&
+      second.saved.last && second.saved.last.fullScan === null, JSON.stringify(second.saved.last && second.saved.last.fullScan));
+
+    const third = boot(3, null, saved);
+    third.LF.resumeCascade(third.cw.nodes, { cascade: true, skip: ["m-fresht-q"] });
+    await sleep(2000);
+    check("a car set aside after crashing the page is not run again now", !saw(third.checked, "Queue"), JSON.stringify(third.checked));
+    check("...but stays on the list for a later --resume, marked as set aside",
+      third.saved.last && third.saved.last.pendingCascade["m-fresht-q"] && third.saved.last.pendingCascade["m-fresht-q"].deferred,
+      JSON.stringify(third.saved.last && third.saved.last.pendingCascade));
+    check("...and while it is there the scan is not closed off", third.LF.finishFullScan() > 0);
+
+    const withJob = Object.assign({}, saved, { jobs: [{ id: "j1", kind: "node-check", targetId: "m-fresht-s", label: "FreshT Ess", state: "running" }] });
+    const fourth = boot(3, null, withJob);
+    const deferred = fourth.LF.deferJobs(["m-fresht-s"]);
+    await sleep(300);
+    check("a requested car that keeps crashing the page leaves the queue for the saved list",
+      deferred === 1 && fourth.LF.jobs().length === 0 &&
+      fourth.saved.last.pendingCascade["m-fresht-s"] && fourth.saved.last.pendingCascade["m-fresht-s"].deferred,
+      JSON.stringify(fourth.LF.jobs()));
   }
 
   console.log("\n" + (fails === 0 ? "ALL GREEN" : fails + " FAILURE(S)"));

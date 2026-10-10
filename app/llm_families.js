@@ -285,6 +285,12 @@ window.LlmFamilies = (function () {
     wpRedirects: bootData.wpRedirects || {},
     // The cascade's own to-do list, written down. See rememberCascade.
     pendingCascade: bootData.pendingCascade || {},
+    // The full scan in progress (see beginFreshScan): which car started it and
+    // which cars it has already read again, so a run that loses its page --
+    // the browser tab crashing hours into a depth-7 scan -- can pick the scan
+    // back up without reading those cars a second time. Cleared when the
+    // scan finishes with nothing left over.
+    fullScan: bootData.fullScan || null,
   };
 
   // Whether /api/llm-families was actually reachable at boot — if not (e.g.
@@ -3859,8 +3865,26 @@ Rules:
   // re-read by app.js (setFreshRecheckRunner), which can splice what it finds
   // into the live graph. Ends when the user opens a different car.
   let freshScan = null, freshSeed = null, freshRecheckRunner = null;
-  function beginFreshScan(seedId) { freshScan = new Set(seedId ? [seedId] : []); freshSeed = seedId || null; }
+  function beginFreshScan(seedId) {
+    freshScan = new Set(seedId ? [seedId] : []); freshSeed = seedId || null;
+    // A new scan starts its own list. Cars an earlier full scan left behind
+    // stay on the to-do list, but as ordinary cascade work.
+    Object.values(store.pendingCascade || {}).forEach(rec => { if (rec && rec.fresh) delete rec.fresh; });
+    store.fullScan = { seed: freshSeed, startedAt: new Date().toISOString(), done: seedId ? { [seedId]: 1 } : {} };
+    persist();
+  }
   function endFreshScan() { freshScan = null; freshSeed = null; }
+  function markFreshDone(id) {
+    if (store.fullScan) { store.fullScan.done = store.fullScan.done || {}; store.fullScan.done[id] = 1; }
+  }
+  // Called by the agent when a run has nothing left: the scan is over.
+  function finishFullScan() {
+    const left = Object.values(store.pendingCascade || {}).filter(r => r && r.fresh).length;
+    if (left) return left;
+    store.fullScan = null;
+    persist();
+    return 0;
+  }
   function freshScanActive() { return !!freshScan; }
   function setFreshRecheckRunner(f) { freshRecheckRunner = typeof f === "function" ? f : null; }
   // True when the fresh scan has dealt with `node` (queued it, or decided it
@@ -3879,9 +3903,22 @@ Rules:
     const depth = from + 1;
     if (depth > cascadeMaxDepth) return true;
     if (!cascadeDepth.has(car.id) || cascadeDepth.get(car.id) > depth) cascadeDepth.set(car.id, depth);
+    note(`scan: ${car.make ? car.make + " " : ""}${car.label} -- reading it again (${depth} hop(s) out)`);
+    queueFreshRecheck(car, nodes, depth, originId);
+    return true;
+  }
+  // Written to the to-do list (pendingCascade, marked `fresh`) as it is
+  // queued and crossed off when read, like the ordinary cascade -- so a run
+  // that dies mid-scan leaves exactly the unread cars behind for the next.
+  function queueFreshRecheck(car, nodes, depth, originId) {
+    const plate = car.type === "family";
     freshScan.add(car.id);
     partnerCheckScheduled.add(car.id);
-    note(`scan: ${car.make ? car.make + " " : ""}${car.label} -- reading it again (${depth} hop(s) out)`);
+    rememberCascade(car.id, depth, originId);
+    if (store.pendingCascade[car.id] && !store.pendingCascade[car.id].fresh) {
+      store.pendingCascade[car.id].fresh = true;
+      persist();
+    }
     partnerQueue = partnerQueue
       .then(() => withCarTimeout(car, async () => {
         if (plate) { if (freshRecheckRunner) await freshRecheckRunner(car); return; }
@@ -3892,8 +3929,12 @@ Rules:
         }
       }))
       .catch(e => { console.warn("LlmFamilies: fresh re-check failed for " + car.id, e); })
-      .then(() => { partnerCheckScheduled.delete(car.id); notifyFactsUpdate(); });
-    return true;
+      .then(() => {
+        partnerCheckScheduled.delete(car.id);
+        // A car the queue gave up on stays on the list for --resume.
+        if (!abandoned.has(car.id)) { markFreshDone(car.id); forgetCascade(car.id); }
+        notifyFactsUpdate();
+      });
   }
   function schedulePartnerCheck(node, nodes, originId) {
     if (!serverAvailable || !node) return;
@@ -3973,7 +4014,7 @@ Rules:
         // Crossed off only once it has an answer. A car handed on to the
         // Wikipedia lookup stays on the list until THAT lands (see
         // scheduleWpLookupAndCheck), so nothing falls between the two.
-        if (entryFor(node.id)) forgetCascade(node.id);
+        if (entryFor(node.id)) { forgetCascade(node.id); if (freshScan) markFreshDone(node.id); }
         notifyFactsUpdate();
       });
   }
@@ -3981,12 +4022,44 @@ Rules:
   // it was queued at, so the walk continues exactly as far as it would have
   // and no further. A car that has since been checked, merged, retired or
   // split is simply crossed off. Returns how many were queued.
-  function resumeCascade(nodes) {
+  // `opts.cascade`: keep following each resumed car's connections, as the
+  // run that queued them would have (the agent picking a crashed run back
+  // up); without it the saved cars are only checked themselves. `opts.skip`:
+  // cars to leave on the list but not run now -- the agent's "crashed the
+  // page three times" cars, saved for a later --resume.
+  function resumeCascade(nodes, opts) {
     if (!serverAvailable || !Array.isArray(nodes)) return 0;
+    opts = opts || {};
+    const skip = new Set(opts.skip || []);
     const byIdLocal = new Map(nodes.map(n => [n.id, n]));
+    if (opts.cascade) backgroundAllowed = true;
+    // A full scan the last page was in the middle of carries on as one.
+    const freshLeft = Object.values(store.pendingCascade || {}).some(r => r && r.fresh);
+    if (!freshScan && (store.fullScan || freshLeft)) {
+      if (!store.fullScan) store.fullScan = { seed: null, startedAt: new Date().toISOString(), done: {} };
+      freshScan = new Set(Object.keys(store.fullScan.done || {}));
+      freshSeed = store.fullScan.seed || null;
+    }
     let queued = 0, first = null;
     for (const [id, rec] of Object.entries(store.pendingCascade || {})) {
+      if (skip.has(id)) {
+        if (rec && !rec.deferred) rec.deferred = new Date().toISOString();
+        continue;
+      }
       const n = byIdLocal.get(id);
+      if (rec && rec.fresh) {
+        const car = n && n.familyOf ? (byIdLocal.get(n.familyOf) || n) : n;
+        if (!car || car.retired || (car.type !== "model" && car.type !== "family")) {
+          delete store.pendingCascade[id]; continue;
+        }
+        if (partnerCheckScheduled.has(car.id) || inFlight.has(car.id) || inFlight.has("recheck:" + car.id)) continue;
+        const depth = Number.isFinite(rec.depth) ? Math.min(rec.depth, cascadeMaxDepth) : cascadeMaxDepth;
+        cascadeDepth.set(car.id, depth);
+        queueFreshRecheck(car, nodes, depth, rec.from);
+        if (!first) first = car.id;
+        queued++;
+        continue;
+      }
       const live = n && !n.retired && n.type === "model" && !n.familyOf;
       if (!live || entryFor(id)) { delete store.pendingCascade[id]; continue; }
       if (partnerCheckScheduled.has(id) || inFlight.has(id) || wpLookupScheduled.has(id)) continue;
@@ -3998,6 +4071,8 @@ Rules:
       if (!first) first = id;
       queued++;
     }
+    // A full scan picked back up keeps branching out, as it would have.
+    if (freshScan && queued) backgroundAllowed = true;
     // The cascade only follows partners while something is engaged (see
     // schedulePartnerCheck's boot-replay guard). A resumed pass has nobody at
     // the keyboard, so the first resumed car stands in -- without touching
@@ -4174,6 +4249,26 @@ Rules:
     note(`queue: ${gone.label} removed from the queue`);
     notifyJobs();
     return { ok: true, job: gone };
+  }
+  // The agent's "this car crashed the page three times" rule, for a car that
+  // is a queued request rather than a cascade car: out of the queue, onto the
+  // saved to-do list, so --resume reads it later instead of every reload
+  // starting it again. Called before startJobs, while nothing is running.
+  function deferJobs(ids) {
+    const want = new Set(ids || []);
+    const list = jobList();
+    const gone = list.filter(j => want.has(j.targetId));
+    if (!gone.length) return 0;
+    store.jobs = list.filter(j => !want.has(j.targetId));
+    gone.forEach(j => {
+      rememberCascade(j.targetId, 0, null);
+      const rec = store.pendingCascade[j.targetId];
+      if (rec) { rec.fresh = true; rec.deferred = new Date().toISOString(); }
+      note(`queue: ${j.label} set aside for --resume -- it crashed the page`);
+    });
+    persist();
+    notifyJobs();
+    return gone.length;
   }
   function clearWaitingJobs() {
     const list = jobList();
@@ -13482,7 +13577,7 @@ Rules:
     pendingWork,
     // the work queue -- one user-requested pass at a time, in order, kept
     // across reloads. See its own section above.
-    registerJobRunner, onJobChange, enqueueJob, cancelJob, clearWaitingJobs,
+    registerJobRunner, onJobChange, enqueueJob, cancelJob, clearWaitingJobs, deferJobs,
     jobs, jobFor, jobPositionFor, runningJob, jobDescription, resumeJobs,
     startJobs, jobsStarted,
     lastJob: () => (store.lastJob ? Object.assign({}, store.lastJob) : null),
@@ -13557,7 +13652,7 @@ Rules:
     resolvePendingOwnGenerations, ownGenerationCode, sameArticleOwner,
     placeInCascade, cascadeDepthOf: id => depthOf(id), ownCodeShape, foldUmbrellaModels,
     schedulePartnerCheck, cascadeDepthIn,
-    beginFreshScan, endFreshScan, freshScanActive, setFreshRecheckRunner, setCarTimeout,
+    beginFreshScan, endFreshScan, freshScanActive, setFreshRecheckRunner, setCarTimeout, finishFullScan,
     checkInFlight: id => inFlight.has(id) || inFlight.has("recheck:" + id),
     indexSectionEngine, isGenericIndexSection, generationNodeLabel, looksLikeCodeLink,
     relabelMisnamedEngines, engineArticleKey,

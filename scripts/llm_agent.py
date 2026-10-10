@@ -534,10 +534,109 @@ def run_pass(targets, budget_seconds, per_node_seconds, settle_seconds=300, quie
                 pass
 
 
-def _run_pass_in(browser, targets, budget_seconds, per_node_seconds,
-                 settle_seconds, quiet_seconds, done, errors, skipped, started, labels=None):
-        page = browser.new_page(viewport={"width": 1440, "height": 900})
-        page.on("pageerror", lambda e: errors.append("pageerror: " + str(e)[:200]))
+# ------------------------------------------------------------ page crashes --
+# Real failure: a depth-7 scan ran for hours and then "FAILED: Page.wait_for_
+# timeout: Page crashed" -- the browser tab died, the run reported "the scan
+# failed" and stopped, with dozens of cars still queued. Real user request: "I
+# want that if the page crashed instead of simply saying the scan failed and
+# not trying again. If it crashes 3 times, then move on to the next car in
+# queue and save that specific car for later, like you already do for cars
+# that time out."
+#
+# So the page is held by a LivePage, which every helper uses exactly like a
+# Playwright page. When the tab crashes it opens a fresh one, boots it the
+# same way, and asks it to pick the work back up from the saved to-do list
+# (resumeCascade): everything finished is already on disk, and every queued
+# car was written down when it was queued. The car the page was working on
+# when it crashed is counted; on its third crash it is set aside, still on
+# the list, for a later --resume.
+CRASHES_PER_CAR = 3
+CRASHES_PER_RUN = 12
+
+
+def is_page_crash(e):
+    msg = str(e).lower()
+    return ("crash" in msg or "target page, context or browser has been closed" in msg
+            or "target closed" in msg)
+
+
+class LivePage:
+    def __init__(self, browser, per_node_seconds, errors):
+        self._browser = browser
+        self._per_node_seconds = per_node_seconds
+        self._errors = errors
+        self._page = None
+        self.current = None          # (id, label) of the car the page was last working on
+        self.crashes = {}
+        self.total_crashes = 0
+        self.set_aside = []           # (id, label), saved for --resume
+        self.queued_already = None
+
+    def __getattr__(self, name):
+        return getattr(self._page, name)
+
+    def note_current(self, ids, names):
+        if ids:
+            self.current = (ids[0], (names or [ids[0]])[0])
+
+    def open(self):
+        if self._page is not None:
+            try:
+                self._page.close()
+            except Exception:
+                pass
+        self._page = self._browser.new_page(viewport={"width": 1440, "height": 900})
+        self._page.on("pageerror", lambda e: self._errors.append("pageerror: " + str(e)[:200]))
+        self.queued_already = prepare_page(self._page, self._per_node_seconds,
+                                           [i for i, _ in self.set_aside])
+
+    def recover(self, e):
+        self.total_crashes += 1
+        cid, label = self.current or (None, None)
+        key = cid or "(nothing in progress)"
+        self.crashes[key] = self.crashes.get(key, 0) + 1
+        n = self.crashes[key]
+        if self.total_crashes > CRASHES_PER_RUN:
+            raise RuntimeError(f"the page crashed {self.total_crashes} times this run -- stopping; "
+                               "everything finished is saved, the rest is on the list for --resume")
+        if cid and n >= CRASHES_PER_CAR:
+            self.set_aside.append((cid, label))
+            log(f"PAGE CRASHED ({str(e).splitlines()[0][:80]}) -- {CRASHES_PER_CAR} times now while on "
+                f"{label}: setting it aside for --resume and moving on to the rest")
+        elif not cid and n >= CRASHES_PER_CAR:
+            raise RuntimeError(f"the page crashed {n} times with no car in progress -- stopping")
+        else:
+            log(f"PAGE CRASHED ({str(e).splitlines()[0][:80]}) while on "
+                f"{label or 'nothing in particular'} ({n}/{CRASHES_PER_CAR}) -- "
+                "reopening it and carrying on where it left off")
+        self.current = None
+        self.open()
+        resumed = self._page.evaluate(
+            "(skip) => { const LF = window.LlmFamilies; return LF && LF.resumeCascade ? "
+            "LF.resumeCascade(CarWeb.nodes, { cascade: true, skip }) : 0; }",
+            [i for i, _ in self.set_aside])
+        log(f"  reopened -- {resumed} queued car(s) picked back up" +
+            (f", {self.queued_already} request(s) in the page's own queue" if self.queued_already else ""))
+
+
+def guarded(page, fn, settle_seconds, quiet_seconds):
+    """Run fn(page); if the page crashes, reopen it and carry on with what is
+    left. Only the saved work survives a crash, so after the first one the
+    rest of the job is "wait for the resumed cascade to finish"."""
+    while True:
+        try:
+            return fn()
+        except Exception as e:
+            if not isinstance(page, LivePage) or not is_page_crash(e):
+                raise
+            page.recover(e)
+            fn = lambda: settle_cascade(page, settle_seconds, quiet_seconds)
+
+
+def prepare_page(page, per_node_seconds, set_aside_ids=()):
+    """Everything a fresh tab needs before it may do work. Returns how many
+    requests were already in the page's own queue."""
+    if True:
         # ?agent=1: the page recovers its persisted scan queue at boot but does
         # NOT start it, because every decision this run makes has to be stamped
         # "agent" first and that happens below, after the page has loaded. See
@@ -568,6 +667,11 @@ def _run_pass_in(browser, targets, budget_seconds, per_node_seconds,
         # given up on after --node-timeout and the rest carry on.
         page.evaluate("(ms) => window.LlmFamilies.setCarTimeout && window.LlmFamilies.setCarTimeout(ms)",
                       per_node_seconds * 1000)
+        # A request that crashed the page three times leaves the queue before
+        # the queue is allowed to start (see LivePage).
+        if set_aside_ids:
+            page.evaluate("(ids) => window.LlmFamilies.deferJobs && window.LlmFamilies.deferJobs(ids)",
+                          list(set_aside_ids))
 
         # Only now is it safe to let the queue run. It may already hold
         # requests a person left in it at the keyboard (the Tools > Scan Queue
@@ -583,6 +687,14 @@ def _run_pass_in(browser, targets, budget_seconds, per_node_seconds,
             "() => { const LF = window.LlmFamilies; "
             "if (!LF || !LF.startJobs) return null; LF.startJobs(); "
             "return LF.jobs().length; }")
+        return queued_already
+
+
+def _run_pass_in(browser, targets, budget_seconds, per_node_seconds,
+                 settle_seconds, quiet_seconds, done, errors, skipped, started, labels=None):
+        page = LivePage(browser, per_node_seconds, errors)
+        page.open()
+        queued_already = page.queued_already
         if queued_already:
             log(f"scan queue: {queued_already} request(s) already waiting -- those run first")
 
@@ -603,9 +715,21 @@ def _run_pass_in(browser, targets, budget_seconds, per_node_seconds,
 
         if not targets and resumed:
             # Nothing new to open: the resumed cascade IS the pass.
-            settle_cascade(page, settle_seconds, quiet_seconds)
+            guarded(page, lambda: settle_cascade(page, settle_seconds, quiet_seconds),
+                    settle_seconds, quiet_seconds)
 
         for nid in targets:
+            if guarded(page, lambda nid=nid: _one_seed(page, nid, started, budget_seconds, per_node_seconds,
+                                                         settle_seconds, quiet_seconds, done, errors,
+                                                         skipped, labels),
+                       settle_seconds, quiet_seconds) == "stop":
+                break
+        return _finish_pass(page, depth, entries_before, agent_before, done, errors, skipped)
+
+
+def _one_seed(page, nid, started, budget_seconds, per_node_seconds, settle_seconds, quiet_seconds,
+              done, errors, skipped, labels):
+        if True:
             spent = time.time() - started
             if budget_seconds and spent > budget_seconds:
                 # Said out loud. This was silent, and when a bug put `started`
@@ -614,7 +738,7 @@ def _run_pass_in(browser, targets, budget_seconds, per_node_seconds,
                 log(f"SKIPPED [{nid}] -- {spent / 60:.0f} min spent, past the "
                     f"{budget_seconds / 60:.0f} min budget")
                 skipped.append(nid)
-                continue
+                return
             # A car folded into another since the request was made (the plain
             # "C-Class" into its W202-W206 nameplate) points at where it went.
             moved = page.evaluate(
@@ -654,7 +778,7 @@ def _run_pass_in(browser, targets, budget_seconds, per_node_seconds,
                         "or cleared since the request was made; ask for it again from the "
                         "graph as it is now.")
                     skipped.append(nid)
-                    continue
+                    return
             name = page.evaluate(
                 "(id) => { const n = CarWeb.byId.get(id); "
                 "return n ? ((n.make ? n.make + ' ' : '') + n.label) : id; }", nid)
@@ -702,7 +826,9 @@ def _run_pass_in(browser, targets, budget_seconds, per_node_seconds,
                 "return 'legacy'; }", nid)
             if queued in ("not-scannable", None):
                 skipped.append(nid)
-                continue
+                return
+            if isinstance(page, LivePage):
+                page.current = (nid, name)
             settled = False
             said = ""
             # The timeout is IDLE time, not total time. A local 9B model on a
@@ -780,6 +906,22 @@ def _run_pass_in(browser, targets, budget_seconds, per_node_seconds,
             # still being written.
             settle_cascade(page, settle_seconds, quiet_seconds)
 
+
+
+def _finish_pass(page, depth, entries_before, agent_before, done, errors, skipped):
+        # The run is over with nothing left queued: a full scan that got to
+        # every car is finished, and stops being one the next --resume picks up.
+        try:
+            left = page.evaluate("() => window.LlmFamilies.finishFullScan ? window.LlmFamilies.finishFullScan() : 0")
+            if left:
+                log(f"  {left} car(s) from this full scan are still on the list -- run --resume to finish them")
+        except Exception:
+            pass
+        if isinstance(page, LivePage) and page.set_aside:
+            log("  set aside after crashing the page " + str(CRASHES_PER_CAR) + " times (run --resume later): "
+                + ", ".join(label for _, label in page.set_aside))
+            errors.extend(f"{cid}: crashed the page {CRASHES_PER_CAR} times, set aside for --resume"
+                          for cid, _ in page.set_aside)
         rows_after = entry_rows(page)
         entries_after = len(rows_after)
         # The seeds are not the only cars this run can have SPLIT. A seed's
@@ -921,7 +1063,7 @@ def pending_work(page):
     reports this directly (see llm_families.js's pendingWork) rather than it
     being guessed from how fast entries are appearing."""
     try:
-        return page.evaluate(
+        res = page.evaluate(
             """() => {
               const LF = window.LlmFamilies;
               const p = LF && LF.pendingWork ? LF.pendingWork() : null;
@@ -929,11 +1071,21 @@ def pending_work(page):
               const cw = window.CarWeb;
               const name = key => { const id = String(key).replace(/^recheck:/, ""); const n = cw.byId.get(id);
                 return n ? ((n.make ? n.make + " " : "") + n.label) : id; };
+              const bare = k => String(k).replace(/^recheck:/, "");
               return { total: p.total, abandoned: p.abandoned || [],
+                       ids: p.checks.map(bare), checking: p.checks.map(name),
                        names: [...p.checks, ...p.partners, ...p.lookups].map(name) };
             }""")
-    except Exception:
+    except Exception as e:
+        # A crashed page has to reach the caller, which reopens it. Anything
+        # else here only means "could not ask this time".
+        if is_page_crash(e):
+            raise
         return None
+    # Which car the page is on -- the one blamed if the page crashes now.
+    if isinstance(page, LivePage) and res:
+        page.note_current(res.get("ids"), res.get("checking"))
+    return res
 
 
 def report_abandoned(page):
