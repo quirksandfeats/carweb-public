@@ -224,7 +224,7 @@ console.log("\n--- what a purge actually wipes ---");
   // the module POSTs its whole store, so the fetch body is the file's content.
   let lastBody = null;
   window.fetch = (url, opts) => {
-    if (opts && opts.body) lastBody = JSON.parse(opts.body);
+    if (opts && opts.body && String(url) === "/api/llm-families") lastBody = JSON.parse(opts.body);
     return Promise.resolve({ ok: true, json: async () => ({ ok: true }) });
   };
   LF.deleteNode(cw.byId.get(LLMCAR), cw.nodes, cw.links, null);
@@ -277,7 +277,7 @@ console.log("\n--- a purged hand-added car stays gone across a reload ---");
   const cw = window.CarWeb, LF = window.LlmFamilies;
   let lastBody = null;
   window.fetch = (url, opts) => {
-    if (opts && opts.body) lastBody = JSON.parse(opts.body);
+    if (opts && opts.body && String(url) === "/api/llm-families") lastBody = JSON.parse(opts.body);
     return Promise.resolve({ ok: true, json: async () => ({ ok: true }) });
   };
   LF.deleteNode(cw.byId.get(USERCAR), cw.nodes, cw.links, null);
@@ -297,7 +297,7 @@ console.log("\n--- purging a HARVESTED car (which data.js rebuilds every boot) -
   const cw = window.CarWeb, LF = window.LlmFamilies;
   let lastBody = null;
   window.fetch = (url, opts) => {
-    if (opts && opts.body) lastBody = JSON.parse(opts.body);
+    if (opts && opts.body && String(url) === "/api/llm-families") lastBody = JSON.parse(opts.body);
     return Promise.resolve({ ok: true, json: async () => ({ ok: true }) });
   };
   LF.deleteNode(cw.byId.get(HARD), cw.nodes, cw.links, null);
@@ -367,7 +367,7 @@ console.log("\n--- an unmerge survives a reload, and can be undone ---");
   const cw = window.CarWeb, LF = window.LlmFamilies;
   let lastBody = null;
   window.fetch = (url, opts) => {
-    if (opts && opts.body) lastBody = JSON.parse(opts.body);
+    if (opts && opts.body && String(url) === "/api/llm-families") lastBody = JSON.parse(opts.body);
     return Promise.resolve({ ok: true, json: async () => ({ ok: true }) });
   };
   LF.unmergeNameplate(FAM, cw.nodes, cw.links);

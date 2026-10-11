@@ -149,7 +149,7 @@ window.CarWebSix = (function () {
       const li = document.createElement("li");
       const name = (s.n.type === "model" || s.n.type === "family") ? `${s.n.make} ${s.n.label}` : s.n.label;
       li.innerHTML = (i ? `<span class="verb">${verb(s, path[i - 1].n)}</span>` : `<span class="verb">start</span>`) +
-        `<b>${name}</b>` + ((s.n.type === "model" || s.n.type === "family") ? ` <span class="verb" style="display:inline">· ${s.n.year}</span>` : "");
+        `<b>${name}</b>` + ((s.n.type === "model" || s.n.type === "family") && s.n.year != null ? ` <span class="verb" style="display:inline">· ${s.n.year}</span>` : "");
       li.onclick = () => CW().openDetail(s.n);
       steps.appendChild(li);
     });

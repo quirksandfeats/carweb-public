@@ -178,7 +178,9 @@ const LF = window.LlmFamilies;
   posts = 0; maxInFlight = 0;
   holdPosts.on = true;
   const ps = [];
-  for (let i = 0; i < 50; i++) ps.push(LF.persistForTests ? LF.persistForTests() : null);
+  // Each write carries a change: a write of exactly what is already on disk
+  // is skipped altogether (see writeStore), which is a different test.
+  for (let i = 0; i < 50; i++) { LF.dismiss("burst-test-" + i); ps.push(LF.persistForTests ? LF.persistForTests() : null); }
   check("the persist hook is exposed to the suite", !!LF.persistForTests);
   await new Promise(r => setTimeout(r, 10));
   check("fifty writes in a burst put ONE body on the wire, not fifty",

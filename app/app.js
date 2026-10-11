@@ -145,6 +145,8 @@ window.CarWeb = (function () {
   // foldUmbrellaModels.
   if (window.LlmFamilies && window.LlmFamilies.foldUmbrellaModels) {
     window.LlmFamilies.foldUmbrellaModels(nodes, links);
+    // Two nameplates for one article: the build's gives way to the LLM's.
+    if (window.LlmFamilies.foldBuildFamiliesIntoLlmFamilies) window.LlmFamilies.foldBuildFamiliesIntoLlmFamilies(nodes, links);
   }
   // A "same article" deferral is only good while the car it points at has
   // actually read that article. After every nameplate above is in place --
@@ -211,6 +213,9 @@ window.CarWeb = (function () {
   // here for the one case that can't be prevented at mint time, a HARVESTED
   // car that data.js rebuilds from scratch on every boot.
   if (window.LlmFamilies) window.LlmFamilies.applyPurges(nodes, links);
+  // One node per engine variant name, and no engine-family line beside a
+  // variant line -- after renames, since the final names are what must agree.
+  if (window.LlmFamilies) window.LlmFamilies.tidyEngineLinks(nodes, links);
   // The platform/people replay once more, now that renames, deletions and
   // purges have run. The same pass runs after every check (see
   // applySharedPlatformLive), and it has to see the same graph there as it
@@ -231,6 +236,9 @@ window.CarWeb = (function () {
   // at generations that had since been retired, and the coarse nameplate
   // lines they had stepped aside for still deferring to them.
   if (window.LlmFamilies) window.LlmFamilies.pushSuccessionToGenerations(nodes, links);
+  // Whatever the replays above decided is saved once, so the next load reads
+  // it instead of deciding it again. Nothing changed, nothing is written.
+  if (window.LlmFamilies && window.LlmFamilies.saveIfChanged) window.LlmFamilies.saveIfChanged();
   const byId = new Map(nodes.map(n => [n.id, n]));
   const adj = new Map(nodes.map(n => [n.id, []]));
   links.forEach(l => {
@@ -1323,7 +1331,7 @@ window.CarWeb = (function () {
     }
     if (n.type === "enginevar") return "engine variant";
     if (n.type === "family") return (n.garage ? "my garage · " : "") + "nameplate · " + n.generations.length + " generations";
-    if (n.type === "model") return (n.garage ? "my garage · " : n.heritage ? "heritage · " : "") + n.year;
+    if (n.type === "model") return (n.garage ? "my garage · " : n.heritage ? "heritage · " : "") + (n.year != null ? n.year : "years unknown");
     if (n.type === "make") return "marque" + (n.country ? " · " + n.country : "");
     return personRoleWord(n) + (n.born ? ` · ${n.born}–${n.died || ""}` : "");
   }
@@ -1382,7 +1390,7 @@ window.CarWeb = (function () {
       const LFam = window.LlmFamilies;
       const aka = LFam && LFam.aliasesFor ? LFam.aliasesFor(n.id) : [];
       const a = aka.length ? `<br>also called ${aka.map(esc).join(" · ")}` : "";
-      return `${n.make} · ${run}${d}${e}${a}`;
+      return `${n.make} · ${run || "years unknown"}${d}${e}${a}`;
     }
     // An engine fell through to the person branch below and came out
     // "· 0 cars in the web" -- personCreditedCars knows nothing about a
@@ -1976,7 +1984,7 @@ window.CarWeb = (function () {
         b.className = "dt-conn";
         const fromLlm = llmCredited.has(verb + "|" + o.id);
         b.innerHTML = `${(o.type === "model" || o.type === "family") ? o.make + " " + o.label : o.label}` +
-          ((o.type === "model" || o.type === "family") ? ` <span class="verb">${o.year}</span>` : "") +
+          ((o.type === "model" || o.type === "family") && o.year != null ? ` <span class="verb">${o.year}</span>` : "") +
           (fromLlm ? ` <span class="conn-llm" title="read off the Wikipedia article by the local model, not from the hand-verified engineers table">🤖</span>` : "");
         if (fromLlm) b.classList.add("from-llm");
         b.onclick = () => api.goto(o.id);

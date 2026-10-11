@@ -896,9 +896,13 @@ class Handler(http.server.SimpleHTTPRequestHandler):
                 note = json.loads(self.rfile.read(length) or b"{}")
             except json.JSONDecodeError:
                 return self._json(400, {"error": "invalid JSON body"})
-            text = " ".join(str(note.get("text", "")).split())[:200]
-            if text:
-                _print_live("[app] " + text)
+            # One request can carry many lines: the page gathers its notes and
+            # sends them together instead of one request per line.
+            lines = note.get("lines") if isinstance(note.get("lines"), list) else [note.get("text", "")]
+            for line in lines[:500]:
+                text = " ".join(str(line or "").split())[:200]
+                if text:
+                    _print_live("[app] " + text)
             return self._json(200, {"ok": True})
 
         if self.path == "/api/llm/chat":

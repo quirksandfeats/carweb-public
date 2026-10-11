@@ -49,7 +49,8 @@ const calls = [];
 let rebuildState = { ok: true, running: false, scriptExists: true, step: "", elapsed: 1, log: [] };
 window.fetch = (url, opts) => {
   const u = String(url);
-  calls.push((opts && opts.method === "POST" ? "POST " : "GET ") + u);
+  // The page's own log lines (batched, sent a moment later) are not actions.
+  if (String(u) !== "/api/note") calls.push((opts && opts.method === "POST" ? "POST " : "GET ") + u);
   if (u === "/api/llm-reset") {
     return Promise.resolve({ ok: true, status: 200, json: async () =>
       ({ ok: true, cleared: { relations: 834, families: 154, purged: 17 },

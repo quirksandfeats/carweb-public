@@ -297,6 +297,10 @@ window.LlmFamilies = (function () {
   // still on file://, or plain http.server without serve.py's routes), every
   // public method below becomes a safe no-op instead of failing repeatedly.
   const serverAvailable = !!bootData.__serverAvailable;
+  // The store as loaded, serialised before anything at boot touches it, so a
+  // save that would write back the very same thing can be skipped.
+  let bootSnapshot = null;
+  if (serverAvailable) { try { bootSnapshot = JSON.stringify(store); } catch (e) { bootSnapshot = null; } }
 
   // ---------- how far one click is allowed to cascade ----------
   // Real user question: "does this code essentially just check the current
@@ -498,13 +502,22 @@ window.LlmFamilies = (function () {
   // anyone who awaited persist() still resolves only once their change is on
   // disk. It also stops an older body landing after a newer one.
   let persistInFlight = null, persistWaiting = null;
+  // What is on disk, as last loaded or written. Real user report: two full
+  // writes of the store (16 MB each, plus its .js mirror) on every page load,
+  // with nothing changed -- the boot replays re-derive the same decisions and
+  // each one asked to save. A write whose body is identical is skipped.
+  let lastWritten = null;
   async function writeStore() {
     try {
+      const body = JSON.stringify(store);
+      if (lastWritten == null) { lastWritten = bootSnapshot; bootSnapshot = null; }
+      if (body === lastWritten) return;
       await fetch("/api/llm-families", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(store),
+        body,
       });
+      lastWritten = body;
     } catch (e) {
       console.warn("LlmFamilies: could not persist llm_families.json", e);
     }
@@ -530,15 +543,31 @@ window.LlmFamilies = (function () {
   // only thing happening while several other passes ran invisibly beside it.
   // Fire-and-forget on purpose: a note that does not arrive must never delay
   // or fail the work it describes.
-  function note(text) {
-    if (!serverAvailable || !text) return;
+  // Real user report: a page load printed ~170 notes, each its own POST --
+  // as many requests as the page's own files. Notes are now gathered and sent
+  // together a moment after the last one, one request for a whole boot, and
+  // the same line twice in one batch is said once, with a count.
+  const noteQueue = [];
+  let noteTimer = null;
+  function flushNotes() {
+    noteTimer = null;
+    if (!noteQueue.length) return;
+    const counts = new Map();
+    noteQueue.splice(0, noteQueue.length).forEach(t => counts.set(t, (counts.get(t) || 0) + 1));
+    const lines = [...counts].map(([t, n]) => n > 1 ? `${t} (x${n})` : t);
     try {
       fetch("/api/note", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ text: String(text) }),
+        body: JSON.stringify({ lines }),
       }).catch(() => {});
     } catch (e) { /* nothing here is worth interrupting for */ }
+  }
+  function note(text) {
+    if (!serverAvailable || !text) return;
+    noteQueue.push(String(text));
+    if (noteTimer) clearTimeout(noteTimer);
+    noteTimer = setTimeout(flushNotes, noteQueue.length >= 200 ? 0 : 400);
   }
 
   // ---------- Wikipedia: fetch wikitext, pull just the infobox + headings ----------
@@ -4983,6 +5012,7 @@ Rules:
   //     other-market name (alias) is the same car, so it has to be
   //     contemporaneous (IDENTITY_YEAR_SLACK, as in verifySharedPlatformMention).
   const PLATFORM_YEAR_GAP = 15;
+  const SANITY_GATE_VERSION = 1;
   const NAME_FILLER = new Set(["class", "series", "generation", "the", "and", "of", "first", "second",
     "third", "fourth", "fifth", "sixth", "seventh", "eighth", "ninth", "tenth", "mk", "mark", "model"]);
   function nameWordsOf(text) {
@@ -5183,8 +5213,14 @@ Rules:
       // wrong/coarser thing), since this is exactly the case a formatting
       // mismatch would otherwise fall through on.
       const node = nodeWithId(nodes, sanity.matchId);
-      const plausible = node ? sanityMatchPlausible(gn, node, mentionText, nodes) : { ok: false };
-      if (node && !plausible.ok) {
+      // A pick refused once is remembered on the pick itself (and saved), so
+      // later loads neither test it again nor say so again. Tied to the
+      // gate's version: a change to the rules tests every pick afresh.
+      const remembered = sanity.refused && sanity.refused.v === SANITY_GATE_VERSION && sanity.refused.id === sanity.matchId;
+      const plausible = remembered ? { ok: false, why: sanity.refused.why }
+        : (node ? sanityMatchPlausible(gn, node, mentionText, nodes) : { ok: false });
+      if (node && !plausible.ok && !remembered) {
+        sanity.refused = { v: SANITY_GATE_VERSION, id: sanity.matchId, why: plausible.why };
         note(`relations: not using the sanity check's pick for "${mentionText}" -- ${plausible.why}`);
       }
       if (node && plausible.ok) found = { node, loose: true, llmVerified: true, verifyReason: sanity.reason, verifyConfidence: sanity.confidence };
@@ -5884,6 +5920,10 @@ Rules:
       // what checkFamily itself writes on a clean "no discrepancy" result
       // (see its own "none" entry) so nothing downstream needs to know this
       // one was seeded rather than actually re-checked.
+      // Already seeded (every boot replays this): left as it is, so a load
+      // does not rewrite the store just to restamp the date.
+      const seeded = store.recheck[nodeId];
+      if (seeded && seeded.status === "none" && (seeded.sourceTitle || null) === (entry.sourceTitle || orig.wp || null)) return;
       store.recheck[nodeId] = {
         status: "none",
         checkedAt: new Date().toISOString(),
@@ -7840,6 +7880,10 @@ Rules:
       const now = new Date().toISOString();
       if (d.verdict === "drop") {
         delete store.relations[key];
+        // A duplicate of a pair that is already connected is remembered as a
+        // no, or the replay proposes it again on the next load and it is
+        // dropped again, every time (four of them were, on every boot).
+        if (/already connected/.test(d.why || "")) store.rejectedRelations[key] = true;
       } else if (d.verdict === "reject") {
         delete store.relations[key];
         store.rejectedRelations[key] = true;
@@ -8595,6 +8639,10 @@ Rules:
           if (store.renames[gid]) return;          // renamed by hand, leave it
           const g = byIdLocal.get(gid);
           if (!g || !g.label || !re.test(g.label)) return;
+          // Already carries the new name: "B-Class (W246)" under a "B"
+          // renamed "B-Class" is not to become "B-Class-Class (W246)".
+          if (String(rec.label).toLowerCase().startsWith(String(before).toLowerCase()) &&
+              String(g.label).toLowerCase().includes(String(rec.label).toLowerCase())) return;
           g.label = g.label.replace(re, (m, lead) => lead + rec.label);
           g.renamedWithFamily = true;
         });
@@ -8907,6 +8955,59 @@ Rules:
       }
       note(`graph: "${m.make} ${m.label}" is the nameplate's own article -- folded into ` +
            `"${fam.make} ${fam.label}" (${(fam.generations || []).length} generations)`);
+      folded++;
+    }
+    return folded;
+  }
+  // Two nameplates for one car. Real case, the Mercedes-Benz B-Class: the
+  // build put the "B-Class" overview and the W246 into a family it could only
+  // call "B"; later the W247 was split from the same overview article into
+  // W245/W246/W247 and became "B-Class". Two nameplates, one article. The
+  // build-time one gives way: its member on the shared article is the other
+  // nameplate's overview, a member on a generation's own article (or with
+  // its code) is that generation, and anything else stays as a plain car.
+  // Undone with unmergedDuplicates["<kept family>|<build family>"].
+  function foldBuildFamiliesIntoLlmFamilies(nodes, links) {
+    const byIdLocal = new Map(nodes.map(n => [n.id, n]));
+    const llmFams = new Map();
+    nodes.forEach(f => {
+      if (!f || f.retired || f.type !== "family" || !f.llmGenerated || !(f.generations || []).length) return;
+      const key = articleKeyOf(nameplateArticleOf(f, byIdLocal));
+      if (key) llmFams.set(key + "|" + norm(f.make), f);
+    });
+    let folded = 0;
+    for (const F of nodes.slice()) {
+      if (!F || F.retired || F.type !== "family" || F.llmGenerated) continue;
+      const members = (F.generations || []).map(id => byIdLocal.get(id)).filter(g => g && !g.retired);
+      let L = null;
+      for (const m of members) {
+        const cand = m.wp && llmFams.get(articleKeyOf(m.wp) + "|" + norm(F.make));
+        // Not a generation of this very nameplate that was itself split
+        // (the 1966-1978 Charger inside the Charger nameplate).
+        // Only the overview counts: "Charger (1966)" is one generation of the
+        // Charger, even when another nameplate reads the same article.
+        if (/\)\s*$/.test(String(m.label))) continue;
+        if (cand && cand !== F && cand !== m && !(F.generations || []).includes(cand.id) && cand.familyOf !== F.id) { L = cand; break; }
+      }
+      if (!L || store.unmergedDuplicates[L.id + "|" + F.id]) continue;
+      const key = articleKeyOf(nameplateArticleOf(L, byIdLocal));
+      const lGens = (L.generations || []).map(id => byIdLocal.get(id)).filter(g => g && !g.retired);
+      const codeOf = n => { const tc = trailingCode(String(n.label || "")); return tc && tc.code ? norm(tc.code) : null; };
+      for (const m of members) {
+        m.familyOf = null;
+        if (m.wp && articleKeyOf(m.wp) === key) {
+          supersedeStandalone(nodes, links, m, L, L.id, `${L.make} ${L.label}`);
+          continue;
+        }
+        const twin = lGens.find(g => (g.wp && m.wp && articleKeyOf(g.wp) === articleKeyOf(m.wp) && articleKeyOf(g.wp) !== key) ||
+                                     (codeOf(m) && codeOf(m) === codeOf(g)));
+        if (twin) supersedeStandalone(nodes, links, m, twin, L.id, `${L.make} ${L.label}`);
+      }
+      F.retired = true;
+      F.supersededBy = L.id;
+      F.retiredReason = `the same nameplate as ${L.make} ${L.label}`;
+      supersedeStandaloneLinksOnly(links, F.id, L.id);
+      note(`graph: nameplate "${F.make} ${F.label}" is the same as "${L.make} ${L.label}" -- folded in`);
       folded++;
     }
     return folded;
@@ -9331,6 +9432,24 @@ Rules:
     const sorted = [...gens].sort((a, b) => a.year - b.year);
     return which === "newest" ? sorted[sorted.length - 1] : sorted[0];
   }
+  function successionPair(s, t, byIdLocal) {
+    const dated = n => (n.type === "family" ? (n.generations || []).map(id => byIdLocal.get(id)) : [n])
+      .filter(g => g && !g.retired && g.year != null);
+    // An undated plain car on one side: the old rule, last hands to first.
+    if (s.type !== "family" && s.year == null) { const g = endGenerationOf(t, byIdLocal, "oldest"); return g ? [s, g] : null; }
+    if (t.type !== "family" && t.year == null) { const g = endGenerationOf(s, byIdLocal, "newest"); return g ? [g, t] : null; }
+    const S = dated(s), T = dated(t);
+    if (!S.length || !T.length) return null;
+    const endOf = g => (g.end != null ? g.end : g.year);
+    let best = null;
+    for (const a of S) for (const b of T) {
+      if (b.year < a.year) continue;
+      const gap = Math.abs(b.year - endOf(a));
+      if (!best || gap < best.gap || (gap === best.gap && a.year > best.a.year)) best = { a, b, gap };
+    }
+    if (!best || best.gap > 10) return null;
+    return [best.a, best.b];
+  }
   function pushSuccessionToGenerations(nodes, links) {
     const byIdLocal = new Map(nodes.map(n => [n.id, n]));
     const belongsTo = (n, famId) => !!n && (n.id === famId || n.familyOf === famId);
@@ -9402,8 +9521,17 @@ Rules:
       // app.js's `verbs` map: source is "succeeded by", target "succeeds"),
       // so the predecessor's LAST generation hands over to the successor's
       // FIRST one.
-      const sGen = s.type === "family" ? endGenerationOf(s, byIdLocal, "newest") : s;
-      const tGen = t.type === "family" ? endGenerationOf(t, byIdLocal, "oldest") : t;
+      // Usually the predecessor's last generation hands over to the
+      // successor's first -- but not when the successor nameplate is older
+      // than the handover: the Chrysler Fifth Avenue (1979-1993) was
+      // succeeded by the Imperial of 1990, not the Imperial of 1926. So the
+      // pair is the one whose handover years meet: the successor generation
+      // starting closest to the end of a predecessor generation it came
+      // after, the latest such pair on a tie. Nothing within ten years, and
+      // the line stays at the nameplate.
+      const pair = successionPair(s, t, byIdLocal);
+      if (!pair) return;
+      const sGen = pair[0], tGen = pair[1];
       if (!sGen || !tGen) return;                 // a family with no dateable generations -- leave it at the nameplate level
       if (sGen.id === s.id && tGen.id === t.id) return; // neither side resolved any further
       // Something more specific already connects these two nameplates --
@@ -11601,6 +11729,84 @@ Rules:
     return dropped;
   }
 
+  // ---------- engines: one variant per name, and no family line beside it ----------
+  // Real user report: "Why does the Mercedes SL R232 have two engines listed
+  // that seem to be exactly the same?" Two M177 variants of the M176/M177/
+  // M178 engine: one read from the article's own section, one made when a
+  // bare "M177" engine node (from a car's infobox link) was folded into the
+  // family. After the hand renames both were called "M177". Same engine,
+  // same name: one node. Runs after renames, since it is the final names
+  // that have to agree.
+  //
+  // And the rule asked for alongside it, the engine side of "no nameplate
+  // edge beside a generation edge": a car connected to a variant is not also
+  // connected to the engine family that variant belongs to.
+  function tidyEngineLinks(nodes, links) {
+    const byIdLocal = new Map(nodes.map(n => [n.id, n]));
+    const endOf = v => (typeof v === "string" ? v : (v && v.id));
+    const fittedOf = new Map();
+    links.forEach(l => {
+      if (l.type !== "fitted" || l.retired) return;
+      [endOf(l.source), endOf(l.target)].forEach(id => {
+        if (!fittedOf.has(id)) fittedOf.set(id, 0);
+        fittedOf.set(id, fittedOf.get(id) + 1);
+      });
+    });
+    let folded = 0, dropped = 0;
+    const groups = new Map();
+    nodes.forEach(v => {
+      if (!v || v.type !== "enginevar" || v.retired || !v.engineOf) return;
+      const k = v.engineOf + "|" + norm(v.label);
+      if (!groups.has(k)) groups.set(k, []);
+      groups.get(k).push(v);
+    });
+    const into = new Map();
+    for (const list of groups.values()) {
+      if (list.length < 2) continue;
+      list.sort((a, b) => (fittedOf.get(b.id) || 0) - (fittedOf.get(a.id) || 0) || (a.fromMergedEngine ? 1 : 0) - (b.fromMergedEngine ? 1 : 0));
+      const keep = list[0];
+      list.slice(1).forEach(d => {
+        d.retired = true; d.supersededBy = keep.id; d.retiredReason = "same variant as " + keep.label;
+        into.set(d.id, keep.id);
+        const eng = byIdLocal.get(d.engineOf);
+        if (eng && eng.variants) eng.variants = eng.variants.filter(id => id !== d.id);
+        if (!keep.specs && d.specs) keep.specs = d.specs;
+        folded++;
+      });
+    }
+    if (into.size) {
+      const seen = new Set();
+      for (let i = links.length - 1; i >= 0; i--) {
+        const l = links[i];
+        if (l.type !== "fitted" && l.type !== "enginegen" && l.type !== "enginesucc") continue;
+        let a = endOf(l.source), b = endOf(l.target);
+        if (into.has(a)) { a = into.get(a); l.source = a; }
+        if (into.has(b)) { b = into.get(b); l.target = b; }
+        const k = [a, b].sort().join("|") + "|" + l.type;
+        if (a === b || seen.has(k)) { links.splice(i, 1); continue; }
+        seen.add(k);
+      }
+    }
+    // A car on a variant is not also on the variant's engine.
+    const onVariant = new Set();
+    links.forEach(l => {
+      if (l.type !== "fitted" || l.retired) return;
+      const a = byIdLocal.get(endOf(l.source)), b = byIdLocal.get(endOf(l.target));
+      const v = [a, b].find(n => n && n.type === "enginevar" && !n.retired), car = [a, b].find(n => n && n.type !== "enginevar" && n.type !== "engine");
+      if (v && car) onVariant.add(car.id + "|" + v.engineOf);
+    });
+    for (let i = links.length - 1; i >= 0; i--) {
+      const l = links[i];
+      if (l.type !== "fitted" || l.retired) continue;
+      const a = byIdLocal.get(endOf(l.source)), b = byIdLocal.get(endOf(l.target));
+      const e = [a, b].find(n => n && n.type === "engine"), car = [a, b].find(n => n && n.type !== "enginevar" && n.type !== "engine");
+      if (e && car && onVariant.has(car.id + "|" + e.id)) { links.splice(i, 1); dropped++; }
+    }
+    if (folded) note(`powertrain: ${folded} duplicate engine variant(s) folded into the one of the same name`);
+    if (dropped) note(`powertrain: ${dropped} engine-family link(s) dropped where the car is on one of its variants`);
+    return { folded, dropped };
+  }
+
   // ---------- engines: the stored layer ----------
   // Same contract as every other layer in this file: the decision is stored,
   // the graph is rebuilt from it at boot, and data.js is never touched. An
@@ -11667,10 +11873,16 @@ Rules:
           sourceTitle: resolvedTitle || title, article,
           resolved: [...resolved.entries()],
         };
+        // A re-read never just forgets a car. See verifyLostApplications.
+        const prev = store.engines[id];
+        if (prev && prev.article) {
+          entry.kept = await verifyLostApplications(id, prev, entry, nodes, links);
+        }
         store.engines[id] = entry;
         await persist();
         const applied = applyEngineArticleWith(article, entry.sourceTitle, nodes, links,
           resolved, Object.assign({}, opts || {}, { id }));
+        addKeptEngineLinks(entry, nodes, links);
         // Depth 1: every car this engine named now gets the ordinary check.
         // Opt-outable, because the boot replay and the tests have no business
         // starting a dozen model calls.
@@ -11686,6 +11898,88 @@ Rules:
     inFlight.set(flightKey, p);
     return p;
   }
+
+  // ---------- a re-read never just forgets a car ----------
+  // Real user request: "make sure that if i do a re-read of an engine, that if
+  // a particular car already is attributed to an engine, the re-scan of the
+  // engine doesn't simply remove the car ... there is a check that is done to
+  // verify that it truly is not connected before the engine gets removed."
+  //
+  // A car this engine's last reading connected, and this reading does not:
+  //   - still connected by the car's own article (its infobox names this
+  //     engine): nothing to do, that link is drawn from the car's side;
+  //   - the car's own article names the engine or one of its variants
+  //     anywhere: kept, and remembered on the entry (`kept`) so every load
+  //     draws it;
+  //   - neither: dropped, and said so.
+  // Links the previous reading had kept are checked the same way again.
+  function engineCarsFrom(engineId, article, resolvedMap, nodes) {
+    const flat = [];
+    (article.variants || []).forEach(v => (v.applications || []).forEach(a =>
+      flat.push(Object.assign({}, a, { __from: engineVariantIdFor(engineId, v.code) }))));
+    (article.applications || []).forEach(a => flat.push(Object.assign({}, a, { __from: engineId })));
+    try {
+      return planEngineEdgesWith(flat, nodes, resolvedMap, null)
+        .map(e => ({ car: e.node.id, from: e.from || engineId }));
+    } catch (e) { return []; }
+  }
+  async function verifyLostApplications(engineId, prev, entry, nodes, links) {
+    const before = engineCarsFrom(engineId, prev.article, new Map(prev.resolved || []), nodes)
+      .concat(prev.kept || []);
+    const now = new Set(engineCarsFrom(engineId, entry.article, new Map(entry.resolved || []), nodes).map(x => x.car));
+    const lost = [];
+    const seen = new Set();
+    before.forEach(x => { if (!now.has(x.car) && !seen.has(x.car)) { seen.add(x.car); lost.push(x); } });
+    if (!lost.length) return [];
+    const eng = nodeWithId(nodes, engineId);
+    const variantNames = (entry.article.variants || []).map(v => v.code);
+    // The engine as a car's article would write it: its name, its title, its
+    // variants, and the codes inside them ("M177" out of "Mercedes-Benz
+    // M176/M177/M178 engine", "X1" out of "TstEng X1").
+    const whole = [eng && eng.label, stripEngineSuffix(entry.sourceTitle || ""), ...variantNames].filter(Boolean);
+    const codes = [];
+    whole.forEach(x => String(x).split(/[\s\/,]+/).forEach(w => { if (/\d/.test(w) && /[A-Za-z]/.test(w) && w.length >= 2) codes.push(w); }));
+    const names = [...new Set(whole.concat(codes))].map(x => String(x).trim()).filter(x => x.length >= 2);
+    const nameRe = names.length ? new RegExp("(^|[^A-Za-z0-9])(" + names.map(x =>
+      x.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")).join("|") + ")(?![A-Za-z0-9])", "i") : null;
+    const kept = [], dropped = [];
+    for (const x of lost) {
+      const car = nodeWithId(nodes, x.car);
+      if (!car) continue;
+      const scan = store.engineScans && store.engineScans[car.id];
+      const ownSide = scan && (scan.engines || []).some(m =>
+        articleKeyOf(m.title) === articleKeyOf(entry.sourceTitle) || engineIdFromTitle(m.title) === engineId);
+      if (ownSide) continue;
+      let named = false;
+      const title = car.wp || (car.familyOf && (nodeWithId(nodes, car.familyOf) || {}).wp);
+      if (title && nameRe) {
+        try { named = nameRe.test((await fetchArticleDigest(title)).wikitext || ""); } catch (e) { named = true; }
+      }
+      const label = `${car.make || ""} ${car.label}`.trim();
+      if (named) kept.push({ car: car.id, from: x.from, why: "named in the car's own article" });
+      else dropped.push(label);
+    }
+    if (kept.length) note(`powertrain: ${eng ? eng.label : engineId} -- kept ${kept.length} car(s) the new reading no longer lists, ` +
+                          "because their own articles still name this engine");
+    if (dropped.length) note(`powertrain: ${eng ? eng.label : engineId} -- ${dropped.length} car(s) no longer connected: ` +
+                             "neither the engine's article nor their own names it (" + dropped.slice(0, 6).join(", ") +
+                             (dropped.length > 6 ? ", ..." : "") + ")");
+    return kept;
+  }
+  function addKeptEngineLinks(entry, nodes, links) {
+    let n = 0;
+    (entry.kept || []).forEach(k => {
+      const car = nodeWithId(nodes, k.car), from = nodeWithId(nodes, k.from);
+      if (!car || !from || car.retired) return;
+      const has = links.some(l => l.type === "fitted" &&
+        ((idOfEnd(l.source) === from.id && idOfEnd(l.target) === car.id) || (idOfEnd(l.target) === from.id && idOfEnd(l.source) === car.id)));
+      if (has) return;
+      links.push({ source: from.id, target: car.id, type: "fitted", llmGenerated: true, kept: true });
+      n++;
+    });
+    return n;
+  }
+  function idOfEnd(v) { return typeof v === "string" ? v : (v && v.id); }
 
   // "Read it again", meant literally. Real user request: "the 'scan' should
   // essentially act like an 'llm recheck' for whatever it is looking at. In
@@ -11853,6 +12147,7 @@ Rules:
       // otherwise put it somewhere else on every boot.
       const r = applyEngineArticleWith(entry.article, entry.sourceTitle, nodes, links,
                                        new Map(entry.resolved || []), { id });
+      addKeptEngineLinks(entry, nodes, links);
       if (r.engine) engines++;
       variants += r.variants; fitted += r.fitted;
     }
@@ -12852,13 +13147,17 @@ Rules:
     };
     if (!rec.memberIds.length) return { ok: false, error: "no other engine selected to merge in" };
     const before = store.engineMerges[primaryId];
+    // The same merge again -- every boot re-finds the duplicates it folds --
+    // keeps the record it had, so nothing is rewritten and nothing is saved.
+    const unchanged = before && rec.memberIds.length === prior.length && rec.memberIds.every(id => prior.includes(id));
+    if (unchanged) rec.mergedAt = before.mergedAt;
     store.engineMerges[primaryId] = rec;
     const ok = applyOneEngineMerge(nodes, links, primaryId, rec);
     if (!ok) {
       if (before) store.engineMerges[primaryId] = before; else delete store.engineMerges[primaryId];
       return { ok: false, error: "none of the selected engines could be merged (retired, already merged, or not engines)" };
     }
-    persist();
+    if (!unchanged) persist();
     const primary = nodes.find(n => n.id === primaryId);
     return { ok: true, variants: ((primary && primary.variants) || []).length };
   }
@@ -14473,7 +14772,12 @@ Rules:
     placeInCascade, cascadeDepthOf: id => depthOf(id), ownCodeShape, foldUmbrellaModels,
     schedulePartnerCheck, cascadeDepthIn,
     beginFreshScan, endFreshScan, freshScanActive, setFreshRecheckRunner, setCarTimeout, finishFullScan,
-    sanityMatchPlausible, decideProvisional, autoDecideProvisionalRelations,
+    sanityMatchPlausible, decideProvisional, autoDecideProvisionalRelations, tidyEngineLinks,
+    foldBuildFamiliesIntoLlmFamilies,
+    // Saves what the boot replays changed, once; a no-op when nothing did.
+    // A moment after boot, not during it: the page is drawn first, and a
+    // decision the user makes in that moment is not queued behind this.
+    saveIfChanged: () => { setTimeout(() => { persist(); }, 1500); },
     resolveMention: (text, id, nodes) => resolveMentionFully(text, nodeWithId(nodes, id), nodes, makeIndex(nodes)),
     checkInFlight: id => inFlight.has(id) || inFlight.has("recheck:" + id),
     indexSectionEngine, isGenericIndexSection, generationNodeLabel, looksLikeCodeLink,
