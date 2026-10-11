@@ -227890,12 +227890,40 @@
    "llmVerifiedDuplicate": true,
    "decidedAt": "2026-10-11T14:00:00.000Z",
    "decidedBy": "review"
+  },
+  "llm-m-chrysler-fifth-avenue-y-body|m-chrysler-imperial|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-10-11T12:09:50.783Z",
+   "decidedAt": "2026-10-11T12:09:50.783Z",
+   "famA": "m-chrysler-fifth-avenue",
+   "famB": "m-chrysler-imperial",
+   "relType": "platform",
+   "codeA": "Fifth Avenue Y-body",
+   "codeB": "Imperial",
+   "genIdA": "llm-m-chrysler-fifth-avenue-y-body",
+   "genIdB": "m-chrysler-imperial",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-chrysler-fifth-avenue-y-body|m-chrysler-new-yorker|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-10-11T12:09:50.783Z",
+   "decidedAt": "2026-10-11T12:09:50.783Z",
+   "famA": "m-chrysler-fifth-avenue",
+   "famB": "m-chrysler-new-yorker",
+   "relType": "platform",
+   "codeA": "Fifth Avenue Y-body",
+   "codeB": "New Yorker",
+   "genIdA": "llm-m-chrysler-fifth-avenue-y-body",
+   "genIdB": "m-chrysler-new-yorker",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
   }
  },
  "recheck": {
   "m-chevrolet-advance-design": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:47.818Z",
+   "checkedAt": "2026-10-11T12:10:37.662Z",
    "sourceTitle": "Chevrolet Advance Design",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -227928,7 +227956,7 @@
   },
   "m-chevrolet-suburban": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:47.840Z",
+   "checkedAt": "2026-10-11T12:10:37.684Z",
    "sourceTitle": "Chevrolet Suburban",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -228084,7 +228112,7 @@
   },
   "m-chevrolet-van": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:47.854Z",
+   "checkedAt": "2026-10-11T12:10:37.696Z",
    "sourceTitle": "Chevrolet van",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -228158,7 +228186,7 @@
   },
   "m-pontiac-6": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:47.858Z",
+   "checkedAt": "2026-10-11T12:10:37.699Z",
    "sourceTitle": "Pontiac 6",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -228206,7 +228234,7 @@
   },
   "m-chevrolet-avalanche": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:47.867Z",
+   "checkedAt": "2026-10-11T12:10:37.707Z",
    "sourceTitle": "Chevrolet Avalanche",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -228291,7 +228319,7 @@
   },
   "m-cadillac-escalade": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:47.880Z",
+   "checkedAt": "2026-10-11T12:10:37.718Z",
    "sourceTitle": "Cadillac Escalade",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -228417,7 +228445,7 @@
   },
   "m-chevrolet-kodiak": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:47.887Z",
+   "checkedAt": "2026-10-11T12:10:37.725Z",
    "sourceTitle": "Chevrolet Kodiak",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -228497,7 +228525,7 @@
   },
   "m-chevrolet-astro": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:47.890Z",
+   "checkedAt": "2026-10-11T12:10:37.728Z",
    "sourceTitle": "Chevrolet Astro",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -228537,7 +228565,7 @@
   },
   "m-chevrolet-express": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:47.893Z",
+   "checkedAt": "2026-10-11T12:10:37.730Z",
    "sourceTitle": "Chevrolet Express",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -228584,7 +228612,7 @@
   },
   "m-pontiac-safari": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:47.897Z",
+   "checkedAt": "2026-10-11T12:10:37.734Z",
    "sourceTitle": "Pontiac Safari",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -228649,7 +228677,7 @@
   },
   "m-buick-estate": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:47.915Z",
+   "checkedAt": "2026-10-11T12:10:37.751Z",
    "sourceTitle": "Buick Estate",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -228850,7 +228878,7 @@
   },
   "m-oldsmobile-custom-cruiser": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:47.921Z",
+   "checkedAt": "2026-10-11T12:10:37.756Z",
    "sourceTitle": "Oldsmobile Custom Cruiser",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -228915,7 +228943,7 @@
   },
   "m-cadillac-series-62": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:47.935Z",
+   "checkedAt": "2026-10-11T12:10:37.769Z",
    "sourceTitle": "Cadillac Series 62",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -229071,7 +229099,7 @@
   },
   "m-cadillac-lasalle": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:47.941Z",
+   "checkedAt": "2026-10-11T12:10:37.774Z",
    "sourceTitle": "LaSalle (automobile)",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -229140,7 +229168,7 @@
   },
   "m-oldsmobile-98": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:47.966Z",
+   "checkedAt": "2026-10-11T12:10:37.797Z",
    "sourceTitle": "Oldsmobile 98",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -229404,7 +229432,7 @@
   },
   "m-pontiac-torpedo": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:47.974Z",
+   "checkedAt": "2026-10-11T12:10:37.804Z",
    "sourceTitle": "Pontiac Torpedo",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -229483,7 +229511,7 @@
   },
   "m-cadillac-series-61": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:47.980Z",
+   "checkedAt": "2026-10-11T12:10:37.810Z",
    "sourceTitle": "Cadillac Series 61",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -229556,7 +229584,7 @@
   },
   "m-mercedes-benz-cla": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:47.989Z",
+   "checkedAt": "2026-10-11T12:10:37.818Z",
    "sourceTitle": "Mercedes-Benz CLA",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -229645,7 +229673,7 @@
   },
   "m-buick-century": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:48.003Z",
+   "checkedAt": "2026-10-11T12:10:37.833Z",
    "sourceTitle": "Buick Century",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -229801,7 +229829,7 @@
   },
   "m-oldsmobile-series-70": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:48.008Z",
+   "checkedAt": "2026-10-11T12:10:37.838Z",
    "sourceTitle": "Oldsmobile Series 70",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -229876,7 +229904,7 @@
   },
   "m-pontiac-streamliner": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:48.012Z",
+   "checkedAt": "2026-10-11T12:10:37.842Z",
    "sourceTitle": "Pontiac Streamliner",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -229940,7 +229968,7 @@
   },
   "m-buick-special": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:48.026Z",
+   "checkedAt": "2026-10-11T12:10:37.856Z",
    "sourceTitle": "Buick Special",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -230106,7 +230134,7 @@
   },
   "m-buick-super": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:48.034Z",
+   "checkedAt": "2026-10-11T12:10:37.865Z",
    "sourceTitle": "Buick Super",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -230215,7 +230243,7 @@
   },
   "m-oldsmobile-88": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:48.046Z",
+   "checkedAt": "2026-10-11T12:10:37.877Z",
    "sourceTitle": "Oldsmobile 88",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -230368,7 +230396,7 @@
   },
   "m-chevrolet-caprice": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:48.061Z",
+   "checkedAt": "2026-10-11T12:10:37.893Z",
    "sourceTitle": "Chevrolet Caprice",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -230529,7 +230557,7 @@
   },
   "m-pontiac-catalina": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:48.066Z",
+   "checkedAt": "2026-10-11T12:10:37.898Z",
    "sourceTitle": "Pontiac Catalina",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -230605,7 +230633,7 @@
   },
   "m-pontiac-bonneville": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:48.081Z",
+   "checkedAt": "2026-10-11T12:10:37.913Z",
    "sourceTitle": "Pontiac Bonneville",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -230799,7 +230827,7 @@
   },
   "m-pontiac-parisienne": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:48.089Z",
+   "checkedAt": "2026-10-11T12:10:37.922Z",
    "sourceTitle": "Pontiac Parisienne",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -230909,7 +230937,7 @@
   },
   "m-cadillac-sixty-special": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:48.104Z",
+   "checkedAt": "2026-10-11T12:10:37.938Z",
    "sourceTitle": "Cadillac Sixty Special",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -231108,7 +231136,7 @@
   },
   "m-buick-limited": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:48.110Z",
+   "checkedAt": "2026-10-11T12:10:37.944Z",
    "sourceTitle": "Buick Limited",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -231185,7 +231213,7 @@
   },
   "m-cadillac-eldorado": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:48.129Z",
+   "checkedAt": "2026-10-11T12:10:37.965Z",
    "sourceTitle": "Cadillac Eldorado",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -231421,7 +231449,7 @@
   },
   "m-cadillac-de-ville-series": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:48.142Z",
+   "checkedAt": "2026-10-11T12:10:37.978Z",
    "sourceTitle": "Cadillac de Ville series",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -231580,7 +231608,7 @@
   },
   "m-buick-electra": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:48.155Z",
+   "checkedAt": "2026-10-11T12:10:37.993Z",
    "sourceTitle": "Buick Electra",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -231737,7 +231765,7 @@
   },
   "m-cadillac-calais": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:48.159Z",
+   "checkedAt": "2026-10-11T12:10:37.997Z",
    "sourceTitle": "Cadillac Calais",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -231794,7 +231822,7 @@
   },
   "m-chevrolet-townsman": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:48.163Z",
+   "checkedAt": "2026-10-11T12:10:38.001Z",
    "sourceTitle": "Chevrolet Townsman",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -231843,7 +231871,7 @@
   },
   "m-cadillac-fleetwood": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:48.166Z",
+   "checkedAt": "2026-10-11T12:10:38.005Z",
    "sourceTitle": "Cadillac Fleetwood",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -231903,7 +231931,7 @@
   },
   "m-oldsmobile-series-60": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:48.172Z",
+   "checkedAt": "2026-10-11T12:10:38.011Z",
    "sourceTitle": "Oldsmobile Series 60",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -231969,7 +231997,7 @@
   },
   "m-chevrolet-fleetline": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:48.182Z",
+   "checkedAt": "2026-10-11T12:10:38.022Z",
    "sourceTitle": "Chevrolet Fleetline",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -232086,7 +232114,7 @@
   },
   "m-mercedes-benz-gla": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:48.191Z",
+   "checkedAt": "2026-10-11T12:10:38.031Z",
    "sourceTitle": "Mercedes-Benz GLA",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -232177,7 +232205,7 @@
   },
   "m-mercedes-benz-glb": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:48.196Z",
+   "checkedAt": "2026-10-11T12:10:38.036Z",
    "sourceTitle": "Mercedes-Benz GLB",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -232239,7 +232267,7 @@
   },
   "m-oldsmobile-cutlass": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:48.209Z",
+   "checkedAt": "2026-10-11T12:10:38.050Z",
    "sourceTitle": "Oldsmobile Cutlass",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -232374,7 +232402,7 @@
   },
   "m-chevrolet-chevelle": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:48.220Z",
+   "checkedAt": "2026-10-11T12:10:38.062Z",
    "sourceTitle": "Chevrolet Chevelle",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -232496,7 +232524,7 @@
   },
   "m-buick-regal": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:48.232Z",
+   "checkedAt": "2026-10-11T12:10:38.075Z",
    "sourceTitle": "Buick Regal",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -232631,7 +232659,7 @@
   },
   "m-pontiac-grand-am": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:48.240Z",
+   "checkedAt": "2026-10-11T12:10:38.084Z",
    "sourceTitle": "Pontiac Grand Am",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -232733,7 +232761,7 @@
   },
   "m-pontiac-grand-prix": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:48.250Z",
+   "checkedAt": "2026-10-11T12:10:38.094Z",
    "sourceTitle": "Pontiac Grand Prix",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -232873,7 +232901,7 @@
   },
   "m-chevrolet-el-camino": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:48.257Z",
+   "checkedAt": "2026-10-11T12:10:38.101Z",
    "sourceTitle": "Chevrolet El Camino",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -232972,7 +233000,7 @@
   },
   "m-chevrolet-malibu": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:48.271Z",
+   "checkedAt": "2026-10-11T12:10:38.117Z",
    "sourceTitle": "Chevrolet Malibu",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -233140,7 +233168,7 @@
   },
   "m-chevrolet-monte-carlo": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:48.280Z",
+   "checkedAt": "2026-10-11T12:10:38.126Z",
    "sourceTitle": "Chevrolet Monte Carlo",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -233246,7 +233274,7 @@
   },
   "m-pontiac-chieftain": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:48.283Z",
+   "checkedAt": "2026-10-11T12:10:38.129Z",
    "sourceTitle": "Pontiac Chieftain",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -233298,7 +233326,7 @@
   },
   "m-pontiac-tempest": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:48.289Z",
+   "checkedAt": "2026-10-11T12:10:38.135Z",
    "sourceTitle": "Pontiac Tempest",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -233379,7 +233407,7 @@
   },
   "m-buick-sport-wagon": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:48.296Z",
+   "checkedAt": "2026-10-11T12:10:38.142Z",
    "sourceTitle": "Buick Sport Wagon",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -233464,7 +233492,7 @@
   },
   "m-buick-lesabre": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:48.310Z",
+   "checkedAt": "2026-10-11T12:10:38.157Z",
    "sourceTitle": "Buick LeSabre",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -233625,7 +233653,7 @@
   },
   "m-buick-invicta": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:48.313Z",
+   "checkedAt": "2026-10-11T12:10:38.161Z",
    "sourceTitle": "Buick Invicta",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -233676,7 +233704,7 @@
   },
   "m-buick-wildcat": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:48.315Z",
+   "checkedAt": "2026-10-11T12:10:38.163Z",
    "sourceTitle": "Buick Wildcat",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -233715,7 +233743,7 @@
   },
   "m-pontiac-ventura": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:48.320Z",
+   "checkedAt": "2026-10-11T12:10:38.168Z",
    "sourceTitle": "Pontiac Ventura",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -233775,7 +233803,7 @@
   },
   "m-chevrolet-bel-air": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:48.334Z",
+   "checkedAt": "2026-10-11T12:10:38.183Z",
    "sourceTitle": "Chevrolet Bel Air",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -233940,7 +233968,7 @@
   },
   "m-chevrolet-biscayne": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:48.337Z",
+   "checkedAt": "2026-10-11T12:10:38.187Z",
    "sourceTitle": "Chevrolet Biscayne",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -233998,7 +234026,7 @@
   },
   "m-opel-omega": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:48.341Z",
+   "checkedAt": "2026-10-11T12:10:38.191Z",
    "sourceTitle": "Opel Omega",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -234055,7 +234083,7 @@
   },
   "m-chevrolet-lumina": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:48.349Z",
+   "checkedAt": "2026-10-11T12:10:38.200Z",
    "sourceTitle": "Chevrolet Lumina",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -234161,7 +234189,7 @@
   },
   "m-holden-ute": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:48.351Z",
+   "checkedAt": "2026-10-11T12:10:38.202Z",
    "sourceTitle": "Holden Ute",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -234199,7 +234227,7 @@
   },
   "m-oldsmobile-cutlass-supreme": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:48.360Z",
+   "checkedAt": "2026-10-11T12:10:38.211Z",
    "sourceTitle": "Oldsmobile Cutlass Supreme",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -234308,7 +234336,7 @@
   },
   "m-oldsmobile-aurora": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:48.364Z",
+   "checkedAt": "2026-10-11T12:10:38.215Z",
    "sourceTitle": "Oldsmobile Aurora",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -234368,7 +234396,7 @@
   },
   "m-cadillac-seville": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:48.374Z",
+   "checkedAt": "2026-10-11T12:10:38.226Z",
    "sourceTitle": "Cadillac Seville",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -234488,7 +234516,7 @@
   },
   "m-buick-park-avenue": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:48.384Z",
+   "checkedAt": "2026-10-11T12:10:38.236Z",
    "sourceTitle": "Buick Park Avenue",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -234584,7 +234612,7 @@
   },
   "m-buick-riviera": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:48.393Z",
+   "checkedAt": "2026-10-11T12:10:38.247Z",
    "sourceTitle": "Buick Riviera",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -234709,7 +234737,7 @@
   },
   "m-oldsmobile-toronado": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:48.397Z",
+   "checkedAt": "2026-10-11T12:10:38.251Z",
    "sourceTitle": "Oldsmobile Toronado",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -234775,7 +234803,7 @@
   },
   "m-chevrolet-210": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:48.400Z",
+   "checkedAt": "2026-10-11T12:10:38.254Z",
    "sourceTitle": "Chevrolet 210",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -234816,7 +234844,7 @@
   },
   "m-chevrolet-150": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:48.402Z",
+   "checkedAt": "2026-10-11T12:10:38.256Z",
    "sourceTitle": "Chevrolet 150",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -234851,7 +234879,7 @@
   },
   "m-oldsmobile-vista-cruiser": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:48.412Z",
+   "checkedAt": "2026-10-11T12:10:38.267Z",
    "sourceTitle": "Oldsmobile Vista Cruiser",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -234969,7 +234997,7 @@
   },
   "m-pontiac-gto-2004": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:48.427Z",
+   "checkedAt": "2026-10-11T12:10:38.283Z",
    "sourceTitle": "Pontiac GTO",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -235127,7 +235155,7 @@
   },
   "m-alfa-romeo-sprint": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:48.430Z",
+   "checkedAt": "2026-10-11T12:10:38.286Z",
    "sourceTitle": "Alfa Romeo Sprint",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -235171,7 +235199,7 @@
   },
   "m-holden-kingswood": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:48.439Z",
+   "checkedAt": "2026-10-11T12:10:38.296Z",
    "sourceTitle": "Holden Kingswood",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -235262,7 +235290,7 @@
   },
   "m-buick-lacrosse": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:48.446Z",
+   "checkedAt": "2026-10-11T12:10:38.304Z",
    "sourceTitle": "Buick LaCrosse",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -235349,7 +235377,7 @@
   },
   "m-saab-9-5": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:48.451Z",
+   "checkedAt": "2026-10-11T12:10:38.310Z",
    "sourceTitle": "Saab 9-5",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -235411,7 +235439,7 @@
   },
   "m-opel-insignia": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:48.456Z",
+   "checkedAt": "2026-10-11T12:10:38.315Z",
    "sourceTitle": "Opel Insignia",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -235474,7 +235502,7 @@
   },
   "m-opel-vectra": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:48.459Z",
+   "checkedAt": "2026-10-11T12:10:38.318Z",
    "sourceTitle": "Opel Vectra",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -235525,7 +235553,7 @@
   },
   "m-chevrolet-parkwood": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:48.463Z",
+   "checkedAt": "2026-10-11T12:10:38.323Z",
    "sourceTitle": "Chevrolet Parkwood",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -235584,7 +235612,7 @@
   },
   "m-fiat-croma": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:48.466Z",
+   "checkedAt": "2026-10-11T12:10:38.326Z",
    "sourceTitle": "Fiat Croma",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -235628,7 +235656,7 @@
   },
   "m-chevrolet-chevy-ii-nova": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:48.474Z",
+   "checkedAt": "2026-10-11T12:10:38.334Z",
    "sourceTitle": "Chevrolet Chevy II / Nova",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -235724,7 +235752,7 @@
   },
   "m-opel-senator": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:48.478Z",
+   "checkedAt": "2026-10-11T12:10:38.338Z",
    "sourceTitle": "Opel Senator",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -235778,7 +235806,7 @@
   },
   "m-pontiac-firebird-trans-am": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:48.480Z",
+   "checkedAt": "2026-10-11T12:10:38.341Z",
    "sourceTitle": "Pontiac Firebird (second generation)",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -235822,7 +235850,7 @@
   },
   "m-alfa-romeo-33": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:48.483Z",
+   "checkedAt": "2026-10-11T12:10:38.344Z",
    "sourceTitle": "Alfa Romeo 33",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -235872,7 +235900,7 @@
   },
   "m-holden-statesman": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:48.496Z",
+   "checkedAt": "2026-10-11T12:10:38.355Z",
    "sourceTitle": "Statesman (automobile)",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -235942,7 +235970,7 @@
   },
   "m-chevrolet-constantia": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:48.499Z",
+   "checkedAt": "2026-10-11T12:10:38.358Z",
    "sourceTitle": "Chevrolet Constantia",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -235982,7 +236010,7 @@
   },
   "m-nash-statesman": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:48.501Z",
+   "checkedAt": "2026-10-11T12:10:38.360Z",
    "sourceTitle": "Nash Statesman",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -236015,7 +236043,7 @@
   },
   "m-saab-900": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:48.504Z",
+   "checkedAt": "2026-10-11T12:10:38.363Z",
    "sourceTitle": "Saab 900",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -236060,7 +236088,7 @@
   },
   "m-lancia-thema": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:48.509Z",
+   "checkedAt": "2026-10-11T12:10:38.368Z",
    "sourceTitle": "Lancia Thema",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -236114,7 +236142,7 @@
   },
   "m-gmc-acadia": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:48.513Z",
+   "checkedAt": "2026-10-11T12:10:38.371Z",
    "sourceTitle": "GMC Acadia",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -236168,7 +236196,7 @@
   },
   "m-holden-nova": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:48.517Z",
+   "checkedAt": "2026-10-11T12:10:38.375Z",
    "sourceTitle": "Holden Nova",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -236226,7 +236254,7 @@
   },
   "m-toyota-sprinter": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:48.542Z",
+   "checkedAt": "2026-10-11T12:10:38.400Z",
    "sourceTitle": "Toyota Sprinter",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -236426,7 +236454,7 @@
   },
   "m-opel-rekord": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:48.556Z",
+   "checkedAt": "2026-10-11T12:10:38.413Z",
    "sourceTitle": "Opel Rekord",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -236540,7 +236568,7 @@
   },
   "m-opel-rekord-series-e": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:48.564Z",
+   "checkedAt": "2026-10-11T12:10:38.420Z",
    "sourceTitle": "Opel Rekord Series E",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -236623,7 +236651,7 @@
   },
   "m-mercedes-benz-w110": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:48.566Z",
+   "checkedAt": "2026-10-11T12:10:38.422Z",
    "sourceTitle": "Mercedes-Benz W110",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -236654,7 +236682,7 @@
   },
   "m-mercedes-benz-e-class": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:48.603Z",
+   "checkedAt": "2026-10-11T12:10:38.457Z",
    "sourceTitle": "Mercedes-Benz E-Class",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -236808,7 +236836,7 @@
   },
   "m-opel-kapitan": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:48.610Z",
+   "checkedAt": "2026-10-11T12:10:38.463Z",
    "sourceTitle": "Opel Kapitän",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -236895,7 +236923,7 @@
   },
   "m-chevrolet-corvair": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:48.612Z",
+   "checkedAt": "2026-10-11T12:10:38.466Z",
    "sourceTitle": "Chevrolet Corvair",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -236933,7 +236961,7 @@
   },
   "m-isuzu-gemini": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:48.637Z",
+   "checkedAt": "2026-10-11T12:10:38.490Z",
    "sourceTitle": "Isuzu Gemini",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -237125,7 +237153,7 @@
   },
   "m-suzuki-cultus-swift": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:48.677Z",
+   "checkedAt": "2026-10-11T12:10:38.528Z",
    "sourceTitle": "Suzuki Cultus",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -237399,7 +237427,7 @@
   },
   "m-suzuki-vitara": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:48.702Z",
+   "checkedAt": "2026-10-11T12:10:38.551Z",
    "sourceTitle": "Suzuki Vitara",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -237571,7 +237599,7 @@
   },
   "m-chevrolet-cobalt": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:48.705Z",
+   "checkedAt": "2026-10-11T12:10:38.555Z",
    "sourceTitle": "Chevrolet Cobalt",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -237617,7 +237645,7 @@
   },
   "m-oldsmobile-silhouette": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:48.709Z",
+   "checkedAt": "2026-10-11T12:10:38.558Z",
    "sourceTitle": "Oldsmobile Silhouette",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -237662,7 +237690,7 @@
   },
   "m-pontiac-trans-sport": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:48.713Z",
+   "checkedAt": "2026-10-11T12:10:38.563Z",
    "sourceTitle": "Pontiac Trans Sport",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -237716,7 +237744,7 @@
   },
   "m-toyota-hiace": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:48.743Z",
+   "checkedAt": "2026-10-11T12:10:38.593Z",
    "sourceTitle": "Toyota HiAce",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -237961,7 +237989,7 @@
   },
   "m-fiat-uno": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:48.749Z",
+   "checkedAt": "2026-10-11T12:10:38.599Z",
    "sourceTitle": "Fiat Uno",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -238023,7 +238051,7 @@
   },
   "m-daewoo-nubira": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:48.752Z",
+   "checkedAt": "2026-10-11T12:10:38.602Z",
    "sourceTitle": "Daewoo Nubira",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -238066,7 +238094,7 @@
   },
   "m-chevrolet-omega": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:48.756Z",
+   "checkedAt": "2026-10-11T12:10:38.606Z",
    "sourceTitle": "Chevrolet Omega",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -238122,7 +238150,7 @@
   },
   "m-buick-envision": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:48.758Z",
+   "checkedAt": "2026-10-11T12:10:38.608Z",
    "sourceTitle": "Buick Envision",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -238160,7 +238188,7 @@
   },
   "m-mercedes-benz-w108-w109": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:48.761Z",
+   "checkedAt": "2026-10-11T12:10:38.612Z",
    "sourceTitle": "Mercedes-Benz W108/W109",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -238205,7 +238233,7 @@
   },
   "m-ssangyong-chairman": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:48.764Z",
+   "checkedAt": "2026-10-11T12:10:38.614Z",
    "sourceTitle": "SsangYong Chairman",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -238248,7 +238276,7 @@
   },
   "m-opel-kadett": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:48.781Z",
+   "checkedAt": "2026-10-11T12:10:38.630Z",
    "sourceTitle": "Opel Kadett",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -238364,7 +238392,7 @@
   },
   "m-holden-gemini": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:48.789Z",
+   "checkedAt": "2026-10-11T12:10:38.638Z",
    "sourceTitle": "Holden Gemini",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -238435,7 +238463,7 @@
   },
   "m-ruf-ctr": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:48.792Z",
+   "checkedAt": "2026-10-11T12:10:38.640Z",
    "sourceTitle": "Ruf CTR",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -238474,7 +238502,7 @@
   },
   "m-geo-prizm": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:48.796Z",
+   "checkedAt": "2026-10-11T12:10:38.644Z",
    "sourceTitle": "Geo Prizm",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -238525,7 +238553,7 @@
   },
   "m-rover-400-45": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:48.801Z",
+   "checkedAt": "2026-10-11T12:10:38.650Z",
    "sourceTitle": "Rover 400 / 45",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -238587,7 +238615,7 @@
   },
   "m-acura-el": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:48.805Z",
+   "checkedAt": "2026-10-11T12:10:38.654Z",
    "sourceTitle": "Acura EL",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -238640,7 +238668,7 @@
   },
   "m-geo-metro": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:48.816Z",
+   "checkedAt": "2026-10-11T12:10:38.667Z",
    "sourceTitle": "Geo Metro",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -238740,7 +238768,7 @@
   },
   "m-holden-barina": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:48.828Z",
+   "checkedAt": "2026-10-11T12:10:38.680Z",
    "sourceTitle": "Holden Barina",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -238868,7 +238896,7 @@
   },
   "m-suzuki-baleno-2015": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:48.832Z",
+   "checkedAt": "2026-10-11T12:10:38.684Z",
    "sourceTitle": "Suzuki Baleno (2015)",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -238912,7 +238940,7 @@
   },
   "m-suzuki-swift": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:48.868Z",
+   "checkedAt": "2026-10-11T12:10:38.722Z",
    "sourceTitle": "Suzuki Swift",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -239227,7 +239255,7 @@
   },
   "m-toyota-vitz": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:48.882Z",
+   "checkedAt": "2026-10-11T12:10:38.736Z",
    "sourceTitle": "Toyota Vitz",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -239334,7 +239362,7 @@
   },
   "m-suzuki-celerio": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:48.889Z",
+   "checkedAt": "2026-10-11T12:10:38.743Z",
    "sourceTitle": "Suzuki Celerio",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -239411,7 +239439,7 @@
   },
   "m-suzuki-sx4": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:48.896Z",
+   "checkedAt": "2026-10-11T12:10:38.751Z",
    "sourceTitle": "Suzuki SX4",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -239487,7 +239515,7 @@
   },
   "m-suzuki-ignis": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:48.902Z",
+   "checkedAt": "2026-10-11T12:10:38.756Z",
    "sourceTitle": "Suzuki Ignis",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -239548,7 +239576,7 @@
   },
   "m-suzuki-wagon-r": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:48.912Z",
+   "checkedAt": "2026-10-11T12:10:38.766Z",
    "sourceTitle": "Suzuki Wagon R",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -239668,7 +239696,7 @@
   },
   "m-volkswagen-santana": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:48.919Z",
+   "checkedAt": "2026-10-11T12:10:38.774Z",
    "sourceTitle": "Volkswagen Santana",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -239756,7 +239784,7 @@
   },
   "m-suzuki-xl-7": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:48.924Z",
+   "checkedAt": "2026-10-11T12:10:38.779Z",
    "sourceTitle": "Suzuki XL-7",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -239804,7 +239832,7 @@
   },
   "m-suzuki-brezza": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:48.930Z",
+   "checkedAt": "2026-10-11T12:10:38.784Z",
    "sourceTitle": "Suzuki Brezza",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -239864,7 +239892,7 @@
   },
   "m-toyota-urban-cruiser": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:48.937Z",
+   "checkedAt": "2026-10-11T12:10:38.791Z",
    "sourceTitle": "Toyota Urban Cruiser",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -239944,7 +239972,7 @@
   },
   "m-pontiac-montana": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:48.941Z",
+   "checkedAt": "2026-10-11T12:10:38.795Z",
    "sourceTitle": "Pontiac Montana",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -239998,7 +240026,7 @@
   },
   "m-buick-gl8": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:48.947Z",
+   "checkedAt": "2026-10-11T12:10:38.801Z",
    "sourceTitle": "Buick GL8",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -240073,7 +240101,7 @@
   },
   "m-toyota-himedic": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:48.950Z",
+   "checkedAt": "2026-10-11T12:10:38.804Z",
    "sourceTitle": "Toyota HiMedic",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -240113,7 +240141,7 @@
   },
   "m-jinbei-haise": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:48.952Z",
+   "checkedAt": "2026-10-11T12:10:38.806Z",
    "sourceTitle": "Jinbei Haise",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -240156,7 +240184,7 @@
   },
   "m-ford-exp": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:48.959Z",
+   "checkedAt": "2026-10-11T12:10:38.813Z",
    "sourceTitle": "Ford EXP",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -240230,7 +240258,7 @@
   },
   "m-toyota-aqua": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:48.965Z",
+   "checkedAt": "2026-10-11T12:10:38.819Z",
    "sourceTitle": "Toyota Aqua",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -240286,7 +240314,7 @@
   },
   "m-mercury-commuter": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:48.968Z",
+   "checkedAt": "2026-10-11T12:10:38.821Z",
    "sourceTitle": "Mercury Commuter",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -240325,7 +240353,7 @@
   },
   "m-fiat-fiorino": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:48.977Z",
+   "checkedAt": "2026-10-11T12:10:38.831Z",
    "sourceTitle": "Fiat Fiorino",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -240406,7 +240434,7 @@
   },
   "m-fiat-palio": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:48.983Z",
+   "checkedAt": "2026-10-11T12:10:38.836Z",
    "sourceTitle": "Fiat Palio",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -240467,7 +240495,7 @@
   },
   "m-ford-orion": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:48.991Z",
+   "checkedAt": "2026-10-11T12:10:38.844Z",
    "sourceTitle": "Ford Orion",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -240558,7 +240586,7 @@
   },
   "m-vauxhall-carlton": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:49.001Z",
+   "checkedAt": "2026-10-11T12:10:38.854Z",
    "sourceTitle": "Vauxhall Carlton",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -240651,7 +240679,7 @@
   },
   "m-chevrolet-equinox": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:49.007Z",
+   "checkedAt": "2026-10-11T12:10:38.860Z",
    "sourceTitle": "Chevrolet Equinox",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -240721,7 +240749,7 @@
   },
   "m-gmc-terrain": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:49.010Z",
+   "checkedAt": "2026-10-11T12:10:38.863Z",
    "sourceTitle": "GMC Terrain",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -240768,7 +240796,7 @@
   },
   "m-vauxhall-astra": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:49.030Z",
+   "checkedAt": "2026-10-11T12:10:38.885Z",
    "sourceTitle": "Vauxhall Astra",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -240995,7 +241023,7 @@
   },
   "m-daewoo-lemans": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:49.033Z",
+   "checkedAt": "2026-10-11T12:10:38.888Z",
    "sourceTitle": "Daewoo LeMans",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -241033,7 +241061,7 @@
   },
   "m-rover-200-25": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:49.041Z",
+   "checkedAt": "2026-10-11T12:10:38.896Z",
    "sourceTitle": "Rover 200 / 25",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -241116,7 +241144,7 @@
   },
   "m-mg-zs-crossover": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:49.043Z",
+   "checkedAt": "2026-10-11T12:10:38.898Z",
    "sourceTitle": "MG ZS (crossover)",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -241156,7 +241184,7 @@
   },
   "m-acura-rsx": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:49.047Z",
+   "checkedAt": "2026-10-11T12:10:38.902Z",
    "sourceTitle": "Acura RSX",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -241205,7 +241233,7 @@
   },
   "m-chevrolet-cavalier": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:49.055Z",
+   "checkedAt": "2026-10-11T12:10:38.910Z",
    "sourceTitle": "Chevrolet Cavalier",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -241295,7 +241323,7 @@
   },
   "m-austin-metro": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:49.064Z",
+   "checkedAt": "2026-10-11T12:10:38.919Z",
    "sourceTitle": "Austin Metro",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -241380,7 +241408,7 @@
   },
   "m-opel-agila": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:49.067Z",
+   "checkedAt": "2026-10-11T12:10:38.922Z",
    "sourceTitle": "Opel Agila",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -241420,7 +241448,7 @@
   },
   "m-chevrolet-cruze": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:49.072Z",
+   "checkedAt": "2026-10-11T12:10:38.927Z",
    "sourceTitle": "Chevrolet Cruze",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -241480,7 +241508,7 @@
   },
   "m-suzuki-ertiga": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:49.081Z",
+   "checkedAt": "2026-10-11T12:10:38.937Z",
    "sourceTitle": "Suzuki Ertiga",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -241562,7 +241590,7 @@
   },
   "m-toyota-ist": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:49.089Z",
+   "checkedAt": "2026-10-11T12:10:38.944Z",
    "sourceTitle": "Toyota Ist",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -241629,7 +241657,7 @@
   },
   "m-toyota-belta": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:49.097Z",
+   "checkedAt": "2026-10-11T12:10:38.953Z",
    "sourceTitle": "Toyota Belta",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -241698,7 +241726,7 @@
   },
   "m-daihatsu-charade": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:49.104Z",
+   "checkedAt": "2026-10-11T12:10:38.960Z",
    "sourceTitle": "Daihatsu Charade",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -241778,7 +241806,7 @@
   },
   "m-toyota-sienta": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:49.114Z",
+   "checkedAt": "2026-10-11T12:10:38.970Z",
    "sourceTitle": "Toyota Sienta",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -241869,7 +241897,7 @@
   },
   "m-toyota-yaris-cross": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:49.126Z",
+   "checkedAt": "2026-10-11T12:10:38.981Z",
    "sourceTitle": "Toyota Yaris Cross",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -241948,7 +241976,7 @@
   },
   "m-maruti-suzuki-wagon-r": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:49.132Z",
+   "checkedAt": "2026-10-11T12:10:38.987Z",
    "sourceTitle": "Maruti Suzuki Wagon R",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -242022,7 +242050,7 @@
   },
   "m-suzuki-xbee": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:49.135Z",
+   "checkedAt": "2026-10-11T12:10:38.990Z",
    "sourceTitle": "Suzuki Xbee",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -242063,7 +242091,7 @@
   },
   "m-suzuki-spacia": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:49.140Z",
+   "checkedAt": "2026-10-11T12:10:38.995Z",
    "sourceTitle": "Suzuki Spacia",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -242122,7 +242150,7 @@
   },
   "m-suzuki-hustler": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:49.142Z",
+   "checkedAt": "2026-10-11T12:10:38.997Z",
    "sourceTitle": "Suzuki Hustler",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -242157,7 +242185,7 @@
   },
   "m-ford-galaxy": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:49.146Z",
+   "checkedAt": "2026-10-11T12:10:39.000Z",
    "sourceTitle": "Ford Galaxy",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -242211,7 +242239,7 @@
   },
   "m-saturn-vue": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:49.152Z",
+   "checkedAt": "2026-10-11T12:10:39.007Z",
    "sourceTitle": "Saturn Vue",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -242273,7 +242301,7 @@
   },
   "m-ford-tempo": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:49.156Z",
+   "checkedAt": "2026-10-11T12:10:39.010Z",
    "sourceTitle": "Ford Tempo",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -242316,7 +242344,7 @@
   },
   "m-mercury-monterey": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:49.174Z",
+   "checkedAt": "2026-10-11T12:10:39.028Z",
    "sourceTitle": "Mercury Monterey",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -242486,7 +242514,7 @@
   },
   "m-ford-ranch-wagon": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:49.177Z",
+   "checkedAt": "2026-10-11T12:10:39.030Z",
    "sourceTitle": "Ford Ranch Wagon",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -242526,7 +242554,7 @@
   },
   "m-fiat-127": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:49.184Z",
+   "checkedAt": "2026-10-11T12:10:39.037Z",
    "sourceTitle": "Fiat 127",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -242605,7 +242633,7 @@
   },
   "m-fiat-strada": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:49.189Z",
+   "checkedAt": "2026-10-11T12:10:39.041Z",
    "sourceTitle": "Fiat Strada",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -242658,7 +242686,7 @@
   },
   "m-fiat-albea": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:49.193Z",
+   "checkedAt": "2026-10-11T12:10:39.046Z",
    "sourceTitle": "Fiat Albea",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -242711,7 +242739,7 @@
   },
   "m-ford-escort-mk3": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:49.200Z",
+   "checkedAt": "2026-10-11T12:10:39.053Z",
    "sourceTitle": "Ford Escort (Europe)",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -242790,7 +242818,7 @@
   },
   "m-opel-monza": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:49.204Z",
+   "checkedAt": "2026-10-11T12:10:39.056Z",
    "sourceTitle": "Opel Monza",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -242843,7 +242871,7 @@
   },
   "m-cadillac-srx": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:49.206Z",
+   "checkedAt": "2026-10-11T12:10:39.059Z",
    "sourceTitle": "Cadillac SRX",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -242881,7 +242909,7 @@
   },
   "m-vauxhall-viva": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:49.216Z",
+   "checkedAt": "2026-10-11T12:10:39.067Z",
    "sourceTitle": "Vauxhall Viva",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -242963,7 +242991,7 @@
   },
   "m-nissan-pulsar": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:49.230Z",
+   "checkedAt": "2026-10-11T12:10:39.082Z",
    "sourceTitle": "Nissan Pulsar",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -243098,7 +243126,7 @@
   },
   "m-buick-excelle-gt": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:49.236Z",
+   "checkedAt": "2026-10-11T12:10:39.088Z",
    "sourceTitle": "Buick Excelle GT",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -243158,7 +243186,7 @@
   },
   "m-peugeot-308": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:49.251Z",
+   "checkedAt": "2026-10-11T12:10:39.103Z",
    "sourceTitle": "Peugeot 308",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -243257,7 +243285,7 @@
   },
   "m-peugeot-3008": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:49.256Z",
+   "checkedAt": "2026-10-11T12:10:39.109Z",
    "sourceTitle": "Peugeot 3008",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -243327,7 +243355,7 @@
   },
   "m-peugeot-508": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:49.260Z",
+   "checkedAt": "2026-10-11T12:10:39.113Z",
    "sourceTitle": "Peugeot 508",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -243376,7 +243404,7 @@
   },
   "m-honda-ballade": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:49.265Z",
+   "checkedAt": "2026-10-11T12:10:39.118Z",
    "sourceTitle": "Honda Ballade",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -243443,7 +243471,7 @@
   },
   "m-rover-200-coupe": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:49.268Z",
+   "checkedAt": "2026-10-11T12:10:39.121Z",
    "sourceTitle": "Rover 200 Coupé",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -243484,7 +243512,7 @@
   },
   "m-mg-3": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:49.272Z",
+   "checkedAt": "2026-10-11T12:10:39.126Z",
    "sourceTitle": "MG3 (automobile)",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -243543,7 +243571,7 @@
   },
   "m-buick-skyhawk": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:49.275Z",
+   "checkedAt": "2026-10-11T12:10:39.129Z",
    "sourceTitle": "Buick Skyhawk",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -243583,7 +243611,7 @@
   },
   "m-pontiac-sunbird": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:49.279Z",
+   "checkedAt": "2026-10-11T12:10:39.133Z",
    "sourceTitle": "Pontiac Sunbird",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -243638,7 +243666,7 @@
   },
   "m-opel-ascona": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:49.286Z",
+   "checkedAt": "2026-10-11T12:10:39.141Z",
    "sourceTitle": "Opel Ascona",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -243713,7 +243741,7 @@
   },
   "m-isuzu-aska": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:49.290Z",
+   "checkedAt": "2026-10-11T12:10:39.145Z",
    "sourceTitle": "Isuzu Aska",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -243779,7 +243807,7 @@
   },
   "m-holden-camira": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:49.293Z",
+   "checkedAt": "2026-10-11T12:10:39.149Z",
    "sourceTitle": "Holden Camira",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -243831,7 +243859,7 @@
   },
   "m-mg-f-mg-tf": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:49.297Z",
+   "checkedAt": "2026-10-11T12:10:39.152Z",
    "sourceTitle": "MG F / MG TF",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -243874,7 +243902,7 @@
   },
   "m-chevrolet-spark": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:49.308Z",
+   "checkedAt": "2026-10-11T12:10:39.164Z",
    "sourceTitle": "Chevrolet Spark",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -243984,7 +244012,7 @@
   },
   "m-chevrolet-orlando": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:49.311Z",
+   "checkedAt": "2026-10-11T12:10:39.167Z",
    "sourceTitle": "Chevrolet Orlando",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -244028,7 +244056,7 @@
   },
   "m-toyota-avanza": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:49.332Z",
+   "checkedAt": "2026-10-11T12:10:39.187Z",
    "sourceTitle": "Toyota Avanza",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -244166,7 +244194,7 @@
   },
   "m-scion-xb": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:49.335Z",
+   "checkedAt": "2026-10-11T12:10:39.190Z",
    "sourceTitle": "Scion xB",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -244208,7 +244236,7 @@
   },
   "m-toyota-porte": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:49.338Z",
+   "checkedAt": "2026-10-11T12:10:39.193Z",
    "sourceTitle": "Toyota Porte",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -244245,7 +244273,7 @@
   },
   "m-toyota-yaris": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:49.355Z",
+   "checkedAt": "2026-10-11T12:10:39.210Z",
    "sourceTitle": "Toyota Yaris",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -244368,7 +244396,7 @@
   },
   "m-austin-mini": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:49.376Z",
+   "checkedAt": "2026-10-11T12:10:39.231Z",
    "sourceTitle": "Mini",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -244544,7 +244572,7 @@
   },
   "m-toyota-corolla-spacio": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:49.380Z",
+   "checkedAt": "2026-10-11T12:10:39.235Z",
    "sourceTitle": "Toyota Corolla Spacio",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -244599,7 +244627,7 @@
   },
   "m-suzuki-karimun": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:49.387Z",
+   "checkedAt": "2026-10-11T12:10:39.241Z",
    "sourceTitle": "Suzuki Karimun",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -244662,7 +244690,7 @@
   },
   "m-suzuki-solio": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:49.398Z",
+   "checkedAt": "2026-10-11T12:10:39.251Z",
    "sourceTitle": "Suzuki Solio",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -244771,7 +244799,7 @@
   },
   "m-volkswagen-sharan": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:49.401Z",
+   "checkedAt": "2026-10-11T12:10:39.254Z",
    "sourceTitle": "Volkswagen Sharan",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -244812,7 +244840,7 @@
   },
   "m-ford-s-max": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:49.404Z",
+   "checkedAt": "2026-10-11T12:10:39.257Z",
    "sourceTitle": "Ford S-Max",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -244857,7 +244885,7 @@
   },
   "m-ford-edge": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:49.408Z",
+   "checkedAt": "2026-10-11T12:10:39.261Z",
    "sourceTitle": "Ford Edge",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -244913,7 +244941,7 @@
   },
   "m-lincoln-mkz": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:49.411Z",
+   "checkedAt": "2026-10-11T12:10:39.264Z",
    "sourceTitle": "Lincoln MKZ",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -244958,7 +244986,7 @@
   },
   "m-lincoln-nautilus": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:49.414Z",
+   "checkedAt": "2026-10-11T12:10:39.267Z",
    "sourceTitle": "Lincoln Nautilus",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -244995,7 +245023,7 @@
   },
   "m-lincoln-capri": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:49.423Z",
+   "checkedAt": "2026-10-11T12:10:39.275Z",
    "sourceTitle": "Lincoln Capri",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -245080,7 +245108,7 @@
   },
   "m-mercury-montclair": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:49.431Z",
+   "checkedAt": "2026-10-11T12:10:39.284Z",
    "sourceTitle": "Mercury Montclair",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -245168,7 +245196,7 @@
   },
   "m-mercury-colony-park": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:49.448Z",
+   "checkedAt": "2026-10-11T12:10:39.299Z",
    "sourceTitle": "Mercury Colony Park",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -245311,7 +245339,7 @@
   },
   "m-plymouth-voyager": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:49.467Z",
+   "checkedAt": "2026-10-11T12:10:39.318Z",
    "sourceTitle": "Plymouth Voyager",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -245459,7 +245487,7 @@
   },
   "m-mercury-marauder": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:49.473Z",
+   "checkedAt": "2026-10-11T12:10:39.324Z",
    "sourceTitle": "Mercury Marauder",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -245525,7 +245553,7 @@
   },
   "m-ford-galaxie": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:49.491Z",
+   "checkedAt": "2026-10-11T12:10:39.343Z",
    "sourceTitle": "Ford Galaxie",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -245683,7 +245711,7 @@
   },
   "m-ford-country-squire": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:49.515Z",
+   "checkedAt": "2026-10-11T12:10:39.366Z",
    "sourceTitle": "Ford Country Squire",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -245856,7 +245884,7 @@
   },
   "m-mercury-marquis": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:49.526Z",
+   "checkedAt": "2026-10-11T12:10:39.377Z",
    "sourceTitle": "Mercury Marquis",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -245958,7 +245986,7 @@
   },
   "m-ford-country-sedan": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:49.531Z",
+   "checkedAt": "2026-10-11T12:10:39.382Z",
    "sourceTitle": "Ford Country Sedan",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -246016,7 +246044,7 @@
   },
   "m-seat-127": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:49.533Z",
+   "checkedAt": "2026-10-11T12:10:39.384Z",
    "sourceTitle": "SEAT 127",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -246062,7 +246090,7 @@
   },
   "m-autobianchi-a112": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:49.542Z",
+   "checkedAt": "2026-10-11T12:10:39.393Z",
    "sourceTitle": "Autobianchi A112",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -246179,7 +246207,7 @@
   },
   "m-seat-fura": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:49.546Z",
+   "checkedAt": "2026-10-11T12:10:39.397Z",
    "sourceTitle": "SEAT Fura",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -246230,7 +246258,7 @@
   },
   "m-cadillac-cts": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:49.552Z",
+   "checkedAt": "2026-10-11T12:10:39.403Z",
    "sourceTitle": "Cadillac CTS",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -246290,7 +246318,7 @@
   },
   "m-holden-torana": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:49.567Z",
+   "checkedAt": "2026-10-11T12:10:39.418Z",
    "sourceTitle": "Holden Torana",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -246429,7 +246457,7 @@
   },
   "m-dodge-magnum": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:49.575Z",
+   "checkedAt": "2026-10-11T12:10:39.426Z",
    "sourceTitle": "Dodge Magnum",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -246524,7 +246552,7 @@
   },
   "m-nissan-ad": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:49.591Z",
+   "checkedAt": "2026-10-11T12:10:39.442Z",
    "sourceTitle": "Nissan AD",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -246654,7 +246682,7 @@
   },
   "m-nissan-sentra": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:49.603Z",
+   "checkedAt": "2026-10-11T12:10:39.454Z",
    "sourceTitle": "Nissan Sentra",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -246780,7 +246808,7 @@
   },
   "m-nissan-sunny": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:49.622Z",
+   "checkedAt": "2026-10-11T12:10:39.472Z",
    "sourceTitle": "Nissan Sunny",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -246967,7 +246995,7 @@
   },
   "m-nissan-nx": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:49.626Z",
+   "checkedAt": "2026-10-11T12:10:39.477Z",
    "sourceTitle": "Nissan NX",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -247015,7 +247043,7 @@
   },
   "m-nissan-primera": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:49.637Z",
+   "checkedAt": "2026-10-11T12:10:39.488Z",
    "sourceTitle": "Nissan Primera",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -247096,7 +247124,7 @@
   },
   "m-nissan-tiida": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:49.652Z",
+   "checkedAt": "2026-10-11T12:10:39.503Z",
    "sourceTitle": "Nissan Tiida",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -247218,7 +247246,7 @@
   },
   "m-daewoo-lacetti": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:49.656Z",
+   "checkedAt": "2026-10-11T12:10:39.506Z",
    "sourceTitle": "Daewoo Lacetti",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -247261,7 +247289,7 @@
   },
   "m-peugeot-408-saloon": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:49.660Z",
+   "checkedAt": "2026-10-11T12:10:39.511Z",
    "sourceTitle": "Peugeot 408 (saloon)",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -247312,7 +247340,7 @@
   },
   "m-peugeot-5008": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:49.665Z",
+   "checkedAt": "2026-10-11T12:10:39.515Z",
    "sourceTitle": "Peugeot 5008",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -247366,7 +247394,7 @@
   },
   "m-honda-partner": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:49.670Z",
+   "checkedAt": "2026-10-11T12:10:39.520Z",
    "sourceTitle": "Honda Partner",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -247415,7 +247443,7 @@
   },
   "m-citroen-c4": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:49.677Z",
+   "checkedAt": "2026-10-11T12:10:39.527Z",
    "sourceTitle": "Citroën C4",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -247484,7 +247512,7 @@
   },
   "m-citroen-c4-picasso": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:49.681Z",
+   "checkedAt": "2026-10-11T12:10:39.531Z",
    "sourceTitle": "Citroën C4 Picasso",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -247535,7 +247563,7 @@
   },
   "m-citroen-berlingo": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:49.733Z",
+   "checkedAt": "2026-10-11T12:10:39.570Z",
    "sourceTitle": "Citroën Berlingo",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -247810,7 +247838,7 @@
   },
   "m-citroen-c5-aircross": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:49.736Z",
+   "checkedAt": "2026-10-11T12:10:39.574Z",
    "sourceTitle": "Citroën C5 Aircross",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -247853,7 +247881,7 @@
   },
   "m-citroen-c5": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:49.739Z",
+   "checkedAt": "2026-10-11T12:10:39.576Z",
    "sourceTitle": "Citroën C5",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -247894,7 +247922,7 @@
   },
   "m-citroen-c6": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:49.741Z",
+   "checkedAt": "2026-10-11T12:10:39.579Z",
    "sourceTitle": "Citroën C6",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -247930,7 +247958,7 @@
   },
   "m-honda-cr-x": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:49.745Z",
+   "checkedAt": "2026-10-11T12:10:39.582Z",
    "sourceTitle": "Honda CR-X",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -247982,7 +248010,7 @@
   },
   "m-chevrolet-monza": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:49.747Z",
+   "checkedAt": "2026-10-11T12:10:39.585Z",
    "sourceTitle": "Chevrolet Monza",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -248021,7 +248049,7 @@
   },
   "m-general-motors-ev1": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:49.749Z",
+   "checkedAt": "2026-10-11T12:10:39.587Z",
    "sourceTitle": "General Motors EV1",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -248056,7 +248084,7 @@
   },
   "m-chevrolet-bolt": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:49.753Z",
+   "checkedAt": "2026-10-11T12:10:39.591Z",
    "sourceTitle": "Chevrolet Bolt",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -248111,7 +248139,7 @@
   },
   "m-opel-zafira": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:49.760Z",
+   "checkedAt": "2026-10-11T12:10:39.597Z",
    "sourceTitle": "Opel Zafira",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -248182,7 +248210,7 @@
   },
   "m-volvo-s80": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:49.765Z",
+   "checkedAt": "2026-10-11T12:10:39.603Z",
    "sourceTitle": "Volvo S80",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -248242,7 +248270,7 @@
   },
   "m-perodua-alza": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:49.770Z",
+   "checkedAt": "2026-10-11T12:10:39.611Z",
    "sourceTitle": "Perodua Alza",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -248299,7 +248327,7 @@
   },
   "m-toyota-auris": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:49.776Z",
+   "checkedAt": "2026-10-11T12:10:39.621Z",
    "sourceTitle": "Toyota Auris",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -248369,7 +248397,7 @@
   },
   "m-mazda-2": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:49.782Z",
+   "checkedAt": "2026-10-11T12:10:39.627Z",
    "sourceTitle": "Mazda2",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -248441,7 +248469,7 @@
   },
   "m-mini-clubman-2007": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:49.785Z",
+   "checkedAt": "2026-10-11T12:10:39.631Z",
    "sourceTitle": "Mini Clubman (2007)",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -248485,7 +248513,7 @@
   },
   "m-mini-countryman": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:49.794Z",
+   "checkedAt": "2026-10-11T12:10:39.640Z",
    "sourceTitle": "Mini Countryman",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -248566,7 +248594,7 @@
   },
   "m-toyota-avensis": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:49.808Z",
+   "checkedAt": "2026-10-11T12:10:39.654Z",
    "sourceTitle": "Toyota Avensis",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -248669,7 +248697,7 @@
   },
   "m-lincoln-mkx": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:49.811Z",
+   "checkedAt": "2026-10-11T12:10:39.657Z",
    "sourceTitle": "Lincoln MKX",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -248711,7 +248739,7 @@
   },
   "m-ford-fusion-americas": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:49.818Z",
+   "checkedAt": "2026-10-11T12:10:39.664Z",
    "sourceTitle": "Ford Fusion (Americas)",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -248774,7 +248802,7 @@
   },
   "m-mercury-milan": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:49.823Z",
+   "checkedAt": "2026-10-11T12:10:39.669Z",
    "sourceTitle": "Mercury Milan",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -248828,7 +248856,7 @@
   },
   "m-lincoln-continental": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:49.839Z",
+   "checkedAt": "2026-10-11T12:10:39.685Z",
    "sourceTitle": "Lincoln Continental",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -249001,7 +249029,7 @@
   },
   "m-lincoln-mark-series": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:49.857Z",
+   "checkedAt": "2026-10-11T12:10:39.701Z",
    "sourceTitle": "Lincoln Mark series",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -249152,7 +249180,7 @@
   },
   "m-edsel-corsair": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:49.863Z",
+   "checkedAt": "2026-10-11T12:10:39.707Z",
    "sourceTitle": "Edsel Corsair",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -249214,7 +249242,7 @@
   },
   "m-mercury-grand-marquis": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:49.872Z",
+   "checkedAt": "2026-10-11T12:10:39.716Z",
    "sourceTitle": "Mercury Grand Marquis",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -249317,7 +249345,7 @@
   },
   "m-ford-ltd-crown-victoria": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:49.879Z",
+   "checkedAt": "2026-10-11T12:10:39.723Z",
    "sourceTitle": "Ford LTD Crown Victoria",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -249380,7 +249408,7 @@
   },
   "m-dodge-caravan": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:49.898Z",
+   "checkedAt": "2026-10-11T12:10:39.741Z",
    "sourceTitle": "Dodge Caravan",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -249552,7 +249580,7 @@
   },
   "m-chrysler-town-country-minivan": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:49.908Z",
+   "checkedAt": "2026-10-11T12:10:39.750Z",
    "sourceTitle": "Chrysler Town & Country (minivan)",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -249656,7 +249684,7 @@
   },
   "m-toyota-c-hr": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:49.914Z",
+   "checkedAt": "2026-10-11T12:10:39.756Z",
    "sourceTitle": "Toyota C-HR",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -249713,7 +249741,7 @@
   },
   "m-chrysler-pacifica-minivan": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:49.927Z",
+   "checkedAt": "2026-10-11T12:10:39.768Z",
    "sourceTitle": "Chrysler Pacifica (minivan)",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -249836,7 +249864,7 @@
   },
   "m-mercury-villager": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:49.929Z",
+   "checkedAt": "2026-10-11T12:10:39.770Z",
    "sourceTitle": "Mercury Villager",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -249871,7 +249899,7 @@
   },
   "m-nissan-quest": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:49.935Z",
+   "checkedAt": "2026-10-11T12:10:39.776Z",
    "sourceTitle": "Nissan Quest",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -249938,7 +249966,7 @@
   },
   "m-acura-rdx": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:49.939Z",
+   "checkedAt": "2026-10-11T12:10:39.780Z",
    "sourceTitle": "Acura RDX",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -249996,7 +250024,7 @@
   },
   "m-ford-crown-victoria": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:49.942Z",
+   "checkedAt": "2026-10-11T12:10:39.784Z",
    "sourceTitle": "Ford Crown Victoria",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -250044,7 +250072,7 @@
   },
   "m-lincoln-town-car": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:49.950Z",
+   "checkedAt": "2026-10-11T12:10:39.791Z",
    "sourceTitle": "Lincoln Town Car",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -250117,7 +250145,7 @@
   },
   "m-edsel-ranger": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:49.953Z",
+   "checkedAt": "2026-10-11T12:10:39.795Z",
    "sourceTitle": "Edsel Ranger",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -250166,7 +250194,7 @@
   },
   "m-mercury-s-55": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:49.956Z",
+   "checkedAt": "2026-10-11T12:10:39.797Z",
    "sourceTitle": "Mercury S-55",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -250203,7 +250231,7 @@
   },
   "m-ford-ltd-americas": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:49.969Z",
+   "checkedAt": "2026-10-11T12:10:39.811Z",
    "sourceTitle": "Ford LTD (Americas)",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -250323,7 +250351,7 @@
   },
   "m-mercury-eight": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:49.973Z",
+   "checkedAt": "2026-10-11T12:10:39.815Z",
    "sourceTitle": "Mercury Eight",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -250374,7 +250402,7 @@
   },
   "m-mercury-cougar": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:49.987Z",
+   "checkedAt": "2026-10-11T12:10:39.830Z",
    "sourceTitle": "Mercury Cougar",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -250517,7 +250545,7 @@
   },
   "m-lincoln-continental-mark-vii": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:49.992Z",
+   "checkedAt": "2026-10-11T12:10:39.835Z",
    "sourceTitle": "Lincoln Continental Mark VII",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -250576,7 +250604,7 @@
   },
   "m-chrysler-cordoba": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:49.996Z",
+   "checkedAt": "2026-10-11T12:10:39.839Z",
    "sourceTitle": "Chrysler Cordoba",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -250623,7 +250651,7 @@
   },
   "m-dodge-monaco": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:50.004Z",
+   "checkedAt": "2026-10-11T12:10:39.848Z",
    "sourceTitle": "Dodge Monaco",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -250717,7 +250745,7 @@
   },
   "m-plymouth-fury": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:50.015Z",
+   "checkedAt": "2026-10-11T12:10:39.859Z",
    "sourceTitle": "Plymouth Fury",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -250853,7 +250881,7 @@
   },
   "m-dodge-dart": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:50.023Z",
+   "checkedAt": "2026-10-11T12:10:39.867Z",
    "sourceTitle": "Dodge Dart",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -250936,7 +250964,7 @@
   },
   "m-dodge-diplomat": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:50.027Z",
+   "checkedAt": "2026-10-11T12:10:39.871Z",
    "sourceTitle": "Dodge Diplomat",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -250986,7 +251014,7 @@
   },
   "m-plymouth-gran-fury": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:50.034Z",
+   "checkedAt": "2026-10-11T12:10:39.878Z",
    "sourceTitle": "Plymouth Gran Fury",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -251061,7 +251089,7 @@
   },
   "m-chrysler-lebaron": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:50.045Z",
+   "checkedAt": "2026-10-11T12:10:39.890Z",
    "sourceTitle": "Chrysler LeBaron",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -251189,7 +251217,7 @@
   },
   "m-chrysler-300c": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:50.050Z",
+   "checkedAt": "2026-10-11T12:10:39.895Z",
    "sourceTitle": "Chrysler 300",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -251243,7 +251271,7 @@
   },
   "m-subaru-leone": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:50.053Z",
+   "checkedAt": "2026-10-11T12:10:39.898Z",
    "sourceTitle": "Subaru Leone",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -251285,7 +251313,7 @@
   },
   "m-mazda-familia-van": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:50.062Z",
+   "checkedAt": "2026-10-11T12:10:39.908Z",
    "sourceTitle": "Mazda Familia Van",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -251377,7 +251405,7 @@
   },
   "m-nissan-note": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:50.068Z",
+   "checkedAt": "2026-10-11T12:10:39.913Z",
    "sourceTitle": "Nissan Note",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -251437,7 +251465,7 @@
   },
   "m-nissan-livina": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:50.073Z",
+   "checkedAt": "2026-10-11T12:10:39.919Z",
    "sourceTitle": "Nissan Livina",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -251494,7 +251522,7 @@
   },
   "m-nissan-presea": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:50.076Z",
+   "checkedAt": "2026-10-11T12:10:39.922Z",
    "sourceTitle": "Nissan Presea",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -251535,7 +251563,7 @@
   },
   "m-nissan-200sx": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:50.089Z",
+   "checkedAt": "2026-10-11T12:10:39.936Z",
    "sourceTitle": "Nissan 200SX",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -251676,7 +251704,7 @@
   },
   "m-nissan-x-trail": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:50.106Z",
+   "checkedAt": "2026-10-11T12:10:39.954Z",
    "sourceTitle": "Nissan X-Trail",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -251812,7 +251840,7 @@
   },
   "m-nissan-rogue": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:50.119Z",
+   "checkedAt": "2026-10-11T12:10:39.968Z",
    "sourceTitle": "Nissan Rogue",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -251924,7 +251952,7 @@
   },
   "m-renault-megane": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:50.128Z",
+   "checkedAt": "2026-10-11T12:10:39.978Z",
    "sourceTitle": "Renault Mégane",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -252021,7 +252049,7 @@
   },
   "m-chevrolet-s-10": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:50.140Z",
+   "checkedAt": "2026-10-11T12:10:39.990Z",
    "sourceTitle": "Chevrolet S-10",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -252106,7 +252134,7 @@
   },
   "m-nissan-laurel": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:50.165Z",
+   "checkedAt": "2026-10-11T12:10:40.016Z",
    "sourceTitle": "Nissan Laurel",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -252306,7 +252334,7 @@
   },
   "m-renault-samsung-sm3": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:50.169Z",
+   "checkedAt": "2026-10-11T12:10:40.021Z",
    "sourceTitle": "Renault Samsung SM3",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -252354,7 +252382,7 @@
   },
   "m-citroen-ami": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:50.174Z",
+   "checkedAt": "2026-10-11T12:10:40.025Z",
    "sourceTitle": "Citroën Ami",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -252415,7 +252443,7 @@
   },
   "m-citroen-fukang": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:50.176Z",
+   "checkedAt": "2026-10-11T12:10:40.028Z",
    "sourceTitle": "Citroën Fukang",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -252453,7 +252481,7 @@
   },
   "m-honda-fit-shuttle": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:50.182Z",
+   "checkedAt": "2026-10-11T12:10:40.033Z",
    "sourceTitle": "Honda Fit Shuttle",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -252506,7 +252534,7 @@
   },
   "m-peugeot-2008": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:50.193Z",
+   "checkedAt": "2026-10-11T12:10:40.045Z",
    "sourceTitle": "Peugeot 2008",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -252595,7 +252623,7 @@
   },
   "m-peugeot-208": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:50.204Z",
+   "checkedAt": "2026-10-11T12:10:40.056Z",
    "sourceTitle": "Peugeot 208",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -252679,7 +252707,7 @@
   },
   "m-jeep-compass": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:50.215Z",
+   "checkedAt": "2026-10-11T12:10:40.068Z",
    "sourceTitle": "Jeep Compass",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -252784,7 +252812,7 @@
   },
   "m-bmw-2-series-active-tourer": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:50.229Z",
+   "checkedAt": "2026-10-11T12:10:40.083Z",
    "sourceTitle": "BMW 2 Series Active Tourer",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -252837,7 +252865,7 @@
   },
   "m-buick-enclave": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:50.236Z",
+   "checkedAt": "2026-10-11T12:10:40.090Z",
    "sourceTitle": "Buick Enclave",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -252909,7 +252937,7 @@
   },
   "m-cadillac-xt5": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:50.238Z",
+   "checkedAt": "2026-10-11T12:10:40.092Z",
    "sourceTitle": "Cadillac XT5",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -252942,7 +252970,7 @@
   },
   "m-chevrolet-blazer": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:50.246Z",
+   "checkedAt": "2026-10-11T12:10:40.099Z",
    "sourceTitle": "Chevrolet Blazer",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -253000,7 +253028,7 @@
   },
   "m-chevrolet-colorado": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:50.254Z",
+   "checkedAt": "2026-10-11T12:10:40.107Z",
    "sourceTitle": "Chevrolet Colorado",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -253063,7 +253091,7 @@
   },
   "m-chevrolet-s-10-blazer": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:50.259Z",
+   "checkedAt": "2026-10-11T12:10:40.112Z",
    "sourceTitle": "Chevrolet S-10 Blazer",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -253118,7 +253146,7 @@
   },
   "m-chevrolet-traverse": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:50.263Z",
+   "checkedAt": "2026-10-11T12:10:40.116Z",
    "sourceTitle": "Chevrolet Traverse",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -253169,7 +253197,7 @@
   },
   "m-chrysler-200": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:50.267Z",
+   "checkedAt": "2026-10-11T12:10:40.121Z",
    "sourceTitle": "Chrysler 200",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -253224,7 +253252,7 @@
   },
   "m-chrysler-fifth-avenue": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:50.271Z",
+   "checkedAt": "2026-10-11T12:10:40.126Z",
    "sourceTitle": "Chrysler Fifth Avenue",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -253263,6 +253291,18 @@
        "Plymouth Gran Fury",
        "Plymouth Caravelle"
       ]
+     },
+     {
+      "code": "Y-body",
+      "yearStart": 1990,
+      "yearEnd": 1993,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "91ChryslerNewYorkerFifthAvenue.jpg",
+      "sharedPlatforms": [
+       "Chrysler Imperial",
+       "Chrysler New Yorker"
+      ]
      }
     ]
    },
@@ -253272,7 +253312,7 @@
   },
   "m-chrysler-imperial": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:50.300Z",
+   "checkedAt": "2026-10-11T12:10:40.155Z",
    "sourceTitle": "Chrysler Imperial",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -253524,7 +253564,7 @@
   },
   "m-chrysler-new-yorker": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:50.345Z",
+   "checkedAt": "2026-10-11T12:10:40.200Z",
    "sourceTitle": "Chrysler New Yorker",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -253901,7 +253941,7 @@
   },
   "m-chrysler-saratoga": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:50.359Z",
+   "checkedAt": "2026-10-11T12:10:40.215Z",
    "sourceTitle": "Chrysler Saratoga",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -254034,7 +254074,7 @@
   },
   "m-citroen-c-elysee": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:50.374Z",
+   "checkedAt": "2026-10-11T12:10:40.230Z",
    "sourceTitle": "Citroën C-Elysée",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -254132,7 +254172,7 @@
   },
   "m-citroen-c3": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:50.381Z",
+   "checkedAt": "2026-10-11T12:10:40.237Z",
    "sourceTitle": "Citroën C3",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -254204,7 +254244,7 @@
   },
   "m-citroen-c3-aircross": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:50.393Z",
+   "checkedAt": "2026-10-11T12:10:40.249Z",
    "sourceTitle": "Citroën C3 Aircross",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -254294,7 +254334,7 @@
   },
   "m-citroen-elysee": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:50.398Z",
+   "checkedAt": "2026-10-11T12:10:40.255Z",
    "sourceTitle": "Citroën Elysée",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -254352,7 +254392,7 @@
   },
   "m-daihatsu-boon": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:50.410Z",
+   "checkedAt": "2026-10-11T12:10:40.267Z",
    "sourceTitle": "Daihatsu Boon",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -254447,7 +254487,7 @@
   },
   "m-daihatsu-charmant": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:50.418Z",
+   "checkedAt": "2026-10-11T12:10:40.275Z",
    "sourceTitle": "Daihatsu Charmant",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -254507,7 +254547,7 @@
   },
   "m-desoto-diplomat": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:50.425Z",
+   "checkedAt": "2026-10-11T12:10:40.283Z",
    "sourceTitle": "DeSoto Diplomat",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -254580,7 +254620,7 @@
   },
   "m-dodge-charger-1968": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:50.438Z",
+   "checkedAt": "2026-10-11T12:10:40.295Z",
    "sourceTitle": "Dodge Charger (B-body)",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -254686,7 +254726,7 @@
   },
   "m-dodge-charger-lx": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:50.441Z",
+   "checkedAt": "2026-10-11T12:10:40.299Z",
    "sourceTitle": "Dodge Charger (LX/LD)",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -254729,7 +254769,7 @@
   },
   "m-dodge-coronet": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:50.453Z",
+   "checkedAt": "2026-10-11T12:10:40.311Z",
    "sourceTitle": "Dodge Coronet",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -254850,7 +254890,7 @@
   },
   "m-dodge-lancer": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:50.458Z",
+   "checkedAt": "2026-10-11T12:10:40.316Z",
    "sourceTitle": "Dodge Lancer",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -254910,7 +254950,7 @@
   },
   "m-dodge-phoenix": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:50.470Z",
+   "checkedAt": "2026-10-11T12:10:40.328Z",
    "sourceTitle": "Dodge Phoenix",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -255050,7 +255090,7 @@
   },
   "m-dodge-polara": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:50.474Z",
+   "checkedAt": "2026-10-11T12:10:40.333Z",
    "sourceTitle": "Dodge Polara",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -255105,7 +255145,7 @@
   },
   "m-ds-3": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:50.482Z",
+   "checkedAt": "2026-10-11T12:10:40.342Z",
    "sourceTitle": "DS 3",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -255174,7 +255214,7 @@
   },
   "m-fiat-600": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:50.485Z",
+   "checkedAt": "2026-10-11T12:10:40.346Z",
    "sourceTitle": "Fiat 600",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -255213,7 +255253,7 @@
   },
   "m-ford-crown-victoria-police-interceptor": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:50.488Z",
+   "checkedAt": "2026-10-11T12:10:40.349Z",
    "sourceTitle": "Ford Crown Victoria Police Interceptor",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -255251,7 +255291,7 @@
   },
   "m-ford-torino": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:50.495Z",
+   "checkedAt": "2026-10-11T12:10:40.358Z",
    "sourceTitle": "Ford Torino",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -255324,7 +255364,7 @@
   },
   "m-ford-windstar": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:50.499Z",
+   "checkedAt": "2026-10-11T12:10:40.362Z",
    "sourceTitle": "Ford Windstar",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -255373,7 +255413,7 @@
   },
   "m-holden-colorado": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:50.501Z",
+   "checkedAt": "2026-10-11T12:10:40.365Z",
    "sourceTitle": "Holden Colorado",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -255408,7 +255448,7 @@
   },
   "m-honda-city": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:50.509Z",
+   "checkedAt": "2026-10-11T12:10:40.373Z",
    "sourceTitle": "Honda City",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -255482,7 +255522,7 @@
   },
   "m-honda-freed": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:50.515Z",
+   "checkedAt": "2026-10-11T12:10:40.380Z",
    "sourceTitle": "Honda Freed",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -255543,7 +255583,7 @@
   },
   "m-lancia-ypsilon": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:50.528Z",
+   "checkedAt": "2026-10-11T12:10:40.393Z",
    "sourceTitle": "Lancia Ypsilon",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -255653,7 +255693,7 @@
   },
   "m-lincoln-lincoln-zephyr": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:50.531Z",
+   "checkedAt": "2026-10-11T12:10:40.396Z",
    "sourceTitle": "Lincoln-Zephyr",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -255690,7 +255730,7 @@
   },
   "m-mercury-montego": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:50.536Z",
+   "checkedAt": "2026-10-11T12:10:40.400Z",
    "sourceTitle": "Mercury Montego",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -255751,7 +255791,7 @@
   },
   "m-mercury-sable": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:50.545Z",
+   "checkedAt": "2026-10-11T12:10:40.409Z",
    "sourceTitle": "Mercury Sable",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -255847,7 +255887,7 @@
   },
   "m-mitsubishi-asx": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:50.555Z",
+   "checkedAt": "2026-10-11T12:10:40.419Z",
    "sourceTitle": "Mitsubishi ASX",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -255926,7 +255966,7 @@
   },
   "m-mitsubishi-outlander": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:50.562Z",
+   "checkedAt": "2026-10-11T12:10:40.426Z",
    "sourceTitle": "Mitsubishi Outlander",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -256002,7 +256042,7 @@
   },
   "m-nissan-240sx": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:50.574Z",
+   "checkedAt": "2026-10-11T12:10:40.438Z",
    "sourceTitle": "Nissan 240SX",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -256092,7 +256132,7 @@
   },
   "m-nissan-almera": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:50.584Z",
+   "checkedAt": "2026-10-11T12:10:40.449Z",
    "sourceTitle": "Nissan Almera",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -256183,7 +256223,7 @@
   },
   "m-nissan-altima": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:50.605Z",
+   "checkedAt": "2026-10-11T12:10:40.469Z",
    "sourceTitle": "Nissan Altima",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -256322,7 +256362,7 @@
   },
   "m-nissan-cefiro": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:50.614Z",
+   "checkedAt": "2026-10-11T12:10:40.479Z",
    "sourceTitle": "Nissan Cefiro",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -256403,7 +256443,7 @@
   },
   "m-nissan-elgrand": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:50.626Z",
+   "checkedAt": "2026-10-11T12:10:40.491Z",
    "sourceTitle": "Nissan Elgrand",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -256495,7 +256535,7 @@
   },
   "m-nissan-juke": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:50.636Z",
+   "checkedAt": "2026-10-11T12:10:40.501Z",
    "sourceTitle": "Nissan Juke",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -256579,7 +256619,7 @@
   },
   "m-nissan-lafesta": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:50.639Z",
+   "checkedAt": "2026-10-11T12:10:40.505Z",
    "sourceTitle": "Nissan Lafesta",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -256620,7 +256660,7 @@
   },
   "m-nissan-leopard": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:50.653Z",
+   "checkedAt": "2026-10-11T12:10:40.519Z",
    "sourceTitle": "Nissan Leopard",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -256721,7 +256761,7 @@
   },
   "m-nissan-maxima": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:50.674Z",
+   "checkedAt": "2026-10-11T12:10:40.540Z",
    "sourceTitle": "Nissan Maxima",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -256891,7 +256931,7 @@
   },
   "m-nissan-micra": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:50.695Z",
+   "checkedAt": "2026-10-11T12:10:40.562Z",
    "sourceTitle": "Nissan Micra",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -257053,7 +257093,7 @@
   },
   "m-nissan-murano": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:50.703Z",
+   "checkedAt": "2026-10-11T12:10:40.570Z",
    "sourceTitle": "Nissan Murano",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -257138,7 +257178,7 @@
   },
   "m-nissan-pintara": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:50.708Z",
+   "checkedAt": "2026-10-11T12:10:40.576Z",
    "sourceTitle": "Nissan Pintara",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -257189,7 +257229,7 @@
   },
   "m-nissan-skyline": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:50.736Z",
+   "checkedAt": "2026-10-11T12:10:40.605Z",
    "sourceTitle": "Nissan Skyline",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -257395,7 +257435,7 @@
   },
   "m-nissan-skyline-gt-r-r32": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:50.744Z",
+   "checkedAt": "2026-10-11T12:10:40.613Z",
    "sourceTitle": "Nissan Skyline GT-R",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -257480,7 +257520,7 @@
   },
   "m-nissan-stagea": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:50.747Z",
+   "checkedAt": "2026-10-11T12:10:40.616Z",
    "sourceTitle": "Nissan Stagea",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -257518,7 +257558,7 @@
   },
   "m-nissan-teana": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:50.754Z",
+   "checkedAt": "2026-10-11T12:10:40.624Z",
    "sourceTitle": "Nissan Teana",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -257590,7 +257630,7 @@
   },
   "m-nissan-violet": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:50.763Z",
+   "checkedAt": "2026-10-11T12:10:40.633Z",
    "sourceTitle": "Nissan Violet",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -257679,7 +257719,7 @@
   },
   "m-oldsmobile-bravada": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:50.771Z",
+   "checkedAt": "2026-10-11T12:10:40.641Z",
    "sourceTitle": "Oldsmobile Bravada",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -257754,7 +257794,7 @@
   },
   "m-perodua-myvi": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:50.776Z",
+   "checkedAt": "2026-10-11T12:10:40.646Z",
    "sourceTitle": "Perodua Myvi",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -257813,7 +257853,7 @@
   },
   "m-plymouth-barracuda-1970": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:50.781Z",
+   "checkedAt": "2026-10-11T12:10:40.651Z",
    "sourceTitle": "Plymouth Barracuda",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -257869,7 +257909,7 @@
   },
   "m-plymouth-belvedere": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:50.789Z",
+   "checkedAt": "2026-10-11T12:10:40.659Z",
    "sourceTitle": "Plymouth Belvedere",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -257973,7 +258013,7 @@
   },
   "m-plymouth-savoy": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:50.794Z",
+   "checkedAt": "2026-10-11T12:10:40.665Z",
    "sourceTitle": "Plymouth Savoy",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -258044,7 +258084,7 @@
   },
   "m-plymouth-valiant": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:50.803Z",
+   "checkedAt": "2026-10-11T12:10:40.674Z",
    "sourceTitle": "Plymouth Valiant",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -258129,7 +258169,7 @@
   },
   "m-renault-clio": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:50.828Z",
+   "checkedAt": "2026-10-11T12:10:40.699Z",
    "sourceTitle": "Renault Clio",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -258306,7 +258346,7 @@
   },
   "m-renault-fluence": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:50.833Z",
+   "checkedAt": "2026-10-11T12:10:40.703Z",
    "sourceTitle": "Renault Fluence",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -258350,7 +258390,7 @@
   },
   "m-renault-koleos": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:50.843Z",
+   "checkedAt": "2026-10-11T12:10:40.713Z",
    "sourceTitle": "Renault Koleos",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -258432,7 +258472,7 @@
   },
   "m-renault-scenic": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:50.855Z",
+   "checkedAt": "2026-10-11T12:10:40.724Z",
    "sourceTitle": "Renault Scénic",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -258537,7 +258577,7 @@
   },
   "m-scion-tc": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:50.858Z",
+   "checkedAt": "2026-10-11T12:10:40.728Z",
    "sourceTitle": "Scion tC",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -258577,7 +258617,7 @@
   },
   "m-subaru-xt": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:50.862Z",
+   "checkedAt": "2026-10-11T12:10:40.732Z",
    "sourceTitle": "Subaru XT",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -258620,7 +258660,7 @@
   },
   "m-toyota-caldina": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:50.875Z",
+   "checkedAt": "2026-10-11T12:10:40.744Z",
    "sourceTitle": "Toyota Caldina",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -258712,7 +258752,7 @@
   },
   "m-toyota-ipsum": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:50.886Z",
+   "checkedAt": "2026-10-11T12:10:40.755Z",
    "sourceTitle": "Toyota Ipsum",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -258793,7 +258833,7 @@
   },
   "m-toyota-matrix": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:50.893Z",
+   "checkedAt": "2026-10-11T12:10:40.763Z",
    "sourceTitle": "Toyota Matrix",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -258853,7 +258893,7 @@
   },
   "m-toyota-premio": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:50.899Z",
+   "checkedAt": "2026-10-11T12:10:40.769Z",
    "sourceTitle": "Toyota Premio",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -258907,7 +258947,7 @@
   },
   "m-toyota-prius-plug-in-hybrid": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:50.903Z",
+   "checkedAt": "2026-10-11T12:10:40.773Z",
    "sourceTitle": "Toyota Prius Plug-in Hybrid",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -258954,7 +258994,7 @@
   },
   "m-toyota-sprinter-carib": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:50.914Z",
+   "checkedAt": "2026-10-11T12:10:40.783Z",
    "sourceTitle": "Toyota Sprinter Carib",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -259033,7 +259073,7 @@
   },
   "m-toyota-succeed": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:50.917Z",
+   "checkedAt": "2026-10-11T12:10:40.786Z",
    "sourceTitle": "Toyota Succeed",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -259072,7 +259112,7 @@
   },
   "m-volvo-s60": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:50.922Z",
+   "checkedAt": "2026-10-11T12:10:40.791Z",
    "sourceTitle": "Volvo S60",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -259128,7 +259168,7 @@
   },
   "m-volvo-v70": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:50.926Z",
+   "checkedAt": "2026-10-11T12:10:40.795Z",
    "sourceTitle": "Volvo V70",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -259180,7 +259220,7 @@
   },
   "m-volvo-xc60": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:50.934Z",
+   "checkedAt": "2026-10-11T12:10:40.803Z",
    "sourceTitle": "Volvo XC60",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -259246,7 +259286,7 @@
   },
   "m-volvo-xc90": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:50.937Z",
+   "checkedAt": "2026-10-11T12:10:40.807Z",
    "sourceTitle": "Volvo XC90",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -259287,7 +259327,7 @@
   },
   "m-chevrolet-tahoe": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:50.950Z",
+   "checkedAt": "2026-10-11T12:10:40.820Z",
    "sourceTitle": "Chevrolet Tahoe",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -259400,7 +259440,7 @@
   },
   "m-chevrolet-c-k": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:50.963Z",
+   "checkedAt": "2026-10-11T12:10:40.833Z",
    "sourceTitle": "Chevrolet C/K",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -259506,7 +259546,7 @@
   },
   "m-chevrolet-k5-blazer": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:50.967Z",
+   "checkedAt": "2026-10-11T12:10:40.836Z",
    "sourceTitle": "Chevrolet K5 Blazer",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -259554,7 +259594,7 @@
   },
   "m-pontiac-grand-safari": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:50.970Z",
+   "checkedAt": "2026-10-11T12:10:40.839Z",
    "sourceTitle": "Pontiac Grand Safari",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -259597,7 +259637,7 @@
   },
   "m-chevrolet-kingswood": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:50.978Z",
+   "checkedAt": "2026-10-11T12:10:40.847Z",
    "sourceTitle": "Chevrolet Kingswood",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -259672,7 +259712,7 @@
   },
   "m-buick-skylark": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:51.002Z",
+   "checkedAt": "2026-10-11T12:10:40.871Z",
    "sourceTitle": "Buick Skylark",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -259860,7 +259900,7 @@
   },
   "m-pontiac-star-chief": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:51.010Z",
+   "checkedAt": "2026-10-11T12:10:40.878Z",
    "sourceTitle": "Pontiac Star Chief",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -259946,7 +259986,7 @@
   },
   "m-cadillac-series-70": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:51.027Z",
+   "checkedAt": "2026-10-11T12:10:40.896Z",
    "sourceTitle": "Cadillac Series 70",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -260115,7 +260155,7 @@
   },
   "m-chevrolet-deluxe": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:51.035Z",
+   "checkedAt": "2026-10-11T12:10:40.903Z",
    "sourceTitle": "Chevrolet Deluxe",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -260178,7 +260218,7 @@
   },
   "m-holden-monaro-v2": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:51.043Z",
+   "checkedAt": "2026-10-11T12:10:40.912Z",
    "sourceTitle": "Holden Monaro",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -260250,7 +260290,7 @@
   },
   "m-isuzu-piazza": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:51.048Z",
+   "checkedAt": "2026-10-11T12:10:40.916Z",
    "sourceTitle": "Isuzu Piazza",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -260299,7 +260339,7 @@
   },
   "m-suzuki-alto": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:51.070Z",
+   "checkedAt": "2026-10-11T12:10:40.940Z",
    "sourceTitle": "Suzuki Alto",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -260465,7 +260505,7 @@
   },
   "m-fiat-siena": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:51.074Z",
+   "checkedAt": "2026-10-11T12:10:40.944Z",
    "sourceTitle": "Fiat Siena",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -260510,7 +260550,7 @@
   },
   "m-opel-corsa": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:51.086Z",
+   "checkedAt": "2026-10-11T12:10:40.956Z",
    "sourceTitle": "Opel Corsa",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -260622,7 +260662,7 @@
   },
   "m-toyota-vios": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:51.107Z",
+   "checkedAt": "2026-10-11T12:10:40.977Z",
    "sourceTitle": "Toyota Vios",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -260742,7 +260782,7 @@
   },
   "m-toyota-ractis": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:51.112Z",
+   "checkedAt": "2026-10-11T12:10:40.982Z",
    "sourceTitle": "Toyota Ractis",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -260789,7 +260829,7 @@
   },
   "m-toyota-prius-c": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:51.115Z",
+   "checkedAt": "2026-10-11T12:10:40.986Z",
    "sourceTitle": "Toyota Prius C",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -260829,7 +260869,7 @@
   },
   "m-ford-escort-north-america": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:51.124Z",
+   "checkedAt": "2026-10-11T12:10:40.994Z",
    "sourceTitle": "Ford Escort (North America)",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -260902,7 +260942,7 @@
   },
   "m-fiat-punto": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:51.130Z",
+   "checkedAt": "2026-10-11T12:10:41.000Z",
    "sourceTitle": "Fiat Punto",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -260967,7 +261007,7 @@
   },
   "m-holden-astra": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:51.156Z",
+   "checkedAt": "2026-10-11T12:10:41.027Z",
    "sourceTitle": "Holden Astra",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -261156,7 +261196,7 @@
   },
   "m-vauxhall-cavalier": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:51.162Z",
+   "checkedAt": "2026-10-11T12:10:41.033Z",
    "sourceTitle": "Vauxhall Cavalier",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -261232,7 +261272,7 @@
   },
   "m-opel-astra": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:51.187Z",
+   "checkedAt": "2026-10-11T12:10:41.059Z",
    "sourceTitle": "Opel Astra",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -261400,7 +261440,7 @@
   },
   "m-vauxhall-firenza": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:51.190Z",
+   "checkedAt": "2026-10-11T12:10:41.061Z",
    "sourceTitle": "Vauxhall Firenza",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -261437,7 +261477,7 @@
   },
   "m-mg-mgb": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:51.194Z",
+   "checkedAt": "2026-10-11T12:10:41.066Z",
    "sourceTitle": "MG MGB",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -261494,7 +261534,7 @@
   },
   "m-daihatsu-ayla": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:51.202Z",
+   "checkedAt": "2026-10-11T12:10:41.074Z",
    "sourceTitle": "Daihatsu Ayla",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -261564,7 +261604,7 @@
   },
   "m-suzuki-mr-wagon": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:51.209Z",
+   "checkedAt": "2026-10-11T12:10:41.081Z",
    "sourceTitle": "Suzuki MR Wagon",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -261639,7 +261679,7 @@
   },
   "m-dodge-ram-van": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:51.217Z",
+   "checkedAt": "2026-10-11T12:10:41.089Z",
    "sourceTitle": "Dodge Ram Van",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -261719,7 +261759,7 @@
   },
   "m-plymouth-caravelle": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:51.219Z",
+   "checkedAt": "2026-10-11T12:10:41.091Z",
    "sourceTitle": "Plymouth Caravelle",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -261754,7 +261794,7 @@
   },
   "m-nissan-sylphy": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:51.227Z",
+   "checkedAt": "2026-10-11T12:10:41.099Z",
    "sourceTitle": "Nissan Sylphy",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -262146,7 +262186,7 @@
   },
   "m-simca-vedette": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:51.309Z",
+   "checkedAt": "2026-10-11T12:10:41.177Z",
    "sourceTitle": "Simca Vedette",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -262187,7 +262227,7 @@
   },
   "m-nissan-silvia-s13": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:51.306Z",
+   "checkedAt": "2026-10-11T12:10:41.174Z",
    "sourceTitle": "Nissan Silvia",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -262287,7 +262327,7 @@
   },
   "m-suzuki-fronte": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:51.317Z",
+   "checkedAt": "2026-10-11T12:10:41.185Z",
    "sourceTitle": "Suzuki Fronte",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -262383,7 +262423,7 @@
   },
   "m-maruti-800": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:51.319Z",
+   "checkedAt": "2026-10-11T12:10:41.188Z",
    "sourceTitle": "Maruti 800",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -262420,7 +262460,7 @@
   },
   "m-ac-cobra": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:51.323Z",
+   "checkedAt": "2026-10-11T12:10:41.192Z",
    "sourceTitle": "AC Cobra",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -262475,7 +262515,7 @@
   },
   "m-toyota-starlet": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:51.333Z",
+   "checkedAt": "2026-10-11T12:10:41.202Z",
    "sourceTitle": "Toyota Starlet",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -262567,7 +262607,7 @@
   },
   "m-ford-customline": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:51.335Z",
+   "checkedAt": "2026-10-11T12:10:41.204Z",
    "sourceTitle": "Ford Customline",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -262598,7 +262638,7 @@
   },
   "m-nissan-cherry": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:51.340Z",
+   "checkedAt": "2026-10-11T12:10:41.210Z",
    "sourceTitle": "Nissan Cherry",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -262662,7 +262702,7 @@
   },
   "m-honda-legend": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:51.349Z",
+   "checkedAt": "2026-10-11T12:10:41.220Z",
    "sourceTitle": "Honda Legend",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -262748,7 +262788,7 @@
   },
   "m-daewoo-lanos": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:51.350Z",
+   "checkedAt": "2026-10-11T12:10:41.222Z",
    "sourceTitle": "Daewoo Lanos",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -262781,7 +262821,7 @@
   },
   "m-holden-caprice-vq": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:51.360Z",
+   "checkedAt": "2026-10-11T12:10:41.231Z",
    "sourceTitle": "Holden Caprice (VQ)",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -262850,7 +262890,7 @@
   },
   "m-citroen-visa": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:51.372Z",
+   "checkedAt": "2026-10-11T12:10:41.241Z",
    "sourceTitle": "Citroën Visa",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -262931,7 +262971,7 @@
   },
   "m-citroen-lna": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:51.375Z",
+   "checkedAt": "2026-10-11T12:10:41.244Z",
    "sourceTitle": "Citroën LNA",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -262968,7 +263008,7 @@
   },
   "m-daimler-conquest": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:51.377Z",
+   "checkedAt": "2026-10-11T12:10:41.246Z",
    "sourceTitle": "Daimler Conquest",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -262999,7 +263039,7 @@
   },
   "m-peugeot-306": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:51.382Z",
+   "checkedAt": "2026-10-11T12:10:41.251Z",
    "sourceTitle": "Peugeot 306",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -263057,7 +263097,7 @@
   },
   "m-chrysler-windsor": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:51.392Z",
+   "checkedAt": "2026-10-11T12:10:41.259Z",
    "sourceTitle": "Chrysler Windsor",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -263139,7 +263179,7 @@
   },
   "m-ford-zephyr": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:51.405Z",
+   "checkedAt": "2026-10-11T12:10:41.274Z",
    "sourceTitle": "Ford Zephyr",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -263264,7 +263304,7 @@
   },
   "m-toyota-wish": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:51.408Z",
+   "checkedAt": "2026-10-11T12:10:41.277Z",
    "sourceTitle": "Toyota Wish",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -263302,7 +263342,7 @@
   },
   "m-ford-granada-north-america": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:51.416Z",
+   "checkedAt": "2026-10-11T12:10:41.285Z",
    "sourceTitle": "Ford Granada (North America)",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -263365,7 +263405,7 @@
   },
   "m-chrysler-town-country-1941-1988": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:51.442Z",
+   "checkedAt": "2026-10-11T12:10:41.312Z",
    "sourceTitle": "Chrysler Town & Country (1941–1988)",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -263606,7 +263646,7 @@
   },
   "m-chevrolet-captiva": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:51.450Z",
+   "checkedAt": "2026-10-11T12:10:41.319Z",
    "sourceTitle": "Chevrolet Captiva",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -263669,7 +263709,7 @@
   },
   "m-suzuki-jimny": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:51.484Z",
+   "checkedAt": "2026-10-11T12:10:41.354Z",
    "sourceTitle": "Suzuki Jimny",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -263849,7 +263889,7 @@
   },
   "m-vauxhall-victor": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:51.490Z",
+   "checkedAt": "2026-10-11T12:10:41.360Z",
    "sourceTitle": "Vauxhall Victor",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -264472,7 +264512,7 @@
   },
   "m-mazda-121": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:51.496Z",
+   "checkedAt": "2026-10-11T12:10:41.366Z",
    "sourceTitle": "Mazda 121",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -264544,7 +264584,7 @@
   },
   "m-mercedes-benz-slk-class": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:51.504Z",
+   "checkedAt": "2026-10-11T12:10:41.375Z",
    "sourceTitle": "Mercedes-Benz SLK-Class",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -264644,7 +264684,7 @@
   },
   "m-audi-80-b1": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:51.261Z",
+   "checkedAt": "2026-10-11T12:10:41.131Z",
    "sourceTitle": "Audi 80",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -264735,7 +264775,7 @@
   },
   "m-austin-bmc-ado16": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:51.238Z",
+   "checkedAt": "2026-10-11T12:10:41.110Z",
    "sourceTitle": "BMC ADO16",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -264940,7 +264980,7 @@
   },
   "m-beijing-u7": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:51.231Z",
+   "checkedAt": "2026-10-11T12:10:41.102Z",
    "sourceTitle": "Beijing U7",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -264980,7 +265020,7 @@
   },
   "m-bmw-x2": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:51.267Z",
+   "checkedAt": "2026-10-11T12:10:41.136Z",
    "sourceTitle": "BMW X2",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -266147,7 +266187,7 @@
   },
   "m-daewoo-royale": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:50.224Z",
+   "checkedAt": "2026-10-11T12:10:40.078Z",
    "sourceTitle": "Daewoo Royale",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -266206,7 +266246,7 @@
   },
   "m-daihatsu-terios": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:51.296Z",
+   "checkedAt": "2026-10-11T12:10:41.163Z",
    "sourceTitle": "Daihatsu Terios",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -267396,7 +267436,7 @@
   },
   "m-mercedes-benz-a-class": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:51.251Z",
+   "checkedAt": "2026-10-11T12:10:41.122Z",
    "sourceTitle": "Mercedes-Benz A-Class",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -267878,7 +267918,7 @@
   },
   "m-opel-commodore": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:50.219Z",
+   "checkedAt": "2026-10-11T12:10:40.072Z",
    "sourceTitle": "Opel Commodore",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -268356,7 +268396,7 @@
   },
   "m-toyota-bb": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:51.282Z",
+   "checkedAt": "2026-10-11T12:10:41.148Z",
    "sourceTitle": "Toyota bB",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -268829,7 +268869,7 @@
   },
   "m-sevel-eurovans": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:51.514Z",
+   "checkedAt": "2026-10-11T12:10:41.385Z",
    "sourceTitle": "Eurovans",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -268905,7 +268945,7 @@
   },
   "m-datsun-sports": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:51.531Z",
+   "checkedAt": "2026-10-11T12:10:41.403Z",
    "sourceTitle": "Datsun Sports",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -269020,7 +269060,7 @@
   },
   "m-nissan-titan": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:51.540Z",
+   "checkedAt": "2026-10-11T12:10:41.414Z",
    "sourceTitle": "Nissan Titan",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -269211,7 +269251,7 @@
   },
   "m-holden-special-vehicles": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:51.580Z",
+   "checkedAt": "2026-10-11T12:10:41.456Z",
    "sourceTitle": "Holden Special Vehicles",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -269549,7 +269589,7 @@
   },
   "m-nissan-bluebird": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:51.605Z",
+   "checkedAt": "2026-10-11T12:10:41.481Z",
    "sourceTitle": "Nissan Bluebird",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -270097,7 +270137,7 @@
   },
   "m-buick-excelle": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:51.618Z",
+   "checkedAt": "2026-10-11T12:10:41.495Z",
    "sourceTitle": "Buick Excelle",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -270181,7 +270221,7 @@
   },
   "m-chevrolet-onix": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:51.623Z",
+   "checkedAt": "2026-10-11T12:10:41.500Z",
    "sourceTitle": "Chevrolet Onix",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -270231,7 +270271,7 @@
   },
   "m-chevrolet-sail": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:51.633Z",
+   "checkedAt": "2026-10-11T12:10:41.510Z",
    "sourceTitle": "Chevrolet Sail",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -270315,7 +270355,7 @@
   },
   "m-toyota-stout": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:51.640Z",
+   "checkedAt": "2026-10-11T12:10:41.517Z",
    "sourceTitle": "Toyota Stout",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -270375,7 +270415,7 @@
   },
   "m-nissan-vanette": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:51.650Z",
+   "checkedAt": "2026-10-11T12:10:41.528Z",
    "sourceTitle": "Nissan Vanette",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -270449,7 +270489,7 @@
   },
   "m-ford-e-series": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:51.658Z",
+   "checkedAt": "2026-10-11T12:10:41.536Z",
    "sourceTitle": "Ford E-Series",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -270520,7 +270560,7 @@
   },
   "m-opel-vivaro": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:51.663Z",
+   "checkedAt": "2026-10-11T12:10:41.541Z",
    "sourceTitle": "Opel Vivaro",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -270566,7 +270606,7 @@
   },
   "m-opel-meriva": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:51.665Z",
+   "checkedAt": "2026-10-11T12:10:41.544Z",
    "sourceTitle": "Opel Meriva",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -270601,7 +270641,7 @@
   },
   "m-mazda-b-series": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:51.672Z",
+   "checkedAt": "2026-10-11T12:10:41.551Z",
    "sourceTitle": "Mazda B series",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -270672,7 +270712,7 @@
   },
   "m-ford-falcon-north-america": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:51.688Z",
+   "checkedAt": "2026-10-11T12:10:41.567Z",
    "sourceTitle": "Ford Falcon (North America)",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -270798,7 +270838,7 @@
   },
   "m-nissan-cedric": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:51.707Z",
+   "checkedAt": "2026-10-11T12:10:41.585Z",
    "sourceTitle": "Nissan Cedric",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -270960,7 +271000,7 @@
   },
   "m-toyota-crown": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:51.738Z",
+   "checkedAt": "2026-10-11T12:10:41.616Z",
    "sourceTitle": "Toyota Crown",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -271225,7 +271265,7 @@
   },
   "m-ikco-dena": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:51.745Z",
+   "checkedAt": "2026-10-11T12:10:41.623Z",
    "sourceTitle": "IKCO Dena",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -271292,7 +271332,7 @@
   },
   "m-isuzu-trooper": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:51.765Z",
+   "checkedAt": "2026-10-11T12:10:41.643Z",
    "sourceTitle": "Isuzu Trooper",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -271399,7 +271439,7 @@
   },
   "m-mercedes-benz-g-class": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:51.772Z",
+   "checkedAt": "2026-10-11T12:10:41.650Z",
    "sourceTitle": "Mercedes-Benz G-Class",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -271482,7 +271522,7 @@
   },
   "m-mercedes-benz-mercedes-amg-gt": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:51.776Z",
+   "checkedAt": "2026-10-11T12:10:41.655Z",
    "sourceTitle": "Mercedes-AMG GT",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -271525,7 +271565,7 @@
   },
   "m-mercedes-benz-gle": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:51.787Z",
+   "checkedAt": "2026-10-11T12:10:41.666Z",
    "sourceTitle": "Mercedes-Benz GLE",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -271613,7 +271653,7 @@
   },
   "m-mercedes-benz-mercedes-amg-gt-4-door-coupe": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:51.790Z",
+   "checkedAt": "2026-10-11T12:10:41.669Z",
    "sourceTitle": "Mercedes-AMG GT 4-Door Coupé",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -271658,7 +271698,7 @@
   },
   "m-mercedes-benz-glc": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:51.795Z",
+   "checkedAt": "2026-10-11T12:10:41.674Z",
    "sourceTitle": "Mercedes-Benz GLC",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -271712,7 +271752,7 @@
   },
   "m-lexus-es": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:51.814Z",
+   "checkedAt": "2026-10-11T12:10:41.693Z",
    "sourceTitle": "Lexus ES",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -271872,7 +271912,7 @@
   },
   "m-toyota-avalon": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:51.831Z",
+   "checkedAt": "2026-10-11T12:10:41.712Z",
    "sourceTitle": "Toyota Avalon",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -271987,7 +272027,7 @@
   },
   "m-toyota-camry-solara": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:51.838Z",
+   "checkedAt": "2026-10-11T12:10:41.719Z",
    "sourceTitle": "Toyota Camry Solara",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -272046,7 +272086,7 @@
   },
   "m-toyota-sienna": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:51.848Z",
+   "checkedAt": "2026-10-11T12:10:41.729Z",
    "sourceTitle": "Toyota Sienna",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -272126,7 +272166,7 @@
   },
   "m-lexus-rx": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:51.868Z",
+   "checkedAt": "2026-10-11T12:10:41.750Z",
    "sourceTitle": "Lexus RX",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -272268,7 +272308,7 @@
   },
   "m-toyota-harrier": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:51.878Z",
+   "checkedAt": "2026-10-11T12:10:41.761Z",
    "sourceTitle": "Toyota Harrier",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -272351,7 +272391,7 @@
   },
   "m-toyota-highlander": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:51.892Z",
+   "checkedAt": "2026-10-11T12:10:41.775Z",
    "sourceTitle": "Toyota Highlander",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -272448,7 +272488,7 @@
   },
   "m-toyota-alphard": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:51.906Z",
+   "checkedAt": "2026-10-11T12:10:41.790Z",
    "sourceTitle": "Toyota Alphard",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -272553,7 +272593,7 @@
   },
   "m-toyota-previa": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:51.912Z",
+   "checkedAt": "2026-10-11T12:10:41.796Z",
    "sourceTitle": "Toyota Previa",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -272605,7 +272645,7 @@
   },
   "m-lexus-lm": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:51.915Z",
+   "checkedAt": "2026-10-11T12:10:41.799Z",
    "sourceTitle": "Lexus LM",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -272642,7 +272682,7 @@
   },
   "m-toyota-venza": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:51.924Z",
+   "checkedAt": "2026-10-11T12:10:41.808Z",
    "sourceTitle": "Toyota Venza",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -272704,7 +272744,7 @@
   },
   "m-toyota-rav4": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:51.946Z",
+   "checkedAt": "2026-10-11T12:10:41.832Z",
    "sourceTitle": "Toyota RAV4",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -272846,7 +272886,7 @@
   },
   "m-lexus-nx": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:51.951Z",
+   "checkedAt": "2026-10-11T12:10:41.837Z",
    "sourceTitle": "Lexus NX",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -272894,7 +272934,7 @@
   },
   "m-toyota-carina": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:51.963Z",
+   "checkedAt": "2026-10-11T12:10:41.850Z",
    "sourceTitle": "Toyota Carina",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -273003,7 +273043,7 @@
   },
   "m-toyota-celica": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:51.979Z",
+   "checkedAt": "2026-10-11T12:10:41.871Z",
    "sourceTitle": "Toyota Celica",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -273120,7 +273160,7 @@
   },
   "m-toyota-supra": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:51.997Z",
+   "checkedAt": "2026-10-11T12:10:41.892Z",
    "sourceTitle": "Toyota Supra",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -273238,7 +273278,7 @@
   },
   "m-toyota-corona": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:52.014Z",
+   "checkedAt": "2026-10-11T12:10:41.909Z",
    "sourceTitle": "Toyota Corona",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -273389,7 +273429,7 @@
   },
   "m-toyota-carina-ed": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:52.025Z",
+   "checkedAt": "2026-10-11T12:10:41.921Z",
    "sourceTitle": "Toyota Carina ED",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -273509,7 +273549,7 @@
   },
   "m-toyota-corona-exiv": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:52.033Z",
+   "checkedAt": "2026-10-11T12:10:41.929Z",
    "sourceTitle": "Toyota Corona EXiV",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -273559,7 +273599,7 @@
   },
   "m-toyota-soarer": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:52.043Z",
+   "checkedAt": "2026-10-11T12:10:41.939Z",
    "sourceTitle": "Toyota Soarer",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -273638,7 +273678,7 @@
   },
   "m-lexus-sc": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:52.046Z",
+   "checkedAt": "2026-10-11T12:10:41.943Z",
    "sourceTitle": "Lexus SC",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -273682,7 +273722,7 @@
   },
   "m-toyota-publica": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:52.053Z",
+   "checkedAt": "2026-10-11T12:10:41.950Z",
    "sourceTitle": "Toyota Publica",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -273749,7 +273789,7 @@
   },
   "m-toyota-carina-ii": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:52.057Z",
+   "checkedAt": "2026-10-11T12:10:41.954Z",
    "sourceTitle": "Toyota Carina II",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -273986,7 +274026,7 @@
   },
   "m-ruf-ctr3": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:52.064Z",
+   "checkedAt": "2026-10-11T12:10:41.961Z",
    "sourceTitle": "Ruf CTR3",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -274983,7 +275023,7 @@
   },
   "m-volkswagen-bora": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:52.067Z",
+   "checkedAt": "2026-10-11T12:10:41.965Z",
    "sourceTitle": "Volkswagen Bora",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -275032,7 +275072,7 @@
   },
   "m-volkswagen-beetle": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:52.074Z",
+   "checkedAt": "2026-10-11T12:10:41.972Z",
    "sourceTitle": "Volkswagen Beetle",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -275094,7 +275134,7 @@
   },
   "m-volkswagen-t-roc": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:52.079Z",
+   "checkedAt": "2026-10-11T12:10:41.978Z",
    "sourceTitle": "Volkswagen T-Roc",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -275148,7 +275188,7 @@
   },
   "m-volkswagen-touran": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:52.085Z",
+   "checkedAt": "2026-10-11T12:10:41.983Z",
    "sourceTitle": "Volkswagen Touran",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -275198,7 +275238,7 @@
   },
   "m-porsche-718-boxster-and-cayman-982": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:52.087Z",
+   "checkedAt": "2026-10-11T12:10:41.986Z",
    "sourceTitle": "Porsche 718 Boxster and Cayman (982)",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -275291,7 +275331,7 @@
   },
   "m-audi-a3-mk3": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:52.100Z",
+   "checkedAt": "2026-10-11T12:10:41.998Z",
    "sourceTitle": "Audi A3",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -275387,7 +275427,7 @@
   },
   "m-seat-leon-mk3": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:52.117Z",
+   "checkedAt": "2026-10-11T12:10:42.016Z",
    "sourceTitle": "SEAT León",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -275506,7 +275546,7 @@
   },
   "m-seat-toledo": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:52.131Z",
+   "checkedAt": "2026-10-11T12:10:42.032Z",
    "sourceTitle": "SEAT Toledo",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -275609,7 +275649,7 @@
   },
   "m-chery-cowin": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:52.133Z",
+   "checkedAt": "2026-10-11T12:10:42.034Z",
    "sourceTitle": "Chery Cowin",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -275640,7 +275680,7 @@
   },
   "m-volkswagen-jetta-china": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:52.140Z",
+   "checkedAt": "2026-10-11T12:10:42.041Z",
    "sourceTitle": "Volkswagen Jetta (China)",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -275701,7 +275741,7 @@
   },
   "m-skoda-octavia-mk1": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:52.167Z",
+   "checkedAt": "2026-10-11T12:10:42.069Z",
    "sourceTitle": "Škoda Octavia",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -275994,7 +276034,7 @@
   },
   "m-ruf-rgt": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:52.174Z",
+   "checkedAt": "2026-10-11T12:10:42.076Z",
    "sourceTitle": "Ruf RGT",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -276061,7 +276101,7 @@
   },
   "m-porsche-911-classic": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:52.181Z",
+   "checkedAt": "2026-10-11T12:10:42.083Z",
    "sourceTitle": "Porsche 911 (classic)",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -276139,7 +276179,7 @@
   },
   "m-ruf-btr": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:52.188Z",
+   "checkedAt": "2026-10-11T12:10:42.090Z",
    "sourceTitle": "Ruf BTR",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -276188,7 +276228,7 @@
   },
   "m-porsche-356": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:52.195Z",
+   "checkedAt": "2026-10-11T12:10:42.097Z",
    "sourceTitle": "Porsche 356",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -276257,7 +276297,7 @@
   },
   "m-porsche-911-gt2": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:52.204Z",
+   "checkedAt": "2026-10-11T12:10:42.106Z",
    "sourceTitle": "Porsche 911 GT2",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -276340,7 +276380,7 @@
   },
   "m-porsche-912": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:52.207Z",
+   "checkedAt": "2026-10-11T12:10:42.108Z",
    "sourceTitle": "Porsche 912",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -276601,7 +276641,7 @@
   },
   "m-volkswagen-scirocco": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:52.211Z",
+   "checkedAt": "2026-10-11T12:10:42.112Z",
    "sourceTitle": "Volkswagen Scirocco",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -276642,7 +276682,7 @@
   },
   "m-audi-tt": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:52.238Z",
+   "checkedAt": "2026-10-11T12:10:42.140Z",
    "sourceTitle": "Audi TT",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -276782,7 +276822,7 @@
   },
   "m-seat-cordoba": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:52.250Z",
+   "checkedAt": "2026-10-11T12:10:42.156Z",
    "sourceTitle": "SEAT Córdoba",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -276849,7 +276889,7 @@
   },
   "m-volkswagen-bora-china": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:52.259Z",
+   "checkedAt": "2026-10-11T12:10:42.164Z",
    "sourceTitle": "Volkswagen Bora (China)",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -276921,7 +276961,7 @@
   },
   "m-volkswagen-type-3": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:52.270Z",
+   "checkedAt": "2026-10-11T12:10:42.176Z",
    "sourceTitle": "Volkswagen Type 3",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -276992,7 +277032,7 @@
   },
   "m-volkswagen-gol": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:52.278Z",
+   "checkedAt": "2026-10-11T12:10:42.184Z",
    "sourceTitle": "Volkswagen Gol",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -277049,7 +277089,7 @@
   },
   "m-hillman-avenger": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:52.294Z",
+   "checkedAt": "2026-10-11T12:10:42.205Z",
    "sourceTitle": "Hillman Avenger",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -277184,7 +277224,7 @@
   },
   "m-volkswagen-fox": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:52.318Z",
+   "checkedAt": "2026-10-11T12:10:42.231Z",
    "sourceTitle": "Volkswagen Fox",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -277310,7 +277350,7 @@
   },
   "m-seat-ibiza": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:52.336Z",
+   "checkedAt": "2026-10-11T12:10:42.249Z",
    "sourceTitle": "SEAT Ibiza",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -277419,7 +277459,7 @@
   },
   "m-skoda-rapid-2012": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:52.340Z",
+   "checkedAt": "2026-10-11T12:10:42.254Z",
    "sourceTitle": "Škoda Rapid (2012)",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -277460,7 +277500,7 @@
   },
   "m-volkswagen-karmann-ghia": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:52.345Z",
+   "checkedAt": "2026-10-11T12:10:42.259Z",
    "sourceTitle": "Volkswagen Karmann Ghia",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -277515,7 +277555,7 @@
   },
   "m-dodge-avenger": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:52.350Z",
+   "checkedAt": "2026-10-11T12:10:42.264Z",
    "sourceTitle": "Dodge Avenger",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -277570,7 +277610,7 @@
   },
   "m-chrysler-horizon": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:52.370Z",
+   "checkedAt": "2026-10-11T12:10:42.284Z",
    "sourceTitle": "Chrysler Horizon",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -277716,7 +277756,7 @@
   },
   "m-dodge-omni": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:52.391Z",
+   "checkedAt": "2026-10-11T12:10:42.305Z",
    "sourceTitle": "Dodge Omni",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -277844,7 +277884,7 @@
   },
   "m-hillman-minx": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:52.412Z",
+   "checkedAt": "2026-10-11T12:10:42.325Z",
    "sourceTitle": "Hillman Minx",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -277964,7 +278004,7 @@
   },
   "m-singer-gazelle": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:52.418Z",
+   "checkedAt": "2026-10-11T12:10:42.331Z",
    "sourceTitle": "Singer Gazelle",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -278034,7 +278074,7 @@
   },
   "m-audi-a1": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:52.425Z",
+   "checkedAt": "2026-10-11T12:10:42.339Z",
    "sourceTitle": "Audi A1",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -278094,7 +278134,7 @@
   },
   "m-gmc-envoy": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:52.432Z",
+   "checkedAt": "2026-10-11T12:10:42.346Z",
    "sourceTitle": "GMC Envoy",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -278154,7 +278194,7 @@
   },
   "m-fiat-ritmo": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:52.440Z",
+   "checkedAt": "2026-10-11T12:10:42.354Z",
    "sourceTitle": "Fiat Ritmo",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -278223,7 +278263,7 @@
   },
   "m-skoda-type-742": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:52.446Z",
+   "checkedAt": "2026-10-11T12:10:42.360Z",
    "sourceTitle": "Škoda Type 742",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -278271,7 +278311,7 @@
   },
   "m-hyundai-atos": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:52.455Z",
+   "checkedAt": "2026-10-11T12:10:42.369Z",
    "sourceTitle": "Hyundai Atos",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -278337,7 +278377,7 @@
   },
   "m-hyundai-santro": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:52.462Z",
+   "checkedAt": "2026-10-11T12:10:42.376Z",
    "sourceTitle": "Hyundai Santro",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -278413,7 +278453,7 @@
   },
   "m-seat-131": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:52.473Z",
+   "checkedAt": "2026-10-11T12:10:42.387Z",
    "sourceTitle": "SEAT 131",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -278522,7 +278562,7 @@
   },
   "m-mitsubishi-eclipse": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:52.479Z",
+   "checkedAt": "2026-10-11T12:10:42.394Z",
    "sourceTitle": "Mitsubishi Eclipse",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -278593,7 +278633,7 @@
   },
   "m-chrysler-sebring": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:52.488Z",
+   "checkedAt": "2026-10-11T12:10:42.403Z",
    "sourceTitle": "Chrysler Sebring",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -278669,7 +278709,7 @@
   },
   "m-chrysler-cirrus": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:52.497Z",
+   "checkedAt": "2026-10-11T12:10:42.412Z",
    "sourceTitle": "Chrysler Cirrus",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -278745,7 +278785,7 @@
   },
   "m-dodge-journey": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:52.505Z",
+   "checkedAt": "2026-10-11T12:10:42.420Z",
    "sourceTitle": "Dodge Journey",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -278811,7 +278851,7 @@
   },
   "m-dodge-stratus": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:52.508Z",
+   "checkedAt": "2026-10-11T12:10:42.423Z",
    "sourceTitle": "Dodge Stratus",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -278852,7 +278892,7 @@
   },
   "m-hillman-imp": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:52.521Z",
+   "checkedAt": "2026-10-11T12:10:42.437Z",
    "sourceTitle": "Hillman Imp",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -279015,7 +279055,7 @@
   },
   "m-hillman-super-minx": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:52.530Z",
+   "checkedAt": "2026-10-11T12:10:42.445Z",
    "sourceTitle": "Hillman Super Minx",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -279094,7 +279134,7 @@
   },
   "m-hillman-husky": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:52.536Z",
+   "checkedAt": "2026-10-11T12:10:42.451Z",
    "sourceTitle": "Hillman Husky",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -279150,7 +279190,7 @@
   },
   "m-sunbeam-rapier": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:52.563Z",
+   "checkedAt": "2026-10-11T12:10:42.479Z",
    "sourceTitle": "Sunbeam Rapier",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -279351,7 +279391,7 @@
   },
   "m-singer-vogue": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:52.565Z",
+   "checkedAt": "2026-10-11T12:10:42.481Z",
    "sourceTitle": "Singer Vogue",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -279384,7 +279424,7 @@
   },
   "m-humber-sceptre": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:52.568Z",
+   "checkedAt": "2026-10-11T12:10:42.484Z",
    "sourceTitle": "Humber Sceptre",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -279424,7 +279464,7 @@
   },
   "m-isuzu-hillman-minx": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:52.571Z",
+   "checkedAt": "2026-10-11T12:10:42.487Z",
    "sourceTitle": "Isuzu Hillman Minx",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -279470,7 +279510,7 @@
   },
   "m-hillman-14": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:52.573Z",
+   "checkedAt": "2026-10-11T12:10:42.489Z",
    "sourceTitle": "Hillman 14",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -279503,7 +279543,7 @@
   },
   "m-sunbeam-talbot-ten": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:52.575Z",
+   "checkedAt": "2026-10-11T12:10:42.491Z",
    "sourceTitle": "Sunbeam-Talbot Ten",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -279538,7 +279578,7 @@
   },
   "m-nsu-prinz": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:52.585Z",
+   "checkedAt": "2026-10-11T12:10:42.501Z",
    "sourceTitle": "NSU Prinz",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -279611,7 +279651,7 @@
   },
   "m-chevrolet-trailblazer": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:52.589Z",
+   "checkedAt": "2026-10-11T12:10:42.506Z",
    "sourceTitle": "Chevrolet TrailBlazer (SUV)",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -279662,7 +279702,7 @@
   },
   "m-seat-124": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:52.604Z",
+   "checkedAt": "2026-10-11T12:10:42.520Z",
    "sourceTitle": "SEAT 124",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -279756,7 +279796,7 @@
   },
   "m-lancia-delta": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:52.610Z",
+   "checkedAt": "2026-10-11T12:10:42.527Z",
    "sourceTitle": "Lancia Delta",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -279824,7 +279864,7 @@
   },
   "m-skoda-garde-rapid": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:52.613Z",
+   "checkedAt": "2026-10-11T12:10:42.529Z",
    "sourceTitle": "Škoda Garde/Rapid",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -279859,7 +279899,7 @@
   },
   "m-kia-picanto": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:52.623Z",
+   "checkedAt": "2026-10-11T12:10:42.539Z",
    "sourceTitle": "Kia Picanto",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -279937,7 +279977,7 @@
   },
   "m-hyundai-i10": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:52.629Z",
+   "checkedAt": "2026-10-11T12:10:42.546Z",
    "sourceTitle": "Hyundai i10",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -279994,7 +280034,7 @@
   },
   "m-seat-1430": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:52.639Z",
+   "checkedAt": "2026-10-11T12:10:42.556Z",
    "sourceTitle": "SEAT 1430",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -280061,7 +280101,7 @@
   },
   "m-mitsubishi-galant": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:52.658Z",
+   "checkedAt": "2026-10-11T12:10:42.576Z",
    "sourceTitle": "Mitsubishi Galant",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -280251,7 +280291,7 @@
   },
   "m-mitsubishi-eclipse-cross": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:52.664Z",
+   "checkedAt": "2026-10-11T12:10:42.581Z",
    "sourceTitle": "Mitsubishi Eclipse Cross",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -280302,7 +280342,7 @@
   },
   "m-trumpchi-gs5": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:52.666Z",
+   "checkedAt": "2026-10-11T12:10:42.584Z",
    "sourceTitle": "Trumpchi GS5",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -280338,7 +280378,7 @@
   },
   "m-chrysler-neon": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:52.672Z",
+   "checkedAt": "2026-10-11T12:10:42.590Z",
    "sourceTitle": "Chrysler Neon",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -280394,7 +280434,7 @@
   },
   "m-dodge-challenger-1970": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:52.688Z",
+   "checkedAt": "2026-10-11T12:10:42.605Z",
    "sourceTitle": "Dodge Challenger",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -280486,7 +280526,7 @@
   },
   "m-mitsubishi-galant-lambda": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:52.705Z",
+   "checkedAt": "2026-10-11T12:10:42.622Z",
    "sourceTitle": "Mitsubishi Galant Lambda",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -280579,7 +280619,7 @@
   },
   "m-dodge-colt": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:52.723Z",
+   "checkedAt": "2026-10-11T12:10:42.640Z",
    "sourceTitle": "Dodge Colt",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -280710,7 +280750,7 @@
   },
   "m-sunbeam-alpine": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:52.728Z",
+   "checkedAt": "2026-10-11T12:10:42.645Z",
    "sourceTitle": "Sunbeam Alpine",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -280764,7 +280804,7 @@
   },
   "m-sunbeam-talbot-90": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:52.732Z",
+   "checkedAt": "2026-10-11T12:10:42.650Z",
    "sourceTitle": "Sunbeam-Talbot 90",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -280817,7 +280857,7 @@
   },
   "m-humber-hawk": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:52.735Z",
+   "checkedAt": "2026-10-11T12:10:42.653Z",
    "sourceTitle": "Humber Hawk",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -280861,7 +280901,7 @@
   },
   "m-dkw-junior": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:52.737Z",
+   "checkedAt": "2026-10-11T12:10:42.655Z",
    "sourceTitle": "DKW Junior",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -280892,7 +280932,7 @@
   },
   "m-isuzu-mu-x": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:52.752Z",
+   "checkedAt": "2026-10-11T12:10:42.667Z",
    "sourceTitle": "Isuzu MU-X",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -280971,7 +281011,7 @@
   },
   "m-isuzu-mu": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:52.757Z",
+   "checkedAt": "2026-10-11T12:10:42.671Z",
    "sourceTitle": "Isuzu MU",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -281018,7 +281058,7 @@
   },
   "m-lancia-prisma": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:52.760Z",
+   "checkedAt": "2026-10-11T12:10:42.674Z",
    "sourceTitle": "Lancia Prisma",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -281057,7 +281097,7 @@
   },
   "m-fiat-1300-and-1500": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:52.763Z",
+   "checkedAt": "2026-10-11T12:10:42.678Z",
    "sourceTitle": "Fiat 1300 and 1500",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -281096,7 +281136,7 @@
   },
   "m-hyundai-accent": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:52.782Z",
+   "checkedAt": "2026-10-11T12:10:42.698Z",
    "sourceTitle": "Hyundai Accent",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -281230,7 +281270,7 @@
   },
   "m-hyundai-i20": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:52.803Z",
+   "checkedAt": "2026-10-11T12:10:42.720Z",
    "sourceTitle": "Hyundai i20",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -281358,7 +281398,7 @@
   },
   "m-fiat-124-sport-coupe": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:52.809Z",
+   "checkedAt": "2026-10-11T12:10:42.725Z",
    "sourceTitle": "Fiat 124 Sport Coupé",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -281415,7 +281455,7 @@
   },
   "m-eagle-summit": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:52.816Z",
+   "checkedAt": "2026-10-11T12:10:42.733Z",
    "sourceTitle": "Eagle Summit",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -281476,7 +281516,7 @@
   },
   "m-mitsubishi-3000gt": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:52.820Z",
+   "checkedAt": "2026-10-11T12:10:42.737Z",
    "sourceTitle": "Mitsubishi 3000GT",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -281527,7 +281567,7 @@
   },
   "m-chrysler-sigma": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:52.826Z",
+   "checkedAt": "2026-10-11T12:10:42.743Z",
    "sourceTitle": "Chrysler Sigma",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -281591,7 +281631,7 @@
   },
   "m-mitsubishi-magna": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:52.836Z",
+   "checkedAt": "2026-10-11T12:10:42.753Z",
    "sourceTitle": "Mitsubishi Magna",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -281667,7 +281707,7 @@
   },
   "m-mitsubishi-diamante": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:52.841Z",
+   "checkedAt": "2026-10-11T12:10:42.759Z",
    "sourceTitle": "Mitsubishi Diamante",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -281715,7 +281755,7 @@
   },
   "m-mitsubishi-chariot": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:52.850Z",
+   "checkedAt": "2026-10-11T12:10:42.768Z",
    "sourceTitle": "Mitsubishi Chariot",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -281786,7 +281826,7 @@
   },
   "m-changan-raeton-plus": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:52.852Z",
+   "checkedAt": "2026-10-11T12:10:42.771Z",
    "sourceTitle": "Changan Raeton Plus",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -281821,7 +281861,7 @@
   },
   "m-mitsubishi-rvr": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:52.858Z",
+   "checkedAt": "2026-10-11T12:10:42.777Z",
    "sourceTitle": "Mitsubishi RVR",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -281879,7 +281919,7 @@
   },
   "m-mitsubishi-lancer-evolution": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:52.883Z",
+   "checkedAt": "2026-10-11T12:10:42.803Z",
    "sourceTitle": "Mitsubishi Lancer Evolution",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -282079,7 +282119,7 @@
   },
   "m-bond-minicar": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:52.890Z",
+   "checkedAt": "2026-10-11T12:10:42.810Z",
    "sourceTitle": "Bond Minicar",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -282157,7 +282197,7 @@
   },
   "m-mitsubishi-galant-gto": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:52.892Z",
+   "checkedAt": "2026-10-11T12:10:42.813Z",
    "sourceTitle": "Mitsubishi Galant GTO",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -282190,7 +282230,7 @@
   },
   "m-citroen-xantia": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:52.898Z",
+   "checkedAt": "2026-10-11T12:10:42.819Z",
    "sourceTitle": "Citroën Xantia",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -282243,7 +282283,7 @@
   },
   "m-citroen-gs": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:52.901Z",
+   "checkedAt": "2026-10-11T12:10:42.822Z",
    "sourceTitle": "Citroën GS",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -282276,7 +282316,7 @@
   },
   "m-sunbeam-tiger": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:52.905Z",
+   "checkedAt": "2026-10-11T12:10:42.826Z",
    "sourceTitle": "Sunbeam Tiger",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -282321,7 +282361,7 @@
   },
   "m-isuzu-faster": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:52.960Z",
+   "checkedAt": "2026-10-11T12:10:42.884Z",
    "sourceTitle": "Isuzu Faster",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -282544,7 +282584,7 @@
   },
   "m-humber-super-snipe": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:52.968Z",
+   "checkedAt": "2026-10-11T12:10:42.892Z",
    "sourceTitle": "Humber Super Snipe",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -282629,7 +282669,7 @@
   },
   "m-isuzu-d-max": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:52.980Z",
+   "checkedAt": "2026-10-11T12:10:42.905Z",
    "sourceTitle": "Isuzu D-Max",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -282714,7 +282754,7 @@
   },
   "m-mazda-bt-50": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:52.990Z",
+   "checkedAt": "2026-10-11T12:10:42.916Z",
    "sourceTitle": "Mazda BT-50",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -282793,7 +282833,7 @@
   },
   "m-isuzu-panther": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:52.995Z",
+   "checkedAt": "2026-10-11T12:10:42.921Z",
    "sourceTitle": "Isuzu Panther",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -282839,7 +282879,7 @@
   },
   "m-fiat-marengo": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:52.999Z",
+   "checkedAt": "2026-10-11T12:10:42.926Z",
    "sourceTitle": "Fiat Marengo",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -282894,7 +282934,7 @@
   },
   "m-kia-rio": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:53.010Z",
+   "checkedAt": "2026-10-11T12:10:42.937Z",
    "sourceTitle": "Kia Rio",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -283001,7 +283041,7 @@
   },
   "m-hyundai-hb20": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:53.014Z",
+   "checkedAt": "2026-10-11T12:10:42.941Z",
    "sourceTitle": "Hyundai HB20",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -283042,7 +283082,7 @@
   },
   "m-hyundai-venue": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:53.017Z",
+   "checkedAt": "2026-10-11T12:10:42.945Z",
    "sourceTitle": "Hyundai Venue",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -283084,7 +283124,7 @@
   },
   "m-dodge-attitude": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:53.022Z",
+   "checkedAt": "2026-10-11T12:10:42.950Z",
    "sourceTitle": "Dodge Attitude",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -283142,7 +283182,7 @@
   },
   "m-hyundai-creta": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:53.026Z",
+   "checkedAt": "2026-10-11T12:10:42.953Z",
    "sourceTitle": "Hyundai Creta",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -283183,7 +283223,7 @@
   },
   "m-hyundai-bayon": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:53.030Z",
+   "checkedAt": "2026-10-11T12:10:42.958Z",
    "sourceTitle": "Hyundai Bayon",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -283227,7 +283267,7 @@
   },
   "m-fiat-132": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:53.034Z",
+   "checkedAt": "2026-10-11T12:10:42.962Z",
    "sourceTitle": "Fiat 132",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -283275,7 +283315,7 @@
   },
   "m-mitsubishi-mirage": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:53.057Z",
+   "checkedAt": "2026-10-11T12:10:42.986Z",
    "sourceTitle": "Mitsubishi Mirage",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -283420,7 +283460,7 @@
   },
   "m-proton-putra": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:53.059Z",
+   "checkedAt": "2026-10-11T12:10:42.988Z",
    "sourceTitle": "Proton Putra",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -283455,7 +283495,7 @@
   },
   "m-mitsubishi-sigma": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:53.066Z",
+   "checkedAt": "2026-10-11T12:10:42.996Z",
    "sourceTitle": "Mitsubishi Sigma",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -283533,7 +283573,7 @@
   },
   "m-mitsubishi-380": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:53.071Z",
+   "checkedAt": "2026-10-11T12:10:43.001Z",
    "sourceTitle": "Mitsubishi 380",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -283585,7 +283625,7 @@
   },
   "m-mitsubishi-savrin": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:53.074Z",
+   "checkedAt": "2026-10-11T12:10:43.004Z",
    "sourceTitle": "Mitsubishi Savrin",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -283621,7 +283661,7 @@
   },
   "m-hyundai-trajet": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:53.079Z",
+   "checkedAt": "2026-10-11T12:10:43.009Z",
    "sourceTitle": "Hyundai Trajet",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -283672,7 +283712,7 @@
   },
   "m-renault-captur": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:53.094Z",
+   "checkedAt": "2026-10-11T12:10:43.025Z",
    "sourceTitle": "Renault Captur",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -283766,7 +283806,7 @@
   },
   "m-trumpchi-ga6": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:53.096Z",
+   "checkedAt": "2026-10-11T12:10:43.027Z",
    "sourceTitle": "Trumpchi GA6",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -283797,7 +283837,7 @@
   },
   "m-ford-ranger": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:53.104Z",
+   "checkedAt": "2026-10-11T12:10:43.035Z",
    "sourceTitle": "Ford Ranger",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -283862,7 +283902,7 @@
   },
   "m-ford-everest": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:53.113Z",
+   "checkedAt": "2026-10-11T12:10:43.045Z",
    "sourceTitle": "Ford Everest",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -283936,7 +283976,7 @@
   },
   "m-seat-600": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:53.122Z",
+   "checkedAt": "2026-10-11T12:10:43.055Z",
    "sourceTitle": "SEAT 600",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -284027,7 +284067,7 @@
   },
   "m-hyundai-veloster": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:53.128Z",
+   "checkedAt": "2026-10-11T12:10:43.060Z",
    "sourceTitle": "Hyundai Veloster",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -284076,7 +284116,7 @@
   },
   "m-kia-kx3": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:53.134Z",
+   "checkedAt": "2026-10-11T12:10:43.067Z",
    "sourceTitle": "Kia KX3",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -284127,7 +284167,7 @@
   },
   "m-kia-seltos": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:53.142Z",
+   "checkedAt": "2026-10-11T12:10:43.075Z",
    "sourceTitle": "Kia Seltos",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -284201,7 +284241,7 @@
   },
   "m-kia-carens": {
    "status": "none",
-   "checkedAt": "2026-10-11T10:23:53.147Z",
+   "checkedAt": "2026-10-11T12:10:43.080Z",
    "sourceTitle": "Kia Carens",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -284818,7 +284858,8 @@
   "resolved:llm-m-chevrolet-chevelle-first-generation|llm-related-acadian-automobile|platform": true,
   "resolved:llm-m-chevrolet-chevelle-second-generation|llm-related-acadian-automobile|platform": true,
   "resolved:llm-m-chevrolet-chevy-ii-nova-first-generation-1962-1965|llm-related-acadian-automobile|platform": true,
-  "resolved:llm-m-chevrolet-chevy-ii-nova-second-generation-1966-1967|llm-related-acadian-automobile|platform": true
+  "resolved:llm-m-chevrolet-chevy-ii-nova-second-generation-1966-1967|llm-related-acadian-automobile|platform": true,
+  "none:m-goggomobil-dart": true
  },
  "mintedFacts": {
   "llm-related-pontiac-series-603": {
@@ -290671,7 +290712,7 @@
     "eng-chevrolet-small-block",
     "eng-chevrolet-small-block-engine-1954-2003"
    ],
-   "mergedAt": "2026-10-11T10:24:18.035Z"
+   "mergedAt": "2026-10-11T12:10:43.345Z"
   },
   "eng-g161z": {
    "memberIds": [
@@ -290915,7 +290956,7 @@
    "memberIds": [
     "eng-chevrolet-2300"
    ],
-   "mergedAt": "2026-10-11T10:23:53.532Z"
+   "mergedAt": "2026-10-11T12:10:43.480Z"
   },
   "eng-fox": {
    "memberIds": [
@@ -290992,7 +291033,7 @@
     "eng-mercedes-benz-m176",
     "eng-m177"
    ],
-   "mergedAt": "2026-10-11T10:23:53.674Z"
+   "mergedAt": "2026-10-11T12:10:43.631Z"
   }
  },
  "engineScans": {
@@ -300562,7 +300603,8 @@
     }
    ],
    "unlinked": [],
-   "v": 5
+   "v": 0,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-chevrolet-malibu-second-generation-chevelle-malibu": {
    "checkedAt": "2026-10-11T10:24:17.969Z",
@@ -300683,7 +300725,8 @@
     }
    ],
    "unlinked": [],
-   "v": 5
+   "v": 0,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-chevrolet-malibu-third-generation-chevelle-malibu": {
    "checkedAt": "2026-10-11T10:24:17.993Z",
@@ -300759,7 +300802,8 @@
     }
    ],
    "unlinked": [],
-   "v": 5
+   "v": 0,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-chevrolet-malibu-fourth-generation": {
    "checkedAt": "2026-10-11T10:24:18.015Z",
@@ -313472,7 +313516,8 @@
     }
    ],
    "unlinked": [],
-   "v": 5
+   "v": 0,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-geo-metro-second-generation": {
    "checkedAt": "2026-10-11T10:24:27.890Z",
@@ -313640,7 +313685,8 @@
     }
    ],
    "unlinked": [],
-   "v": 5
+   "v": 0,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-holden-barina-mb-ml": {
    "checkedAt": "2026-10-11T10:24:28.697Z",
@@ -314863,7 +314909,8 @@
     }
    ],
    "unlinked": [],
-   "v": 5
+   "v": 0,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-suzuki-celerio-second-generation-fe": {
    "checkedAt": "2026-10-11T00:07:29.554Z",
@@ -314952,7 +314999,8 @@
     }
    ],
    "unlinked": [],
-   "v": 5
+   "v": 0,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-suzuki-sx4-gy-ey-rw": {
    "checkedAt": "2026-10-11T00:07:49.043Z",
@@ -315929,7 +315977,8 @@
     }
    ],
    "unlinked": [],
-   "v": 5
+   "v": 0,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-suzuki-xl-7-second-generation": {
    "checkedAt": "2026-10-11T00:08:01.660Z",
@@ -316268,7 +316317,8 @@
     }
    ],
    "unlinked": [],
-   "v": 5
+   "v": 0,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-toyota-aqua-xp210": {
    "checkedAt": "2026-10-11T00:08:11.516Z",
@@ -317583,7 +317633,8 @@
      "said": "2.4 L I4 (Brazil)"
     }
    ],
-   "v": 5
+   "v": 0,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-vauxhall-astra-astra-j": {
    "checkedAt": "2026-10-11T00:09:55.282Z",
@@ -317669,7 +317720,8 @@
     }
    ],
    "unlinked": [],
-   "v": 5
+   "v": 0,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-daewoo-lemans-first-generation-lemans": {
    "checkedAt": "2026-10-10T23:59:23.209Z",
@@ -324370,7 +324422,8 @@
     }
    ],
    "unlinked": [],
-   "v": 5
+   "v": 0,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-toyota-yaris-xp90": {
    "checkedAt": "2026-10-11T10:24:14.871Z",
@@ -324487,7 +324540,8 @@
     }
    ],
    "unlinked": [],
-   "v": 5
+   "v": 0,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-toyota-yaris-xp130-xp150": {
    "checkedAt": "2026-09-21T13:48:05.149Z",
@@ -324724,7 +324778,8 @@
     }
    ],
    "unlinked": [],
-   "v": 5
+   "v": 0,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-toyota-yaris-ac100": {
    "checkedAt": "2026-10-11T10:24:15.391Z",
@@ -324769,7 +324824,8 @@
     }
    ],
    "unlinked": [],
-   "v": 5
+   "v": 0,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-austin-mini-mark-i": {
    "checkedAt": "2026-10-10T23:55:35.439Z",
@@ -329783,7 +329839,8 @@
     }
    ],
    "unlinked": [],
-   "v": 5
+   "v": 0,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-nissan-sunny-n17": {
    "checkedAt": "2026-10-11T10:24:43.674Z",
@@ -329852,7 +329909,8 @@
     }
    ],
    "unlinked": [],
-   "v": 5
+   "v": 0,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-nissan-sunny-n18": {
    "checkedAt": "2026-10-11T10:24:43.720Z",
@@ -329898,7 +329956,8 @@
     }
    ],
    "unlinked": [],
-   "v": 5
+   "v": 0,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-nissan-nx-b13": {
    "checkedAt": "2026-10-11T00:04:22.844Z",
@@ -330474,7 +330533,8 @@
     }
    ],
    "unlinked": [],
-   "v": 5
+   "v": 0,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-daewoo-lacetti-j200": {
    "checkedAt": "2026-10-10T23:59:20.546Z",
@@ -330715,7 +330775,8 @@
     }
    ],
    "unlinked": [],
-   "v": 5
+   "v": 0,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-peugeot-408-saloon-t7": {
    "checkedAt": "2026-10-11T00:06:05.122Z",
@@ -332852,7 +332913,8 @@
     }
    ],
    "unlinked": [],
-   "v": 5
+   "v": 0,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-toyota-auris-e150": {
    "checkedAt": "2026-10-11T00:08:12.920Z",
@@ -343086,7 +343148,8 @@
     }
    ],
    "unlinked": [],
-   "v": 5
+   "v": 0,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-daihatsu-boon-m300-ac10": {
    "checkedAt": "2026-10-10T23:59:31.502Z",
@@ -349438,7 +349501,8 @@
     }
    ],
    "unlinked": [],
-   "v": 5
+   "v": 0,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-nissan-teana-l34": {
    "checkedAt": "2026-10-11T10:24:46.161Z",
@@ -349486,7 +349550,8 @@
     }
    ],
    "unlinked": [],
-   "v": 5
+   "v": 0,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-nissan-violet-710-series": {
    "checkedAt": "2026-10-11T00:04:55.143Z",
@@ -352532,7 +352597,8 @@
     }
    ],
    "unlinked": [],
-   "v": 5
+   "v": 0,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-toyota-succeed-xp160": {
    "checkedAt": "2026-10-11T10:25:08.911Z",
@@ -352578,7 +352644,8 @@
     }
    ],
    "unlinked": [],
-   "v": 5
+   "v": 0,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-volvo-s60-first-generation": {
    "checkedAt": "2026-10-11T00:10:17.433Z",
@@ -355950,7 +356017,8 @@
     }
    ],
    "unlinked": [],
-   "v": 5
+   "v": 0,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-toyota-vios-xp150": {
    "checkedAt": "2026-10-11T00:09:41.513Z",
@@ -358263,7 +358331,8 @@
     }
    ],
    "unlinked": [],
-   "v": 5
+   "v": 0,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-nissan-sylphy-b18": {
    "checkedAt": "2026-10-11T10:24:44.816Z",
@@ -358308,7 +358377,8 @@
     }
    ],
    "unlinked": [],
-   "v": 5
+   "v": 0,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-nissan-sylphy-b19": {
    "checkedAt": "2026-10-11T10:24:44.841Z",
@@ -358339,7 +358409,8 @@
     }
    ],
    "unlinked": [],
-   "v": 5
+   "v": 0,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-llm-related-mercedes-benz-b-class-w247-w245": {
    "checkedAt": "2026-09-22T12:20:23.381Z",
@@ -360019,7 +360090,8 @@
     }
    ],
    "unlinked": [],
-   "v": 5
+   "v": 0,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-nissan-cherry-n12": {
    "checkedAt": "2026-10-11T00:04:12.836Z",
@@ -399214,7 +399286,8 @@
     }
    ],
    "unlinked": [],
-   "v": 5
+   "v": 0,
+   "staleReason": "read a page that covers several cars"
   },
   "m-jeep-grand-cherokee-wk2": {
    "checkedAt": "2026-10-11T10:25:25.962Z",
@@ -399285,7 +399358,8 @@
     }
    ],
    "unlinked": [],
-   "v": 5
+   "v": 0,
+   "staleReason": "read a page that covers several cars"
   },
   "m-jeep-liberty-kj": {
    "checkedAt": "2026-10-11T00:13:14.608Z",
@@ -408082,7 +408156,8 @@
     }
    ],
    "unlinked": [],
-   "v": 5
+   "v": 0,
+   "staleReason": "read a page that covers several cars"
   },
   "m-volkswagen-passat-b4": {
    "checkedAt": "2026-10-11T10:25:31.375Z",
@@ -408211,7 +408286,8 @@
     }
    ],
    "unlinked": [],
-   "v": 5
+   "v": 0,
+   "staleReason": "read a page that covers several cars"
   },
   "m-volkswagen-passat-b5": {
    "checkedAt": "2026-10-11T00:14:41.402Z",
@@ -415128,7 +415204,8 @@
      "said": "2.6&nbsp;L Dual Ram Inline 6 (Export Only)"
     }
    ],
-   "v": 5
+   "v": 0,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-holden-special-vehicles-vs": {
    "checkedAt": "2026-10-11T10:24:30.431Z",
@@ -415167,7 +415244,8 @@
      "said": "2.6&nbsp;L Dual Ram Inline 6 (Export Only)"
     }
    ],
-   "v": 5
+   "v": 0,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-holden-special-vehicles-vt": {
    "checkedAt": "2026-10-11T00:01:35.179Z",
@@ -420731,7 +420809,8 @@
     }
    ],
    "unlinked": [],
-   "v": 5
+   "v": 0,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-toyota-crown-s150": {
    "checkedAt": "2026-10-11T10:25:03.076Z",
@@ -420820,7 +420899,8 @@
     }
    ],
    "unlinked": [],
-   "v": 5
+   "v": 0,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-toyota-crown-s170": {
    "checkedAt": "2026-10-11T10:25:03.299Z",
@@ -420921,7 +421001,8 @@
     }
    ],
    "unlinked": [],
-   "v": 5
+   "v": 0,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-toyota-crown-s180": {
    "checkedAt": "2026-10-11T10:25:04.311Z",
@@ -421020,7 +421101,8 @@
     }
    ],
    "unlinked": [],
-   "v": 5
+   "v": 0,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-toyota-crown-s200": {
    "checkedAt": "2026-10-11T10:25:04.628Z",
@@ -421166,7 +421248,8 @@
     }
    ],
    "unlinked": [],
-   "v": 5
+   "v": 0,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-toyota-crown-s210": {
    "checkedAt": "2026-10-11T10:25:05.030Z",
@@ -421256,7 +421339,8 @@
     }
    ],
    "unlinked": [],
-   "v": 5
+   "v": 0,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-toyota-crown-s220": {
    "checkedAt": "2026-10-11T00:08:45.868Z",
@@ -429711,7 +429795,8 @@
     }
    ],
    "unlinked": [],
-   "v": 5
+   "v": 0,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-toyota-corona-exiv-t200": {
    "checkedAt": "2026-10-11T10:25:01.434Z",
@@ -430210,7 +430295,8 @@
      "said": "2.5 L MA2.22 turbo flat-4"
     }
    ],
-   "v": 5
+   "v": 0,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-related-volkswagen-group-mmb": {
    "checkedAt": "2026-10-10T11:38:23.473Z",
@@ -430420,7 +430506,8 @@
      "said": "3.3&nbsp;L air-cooled turbo H6"
     }
    ],
-   "v": 5
+   "v": 0,
+   "staleReason": "read a page that covers several cars"
   },
   "m-porsche-911-993": {
    "checkedAt": "2026-10-10T12:29:44.336Z",
@@ -430488,7 +430575,8 @@
     }
    ],
    "unlinked": [],
-   "v": 5
+   "v": 0,
+   "staleReason": "read a page that covers several cars"
   },
   "m-porsche-911-997": {
    "checkedAt": "2026-10-10T12:29:45.220Z",
@@ -430602,7 +430690,8 @@
     }
    ],
    "unlinked": [],
-   "v": 5
+   "v": 0,
+   "staleReason": "read a page that covers several cars"
   },
   "m-porsche-918-spyder": {
    "checkedAt": "2026-10-10T12:30:04.446Z",
@@ -433996,7 +434085,8 @@
      "said": "1.6&nbsp;L EA113 I4"
     }
    ],
-   "v": 5
+   "v": 0,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-volkswagen-jetta-china-jetta-pioneer-a2": {
    "checkedAt": "2026-10-11T10:25:20.019Z",
@@ -434026,7 +434116,8 @@
      "said": "1.6&nbsp;L EA113 I4"
     }
    ],
-   "v": 5
+   "v": 0,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-volkswagen-jetta-china-new-jetta-a05": {
    "checkedAt": "2026-10-10T13:19:35.519Z",
@@ -435292,7 +435383,8 @@
      "said": "1.9 L I4 SDI (diesel)"
     }
    ],
-   "v": 5
+   "v": 0,
+   "staleReason": "read a page that covers several cars"
   },
   "m-volkswagen-jetta-a5": {
    "checkedAt": "2026-10-10T13:29:36.359Z",
@@ -436424,7 +436516,8 @@
      "said": "1.8&nbsp;L EA113 turbo I4"
     }
    ],
-   "v": 5
+   "v": 0,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-volkswagen-bora-china-second-generation": {
    "checkedAt": "2026-10-11T10:25:18.684Z",
@@ -436546,7 +436639,8 @@
      "said": "2.0 L EA113 I4 (petrol)"
     }
    ],
-   "v": 5
+   "v": 0,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-volkswagen-bora-china-third-generation": {
    "checkedAt": "2026-10-11T10:25:18.706Z",
@@ -436673,7 +436767,8 @@
      "said": "1.9 L I4 SDI (diesel)"
     }
    ],
-   "v": 5
+   "v": 0,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-volkswagen-bora-china-fourth-generation": {
    "checkedAt": "2026-10-11T10:25:18.724Z",
@@ -436790,7 +436885,8 @@
      "said": "1.9 L I4 SDI (diesel)"
     }
    ],
-   "v": 5
+   "v": 0,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-volkswagen-type-3-type-3": {
    "checkedAt": "2026-10-10T13:47:44.853Z",
@@ -436880,7 +436976,8 @@
      "said": "1,798 cc I4 (South America)"
     }
    ],
-   "v": 5
+   "v": 0,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-related-plymouth-cricket": {
    "checkedAt": "2026-10-10T13:48:34.379Z",
@@ -440592,7 +440689,8 @@
     }
    ],
    "unlinked": [],
-   "v": 5
+   "v": 0,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-hyundai-santro-ah2": {
    "checkedAt": "2026-10-10T14:19:17.235Z",
@@ -450654,7 +450752,8 @@
     }
    ],
    "unlinked": [],
-   "v": 5
+   "v": 0,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-mitsubishi-lancer-evolution-first-generation": {
    "checkedAt": "2026-10-10T15:46:31.120Z",
@@ -451082,7 +451181,8 @@
     }
    ],
    "unlinked": [],
-   "v": 5
+   "v": 0,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-mitsubishi-galant-gto-mitsubishi-gto-3000gt": {
    "checkedAt": "2026-10-10T15:48:42.369Z",
@@ -454259,7 +454359,8 @@
     }
    ],
    "unlinked": [],
-   "v": 5
+   "v": 0,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-dodge-attitude-rb": {
    "checkedAt": "2026-10-11T10:24:24.025Z",
@@ -454352,7 +454453,8 @@
     }
    ],
    "unlinked": [],
-   "v": 5
+   "v": 0,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-dodge-attitude-a10": {
    "checkedAt": "2026-10-11T10:24:24.478Z",
@@ -454385,7 +454487,8 @@
     }
    ],
    "unlinked": [],
-   "v": 5
+   "v": 0,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-dodge-attitude-gac-empow": {
    "checkedAt": "2026-10-10T16:10:12.299Z",
