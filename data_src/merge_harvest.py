@@ -690,6 +690,36 @@ for t, rec in by_title.items():
         if a != b and p not in seen_pairs:
             seen_pairs.add(p); RELATED.append(p)
 
+# A pair is whatever the FIRST row to mention it called it. Inside one row
+# succession is read before "related", so there it wins -- but across rows it
+# did not: if X's row came first and listed Y as merely related, Y's own
+# statement further down that it succeeded X was thrown away. Which of the two
+# a pair became depended on the order of the harvest file.
+#
+# So the pairs that came out "related" are looked at once more, and one that
+# some row calls a succession becomes one -- provided it can be: a car does not
+# succeed one that began after it. "E-Class (W124) -> E-Class" is the claim
+# that test is for. The bare 'E-Class' article is dated 1953, the start of the
+# whole line, and as a successor of the 1984 W124 it would be read as a
+# generation of its own nameplate, older than every real one. A claim like
+# that stays "related", which is what it was.
+year_of_ref = {title_to_ref[t][1]: rec["y"] for t, rec in by_title.items() if t in title_to_ref}
+related_pairs = set(RELATED)
+promoted = {}
+for t, rec in by_title.items():
+    if t not in title_to_ref: continue
+    a = title_to_ref[t][1]
+    claims = [(a, b) for b in refs_of(rec["ss"])] + [(b, a) for b in refs_of(rec["pp"])]
+    for (pred, succ) in claims:
+        p = tuple(sorted((pred, succ)))
+        if pred == succ or p not in related_pairs or p in promoted: continue
+        y0, y1 = year_of_ref.get(pred), year_of_ref.get(succ)
+        if y0 is not None and y1 is not None and y1 < y0: continue
+        promoted[p] = (pred, succ)
+if promoted:
+    RELATED = [p for p in RELATED if p not in promoted]
+    SUCCESSION.extend(promoted.values())
+
 # country fixes for auto-registered makes the harvest couldn't resolve
 COUNTRY_FIX = {
  "Baojun":"China","Trumpchi":"China","Aeolus":"China","Forthing":"China","Beijing":"China",

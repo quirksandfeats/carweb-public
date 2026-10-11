@@ -14,6 +14,21 @@
 //    its own read is not replayed; a fresh read retires the variants it no
 //    longer lists; and a single-code engine merged into the page that names
 //    it becomes THAT code's variant, not a second one beside it.
+//
+// 3. "I would like to resolve redirects and merge automatically. But ...
+//    engines like the 'M177 Evo' are truly different enginevars of that
+//    family, so this is EXTREMELY important to keep. In any case, if the
+//    engine has any different text than the other engines on the list, then
+//    it's very likely that they are indeed different engines."
+//    Two engine nodes that are one article are merged, and what the one
+//    folded in becomes is decided by its name: the same name is the same
+//    engine, any other name is a variant kept under that name.
+//
+// 4. A re-check of the Mercedes-Benz C-Class came back with the W201 as its
+//    first generation. "If the wikipedia page mentions that the W201 is a
+//    predecessor, then that's what we should prioritize. Wikipedia will state
+//    this." A car the article files under "Predecessor models", or names as
+//    the predecessor in the nameplate's own infobox, is not a generation.
 const { JSDOM } = require("jsdom");
 const fs = require("fs");
 const path = require("path");
@@ -29,11 +44,28 @@ function load(store) {
     { url: "http://localhost:8077/index.html", runScripts: "outside-only" });
   const w = dom.window;
   w.LLM_FAMILIES = store || {};
-  w.fetch = () => Promise.resolve({ ok: true, json: async () => ({}), text: async () => "" });
+  // The only network there is: Wikipedia's answer to "which of these titles
+  // are redirects", from the table a section sets.
+  w.fetch = url => {
+    const u = String(url);
+    if (/action=query&redirects=1/.test(u)) {
+      const titles = decodeURIComponent(u.split("titles=")[1] || "").split("|");
+      return Promise.resolve({ ok: true, json: async () => ({ query: {
+        redirects: titles.filter(t => REDIRECTS[t]).map(t => ({ from: t, to: REDIRECTS[t] })) } }) });
+    }
+    const page = u.match(/[?&]page=([^&]+)/);
+    if (page && ARTICLES[decodeURIComponent(page[1]).replace(/_/g, " ")]) {
+      const title = decodeURIComponent(page[1]).replace(/_/g, " ");
+      return Promise.resolve({ ok: true, json: async () => ({ parse: { title, wikitext: { "*": ARTICLES[title] } } }) });
+    }
+    return Promise.resolve({ ok: true, json: async () => ({ ok: true }), text: async () => "" });
+  };
   w.eval(fs.readFileSync(path.join(APP, "llm_families.js"), "utf-8"));
   return w.LlmFamilies;
 }
 const idOf = v => (typeof v === "string" ? v : v.id);
+let REDIRECTS = {};
+const ARTICLES = {};
 
 // ---------- 1. nothing is related to itself ----------
 {
@@ -95,13 +127,13 @@ const idOf = v => (typeof v === "string" ? v : v.id);
   const byId = new Map(nodes.map(n => [n.id, n]));
   const page = byId.get(PAGE);
   const vars = nodes.filter(n => n.type === "enginevar" && !n.retired && n.engineOf === PAGE).map(n => n.label).sort();
-  check("the page is one engine with one variant per code, once each",
-    JSON.stringify(vars) === JSON.stringify(["M176", "M177", "M178"]), vars.join(", "));
+  check("the page is one engine with one variant per code, once each -- and the M177 Evo, which is its own",
+    JSON.stringify(vars) === JSON.stringify(["M176", "M177", "M177 Evo", "M178"]), vars.join(", "));
   const liveEngines = nodes.filter(n => n.type === "engine" && !n.retired).map(n => n.id);
   check("...and no second engine node beside it", JSON.stringify(liveEngines) === JSON.stringify([PAGE]), liveEngines.join(", "));
   const on = car => links.filter(l => l.type === "fitted" && !l.retired && (idOf(l.source) === car || idOf(l.target) === car))
     .map(l => (byId.get(idOf(l.source) === car ? idOf(l.target) : idOf(l.source)) || {}).label);
-  check("a car whose link named the M177 is on the M177", JSON.stringify(on("car-a")) === JSON.stringify(["M177"]), on("car-a").join(", "));
+  check("a car whose link called it the M177 Evo is on the M177 Evo", JSON.stringify(on("car-a")) === JSON.stringify(["M177 Evo"]), on("car-a").join(", "));
   check("a car that linked the M178's title but SAID M177 is on the M177", JSON.stringify(on("car-b")) === JSON.stringify(["M177"]), on("car-b").join(", "));
   check("a car that said M178 is on the M178", JSON.stringify(on("car-c")) === JSON.stringify(["M178"]), on("car-c").join(", "));
   check("the engine's card has a read to show", !!LF.engineEntryFor(PAGE));
@@ -131,5 +163,120 @@ const idOf = v => (typeof v === "string" ? v : v.id);
     lines("car-2").length === 2, lines("car-2").join(" | "));
 }
 
-console.log("\n" + (fails === 0 ? "ALL GREEN" : fails + " FAILURE(S)"));
-process.exit(fails === 0 ? 0 : 1);
+// ---------- 4. one article under two titles ----------
+(async () => {
+  const store = {
+    __serverAvailable: true,
+    engineScans: {
+      "car-1": { status: "confirmed", v: 99, engines: [
+        { title: "GM Family 1 engine", name: "Family 1", said: "1.6 L Family 1 I4", specs: { displacement: "1.6 L" } },
+        { title: "Family 1 engine", name: "Family 1", said: "1.4 L Family 1 I4", specs: { displacement: "1.4 L" } },
+        { title: "X14XE", name: "X14XE", said: "1.4 L X14XE I4", specs: { displacement: "1.4 L" } },
+        { title: "BMW B58", name: "B58", said: "3.0 L B58 I6", specs: { displacement: "3.0 L" } },
+        { title: "BMW S58", name: "S58", said: "3.0 L S58 I6", specs: { displacement: "3.0 L" } },
+        { title: "Honda K engine", name: "Honda K", said: "2.0 L K20 I4", specs: { displacement: "2.0 L" } },
+      ] },
+    },
+  };
+  const LF = load(store);
+  const nodes = [{ id: "car-1", type: "model", label: "One", make: "M", year: 2020 }];
+  const links = [];
+  LF.applyEngineMentions(nodes, links);
+  const liveEngines = () => nodes.filter(n => n.type === "engine" && !n.retired).map(n => n.label).sort();
+  check("(precondition) with no redirect known, each title is its own engine", liveEngines().length === 6, liveEngines().join(", "));
+
+  REDIRECTS = { "Family 1 engine": "GM Family 1 engine", "X14XE": "GM Family 1 engine", "BMW S58": "BMW B58" };
+  const res = await LF.resolveEngineTitleRedirects(nodes, links);
+  check("the redirects are learned from one cheap question", res.learned === 3 && res.asked === 6, JSON.stringify(res));
+  check("three nodes are left, one per article", liveEngines().length === 3, liveEngines().join(", "));
+  const fam1 = nodes.filter(n => n.type === "engine" && !n.retired && /Family 1/.test(n.label));
+  check("an engine under another spelling of its name is the same engine -- one node, on the article's own title, and no variant",
+    fam1.length === 1 && fam1[0].id === "eng-gm-family-1" &&
+    !nodes.some(n => n.type === "enginevar" && !n.retired && /Family 1/.test(n.label)),
+    fam1.map(n => n.id).join(", "));
+  const variantsOf = id => nodes.filter(n => n.type === "enginevar" && !n.retired && n.engineOf === id).map(n => n.label).sort();
+  check("an engine with a name of its own is kept, as a variant under that name (X14XE)",
+    JSON.stringify(variantsOf("eng-gm-family-1")) === JSON.stringify(["X14XE"]), variantsOf("eng-gm-family-1").join(", "));
+  check("...and so is the S58 on the B58's page",
+    JSON.stringify(variantsOf("eng-bmw-b58")) === JSON.stringify(["S58"]), variantsOf("eng-bmw-b58").join(", "));
+  const byId = new Map(nodes.map(n => [n.id, n]));
+  const lines = links.filter(l => l.type === "fitted" && !l.retired)
+    .map(l => (byId.get(idOf(l.source)) || {}).label + " :: " + l.saidText).sort();
+  check("no line of the car's is lost by any of it", lines.length === 6, lines.join(" | "));
+  check("...the two Family 1 lines on the one engine, the X14XE on its variant",
+    lines.some(x => / :: 1\.6 L Family 1 I4$/.test(x) && !/^X14XE/.test(x)) &&
+    lines.some(x => / :: 1\.4 L Family 1 I4$/.test(x) && !/^X14XE/.test(x)) &&
+    lines.includes("X14XE :: 1.4 L X14XE I4"), lines.join(" | "));
+  const again = await LF.resolveEngineTitleRedirects(nodes, links);
+  check("a title is asked about once", again.asked === 0, JSON.stringify(again));
+
+  // ---------- 5. what the article calls a predecessor ----------
+  const body = (code, y) => `The ${code} was introduced in ${y}. `.repeat(12);
+  ARTICLES["Testmarque Cee"] = `{{Infobox automobile
+| name = Testmarque Cee
+| production = 1992-present
+| predecessor = [[Testmarque P201|Testmarque 190 (P201)]]
+}}
+The Testmarque Cee replaced the 190 (P201) range in 1992.
+
+== Predecessor models ==
+=== P201 (1982) ===
+{{Infobox automobile
+| name = P201
+| production = 1982-1993
+}}
+${body("P201", 1982)}
+
+== First generation (C202; 1992) ==
+${body("C202", 1992)}
+
+== Second generation (C203; 2000) ==
+${body("C203", 2000)}
+`;
+  ARTICLES["Testmarque Dee"] = `{{Infobox automobile
+| name = Testmarque Dee
+| predecessor = [[Testmarque Q9]]
+}}
+The Testmarque Dee followed the Q9.
+
+== Q9 (1970) ==
+${body("Q9", 1970)}
+
+== D1 (1980) ==
+${body("D1", 1980)}
+
+== D2 (1990) ==
+${body("D2", 1990)}
+`;
+  ARTICLES["Testmarque Eee"] = `{{Infobox automobile
+| name = Second generation (E2)
+| production = 2010-present
+| predecessor = Testmarque Eee (E1)
+}}
+The Testmarque Eee is in its second generation.
+
+== E1 (2000) ==
+${body("E1", 2000)}
+
+== E2 (2010) ==
+${body("E2", 2010)}
+`;
+  const gen = (code, y0) => ({ code, yearStart: y0, yearEnd: null, designers: [], engineers: [], sharedPlatforms: [] });
+  const LF2 = load({ __serverAvailable: true });
+  const run = async (wp, gens) => (await LF2.previewNodeResult({ id: "m-" + wp, type: "model", label: wp, make: "Testmarque", wp }, { hasMultipleGenerations: true, generations: gens })).clean;
+  const cee = await run("Testmarque Cee", [gen("P201", 1982), gen("C202", 1992), gen("C203", 2000)]);
+  check("a car filed under 'Predecessor models' is not a generation",
+    JSON.stringify(cee.generations.map(g => g.code)) === JSON.stringify(["C202", "C203"]), cee.generations.map(g => g.code).join(", "));
+  check("...and the result says why it was set aside",
+    (cee.predecessors || []).length === 1 && cee.predecessors[0].code === "P201" && /Predecessor models/.test(cee.predecessors[0].why),
+    JSON.stringify(cee.predecessors));
+  const dee = await run("Testmarque Dee", [gen("Q9", 1970), gen("D1", 1980), gen("D2", 1990)]);
+  check("nor is the oldest entry when the nameplate's own infobox names it as the predecessor",
+    JSON.stringify(dee.generations.map(g => g.code)) === JSON.stringify(["D1", "D2"]), dee.generations.map(g => g.code).join(", "));
+  const eee = await run("Testmarque Eee", [gen("E1", 2000), gen("E2", 2010)]);
+  check("a GENERATION's own infobox naming the generation before it changes nothing",
+    JSON.stringify(eee.generations.map(g => g.code)) === JSON.stringify(["E1", "E2"]), eee.generations.map(g => g.code).join(", "));
+
+  console.log("\n" + (fails === 0 ? "ALL GREEN" : fails + " FAILURE(S)"));
+  process.exit(fails === 0 ? 0 : 1);
+})();

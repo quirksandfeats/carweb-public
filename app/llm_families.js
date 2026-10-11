@@ -2132,7 +2132,13 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
     // 2018 car -- claimed a photo on its way past and left the real generation
     // behind it with nothing, even though the entry itself was merged away
     // moments later. Photos belong to generations that actually exist.
-    const settled = reconcileRepeatedCodes(gens);
+    const reconciled = reconcileRepeatedCodes(gens);
+    // What the article itself calls a predecessor is not a generation of this
+    // nameplate, however fully the article describes it. See
+    // predecessorsStatedBy.
+    const stated = predecessorsStatedBy(wikitext, reconciled);
+    const settled = stated.size && stated.size < reconciled.length
+      ? reconciled.filter(g => !stated.has(g)) : reconciled;
     const seenCodes = new Map();
     settled.forEach(g => {
       // Which section this generation is: when an article names one code in
@@ -2148,7 +2154,65 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
       g.wikiFile = wikiFile;
       delete g.anchor;
     });
-    return { hasMultipleGenerations: settled.length > 1, generations: settled };
+    const out = { hasMultipleGenerations: settled.length > 1, generations: settled };
+    if (settled !== reconciled) {
+      out.predecessors = reconciled.filter(g => stated.has(g)).map(g => ({ code: g.code, why: stated.get(g) }));
+    }
+    return out;
+  }
+
+  // ---------- a predecessor is not a generation ----------
+  // Real user report: a re-check of the Mercedes-Benz C-Class came back with
+  // the W201 as its first generation, and the 190E -- which IS the W201 -- was
+  // then in the graph twice. Real user rule: "If the wikipedia page mentions
+  // that the W201 is a predecessor, then that's what we should prioritize.
+  // Wikipedia will state this."
+  //
+  // It does, twice over. The article's own infobox says "predecessor =
+  // Mercedes-Benz 190 E (W201)", and the W201's section sits under a heading
+  // called "Predecessor models". The model read a section with a code, a
+  // year and an infobox of its own and took it for a generation; both of
+  // these are the article saying otherwise, and either one is enough.
+  //
+  // The infobox half is only believed when the infobox is the NAMEPLATE's --
+  // not one generation's own card that happens to come first, whose
+  // predecessor is simply the generation before it -- and only for the
+  // oldest entry on the list, the one place a predecessor can be.
+  const PREDECESSOR_HEADING_RE = /^(?:predecessors?(?:\s+models?)?|forerunners?|precursors?)\b/i;
+  function predecessorsStatedBy(wikitext, gens) {
+    const found = new Map();
+    if (!wikitext || !gens || gens.length < 2) return found;
+    const secs = wikitextSections(wikitext);
+    const codeOf = g => g.codeBase || g.code;
+    gens.forEach(g => {
+      const sec = sectionForCode(wikitext, codeOf(g));
+      if (!sec) return;
+      const over = secs.filter(p => p.level < sec.level && p.at < sec.at && p.stop >= sec.stop)
+        .sort((a, b) => b.level - a.level)[0];
+      if (over && PREDECESSOR_HEADING_RE.test(String(over.title).trim())) {
+        found.set(g, `the article files it under "${over.title}"`);
+      }
+    });
+    const firstHeading = wikitext.search(/^==[^=]/m);
+    const box = /\{\{\s*Infobox automobile[\s\S]*?\n\}\}/i.exec(wikitext);
+    if (box && (firstHeading < 0 || box.index < firstHeading)) {
+      const field = name => {
+        const m = new RegExp("\\|\\s*" + name + "\\s*=([^\\n]*(?:\\n(?!\\s*[|}])[^\\n]*)*)", "i").exec(box[0]);
+        return m ? m[1] : "";
+      };
+      const pred = field("predecessor"), name = field("name");
+      const ownCard = /generation/i.test(name) || gens.some(g => labelCarriesCode(name, codeOf(g)));
+      if (pred.trim() && !ownCard) {
+        const years = gens.map(g => g.yearStart).filter(y => y != null);
+        const oldest = years.length ? Math.min(...years) : null;
+        gens.forEach(g => {
+          if (found.has(g) || !labelCarriesCode(pred, codeOf(g))) return;
+          if (g.yearStart != null && oldest != null && g.yearStart !== oldest) return;
+          found.set(g, "the article's own infobox names it as the predecessor");
+        });
+      }
+    }
+    return found;
   }
 
   // ---------- two entries claiming the same code ----------
@@ -11834,7 +11898,7 @@ Rules:
   function retireUnlistedVariants(eng, article, nodes, links, byId) {
     const listed = new Set((article.variants || []).map(v => engineVariantIdFor(eng.id, v.code)));
     const stale = (eng.variants || []).map(id => byId.get(id))
-      .filter(v => v && !v.retired && v.engineOf === eng.id && !v.fromMergedEngine && !listed.has(v.id));
+      .filter(v => v && !v.retired && v.engineOf === eng.id && !v.fromMergedEngine && !v.namedByCar && !listed.has(v.id));
     if (!stale.length) return 0;
     const gone = new Set(stale.map(v => v.id));
     for (const l of links) {
@@ -12029,19 +12093,56 @@ Rules:
   // Deliberately conservative. A hint that matches two variants matches
   // neither, and a car whose line said nothing distinguishing stays where it
   // is rather than being assigned to the first plausible variant.
-  // Two lines from one car to one variant: the same engine said twice, or
-  // two engines? By what they measure, not by how they are worded -- "4.0 L
-  // M177 twin-turbo V8" and "4.0 L 350-430 kW M177 V8 Biturbo" are one engine
-  // (the SL listed it twice), "1.6 L M270" and "2.0 L M270" are two. Only
-  // where neither line gives a displacement do the words decide.
+  // Two lines from one car to one variant: the same line twice, or two
+  // engines? Real user rule: "if the engine has any different text than the
+  // other engines on the list, then it's very likely that they are indeed
+  // different engines in some way shape or form." So only the same words are
+  // the same line -- "1.6 L M270" and "2.0 L M270" are two, and so are two
+  // differently worded 4.0 litres. Lines with no words at all are compared by
+  // what little they do carry.
   function sameEngineLine(a, b) {
-    const da = norm((a.saidSpecs || {}).displacement || ""), db = norm((b.saidSpecs || {}).displacement || "");
-    if (da && db) {
-      const fa = norm((a.saidSpecs || {}).fuel || ""), fb = norm((b.saidSpecs || {}).fuel || "");
-      return da === db && (!fa || !fb || fa === fb);
+    const ta = norm(a.saidText || ""), tb = norm(b.saidText || "");
+    if (ta || tb) return ta === tb;
+    return norm((a.saidSpecs || {}).displacement || "") === norm((b.saidSpecs || {}).displacement || "") &&
+           norm((a.saidSpecs || {}).fuel || "") === norm((b.saidSpecs || {}).fuel || "");
+  }
+  // ---------- one engine by two names, or two engines? ----------
+  // The same rule, for engine NAMES. When two engine nodes turn out to be one
+  // Wikipedia article (a redirect), what happens to the one folded in depends
+  // on what it was called:
+  //   * the same name, give or take the maker in front of it ("Family 1" and
+  //     "GM Family 1", "M156" and "Mercedes-Benz M156") -- one engine written
+  //     two ways, and its cars go on the engine itself;
+  //   * anything else ("S58" on the B58's page, "C16NZ" on the Family 1's,
+  //     "M177 Evo" on the M177's) -- a different name is a different engine
+  //     of that family, and it is KEPT, as a variant under its own name.
+  function engineNameKey(text) {
+    return norm(String(text || "")
+      .replace(/&deg;|\u00b0|[\s-]degrees?\b/gi, " deg ")
+      .replace(/\bgeneral motors\b/gi, "gm")
+      .replace(/\b(twelve|ten|eight|six|five|four|three|two)\b/gi,
+        w => ({ twelve: "12", ten: "10", eight: "8", six: "6", five: "5", four: "4", three: "3", two: "2" })[w.toLowerCase()])
+      .replace(/\bengines?\b/gi, " "));
+  }
+  // `long` is `short` with nothing but a maker's name in front of it.
+  function makerPrefixed(long, short) {
+    const words = String(long || "").trim().split(/\s+/);
+    const want = engineNameKey(short);
+    if (!want) return false;
+    for (let i = 1; i < words.length; i++) {
+      if (/\d/.test(words.slice(0, i).join(" "))) return false;   // a maker has no number in it
+      if (engineNameKey(words.slice(i).join(" ")) === want) return true;
     }
-    if (da || db) return false;
-    return norm(a.saidText || "") === norm(b.saidText || "");
+    return false;
+  }
+  function sameEngineText(x, y) {
+    const kx = engineNameKey(x), ky = engineNameKey(y);
+    if (!kx || !ky) return false;
+    return kx === ky || makerPrefixed(x, y) || makerPrefixed(y, x);
+  }
+  function sameEngineName(a, b) {
+    const names = n => [n.label, stripEngineSuffix(String(n.wp || "").split("#")[0])].filter(Boolean);
+    return names(a).some(x => names(b).some(y => sameEngineText(x, y)));
   }
   function bindCarsToVariants(eng, nodes, links) {
     if (!eng || !(eng.variants || []).length) return 0;
@@ -12054,6 +12155,46 @@ Rules:
       return hits.length === 1 ? hits[0] : null;
     };
     let moved = 0;
+    // First, the name the car itself used. A line whose car called the engine
+    // something MORE than one of the variants here -- "M177 Evo" where there
+    // is an M177 -- is a variant of its own under that name: a different name
+    // is a different engine. Wherever the line currently sits, on the engine
+    // or on the plainer variant, it goes there.
+    const words = t => String(t || "").trim().split(/\s+/).filter(Boolean);
+    const family = new Set([eng.id].concat(vars.map(v => v.id)));
+    for (const l of links.slice()) {
+      if (l.type !== "fitted" || l.retired || !l.saidName) continue;
+      const at = family.has(endOf(l.source)) ? endOf(l.source) : (family.has(endOf(l.target)) ? endOf(l.target) : null);
+      if (!at) continue;
+      const named = String(l.saidName).trim();
+      if (!named || named.length > 24 || words(named).length > 4 || looksLikeMeasurement(named)) continue;
+      let target = vars.find(v => engineNameKey(v.label) === engineNameKey(named)) || null;
+      if (!target) {
+        // Extends a variant's name by whole words; the longest such variant.
+        const bases = vars.filter(v => {
+          const bw = words(v.label), nw = words(named);
+          return bw.length < nw.length && bw.every((w, i) => norm(w) === norm(nw[i]));
+        }).sort((x, y) => words(y.label).length - words(x.label).length);
+        if (!bases.length) continue;
+        const id = engineVariantIdFor(eng.id, named);
+        target = byIdLocal.get(id);
+        if (!target || target.retired) {
+          if (!target) {
+            target = { id, type: "enginevar", label: named, make: eng.make || null, engineOf: eng.id,
+                       wp: eng.wp, llmGenerated: true, namedByCar: true, year: null, end: null };
+            nodes.push(target); byIdLocal.set(id, target);
+            links.push({ source: eng.id, target: id, type: "enginegen", llmGenerated: true });
+          } else continue;     // somebody deleted that variant; it stays deleted
+          if ((eng.variants || []).indexOf(id) < 0) (eng.variants = eng.variants || []).push(id);
+          vars.push(target); family.add(id);
+        }
+      }
+      if (target.id === at) continue;
+      if (endOf(l.source) === at) { l.source = target.id; if (l.sn) l.sn = target; }
+      else { l.target = target.id; if (l.tn) l.tn = target; }
+      l.boundToVariant = true;
+      moved++;
+    }
     for (const l of links) {
       if (l.type !== "fitted" || l.retired) continue;
       if (endOf(l.source) !== eng.id && endOf(l.target) !== eng.id) continue;
@@ -12255,20 +12396,34 @@ Rules:
         repeated++;
       }
     }
-    // A car on a variant is not also on the variant's engine.
-    const onVariant = new Set();
+    // A car on a variant is not also on the variant's engine -- when the line
+    // to the engine says nothing the variant's does not. That is the bare
+    // edge an article's table leaves on the family beside the one it leaves
+    // on the variant, and a line in the same words. A line to the family in
+    // words of its OWN is another engine of that family the car has (the
+    // Corolla Spacio's 3ZZ-FE and 4ZZ-FE beside its 1ZZ-FE), and it stays:
+    // different text is a different engine.
+    const onVariant = new Map();
     links.forEach(l => {
       if (l.type !== "fitted" || l.retired) return;
       const a = byIdLocal.get(endOf(l.source)), b = byIdLocal.get(endOf(l.target));
       const v = [a, b].find(n => n && n.type === "enginevar" && !n.retired), car = [a, b].find(n => n && n.type !== "enginevar" && n.type !== "engine");
-      if (v && car) onVariant.add(car.id + "|" + v.engineOf);
+      if (!v || !car) return;
+      const k = car.id + "|" + v.engineOf;
+      if (!onVariant.has(k)) onVariant.set(k, []);
+      onVariant.get(k).push(l);
     });
     for (let i = links.length - 1; i >= 0; i--) {
       const l = links[i];
       if (l.type !== "fitted" || l.retired) continue;
       const a = byIdLocal.get(endOf(l.source)), b = byIdLocal.get(endOf(l.target));
       const e = [a, b].find(n => n && n.type === "engine"), car = [a, b].find(n => n && n.type !== "enginevar" && n.type !== "engine");
-      if (e && car && onVariant.has(car.id + "|" + e.id)) { links.splice(i, 1); dropped++; }
+      if (!e || !car) continue;
+      const theirs = onVariant.get(car.id + "|" + e.id);
+      if (!theirs) continue;
+      if (l.saidText && !theirs.some(v => sameEngineLine(v, l))) continue;
+      l.retired = true;
+      links.splice(i, 1); dropped++;
     }
     if (folded) note(`powertrain: ${folded} duplicate engine variant(s) folded into the one of the same name`);
     if (dropped) note(`powertrain: ${dropped} engine-family link(s) dropped where the car is on one of its variants`);
@@ -12352,6 +12507,10 @@ Rules:
         const applied = applyEngineArticleWith(article, entry.sourceTitle, nodes, links,
           resolved, Object.assign({}, opts || {}, { id }));
         addKeptEngineLinks(entry, nodes, links);
+        // A person asked for an engine to be read: the moment to find out
+        // which of the engines in the graph are one article under two titles.
+        try { await resolveEngineTitleRedirects(nodes, links); }
+        catch (e) { console.warn("LlmFamilies: engine redirect lookup failed", e); }
         // Depth 1: every car this engine named now gets the ordinary check.
         // Opt-outable, because the boot replay and the tests have no business
         // starting a dozen model calls.
@@ -13407,7 +13566,8 @@ Rules:
     // which already works link by link.
     const engineVariantPart = l => "|" + [norm(l.variantHint || ""),
       norm((l.saidSpecs || {}).displacement || ""),
-      norm((l.saidSpecs || {}).fuel || "")].join("|");
+      norm((l.saidSpecs || {}).fuel || ""),
+      norm(l.saidText || "")].join("|");
     const linkKey = reuse ? shared.linkKey : new Set();
     if (!reuse) {
       for (const l of links) {
@@ -13498,12 +13658,29 @@ Rules:
       // Folded into a page covering several engines: which of them this line
       // means is what the car said ("4.0 L M177 twin-turbo V8"), and failing
       // that the engine the link pointed at.
-      const pageCode = mergedFrom
-        ? (codeSaidOnPage(n, [mention.name, mention.said]) || codeOnMultiEnginePage(n, mergedFrom)) : null;
+      //
+      // And where the merge made a variant of that engine under its own name
+      // ("X14XE" on the Family 1's page), the line belongs to THAT variant. A
+      // car replayed before the merge was moved there with the engine; one
+      // replayed after it used to arrive at the family with nothing to say
+      // which engine it meant, and was then taken for a repeat of whatever
+      // other line the car had there with the same displacement.
+      let pageCode = null;
+      if (mergedFrom) {
+        pageCode = codeSaidOnPage(n, [mention.name, mention.said]) || codeOnMultiEnginePage(n, mergedFrom);
+        if (!pageCode) {
+          const made = nodes.find(v => v && v.type === "enginevar" && !v.retired &&
+                                       v.fromMergedEngine === mergedFrom.id && v.engineOf === n.id);
+          if (made) pageCode = made.label;
+        }
+      }
       const hint = sec ? sec.variant : (mention.variant || picked || pageCode || null);
+      // The words are part of which line this is: a different line is a
+      // different engine, even at the same displacement.
       const part = "|" + [norm(hint || ""),
         norm((mention.specs || {}).displacement || ""),
-        norm((mention.specs || {}).fuel || "")].join("|");
+        norm((mention.specs || {}).fuel || ""),
+        norm(mention.said || "")].join("|");
       const k = n.id + "|" + carNode.id + "|fitted" + part;
       if (!linkKey.has(k)) {
         linkKey.add(k); linkKey.add(carNode.id + "|" + n.id + "|fitted" + part);
@@ -13518,7 +13695,10 @@ Rules:
                      // "2.0 L ... turbo I4" is what picks the EcoBoost this
                      // car actually has. See engineSpecsFromText.
                      saidSpecs: mention.specs || null,
-                     saidText: mention.said || null });
+                     saidText: mention.said || null,
+                     // The name the car's own link showed -- "M177 Evo" on a
+                     // link to the M177's article. See bindCarsToVariants.
+                     saidName: mention.name || null });
         fitted++;
       }
     }
@@ -13613,6 +13793,17 @@ Rules:
     primary.variants = primary.variants || [];
     members.forEach(m => {
       const own = (m.variants || []).map(id => byIdLocal.get(id)).filter(v => v && !v.retired);
+      const moveTo = (l, to) => {
+        const s0 = typeof l.source === "string" ? l.source : l.source && l.source.id;
+        if (s0 === m.id) { l.source = to; if (l.sn) l.sn = byIdLocal.get(to); }
+        else { l.target = to; if (l.tn) l.tn = byIdLocal.get(to); }
+      };
+      const mine = l => {
+        if (l.type !== "fitted" || l.retired) return false;
+        const s0 = typeof l.source === "string" ? l.source : l.source && l.source.id;
+        const t0 = typeof l.target === "string" ? l.target : l.target && l.target.id;
+        return s0 === m.id || t0 === m.id;
+      };
       if (own.length) {
         // Its variants become the primary's, keeping their own ids so every
         // fitted edge already pointing at them still lands.
@@ -13621,58 +13812,56 @@ Rules:
           if (primary.variants.indexOf(v.id) < 0) primary.variants.push(v.id);
           addLink(primary.id, v.id, "enginegen");
         });
+        // ...and the cars that were on the engine ITSELF come too. They were
+        // left on the node being retired, where nothing draws them: an engine
+        // with sixty cars of its own and one variant took the variant along
+        // and dropped the sixty.
+        links.forEach(l => { if (mine(l)) moveTo(l, primary.id); });
       } else {
-        // An engine nobody has read has no variants of its own. It becomes one
-        // -- which is what "some are older generations than other" means when
-        // the older one was never more than a name on a car's infobox.
-        //
-        // Named for the code when the engine it is merged into is a page
-        // covering several, and this is one of them. "Mercedes-Benz M178" and
-        // a husk a car's link had labelled "M177 Evo" are the M178 and the
-        // M177 of the M176/M177/M178 page -- which, once that page is read,
-        // already has a variant for each. Under its own label each merged
-        // engine got a second one beside it.
-        const code = codeOnMultiEnginePage(primary, m);
-        const vlabel = code || m.label;
-        const vid = engineVariantIdFor(primary.id, vlabel || m.id);
-        if (!byIdLocal.get(vid)) {
-          const vn = { id: vid, type: "enginevar", label: vlabel, make: m.make || primary.make || null,
-                       engineOf: primary.id, wp: m.wp || primary.wp, llmGenerated: true,
-                       fromMergedEngine: m.id, year: m.year || null, end: m.end || null };
-          nodes.push(vn); byIdLocal.set(vid, vn);
+        // An engine nobody has read has no variants of its own. What it
+        // becomes depends on its name -- see sameEngineName:
+        //   1. one of the codes of a page covering several ("Mercedes-Benz
+        //      M178" on the M176/M177/M178 page): that code's variant, the one
+        //      a read of the page lists, not a second one beside it;
+        //   2. the same engine under another spelling of its name ("Family 1"
+        //      into "GM Family 1"): nothing new at all, its cars go on the
+        //      engine;
+        //   3. any other name ("M177 Evo", "S58", "C16NZ"): a variant under
+        //      that name. Real user instruction: "engines like the 'M177 Evo'
+        //      are truly different enginevars of that family, so this is
+        //      EXTREMELY important to keep."
+        const pageCode = codeOnMultiEnginePage(primary, m);
+        const isCode = !!pageCode && sameEngineText(m.label, pageCode);
+        const isAlias = !isCode && sameEngineName(primary, m);
+        if (isAlias) {
+          links.forEach(l => { if (mine(l)) moveTo(l, primary.id); });
+        } else {
+          const vlabel = isCode ? pageCode : m.label;
+          const variantNode = label => {
+            const id = engineVariantIdFor(primary.id, label || m.id);
+            if (!byIdLocal.get(id)) {
+              const vn = { id, type: "enginevar", label, make: m.make || primary.make || null,
+                           engineOf: primary.id, wp: m.wp || primary.wp, llmGenerated: true,
+                           fromMergedEngine: m.id, year: m.year || null, end: m.end || null };
+              nodes.push(vn); byIdLocal.set(id, vn);
+            }
+            if (primary.variants.indexOf(id) < 0) primary.variants.push(id);
+            addLink(primary.id, id, "enginegen");
+            return id;
+          };
+          const vid = variantNode(vlabel);
+          // Everything the husk was fitted to now hangs off that variant, so
+          // no connection is lost by the merge. One exception, and only for a
+          // husk that is a bare code: a line that itself names a DIFFERENT
+          // code of the page goes to that one. The S-Class Coupe links the
+          // M178's title and says "4.0 L M177 twin-turbo V8", and it is the
+          // words that are right.
+          links.forEach(l => {
+            if (!mine(l)) return;
+            const said = isCode ? codeSaidOnPage(primary, [l.saidName, l.variantHint, l.saidText]) : null;
+            moveTo(l, said && !sameEngineText(said, vlabel) ? variantNode(said) : vid);
+          });
         }
-        if (primary.variants.indexOf(vid) < 0) primary.variants.push(vid);
-        addLink(primary.id, vid, "enginegen");
-        // Everything the husk was fitted to now hangs off that variant, so no
-        // connection is lost by the merge.
-        //
-        // On a page covering several engines, each line goes to the engine IT
-        // names where it names one: the S-Class Coupe links the M178's title
-        // and says "4.0 L M177 twin-turbo V8", and it is the words that are
-        // right. The variant for the husk's own code takes the rest.
-        const variantFor = l => {
-          const said = codeSaidOnPage(primary, [l.variantHint, l.saidText]);
-          if (!said || norm(said) === norm(vlabel)) return vid;
-          const other = engineVariantIdFor(primary.id, said);
-          if (!byIdLocal.get(other)) {
-            const vn = { id: other, type: "enginevar", label: said, make: primary.make || null,
-                         engineOf: primary.id, wp: primary.wp, llmGenerated: true,
-                         fromMergedEngine: m.id, year: null, end: null };
-            nodes.push(vn); byIdLocal.set(other, vn);
-          }
-          if (primary.variants.indexOf(other) < 0) primary.variants.push(other);
-          addLink(primary.id, other, "enginegen");
-          return other;
-        };
-        links.forEach(l => {
-          if (l.type !== "fitted" || l.retired) return;
-          const s0 = typeof l.source === "string" ? l.source : l.source && l.source.id;
-          const t0 = typeof l.target === "string" ? l.target : l.target && l.target.id;
-          if (s0 !== m.id && t0 !== m.id) return;
-          const to = variantFor(l);
-          if (s0 === m.id) { l.source = to; if (l.sn) l.sn = byIdLocal.get(to); }
-          else { l.target = to; if (l.tn) l.tn = byIdLocal.get(to); }
-        });
       }
       // Retired, never spliced out -- anything holding its id keeps working,
       // and undoing the merge is a flag flip rather than a rebuild. Same
@@ -13866,7 +14055,13 @@ Rules:
     for (const [key, list] of groups) {
       if (list.length < 2) continue;
       // The article's own node wins ties: its id is derived from the title.
-      const wanted = engineIdFromTitle((list.find(n => n.wp) || {}).wp || "");
+      // ...the title the redirects lead TO, which is not always the title
+      // the first node in the group happens to carry.
+      let canon = String((list.find(n => n.wp) || {}).wp || "").split("#")[0].trim();
+      for (let i = 0; i < 4 && store.wpRedirects && store.wpRedirects[canon]; i++) {
+        canon = String(store.wpRedirects[canon]).split("#")[0].trim();
+      }
+      const wanted = engineIdFromTitle(canon);
       const sorted = list.slice().sort((a, b) => {
         if (a.id === wanted && b.id !== wanted) return -1;
         if (b.id === wanted && a.id !== wanted) return 1;
@@ -14240,8 +14435,89 @@ Rules:
   }
   async function scanEnginesFor(node, nodes, links) {
     engineReadsInFlight++;
-    try { return await scanEnginesForInner(node, nodes, links); }
+    try {
+      const r = await scanEnginesForInner(node, nodes, links);
+      // With the engines this car named now in the graph: are any of them an
+      // article that is already here under another title? Only when this
+      // pass read something -- a re-check that found its work already done
+      // has added no engine to ask about.
+      if (r && (r.scanned || r.engines || r.fitted || r.revived)) {
+        try {
+          const red = await resolveEngineTitleRedirects(nodes, links);
+          if (red.merged) r.merged = red.merged;
+        } catch (e) { console.warn("LlmFamilies: engine redirect lookup failed", e); }
+      }
+      return r;
+    }
     finally { engineReadsInFlight--; }
+  }
+
+  // ---------- engines: which titles are the same article ----------
+  // Real user request, after the Mercedes-Benz M176/M177/M178: "See if [this]
+  // type of problem persists elsewhere - I want this bug to be completely
+  // eradicated", and then: "I would like to resolve redirects and merge
+  // automatically."
+  //
+  // It persisted in 87 articles. An engine node is keyed by the title a car's
+  // link carried, and Wikipedia files most engines under several: "Family 1
+  // engine" and "C16NZ" are both the "GM Family 1 engine" page, "BMW S58" is
+  // the "BMW B58" page. A redirect was only ever learned by READING that
+  // engine (see fetchArticleDigest), and of 850 engines two had been read --
+  // so the same page stood in the graph as two, three, twenty nodes.
+  //
+  // One cheap question to Wikipedia settles a batch of fifty titles: no
+  // article is fetched and no model is asked. What it learns goes in the same
+  // wpRedirects the reader fills, engineArticleKey already spends it, and
+  // autoMergeDuplicateEngines already merges on it -- what each merged engine
+  // BECOMES is decided by its name, in applyOneEngineMerge.
+  //
+  // Only with serve.py there (it is saved, and a visitor to the hosted page
+  // has no business making the request), and only off the back of a scan a
+  // person asked for. Each title is asked once per session.
+  const engineTitlesAsked = new Set();
+  async function resolveEngineTitleRedirects(nodes, links) {
+    const out = { asked: 0, learned: 0, merged: 0 };
+    if (!serverAvailable) return out;
+    store.wpRedirects = store.wpRedirects || {};
+    const titles = [...new Set(nodes
+      .filter(n => n && n.type === "engine" && !n.retired && n.wp)
+      .map(n => String(n.wp).split("#")[0].trim())
+      .filter(t => t && !isEngineListTitle(t) && !store.wpRedirects[t] && !engineTitlesAsked.has(t)))];
+    if (!titles.length) return out;
+    for (let i = 0; i < titles.length; i += 50) {
+      const batch = titles.slice(i, i + 50);
+      batch.forEach(t => engineTitlesAsked.add(t));
+      const url = "https://en.wikipedia.org/w/api.php?action=query&redirects=1&format=json&formatversion=2&origin=*&titles=" +
+        encodeURIComponent(batch.join("|"));
+      let q = null;
+      try {
+        const res = await fetch(url);
+        if (res.ok) q = ((await res.json()) || {}).query || null;
+      } catch (e) { q = null; }
+      if (!q) continue;
+      out.asked += batch.length;
+      const normalised = new Map((q.normalized || []).map(x => [x.from, x.to]));
+      const redirected = new Map((q.redirects || []).map(x => [x.from, x.to]));
+      batch.forEach(t => {
+        const t1 = normalised.get(t) || t;
+        const to = redirected.get(t1);
+        if (!to || norm(to) === norm(t)) return;
+        store.wpRedirects[t] = to;
+        out.learned++;
+      });
+    }
+    if (out.learned) {
+      try { out.merged = autoMergeDuplicateEngines(nodes, links).merged; }
+      catch (e) { console.warn("LlmFamilies: engine duplicate check failed", e); }
+      for (const n of nodes) {
+        if (!n || n.type !== "engine" || n.retired) continue;
+        try { bindCarsToVariants(n, nodes, links); } catch (e) { /* one engine is not worth failing the pass for */ }
+      }
+      note(`powertrain: ${out.learned} engine title(s) are redirects to an article under another name` +
+           (out.merged ? `; ${out.merged} duplicate engine(s) folded into the article's own` : ""));
+      await persist();
+    }
+    return out;
   }
   async function scanEnginesForInner(node, nodes, links) {
     const out = { engines: 0, fitted: 0, scanned: 0, skipped: 0, revived: 0, deleted: 0 };
@@ -15234,7 +15510,7 @@ Rules:
     serverAvailable, isEligible, entryFor,
     checkNode, checkNodeCascade, retryNode, confirmNode, rejectNode,
     applyConfirmed, filePathUrl,
-    setEngaged, discardPending, retireSelfLinks,
+    setEngaged, discardPending, retireSelfLinks, resolveEngineTitleRedirects,
     allEntries, deleteEntry, resetAll,
     relationEntryFor, checkRelation, confirmRelation, rejectRelation, applyResolvedRelations,
     isDismissed, dismiss, dismissMany, allDismissed,

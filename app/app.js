@@ -3275,7 +3275,7 @@ window.CarWeb = (function () {
     // waits for a job the queue will not start until it finishes is a
     // deadlock. It makes no model call either -- infobox only.
     return LFam.scanEnginesFor(node, nodes, links).then(r => {
-      if (!r || (!r.engines && !r.fitted && !r.revived)) {
+      if (!r || (!r.engines && !r.fitted && !r.revived && !r.merged)) {
         if (r && r.scanned) {
           console.info(`[carweb] powertrain: read ${r.scanned} article(s) for ` +
                        `${node.label}; ` +
@@ -3285,6 +3285,10 @@ window.CarWeb = (function () {
         return;
       }
       spliceIntoIndexes(nodesBefore, linksBefore);
+      // Same tidy as a page load and as an engine read -- see scanEngineNow.
+      if (LFam.tidyEngineLinks) {
+        try { LFam.tidyEngineLinks(nodes, links); } catch (e) { console.warn("CarWeb: could not tidy engine links", e); }
+      }
       powertrainChanged();
       if (dtNode === node || (dtNode && dtNode.familyOf === node.id)) renderPowertrain(dtNode);
       Graph.touch();
