@@ -165,7 +165,9 @@ window.CarWeb = (function () {
   // original, less-specific connection so it hides once that family is
   // expanded. Must run after applyConfirmed (LLM-discovered generations
   // need to exist first) but before the byId/adj indexes below are built.
-  if (window.LlmFamilies) window.LlmFamilies.applyResolvedRelations(nodes, links);
+  // Waiting relationships are decided by rule only in the second pass below,
+  // once renames, deletions and folds have made the graph final.
+  if (window.LlmFamilies) window.LlmFamilies.applyResolvedRelations(nodes, links, { deferDecisions: true });
   // Real user request: "The 'Succeeds' and 'Succeeded by' information and
   // the edge links should also be transferred to the generations of a
   // nameplate. They should only revert to the nameplate itself if there is

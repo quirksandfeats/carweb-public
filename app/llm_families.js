@@ -1129,6 +1129,8 @@ PASS 1 -- the generation list itself (do this pass completely before moving on):
 - Check the year range you give against the whole article before answering. A generation's run is bounded by the next generation's start, not by the newest date you happened to read: on the G-Class, W461 began when W460 ended in 1991, not in 1985 (a date that appears in the article for an unrelated reason). If two of your entries overlap in years and are not explicitly concurrent production lines, at least one of the ranges is wrong -- go back and find the real one.
 - A generation still in production has no end year. Return null for yearEnd rather than the current year or the date of the most recent thing said about it.
 - Distinguish a GENERATION from a variant of one. Trim levels, engine designations, body styles, AMG/tuner versions, armoured or military conversions, anniversary and limited editions, and special one-offs all belong to a generation -- they are not generations themselves. On the G-Class, "G 63 AMG", "G 500 4x4²", "G 63 6x6" and the "Maybach G 650 Landaulet" are all variants of the W463, not five more generations. A concurrently-produced parallel line WITH ITS OWN CHASSIS CODE (the G-Class's W461, built alongside W463 for military and commercial use) IS a separate generation and must be listed.
+- Every section heading that names a generation is one entry, including the last one and including a heading that names it by its platform: on the Chrysler Fifth Avenue, "Third generation (Y platform; 1990-1993)" comes after two long sections about the earlier cars and was missed, so the 1990 Imperial and New Yorker it was built alongside could not be connected to it. Count the generation headings before answering and check every one is in your list.
+- A "first series" / "second series", a facelift or a mid-life update inside one generation is not a new generation. On the Suzuki Ignis, the "Second series (MH)" of 2003 is part of the first generation; the second generation is the 2016 Ignis (MF). List the generation once, under its own code.
 - Never invent a code or year that does not appear in the supplied text.
 
 PASS 2 -- designers/engineers, generation list from pass 1 now fixed, attribute each credit to the right one:
@@ -1142,6 +1144,8 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
 - A car built under licence, or the same car sold under a different marque's badge, is exactly the kind of relationship this list is for, and it is usually stated in ordinary prose rather than the infobox. The G-Class names two in its opening section alone -- it was "sold under the Puch name as Puch G until 2000", and the Peugeot P4 is a "variant made under licence in France with a Peugeot engine" -- and a licensed or rebadged twin is easy to skim past because the sentence reads like history rather than like a specification. Include them.
 - Keep the generation in the name whenever the text gives one: write "Nissan Qashqai (J10)", "Ford Taurus (seventh generation)", "Peugeot 208 II", "SEAT Ibiza Mk5" exactly as the text has it, not just "Nissan Qashqai". The generation is what lets the right car be found; a bare nameplate name usually matches several.
 - A company is not a car. A coachbuilder, tuner, armourer or converter that worked on this car ("Dartz", "Ruf", "Brabus", "Hennessey") goes in no list here.
+- Only cars that share this one's platform, body or structure, or that are this car under another name, belong here. A car that only shares an engine, gearbox or other part is not related; nor is one the text calls "structurally unrelated", nor the car this one replaced or was replaced by. Real failure: the 1991 Chrysler Town & Country minivan was listed with the Fifth Avenue, Imperial and Dynasty sedans because it used their 3.3/3.8 V6 -- the same article says it was structurally unrelated to them.
+- Write the related car's name the way the text does, trim and body words included ("Pontiac Grand LeMans Safari", "Buick Roadmaster Skylark", "Toyota Crown Crossover"), and do not shorten it to a different car's name: "Grand LeMans Safari" is a LeMans, not the full-size "Grand Safari".
 - Never invent a name that does not appear in the supplied text. Being exhaustive means finding every REAL related nameplate in the text, never inventing ones that aren't there.`;
 
   function buildMessages(node, digest, priorProposal, feedback) {
@@ -5003,7 +5007,8 @@ Rules:
     "ninth", "tenth", "eleventh", "twelfth", "thirteenth", "fourteenth"];
   function mentionOrdinal(text) {
     const w = nameWordsOf(text);
-    const direct = w.find(x => ORDINAL_N[x]);
+    // "Chrysler New Yorker Fifth Avenue" is a name, not a fifth generation.
+    const direct = w.find((x, i) => ORDINAL_N[x] && /^(?:generation|gen|series)$/.test(w[i + 1] || ""));
     if (direct) return direct;
     for (let i = 0; i < w.length; i++) {
       const mk = w[i].match(/^(?:mk|mark)(\d{1,2})$/);
@@ -7336,38 +7341,426 @@ Rules:
   // ---------- deciding the review queue without a person ----------
   // Real user request: "check all of my unconfirmed relationships ... Find
   // rules, patterns, etc. that will automatically confirm or deny these
-  // relationships without me having to." What reviewing the 100 that were
-  // waiting turned up, as rules, in the order they are tried:
-  //   1. one side is gone (its generation was replaced or deleted): dropped;
-  //   2. a connection already stands between the same two generations, or
-  //      between this car and a generation of the nameplate this one names:
-  //      dropped as a duplicate;
-  //   3. none of the car's own platform mentions names the other car (the
-  //      match came from a substring, "Chevrolet van" out of "Chevrolet
-  //      Express"): refused;
-  //   4. the mention names a generation (code, "second generation", "II",
-  //      "Mk1") -- a nameplate is stepped down to that generation and
-  //      confirmed; a different generation is refused;
-  //   5. the mention fails sanityMatchPlausible (different code, wrong place
-  //      in the line, "(crossover)" vs "(saloon)", decades apart): refused;
-  //   6. the mention names the nameplate only, and exactly one of its
-  //      generations was being built at the same time as this car: that one
-  //      is confirmed. A plain car with no generations, named and
-  //      contemporaneous: confirmed.
-  // Anything else -- several generations that fit, no mention text to go
-  // on -- stays for a person.
-  function mentionsNaming(car, other, nodes) {
-    const texts = [].concat(car && car.sharedPlatformTexts || [], car && car.sharedPlatformText ? [car.sharedPlatformText] : []);
-    return texts.filter(t => {
-      const v = sanityMatchPlausible(car, other, t, nodes);
-      return v.ok || !/does not name/.test(v.why || "");
-    });
+  // relationships without me having to."
+  //
+  // Every waiting relationship was read against Wikipedia (2026-10-11, 100
+  // of them). The lesson: the car named in the article is nearly always
+  // really related -- what goes wrong is WHICH node the name was pinned to.
+  // "Nissan Skyline (R31)" was pinned to the Skyline GT-R, "Peugeot 208 II"
+  // to the first 208, "Pontiac Grand LeMans Safari" to the full-size Grand
+  // Safari, "Toyota Urban Cruiser Taisor" to the 2023 Urban Cruiser. Of 76
+  // that needed a decision, 37 belonged on another node, 31 were right as
+  // they stood and only 8 named no related car at all. So a waiting pair is
+  // not judged as it stands: the sentence behind it is resolved again, from
+  // scratch, against the whole graph (resolveMentionFully), and the pair is
+  //   confirmed  when that lands on the same car,
+  //   moved      when it lands, unambiguously, on another one,
+  //   refused    when the sentence names no car of that make at all, or one
+  //              decades apart, or a generation the other car is not,
+  //   left       otherwise -- two generations that both fit, a name the
+  //              graph does not know, a mention that says nothing about which.
+  // How a sentence is resolved:
+  //   - the make comes first in the name; the model name is the words that
+  //     follow it, in order ("Tempest" in "Pontiac Tempest Safari");
+  //   - a candidate must account for every word of the name, apart from
+  //     trim and body words (Safari, Super, Custom, SS, Grand, Estate...),
+  //     numbers, codes and the car's OWN name ("Chrysler New Yorker Fifth
+  //     Avenue" read on the New Yorker's page names the Fifth Avenue). An
+  //     unexplained word means another car ("Galant Fortis" is not the
+  //     Galant), so nothing is decided on it;
+  //   - other names count: store.aliases ("Hyundai ix25" is the Creta) and
+  //     Wikipedia redirects ("Infiniti JX" redirects to the QX60);
+  //   - a generation is picked by, in order: a code it carries (any of
+  //     "ALA10/ALH10"), its label's own ordinal ("Second generation (MF)",
+  //     never "Second series (MH)"), its place in the line ("II", "Mk5",
+  //     "(third generation)"), and last by being the one generation built
+  //     alongside the mentioning car -- for at least two years, or for the
+  //     whole of that car's run. A one-year overlap at the very end is the
+  //     signature of a generation missing from the split (the Fifth Avenue's
+  //     Y-body: the 1990 Imperial overlapped the M-body only in 1989), so it
+  //     does not count, and the case is left with a note;
+  //   - a code no generation of that nameplate carries is an alternative
+  //     code ("i20 (BC3)" for the BI3, "Ranger (P375)" for the T6) only
+  //     while the two were genuinely built together; otherwise it names a
+  //     generation the graph does not have, and the pairing is refused.
+  const TRIM_WORDS = new Set(["safari", "super", "custom", "ss", "grand", "estate", "sport", "sports",
+    "wagon", "coupe", "hatchback", "convertible", "deluxe", "special", "limited", "turbo", "van", "cargo",
+    "edition", "brougham", "landau", "cabriolet", "roadster", "pickup", "ute", "gt", "gti", "gts", "rs",
+    "hybrid", "electric", "ev", "plug", "in", "lwb", "swb", "diesel", "series", "generation", "gen",
+    "model", "the", "and", "of", "luxe", "line", "sedan", "saloon", "notchback", "liftback", "gtc"]);
+  const VARIANT_DROP = new Set(["series", "the", "of"]);
+  const ROMAN_N = { ii: 2, iii: 3, iv: 4, vi: 6, vii: 7, viii: 8, ix: 9 };
+  // A trailing "I" counts too ("Renault Koleos I"); a trailing "V" or "X" is
+  // too often the name itself ("Lancer Evolution X").
+  const ROMAN_TRAIL = Object.assign({ i: 1 }, ROMAN_N);
+  function wordsOf(text) {
+    return String(text || "").normalize("NFKD").replace(COMBINING_MARKS_RE, "").toLowerCase()
+      .split(/[^a-z0-9]+/).filter(Boolean).map(w => NUMBER_WORDS[w] || w);
   }
+  // What a mention says about WHICH generation: codes, an ordinal, a Mk.
+  function mentionMarkers(text) {
+    const s = String(text || "");
+    const parens = (s.match(/\(([^()]+)\)/g) || []).map(p => p.slice(1, -1));
+    const codes = [];
+    parens.forEach(p => p.split(/[\/,;]\s*|\s+or\s+/).forEach(c => {
+      const n = norm(c);
+      if (n && /\d/.test(n) && /[a-z]/.test(n) && n.length <= 8 && !/generation|series/.test(n)) codes.push(n);
+    }));
+    chassisCodesIn(s.replace(/\([^()]*\)/g, " ")).forEach(c => codes.push(norm(c)));
+    // "Nissan Skyline R34": a code after the model name, outside brackets.
+    const outs = wordsOf(s.replace(/\([^()]*\)/g, " "));
+    if (outs.length >= 3 && /^[a-z]{1,4}\d{1,4}[a-z]{0,2}$/.test(outs[outs.length - 1])) codes.push(outs[outs.length - 1]);
+    const rawOut = s.replace(/\([^()]*\)/g, " ").trim().split(/\s+/);
+    if (rawOut.length >= 3 && /^[A-Z]{2,3}$/.test(rawOut[rawOut.length - 1])) codes.push(rawOut[rawOut.length - 1].toLowerCase());
+    parens.forEach(p => { if (/^[A-Z]{2,3}$/.test(p.trim())) codes.push(p.trim().toLowerCase()); });
+    const paren = parens.length ? norm(parens[parens.length - 1]) : null;
+    const w = wordsOf(s);
+    let ord = null;
+    for (let i = 0; i < w.length && !ord; i++) {
+      if (ORDINAL_N[w[i]] && /^(?:generation|gen|series)$/.test(w[i + 1] || "")) ord = ORDINAL_N[w[i]];
+      const mk = w[i].match(/^(?:mk|mark)(\d{1,2})$/);
+      if (mk) ord = +mk[1];
+      if ((w[i] === "mk" || w[i] === "mark") && w[i + 1]) {
+        if (/^\d{1,2}$/.test(w[i + 1])) ord = +w[i + 1];
+        else if (ROMAN_N[w[i + 1]] || w[i + 1] === "v") ord = ROMAN_N[w[i + 1]] || 5;
+      }
+    }
+    const outside = wordsOf(s.replace(/\([^()]*\)/g, " "));
+    const lastW = outside[outside.length - 1];
+    if (!ord && outside.length > 2 && ROMAN_TRAIL[lastW]) ord = ROMAN_TRAIL[lastW];
+    const descriptor = parens.map(p => norm(p)).find(p => p && !/\d/.test(p) && !/generation|series/.test(p)) || null;
+    return { codes: [...new Set(codes)], ord, descriptor, paren };
+  }
+  // The words of a name, without the make, the markers, and parentheses.
+  function nameCore(text, makeW) {
+    let w = wordsOf(String(text || "").replace(/\([^()]*\)/g, " "));
+    let i = 0;
+    while (i < makeW.length && w[i] === makeW[i]) i++;
+    if (i === makeW.length) w = w.slice(i);
+    // drop "<ordinal> generation", "mk3", a trailing roman numeral
+    const out = [];
+    for (let j = 0; j < w.length; j++) {
+      if (ORDINAL_N[w[j]] && /^(?:generation|gen|series)$/.test(w[j + 1] || "")) { j++; continue; }
+      if (/^(?:mk|mark)\d{1,2}$/.test(w[j])) continue;
+      if ((w[j] === "mk" || w[j] === "mark") && w[j + 1] && (/^\d{1,2}$/.test(w[j + 1]) || ROMAN_N[w[j + 1]] || w[j + 1] === "v")) { j++; continue; }
+      out.push(w[j]);
+    }
+    if (out.length > 1 && ROMAN_TRAIL[out[out.length - 1]]) out.pop();
+    return out;
+  }
+  // The codes a label carries: "Sunny B15", "HiAce H100 / Y100", "RX ALH10",
+  // "Creta GS/GC", "Escort (North America) Second generation (1991–1996)" (none).
+  function genCodes(n) {
+    const lbl = String((n && n.label) || "");
+    const out = chassisCodesIn(lbl).map(norm);
+    const paren = (lbl.match(/\(([^()]+)\)\s*$/) || [, ""])[1];
+    const words = lbl.replace(/\s*\([^()]*\)\s*$/, "").split(/\s+/);
+    // "ZG2xq" alone is a code; in "A3 8V" the first word is the model's name.
+    const tail = (words.length === 1 ? words : words.slice(1)).join(" ");
+    [paren, tail].forEach(part => String(part).split(/[\/,;]\s*|\s+/).forEach(c => {
+      const x = norm(c);
+      if (x.length >= 2 && x.length <= 8 && /\d/.test(x) && /[a-z]/.test(x)) out.push(x);
+      // letters-only codes as Wikipedia writes them: "Commodore (VN)", "Corolla AE86"
+      else if (/^[A-Z]{2,3}$/.test(String(c).trim())) out.push(x);
+    }));
+    return [...new Set(out)];
+  }
+  // A generation's years, its open end bounded by the next generation's
+  // start, the way app.js's backfillGenerationEnds does it later in boot.
+  let spanNodes = null;
+  const spanOfNode = n => {
+    if (!n || !Number.isFinite(n.year)) return null;
+    let end = Number.isFinite(n.end) ? n.end : null;
+    const fam = n.familyOf && spanNodes ? nodeWithId(spanNodes, n.familyOf) : null;
+    if (fam && (end == null || end === n.year)) {
+      const next = (fam.generations || []).map(id => nodeWithId(spanNodes, id))
+        .filter(g => g && g !== n && !g.retired && Number.isFinite(g.year) && (g.year > n.year || (end == null && g.year === n.year)))
+        .sort((x, y) => x.year - y.year)[0];
+      if (next && (end == null || next.year > n.year + 1)) end = next.year;
+    }
+    return [n.year, end];
+  };
+  // Built together: at least two years in common, or one inside the other.
+  function builtAlongside(a, b) {
+    const A = spanOfNode(a), B = spanOfNode(b);
+    if (!A || !B) return null;
+    const now = new Date().getFullYear();
+    const a1 = A[1] == null ? now : A[1], b1 = B[1] == null ? now : B[1];
+    const common = Math.min(a1, b1) - Math.max(A[0], B[0]);
+    if (common < 0) return false;
+    if (common >= 2) return true;
+    // One inside the other -- only with a known end: a generation that has
+    // only just started is not "inside" a long run that is still going.
+    return (A[1] != null && A[0] >= B[0] && a1 <= b1) || (B[1] != null && B[0] >= A[0] && b1 <= a1);
+  }
+  function yearsApart(a, b) {
+    const A = spanOfNode(a), B = spanOfNode(b);
+    if (!A || !B) return 0;
+    const now = new Date().getFullYear();
+    return Math.max(A[0] - (B[1] == null ? now : B[1]), B[0] - (A[1] == null ? now : A[1]), 0);
+  }
+  function makeIndex(nodes) {
+    const byMake = new Map(), makes = [];
+    nodes.forEach(n => {
+      if (!n || n.retired || (n.type !== "model" && n.type !== "family") || !n.make) return;
+      const k = norm(n.make);
+      if (!byMake.has(k)) { byMake.set(k, []); makes.push(wordsOf(n.make)); }
+      byMake.get(k).push(n);
+    });
+    makes.sort((x, y) => y.length - x.length);
+    const makeWords = new Set(makes.filter(m => m.length === 1).map(m => m[0]));
+    const everything = [].concat(...byMake.values());
+    return { byMake, makes, makeWords, everything };
+  }
+  // The car a sentence names, resolved over the whole graph.
+  //   { node, why } | { none: why } | { ambiguous: why, missingGeneration? }
+  function resolveMentionFully(text, mentioner, nodes, idx) {
+    spanNodes = nodes;
+    const whole = resolveOneName(text, mentioner, nodes, idx);
+    if (whole.node || !/\//.test(String(text).replace(/\([^()]*\)/g, ""))) return whole;
+    // "Nissan Tiida/Versa", "Holden Statesman/Caprice (VS)": each name in turn.
+    const code = (String(text).match(/\s*\([^()]*\)\s*$/) || [""])[0];
+    const parts = String(text).replace(/\s*\([^()]*\)\s*$/, "").split(/\s*\/\s*/);
+    const makeOf = parts[0].split(/\s+/)[0];
+    for (let i = 0; i < parts.length; i++) {
+      const p = (i && !idx.makes.some(m => m.every((x, j) => wordsOf(parts[i])[j] === x)) ? makeOf + " " : "") + parts[i] + code;
+      const r = resolveOneName(p, mentioner, nodes, idx);
+      if (r.node) return r;
+    }
+    return whole;
+  }
+  function resolveOneName(text, mentioner, nodes, idx) {
+    const s = String(text || "").trim();
+    if (!s) return { ambiguous: "no text" };
+    const self = new Set([mentioner && mentioner.id, mentioner && mentioner.familyOf].filter(Boolean));
+    const notSelf = n => !self.has(n.id) && !self.has(n.familyOf);
+    const all = wordsOf(s.replace(/\([^()]*\)/g, " "));
+    let makeW = idx.makes.find(m => m.length && m.every((x, i) => all[i] === x));
+    // No make in front ("Galant Fortis", "Lykan HyperSport"): any make, the
+    // mentioning car's own first.
+    const makeless = !makeW;
+    if (!makeW) makeW = [];
+    let pool = makeless ? idx.everything : (idx.byMake.get(norm(makeW.join(" "))) || []);
+    let core = nameCore(s, makeW);
+    // "Acadian (automobile)": the make is the whole name.
+    if (!core.length && makeW.length) core = makeW.slice();
+    let crossMake = makeless;
+    // "Opel/Vauxhall Sintra": the second badge is not part of the name.
+    const badges = new Set();
+    const bm = s.match(/^\s*([^\s\/]+)\/([^\s\/]+)\s/);
+    if (bm && idx.makeWords.has(wordsOf(bm[2])[0])) wordsOf(bm[2]).forEach(w => badges.add(w));
+    const mk = mentionMarkers(s);
+    const ownFam = mentioner && mentioner.familyOf ? nodeWithId(nodes, mentioner.familyOf) : null;
+    // The mentioning car's own name explains words only in a mention of its
+    // own make ("Chrysler New Yorker Fifth Avenue" on the New Yorker's page);
+    // in "Opel Astra GTC" on the Holden Astra's, "Astra" is Opel's.
+    const ownMake = mentioner && makeW.length && norm(makeW.join("")) === norm(mentioner.make);
+    const own = new Set(ownMake ? wordsOf((ownFam && ownFam.label) || (mentioner && mentioner.label))
+      .concat(wordsOf(mentioner && mentioner.label)) : []);
+    // Other names: an alias, or a Wikipedia redirect onto the node's article.
+    const bare = s.replace(/\s*\([^()]*\)\s*$/, "").trim();
+    const red = store.wpRedirects && (store.wpRedirects[bare] || store.wpRedirects[s]);
+    const byRedirect = [], byAlias = [], byArticle = [];
+    for (const n of nodes) {
+      if (!n || n.retired || (n.type !== "model" && n.type !== "family") || !notSelf(n)) continue;
+      if (red && n.wp && String(n.wp).split("#")[0] === String(red).split("#")[0] && !n.familyOf) byRedirect.push(n);
+      if (aliasesFor(n.id).some(a => norm(String(a).replace(/\s*\([^()]*\)\s*$/, "")) === norm(bare))) byAlias.push(n);
+      if (n.wp && !n.familyOf && articleKeyOf(n.wp) && (articleKeyOf(n.wp) === articleKeyOf(bare) || articleKeyOf(n.wp) === articleKeyOf(s))) byArticle.push(n);
+    }
+    const byOtherName = byRedirect.length ? byRedirect : byAlias.length ? byAlias : byArticle;
+    // Score every candidate of the make by how much of the name it explains.
+    const scored = [];
+    const consider = (n, words, how) => {
+      if (!words.length) return;
+      // contiguous, in order
+      let at = -1;
+      for (let i = 0; i + words.length <= core.length; i++) {
+        if (words.every((w, j) => core[i + j] === w)) { at = i; break; }
+      }
+      if (at < 0) return;
+      const extra = core.filter((w, i) => i < at || i >= at + words.length);
+      const unexplained = extra.filter(w => !TRIM_WORDS.has(w) && !own.has(w) && !/^\d+$/.test(w) &&
+                                            !mk.codes.includes(w) && !CODEISH.test(w) && !badges.has(w));
+      // A single trailing letter is a generation letter ("Ascona C", "Mokka B").
+      if (unexplained.length && !(unexplained.length === 1 && /^[a-z]$/.test(unexplained[0]) &&
+          core[core.length - 1] === unexplained[0])) return;
+      const nCodes = genCodes(n);
+      const codeHit = mk.codes.some(c => nCodes.includes(c)) ? 1 : 0;
+      const d = (String(n.label).match(/\(([^()\d]+)\)\s*$/) || [])[1];
+      const pn = (String(n.label).match(/\(([^()]+)\)\s*$/) || [])[1];
+      const descHit = (mk.descriptor && d && norm(d) === mk.descriptor) || (mk.paren && pn && norm(pn) === mk.paren) ? 1 : 0;
+      const sameMake = mentioner && norm(n.make) === norm(mentioner.make) ? 1 : 0;
+      scored.push({ n, covered: words.length, exact: extra.length === 0, at, how, codeHit, descHit, sameMake });
+    };
+    let needMake = false;
+    const scan = () => { for (const n of pool) {
+      if (!notSelf(n)) continue;
+      const fam = n.familyOf ? nodeWithId(nodes, n.familyOf) : null;
+      const variants = new Set();
+      [n.label, fam && n.label && !wordsOf(n.label).join(" ").startsWith(wordsOf(fam.label).join(" ")) ? fam.label + " " + n.label : null]
+        .filter(Boolean).forEach(l => {
+          variants.add(wordsOf(String(l).replace(/\([^()]*\)/g, " ")).join(" "));
+          String(l).replace(/\s*\([^()]*\)\s*$/, "").split(/\s*\/\s*|\s+and\s+/i)
+            .forEach(p => variants.add(wordsOf(p.replace(/\([^()]*\)/g, " ")).join(" ")));
+        });
+      // "Skylark Roadmaster Skylark": the generation's own name after its nameplate's
+      if (fam) {
+        const fw = wordsOf(fam.label), lw = wordsOf(String(n.label).replace(/\([^()]*\)/g, " "));
+        if (fw.length && fw.every((x, i) => lw[i] === x) && lw.length > fw.length) variants.add(lw.slice(fw.length).join(" "));
+      }
+      if (n.wp && !n.familyOf && makeW.length) {
+        const t = String(n.wp).split("#")[0];
+        if (norm(t).startsWith(norm(makeW.join("")))) variants.add(nameCore(t, makeW).join(" "));
+      }
+      // A label's descriptor must agree with the mention's: "(crossover)" is not "(saloon)".
+      const desc = (String(n.label).match(/\(([^()\d]+)\)\s*$/) || [])[1];
+      if (desc && !/generation|series/i.test(desc) && mk.descriptor && norm(desc) !== mk.descriptor) continue;
+      if (desc && !/generation|series/i.test(desc) && !mk.descriptor && fam == null && (idx.byMake.get(norm(n.make)) || []).some(o => o !== n && !o.familyOf && wordsOf(o.label).join(" ") === wordsOf(String(n.label).replace(/\([^()]*\)/g, "")).join(" "))) continue;
+      variants.forEach(v => {
+        let w = v.split(" ").filter(x => x && !VARIANT_DROP.has(x));
+        if (!needMake) consider(n, w, "name");
+        // "A3 Mk3", "Octavia Mk1", "A3 8Y": the name without its code
+        while (!needMake && w.length > 1 && CODEISH.test(w[w.length - 1])) { w = w.slice(0, -1); consider(n, w, "name"); }
+        // across makes the make is part of the name ("Austin Mini Countryman")
+        if (crossMake) consider(n, wordsOf(n.make).concat(v.split(" ").filter(x => x && !VARIANT_DROP.has(x))), "name");
+      });
+    } };
+    scan();
+    // Nothing of that make: "Austin Mini Countryman" is a Mini, "SsangYong
+    // Rexton" a KGM since the company was renamed.
+    if (!scored.length && !makeless) {
+      pool = idx.everything; core = wordsOf(s.replace(/\([^()]*\)/g, " ")); crossMake = true; needMake = true;
+      // the stated make's own word stays explained only as a badge in front
+      makeW.forEach(w => badges.add(w));
+      scan();
+    }
+    // Another name only when the make has no car by that name at all: an
+    // alias is often a rebadge's ("Rover 200" is listed on the Civic).
+    if (!scored.length) byOtherName.forEach(n => scored.push({ n, covered: 99, exact: true, at: 0, how: "other name", codeHit: 0, descHit: 0, sameMake: 0 }));
+    if (!scored.length) {
+      return { none: `"${s}" names no ${makeW.length ? makeW.join(" ") + " " : ""}car in the graph` };
+    }
+    // Most specific first: whole name explained, then more words, then earlier.
+    scored.sort((x, y) => (y.codeHit - x.codeHit) || (y.descHit - x.descHit) || (y.exact - x.exact) ||
+                          (y.covered - x.covered) || (x.at - y.at) || (y.sameMake - x.sameMake) ||
+                          ((y.n.type === "family") - (x.n.type === "family")));
+    const best = scored[0];
+    const same = c => c.codeHit === best.codeHit && c.descHit === best.descHit && c.exact === best.exact &&
+                      c.covered === best.covered && c.at === best.at && c.sameMake === best.sameMake;
+    const famKey = n => n.familyOf || n.id;
+    const tied = scored.filter(same);
+    if (new Set(tied.map(c => famKey(c.n))).size > 1) {
+      // Several cars by that name: a dated one over a bare placeholder, and
+      // then the one that was being built when this car was.
+      let pick = tied.filter(c => spanOfNode(c.n));
+      // A placeholder minted from a mention that reads the same article as a
+      // nameplate is that nameplate ("Chrysler 300" beside the 300C).
+      const famsTied = pick.filter(c => c.n.type === "family");
+      if (famsTied.length) {
+        const famArts = new Set(famsTied.map(c => articleKeyOf(c.n.wp)).filter(Boolean));
+        pick = pick.filter(c => c.n.type === "family" || c.n.familyOf || !famArts.has(articleKeyOf(c.n.wp)));
+      }
+      if (new Set(pick.map(c => famKey(c.n))).size > 1) {
+        pick = pick.filter(c => {
+          const f = c.n.type === "family" ? c.n : (c.n.familyOf ? nodeWithId(nodes, c.n.familyOf) : null);
+          const mem = f ? (f.generations || []).map(id => nodeWithId(nodes, id)).filter(Boolean) : [c.n];
+          return mem.some(g => builtAlongside(mentioner, g));
+        });
+      }
+      const fams = new Set(pick.map(c => famKey(c.n)));
+      if (fams.size !== 1) return { ambiguous: `"${s}" fits more than one car`, cands: [...new Set(tied.map(c => c.n.id))].slice(0, 6) };
+      const fp = pick.find(c => c.n.type === "family");
+      return pickGeneration(fp ? fp.n : pick[0].n);
+    }
+    // A bare placeholder by the mention's own name, when Wikipedia redirects
+    // that name to a real car's article: the real car ("Infiniti JX" is the QX60).
+    if (red && !best.n.familyOf && best.n.type !== "family") {
+      const real = byOtherName.filter(n => n !== best.n && spanOfNode(n) && articleKeyOf(n.wp) === articleKeyOf(red));
+      if (real.length === 1) return pickGeneration(real[0]);
+    }
+    return pickGeneration(best.n);
+
+    function pickGeneration(n) {
+      const fam = n.type === "family" ? n : (n.familyOf ? nodeWithId(nodes, n.familyOf) : null);
+      const gens = fam ? (fam.generations || []).map(id => nodeWithId(nodes, id)).filter(g => g && !g.retired)
+        .sort((x, y) => (x.year == null ? 1e9 : x.year) - (y.year == null ? 1e9 : y.year)) : [];
+      if (!gens.length) {
+        if (yearsApart(mentioner, n) > PLATFORM_YEAR_GAP) return { none: `built ${yearsApart(mentioner, n)} years apart` };
+        return { node: n, why: `"${s}" names the ${n.make} ${n.label}` };
+      }
+      // A generation named outright by the mention's whole name.
+      if (n.type !== "family" && (best.exact || best.how === "other name") && n === best.n && !mk.ord &&
+          (!mk.codes.length || best.codeHit)) {
+        if (yearsApart(mentioner, n) > PLATFORM_YEAR_GAP) return { none: `built ${yearsApart(mentioner, n)} years apart` };
+        return { node: n, why: `"${s}" is the ${n.make} ${n.label}` };
+      }
+      const codesOfGen = genCodes;
+      if (mk.codes.length) {
+        const hit = gens.filter(g => codesOfGen(g).some(c => mk.codes.includes(c)));
+        if (hit.length === 1) return { node: hit[0], why: `"${s}" names the ${hit[0].make} ${hit[0].label} by its code` };
+      }
+      if (mk.ord) {
+        const word = ORD_BY_N[mk.ord];
+        const byLabel = gens.filter(g => new RegExp("\\b" + word + "\\s+generation\\b", "i").test(g.label));
+        if (byLabel.length === 1) return { node: byLabel[0], why: `"${s}" names the ${byLabel[0].make} ${byLabel[0].label}` };
+        const counted = gens.some(g => /generation/i.test(g.label)) ? gens.filter(g => !/\bseries\b/i.test(g.label) || /generation/i.test(g.label)) : gens;
+        if (counted[mk.ord - 1]) return { node: counted[mk.ord - 1], why: `"${s}" names the ${counted[mk.ord - 1].make} ${counted[mk.ord - 1].label} by its place in the line` };
+        return { none: `"${s}" names a generation the ${fam.make} ${fam.label} split does not have`, missingGeneration: fam.id };
+      }
+      // No marker, or a code no generation carries: the one built alongside.
+      const along = gens.filter(g => builtAlongside(mentioner, g));
+      if (!spanOfNode(mentioner)) return { ambiguous: `the ${mentioner.make} ${mentioner.label} has no years to place it by` };
+      if (spanOfNode(mentioner)[1] == null && mentioner.year < new Date().getFullYear() - 15) {
+        return { ambiguous: `the ${mentioner.make} ${mentioner.label} has no end year` };
+      }
+      if (along.length === 1) {
+        const g = along[0];
+        return { node: g, why: `"${s}" names the ${fam.make} ${fam.label}${mk.codes.length ? " (by another code)" : ""}, and the ${g.label} is the one generation built alongside` };
+      }
+      if (along.length > 1) return { ambiguous: `"${s}" fits ${along.length} generations` };
+      // Touching only at the very end of the last one: a later generation the split does not have.
+      const last = gens[gens.length - 1];
+      const touching = gens.filter(g => yearsApart(mentioner, g) === 0 && g === last && mentioner.year > g.year);
+      if (mk.codes.length) return { none: `"${s}" names a code no ${fam.make} ${fam.label} generation built alongside carries` };
+      return { ambiguous: `no ${fam.make} ${fam.label} generation was built alongside it` +
+               (touching.length ? " for more than a year -- the split may be missing a generation" : ""),
+               missingGeneration: touching.length ? fam.id : null };
+    }
+  }
+  // The platform mentions a car's own article made. A plain model keeps them
+  // in its check's proposal rather than on the node.
+  function mentionTextsOf(n) {
+    if (!n) return [];
+    const own = [].concat(n.sharedPlatformTexts || [], n.sharedPlatformText ? [n.sharedPlatformText] : []);
+    if (own.length) return own;
+    const e = store.families && store.families[n.id];
+    const g = e && e.proposal && Array.isArray(e.proposal.generations) && e.proposal.generations.length === 1
+      ? e.proposal.generations[0] : null;
+    return g && Array.isArray(g.sharedPlatforms) ? g.sharedPlatforms : [];
+  }
+  // Does a mention so much as share a model word with the car? (Which
+  // sentence was behind a year-only proposal.)
+  function looselyNames(text, car, nodes) {
+    const fam = car.familyOf ? nodeWithId(nodes, car.familyOf) : (car.type === "family" ? car : null);
+    const words = new Set(wordsOf(text));
+    const makeW = new Set(wordsOf(car.make));
+    const wpWords = [car.wp, fam && fam.wp].filter(Boolean).map(t => String(t).split("#")[0]).join(" ");
+    const first = new Set([car.label, fam && fam.label].filter(Boolean).map(l => wordsOf(l).filter(w => !makeW.has(w))[0]));
+    // Model words only: not the make, not "generation"/"class"/"series", not a
+    // chassis code (the XP90 is a Vitz, a Yaris and a Belta) -- but a one-letter
+    // model is a model ("C-Class", "D series").
+    const names = wordsOf([car.label, fam && fam.label, wpWords].filter(Boolean).join(" "))
+      .filter(w => !makeW.has(w) && !NAME_FILLER.has(w) && w !== "class" &&
+                   (w.length > 1 || /\d/.test(w) || first.has(w)) &&
+                   !(/[a-z]/.test(w) && /\d/.test(w) && CODEISH.test(w) && w.length > 2 && !/^\d/.test(w) && !first.has(w)));
+    if (names.some(w => words.has(w))) return true;
+    return aliasesFor(car.id).concat(fam ? aliasesFor(fam.id) : []).some(a => norm(a) && norm(text).includes(norm(a)));
+  }
+  let mentionIdx = null;
   function decideProvisional(key, e, nodes) {
     const A = nodeWithId(nodes, e.genIdA || e.famA), B = nodeWithId(nodes, e.genIdB || e.famB);
     if (!A || !B || A.retired || B.retired) return { verdict: "drop", why: "one of the two cars is no longer in the graph" };
     const gensOf = n => (n.type === "family" ? (n.generations || []) : [n.id]);
-    // 2. already connected more specifically, or the same pair under another key
     for (const [k2, e2] of Object.entries(store.relations)) {
       if (k2 === key || !e2 || e2.status !== "confirmed" || e2.relType !== e.relType) continue;
       const p = [e2.genIdA, e2.genIdB];
@@ -7375,48 +7768,73 @@ Rules:
       const sameB = gensOf(B).includes(p[0]) || gensOf(B).includes(p[1]);
       if (sameA && sameB) return { verdict: "drop", why: "already connected generation to generation" };
     }
+    const idx = mentionIdx || (mentionIdx = makeIndex(nodes));
+    spanNodes = nodes;
+    const bFam = B.type === "family" ? B : (B.familyOf ? nodeWithId(nodes, B.familyOf) : null);
+    const isB = n => n === B || (B.type === "family" && n.familyOf === B.id);
     const quoted = (String(e.reason || "").match(/same car as "([^"]+)"|named this nameplate together with this generation's own code \("([^"]+)"\)|mention \("([^"]+)"/) || []).slice(1).find(Boolean);
-    const target = B.familyOf ? nodeWithId(nodes, B.familyOf) : B;
-    let texts = quoted ? [quoted] : mentionsNaming(A, B, nodes);
-    if (!quoted && !texts.length) {
-      const any = [].concat(A.sharedPlatformTexts || []);
-      if (any.length) return { verdict: "reject", why: `none of its mentions (${any.join(", ")}) names the ${B.make || ""} ${B.label}` };
-      return { verdict: "keep" };
-    }
-    for (const t of texts) {
-      // 4. a named generation
-      const fam = B.type === "family" ? B : (B.familyOf ? nodeWithId(nodes, B.familyOf) : null);
-      const g = fam ? generationNamedBy(fam, t, nodes) : null;
-      if (g && B.type === "family") {
-        const v = sanityMatchPlausible(A, g, t, nodes);
-        if (v.ok) return { verdict: "retarget", to: g, why: `"${t}" names the ${g.make || ""} ${g.label}` };
+    const decide = (mentioner, texts, forward) => {
+      const votes = [];
+      for (const t of texts) {
+        const r = resolveMentionFully(t, mentioner, nodes, idx);
+        if (r.node) {
+          if (forward ? (r.node === B) : (r.node === A)) votes.push({ v: "confirm", why: r.why });
+          else if (forward && isB(r.node) && B.type === "family") votes.push({ v: "retarget", to: r.node, why: r.why });
+          else if (forward) votes.push({ v: "retarget", to: r.node, why: r.why });
+          else votes.push({ v: "reject", why: r.why });
+        } else if (r.none) votes.push({ v: "reject", why: r.none, missingGeneration: r.missingGeneration });
+        else votes.push({ v: "keep", why: r.ambiguous, missingGeneration: r.missingGeneration });
       }
-      const v = sanityMatchPlausible(A, B, t, nodes);
-      if (!v.ok) { if (texts.length === 1) return { verdict: "reject", why: v.why }; continue; }
-      if (v.exact) return { verdict: "confirm", why: `"${t}" names this generation` };
-      if (g && g !== B) return { verdict: "reject", why: `"${t}" names the ${g.label}, not this one` };
-      // 6. the nameplate only
-      if (!B.familyOf && B.type !== "family") {
-        return { verdict: "confirm", why: `"${t}" names it and they were built at the same time` };
+      return votes;
+    };
+    let votes = [];
+    if (quoted) votes = decide(A, [quoted], true);
+    else {
+      const fwd = mentionTextsOf(A).filter(t => looselyNames(t, B, nodes) || (bFam && looselyNames(t, bFam, nodes)));
+      votes = decide(A, fwd, true);
+      if (!votes.some(v => v.v === "confirm")) {
+        const back = mentionTextsOf(B).filter(t => looselyNames(t, A, nodes));
+        decide(B, back, false).forEach(v => { if (v.v === "confirm") votes.push(v); });
       }
-      if (B.familyOf) {
-        const span = n => Number.isFinite(n && n.year) ? [n.year, Number.isFinite(n.end) ? n.end : new Date().getFullYear()] : null;
-        const a = span(A);
-        const overl = n => { const b = span(n); return a && b && Math.max(a[0] - b[1], b[0] - a[1]) <= 0; };
-        const twins = (target.generations || []).map(id => nodeWithId(nodes, id)).filter(x => x && !x.retired && overl(x));
-        if (twins.length === 1 && twins[0] === B) {
-          return { verdict: "confirm", why: `"${t}" names the nameplate, and this is the one generation of it built alongside` };
-        }
+      if (!votes.length) {
+        if (mentionTextsOf(A).length) return { verdict: "reject", why: `none of its mentions (${mentionTextsOf(A).join(", ")}) names the ${B.make || ""} ${B.label}` };
+        return { verdict: "keep" };
       }
     }
-    return { verdict: "keep" };
+    const conf = votes.find(v => v.v === "confirm");
+    if (conf) {
+      if (B.type === "family" && (B.generations || []).length) return { verdict: "keep", why: "names the nameplate, not a generation" };
+      return { verdict: "confirm", why: conf.why };
+    }
+    const moves = votes.filter(v => v.v === "retarget");
+    const strong = moves.filter(v => bFam && v.to.familyOf === bFam.id);
+    if (strong.length && strong.every(v => v.to === strong[0].to)) {
+      return { verdict: "retarget", to: strong[0].to, why: strong[0].why };
+    }
+    if (moves.length && moves.every(v => v.to === moves[0].to) && !votes.some(v => v.v === "keep")) {
+      return { verdict: "retarget", to: moves[0].to, why: moves[0].why };
+    }
+    if (votes.every(v => v.v === "reject")) {
+      const miss = votes.find(v => v.missingGeneration);
+      return { verdict: "reject", why: votes[0].why, missingGeneration: miss && miss.missingGeneration };
+    }
+    const miss = votes.find(v => v.missingGeneration);
+    return { verdict: "keep", why: (votes.find(v => v.v === "keep") || {}).why, missingGeneration: miss && miss.missingGeneration };
   }
   function autoDecideProvisionalRelations(nodes) {
     let n = 0;
+    mentionIdx = null;
     for (const [key, e] of Object.entries(store.relations || {})) {
       if (!e || e.status !== "provisional" || e.reworkPending) continue;
       const d = decideProvisional(key, e, nodes);
-      if (d.verdict === "keep") continue;
+      if (d.verdict === "keep") {
+        if (d.missingGeneration && !e.missingGeneration) {
+          e.missingGeneration = d.missingGeneration;
+          const A = nodeWithId(nodes, e.genIdA || e.famA), f = nodeWithId(nodes, d.missingGeneration);
+          note(`relations: the ${f ? (f.make + " " + f.label) : d.missingGeneration} split may be missing a generation (${A ? A.make + " " + A.label : ""} names it, but no generation was built alongside)`);
+        }
+        continue;
+      }
       const A = nodeWithId(nodes, e.genIdA || e.famA), B = nodeWithId(nodes, e.genIdB || e.famB);
       const name = x => x ? `${x.make || ""} ${x.label}`.trim() : "(gone)";
       const now = new Date().toISOString();
@@ -7430,6 +7848,7 @@ Rules:
                            reason: `confirmed by rule: ${d.why}` });
       } else if (d.verdict === "retarget") {
         delete store.relations[key];
+        store.rejectedRelations[key] = true;   // the wrong pairing is not proposed again
         const k2 = relKey(A.id, d.to.id, e.relType);
         if (!store.relations[k2] && !store.rejectedRelations[k2]) {
           store.relations[k2] = Object.assign({}, e, {
@@ -7440,15 +7859,19 @@ Rules:
       }
       note(`relations: ${d.verdict === "retarget" ? "confirmed" : d.verdict} ${name(A)} <-> ` +
            `${name(d.to || B)} -- ${d.why}`);
+      if (d.missingGeneration) {
+        const f = nodeWithId(nodes, d.missingGeneration);
+        note(`relations: the ${name(f)} split may be missing a generation (named by the ${name(A)}'s article)`);
+      }
       n++;
     }
     if (n) persist();
     return n;
   }
   let implausibleSwept = false;
-  function applyResolvedRelations(nodes, links) {
+  function applyResolvedRelations(nodes, links, opts) {
     if (!implausibleSwept) { implausibleSwept = true; retractImplausibleSanityMatches(nodes); }
-    autoDecideProvisionalRelations(nodes);
+    if (!(opts && opts.deferDecisions)) autoDecideProvisionalRelations(nodes);
     const byId = new Map(nodes.map(n => [n.id, n]));
     // This used to `return` outright when store.relations was empty, which
     // silently skipped mirrorRelationLinks at the bottom too -- and that
@@ -14051,6 +14474,7 @@ Rules:
     schedulePartnerCheck, cascadeDepthIn,
     beginFreshScan, endFreshScan, freshScanActive, setFreshRecheckRunner, setCarTimeout, finishFullScan,
     sanityMatchPlausible, decideProvisional, autoDecideProvisionalRelations,
+    resolveMention: (text, id, nodes) => resolveMentionFully(text, nodeWithId(nodes, id), nodes, makeIndex(nodes)),
     checkInFlight: id => inFlight.has(id) || inFlight.has("recheck:" + id),
     indexSectionEngine, isGenericIndexSection, generationNodeLabel, looksLikeCodeLink,
     relabelMisnamedEngines, engineArticleKey,

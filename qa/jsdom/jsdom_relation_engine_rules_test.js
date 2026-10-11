@@ -218,7 +218,11 @@ const mk = (id, label, make, year, end, extra) => Object.assign({ id, type: "mod
     const st = k => { const e = LF.relationEntryFor(k); return e ? e.status : "none"; };
     check("a nameplate the mention names a generation of is stepped down to it and confirmed",
       st("m-rtst-koleos|m-rtst-qq-j10|platform") === "confirmed" && st("fam-rtst-qq|m-rtst-koleos|platform") === "none");
-    check("the mention names a different generation: refused", st("m-rtst-pulsar|m-rtst-qq-j10|platform") === "none");
+    // 2026-10-11 Wikipedia review: a mention naming a different generation
+    // is moved onto that generation, not thrown away.
+    check("the mention names a different generation: moved onto that one",
+      st("m-rtst-pulsar|m-rtst-qq-j10|platform") === "none" && st("m-rtst-pulsar|m-rtst-qq-j11|platform") === "confirmed",
+      st("m-rtst-pulsar|m-rtst-qq-j11|platform"));
     check("no mention names it at all: refused", st("m-rtst-diplo|m-rtst-qq-j11|platform") === "none");
     check("one side gone: dropped", st("m-rtst-gone|m-rtst-qq-j11|platform") === "none");
     check("the nameplate named, and only one generation built alongside: confirmed",
