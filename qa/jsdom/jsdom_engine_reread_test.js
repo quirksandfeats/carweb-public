@@ -385,9 +385,14 @@ const liveCar = () => {
     await sleep(80);
     check("...but reading its article deliberately brings it back",
           !cw.byId.get(ENG7).retired);
+    // On the engine or on one of its variants: a read is tidied the way a
+    // page load is, so a car the article puts on a variant hangs off the
+    // variant and no longer off the family as well.
+    const family = new Set([eng.id].concat(cw.byId.get(ENG7).variants || []));
+    const ours = l => l.type === "fitted" && !l.retired &&
+      (family.has(l.source.id || l.source) || family.has(l.target.id || l.target));
     check("...with its connections, not as a bare node",
-          DATA.links.filter(l => mine(l) && !l.retired).length > 0,
-          DATA.links.filter(l => mine(l) && !l.retired).length);
+          DATA.links.filter(ours).length > 0, DATA.links.filter(ours).length);
     check("...and the delete record cleared, so it is not half-deleted",
           !LF.allDeletions().some(d => d.id === ENG7),
           LF.allDeletions().map(d => d.id).join(", "));

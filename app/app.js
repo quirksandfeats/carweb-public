@@ -236,6 +236,9 @@ window.CarWeb = (function () {
   // at generations that had since been retired, and the coarse nameplate
   // lines they had stepped aside for still deferring to them.
   if (window.LlmFamilies) window.LlmFamilies.pushSuccessionToGenerations(nodes, links);
+  // After every pass that can add a relation: one between a car and itself
+  // is never drawn. See llm_families.js's retireSelfLinks.
+  if (window.LlmFamilies && window.LlmFamilies.retireSelfLinks) window.LlmFamilies.retireSelfLinks(nodes, links);
   // Whatever the replays above decided is saved once, so the next load reads
   // it instead of deciding it again. Nothing changed, nothing is written.
   if (window.LlmFamilies && window.LlmFamilies.saveIfChanged) window.LlmFamilies.saveIfChanged();
@@ -1847,6 +1850,13 @@ window.CarWeb = (function () {
         return;
       }
       spliceIntoIndexes(nodesBefore, linksBefore);
+      // The same tidy a page load runs -- one variant per name, one line per
+      // car per variant -- so what is on screen after a read is what a reload
+      // would show, not the read laid on top of what was there before. After
+      // the wiring above, since it removes links and the wiring goes by index.
+      if (LFam.tidyEngineLinks) {
+        try { LFam.tidyEngineLinks(nodes, links); } catch (e) { console.warn("CarWeb: could not tidy engine links", e); }
+      }
       if (nodes.length !== nodesBefore) buildSim();
       powertrainChanged();
       refreshCounts();
