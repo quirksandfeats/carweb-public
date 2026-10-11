@@ -1818,3 +1818,66 @@ npm install jsdom --no-save   # only if node_modules/jsdom isn't already here (i
 node jsdom_phone_nav_test.js         # run one
 for f in jsdom_*_test.js; do node "$f" || echo "FAILED: $f"; done   # run all
 ```
+
+## October 2026: scans, engines and relationships
+
+Changes from 10–11 October 2026, newest last.
+
+**Scans.** A Request Scan is a full scan: every car the cascade reaches is
+re-read, to the depth set in `serve.py` (`CASCADE_MAX_DEPTH`), and the cascade
+follows platform, related and succession links. There is no overall time
+limit any more; each car has its own timeout, the job's claim is renewed while
+it runs (the Worker needs that version deployed), and a crashed page is
+reopened. A car that crashes three times is set aside like a timed-out one and
+picked up by `--resume`.
+
+**Engines.** A generation's engines come only from its own section of the
+article. Before, a generation whose article was a redirect to the nameplate's
+page, or a page covering several cars, took every engine on that page: the
+Toyota Supra A80 had all the Supra's engines. Engine links in prose must name
+the model. 127 stored reads that came from another car's page are marked stale
+and not replayed; **Tools → Re-read Engines** redoes them.
+
+**Nameplate edges.** A platform or related link to a nameplate is hidden, on
+the canvas and in the info card, when a generation of that nameplate is
+already linked (the Supra A80 showed both the Lexus SC and the SC Z30/Z40).
+
+**The sanity check's picks.** The Chevrolet Suburban was joined to the
+Goggomobil Dart because its article names "Dartz", an armouring firm, and the
+local model called that a misspelling of "Dart". A pick is now refused unless
+the mention names the car as whole words, names its generation if it names
+one, and the two were built within 15 years of each other. Stored picks that
+fail this are taken back at boot.
+
+**Waiting relationships.** All 100 that were waiting were read against
+Wikipedia. Almost every car an article names is really related; what goes
+wrong is which node the name was pinned to ("Skyline (R31)" on the Skyline
+GT-R, "Peugeot 208 II" on the first 208, "Grand LeMans Safari" on the
+full-size Grand Safari). Of the 76 that needed a decision, 31 were right, 37
+belonged on another node and 8 named no related car. The Chrysler Fifth
+Avenue's split had stopped at the M-body, so the 1990 Imperial and New Yorker
+had nothing to attach to; its Y-body generation (1990–1993) was added.
+
+So a waiting pair is no longer judged as it stands: `decideProvisional`
+re-resolves the sentence behind it from scratch (`resolveMentionFully`). The
+make comes first and the model words must follow in order; trim and body words
+(Safari, Super, SS, Grand...), numbers, codes and the car's own name are
+allowed around them, and any other word means another car ("Galant Fortis" is
+not the Galant). Wikipedia redirects and aliases count as names, but another
+make's alias never beats the make's own car. The generation is picked by code
+(letter codes and "BC3/BI3"-style alternatives included), then by the label's
+own ordinal ("Second generation (MF)", never "Second series (MH)"), then by
+place in the line ("II", "Mk5"), then by being the one generation built
+alongside for at least two years. A one-year overlap at the end of the last
+generation is flagged as a generation missing from the split. On the 76
+cases the rules agree with Wikipedia on 63, leave 9 and refuse 4 whose right
+car is not in the graph; none is confirmed or moved wrongly. Decisions wait
+for the final graph at boot.
+
+The extraction prompt now asks for every generation heading, says a "series"
+or facelift is not a generation, keeps engine-only sharing out of
+`sharedPlatforms` (the 1991 Town & Country minivan had been tied to three
+sedans through its V6), and keeps trim words in names.
+
+Tests: `jsdom_relation_engine_rules_test.js`,
+`jsdom_relation_wikipedia_patterns_test.js`.

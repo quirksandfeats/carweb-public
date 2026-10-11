@@ -24,6 +24,9 @@ Double-click `app/index.html`. No server, no build step, works offline.
 - **Platforms** — only the cars that actually share a platform with, or are a
   rebadge of, some other car.
 
+**Powertrain** mode switches the canvas to engines and the cars they were
+fitted to.
+
 A **None | Designers | Engineers | Both** switch re-lenses every view, and a
 year-range slider (2000–present by default) keeps the opening view uncluttered
 without hiding anything you navigate to directly.
@@ -47,16 +50,38 @@ so DBpedia never sees them as separate things to harvest. Run
 nothing is sent to any cloud service.
 
 Every generation code, year and name the model returns is checked against the
-article text before it is kept, and nothing reaches the graph without your
-confirmation. Discoveries live only in `app/llm_families.json`; delete that file
-and the layer resets to nothing, leaving the harvested graph untouched.
+article text before it is kept. Discoveries live only in `app/llm_families.json`;
+delete that file and the layer resets to nothing, leaving the harvested graph
+untouched.
+
+What the layer does:
+
+- **Generations.** Splits a nameplate into its generations. A first split and a
+  re-check that keeps or adds generations apply themselves; one that would lose
+  a generation waits in **Tools → Pending Generation Splits**.
+- **Shared platforms.** Reads which other cars each generation shares a
+  platform with or is a rebadge of, and connects it to the right generation of
+  the right car. A connection to a nameplate is hidden once a generation of
+  that nameplate is connected.
+- **Waiting relationships.** A connection the layer is unsure of is decided by
+  rule wherever the evidence allows: the sentence behind it is matched again
+  against the whole graph (make, model words, trim words, chassis codes,
+  "II"/"Mk5"/"third generation", Wikipedia redirects, and which generation was
+  built at the same time). It is confirmed, moved to the right car, refused, or
+  left for you. Checked against Wikipedia on 100 real cases, the rules never
+  confirmed or moved one wrongly.
+- **Engines (Powertrain mode).** Reads each generation's engines from its own
+  infobox section, with no model call, and links them to engine articles.
 
 ## Requesting a scan remotely
 
 The hosted copy can ask the machine with the model on it to run a pass:
 a button on the site queues a job in a Cloudflare Worker, and
-`scripts/llm_agent.py` on that machine picks it up, runs the pass, pushes,
-and shuts itself down. See [`docs/REQUEST-QUEUE.md`](docs/REQUEST-QUEUE.md).
+`scripts/llm_agent.py` on that machine picks it up, runs a full scan (every
+reached car is re-read, to the configured cascade depth), pushes, and shuts
+itself down. There is no overall time limit; a car that hangs or crashes the
+page three times is set aside for a later `--resume`. See
+[`docs/REQUEST-QUEUE.md`](docs/REQUEST-QUEUE.md).
 
 ## Rebuilding
 
@@ -72,7 +97,7 @@ cd qa/jsdom && npm install jsdom --no-save
 for f in jsdom_*_test.js; do node "$f" >/dev/null 2>&1 || echo "FAILED: $f"; done
 ```
 
-93 headless jsdom regression tests, plus the `qa/qa_*.py` suites (those
+131 headless jsdom regression tests, plus the `qa/qa_*.py` suites (those
 need Playwright, or a running `llama-server` for the MTP benchmark).
 
 ## Data and licence
