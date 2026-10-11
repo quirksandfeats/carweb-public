@@ -341,10 +341,14 @@ function runScenarioC() {
     const relKey = [NAMEPLATE_ID, GEN_ID].sort().join("|") + "|platform";
     const rel = window.LlmFamilies.relationEntryFor(relKey);
     check("a relation entry exists", !!rel, rel);
-    check("status stays 'provisional' -- a LOW-confidence sanity-check verdict still always needs human review, never auto-confirmed",
-      rel && rel.status === "provisional", rel);
-    check("reason still mentions the LLM sanity check but asks for verification, not 'auto-approved'",
-      rel && /flagged by the local llm sanity check/i.test(rel.reason || "") && !/auto-approved/i.test(rel.reason || ""), rel && rel.reason);
+    // A low-confidence verdict never confirms anything by itself. Here the
+    // rules do (2026-10-11, autoDecideProvisionalRelations): the mention
+    // names the Drazuun, and the Drazuun's only generation was built at the
+    // same time -- so it is confirmed by rule, and says so.
+    check("a LOW-confidence verdict is not what confirmed it",
+      rel && !/auto-approved/i.test(rel.reason || ""), rel && rel.reason);
+    check("...the rules did, on what the mention says and when the cars were built",
+      rel && rel.status === "confirmed" && /confirmed by rule/i.test(rel.reason || ""), rel && rel.reason);
 
     console.log("\n" + (fails === 0 ? "ALL GREEN" : fails + " FAILURE(S)"));
     process.exit(fails === 0 ? 0 : 1);

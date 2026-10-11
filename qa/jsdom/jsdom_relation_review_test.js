@@ -120,8 +120,11 @@ const LF = window.LlmFamilies;
 const DATA = window.CARDATA;
 const statusOf = k => (LF.allRelationEntries().find(e => e.id === k) || {}).status || "(gone)";
 
-check("(precondition) four are waiting",
-      LF.allRelationEntries().filter(e => e.status === "provisional").length === 4,
+// The boot-time rules (autoDecideProvisionalRelations) may already settle the
+// easiest of these; the review pass must still leave every one decided right.
+console.log("waiting after boot:", LF.allRelationEntries().filter(e => e.status === "provisional").map(e => e.id).join(", "));
+check("(precondition) at least three are still waiting",
+      LF.allRelationEntries().filter(e => e.status === "provisional").length >= 3,
       LF.allRelationEntries().filter(e => e.status === "provisional").length);
 
 const r = LF.reviewProvisionalRelations(DATA.nodes, DATA.links);

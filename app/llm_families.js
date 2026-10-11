@@ -1140,6 +1140,8 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
 - CRITICAL: "sharedPlatforms" holds CARS, never PLATFORMS. A platform/architecture/chassis NAME -- "Ford C1 platform", "GM Delta platform", "General Motors Gamma platform", "Mazda GE platform", "MQB", "GMT001", "CD3" -- is the engineering base that cars are built ON, not a car that exists. Never put one in this list. If the text says a generation is built on the "Ford C1 platform", that tells you which platform it uses; it does NOT name a related car, and you must list only the actual CARS the text says share it (if any). A name containing the word "platform", "architecture" or "chassis", or that is a bare code with no marque and model, is a platform, not a car.
 - If a line below labeled "Infobox 'related'/'platform' field" is present, that's Wikipedia's own explicit statement of one or more related/platform-sharing nameplates for this whole article -- it may list SEVERAL names (comma- or semicolon-separated); treat every single one of them as a strong, trustworthy signal to add to sharedPlatforms, not just the first name in the list. Your job is figuring out which generation (from your pass-1 list) each one actually belongs to: usually the most recent one if the infobox only describes one generation's specs overall, or whichever generation the surrounding infobox rows/excerpts tie it to -- never leave any of them out just because the field isn't phrased as a full sentence, and never stop after adding only one when the field names more. A nameplate mentioning a shared platform/rebadge relationship is common even when it only ever had one generation (e.g. a single-generation captive-import model) — never drop that fact just because there's nothing to split; only return an entirely empty "generations" array (all the way back in pass 1) if there's truly no shared-platform/rebadge relationship to report either.
 - A car built under licence, or the same car sold under a different marque's badge, is exactly the kind of relationship this list is for, and it is usually stated in ordinary prose rather than the infobox. The G-Class names two in its opening section alone -- it was "sold under the Puch name as Puch G until 2000", and the Peugeot P4 is a "variant made under licence in France with a Peugeot engine" -- and a licensed or rebadged twin is easy to skim past because the sentence reads like history rather than like a specification. Include them.
+- Keep the generation in the name whenever the text gives one: write "Nissan Qashqai (J10)", "Ford Taurus (seventh generation)", "Peugeot 208 II", "SEAT Ibiza Mk5" exactly as the text has it, not just "Nissan Qashqai". The generation is what lets the right car be found; a bare nameplate name usually matches several.
+- A company is not a car. A coachbuilder, tuner, armourer or converter that worked on this car ("Dartz", "Ruf", "Brabus", "Hennessey") goes in no list here.
 - Never invent a name that does not appear in the supplied text. Being exhaustive means finding every REAL related nameplate in the text, never inventing ones that aren't there.`;
 
   function buildMessages(node, digest, priorProposal, feedback) {
@@ -4496,6 +4498,11 @@ Rules:
 - The same real car cannot have been in production in two disjoint eras under two names. If the candidate's production years do not overlap the years the mention comes from, it is a DIFFERENT car -- answer null, no matter how similar the names or how plausible the story.
 - Do not invent a justification. If you cannot say concretely WHY they are the same car (the licensing deal, the market it was renamed for, the shared chassis code), you do not know that they are -- answer null.
 - Sharing a marque is not evidence of anything. Two cars from the same manufacturer with different model names are different cars unless one is a documented rename or export badge of the other.
+- The mention has to NAME the candidate: the candidate's model name as whole words, its chassis code, or a documented other-market name for it. A name that merely contains the candidate's name as letters is a different name: "Dartz" (an armouring company) is not the "Dart"; "Excelle XT" is not the "Excelle GT"; "QQ3" is not the "QQ6"; "Fit Aria" is not the "Fit Shuttle".
+- When the mention names a generation -- a chassis code ("TE27", "J11", "W247"), an ordinal ("third generation"), a roman numeral ("208 II"), or a mark number ("Mk5") -- only that generation matches. Another generation of the same nameplate is a different car: answer null rather than the nearest one.
+- A different qualifier in brackets is a different car: "408 (crossover)" is not "408 (saloon)".
+- When the mention names only the nameplate, the candidate generation must be one built at the same time as the car the mention came from; a generation from decades earlier or later is not the one meant.
+- A tuner, coachbuilder or armouring firm named in the text is not a car and matches nothing.
 - Never invent an id that was not in the candidate list.`;
   function buildDuplicateCheckMessages(mentionText, candidates) {
     const list = candidates.map(c => {
@@ -4953,6 +4960,192 @@ Rules:
   // independently, not just one. gn.sharedPlatformTexts is the array form;
   // gn.sharedPlatformText (singular) is still honored as a one-item
   // fallback for any caller that hasn't been updated to the array shape.
+  // ---------- is the sanity check's pick even possible? ----------
+  // Real user report: the Chevrolet Suburban (ninth generation) was joined to
+  // the Goggomobil Dart. Its article names "Dartz" (a Latvian firm that
+  // armours Suburbans); the local model's sanity check called that "a known
+  // misspelling" of the 1959 Goggomobil Dart, with high confidence, and it
+  // was confirmed without anyone seeing it. Two facts rule that out without
+  // asking anybody, and both are checked before the model's pick is used:
+  //   - the name: the mention has to carry the car's model name as whole
+  //     words ("Dart" is not a word of "Dartz"), or its chassis code, or one
+  //     of its other-market names (store.aliases);
+  //   - the years. Andy's own rule stands ("one car has stopped production,
+  //     but then a new car a few years later uses the same platform"), so a
+  //     mention that NAMES the car is only refused when the eras are far
+  //     apart (PLATFORM_YEAR_GAP), or when the pick is the wrong generation:
+  //     the mention named the nameplate, not a generation, and another
+  //     generation of it was being built at the same time as this car. An
+  //     other-market name (alias) is the same car, so it has to be
+  //     contemporaneous (IDENTITY_YEAR_SLACK, as in verifySharedPlatformMention).
+  const PLATFORM_YEAR_GAP = 15;
+  const NAME_FILLER = new Set(["class", "series", "generation", "the", "and", "of", "first", "second",
+    "third", "fourth", "fifth", "sixth", "seventh", "eighth", "ninth", "tenth", "mk", "mark", "model"]);
+  function nameWordsOf(text) {
+    return String(text || "").normalize("NFKD").replace(COMBINING_MARKS_RE, "").toLowerCase()
+      .split(/[^a-z0-9]+/).filter(Boolean);
+  }
+  const NUMBER_WORDS = { one: "1", two: "2", three: "3", four: "4", five: "5", six: "6", seven: "7",
+    eight: "8", nine: "9", ten: "10", eleven: "11", twelve: "12" };
+  const ORDINAL_N = { first: 1, second: 2, third: 3, fourth: 4, fifth: 5, sixth: 6, seventh: 7, eighth: 8,
+    ninth: 9, tenth: 10, eleventh: 11, twelfth: 12, thirteenth: 13, fourteenth: 14 };
+  const CODEISH = /^(?:mk\d+|mark\d+|[a-z]{1,3}\d{1,4}[a-z]?|\d{3}[a-z]{1,3})$/;
+  function modelWords(text, makeWords) {
+    return nameWordsOf(String(text || "").replace(/\s*\([^()]*\)\s*$/, ""))
+      .map(w => NUMBER_WORDS[w] || w)
+      .filter(w => !makeWords.has(w) && !NAME_FILLER.has(w));
+  }
+  // The generation a mention names by its place in the line: "second
+  // generation", "Peugeot 208 II", "Touran Mk1", "Mark V".
+  const ROMAN_ORD = { i: "first", ii: "second", iii: "third", iv: "fourth", v: "fifth", vi: "sixth",
+    vii: "seventh", viii: "eighth", ix: "ninth", x: "tenth" };
+  const ORD_BY_N = ["", "first", "second", "third", "fourth", "fifth", "sixth", "seventh", "eighth",
+    "ninth", "tenth", "eleventh", "twelfth", "thirteenth", "fourteenth"];
+  function mentionOrdinal(text) {
+    const w = nameWordsOf(text);
+    const direct = w.find(x => ORDINAL_N[x]);
+    if (direct) return direct;
+    for (let i = 0; i < w.length; i++) {
+      const mk = w[i].match(/^(?:mk|mark)(\d{1,2})$/);
+      if (mk && ORD_BY_N[+mk[1]]) return ORD_BY_N[+mk[1]];
+      if ((w[i] === "mk" || w[i] === "mark") && w[i + 1]) {
+        if (/^\d{1,2}$/.test(w[i + 1]) && ORD_BY_N[+w[i + 1]]) return ORD_BY_N[+w[i + 1]];
+        if (ROMAN_ORD[w[i + 1]]) return ROMAN_ORD[w[i + 1]];
+      }
+    }
+    // A bare roman numeral after the name ("Peugeot 2008 II", "DS 3 II"); "i"
+    // and "v" alone are too often something else, so only ii and up.
+    const last = w.slice(1).reverse().find(x => ROMAN_ORD[x]);
+    return last && last !== "i" && last !== "v" && last !== "x" ? ROMAN_ORD[last] : null;
+  }
+  // The generation of `fam` a mention names, by code or by place, if exactly one.
+  function generationNamedBy(fam, mentionText, nodes) {
+    if (!fam || !(fam.generations || []).length) return null;
+    const gens = fam.generations.map(id => nodeWithId(nodes, id)).filter(g => g && !g.retired)
+      .sort((x, y) => (x.year == null ? 1e9 : x.year) - (y.year == null ? 1e9 : y.year));
+    const said = new Set(chassisCodesIn(mentionText).concat(
+      (String(mentionText).match(/\(([^()]+)\)\s*$/) || [, ""])[1].split(/[\/,;]\s*/)).map(c => norm(c)).filter(Boolean));
+    const byCode = gens.filter(g => {
+      const tc = trailingCode(String(g.label || ""));
+      const codes = chassisCodesIn(g.label).concat(tc && tc.code ? [tc.code] : []).map(c => norm(c));
+      return codes.some(c => c.length >= 2 && said.has(c));
+    });
+    if (byCode.length === 1) return byCode[0];
+    const ord = mentionOrdinal(mentionText);
+    if (ord && gens[ORDINAL_N[ord] - 1]) return gens[ORDINAL_N[ord] - 1];
+    return null;
+  }
+  function sanityMatchPlausible(gn, cand, mentionText, nodes) {
+    if (!cand) return { ok: false, why: "no such car" };
+    const fam = cand.familyOf ? nodeWithId(nodes, cand.familyOf) : null;
+    const makeWords = new Set(nameWordsOf(cand.make).concat(nameWordsOf(gn && gn.make)));
+    const saidNorm = norm(mentionText);
+    const said = modelWords(String(mentionText || "").replace(/[()]/g, " "), makeWords);
+    const saidSet = new Set(said);
+    // The ways the candidate can be named: its nameplate's name and its own,
+    // each split where one label holds two cars ("Rover 400 / 45", "Alfa
+    // Romeo 145 and 146"), with a trailing generation code taken off ("A3
+    // Mk3" names the A3).
+    const names = [];
+    [fam && fam.label, cand.label].filter(Boolean).forEach(lbl => {
+      String(lbl).replace(/\s*\([^()]*\)\s*$/, "").split(/\s*\/\s*|\s+and\s+/i).forEach(part => {
+        let w = modelWords(part, makeWords);
+        while (w.length > 1 && CODEISH.test(w[w.length - 1])) w = w.slice(0, -1);
+        if (w.length) names.push(w);
+      });
+    });
+    const aliases = aliasesFor(cand.id).concat(fam ? aliasesFor(fam.id) : []);
+    if (aliases.some(a => norm(a) === saidNorm ||
+        (x => x.length && x.every(w => saidSet.has(w)))(modelWords(a, makeWords)))) return yearsCheck(IDENTITY_YEAR_SLACK, false);
+    // Two different chassis codes are two different cars: "Corolla Levin
+    // (TE27)" is not the AE86.
+    const CHASSIS = /^(?:[a-z]{1,4}\d{1,4}[a-z]{0,2}|\d{2,4}[a-z]{1,3})$/;
+    const codesOf = t => chassisCodesIn(t).concat((String(t).match(/\(([^()]+)\)\s*$/) || [, ""])[1]
+      .split(/[\/,;]\s*/)).map(c => norm(c)).filter(c => c && CHASSIS.test(c) && !/^(?:pre|post|mk|mark)\d/.test(c));
+    const saidCodes = codesOf(mentionText);
+    const tc = trailingCode(String(cand.label || ""));
+    const candCodes = codesOf(cand.label).concat(tc && tc.code && CHASSIS.test(norm(tc.code)) ? [norm(tc.code)] : []);
+    // A letters-only code is still a name when the mention says it as a word:
+    // "Holden VG Ute" is the Holden Utility (VG).
+    const candCodeWords = [tc && tc.code].filter(Boolean).map(c => norm(c)).filter(c => c.length >= 2);
+    const named = names.some(w => w.every(x => saidSet.has(x)) || (w.length > 1 && saidNorm.includes(w.join("")))) ||
+                  candCodes.some(c => c.length >= 3 && saidNorm.includes(c)) ||
+                  candCodeWords.some(c => saidSet.has(c));
+    // The mention only less specific than the candidate ("Porsche 918" for
+    // the 918 Spyder) is left to the model's judgement; a mention whose model
+    // name the candidate does not carry at all is another car.
+    const lessSpecific = said.length && names.some(w => said.every(x => w.includes(x)));
+    if (!named && !lessSpecific) {
+      return { ok: false, why: `"${mentionText}" does not name the ${cand.make || ""} ${cand.label}`.replace(/\s+/g, " ") };
+    }
+    if (saidCodes.length && candCodes.length && !saidCodes.some(c => candCodes.includes(c))) {
+      return { ok: false, why: `"${mentionText}" names a different code from the ${cand.make || ""} ${cand.label}` };
+    }
+    // "Second generation" when the candidate is the nameplate's third.
+    // "(crossover)" is not "(saloon)": the same name, a different car.
+    const descOf = t => { const m = String(t || "").match(/\(([^()]+)\)\s*$/); return m && !/\d/.test(m[1]) ? norm(m[1]) : null; };
+    const dSaid = descOf(mentionText), dCand = descOf(cand.label) || (fam ? descOf(fam.label) : null);
+    if (dSaid && dCand && dSaid !== dCand && !ORDINAL_N[dSaid.replace(/generation$/, "")]) {
+      return { ok: false, why: `"${mentionText}" is the ${dSaid}, and this is the ${dCand}` };
+    }
+    const ordWord = mentionOrdinal(mentionText);
+    const gensInOrder = fam ? (fam.generations || []).map(id => nodeWithId(nodes, id)).filter(g => g && !g.retired)
+      .sort((x, y) => (x.year == null ? 1e9 : x.year) - (y.year == null ? 1e9 : y.year)) : [];
+    const pos = gensInOrder.indexOf(cand) + 1;
+    if (ordWord && fam) {
+      if (pos > 0 && pos !== ORDINAL_N[ordWord] && !nameWordsOf(cand.label).includes(ordWord)) {
+        return { ok: false, why: `"${mentionText}" names the ${ordWord} generation, and this is the ${pos}${["th","st","nd","rd"][(pos % 100 > 10 && pos % 100 < 14) ? 0 : Math.min(pos % 10, 4) % 4] || "th"}` };
+      }
+    }
+    const specific = !!(saidCodes.length || ordWord);
+    // The mention names this very generation (its code, or its place in the
+    // nameplate's order) -- the strongest evidence there is short of a person.
+    const exact = saidCodes.some(c => candCodes.includes(c)) || (!!ordWord && pos > 0 && pos === ORDINAL_N[ordWord]);
+    const y = yearsCheck(PLATFORM_YEAR_GAP, !specific);
+    if (y.ok) y.exact = exact;
+    return y;
+    function yearsCheck(maxGap, nameplateOnly) {
+      const span = n => {
+        const y0 = Number.isFinite(n && n.year) ? n.year : null;
+        if (y0 == null) return null;
+        return [y0, Number.isFinite(n.end) ? n.end : new Date().getFullYear()];
+      };
+      const A = span(gn), B = span(cand);
+      if (A && B) {
+        const gap = Math.max(A[0] - B[1], B[0] - A[1]);
+        if (gap > maxGap) {
+          return { ok: false, why: `built ${gap} years apart (${A[0]}–${A[1]} and ${B[0]}–${B[1]})` };
+        }
+        if (gap > 0 && nameplateOnly && fam) {
+          const twin = (fam.generations || []).map(id => nodeWithId(nodes, id))
+            .find(g => g && g !== cand && !g.retired && span(g) &&
+                       Math.max(A[0] - span(g)[1], span(g)[0] - A[1]) <= 0);
+          if (twin) return { ok: false, why: `the wrong generation: the ${twin.make || ""} ${twin.label} was the one built alongside it` };
+        }
+      }
+      return { ok: true };
+    }
+  }
+  // The same test over what was already confirmed this way, at every boot:
+  // a pick the rule above would refuse is taken back and remembered as a
+  // "no", so it is neither drawn nor proposed again.
+  function retractImplausibleSanityMatches(nodes) {
+    let n = 0;
+    for (const [key, e] of Object.entries(store.relations || {})) {
+      if (!e || e.status !== "confirmed" || e.decidedBy === "user") continue;
+      const m = String(e.reason || "").match(/^auto-approved in the background -- the local LLM sanity check confidently identified this as the same car as "([^"]+)"/);
+      if (!m) continue;
+      const gn = nodeWithId(nodes, e.genIdA), cand = nodeWithId(nodes, e.genIdB);
+      if (!gn || !cand) continue;
+      const v = sanityMatchPlausible(gn, cand, m[1], nodes);
+      if (v.ok) continue;
+      delete store.relations[key];
+      store.rejectedRelations[key] = true;
+      note(`relations: took back ${gn.make || ""} ${gn.label} <-> ${cand.make || ""} ${cand.label} -- ${v.why}`);
+      n++;
+    }
+    return n;
+  }
   function resolvePlatformMention(nodes, links, famId, gn) {
     const texts = Array.isArray(gn.sharedPlatformTexts) ? gn.sharedPlatformTexts
       : (gn.sharedPlatformText ? [gn.sharedPlatformText] : []);
@@ -4985,7 +5178,11 @@ Rules:
       // wrong/coarser thing), since this is exactly the case a formatting
       // mismatch would otherwise fall through on.
       const node = nodeWithId(nodes, sanity.matchId);
-      if (node) found = { node, loose: true, llmVerified: true, verifyReason: sanity.reason, verifyConfidence: sanity.confidence };
+      const plausible = node ? sanityMatchPlausible(gn, node, mentionText, nodes) : { ok: false };
+      if (node && !plausible.ok) {
+        note(`relations: not using the sanity check's pick for "${mentionText}" -- ${plausible.why}`);
+      }
+      if (node && plausible.ok) found = { node, loose: true, llmVerified: true, verifyReason: sanity.reason, verifyConfidence: sanity.confidence };
       // else: matched id no longer resolves to a real node -- stay safe,
       // keep whatever the deterministic matcher already found (or null).
     }
@@ -7136,7 +7333,122 @@ Rules:
     }
     return n;
   }
+  // ---------- deciding the review queue without a person ----------
+  // Real user request: "check all of my unconfirmed relationships ... Find
+  // rules, patterns, etc. that will automatically confirm or deny these
+  // relationships without me having to." What reviewing the 100 that were
+  // waiting turned up, as rules, in the order they are tried:
+  //   1. one side is gone (its generation was replaced or deleted): dropped;
+  //   2. a connection already stands between the same two generations, or
+  //      between this car and a generation of the nameplate this one names:
+  //      dropped as a duplicate;
+  //   3. none of the car's own platform mentions names the other car (the
+  //      match came from a substring, "Chevrolet van" out of "Chevrolet
+  //      Express"): refused;
+  //   4. the mention names a generation (code, "second generation", "II",
+  //      "Mk1") -- a nameplate is stepped down to that generation and
+  //      confirmed; a different generation is refused;
+  //   5. the mention fails sanityMatchPlausible (different code, wrong place
+  //      in the line, "(crossover)" vs "(saloon)", decades apart): refused;
+  //   6. the mention names the nameplate only, and exactly one of its
+  //      generations was being built at the same time as this car: that one
+  //      is confirmed. A plain car with no generations, named and
+  //      contemporaneous: confirmed.
+  // Anything else -- several generations that fit, no mention text to go
+  // on -- stays for a person.
+  function mentionsNaming(car, other, nodes) {
+    const texts = [].concat(car && car.sharedPlatformTexts || [], car && car.sharedPlatformText ? [car.sharedPlatformText] : []);
+    return texts.filter(t => {
+      const v = sanityMatchPlausible(car, other, t, nodes);
+      return v.ok || !/does not name/.test(v.why || "");
+    });
+  }
+  function decideProvisional(key, e, nodes) {
+    const A = nodeWithId(nodes, e.genIdA || e.famA), B = nodeWithId(nodes, e.genIdB || e.famB);
+    if (!A || !B || A.retired || B.retired) return { verdict: "drop", why: "one of the two cars is no longer in the graph" };
+    const gensOf = n => (n.type === "family" ? (n.generations || []) : [n.id]);
+    // 2. already connected more specifically, or the same pair under another key
+    for (const [k2, e2] of Object.entries(store.relations)) {
+      if (k2 === key || !e2 || e2.status !== "confirmed" || e2.relType !== e.relType) continue;
+      const p = [e2.genIdA, e2.genIdB];
+      const sameA = gensOf(A).includes(p[0]) || gensOf(A).includes(p[1]);
+      const sameB = gensOf(B).includes(p[0]) || gensOf(B).includes(p[1]);
+      if (sameA && sameB) return { verdict: "drop", why: "already connected generation to generation" };
+    }
+    const quoted = (String(e.reason || "").match(/same car as "([^"]+)"|named this nameplate together with this generation's own code \("([^"]+)"\)|mention \("([^"]+)"/) || []).slice(1).find(Boolean);
+    const target = B.familyOf ? nodeWithId(nodes, B.familyOf) : B;
+    let texts = quoted ? [quoted] : mentionsNaming(A, B, nodes);
+    if (!quoted && !texts.length) {
+      const any = [].concat(A.sharedPlatformTexts || []);
+      if (any.length) return { verdict: "reject", why: `none of its mentions (${any.join(", ")}) names the ${B.make || ""} ${B.label}` };
+      return { verdict: "keep" };
+    }
+    for (const t of texts) {
+      // 4. a named generation
+      const fam = B.type === "family" ? B : (B.familyOf ? nodeWithId(nodes, B.familyOf) : null);
+      const g = fam ? generationNamedBy(fam, t, nodes) : null;
+      if (g && B.type === "family") {
+        const v = sanityMatchPlausible(A, g, t, nodes);
+        if (v.ok) return { verdict: "retarget", to: g, why: `"${t}" names the ${g.make || ""} ${g.label}` };
+      }
+      const v = sanityMatchPlausible(A, B, t, nodes);
+      if (!v.ok) { if (texts.length === 1) return { verdict: "reject", why: v.why }; continue; }
+      if (v.exact) return { verdict: "confirm", why: `"${t}" names this generation` };
+      if (g && g !== B) return { verdict: "reject", why: `"${t}" names the ${g.label}, not this one` };
+      // 6. the nameplate only
+      if (!B.familyOf && B.type !== "family") {
+        return { verdict: "confirm", why: `"${t}" names it and they were built at the same time` };
+      }
+      if (B.familyOf) {
+        const span = n => Number.isFinite(n && n.year) ? [n.year, Number.isFinite(n.end) ? n.end : new Date().getFullYear()] : null;
+        const a = span(A);
+        const overl = n => { const b = span(n); return a && b && Math.max(a[0] - b[1], b[0] - a[1]) <= 0; };
+        const twins = (target.generations || []).map(id => nodeWithId(nodes, id)).filter(x => x && !x.retired && overl(x));
+        if (twins.length === 1 && twins[0] === B) {
+          return { verdict: "confirm", why: `"${t}" names the nameplate, and this is the one generation of it built alongside` };
+        }
+      }
+    }
+    return { verdict: "keep" };
+  }
+  function autoDecideProvisionalRelations(nodes) {
+    let n = 0;
+    for (const [key, e] of Object.entries(store.relations || {})) {
+      if (!e || e.status !== "provisional" || e.reworkPending) continue;
+      const d = decideProvisional(key, e, nodes);
+      if (d.verdict === "keep") continue;
+      const A = nodeWithId(nodes, e.genIdA || e.famA), B = nodeWithId(nodes, e.genIdB || e.famB);
+      const name = x => x ? `${x.make || ""} ${x.label}`.trim() : "(gone)";
+      const now = new Date().toISOString();
+      if (d.verdict === "drop") {
+        delete store.relations[key];
+      } else if (d.verdict === "reject") {
+        delete store.relations[key];
+        store.rejectedRelations[key] = true;
+      } else if (d.verdict === "confirm") {
+        Object.assign(e, { status: "confirmed", decidedAt: now, decidedBy: "rules",
+                           reason: `confirmed by rule: ${d.why}` });
+      } else if (d.verdict === "retarget") {
+        delete store.relations[key];
+        const k2 = relKey(A.id, d.to.id, e.relType);
+        if (!store.relations[k2] && !store.rejectedRelations[k2]) {
+          store.relations[k2] = Object.assign({}, e, {
+            status: "confirmed", decidedAt: now, decidedBy: "rules", genIdB: d.to.id, codeB: d.to.label,
+            famB: d.to.familyOf || d.to.id, reason: `confirmed by rule: ${d.why}`,
+          });
+        }
+      }
+      note(`relations: ${d.verdict === "retarget" ? "confirmed" : d.verdict} ${name(A)} <-> ` +
+           `${name(d.to || B)} -- ${d.why}`);
+      n++;
+    }
+    if (n) persist();
+    return n;
+  }
+  let implausibleSwept = false;
   function applyResolvedRelations(nodes, links) {
+    if (!implausibleSwept) { implausibleSwept = true; retractImplausibleSanityMatches(nodes); }
+    autoDecideProvisionalRelations(nodes);
     const byId = new Map(nodes.map(n => [n.id, n]));
     // This used to `return` outright when store.relations was empty, which
     // silently skipped mirrorRelationLinks at the bottom too -- and that
@@ -11018,9 +11330,59 @@ Rules:
   // Stored on the car's own entry (see checkNode), so this needs no network
   // and nothing to re-read: a mention is a fact about the car, recorded when
   // the car was checked.
+  // Stored reads made before the fix above, recognisable without the page:
+  // a generation whose article is its nameplate's own page (after
+  // redirects), or two generations of one nameplate that read the same page.
+  // Their engines are not replayed and the read is due again (Tools >
+  // Re-read Engines), so a wrong list is not shown in the meantime.
+  function staleSharedEngineScans(byId) {
+    const groups = new Map();
+    const stale = new Set();
+    // Every nameplate's own page. A car whose read landed on ANOTHER
+    // nameplate's page was given that nameplate's engines: the Supra A60 read
+    // "Toyota Carina (A60)", a redirect to the whole Carina page, and came
+    // back with 82 Carina engines.
+    const plates = new Map();
+    byId.forEach(f => {
+      if (!f || f.retired || f.type !== "family" || !(f.generations || []).length) return;
+      const u = umbrellaArticleFor(f, byId);
+      if (u) plates.set(articleKeyOf(u), f.id);
+    });
+    for (const [id, rec] of Object.entries(store.engineScans || {})) {
+      if (!rec || !rec.sourceTitle || !(rec.engines || []).length || rec.v === 0) continue;
+      const car = byId.get(id);
+      if (!car) continue;
+      const own = car.familyOf || car.id;
+      const other = plates.get(articleKeyOf(rec.sourceTitle));
+      if (other && other !== own) { stale.add(id); continue; }
+      if (!car.familyOf) continue;
+      const fam = byId.get(car.familyOf);
+      if (!fam) continue;
+      const key = articleKeyOf(rec.sourceTitle);
+      const umb = umbrellaArticleFor(fam, byId);
+      const isUmb = !!(umb && key === articleKeyOf(umb));
+      if (rec.section && isUmb && norm(rec.sourceTitle) !== norm(umb)) stale.add(id);
+      // Section reads of the nameplate's own page all name that page; that is
+      // the right page for each of them.
+      if (isUmb) continue;
+      const g = fam.id + "|" + key;
+      if (!groups.has(g)) groups.set(g, []);
+      groups.get(g).push(id);
+    }
+    groups.forEach(ids => { if (ids.length > 1) ids.forEach(i => stale.add(i)); });
+    stale.forEach(id => {
+      const rec = store.engineScans[id];
+      rec.v = 0;
+      rec.staleReason = "read a page that covers several cars";
+    });
+    if (stale.size) note(`powertrain: ${stale.size} stored engine read(s) came from a page covering several ` +
+                         "cars -- not shown until read again (Tools > Re-read Engines)");
+    return stale;
+  }
   function applyEngineMentions(nodes, links) {
     const byId = new Map(nodes.map(n => [n.id, n]));
     let engines = 0, fitted = 0;
+    staleSharedEngineScans(byId);
     const shared = {};   // see recordEngineMentionsFrom
     const replay = (carId, hits) => {
       const car = byId.get(carId);
@@ -11042,7 +11404,11 @@ Rules:
     // genResearch is keyed by GENERATION id, and is the bucket that actually
     // has engines in it for a split nameplate -- see researchGeneration.
     Object.keys(store.genResearch || {}).forEach(id => replay(id, (store.genResearch[id] || {}).engines));
-    Object.keys(store.engineScans || {}).forEach(id => replay(id, (store.engineScans[id] || {}).engines));
+    Object.keys(store.engineScans || {}).forEach(id => {
+      const rec = store.engineScans[id] || {};
+      if (rec.v === 0 && rec.staleReason) return;
+      replay(id, rec.engines);
+    });
     return { engines, fitted };
   }
 
@@ -12429,7 +12795,8 @@ Rules:
         const tc = trailingCode(String(car.label || ""));
         const code = tc && tc.code;
         const sec = code ? sectionForCode(famWikitext, code) : null;
-        const stated = sec ? (hatnoteArticle(sec.body) || proseArticle(sec.body, car.make, code)) : null;
+        const stated = sec ? (hatnoteArticle(sec.body) ||
+                              proseArticle(sec.body, car.make, code, (fam && fam.label) || tc.base)) : null;
         if (stated && (!famWp || norm(stated) !== norm(famWp))) return stated;
       }
       // No article of its own. Reading the nameplate's again would be a wasted
@@ -12641,9 +13008,31 @@ Rules:
       };
       let akaFrom = null;
       if (title) {
-        let wikitext = null;
-        try { wikitext = (await fetchArticleDigest(title)).wikitext; } catch (e) { wikitext = null; }
-        if (wikitext) {
+        let wikitext = null, served = null;
+        try { const dg = await fetchArticleDigest(title); wikitext = dg.wikitext; served = dg.resolvedTitle; }
+        catch (e) { wikitext = null; }
+        // Real user report: "the toyota supra A80 has way too many engines".
+        // "Toyota Supra (A80)" is a redirect to "Toyota Supra", the page for
+        // every generation, so the A80 was given all five generations'
+        // engines. 64 cars had the same problem (the Avensis T220 had 82).
+        // A page that turns out to be the nameplate's own is the section
+        // read below and nothing more; any other page with several engine
+        // fields covers several cars, and only this car's section of it is.
+        const isNameplatePage = !!(umbrella && served && articleKeyOf(served) === articleKeyOf(umbrella));
+        if (wikitext && isNameplatePage) {
+          note(`powertrain: ${car.label} -- "${title}" is the nameplate's own page; reading only its section`);
+        } else if (wikitext && engineFields(wikitext).length > 1) {
+          const sec = nameplateSectionForCar(car, fam, wikitext);
+          if (sec) {
+            hits = engineMentions(sec.body, wikitext); readTitle = title;
+            addUnlinked(unlinkedEngineMentions(sec.body, wikitext));
+            addAka(sec.body, `${title} § ${sec.title}`);
+            note(`powertrain: ${car.label} -- "${title}" covers several cars; read its section "${sec.title}"`);
+          } else {
+            note(`powertrain: ${car.label} -- "${title}" covers several cars and has no section for this one -- ` +
+                 "not read, rather than given every car's engines");
+          }
+        } else if (wikitext) {
           hits = engineMentions(wikitext); readTitle = title;
           addUnlinked(unlinkedEngineMentions(wikitext));
           addAka(articleLead(wikitext), title);
@@ -12859,11 +13248,18 @@ Rules:
   // that does not carry the code is refused outright rather than guessed at
   // -- a wrong article here is worse than none, since the whole point is to
   // read facts out of it.
-  function proseArticle(body, make, code) {
+  // `model`: the car's own model name ("Windstar"). Real case: the Ford
+  // Windstar's generation sections link "Second-generation Ford Taurus" (the
+  // car it was built on); the code "second generation" is in that title and
+  // so is "Ford", so the Windstar was read as a Taurus and given its engines.
+  // A link that does not name the car's own model is about another car.
+  function proseArticle(body, make, code, model) {
     if (!code) return null;
     const key = norm(code);
     if (!key) return null;
     const mk = norm(make || "");
+    const modelWords = String(model || "").normalize("NFKD").toLowerCase().split(/[^a-z0-9]+/)
+      .filter(w => w && w !== norm(make || "") && !/^(class|series|line|the)$/.test(w));
     const links = [];
     const rx = /\[\[([^\]|#]+)(?:\|[^\]]*)?\]\]/g;
     let m;
@@ -12878,6 +13274,7 @@ Rules:
       const w = words(l.title);
       if (!(w.indexOf(key) >= 0 || (key.length >= 4 && t.includes(key)))) continue;
       if (mk && !t.includes(mk)) continue;     // same marque, or it is some other car entirely
+      if (modelWords.length && !modelWords.some(mw => w.indexOf(mw) >= 0)) continue;
       return l.title;
     }
     return null;
@@ -12914,7 +13311,7 @@ Rules:
     catch (e) { return null; }
     const sec = sectionForCode(wikitext, code);
     if (!sec) return null;
-    return hatnoteArticle(sec.body) || proseArticle(sec.body, gen.make, code) || null;
+    return hatnoteArticle(sec.body) || proseArticle(sec.body, gen.make, code, famLabel || tc.base) || null;
   }
 
   async function findGenerationArticle(gen, famLabel, currentWp, famWp) {
@@ -13653,6 +14050,7 @@ Rules:
     placeInCascade, cascadeDepthOf: id => depthOf(id), ownCodeShape, foldUmbrellaModels,
     schedulePartnerCheck, cascadeDepthIn,
     beginFreshScan, endFreshScan, freshScanActive, setFreshRecheckRunner, setCarTimeout, finishFullScan,
+    sanityMatchPlausible, decideProvisional, autoDecideProvisionalRelations,
     checkInFlight: id => inFlight.has(id) || inFlight.has("recheck:" + id),
     indexSectionEngine, isGenericIndexSection, generationNodeLabel, looksLikeCodeLink,
     relabelMisnamedEngines, engineArticleKey,

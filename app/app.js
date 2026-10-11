@@ -417,6 +417,51 @@ window.CarWeb = (function () {
       const candidates = byPair.get(pairKey(famA, famB, l.type)) || [];
       l.mirrorAllRetired = candidates.length > 0 && candidates.every(rl => rl.sn.retired || rl.tn.retired);
     });
+    // Real user request: "there should never be a connection to a nameplate
+    // unless there is zero connection to any generations of the nameplate
+    // ... there should be no direct edge between the Supra A80 and the lexus
+    // sc nameplate itself, since there exists a generation connection
+    // already." A link that has a nameplate at one end is covered by any
+    // link of the same kind that reaches one of that nameplate's generations
+    // from the same car (or one of its generations). The covered link is the
+    // fallback: it is drawn only while none of the links covering it can be
+    // (the nameplate collapsed), and never listed on a card beside them.
+    const COVERABLE = new Set(["platform", "related"]);
+    const desc = n => {
+      const out = new Set([n.id]);
+      (n.generations || []).forEach(g => out.add(g));
+      return out;
+    };
+    for (const l of links) {
+      l.coveredBy = null;
+      if (!COVERABLE.has(l.type) || l.mirror || l.retired || !l.sn || !l.tn) continue;
+      const a = l.sn, b = l.tn;
+      const aFam = a.type === "family" && (a.generations || []).length;
+      const bFam = b.type === "family" && (b.generations || []).length;
+      if (!aFam && !bFam) continue;
+      const dA = desc(a), dB = desc(b);
+      const cands = byPair.get(pairKey(famKey(a), famKey(b), l.type)) || [];
+      const covering = cands.filter(c => {
+        if (c === l || c.retired || !c.sn || !c.tn || c.sn.retired || c.tn.retired) return false;
+        const fwd = dA.has(c.sn.id) && dB.has(c.tn.id), rev = dA.has(c.tn.id) && dB.has(c.sn.id);
+        if (!fwd && !rev) return false;
+        const ca = fwd ? c.sn : c.tn, cb = fwd ? c.tn : c.sn;
+        // Strictly more specific: a generation where this link has its
+        // nameplate, and nothing coarser anywhere.
+        return (ca !== a || cb !== b) && !(ca.type === "family" && (ca.generations || []).length && ca !== a) &&
+               !(cb.type === "family" && (cb.generations || []).length && cb !== b) &&
+               ((aFam && ca !== a) || (bFam && cb !== b));
+      });
+      if (covering.length) l.coveredBy = covering;
+    }
+  }
+  // Whether a covered link (see above) has a more specific one standing in
+  // for it: on screen, for the canvas; anywhere, for the card.
+  function coveredOnScreen(l) {
+    return !!(l.coveredBy && l.coveredBy.some(c => !c.retired && nodeInLayer(c.sn) && nodeInLayer(c.tn)));
+  }
+  function coveredAtAll(l) {
+    return !!(l.coveredBy && l.coveredBy.some(c => !c.retired && !c.sn.retired && !c.tn.retired));
   }
   indexMirrorReplacements();
   const LABEL_ORDER = nodes.slice().sort((a, b) => {
@@ -680,6 +725,7 @@ window.CarWeb = (function () {
     // both at once, and the original is never deleted, so if a family
     // can't be resolved down to a specific generation the mirror is simply
     // never superseded and keeps showing at the collapsed level forever.
+    if (l.coveredBy && coveredOnScreen(l)) return false;
     if (l.mirror && ((l.mirrorSourceFam && expandedFamilies.has(l.mirrorSourceFam)) ||
                       (l.mirrorTargetFam && expandedFamilies.has(l.mirrorTargetFam)))) {
       // Normal case: hide, trusting a more specific link to take over (see
@@ -1894,6 +1940,10 @@ window.CarWeb = (function () {
       // on both the Graph and the Powertrain tab. One place each.
       if (POWERTRAIN_LINKS.has(l.type) || isPowertrain(o)) return;
       if (l.type === "generation" && n.type === "family") return;  // shown separately above for families;
+      // A nameplate-level connection with a generation-level one beside it
+      // (see indexMirrorReplacements' coveredBy): the generation one is
+      // the connection, listed on the generation's own card.
+      if (l.coveredBy && coveredAtAll(l)) return;
       // for an individual generation, the reverse of this same link ("part of")
       // is exactly how it points back up to its family, so it stays.
       const dir = l.sn === n ? 0 : 1;

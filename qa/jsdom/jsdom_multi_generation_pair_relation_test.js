@@ -148,8 +148,13 @@ cw.openDetail(familia);
   const key2 = [gen4.id, ESCORT_G3_ID].sort().join("|") + "|platform";
   const rel1 = window.LlmFamilies.relationEntryFor(key1);
   const rel2 = window.LlmFamilies.relationEntryFor(key2);
-  check("Familiqua Gen3 <-> Qelvorash G2 resolved into its own entry", !!rel1 && rel1.status === "provisional", rel1);
-  check("Familiqua Gen4 <-> Qelvorash G3 ALSO resolved into its own entry -- NOT dropped by the first pair's entry", !!rel2 && rel2.status === "provisional", rel2);
+  // Either still waiting, or already confirmed by rule (a mention that names
+  // the generation's own code is confirmed without a person -- see
+  // llm_families.js's autoDecideProvisionalRelations). Both count: what this
+  // test is about is that each pair has an entry of its own.
+  const live = e => !!e && (e.status === "provisional" || e.status === "confirmed");
+  check("Familiqua Gen3 <-> Qelvorash G2 resolved into its own entry", live(rel1), rel1);
+  check("Familiqua Gen4 <-> Qelvorash G3 ALSO resolved into its own entry -- NOT dropped by the first pair's entry", live(rel2), rel2);
   check("the two entries point at genuinely DIFFERENT generation pairs, not the same one twice",
     rel1 && rel2 && (rel1.genIdA !== rel2.genIdA) && (rel1.genIdB !== rel2.genIdB),
     rel1 && rel2 && { pair1: [rel1.genIdA, rel1.genIdB], pair2: [rel2.genIdA, rel2.genIdB] });
@@ -162,7 +167,8 @@ cw.openDetail(familia);
   // acted on independently instead of the second colliding with the first.
   cw.openDetail(familiaFam);
   const yesBtns = [...window.document.querySelectorAll(".dt-relations .llm-rel-yes")];
-  check("BOTH pairs get their own independent Yes/No box -- not merged or dropped to just one", yesBtns.length === 2, yesBtns.length);
+  const waiting = [rel1, rel2].filter(e => e && e.status === "provisional").length;
+  check("every pair still waiting gets its own independent Yes/No box -- not merged or dropped", yesBtns.length === waiting, yesBtns.length + " of " + waiting);
 
   // Click both -- same as two separate real user confirmations.
   yesBtns.forEach(b => b.onclick());

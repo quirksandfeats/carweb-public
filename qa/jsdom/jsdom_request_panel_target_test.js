@@ -115,7 +115,7 @@ const wait = ms => new Promise(r => setTimeout(r, ms));
     $("llmrequest-send").textContent);
 
   const car = $("llmrequest-car");
-  car.value = "alph";
+  car.value = "testreq alph";  // the real graph now has more than a page of "Alpha" cars
   car.dispatchEvent(new window.Event("input"));
   await wait(50);
   const hits = [...$("llmrequest-carresults").querySelectorAll(".lrq-result")].map(b => b.textContent);
