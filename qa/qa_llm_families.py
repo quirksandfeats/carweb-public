@@ -8,10 +8,10 @@ using the Mercedes-Benz G-Class node, the exact motivating example.
 
 Must be run against http://localhost:8077 served by serve.py, with
 qa/stub_llama_server.py running on :8080 (serve.py's default LLAMA_PORT).
-Resets llm_families.json to empty both before and after, since this is a
-real file on disk."""
+Runs against an EMPTY llm_families.json. The real one is moved aside first
+and put back when the script exits, however it exits -- see stash_overlay."""
 from playwright.sync_api import sync_playwright
-import sys, json, os
+import sys, json, os, atexit
 
 # This sandbox's headless browser can't reach en.wikipedia.org directly (only
 # the agent's own dedicated fetch tool can, per its network policy) — so the
@@ -55,6 +55,39 @@ def reset_file():
     with open(LLM_FAMILIES_PATH, "w", encoding="utf-8") as f:
         json.dump({"families": {}}, f)
 
+# The overlay is the one part of the project that cannot be rebuilt from
+# public sources, and this script used to empty it three times with nothing
+# kept -- written when the file was scratch data. Same arrangement as
+# qa_serve_llm_cap.py: the real file is MOVED aside, so a crash in the middle
+# leaves it intact under an obvious name beside itself, and the mirror the
+# page loads (which serve.py rewrites on every save) is put back with it.
+LLM_MIRROR_PATH = os.path.join(_APP_DIR, "llm_families_data.js")
+STASH = LLM_FAMILIES_PATH + ".qa-stashed"
+MIRROR_STASH = LLM_MIRROR_PATH + ".qa-stashed"
+
+def stash_overlay():
+    # A stash already there is the real data from a run that never got to
+    # restore it. What sits in its place now is that run's leftovers, so the
+    # stash is kept and nothing is moved over it.
+    if os.path.exists(STASH):
+        print(f"note: {os.path.basename(STASH)} is left over from an interrupted run -- "
+              "it will be restored when this one finishes")
+    elif os.path.exists(LLM_FAMILIES_PATH):
+        os.replace(LLM_FAMILIES_PATH, STASH)
+    if not os.path.exists(MIRROR_STASH) and os.path.exists(LLM_MIRROR_PATH):
+        os.replace(LLM_MIRROR_PATH, MIRROR_STASH)
+    # index.html loads the mirror with a script tag, so there has to be one,
+    # and it has to say what the overlay now says.
+    with open(LLM_MIRROR_PATH, "w", encoding="utf-8") as f:
+        f.write('window.LLM_FAMILIES_STATIC = {"families": {}};\n')
+
+def restore_overlay():
+    for stashed, real in ((STASH, LLM_FAMILIES_PATH), (MIRROR_STASH, LLM_MIRROR_PATH)):
+        if os.path.exists(stashed):
+            os.replace(stashed, real)
+
+stash_overlay()
+atexit.register(restore_overlay)   # also on a failed assertion, an exception or Ctrl+C
 reset_file()
 
 with sync_playwright() as p:
@@ -178,7 +211,7 @@ with sync_playwright() as p:
     check("no console/page errors captured", len(errs) == 0, str(errs[:5]))
     b.close()
 
-reset_file()
+restore_overlay()
 print()
 print(f"{'ALL GREEN' if not fails and not errs else 'FAILURES: ' + str(fails + errs)}")
 sys.exit(1 if (fails or errs) else 0)

@@ -196,10 +196,9 @@ CONFIRMED FAMILIES (101) -- clean, unbroken succession chain
   Mercedes-Benz CLS  (3 generations, 2004–2023)
       CLS-Class (C219)[2004-2010] -> CLS-Class (C218)[2011-2017] -> CLS (C257)[2018-2023]
       EXCLUDED: CLS [2004-] id=m-mercedes-benz-cls -- no succession link to any other candidate generation here
-  Mercedes-Benz E  (5 generations, 1984–)
-      E-Class (W124)[1984-1997] -> E-Class (W210)[1995-] -> E-Class (W212)[2009-2016] -> E-Class (W213)[2016-2023] -> E-Class (W214)[2023-]
+  Mercedes-Benz E  (6 generations, 1984–)
+      E-Class (W124)[1984-1997] -> E-Class (W210)[1995-] -> E-Class (W211)[2002-] -> E-Class (W212)[2009-2016] -> E-Class (W213)[2016-2023] -> E-Class (W214)[2023-]
       EXCLUDED: E-Class [1953-1953] id=m-mercedes-benz-e-class -- no succession link to any other candidate generation here
-      EXCLUDED: E-Class (W211) [2002-] id=m-mercedes-benz-e-class-w211 -- its run [2002-ongoing] covers two or more of the other generations here and it has no succession link to the one that follows it -- either a retrospective article for a whole era (Porsche '911 (classic)') or a parallel line whose end year is missing, not a single step in this sequence
       EXCLUDED: E-Class (C207) [2009-] id=m-mercedes-benz-e-class-c207 -- chronologically overlaps other generations here with no direct succession link to its would-be neighbor 'E-Class (W212)' -- likely a broader retrospective/umbrella article (like Porsche '911 (classic)') or a regional/parallel-market generation running outside the mainline succession chain (like a China- or NA-only generation), rather than a discrete step in this sequence
   Mercedes-Benz GL  (2 generations, 2006–2019)
       GL-Class (X164)[2006-2012] -> GL-Class (X166)[2012-2019]
@@ -536,7 +535,7 @@ NAME COLLISIONS (0) -- unrelated marques sharing a name, correctly not grouped
   and no succession edge joins any of them. Listed separately so they stop
   inflating the review count above.
 
-UN-SPLIT NAMEPLATE CANDIDATES (19) -- suggested by credit dates
+UN-SPLIT NAMEPLATE CANDIDATES (20) -- suggested by credit dates
   Not errors. A credited designer whose dates do not fit the car's span almost
   always means the MODEL still covers several generations in one article: the
   Chevrolet Suburban node runs 1933-present, and Wayne Cherry did design a
@@ -570,6 +569,8 @@ UN-SPLIT NAMEPLATE CANDIDATES (19) -- suggested by credit dates
       Jack Telnack (b. 1937) predates the car's start year
   Mercedes-Benz S-Class  [1972-ongoing]  id=m-mercedes-benz-s-class  -> fold into the existing nameplate
       Gorden Wagener (b. 1968) predates the car's start year
+  Mitsubishi Colt  [1962-1971]  id=m-mitsubishi-colt  -> split into generations
+      Ken Okuyama (b. 1959) predates the car's start year
   Nissan Skyline  [1957-ongoing]  id=m-nissan-skyline  -> split into generations
       Kozo Watanabe (b. 1942) predates the car's start year
   Oldsmobile 98  [1941-1942]  id=m-oldsmobile-98  -> split into generations

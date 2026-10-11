@@ -1186,10 +1186,16 @@ def push_result(summary, detail=""):
         log("nothing changed on disk, so nothing to push")
         return False
     git("add", *changed)
+    # Named on the commit as well as on the add. A bare `git commit` takes the
+    # whole index, so anything already staged in this working tree went into
+    # the agent's commit and was pushed with it -- the very thing the note
+    # above says this must not do. `--only` commits these paths and leaves
+    # whatever else is staged exactly as it was.
     subprocess.run(
         ["git", "-c", "user.name=quirksandfeats", "-c", "user.email=goldenberg.andy@gmail.com",
          "commit", "-q", "-m",
-         "LLM pass from a queued scan request\n\n" + summary + ("\n\n" + detail if detail else "")],
+         "LLM pass from a queued scan request\n\n" + summary + ("\n\n" + detail if detail else ""),
+         "--only", "--"] + changed,
         cwd=ROOT, check=True)
     branch = git("rev-parse", "--abbrev-ref", "HEAD")
     log(f"pushing {branch}")
@@ -1218,6 +1224,15 @@ def renew_claim():
 # ------------------------------------------------------------------ the run --
 def do_job(job, args):
     jid = job["id"] if job else None
+    # Before the job is claimed, not after. start_serve() refuses to run with
+    # something already on the port and exits the script -- and with the claim
+    # already made, that left the request marked "running" for the 90 minutes
+    # it takes to go stale, uncancellable from the site and blocking every
+    # request behind it, for a scan that never started.
+    if port_open(PORT):
+        sys.exit(f"something is already listening on :{PORT} -- stop it first, "
+                 "so this script doesn't drive a server it cannot shut down"
+                 + (" (the request has been left in the queue)" if job else ""))
     _claim["jid"], _claim["at"] = jid, time.time()
     if job:
         status, d = api("/api/request/claim", "POST", {"id": jid})

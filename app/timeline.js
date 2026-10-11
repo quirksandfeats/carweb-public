@@ -32,8 +32,15 @@ window.CarWebTimeline = (function () {
     if (followExpandedFam) { CW().collapseFamily(followExpandedFam); followExpandedFam = null; }
   }
   function setFollow(kind, id) {
-    clearFollowExpand();
+    // The new state first. Collapsing the nameplate the last follow opened
+    // tells every listener at once, this view's own picker among them, and it
+    // re-selects whatever is being followed -- which was still the OLD thing,
+    // so the dropdown snapped back to the nameplate just left.
+    const opened = followExpandedFam;
+    followExpandedFam = null;
     followKind = kind; followId = id;
+    if (opened && !(kind === "family" && id === opened)) CW().collapseFamily(opened);
+    else if (opened) followExpandedFam = opened;
     if (kind === "family") {
       const cw = CW();
       if (!cw.isFamilyExpanded(id)) { cw.expandFamily(id); followExpandedFam = id; }
@@ -63,7 +70,11 @@ window.CarWebTimeline = (function () {
   // hidden while expanded so the two never show side by side.
   function timelineNodes() {
     const cw = CW();
-    return cw.nodes.filter(n => (n.type === "model" || n.type === "family") &&
+    // Only a car with a year has a place on a timeline. One minted from a
+    // mention starts without one, and was laid out at year 0 -- eleven
+    // thousand pixels off the left edge, with any career line that includes
+    // it drawn out to meet it.
+    return cw.nodes.filter(n => (n.type === "model" || n.type === "family") && n.year != null &&
       cw.nodeInLayer(n) && !(n.type === "family" && cw.isFamilyExpanded(n.id)));
   }
   function toggleFamily(id) {
@@ -307,8 +318,28 @@ window.CarWebTimeline = (function () {
     sel.appendChild(famGroup);
 
     const valid = new Set([...ds.map(d => "p:" + d[0]), ...fams.map(f => "f:" + f.id)]);
+    // The list is the 400 busiest people, and anyone can be followed -- from
+    // the search, from a card. Someone outside it used to have their follow
+    // cancelled the next time this ran, which is every nameplate click and
+    // every layer change. They get an entry of their own instead; only a
+    // person the current layer leaves out, or a nameplate that is gone, ends
+    // the follow.
+    if (keep && !valid.has(keep) && followKind === "person") {
+      const person = cw.nodes.find(n => n.type === "person" && !n.retired && n.label === followId &&
+                                        (!role || cw.hasRole(n, role)));
+      if (person) {
+        const o = document.createElement("option");
+        o.value = keep; o.textContent = `${person.label} (${cw.adj.get(person.id).length})`;
+        peopleGroup.insertBefore(o, peopleGroup.firstChild);
+        valid.add(keep);
+      }
+    }
     sel.value = keep && valid.has(keep) ? keep : "";
-    if (sel.value !== keep) clearFollow();
+    if (sel.value !== keep) {
+      clearFollow();
+      document.getElementById("tl-caption").textContent =
+        "drag the year, or press play — dots are model debuts; lines are production runs";
+    }
   }
 
   const api = {
@@ -347,7 +378,7 @@ window.CarWebTimeline = (function () {
       if (!built) build();
       if (n.type === "person") {
         setFollow("person", n.label);
-        document.getElementById("tl-designer").value = "p:" + n.label;
+        fillPicker();   // selects them, adding an entry if they are not one of the listed 400
         api._applyDim(); drawCareer(); return;
       }
       if (n.type === "make") {
@@ -359,7 +390,7 @@ window.CarWebTimeline = (function () {
       }
       const cw = CW();
       if (n.familyOf && !cw.isFamilyExpanded(n.familyOf)) cw.expandFamily(n.familyOf);  // reveals its dot
-      api._setYear(n.year);
+      if (n.year != null) api._setYear(n.year);   // no year: nothing to move the playhead to
       CW().openDetail(n);
       const d = dots.find(d => d.n === n);
       if (d) {

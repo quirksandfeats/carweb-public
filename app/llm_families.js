@@ -137,6 +137,10 @@ window.LlmFamilies = (function () {
     // nothing about the node itself survives a reload except through this
     // store.
     wpLinks: bootData.wpLinks || {},
+    // Which of those a person chose with "Change link", as opposed to one a
+    // scan saved for itself. Only a chosen one may replace a link the car
+    // already carries -- see applyWpLinks.
+    wpLinksChosen: bootData.wpLinksChosen || {},
     // Real user request (the Mercedes-Benz E-Class W211 case): "it would be
     // actually worth checking if there exists a separate wikipedia page for
     // each of these generations, and then use that wikipedia page for the
@@ -439,11 +443,23 @@ window.LlmFamilies = (function () {
     // still one click away from being followed fully.
     if (nodeId) cascadeDepth.set(nodeId, 0);
   }
+  // Only the proposals that were being held for the open card and nowhere
+  // else. One that was asked for by name, or that a re-check wrote to disk to
+  // wait in Pending Generation Splits, is a decision still owed -- and this
+  // used to delete those too, so opening a waiting split from that panel and
+  // then clicking anything else threw it away, with only another full
+  // re-check to get it back.
+  const heldForCard = { families: new Set(), recheck: new Set() };
+  function holdForCard(bucket, nodeId, entry) {
+    store[bucket][nodeId] = entry;
+    heldForCard[bucket].add(nodeId);
+  }
   function discardPending(nodeId) {
-    const e = store.families[nodeId];
-    if (e && e.status === "provisional") delete store.families[nodeId];
-    const r = store.recheck[nodeId];
-    if (r && r.status === "provisional") delete store.recheck[nodeId];
+    ["families", "recheck"].forEach(bucket => {
+      if (!heldForCard[bucket].delete(nodeId)) return;
+      const e = store[bucket][nodeId];
+      if (e && e.status === "provisional") delete store[bucket][nodeId];
+    });
   }
   // Avoids kicking off a second concurrent llama.cpp call for the same car if
   // the user closes and reopens it while the first check is still running.
@@ -808,7 +824,11 @@ window.LlmFamilies = (function () {
     // as before.
     function stripWikiMarkup(s) {
       return s
-        .replace(/<ref[^>]*\/?>[\s\S]*?<\/ref>|<ref[^>]*\/>/gi, "")
+        // Self-closing first. Tried second, a reused named reference
+        // (<ref name="a" />) was taken for an opening tag and everything up
+        // to the next </ref> went with it -- often the very sentence the
+        // paragraph was picked for.
+        .replace(/<ref[^>]*\/>|<ref(?:\s[^>]*)?>[\s\S]*?<\/ref>/gi, "")
         .replace(/\{\{[^{}]*\}\}/g, "")
         .replace(/\[\[([^\]|]+)(?:\|([^\]]+))?\]\]/g, (m, targetText, displayText) => {
           if (displayText && /\([^)]*\)/.test(targetText) && !/\([^)]*\)/.test(displayText)) return targetText;
@@ -866,12 +886,41 @@ window.LlmFamilies = (function () {
     // clearly-labeled line(s). Takes a `text` param (not a closure over the
     // single `infobox` var) so it can run against EVERY infobox found
     // above, not just the first.
+    function unwrapListTemplates(raw) {
+      let out = String(raw), before;
+      do {
+        before = out;
+        out = out.replace(/\{\{\s*(?:ubl|unbulleted list|ublist|plainlist|plain list|hlist|flatlist|flat list|bulleted list)\s*\|((?:[^{}]|\{\{[^{}]*\}\})*)\}\}/gi,
+          (m0, args) => {
+            // "|" separates items, except inside a [[link|label]] or a
+            // nested template.
+            const items = [];
+            let depth = 0, cur = "";
+            for (let i = 0; i < args.length; i++) {
+              const two = args.substr(i, 2);
+              if (two === "[[" || two === "{{") { depth++; cur += two; i++; continue; }
+              if (two === "]]" || two === "}}") { depth = Math.max(0, depth - 1); cur += two; i++; continue; }
+              if (args[i] === "|" && depth === 0) { items.push(cur); cur = ""; continue; }
+              cur += args[i];
+            }
+            items.push(cur);
+            return items.map(x => x.replace(/^\s*\*+\s*/gm, "").trim())
+              .filter(x => x && !/^[a-z_]+\s*=/.test(x)).join(", ");
+          });
+      } while (out !== before);
+      // A plainlist's items are "* " lines of one argument.
+      return out.replace(/\n\s*\*+\s*/g, ", ").replace(/<br\s*\/?>/gi, ", ");
+    }
     function extractInfoboxField(text, names) {
       for (const name of names) {
         const re = new RegExp("\\|\\s*" + name + "\\s*=\\s*([\\s\\S]*?)(?=\\n\\s*\\|\\s*[a-zA-Z_]+\\s*=|\\n\\}\\}|$)", "i");
         const m = text.match(re);
         if (!m) continue;
-        const val = stripWikiMarkup(m[1]).trim();
+        // A field listing several cars is usually one list template --
+        // "{{ubl|[[Jaguar F-Pace]]|[[Jaguar XF (X260)]]}}" -- and
+        // stripWikiMarkup removes templates whole, so the fields with the
+        // most to say came back empty. Unwrapped into its items first.
+        const val = stripWikiMarkup(unwrapListTemplates(m[1])).replace(/^[\s,]+|[\s,]+$/g, "").trim();
         if (val && !/^(n\/a|none|unknown|-|tbd)$/i.test(val)) return val.slice(0, 400);
       }
       return null;
@@ -2143,14 +2192,22 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
   }
   // "W463" and "W463A" -- an official code and the same code with a short
   // suffix someone added to distinguish a facelift. Only treated as the same
-  // family of code when the extra part is 1-2 characters; "W463" and "W4630"
-  // would be a different code, not a variant spelling.
+  // family of code when the extra part is 1-2 LETTERS on a code that ends in a
+  // digit; "W463" and "W4630" would be a different code, not a variant
+  // spelling.
+  //
+  // It used to be any 1-2 characters at all, which is also what separates
+  // "Mark I" from "Mark II", "Haise I" from "Haise IV", "E10" from "E100" and
+  // "CTR" from "CTR2" -- consecutive generations, which overlap by a year
+  // often enough that the pair was then merged into one. The Ford Escort
+  // came out with a single "Mark I 1967-1980" and no Mark II.
   function codeVariantOf(a, b) {
     const x = norm(a), y = norm(b);
     if (!x || !y) return false;
     if (x === y) return true;
     const [shortC, longC] = x.length <= y.length ? [x, y] : [y, x];
-    return longC.startsWith(shortC) && longC.length - shortC.length <= 2;
+    if (!longC.startsWith(shortC)) return false;
+    return /[0-9]$/.test(shortC) && /^[a-z]{1,2}$/.test(longC.slice(shortC.length));
   }
   function mergeGenerationEntries(keep, extra) {
     // The base designation wins over a longer variant of it: "W463A" is not a
@@ -2163,13 +2220,23 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
       // the article, and the photo lookup below uses it.
       const swapAnchor = keep.anchor; keep.anchor = extra.anchor; extra.anchor = swapAnchor;
     }
+    const keepWasUndated = keep.yearStart == null && keep.yearEnd == null;
     if (keep.yearStart == null || (extra.yearStart != null && extra.yearStart < keep.yearStart)) {
       keep.yearStart = extra.yearStart;
     }
     // An absent end year means "still in production", which is later than any
     // stated year -- so it wins rather than being treated as missing data.
-    if (keep.yearEnd != null) {
+    //
+    // But only from an entry that is dated at all. One with no start year
+    // either is a second mention without dates -- which is exactly why
+    // spansOverlap let it be merged -- and says nothing about when the car
+    // ended. Read as "still in production", it wiped a real end year: W460
+    // 1979-1991 plus a bare second "W460" came out as 1979 to the present.
+    const extraIsDated = extra.yearStart != null || extra.yearEnd != null;
+    if (keep.yearEnd != null && extraIsDated) {
       keep.yearEnd = extra.yearEnd == null ? null : Math.max(keep.yearEnd, extra.yearEnd);
+    } else if (keep.yearEnd == null && keepWasUndated && extra.yearEnd != null) {
+      keep.yearEnd = extra.yearEnd;      // the dated mention is the one that knows
     }
     if (!keep.wikiFile) keep.wikiFile = extra.wikiFile;
     keep.designers = dedupeCaseInsensitive([...(keep.designers || []), ...(extra.designers || [])]);
@@ -2375,7 +2442,7 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
             await persist();
             return entry;
           }
-          if (engagedId === node.id) store.families[node.id] = entry;
+          if (engagedId === node.id) holdForCard("families", node.id, entry);
           return entry;
         }
         store.families[node.id] = entry; await persist();
@@ -2752,7 +2819,7 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
           debug: { raw, dropped },
         };
         if (entry.status === "provisional") {
-          if (engagedId === node.id) store.families[node.id] = entry;
+          if (engagedId === node.id) holdForCard("families", node.id, entry);
           return entry;
         }
         store.families[node.id] = entry; await persist();
@@ -3002,7 +3069,7 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
             wp: null, llmGenerated: true };
       if (cached && cached.source) p.factsSource = cached.source;
       nodes.push(p); byId.set(id, p);
-      if (!cached) scheduleFactBackfill("person", id, p, () => bigPersonAttempt(name));
+      if (!factsRecordIsUseful(cached)) scheduleFactBackfill("person", id, p, () => bigPersonAttempt(name));
     } else if (!p.roles.includes(role)) {
       p.roles = [...p.roles, role];
     }
@@ -3086,6 +3153,58 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
     if (paren) return { base: paren[1].trim(), code: paren[2].trim() };
     const parts = s.split(/\s+/);
     return parts.length > 1 ? { base: parts.slice(0, -1).join(" "), code: parts[parts.length - 1] } : null;
+  }
+  // Does this label carry this code -- as whole words of it, not as letters
+  // that happen to occur inside it. "Orion Mark II" carries "Mark II" and
+  // does not carry "Mark I"; "E-Class (W211)" carries "W211"; "Corolla E100"
+  // does not carry "E10". Pairing a generation with its code used to be
+  // norm(label).includes(norm(code)), which every one of those passes -- so a
+  // list that gained a "Mark I" handed the Mark II's node the Mark I's years,
+  // shifted every later generation down one, and minted the last one twice.
+  // The words may be split differently on each side ("R 129" and "R129").
+  function labelCarriesCode(label, code) {
+    const key = norm(code || "");
+    if (!key) return false;
+    const toks = String(label || "").normalize("NFKD").replace(COMBINING_MARKS_RE, "")
+      .toLowerCase().split(/[^a-z0-9]+/).filter(Boolean);
+    for (let i = 0; i < toks.length; i++) {
+      let run = "";
+      for (let j = i; j < toks.length && run.length < key.length; j++) {
+        run += toks[j];
+        if (run === key) return true;
+      }
+    }
+    return false;
+  }
+  // The label IS the code, or ends in it: the closest a pairing can be.
+  function labelEndsInCode(label, code) {
+    const key = norm(code || "");
+    if (!key) return false;
+    const tail = trailingCode(label);
+    return norm(label || "") === key || (!!tail && norm(tail.code) === key);
+  }
+  // One generation node for one code: the closest match first.
+  function genNodeForCode(genNodes, code, taken) {
+    const free = (genNodes || []).filter(o => o && !(taken && taken.has(o.id)));
+    return free.find(o => labelEndsInCode(o.label, code)) ||
+           free.find(o => labelCarriesCode(o.label, code)) || null;
+  }
+  // A fresh generation list against the nodes a nameplate already has. Every
+  // exact pairing is settled before any looser one is considered, so a new
+  // code can never take the node that belongs to another entry on the list.
+  function pairFreshGenerations(genNodes, freshGens) {
+    const taken = new Set();
+    const out = (freshGens || []).map(() => null);
+    (freshGens || []).forEach((g, i) => {
+      const m = (genNodes || []).find(o => o && !taken.has(o.id) && labelEndsInCode(o.label, g.code));
+      if (m) { taken.add(m.id); out[i] = m; }
+    });
+    (freshGens || []).forEach((g, i) => {
+      if (out[i]) return;
+      const m = (genNodes || []).find(o => o && !taken.has(o.id) && labelCarriesCode(o.label, g.code));
+      if (m) { taken.add(m.id); out[i] = m; }
+    });
+    return out;
   }
   // `make` scopes the search to the SAME manufacturer as the nameplate
   // being processed -- a bare chassis/generation code like "R107" is short
@@ -3550,6 +3669,11 @@ Rules:
     // cap so a car whose years genuinely aren't recoverable doesn't get asked
     // about forever. A record that actually found something still blocks, as
     // before -- there is nothing to retry.
+    //
+    // The callers have to let it: all three asked for a lookup only when
+    // there was no record at all, so the empty one a failure leaves behind
+    // stopped them ever calling again and none of this ran. They ask now
+    // whenever the record on file did not find anything.
     const prior = store.mintedFacts[id];
     if (prior && factsRecordIsUseful(prior)) return;
     if (prior && (prior.tries || 1) >= 3) return;
@@ -3576,7 +3700,9 @@ Rules:
       // Still cache a "checked, found nothing" record -- see mintedFacts'
       // own comment on why this matters (avoids repeating the same doomed
       // lookup on every future boot for a genuinely undocumented car/person).
-      store.mintedFacts[id] = { checkedAt: new Date().toISOString() };
+      // Counted like any other empty result, so a lookup that throws every
+      // time stops at the same cap instead of being retried on every boot.
+      store.mintedFacts[id] = { checkedAt: new Date().toISOString(), tries: ((prior && prior.tries) || 0) + 1 };
       return persist();
     }).finally(() => {
       factsScheduled.delete(id);
@@ -3678,7 +3804,7 @@ Rules:
     // FIRST time this id is ever minted with no cache entry yet; every
     // later boot (or later mention in this same apply pass) just reuses
     // `cached` above.
-    if (!cached) scheduleFactBackfill("model", modelId, modelNode, () => bigYearAttempt(makeNode.label, modelLabel));
+    if (!factsRecordIsUseful(cached)) scheduleFactBackfill("model", modelId, modelNode, () => bigYearAttempt(makeNode.label, modelLabel));
     // Real user request: "if the program makes new models/nameplates, then
     // these should also be able to be 'LLM-searchable', and should be
     // requested for an LLM check... if it hasn't been checked already,
@@ -3932,6 +4058,15 @@ Rules:
     const plate = car.type === "family";
     if (!plate && car.type !== "model") return true;
     if (!plate && !entryFor(car.id)) return false;
+    // A split somebody declined stays declined. declineSplit's contract is
+    // that it "is not proposed again by the next automatic pass", and a scan
+    // of some OTHER car that happens to reach this one is exactly that. Read
+    // again here, the new answer was written over the "no" and applied on
+    // the spot. Asking for this car itself by name still re-reads it.
+    if (!plate && entryFor(car.id).status === "rejected") {
+      note(`scan: ${car.make ? car.make + " " : ""}${car.label} -- its split was declined, so it is left as it is`);
+      return true;
+    }
     if (partnerCheckScheduled.has(car.id) || inFlight.has(car.id) || inFlight.has("recheck:" + car.id)) return true;
     const from = cascadeDepthIn(originId, nodes);
     if (from == null) return true;
@@ -4407,9 +4542,15 @@ Rules:
     rememberMakeNames(nodes);
     if (!store.wpLinks || !Object.keys(store.wpLinks).length) return;
     const byId = new Map(nodes.map(n => [n.id, n]));
+    // A link a person corrected by hand wins over the one the car came with.
+    // It used to only ever fill a missing link, so "Change link" on any car
+    // that already had one lasted until the next reload, and the next check
+    // went back to reading the old article. A link a scan saved on its own
+    // account still only fills a gap: those are not all right (the Range
+    // Rover nameplate has "Range Rover Sport" on file from an engine read).
     Object.keys(store.wpLinks).forEach(id => {
       const n = byId.get(id);
-      if (n && !n.wp) n.wp = store.wpLinks[id];
+      if (n && (!n.wp || store.wpLinksChosen[id])) n.wp = store.wpLinks[id];
     });
   }
   // ---------- public: manually attach a Wikipedia link to an existing node ----------
@@ -4436,7 +4577,7 @@ Rules:
     store.wpLinks[nodeId] = title;
     const n = (nodes || []).find(x => x.id === nodeId);
     if (n) n.wp = title;
-    if (opts && opts.force) return clearNodeEntry(nodeId);
+    if (opts && opts.force) { store.wpLinksChosen[nodeId] = true; return clearNodeEntry(nodeId); }
     // checkNode/checkFamily both short-circuit on ANY existing entry,
     // including a stale "no-wiki-link" dead-end recorded back when this
     // node genuinely had nothing to check against -- that's no longer true
@@ -5679,7 +5820,7 @@ Rules:
         nodes.push(p);
         byId.set(id, p);
         personByNorm.set(key, p);
-        if (!cached) scheduleFactBackfill("person", id, p, () => bigPersonAttempt(name));
+        if (!factsRecordIsUseful(cached)) scheduleFactBackfill("person", id, p, () => bigPersonAttempt(name));
       } else if (!p.roles.includes(role)) {
         p.roles = [...p.roles, role]; // e.g. already a "designer" elsewhere, now also credited as "engineer" here
       }
@@ -6248,21 +6389,79 @@ Rules:
     return m ? parseInt(m[1], 10) : null;
   }
   const ORDINAL_GEN_RE = /\b(first|second|third|fourth|fifth|sixth|seventh|eighth|ninth|tenth|\d+(?:st|nd|rd|th))[\s-]generation\b/gi;
+  // Which ordinal belongs to THIS nameplate is decided by distance, and by
+  // there being nothing between the two that ends the thought.
+  //
+  // It used to return the first ordinal phrase with the label anywhere in the
+  // 45 characters either side, as a raw substring. "built alongside the
+  // third-generation Audi Q3 and the second-generation VW Tiguan" gave the
+  // Tiguan the Q3's "third"; and the nameplates labelled with one character
+  // (Mercedes-Benz "S", "E", Mazda "6") matched nearly any sentence at all --
+  // "Launched in 2016, the second-generation CX-9" named the Mazda 6's second
+  // generation, by way of the 6 in 2016. Either result went on to be treated
+  // as an explicit statement in the article and confirmed without review.
+  function labelMentions(text, match) {
+    const esc = v => String(v).replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    const lower = text.toLowerCase();
+    const spots = [];
+    const collect = phrase => {
+      if (!phrase) return;
+      const re = new RegExp("(?<![a-z0-9])" + esc(phrase.toLowerCase()) + "(?![a-z0-9])", "g");
+      let m;
+      while ((m = re.exec(lower))) spots.push({ start: m.index, end: m.index + m[0].length });
+    };
+    if (match.make) collect(`${match.make} ${match.label}`);
+    // A one-character or all-digit label is not a name on its own -- it needs
+    // its make in front of it to mean this car.
+    const bare = String(match.label).trim();
+    if (bare.length >= 2 && !/^\d+$/.test(bare)) collect(bare);
+    return spots;
+  }
   function findOrdinalGeneration(text, match) {
     if (!text || !match || !match.label) return null;
-    const bareLabel = String(match.label).toLowerCase();
-    const fullLabel = match.make ? `${match.make} ${match.label}`.toLowerCase() : null;
     const WINDOW = 45; // chars of slop between the ordinal phrase and the nameplate's own name
+    const mentions = labelMentions(text, match);
+    if (!mentions.length) return null;
+    const ordinals = [];
     let m;
     ORDINAL_GEN_RE.lastIndex = 0;
     while ((m = ORDINAL_GEN_RE.exec(text))) {
       const n = parseOrdinal(m[1]);
-      if (!n) continue;
-      const nearby = (text.slice(Math.max(0, m.index - WINDOW), m.index) + " " +
-        text.slice(m.index + m[0].length, m.index + m[0].length + WINDOW)).toLowerCase();
-      if ((fullLabel && nearby.includes(fullLabel)) || nearby.includes(bareLabel)) return n;
+      if (n) ordinals.push({ n, start: m.index, end: m.index + m[0].length });
     }
-    return null;
+    // Another clause, or another car joined on with "and", sits between them:
+    // the ordinal is describing something else.
+    const BREAK_RE = /[.;:!?]\s|,|\s(?:and|while|whereas|but)\s/i;
+    let best = null;
+    mentions.forEach(lab => {
+      ordinals.forEach(o => {
+        const before = o.end <= lab.start;
+        if (!before && o.start < lab.end) return;        // overlapping, not a pairing
+        const between = before ? text.slice(o.end, lab.start) : text.slice(lab.end, o.start);
+        if (between.length > WINDOW || BREAK_RE.test(between)) return;
+        if (before) {
+          // "second-generation CX-9 shares its platform with the Mazda 6":
+          // the ordinal belongs to the name right after it. Ordinary words
+          // may lead up to this car's name ("third generation of the Honda
+          // Fit"), but once a name has started nothing else may follow it.
+          let named = false, taken = false;
+          between.trim().split(/\s+/).filter(Boolean).forEach(tok => {
+            const isName = /^[\p{Lu}\d]/u.test(tok);
+            if (named && !isName) taken = true;
+            if (isName) named = true;
+          });
+          if (taken) return;
+        } else if (/^[\s-]*[\p{Lu}\d]/u.test(text.slice(o.end, o.end + 4))) {
+          // "The Mazda 6 shares its platform with the second-generation
+          // CX-9": an ordinal with a name straight after it describes that.
+          return;
+        }
+        // "third-generation Audi Q3" is the usual order, so it wins a tie.
+        const score = between.length * 2 + (before ? 0 : 1);
+        if (!best || score < best.score) best = { n: o.n, score };
+      });
+    });
+    return best ? best.n : null;
   }
   // Nth-oldest generation by production year -- null (rather than a guess)
   // if the count can't resolve cleanly: fewer generations than N, or any
@@ -6557,8 +6756,16 @@ Rules:
         }
       }
     }
-    if (found.length !== 1) return null;       // ambiguous, or nothing -- ask the user
-    return found[0];
+    // One PAIRING, however many ways there are to arrive at it. The same two
+    // generations reached through two shared partners, or through one partner
+    // joined to them by both a harvested "related" link and the confirmed
+    // platform link for the same fact, counted as two findings -- so the
+    // better supported a match was, the likelier it was to be called
+    // ambiguous and put to the user.
+    const pairings = new Map();
+    found.forEach(f => { const k = f.genIdA + "|" + f.genIdB; if (!pairings.has(k)) pairings.set(k, f); });
+    if (pairings.size !== 1) return null;      // ambiguous, or nothing -- ask the user
+    return pairings.values().next().value;
   }
   function transitiveProposals(nodes, links) {
     const decided = store.transitive || {};
@@ -6941,7 +7148,16 @@ Rules:
     // independent of whatever the LLM itself concluded -- a small local
     // model saying resolved:false doesn't get to overrule Wikipedia's
     // own explicit text.
-    const resolvedByEvidence = !!(evidence.codeForA || evidence.codeForB);
+    //
+    // The text match only counts when it names a generation that is actually
+    // on the list. It used to count as soon as ANYTHING was found beside the
+    // nameplate's name -- "A-Class (W176)" against a list holding only W168
+    // and W169, or just "A-Class (hatchback)" -- and the generation then
+    // came from the model's own pick instead, confirmed without review under
+    // a reason saying the code had been read out of the article.
+    const evGenA = findGenByCode(infoA.generations, evidence.codeForA);
+    const evGenB = findGenByCode(infoB.generations, evidence.codeForB);
+    const resolvedByEvidence = !!(evGenA || evGenB);
     // ---------- ordinal corroboration (the Scion FR-S <-> Subaru BRZ case) ----------
     // An "Nth generation" phrase sitting next to a nameplate's own name in
     // the source text, counted against that nameplate's real year-ordered
@@ -7032,13 +7248,22 @@ Rules:
     // alone... is forbidden"). The salvage does its own, sharper safety check
     // per mention -- see assertedCodeInReason's clause-negation rule.
     const answerExists = resolvedByEvidence || llmResolved || knowledgeSalvaged;
+    // The article pinning down ONE side says nothing about the other. That
+    // side is only as good as the model's own answer for it, so it needs the
+    // model to have actually given one -- not a resolved:false with a code
+    // filled in anyway, and not a bare year overlap. Otherwise it stays at
+    // the nameplate, which is the middle tier described above.
+    const llmAnswered = knowledgeSalvaged ||
+      (!!(raw && raw.resolved) && (llmVerified || !reasonLooksDateOnly(raw.reason)));
+    const sideA = infoA.generations.length === 1 ? genA : (evGenA || (llmAnswered ? genA : null));
+    const sideB = infoB.generations.length === 1 ? genB : (evGenB || (llmAnswered ? genB : null));
     let mode = "none", finalGenA = null, finalGenB = null;
-    if (answerExists && genA && genB) {
-      mode = "generation"; finalGenA = genA; finalGenB = genB;
-    } else if (answerExists && genA) {
-      mode = "nameplate"; finalGenA = genA; finalGenB = { id: infoB.id, code: infoB.label };
-    } else if (answerExists && genB) {
-      mode = "nameplate"; finalGenA = { id: infoA.id, code: infoA.label }; finalGenB = genB;
+    if (answerExists && sideA && sideB) {
+      mode = "generation"; finalGenA = sideA; finalGenB = sideB;
+    } else if (answerExists && sideA) {
+      mode = "nameplate"; finalGenA = sideA; finalGenB = { id: infoB.id, code: infoB.label };
+    } else if (answerExists && sideB) {
+      mode = "nameplate"; finalGenA = { id: infoA.id, code: infoA.label }; finalGenB = sideB;
     }
     const resolved = mode !== "none";
     // Real user request: once a match is grounded in an explicit chassis/
@@ -8406,7 +8631,14 @@ Rules:
     if (!gens.length && fam.type !== "family") return false;
     let freed = 0;
     gens.forEach(g => {
-      if (g.mergeGenerated || g.llmCreatedGeneration || g.supersededBy) {
+      // A generation an LLM split minted carries llmGenerated and nothing
+      // else; a car minted in its own right (llmCreatedNode, or one added by
+      // hand) and adopted later is a real car to hand back. This used to
+      // test a flag nothing ever sets, so every split-minted generation was
+      // "freed" instead -- and the nameplate, which for an LLM split IS the
+      // original car, was retired as an empty container beside them.
+      const slotOnly = g.llmGenerated && !g.llmCreatedNode && !g.userAdded;
+      if (g.mergeGenerated || slotOnly || g.supersededBy) {
         // Nothing to go back to: this node only ever existed as a slot in
         // this nameplate. Retiring rather than deleting keeps the same
         // never-erase discipline as everything else here, so re-merging
@@ -9313,9 +9545,24 @@ Rules:
       mergedAt: new Date().toISOString(),
     };
     if (!rec.memberIds.length) return { ok: false, error: "no other cars selected to merge in" };
+    // A nameplate merged onto before keeps what that merge put in it. The
+    // panel only passes the cars ticked THIS time -- the ones already in the
+    // nameplate are listed without a checkbox -- so writing this call's list
+    // over the record left a reload replaying only the latest merge, and the
+    // earlier generations came back as standalone cars. A merge that fails
+    // also leaves the earlier record as it was, instead of deleting it.
+    const prior = store.merges[primaryId];
+    const carried = prior && prior.status !== "undone" ? prior : null;
     store.merges[primaryId] = rec;
     const ok = applyOneMerge(nodes, links, primaryId, rec);
-    if (!ok) { delete store.merges[primaryId]; return { ok: false, error: "none of the selected cars could be merged (already grouped, retired, or not plain models)" }; }
+    if (!ok) {
+      if (prior) store.merges[primaryId] = prior; else delete store.merges[primaryId];
+      return { ok: false, error: "none of the selected cars could be merged (already grouped, retired, or not plain models)" };
+    }
+    if (carried) {
+      store.merges[primaryId] = Object.assign({}, carried, rec,
+        { memberIds: [...new Set([...(carried.memberIds || []), ...rec.memberIds])] });
+    }
     persist();
     return { ok: true, generations: (byIdOf(nodes, primaryId) || {}).generations || [] };
   }
@@ -9464,14 +9711,27 @@ Rules:
       const l = links[i];
       if (!l.genLevel || l.type !== "succession") continue;
       const a = byIdLocal.get(idOf(l.source)), b = byIdLocal.get(idOf(l.target));
-      if (!a || !b || a.retired || b.retired) links.splice(i, 1);
+      // Marked as well as removed: app.js's adjacency still holds this object
+      // for the rest of the session, and `retired` is what every reader of it
+      // checks.
+      if (!a || !b || a.retired || b.retired) { l.retired = true; links.splice(i, 1); }
     }
     // ...and the tags on the coarse links, so a nameplate line that no longer
     // has a specific line standing in for it goes back to being drawn itself.
     links.forEach(l => {
       if (l.type !== "succession" || l.genLevel) return;
       if (l.mirrorSourceFam || l.mirrorTargetFam) {
-        delete l.mirrorSourceFam; delete l.mirrorTargetFam; delete l.mirror;
+        // A succession link that ARRIVED as a mirror (the build's own
+        // stand-ins, and mirrorRelationLinks') carries the same three fields
+        // as one this function tagged on an earlier run. It is cleared with
+        // the rest so the pass below can place it afresh, but what it came
+        // with is kept: when that pass cannot pair it again it used to stay
+        // untagged for good -- 22 of them in the shipped graph, each drawn
+        // beside the generation link it stands in for. See the restore below.
+        if (!l.successionDeferred && !l.mirrorAsBuilt) {
+          l.mirrorAsBuilt = { source: l.mirrorSourceFam || null, target: l.mirrorTargetFam || null };
+        }
+        delete l.mirrorSourceFam; delete l.mirrorTargetFam; delete l.mirror; delete l.successionDeferred;
       }
     });
     // A succession drawn BOTH WAYS between the same two cars. The real graph
@@ -9548,7 +9808,15 @@ Rules:
       // has no "expanded" state of its own to key off).
       if (s.type === "family" && sGen.id !== s.id) l.mirrorSourceFam = s.id;
       if (t.type === "family" && tGen.id !== t.id) l.mirrorTargetFam = t.id;
-      if (l.mirrorSourceFam || l.mirrorTargetFam) l.mirror = true;
+      if (l.mirrorSourceFam || l.mirrorTargetFam) { l.mirror = true; l.successionDeferred = true; }
+    });
+    // A mirror by construction that the pass above had nothing to say about
+    // is still a mirror.
+    links.forEach(l => {
+      if (l.type !== "succession" || l.genLevel || l.mirror || !l.mirrorAsBuilt) return;
+      if (l.mirrorAsBuilt.source) l.mirrorSourceFam = l.mirrorAsBuilt.source;
+      if (l.mirrorAsBuilt.target) l.mirrorTargetFam = l.mirrorAsBuilt.target;
+      l.mirror = true;
     });
     toAdd.forEach(nl => links.push(nl));
     return toAdd.length;
@@ -9650,7 +9918,12 @@ Rules:
   function reviewProvisionalRelations(nodes, links) {
     const byIdLocal = new Map(nodes.map(n => [n.id, n]));
     const all = allRelationEntries ? allRelationEntries() : [];
-    const pending = all.filter(e => e && e.status === "provisional");
+    // Platform proposals only. All three rules below are about sharing a
+    // platform, and the first one -- never built at the same time -- is true
+    // of every predecessor and successor there is. Run over the whole pile
+    // it rejected succession and "related" proposals for not overlapping,
+    // and rejecting also files the pair so it is never proposed again.
+    const pending = all.filter(e => e && e.status === "provisional" && e.relType === "platform");
     const out = { confirmed: [], rejected: [], left: 0 };
     if (!pending.length) return out;
 
@@ -9920,10 +10193,9 @@ Rules:
   function diffGenerationCodes(genNodes, freshGens) {
     const usedOld = new Set();
     const addedFresh = [];
-    (freshGens || []).forEach(g => {
-      const key = norm(g.code);
-      const match = (genNodes || []).find(o => !usedOld.has(o.id) && key && norm(o.label).includes(key));
-      if (match) usedOld.add(match.id); else addedFresh.push(g);
+    const paired = pairFreshGenerations(genNodes, freshGens);
+    (freshGens || []).forEach((g, i) => {
+      if (paired[i]) usedOld.add(paired[i].id); else addedFresh.push(g);
     });
     const removedOld = (genNodes || []).filter(o => !usedOld.has(o.id));
     return { addedFresh, removedOld };
@@ -10033,7 +10305,20 @@ Rules:
       }
       const ownGenOld = byIdLocal.get(ownGenId);
       if (!ownGenOld) return;
-      const fresh = freshByCode.get(norm(ownGenOld.label));
+      // A succession partner is never going to be in a list of platform
+      // mates, so its absence from one says nothing about it. (The header
+      // above says platform/related; a generation that was REMOVED, handled
+      // just before this, is the one case that applies to all three.)
+      if (e.relType === "succession") return;
+      // By the generation's code, however its label carries it. The label is
+      // the nameplate plus the code -- "E-Class (W211)", "Golf Mk4" -- and
+      // this looked the whole label up in a map keyed by the bare code, so it
+      // only ever found a generation whose label WAS its code and the check
+      // below never ran for an ordinary one.
+      const tail = trailingCode(ownGenOld.label);
+      const fresh = freshByCode.get(norm(ownGenOld.label)) ||
+        (freshGens || []).find(g => g.code && norm(generationNodeLabel(fam.label, g.code)) === norm(ownGenOld.label)) ||
+        (tail ? freshByCode.get(norm(tail.code)) : null);
       if (!fresh) return; // couldn't confidently line this generation up with a fresh entry -- not enough signal either way, leave it alone
       const texts = Array.isArray(fresh.sharedPlatforms) ? fresh.sharedPlatforms
         : (fresh.sharedPlatform ? [fresh.sharedPlatform] : []);
@@ -10065,7 +10350,7 @@ Rules:
     // RESULT, never reimplements the matching itself.
     (freshGens || []).forEach(fresh => {
       const key = norm(fresh.code);
-      const old = (genNodesFor(fam, byIdLocal) || []).find(o => !removedIds.has(o.id) && key && norm(o.label).includes(key));
+      const old = key ? genNodeForCode(genNodesFor(fam, byIdLocal), fresh.code, removedIds) : null;
       if (!old) return; // this fresh generation is a brand-new one this pass doesn't mint (that's applyFamilyOverride's job once the user accepts the generation diff) -- nothing to resolve relations against yet
       const gn = Object.assign({}, old, {
         sharedPlatformTexts: Array.isArray(fresh.sharedPlatforms) ? fresh.sharedPlatforms
@@ -10122,7 +10407,7 @@ Rules:
     (freshGens || []).forEach(fresh => {
       const key = norm(fresh.code);
       if (!key) return;
-      const gen = genNodes.find(o => norm(o.label).includes(key));
+      const gen = genNodeForCode(genNodes, fresh.code);
       if (!gen) return; // a brand-new generation this pass doesn't mint -- that's applyFamilyOverride's job once the diff is accepted
       [["designer", "designed", fresh.designers, famDesigners],
        ["engineer", "engineered", fresh.engineers, famEngineers]].forEach(([role, linkType, names, famSet]) => {
@@ -10387,7 +10672,7 @@ Rules:
 
   function stripEngineMarkup(s) {
     return String(s || "")
-      .replace(/<ref[^>]*\/?>[\s\S]*?<\/ref>|<ref[^>]*\/>/gi, "")
+      .replace(/<ref[^>]*\/>|<ref(?:\s[^>]*)?>[\s\S]*?<\/ref>/gi, "")
       .replace(/\[\[\s*(?:File|Image)\s*:[^\]]*\]\]/gi, "")
       // {{convert}} and {{cvt}} carry the actual number, so they are unwrapped
       // rather than dropped: an infobox is mostly these, and stripping them
@@ -10428,7 +10713,7 @@ Rules:
   function parseApplicationLine(raw) {
     let line = String(raw || "");
     if (!line.trim()) return null;
-    line = line.replace(/<ref[^>]*\/?>[\s\S]*?<\/ref>|<ref[^>]*\/>/gi, "")
+    line = line.replace(/<ref[^>]*\/>|<ref(?:\s[^>]*)?>[\s\S]*?<\/ref>/gi, "")
                .replace(/\{\{\s*(?:citation needed|cn)[^{}]*\}\}/gi, "")
                .replace(/\[\[\s*(?:File|Image)\s*:[^\]]*\]\]/gi, "");
     const link = line.match(/\[\[([^\]|#]+)(?:#([^\]|]*))?(?:\|([^\]]*))?\]\]/);
@@ -10532,7 +10817,7 @@ Rules:
   // C107 entirely.
   function parseApplicationLinks(raw) {
     const line = String(raw || "")
-      .replace(/<ref[^>]*\/?>[\s\S]*?<\/ref>|<ref[^>]*\/>/gi, "")
+      .replace(/<ref[^>]*\/>|<ref(?:\s[^>]*)?>[\s\S]*?<\/ref>/gi, "")
       .replace(/\{\{\s*(?:citation needed|cn)[^{}]*\}\}/gi, "")
       .replace(/\[\[\s*(?:File|Image)\s*:[^\]]*\]\]/gi, "");
     const out = [];
@@ -11025,7 +11310,17 @@ Rules:
     // So when the article has a section named exactly what was asked for,
     // THAT section is the article: its sub-headings are the variants and its
     // tables are the applications.
-    const scope = engineSectionFor(wikitext, short);
+    //
+    // And when the name asked for is that engine's code with something after
+    // it -- "M177 Evo", the text of a car's own link -- no section is called
+    // exactly that, the whole page was read, and the three sibling engines
+    // came back as "M177 Evo M176", "M177 Evo M177" and "M177 Evo M178". The
+    // code the name opens with is tried on its own before giving up.
+    let scope = engineSectionFor(wikitext, short);
+    if (!scope) {
+      const lead = short.split(/\s+/)[0] || "";
+      if (lead !== short && ENGINE_CODE_RE.test(lead)) scope = engineSectionFor(wikitext, lead);
+    }
     const body = scope ? scope.body : wikitext;
     // The family's own specs, read once: the infobox at the top of the
     // article, or -- when this is one engine out of a page covering several
@@ -11775,6 +12070,16 @@ Rules:
       });
     }
     if (into.size) {
+      // Only the links that now end on a variant something was folded into.
+      // Folding two nodes into one is what can leave the same car on the
+      // same variant twice, and that is the only duplicate this is here for.
+      // It used to sweep every powertrain link in the graph by its two ends
+      // alone, which is also what several deliberate edges between one car
+      // and one unread engine look like -- the Suburban's 5.3 L and 6.2 L
+      // EcoTec3 lines, kept apart by recordEngineMentionsFrom on purpose --
+      // so a single folded variant anywhere took 3,500 engine lines off
+      // cars that had nothing to do with it.
+      const kept = new Set(into.values());
       const seen = new Set();
       for (let i = links.length - 1; i >= 0; i--) {
         const l = links[i];
@@ -11782,8 +12087,11 @@ Rules:
         let a = endOf(l.source), b = endOf(l.target);
         if (into.has(a)) { a = into.get(a); l.source = a; }
         if (into.has(b)) { b = into.get(b); l.target = b; }
+        if (!kept.has(a) && !kept.has(b)) continue;
+        if (a === b) { links.splice(i, 1); continue; }
+        if (l.retired) continue;   // not a line anyone sees, so not one to keep in a live one's place
         const k = [a, b].sort().join("|") + "|" + l.type;
-        if (a === b || seen.has(k)) { links.splice(i, 1); continue; }
+        if (seen.has(k)) { links.splice(i, 1); continue; }
         seen.add(k);
       }
     }
@@ -12987,6 +13295,21 @@ Rules:
       // Keep the article title even on a node that already existed: a mention
       // is often the first place it is known.
       if (!n.wp) n.wp = mention.title;
+      // Merged into another engine is not deleted. A duplicate folded away
+      // earlier in this same replay (autoMergeDuplicateEngines runs as nodes
+      // are added) is retired too, and every car replayed after that whose
+      // line maps to it was skipped as if the user had deleted the engine --
+      // 49 engine lines on 28 cars in the store this was found on -- while a
+      // live scan revived the husk and put the duplicate back. The line goes
+      // on the engine the husk was folded into.
+      if (n.retired && n.supersededBy) {
+        let into = byId.get(n.supersededBy), hops = 0;
+        while (into && into.retired && into.supersededBy && hops++ < 8) into = byId.get(into.supersededBy);
+        // Folded into a VARIANT: the line names the family, not that one
+        // variant of it, so it goes on the variant's engine.
+        if (into && !into.retired && into.type === "enginevar") into = byId.get(into.engineOf);
+        if (into && !into.retired && into.type === "engine") n = into;
+      }
       if (n.retired) {
         if (revive && reviveEngineNode(n, links, byId)) revived++;
         else { deleted++; continue; }
@@ -13892,7 +14215,12 @@ Rules:
   // generation's own sub-headings stay part of it.
   function wikitextSections(wikitext) {
     const out = [];
-    const rx = /^(={2,6})\s*(.+?)\s*\1\s*$/gm;
+    // A heading may be followed by a comment on its own line -- "==First
+    // generation (Mk1; 1974)==<!-- 1993 is correct -->" is how editors pin a
+    // date -- and is still a heading. Without that the Golf's Mk1, Mk3 and
+    // Mk6 were not sections at all, and each one's text was read as part of
+    // the generation before it.
+    const rx = /^(={2,6})\s*(.+?)\s*\1[ \t]*(?:<!--.*?-->[ \t]*)*$/gm;
     const heads = [];
     let m;
     while ((m = rx.exec(wikitext))) {
@@ -14013,12 +14341,22 @@ Rules:
     // Longest heading match loses to the most specific one: "Mk4" appears in
     // both "Fourth generation (Mk4/A4...)" and "Extended production (Mk4.5)",
     // and the first is the one that owns the generation.
-    let best = null;
+    //
+    // And the code has to be a WORD of the heading, as nameplateSectionForCar
+    // and proseArticle already require. As bare letters, the Opel Astra G's
+    // "G" is in "First generation (F; 1991)", so the Astra G was read from
+    // the Astra F's article and given its engines. A longer code may still
+    // sit inside a word ("W463" in "W463A"), but only where no heading has
+    // it as a word of its own.
+    let best = null, loose = null;
     for (const sec of secs) {
-      if (!norm(sec.title).includes(key)) continue;
-      if (!best || sec.level < best.level) best = sec;
+      if (labelCarriesCode(sec.title, code)) {
+        if (!best || sec.level < best.level) best = sec;
+      } else if (key.length >= 4 && norm(sec.title).includes(key)) {
+        if (!loose || sec.level < loose.level) loose = sec;
+      }
     }
-    return best;
+    return best || loose;
   }
 
   // Public entry point: the article THIS generation's section points at,
@@ -14244,7 +14582,7 @@ Rules:
           debug: { raw, dropped },
         };
         if (entry.status === "provisional") {
-          if (engagedId === fam.id) store.recheck[fam.id] = entry;
+          if (engagedId === fam.id) holdForCard("recheck", fam.id, entry);
           return entry;
         }
         store.recheck[fam.id] = entry; await persist();
@@ -14283,7 +14621,7 @@ Rules:
           debug: { raw, dropped },
         };
         if (entry.status === "provisional") {
-          if (engagedId === fam.id) store.recheck[fam.id] = entry;
+          if (engagedId === fam.id) holdForCard("recheck", fam.id, entry);
           return entry;
         }
         store.recheck[fam.id] = entry; await persist();
@@ -14343,11 +14681,10 @@ Rules:
     const freshGens = (entry.proposal && entry.proposal.generations) || [];
 
     const usedOld = new Set();
-    const pairs = freshGens.map(g => {
-      const key = norm(g.code);
-      const match = oldGens.find(o => !usedOld.has(o.id) && key && norm(o.label).includes(key));
-      if (match) usedOld.add(match.id);
-      return { fresh: g, old: match || null };
+    const paired = pairFreshGenerations(oldGens, freshGens);
+    const pairs = freshGens.map((g, i) => {
+      if (paired[i]) usedOld.add(paired[i].id);
+      return { fresh: g, old: paired[i] || null };
     });
     const orphaned = oldGens.filter(o => !usedOld.has(o.id));
 

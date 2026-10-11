@@ -2,7 +2,7 @@ harvest titles kept:   6971
 matched curated:       383
 auto models:           6389
 auto makes:            1219
-auto designers:        2144
+auto designers:        2092
 succession edges:      3453
 related edges:         3011
 unmatched (no make):   3

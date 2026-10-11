@@ -20,8 +20,10 @@ Unconfirmed candidate groups are never silently grouped — they're listed in
 family_match_report.txt for manual review, same policy as the My Database
 matcher and the live-refresh merge logic elsewhere in this codebase.
 
-Run standalone against an already-built ../app/cars.json for fast iteration:
+Run standalone to re-read the grouping and rewrite the match report:
     python3 build_family_layer.py
+It only writes cars.json/data.js when the data has no family layer yet -- one
+that build_data.py produced already has it.
 """
 import re, json, unicodedata, datetime
 from pathlib import Path
@@ -237,8 +239,13 @@ def _retrospective_umbrella(n, others, edges):
              if o["id"] != n["id"] and o.get("year") is not None and y < o["year"] <= e]
     if len(inner) < 2:
         return False
-    nxt = min(inner, key=lambda o: o["year"])
-    return (n["id"], nxt["id"]) not in edges
+    # Linked to ANY of the siblings that start next. There can be more than one
+    # in the same year -- a coupe launched alongside the saloon -- and taking
+    # whichever happened to come first in the list is how the E-Class W211 was
+    # thrown out: W212 and C207 both start in 2009, the W211's succession edge
+    # is to the W212, and the C207 was first.
+    first = min(o["year"] for o in inner)
+    return not any((n["id"], o["id"]) in edges for o in inner if o["year"] == first)
 
 
 
@@ -727,6 +734,15 @@ if __name__ == "__main__":
                  split_candidates(data["nodes"], data["links"], confirmed))
     print(f"\nconfirmed={len(confirmed)} unconfirmed={len(unconfirmed)} collisions={len(collisions)} "
           f"total generation nodes in confirmed families={sum(len(o) for _,_,o,_ in confirmed)}")
+    # build_data.py applies this layer as part of every build, so the file read
+    # above normally HAS it. Applying it again appended a second copy of every
+    # nameplate -- 101 duplicated ids and two thousand duplicate links -- and
+    # wrote that over both shipped data files. The report above is still
+    # refreshed; the data is only touched when there is nothing to duplicate.
+    if any(n.get("type") == "family" for n in data["nodes"]):
+        print("cars.json already has its family layer (build_data.py applies it) -- "
+              "report refreshed, data files left as they are")
+        raise SystemExit(0)
     stats = build_families(data["nodes"], data["links"])
     print(f"rewired: {stats}")
     cars_json.write_text(json.dumps(data, ensure_ascii=False, indent=1), encoding="utf-8")

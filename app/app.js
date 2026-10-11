@@ -792,7 +792,11 @@ window.CarWeb = (function () {
   // its Wikipedia article describes multiple generations DBpedia never
   // split out. Remembered across sessions so you don't have to re-enable it
   // every reload; still requires serve.py + llama-server actually running.
-  let llmCheckOn = localStorage.getItem("cw-llm-check") === "1";
+  // Guarded like every other storage read here: with site data blocked the
+  // property access itself throws, and at the top level of this file that
+  // meant no CarWeb at all -- the page stopped on its loading screen.
+  let llmCheckOn = false;
+  try { llmCheckOn = localStorage.getItem("cw-llm-check") === "1"; } catch (e) {}
   // Real user request: once LLM Check is on and you select a car, the
   // toggle should disengage right away -- on by itself, it's too easy to
   // rack up unintended llama.cpp calls just by browsing from car to car.
@@ -827,7 +831,7 @@ window.CarWeb = (function () {
     // an explicit "stop" should stop everything, not just new checks.
     if (!v && !llmCheckSuppressArmedClear) llmCheckArmedFor = null;
     syncLlmAuthorized();
-    localStorage.setItem("cw-llm-check", v ? "1" : "0");
+    try { localStorage.setItem("cw-llm-check", v ? "1" : "0"); } catch (e) {}
     const btn = document.getElementById("llmcheck");
     if (btn) btn.classList.toggle("active", v);
     // The toggle's own item now lives inside the collapsed #toolsmenu, so its
@@ -1383,14 +1387,17 @@ window.CarWeb = (function () {
   function nodeMeta(n) {
     if (n.type === "model" || n.type === "family") {
       const run = fmtYearRun(n.year, n.end);
-      const d = n.designers && n.designers.length ? `<br>drawn by ${n.designers.join(" · ")}` : "";
-      const e = n.engineers && n.engineers.length ? `<br>engineered by ${n.engineers.join(" · ")}` : "";
+      // Escaped, like the "also called" names below. These are names read
+      // out of an article and kept if they appear in its raw text, markup and
+      // all -- and whatever is stored is written into every visitor's page.
+      const d = n.designers && n.designers.length ? `<br>drawn by ${n.designers.map(esc).join(" · ")}` : "";
+      const e = n.engineers && n.engineers.length ? `<br>engineered by ${n.engineers.map(esc).join(" · ")}` : "";
       // Other markets' names, from the infobox's "also called" (read with
       // the engines -- see llm_families.js's akaNames).
       const LFam = window.LlmFamilies;
       const aka = LFam && LFam.aliasesFor ? LFam.aliasesFor(n.id) : [];
       const a = aka.length ? `<br>also called ${aka.map(esc).join(" · ")}` : "";
-      return `${n.make} · ${run || "years unknown"}${d}${e}${a}`;
+      return `${esc(n.make || "")} · ${run || "years unknown"}${d}${e}${a}`;
     }
     // An engine fell through to the person branch below and came out
     // "· 0 cars in the web" -- personCreditedCars knows nothing about a
@@ -1874,7 +1881,7 @@ window.CarWeb = (function () {
     dt.querySelector(".dt-title").textContent = (n.type === "model" || n.type === "family") ? `${n.make} ${n.label}` : n.label;
     const img = dt.querySelector(".dt-imgwrap");
     img.classList.remove("show"); img.style.backgroundImage = "";
-    dt.querySelector(".dt-meta").innerHTML = nodeMeta(n) + (n.note ? `<br><i>${n.note}</i>` : "");
+    dt.querySelector(".dt-meta").innerHTML = nodeMeta(n) + (n.note ? `<br><i>${esc(n.note)}</i>` : "");
     dt.querySelector(".dt-db").innerHTML = n.db ? dbBlockHTML(n) : "";
     const ex = dt.querySelector(".dt-extract"); ex.textContent = "";
     const dbPhoto = n.dbphoto || (n.db ? dbSourceFor(n).dbphoto : null);
@@ -1882,7 +1889,10 @@ window.CarWeb = (function () {
     if (dbPhoto) { img.style.backgroundImage = `url("${dbPhoto}")`; img.classList.add("show"); }
     else if (genPhoto) { img.style.backgroundImage = `url("${genPhoto}")`; img.classList.add("show"); }
     if (n.wp) wiki(n.wp).then(w => {
-      if (dt.hidden) return;
+      // Still this car's card, not just still a card -- same guard as the
+      // hover card's. A slow reply for the car before this one otherwise
+      // lands on top of the photo and extract already drawn here.
+      if (dt.hidden || dtNode !== n) return;
       if (w && w.thumb && !dbPhoto && !genPhoto) { img.style.backgroundImage = `url("${w.thumb}")`; img.classList.add("show"); }
       if (w && w.extract) ex.innerHTML = w.extract.split(". ").slice(0, 2).join(". ") +
         (w.url ? `. <a href="${w.url}" target="_blank" rel="noopener">Wikipedia ↗</a>` : "");
@@ -1896,7 +1906,7 @@ window.CarWeb = (function () {
         const b = document.createElement("button");
         b.className = "dt-conn dt-gen";
         const run = fmtYearRun(g.year, g.end);
-        b.innerHTML = `${g.label} <span class="verb">${run}</span>`;
+        b.innerHTML = `${esc(g.label)} <span class="verb">${run}</span>`;
         b.onclick = () => api.goto(g.id);
         genWrap.appendChild(b);
       });
@@ -1983,7 +1993,7 @@ window.CarWeb = (function () {
         const b = document.createElement("button");
         b.className = "dt-conn";
         const fromLlm = llmCredited.has(verb + "|" + o.id);
-        b.innerHTML = `${(o.type === "model" || o.type === "family") ? o.make + " " + o.label : o.label}` +
+        b.innerHTML = `${esc((o.type === "model" || o.type === "family") ? o.make + " " + o.label : o.label)}` +
           ((o.type === "model" || o.type === "family") && o.year != null ? ` <span class="verb">${o.year}</span>` : "") +
           (fromLlm ? ` <span class="conn-llm" title="read off the Wikipedia article by the local model, not from the hand-verified engineers table">🤖</span>` : "");
         if (fromLlm) b.classList.add("from-llm");
@@ -3062,6 +3072,15 @@ window.CarWeb = (function () {
     // it starts still goes through the same depth budget as before (see
     // llm_families.js's scheduleWpLookupAndCheck). It removes a manual step,
     // it does not widen the walk.
+    //
+    // Only when this is the card that is open. The same function is what a
+    // background accept goes through -- a nameplate a requested scan merely
+    // reached, a row of Pending Generation Splits, the pending cross-checks
+    // applied at boot -- and for those, engaging it ended the scan that was
+    // running (setEngaged drops a fresh scan seeded elsewhere), reset its
+    // cascade depth to 0 so its own partners escaped the depth budget, and
+    // opened its card over whatever car was actually being looked at.
+    if (dtNode !== fam) return;
     if (window.LlmFamilies.setEngaged) window.LlmFamilies.setEngaged(fam.id);
     if (window.LlmFamilies.setBackgroundAllowed) window.LlmFamilies.setBackgroundAllowed(true);
     openDetail(fam);
@@ -3112,6 +3131,44 @@ window.CarWeb = (function () {
   // resolved at all is skipped and reported instead of taking the whole
   // apply down with it. Returns the number of links it couldn't wire, purely
   // for logging.
+  // One link into the indexes. Safe to call on a link that is already there:
+  // the range a caller hands spliceIntoIndexes is "everything since I looked",
+  // and a read that was waiting on Wikipedia while something else applied a
+  // change hands over links that were wired once already. Wired again, each
+  // got a second entry in adj -- a first generation came out with degree 14
+  // on 7 links, drawn larger and ranked higher than it should be, and a
+  // retract later removed only one of the two.
+  function wireLink(l) {
+    // d3-force's link force mutates source/target from id STRINGS into
+    // node OBJECT references once the sim has initialized -- handle both,
+    // and normalize back to ids so the rest of this file (which assumes
+    // strings) keeps working. Same gotcha applyFamilyOverrideConfirm
+    // already documents.
+    const s = typeof l.source === "string" ? l.source : (l.source && l.source.id);
+    const t = typeof l.target === "string" ? l.target : (l.target && l.target.id);
+    l.sn = byId.get(s); l.tn = byId.get(t);
+    if (!l.sn || !l.tn) return false;                 // dangling endpoint -- skip it, never throw
+    l.source = l.sn.id; l.target = l.tn.id;
+    if (!adj.has(l.source)) adj.set(l.source, []);
+    if (!adj.has(l.target)) adj.set(l.target, []);
+    const from = adj.get(l.source), to = adj.get(l.target);
+    if (!from.some(e => e.l === l)) from.push({ n: l.tn, l });
+    if (!to.some(e => e.l === l)) to.push({ n: l.sn, l });
+    return true;
+  }
+  // Succession links that are in `links` and not in the indexes, wherever
+  // they sit. pushSuccessionToGenerations removes the derived links that have
+  // gone stale before it adds the fresh ones, so "everything past the old
+  // length" misses as many new links as old ones were removed -- and a
+  // generation's "succeeded by" line then drew nowhere until a reload.
+  function wireNewSuccessionLinks() {
+    const touched = new Set();
+    for (const l of links) {
+      if (!l || l.retired || l.type !== "succession" || (l.sn && l.tn)) continue;
+      if (wireLink(l)) { touched.add(l.sn); touched.add(l.tn); }
+    }
+    touched.forEach(nn => { nn.deg = (adj.get(nn.id) || []).length; nn.r = radius(nn); });
+  }
   function spliceIntoIndexes(nodesBefore, linksBefore) {
     let unwired = 0;
     for (let i = nodesBefore; i < nodes.length; i++) {
@@ -3121,22 +3178,7 @@ window.CarWeb = (function () {
       if (!adj.has(nn.id)) adj.set(nn.id, []);
     }
     for (let i = linksBefore; i < links.length; i++) {
-      const l = links[i];
-      if (!l) continue;
-      // d3-force's link force mutates source/target from id STRINGS into
-      // node OBJECT references once the sim has initialized -- handle both,
-      // and normalize back to ids so the rest of this file (which assumes
-      // strings) keeps working. Same gotcha applyFamilyOverrideConfirm
-      // already documents.
-      const s = typeof l.source === "string" ? l.source : (l.source && l.source.id);
-      const t = typeof l.target === "string" ? l.target : (l.target && l.target.id);
-      l.sn = byId.get(s); l.tn = byId.get(t);
-      if (!l.sn || !l.tn) { unwired++; continue; }  // dangling endpoint -- skip it, never throw
-      l.source = l.sn.id; l.target = l.tn.id;
-      if (!adj.has(l.source)) adj.set(l.source, []);
-      if (!adj.has(l.target)) adj.set(l.target, []);
-      adj.get(l.source).push({ n: l.tn, l });
-      adj.get(l.target).push({ n: l.sn, l });
+      if (links[i] && !wireLink(links[i])) unwired++;
     }
     // Degree/radius for everything a new link touched, new or pre-existing.
     const touched = new Set();
@@ -3280,9 +3322,8 @@ window.CarWeb = (function () {
     // resolved down to its first/last generation -- see
     // pushSuccessionToGenerations' own comment.
     if (window.LlmFamilies.pushSuccessionToGenerations) {
-      const succBefore = links.length;
       window.LlmFamilies.pushSuccessionToGenerations(nodes, links);
-      spliceIntoIndexes(nodes.length, succBefore);
+      wireNewSuccessionLinks();
     }
     expandFamily(n.id);       // lines up + un-hides the new generations right away
     refreshYearFilter();       // newly-minted generations aren't in the precomputed
@@ -4057,10 +4098,10 @@ window.CarWeb = (function () {
     const hiLabel = document.getElementById("yf-hi-label");
     const rangeBar = document.getElementById("yf-range-bar");
     if (!lo || !hi) return;
-    const { min, max } = api.yearRange();
-    lo.min = hi.min = min; lo.max = hi.max = max;
     function render() {
       const r = api.yearRange();
+      // Every time, not once: the bounds move out when a later car arrives.
+      lo.min = hi.min = r.min; lo.max = hi.max = r.max;
       lo.value = r.lo; hi.value = r.hi;
       loLabel.textContent = r.lo; hiLabel.textContent = r.hi === r.max ? r.hi + "" : r.hi;
       const span = Math.max(1, r.max - r.min);
@@ -4931,7 +4972,11 @@ window.CarWeb = (function () {
     async function handleSubmit() {
       const makeLabel = makeInput.value.trim(), modelLabel = modelInput.value.trim();
       if (!makeLabel || !modelLabel) { setStatus("Enter both a make and a model.", "error"); return; }
-      const already = nodes.find(n => (n.type === "model" || n.type === "family") &&
+      // A LIVE car of that name. A standalone that was folded into a
+      // nameplate is still in the array, retired, and comes before the
+      // nameplate that replaced it -- so "Toyota Corolla" opened the hidden
+      // 1966 model's card instead of the twelve-generation nameplate.
+      const already = nodes.find(n => (n.type === "model" || n.type === "family") && !n.retired &&
         n.make && n.make.toLowerCase() === makeLabel.toLowerCase() && n.label.toLowerCase() === modelLabel.toLowerCase());
       if (already) {
         setStatus(`${makeLabel} ${modelLabel} is already in the graph — opening it instead.`, "ok");
@@ -5328,9 +5373,8 @@ window.CarWeb = (function () {
       backfillGenerationEnds();
       indexMirrorReplacements();
       if (LF.pushSuccessionToGenerations) {
-        const before = links.length;
         LF.pushSuccessionToGenerations(nodes, links);
-        spliceIntoIndexes(nodes.length, before);
+        wireNewSuccessionLinks();
       }
       refreshYearFilter();
       buildSim();
@@ -6928,8 +6972,8 @@ window.CarWeb = (function () {
                  : n.type === "family" ? "nameplate"
                  : n.type === "enginevar" ? "variant" : n.type;
       d.innerHTML = `<span class="sr-type ${n.type}">${chip}</span>
-        <span class="sr-label">${(n.type === "model" || n.type === "family") ? n.make + " " + n.label : n.label}</span>
-        <span class="sr-sub">${(n.type === "model" || n.type === "family") ? n.year : (n.country || "")}</span>`;
+        <span class="sr-label">${esc((n.type === "model" || n.type === "family") ? n.make + " " + n.label : n.label)}</span>
+        <span class="sr-sub">${esc((n.type === "model" || n.type === "family") ? (n.year == null ? "" : n.year) : (n.country || ""))}</span>`;
       d.onmousedown = e => { e.preventDefault(); onpick(n); };
       el.appendChild(d);
     });
@@ -6980,8 +7024,12 @@ window.CarWeb = (function () {
   // its own individual span — so an early generation entirely before the
   // lower bound drops out even while a later sibling generation stays.
   const YEAR_NODES = nodes.filter(n => (n.type === "model" || n.type === "family") && n.year != null);
-  const DATA_MIN_YEAR = YEAR_NODES.length ? Math.min(...YEAR_NODES.map(n => n.year)) : 1900;
-  const DATA_MAX_YEAR = YEAR_NODES.length ? Math.max(...YEAR_NODES.map(n => n.year)) : new Date().getFullYear();
+  // Not constants: a car that arrives later -- a generation split out live, a
+  // car added by hand -- can start after the newest one that was here at
+  // load, and with the bounds fixed the slider could never reach it. See
+  // widenYearBounds.
+  let DATA_MIN_YEAR = YEAR_NODES.length ? Math.min(...YEAR_NODES.map(n => n.year)) : 1900;
+  let DATA_MAX_YEAR = YEAR_NODES.length ? Math.max(...YEAR_NODES.map(n => n.year)) : new Date().getFullYear();
   // Real user request: "for the default year range, it should initially
   // include all years. Make sure this is true for all versions (computer
   // version or mobile version)."
@@ -7026,7 +7074,23 @@ window.CarWeb = (function () {
     }
     return set;
   }
+  // Only ever outwards, so a range somebody chose is never clipped by it. An
+  // end of the range that was sitting on the old bound moves out with it:
+  // "up to the newest car" should still mean that once there is a newer one.
+  function widenYearBounds() {
+    let min = DATA_MIN_YEAR, max = DATA_MAX_YEAR;
+    for (const n of nodes) {
+      if (n.retired || n.year == null || (n.type !== "model" && n.type !== "family")) continue;
+      if (n.year < min) min = n.year;
+      if (n.year > max) max = n.year;
+    }
+    if (min === DATA_MIN_YEAR && max === DATA_MAX_YEAR) return;
+    if (yearLo === DATA_MIN_YEAR) yearLo = min;
+    if (yearHi === DATA_MAX_YEAR) yearHi = max;
+    DATA_MIN_YEAR = min; DATA_MAX_YEAR = max;
+  }
   function refreshYearFilter() {
+    widenYearBounds();
     yearFilterSet = computeYearFilterSet();
     yearFilterListeners.forEach(f => f());
   }
@@ -8537,10 +8601,22 @@ window.CarWeb = (function () {
     if (isPowerMode()) refreshPowertrainLegend();
     // Changing layer changes which nodes the simulation holds, so it is
     // rebuilt and re-framed -- the same thing a live mutation does.
-    if (GRAPH_VIEWS[name] && prevMode !== graphMode) {
+    //
+    // Whenever the layer changes, not only when the tab arrived at is a graph
+    // one: Timeline and Six Degrees count as the main layer, so Powertrain ->
+    // Timeline -> Graph changed layer on the first step and not on the second,
+    // and the Graph tab came back with the powertrain simulation and its
+    // focus still running underneath. The framing is what waits for a graph
+    // tab, since there is no canvas to frame on the other two.
+    if (prevMode !== graphMode) {
+      swapLayerPositions(prevMode, graphMode);
       invalidatePowerVis();
       Graph.clearFocus();
       buildSim();
+      frameOwed = true;
+    }
+    if (GRAPH_VIEWS[name] && frameOwed) {
+      frameOwed = false;
       // Settling only matters going IN to the powertrain layer -- a few dozen
       // nodes, most of them still sitting where they were seeded. Coming back
       // out, the main graph's six thousand are already laid out from before
@@ -8550,6 +8626,26 @@ window.CarWeb = (function () {
       else Graph.refit(false);
     }
     if (GRAPH_VIEWS[name]) Graph.touch();
+  }
+  // A car is the same object in both layers, so a layer that moves it has to
+  // hand it back where it found it. The powertrain simulation holds every car
+  // an engine reaches and settles them around their engines -- on the full
+  // graph that left two thousand cars somewhere else in the main layout for
+  // the rest of the session. Each layer keeps its own coordinates for the
+  // nodes they share: leaving one files them, arriving at the other restores
+  // what was filed there. A car new to a layer simply starts from where it is.
+  const layerPositions = { main: new Map(), power: new Map() };
+  let frameOwed = false;
+  function swapLayerPositions(from, to) {
+    const filed = layerPositions[from], restoring = layerPositions[to];
+    nodes.forEach(n => {
+      if (isPowertrain(n)) return;   // lives in one layer only
+      if (n.x != null && n.y != null) filed.set(n, { x: n.x, y: n.y, fx: n.fx, fy: n.fy });
+      const p = restoring.get(n);
+      if (!p) return;
+      n.x = p.x; n.y = p.y; n.vx = 0; n.vy = 0;
+      n.fx = p.fx; n.fy = p.fy;
+    });
   }
   document.querySelectorAll(".tab").forEach(b => b.onclick = () => switchView(b.dataset.view));
 

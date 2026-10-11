@@ -455,7 +455,17 @@ def _wait_until_ready(timeout_s):
     # waiting. Blocks main() here, before ThreadingHTTPServer starts
     # accepting connections at all, so no browser request can ever reach
     # /api/llm/chat before llama-server is actually ready to answer it.
-    deadline = time.monotonic() + timeout_s
+    #
+    # Two ways out besides "ready" and the timeout, because the timeout is
+    # fifteen minutes and nothing is served until this returns. A llama-server
+    # this run started that has already EXITED -- an older build rejecting
+    # --spec-type, a bad model name, out of memory at load -- is never going
+    # to answer, and waiting on it left the port closed and the terminal
+    # silent for the whole quarter hour. And a port that was already open but
+    # speaks no /health at all is some other program, not a llama-server that
+    # is still loading.
+    started = time.monotonic()
+    deadline = started + timeout_s
     last_status = None
     while time.monotonic() < deadline:
         status = _health_status()
@@ -465,8 +475,31 @@ def _wait_until_ready(timeout_s):
             last_status = status
         if status == "ready":
             return True
+        if _spawned is not None and _spawned[0].poll() is not None:
+            print(f"llama-server: exited with code {_spawned[0].returncode} before it was ready -- "
+                  "the end of its log:", file=sys.stderr)
+            for line in _log_tail(os.path.join(LOG_DIR, f"llama-server-{LLAMA_PORT}.log")):
+                print("    " + line, file=sys.stderr)
+            return False
+        if _spawned is None and status is None and time.monotonic() - started > FOREIGN_PORT_GRACE:
+            print(f"llama-server: something is listening on port {LLAMA_PORT} but it does not answer "
+                  f"/health -- not a llama-server. Set LLAMA_PORT to a free port.", file=sys.stderr)
+            return False
         time.sleep(1.0)
     return False
+
+
+# How long a port that was already open gets to start answering /health before
+# it is taken for some other program.
+FOREIGN_PORT_GRACE = 30.0
+
+
+def _log_tail(path, lines=15):
+    try:
+        with open(path, "r", encoding="utf-8", errors="replace") as f:
+            return [l.rstrip("\n") for l in f.readlines()[-lines:]]
+    except OSError:
+        return []
 
 
 def start_llama_server():
@@ -593,7 +626,7 @@ def start_llama_server():
             print(f"llama-server: ready (took {wait_elapsed:.1f}s -- a cached model loads in well under a "
                   "minute; several minutes here means it just downloaded fresh)")
         else:
-            print(f"llama-server: NOT responding after {LLAMA_STARTUP_TIMEOUT:.0f}s -- check llama_logs/, requests will 502 until it comes up")
+            print(f"llama-server: NOT ready after {wait_elapsed:.0f}s -- check llama_logs/, requests will 502 until it comes up")
 
 
 def stop_llama_server():
@@ -643,15 +676,27 @@ def stop_llama_server():
 _llm_families_lock = threading.Lock()
 
 
+class StoreUnreadable(Exception):
+    """llm_families.json exists and could not be read as a store."""
+
+
 def read_llm_families():
+    # A file that is not there is an empty store. A file that IS there and
+    # will not parse is not: it used to be read as empty all the same, and
+    # main() writes back whatever this returns -- so one stray conflict marker
+    # or a truncated save turned the whole overlay into {"families": {}} at
+    # the next start, mirror included, with no warning and no copy kept.
     with _llm_families_lock:
         if not os.path.exists(LLM_FAMILIES_PATH):
             return {"families": {}}
         try:
             with open(LLM_FAMILIES_PATH, "r", encoding="utf-8") as f:
-                return json.load(f)
-        except (json.JSONDecodeError, OSError):
-            return {"families": {}}
+                data = json.load(f)
+        except (json.JSONDecodeError, UnicodeDecodeError, OSError) as e:
+            raise StoreUnreadable(str(e))
+        if not isinstance(data, dict):
+            raise StoreUnreadable("the top level is not an object")
+        return data
 
 
 def write_llm_families(data):
@@ -776,7 +821,39 @@ class Handler(http.server.SimpleHTTPRequestHandler):
         except (BrokenPipeError, ConnectionResetError, OSError) as e:
             self.log_message("client disconnected before response could be sent (%s)", e)
 
+    # Only this page talks to the API. The server listens on loopback, but
+    # that does not keep other WEB PAGES out -- the user's own browser makes
+    # the request, and a plain-text POST to http://localhost:8077 needs no
+    # preflight. Any site open in another tab could replace the whole overlay,
+    # wipe it, start a rebuild or drive the model. Three checks, none of which
+    # the page itself, curl or the QA scripts ever trip:
+    #   * Host has to be a loopback name (a rebinding attack arrives under the
+    #     attacker's own hostname);
+    #   * an Origin, when the browser sends one, has to be this server;
+    #   * and the browser's own verdict, where it gives one, is believed.
+    _LOOPBACK_NAMES = {"localhost", "127.0.0.1", "::1", "[::1]"}
+
+    def _from_this_page(self):
+        host = (self.headers.get("Host") or "").strip().lower()
+        name = host.rsplit(":", 1)[0] if not host.endswith("]") else host
+        if name not in self._LOOPBACK_NAMES and not name.endswith(".localhost"):
+            return False
+        origin = (self.headers.get("Origin") or "").strip().lower()
+        if origin and origin != "http://" + host:
+            return False
+        if (self.headers.get("Sec-Fetch-Site") or "").strip().lower() == "cross-site":
+            return False
+        return True
+
+    def _refuse_foreign(self):
+        if self._from_this_page():
+            return False
+        self._json(403, {"ok": False, "error": "this API only answers the page it serves"})
+        return True
+
     def do_GET(self):
+        if self.path.startswith("/api/") and self._refuse_foreign():
+            return
         if self.path == "/api/llm-families":
             # Server-side settings ride along on the same request that seeds
             # the store, so the browser has them before app.js builds its
@@ -785,7 +862,12 @@ class Handler(http.server.SimpleHTTPRequestHandler):
             # same reason "__serverAvailable" is underscored: llm_families.js
             # builds its persisted store from explicit keys, so nothing here
             # can leak back into llm_families.json on the next write.
-            payload = read_llm_families()
+            try:
+                payload = read_llm_families()
+            except StoreUnreadable as e:
+                # Not an empty store: the page would save one straight back
+                # over the file. An error leaves it in its read-only mode.
+                return self._json(500, {"ok": False, "error": "llm_families.json could not be read: " + str(e)})
             payload["__config"] = {"cascadeMaxDepth": CASCADE_MAX_DEPTH,
                                    "transitiveMaxHops": TRANSITIVE_MAX_HOPS}
             return self._json(200, payload)
@@ -796,6 +878,8 @@ class Handler(http.server.SimpleHTTPRequestHandler):
         return super().do_GET()
 
     def do_POST(self):
+        if self._refuse_foreign():
+            return
         if self.path == "/api/rebuild":
             length = int(self.headers.get("Content-Length", 0))
             try:
@@ -1003,6 +1087,7 @@ class Handler(http.server.SimpleHTTPRequestHandler):
             last_print_t = t0
             LIVE_PRINT_INTERVAL = 0.5  # seconds -- avoid spamming the terminal on a fast model
 
+            stream_finished = False
             try:
                 # Real bug report (carried over from the Ollama era, worse
                 # now that a slow first-run model download can also delay
@@ -1022,6 +1107,7 @@ class Handler(http.server.SimpleHTTPRequestHandler):
                             continue
                         payload_str = line[len("data:"):].strip()
                         if payload_str == "[DONE]":
+                            stream_finished = True
                             break
                         try:
                             chunk = json.loads(payload_str)
@@ -1036,6 +1122,7 @@ class Handler(http.server.SimpleHTTPRequestHandler):
                                 n_chunks += 1
                             if choices[0].get("finish_reason"):
                                 finish_reason = choices[0]["finish_reason"]
+                                stream_finished = True
                         # llama.cpp puts the full timing breakdown on the
                         # LAST chunk only (confirmed against llama.cpp's own
                         # maintainers: intermediate chunks carry just the
@@ -1062,6 +1149,22 @@ class Handler(http.server.SimpleHTTPRequestHandler):
                     "hint": "Is `llama-server` running (see README.md)? Is the model "
                             f"'{LLAMA_MODEL}' fully downloaded? If this was a timeout between "
                             f"tokens, current limit is {LLAMA_TIMEOUT}s (set LLAMA_TIMEOUT to raise it).",
+                })
+                return
+
+            # A stream that simply stopped -- no [DONE], no finish_reason -- is
+            # llama-server dying or being stopped mid-answer, not an answer.
+            # It used to be passed on as a 200 like any other, and a reply cut
+            # at a tidy place ("...the first generation}") then had its
+            # missing brackets added by the page and was kept as the whole
+            # list. Reported as what it is, so the call is retried instead.
+            if not stream_finished:
+                _print_live(f"[{req_id}] {short_purpose} -- llama-server's reply stopped after {n_chunks} tok "
+                            "without finishing; treated as a failed call.")
+                self._json(502, {
+                    "error": "llama-server stopped answering partway through the reply",
+                    "detail": f"{n_chunks} tokens arrived and then the stream ended with no finish marker",
+                    "hint": "Is `llama-server` still running? Check llama_logs/ -- it may have run out of memory.",
                 })
                 return
 
@@ -1196,7 +1299,24 @@ def main():
         # Regenerate the companion .js mirror unconditionally at startup too —
         # covers upgrading onto this feature with an existing llm_families.json
         # that predates it, or the .js file having been deleted/edited by hand.
-        write_llm_families(read_llm_families())
+        try:
+            write_llm_families(read_llm_families())
+        except StoreUnreadable as e:
+            # Stop here, with the file exactly as it was and a copy beside the
+            # other backups. Carrying on would serve an empty layer, and the
+            # first save from the page would then replace the file with it.
+            backup = None
+            try:
+                os.makedirs(LLM_BACKUP_DIR, exist_ok=True)
+                backup = os.path.join(LLM_BACKUP_DIR, "llm_families-unreadable-" + time.strftime("%Y%m%d-%H%M%S") + ".json")
+                shutil.copy2(LLM_FAMILIES_PATH, backup)
+            except OSError:
+                backup = None
+            print(f"\napp/llm_families.json could not be read: {e}\n"
+                  "Nothing has been changed. Fix the file (a git conflict marker or a cut-off save are the usual\n"
+                  "causes), or restore it with `git checkout app/llm_families.json`, and start again."
+                  + (f"\nA copy of it as it is now: {os.path.normpath(backup)}" if backup else ""), file=sys.stderr)
+            raise SystemExit(1)
     # Refreshing the My Database layer at startup re-fetches car photos and
     # rewrites app/db_photos/ and the match report with absolute paths from
     # whatever machine is running. That's correct on a real machine and wrong
@@ -1213,6 +1333,13 @@ def main():
     # whatever it already managed to spawn rather than leaking the process.
     atexit.register(stop_llama_server)
     signal.signal(signal.SIGTERM, _handle_sigterm)
+    # Closing the terminal window sends SIGHUP, not SIGTERM, and Python's
+    # default for it is to die on the spot -- no finally, no atexit. The
+    # llama-server this started has its own session and does not get the
+    # signal at all, so it stayed resident with the model loaded, and the next
+    # run found the port open and took it for somebody else's.
+    if hasattr(signal, "SIGHUP"):
+        signal.signal(signal.SIGHUP, _handle_sigterm)
 
     # Blocks (see _wait_until_ready's own comment) until llama-server is
     # actually ready to answer requests -- runs BEFORE ThreadingHTTPServer

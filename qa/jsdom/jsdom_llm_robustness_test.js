@@ -334,7 +334,8 @@ function freshWindow(opts) {
   check("a result the user explicitly asked for is written to disk",
     /if \(opts && opts\.explicit\) \{\s*\n\s*store\.families\[node\.id\] = entry;\s*\n\s*await persist\(\);/.test(src));
   check("...and idle browsing still discards an unasked-for one",
-    /if \(engagedId === node\.id\) store\.families\[node\.id\] = entry;/.test(src));
+    /if \(engagedId === node\.id\) holdForCard\("families", node\.id, entry\);/.test(src) &&
+    /if \(!heldForCard\[bucket\]\.delete\(nodeId\)\) return;/.test(src));
   // There used to be three separate call sites, each having to remember the
   // flag. They all go through the work queue's one node-check runner now, so
   // the invariant is that THAT passes it -- and that no entry point has gone

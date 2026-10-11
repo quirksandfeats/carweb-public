@@ -25,6 +25,12 @@ with sync_playwright() as p:
       const cw = CarWeb, out = {};
       out.nodes = cw.nodes.length;
       out.models = cw.nodes.filter(n=>n.type==='model').length;
+      // What the build itself says it baked, and what the timeline is meant
+      // to draw. Both used to be literals from a 591-node dataset, so this
+      // sweep failed on every run whatever state the app was in.
+      out.baked = window.CARDATA.meta.counts.nodes;
+      out.timelineCars = cw.nodes.filter(n => (n.type==='model' || n.type==='family') && n.year != null &&
+        cw.nodeInLayer(n) && !(n.type==='family' && cw.isFamilyExpanded(n.id))).length;
       // symmetric adjacency
       out.adjOK = cw.nodes.every(n => cw.adj.get(n.id).every(({n:o,l}) => cw.adj.get(o.id).some(x=>x.l===l)));
       // FR-S neighbors include Toyota 86 via platform
@@ -34,7 +40,9 @@ with sync_playwright() as p:
       out.coordsOK = cw.nodes.every(n => isFinite(n.x) && isFinite(n.y));
       return out;
     }""")
-    check("graph data loaded", sanity["nodes"] == 591, str(sanity["nodes"]))
+    # At least the baked graph; the LLM layer adds to it and never takes away.
+    check("graph data loaded", sanity["baked"] > 0 and sanity["nodes"] >= sanity["baked"],
+          f"{sanity['nodes']} in the page, {sanity['baked']} baked")
     check("adjacency symmetric", sanity["adjOK"])
     check("FR-S platform twins", sanity["frsPlat"] == ["86","BRZ"], str(sanity["frsPlat"]))
     check("layout coords finite", sanity["coordsOK"])
@@ -88,7 +96,9 @@ with sync_playwright() as p:
     pg.click("[data-view=timeline]")
     pg.wait_for_timeout(700)
     ndots = pg.evaluate("() => document.querySelectorAll('.tl-dot').length")
-    check("timeline dots", ndots == sanity["models"], f"{ndots} dots")
+    # One dot per car the timeline can place: a collapsed nameplate is one
+    # dot, not one per generation, and a car with no year has nowhere to go.
+    check("timeline dots", ndots == sanity["timelineCars"], f"{ndots} dots, {sanity['timelineCars']} expected")
     pg.select_option("#tl-designer", "Giorgetto Giugiaro")
     pg.wait_for_timeout(1800)
     career = pg.evaluate("() => document.querySelectorAll('.tl-careerdot').length")

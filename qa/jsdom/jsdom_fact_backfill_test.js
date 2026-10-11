@@ -240,8 +240,34 @@ function flush(n) {
     puchish2 && puchish2.year === 1979, puchish2 && puchish2.year);
   check("a fresh boot re-mints the same person with the CACHED born year immediately",
     backfillova2 && backfillova2.born === 1950, backfillova2 && backfillova2.born);
-  check("reusing cached facts made ZERO new /api/llm/chat calls", chatCalls.length === callsBeforeSecondBoot,
+  // A lookup that FOUND something is never asked again. One that came back
+  // empty is -- that is the retry scheduleFactBackfill's own comment promises
+  // ("an empty result now allows another go"), which never ran while every
+  // caller only scheduled when there was no record at all.
+  const secondBootCalls = chatCalls.slice(callsBeforeSecondBoot);
+  check("reusing cached facts made ZERO new /api/llm/chat calls for what was already found",
+    !secondBootCalls.some(c => /Puchish|Backfillova/.test(c.user)),
+    secondBootCalls.map(c => c.user.slice(0, 80)));
+  check("...and the lookup that came back empty got another go", secondBootCalls.length >= 1,
     "before=" + callsBeforeSecondBoot + " after=" + chatCalls.length);
+  // Capped: after three empty results the car is left alone for good.
+  for (let boot = 0; boot < 4; boot++) {
+    const nodesN = nodes2.slice(0, 3).map(n => Object.assign({}, n, { designers: [], engineers: [] }));
+    const linksN = [{ source: mk.id, target: SINGLE_GEN_ID, type: "made" }, { source: mk.id, target: MULTI_GEN_ID, type: "made" }];
+    LF.applySharedPlatformForSingleGen(nodesN, linksN);
+    LF.applyConfirmed(nodesN, linksN);
+    await flush(5);
+  }
+  const callsAtCap = chatCalls.length;
+  {
+    const nodesN = nodes2.slice(0, 3).map(n => Object.assign({}, n, { designers: [], engineers: [] }));
+    const linksN = [{ source: mk.id, target: SINGLE_GEN_ID, type: "made" }, { source: mk.id, target: MULTI_GEN_ID, type: "made" }];
+    LF.applySharedPlatformForSingleGen(nodesN, linksN);
+    LF.applyConfirmed(nodesN, linksN);
+    await flush(5);
+  }
+  check("an empty lookup stops being retried once it has failed three times", chatCalls.length === callsAtCap,
+    "at cap=" + callsAtCap + " after one more boot=" + chatCalls.length);
 
   console.log("\n" + (fails === 0 ? "ALL GREEN (0 failures)" : fails + " FAILURE(S)"));
   process.exit(fails === 0 ? 0 : 1);

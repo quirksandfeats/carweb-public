@@ -351,6 +351,17 @@ DATE_RANGE_RE = re.compile(r"^\d{4}\s*[-\u2013]\s*\d{4}$")
 
 JUNK_TITLE = re.compile(r"(List_of|Category:|Template:|_\(disambiguation\)|^Timeline|_lineup$)", re.I)
 
+# A role written in front of the name, the studio written after it, and the
+# words that are a role and nobody's name. See clean_designers.
+ROLE_PREFIX_RE = re.compile(r"^(?:[^\W\d_]+ ){0,2}[^\W\d_]+\s*:\s*(?=\S)")   # only with a name after it
+LEADING_WORDS_RE = re.compile(r"^(?:details\s+)?(?:at|under|by|with)\s+", re.I)
+ENGINE_PREFIX_RE = re.compile(r"^engine(?:er)?s?\s*:", re.I)
+STUDIO_SUFFIX_RE = re.compile(r"\s+(?:at|for|of|under|with)\s+\S.*$", re.I)
+ROLE_SUFFIX_RE = re.compile(r"\s*[-\u2013]\s*(?:interior|exterior)\b.*$|\s+(?:concept|production)\s+car$", re.I)
+ROLE_WORDS = {"interior", "exterior", "staff", "others", "other", "consultant", "consultants", "inventor",
+              "chief engineer", "chief stylist", "chief designer", "stylist", "designer", "designers",
+              "engineer", "convertible", "coupe", "coup\u00e9", "sedan", "saloon", "concept", "production"}
+
 def clean_designers(raw):
     out = []
     if not raw: return out
@@ -372,6 +383,21 @@ def clean_designers(raw):
             if c in CUR_DESIGNERS: out.append(c); continue
             if any(b in c.lower() for b in bad): continue
             if len(c.split()) > 4: continue
+            # What passes is taken for a person's name, so the words around
+            # the name come off: "Exterior: Andreas Thurner", "Chief stylist:
+            # Bill Mitchell", "Giorgetto Giugiaro at Ghia". Kept whole, each of
+            # those became a person of its own -- the Maserati Ghibli credited
+            # to somebody called "Giorgetto Giugiaro at Ghia" while the real
+            # Giugiaro's card did not list the car -- and a bare "Interior",
+            # "staff" or "others" became a person too. Done AFTER the tests
+            # above, so nothing they used to turn away is let in shortened.
+            if ENGINE_PREFIX_RE.match(c): continue   # who built the engine is not who drew the car
+            c = LEADING_WORDS_RE.sub("", c)          # "under Gu-Han Kim", "at Centro Stile Fiat"
+            c = ROLE_PREFIX_RE.sub("", c)
+            c = STUDIO_SUFFIX_RE.sub("", c)
+            c = ROLE_SUFFIX_RE.sub("", c).strip(" .:;-\u2013")
+            if not c or c.lower() in ROLE_WORDS: continue
+            if not c[0].isupper(): continue          # "in collaboration", "led by ..." -- a phrase, not a name
             out.append(c)
     # dedupe, preserve order
     seen = set(); res = []

@@ -76,6 +76,20 @@ def norm(s):
     s = "".join(c for c in s if not unicodedata.combining(c))
     return re.sub(r"[^a-z0-9]+", "", s.lower())
 
+def exact(s):
+    """norm(), with the punctuation still counting for something.
+
+    norm() is what lets "CX-5" and "CX5" be one car. It is also what made
+    "Saab 9-3" and "Saab 93" one car, and "BMW 3/20" and "BMW 320", "Subaru
+    R-2" and "R2", "Morgan +4" and "+4+": the second of each pair was dropped
+    without a word and every link naming it was drawn to the first. Where two
+    names only collide under norm(), this is what tells a second spelling of
+    one car from a second car."""
+    s = unicodedata.normalize("NFKD", s)
+    s = "".join(c for c in s if not unicodedata.combining(c))
+    s = s.lower().replace("+", " plus ")
+    return re.sub(r"[^a-z0-9]+", " ", s).strip()
+
 # ---------------- makes ----------------
 # A harvested marque that differs from one already known only by case or
 # punctuation is the same marque, and was being registered as a second one:
@@ -138,6 +152,16 @@ for name, (kind, b, d, c, note) in AUTO_DESIGNERS.items():
 # ---------------- models ----------------
 # curated first (win), then auto (skip if same make+name or same wp)
 seen_mn, seen_wp = set(), set()
+# What sits behind each norm() key -- the names as written and the articles
+# they point at -- so a second CAR landing on a key can be told from a second
+# mention of the same one.
+names_by_mn, articles_by_mn, articles_by_wp = {}, {}, {}
+def remember(make, name, wp):
+    key = (norm(make), norm(name))
+    seen_mn.add(key); seen_wp.add(norm(wp))
+    names_by_mn.setdefault(key, set()).add(exact(name))
+    articles_by_mn.setdefault(key, set()).add(exact(wp))
+    articles_by_wp.setdefault(norm(wp), set()).add(exact(wp))
 models = []  # dicts
 for (make, name, y0, y1, designers, wp, note) in MODELS:
     if make not in all_makes: errors.append(f"unknown make {make!r} for {name}")
@@ -151,18 +175,27 @@ for (make, name, y0, y1, designers, wp, note) in MODELS:
     w = wp or f"{make} {name}"
     models.append(dict(make=make, name=name, y0=y0, y1=y1, designers=list(designers),
                        wp=w, note=note, src="cur"))
-    seen_mn.add((norm(make), norm(name))); seen_wp.add(norm(w))
+    remember(make, name, w)
 
 for (make, name, y0, y1, designers, wp, note) in AUTO_MODELS:
     make = canon_make(make)
-    if (norm(make), norm(name)) in seen_mn or norm(wp) in seen_wp: continue
+    if (norm(make), norm(name)) in seen_mn or norm(wp) in seen_wp:
+        # Already here -- unless it only shares the key because its
+        # punctuation was thrown away. That takes both: a NAME that is written
+        # differently ("93" beside "9-3", not "Trailblazer" beside
+        # "TrailBlazer") and an article of its own.
+        key = (norm(make), norm(name))
+        same_name = exact(name) in names_by_mn.get(key, {exact(name)})
+        same_article = exact(wp) in (articles_by_mn.get(key, set()) | articles_by_wp.get(norm(wp), set()))
+        if same_name or same_article: continue
+        warnings.append(f"kept {make} {name} [{wp}] as its own car beside a namesake that differs only in punctuation")
     if not plausible_year(y0): continue
     if y1 is not None and not plausible_end(y1, y0):
         warnings.append(f"dropped implausible end year {y1} on {make} {name} ({y0}-)")
         y1 = None
     models.append(dict(make=make, name=name, y0=y0, y1=y1, designers=list(designers),
                        wp=wp, note=note, src="auto"))
-    seen_mn.add((norm(make), norm(name))); seen_wp.add(norm(wp))
+    remember(make, name, wp)
 
 # canonicalize model designer names against people table
 for m in models:
@@ -177,11 +210,12 @@ for m in models:
 
 # ---------------- engineer attributions ----------------
 model_by_wp = {norm(m["wp"]): m for m in models}
+model_by_article = {exact(m["wp"]): m for m in models}   # the title as written, tried first
 model_by_mn = {(norm(m["make"]), norm(m["name"])): m for m in models}
 eng_misses = []
 for entry in MODEL_ENGINEERS:
     wp_t, eng, role = (entry + (None,))[:3]
-    m = model_by_wp.get(norm(wp_t))
+    m = model_by_article.get(exact(wp_t)) or model_by_wp.get(norm(wp_t))
     if not m:
         # try "make name" split match
         parts = wp_t.split(" ", 1)
@@ -204,6 +238,7 @@ if eng_misses:
 # ---------------- build graph ----------------
 nodes, links = [], []
 make_ids, person_ids, model_ids = {}, {}, {}
+model_ids_exact = {}   # by exact(), so "9-3" and "93" each find their own car
 
 WP_MAKE_OVERRIDE = {"Mini":"Mini (marque)","Smart":"Smart (marque)","Eagle":"Eagle (automobile)",
                     "Genesis":"Genesis Motor","DS":"DS Automobiles","Li":"Li Auto",
@@ -239,6 +274,7 @@ for m in models:
     mid, n = base, 2
     while mid in model_ids.values(): mid = f"{base}-{n}"; n += 1
     model_ids[(norm(m["make"]), norm(m["name"]))] = mid
+    model_ids_exact[(exact(m["make"]), exact(m["name"]))] = mid
     m["id"] = mid
     node = {"id": mid, "type": "model", "label": m["name"], "make": m["make"],
             "year": m["y0"], "end": m["y1"], "designers": m["designers"], "wp": m["wp"]}
@@ -260,7 +296,10 @@ for m in models:
 # platform groups (curated)
 pair_seen = set()
 def model_id_of(ref):
-    return model_ids.get((norm(ref[0]), norm(ref[1])))
+    # As written first; the loose key only for a ref spelled differently from
+    # the car it means.
+    return (model_ids_exact.get((exact(ref[0]), exact(ref[1])))
+            or model_ids.get((norm(ref[0]), norm(ref[1]))))
 for note, members in PLATFORM_GROUPS:
     ids = []
     for ref in members:
@@ -360,4 +399,14 @@ deg = Counter()
 for l in links: deg[l["source"]] += 1; deg[l["target"]] += 1
 iso = [n["id"] for n in nodes if deg[n["id"]] == 0]
 if iso: print("  ISOLATED:", len(iso), iso[:10])
-for w in warnings[:10]: print("  warn:", w)
+# Everything that is one of a kind is printed. The per-row "dropped an
+# implausible end year" notes are the only ones that come by the hundred, and
+# with a flat cap of ten they filled every slot: an engineer credit that had
+# stopped matching its car -- which d_engineers.py promises is reported here --
+# sat at position 117 and was never shown.
+ROUTINE = "dropped implausible end year"
+routine = [w for w in warnings if w.startswith(ROUTINE)]
+for w in warnings:
+    if not w.startswith(ROUTINE): print("  warn:", w)
+for w in routine[:10]: print("  warn:", w)
+if len(routine) > 10: print(f"  warn: ...and {len(routine) - 10} more implausible end years dropped")

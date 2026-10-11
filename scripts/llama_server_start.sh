@@ -86,8 +86,14 @@ fi
 # 2026-05-13. An llama-server older than that doesn't know --spec-type at all.
 # Catching it here turns "server dies on startup, go read the log" into one
 # readable line, and names both ways out.
+#
+# The help text is read whole before it is searched. Piped straight into
+# `grep -q`, grep left at the first match while llama-server was still
+# writing, llama-server died of SIGPIPE, and under pipefail that made the
+# pipeline fail -- so this reported "too old" precisely when the flag WAS there.
 if [ "$MTP_ON" = "1" ]; then
-  if ! llama-server --help 2>&1 | grep -q -- "--spec-type"; then
+  llama_help="$(llama-server --help 2>&1 || true)"
+  if [[ "$llama_help" != *"--spec-type"* ]]; then
     echo "" >&2
     echo "Your llama-server is too old for MTP: it has no --spec-type flag." >&2
     echo "MTP landed in llama.cpp on 2026-05-16 (PR #22673)." >&2

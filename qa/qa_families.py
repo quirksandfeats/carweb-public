@@ -33,6 +33,7 @@ with sync_playwright() as p:
       const cw = CarWeb, out = {};
       out.version = window.CARDATA.meta.version;
       out.families = cw.nodes.filter(n => n.type === 'family').length;
+      out.bakedFamilies = window.CARDATA.meta.counts.families;
       out.golf = cw.nodes.find(n => n.type === 'family' && n.make === 'Volkswagen' && n.label === 'Golf');
       out.golfGenCount = out.golf ? out.golf.generations.length : 0;
       const gens = out.golf ? out.golf.generations.map(id => cw.byId.get(id)) : [];
@@ -47,7 +48,10 @@ with sync_playwright() as p:
       out.golfDesigners = out.golf.designers.length;
       return out;
     }""")
-    check("families present (64)", sanity["families"] == 64, str(sanity["families"]))
+    # Against the build's own count, not a number from an older dataset; the
+    # LLM layer adds nameplates on top of the baked ones.
+    check("families present", sanity["bakedFamilies"] > 0 and sanity["families"] >= sanity["bakedFamilies"],
+          f"{sanity['families']} in the page, {sanity['bakedFamilies']} baked")
     check("Golf family found with 8 generations", sanity["golfGenCount"] == 8, str(sanity["golfGenCount"]))
     check("Golf generations hidden by default", sanity["golfHidden"])
     check("Golf family node itself visible", sanity["golfFamilyVisible"])

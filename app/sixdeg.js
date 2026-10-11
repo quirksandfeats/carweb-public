@@ -22,6 +22,22 @@ window.CarWebSix = (function () {
     if (n && n.familyOf && !cw.isFamilyExpanded(n.familyOf)) cw.expandFamily(n.familyOf);
   }
 
+  // A nameplate-level relation is a stand-in for one between two generations,
+  // and the drawing hides it as soon as EITHER nameplate is expanded, trusting
+  // the generation-level line to take over. That line's other end is a
+  // generation of the nameplate that is still collapsed, though, which is not
+  // in the layer -- so for a search both were unusable and the relation was
+  // simply gone: Camaro -> Commodore went from one step to three depending on
+  // whether the Camaro happened to be open in another tab. It is still a
+  // fact about the two nameplates, so the search may walk it.
+  function standInRelation(l) {
+    return !!l.mirror && !l.retired &&
+      (l.type === "platform" || l.type === "related" || l.type === "succession");
+  }
+  function walkable(cw, l) {
+    return cw.linkInLayer(l) || standInRelation(l);
+  }
+
   // BFS over the edges of the active people layer
   function shortestPath(a, b) {
     const cw = CW();
@@ -37,7 +53,7 @@ window.CarWebSix = (function () {
           return out.map(s => ({ n: cw.byId.get(s.id), via: s.via }));
         }
         for (const { n, l } of cw.adj.get(id)) {
-          if (!cw.nodeInLayer(n) || !cw.linkInLayer(l)) continue;
+          if (!cw.nodeInLayer(n) || !walkable(cw, l)) continue;
           if (!prev.has(n.id)) { prev.set(n.id, { from: id, l }); next.push(n.id); }
         }
       }
@@ -52,11 +68,17 @@ window.CarWebSix = (function () {
     const forward = l.sn === prevN; // prev -> this
     if (l.type === "platform") return "shares a platform with";
     if (l.type === "related") return "is related to";
-    if (l.type === "succession") return forward ? "was succeeded by" : "succeeds";
-    if (l.type === "made") return forward ? "is made by" : "makes the";
+    // One generation to the next is a succession like any other; it had no
+    // case here and fell through to the designer's sentence at the bottom.
+    if (l.type === "succession" || l.type === "gensucc") return forward ? "was succeeded by" : "succeeds";
+    // By which end is the make, not by which way the link points: the baked
+    // data writes model -> make and everything added at runtime writes
+    // make -> model, so going by direction said "GMC is made by K-Jimmy".
+    if (l.type === "made") return prevN && prevN.type === "make" ? "makes the" : "is made by";
     if (l.type === "generation") return forward ? "includes the generation" : "is part of the nameplate";
-    if (l.type === "engineered") return forward ? "was engineered by" : "engineered the";
-    return forward ? "was drawn by" : "drew the";
+    if (l.type === "engineered") return prevN && prevN.type === "person" ? "engineered the" : "was engineered by";
+    if (l.type === "designed") return prevN && prevN.type === "person" ? "drew the" : "was drawn by";
+    return "is connected to";
   }
 
   function fitPath(animMs) {
@@ -93,8 +115,10 @@ window.CarWebSix = (function () {
     const litLinks = new Set(path ? path.slice(1, lit + 1).map(s => s.via) : []);
 
     for (const l of cw.links) {
-      if (!cw.linkInLayer(l) || !cw.nodeInLayer(l.sn) || !cw.nodeInLayer(l.tn)) continue;
       const hot = litLinks.has(l);
+      // A stand-in relation the path walked is drawn even though the layer
+      // hides it -- it is a step of the answer.
+      if ((!hot && !cw.linkInLayer(l)) || !cw.nodeInLayer(l.sn) || !cw.nodeInLayer(l.tn)) continue;
       ctx.globalAlpha = hot ? 0.95 : 0.05;
       ctx.beginPath(); ctx.moveTo(l.sn.x, l.sn.y); ctx.lineTo(l.tn.x, l.tn.y);
       ctx.strokeStyle = hot ? C.accent : C.muted;
@@ -141,6 +165,9 @@ window.CarWebSix = (function () {
   function trace() {
     if (!from || !to || from === to) return;
     ensureVisible(from); ensureVisible(to);
+    // Before the path is replaced, not after: the last trace's step-by-step
+    // timer reads `path`, and a trace that finds nothing leaves it null.
+    clearInterval(anim);
     path = shortestPath(from, to);
     const steps = document.getElementById("sd-steps");
     steps.innerHTML = "";
@@ -149,7 +176,7 @@ window.CarWebSix = (function () {
       const li = document.createElement("li");
       const name = (s.n.type === "model" || s.n.type === "family") ? `${s.n.make} ${s.n.label}` : s.n.label;
       li.innerHTML = (i ? `<span class="verb">${verb(s, path[i - 1].n)}</span>` : `<span class="verb">start</span>`) +
-        `<b>${name}</b>` + ((s.n.type === "model" || s.n.type === "family") && s.n.year != null ? ` <span class="verb" style="display:inline">· ${s.n.year}</span>` : "");
+        `<b>${CW().esc ? CW().esc(name) : name.replace(/[&<>]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;" }[c]))}</b>` + ((s.n.type === "model" || s.n.type === "family") && s.n.year != null ? ` <span class="verb" style="display:inline">· ${s.n.year}</span>` : "");
       li.onclick = () => CW().openDetail(s.n);
       steps.appendChild(li);
     });
