@@ -1,5 +1,5 @@
 FAMILY GROUPING REPORT
-Generated: 2026-09-21
+Generated: 2026-10-11
 
 CONFIRMED FAMILIES (101) -- clean, unbroken succession chain
   Alfa Romeo 33 Stradale  (2 generations, 1967–)
@@ -27,8 +27,8 @@ CONFIRMED FAMILIES (101) -- clean, unbroken succession chain
       EXCLUDED: 1 Series (F52) [2016-] id=m-bmw-1-series-f52 -- no succession link to any other candidate generation here
   BMW 2 Series  (2 generations, 2013–)
       2 Series (F22)[2013-2021] -> 2 Series (G42)[2021-]
-  BMW 3 Series  (7 generations, 1975–)
-      3 Series (E21)[1975-] -> 3 Series (E30)[1982-1994] -> 3 Series (E36)[1990-2000] -> 3 Series (E46)[1997-2006] -> 3 Series (E90)[2005-] -> 3 Series (F30)[2011-2018] -> 3 Series (G20)[2018-]
+  BMW 3 Series  (8 generations, 1975–)
+      3 Series (E21)[1975-] -> 3 Series (E30)[1982-1994] -> 3 Series (E36)[1990-2000] -> 3 Series (E46)[1997-2006] -> 3 Series (E90)[2005-] -> 3 Series (F30)[2011-2018] -> 3 Series (G20)[2018-] -> 3 Series (G50)[2026-]
   BMW 4 Series  (2 generations, 2013–)
       4 Series (F32)[2013-2020] -> 4 Series (G22)[2020-]
       EXCLUDED: 4 Series [2014-] id=m-bmw-4-series -- no succession link to any other candidate generation here
