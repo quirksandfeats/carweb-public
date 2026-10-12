@@ -200,9 +200,17 @@ function graph() {
           !nodes.some(n => n.type === "make" && /Austro/i.test(n.label)));
 
     const g2 = graph();
-    await LF.applyEngineArticle(article, "Mercedes-Benz M256 engine", g2.nodes, g2.links,
+    const read2 = await LF.applyEngineArticle(article, "Mercedes-Benz M256 engine", g2.nodes, g2.links,
                                 { resolve, mintCars: true });
     const berg = g2.nodes.find(n => /Bergmeister/i.test(n.label || ""));
+    // The read says which cars it made, by name, so a reload can put them
+    // back: a replay given those names makes them again and nothing else.
+    check("the read reports the car it made", (read2.mintedNames || []).length === 1, (read2.mintedNames || []).join(", "));
+    const g3 = graph();
+    await LF.applyEngineArticle(article, "Mercedes-Benz M256 engine", g3.nodes, g3.links,
+                                { resolve, mintOnly: new Set(read2.mintedNames || []) });
+    check("a replay puts that car back", g3.nodes.some(n => /Bergmeister/i.test(n.label || "")));
+    check("...and makes no other", g3.nodes.length === g2.nodes.length, g3.nodes.length + " vs " + g2.nodes.length);
     check("with permission, it is created from the display text -- the only "
           + "place its name exists", !!berg, berg && (berg.make + " / " + berg.label));
     check("...as a car, not a marque", berg && berg.type === "model", berg && berg.type);

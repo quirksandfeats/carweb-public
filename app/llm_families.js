@@ -248,6 +248,11 @@ window.LlmFamilies = (function () {
     // every load -- they are one Wikipedia article -- so deleting the merge
     // record alone undid nothing. See undoEngineMerge.
     engineUnmerges: bootData.engineUnmerges || {},
+    // A car another article named by its ordinal ("Octavia Mk2") and the
+    // generation the nameplate's own article says that is: placeholder id ->
+    // { gen, why }. Found once by reading the article's headings (see
+    // sweepOrdinalPlaceholders) and replayed by foldOrdinalPlaceholders.
+    sameCar: bootData.sameCar || {},
     // Which cars have had their engines read, node id -> {checkedAt,
     // sourceTitle, engines}. Separate from `genResearch` because that means
     // "the model read this generation's whole article"; this only means "the
@@ -629,6 +634,7 @@ window.LlmFamilies = (function () {
     // once every list has been through it.
     setTimeout(() => {
       sweepStoredSplitsForOutsiders().then(() => sweepWholePageEngineLists())
+        .then(() => sweepOrdinalPlaceholders(nodes))
         .catch(e => console.warn("LlmFamilies: stored-list check failed", e));
     }, 4000);
     note(`load: stored decisions replayed -- ${count("model") + count("family")} cars, ` +
@@ -3871,10 +3877,8 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
   // The harvested make a mention names: in front, or behind a year ("1957
   // Ford"). Null when it names none the graph knows.
   function makeNamedIn(nodes, words) {
-    const real = new Map();
-    for (const n of nodes) {
-      if (n && n.type === "make" && !n.retired && !n.llmGenerated && n.label) real.set(norm(n.label), n);
-    }
+    const ix = makeIndexOf(nodes);
+    const real = { get: k => { const m = ix.real.get(k); return m && !m.retired ? m : undefined; } };
     const from = /^\d{4}$/.test(words[0] || "") ? 1 : 0;
     for (let len = Math.min(3, words.length - from); len >= 1; len--) {
       const hit = real.get(words.slice(from, from + len).join(""));
@@ -3909,19 +3913,36 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
   // NEW, space-separated multi-word make (rare, since most real multi-word
   // makes -- Mercedes-Benz, Aston Martin, Alfa Romeo, Land Rover -- would
   // already have matched the loop above).
+  // Every make, by name, kept up as nodes are added -- so "which make does
+  // this text start with" is a few lookups and not a walk of the graph.
+  const makeIndexes = new WeakMap();
+  function makeIndexOf(nodes) {
+    let ix = makeIndexes.get(nodes);
+    if (!ix || ix.epoch !== namesEpoch) {
+      ix = { epoch: namesEpoch, upTo: 0, byLower: new Map(), real: new Map() };
+      makeIndexes.set(nodes, ix);
+    }
+    for (; ix.upTo < nodes.length; ix.upTo++) {
+      const n = nodes[ix.upTo];
+      if (!n || n.type !== "make" || !n.label) continue;
+      const lower = String(n.label).toLowerCase();
+      if (!ix.byLower.has(lower)) ix.byLower.set(lower, n);
+      if (!n.llmGenerated && !ix.real.has(norm(n.label))) ix.real.set(norm(n.label), n);
+    }
+    return ix;
+  }
+  // The longest make name the text starts with (the whole text, or up to one
+  // of its spaces).
   function findExistingMake(nodes, text) {
     const lower = String(text).toLowerCase();
-    let best = null;
-    for (const n of nodes) {
-      if (n.type !== "make") continue;
-      const label = String(n.label || "");
-      const lLower = label.toLowerCase();
-      if (!lLower) continue;
-      if (lower === lLower || lower.startsWith(lLower + " ")) {
-        if (!best || label.length > best.label.length) best = n;
-      }
+    const ix = makeIndexOf(nodes);
+    const whole = ix.byLower.get(lower);
+    if (whole) return whole;
+    for (let i = lower.lastIndexOf(" "); i > 0; i = lower.lastIndexOf(" ", i - 1)) {
+      const hit = ix.byLower.get(lower.slice(0, i));
+      if (hit) return hit;
     }
-    return best;
+    return null;
   }
   // A harvested make named inside a mention whose first word is not one.
   // As (part of) the first word -- "Chevrolet/GMC C/K" -- the rest is the
@@ -3929,10 +3950,8 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
   // anything else the word found is as likely part of the model's name
   // (there are makes called "City" and "Electric").
   function realMakeWithin(nodes, parts) {
-    const real = new Map();
-    for (const n of nodes) {
-      if (n && n.type === "make" && !n.retired && !n.llmGenerated && n.label) real.set(norm(n.label), n);
-    }
+    const ix = makeIndexOf(nodes);
+    const real = { get: k => { const m = ix.real.get(k); return m && !m.retired ? m : undefined; } };
     const head = String(parts[0]).split("/").map(x => real.get(norm(x))).find(Boolean);
     if (head) return { make: head, label: parts.slice(1).join(" ") };
     if (!/^\d{4}$/.test(String(parts[0]))) return null;
@@ -6335,6 +6354,16 @@ Rules:
       return p;
     }
 
+    // Split first, relate second. A generation's platform mentions used to
+    // be resolved the moment it was made, against the graph as it stood: a
+    // partner split later in this same loop was still one plain car, so the
+    // line went to the whole nameplate and stayed there. The loop runs in
+    // the order decisions sit in the file, and resetting or re-linking a car
+    // moves its decision to the end -- so the same decisions, saved in a
+    // different order, built a different graph (42 lines moved when the
+    // Oldsmobile 98 was re-checked with the same answer). Now every split is
+    // applied, and only then is each mention matched against the result.
+    const mentionsToResolve = [];
     Object.keys(store.families).forEach(nodeId => {
       const entry = store.families[nodeId];
       // A tombstone left behind by deleteEntry(): this nameplate got
@@ -6507,7 +6536,10 @@ Rules:
         // what build_family_layer.py does for build-time-detected families.
         if (prevGid) links.push({ source: prevGid, target: gid, type: "gensucc" });
         prevGid = gid;
-        resolvePlatformMention(nodes, links, nodeId, gn);
+        // Which cars this generation shares a platform with is worked out
+        // after EVERY split in the store has been applied -- see the end of
+        // this function.
+        mentionsToResolve.push([nodeId, gn]);
         (g.designers || []).forEach(d => allDesigners.add(d));
         (g.engineers || []).forEach(d => allEngineers.add(d));
 
@@ -6598,6 +6630,7 @@ Rules:
         feedback: [],
       };
     });
+    mentionsToResolve.forEach(([famId, gn]) => resolvePlatformMention(nodes, links, famId, gn));
   }
 
   // ---------- My Database: prefer a specific generation over the bare nameplate, once one exists ----------
@@ -9590,7 +9623,9 @@ Rules:
   }
   function foldCodeDuplicateModels(nodes, links) {
     const byCode = generationsByCode(nodes);
-    if (!byCode.size) return 0;
+    // No generation carries a chassis code: nothing for THIS pass, but the
+    // two after it do not go by code.
+    if (!byCode.size) return foldGenerationTwins(nodes, links) + foldOrdinalPlaceholders(nodes, links);
     const byIdLocal = new Map(nodes.map(n => [n.id, n]));
     let folded = 0;
     for (const m of nodes.slice()) {
@@ -9648,6 +9683,68 @@ Rules:
     const s = String(rest || "").trim();
     return ordinalNamed(s) || ordinalNamed(s.replace(/\s*\([^()]*\)\s*$/, ""));
   }
+  // Which placeholders are named by ordinal after a nameplate whose
+  // generations do not say theirs: [{ m, fam, ord }].
+  function ordinalPlaceholderCandidates(nodes) {
+    const byIdLocal = new Map(nodes.map(n => [n.id, n]));
+    const out = [];
+    const fams = nodes.filter(f => f && !f.retired && f.type === "family" && (f.generations || []).length && f.make && f.label);
+    for (const m of nodes) {
+      if (!m || m.retired || m.type !== "model" || m.familyOf || !m.make || !m.llmCreatedNode) continue;
+      if ((m.generations || []).length) continue;
+      const ml = String(m.label || "");
+      const named = fams.filter(fam => norm(fam.make) === norm(m.make)).map(fam => {
+        const fl = String(fam.label);
+        if (ml.length <= fl.length || ml.slice(0, fl.length).toLowerCase() !== fl.toLowerCase()) return null;
+        if (!/^[\s(]/.test(ml.slice(fl.length))) return null;
+        const ord = ordinalNamed(ml.slice(fl.length));
+        return ord ? { m, fam, ord } : null;
+      }).filter(Boolean);
+      if (named.length === 1) out.push(Object.assign(named[0], { byId: byIdLocal }));
+    }
+    return out;
+  }
+  // One read of each such nameplate's article, no model: the heading that
+  // carries the ordinal ("Second generation (Typ 1Z; 2004)") also carries a
+  // code, and the generation with that code is the car. Recorded either way,
+  // so a nameplate is read once.
+  let ordinalSweep = null;
+  function sweepOrdinalPlaceholders(nodes) {
+    if (!serverAvailable || !Array.isArray(nodes)) return Promise.resolve({ checked: 0, found: 0 });
+    if (ordinalSweep) return ordinalSweep;
+    ordinalSweep = (async () => {
+      const out = { checked: 0, found: 0 };
+      store.sameCar = store.sameCar || {};
+      const todo = ordinalPlaceholderCandidates(nodes).filter(c => !store.sameCar[c.m.id]);
+      for (const { m, fam, ord, byId } of todo) {
+        const title = nameplateArticleOf(fam, byId);
+        let wikitext = null;
+        try { wikitext = (await fetchArticleDigest(title)).wikitext; }
+        catch (e) { continue; }
+        const gens = (fam.generations || []).map(id => byId.get(id)).filter(g => g && !g.retired);
+        const heads = wikitextSections(wikitext).filter(sec => sec.level <= 3 && ordinalOfGenerationLabel(sec.title) === ord);
+        const hit = new Set();
+        heads.forEach(sec => gens.forEach(g => {
+          const tc = trailingCode(String(g.label || ""));
+          const code = tc && tc.code;
+          if (code && (labelCarriesCode(sec.title, code) || labelCarriesPartOfCode(sec.title, code))) hit.add(g);
+        }));
+        const gen = hit.size === 1 ? [...hit][0] : null;
+        store.sameCar[m.id] = { gen: gen ? gen.id : null, checkedAt: new Date().toISOString(),
+                                why: gen ? `"${heads[0].title}" in ${title}` : null };
+        out.checked++;
+        if (gen) {
+          out.found++;
+          note(`graph: "${m.make} ${m.label}" is "${gen.label}" -- the article heads it "${heads[0].title}"; folded in at the next load`);
+        }
+        await new Promise(r => setTimeout(r, 100));
+      }
+      if (out.checked) await persist();
+      return out;
+    })();
+    ordinalSweep.finally(() => { ordinalSweep = null; });
+    return ordinalSweep;
+  }
   function foldOrdinalPlaceholders(nodes, links) {
     const byIdLocal = new Map(nodes.map(n => [n.id, n]));
     const famsByMake = new Map();
@@ -9674,6 +9771,15 @@ Rules:
           if (gl.slice(0, fl.length).toLowerCase() !== fl.toLowerCase()) return;
           if (ordinalOfGenerationLabel(gl.slice(fl.length)) === ord) hits.push({ gen: g, fam });
         });
+      }
+      // Or the nameplate's article has said which generation that ordinal is
+      // (see sweepOrdinalPlaceholders): the Octavia's "Second generation
+      // (Typ 1Z; 2004)" makes "Octavia Mk2" the 1Z.
+      if (hits.length !== 1) {
+        const told = store.sameCar && store.sameCar[m.id];
+        const g = told && told.gen ? byIdLocal.get(told.gen) : null;
+        const f = g && !g.retired && g.familyOf ? byIdLocal.get(g.familyOf) : null;
+        if (f && !f.retired && norm(g.make) === norm(m.make)) { hits.length = 0; hits.push({ gen: g, fam: f }); }
       }
       if (hits.length !== 1) continue;                    // none, or two nameplates could mean it
       const { gen, fam } = hits[0];
@@ -12586,11 +12692,15 @@ Rules:
       return true;
     };
 
-    const minted = [];
+    const minted = [], mintedNames = [];
     const mint = app => {
-      if (!o.mintCars) return null;
       const name = carNameFromApplication(app);
       if (!name) return null;
+      // A read asked for by a person may make the cars the article names. A
+      // replay makes only those that read made (o.mintOnly): they are part
+      // of what it found, and without them a reload showed the engine with
+      // four cars fewer than the session that read it.
+      if (!o.mintCars && !(o.mintOnly && o.mintOnly.has(name))) return null;
       // An engine article's tables are not all lists of cars. Reading the
       // Mitsubishi 4B1's made cars called "type", "ratio" and "market" under
       // new makes "Engine", "Compression" and "Japanese", from the rows of a
@@ -12599,7 +12709,7 @@ Rules:
       if (!findExistingMake(nodes, name) &&
           name.split(/\s+/).slice(1).every(w => /^[a-z]+$/.test(w))) return null;
       const n = mintRelatedNode(nodes, links, name, null, eng.id);
-      if (n) minted.push(n);
+      if (n) { minted.push(n); mintedNames.push(name); }
       return n;
     };
 
@@ -12683,7 +12793,7 @@ Rules:
     retireUnlistedVariants(eng, article, nodes, links, byId);
     bindCarsToVariants(eng, nodes, links);
 
-    return { engine: eng, variants: variantCount, fitted: fittedCount, minted, cars };
+    return { engine: eng, variants: variantCount, fitted: fittedCount, minted, mintedNames, cars };
   }
 
 
@@ -13306,6 +13416,10 @@ Rules:
         const applied = applyEngineArticleWith(article, entry.sourceTitle, nodes, links,
           resolved, Object.assign({}, opts || {}, { id }));
         addKeptEngineLinks(entry, nodes, links);
+        // The cars this read created, by the name it created them under, so a
+        // reload can put them back. Kept across re-reads.
+        const made = [...new Set(((prev && prev.mintedCars) || []).concat(applied.mintedNames || []))];
+        if (made.length) { entry.mintedCars = made; await persist(); }
         // A person asked for an engine to be read: the moment to find out
         // which of the engines in the graph are one article under two titles.
         try { await resolveEngineTitleRedirects(nodes, links); }
@@ -13677,17 +13791,18 @@ Rules:
       const entry = store.engines[id];
       if (!entry || entry.status !== "confirmed" || !entry.article) continue;
       if (mergedInto.has(id) && hasRead(mergedInto.get(id))) continue;
-      // No network and no minting. A boot replay cannot wait on Wikipedia --
-      // app.js builds its indexes on the next line -- and every car this
-      // engine reached was either already in the graph or minted the first
-      // time round, which means it is in the overlay and already back.
+      // No network, and no car made that the read itself did not make. A
+      // boot replay cannot wait on Wikipedia -- app.js builds its indexes on
+      // the next line. The cars the read created are on file with it
+      // (mintedCars) and are put back here; nothing else stores them.
       // The stored titles are what the first pass resolved them to, so the
       // redirects are already followed.
       // Pinned to the id the entry is stored under, so the replay lands on
       // the same node the live read did -- a redirect between the two would
       // otherwise put it somewhere else on every boot.
       const r = applyEngineArticleWith(entry.article, entry.sourceTitle, nodes, links,
-                                       new Map(entry.resolved || []), { id });
+                                       new Map(entry.resolved || []),
+                                       { id, mintOnly: new Set(entry.mintedCars || []) });
       addKeptEngineLinks(entry, nodes, links);
       if (r.engine) engines++;
       variants += r.variants; fitted += r.fitted;
@@ -16787,7 +16902,7 @@ Rules:
     forceRecheckEngine,
     clearEngineScansFor, note, nameplateSectionForCar, mergeEngineHits,
     mergeEngines, undoEngineMerge, allEngineMerges, applyEngineMerges,
-    sameEngineLine, decodeEntities, sweepStoredSplitsForOutsiders, sweepWholePageEngineLists, replayStarted, replayFinished,
+    sameEngineLine, decodeEntities, sweepStoredSplitsForOutsiders, sweepWholePageEngineLists, sweepOrdinalPlaceholders, replayStarted, replayFinished,
     lastSaveError: () => lastSaveError,
     engineMentions, unlinkedEngineMentions, engineSpecLabel,
     recordEngineMentions, recordEngineMentionsFrom, applyEngineMentions,

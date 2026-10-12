@@ -1939,3 +1939,50 @@ inside "Fusion") and those junk cars were masking it. That needs the matcher
 tightened and the affected cars read again, not a relabel.
 
 Tests: `jsdom_reload_matches_session_test.js`.
+
+### 13 October: load time, and the four things left over
+
+**Load time.** A refresh under `serve.py` took about 21 s and printed about
+225 lines. Profiled: eleven seconds were name lookups (each "which car is
+called this?" walked all fourteen thousand nodes up to three times, nine
+thousand times a load), three were the engine tidy pass (each engine built its
+own node map and walked every link), two were the debug panel building a
+sorted list of 8,700 decisions nobody had opened. Names are now looked up in
+an index (whole name, bare name, name parts, trailing code, three-letter runs;
+rebuilt when a label changes, extended as nodes are added); the tidy pass and
+the merges share one index; the panel builds its list when opened. Same graph,
+same engine lines, about 4.5 s. Two more things happened on every load and no
+longer do: three waiting relationships were dropped and proposed again because
+they were decided before the cars that arrive late existed (so the 13 MB store
+was written back twice per refresh), and every replay pass reported what it
+had put back. Decisions are now made once on the finished graph, and replay
+lines are counted and summed up in one.
+
+**Invented makes.** "1960 Ford" is a Ford and "Chevrolet/GMC C/K" a Chevrolet
+(ids kept, so stored decisions still apply); a number, a lower-case word or a
+label ending in a colon is never a make. This could not be done alone: the
+name matcher accepted a bare substring, so "Ford Fusion" matched the Saturn
+Ion and "Oldsmobile F-85" the Fiat Mobi, and the junk cars had been keeping
+such matches ambiguous. The one car a mention loosely matches now has to be
+named in it as whole words and be of the make the text names. A mention that
+has been a car of its own stays one, and a pairing already on file keeps its
+answer, so only undecided bogus matches change: 9 makes gone, 16 real cars
+made.
+
+**Order.** Every split is applied before any generation's platform mentions
+are resolved. Resolved as each generation was made, a partner split later in
+the same loop was still one plain car, so the result depended on the order
+decisions sat in the file. About 540 mentions now reach the generation built
+alongside instead of the whole nameplate.
+
+**Cars an engine read made** are stored with the read (`mintedCars`) and put
+back at load. **Ordinal placeholders** ("Octavia Mk2" beside 1U/1Z/5E/NX) are
+resolved by one read of the nameplate's headings ("Second generation (Typ 1Z;
+2004)"), stored in `sameCar`, never by counting generations.
+
+**Engine names, after the owner's second ruling** ("foldable ... only if they
+actually point to the same engine and there's no conflict"): a title that is
+the more general name of the same article, or the maker and a layout every car
+of the family states, is the same engine and is listed as "also called"; a
+layout or size the other side's cars contradict keeps them apart. A whole-page
+engine list carries the production years of the infobox it sits in.

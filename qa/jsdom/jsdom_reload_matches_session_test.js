@@ -295,6 +295,108 @@ const linesOf = (links, nodes, carId) => links.filter(l => l.type === "fitted" &
     check("...on the page", !!w.document.getElementById("llm-save-failed"));
   }
 
+  // ---------- 10. a name inside another name is not that car ----------
+  {
+    const fam = (id, gens) => ({ [id]: { status: "confirmed", checkedAt: "2026-10-20T00:00:00Z", sourceTitle: id,
+      proposal: { hasMultipleGenerations: true, generations: gens } } });
+    const store = { families: fam("m-milan", [
+      { code: "First generation", yearStart: 2005, yearEnd: 2009, sharedPlatforms: ["Ford Fusion", "1960 Ford", "Chevrolet/GMC C/K"] },
+      { code: "Second generation", yearStart: 2010, yearEnd: 2011 }]), relations: {}, recheck: {} };
+    const { LF } = load(store);
+    const nodes = [
+      { id: "mk-mercury", type: "make", label: "Mercury" }, { id: "mk-ford", type: "make", label: "Ford" },
+      { id: "mk-saturn", type: "make", label: "Saturn" }, { id: "mk-chevrolet", type: "make", label: "Chevrolet" },
+      { id: "m-milan", type: "model", label: "Milan", make: "Mercury", year: 2005 },
+      { id: "m-ion", type: "model", label: "Ion", make: "Saturn", year: 2002, end: 2007 },
+      { id: "m-ck", type: "model", label: "C/K", make: "Chevrolet", year: 1960, end: 2002 },
+    ];
+    const links = [];
+    LF.applyConfirmed(nodes, links);
+    const gen1 = nodes.find(n => n.familyOf === "m-milan" && /First/.test(n.label));
+    const partners = links.filter(l => l.type === "platform" && (idOf(l.source) === gen1.id || idOf(l.target) === gen1.id))
+      .map(l => idOf(l.source) === gen1.id ? idOf(l.target) : idOf(l.source));
+    const fusion = nodes.find(n => n.make === "Ford" && n.label === "Fusion");
+    check("\"Ford Fusion\" is made as a Ford, not matched to the Saturn Ion", !!fusion && !Object.keys(store.relations).some(k => /m-ion/.test(k)),
+          Object.keys(store.relations).join(" ; "));
+    const y60 = nodes.find(n => n.label === "1960 Ford");
+    check("\"1960 Ford\" is a Ford", !!y60 && y60.make === "Ford", y60 && y60.make);
+    check("...and no make called \"1960\" is invented", !nodes.some(n => n.type === "make" && n.label === "1960"));
+    check("\"Chevrolet/GMC C/K\" is the Chevrolet C/K, with no make of that name",
+          !nodes.some(n => n.type === "make" && /\//.test(n.label)), nodes.filter(n => n.type === "make").map(n => n.label).join(", "));
+  }
+
+  // ---------- 11. the same decisions, in another order, build the same graph ----------
+  {
+    const gensA = [{ code: "A1", yearStart: 1990, yearEnd: 1999, sharedPlatforms: ["Testco Beta"] }, { code: "A2", yearStart: 2000, yearEnd: 2009 }];
+    const gensB = [{ code: "B1", yearStart: 1991, yearEnd: 1998 }, { code: "B2", yearStart: 2001, yearEnd: 2008 }];
+    const entry = gens => ({ status: "confirmed", checkedAt: "2026-10-20T00:00:00Z", sourceTitle: "x", proposal: { hasMultipleGenerations: true, generations: gens } });
+    const build = order => {
+      const families = {};
+      order.forEach(id => { families[id] = entry(id === "m-alpha" ? gensA : gensB); });
+      const store = { families, relations: {}, recheck: {} };
+      const { LF } = load(store);
+      const nodes = [{ id: "mk-t", type: "make", label: "Testco" },
+        { id: "m-alpha", type: "model", label: "Alpha", make: "Testco", year: 1990 },
+        { id: "m-beta", type: "model", label: "Beta", make: "Testco", year: 1991 }];
+      LF.applyConfirmed(nodes, []);
+      return Object.keys(store.relations).sort().join(" ; ");
+    };
+    const ab = build(["m-alpha", "m-beta"]), ba = build(["m-beta", "m-alpha"]);
+    check("the order decisions sit in the file does not change what is built", ab === ba, ab + "  vs  " + ba);
+    check("...and the mention lands on the generation built alongside", /llm-m-alpha-a1\|llm-m-beta-b1/.test(ab), ab);
+  }
+
+  // ---------- 12. "Octavia Mk2" is the generation the article says it is ----------
+  {
+    ARTICLES["Testco Gamma"] = ["Intro.", "== First generation (Typ 1U; 1996) ==", "Text.", "== Second generation (Typ 1Z; 2004) ==", "Text."].join("\n");
+    const store = { families: {}, relations: {}, recheck: {} };
+    const { LF } = load(store, { server: true });
+    const mk = () => [
+      { id: "mk-t", type: "make", label: "Testco" },
+      { id: "fam-g", type: "family", label: "Gamma", make: "Testco", wp: "Testco Gamma", generations: ["g-1u", "g-1z"] },
+      { id: "g-1u", type: "model", label: "Gamma 1U", make: "Testco", familyOf: "fam-g", year: 1996 },
+      { id: "g-1z", type: "model", label: "Gamma 1Z", make: "Testco", familyOf: "fam-g", year: 2004 },
+      { id: "llm-related-testco-gamma-mk2", type: "model", label: "Gamma Mk2", make: "Testco", llmGenerated: true, llmCreatedNode: true },
+    ];
+    let nodes = mk();
+    LF.foldCodeDuplicateModels(nodes, []);
+    check("counting to the second generation by date is not done", !nodes.find(n => n.id === "llm-related-testco-gamma-mk2").retired);
+    const r = await LF.sweepOrdinalPlaceholders(nodes);
+    check("the article's heading says which generation the ordinal is", r.found === 1, JSON.stringify(r));
+    nodes = mk();
+    LF.foldCodeDuplicateModels(nodes, []);
+    const ph = nodes.find(n => n.id === "llm-related-testco-gamma-mk2");
+    check("...and at the next load the placeholder is that generation", ph.retired && ph.supersededBy === "g-1z", ph.supersededBy);
+  }
+
+  // ---------- 13. another title of the same engine, and one that is not ----------
+  {
+    const { LF } = load({});
+    const run = (primaryLabel, primaryWp, memberLabel, memberWp, famLine, memberLine) => {
+      const nodes = [
+        { id: "eng-p", type: "engine", label: primaryLabel, wp: primaryWp, variants: [] },
+        { id: "eng-m", type: "engine", label: memberLabel, wp: memberWp, variants: [], unresearched: true },
+        { id: "mk-gm", type: "make", label: "GM" }, { id: "mk-olds", type: "make", label: "Oldsmobile" },
+        { id: "c1", type: "model", label: "One", make: "GM" }, { id: "c2", type: "model", label: "Two", make: "GM" },
+      ];
+      const links = [
+        { source: "eng-p", target: "c1", type: "fitted", saidText: famLine.text, saidSpecs: famLine.specs },
+        { source: "eng-m", target: "c2", type: "fitted", saidText: memberLine.text, saidSpecs: memberLine.specs },
+      ];
+      LF.applyWpLinks(nodes);
+      LF.mergeEngines("eng-p", ["eng-m"], nodes, links);
+      return { vars: live(nodes, "enginevar").map(v => v.label), aka: LF.aliasesFor("eng-p") };
+    };
+    const v8 = { text: "6.0 L V8", specs: { layout: "V", cylinders: 8 } }, v6 = { text: "4.3 L V6", specs: { layout: "V", cylinders: 6 } };
+    const ls = run("General Motors LS-based small-block", "General Motors LS-based small-block engine", "GM LS", "GM LS engine", v8, v8);
+    check("a shorter title of the same article is the same engine", ls.vars.length === 0, ls.vars.join(","));
+    check("...and is listed as also called", ls.aka.indexOf("GM LS") >= 0, ls.aka.join(","));
+    const od = run("Oldsmobile Diesel", "Oldsmobile Diesel engine", "Oldsmobile Diesel V6", "Oldsmobile Diesel V6 engine", v8, v6);
+    check("a layout the family's cars contradict keeps the engine apart", od.vars.join(",") === "Oldsmobile Diesel V6", od.vars.join(","));
+    const same = run("Lincoln Y-block", "Lincoln Y-block engine", "Lincoln Y-block V8", "Lincoln Y-block V8 engine", v8, v8);
+    check("a layout they agree on does not", same.vars.length === 0, same.vars.join(","));
+  }
+
   console.log(fails ? `\n${fails} FAILED` : "\nALL GREEN");
   process.exit(fails ? 1 : 0);
 })().catch(e => { console.error(e); process.exit(1); });
