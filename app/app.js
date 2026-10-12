@@ -1889,10 +1889,17 @@ window.CarWeb = (function () {
     });
     // row() with no click handler renders disabled, which is exactly right:
     // there is nothing to open.
+    // Two of these that would read the same are shown in the infobox's own
+    // words: the Touran's "1.6 L I4 (2003-2010)" and "1.6 L I4 FSI
+    // (2003-2006)" are both a "1.6 L I4 (petrol)", and are two engines.
+    const nameCount = new Map();
+    unlinked.forEach(u => nameCount.set(u.name, (nameCount.get(u.name) || 0) + 1));
     unlinked.forEach(u => {
       const sp = u.specs || {};
-      const b = row(plain(u.name), [fmtYearRun(sp.yearStart, sp.yearEnd), "no article"]
-                              .filter(Boolean).join(" · "), null, null, det);
+      const same = nameCount.get(u.name) > 1 && u.said;
+      const b = row(plain(same ? u.said : u.name),
+                    [same ? sp.fuel : null, same ? null : fmtYearRun(sp.yearStart, sp.yearEnd), "no article"]
+                      .filter(Boolean).join(" · "), null, null, det);
       b.title = plain(u.said || u.name);
     });
   }

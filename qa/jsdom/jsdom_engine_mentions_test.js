@@ -82,7 +82,11 @@ const GOLF = fs.readFileSync(path.join(CACHE, "Volkswagen_Golf.wikitext"), "utf-
   // are four different engines, not two. They were collapsed to one apiece
   // while this read the field as a flat bag of links with no idea which line
   // each came from -- so the 1.5 and the 2.0 were the same thing.
-  check("the W213's engines are found", m.length === 12, names.join(", "));
+  // Fourteen since lines are told apart by their words: "3.0 L M256 mild
+  // hybrid turbo I6" beside "3.0 L M256 turbo I6", and "2.0 L OM654 plug-in
+  // hybrid turbo I4" beside the OM654 diesel, are each a line of their own
+  // and were being dropped as repeats (same link, same size, same fuel).
+  check("the W213's engines are found", m.length === 14, names.join(", "));
   // The twelfth is "2.0 L ''M270'' plug-in hybrid turbo I4" -- named without
   // a link, because the line above it linked the same engine. See
   // engineFieldEntries.
@@ -147,7 +151,7 @@ const GOLF = fs.readFileSync(path.join(CACHE, "Volkswagen_Golf.wikitext"), "utf-
   // engines sharing a page, so they are different connections -- keying an
   // edge on engine+car alone kept one of each and lost the rest.
   check("...connected to the car that named them, one per engine the list names",
-        r.fitted === 12, r.fitted);
+        r.fitted === 14, r.fitted);
   const eng = DATA.nodes.find(n => n.type === "engine" && n.label === "M256");
   check("...and each is marked unresearched, because nothing read its article",
         !!eng && eng.unresearched === true, eng && JSON.stringify(eng.unresearched));

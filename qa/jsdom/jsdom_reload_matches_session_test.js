@@ -397,6 +397,24 @@ const linesOf = (links, nodes, carId) => links.filter(l => l.type === "fitted" &
     check("a layout they agree on does not", same.vars.length === 0, same.vars.join(","));
   }
 
+  // ---------- 14. an infobox in two blocks: petrol (and CNG) first, diesel second ----------
+  {
+    const { LF } = load({});
+    const field = "{{Infobox automobile\n| name = Testco Van\n| engine = '''Petrol and CNG engines'''<br>1.4 L I4 TSI (2007–2015)<br />" +
+      "1.4 L I4 TSI EcoFuel (2009–2015)<br />1.6 L I4 (2003–2010)<br />1.6 L I4 FSI (2003–2006)<br />" +
+      "'''Diesel engines'''<br />1.6 L I4 TDI (2010–2015)<br />2.0 L I4 TDI (2003–2015)\n| transmission = 6-speed\n}}";
+    const got = LF.unlinkedEngineMentions(field);
+    check("every line of both blocks is an engine", got.length === 6, got.map(g => g.said).join(" ; "));
+    check("the lines under a heading with no colon take its fuel",
+          got.filter(g => g.specs.fuel === "petrol").length === 4 && got.filter(g => g.specs.fuel === "diesel").length === 2,
+          got.map(g => g.specs.fuel).join(","));
+    check("a 1.6 petrol and a 1.6 diesel are two engines", got.filter(g => /^1\.6 L/.test(g.said)).length === 3);
+    const colon = LF.unlinkedEngineMentions("{{Infobox automobile\n| engine = '''Petrol/CNG:'''<br>1.0 L I3<br>'''Diesel:'''<br>1.5 L I4\n}}");
+    check("the form with a colon still works", colon.map(g => g.specs.fuel).join(",") === "petrol,diesel", colon.map(g => g.specs.fuel).join(","));
+    const notHeading = LF.unlinkedEngineMentions("{{Infobox automobile\n| engine = '''2.0 L I4 diesel'''<br>1.5 L I4\n}}");
+    check("a bold line that states an engine is not taken for a heading", notHeading.length === 2, notHeading.map(g => g.said).join(" ; "));
+  }
+
   console.log(fails ? `\n${fails} FAILED` : "\nALL GREEN");
   process.exit(fails ? 1 : 0);
 })().catch(e => { console.error(e); process.exit(1); });

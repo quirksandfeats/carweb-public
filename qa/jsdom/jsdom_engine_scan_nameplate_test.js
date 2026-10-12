@@ -102,8 +102,8 @@ const DATA = window.CARDATA;
         LF.engineMentions(ECLASS).length === 0, LF.engineMentions(ECLASS).length);
   // Eleven entries over nine distinct engines: the W213 runs two M264
   // variants and two M274s, and one line per engine is what tells them apart.
-  check("...while its W213 generation article names twelve",
-        LF.engineMentions(W213).length === 12, LF.engineMentions(W213).length);
+  check("...while its W213 generation article names fourteen",
+        LF.engineMentions(W213).length === 14, LF.engineMentions(W213).length);
   check("...over nine distinct engines",
         new Set(LF.engineMentions(W213).map(x => x.title)).size === 9,
         new Set(LF.engineMentions(W213).map(x => x.title)).size);
@@ -132,7 +132,7 @@ const DATA = window.CARDATA;
     // Twelve for nine: the W213 names the M270/M274 article three times and
     // the M260/M264 twice, and those are different engines sharing a page.
     check("...connected to the generation that ran them, one per engine named",
-          r.fitted === 12, r.fitted);
+          r.fitted === 14, r.fitted);
     check("...as real nodes", DATA.nodes.filter(n => n.type === "engine").length === before + 9,
           DATA.nodes.filter(n => n.type === "engine").length - before);
     check("the W212, whose article is not here, is skipped rather than guessed at",
@@ -202,11 +202,11 @@ const DATA = window.CARDATA;
     const r = await LF.scanEnginesFor(fam, DATA.nodes, DATA.links);
     check("...so the articles are genuinely read again", r.scanned >= 2 && asked.length > askedBefore,
           r.scanned + " scanned, " + (asked.length - askedBefore) + " fetched");
-    check("...and the engines are still found", LF.engineScanEntryFor(G213).engines.length === 12,
+    check("...and the engines are still found", LF.engineScanEntryFor(G213).engines.length === 14,
           LF.engineScanEntryFor(G213).engines.length);
     check("...without duplicating a single node", DATA.nodes.filter(n => n.type === "engine").length === 9,
           DATA.nodes.filter(n => n.type === "engine").length);
-    check("...or a single connection", DATA.links.filter(l => l.type === "fitted").length === 12,
+    check("...or a single connection", DATA.links.filter(l => l.type === "fitted").length === 14,
           DATA.links.filter(l => l.type === "fitted").length);
   }
 

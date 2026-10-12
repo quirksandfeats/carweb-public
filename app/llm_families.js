@@ -14187,6 +14187,31 @@ Rules:
   // "Petrol:" / "Diesel:" / "Petrol engines:" head a group; they are not lines
   // of their own but they say what the lines under them burn.
   const FUEL_HEADING_RE = /^\s*'*\s*(petrol|gasoline|diesel|hybrid|electric|cng|lpg|ethanol|flex[\s-]?fuel)\b[^:]*:\s*'*\s*$/i;
+  // The same heading written without its colon. An infobox very often splits
+  // its engines into two blocks -- petrol (or petrol and CNG) first, diesel
+  // second -- and heads each in bold: the Volkswagen Touran's are
+  //
+  //   '''Petrol and CNG engines'''<br>1.2 L I4 TSI ... '''Diesel engines'''<br>1.6 L I4 TDI ...
+  //
+  // With no colon neither was taken for a heading, so every line under them
+  // had no fuel, and a 1.6 litre petrol and a 1.6 litre diesel looked like
+  // one engine said twice. A whole line in bold that opens with a fuel and
+  // carries no number is a heading too.
+  const FUEL_WORDS = "petrol|gasoline|gas|diesel|hybrid|plug-in hybrid|mild hybrid|electric|cng|lpg|ethanol|flex[\\s-]?fuel|natural gas";
+  const BOLD_FUEL_HEADING_RE = new RegExp(
+    "^\\s*(" + FUEL_WORDS + ")\\b(?:\\s*(?:/|,|and|&|or)\\s*(?:" + FUEL_WORDS + "))*" +
+    "\\s*(?:engines?|models?|versions?|variants?|powertrains?|units?)?\\s*:?\\s*$", "i");
+  function fuelHeadingOf(rawLine, bare) {
+    const fm = FUEL_HEADING_RE.exec(bare);
+    let word = fm ? fm[1] : null;
+    if (!word && /^\s*'''[^']+'''\s*:?\s*$/.test(String(rawLine || "").replace(/\[\[(?:[^\]|]*\|)?([^\]]*)\]\]/g, "$1")) && !/\d/.test(bare)) {
+      const bm = BOLD_FUEL_HEADING_RE.exec(bare);
+      if (bm) word = bm[1];
+    }
+    if (!word) return null;
+    const w = word.toLowerCase();
+    return w === "gasoline" || w === "gas" ? "petrol" : (w === "natural gas" ? "cng" : w);
+  }
 
   // What a line says about the engine, in the units Wikipedia's infoboxes
   // actually use. Only what is written: nothing here infers a displacement
@@ -14381,9 +14406,12 @@ Rules:
         // Something that states an engine, not a stray note: a displacement,
         // or a layout and a cylinder count.
         if (!sp.displacement && !(sp.layout && sp.cylinders)) continue;
-        const key = [norm(sp.displacement || ""), norm(sp.layout || ""),
-                     sp.cylinders || "", norm(sp.fuel || ""),
-                     norm(sp.induction || "")].join("|");
+        // The same LINE twice is one engine; two lines that differ in any
+        // word are two. Keyed on size, layout, fuel and induction alone, the
+        // Touran's "1.6 L I4 FSI" was a repeat of its "1.6 L I4", its "2.0 L
+        // I4 FSI" and "2.0 L I4 EcoFuel" repeats of the "2.0 L I4 8V", and
+        // six of its twelve engines were never recorded.
+        const key = [norm(entry.text || ""), norm(sp.fuel || "")].join("|");
         if (seen.has(key)) continue;
         seen.add(key);
         out.push({ name: engineSpecLabel(sp, entry.text), specs: sp, said: entry.text });
@@ -14444,8 +14472,8 @@ Rules:
       const line = String(raw || "").trim();
       if (!line) continue;
       const bare = stripEngineMarkup(line);
-      const fm = FUEL_HEADING_RE.exec(bare);
-      if (fm) { fuel = fm[1].toLowerCase().replace("gasoline", "petrol"); continue; }
+      const heading = fuelHeadingOf(line, bare);
+      if (heading) { fuel = heading; continue; }
       if (!bare) continue;
       const links = engineLinksIn(line, makes);
       const specs = engineSpecsFromText(line);
@@ -14554,7 +14582,8 @@ Rules:
         // engine family|Ingenium]]", and keying on the link alone kept one.
         const key = [norm(link.title), norm(name), norm(link.anchor || ""),
                      norm((entry.specs || {}).displacement || ""),
-                     norm((entry.specs || {}).fuel || "")].join("|");
+                     norm((entry.specs || {}).fuel || ""),
+                     norm(entry.text || "")].join("|");
         if (seen.has(key)) continue;
         seen.add(key);
         out.push({ title: link.title, name, variant: link.anchor || null,
@@ -15584,7 +15613,10 @@ Rules:
   // matched to its own section by heading rather than any letter in it.
   // 4: two engines on one line written as alternatives ("Y22XE/Z22XE").
   // 5: also reads the infobox's "also called" names (see akaNames).
-  const ENGINE_SCAN_VERSION = 5;
+  // 6: fuel headings without a colon are read, and unlinked lines are kept
+  // by their words. A read from before is still shown, and is replaced the
+  // next time the car's engines are read.
+  const ENGINE_SCAN_VERSION = 6;
   function engineScanIsCurrent(rec) { return !!rec && (rec.v || 1) >= ENGINE_SCAN_VERSION; }
   // Every car whose engines should be (re-)read: read by an older reader, or
   // checked but never engine-read at all (the Daihatsu Thor). A nameplate
