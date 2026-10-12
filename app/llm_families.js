@@ -243,6 +243,11 @@ window.LlmFamilies = (function () {
     // Engines folded into one another, primary id -> {memberIds, mergedAt}.
     // The powertrain twin of `merges`; see applyOneEngineMerge.
     engineMerges: bootData.engineMerges || {},
+    // Pairs of engines an Un-merge said to keep apart, "idA|idB" with the ids
+    // in order. The automatic duplicate check finds the same pair again on
+    // every load -- they are one Wikipedia article -- so deleting the merge
+    // record alone undid nothing. See undoEngineMerge.
+    engineUnmerges: bootData.engineUnmerges || {},
     // Which cars have had their engines read, node id -> {checkedAt,
     // sourceTitle, engines}. Separate from `genResearch` because that means
     // "the model read this generation's whole article"; this only means "the
@@ -12193,6 +12198,20 @@ Rules:
                  engineOf: eng.id, wp: eng.wp, llmGenerated: true, year: null, end: null };
           nodes.push(vn); byId.set(vid, vn);
           variantCount++;
+        } else if (vn.retired && vn.retiredReason === "not in the article as it reads now") {
+          // Dropped by an earlier read that did not list it, listed again by
+          // this one: it is back, with the edges that read took away. (It
+          // used to stay retired until the next reload, its cars gone or on
+          // a neighbouring variant.) One a person deleted stays deleted.
+          vn.retired = false;
+          delete vn.retiredReason;
+          for (const l of links) {
+            if (!l.retired || l.retiredReason !== "its engine variant is not in the article as it reads now") continue;
+            if (idOf(l.source) !== vid && idOf(l.target) !== vid) continue;
+            l.retired = false;
+            delete l.retiredReason;
+          }
+          variantCount++;
         }
         vn.engineOf = eng.id;
         // Carried onto the node so the card and the hover card can show them
@@ -12273,6 +12292,13 @@ Rules:
   // differently worded 4.0 litres. Lines with no words at all are compared by
   // what little they do carry.
   function sameEngineLine(a, b) {
+    // One infobox line can name several engines -- the BMW E36's "2.0-3.2 L
+    // M50/M52/S50/S52 I6" is four links in the same words. The name each
+    // link showed is what tells them apart; compared on words alone, the
+    // car's M50 line was dropped as a repeat of its S50 line once the S50
+    // became a variant of the M50.
+    const na = engineNameKey(a.saidName || ""), nb = engineNameKey(b.saidName || "");
+    if (na && nb && na !== nb) return false;
     const ta = norm(a.saidText || ""), tb = norm(b.saidText || "");
     if (ta || tb) return ta === tb;
     return norm((a.saidSpecs || {}).displacement || "") === norm((b.saidSpecs || {}).displacement || "") &&
@@ -12307,10 +12333,59 @@ Rules:
     }
     return false;
   }
+  // A word that says how an engine is laid out or how big it is, and so is
+  // not part of what it is called: "V8", "I4", "inline", "5.0", "351", "L".
+  function isLayoutWord(w) {
+    return /^(?:[vilhfw]-?\d{1,2}|inline|straight|flat|boxer|vee)$/i.test(String(w || ""));
+  }
+  function isLayoutOrSizeWord(w) {
+    const t = String(w || "").replace(/&nbsp;/gi, "");
+    return isLayoutWord(t) || /^\d+(?:[.,]\d+)?(?:l|cc|ci|cid)?$/i.test(t) ||
+           /^(?:l|litres?|liters?|cc|ci|cid|cuin|engines?)$/i.test(t);
+  }
+  // The words of an engine's name, with the maker in front and the layout
+  // behind taken off: "Ford flathead V8" -> [flathead], layout "v8".
+  function engineNameParts(text) {
+    let words = String(text || "").normalize("NFKD").replace(COMBINING_MARKS_RE, "").toLowerCase()
+      .replace(/&deg;|\u00b0|[\s-]degrees?\b/g, " deg ")
+      .replace(/\bgeneral motors\b/g, "gm")
+      .replace(/\b(twelve|ten|eight|six|five|four|three|two)\b/g,
+        w => ({ twelve: "12", ten: "10", eight: "8", six: "6", five: "5", four: "4", three: "3", two: "2" })[w])
+      .replace(/\bengines?\b/g, " ")
+      .split(/[^a-z0-9.]+/).filter(Boolean);
+    const layout = [];
+    // "inline 4", "straight 6": the count belongs to the word before it.
+    while (words.length > 1 && (isLayoutWord(words[words.length - 1]) ||
+           (/^\d{1,2}$/.test(words[words.length - 1]) && words.length > 2 && isLayoutWord(words[words.length - 2])))) {
+      layout.unshift(words.pop());
+    }
+    const makes = knownMakeNames();
+    const isMaker = t => t === "gm" || !!(makes && makes.has(norm(t)));
+    let maker = "";
+    for (let i = Math.min(3, words.length - 1); i >= 1; i--) {
+      const lead = words.slice(0, i).join(" ");
+      if (!/\d/.test(lead) && isMaker(lead)) { maker = lead; words = words.slice(i); break; }
+    }
+    return { words, layout: layout.join(""), maker };
+  }
   function sameEngineText(x, y) {
     const kx = engineNameKey(x), ky = engineNameKey(y);
     if (!kx || !ky) return false;
-    return kx === ky || makerPrefixed(x, y) || makerPrefixed(y, x);
+    if (kx === ky || makerPrefixed(x, y) || makerPrefixed(y, x)) return true;
+    // One engine written two ways (the owner's ruling on these): another
+    // maker's name in front ("GM 2300" and "Chevrolet 2300"), the layout on
+    // the end of one of them ("Ford Flathead" and "Ford flathead V8"), or the
+    // same words in another order ("LS based GM small-block" and "General
+    // Motors LS-based small-block"). Never two different layouts, and never
+    // when nothing is left once the maker and layout are off ("Buick V6" is
+    // not "Buick V8", and neither is just "Buick").
+    const a = engineNameParts(x), b = engineNameParts(y);
+    if (a.layout && b.layout && a.layout !== b.layout) return false;
+    const bag = p => p.words.concat(p.maker && !p.words.length ? [p.maker] : []).slice().sort().join(" ");
+    if (a.words.length && b.words.length && bag(a) === bag(b)) return true;
+    // The order, with the makers left in: "LS based GM small-block".
+    const all = p => (p.maker ? [p.maker] : []).concat(p.words).sort().join(" ");
+    return a.words.length > 0 && all(a) === all(b);
   }
   function sameEngineName(a, b) {
     const names = n => [n.label, stripEngineSuffix(String(n.wp || "").split("#")[0])].filter(Boolean);
@@ -12340,6 +12415,11 @@ Rules:
       if (!at) continue;
       const named = String(l.saidName).trim();
       if (!named || named.length > 24 || words(named).length > 4 || looksLikeMeasurement(named)) continue;
+      // The engine's own name on the link is the engine, not a variant of it:
+      // "Ford flathead V8" had gained a variant also called "Ford flathead
+      // V8", holding the five cars whose links said so.
+      if (sameEngineText(named, eng.label) ||
+          sameEngineText(named, stripEngineSuffix(String(eng.wp || "").split("#")[0]) || "")) continue;
       let target = vars.find(v => engineNameKey(v.label) === engineNameKey(named)) || null;
       if (!target) {
         // Extends a variant's name by whole words; the longest such variant.
@@ -12347,7 +12427,21 @@ Rules:
           const bw = words(v.label), nw = words(named);
           return bw.length < nw.length && bw.every((w, i) => norm(w) === norm(nw[i]));
         }).sort((x, y) => words(y.label).length - words(x.label).length);
-        if (!bases.length) continue;
+        // Or it is a code that a longer code here merely contains: the ASX's
+        // "4B11" where the family has a "4B11T". That is not the turbocharged
+        // engine, and it is not nothing either -- it is a variant under the
+        // name the car used.
+        const shorterCode = !bases.length && words(named).length === 1 &&
+          /[A-Za-z]/.test(named) && /\d/.test(named) && norm(named).length >= 3 &&
+          vars.some(v => words(v.label).length === 1 && norm(v.label) !== norm(named) &&
+                         norm(v.label).indexOf(norm(named)) >= 0);
+        if (!bases.length && !shorterCode) continue;
+        // ...by a real designation, that is. A layout or a size is not one:
+        // "AJ34 V8" is the AJ34 and "Windsor 5.0" is the Windsor, where
+        // "M177 Evo" and "K Turbo I" are engines of their own.
+        if (bases.length && words(named).slice(words(bases[0].label).length).every(isLayoutOrSizeWord)) target = bases[0];
+      }
+      if (!target) {
         const id = engineVariantIdFor(eng.id, named);
         target = byIdLocal.get(id);
         if (!target || target.retired) {
@@ -12379,9 +12473,14 @@ Rules:
       // 1. The anchor or code the car's own link carried. Exact first, then
       //    contained -- "M177" names the "M176/M177/M178 M177" variant.
       if (hint) {
+        // "Contained" as a whole word of the name ("302" in "Ford 302", "ZC"
+        // in "Honda ZC"), never as a run of characters inside one. That way, "4B11" picked the "4B11T", the
+        // anchor "2.5" (which norm makes "25") picked "C25XE", and a hint of
+        // the single letter "C" picked the "Toyota 2C": cars shown with
+        // engines they do not have.
         v = uniquely(x => norm(x.label) === hint) ||
             uniquely(x => (x.anchors || []).some(a => norm(a) === hint)) ||
-            uniquely(x => norm(x.label).indexOf(hint) >= 0);
+            (hint.length >= 2 ? uniquely(x => String(x.label || "").split(/[^A-Za-z0-9]+/).some(w => norm(w) === hint)) : null);
       }
       // 2. Failing that, the displacement it stated. A family page's variants
       //    differ by exactly this.
@@ -12519,7 +12618,11 @@ Rules:
         if (!kept.has(a) && !kept.has(b)) continue;
         if (a === b) { links.splice(i, 1); continue; }
         if (l.retired) continue;   // not a line anyone sees, so not one to keep in a live one's place
-        const k = [a, b].sort().join("|") + "|" + l.type;
+        // A car's line is its two ends AND its words: the A-Class has a
+        // 1.6 L and a 2.0 L on the M270, and both are still there after an
+        // "M 270" beside it has been folded in.
+        const k = [a, b].sort().join("|") + "|" + l.type +
+          (l.type === "fitted" ? "|" + norm(l.saidText || "") + "|" + engineNameKey(l.saidName || "") : "");
         if (seen.has(k)) { links.splice(i, 1); continue; }
         seen.add(k);
       }
@@ -12896,7 +12999,16 @@ Rules:
                          "cars -- not shown until read again (Tools > Re-read Engines)");
     return stale;
   }
+  // True while a load is putting every stored engine line back. The check
+  // for one engine reached twice then waits until all of them are there -- see
+  // applyEngineMerges.
+  let replayingEngineMentions = false;
   function applyEngineMentions(nodes, links) {
+    replayingEngineMentions = true;
+    try { return replayEngineMentions(nodes, links); }
+    finally { replayingEngineMentions = false; }
+  }
+  function replayEngineMentions(nodes, links) {
     const byId = new Map(nodes.map(n => [n.id, n]));
     let engines = 0, fitted = 0;
     staleSharedEngineScans(byId);
@@ -13116,6 +13228,28 @@ Rules:
   }
   function engineTitleLabel(title) {
     return stripEngineSuffix(title) || String(title || "");
+  }
+  // What an article calls its engine, as mentionName would with no link text:
+  // the title without "engine", and without the maker where what is left is a
+  // bare code ("Mercedes-Benz M139 engine" is the M139; "GMC V6 engine" is
+  // the GMC V6). `fallback` only for a title that says nothing.
+  function engineNameFromTitle(title, fallback) {
+    const bare = stripEngineSuffix(String(title || "").split("#")[0]) || "";
+    const words = bare.split(/\s+/).filter(Boolean);
+    const makes = knownMakeNames();
+    // The maker: a make the graph knows (up to three words), else one
+    // capitalised word. What follows must be ONE word that is a code -- a
+    // letter and a digit, and not a layout: "Lamborghini V10" keeps its
+    // maker, as "Ford 302" and "Ford Coyote" do.
+    let lead = 0;
+    for (let i = Math.min(3, words.length - 1); i >= 1 && !lead; i--) {
+      if (makes && makes.has(norm(words.slice(0, i).join(" ")))) lead = i;
+    }
+    if (!lead && words.length === 2 && /^[A-Z][A-Za-z-]*$/.test(words[0])) lead = 1;
+    const rest = lead && words.length === lead + 1 ? words[lead] : "";
+    const isCode = /^[A-Z0-9][A-Z0-9-]*$/.test(rest) && /[A-Z]/.test(rest) && /\d/.test(rest) &&
+                   !/^[VILHFW]-?\d{1,2}(?:-|$)/.test(rest);
+    return (isCode ? rest : bare) || fallback || String(title || "");
   }
   function engineIdFromTitle(title) {
     const t = String(title || "").split("#")[0].trim().replace(/\s+engines?$/i, "");
@@ -13794,7 +13928,14 @@ Rules:
                    : (mention.name && !norm(mention.title).includes(norm(mention.name)) &&
                       ENGINE_CODE_WORD_RE.test(String(mention.name).trim()))
                      ? engineTitleLabel(mention.title)
-                   : (mention.name || mention.title),
+                   // Otherwise the article's own name too, and never the
+                   // words this one car's link happened to show. The first
+                   // car replayed used to name the engine for all of them:
+                   // Pontiac's V8, on 81 cars, was called "Strato Streak",
+                   // and the M271 was "M271" on one load and "Mercedes-Benz
+                   // M271" on the next. What the car said stays on its own
+                   // line (saidName).
+                   : engineNameFromTitle(mention.title, mention.name),
               wp: listed ? mention.title + "#" + mention.variant : mention.title,
               make: null, year: null, end: null, llmGenerated: true, unresearched: true,
               variants: [] };
@@ -13843,7 +13984,12 @@ Rules:
         if (!pageCode) {
           const made = nodes.find(v => v && v.type === "enginevar" && !v.retired &&
                                        v.fromMergedEngine === mergedFrom.id && v.engineOf === n.id);
-          if (made) pageCode = made.label;
+          // Straight onto it, which is where the merge put every line that
+          // was there at the time. Left on the engine with only a hint, a
+          // car created late in a load (a generation of a car some other
+          // article named) kept its lines on the family while its siblings'
+          // identical lines sat on the variant.
+          if (made) { pageCode = made.label; n = made; }
         }
       }
       const hint = sec ? sec.variant : (mention.variant || picked || pageCode || null);
@@ -13877,7 +14023,8 @@ Rules:
     // The clean-up the user asked for, run every time engines are added rather
     // than as a separate chore: a node that turns out to be the same engine as
     // one already here folds in immediately, instead of sitting beside it.
-    if (added.length) {
+    // Not while a load is replaying, though: see applyEngineMerges.
+    if (added.length && !replayingEngineMentions) {
       let merged = 1;   // unknown counts as "something moved"
       try { merged = autoMergeDuplicateEngines(nodes, links).merged; }
       catch (e) { console.warn("LlmFamilies: engine duplicate check failed", e); }
@@ -13926,11 +14073,18 @@ Rules:
   }
   function applyOneEngineMerge(nodes, links, primaryId, rec) {
     const byIdLocal = new Map(nodes.map(n => [n.id, n]));
-    const primary = byIdLocal.get(primaryId);
+    // The engine this one has itself been merged into since, if it has: a
+    // record keeps working when the engine it names turns out to be another
+    // title of some third one.
+    let primary = byIdLocal.get(primaryId);
+    for (let i = 0; i < 4 && primary && primary.retired && primary.type === "engine" &&
+                    primary.supersededBy && byIdLocal.get(primary.supersededBy); i++) {
+      primary = byIdLocal.get(primary.supersededBy);
+    }
     if (!primary || primary.retired || primary.type !== "engine") return false;
     const members = (rec.memberIds || [])
       .map(id => byIdLocal.get(id))
-      .filter(m => m && !m.retired && m.type === "engine" && m.id !== primaryId);
+      .filter(m => m && !m.retired && m.type === "engine" && m.id !== primary.id);
     if (!members.length) return false;
     // A merge the automatic pass made when every section of an index looked
     // like one article -- all of Isuzu's engines in one node, Fox folded into
@@ -13976,22 +14130,20 @@ Rules:
         const t0 = typeof l.target === "string" ? l.target : l.target && l.target.id;
         return s0 === m.id || t0 === m.id;
       };
-      if (own.length) {
-        // Its variants become the primary's, keeping their own ids so every
-        // fitted edge already pointing at them still lands.
-        own.forEach(v => {
-          v.engineOf = primary.id;
-          if (primary.variants.indexOf(v.id) < 0) primary.variants.push(v.id);
-          addLink(primary.id, v.id, "enginegen");
-        });
-        // ...and the cars that were on the engine ITSELF come too. They were
-        // left on the node being retired, where nothing draws them: an engine
-        // with sixty cars of its own and one variant took the variant along
-        // and dropped the sixty.
-        links.forEach(l => { if (mine(l)) moveTo(l, primary.id); });
-      } else {
-        // An engine nobody has read has no variants of its own. What it
-        // becomes depends on its name -- see sameEngineName:
+      // Its variants become the primary's, keeping their own ids so every
+      // fitted edge already pointing at them still lands.
+      own.forEach(v => {
+        v.engineOf = primary.id;
+        if (primary.variants.indexOf(v.id) < 0) primary.variants.push(v.id);
+        addLink(primary.id, v.id, "enginegen");
+      });
+      {
+        // ...and the cars that were on the engine ITSELF come too, by its
+        // name, whether or not it had variants. (An engine with variants used
+        // to hand them over and put its own cars on the primary with its name
+        // dropped: the 6VD1, which had taken the 6VE1 for a variant, vanished
+        // into the Isuzu V and left only the 6VE1.) What it becomes depends
+        // on its name -- see sameEngineName:
         //   1. one of the codes of a page covering several ("Mercedes-Benz
         //      M178" on the M176/M177/M178 page): that code's variant, the one
         //      a read of the page lists, not a second one beside it;
@@ -14011,7 +14163,14 @@ Rules:
           const vlabel = isCode ? pageCode : m.label;
           const variantNode = label => {
             const id = engineVariantIdFor(primary.id, label || m.id);
-            if (!byIdLocal.get(id)) {
+            const there = byIdLocal.get(id);
+            // Retired by a read that no longer lists it: the merge needs it,
+            // so it is back. Deleted by hand: the cars go on the engine.
+            if (there && there.retired) {
+              if (there.retiredReason !== "not in the article as it reads now") return primary.id;
+              there.retired = false; delete there.retiredReason;
+            }
+            if (!there) {
               const vn = { id, type: "enginevar", label, make: m.make || primary.make || null,
                            engineOf: primary.id, wp: m.wp || primary.wp, llmGenerated: true,
                            fromMergedEngine: m.id, year: m.year || null, end: m.end || null };
@@ -14051,7 +14210,18 @@ Rules:
     return true;
   }
 
-  function mergeEngines(primaryId, memberIds, nodes, links) {
+  function engineApartKey(a, b) { return a < b ? a + "|" + b : b + "|" + a; }
+  function enginesKeptApart(a, b) {
+    return !!(store.engineUnmerges && store.engineUnmerges[engineApartKey(a, b)]);
+  }
+  function mergeEngines(primaryId, memberIds, nodes, links, opts) {
+    if (opts && opts.auto) {
+      // The automatic check does not undo an Un-merge.
+      memberIds = (memberIds || []).filter(id => !enginesKeptApart(primaryId, id));
+    } else if (store.engineUnmerges) {
+      // A merge made by hand does: it is the later decision.
+      (memberIds || []).forEach(id => { delete store.engineUnmerges[engineApartKey(primaryId, id)]; });
+    }
     // Accumulated, not replaced. Folding a second engine in later is a second
     // decision about the same primary, and overwriting the record would
     // silently un-merge the first one at the next boot -- the graph would look
@@ -14079,7 +14249,17 @@ Rules:
     return { ok: true, variants: ((primary && primary.variants) || []).length };
   }
 
+  // Real report: Un-merge on the BMW B58's card said "Un-merged", and after a
+  // reload the S58 was folded back in with a new record -- the two titles are
+  // one article, so the automatic check merged them again. The pairs are
+  // remembered now, and that check leaves them alone until somebody merges
+  // them by hand.
   function undoEngineMerge(primaryId) {
+    const rec = store.engineMerges[primaryId];
+    store.engineUnmerges = store.engineUnmerges || {};
+    ((rec && rec.memberIds) || []).forEach(id => {
+      if (id && id !== primaryId) store.engineUnmerges[engineApartKey(primaryId, id)] = new Date().toISOString();
+    });
     delete store.engineMerges[primaryId];
     return persist();
   }
@@ -14087,15 +14267,38 @@ Rules:
     return Object.keys(store.engineMerges || {})
       .map(id => Object.assign({ id }, store.engineMerges[id]));
   }
+  // One look for engines reached twice, the stored merges, and one more look
+  // -- in that order, and only now that every engine is in the graph.
+  //
+  // The look comes first because it knows which node is the article's own
+  // (the title every redirect leads to), and a record made before a redirect
+  // was known can name the wrong one: "GM 2300" was stored as the engine and
+  // "Chevrolet 2300", the article, as the one folded into it. The stored
+  // records then add what only a person decided, and the last look folds
+  // anything those turned into a variant's namesake.
+  //
+  // The look used to run after each engine the replay put back. Several
+  // titles that are one article arrive one car at a time, so the first two
+  // were merged before the article's own node existed: one of them became the
+  // engine and took the other as a variant, and when the real one turned up
+  // the stand-in was folded into it and its name was lost. The session that
+  // made the merges had every node at once and kept every name ("Isuzu V"
+  // with 6VD1 and 6VE1); a reload of the same file had 6VE1 only, and 141
+  // cars listed different engines.
   function applyEngineMerges(nodes, links) {
-    if (!store.engineMerges || !Object.keys(store.engineMerges).length) return 0;
     let n = 0;
-    Object.keys(store.engineMerges).forEach(primaryId => {
+    const look = () => {
+      try { n += autoMergeDuplicateEngines(nodes, links).groups.length; }
+      catch (e) { console.warn("LlmFamilies: engine duplicate check failed", e); }
+    };
+    look();
+    Object.keys(store.engineMerges || {}).forEach(primaryId => {
       const rec = store.engineMerges[primaryId];
       if (!rec || rec.status === "undone") return;
       try { if (applyOneEngineMerge(nodes, links, primaryId, rec)) n++; }
       catch (e) { console.warn("LlmFamilies: could not apply engine merge for " + primaryId, e); }
     });
+    look();
     return n;
   }
 
@@ -14241,7 +14444,7 @@ Rules:
       });
       const primary = sorted[0];
       const members = sorted.slice(1).map(n => n.id);
-      const r = mergeEngines(primary.id, members, nodes, links);
+      const r = mergeEngines(primary.id, members, nodes, links, { auto: true });
       if (r && r.ok) {
         done.push({ primary: primary.id, members, why: "same article" });
         note(`powertrain: folded ${members.length} duplicate engine node(s) into ` +
@@ -14261,7 +14464,7 @@ Rules:
       if (!own || own.split(/\s+/).length < 2) continue;      // a bare code names no maker to match
       const page = pages.find(pg => pg.id !== n.id && codeOnMultiEnginePage(pg, { wp: n.wp, label: "" }));
       if (!page) continue;
-      const r = mergeEngines(page.id, [n.id], nodes, links);
+      const r = mergeEngines(page.id, [n.id], nodes, links, { auto: true });
       if (r && r.ok) {
         done.push({ primary: page.id, members: [n.id], why: "one of the engines on that page" });
         note(`powertrain: "${n.label}" is one of the engines on "${page.label}" -- folded in`);
@@ -14280,7 +14483,7 @@ Rules:
       const owner = variantOwner.get(norm(n.label));
       if (!owner || owner === n.id) continue;
       if (done.some(d => d.members.indexOf(n.id) >= 0)) continue;
-      const r = mergeEngines(owner, [n.id], nodes, links);
+      const r = mergeEngines(owner, [n.id], nodes, links, { auto: true });
       if (r && r.ok) {
         done.push({ primary: owner, members: [n.id], why: "already a variant" });
         note(`powertrain: "${n.label}" is already a variant of ` +
@@ -14681,10 +14884,10 @@ Rules:
     if (out.learned) {
       try { out.merged = autoMergeDuplicateEngines(nodes, links).merged; }
       catch (e) { console.warn("LlmFamilies: engine duplicate check failed", e); }
-      for (const n of nodes) {
-        if (!n || n.type !== "engine" || n.retired) continue;
-        try { bindCarsToVariants(n, nodes, links); } catch (e) { /* one engine is not worth failing the pass for */ }
-      }
+      // The same tidying a load does after its merges, so the graph on screen
+      // is the one a reload of what is saved here would show.
+      try { tidyPowertrain(nodes, links); tidyEngineLinks(nodes, links); }
+      catch (e) { console.warn("LlmFamilies: engine tidy after a merge failed", e); }
       note(`powertrain: ${out.learned} engine title(s) are redirects to an article under another name` +
            (out.merged ? `; ${out.merged} duplicate engine(s) folded into the article's own` : ""));
       await persist();

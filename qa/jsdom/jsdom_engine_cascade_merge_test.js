@@ -194,8 +194,13 @@ const LF = window.LlmFamilies;
     DATA.links.push({ source: other.id, target: ov.id, type: "enginegen" });
     const before = (t9.variants || []).length;
     const r2 = LF.mergeEngines(t9.id, [other.id], DATA.nodes, DATA.links);
+    // Its variant comes over, and so does its own name: "T7" is not "T9", so
+    // it is kept as a variant too (it used to be dropped, which is how the
+    // 6VD1 vanished into the Isuzu V and left only its 6VE1).
     check("merging an engine that HAS variants brings those over", r2.ok &&
-          (t9.variants || []).length === before + 1, before + " -> " + (t9.variants || []).length);
+          (t9.variants || []).length === before + 2, before + " -> " + (t9.variants || []).length);
+    check("...and keeps its own name as a variant",
+          (t9.variants || []).map(nodeById).some(v => v && v.label === "T7"), (t9.variants || []).join(", "));
     check("...re-parented rather than copied", ov.engineOf === t9.id && DATA.nodes.filter(n => n.id === ov.id).length === 1,
           ov.engineOf);
 
