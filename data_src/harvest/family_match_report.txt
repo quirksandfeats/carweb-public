@@ -1,5 +1,5 @@
 FAMILY GROUPING REPORT
-Generated: 2026-10-11
+Generated: 2026-10-12
 
 CONFIRMED FAMILIES (101) -- clean, unbroken succession chain
   Alfa Romeo 33 Stradale  (2 generations, 1967–)
@@ -224,10 +224,9 @@ CONFIRMED FAMILIES (101) -- clean, unbroken succession chain
       Qashqai[2006-] -> Qashqai (first generation)[2006-2015]
   Pontiac Firebird  (2 generations, 1967–1992)
       Firebird[1967-] -> Firebird (third generation)[1982-1992]
-  Porsche 911  (7 generations, 1975–)
-      911 (930)[1975-1975] -> 911 (964)[1989-1989] -> 911 (993)[1993-1998] -> 911 (996)[1997-2006] -> 911 (997)[2004-2013] -> 911 (991)[2011-2019] -> 911 (992)[2018-]
+  Porsche 911  (8 generations, 1964–)
+      911 (classic)[1964-1989] -> 911 (930)[1975-1975] -> 911 (964)[1989-1989] -> 911 (993)[1993-1998] -> 911 (996)[1997-2006] -> 911 (997)[2004-2013] -> 911 (991)[2011-2019] -> 911 (992)[2018-]
       EXCLUDED: 911 [1963-] id=m-porsche-911 -- no succession link to any other candidate generation here
-      EXCLUDED: 911 (classic) [1964-1989] id=m-porsche-911-classic -- its run [1964-1989] covers two or more of the other generations here and it has no succession link to the one that follows it -- either a retrospective article for a whole era (Porsche '911 (classic)') or a parallel line whose end year is missing, not a single step in this sequence
   Porsche Boxster and Cayman  (2 generations, 2005–2016)
       Boxster and Cayman (987)[2005-2012] -> Boxster and Cayman (981)[2012-2016]
       EXCLUDED: Boxster and Cayman [1996-] id=m-porsche-boxster-and-cayman -- no succession link to any other candidate generation here

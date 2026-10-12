@@ -3,8 +3,8 @@ matched curated:       383
 auto models:           6389
 auto makes:            1219
 auto designers:        2092
-succession edges:      3453
-related edges:         3011
+succession edges:      3472
+related edges:         2992
 unmatched (no make):   3
 marque articles, not cars: 196
 model year ceiling:    2027
