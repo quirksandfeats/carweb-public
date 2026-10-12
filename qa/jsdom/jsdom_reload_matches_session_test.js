@@ -415,6 +415,36 @@ const linesOf = (links, nodes, carId) => links.filter(l => l.type === "fitted" &
     check("a bold line that states an engine is not taken for a heading", notHeading.length === 2, notHeading.map(g => g.said).join(" ; "));
   }
 
+  // ---------- 15. a maker's page, or a list, is not a car's article ----------
+  {
+    const { LF } = load({});
+    check("a page with a company infobox and no car infobox is the maker's",
+          LF.articleIsNotACar("{{Infobox company\n| name = Pontiac\n}}\nPontiac was a brand.", "Pontiac (automobile)") === "the maker's own page");
+    check("a brand page too", !!LF.articleIsNotACar("{{Infobox brand\n| name = Gran Sport\n}}", "Buick Gran Sport"));
+    check("a list is a list", LF.articleIsNotACar("Text.", "List of Pontiac vehicles") === "a list");
+    check("a maker's page that also describes its one car is a car's article",
+          LF.articleIsNotACar("{{Infobox company\n}}\n{{Infobox automobile\n| name = Davrian\n}}", "Davrian") === null);
+    check("an ordinary car article is", LF.articleIsNotACar("{{Infobox automobile\n| name = Mini\n}}", "Mini") === null);
+    check("...and so is a racing car's", LF.articleIsNotACar("{{Infobox racing car\n}}", "Mercedes-Benz 300 SLR") === null);
+  }
+
+  // ---------- 16. a version of the car whose article names it ----------
+  {
+    const store = { families: { "m-corona": { status: "confirmed", checkedAt: "2026-10-20T00:00:00Z", sourceTitle: "Toyota Corona",
+      proposal: { hasMultipleGenerations: true, generations: [
+        { code: "T150", yearStart: 1983, yearEnd: 1987, sharedPlatforms: ["Corona Coupé", "Meteor Montego"] },
+        { code: "T170", yearStart: 1987, yearEnd: 1992 }] } } }, relations: {}, recheck: {} };
+    const { LF } = load(store);
+    const nodes = [{ id: "mk-toyota", type: "make", label: "Toyota" }, { id: "mk-mercury", type: "make", label: "Mercury" },
+      { id: "m-corona", type: "model", label: "Corona", make: "Toyota", year: 1957 }];
+    LF.applyConfirmed(nodes, []);
+    const coupe = nodes.find(n => /Coup/.test(n.label));
+    check("\"Corona Coupé\" in the Corona's own article is a Toyota", !!coupe && coupe.make === "Toyota" && coupe.label === "Corona Coupé", coupe && (coupe.make + " / " + coupe.label));
+    check("...with no make called Corona", !nodes.some(n => n.type === "make" && n.label === "Corona"));
+    const montego = nodes.find(n => /Montego/.test(n.label));
+    check("a first word that is not this car's name is still taken for a make (Meteor was one)", !!montego && montego.make === "Meteor", montego && montego.make);
+  }
+
   console.log(fails ? `\n${fails} FAILED` : "\nALL GREEN");
   process.exit(fails ? 1 : 0);
 })().catch(e => { console.error(e); process.exit(1); });

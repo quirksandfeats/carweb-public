@@ -2662,8 +2662,34 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
   // doesn't pass it just gets the old deterministic-only behavior, same as
   // before this feature existed -- including the playground's own preview
   // path, which deliberately never runs a real network call at all.
+  // An article that is not about a car: a list, or a maker's or brand's own
+  // page (a company or brand infobox and no car infobox anywhere on it).
+  //
+  // A car that only exists because another article named it gets its link
+  // from a title guess and a search, and for a name with no article of its
+  // own those land on the maker: "Pontiac Series 402" was given "Pontiac
+  // (automobile)", "Wolseley 12/48" was given "Wolseley Motors", "Pontiac
+  // Fleetleader" the "List of Pontiac vehicles". The model then read the
+  // maker's whole history as that one car's generations -- the Chieftain,
+  // the Bonneville, the GTO and the G8 as "generations" of the Series 402 --
+  // and a first split applies itself. Such a page is not split, and its
+  // engines and platform partners are not that car's either.
+  function articleIsNotACar(wikitext, title) {
+    if (/^\s*lists? of\b/i.test(String(title || ""))) return "a list";
+    const boxes = (String(wikitext || "").match(/\{\{\s*infobox\s+[a-z ]+/gi) || [])
+      .map(b => b.replace(/\{\{\s*infobox\s+/i, "").trim().toLowerCase());
+    const car = boxes.some(b => /^(?:automobile|electric vehicle|racing car|motorcycle|truck|bus|concept car|vehicle)/.test(b));
+    const maker = boxes.some(b => /^(?:company|brand|automobile manufacturer|organization|organisation)/.test(b));
+    return maker && !car ? "the maker's own page" : null;
+  }
   async function runCheck(node, priorProposal, feedback, manualRaw, nodes) {
     const { wp, wikitext, messages, resolvedTitle } = await buildCheckMaterial(node, priorProposal, feedback);
+    const notACar = manualRaw === undefined ? articleIsNotACar(wikitext, resolvedTitle || wp) : null;
+    if (notACar) {
+      note(`llm: ${node.make || ""} ${node.label} -- "${resolvedTitle || wp}" is ${notACar}, not this car's article: not split`);
+      return { wp, wikitext: "", raw: null, dropped: [], messages, resolvedTitle,
+               clean: { hasMultipleGenerations: false, generations: [], notACar } };
+    }
     const raw = manualRaw !== undefined ? manualRaw
       : await askLlamaCpp(messages, `${node.make || ""} ${node.label}`.trim() + " · split");
     const clean = validate(raw, wikitext);
@@ -4231,6 +4257,24 @@ Rules:
       // year, a lower-case word or a label ending in a colon is no make at
       // all. There were makes called "1949", "1952",
       // "1955", "1957" and "1960", each with one car called "Ford".
+      if (!makeNode) {
+        // Led by the name of the very car whose article says it -- "Corona
+        // Coupe" in the Toyota Corona's, "Primera UK GT" in the Nissan
+        // Primera's, "Casper Electric" in the Hyundai Casper's -- it is a
+        // version of that car, under that car's make. It used to make a new
+        // make called "Corona" with a car called "Coupe". (Not any word that
+        // is also some car's name: Meteor, Passport and Santana were makes.)
+        const origin = originId ? nodeWithId(nodes, originId) : null;
+        const home = origin && origin.familyOf ? nodeWithId(nodes, origin.familyOf) || origin : origin;
+        const homeMake = home && home.make ? nodes.find(n => n.type === "make" && !n.retired && norm(n.label) === norm(home.make)) : null;
+        const homeWords = home ? String(home.label || "").trim().split(/\s+/).filter(Boolean) : [];
+        if (homeMake && homeWords.length && homeWords.length < parts.length &&
+            norm(parts.slice(0, homeWords.length).join(" ")) === norm(home.label)) {
+          idParts = [makeLabel, modelLabel];
+          makeNode = homeMake;
+          modelLabel = trimmed;
+        }
+      }
       if (!makeNode) {
         const real = realMakeWithin(nodes, parts);
         if (real) {
@@ -16934,7 +16978,7 @@ Rules:
     forceRecheckEngine,
     clearEngineScansFor, note, nameplateSectionForCar, mergeEngineHits,
     mergeEngines, undoEngineMerge, allEngineMerges, applyEngineMerges,
-    sameEngineLine, decodeEntities, sweepStoredSplitsForOutsiders, sweepWholePageEngineLists, sweepOrdinalPlaceholders, replayStarted, replayFinished,
+    sameEngineLine, decodeEntities, articleIsNotACar, sweepStoredSplitsForOutsiders, sweepWholePageEngineLists, sweepOrdinalPlaceholders, replayStarted, replayFinished,
     lastSaveError: () => lastSaveError,
     engineMentions, unlinkedEngineMentions, engineSpecLabel,
     recordEngineMentions, recordEngineMentionsFrom, applyEngineMentions,
