@@ -240817,6 +240817,20 @@
    "reason": "confirmed by rule: \"Renault Captur II\" names the Renault Captur HA by its place in the line",
    "llmDiscovered": true,
    "decidedBy": "rules"
+  },
+  "llm-m-isuzu-d-max-ra-rc|llm-related-isuzu-mu-7|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-10-12T16:40:29.553Z",
+   "decidedAt": "2026-10-12T16:40:29.553Z",
+   "famA": "m-isuzu-d-max",
+   "famB": "llm-related-isuzu-mu-7",
+   "relType": "platform",
+   "codeA": "D-Max RA, RC",
+   "codeB": "MU-7",
+   "genIdA": "llm-m-isuzu-d-max-ra-rc",
+   "genIdB": "llm-related-isuzu-mu-7",
+   "reason": "matched automatically -- \"Isuzu MU-7\" was named as a related car but didn't exist anywhere in the graph yet, so it was newly created from this mention",
+   "llmDiscovered": true
   }
  },
  "recheck": {
