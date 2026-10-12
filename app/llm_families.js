@@ -3757,7 +3757,7 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
   // unrelated Toyota C-HR this way. resolvePlatformMention only auto-
   // applies an exact match; a loose one always goes through the ordinary
   // provisional Yes/No review instead.
-  function findMatchingNameplate(nodes, text, excludeFamId) {
+  function findMatchingNameplate(nodes, text, excludeFamId, probe) {
     if (!text) return null;
     // A mention can arrive as a link into a section of an article
     // ("Chevrolet Suburban#Fifth generation (1960)"). The car it names is the
@@ -3798,6 +3798,19 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
     // One name inside the other. A name inside the text: every run of the
     // text's letters, looked up. The text inside a name: the names sharing
     // its rarest three-letter run, then tested.
+    const wordsIn = t => String(t || "").split("#")[0].normalize("NFKD").replace(COMBINING_MARKS_RE, "")
+      .toLowerCase().split(/[^a-z0-9]+/).filter(Boolean);
+    const alignedIn = (hay, needle) => {
+      const starts = new Set(), ends = new Set();
+      let at = 0;
+      hay.forEach(w => { starts.add(at); at += w.length; ends.add(at); });
+      const joined = hay.join("");
+      for (let i = joined.indexOf(needle); i >= 0; i = joined.indexOf(needle, i + 1)) {
+        if (starts.has(i) && ends.has(i + needle.length)) return true;
+      }
+      return false;
+    };
+    const textWords = wordsIn(text);
     const looseOnce = () => {
       const hits = new Map();
       const take = e => {
@@ -3830,7 +3843,44 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
       const looseIds = new Set(loose.map(n => n.id));
       loose = loose.filter(n => !(n.type === "family" && (n.generations || []).some(gid => looseIds.has(gid))));
     }
-    return loose.length === 1 ? { node: loose[0], loose: true } : null;
+    if (loose.length !== 1) return null;
+    // The one car found this way has to be named as whole words, and be of
+    // the make the text names. As a bare run of letters "Ford Fusion"
+    // contained the Saturn "Ion", "Oldsmobile F-85" the Fiat "Mobi", "Suzuki
+    // Esteem" the FSC "Zuk" and "Ford Spectron" the Ruf "CTR", and each was
+    // taken for the car the article meant. Not such a car: no match, and the
+    // car the text does name is created.
+    const only = loose[0];
+    const bare = nameKeysOf(only).bare;
+    const whole = alignedIn(textWords, bare) || alignedIn(wordsIn(only.label), key) ||
+                  alignedIn(wordsIn((only.make || "") + " " + only.label), key);
+    // `probe.refused`: the car this rule turned down, for a caller that has
+    // a decision about that very pair on file and must not start over.
+    if (probe) probe.refused = only;
+    if (!whole) return null;
+    // And another make's car is another car: "Renault Scala" is not the
+    // Skoda Scala, "Buick Series 80" not the Land Rover "series", "1957
+    // Ford" not the Chevrolet "1957".
+    const said = makeNamedIn(nodes, textWords);
+    if (said && only.make && norm(said.label) !== norm(only.make)) {
+      return null;
+    }
+    if (probe) probe.refused = null;
+    return { node: only, loose: true };
+  }
+  // The harvested make a mention names: in front, or behind a year ("1957
+  // Ford"). Null when it names none the graph knows.
+  function makeNamedIn(nodes, words) {
+    const real = new Map();
+    for (const n of nodes) {
+      if (n && n.type === "make" && !n.retired && !n.llmGenerated && n.label) real.set(norm(n.label), n);
+    }
+    const from = /^\d{4}$/.test(words[0] || "") ? 1 : 0;
+    for (let len = Math.min(3, words.length - from); len >= 1; len--) {
+      const hit = real.get(words.slice(from, from + len).join(""));
+      if (hit) return hit;
+    }
+    return null;
   }
 
   // ---------- mint a brand-new node for a related car that isn't in the graph at all yet ----------
@@ -3872,6 +3922,34 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
       }
     }
     return best;
+  }
+  // A harvested make named inside a mention whose first word is not one.
+  // As (part of) the first word -- "Chevrolet/GMC C/K" -- the rest is the
+  // model; behind a year -- "1960 Ford" -- the whole mention is. Behind
+  // anything else the word found is as likely part of the model's name
+  // (there are makes called "City" and "Electric").
+  function realMakeWithin(nodes, parts) {
+    const real = new Map();
+    for (const n of nodes) {
+      if (n && n.type === "make" && !n.retired && !n.llmGenerated && n.label) real.set(norm(n.label), n);
+    }
+    const head = String(parts[0]).split("/").map(x => real.get(norm(x))).find(Boolean);
+    if (head) return { make: head, label: parts.slice(1).join(" ") };
+    if (!/^\d{4}$/.test(String(parts[0]))) return null;
+    for (let i = 1; i < parts.length; i++) {
+      for (let len = Math.min(3, parts.length - i); len >= 1; len--) {
+        const hit = real.get(norm(parts.slice(i, i + len).join(" ")));
+        if (hit && norm(hit.label).length >= 3) return { make: hit, label: parts.join(" ") };
+      }
+    }
+    return null;
+  }
+  function couldBeAMake(nodes, word) {
+    const w = String(word || "");
+    // A number, a label ("TNGA:") or an ordinary lower-case word is not a
+    // maker's name. (A word that is also some car's name can be: Meteor,
+    // Passport and Santana were all makes.)
+    return !!w && !/^\d+$/.test(w) && !/:$/.test(w) && !/^[a-z]/.test(w);
   }
   function uniqueId(nodes, id) {
     if (!nodes.some(n => n.id === id)) return id;
@@ -4104,7 +4182,7 @@ Rules:
     // every boot -- without this, the junk nodes would keep coming back.
     if (looksLikePlatformNotCar(trimmed)) return null;
     let makeNode = findExistingMake(nodes, trimmed);
-    let modelLabel;
+    let modelLabel, idParts = null;
     if (!makeNode && makeVariant && makeVariant.matchId) {
       const resolved = nodes.find(n => n.id === makeVariant.matchId && n.type === "make" && !n.retired);
       if (resolved) {
@@ -4128,6 +4206,24 @@ Rules:
       const makeLabel = parts[0];
       modelLabel = parts.slice(1).join(" ");
       makeNode = nodes.find(n => n.type === "make" && norm(n.label) === norm(makeLabel));
+      // The first word is not a make the graph knows. Before inventing one
+      // of that name: the mention may carry a real make ("1960 Ford" is a
+      // Ford, "Chevrolet/GMC C/K" a Chevrolet), and a first word that is a
+      // year, a lower-case word or a label ending in a colon is no make at
+      // all. There were makes called "1949", "1952",
+      // "1955", "1957" and "1960", each with one car called "Ford".
+      if (!makeNode) {
+        const real = realMakeWithin(nodes, parts);
+        if (real) {
+          // The id is kept as it always was, so decisions stored about this
+          // car still find it.
+          idParts = [makeLabel, modelLabel];
+          makeNode = real.make;
+          modelLabel = real.label;
+        } else if (!couldBeAMake(nodes, makeLabel)) {
+          return null;
+        }
+      }
       if (!makeNode) {
         const newMakeId = uniqueId(nodes, "llm-make-" + slugify(makeLabel));
         if (store.purged && store.purged[newMakeId]) return null;   // marque purged too -- see purgeDeletion
@@ -4135,7 +4231,8 @@ Rules:
         nodes.push(makeNode);
       }
     }
-    const modelId = "llm-related-" + slugify(makeNode.label) + "-" + slugify(modelLabel);
+    const modelId = "llm-related-" + slugify(idParts ? idParts[0] : makeNode.label) + "-" +
+                    slugify(idParts ? idParts[1] : modelLabel);
     // Two different generations (or two different nameplates) can both
     // mention the same not-yet-known related car -- mint it once, reuse the
     // same node for every subsequent mention rather than creating
@@ -5697,6 +5794,32 @@ Rules:
     }
     return n;
   }
+  function pairAlreadyDecided(gn, cand) {
+    const others = [cand.id].concat(cand.generations || []);
+    return others.some(id => {
+      const k = relKey(gn.id, id, "platform");
+      return !!(store.relations[k] || store.rejectedRelations[k] ||
+                (store.crossGroupRejections && store.crossGroupRejections[k]));
+    });
+  }
+  // The id mintRelatedNode gives the car a mention names, without making it.
+  function relatedIdFor(nodes, text, makeVariant) {
+    const trimmed = String(text || "").split("#")[0].trim();
+    if (!trimmed) return null;
+    const make = findExistingMake(nodes, trimmed);
+    if (make) {
+      const rest = trimmed.slice(make.label.length).trim();
+      return rest ? "llm-related-" + slugify(make.label) + "-" + slugify(rest) : null;
+    }
+    const parts = trimmed.split(/\s+/);
+    if (makeVariant && makeVariant.matchId) {
+      const resolved = nodes.find(n => n.id === makeVariant.matchId && n.type === "make" && !n.retired);
+      const rest = parts.slice(makeVariant.makeGuessWords || 1).join(" ").trim();
+      if (resolved && rest) return "llm-related-" + slugify(resolved.label) + "-" + slugify(rest);
+    }
+    if (parts.length < 2) return null;
+    return "llm-related-" + slugify(parts[0]) + "-" + slugify(parts.slice(1).join(" "));
+  }
   function resolvePlatformMention(nodes, links, famId, gn) {
     const texts = Array.isArray(gn.sharedPlatformTexts) ? gn.sharedPlatformTexts
       : (gn.sharedPlatformText ? [gn.sharedPlatformText] : []);
@@ -5704,24 +5827,26 @@ Rules:
   }
   function resolveOnePlatformMention(nodes, links, famId, gn, mentionText) {
     if (!mentionText) return;
-    let found = findMatchingNameplate(nodes, mentionText, famId);
-    // Real user request: findMatchingNameplate's exact/loose STRING matching
-    // (norm() substring overlap) still misses genuine duplicates whenever
-    // Wikipedia's wording differs enough from the graph's own label --
-    // different chassis-code notation, a translated/regional name, "Mk3"
-    // vs. a bare generation code, etc. annotateSharedPlatformMatches (run
-    // earlier, during the async checkNode/checkFamily proposal validation
-    // that produced this `gn`) already asked the local LLM to sanity-check
-    // exactly this mention against every plausible existing candidate (same
-    // make, or already a loose substring hit) and cached its verdict right
-    // here on gn.sharedPlatformMatches. When that ran, its verdict is the
-    // final word -- overriding the plain deterministic guess entirely, the
-    // same way a human manager's final read-through would override a
-    // first-pass regex match. Never upgrades trust beyond "provisional"
-    // though (see below): an LLM judgment call, however confident, still
-    // isn't the same tier of evidence as a literal exact-string match or an
-    // explicit chassis code found in the source text, so it still always
-    // goes through ordinary Yes/No review, same as any other loose match.
+    const probe = {};
+    let found = findMatchingNameplate(nodes, mentionText, famId, probe);
+    // A pairing the stricter matcher would no longer propose, but which has
+    // already been through review -- confirmed, turned down, or waiting. It
+    // keeps the answer it was given, instead of the mention being read as
+    // new and a second car being made for it.
+    // A mention that has been a car of its own stays one: a name that only
+    // loosely fits some other car ("Bedford Brava" and the Vauxhall Brava)
+    // is not grounds to drop the car this text was given, with everything
+    // since learned about it.
+    const ownId = relatedIdFor(nodes, mentionText, gn.makeVariantMatches && gn.makeVariantMatches[mentionText]);
+    const wasOwnCar = !!(ownId && store.mintedFacts && store.mintedFacts[ownId]);
+    if (found && found.loose && !found.byCode && wasOwnCar && ownId !== found.node.id) found = null;
+    // And a pairing the stricter matcher would no longer propose, but which
+    // is already on file -- confirmed, turned down, or waiting -- keeps the
+    // answer it was given, instead of the mention being read as new and a
+    // second car being made for it.
+    else if (!found && probe.refused && !wasOwnCar && pairAlreadyDecided(gn, probe.refused)) {
+      found = { node: probe.refused, loose: true };
+    }
     const sanity = gn.sharedPlatformMatches && gn.sharedPlatformMatches[mentionText];
     if (sanity && sanity.matchId) {
       // The LLM found a specific existing node -- trust it over the plain
