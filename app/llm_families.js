@@ -533,15 +533,41 @@ window.LlmFamilies = (function () {
       const body = JSON.stringify(store);
       if (lastWritten == null) { lastWritten = bootSnapshot; bootSnapshot = null; }
       if (body === lastWritten) return;
-      await fetch("/api/llm-families", {
+      const res = await fetch("/api/llm-families", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body,
       });
+      // An answer is not a yes. A save the server turned down (a full disk,
+      // a 403, a 500) used to be recorded as written -- and since an
+      // unchanged store is not sent again, doing the same thing twice did
+      // not retry it. The change was on screen and gone after a reload.
+      if (res && res.ok === false) throw new Error("the server answered " + res.status);
       lastWritten = body;
+      saveFailed(null);
     } catch (e) {
       console.warn("LlmFamilies: could not persist llm_families.json", e);
+      saveFailed(e);
     }
+  }
+  // Said on the page, not only in the console: what is on screen is not on
+  // disk. Cleared by the next save that goes through.
+  let lastSaveError = null;
+  function saveFailed(err) {
+    lastSaveError = err ? String((err && err.message) || err) : null;
+    if (typeof document === "undefined" || !document.body) return;
+    let el = document.getElementById("llm-save-failed");
+    if (!err) { if (el) el.remove(); return; }
+    if (!el) {
+      el = document.createElement("div");
+      el.id = "llm-save-failed";
+      el.setAttribute("role", "alert");
+      el.style.cssText = "position:fixed;left:50%;bottom:14px;transform:translateX(-50%);z-index:9999;" +
+        "background:#7a1f1f;color:#fff;padding:8px 14px;border-radius:6px;font:13px/1.4 system-ui,sans-serif;" +
+        "box-shadow:0 2px 10px rgba(0,0,0,.4);max-width:80vw";
+      document.body.appendChild(el);
+    }
+    el.textContent = "Not saved: " + lastSaveError + ". Your last change is on screen only; it is saved with the next change that goes through.";
   }
   function startWrite() {
     const p = writeStore().finally(() => { if (persistInFlight === p) persistInFlight = null; });
@@ -2239,8 +2265,29 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
     const secs = wikitextSections(wikitext);
     const codeOf = g => g.codeBase || g.code;
     const claims = new Map();    // generation -> { kind, why }
+    // The generation's own section. By the code in its heading; failing
+    // that by the code without a remark the model put after it ("MA61S/MB61S
+    // (Wagon R-Wide)"); failing that by the anchor the heading carries --
+    // the Soarer's is "<span class="anchor" id="Z40"></span>Fourth generation
+    // (2001-2005)", which names no code in words at all.
+    const headingLine = sec => wikitext.slice(sec.at, (wikitext.indexOf("\n", sec.at) + 1 || wikitext.length + 1) - 1);
+    const sectionOf = g => {
+      const code = String(codeOf(g) || "").trim();
+      const bare = code.replace(/\s*\([^()]*\)\s*$/, "").trim();
+      let sec = sectionForCode(wikitext, code) || (bare && bare !== code ? sectionForCode(wikitext, bare) : null);
+      if (sec) return sec;
+      const want = norm(bare || code);
+      if (!want) return null;
+      return secs.find(p => {
+        const line = headingLine(p);
+        const ids = [];
+        line.replace(/\bid\s*=\s*"([^"]+)"/gi, (m0, id) => { ids.push(id); return m0; });
+        line.replace(/\{\{\s*anchor\s*\|([^{}]*)\}\}/gi, (m0, a) => { a.split("|").forEach(x => ids.push(x)); return m0; });
+        return ids.some(id => norm(id) === want);
+      }) || null;
+    };
     gens.forEach(g => {
-      const sec = sectionForCode(wikitext, codeOf(g));
+      const sec = sectionOf(g);
       if (!sec) return;
       const over = secs.filter(p => p.level < sec.level && p.at < sec.at && p.stop >= sec.stop)
         .sort((a, b) => b.level - a.level)[0];
@@ -2270,7 +2317,7 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
             // (W124; 1993)": the car straddles the name, and the heading is
             // the article's answer to which side it is on. The Audi 80's
             // "F103 (1966-1972)" makes no such claim, and goes.
-            const sec = sectionForCode(wikitext, codeOf(g));
+            const sec = sectionOf(g);
             if (sec && /\bgeneration\b/i.test(String(sec.title))) return;
             claims.set(g, { kind, why: `the article's own infobox names it as the ${kind}` });
           });
@@ -2292,6 +2339,96 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
       found.set(g, c.why);
     });
     return found;
+  }
+
+  // ---------- years no car can have ----------
+  // The model's years are checked against the article when it answers, but a
+  // list already stored is replayed as it is, and a few are impossible: a
+  // start two years out ("Fourth generation 2028-"), an end written short
+  // ("2010-11", stored as 11). A start that far ahead is not a year yet; a
+  // two-digit end is the same century as its start.
+  function plausibleStart(y) {
+    if (!Number.isFinite(y)) return null;
+    return y >= 1880 && y <= new Date().getFullYear() + 1 ? y : null;
+  }
+  function plausibleEnd(start, end) {
+    if (!Number.isFinite(end)) return null;
+    if (end >= 0 && end < 100 && Number.isFinite(start) && start >= 1880) {
+      const full = Math.floor(start / 100) * 100 + end;
+      return full >= start ? full : null;
+    }
+    return end >= 1880 && end <= new Date().getFullYear() + 1 ? end : null;
+  }
+
+  // ---------- the same rule, for the lists already on file ----------
+  // The rule above runs when an article is read. A list stored before it
+  // existed is replayed as it stands, so the owner's own reported case was
+  // still on screen: the C-Class with the W201 as its first generation, the
+  // 190E (W201) standing beside it. And a fresh re-check cannot heal it by
+  // itself -- it comes back one generation shorter, and a list that takes a
+  // generation away waits for a person.
+  //
+  // So each stored list is checked against its article once: no model, one
+  // read of the page. What the article states as a predecessor or successor
+  // is recorded on the entry (`outsiders`), the list itself is left as the
+  // model returned it, and the replay leaves those generations out. Deleting
+  // `outsiders` from an entry puts them back.
+  const OUTSIDER_RULE_VERSION = 2;
+  const OUTSIDER_RULE_SINCE = "2026-10-13";   // lists read from this day on were validated with the rule
+  function insideGenerations(entry) {
+    const gens = (entry && entry.proposal && entry.proposal.generations) || [];
+    const out = new Set(((entry && entry.outsiders) || []).map(o => norm(o.code)));
+    if (!out.size) return gens;
+    const kept = gens.filter(g => !out.has(norm(g.code)));
+    return kept.length ? kept : gens;
+  }
+  let outsiderSweep = null;
+  function sweepStoredSplitsForOutsiders(opts) {
+    if (!serverAvailable) return Promise.resolve({ checked: 0, setAside: [], failed: 0 });
+    if (outsiderSweep) return outsiderSweep;
+    const pause = (opts && opts.pauseMs != null) ? opts.pauseMs : 120;
+    outsiderSweep = (async () => {
+      const todo = [];
+      const consider = (bucket, id) => {
+        const e = store[bucket][id];
+        if (!e || !e.sourceTitle || !e.proposal || (e.proposal.generations || []).length < 2) return;
+        if (e.outsidersV === OUTSIDER_RULE_VERSION) return;
+        if (bucket === "families" ? e.status !== "confirmed" : (e.status !== "applied" && e.status !== "provisional")) return;
+        if (String(e.checkedAt || "") >= OUTSIDER_RULE_SINCE) { e.outsidersV = OUTSIDER_RULE_VERSION; return; }
+        todo.push({ bucket, id, e });
+      };
+      Object.keys(store.families || {}).forEach(id => consider("families", id));
+      Object.keys(store.recheck || {}).forEach(id => consider("recheck", id));
+      const out = { checked: 0, setAside: [], failed: 0 };
+      if (!todo.length) return out;
+      note(`generations: checking ${todo.length} stored generation list(s) against their articles for a stated predecessor or successor`);
+      for (let i = 0; i < todo.length; i++) {
+        const { id, e } = todo[i];
+        let wikitext = null;
+        try { wikitext = (await fetchArticleDigest(e.sourceTitle)).wikitext; }
+        catch (err) { out.failed++; continue; }     // left unmarked: tried again next time
+        const gens = e.proposal.generations;
+        const stated = predecessorsStatedBy(wikitext, gens);
+        if (stated.size && stated.size < gens.length) {
+          e.outsiders = gens.filter(g => stated.has(g)).map(g => ({ code: g.code, why: stated.get(g) }));
+          e.outsiders.forEach(o => {
+            out.setAside.push({ id, title: e.sourceTitle, code: o.code, why: o.why });
+            note(`generations: "${e.sourceTitle}" -- ${o.code} is not a generation of it (${o.why}); left out`);
+          });
+        }
+        e.outsidersV = OUTSIDER_RULE_VERSION;
+        out.checked++;
+        if (out.checked % 40 === 0) await persist();
+        if (pause) await new Promise(r => setTimeout(r, pause));
+      }
+      await persist();
+      note(`generations: ${out.checked} stored list(s) checked; ${out.setAside.length} generation(s) set aside as a stated ` +
+           `predecessor or successor` + (out.setAside.length ? " -- reload to see the nameplates without them" : "") +
+           (out.failed ? `; ${out.failed} article(s) could not be read and will be tried again` : ""));
+      return out;
+    })();
+    outsiderSweep.finally(() => { outsiderSweep = null; });
+    return outsiderSweep;
   }
 
   // ---------- two entries claiming the same code ----------
@@ -2436,7 +2573,7 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
   // How many delegated sub-articles are worth pulling in. Each is one extra
   // Wikipedia fetch (no LLM call), and they only exist for nameplates that
   // genuinely delegate, so this is rare rather than routine.
-  const MAX_SUB_ARTICLES = 6;
+  const MAX_SUB_ARTICLES = 12;
   async function buildCheckMaterial(node, priorProposal, feedback) {
     const wp = node.wp || node.label;
     let { wikitext, digest, resolvedTitle } = await fetchArticleDigest(wp);
@@ -3592,16 +3729,6 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
       const b = nameKeysOf(n).bare;
       return b.length > 2 && (key.includes(b) || b.includes(key));
     });
-    // Real bug report: a mention like "Toyota Corolla (E140/E150)" loosely
-    // matched BOTH the specific generation node "Corolla (E140)" (already
-    // in the graph) AND its own parent family node "Corolla" (whose bare
-    // label is always a substring of anything one of its generations
-    // matches) -- pushing loose.length to 2 and falling through to
-    // mintRelatedNode, which created a brand-new duplicate "Toyota Corolla
-    // (E140/E150)" node with no year/link instead of reusing the real
-    // Corolla (E140) entry. When a family and one of its own generations
-    // both loosely match, the generation is always the more specific/
-    // correct answer, so drop the family from the candidate set here.
     if (loose.length > 1) {
       const looseIds = new Set(loose.map(n => n.id));
       loose = loose.filter(n => !(n.type === "family" && (n.generations || []).some(gid => looseIds.has(gid))));
@@ -6015,7 +6142,7 @@ Rules:
       // Folded into another car since the split was confirmed: that car is
       // the one on screen, and it has its own generations.
       if (orig.retired && orig.supersededBy) return;
-      const gens = (entry.proposal && entry.proposal.generations) || [];
+      const gens = insideGenerations(entry);
       if (gens.length < 2) return;
 
       const genIds = [];
@@ -6093,8 +6220,12 @@ Rules:
           // duplicate's real, harvested years (the R107 case: DBpedia knew
           // 1971-1989 even if the umbrella-article read didn't), then the
           // parent's year as the last resort.
-          year: g.yearStart || (dup && dup.year) || orig.year,
-          end: g.yearEnd != null ? g.yearEnd : ((dup && dup.end) || null),
+          // ...and failing both, no year. It used to take the nameplate's
+          // first year: the Acura RDX's undated fourth generation showed as
+          // 2006 and sorted ahead of the first, and seven Dodge Phoenix
+          // generations all read 1960-1960.
+          year: plausibleStart(g.yearStart) || (dup && dup.year) || null,
+          end: plausibleEnd(g.yearStart, g.yearEnd) != null ? plausibleEnd(g.yearStart, g.yearEnd) : ((dup && dup.end) || null),
           designers: g.designers || [], engineers: g.engineers || [],
           // The standalone's own dedicated article (when one exists) beats
           // the shared umbrella article for this generation's link/thumbnail.
@@ -9166,6 +9297,14 @@ Rules:
   // than persisted, so it needs no migration and self-corrects if the
   // underlying grouping changes; `unmergedDuplicates` is the escape hatch for
   // a pair that shouldn't be folded.
+  // A label with case, accents and spacing taken out, and punctuation too --
+  // except punctuation beside a digit, which is part of the name: "9-5" is
+  // not "95", "3/20" is not "320", "P7+" is not "P7". "CR-V" is "CRV".
+  function labelShapeKey(label) {
+    const t = String(label || "").normalize("NFKD").replace(COMBINING_MARKS_RE, "").toLowerCase().replace(/\s+/g, "");
+    return t.replace(/[^a-z0-9]/g, (ch, i) =>
+      (/\d/.test(t[i - 1] || "") || /\d/.test(t[i + 1] || "")) ? ch : "");
+  }
   function duplicateNameplatePairs(nodes) {
     const groups = new Map();
     nodes.forEach(n => {
@@ -9186,6 +9325,9 @@ Rules:
         if (m === fam) return;
         if (m.type !== "model") return;
         if (m.familyOf) return;           // already a generation of something -- not a stray duplicate
+        // The same name, not merely the same letters and digits: the Saab 95
+        // (1959) was folded into the Saab 9-5 as its first generation.
+        if (labelShapeKey(m.label) !== labelShapeKey(fam.label)) return;
         pairs.push({ fam, dup: m });
       });
     });
@@ -9497,6 +9639,15 @@ Rules:
         if (/\)\s*$/.test(String(m.label))) continue;
         if (cand && cand !== F && cand !== m && !(F.generations || []).includes(cand.id) && cand.familyOf !== F.id) { L = cand; break; }
       }
+      // Or the nameplate's own article is the other's. The SLK had only its
+      // "SLK (R170)" left -- the R171 and R172 were already the SLK-Class's --
+      // and a bracketed member is never taken for the overview, so nothing
+      // matched and both nameplates stayed, each the other's successor.
+      // "Mercedes-Benz SLK" redirects to "Mercedes-Benz SLK-Class".
+      if (!L) {
+        const cand = llmFams.get(articleKeyOf(nameplateArticleOf(F, byIdLocal)) + "|" + norm(F.make));
+        if (cand && cand !== F && !(F.generations || []).includes(cand.id) && cand.familyOf !== F.id) L = cand;
+      }
       if (!L || store.unmergedDuplicates[L.id + "|" + F.id]) continue;
       const key = articleKeyOf(nameplateArticleOf(L, byIdLocal));
       const lGens = (L.generations || []).map(id => byIdLocal.get(id)).filter(g => g && !g.retired);
@@ -9515,6 +9666,15 @@ Rules:
       F.supersededBy = L.id;
       F.retiredReason = `the same nameplate as ${L.make} ${L.label}`;
       supersedeStandaloneLinksOnly(links, F.id, L.id);
+      // Both nameplates credited the same people; one credit each is enough.
+      const seenCredit = new Set();
+      for (let i = 0; i < links.length; i++) {
+        const l = links[i];
+        if ((l.type !== "designed" && l.type !== "engineered" && l.type !== "made") || l.retired) continue;
+        if (idOf(l.source) !== L.id && idOf(l.target) !== L.id) continue;
+        const k = idOf(l.source) + "|" + idOf(l.target) + "|" + l.type;
+        if (seenCredit.has(k)) { links.splice(i, 1); i--; } else seenCredit.add(k);
+      }
       note(`graph: nameplate "${F.make} ${F.label}" is the same as "${L.make} ${L.label}" -- folded in`);
       folded++;
     }
@@ -10964,8 +11124,29 @@ Rules:
     return out;
   }
 
+  // "&nbsp;" and friends, as the characters they stand for. Wikitext is full
+  // of them ("3.0&nbsp;L", "54&deg; V6", "1977&ndash;1978") and nothing
+  // decoded them, so they were stored and then shown as typed: an engine
+  // called "M&nbsp;110", and a "General Motors 54&deg; V6" standing beside
+  // the General Motors 54° V6.
+  const NAMED_ENTITIES = { nbsp: " ", thinsp: " ", ensp: " ", emsp: " ", ndash: "\u2013", mdash: "\u2014",
+    minus: "\u2212", deg: "\u00b0", amp: "&", times: "\u00d7", quot: '"', apos: "'", lt: "<", gt: ">",
+    sup2: "\u00b2", sup3: "\u00b3", frac12: "\u00bd", middot: "\u00b7" };
+  function decodeEntities(text) {
+    if (text == null) return text;
+    const t = String(text);
+    if (t.indexOf("&") < 0) return t;
+    return t.replace(/&(#x[0-9a-f]+|#\d+|[a-z][a-z0-9]*);/gi, (m0, e) => {
+      if (e[0] === "#") {
+        const code = /^#x/i.test(e) ? parseInt(e.slice(2), 16) : parseInt(e.slice(1), 10);
+        return code === 160 ? " " : (Number.isFinite(code) && code > 31 ? String.fromCodePoint(code) : m0);
+      }
+      const hit = NAMED_ENTITIES[e.toLowerCase()];
+      return hit != null ? hit : m0;
+    });
+  }
   function stripEngineMarkup(s) {
-    return String(s || "")
+    return decodeEntities(String(s || ""))
       .replace(/<ref[^>]*\/>|<ref(?:\s[^>]*)?>[\s\S]*?<\/ref>/gi, "")
       .replace(/\[\[\s*(?:File|Image)\s*:[^\]]*\]\]/gi, "")
       // {{convert}} and {{cvt}} carry the actual number, so they are unwrapped
@@ -12177,6 +12358,13 @@ Rules:
       if (!o.mintCars) return null;
       const name = carNameFromApplication(app);
       if (!name) return null;
+      // An engine article's tables are not all lists of cars. Reading the
+      // Mitsubishi 4B1's made cars called "type", "ratio" and "market" under
+      // new makes "Engine", "Compression" and "Japanese", from the rows of a
+      // specification table. A phrase of ordinary lower-case words under a
+      // first word the graph does not know as a make is not a car's name.
+      if (!findExistingMake(nodes, name) &&
+          name.split(/\s+/).slice(1).every(w => /^[a-z]+$/.test(w))) return null;
       const n = mintRelatedNode(nodes, links, name, null, eng.id);
       if (n) minted.push(n);
       return n;
@@ -12786,6 +12974,9 @@ Rules:
         // which of the engines in the graph are one article under two titles.
         try { await resolveEngineTitleRedirects(nodes, links); }
         catch (e) { console.warn("LlmFamilies: engine redirect lookup failed", e); }
+        // ...and, once, to hold the stored generation lists up against their
+        // articles. In the background: nothing here waits on it.
+        sweepStoredSplitsForOutsiders().catch(e => console.warn("LlmFamilies: stored-list check failed", e));
         // Depth 1: every car this engine named now gets the ordinary check.
         // Opt-outable, because the boot replay and the tests have no business
         // starting a dozen model calls.
@@ -12999,6 +13190,17 @@ Rules:
                          "cars -- not shown until read again (Tools > Re-read Engines)");
     return stale;
   }
+  // An engine line that states its own years, all of them outside the car's
+  // run. No years on the line, or none on the car: no answer, so not outside.
+  function engineLineOutsideRun(mention, car) {
+    const sp = (mention && mention.specs) || {};
+    if (!car || !Number.isFinite(car.year) || !Number.isFinite(sp.yearStart)) return false;
+    const now = new Date().getFullYear();
+    const open = /present|current|ongoing/i.test(String(mention.said || ""));
+    const lineEnd = Number.isFinite(sp.yearEnd) ? sp.yearEnd : (open ? now : sp.yearStart);
+    const carEnd = Number.isFinite(car.end) ? car.end : now;
+    return sp.yearStart > carEnd || lineEnd < car.year;
+  }
   // True while a load is putting every stored engine line back. The check
   // for one engine reached twice then waits until all of them are there -- see
   // applyEngineMerges.
@@ -13036,7 +13238,11 @@ Rules:
     Object.keys(store.engineScans || {}).forEach(id => {
       const rec = store.engineScans[id] || {};
       if (rec.v === 0 && rec.staleReason) return;
-      replay(id, rec.engines);
+      // A list read off the whole nameplate page is every generation's; the
+      // lines it dates outside this one's run are not this one's. Applied to
+      // the reads on file too, which were stored before the rule.
+      const car = rec.section === "(the whole page)" ? byId.get(id) : null;
+      replay(id, car ? (rec.engines || []).filter(h => !engineLineOutsideRun(h, car)) : rec.engines);
     });
     return { engines, fitted };
   }
@@ -13888,7 +14094,14 @@ Rules:
     let engines = 0, fitted = 0, revived = 0, deleted = 0;
     const revive = !!(opts && opts.revive);
     const added = [];
-    for (const mention of mentions) {
+    for (const stored of mentions) {
+      // Read before entities were decoded, most of these: the same text, in
+      // the characters it stands for. The store is left as it is.
+      const mention = /&[#a-z0-9]+;|''/i.test(JSON.stringify(stored)) ? Object.assign({}, stored, {
+        title: decodeEntities(stored.title), name: decodeEntities(stored.name),
+        said: decodeEntities(stored.said),
+        variant: stored.variant ? decodeEntities(stored.variant).replace(/'{2,}/g, "") : stored.variant,
+      }) : stored;
       // A car's infobox says which of a shared page's engines it means -- the
       // SL R232 links "[[Mercedes-Benz M176/M177/M178 engine|M177]]". That is
       // recorded as WHICH VARIANT, not as a second engine node.
@@ -14650,7 +14863,7 @@ Rules:
   }
   function aliasesFor(id) {
     const e = store.aliases[id];
-    return (e && e.names) || [];
+    return ((e && e.names) || []).map(n => decodeEntities(n));
   }
 
   function engineArticleFor(car, fam, famWikitext, umbrella) {
@@ -14821,6 +15034,7 @@ Rules:
           const red = await resolveEngineTitleRedirects(nodes, links);
           if (red.merged) r.merged = red.merged;
         } catch (e) { console.warn("LlmFamilies: engine redirect lookup failed", e); }
+        sweepStoredSplitsForOutsiders().catch(e => console.warn("LlmFamilies: stored-list check failed", e));
       }
       return r;
     }
@@ -14850,6 +15064,24 @@ Rules:
   // has no business making the request), and only off the back of a scan a
   // person asked for. Each title is asked once per session.
   const engineTitlesAsked = new Set();
+  // Whether `page` still has the section a redirect points into, or at least
+  // names the engine the redirect is called after. An unreadable page is
+  // taken on trust, as a plain redirect is.
+  async function redirectTargetNames(page, fragment, fromTitle) {
+    let wikitext;
+    try { wikitext = (await fetchArticleDigest(page)).wikitext; }
+    catch (e) { return true; }
+    const want = norm(String(fragment).replace(/_/g, " "));
+    const anchors = [...wikitext.matchAll(/\bid\s*=\s*"([^"]+)"|\{\{\s*anchor\s*\|([^{}]*)\}\}/gi)]
+      .flatMap(m => String(m[1] || m[2] || "").split("|"));
+    const hasSection = wikitextSections(wikitext).some(sec => norm(sec.title) === want) ||
+                       anchors.some(id => norm(id) === want);
+    if (hasSection) return true;
+    const name = (stripEngineSuffix(String(fromTitle || "")) || "").split(/\s+/).pop() || "";
+    if (name.length < 3) return false;
+    const esc = name.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    return new RegExp("(^|[^A-Za-z0-9])" + esc + "([^A-Za-z0-9]|$)", "i").test(wikitext);
+  }
   async function resolveEngineTitleRedirects(nodes, links) {
     const out = { asked: 0, learned: 0, merged: 0 };
     if (!serverAvailable) return out;
@@ -14872,14 +15104,26 @@ Rules:
       if (!q) continue;
       out.asked += batch.length;
       const normalised = new Map((q.normalized || []).map(x => [x.from, x.to]));
-      const redirected = new Map((q.redirects || []).map(x => [x.from, x.to]));
-      batch.forEach(t => {
+      const redirected = new Map((q.redirects || []).map(x => [x.from, x]));
+      for (const t of batch) {
         const t1 = normalised.get(t) || t;
-        const to = redirected.get(t1);
-        if (!to || norm(to) === norm(t)) return;
+        const red = redirected.get(t1);
+        const to = red && red.to;
+        if (!to || norm(to) === norm(t)) continue;
+        // A redirect into one SECTION of a page is only as good as that
+        // section. Two of the real ones point at sections since removed, and
+        // the page they land on does not mention the engine at all: the
+        // Vectra's 1.4 litre "14NV" was filed under GM Family II, and a
+        // Jaguar V8 under the AJ-V6. Followed only when the page still has
+        // that section, or names the engine.
+        if (red.tofragment && !(await redirectTargetNames(to, red.tofragment, t))) {
+          out.unconfirmed = (out.unconfirmed || 0) + 1;
+          note(`powertrain: "${t}" redirects to "${to}#${red.tofragment}", which is not on that page -- left as its own engine`);
+          continue;
+        }
         store.wpRedirects[t] = to;
         out.learned++;
-      });
+      }
     }
     if (out.learned) {
       try { out.merged = autoMergeDuplicateEngines(nodes, links).merged; }
@@ -15010,8 +15254,11 @@ Rules:
       // guessed.
       let wholePage = false;
       if (!title && !fromSection && famWikitext && !hits.length && engineFields(famWikitext).length === 1) {
-        hits = engineMentions(famWikitext);
-        addUnlinked(unlinkedEngineMentions(famWikitext));
+        // ...but not a line the field itself dates outside this generation:
+        // the Express GMT600 (1996-2002) was given "4.3 L EcoTec3 (2018-
+        // present)" off the one list its nameplate has.
+        hits = engineMentions(famWikitext).filter(h => !engineLineOutsideRun(h, car));
+        addUnlinked(unlinkedEngineMentions(famWikitext).filter(h => !engineLineOutsideRun(h, car)));
         addAka(articleLead(famWikitext), umbrella);
         wholePage = true;
         if (hits.length || unlinked.length) {
@@ -15602,7 +15849,7 @@ Rules:
     const fam = byId.get(famId);
     if (!fam || fam.type !== "family") return;
     const oldGens = (fam.generations || []).map(id => byId.get(id)).filter(Boolean);
-    const freshGens = (entry.proposal && entry.proposal.generations) || [];
+    const freshGens = insideGenerations(entry);
 
     const usedOld = new Set();
     const paired = pairFreshGenerations(oldGens, freshGens);
@@ -15705,10 +15952,11 @@ Rules:
         byId.set(gid, gn);
       }
       // Year preference: the LLM's own extracted year, an existing value on
-      // a reused node, the superseded standalone's real harvested year, the
-      // family's own year as the last resort.
-      gn.year = fresh.yearStart || gn.year || (dup && dup.year) || fam.year;
-      gn.end = fresh.yearEnd != null ? fresh.yearEnd
+      // a reused node, the superseded standalone's real harvested year --
+      // and otherwise none (not the family's own first year, which dated
+      // every undated generation as the nameplate's first).
+      gn.year = plausibleStart(fresh.yearStart) || gn.year || (dup && dup.year) || null;
+      gn.end = plausibleEnd(fresh.yearStart, fresh.yearEnd) != null ? plausibleEnd(fresh.yearStart, fresh.yearEnd)
         : (gn.end != null ? gn.end : (dup && dup.end != null ? dup.end : null));
       if (fresh.designers && fresh.designers.length) gn.designers = fresh.designers;
       if (fresh.engineers && fresh.engineers.length) gn.engineers = fresh.engineers;
@@ -16063,6 +16311,8 @@ Rules:
     forceRecheckEngine,
     clearEngineScansFor, note, nameplateSectionForCar, mergeEngineHits,
     mergeEngines, undoEngineMerge, allEngineMerges, applyEngineMerges,
+    sameEngineLine, decodeEntities, sweepStoredSplitsForOutsiders,
+    lastSaveError: () => lastSaveError,
     engineMentions, unlinkedEngineMentions, engineSpecLabel,
     recordEngineMentions, recordEngineMentionsFrom, applyEngineMentions,
     looksLikeEngineArticleTitle, engineIdFromTitle,

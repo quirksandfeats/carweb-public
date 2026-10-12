@@ -1881,3 +1881,61 @@ sedans through its V6), and keeps trim words in names.
 
 Tests: `jsdom_relation_engine_rules_test.js`,
 `jsdom_relation_wikipedia_patterns_test.js`.
+
+### 12 October: a reload that matches the session, and the rules settled with it
+
+A second audit (five readers, each finding verified by a sixth) found 31
+defects and ten more on a deeper read. The theme of most: the page a reload
+builds was not the page the session had shown.
+
+**The load replays to the end.** A car that exists only because another car's
+article named it is created late in the load, after the pass that splits
+nameplates. Fifty such cars had a confirmed split on file and showed as one
+model on every reload (272 nodes and 1,263 links short of the session). The
+split, platform, people and relation passes now repeat until a pass adds
+nothing, and names, deletions and engines are replayed for whatever appeared
+late. A car that turns out to be a nameplate already in the graph is folded
+into it first, and a split is never applied to a car already folded away.
+
+**Engines merge once.** Several titles that are one article arrive one car at
+a time, and the duplicate check ran after each: the first two were merged
+before the article's own node existed, and the stand-in lost its name when the
+real one arrived. A load now creates every engine, runs the check once, applies
+the stored merges, and checks once more. On the real store with 177 redirects
+learned, a reload differs from the session on 0 of 2,165 cars (it was 141).
+A merged engine that has variants keeps its own name as a variant too.
+
+**Names.** One engine: the maker in front on both sides ("GM 2300",
+"Chevrolet 2300"), a layout word on the end, the same words in another order.
+A different engine: any other designation ("M177 Evo"). A link that adds only
+a layout or a size is not a variant. A code that a longer code merely contains
+("4B11" beside "4B11T") is a variant of its own, and a hint matches a variant
+by whole word, never by substring. An unread engine is named from its article
+title, not from the first car's link text. Two lines are the same line only
+when their words and the name the link showed both agree, so one infobox line
+naming four engines keeps the car under each.
+
+**Generations.** A re-check applies itself only when it adds and removes
+nothing; a declined re-check is stored and stays declined. A stated successor
+is treated as a stated predecessor is, and the infobox fields are read as well
+as the headings. Lists stored before the rule are held against their articles
+once (`sweepStoredSplitsForOutsiders`, no model call): on the real store that
+is 666 lists and 8 generations set aside, among them the C-Class's W201, the
+CLK's C207, the Audi 80's F103 and the MU-X's MU-7. An undated generation is
+left undated, and a year the model recalled from memory is never used for a
+car.
+
+**Smaller.** Un-merge on an engine is remembered. A redirect into a section is
+followed only when the page still has that section or names the engine. HTML
+entities are decoded in engine text. Saved Wikipedia links are applied again
+after the generations and engines they belong to exist. A save the server
+turns down is reported on the page. The Saab 95 is no longer a generation of
+the Saab 9-5, and the SLK and the SLK-Class are one nameplate.
+
+Not done: makes invented from the first word of a mention ("1957" with a car
+called "Ford"). Fixing the names changes which existing car some forty stored
+mentions resolve to, because the name matcher accepts a bare substring ("Ion"
+inside "Fusion") and those junk cars were masking it. That needs the matcher
+tightened and the affected cars read again, not a relabel.
+
+Tests: `jsdom_reload_matches_session_test.js`.

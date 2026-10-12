@@ -1,9 +1,9 @@
 # The Car Web
 
-An explorable knowledge graph of the automobile industry: **6,786 car models**
-(101 of them grouped into nameplate families spanning 427 generations),
-**1,124 makes** and **2,356 people** — 2,253 designers and 139 chief engineers —
-joined by **19,695 relations**, from 1883 to today.
+An explorable knowledge graph of the automobile industry: **6,823 car models**
+(101 of them grouped into nameplate families spanning 430 generations),
+**1,126 makes** and **2,309 people** — 2,206 designers and 139 chief engineers —
+joined by **19,678 relations**, from 1883 to today.
 
 Made-by, designed-by, engineered-by, shared-platform, rebadge, succession and
 generation-succession links, all on one canvas.
@@ -16,25 +16,24 @@ Double-click `app/index.html`. No server, no build step, works offline.
 
 - **Graph** — the whole web on canvas. Positions are baked at build time, so it
   opens instantly. Click to focus, double-click to widen, Esc to release.
-- **Timeline** — every debut from 1886 to 2026 across ten country lanes. Follow a
+- **Powertrain** — engines, their variants and the cars they were fitted to.
+- **Timeline** — every debut from 1883 to today across ten country lanes. Follow a
   designer's or engineer's career threading through the decades, or a nameplate
   through all its generations.
 - **Six Degrees** — shortest path between any two nodes. Try Peter Rawlinson →
   Colin Chapman.
-- **Platforms** — only the cars that actually share a platform with, or are a
-  rebadge of, some other car.
 
-**Powertrain** mode switches the canvas to engines and the cars they were
-fitted to.
+A **Shared Platforms** button narrows any view to the cars that share a
+platform with, or are a rebadge of, some other car.
 
 A **None | Designers | Engineers | Both** switch re-lenses every view, and a
-year-range slider (2000–present by default) keeps the opening view uncluttered
-without hiding anything you navigate to directly.
+year-range slider (all years by default) narrows the view without hiding
+anything you navigate to directly.
 
 ## The chief-engineer layer
 
 DBpedia carries no chief-engineer data at all. The 139 engineers here, and the
-243 attributions tying them to specific cars, are hand-compiled from articles,
+245 attributions tying them to specific cars, are hand-compiled from articles,
 published interviews and marque histories, then spot-verified against source
 text: Chapman's Lotuses, Toyota's shusa system, the Corvette dynasty from
 Duntov through Juechter, Materazzi from the Stratos to the EB110.
@@ -56,9 +55,11 @@ untouched.
 
 What the layer does:
 
-- **Generations.** Splits a nameplate into its generations. A first split and a
-  re-check that keeps or adds generations apply themselves; one that would lose
-  a generation waits in **Tools → Pending Generation Splits**.
+- **Generations.** Splits a nameplate into its generations. A first split
+  applies itself, and so does a re-check that adds generations and removes
+  none; any re-check that would remove a generation waits in **Tools → Pending
+  Generation Splits**. A car the article states as the predecessor or the
+  successor is not a generation. A car with no stated year stays undated.
 - **Shared platforms.** Reads which other cars each generation shares a
   platform with or is a rebadge of, and connects it to the right generation of
   the right car. A connection to a nameplate is hidden once a generation of
@@ -97,7 +98,7 @@ cd qa/jsdom && npm install jsdom --no-save
 for f in jsdom_*_test.js; do node "$f" >/dev/null 2>&1 || echo "FAILED: $f"; done
 ```
 
-131 headless jsdom regression tests, plus the `qa/qa_*.py` suites (those
+134 headless jsdom regression tests, plus the `qa/qa_*.py` suites (those
 need Playwright, or a running `llama-server` for the MTP benchmark).
 
 ## Data and licence

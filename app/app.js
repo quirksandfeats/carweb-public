@@ -252,11 +252,13 @@ window.CarWeb = (function () {
       // nameplate already in the graph ("Octavia" beside the Octavia) is
       // that nameplate, before it is anything else -- otherwise its own
       // split, applied next, puts a second Octavia on screen.
-      const retiredBefore = pass ? 0 : nodes.filter(n => n.retired).length;
       if (!pass) {
         LFam.mergeDuplicateNameplates(nodes, links);
         if (LFam.foldCodeDuplicateModels) LFam.foldCodeDuplicateModels(nodes, links);
         if (LFam.foldUmbrellaModels) LFam.foldUmbrellaModels(nodes, links);
+        // And two nameplates for one article, now that every nameplate's own
+        // link is known (the SLK beside the SLK-Class).
+        if (LFam.foldBuildFamiliesIntoLlmFamilies) LFam.foldBuildFamiliesIntoLlmFamilies(nodes, links);
       }
       LFam.applyConfirmed(nodes, links);
       LFam.applyAllFamilyOverrides(nodes, links);
@@ -284,6 +286,13 @@ window.CarWeb = (function () {
       console.info(`[carweb] ${nodes.length - lateFrom} node(s) only appear once the replay has run to the end`);
     }
   }
+  // Saved Wikipedia links once more, for everything that did not exist when
+  // they were first applied at the top: generations the model's lists made,
+  // and every engine. "Change link" on one of those was saved and then never
+  // put back -- after a reload the generation was on its nameplate's article
+  // again and the engine on its old title. A link chosen by hand wins; one a
+  // scan saved fills a gap. Same call, same rule, later.
+  if (window.LlmFamilies) window.LlmFamilies.applyWpLinks(nodes);
   // Deliberately last of the replay passes, not in the middle of them. It
   // reads every family's final generation list, and the four calls above are
   // the ones that retire generations -- an unmerge, a rename, a delete, a
@@ -645,20 +654,27 @@ window.CarWeb = (function () {
     // connected to the variant only. "if the engine var is there for the car,
     // then only show the engine var... Only fall back to the engine name if
     // there is no engine var, but dont show both."
-    const varsCovered = new Map();   // car id -> set of engine ids a variant covers
-    for (const { eng, car } of edges) {
+    //
+    // "Both" meaning the same engine twice. A line to the family in words of
+    // its own is another engine of that family the car has -- the GLC's
+    // "2.0 L M270/M274 I4 turbo" beside its M274 -- and the data layer keeps
+    // it on purpose (see tidyEngineLinks), so it is drawn. See
+    // familyLineIsRepeat.
+    const varsCovered = new Map();   // car id + engine id -> the car's lines on that engine's variants
+    for (const { l, eng, car } of edges) {
       if (eng.type !== "enginevar" || !eng.engineOf) continue;
-      if (!varsCovered.has(car.id)) varsCovered.set(car.id, new Set());
-      varsCovered.get(car.id).add(eng.engineOf);
+      const k = car.id + "|" + eng.engineOf;
+      if (!varsCovered.has(k)) varsCovered.set(k, []);
+      varsCovered.get(k).push(l);
     }
     for (const e of edges) {
       const byFam = famsCovered.get(e.hubId);
-      const byVar = varsCovered.get(e.car.id);
+      const byVar = e.eng.type === "engine" ? varsCovered.get(e.car.id + "|" + e.eng.id) : null;
       // Kept as the edge OBJECT rather than a key: an engine's own id is also
       // its variants' hub id, so any id-pair key would hide the variant's
       // edge along with the engine's.
       if ((byFam && byFam.has(e.car.id)) ||
-          (byVar && e.eng.type === "engine" && byVar.has(e.eng.id))) {
+          (byVar && familyLineIsRepeat(e.l, byVar))) {
         suppressedEdges.add(e.l);
         continue;
       }
@@ -702,7 +718,19 @@ window.CarWeb = (function () {
       return false;
     }
     if (isPowertrain(n)) return false;
-    if (n.type === "model" && n.familyOf && !expandedFamilies.has(n.familyOf)) return false;
+    // A generation shows once its nameplate is open -- and so does a
+    // nameplate that is itself a generation of another. The Porsche 911
+    // (classic) is one of the 911's generations and has six of its own; as a
+    // nameplate it was exempt from this test, so it stood beside the collapsed
+    // 911 with every relation drawn at both levels. Every nameplate above it
+    // has to be open.
+    if ((n.type === "model" || n.type === "family") && n.familyOf) {
+      for (let up = n.familyOf, hops = 0; up && hops < 4; hops++) {
+        if (!expandedFamilies.has(up)) return false;
+        const parent = byId.get(up);
+        up = parent && parent.familyOf;
+      }
+    }
     if (!isPerson(n)) return true;
     if (layer === "none") return false;
     if (layer === "both") return true;
@@ -1777,10 +1805,20 @@ window.CarWeb = (function () {
     //
     // The same rule as a nameplate and its generation, one level down: an
     // engine whose own variant is fitted to this car is not listed itself.
+    //
+    // ...when it is the same engine said twice. A line to the family in
+    // words of its own (the DB12's "4.0 L AE23 twin-turbo V8" beside its
+    // M177) is a different engine of that family and is listed.
     {
-      const covered = new Set();
-      engines.forEach(e => { if (e.other.type === "enginevar") covered.add(e.other.engineOf); });
-      if (covered.size) engines = engines.filter(e => !covered.has(e.other.id));
+      const covered = new Map();
+      engines.forEach(e => {
+        if (e.other.type !== "enginevar") return;
+        if (!covered.has(e.other.engineOf)) covered.set(e.other.engineOf, []);
+        covered.get(e.other.engineOf).push(e.l);
+      });
+      if (covered.size) {
+        engines = engines.filter(e => !(covered.has(e.other.id) && familyLineIsRepeat(e.l, covered.get(e.other.id))));
+      }
     }
     // Engines the car's own list names with no article behind them. The
     // Suburban's 1973 infobox names seven and links one: the other six are
@@ -1798,33 +1836,58 @@ window.CarWeb = (function () {
     sum.textContent = total === 1 ? "Engine" : `Engines (${total})`;
     det.appendChild(sum);
     box.appendChild(det);
+    // What each row will read, worked out first: two rows that would read
+    // the same are told apart by the car's own words for each ("1.6 L M270
+    // turbo I4" and "2.0 L M270 turbo I4" both print as "M270" otherwise,
+    // which looks exactly like one engine listed twice).
+    const plain = t => (LFam.decodeEntities ? LFam.decodeEntities(t) : t);
+    const rowKey = ({ other, l }) => {
+      const sd = l.saidSpecs || {};
+      return other.id + "|" + (other.type === "enginevar" ? "" : (l.variantHint || sd.displacement || "")) +
+             "|" + fmtYearRun(l.yearStart, l.yearEnd);
+    };
+    const rowCount = new Map();
+    engines.forEach(e => rowCount.set(rowKey(e), (rowCount.get(rowKey(e)) || 0) + 1));
     engines.forEach(({ other, l }) => {
       const eng = other.type === "enginevar" ? engineOfVariant(other, index) : other;
+      const words = l.saidText ? String(plain(l.saidText)).replace(/\s+/g, " ").trim() : "";
       // A car runs several engines off one article far more often than not:
       // the 1960 Suburban's infobox names three Turbo-Thrifts, 230, 250 and
       // 292 cu in. Each is its own row, so each has to say WHICH -- until
       // the article is read and they become named variants, the only thing
       // that tells them apart is what the car's own line said.
       const said = l.saidSpecs || {};
-      const which = other.type === "enginevar" ? other.label
-                  : (l.variantHint || said.displacement || null);
+      const which = other.type === "enginevar" ? plain(other.label)
+                  : (plain(l.variantHint) || said.displacement || null);
       const sub = [which,
+                   words && rowCount.get(rowKey({ other, l })) > 1 ? words : null,
                    other.type !== "enginevar" && l.variantHint && said.displacement &&
                      String(l.variantHint).toLowerCase().replace(/[^a-z0-9]/g, "") !==
                      String(said.displacement).toLowerCase().replace(/[^a-z0-9]/g, "")
                        ? said.displacement : null,
                    fmtYearRun(l.yearStart, l.yearEnd),
                    isEngineUnread(eng) ? "not read yet" : null].filter(Boolean).join(" · ");
-      row(eng ? eng.label : other.label, sub, () => api.goto(other.id), null, det);
+      const b = row(plain(eng ? eng.label : other.label), sub, () => api.goto(other.id), null, det);
+      if (words && b) b.title = words;
     });
     // row() with no click handler renders disabled, which is exactly right:
     // there is nothing to open.
     unlinked.forEach(u => {
       const sp = u.specs || {};
-      const b = row(u.name, [fmtYearRun(sp.yearStart, sp.yearEnd), "no article"]
+      const b = row(plain(u.name), [fmtYearRun(sp.yearStart, sp.yearEnd), "no article"]
                               .filter(Boolean).join(" · "), null, null, det);
-      b.title = u.said || u.name;
+      b.title = plain(u.said || u.name);
     });
+  }
+  // A car's line to an engine family, beside its lines to that family's
+  // variants: a repeat when it says nothing (the bare edge an article's table
+  // leaves) or says what one of the variant lines says. In words of its own
+  // it is another engine. The test tidyEngineLinks uses, so what is kept in
+  // the data is what is shown.
+  function familyLineIsRepeat(l, variantLines) {
+    if (!l.saidText) return true;
+    const same = window.LlmFamilies && window.LlmFamilies.sameEngineLine;
+    return !same || (variantLines || []).some(v => same(v, l));
   }
   // Whether an engine's own article has actually been read. `unresearched` is
   // set when a car names an engine and cleared by a scan, but an engine whose

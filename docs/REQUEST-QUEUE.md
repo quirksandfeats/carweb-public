@@ -286,7 +286,7 @@ model the way a person does.
 | `--cascade-depth` | serve.py's setting | overrides `CASCADE_MAX_DEPTH` for this run |
 | `--settle-seconds` | 900 | hard cap on waiting for a seed's cascade |
 | `--settle-quiet` | 60 | fallback only: quiet that counts as finished when the page cannot report |
-| `--budget-minutes` | 45 | wall-clock cap on the scanning phase |
+| `--budget-minutes` | 0 (no limit) | wall-clock cap on the scanning phase |
 | `--node-timeout` | 600 | idle seconds one car gets before it is logged as an error |
 
 `--settle-seconds` exists because a seed's own answer landing is not the end of
