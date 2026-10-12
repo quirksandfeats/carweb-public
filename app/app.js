@@ -24,6 +24,11 @@ window.CarWeb = (function () {
   // car (e.g. a confirmed generation split on a nameplate the user typed in
   // by hand), so its base node has to already exist before they run. See
   // llm_families.js's applyUserCars/registerUserCar for the full story.
+  // From here to the end of the replay nothing new is being decided: stored
+  // decisions are being put back. What each pass would say to serve.py's
+  // terminal is counted and summed up in one line at the end, in place of two
+  // hundred of the same lines on every refresh.
+  if (window.LlmFamilies && window.LlmFamilies.replayStarted) window.LlmFamilies.replayStarted();
   if (window.LlmFamilies) window.LlmFamilies.applyUserCars(nodes, links);
   // Real user request: "the info box should have a location for the user
   // to be able to put in the wikipedia link with the car associated" -- a
@@ -227,7 +232,7 @@ window.CarWeb = (function () {
   if (window.LlmFamilies) {
     window.LlmFamilies.applySharedPlatformForSingleGen(nodes, links);
     window.LlmFamilies.applyPeopleForSingleGen(nodes, links);
-    window.LlmFamilies.applyResolvedRelations(nodes, links);
+    window.LlmFamilies.applyResolvedRelations(nodes, links, { deferDecisions: true });
   }
   // ...and then until there is nothing left to replay. The passes above each
   // ran once, in an order that assumes every car a decision is about already
@@ -265,9 +270,16 @@ window.CarWeb = (function () {
       LFam.reconcileDbGenerations(nodes);
       LFam.applySharedPlatformForSingleGen(nodes, links);
       LFam.applyPeopleForSingleGen(nodes, links);
-      LFam.applyResolvedRelations(nodes, links);
+      LFam.applyResolvedRelations(nodes, links, { deferDecisions: true });
       if (nodes.length === nb && links.length === lb) break;
     }
+    // Waiting relationships are decided by rule now, and only now: on the
+    // finished graph. Decided before the passes above had made the cars that
+    // arrive late, three of them were dropped on every load because "one of
+    // the two cars is no longer in the graph", proposed again a moment later
+    // when that car appeared, and the whole store was written back to disk
+    // each time for nothing.
+    LFam.applyResolvedRelations(nodes, links);
     if (nodes.length !== lateFrom) {
       // What the earlier one-shot passes would have done for these cars had
       // they existed in time: their names, their deletions -- and their
@@ -303,6 +315,7 @@ window.CarWeb = (function () {
   // After every pass that can add a relation: one between a car and itself
   // is never drawn. See llm_families.js's retireSelfLinks.
   if (window.LlmFamilies && window.LlmFamilies.retireSelfLinks) window.LlmFamilies.retireSelfLinks(nodes, links);
+  if (window.LlmFamilies && window.LlmFamilies.replayFinished) window.LlmFamilies.replayFinished(nodes);
   // Whatever the replays above decided is saved once, so the next load reads
   // it instead of deciding it again. Nothing changed, nothing is written.
   if (window.LlmFamilies && window.LlmFamilies.saveIfChanged) window.LlmFamilies.saveIfChanged();
@@ -4426,13 +4439,18 @@ window.CarWeb = (function () {
       };
     }
 
-    function refresh() {
+    // `quick`: what the page needs at load, which is whether the button
+    // shows. The list itself -- one option per stored decision, 8,700 of
+    // them, sorted with a collation -- is built when the panel is opened; it
+    // was being built on every load for a panel that starts closed.
+    function refresh(quick) {
       renderOrphans();
       const genEntries = LF.allEntries();
       const recheckEntries = LF.allRecheckEntries ? LF.allRecheckEntries() : [];
       const relationEntries = LF.allRelationEntries ? LF.allRelationEntries() : [];
       const total = genEntries.length + recheckEntries.length + relationEntries.length;
       btn.hidden = total === 0 && !LF.serverAvailable;
+      if (quick === true) return;
       sel.innerHTML = "";
       const options = [
         ...genEntries.map(e => ({ value: "gen:" + e.id, text: `${nodeLabelFor(e.id, e.sourceTitle)} — ${e.status}` })),
@@ -4441,7 +4459,8 @@ window.CarWeb = (function () {
       ];
       // localeCompare with numeric collation, so "Series 2" sorts before
       // "Series 10" rather than lexicographically after it.
-      options.sort((a, b) => a.text.localeCompare(b.text, undefined, { numeric: true, sensitivity: "base" }));
+      const byName = new Intl.Collator(undefined, { numeric: true, sensitivity: "base" });
+      options.sort((a, b) => byName.compare(a.text, b.text));
       options.forEach(({ value, text }) => {
         const o = document.createElement("option");
         o.value = value; o.textContent = text;
@@ -4506,7 +4525,7 @@ window.CarWeb = (function () {
       else await LF.deleteEntry(id);
       location.reload();
     };
-    refresh();
+    refresh(true);
   }
 
   // ---------- LLM playground ----------

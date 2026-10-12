@@ -610,8 +610,33 @@ window.LlmFamilies = (function () {
       }).catch(() => {});
     } catch (e) { /* nothing here is worth interrupting for */ }
   }
+  // A load replays what is stored, and every pass of it used to report what
+  // it had just put back: about 225 lines in serve.py's terminal on every
+  // refresh, the same ones each time, burying anything new. While a replay
+  // runs the lines are only counted. A line about something DECIDED during
+  // it (a relationship confirmed or taken back by rule) is still shown: that
+  // is news, and it is saved, so it is said once.
+  let replaying = false, replayLines = 0;
+  function replayStarted() { replaying = true; replayLines = 0; }
+  function replayFinished(nodes) {
+    if (!replaying) return;
+    replaying = false;
+    if (!serverAvailable) return;
+    const live = (nodes || []).filter(n => n && !n.retired);
+    const count = t => live.filter(n => n.type === t).length;
+    // The one-off check of stored generation lists picks up where a reload
+    // cut it off. It reads Wikipedia and calls no model, and it does nothing
+    // once every list has been through it.
+    setTimeout(() => {
+      sweepStoredSplitsForOutsiders().catch(e => console.warn("LlmFamilies: stored-list check failed", e));
+    }, 4000);
+    note(`load: stored decisions replayed -- ${count("model") + count("family")} cars, ` +
+         `${count("engine")} engines and ${count("enginevar")} variants on screen` +
+         (replayLines ? ` (${replayLines} routine line(s) not shown)` : ""));
+  }
   function note(text) {
     if (!serverAvailable || !text) return;
+    if (replaying && !/^relations: (?:confirm|reject|drop|took back)|^generations: /.test(String(text))) { replayLines++; return; }
     noteQueue.push(String(text));
     if (noteTimer) clearTimeout(noteTimer);
     noteTimer = setTimeout(flushNotes, noteQueue.length >= 200 ? 0 : 400);
@@ -2402,25 +2427,31 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
       const out = { checked: 0, setAside: [], failed: 0 };
       if (!todo.length) return out;
       note(`generations: checking ${todo.length} stored generation list(s) against their articles for a stated predecessor or successor`);
-      for (let i = 0; i < todo.length; i++) {
-        const { id, e } = todo[i];
-        let wikitext = null;
-        try { wikitext = (await fetchArticleDigest(e.sourceTitle)).wikitext; }
-        catch (err) { out.failed++; continue; }     // left unmarked: tried again next time
-        const gens = e.proposal.generations;
-        const stated = predecessorsStatedBy(wikitext, gens);
-        if (stated.size && stated.size < gens.length) {
-          e.outsiders = gens.filter(g => stated.has(g)).map(g => ({ code: g.code, why: stated.get(g) }));
-          e.outsiders.forEach(o => {
-            out.setAside.push({ id, title: e.sourceTitle, code: o.code, why: o.why });
-            note(`generations: "${e.sourceTitle}" -- ${o.code} is not a generation of it (${o.why}); left out`);
-          });
+      // Three at a time. One at a time took long enough that a reload cut
+      // it short with a hundred lists to go, the C-Class among them.
+      let next = 0;
+      const worker = async () => {
+        while (next < todo.length) {
+          const { id, e } = todo[next++];
+          let wikitext = null;
+          try { wikitext = (await fetchArticleDigest(e.sourceTitle)).wikitext; }
+          catch (err) { out.failed++; continue; }     // left unmarked: tried again next time
+          const gens = e.proposal.generations;
+          const stated = predecessorsStatedBy(wikitext, gens);
+          if (stated.size && stated.size < gens.length) {
+            e.outsiders = gens.filter(g => stated.has(g)).map(g => ({ code: g.code, why: stated.get(g) }));
+            e.outsiders.forEach(o => {
+              out.setAside.push({ id, title: e.sourceTitle, code: o.code, why: o.why });
+              note(`generations: "${e.sourceTitle}" -- ${o.code} is not a generation of it (${o.why}); left out`);
+            });
+          }
+          e.outsidersV = OUTSIDER_RULE_VERSION;
+          out.checked++;
+          if (out.checked % 40 === 0) await persist();
+          if (pause) await new Promise(r => setTimeout(r, pause));
         }
-        e.outsidersV = OUTSIDER_RULE_VERSION;
-        out.checked++;
-        if (out.checked % 40 === 0) await persist();
-        if (pause) await new Promise(r => setTimeout(r, pause));
-      }
+      };
+      await Promise.all([worker(), worker(), worker()]);
       await persist();
       note(`generations: ${out.checked} stored list(s) checked; ${out.setAside.length} generation(s) set aside as a stated ` +
            `predecessor or successor` + (out.setAside.length ? " -- reload to see the nameplates without them" : "") +
@@ -3001,7 +3032,7 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
                                  reason: `its page is the whole ${own.base}; ${own.code} is one generation` };
       note(`llm: ${node.make} ${node.label} renamed to ${node.make} ${own.base} -- its article ` +
            `covers every generation, and ${own.code} is one of them`);
-      node.label = own.base;
+      node.label = own.base; namesChanged();
       node.renamed = true;
     }
     return null;
@@ -3525,34 +3556,77 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
   // unlikely; tier 3 only ever compares the short trailing code, so it
   // additionally requires the candidate's own BASE name (everything before
   // that code) to match the nameplate actually being processed.
+  // ---------- every car's name, looked up instead of searched for ----------
+  // A load asks "which car is called this?" about nine thousand times, and
+  // each ask walked all fourteen thousand nodes up to three times: eleven of
+  // the twenty seconds a load took. The answers depend only on labels and
+  // makes, so they are indexed -- by whole name, by bare name, by the parts
+  // of a joined name, by trailing code, and by three-letter runs for "one
+  // name inside the other".
+  //
+  // Exact by construction: nodes are only ever appended (the index takes in
+  // the new ones on each ask), and the few places that change a label or a
+  // make say so (namesChanged). What an answer also depends on that DOES
+  // change all the time -- retired, familyOf, type -- is tested when asked,
+  // never stored. And a hit is re-read off the node before it is believed.
+  let namesEpoch = 0;
+  function namesChanged() { namesEpoch++; }
+  const nameIndexes = new WeakMap();
+  function nameIndexOf(nodes) {
+    let ix = nameIndexes.get(nodes);
+    if (!ix || ix.epoch !== namesEpoch) {
+      ix = { epoch: namesEpoch, upTo: 0, cars: [], full: new Map(), bare: new Map(),
+             parts: new Map(), tail: new Map(), grams: new Map(), short: [] };
+      nameIndexes.set(nodes, ix);
+    }
+    const put = (map, k, v) => { const a = map.get(k); if (a) a.push(v); else map.set(k, [v]); };
+    for (; ix.upTo < nodes.length; ix.upTo++) {
+      const n = nodes[ix.upTo];
+      if (!n || (n.type !== "model" && n.type !== "family")) continue;
+      const nk = nameKeysOf(n);
+      const e = { n, pos: ix.upTo, full: nk.full, bare: nk.bare, label: n.label, make: n.make };
+      ix.cars.push(e);
+      put(ix.full, nk.full, e);
+      put(ix.bare, nk.bare, e);
+      const parts = labelParts(n.label);
+      if (parts.length > 1) new Set(parts.map(p => norm(p))).forEach(k => { if (k) put(ix.parts, k, e); });
+      const tc = trailingCode(n.label);
+      if (tc && tc.code) put(ix.tail, norm(tc.code) + "|" + norm(tc.base), e);
+      if (nk.bare.length > 2) {
+        const seen = new Set();
+        for (let i = 0; i + 3 <= nk.bare.length; i++) {
+          const g = nk.bare.substr(i, 3);
+          if (!seen.has(g)) { seen.add(g); put(ix.grams, g, e); }
+        }
+      } else ix.short.push(e);
+    }
+    return ix;
+  }
+  // The entry still says what the node says. If not, somebody changed a name
+  // without saying so: the index is thrown away and the caller starts over.
+  const entryFresh = e => e.label === e.n.label && e.make === e.n.make;
+  function staleNames() { namesEpoch++; return null; }
+
   function findDuplicateGeneration(nodes, code, famId, make, nameplateLabel) {
     const key = norm(code);
     const makeKey = norm(make);
     const nameKey = norm(nameplateLabel);
     if (!key || !makeKey) return null;
     const eligible = n => n.type === "model" && !n.retired && n.id !== famId && n.familyOf !== famId && nameKeysOf(n).make === makeKey;
-    // Tier 1: the node's own whole label is an exact match -- a genuinely
-    // standalone car whose label IS just the bare code (or happens to equal
-    // it exactly), the highest-confidence case.
-    for (const n of nodes) { if (eligible(n) && nameKeysOf(n).bare === key) return n; }
-    // Tier 2: a combined-designation label ("R107 and C107") names this
-    // code as one of its distinct parts -- see this function's own comment
-    // above for the real bug report this fixes.
-    for (const n of nodes) {
-      if (!eligible(n)) continue;
-      const parts = labelParts(n.label);
-      if (parts.length > 1 && parts.some(p => norm(p) === key)) return n;
-    }
-    // Tier 3: an already-grouped generation labeled "<nameplate> (<code>)"
-    // or "<nameplate> <code>" -- see trailingCode's own comment for why
-    // this is its own tier, not folded into tier 1, and this function's own
-    // comment above for why the base-name check here is essential.
-    if (nameKey) {
-      for (const n of nodes) {
-        if (!eligible(n)) continue;
-        const tc = trailingCode(n.label);
-        if (tc && norm(tc.code) === key && norm(tc.base) === nameKey) return n;
-      }
+    for (let attempt = 0; attempt < 2; attempt++) {
+      const ix = nameIndexOf(nodes);
+      let stale = false;
+      const first = list => {
+        for (const e of list || []) {
+          if (!entryFresh(e)) { stale = true; return null; }
+          if (eligible(e.n)) return e.n;
+        }
+        return null;
+      };
+      const hit = first(ix.bare.get(key)) || (!stale && first(ix.parts.get(key))) ||
+                  (!stale && nameKey && first(ix.tail.get(key + "|" + nameKey))) || null;
+      if (!stale) return hit;
+      staleNames();
     }
     return null;
   }
@@ -3692,43 +3766,65 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
     if (!key) return null;
     const eligible = n => (n.type === "model" || n.type === "family") &&
       n.id !== excludeFamId && n.familyOf !== excludeFamId;
-    for (const n of nodes) {
-      if (!eligible(n)) continue;
-      const nk = nameKeysOf(n);
-      if (nk.full === key || nk.bare === key) return { node: n, loose: false };
+    // The first car, in graph order, called exactly this. See nameIndexOf.
+    let ix = nameIndexOf(nodes);
+    const exactOnce = () => {
+      const a = ix.full.get(key) || [], b = ix.bare.get(key) || [];
+      let best = null;
+      for (const list of [a, b]) {
+        for (const e of list) {
+          if (!entryFresh(e)) return undefined;
+          if (best && e.pos >= best.pos) break;
+          if (eligible(e.n)) { best = e; break; }
+        }
+      }
+      return best;
+    };
+    let exact = exactOnce();
+    if (exact === undefined) { staleNames(); ix = nameIndexOf(nodes); exact = exactOnce() || null; }
+    if (exact) return { node: exact.n, loose: false };
+    const codes = chassisCodesIn(text);
+    if (codes.length) {
+      const byCode = generationsByCode(nodes);
+      for (const c of codes) {
+        const gen = byCode.get(norm(c));
+        if (!gen || !eligible(gen)) continue;
+        if (gen.make && norm(key).indexOf(norm(gen.make)) < 0 &&
+            norm(key).indexOf(norm(gen.label)) < 0) continue;
+        return { node: gen, loose: true, byCode: true };
+      }
     }
-    // Real user report: "There are some instances where there now exists a
-    // duplicate of a car, model, generation, etc. For example, there currently
-    // exists a 'Mercedes-Benz GLA X156', which is part of the GLA nameplate
-    // and has lots of info associated with it. There also exists a
-    // 'Mercedes-Benz GLA-Class (X156)', which displays as a separate model but
-    // has no additional information."
-    //
-    // A chassis code is the strongest identifier a car mention carries, and
-    // "Mercedes-Benz GLA-Class (X156)" carries one. The loose substring rule
-    // below could not see it -- "GLA-Class (X156)" does not contain "GLA X156"
-    // -- so the mention matched nothing and was minted as a new model beside
-    // the generation it names. Checked before the substring rule because a
-    // code is evidence and a substring is a guess.
-    const byCode = generationsByCode(nodes);
-    for (const c of chassisCodesIn(text)) {
-      const gen = byCode.get(norm(c));
-      if (!gen || !eligible(gen)) continue;
-      // The code has to belong to the marque the text names, where the text
-      // names one at all -- codes are only unique within a maker.
-      if (gen.make && norm(key).indexOf(norm(gen.make)) < 0 &&
-          norm(key).indexOf(norm(gen.label)) < 0) continue;
-      return { node: gen, loose: true, byCode: true };
-    }
-    // Loose fallback: the mentioned text contains (or is contained by) a
-    // node's bare label, e.g. "the Toyota GT86 (badged as the Scion FR-S in
-    // some markets)" containing "GT86" -- only accepted when exactly one
-    // node matches this way, never on a guess between several.
-    let loose = nodes.filter(n => {
-      if (!eligible(n)) return false;
-      const b = nameKeysOf(n).bare;
-      return b.length > 2 && (key.includes(b) || b.includes(key));
-    });
+    // One name inside the other. A name inside the text: every run of the
+    // text's letters, looked up. The text inside a name: the names sharing
+    // its rarest three-letter run, then tested.
+    const looseOnce = () => {
+      const hits = new Map();
+      const take = e => {
+        if (!entryFresh(e)) return false;
+        if (e.bare.length > 2 && eligible(e.n)) hits.set(e.pos, e.n);
+        return true;
+      };
+      for (let i = 0; i < key.length; i++) {
+        for (let j = i + 3; j <= key.length; j++) {
+          const list = ix.bare.get(key.slice(i, j));
+          if (list) for (const e of list) if (!take(e)) return undefined;
+        }
+      }
+      if (key.length >= 3) {
+        let rare = null;
+        for (let i = 0; i + 3 <= key.length; i++) {
+          const list = ix.grams.get(key.substr(i, 3));
+          if (!list) { rare = []; break; }
+          if (!rare || list.length < rare.length) rare = list;
+        }
+        for (const e of rare || []) if (e.bare.includes(key) && !take(e)) return undefined;
+      } else {
+        for (const e of ix.cars) if (e.bare.length > 2 && e.bare.includes(key) && !take(e)) return undefined;
+      }
+      return [...hits.keys()].sort((x, y) => x - y).map(pos => hits.get(pos));
+    };
+    let loose = looseOnce();
+    if (loose === undefined) { staleNames(); ix = nameIndexOf(nodes); loose = looseOnce() || []; }
     if (loose.length > 1) {
       const looseIds = new Set(loose.map(n => n.id));
       loose = loose.filter(n => !(n.type === "family" && (n.generations || []).some(gid => looseIds.has(gid))));
@@ -6024,6 +6120,10 @@ Rules:
   // anyone.
   function applyPeopleForSingleGen(nodes, links) {
     const byId = new Map(nodes.map(n => [n.id, n]));
+    const credits = new Set();
+    for (const l of links) {
+      if (l.type === "designed" || l.type === "engineered") credits.add(l.type + "|" + idOf(l.source) + "|" + idOf(l.target));
+    }
     Object.keys(store.families).forEach(nodeId => {
       const entry = store.families[nodeId];
       if (!entry || entry.status !== "none") return;
@@ -6045,9 +6145,13 @@ Rules:
             const p = resolvePersonNode(nodes, byId, name, role);
             if (!p) return;
             set.add(name);
-            const already = links.some(l => l.type === linkType &&
-              idOf(l.source) === orig.id && idOf(l.target) === p.id);
-            if (!already) links.push({ source: orig.id, target: p.id, type: linkType, llmDiscovered: true });
+            // Looked up, not searched for: nothing in this pass moves a
+            // credit, so one index of them serves every check in it.
+            const ck = linkType + "|" + orig.id + "|" + p.id;
+            if (!credits.has(ck)) {
+              credits.add(ck);
+              links.push({ source: orig.id, target: p.id, type: linkType, llmDiscovered: true });
+            }
           });
           orig[role + "s"] = [...set];
         });
@@ -9113,7 +9217,7 @@ Rules:
       if (ownCodeShape(rec.previousLabel)) continue;
       delete store.renames[id];
       const node = byIdLocal.get(id);
-      if (node && node.label === rec.label) node.label = rec.previousLabel;
+      if (node && node.label === rec.label) node.label = rec.previousLabel; namesChanged();
       note(`llm: "${rec.label}" given its name back ("${rec.previousLabel}") -- ` +
            "its last word is part of the name, not a generation code");
       undone++;
@@ -9183,11 +9287,11 @@ Rules:
       const n = byIdLocal.get(id);
       if (!n || !rec || !rec.label) return;
       const before = n.label;
-      n.label = rec.label;
+      n.label = rec.label; namesChanged();
       n.renamed = true;
       if (n.type === "make" && before && before !== rec.label) {
         nodes.forEach(o => {
-          if ((o.type === "model" || o.type === "family") && norm(o.make) === norm(before)) o.make = rec.label;
+          if ((o.type === "model" || o.type === "family") && norm(o.make) === norm(before)) { o.make = rec.label; namesChanged(); }
         });
       }
       // Real user request: "if I rename the model in the nameplate then this
@@ -9214,7 +9318,7 @@ Rules:
           // renamed "B-Class" is not to become "B-Class-Class (W246)".
           if (String(rec.label).toLowerCase().startsWith(String(before).toLowerCase()) &&
               String(g.label).toLowerCase().includes(String(rec.label).toLowerCase())) return;
-          g.label = g.label.replace(re, (m, lead) => lead + rec.label);
+          g.label = g.label.replace(re, (m, lead) => lead + rec.label); namesChanged();
           g.renamedWithFamily = true;
         });
       }
@@ -9601,7 +9705,7 @@ Rules:
       // "C" is a stub of "C-Class"; the article's own name is the better one.
       if (!store.renames[fam.id] && norm(m.label).length > norm(fam.label).length &&
           norm(`${m.make} ${m.label}`) === articleKeyOf(m.wp)) {
-        fam.label = m.label;
+        fam.label = m.label; namesChanged();
       }
       note(`graph: "${m.make} ${m.label}" is the nameplate's own article -- folded into ` +
            `"${fam.make} ${fam.label}" (${(fam.generations || []).length} generations)`);
@@ -10215,6 +10319,9 @@ Rules:
            "against an opposite link between the same two cars");
     }
     const toAdd = [];
+    // The successions alone, picked out once: each nameplate-level one is
+    // checked against all the others, and they are a tenth of the links.
+    const successions = links.filter(o => o.type === "succession");
     links.forEach(l => {
       if (l.type !== "succession" || l.mirror || l.retired || l.genLevel) return;
       const s = byIdLocal.get(idOf(l.source)), t = byIdLocal.get(idOf(l.target));
@@ -10241,7 +10348,7 @@ Rules:
       // either a previous run of this function, or (better) a real
       // LLM-resolved pair. Don't add a second, competing line; just make
       // sure the coarse original defers to it.
-      const specific = links.find(o => o !== l && o.type === "succession" && !o.mirror && !o.retired &&
+      const specific = successions.find(o => o !== l && !o.mirror && !o.retired &&
         belongsTo(byIdLocal.get(idOf(o.source)), s.id) && belongsTo(byIdLocal.get(idOf(o.target)), t.id));
       if (!specific) toAdd.push({ source: sGen.id, target: tGen.id, type: "succession", genLevel: true, note: l.note });
       // Tag the nameplate-level original so linkInLayer hides it as soon as
@@ -12579,9 +12686,13 @@ Rules:
     const names = n => [n.label, stripEngineSuffix(String(n.wp || "").split("#")[0])].filter(Boolean);
     return names(a).some(x => names(b).some(y => sameEngineText(x, y)));
   }
-  function bindCarsToVariants(eng, nodes, links) {
+  function bindCarsToVariants(eng, nodes, links, shared) {
     if (!eng || !(eng.variants || []).length) return 0;
-    const byIdLocal = new Map(nodes.map(n => [n.id, n]));
+    // `shared`: the index tidyPowertrain builds once for every engine. Alone,
+    // this engine's own is built here.
+    const own = shared || (() => { const c = engineLinkContext(nodes, links, eng.id); return { byId: c.byId, links: c.linksOf.get(eng.id) || [] }; })();
+    const byIdLocal = own.byId;
+    const mineLinks = own.links;
     const vars = (eng.variants || []).map(id => byIdLocal.get(id)).filter(v => v && !v.retired);
     if (!vars.length) return 0;
     const endOf = v => (typeof v === "string" ? v : (v && v.id));
@@ -12597,7 +12708,7 @@ Rules:
     // or on the plainer variant, it goes there.
     const words = t => String(t || "").trim().split(/\s+/).filter(Boolean);
     const family = new Set([eng.id].concat(vars.map(v => v.id)));
-    for (const l of links.slice()) {
+    for (const l of mineLinks.slice()) {
       if (l.type !== "fitted" || l.retired || !l.saidName) continue;
       const at = family.has(endOf(l.source)) ? endOf(l.source) : (family.has(endOf(l.target)) ? endOf(l.target) : null);
       if (!at) continue;
@@ -12649,7 +12760,7 @@ Rules:
       l.boundToVariant = true;
       moved++;
     }
-    for (const l of links) {
+    for (const l of mineLinks) {
       if (l.type !== "fitted" || l.retired) continue;
       if (endOf(l.source) !== eng.id && endOf(l.target) !== eng.id) continue;
       const carId = endOf(l.source) === eng.id ? endOf(l.target) : endOf(l.source);
@@ -12685,7 +12796,7 @@ Rules:
       // and a 2.0 L M270 -- and with the test on the car alone, the second
       // was retired as a repeat of the first. A bare edge from an article's
       // table says nothing a line already on the variant does not.
-      const already = links.some(o => o !== l && o.type === "fitted" && !o.retired &&
+      const already = mineLinks.some(o => o !== l && o.type === "fitted" && !o.retired &&
         ((endOf(o.source) === v.id && endOf(o.target) === carId) ||
          (endOf(o.target) === v.id && endOf(o.source) === carId)) &&
         (!l.saidText || sameEngineLine(o, l)));
@@ -12708,14 +12819,16 @@ Rules:
   // nameplate but only the gen." Applied to what is already in the graph, not
   // only to what is being added, because a car can be split into generations
   // long after the engine was first read.
-  function dropNameplateEdgesUnderGenerations(eng, nodes, links) {
+  function dropNameplateEdgesUnderGenerations(eng, nodes, links, shared) {
     if (!eng) return 0;
-    const byIdLocal = new Map(nodes.map(n => [n.id, n]));
+    const own = shared || (() => { const c = engineLinkContext(nodes, links, eng.id); return { byId: c.byId, links: c.linksOf.get(eng.id) || [], removed: null }; })();
+    const byIdLocal = own.byId;
+    const gone = own.removed || new Set();
     const mine = new Set([eng.id].concat((eng.variants || [])));
     const endOf = v => (typeof v === "string" ? v : (v && v.id));
     const covered = new Set();
-    for (const l of links) {
-      if (l.type !== "fitted" || l.retired) continue;
+    for (const l of own.links) {
+      if (l.type !== "fitted" || l.retired || gone.has(l)) continue;
       const a = endOf(l.source), b = endOf(l.target);
       const carId = mine.has(a) ? b : (mine.has(b) ? a : null);
       if (!carId) continue;
@@ -12724,15 +12837,17 @@ Rules:
     }
     if (!covered.size) return 0;
     let dropped = 0;
-    for (let i = links.length - 1; i >= 0; i--) {
-      const l = links[i];
-      if (l.type !== "fitted" || l.retired) continue;
+    for (const l of own.links) {
+      if (l.type !== "fitted" || l.retired || gone.has(l)) continue;
       const a = endOf(l.source), b = endOf(l.target);
       const carId = mine.has(a) ? b : (mine.has(b) ? a : null);
       if (!carId || !covered.has(carId)) continue;
-      links.splice(i, 1);
+      gone.add(l);
       dropped++;
     }
+    // Taken out of the graph's own list in one sweep: by the caller when it
+    // is tidying every engine, here when it is this engine alone.
+    if (!own.removed) dropRemovedLinks(links, gone);
     if (dropped) {
       note(`powertrain: ${eng.label} -- dropped ${dropped} link(s) to a nameplate ` +
            "whose own generation this engine is already connected to");
@@ -13306,14 +13421,45 @@ Rules:
   // never been read, so none of it ever reached them: twenty-four were drawn
   // to a nameplate AND to one of its own generations, three were still called
   // "Oldsmobile" after the maker, and two after the index they were found in.
+  // Every fitted link, filed under the engine it hangs off -- directly, or
+  // through one of that engine's variants.
+  function engineLinkContext(nodes, links, onlyEngineId) {
+    const byId = new Map(nodes.map(n => [n.id, n]));
+    const linksOf = new Map();
+    const hubOf = id => {
+      const e = byId.get(id);
+      return !e ? null : e.type === "engine" ? e.id : (e.type === "enginevar" ? e.engineOf || null : null);
+    };
+    for (const l of links) {
+      if (l.type !== "fitted") continue;
+      const hub = hubOf(idOf(l.source)) || hubOf(idOf(l.target));
+      if (!hub || (onlyEngineId && hub !== onlyEngineId)) continue;
+      const list = linksOf.get(hub);
+      if (list) list.push(l); else linksOf.set(hub, [l]);
+    }
+    return { byId, linksOf, removed: new Set() };
+  }
+  function dropRemovedLinks(links, removed) {
+    if (!removed || !removed.size) return;
+    let w = 0;
+    for (let r = 0; r < links.length; r++) { if (!removed.has(links[r])) links[w++] = links[r]; }
+    links.length = w;
+    removed.clear();
+  }
   function tidyPowertrain(nodes, links) {
     const out = { relabelled: 0, dropped: 0, bound: 0 };
     try { out.relabelled = relabelMisnamedEngines(nodes); } catch (e) { /* best effort */ }
+    // One index for all of them. Each engine used to build its own map of
+    // every node and walk every link in the graph three times over -- eight
+    // hundred engines, forty-five thousand links, three seconds of a load.
+    const ctx = engineLinkContext(nodes, links);
     for (const n of nodes) {
       if (!n || n.type !== "engine" || n.retired) continue;
-      try { out.bound += bindCarsToVariants(n, nodes, links); } catch (e) { /* ditto */ }
-      try { out.dropped += dropNameplateEdgesUnderGenerations(n, nodes, links); } catch (e) { /* ditto */ }
+      const mine = { byId: ctx.byId, links: ctx.linksOf.get(n.id) || [], removed: ctx.removed };
+      try { out.bound += bindCarsToVariants(n, nodes, links, mine); } catch (e) { /* ditto */ }
+      try { out.dropped += dropNameplateEdgesUnderGenerations(n, nodes, links, mine); } catch (e) { /* ditto */ }
     }
+    dropRemovedLinks(links, ctx.removed);
     return out;
   }
   function restitchEngineEdges(nodes, links) {
@@ -14284,8 +14430,15 @@ Rules:
       new RegExp("(^|[^A-Za-z0-9])" + c + "([^A-Za-z0-9]|$)", "i").test(String(t || ""))));
     return hits.length === 1 ? hits[0] : null;
   }
+  // While a load replays every merge in one go: one map of the nodes and one
+  // set of the engine-to-variant links, kept up to date, where each merge used
+  // to build both from scratch (two hundred merges, fourteen thousand nodes
+  // and forty-five thousand links apiece).
+  let mergeBatch = null;
   function applyOneEngineMerge(nodes, links, primaryId, rec) {
-    const byIdLocal = new Map(nodes.map(n => [n.id, n]));
+    const batch = mergeBatch && mergeBatch.nodes === nodes && mergeBatch.links === links ? mergeBatch : null;
+    if (batch) { for (; batch.upTo < nodes.length; batch.upTo++) batch.byId.set(nodes[batch.upTo].id, nodes[batch.upTo]); }
+    const byIdLocal = batch ? batch.byId : new Map(nodes.map(n => [n.id, n]));
     // The engine this one has itself been merged into since, if it has: a
     // record keeps working when the engine it names turns out to be another
     // title of some third one.
@@ -14315,12 +14468,19 @@ Rules:
       }
     }
 
-    const linkKey = new Set();
-    for (const l of links) {
-      const s0 = typeof l.source === "string" ? l.source : l.source && l.source.id;
-      const t0 = typeof l.target === "string" ? l.target : l.target && l.target.id;
-      linkKey.add(s0 + "|" + t0 + "|" + l.type);
-    }
+    // Only engine-to-variant links are ever added here, so only those are
+    // looked up.
+    const genKeys = () => {
+      const set = new Set();
+      for (const l of links) {
+        if (l.type !== "enginegen") continue;
+        const s0 = typeof l.source === "string" ? l.source : l.source && l.source.id;
+        const t0 = typeof l.target === "string" ? l.target : l.target && l.target.id;
+        set.add(s0 + "|" + t0 + "|" + l.type);
+      }
+      return set;
+    };
+    const linkKey = batch ? (batch.genKeys || (batch.genKeys = genKeys())) : genKeys();
     const addLink = (a, b, type, extra) => {
       if (!a || !b || a === b) return;
       const k = a + "|" + b + "|" + type;
@@ -14504,14 +14664,17 @@ Rules:
       try { n += autoMergeDuplicateEngines(nodes, links).groups.length; }
       catch (e) { console.warn("LlmFamilies: engine duplicate check failed", e); }
     };
-    look();
-    Object.keys(store.engineMerges || {}).forEach(primaryId => {
-      const rec = store.engineMerges[primaryId];
-      if (!rec || rec.status === "undone") return;
-      try { if (applyOneEngineMerge(nodes, links, primaryId, rec)) n++; }
-      catch (e) { console.warn("LlmFamilies: could not apply engine merge for " + primaryId, e); }
-    });
-    look();
+    mergeBatch = { nodes, links, byId: new Map(), upTo: 0, genKeys: null };
+    try {
+      look();
+      Object.keys(store.engineMerges || {}).forEach(primaryId => {
+        const rec = store.engineMerges[primaryId];
+        if (!rec || rec.status === "undone") return;
+        try { if (applyOneEngineMerge(nodes, links, primaryId, rec)) n++; }
+        catch (e) { console.warn("LlmFamilies: could not apply engine merge for " + primaryId, e); }
+      });
+      look();
+    } finally { mergeBatch = null; }
     return n;
   }
 
@@ -16311,7 +16474,7 @@ Rules:
     forceRecheckEngine,
     clearEngineScansFor, note, nameplateSectionForCar, mergeEngineHits,
     mergeEngines, undoEngineMerge, allEngineMerges, applyEngineMerges,
-    sameEngineLine, decodeEntities, sweepStoredSplitsForOutsiders,
+    sameEngineLine, decodeEntities, sweepStoredSplitsForOutsiders, replayStarted, replayFinished,
     lastSaveError: () => lastSaveError,
     engineMentions, unlinkedEngineMentions, engineSpecLabel,
     recordEngineMentions, recordEngineMentionsFrom, applyEngineMentions,
