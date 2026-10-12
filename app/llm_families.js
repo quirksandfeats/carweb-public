@@ -628,7 +628,8 @@ window.LlmFamilies = (function () {
     // cut it off. It reads Wikipedia and calls no model, and it does nothing
     // once every list has been through it.
     setTimeout(() => {
-      sweepStoredSplitsForOutsiders().catch(e => console.warn("LlmFamilies: stored-list check failed", e));
+      sweepStoredSplitsForOutsiders().then(() => sweepWholePageEngineLists())
+        .catch(e => console.warn("LlmFamilies: stored-list check failed", e));
     }, 4000);
     note(`load: stored decisions replayed -- ${count("model") + count("family")} cars, ` +
          `${count("engine")} engines and ${count("enginevar")} variants on screen` +
@@ -12686,6 +12687,83 @@ Rules:
     const names = n => [n.label, stripEngineSuffix(String(n.wp || "").split("#")[0])].filter(Boolean);
     return names(a).some(x => names(b).some(y => sameEngineText(x, y)));
   }
+  // ---------- two titles of one article: the same engine, unless something says not ----------
+  // The owner's ruling, after seeing what the stricter rule kept apart: "So
+  // long as both engines point to the same link/article then it means that
+  // they are both foldable within each other, but only if they actually
+  // point to the same engine and there's no conflict."
+  //
+  // So `other` -- an engine being folded into `engine`, or the name a car's
+  // link showed -- is the same engine written another way when it is the
+  // more GENERAL name of the two and nothing the cars say contradicts it:
+  //   * the same words, a few of them left out ("GM LS" for "General Motors
+  //     LS-based small-block", "Renault Cleon" for "Renault Cleon-Fonte"),
+  //     where what is left out is description and not a designation;
+  //   * the maker and a layout and nothing else ("Chevrolet V8" for the
+  //     Chevrolet small-block), where every car of the family states that
+  //     layout;
+  //   * a layout on one of the two names only ("Oldsmobile Diesel V6"),
+  //     unless a car on the other side states a different one -- the
+  //     Oldsmobile Diesel's cars are V8s, so its V6 is kept apart.
+  // A name with a designation the engine's own lacks ("M177 Evo", "4B11T")
+  // is never this: that is a different engine of the family, and it is kept.
+  function layoutKeyOf(text) {
+    return String(text || "").toLowerCase().replace(/[^a-z0-9]/g, "")
+      .replace(/^(?:inline|straight|l)(?=\d)/, "i").replace(/^(?:flat|boxer|h)(?=\d)/, "f");
+  }
+  function lineLayout(l) {
+    const sp = (l && l.saidSpecs) || {};
+    return sp.layout && sp.cylinders ? (String(sp.layout) + sp.cylinders).toLowerCase() : "";
+  }
+  function engineAliasText(engineName, otherName, engineLayouts, otherLayouts) {
+    if (!engineNameKey(engineName) || !engineNameKey(otherName)) return false;
+    const A = engineNameParts(engineName), B = engineNameParts(otherName);
+    const la = layoutKeyOf(A.layout), lb = layoutKeyOf(B.layout);
+    if (la && lb && la !== lb) return false;
+    // A layout one name states: the lines on the OTHER side must not state a
+    // different one.
+    const lay = la || lb;
+    if (lay && !(la && lb)) {
+      const across = lb ? engineLayouts : otherLayouts;
+      if ([...(across || [])].some(x => x && x !== lay)) return false;
+    }
+    if (sameEngineText(engineName, otherName)) return true;
+    if (B.words.length && A.words.length) {
+      const inA = new Set(A.words);
+      const extra = A.words.filter(w => B.words.indexOf(w) < 0);
+      if (B.words.every(w => inA.has(w)) && extra.length && !extra.some(w => /\d/.test(w))) return true;
+      return false;
+    }
+    // The maker and a layout, nothing more -- and the family's cars agree.
+    if (!B.words.length && lb && A.words.length && (!A.maker || !B.maker || A.maker === B.maker)) {
+      return !!(engineLayouts && engineLayouts.has(lb));
+    }
+    return false;
+  }
+  // The layouts the cars on an engine (and its variants) state, leaving out
+  // the lines of one node.
+  function statedLayouts(engineIds, links, exceptId) {
+    const out = new Set();
+    for (const l of links) {
+      if (l.type !== "fitted" || l.retired) continue;
+      const a = idOf(l.source), b = idOf(l.target);
+      if (a === exceptId || b === exceptId) continue;
+      if (!engineIds.has(a) && !engineIds.has(b)) continue;
+      const k = lineLayout(l);
+      if (k) out.add(k);
+    }
+    return out;
+  }
+  // Names an engine also goes by: the titles folded into it as the same
+  // engine. Not stored -- rebuilt as the merges are replayed.
+  const engineAka = new Map();
+  function alsoCalled(engineId, name) {
+    const n = decodeEntities(String(name || "")).trim();
+    if (!n) return;
+    const list = engineAka.get(engineId) || [];
+    if (!list.some(x => engineNameKey(x) === engineNameKey(n))) list.push(n);
+    engineAka.set(engineId, list);
+  }
   function bindCarsToVariants(eng, nodes, links, shared) {
     if (!eng || !(eng.variants || []).length) return 0;
     // `shared`: the index tidyPowertrain builds once for every engine. Alone,
@@ -12717,9 +12795,14 @@ Rules:
       // The engine's own name on the link is the engine, not a variant of it:
       // "Ford flathead V8" had gained a variant also called "Ford flathead
       // V8", holding the five cars whose links said so.
-      if (sameEngineText(named, eng.label) ||
-          sameEngineText(named, stripEngineSuffix(String(eng.wp || "").split("#")[0]) || "")) continue;
       let target = vars.find(v => engineNameKey(v.label) === engineNameKey(named)) || null;
+      if (!target && !splitMultiEngineTitle(eng.wp)) {
+        const famLayouts = statedLayouts(family, mineLinks, null);
+        const own = new Set([lineLayout(l)].filter(Boolean));
+        if (engineAliasText(eng.label, named, famLayouts, own) ||
+            engineAliasText(stripEngineSuffix(String(eng.wp || "").split("#")[0]) || "", named, famLayouts, own)) continue;
+      } else if (!target && (sameEngineText(named, eng.label) ||
+                 sameEngineText(named, stripEngineSuffix(String(eng.wp || "").split("#")[0]) || ""))) continue;
       if (!target) {
         // Extends a variant's name by whole words; the longest such variant.
         const bases = vars.filter(v => {
@@ -12738,7 +12821,20 @@ Rules:
         // ...by a real designation, that is. A layout or a size is not one:
         // "AJ34 V8" is the AJ34 and "Windsor 5.0" is the Windsor, where
         // "M177 Evo" and "K Turbo I" are engines of their own.
-        if (bases.length && words(named).slice(words(bases[0].label).length).every(isLayoutOrSizeWord)) target = bases[0];
+        // ...unless the other cars on that variant say otherwise: a layout or
+        // a size they contradict is a different engine after all.
+        if (bases.length && words(named).slice(words(bases[0].label).length).every(isLayoutOrSizeWord)) {
+          const extra = words(named).slice(words(bases[0].label).length);
+          const others = mineLinks.filter(o => o !== l && o.type === "fitted" && !o.retired &&
+            (endOf(o.source) === bases[0].id || endOf(o.target) === bases[0].id));
+          const sizeOf = t => { const m = String(t || "").replace(/&nbsp;/g, " ").match(/(\d+(?:[.,]\d+)?)/); return m ? m[1].replace(",", ".") : ""; };
+          const conflict = extra.some(w => {
+            if (isLayoutWord(w)) return others.some(o => lineLayout(o) && lineLayout(o) !== layoutKeyOf(w));
+            if (/^\d+[.,]\d+/.test(w)) return others.some(o => sizeOf((o.saidSpecs || {}).displacement) && sizeOf((o.saidSpecs || {}).displacement) !== sizeOf(w));
+            return false;
+          });
+          if (!conflict) target = bases[0];
+        }
       }
       if (!target) {
         const id = engineVariantIdFor(eng.id, named);
@@ -13305,6 +13401,72 @@ Rules:
                          "cars -- not shown until read again (Tools > Re-read Engines)");
     return stale;
   }
+  // The years of the car the page's one engine field describes: the
+  // production run in the infobox that field sits in. The Dodge Journey's
+  // says 2008-2020, so its engines are the JC49's and not those of the 2022
+  // car the same page also covers (a rebadged GAC). Null when the field is
+  // not in the page's own infobox, or the infobox gives no years.
+  function engineFieldProduction(wikitext) {
+    const box = wikitext ? nameplateInfobox(wikitext) : null;
+    if (!box || !(box.engine || box.engines)) return null;
+    const text = stripEngineMarkup(String(box.production || box["model years"] || box.model_years || ""));
+    const years = (text.match(/\b(?:18|19|20)\d{2}\b/g) || []).map(Number);
+    if (!years.length) return null;
+    const open = /present|current|ongoing/i.test(text);
+    return [Math.min(...years), open ? null : Math.max(...years)];
+  }
+  function runOutsideFieldYears(rec, car) {
+    const span = rec && Array.isArray(rec.fieldYears) ? rec.fieldYears : null;
+    if (!span || !car || !Number.isFinite(car.year)) return false;
+    const now = new Date().getFullYear();
+    return span[0] > (Number.isFinite(car.end) ? car.end : now) || (span[1] == null ? now : span[1]) < car.year;
+  }
+  // The reads on file from before that was recorded, brought up to date: one
+  // read of each page, no model. Runs once, after the generation lists.
+  let wholePageSweep = null;
+  function sweepWholePageEngineLists() {
+    if (!serverAvailable) return Promise.resolve({ checked: 0, narrowed: 0 });
+    if (wholePageSweep) return wholePageSweep;
+    wholePageSweep = (async () => {
+      const todo = Object.keys(store.engineScans || {}).filter(id => {
+        const rec = store.engineScans[id];
+        return rec && rec.section === "(the whole page)" && rec.sourceTitle && rec.fieldYears === undefined;
+      });
+      const out = { checked: 0, narrowed: 0 };
+      for (const id of todo) {
+        const rec = store.engineScans[id];
+        let wikitext = null;
+        try { wikitext = (await fetchArticleDigest(rec.sourceTitle)).wikitext; }
+        catch (e) { continue; }
+        rec.fieldYears = engineFieldProduction(wikitext) || false;
+        out.checked++;
+        if (rec.fieldYears) out.narrowed++;
+        await new Promise(r => setTimeout(r, 100));
+      }
+      if (out.checked) {
+        await persist();
+        note(`powertrain: ${out.checked} engine list(s) read off a whole nameplate page now carry that page's ` +
+             `production years (${out.narrowed} found) -- reload to see generations outside them without the list`);
+      }
+      return out;
+    })();
+    wholePageSweep.finally(() => { wholePageSweep = null; });
+    return wholePageSweep;
+  }
+  // A generation that read its nameplate's whole page for engines, where one
+  // of its siblings found that list inside a section of its own.
+  function wholePageListIsASiblings(car, byId) {
+    const fam = car && car.familyOf ? byId.get(car.familyOf) : null;
+    if (!fam) return false;
+    return (fam.generations || []).some(gid => {
+      if (gid === car.id) return false;
+      const sib = byId.get(gid);
+      const rec = store.engineScans[gid];
+      return !!(sib && !sib.retired && rec && (rec.engines || []).length && rec.section &&
+                rec.section !== "(the whole page)" &&
+                norm(rec.sourceTitle || "") === norm((store.engineScans[car.id] || {}).sourceTitle || ""));
+    });
+  }
   // An engine line that states its own years, all of them outside the car's
   // run. No years on the line, or none on the car: no answer, so not outside.
   function engineLineOutsideRun(mention, car) {
@@ -13357,6 +13519,11 @@ Rules:
       // lines it dates outside this one's run are not this one's. Applied to
       // the reads on file too, which were stored before the rule.
       const car = rec.section === "(the whole page)" ? byId.get(id) : null;
+      // ...and none of them are, when a sibling read that same list out of
+      // its OWN section: then the page's one engine field sits inside that
+      // generation's section and is that generation's. The ASX "Captur II",
+      // a rebadged Renault, had the nine Mitsubishi engines of the ASX GA.
+      if (car && (wholePageListIsASiblings(car, byId) || runOutsideFieldYears(rec, car))) return;
       replay(id, car ? (rec.engines || []).filter(h => !engineLineOutsideRun(h, car)) : rec.engines);
     });
     return { engines, fitted };
@@ -13586,7 +13753,13 @@ Rules:
   // bare code ("Mercedes-Benz M139 engine" is the M139; "GMC V6 engine" is
   // the GMC V6). `fallback` only for a title that says nothing.
   function engineNameFromTitle(title, fallback) {
-    const bare = stripEngineSuffix(String(title || "").split("#")[0]) || "";
+    // "Engine" with a capital is part of the name, where "engine" is only
+    // what kind of article it is: "Fully Integrated Robotised Engine" (the
+    // FIRE) and "World Gasoline Engine" keep theirs, "Ford Kent engine" is
+    // the Ford Kent.
+    const whole = String(title || "").split("#")[0].trim();
+    if (/\sEngine$/.test(whole) && whole.split(/\s+/).length >= 3) return whole;
+    const bare = stripEngineSuffix(whole) || "";
     const words = bare.split(/\s+/).filter(Boolean);
     const makes = knownMakeNames();
     // The maker: a make the graph knows (up to three words), else one
@@ -14529,9 +14702,19 @@ Rules:
         //      EXTREMELY important to keep."
         const pageCode = codeOnMultiEnginePage(primary, m);
         const isCode = !!pageCode && sameEngineText(m.label, pageCode);
-        const isAlias = !isCode && sameEngineName(primary, m);
+        let isAlias = !isCode && sameEngineName(primary, m);
+        if (!isCode && !splitMultiEngineTitle(primary.wp)) {
+          // Not on a page covering several engines, where a shorter name is
+          // one of them and never the family. See engineAliasText.
+          const famIds = new Set([primary.id].concat(primary.variants || []));
+          const famLayouts = statedLayouts(famIds, links, m.id);
+          const ownLayouts = statedLayouts(new Set([m.id]), links, null);
+          const names = n => [n.label, stripEngineSuffix(String(n.wp || "").split("#")[0])].filter(Boolean);
+          isAlias = names(primary).some(x => names(m).some(y => engineAliasText(x, y, famLayouts, ownLayouts)));
+        }
         if (isAlias) {
           links.forEach(l => { if (mine(l)) moveTo(l, primary.id); });
+          if (engineNameKey(m.label) !== engineNameKey(primary.label)) alsoCalled(primary.id, m.label);
         } else {
           const vlabel = isCode ? pageCode : m.label;
           const variantNode = label => {
@@ -15026,7 +15209,7 @@ Rules:
   }
   function aliasesFor(id) {
     const e = store.aliases[id];
-    return ((e && e.names) || []).map(n => decodeEntities(n));
+    return ((e && e.names) || []).map(n => decodeEntities(n)).concat(engineAka.get(id) || []);
   }
 
   function engineArticleFor(car, fam, famWikitext, umbrella) {
@@ -15465,6 +15648,7 @@ Rules:
         section: fromSection ? fromSection.title : (wholePage ? "(the whole page)" : null),
         engines: hits, unlinked, v: ENGINE_SCAN_VERSION,
       };
+      if (wholePage) store.engineScans[car.id].fieldYears = engineFieldProduction(famWikitext) || false;
       note(`powertrain: ${car.label} -- ${hits.length} engine(s) in ` +
            `"${readTitle || umbrella}"`);
       // Worth keeping: the generation's own page is a better link than the
@@ -15477,7 +15661,11 @@ Rules:
       out.scanned++;
       // revive: this is a person having asked for a check, which is exactly
       // what the delete panel says can rediscover a deleted engine.
-      const r = recordEngineMentionsFrom(hits, car, nodes, links, { revive: true });
+      // (Not a whole-page list a sibling has already claimed as its own.)
+      const claimed = wholePage && (wholePageListIsASiblings(car, new Map(nodes.map(n => [n.id, n]))) ||
+                                    runOutsideFieldYears(store.engineScans[car.id], car));
+      const r = claimed ? { engines: 0, fitted: 0, revived: 0, deleted: 0 }
+                        : recordEngineMentionsFrom(hits, car, nodes, links, { revive: true });
       out.engines += r.engines; out.fitted += r.fitted;
       out.revived += r.revived; out.deleted += r.deleted;
     }
@@ -16474,7 +16662,7 @@ Rules:
     forceRecheckEngine,
     clearEngineScansFor, note, nameplateSectionForCar, mergeEngineHits,
     mergeEngines, undoEngineMerge, allEngineMerges, applyEngineMerges,
-    sameEngineLine, decodeEntities, sweepStoredSplitsForOutsiders, replayStarted, replayFinished,
+    sameEngineLine, decodeEntities, sweepStoredSplitsForOutsiders, sweepWholePageEngineLists, replayStarted, replayFinished,
     lastSaveError: () => lastSaveError,
     engineMentions, unlinkedEngineMentions, engineSpecLabel,
     recordEngineMentions, recordEngineMentionsFrom, applyEngineMentions,

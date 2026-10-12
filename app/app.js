@@ -1528,7 +1528,11 @@ window.CarWeb = (function () {
       const specs = [fromArticle || [n.configuration, n.displacement].filter(Boolean).join(" · "),
                      fmtYearRun(n.year, n.end)].filter(Boolean).join(" · ");
       const fitted = `fitted to ${cars.size} car${cars.size === 1 ? "" : "s"} in the web`;
-      return [specs, fitted].filter(Boolean).join(" · ");
+      // Other titles of the same article that were folded into this engine
+      // as the same engine ("GM LS" on the LS-based small-block).
+      const akaNames = n.type === "engine" && LFam && LFam.aliasesFor ? LFam.aliasesFor(n.id) : [];
+      const aka = akaNames.length ? `<br>also called ${akaNames.map(esc).join(" · ")}` : "";
+      return [specs, fitted].filter(Boolean).join(" · ") + aka;
     }
     if (n.type === "make") {
       const m = adj.get(n.id).filter(a => a.l.type === "made" && !a.l.retired && a.n && !a.n.retired).length;
