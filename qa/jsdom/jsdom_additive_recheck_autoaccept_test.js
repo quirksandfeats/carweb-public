@@ -133,15 +133,22 @@ function boot(recheckEntry) {
         fam.generations.length + " vs " + before);
 }
 
-// ---------- 2b. the same number of generations, reworked, applies too ----------
-// Real user request: "if the llm finds the same number of generations or more
-// than already existed in dbpedia for a particular model/nameplate, then
-// automatically replace it and do not ask for my approval."
+// ---------- 2b. the same number of generations, one of them different, WAITS ----------
+// For a while the rule was wider: "if the llm finds the same number of
+// generations or more than already existed ... automatically replace it".
+// Under it the CLK lost both harvested generations to re-minted ones at every
+// page load. Asked which rule should stand, the owner chose the narrow one:
+// anything that would retire a generation waits for a person.
 {
   const w = boot(entryWith([gen("MK1", 1990, 1999), gen("MK3", 2000, 2009)]));
   const LF = w.LlmFamilies;
   const v = LF.additiveRecheck(FAM, [G1, G2].map(id => ({ id, label: "Roadster (" + (id.endsWith("mk1") ? "MK1" : "MK2") + ")" })));
-  check("a list with as many generations as before, one of them different, applies", !!v, JSON.stringify(v));
+  check("a list with as many generations as before, one of them different, does not apply itself", !v, JSON.stringify(v));
+  // A code that is two codes joined is the same generation re-spelled, not one removed and one added.
+  const w3 = boot(entryWith([gen("MK1/CAB1", 1990, 1999), gen("MK2/CAB2", 2000, 2009), gen("MK3", 2010, null)]));
+  const v3 = w3.LlmFamilies.additiveRecheck(FAM, [G1, G2].map(id => ({ id, label: "Roadster (" + (id.endsWith("mk1") ? "MK1" : "MK2") + ")" })));
+  check("...and a re-spelled code (MK1/CAB1 for MK1) is not a removal, so a list that only adds still applies",
+        !!v3 && v3.removed.length === 0 && v3.added.length === 1, JSON.stringify(v3));
   const w2 = boot(entryWith([gen("MK1", 1990, 1999), gen("MK2", 2000, 2009)]));
   const v2 = w2.LlmFamilies.additiveRecheck(FAM, [G1, G2].map(id => ({ id, label: "Roadster (" + (id.endsWith("mk1") ? "MK1" : "MK2") + ")" })));
   check("...but an identical list changes nothing and is not applied", !v2, JSON.stringify(v2));

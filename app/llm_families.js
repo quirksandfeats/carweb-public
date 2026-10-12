@@ -2161,57 +2161,131 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
     return out;
   }
 
-  // ---------- a predecessor is not a generation ----------
+  // ---------- a predecessor is not a generation, and neither is a successor ----------
   // Real user report: a re-check of the Mercedes-Benz C-Class came back with
   // the W201 as its first generation, and the 190E -- which IS the W201 -- was
   // then in the graph twice. Real user rule: "If the wikipedia page mentions
   // that the W201 is a predecessor, then that's what we should prioritize.
-  // Wikipedia will state this."
+  // Wikipedia will state this." And, asked whether a stated SUCCESSOR is
+  // treated the same way (the CLK had gained the E-Class Coupe, which its
+  // article files under "Successor (C207/A207; 2008-2017)"): yes.
   //
-  // It does, twice over. The article's own infobox says "predecessor =
-  // Mercedes-Benz 190 E (W201)", and the W201's section sits under a heading
-  // called "Predecessor models". The model read a section with a code, a
-  // year and an infobox of its own and took it for a generation; both of
-  // these are the article saying otherwise, and either one is enough.
+  // The article states it in one of two places, and either is enough:
+  //   * a heading. The car's own section is headed "Predecessor: Isuzu MU-7
+  //     (510; 2004)" or "Successor (C207/A207)", or sits under a heading that
+  //     says so ("Predecessor models" over "W201 (1982)");
+  //   * the NAMEPLATE's infobox, in its predecessor or successor field --
+  //     not one generation's own card that happens to come first, whose
+  //     predecessor is simply the generation before it.
   //
-  // The infobox half is only believed when the infobox is the NAMEPLATE's --
-  // not one generation's own card that happens to come first, whose
-  // predecessor is simply the generation before it -- and only for the
-  // oldest entry on the list, the one place a predecessor can be.
-  const PREDECESSOR_HEADING_RE = /^(?:predecessors?(?:\s+models?)?|forerunners?|precursors?)\b/i;
+  // Two things keep it honest. A predecessor can only be at the old end of
+  // the list and a successor at the new end: the Lincoln Mark series heads
+  // its 1958 cars "Successor (Mark III, Mark IV, Mark V)", meaning successor
+  // to the Mark II, with five more generations after them. And the infobox
+  // field is read for the cars it NAMES -- link anchors and remarks in
+  // brackets are not names: the Fifth Avenue's "Chrysler New Yorker Brougham
+  // (R-body version)" does not name the Fifth Avenue's own R-body.
+  const OUTSIDER_HEADING = {
+    predecessor: /^(?:predecessors?(?:\s+models?)?|forerunners?|precursors?)\b/i,
+    successor: /^(?:successors?(?:\s+models?)?)\b/i,
+  };
+  // The first {{Infobox automobile}} of an article, as its fields. Brace
+  // counting, not a regex: a field holding a nested template that closes on a
+  // line of its own ("}}") is otherwise taken for the end of the infobox.
+  function nameplateInfobox(wikitext) {
+    const open = wikitext.search(/\{\{\s*Infobox automobile/i);
+    const firstHeading = wikitext.search(/^==[^=]/m);
+    if (open < 0 || (firstHeading >= 0 && open > firstHeading)) return null;
+    let depth = 0, links = 0, i = open, start = -1;
+    const fields = {};
+    let cur = "";
+    const flush = () => {
+      const m = /^\s*([A-Za-z_ ]+?)\s*=([\s\S]*)$/.exec(cur);
+      if (m) fields[m[1].trim().toLowerCase()] = m[2].trim();
+      cur = "";
+    };
+    for (; i < wikitext.length; i++) {
+      const two = wikitext.substr(i, 2);
+      if (two === "{{") { depth++; if (depth > 1) cur += two; i++; if (depth === 1) start = i + 1; continue; }
+      if (two === "}}") { depth--; if (depth === 0) { flush(); break; } cur += two; i++; continue; }
+      if (two === "[[") { links++; cur += two; i++; continue; }
+      if (two === "]]") { links = Math.max(0, links - 1); cur += two; i++; continue; }
+      if (wikitext[i] === "|" && depth === 1 && links === 0) { flush(); continue; }
+      if (start >= 0) cur += wikitext[i];
+    }
+    return fields;
+  }
+  // The cars a predecessor/successor field names: link labels and targets
+  // (without #anchors), and a bracketed code -- but not a bracketed remark.
+  function carsNamedIn(field) {
+    return String(field || "")
+      .replace(/<ref[^>]*\/>|<ref(?:\s[^>]*)?>[\s\S]*?<\/ref>/gi, " ")
+      .replace(/\[\[([^\]|#]*)(?:#[^\]|]*)?(?:\|([^\]]*))?\]\]/g, (m0, target, label) => ` ${target} ${label || ""} `)
+      .replace(/\(([^()]*)\)/g, (m0, inner) => {
+        const t = inner.trim();
+        const looksLikeCode = /\d/.test(t) && t.split(/\s+/).length <= 2 &&
+                              !/^\d{4}(\s*[-–]\s*(\d{4}|present))?$/i.test(t);
+        return looksLikeCode ? ` ${t} ` : " ";
+      });
+  }
   function predecessorsStatedBy(wikitext, gens) {
     const found = new Map();
     if (!wikitext || !gens || gens.length < 2) return found;
     const secs = wikitextSections(wikitext);
     const codeOf = g => g.codeBase || g.code;
+    const claims = new Map();    // generation -> { kind, why }
     gens.forEach(g => {
       const sec = sectionForCode(wikitext, codeOf(g));
       if (!sec) return;
       const over = secs.filter(p => p.level < sec.level && p.at < sec.at && p.stop >= sec.stop)
         .sort((a, b) => b.level - a.level)[0];
-      if (over && PREDECESSOR_HEADING_RE.test(String(over.title).trim())) {
-        found.set(g, `the article files it under "${over.title}"`);
+      for (const kind of ["predecessor", "successor"]) {
+        const own = OUTSIDER_HEADING[kind].test(String(sec.title).trim());
+        const above = over && OUTSIDER_HEADING[kind].test(String(over.title).trim());
+        if (own || above) {
+          claims.set(g, { kind, why: own ? `the article heads its section "${sec.title}"`
+                                          : `the article files it under "${over.title}"` });
+          break;
+        }
       }
     });
-    const firstHeading = wikitext.search(/^==[^=]/m);
-    const box = /\{\{\s*Infobox automobile[\s\S]*?\n\}\}/i.exec(wikitext);
-    if (box && (firstHeading < 0 || box.index < firstHeading)) {
-      const field = name => {
-        const m = new RegExp("\\|\\s*" + name + "\\s*=([^\\n]*(?:\\n(?!\\s*[|}])[^\\n]*)*)", "i").exec(box[0]);
-        return m ? m[1] : "";
-      };
-      const pred = field("predecessor"), name = field("name");
+    const box = nameplateInfobox(wikitext);
+    if (box) {
+      const name = box.name || "";
       const ownCard = /generation/i.test(name) || gens.some(g => labelCarriesCode(name, codeOf(g)));
-      if (pred.trim() && !ownCard) {
-        const years = gens.map(g => g.yearStart).filter(y => y != null);
-        const oldest = years.length ? Math.min(...years) : null;
-        gens.forEach(g => {
-          if (found.has(g) || !labelCarriesCode(pred, codeOf(g))) return;
-          if (g.yearStart != null && oldest != null && g.yearStart !== oldest) return;
-          found.set(g, "the article's own infobox names it as the predecessor");
-        });
+      if (!ownCard) {
+        for (const kind of ["predecessor", "successor"]) {
+          const named = carsNamedIn(box[kind]);
+          if (!named.trim()) continue;
+          gens.forEach(g => {
+            if (claims.has(g) || !labelCarriesCode(named, codeOf(g))) return;
+            // Unless the article's own heading for it says it IS a generation.
+            // The E-Class infobox gives "predecessor = W124 (pre-facelift
+            // models, 1984-1993)" over a section headed "First generation
+            // (W124; 1993)": the car straddles the name, and the heading is
+            // the article's answer to which side it is on. The Audi 80's
+            // "F103 (1966-1972)" makes no such claim, and goes.
+            const sec = sectionForCode(wikitext, codeOf(g));
+            if (sec && /\bgeneration\b/i.test(String(sec.title))) return;
+            claims.set(g, { kind, why: `the article's own infobox names it as the ${kind}` });
+          });
+        }
       }
     }
+    if (!claims.size) return found;
+    // Only at the ends: every stated predecessor older than everything that
+    // stays, every stated successor newer.
+    const staying = gens.filter(g => !claims.has(g));
+    const stayYears = staying.map(g => g.yearStart).filter(y => y != null);
+    const oldest = stayYears.length ? Math.min(...stayYears) : null;
+    const newest = stayYears.length ? Math.max(...stayYears) : null;
+    claims.forEach((c, g) => {
+      if (g.yearStart != null && oldest != null) {
+        if (c.kind === "predecessor" && g.yearStart > oldest) return;
+        if (c.kind === "successor" && g.yearStart < newest) return;
+      }
+      found.set(g, c.why);
+    });
     return found;
   }
 
@@ -3003,7 +3077,7 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
   // the next automatic pass. A re-check can always be asked for by hand.
   function declineSplit(id, kind) {
     if (kind === "recheck") {
-      delete store.recheck[id];
+      recordDeclinedRecheck(id);
     } else {
       const e = store.families[id];
       if (!e) return false;
@@ -3240,6 +3314,15 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
     }
     return false;
   }
+  // A code that is several joined by a slash -- "C208/A208", saloon and
+  // cabriolet -- against a label carrying one of them: "CLK-Class (C208)".
+  // Without this the re-spelling read as one generation removed and another
+  // added, which is what made a mere rewording look like a lossy re-check.
+  function labelCarriesPartOfCode(label, code) {
+    const parts = String(code || "").split("/").map(x => x.trim()).filter(Boolean);
+    if (parts.length < 2) return false;
+    return parts.some(part => norm(part).length >= 3 && /\d/.test(part) && labelCarriesCode(label, part));
+  }
   // The label IS the code, or ends in it: the closest a pairing can be.
   function labelEndsInCode(label, code) {
     const key = norm(code || "");
@@ -3251,7 +3334,8 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
   function genNodeForCode(genNodes, code, taken) {
     const free = (genNodes || []).filter(o => o && !(taken && taken.has(o.id)));
     return free.find(o => labelEndsInCode(o.label, code)) ||
-           free.find(o => labelCarriesCode(o.label, code)) || null;
+           free.find(o => labelCarriesCode(o.label, code)) ||
+           free.find(o => labelCarriesPartOfCode(o.label, code)) || null;
   }
   // A fresh generation list against the nodes a nameplate already has. Every
   // exact pairing is settled before any looser one is considered, so a new
@@ -3266,6 +3350,11 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
     (freshGens || []).forEach((g, i) => {
       if (out[i]) return;
       const m = (genNodes || []).find(o => o && !taken.has(o.id) && labelCarriesCode(o.label, g.code));
+      if (m) { taken.add(m.id); out[i] = m; }
+    });
+    (freshGens || []).forEach((g, i) => {
+      if (out[i]) return;
+      const m = (genNodes || []).find(o => o && !taken.has(o.id) && labelCarriesPartOfCode(o.label, g.code));
       if (m) { taken.add(m.id); out[i] = m; }
     });
     return out;
@@ -3568,12 +3657,13 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
   // the new node's OWN Wikipedia article (same fetchArticleDigest() used for
   // the main generation-check feature) and ask the LLM to extract the fact
   // from that real text -- grounded, hallucination-guarded, same discipline
-  // as everywhere else in this file; (2) only if that finds nothing (no
-  // article, or the article genuinely doesn't state it), fall back to asking
-  // the LLM to recall the fact from its own general training knowledge, with
-  // an explicit high/low confidence self-rating and only a HIGH-confidence
-  // answer trusted -- an honest null is always preferred over a plausible-
-  // sounding guess. Runs as a background task AFTER the node is already in
+  // as everywhere else in this file; (2) for a PERSON only, if that finds
+  // nothing (no article, or the article genuinely doesn't state it), fall
+  // back to asking the LLM to recall the fact from its own general training
+  // knowledge, with an explicit high/low confidence self-rating and only a
+  // HIGH-confidence answer trusted -- an honest null is always preferred
+  // over a plausible-sounding guess. A car's years are never recalled: see
+  // bigYearAttempt. Runs as a background task AFTER the node is already in
   // the graph (see mintRelatedNode/resolvePersonNode below) rather than
   // blocking the synchronous mint -- everything else in this module mints
   // nodes synchronously mid-apply, and threading a network round-trip
@@ -3586,12 +3676,6 @@ Rules:
 - yearStart is the year production/sales began; yearEnd is the year it ended, or null if it's still in production/on sale, or the text doesn't give an end date.
 - Only use a year that is actually stated in the supplied text for THIS car -- never invent, estimate, or infer one from unrelated context.
 - If the supplied text doesn't clearly state this car's own production years, return {"yearStart": null, "yearEnd": null} -- do not guess.`;
-  const YEAR_KNOWLEDGE_SYSTEM_PROMPT = `Recall, from your own general knowledge (no source text is supplied here), the production year range of a specific car.
-Respond with ONLY JSON, no prose, matching exactly this shape:
-{"yearStart": number|null, "yearEnd": number|null, "confidence": "high"|"low"}
-Rules:
-- Only set confidence "high" if you have genuine, specific knowledge of THIS car's production years -- if you don't recognize it, or are unsure, return {"yearStart": null, "yearEnd": null, "confidence": "low"}.
-- Never invent a plausible-sounding year just to avoid returning null -- a wrong year is worse than an honest null.`;
   const PERSON_FACTS_SYSTEM_PROMPT = `You extract a person's birth year, death year, and nationality/home country from Wikipedia infobox/intro-paragraph excerpts.
 Respond with ONLY JSON, no prose, matching exactly this shape:
 {"born": number|null, "died": number|null, "country": string|null}
@@ -3635,20 +3719,6 @@ Rules:
     if (yearStart == null && yearEnd == null) return null;
     return { year: yearStart, end: yearEnd, source: "wikipedia" };
   }
-  async function fetchYearFactsFromKnowledge(makeLabel, modelLabel) {
-    let raw;
-    try {
-      raw = await askLlamaCpp([
-        { role: "system", content: YEAR_KNOWLEDGE_SYSTEM_PROMPT },
-        { role: "user", content: `Car: "${makeLabel} ${modelLabel}"` },
-      ], `${makeLabel} ${modelLabel} · years (recall)`);
-    } catch (e) { return null; }
-    if (!raw || raw.confidence !== "high") return null;
-    const yearStart = Number.isFinite(raw.yearStart) ? raw.yearStart : null;
-    const yearEnd = Number.isFinite(raw.yearEnd) ? raw.yearEnd : null;
-    if (yearStart == null && yearEnd == null) return null;
-    return { year: yearStart, end: yearEnd, source: "llm-recall" };
-  }
   // Tries "Make Model" first (the common case), then the bare model label
   // alone (some related nameplates -- badge-engineered variants especially,
   // the Puch G being exactly this case -- have their OWN short Wikipedia
@@ -3656,9 +3726,18 @@ Rules:
   // parent nameplate's article, which still carries a usable overall
   // production range).
   async function bigYearAttempt(makeLabel, modelLabel) {
+    // The article, or nothing. A third step used to ask the model to recall
+    // the years from memory when no article gave them; every one of those
+    // checked against Wikipedia was wrong ("Audi 80 B2 1991-1996" beside the
+    // real 1978-1986), and a wrong year puts a car in the wrong place on the
+    // Timeline. A car with no stated year is left undated.
     return (await fetchYearFactsGrounded(`${makeLabel} ${modelLabel}`.trim()))
-      || (await fetchYearFactsGrounded(modelLabel))
-      || (await fetchYearFactsFromKnowledge(makeLabel, modelLabel));
+      || (await fetchYearFactsGrounded(modelLabel));
+  }
+  // Years on file from that third step. They are not shown, and they do not
+  // count as an answer, so the article gets another look.
+  function recalledYears(r) {
+    return !!r && r.source === "llm-recall" && (r.year != null || r.end != null);
   }
   async function fetchPersonFactsGrounded(name) {
     let digest;
@@ -3713,6 +3792,8 @@ Rules:
   // failed lookup, not an answer, and must not be mistaken for one.
   function factsRecordIsUseful(r) {
     if (!r) return false;
+    // A car's years recalled from the model's memory are not an answer.
+    if (r.source === "llm-recall" && r.born == null && r.died == null && r.country == null) return false;
     return r.year != null || r.end != null || r.born != null || r.died != null || r.country != null;
   }
   function scheduleFactBackfill(kind, id, target, attempt) {
@@ -3842,7 +3923,8 @@ Rules:
     // cached answer immediately instead of defaulting to null and kicking
     // off ANOTHER round-trip on every single boot forever. cached.year/end
     // are already null if the earlier attempt genuinely found nothing.
-    const cached = store.mintedFacts[modelId];
+    const onFile = store.mintedFacts[modelId];
+    const cached = recalledYears(onFile) ? null : onFile;
     const modelNode = {
       id: modelId, type: "model", label: modelLabel, make: makeNode.label,
       year: cached ? (cached.year != null ? cached.year : null) : null,
@@ -5925,6 +6007,9 @@ Rules:
       if (entry.status !== "confirmed") return;
       const orig = byId.get(nodeId);
       if (!orig || orig.type !== "model") return; // already applied earlier, or node no longer exists
+      // Folded into another car since the split was confirmed: that car is
+      // the one on screen, and it has its own generations.
+      if (orig.retired && orig.supersededBy) return;
       const gens = (entry.proposal && entry.proposal.generations) || [];
       if (gens.length < 2) return;
 
@@ -6127,8 +6212,16 @@ Rules:
       // one was seeded rather than actually re-checked.
       // Already seeded (every boot replays this): left as it is, so a load
       // does not rewrite the store just to restamp the date.
+      //
+      // And never over a re-check that has something in it. This replay
+      // runs at every load, and it used to replace ANY entry that was not
+      // already this exact seed -- so a re-check waiting in Pending
+      // Generation Splits, and one that had been accepted, were both wiped
+      // before anything read them: the Austin Mini's waiting Mark III never
+      // arrived, and an accepted re-check lasted until the next reload.
       const seeded = store.recheck[nodeId];
-      if (seeded && seeded.status === "none" && (seeded.sourceTitle || null) === (entry.sourceTitle || orig.wp || null)) return;
+      if (seeded && seeded.status !== "none") return;
+      if (seeded && (seeded.sourceTitle || null) === (entry.sourceTitle || orig.wp || null)) return;
       store.recheck[nodeId] = {
         status: "none",
         checkedAt: new Date().toISOString(),
@@ -9145,7 +9238,75 @@ Rules:
         break;
       }
     }
-    return folded + foldGenerationTwins(nodes, links);
+    return folded + foldGenerationTwins(nodes, links) + foldOrdinalPlaceholders(nodes, links);
+  }
+
+  // ---------- "Leon Mk1" beside the Leon's own "Mk1 (1M)" ----------
+  // A car another car's article named by its ordinal, where the nameplate
+  // already has that generation. SEAT's Leon had Mk1 (1M) and Mk2 (1P) with
+  // a plain "Leon Mk1" and "Leon Mk2" standing beside them; the Mondeo had a
+  // "Mondeo Mk 1" beside its "(first generation)".
+  //
+  // Only where the generation says the same ordinal in its own name. Counting
+  // to the Nth generation by date would also match "Octavia Mk2" to the
+  // Octavia's 1Z, and it is right there -- but it is wrong wherever the graph
+  // lacks a nameplate's first generation, and nothing here can tell which.
+  // And only for a car that exists because an article mentioned it: among
+  // harvested cars the same shape is a different car far more often than not
+  // (the Lincoln Continental Mark IV is not the Continental's fourth
+  // generation, the Dodge Charger III is a 1968 concept).
+  const ROMAN_ORDINALS = ["i", "ii", "iii", "iv", "v", "vi", "vii", "viii", "ix", "x", "xi", "xii"];
+  function ordinalNamed(text) {
+    const r = String(text || "").trim().replace(/^\(\s*|\s*\)$/g, "").toLowerCase();
+    let m;
+    if ((m = r.match(/^(?:mk|mark)\.?\s*(\d{1,2}|[ivx]+)$/))) {
+      return /^\d/.test(m[1]) ? parseInt(m[1], 10) : ROMAN_ORDINALS.indexOf(m[1]) + 1;
+    }
+    if (ROMAN_ORDINALS.includes(r)) return ROMAN_ORDINALS.indexOf(r) + 1;
+    if ((m = r.match(/^([a-z]+|\d{1,2}(?:st|nd|rd|th))[\s-]gen(?:eration)?$/))) return parseOrdinal(m[1]) || 0;
+    return 0;
+  }
+  // "Mk1 (1M)" -> 1, "Second generation (1994)" -> 2, "(first generation)" -> 1.
+  function ordinalOfGenerationLabel(rest) {
+    const s = String(rest || "").trim();
+    return ordinalNamed(s) || ordinalNamed(s.replace(/\s*\([^()]*\)\s*$/, ""));
+  }
+  function foldOrdinalPlaceholders(nodes, links) {
+    const byIdLocal = new Map(nodes.map(n => [n.id, n]));
+    const famsByMake = new Map();
+    for (const f of nodes) {
+      if (!f || f.retired || f.type !== "family" || !(f.generations || []).length || !f.make || !f.label) continue;
+      const k = norm(f.make);
+      if (!famsByMake.has(k)) famsByMake.set(k, []);
+      famsByMake.get(k).push(f);
+    }
+    let folded = 0;
+    for (const m of nodes.slice()) {
+      if (!m || m.retired || m.type !== "model" || m.familyOf || !m.make || !m.llmCreatedNode) continue;
+      if ((m.generations || []).length) continue;
+      const ml = String(m.label || "");
+      const hits = [];
+      for (const fam of famsByMake.get(norm(m.make)) || []) {
+        const fl = String(fam.label);
+        if (ml.length <= fl.length || ml.slice(0, fl.length).toLowerCase() !== fl.toLowerCase()) continue;
+        if (!/^[\s(]/.test(ml.slice(fl.length))) continue;
+        const ord = ordinalNamed(ml.slice(fl.length));
+        if (!ord) continue;
+        (fam.generations || []).map(id => byIdLocal.get(id)).filter(g => g && !g.retired).forEach(g => {
+          const gl = String(g.label || "");
+          if (gl.slice(0, fl.length).toLowerCase() !== fl.toLowerCase()) return;
+          if (ordinalOfGenerationLabel(gl.slice(fl.length)) === ord) hits.push({ gen: g, fam });
+        });
+      }
+      if (hits.length !== 1) continue;                    // none, or two nameplates could mean it
+      const { gen, fam } = hits[0];
+      if (m.year != null && gen.year != null && Math.abs(m.year - gen.year) > 1) continue;
+      if (store.unmergedDuplicates[gen.id + "|" + m.id]) continue;
+      supersedeStandalone(nodes, links, m, gen, fam.id, fam.make + " " + fam.label);
+      note(`graph: "${m.make} ${m.label}" is the nameplate's own "${gen.label}" -- folded in`);
+      folded++;
+    }
+    return folded;
   }
 
   // ---------- a generation's twin the chassis-code pass cannot see ----------
@@ -10341,16 +10502,16 @@ Rules:
     const fresh = (entry.proposal && entry.proposal.generations) || [];
     if (!fresh.length) return null;
     const { addedFresh, removedOld } = diffGenerationCodes(genNodes, fresh);
-    // Real user rule: "if the llm finds the same number of generations or
-    // more than already existed in dbpedia for a particular model/nameplate,
-    // then automatically replace it and do not ask for my approval." Wider
-    // than the rule this started as (nothing dropped, at least one added):
-    // a list the same length or longer replaces the old one outright, even
-    // if a code or two differs. Only a SHORTER list -- the model finding
-    // fewer generations than the nameplate already has -- waits for a person.
+    // Only a list that ADDS. For a while this was wider -- "the same number
+    // of generations or more ... automatically replace it" -- and a list that
+    // was no shorter replaced the old one even where it dropped generations:
+    // the CLK lost both of its harvested generations, each with its own
+    // article, engines and relations, to three re-minted ones, at every page
+    // load. Asked which rule should stand, the owner chose this one: anything
+    // that would retire a generation waits in Pending Generation Splits.
     const had = (genNodes || []).length;
-    if (fresh.length < had) return null;
-    if (!addedFresh.length && !removedOld.length) return null;   // nothing would change
+    if (removedOld.length) return null;
+    if (!addedFresh.length) return null;                          // nothing would change
     // "Adds a generation" has a second shape that is not purely additive at
     // all: applyFamilyOverride does not always MINT the new generation. If the
     // car already exists somewhere else in the graph -- a never-grouped
@@ -10621,6 +10782,17 @@ Rules:
           engineScansCleared,
           generationDiff: { addedCodes: addedFresh.map(g => g.code), removedIds: removedOld.map(o => o.id) },
         };
+        // Reached by another car's scan, and Wikipedia still says exactly what
+        // was declined: it stays declined. Asking for this nameplate by name
+        // is the way to see the list again.
+        const prior = store.recheck[fam.id];
+        if (opts && opts.keepRejections && prior && prior.status === "declined" &&
+            entry.status === "provisional" && sameCodeList(prior.declinedCodes, clean.generations)) {
+          prior.checkedAt = entry.checkedAt;
+          note(`re-check: ${fam.label} -- the same list that was declined; left as it is`);
+          await persist();
+          return prior;
+        }
         store.recheck[fam.id] = entry;
         // An explicit, user-initiated re-check is the deliberate escape
         // hatch out of any earlier delete's permanent suppression (see
@@ -15170,9 +15342,30 @@ Rules:
     return p;
   }
 
-  // Same "forget it happened, re-checkable later" semantics as rejectNode.
+  // A re-check somebody declined is remembered as declined, list and all.
+  // It used to be deleted -- from memory only by the card's "Keep what's
+  // here", so the proposal was back after a reload, and from the file by the
+  // Pending panel, so nothing knew it had ever been turned down and the next
+  // scan to reach the nameplate proposed the very same list again.
+  function recordDeclinedRecheck(famId) {
+    const e = store.recheck[famId];
+    const gens = (e && e.proposal && e.proposal.generations) || [];
+    store.recheck[famId] = {
+      status: "declined",
+      checkedAt: (e && e.checkedAt) || new Date().toISOString(),
+      declinedAt: new Date().toISOString(), decidedBy: decisionSource,
+      sourceTitle: (e && e.sourceTitle) || null,
+      declinedCodes: gens.map(g => g.code),
+    };
+    return persist();
+  }
+  function sameCodeList(codes, gens) {
+    const a = (codes || []).map(c => norm(c)).sort().join("|");
+    const b = (gens || []).map(g => norm(g.code)).sort().join("|");
+    return !!a && a === b;
+  }
   function rejectFamilyRecheck(famId) {
-    delete store.recheck[famId];
+    return recordDeclinedRecheck(famId);
   }
 
   // ---------- runtime rewiring: apply a user-confirmed generation-list override ----------

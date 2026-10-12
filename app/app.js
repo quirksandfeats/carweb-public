@@ -229,6 +229,61 @@ window.CarWeb = (function () {
     window.LlmFamilies.applyPeopleForSingleGen(nodes, links);
     window.LlmFamilies.applyResolvedRelations(nodes, links);
   }
+  // ...and then until there is nothing left to replay. The passes above each
+  // ran once, in an order that assumes every car a decision is about already
+  // exists -- but a car that only exists because some OTHER car's article
+  // named it is created by the passes just above, after the one that splits
+  // nameplates into generations has been and gone. Fifty such cars had a
+  // confirmed split in the store and showed as a single model on every load;
+  // a live session, which runs the same passes again after each check,
+  // showed them split, with 272 more nodes and 1,263 more links than a reload
+  // of the very same file. Worse, the end of this load then filed every
+  // decision about the cars that never appeared as orphaned and saved.
+  //
+  // Same passes, same order as after a live check (applyLlmConfirmSilent and
+  // applySharedPlatformLive), repeated until a pass adds nothing. Two is
+  // enough on the real store; the cap is there so a bug cannot hang a load.
+  if (window.LlmFamilies) {
+    const LFam = window.LlmFamilies;
+    const lateFrom = nodes.length;
+    for (let pass = 0; pass < 6; pass++) {
+      const nb = nodes.length, lb = links.length;
+      // A car named by another car's article that turns out to be a
+      // nameplate already in the graph ("Octavia" beside the Octavia) is
+      // that nameplate, before it is anything else -- otherwise its own
+      // split, applied next, puts a second Octavia on screen.
+      const retiredBefore = pass ? 0 : nodes.filter(n => n.retired).length;
+      if (!pass) {
+        LFam.mergeDuplicateNameplates(nodes, links);
+        if (LFam.foldCodeDuplicateModels) LFam.foldCodeDuplicateModels(nodes, links);
+        if (LFam.foldUmbrellaModels) LFam.foldUmbrellaModels(nodes, links);
+      }
+      LFam.applyConfirmed(nodes, links);
+      LFam.applyAllFamilyOverrides(nodes, links);
+      LFam.reconcileDbGenerations(nodes);
+      LFam.applySharedPlatformForSingleGen(nodes, links);
+      LFam.applyPeopleForSingleGen(nodes, links);
+      LFam.applyResolvedRelations(nodes, links);
+      if (nodes.length === nb && links.length === lb) break;
+    }
+    if (nodes.length !== lateFrom) {
+      // What the earlier one-shot passes would have done for these cars had
+      // they existed in time: their names, their deletions -- and their
+      // engines, since a stored engine read for a car that was not there yet
+      // is skipped (the Corolla E150's fourteen engine lines were gone after
+      // every reload).
+      LFam.applyRenames(nodes);
+      LFam.applyDeletions(nodes, links);
+      LFam.applyPurges(nodes, links);
+      try {
+        if (LFam.applyEngineMentions) LFam.applyEngineMentions(nodes, links);
+        if (LFam.applyEngineMerges) LFam.applyEngineMerges(nodes, links);
+        if (LFam.tidyPowertrain) LFam.tidyPowertrain(nodes, links);
+        LFam.tidyEngineLinks(nodes, links);
+      } catch (e) { console.warn("CarWeb: could not replay engines for cars created late in the load", e); }
+      console.info(`[carweb] ${nodes.length - lateFrom} node(s) only appear once the replay has run to the end`);
+    }
+  }
   // Deliberately last of the replay passes, not in the middle of them. It
   // reads every family's final generation list, and the four calls above are
   // the ones that retire generations -- an unmerge, a rename, a delete, a
@@ -3025,6 +3080,20 @@ window.CarWeb = (function () {
     // index rebuild below so any link just pushed here gets its
     // adj/sn/tn wiring done by that same rebuild pass, not a second one.
     window.LlmFamilies.applyResolvedRelations(nodes, links);
+    // A generation this just added can name a car the graph did not have, and
+    // that car can have decisions of its own on file -- the Mini's Mark III
+    // brings in the Innocenti Mini, which has a confirmed three-generation
+    // split. Replayed here, before the indexes below are rebuilt over
+    // everything, so it is there now and not only after the next check.
+    for (let pass = 0; pass < 4; pass++) {
+      const nb = nodes.length, lb = links.length;
+      window.LlmFamilies.applyConfirmed(nodes, links);
+      window.LlmFamilies.reconcileDbGenerations(nodes);
+      window.LlmFamilies.applySharedPlatformForSingleGen(nodes, links);
+      window.LlmFamilies.applyPeopleForSingleGen(nodes, links);
+      window.LlmFamilies.applyResolvedRelations(nodes, links);
+      if (nodes.length === nb && links.length === lb) break;
+    }
     adj.forEach((_, k) => adj.set(k, []));
     nodes.forEach(n2 => { byId.set(n2.id, n2); if (!adj.has(n2.id)) adj.set(n2.id, []); });
     links.forEach(l => {
