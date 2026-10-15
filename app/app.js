@@ -1421,6 +1421,12 @@ window.CarWeb = (function () {
     if (end === start) return `${start}`;
     return `${start}–${end}`;
   }
+  // A car's years, or that it is not built yet (llm_families.js's
+  // markFutureGenerations): "Future model, expected 2027".
+  function carYears(n) {
+    if (n && n.future) return "Future model" + (n.expectedYear ? `, expected ${n.expectedYear}` : "");
+    return fmtYearRun(n.year, n.end);
+  }
   function nodeKicker(n) {
     if (n.type === "engine") {
       const vars = (n.variants || []).length;
@@ -1485,7 +1491,7 @@ window.CarWeb = (function () {
   }
   function nodeMeta(n) {
     if (n.type === "model" || n.type === "family") {
-      const run = fmtYearRun(n.year, n.end);
+      const run = carYears(n);
       // Escaped, like the "also called" names below. These are names read
       // out of an article and kept if they appear in its raw text, markup and
       // all -- and whatever is stored is written into every visitor's page.
@@ -2057,8 +2063,8 @@ window.CarWeb = (function () {
       n.generations.map(id => byId.get(id)).filter(Boolean).forEach(g => {
         const b = document.createElement("button");
         b.className = "dt-conn dt-gen";
-        const run = fmtYearRun(g.year, g.end);
-        b.innerHTML = `${esc(g.label)} <span class="verb">${run}</span>`;
+        const run = carYears(g);
+        b.innerHTML = `${esc(g.label)} <span class="verb">${esc(run)}</span>`;
         b.onclick = () => api.goto(g.id);
         genWrap.appendChild(b);
       });

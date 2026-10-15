@@ -2547,6 +2547,7 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
           catch (err) { out.failed++; continue; }
           if (!e || e.status !== "provisional") continue;
           e.sections = headingsOf(wikitext);
+          markFutureGenerations((e.proposal && e.proposal.generations) || [], wikitext);
           out.read++;
           const fam = byIdLocal.get(id);
           const gens = fam ? (fam.generations || []).map(g => byIdLocal.get(g)).filter(g => g && !g.retired) : [];
@@ -3035,6 +3036,7 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
     const raw = manualRaw !== undefined ? manualRaw
       : await askLlamaCpp(messages, `${node.make || ""} ${node.label}`.trim() + " · split");
     const clean = validate(raw, wikitext);
+    markFutureGenerations(clean.generations, wikitext);
     if (nodes) await annotateSharedPlatformMatches(nodes, node.id, clean);
     // Kept alongside the (possibly much shorter, hallucination-filtered)
     // clean result purely for debugging "why didn't it find anything" cases
@@ -4013,6 +4015,49 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
       if (text) out.push([m[1].length - 1, text]);
     }
     return out;
+  }
+  // ---------- generations not built yet ----------
+  // Real user request (14 Oct 2026): "if there is a planned upcoming model in
+  // any case, add it but provide info that it's a future model in some way,
+  // regardless of whether or not it has a start year (although that would be
+  // preferred if it's able to be found)." A generation is future when its
+  // start year is after this one, or when its own section of the article
+  // calls it planned, upcoming, expected or due; the year it is expected in
+  // is taken from there when the section gives one. Marked on the proposal
+  // (`future`, `expectedYear`), so a reload marks it the same way.
+  const FUTURE_TEXT_RE = /\b(?:upcoming|planned|forthcoming|yet to be (?:released|launched)|will (?:be (?:launched|introduced|released|unveiled|revealed|built|produced|sold)|go on sale|enter production)|(?:is|are) (?:expected|scheduled|due|set|slated) to|expected (?:in|to (?:be|go|enter|arrive|launch))|due (?:in|for|to (?:hit|arrive|launch|go|enter|be))|scheduled for|slated for|next[- ]generation)\b/i;
+  function sectionTexts(wikitext) {
+    const out = [];
+    const re = /^(={2,6})\s*(.+?)\s*\1\s*$/gm;
+    const text = String(wikitext || "");
+    let m, prev = null;
+    while ((m = re.exec(text))) {
+      if (prev) prev.body = text.slice(prev.from, m.index);
+      prev = { heading: m[2].replace(/\[\[(?:[^\]|]*\|)?([^\]]*)\]\]/g, "$1").replace(/'{2,}/g, "").replace(/<[^>]+>/g, "").trim(),
+               from: re.lastIndex };
+      out.push(prev);
+    }
+    if (prev) prev.body = text.slice(prev.from);
+    return out;
+  }
+  function markFutureGenerations(generations, wikitext) {
+    const now = new Date().getFullYear();
+    const sections = wikitext ? sectionTexts(wikitext) : [];
+    (generations || []).forEach(g => {
+      if (!g) return;
+      if (g.yearStart != null && g.yearStart > now) { g.future = true; g.expectedYear = g.yearStart; return; }
+      if (g.yearStart != null && g.yearStart <= now - 1) return;
+      const place = generationPlace(g.code), codes = codesNamedIn(g.code);
+      const sec = sections.find(x => labelCarriesCode(x.heading, g.code) ||
+        (codes.length && codesNamedIn(x.heading).some(c => codes.includes(c))) ||
+        (place && generationPlace(x.heading) === place));
+      const body = sec ? (sec.heading + " " + sec.body.slice(0, 2500)) : "";
+      if (!body || !FUTURE_TEXT_RE.test(body)) return;
+      g.future = true;
+      const later = (body.match(/\b20\d{2}\b/g) || []).map(Number).filter(y => y >= now).sort((a, b) => a - b);
+      g.expectedYear = g.yearStart != null && g.yearStart >= now ? g.yearStart : (later[0] || null);
+    });
+    return generations;
   }
   const OUTSIDE_HEADING_RE = /\b(?:other uses|further use|related|see also|concepts?|derivatives|spin-?offs?|references|notes|external links|further reading|bibliography)\b/i;
   const GENERATION_HEADING_RE = /\bgeneration\b|\b(?:mk|mark)\s*[ivx\d]+\b|\(\s*(?:1[89]|20)\d{2}|\b(?:1[89]|20)\d{2}\s*[–-]/i;
@@ -7234,6 +7279,7 @@ Rules:
           // shared parent-article thumbnail. Null just means none was found
           // nearby; the app falls back to the normal per-article thumbnail.
           wikiFile: g.wikiFile || null,
+          future: !!g.future, expectedYear: g.future ? (g.expectedYear || null) : null,
           // Free-text names of every DIFFERENT nameplate this generation's
           // own article text says it shares a platform with / is a rebadge
           // of (hallucination-guarded to appear verbatim in the source by
@@ -17345,6 +17391,8 @@ Rules:
       if (fresh.designers && fresh.designers.length) gn.designers = fresh.designers;
       if (fresh.engineers && fresh.engineers.length) gn.engineers = fresh.engineers;
       if (fresh.wikiFile) gn.wikiFile = fresh.wikiFile;
+      gn.future = !!fresh.future;
+      gn.expectedYear = fresh.future ? (fresh.expectedYear || null) : null;
       // Real gap found while adding multi-relation support: this override
       // flow called resolvePlatformMention below on every pass, but never
       // actually SET gn.sharedPlatformTexts first -- so an EXISTING
@@ -17438,7 +17486,11 @@ Rules:
     // In order of their years (undated last), whatever order the article
     // listed them in, and the succession arrows rebuilt to match.
     kept.forEach(o => newGenIds.push(o.id));
-    const yr = id => { const g = byId.get(id); return g && g.year != null ? g.year : 1e9; };
+    const yr = id => {
+      const g = byId.get(id);
+      if (g && g.future) return 2e9 + (g.expectedYear || 0);
+      return g && g.year != null ? g.year : 1e9;
+    };
     newGenIds.sort((a, b) => yr(a) - yr(b));
     const inFamily = new Set(newGenIds);
     const next = new Map(newGenIds.slice(0, -1).map((id, i) => [id, newGenIds[i + 1]]));
@@ -17721,7 +17773,7 @@ Rules:
     clearEngineScansFor, note, nameplateSectionForCar, mergeEngineHits,
     mergeEngines, undoEngineMerge, allEngineMerges, applyEngineMerges,
     sameEngineLine, decodeEntities, articleIsNotACar, sweepStoredSplitsForOutsiders, sweepRecheckSections, decideRecheck, headingsOf,
-    articleNamesCar, settleRetiredGenerationFlags, sweepFlaggedMentions, articleNamesCarInFull, sweepWeakRelations, sweepWholePageEngineLists, sweepOrdinalPlaceholders, replayStarted, replayFinished,
+    markFutureGenerations, articleNamesCar, settleRetiredGenerationFlags, sweepFlaggedMentions, articleNamesCarInFull, sweepWeakRelations, sweepWholePageEngineLists, sweepOrdinalPlaceholders, replayStarted, replayFinished,
     lastSaveError: () => lastSaveError,
     engineMentions, unlinkedEngineMentions, engineSpecLabel,
     recordEngineMentions, recordEngineMentionsFrom, applyEngineMentions,

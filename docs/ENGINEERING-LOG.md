@@ -2077,3 +2077,11 @@ every 15 minutes in a thread, and writes the final report in a `finally` around
 which request it is on and when that finishes, because the queue can drop a
 running request and never record its end (the Mazda CX-5's). A run whose
 requests stopped early says so, with the cars left for `--resume`.
+
+**Future models** (`markFutureGenerations`). A generation is marked `future`
+when its start year is after this one, or when its own section calls it
+planned, upcoming, due, expected or next-generation; `expectedYear` comes from
+there when the section gives one (the Boxster and Cayman's fifth generation,
+"due to hit the market in 2026"). The mark is on the proposal, set when a list
+is read and for waiting re-checks by `sweepRecheckSections`. A future
+generation's card reads "Future model, expected 2026", and it sorts last.
