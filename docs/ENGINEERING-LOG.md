@@ -2067,3 +2067,13 @@ sooner as the store grew. The cause is not proven: a freshly loaded page holds
 about 180 MB of its 3.5 GB heap. The agent now logs the page's heap every ten
 minutes, gives the tab Chromium's largest heap (4 GB), and reopens a tab past
 1,500 MB on purpose -- the resume a crash gets, not counted as one.
+
+**The status page, in the agent.** The owner wanted the dashboard to start and
+stop with the agent rather than be a second program. `scripts/status_page.py`
+is the former watcher, with no personal paths: the agent starts it if
+`scripts/agent_settings.local.json` (git-ignored) names a page, refreshes it
+every 15 minutes in a thread, and writes the final report in a `finally` around
+`main()` -- a finished queue, Ctrl+C, SIGTERM or an error. The agent tells it
+which request it is on and when that finishes, because the queue can drop a
+running request and never record its end (the Mazda CX-5's). A run whose
+requests stopped early says so, with the cars left for `--resume`.

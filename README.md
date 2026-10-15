@@ -84,6 +84,15 @@ itself down. There is no overall time limit; a car that hangs or crashes the
 page three times is set aside for a later `--resume`. See
 [`docs/REQUEST-QUEUE.md`](docs/REQUEST-QUEUE.md).
 
+While it runs, the agent can keep a one-page status dashboard up to date
+(`scripts/status_page.py`): written when it starts, every 15 minutes, and as a
+final report when it stops. Say where in `scripts/agent_settings.local.json`,
+which git ignores:
+
+```json
+{"statusPage": "/path/to/a/synced/folder/CarWeb scan status.html"}
+```
+
 ## Rebuilding
 
 ```bash

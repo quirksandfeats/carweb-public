@@ -56,3 +56,7 @@ venv/
 # Timestamped copies of app/llm_families.json taken before a reset (see
 # scripts/reset_llm_layer.sh). Local safety net, not project history.
 llm_layer_backups/
+
+# The agent's local settings (scripts/status_page.py): where to write the
+# status page. A path on this machine, kept out of the public repository.
+scripts/agent_settings.local.json

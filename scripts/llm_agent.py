@@ -62,6 +62,9 @@ import time
 import urllib.error
 import urllib.request
 
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import status_page  # noqa: E402  (beside this file; see its docstring)
+
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 APP = os.path.join(ROOT, "app")
 REPORT = os.path.join(ROOT, "data_src", "harvest", "family_match_report.txt")
@@ -1287,6 +1290,7 @@ def do_job(job, args):
         if status != 200:
             log(f"could not claim the job ({status}); leaving it for next time")
             return
+        status_page.job_started(job)
 
     seed_labels = {}
     if getattr(args, "resume", False):
@@ -1410,6 +1414,7 @@ def do_job(job, args):
 
 def finish(jid, state, summary):
     log(f"{state}: {summary}")
+    status_page.job_finished(jid, state, summary)
     if jid:
         _, d = api("/api/request/done", "POST", {"id": jid, "state": state, "summary": summary})
         waiting = d.get("waiting") if isinstance(d, dict) else None
@@ -1520,6 +1525,14 @@ def main():
                   f" -- {last.get('summary') or ''}")
         return
 
+    # The status page (scripts/status_page.py): written now, every 15 minutes
+    # while this runs, and a final time on the way out -- see the __main__
+    # block. Only where scripts/agent_settings.local.json says to write it.
+    if not args.dry_run:
+        page = status_page.configured_path()
+        if page:
+            status_page.start(page, say=log)
+
     if args.dry_run:
         backlog = review_queue_ids()
         scanned = already_scanned()
@@ -1589,7 +1602,12 @@ if __name__ == "__main__":
         use_repo_venv()
     install_signal_handlers()
     try:
-        main()
+        try:
+            main()
+        finally:
+            # The status page's final report, however the run ended: a
+            # finished queue, Ctrl+C, SIGTERM or an error.
+            status_page.final()
     except Aborted:
         # Everything that needed closing has closed by the time this is
         # reached -- do_job's own finally stops serve.py, run_pass's closes
