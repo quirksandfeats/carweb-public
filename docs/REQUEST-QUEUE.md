@@ -41,7 +41,9 @@ stamped so it can be reviewed afterwards.
   (`job:car:<node id>`), up to 25, ordered by when each was asked for. `GET /api/request/status` returns it by car name, and
   the ⚡ Request scan panel shows the same list. Asking for a car already in
   the queue returns the existing request rather than stacking a duplicate. A
-  request nobody claims for two days is dropped.
+  request is dropped two days after it was queued only if no agent has asked
+  for work in those two days either; one being scanned is never dropped. Each
+  request carries its cascade depth: 1 by default, at most 3 from the site.
 - The **review backlog** lives in `data_src/harvest/family_match_report.txt`
   and is the list of cars `--now` works through when there is no request to
   read. Nothing to do with Cloudflare.
@@ -131,9 +133,11 @@ keeps hiding every server-only control.
 
 One job at a time. A second request while one is pending returns the existing
 job rather than stacking another behind it — two queued scans of the same graph
-is one scan and one wasted wake-up. A job nobody claims expires after two days,
-because a week-old "scan everything" is not what anyone wants run when the
-machine finally comes back.
+is one scan and one wasted wake-up. A job expires two days after it was queued
+when no agent has checked the queue in that time, because a week-old "scan
+everything" is not what anyone wants run when the machine finally comes back.
+While an agent is working through the queue nothing expires: on 14 Oct 2026 a
+fixed two days dropped four waiting requests and the one being scanned.
 
 Two separate secrets, deliberately: `REQUEST_SECRET` is typed into a browser
 and can only *enqueue*; `AGENT_TOKEN` lives on one machine and can read and
@@ -283,7 +287,7 @@ model the way a person does.
 | flag | default | what it does |
 |---|---|---|
 | `--seeds` | 1 | how many review-queue cars to start from |
-| `--cascade-depth` | serve.py's setting | overrides `CASCADE_MAX_DEPTH` for this run |
+| `--cascade-depth` | the request's depth, else serve.py's setting | overrides both for this run |
 | `--settle-seconds` | 900 | hard cap on waiting for a seed's cascade |
 | `--settle-quiet` | 60 | fallback only: quiet that counts as finished when the page cannot report |
 | `--budget-minutes` | 0 (no limit) | wall-clock cap on the scanning phase |
