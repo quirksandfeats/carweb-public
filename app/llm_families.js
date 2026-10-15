@@ -6869,9 +6869,45 @@ Rules:
         };
         return;
       }
-      const cands = match.generations.map(id => byIdLocal.get(id)).filter(Boolean)
+      let cands = match.generations.map(id => byIdLocal.get(id)).filter(Boolean)
         .filter(g2 => gn.year != null && g2.year != null &&
           g2.year <= (gn.end || gn.year) && (g2.end || 9999) >= gn.year);
+      // Which generation, from evidence before years (the owner's order,
+      // 14-15 Oct 2026): the place or code the mention itself names ("the
+      // second-generation Pajero"), then the one generation whose own section
+      // of its article names this car back (stored as its platform mentions),
+      // and only then the years -- the generation built alongside, or, when
+      // not exactly one was, the one overlapping these years most, ties to
+      // the earlier, none overlapping to the nearest earlier (a platform
+      // carries forward to later cars, not back). Never the bare nameplate
+      // where a generation can be named. Only for a nameplate named exactly.
+      let pickedBy = null;
+      if (!loose) {
+        const targetGens = match.generations.map(id => byIdLocal.get(id)).filter(g2 => g2 && !g2.retired);
+        let pick = generationNamedBy(match, mentionText, nodes);
+        if (pick) pickedBy = "the mention names this generation by its code or place";
+        if (!pick) {
+          const naming = targetGens.filter(g2 => (g2.sharedPlatformTexts || []).some(t => articleNamesCar(t, gn, nodes)));
+          if (naming.length === 1) { pick = naming[0]; pickedBy = "this generation's own section of its article names this car"; }
+          // Several do (the Pajero's first and second both name the Galloper):
+          // the years choose among those, not among all of them.
+          else if (naming.length > 1 && gn.year != null) {
+            pick = successorGeneration(gn, naming.filter(g2 => g2.year != null));
+            if (pick) pickedBy = "its article's sections for these generations name this car, and this one's years fit best";
+          }
+        }
+        if (!pick && cands.length !== 1 && gn.year != null) {
+          pick = successorGeneration(gn, targetGens.filter(g2 => g2.year != null));
+          // With no generation built near these years, the graph is missing
+          // the right one (the VinFast Fadil's 2015 Opel Karl/Viva, against a
+          // 1970 Vauxhall Viva): the nameplate stays the honest answer.
+          const gap = pick ? gn.year - (pick.end == null ? 9999 : pick.end) : 0;
+          const after = pick ? pick.year - (gn.end == null ? gn.year : gn.end) : 0;
+          if (pick && (gap > 10 || after > 10)) pick = null;
+          if (pick) pickedBy = "no text says which, so the generation whose years fit this one best";
+        }
+        if (pick) cands = [pick];
+      }
       if (cands.length === 1) {
         // Same per-pair keying as the explicitGen branch above, and for the
         // exact same reason -- this is still a specific (if lower-confidence)
@@ -6910,7 +6946,9 @@ Rules:
           codeA: gn.label, codeB: cands[0].label, genIdA: gn.id, genIdB: cands[0].id,
           reason: loose
             ? "proposed by overlapping production years only, on top of a nameplate name that only matched as a substring -- please verify this is really the right car before accepting"
-            : "matched automatically -- the nameplate was named exactly in the source text, and exactly one of its generations was in production alongside this one, so that is the generation it refers to",
+            : pickedBy
+              ? `matched automatically -- the nameplate was named exactly in the source text; ${pickedBy}`
+              : "matched automatically -- the nameplate was named exactly in the source text, and exactly one of its generations was in production alongside this one, so that is the generation it refers to",
           llmDiscovered: true,
         };
       } else if (!loose || found.llmVerified) {

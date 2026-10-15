@@ -2105,3 +2105,15 @@ stored data: 10 invented makes gone (C/K, Colt, Corolla, Galant, Mazda2,
 Mazda6, NX, Statesman, Taurus, Yaris), their cars under the real make, and two
 duplicates merged ("Mazda6 GJ" is the Mazda 6's third generation; "Ford Taurus
 X" and "Taurus X" are one car).
+
+**Which generation a platform mention means** (`resolvePlatformMention`). When
+the source names only the other nameplate, its generation is chosen from
+evidence first (the owner's order): a code or place the mention names
+(`generationNamedBy`), then the generation whose own section of its article
+names this car back (its stored platform mentions; with several, the years
+choose among those), and only then the years -- the one built alongside, or
+the one overlapping most, ties to the earlier, none overlapping to the nearest
+earlier. Where no generation was built within ten years, the graph lacks the
+right one and the link stays on the nameplate (a 2018 VinFast Fadil is not a
+1970 Vauxhall Viva). On the stored data about 1,850 links move from nameplate
+to generation: 1,041 chosen with evidence, 789 by years alone.
