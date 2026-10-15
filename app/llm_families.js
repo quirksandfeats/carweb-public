@@ -761,7 +761,17 @@ window.LlmFamilies = (function () {
     if (cached) return cached;
     const url = "https://en.wikipedia.org/w/api.php?action=parse&format=json&origin=*&prop=wikitext&redirects=1&page=" +
       encodeURIComponent(title);
-    const r = await fetch(url);
+    // Wikipedia turns away a burst of reads for a moment (429, 5xx): the
+    // first one-off sweep of 294 waiting re-checks lost 94 that way. Asked
+    // again after a pause, twice, before it counts as a failure.
+    let r = null;
+    for (let attempt = 0; attempt < 3; attempt++) {
+      try { r = await fetch(url); } catch (e) { r = null; }
+      if (r && r.ok) break;
+      if (r && r.status !== 429 && r.status < 500) break;
+      if (attempt < 2) await new Promise(res => setTimeout(res, attempt ? 6000 : 2000));
+    }
+    if (!r) throw new Error("wikipedia fetch failed: no answer");
     if (!r.ok) throw new Error("wikipedia fetch failed: " + r.status);
     const j = await r.json();
     const wikitext = j && j.parse && j.parse.wikitext && j.parse.wikitext["*"];
@@ -2594,6 +2604,9 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
     };
     add(plate.label, plate.make);
     add(car.label, car.make);
+    // Its other names too ("also called"): the Geo Prizm is the Chevrolet
+    // Prizm, and an article may only ever use the other one.
+    [car, plate].forEach(c => ((store.aliases[c.id] || {}).names || []).forEach(a => add(a, null)));
     const text = String(wikitext);
     for (const n of names) {
       const words = n.split(/[\s\-]+/).filter(Boolean).map(w => w.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"));
