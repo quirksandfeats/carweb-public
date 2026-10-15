@@ -273,6 +273,14 @@
        field on a public page that ends up in a log a person reads is an
        invitation to test what else it can be made to say. If it comes back it
        should come back with an escaping and review story of its own. -->
+  <label class="lrq-label" for="llmrequest-depth">Cascade depth</label>
+  <!-- How far the scan follows the cars this one names: 1 reads this car and
+       the cars its article names. Up to 3 from here; 7 on the machine itself. -->
+  <select id="llmrequest-depth">
+    <option value="1" selected>1 — this car and the cars it names</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+  </select>
   <label class="lrq-label" for="llmrequest-pass">Passphrase</label>
   <input id="llmrequest-pass" type="password" autocomplete="off" placeholder="required">
   <div class="lrq-actions">
@@ -309,6 +317,12 @@
     <div id="llmqueue-carresults" class="lrq-results" hidden></div>
   </div>
   <div id="llmqueue-chosen" class="lrq-chosen" hidden></div>
+  <label class="lrq-label" for="llmqueue-depth">Cascade depth</label>
+  <select id="llmqueue-depth">
+    <option value="1" selected>1 — this car and the cars it names</option>
+    <option value="2">2</option><option value="3">3</option><option value="4">4</option>
+    <option value="5">5</option><option value="6">6</option><option value="7">7</option>
+  </select>
   <div class="lrq-actions">
     <button id="llmqueue-add">Add to the queue</button>
     <button id="llmqueue-clear" class="lrq-ghost">Clear those waiting</button>

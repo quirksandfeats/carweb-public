@@ -375,10 +375,13 @@ window.LlmFamilies = (function () {
   let surfaceLooseMatches = false;
 
   const CASCADE_MAX_DEPTH_DEFAULT = 1;
-  const cascadeMaxDepth = (() => {
+  const configuredCascadeDepth = (() => {
     const v = bootData.__config && bootData.__config.cascadeMaxDepth;
     return Number.isFinite(v) && v >= 0 ? v : CASCADE_MAX_DEPTH_DEFAULT;
   })();
+  // A job from the page's own queue runs at the depth it was asked for
+  // (pumpJobs sets it, and puts the configured one back after).
+  let cascadeMaxDepth = configuredCascadeDepth;
   // node id -> how many hops from a user-selected car it was reached in.
   // Deliberately session-only (a Map, not part of `store`): it describes this
   // browsing session's path through the graph, not a fact about the cars.
@@ -5734,6 +5737,8 @@ Rules:
       source: String(spec.source || "local"),
       state: "waiting",
       queuedAt: new Date().toISOString(),
+      // How far the cascade may go from it (1 by default, up to 7 locally).
+      depth: Math.max(1, Math.min(7, parseInt(spec.depth, 10) || 1)),
     };
     list.push(job);
     persist();
@@ -5822,6 +5827,7 @@ Rules:
       return pumpJobs();
     }
     jobPumping = true;
+    if (Number.isFinite(next.depth)) cascadeMaxDepth = Math.max(1, Math.min(7, next.depth));
     next.state = "running";
     next.startedAt = new Date().toISOString();
     persist();
@@ -5834,6 +5840,11 @@ Rules:
       await runner(Object.assign({}, next));
     } catch (e) {
       err = e;
+    } finally {
+      cascadeMaxDepth = configuredCascadeDepth;
+    }
+    if (err) {
+      const e = err;
       console.warn("LlmFamilies: job failed", next, e);
       note(`queue: ${next.label} failed -- ${(e && e.message) || e}`);
     }

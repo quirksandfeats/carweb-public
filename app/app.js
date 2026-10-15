@@ -6673,6 +6673,7 @@ window.CarWeb = (function () {
             passphrase: passEl.value,
             targetId: chosen.id,
             targetLabel: carName(chosen),
+            depth: Number((document.getElementById("llmrequest-depth") || {}).value) || 1,
           }),
         });
         const d = await r.json();
@@ -6892,6 +6893,7 @@ window.CarWeb = (function () {
     addBtn.onclick = () => {
       const spec = chosen ? llmJobSpecFor(chosen) : null;
       if (!spec) { say("Pick a car, nameplate or engine first.", "err"); carEl.focus(); return; }
+      spec.depth = Number((document.getElementById("llmqueue-depth") || {}).value) || 1;
       const res = LF.enqueueJob(spec);
       if (res && res.error === "queue-full") {
         say(`The queue is full (${res.limit} waiting). Let some of it run first.`, "err");

@@ -62,6 +62,24 @@ const jobKey = targetId => JOB_PREFIX + targetId;
 // simply have been off all week. Applied to the whole list: anything older
 // than this is dropped when the queue is next read.
 const JOB_TTL_SECONDS = 60 * 60 * 24 * 2;
+// ...but only while no agent is checking the queue. Real report (14 Oct 2026):
+// four requests queued together sat behind a long scan, and two days after
+// they were queued every one of them vanished -- the one being scanned too,
+// so its finish was never recorded. A request is dropped for age only when
+// no agent has asked for work in those two days either, and one being
+// scanned never is (a dead run's claim is handed back by the rule below).
+// When an agent was last seen is written at most once an hour: the free KV
+// plan allows 1,000 writes a day, and an agent asks every minute.
+const AGENT_SEEN_KEY = "agent:seen";
+const AGENT_SEEN_EVERY_MS = 60 * 60 * 1000;
+// What KV itself keeps a job for, well past the rule above, so a job is never
+// deleted under a working agent by the store's own expiry.
+const KV_TTL_SECONDS = 60 * 60 * 24 * 14;
+// How far one request may cascade. Real user request: the request form asks
+// for the depth, 1 by default, and a public visitor may ask for up to 3 (the
+// machine doing the work is someone's own; 7 is for the owner, locally).
+const DEPTH_DEFAULT = 1;
+const PUBLIC_MAX_DEPTH = 3;
 // A claim is not a lock for ever. The agent claims a job, runs the pass and
 // posts /done -- but a run that is Ctrl-C'd, crashes, or loses the machine
 // never posts anything, and the job it claimed would otherwise sit marked
@@ -95,11 +113,12 @@ async function readJson(request) {
   try { return await request.json(); } catch (e) { return null; }
 }
 
-function fresh(queue) {
+function fresh(queue, agentSeenAt) {
   const cutoff = Date.now() - JOB_TTL_SECONDS * 1000;
+  const agentAround = isFinite(agentSeenAt) && agentSeenAt >= cutoff;
   return (Array.isArray(queue) ? queue : []).filter(j => {
     const t = Date.parse(j && j.queuedAt);
-    return j && j.id && (!isFinite(t) || t >= cutoff);
+    return j && j.id && (j.state === "running" || agentAround || !isFinite(t) || t >= cutoff);
   });
 }
 
@@ -109,7 +128,7 @@ function fresh(queue) {
 function jobView(j) {
   return j && {
     id: j.id, state: j.state, queuedAt: j.queuedAt, claimedAt: j.claimedAt || null,
-    targetId: j.targetId || null, targetLabel: j.targetLabel || "",
+    targetId: j.targetId || null, targetLabel: j.targetLabel || "", depth: j.depth || DEPTH_DEFAULT,
   };
 }
 // The queue prints short ids (the first eight characters) in the agent's log
@@ -126,7 +145,7 @@ function matchJob(queue, id) {
 }
 
 function publicView(queue, last) {
-  const q = fresh(queue);
+  const q = Array.isArray(queue) ? queue : [];   // already filtered by getQueue
   return {
     queue: q.map(jobView),
     // Kept for the older shape: the head of the queue is what "pending" meant.
@@ -152,10 +171,11 @@ export default {
 
     // Oldest first. Two requests made in the same second are ordered by their
     // key, so the order is at least stable rather than arbitrary.
+    const agentSeenAt = async () => Date.parse(await env.JOBS.get(AGENT_SEEN_KEY) || "");
     const getQueue = async () => {
       const listed = await env.JOBS.list({ prefix: JOB_PREFIX, limit: 200 });
       const jobs = await Promise.all(listed.keys.map(k => env.JOBS.get(k.name, "json")));
-      const queue = fresh(jobs.filter(Boolean)).sort((a, b) =>
+      const queue = fresh(jobs.filter(Boolean), await agentSeenAt()).sort((a, b) =>
         String(a.queuedAt).localeCompare(String(b.queuedAt)) ||
         String(a.targetId).localeCompare(String(b.targetId)));
       // Hand back an abandoned claim before anyone reads the list, so a dead
@@ -178,7 +198,7 @@ export default {
       return queue;
     };
     const putJob = async j => await env.JOBS.put(jobKey(j.targetId), JSON.stringify(j),
-                                                 { expirationTtl: JOB_TTL_SECONDS });
+                                                 { expirationTtl: KV_TTL_SECONDS });
     const dropJob = async j => await env.JOBS.delete(jobKey(j.targetId));
     const getLast = async () => await env.JOBS.get(LAST_KEY, "json");
 
@@ -213,7 +233,7 @@ export default {
       // own key rather than scanning the list: a key read is strongly
       // consistent where a list is not, so two people asking for the Jeep
       // Compass at the same moment cannot produce two Compass jobs.
-      const existing = fresh([await env.JOBS.get(jobKey(targetId), "json")])[0];
+      const existing = fresh([await env.JOBS.get(jobKey(targetId), "json")], await agentSeenAt())[0];
       if (existing) {
         return json({ ok: true, already: true, ...publicView(await getQueue(), await getLast()) });
       }
@@ -231,6 +251,8 @@ export default {
         // characters. The panel escapes it as well; this is the other half.
         targetLabel: String(body.targetLabel || "")
           .replace(/[\u0000-\u001f<>]/g, " ").trim().slice(0, 120),
+        // Held to the public limit here, not only in the form.
+        depth: Math.max(1, Math.min(PUBLIC_MAX_DEPTH, parseInt(body.depth, 10) || DEPTH_DEFAULT)),
       };
       await putJob(job);
       return json({ ok: true, already: false, ...publicView([...queue, job], await getLast()) });
@@ -280,6 +302,11 @@ export default {
     const bearer = auth.startsWith("Bearer ") ? auth.slice(7) : "";
     if (!env.AGENT_TOKEN || !timingSafeEqual(bearer, env.AGENT_TOKEN)) {
       return json({ ok: false, error: "unauthorized" }, 401);
+    }
+    // An agent is checking the queue: noted, at most once an hour.
+    const seen = await agentSeenAt();
+    if (!isFinite(seen) || Date.now() - seen > AGENT_SEEN_EVERY_MS) {
+      await env.JOBS.put(AGENT_SEEN_KEY, new Date().toISOString());
     }
 
     if (path === "/api/request/jobs" && request.method === "GET") {

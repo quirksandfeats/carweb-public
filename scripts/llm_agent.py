@@ -1319,7 +1319,15 @@ def do_job(job, args):
         else f"no time limit -- a car gives up after {args.node_timeout}s without an answer"))
     proc, state, summary, detail, user_summary = None, "done", "", "", ""
     try:
-        proc = start_serve(args.cascade_depth, verbose=getattr(args, "verbose", False))
+        # The depth the request asked for (the request form's, 1 by default);
+        # --cascade-depth on the command line still wins.
+        depth = args.cascade_depth
+        if depth is None and job and job.get("depth"):
+            try:
+                depth = max(1, min(7, int(job["depth"])))
+            except (TypeError, ValueError):
+                depth = None
+        proc = start_serve(depth, verbose=getattr(args, "verbose", False))
         done, errors, skipped, cascade = run_pass(
             targets, args.budget_minutes * 60, args.node_timeout,
             args.settle_seconds, args.settle_quiet, seed_labels)
@@ -1517,7 +1525,7 @@ def main():
             print("queue is empty")
         for i, j in enumerate(q, 1):
             state = " (running now)" if j.get("state") == "running" else ""
-            print(f"{i}. {j.get('targetLabel') or j.get('targetId')}{state}")
+            print(f"{i}. {j.get('targetLabel') or j.get('targetId')} (depth {j.get('depth') or 1}){state}")
             print(f"   id {j.get('id')}   queued {j.get('queuedAt')}")
         last = (d or {}).get("last")
         if last:
