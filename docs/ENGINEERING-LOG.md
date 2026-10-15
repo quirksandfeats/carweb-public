@@ -2095,3 +2095,13 @@ a generation -- the nameplate and a code ("BMW X5 (G65)") or a code alone
 heading that says an entry's own name ("Falcon Ute (1976-1985)") now counts as
 naming it, compared without the nameplate's name, which most headings carry.
 On the stored data with headings read: 68 lists apply, 97 generations added.
+
+**Invented makes from make-less mentions.** A mention with no make in front is
+filed under the origin car's make when it starts with one of that make's model
+names ("Corolla II" in a Toyota's article), and a make and a number written as
+one word ("Mazda2 Hybrid") is that make. Ids are kept, so stored decisions
+still apply and a reload fixes existing cars without reading anything. On the
+stored data: 10 invented makes gone (C/K, Colt, Corolla, Galant, Mazda2,
+Mazda6, NX, Statesman, Taurus, Yaris), their cars under the real make, and two
+duplicates merged ("Mazda6 GJ" is the Mazda 6's third generation; "Ford Taurus
+X" and "Taurus X" are one car).

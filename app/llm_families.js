@@ -5038,6 +5038,34 @@ Rules:
           makeNode = homeMake;
           modelLabel = trimmed;
         }
+        // Led by the name of ANOTHER car of that make: "Corolla II" in a
+        // Toyota's article is a Toyota, "Fairlady Z" in a Nissan's a Nissan.
+        // Each had become a make of its own -- "Corolla", "Fairlady", "Yaris"
+        // and "300ZX" among them, after the October 2026 depth-7 runs.
+        if (!makeNode && homeMake) {
+          const own = nodes.filter(n => !n.retired && (n.type === "model" || n.type === "family") && !n.familyOf &&
+            norm(n.make || "") === norm(homeMake.label) && String(n.label || "").trim());
+          const lead = own.map(n => String(n.label).trim()).filter(l => {
+            const w = l.split(/\s+/);
+            return w.length < parts.length && norm(parts.slice(0, w.length).join(" ")) === norm(l);
+          }).sort((a, b) => b.length - a.length)[0];
+          if (lead) {
+            idParts = [makeLabel, modelLabel];
+            makeNode = homeMake;
+            modelLabel = trimmed;
+          }
+        }
+      }
+      // A make and a number written as one word: "Mazda2 Hybrid" is a Mazda.
+      if (!makeNode) {
+        const ix = makeIndexOf(nodes);
+        const glued = norm(makeLabel).match(/^([a-z]+?)(\d+)$/);
+        const real = glued && ix.real.get(glued[1]);
+        if (real && !real.retired) {
+          idParts = [makeLabel, modelLabel];
+          makeNode = real;
+          modelLabel = makeLabel.slice(real.label.length) + (modelLabel ? " " + modelLabel : "");
+        }
       }
       if (!makeNode) {
         const real = realMakeWithin(nodes, parts);
