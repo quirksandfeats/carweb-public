@@ -2085,3 +2085,13 @@ there when the section gives one (the Boxster and Cayman's fifth generation,
 "due to hit the market in 2026"). The mark is on the proposal, set when a list
 is read and for waiting re-checks by `sweepRecheckSections`. A future
 generation's card reads "Future model, expected 2026", and it sorts last.
+
+**A car the list names that the graph has elsewhere.** With an article of
+another name ("Toyota GR Yaris", "Jeep Wagoneer S", "Volkswagen ID. Polo") it
+stays a car of its own and is linked to the nameplate as related; otherwise it
+moves in as a generation, as the SL-Class R107 always has. An article titled as
+a generation -- the nameplate and a code ("BMW X5 (G65)") or a code alone
+("Mercedes-Benz W113") -- counts as a generation's: many have their own. A
+heading that says an entry's own name ("Falcon Ute (1976-1985)") now counts as
+naming it, compared without the nameplate's name, which most headings carry.
+On the stored data with headings read: 68 lists apply, 97 generations added.

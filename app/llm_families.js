@@ -4116,6 +4116,9 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
       if (Math.abs(start - h.start) > 2) return { score: 0, named: false };
       if (Math.abs(start - h.start) <= 1 && (end == null || h.end == null || Math.abs(end - h.end) <= 1)) score += 2;
     }
+    // The heading says the name itself: "Falcon Ute (1976-1985)" for "Falcon Ute".
+    const said = String(label || "").replace(/\s*\([^()]*\)\s*/g, " ").trim();
+    if (said && /[a-z]/i.test(said) && labelCarriesCode(h.text, said)) { score += 3; named = true; }
     return { score, named };
   }
   function headingScore(h, label, start, end, shared) {
@@ -4147,6 +4150,8 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
     const otherCars = listed.filter(g => !fresh.includes(g));
     const old = (genNodes || []).filter(o => o && !o.retired);
     const shared = sharedLabelCodes(old);
+    // Compared without the nameplate's own name, which most headings carry.
+    const own = l => String(l || "").replace(fam.label, "").trim() || String(l || "");
     const all = articleHeadings(entry.sections);
     const gens = all.filter(h => h.gen);
     const paired = pairFreshGenerations(old, fresh);
@@ -4154,9 +4159,9 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
     const used = new Set();
     paired.forEach((o, i) => {
       if (!o) return;
-      const k = bestHeading(gens, fresh[i].code, fresh[i].yearStart, fresh[i].yearEnd, shared);
+      const k = bestHeading(gens, own(fresh[i].code), fresh[i].yearStart, fresh[i].yearEnd, shared);
       if (k >= 0) used.add(k);
-      const k2 = bestHeading(gens, o.label, o.year, o.end, shared);
+      const k2 = bestHeading(gens, own(o.label), o.year, o.end, shared);
       if (k2 >= 0) used.add(k2);
     });
     const keep = [], retire = [];
@@ -4164,7 +4169,7 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
       if (isBareNameplate(fam, o)) { retire.push(o); return; }
       const ownArticle = !!o.wp && !!entry.sourceTitle && norm(o.wp) !== norm(entry.sourceTitle) &&
         norm(o.wp) !== norm(fam.wp || "") && !(store.wpRedirects && norm(store.wpRedirects[o.wp] || "") === norm(entry.sourceTitle));
-      const k = bestHeading(gens, o.label, o.year, o.end, shared);
+      const k = bestHeading(gens, own(o.label), o.year, o.end, shared);
       // Its heading already stands for a generation kept here, and it has no
       // code of its own or is another car by name: a duplicate of that one
       // ("Octavia Mk4" beside "Octavia (NX)", "RAV4 Toyota Vanguard (XA30)").
@@ -4175,22 +4180,22 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
         entryNamesAnotherCar(fam, ownName, nodes);
       if (k >= 0 && used.has(k) && !ownArticle && duplicate) { retire.push(o); return; }
       if (k >= 0) used.add(k);
-      if (ownArticle || k >= 0 || bestHeading(all, o.label, o.year, o.end, shared) >= 0) keep.push(o);
+      if (ownArticle || k >= 0 || bestHeading(all, own(o.label), o.year, o.end, shared) >= 0) keep.push(o);
       else retire.push(o);
     });
     const skip = otherCars.map(g => ({ code: g.code, why: "names another car" }));
     const claims = new Map();
     fresh.forEach((g, i) => {
       if (paired[i]) return;
-      const k = bestHeading(gens, g.code, g.yearStart, g.yearEnd, shared);
+      const k = bestHeading(gens, own(g.code), g.yearStart, g.yearEnd, shared);
       // Years alone do not make a heading stand for a new entry: the Lancer's
       // "GS platform" shares its years with a generation's heading.
-      if (k < 0 || !headingEvidence(gens[k], g.code, g.yearStart, g.yearEnd, shared).named) {
+      if (k < 0 || !headingEvidence(gens[k], own(g.code), g.yearStart, g.yearEnd, shared).named) {
         skip.push({ code: g.code, why: "no generation-level section of its own in the article" });
         return;
       }
       if (used.has(k)) { skip.push({ code: g.code, why: "its section is already a generation here" }); return; }
-      const sc = headingScore(gens[k], g.code, g.yearStart, g.yearEnd, shared);
+      const sc = headingScore(gens[k], own(g.code), g.yearStart, g.yearEnd, shared);
       if (!claims.has(k)) claims.set(k, []);
       claims.get(k).push({ g, sc });
     });
@@ -4205,6 +4210,16 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
         const s0 = c.g.yearStart, e0 = c.g.yearEnd == null ? 9999 : c.g.yearEnd;
         const finer = s0 == null ? 0 : stays.filter(o => o.year != null && o.year >= s0 && (o.end == null ? 9999 : o.end) <= e0).length;
         if (finer >= 2) { skip.push({ code: c.g.code, why: "finer generations kept here already cover its years" }); return; }
+        // A car the graph already has elsewhere (the GR Yaris in the Yaris's
+        // list): with an article of its own it stays a car of its own, linked
+        // as related; without one it moves in as this generation (the
+        // owner's ruling, 14 Oct 2026).
+        const dup = findDuplicateGeneration(nodes, c.g.code, fam.id, fam.make, fam.label);
+        if (dup && dup.wp && norm(dup.wp) !== norm(entry.sourceTitle || "") && norm(dup.wp) !== norm(fam.wp || "") &&
+            !isGenerationArticleOf(fam, dup.wp)) {
+          skip.push({ code: c.g.code, why: "a car of its own, with its own article", related: dup.id });
+          return;
+        }
         add.push(c.g);
       });
     });
@@ -4233,6 +4248,24 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
       else keep.push(o);
     });
     return { paired, fresh, add, skip, keep, retire: retired };
+  }
+  // An article titled as one of this nameplate's generations -- the
+  // nameplate and a code: "BMW X5 (G65)", "Mercedes-Benz SL-Class (R107)",
+  // "Volkswagen Type 2 (T1)" -- as against a car of another name ("Toyota GR
+  // Yaris", "Jeep Wagoneer S"), which has an article of its own for that
+  // reason. Many generations have their own article; that alone makes no car
+  // separate.
+  function isGenerationArticleOf(fam, title) {
+    let t = String(title || "").trim();
+    const make = String(fam.make || "").trim();
+    if (make && t.toLowerCase().startsWith(make.toLowerCase() + " ")) t = t.slice(make.length + 1);
+    // An article named by its code alone: "Mercedes-Benz W113", "... R107 and C107".
+    const parts = t.replace(/\([^()]*\)/g, " ").split(/\s+(?:and|&)\s+|\s*\/\s*|\s+/).filter(Boolean);
+    if (parts.length && parts.every(isCodeLike)) return true;
+    const plate = String(fam.label || "").trim();
+    if (!plate || !t.toLowerCase().startsWith(plate.toLowerCase())) return false;
+    const rest = t.slice(plate.length).replace(/\([^()]*\)/g, " ").replace(/[\s,;:–-]+/g, " ").trim();
+    return !rest || (rest.split(" ").length === 1 && (isCodeLike(rest) || /^(?:mk|mark)\s*[ivx\d]+$/i.test(rest)));
   }
   // A retired generation's successor: the new generation overlapping its
   // years most, ties to the earlier; with no overlap, the nearest earlier
@@ -11793,14 +11826,11 @@ Rules:
     // Decided by the article's headings (see decideRecheck). An entry whose
     // headings are not read yet waits for sweepRecheckSections.
     const d = decideRecheck(fam, genNodes, entry, nodes);
-    if (!d || (!d.add.length && !d.retire.length)) return null;
-    // "Adds a generation" has a second shape that is not purely additive at
-    // all: applyFamilyOverride does not always MINT the new generation. If the
-    // car already exists somewhere else in the graph -- a never-grouped
-    // standalone, or a generation under a different family -- it absorbs that
-    // node and retires it (see findDuplicateGeneration/supersedeStandalone).
-    // The Mercedes-Benz SL-Class R107 is the case on record. That still waits.
-    if (d.add.some(g => !!findDuplicateGeneration(nodes, g.code, famId, fam.make, fam.label))) return null;
+    if (!d || (!d.add.length && !d.retire.length && !d.skip.some(x => x.related))) return null;
+    // A car already elsewhere in the graph with no article of its own moves
+    // in as a generation (findDuplicateGeneration/supersedeStandalone, the
+    // SL-Class R107 case); one with its own article stays a car and is linked
+    // as related (see decideRecheck).
     return { added: d.add.map(g => g.code), removed: d.retire.map(g => g.label || g.id),
              kept: d.keep.map(g => g.label || g.id), skipped: d.skip.map(x => x.code),
              had: (genNodes || []).length, now: d.fresh.length };
@@ -17265,6 +17295,7 @@ Rules:
         entry.kept = d.keep.map(o => o.id);
         const known = new Set((entry.outsiders || []).map(o => norm(o.code)));
         entry.outsiders = (entry.outsiders || []).concat(d.skip.filter(x => !known.has(norm(x.code))));
+        entry.relatedCars = d.skip.filter(x => x.related).map(x => ({ code: x.code, id: x.related }));
         entry.retiredGenerations = d.retire.map(o => ({ id: o.id, label: o.label }));
       } else {
         setAsideOtherCars(entry, fam, nodes);
@@ -17502,6 +17533,15 @@ Rules:
     next.forEach((b, a) => {
       if (!links.some(l => l.type === "gensucc" && !l.retired && idOf(l.source) === a && idOf(l.target) === b)) {
         links.push({ source: a, target: b, type: "gensucc" });
+      }
+    });
+
+    // Cars the list named that are cars of their own: linked as related.
+    (entry.relatedCars || []).forEach(r => {
+      const other = byId.get(r.id);
+      if (!other || other.retired || other.id === famId) return;
+      if (!links.some(l => l.type === "related" && [idOf(l.source), idOf(l.target)].sort().join() === [famId, other.id].sort().join())) {
+        links.push({ source: famId, target: other.id, type: "related", llmDiscovered: true, note: "listed in " + fam.label + "'s generations; a car with its own article" });
       }
     });
 

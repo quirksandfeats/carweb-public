@@ -136,5 +136,23 @@ t("an entry without the article's headings is not decided by rule", decide([node
     succ.includes("g-b>g-c") && !succ.includes("g-c>g-b"), succ.join(" "));
 }
 
+// ---------- a car the list names that the graph already has elsewhere ----------
+{
+  const nodes = [famNode(["g-1"]), node("g-1", "Falcon (first generation)", 1960, 1975),
+    { id: "m-gr", type: "model", label: "Falcon GR", make: "TestRule", year: 2020, end: null, wp: "TestRule Falcon GR" },
+    { id: "m-ute", type: "model", label: "Falcon Ute", make: "TestRule", year: 1976, end: 1985 }];
+  const links = [{ source: FAM, target: "g-1", type: "generation" }];
+  const e = entry([gen("First generation", 1960, 1975), gen("Falcon Ute", 1976, 1985), gen("Falcon GR", 2020, null)],
+    [[1, "First generation (1960–1975)"], [1, "Falcon Ute (1976–1985)"], [1, "Falcon GR (2020)"]]);
+  const w = boot(e, nodes, links);
+  const cw = w.CarWeb; cw.boot();
+  const fam = cw.byId.get(FAM);
+  t("a car with its own article stays a car of its own (the GR Yaris)", !cw.byId.get("m-gr").retired && !fam.generations.includes("m-gr"));
+  t("...linked to the nameplate as related", cw.links.some(l => l.type === "related" && !l.retired &&
+    [l.source, l.target].map(x => typeof x === "string" ? x : x.id).sort().join() === [FAM, "m-gr"].sort().join()));
+  t("a car without one moves in as a generation", cw.byId.get("m-ute").retired && fam.generations.some(id => /ute/i.test(cw.byId.get(id).label)),
+    fam.generations.join());
+}
+
 console.log(fails ? `\n${fails} FAILED` : "\nALL PASS");
 process.exit(fails ? 1 : 0);
