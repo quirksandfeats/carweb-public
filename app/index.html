@@ -874,8 +874,17 @@
           xhr = new XMLHttpRequest();
           xhr.open("GET", "/api/llm-families", true);
         } catch (e) { xhr = null; }
+        // A large mirror comes in parts (see serve.py's write_mirror): the
+        // first file names the rest, and each one adds its entries to
+        // window.LLM_FAMILIES_STATIC. A part that will not load leaves the
+        // layer out entirely rather than showing half of it.
+        var loadParts = function () {
+          var rest = (window.LLM_FAMILIES_PARTS || []).slice();
+          var next = function () { return rest.length ? loadScript(rest.shift()).then(next) : null; };
+          return next();
+        };
         var fallBack = function () {
-          loadScript("llm_families_data.js").then(function () {
+          loadScript("llm_families_data.js").then(loadParts).then(function () {
             window.LLM_FAMILIES = Object.assign(
               { families: {} }, window.LLM_FAMILIES_STATIC, { __serverAvailable: false });
             resolve();

@@ -193,8 +193,9 @@ check("the missing-token message offers both ways",
 
 # ---- what it is allowed to commit ----
 check("only the files the pass can write are committable -- the LLM layer and "
-      "its script mirror",
-      agent.TRACKED == ["app/llm_families.json", "app/llm_families_data.js"], agent.TRACKED)
+      "its script mirror, which a large store writes in parts",
+      agent.TRACKED == ["app/llm_families.json", "app/llm_families_data.js",
+                        "app/llm_families_data_*.js"], agent.TRACKED)
 src = open(os.path.join(ROOT, "scripts", "llm_agent.py"), encoding="utf-8").read()
 check("it never stages the whole tree -- this runs unattended in a working "
       "copy that may have anything else half-finished in it",

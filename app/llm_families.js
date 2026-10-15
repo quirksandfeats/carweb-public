@@ -311,10 +311,10 @@ window.LlmFamilies = (function () {
   // still on file://, or plain http.server without serve.py's routes), every
   // public method below becomes a safe no-op instead of failing repeatedly.
   const serverAvailable = !!bootData.__serverAvailable;
-  // The store as loaded, serialised before anything at boot touches it, so a
-  // save that would write back the very same thing can be skipped.
-  let bootSnapshot = null;
-  if (serverAvailable) { try { bootSnapshot = JSON.stringify(store); } catch (e) { bootSnapshot = null; } }
+  // The store as loaded, serialised entry by entry before anything at boot
+  // touches it: what each save is compared with (see writeStore).
+  let lastWrittenParts = null;
+  if (serverAvailable) { try { lastWrittenParts = storeParts(store); } catch (e) { lastWrittenParts = null; } }
 
   // ---------- how far one click is allowed to cascade ----------
   // Real user question: "does this code essentially just check the current
@@ -528,16 +528,79 @@ window.LlmFamilies = (function () {
   // anyone who awaited persist() still resolves only once their change is on
   // disk. It also stops an older body landing after a newer one.
   let persistInFlight = null, persistWaiting = null;
+  // A save, entry by entry. Each map-shaped part of the store (families,
+  // relations, ...) becomes a Map of entry -> its JSON; anything else (the
+  // scan in progress, the last job, a list) is one value, saved whole.
+  // Called once at boot, above, before any of this file's constants exist.
+  function storeParts(obj) {
+    const parts = new Map();
+    Object.keys(obj).forEach(k => {
+      const v = obj[k];
+      if (v === undefined) return;
+      const whole = k === "fullScan" || k === "lastJob" || k === "jobs";
+      if (whole || !v || typeof v !== "object" || Array.isArray(v)) {
+        parts.set(k, JSON.stringify(v));
+        return;
+      }
+      const m = new Map();
+      Object.keys(v).forEach(e => {
+        const s = JSON.stringify(v[e]);
+        if (s !== undefined) m.set(e, s);
+      });
+      parts.set(k, m);
+    });
+    return parts;
+  }
+  // What changed between two saves: entries set or removed per part, and
+  // the parts that are saved whole. null when nothing did.
+  function changesBetween(prev, next) {
+    const out = { set: {}, del: {}, atomic: [] };
+    let any = false;
+    next.forEach((p, k) => {
+      const q = prev ? prev.get(k) : undefined;
+      if (!(p instanceof Map) || !(q instanceof Map)) {
+        if (q !== p) { out.atomic.push(k); any = true; }
+        return;
+      }
+      const set = [], del = [];
+      p.forEach((s, e) => { if (q.get(e) !== s) set.push(e); });
+      q.forEach((_, e) => { if (!p.has(e)) del.push(e); });
+      if (set.length) out.set[k] = set;
+      if (del.length) out.del[k] = del;
+      if (set.length || del.length) any = true;
+    });
+    if (prev) prev.forEach((_, k) => { if (!next.has(k)) { out.atomic.push(k); any = true; } });
+    return any ? out : null;
+  }
+  // The same text JSON.stringify(store) gives, built from the parts already
+  // serialised, plus the list of what changed.
+  function bodyOfParts(parts, changed) {
+    const out = [];
+    parts.forEach((p, k) => {
+      if (!(p instanceof Map)) { out.push(JSON.stringify(k) + ":" + p); return; }
+      const entries = [];
+      p.forEach((s, e) => entries.push(JSON.stringify(e) + ":" + s));
+      out.push(JSON.stringify(k) + ":{" + entries.join(",") + "}");
+    });
+    out.push(JSON.stringify("__changed") + ":" + JSON.stringify(changed));
+    return "{" + out.join(",") + "}";
+  }
   // What is on disk, as last loaded or written. Real user report: two full
   // writes of the store (16 MB each, plus its .js mirror) on every page load,
   // with nothing changed -- the boot replays re-derive the same decisions and
   // each one asked to save. A write whose body is identical is skipped.
-  let lastWritten = null;
+  //
+  // Real user report: approvals made in his own tab while the agent's page
+  // was scanning were lost -- each page saved its WHOLE copy, and the file
+  // kept whichever came last. A save now also lists the entries it changed
+  // since this page's last save ("__changed"), and serve.py writes only
+  // those over what is on disk, so another page's work is left alone.
   async function writeStore() {
     try {
-      const body = JSON.stringify(store);
-      if (lastWritten == null) { lastWritten = bootSnapshot; bootSnapshot = null; }
-      if (body === lastWritten) return;
+      const parts = storeParts(store);
+      const changed = changesBetween(lastWrittenParts, parts);
+      if (!changed) return;
+      const body = bodyOfParts(parts, changed);
       const res = await fetch("/api/llm-families", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -548,7 +611,7 @@ window.LlmFamilies = (function () {
       // unchanged store is not sent again, doing the same thing twice did
       // not retry it. The change was on screen and gone after a reload.
       if (res && res.ok === false) throw new Error("the server answered " + res.status);
-      lastWritten = body;
+      lastWrittenParts = parts;
       saveFailed(null);
     } catch (e) {
       console.warn("LlmFamilies: could not persist llm_families.json", e);

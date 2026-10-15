@@ -98,8 +98,10 @@ TOKEN = read_token()
 
 # Files the pass can touch. llm_families_data.js is the <script>-loadable
 # mirror serve.py regenerates on every write, so it moves with the JSON and
-# has to be committed alongside it or a plain file:// open goes stale.
-TRACKED = ["app/llm_families.json", "app/llm_families_data.js"]
+# has to be committed alongside it or a plain file:// open goes stale. A large
+# store's mirror comes in parts (llm_families_data_2.js, ...), which appear
+# and disappear as the store grows and shrinks: the pattern covers both.
+TRACKED = ["app/llm_families.json", "app/llm_families_data.js", "app/llm_families_data_*.js"]
 
 
 def name_list(label, ids, limit=5):

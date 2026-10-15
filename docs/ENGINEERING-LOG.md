@@ -1986,3 +1986,21 @@ the more general name of the same article, or the maker and a layout every car
 of the family states, is the same engine and is listed as "also called"; a
 layout or size the other side's cars contradict keeps them apart. A whole-page
 engine list carries the production years of the infobox it sits in.
+
+## Saves that merge, and a mirror in parts (15 Oct 2026)
+
+**Two pages saving.** Each page POSTed its whole copy of the store and the
+file kept the last one, so approvals made in one tab while the agent's page
+scanned were lost under the agent's next save. A save now lists what it
+changed since that page's last save (`__changed`: entries set or removed per
+part, and the parts saved whole, such as `fullScan`), and serve.py writes only
+those over what is on disk. Two pages changing the same entry still end with
+the later one. A save without the list replaces the file as before.
+
+**Cloudflare's 25 MiB limit.** On 14 Oct the store reached 30.9 MiB and its
+mirror 25.8 MiB, and every deploy from then on failed with "Asset too large".
+`app/.assetsignore` keeps `llm_families.json` (read only through serve.py) and
+`serve.py` out of the deploy, and the mirror is written in parts of at most
+8 MiB: `llm_families_data.js` names the rest in `LLM_FAMILIES_PARTS`, and each
+adds its entries to `LLM_FAMILIES_STATIC`. A part no longer needed is deleted;
+the agent commits the parts with the store.

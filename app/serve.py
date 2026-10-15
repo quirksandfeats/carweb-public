@@ -43,7 +43,9 @@ index.html) only for the LLM generation-check feature. It does three things:
    mirror of the same data (same trick as data.js/cars.json) — this is what
    lets a plain double-clicked index.html (no server, file://, can't fetch()
    local JSON) show the exact same confirmed generations as the live,
-   serve.py-backed session.
+   serve.py-backed session. A large store is written as several files
+   (llm_families_data.js, then llm_families_data_2.js, ...), each well
+   under Cloudflare's 25 MiB limit per file.
 4. Before it starts listening, re-runs the My Database enrichment
    (data_src/build_db_layer.py's enrich()/flag_garage(), same as manually
    running that file standalone) against the CURRENT contents of the "Car
@@ -681,39 +683,154 @@ class StoreUnreadable(Exception):
 
 
 def read_llm_families():
+    with _llm_families_lock:
+        return _read_llm_families_unlocked()
+
+
+def _read_llm_families_unlocked():
     # A file that is not there is an empty store. A file that IS there and
     # will not parse is not: it used to be read as empty all the same, and
     # main() writes back whatever this returns -- so one stray conflict marker
     # or a truncated save turned the whole overlay into {"families": {}} at
     # the next start, mirror included, with no warning and no copy kept.
-    with _llm_families_lock:
-        if not os.path.exists(LLM_FAMILIES_PATH):
-            return {"families": {}}
-        try:
-            with open(LLM_FAMILIES_PATH, "r", encoding="utf-8") as f:
-                data = json.load(f)
-        except (json.JSONDecodeError, UnicodeDecodeError, OSError) as e:
-            raise StoreUnreadable(str(e))
-        if not isinstance(data, dict):
-            raise StoreUnreadable("the top level is not an object")
-        return data
+    if not os.path.exists(LLM_FAMILIES_PATH):
+        return {"families": {}}
+    try:
+        with open(LLM_FAMILIES_PATH, "r", encoding="utf-8") as f:
+            data = json.load(f)
+    except (json.JSONDecodeError, UnicodeDecodeError, OSError) as e:
+        raise StoreUnreadable(str(e))
+    if not isinstance(data, dict):
+        raise StoreUnreadable("the top level is not an object")
+    return data
 
 
 def write_llm_families(data):
     with _llm_families_lock:
-        tmp = LLM_FAMILIES_PATH + ".tmp"
-        with open(tmp, "w", encoding="utf-8") as f:
-            json.dump(data, f, ensure_ascii=False, indent=1)
-        os.replace(tmp, LLM_FAMILIES_PATH)
+        _write_llm_families_unlocked(data)
 
-        # Companion `<script>`-loadable mirror, same pattern as data.js — kept
-        # in lockstep on every write so a plain double-clicked index.html
-        # (file://, can't fetch() local JSON) shows the same confirmed
-        # generations as the live serve.py session that produced them.
-        js_tmp = LLM_FAMILIES_DATA_JS_PATH + ".tmp"
-        with open(js_tmp, "w", encoding="utf-8") as f:
-            f.write("window.LLM_FAMILIES_STATIC = " + json.dumps(data, ensure_ascii=False) + ";\n")
-        os.replace(js_tmp, LLM_FAMILIES_DATA_JS_PATH)
+
+# Two pages saving at once -- the agent's headless page mid-scan and Andy
+# approving a split in his own tab -- each held a whole copy of the store
+# and each POSTed all of it. The file kept whichever arrived last, so his
+# approvals vanished under the agent's next save (or the agent's work under
+# his) without a word. A page now also says which entries it changed since
+# its last save ("__changed"), and only those are written over what is on
+# disk: both sets of changes survive. Two pages changing the SAME entry
+# still end with the later one, which is the most a merge can do.
+def merge_llm_families(data):
+    changed = data.pop("__changed", None)
+    if not isinstance(changed, dict):
+        write_llm_families(data)
+        return
+    with _llm_families_lock:
+        disk = _read_llm_families_unlocked()
+        for key in changed.get("atomic") or []:
+            if key in data:
+                disk[key] = data[key]
+            else:
+                disk.pop(key, None)
+        for key, entries in (changed.get("set") or {}).items():
+            src = data.get(key)
+            if not isinstance(src, dict):
+                continue
+            dst = disk.get(key)
+            if not isinstance(dst, dict):
+                dst = disk[key] = {}
+            for e in entries:
+                if e in src:
+                    dst[e] = src[e]
+        for key, entries in (changed.get("del") or {}).items():
+            dst = disk.get(key)
+            if isinstance(dst, dict):
+                for e in entries:
+                    dst.pop(e, None)
+        _write_llm_families_unlocked(disk)
+
+
+def _write_llm_families_unlocked(data):
+    tmp = LLM_FAMILIES_PATH + ".tmp"
+    with open(tmp, "w", encoding="utf-8") as f:
+        json.dump(data, f, ensure_ascii=False, indent=1)
+    os.replace(tmp, LLM_FAMILIES_PATH)
+
+    # Companion `<script>`-loadable mirror, same pattern as data.js — kept
+    # in lockstep on every write so a plain double-clicked index.html
+    # (file://, can't fetch() local JSON) shows the same confirmed
+    # generations as the live serve.py session that produced them.
+    write_mirror(data)
+
+
+# Cloudflare serves files of up to 25 MiB, and the mirror passed that on
+# 14 Oct 2026 (25.8 MiB): every deploy from then on failed, and the hosted
+# site stayed on the last one that fit. So the mirror is written in parts.
+# llm_families_data.js holds the first and names the rest in
+# window.LLM_FAMILIES_PARTS; index.html loads them after it, and each adds
+# its entries to window.LLM_FAMILIES_STATIC. A part that was not written
+# this time is deleted, so none is ever left over from a larger store.
+MIRROR_PART_BYTES = 8 * 1024 * 1024
+MIRROR_PART_NAME = "llm_families_data_{}.js"
+MIRROR_PART_RE = re.compile(r"^llm_families_data_(\d+)\.js$")
+
+
+def mirror_parts(data):
+    """The store as JSON texts of at most MIRROR_PART_BYTES each (one value
+    larger than that still goes whole into a part of its own). A map-shaped
+    key (families, relations, ...) may be spread over several parts, entry
+    by entry; anything else is never split."""
+    parts, cur, size = [], {}, 0
+
+    def close():
+        nonlocal cur, size
+        if cur:
+            parts.append("{" + ",".join(json.dumps(k, ensure_ascii=False) + ":" +
+                                         ("{" + ",".join(v) + "}" if isinstance(v, list) else v)
+                                         for k, v in cur.items()) + "}")
+        cur, size = {}, 0
+
+    for key, value in data.items():
+        if isinstance(value, dict) and value and key not in ("fullScan", "lastJob"):
+            for ek, ev in value.items():
+                text = json.dumps(ek, ensure_ascii=False) + ":" + json.dumps(ev, ensure_ascii=False)
+                n = len(text.encode("utf-8")) + 1
+                if size and size + n > MIRROR_PART_BYTES:
+                    close()
+                cur.setdefault(key, []).append(text)
+                size += n
+        else:
+            text = json.dumps(value, ensure_ascii=False)
+            n = len(text.encode("utf-8")) + len(key) + 4
+            if size and size + n > MIRROR_PART_BYTES:
+                close()
+            cur[key] = text
+            size += n
+    close()
+    return parts or ["{}"]
+
+
+def write_mirror(data):
+    parts = mirror_parts(data)
+    names = [MIRROR_PART_NAME.format(i) for i in range(2, len(parts) + 1)]
+    files = [(LLM_FAMILIES_DATA_JS_PATH,
+              "window.LLM_FAMILIES_STATIC = " + parts[0] + ";\n" +
+              ("window.LLM_FAMILIES_PARTS = " + json.dumps(names) + ";\n" if names else ""))]
+    for name, text in zip(names, parts[1:]):
+        files.append((os.path.join(DIR, name),
+                      "(function (S, P) {\n"
+                      "  for (var k in P) {\n"
+                      "    var a = S[k], b = P[k];\n"
+                      "    if (a && b && typeof a === \"object\" && typeof b === \"object\" && !Array.isArray(a)) Object.assign(a, b);\n"
+                      "    else S[k] = b;\n"
+                      "  }\n"
+                      "})(window.LLM_FAMILIES_STATIC, " + text + ");\n"))
+    for path, text in files:
+        tmp = path + ".tmp"
+        with open(tmp, "w", encoding="utf-8") as f:
+            f.write(text)
+        os.replace(tmp, path)
+    for name in os.listdir(DIR):
+        if MIRROR_PART_RE.match(name) and name not in names:
+            os.remove(os.path.join(DIR, name))
 
 
 LLM_BACKUP_DIR = os.path.join(DIR, "..", "llm_layer_backups")
@@ -744,10 +861,7 @@ def reset_llm_families():
         with open(tmp, "w", encoding="utf-8") as f:
             f.write("{}\n")
         os.replace(tmp, LLM_FAMILIES_PATH)
-        js_tmp = LLM_FAMILIES_DATA_JS_PATH + ".tmp"
-        with open(js_tmp, "w", encoding="utf-8") as f:
-            f.write("window.LLM_FAMILIES_STATIC = {};\n")
-        os.replace(js_tmp, LLM_FAMILIES_DATA_JS_PATH)
+        write_mirror({})
         return counts, backup
 
 
@@ -909,7 +1023,12 @@ class Handler(http.server.SimpleHTTPRequestHandler):
                 return self._json(400, {"error": "invalid JSON body"})
             if not isinstance(data, dict) or "families" not in data:
                 return self._json(400, {"error": "expected {\"families\": {...}}"})
-            write_llm_families(data)
+            try:
+                merge_llm_families(data)
+            except StoreUnreadable as e:
+                # Merging into a file that will not parse would mean writing
+                # over it; the save is refused and the page says so.
+                return self._json(500, {"ok": False, "error": "llm_families.json could not be read: " + str(e)})
             return self._json(200, {"ok": True})
 
         if self.path == "/api/db-match-overrides":

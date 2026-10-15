@@ -1,0 +1,6 @@
+# Files in app/ the hosted site never asks for. llm_families.json is read only
+# through serve.py's /api/llm-families (the site loads llm_families_data.js),
+# and it is over Cloudflare's 25 MiB limit per file, which failed the deploy.
+llm_families.json
+serve.py
+*.tmp

@@ -99,6 +99,7 @@ fi
 
 printf '{}\n' > "$JSON"
 printf 'window.LLM_FAMILIES_STATIC = {};\n' > "$MIRROR"
+rm -f "$APP"/llm_families_data_*.js   # the parts a large store's mirror was written in
 echo "reset     -> app/llm_families.json, app/llm_families_data.js"
 
 if [ "$REBUILD" = "1" ]; then
