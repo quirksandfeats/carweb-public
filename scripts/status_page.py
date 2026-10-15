@@ -60,7 +60,12 @@ def configure(out, repo=None):
 
 
 def configured_path():
-    """The page's path from scripts/agent_settings.local.json, or None."""
+    """The page's path from scripts/agent_settings.local.json, or None.
+    CARWEB_STATUS_PAGE overrides it, and "off" means no page: the test suite
+    starts the agent and must never write over the real one."""
+    env = os.environ.get("CARWEB_STATUS_PAGE")
+    if env is not None:
+        return None if env.strip().lower() in ("", "0", "off", "no", "false") else os.path.expanduser(env)
     try:
         with open(SETTINGS, encoding="utf-8") as f:
             p = (json.load(f) or {}).get("statusPage")

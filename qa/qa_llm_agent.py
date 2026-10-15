@@ -294,7 +294,8 @@ check("a clean run's shutdown is still interruptible", agent.CLEANING is False)
 # unreachable queue parks in wait_for_job's poll sleep, which needs no model,
 # no browser and no reachable network -- the same blocking shape a real run
 # spends nearly all its time in.
-env = dict(os.environ, CARWEB_QUEUE_URL="http://127.0.0.1:9", CARWEB_AGENT_TOKEN="test-token")
+# No status page: a test run must never write over the real one.
+env = dict(os.environ, CARWEB_QUEUE_URL="http://127.0.0.1:9", CARWEB_AGENT_TOKEN="test-token", CARWEB_STATUS_PAGE="off")
 proc = subprocess.Popen(
     [sys.executable, os.path.join(ROOT, "scripts", "llm_agent.py"), "--watch", "--poll-seconds", "30"],
     stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, env=env)
