@@ -172,10 +172,16 @@ export default {
     // Oldest first. Two requests made in the same second are ordered by their
     // key, so the order is at least stable rather than arbitrary.
     const agentSeenAt = async () => Date.parse(await env.JOBS.get(AGENT_SEEN_KEY) || "");
-    const getQueue = async () => {
+    // Every stored job, current or not. A job past its two days is hidden but
+    // still stored, and would count again the moment an agent checks in --
+    // so the agent's --drop has to be able to reach it.
+    const allJobs = async () => {
       const listed = await env.JOBS.list({ prefix: JOB_PREFIX, limit: 200 });
-      const jobs = await Promise.all(listed.keys.map(k => env.JOBS.get(k.name, "json")));
-      const queue = fresh(jobs.filter(Boolean), await agentSeenAt()).sort((a, b) =>
+      return (await Promise.all(listed.keys.map(k => env.JOBS.get(k.name, "json")))).filter(Boolean);
+    };
+    const getQueue = async () => {
+      const jobs = await allJobs();
+      const queue = fresh(jobs, await agentSeenAt()).sort((a, b) =>
         String(a.queuedAt).localeCompare(String(b.queuedAt)) ||
         String(a.targetId).localeCompare(String(b.targetId)));
       // Hand back an abandoned claim before anyone reads the list, so a dead
@@ -286,9 +292,9 @@ export default {
         const keep = queue.filter(j => j.state === "running");
         return json({ ok: true, removed: doomed.length, ...publicView(keep, await getLast()) });
       }
-      const job = matchJob(queue, body.id);
+      const job = matchJob(queue, body.id) || (isAgent ? matchJob(await allJobs(), body.id) : null);
       if (!job) return json({ ok: false, error: "no-job" }, 404);
-      if (job.state === "running") {
+      if (job.state === "running" && queue.includes(job)) {
         return json({ ok: false, error: "running",
                       message: "That one is being scanned right now." }, 409);
       }

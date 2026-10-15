@@ -59,6 +59,14 @@ const job = (id, state) => JSON.stringify({ id, state, queuedAt: old, targetId: 
     const r3 = await (await worker.fetch(post("/api/request/queue", { passphrase: PASS, targetId: "m-z", targetLabel: "Z", depth: 2 }), e)).json();
     t("...and one asking for 2 gets 2", r3.queue.find(j => j.targetId === "m-z").depth === 2);
   }
+  {
+    const e = env();
+    e.JOBS._m.set("job:car:old", job("old", "queued"));
+    const r = await worker.fetch(post("/api/request/cancel", { id: "old" }, bearer), e);
+    t("the agent can remove a request hidden for age, before it counts again", r.status === 200 && !e.JOBS._m.has("job:car:old"), r.status);
+    const r2 = await worker.fetch(post("/api/request/cancel", { id: "old", passphrase: PASS }), (() => { const x = env(); x.JOBS._m.set("job:car:old", job("old", "queued")); return x; })());
+    t("...the site's passphrase cannot reach one", r2.status === 404, r2.status);
+  }
   console.log(fails ? `\n${fails} FAILED` : "\nALL PASS");
   process.exit(fails ? 1 : 0);
 })();
