@@ -2055,3 +2055,9 @@ Wikipedia, 119 were kept. A new re-check now searches the article's text
 before flagging, so the model leaving a car out of its answer no longer flags
 it. A title stored percent-encoded ("Fiat 500 %22Topolino%22") is decoded
 before it is fetched.
+
+**Weak proposals** (`sweepWeakRelations`). A relationship proposed on a loose
+name match is confirmed when the article it was found in (the `famA` side)
+names the matched car in full -- make and name -- or links to its article, and
+declined otherwise; one answered from connections already in the graph is
+confirmed (the owner's rulings). On the 35 waiting: 31 confirmed, 4 declined.

@@ -698,6 +698,7 @@ window.LlmFamilies = (function () {
     setTimeout(() => {
       sweepStoredSplitsForOutsiders().then(() => sweepRecheckSections(nodes))
         .then(() => { settleRetiredGenerationFlags(nodes); return sweepFlaggedMentions(nodes); })
+        .then(() => sweepWeakRelations(nodes))
         .then(() => sweepWholePageEngineLists())
         .then(() => sweepOrdinalPlaceholders(nodes))
         .catch(e => console.warn("LlmFamilies: stored-list check failed", e));
@@ -2693,6 +2694,67 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
       return out;
     })();
     return mentionSweep;
+  }
+  // ---------- the weak proposals, settled ----------
+  // Real user ruling (14 Oct 2026): a relationship proposed on a loose match
+  // (part of a name, overlapping years) is confirmed when the article it was
+  // found in names the matched car in full -- make and name -- or links to
+  // its article, and declined otherwise. The other car's article plays no
+  // part. A proposal answered from connections already in the graph is
+  // confirmed. Found in: the `famA` side, the car whose article was read.
+  function articleNamesCarInFull(wikitext, car, nodes) {
+    if (!wikitext || !car) return false;
+    const plate = car.familyOf ? (nodeWithId(nodes, car.familyOf) || car) : car;
+    const text = String(wikitext);
+    const linked = [car.wp, plate.wp].filter(Boolean).some(t => {
+      const head = String(t).trim();
+      const re = new RegExp("\\[\\[\\s*[" + head[0].toUpperCase() + head[0].toLowerCase() + "]" +
+        head.slice(1).replace(/[.*+?^${}()|[\]\\]/g, "\\$&").replace(/[ _]/g, "[ _]") + "\\s*[|\\]#]");
+      return re.test(text);
+    });
+    if (linked) return true;
+    return [plate, car].some(c => c.make && articleNamesCar(text, { label: c.make + " " + String(c.label || "").replace(/\s*\([^()]*\)\s*$/, "") }, nodes));
+  }
+  let weakSweep = null;
+  function sweepWeakRelations(nodes) {
+    if (!serverAvailable || !nodes) return Promise.resolve({ confirmed: 0, declined: 0, failed: 0 });
+    if (weakSweep) return weakSweep;
+    weakSweep = (async () => {
+      const out = { confirmed: 0, declined: 0, failed: 0 };
+      const byIdLocal = new Map(nodes.map(n => [n.id, n]));
+      const todo = Object.keys(store.relations).filter(k => {
+        const e = store.relations[k];
+        return e && e.status === "provisional" && !e.reworkPending && (e.relType === "platform" || e.relType === "related");
+      });
+      if (!todo.length) return out;
+      note(`relationships: settling ${todo.length} proposal(s) waiting for review against the article each was found in`);
+      for (const key of todo) {
+        const e = store.relations[key];
+        if (!e || e.status !== "provisional") continue;
+        if (e.matchLevel === "transitive") { confirmRelation(key); e.decidedBy = "rules"; out.confirmed++; continue; }
+        const src = byIdLocal.get(e.genIdA || e.famA), other = byIdLocal.get(e.genIdB || e.famB);
+        if (!src || !other) { out.failed++; continue; }
+        const plate = src.familyOf ? byIdLocal.get(src.familyOf) || src : src;
+        const titles = [...new Set([src.wp, plate.wp, store.families[plate.id] && store.families[plate.id].sourceTitle,
+                                    store.recheck[plate.id] && store.recheck[plate.id].sourceTitle].filter(Boolean))];
+        let named = false, read = 0;
+        for (const title of titles) {
+          let text = null;
+          try { text = (await fetchArticleDigest(title)).wikitext; } catch (err) { continue; }
+          read++;
+          if (articleNamesCarInFull(text, other, nodes)) { named = true; break; }
+        }
+        if (named) { confirmRelation(key); e.decidedBy = "rules"; out.confirmed++; }
+        else if (!read) out.failed++;
+        else { await rejectRelation(key); out.declined++; }
+        await new Promise(r => setTimeout(r, 120));
+      }
+      await persist();
+      note(`relationships: ${out.confirmed} confirmed, ${out.declined} declined` +
+           (out.failed ? `, ${out.failed} left for next time` : "") + " -- they show at the next load");
+      return out;
+    })();
+    return weakSweep;
   }
   let outsiderSweep = null;
   function sweepStoredSplitsForOutsiders(opts) {
@@ -17659,7 +17721,7 @@ Rules:
     clearEngineScansFor, note, nameplateSectionForCar, mergeEngineHits,
     mergeEngines, undoEngineMerge, allEngineMerges, applyEngineMerges,
     sameEngineLine, decodeEntities, articleIsNotACar, sweepStoredSplitsForOutsiders, sweepRecheckSections, decideRecheck, headingsOf,
-    articleNamesCar, settleRetiredGenerationFlags, sweepFlaggedMentions, sweepWholePageEngineLists, sweepOrdinalPlaceholders, replayStarted, replayFinished,
+    articleNamesCar, settleRetiredGenerationFlags, sweepFlaggedMentions, articleNamesCarInFull, sweepWeakRelations, sweepWholePageEngineLists, sweepOrdinalPlaceholders, replayStarted, replayFinished,
     lastSaveError: () => lastSaveError,
     engineMentions, unlinkedEngineMentions, engineSpecLabel,
     recordEngineMentions, recordEngineMentionsFrom, applyEngineMentions,
