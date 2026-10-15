@@ -696,7 +696,7 @@ window.LlmFamilies = (function () {
     // cut it off. It reads Wikipedia and calls no model, and it does nothing
     // once every list has been through it.
     setTimeout(() => {
-      sweepStoredSplitsForOutsiders().then(() => sweepWholePageEngineLists())
+      sweepStoredSplitsForOutsiders().then(() => sweepRecheckSections(nodes)).then(() => sweepWholePageEngineLists())
         .then(() => sweepOrdinalPlaceholders(nodes))
         .catch(e => console.warn("LlmFamilies: stored-list check failed", e));
     }, 4000);
@@ -2475,7 +2475,94 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
     const out = new Set(((entry && entry.outsiders) || []).map(o => norm(o.code)));
     if (!out.size) return gens;
     const kept = gens.filter(g => !out.has(norm(g.code)));
-    return kept.length ? kept : gens;
+    // A re-check settled by the article's headings (`kept` on the entry) can
+    // leave nothing of the re-read: the Falcon's list was only "Ford Falcon".
+    return kept.length || (entry && entry.kept) ? kept : gens;
+  }
+  // A waiting re-check's entries that name another car, set aside on the
+  // entry itself as it is applied, so a reload leaves out the same ones.
+  function setAsideOtherCars(entry, fam, nodes) {
+    const kept = insideGenerations(entry);
+    const other = kept.filter(g => entryNamesAnotherCar(fam, g.code, nodes));
+    if (!other.length || other.length === kept.length) return;
+    entry.outsiders = (entry.outsiders || []).concat(other.map(g => ({ code: g.code, why: "names another car" })));
+  }
+  // An entry of a generation list that is another car: it starts with
+  // another make ("Daewoo Damas" in the Suzuki Carry's article, "Chevrolet
+  // Monza" in the Opel Monza's), or with this make and another model ("BMW
+  // Z1" and "BMW Z8" in the Z4's). Found when better pairing turned 20
+  // waiting re-checks into lists that only add, which apply by themselves.
+  // Only harvested makes count, and a word of the nameplate's own name is
+  // never read as a make.
+  function entryNamesAnotherCar(fam, code, nodes) {
+    if (!fam || !nodes) return false;
+    const words = nameWordsOf(String(code || "").replace(/\([^()]*\)/g, " "));
+    const own = new Set(nameWordsOf(fam.label));
+    // "Renault Clio-based Colt" is the 2023 Mitsubishi Colt.
+    if (!words.length || words.some(w => own.has(w))) return false;
+    const make = makeNamedIn(nodes, words);
+    if (!make) return false;
+    const mw = nameWordsOf(make.label);
+    if (words.slice(0, mw.length).join(" ") !== mw.join(" ")) return false;
+    // A model's name after the make, not a word that only sorts generations:
+    // "DB series" in the Bluebird's list is not a Deutsch-Bonnet, and a bare
+    // "EL" in the Falcon's is a Falcon series, not the make called EL.
+    return words.slice(mw.length).some(w => !SORTING_WORDS.has(w));
+  }
+  const SORTING_WORDS = new Set(["series", "generation", "gen", "model", "models", "type", "facelift", "version",
+    "versions", "edition", "first", "second", "third", "fourth", "fifth", "sixth", "seventh", "eighth", "ninth",
+    "tenth", "mk", "mark", "i", "ii", "iii", "iv", "v", "vi"]);
+  // The re-checks waiting from before their article's headings were kept:
+  // each article read once more (no model), its headings stored, and a list
+  // the rules find nothing to change in -- a re-read that only named the
+  // generations differently -- settled on the spot. The others apply at
+  // the next load, or now, through the page's own pending-cross-check pass
+  // (the "llm:recheck-sections" event).
+  let sectionsSweep = null;
+  function sweepRecheckSections(nodes) {
+    if (!serverAvailable || !nodes) return Promise.resolve({ read: 0, settled: 0, failed: 0 });
+    if (sectionsSweep) return sectionsSweep;
+    sectionsSweep = (async () => {
+      const out = { read: 0, settled: 0, failed: 0 };
+      const byIdLocal = new Map(nodes.map(n => [n.id, n]));
+      const todo = Object.keys(store.recheck || {}).filter(id => {
+        const e = store.recheck[id];
+        return e && e.status === "provisional" && e.sourceTitle && !Array.isArray(e.sections);
+      });
+      if (!todo.length) return out;
+      note(`generations: reading the headings of ${todo.length} article(s) behind waiting re-checks`);
+      let next = 0;
+      const worker = async () => {
+        while (next < todo.length) {
+          const id = todo[next++];
+          const e = store.recheck[id];
+          let wikitext = null;
+          try { wikitext = (await fetchArticleDigest(e.sourceTitle)).wikitext; }
+          catch (err) { out.failed++; continue; }
+          if (!e || e.status !== "provisional") continue;
+          e.sections = headingsOf(wikitext);
+          out.read++;
+          const fam = byIdLocal.get(id);
+          const gens = fam ? (fam.generations || []).map(g => byIdLocal.get(g)).filter(g => g && !g.retired) : [];
+          const d = fam ? decideRecheck(fam, gens, e, nodes) : null;
+          if (d && !d.add.length && !d.retire.length) {
+            e.status = "none";
+            e.settledAt = new Date().toISOString();
+            e.settledBy = "rules";
+            e.settledWhy = "the re-read names the same generations" + (d.keep.length ? ", and the article still has a section for each one it left out" : "");
+            out.settled++;
+          }
+          await new Promise(r => setTimeout(r, 120));
+        }
+      };
+      await Promise.all([worker(), worker(), worker()]);
+      await persist();
+      note(`generations: ${out.read} waiting re-check(s) read, ${out.settled} settled as unchanged` +
+           (out.failed ? `, ${out.failed} could not be read (tried again next time)` : ""));
+      try { document.dispatchEvent(new CustomEvent("llm:recheck-sections")); } catch (err) { /* no page */ }
+      return out;
+    })();
+    return sectionsSweep;
   }
   let outsiderSweep = null;
   function sweepStoredSplitsForOutsiders(opts) {
@@ -3626,7 +3713,351 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
       const m = (genNodes || []).find(o => o && !taken.has(o.id) && labelCarriesPartOfCode(o.label, g.code));
       if (m) { taken.add(m.id); out[i] = m; }
     });
+    // A re-read often names the same generation differently. Real cases from
+    // the 261 re-checks waiting on 14 Oct 2026: "QX50 (J50)" read back as
+    // "First generation (J50)", every "Civic (eighth generation)" as "Eighth
+    // generation (2005)", the bare "Boxster and Cayman" (1996-2005) as "986"
+    // (1996-2004). Unpaired, each read as one generation retired and another
+    // made, with its relationships lost. The looser passes below only ever
+    // pair what is left, and only where exactly one match exists both ways.
+    const freeNodes = () => (genNodes || []).filter(o => o && !taken.has(o.id));
+    // Codes shared by every generation's label are the nameplate's own
+    // ("QX50"), not a generation's.
+    const labelled = (genNodes || []).filter(Boolean);
+    const shared = labelled.length > 1
+      ? labelled.map(o => chassisTokens(o.label)).reduce((a, b) => a.filter(x => b.includes(x)))
+      : [];
+    // Both sides name a code and the codes differ: two cars, whatever the
+    // place or the years say. The 2024 Citroën C3 "CC24" (South America and
+    // India) and "CC21" (Europe) start the same year.
+    const codesDiffer = (g, o) => {
+      const a = chassisTokens(g.code), b = chassisTokens(o.label).filter(x => !shared.includes(x));
+      return a.length > 0 && b.length > 0 && !a.some(x => b.some(y => sameChassisCode(x, y)));
+    };
+    const pairUnique = matches => {
+      const cands = (freshGens || []).map((g, i) => out[i] ? [] : freeNodes().filter(o => matches(g, o)));
+      cands.forEach((list, i) => {
+        if (list.length !== 1 || taken.has(list[0].id)) return;
+        const o = list[0];
+        if (cands.some((other, j) => j !== i && !out[j] && other.includes(o))) return;
+        taken.add(o.id); out[i] = o;
+      });
+    };
+    // A code one side carries beside its words: "First generation (J50)" and
+    // "QX50 (J50)".
+    pairUnique((g, o) => {
+      const tail = trailingCode(o.label);
+      return codesBesideWords(g.code).some(c => labelCarriesCode(o.label, c)) ||
+             (!!tail && isCodeLike(tail.code) && labelCarriesCode(g.code, tail.code));
+    });
+    // The same place in the line, where the years do not say otherwise:
+    // "Civic (eighth generation)" and "Eighth generation (2005)", "Mk2" and
+    // "Second generation (Mk II)". Counting conventions differ (the Mondeo
+    // "Mk3" is its second generation), hence the years.
+    pairUnique((g, o) => {
+      const a = generationPlace(g.code), b = generationPlace(o.label);
+      return !!a && a === b && yearsAgree(g.yearStart, o.year, 2) && !codesDiffer(g, o);
+    });
+    // The same years, start and end, each within a year.
+    pairUnique((g, o) => yearsAgree(g.yearStart, o.year, 1) && o.year != null && g.yearStart != null &&
+      (g.yearEnd == null || o.end == null || Math.abs(g.yearEnd - o.end) <= 1) && !codesDiffer(g, o));
     return out;
+  }
+  // Chassis-code-shaped words: "E90", "CC21", "XP130", "E9x".
+  // "Mk4" is a place in the line (generationPlace), not a code.
+  function chassisTokens(text) {
+    return String(text || "").toLowerCase().split(/[^a-z0-9]+/)
+      .filter(w => /^[a-z]{1,4}\d{1,4}[a-z]?$/.test(w) && !/^(?:mk|mark)\d+$/.test(w));
+  }
+  // "E9x" is the family E90, E91, E92 and E93.
+  function sameChassisCode(a, b) {
+    if (a === b) return true;
+    const wild = (x, y) => /\dx$/.test(x) && y.length === x.length && y.slice(0, -1) === x.slice(0, -1) && /\d$/.test(y);
+    return wild(a, b) || wild(b, a);
+  }
+  function isCodeLike(text) {
+    const t = String(text || "").trim();
+    return /\d/.test(t) && /[a-z]/i.test(t) && !/^\d{4}\b/.test(t) && t.split(/\s+/).length <= 2;
+  }
+  // "Fourth generation (SN95; 1994)" -> ["SN95"]: the codes in brackets, not
+  // the years.
+  function codesBesideWords(code) {
+    return (String(code || "").match(/\(([^()]+)\)/g) || [])
+      .flatMap(p => p.slice(1, -1).split(/[;,/]/)).map(x => x.trim()).filter(isCodeLike);
+  }
+  function generationPlace(text) {
+    const w = mentionOrdinal(String(text || "").replace(/[()]/g, " "));
+    return w ? ORDINAL_N[w] || null : null;
+  }
+  function yearsAgree(a, b, slack) {
+    return a == null || b == null || Math.abs(a - b) <= slack;
+  }
+
+  // ---------- a waiting re-check, settled by the article's own sections ----------
+  // Real user request (14 Oct 2026): re-checks should apply by themselves
+  // even when Wikipedia lists fewer generations, with safeguards, and manual
+  // approval should be the exception. The model's list is checked against
+  // the headings of the article it read, without asking the model again:
+  //   - a generation the re-read left out is KEPT if the article still has a
+  //     heading for it (by code, place or years) or it has its own article --
+  //     the model missed it (the Mondeo's fourth and fifth generations, the
+  //     Bluebird's Types 11-14); otherwise it is retired, and the bare
+  //     nameplate standing in for a generation always is;
+  //   - a generation the re-read added is ADDED only if a generation-level
+  //     heading stands for it: not a subsection of another generation (the
+  //     Twingo's "E-Tech Electrique"), not under "Other uses" or "Related"
+  //     (the Opel Monza's Chevrolet Monza), not one already a generation
+  //     here, and not a coarser entry whose years finer generations kept
+  //     here already cover (the owner's ruling on the Falcon's XK-XP).
+  // The headings are stored on the entry (`sections`), so a reload decides
+  // exactly as the session did.
+  function headingsOf(wikitext) {
+    const out = [];
+    const re = /^(={2,6})\s*(.+?)\s*\1\s*$/gm;
+    let m;
+    while ((m = re.exec(String(wikitext || "")))) {
+      const text = m[2].replace(/\[\[(?:[^\]|]*\|)?([^\]]*)\]\]/g, "$1").replace(/'{2,}/g, "")
+        .replace(/<[^>]+>/g, "").replace(/\{\{[^{}]*\}\}/g, "").trim();
+      if (text) out.push([m[1].length - 1, text]);
+    }
+    return out;
+  }
+  const OUTSIDE_HEADING_RE = /\b(?:other uses|further use|related|see also|concepts?|derivatives|spin-?offs?|references|notes|external links|further reading|bibliography)\b/i;
+  const GENERATION_HEADING_RE = /\bgeneration\b|\b(?:mk|mark)\s*[ivx\d]+\b|\(\s*(?:1[89]|20)\d{2}|\b(?:1[89]|20)\d{2}\s*[–-]/i;
+  function headingYears(text) {
+    const m = String(text).match(/\b(1[89]\d{2}|20\d{2})\b(?:\s*[–-]\s*(1[89]\d{2}|20\d{2}|\d{2}\b))?/);
+    if (!m) return { start: null, end: null };
+    const end = !m[2] ? null : m[2].length === 2 ? +(m[1].slice(0, 2) + m[2]) : +m[2];
+    return { start: +m[1], end };
+  }
+  // Every heading not under "Other uses", "Related" and the like, marked
+  // with whether it stands for a generation: it looks like one (a place, a
+  // code, years) and is not inside another generation's section.
+  function articleHeadings(sections) {
+    const out = [], stack = [];
+    (sections || []).forEach(([level, text]) => {
+      while (stack.length && stack[stack.length - 1].level >= level) stack.pop();
+      const outside = OUTSIDE_HEADING_RE.test(text) || stack.some(x => x.outside);
+      const gen = !outside && !stack.some(x => x.gen) && (GENERATION_HEADING_RE.test(text) || chassisTokens(text).length > 0);
+      stack.push({ level, outside, gen });
+      if (outside) return;
+      const y = headingYears(text);
+      out.push({ text, gen, start: y.start, end: y.end, place: generationPlace(text), codes: codesNamedIn(text) });
+    });
+    return out;
+  }
+  // How strongly a heading stands for a generation named `label` with these
+  // years: a shared code, the same place, the same years. A different code
+  // or place, or years far apart, is a different generation.
+  // The codes a name or heading carries: chassis-code-shaped words ("E90",
+  // "XP130"), short capitals ("ZA", "XK", "EL"), the way the Falcon and the
+  // Fairlane name their series, and three-digit type numbers (the Boxster's
+  // "982"). A trailing "(1967-1968)" is not one, nor is a year.
+  function codesNamedIn(text) {
+    const t = String(text || "").replace(/\s*\((?:1[89]|20)\d{2}[^)]*\)\s*$/, "");
+    const caps = (t.match(/\b[A-Z]{2,3}\b/g) || []).map(x => x.toLowerCase());
+    const types = t.match(/(?<![\d.,])\b\d{3}\b(?![\d.,])/g) || [];
+    return [...new Set(chassisTokens(t).concat(caps, types))];
+  }
+  // A heading's evidence for a generation: `score` (a shared code 4, the
+  // same place 2, the same years 2) and whether any of it was more than
+  // years (`named`). A different code or place, or years far apart, is a
+  // different generation.
+  function headingEvidence(h, label, start, end, shared) {
+    const codes = codesNamedIn(label).filter(c => !shared.includes(c));
+    let score = 0, named = false;
+    if (codes.length && h.codes.length) {
+      if (!codes.some(c => h.codes.some(d => sameChassisCode(c, d)))) return { score: 0, named: false };
+      score += 4; named = true;
+    }
+    const place = generationPlace(label);
+    if (place && h.place) {
+      if (place !== h.place) return { score: 0, named: false };
+      score += 2; named = true;
+    }
+    if (start != null && h.start != null) {
+      if (Math.abs(start - h.start) > 2) return { score: 0, named: false };
+      if (Math.abs(start - h.start) <= 1 && (end == null || h.end == null || Math.abs(end - h.end) <= 1)) score += 2;
+    }
+    return { score, named };
+  }
+  function headingScore(h, label, start, end, shared) {
+    return headingEvidence(h, label, start, end, shared).score;
+  }
+  function bestHeading(heads, label, start, end, shared) {
+    let best = -1, top = 0, tie = false;
+    heads.forEach((h, i) => {
+      const sc = headingScore(h, label, start, end, shared);
+      if (sc > top) { top = sc; best = i; tie = false; } else if (sc && sc === top) tie = true;
+    });
+    return tie ? -1 : best;
+  }
+  function sharedLabelCodes(genNodes) {
+    const labelled = (genNodes || []).filter(Boolean);
+    return labelled.length > 1
+      ? labelled.map(o => codesNamedIn(o.label)).reduce((a, b) => a.filter(x => b.includes(x)))
+      : [];
+  }
+  function isBareNameplate(fam, node) {
+    return norm(String(node.label || "").replace(fam.label, "")) === "";
+  }
+  // What a waiting re-check would do under the rules above, or null while
+  // the article's headings are not on the entry yet.
+  function decideRecheck(fam, genNodes, entry, nodes) {
+    if (!fam || !entry || !Array.isArray(entry.sections)) return null;
+    const listed = insideGenerations(entry);
+    const fresh = listed.filter(g => !entryNamesAnotherCar(fam, g.code, nodes));
+    const otherCars = listed.filter(g => !fresh.includes(g));
+    const old = (genNodes || []).filter(o => o && !o.retired);
+    const shared = sharedLabelCodes(old);
+    const all = articleHeadings(entry.sections);
+    const gens = all.filter(h => h.gen);
+    const paired = pairFreshGenerations(old, fresh);
+    const pairedIds = new Set(paired.filter(Boolean).map(o => o.id));
+    const used = new Set();
+    paired.forEach((o, i) => {
+      if (!o) return;
+      const k = bestHeading(gens, fresh[i].code, fresh[i].yearStart, fresh[i].yearEnd, shared);
+      if (k >= 0) used.add(k);
+      const k2 = bestHeading(gens, o.label, o.year, o.end, shared);
+      if (k2 >= 0) used.add(k2);
+    });
+    const keep = [], retire = [];
+    old.filter(o => !pairedIds.has(o.id)).forEach(o => {
+      if (isBareNameplate(fam, o)) { retire.push(o); return; }
+      const ownArticle = !!o.wp && !!entry.sourceTitle && norm(o.wp) !== norm(entry.sourceTitle) &&
+        norm(o.wp) !== norm(fam.wp || "") && !(store.wpRedirects && norm(store.wpRedirects[o.wp] || "") === norm(entry.sourceTitle));
+      const k = bestHeading(gens, o.label, o.year, o.end, shared);
+      // Its heading already stands for a generation kept here, and it has no
+      // code of its own or is another car by name: a duplicate of that one
+      // ("Octavia Mk4" beside "Octavia (NX)", "RAV4 Toyota Vanguard (XA30)").
+      // One with its own code is a car of its own in the same generation and
+      // stays: the AE86 beside the AE85.
+      const ownName = String(o.label || "").replace(fam.label, "").trim();
+      const duplicate = codesNamedIn(ownName).filter(c => !shared.includes(c)).length === 0 ||
+        entryNamesAnotherCar(fam, ownName, nodes);
+      if (k >= 0 && used.has(k) && !ownArticle && duplicate) { retire.push(o); return; }
+      if (k >= 0) used.add(k);
+      if (ownArticle || k >= 0 || bestHeading(all, o.label, o.year, o.end, shared) >= 0) keep.push(o);
+      else retire.push(o);
+    });
+    const skip = otherCars.map(g => ({ code: g.code, why: "names another car" }));
+    const claims = new Map();
+    fresh.forEach((g, i) => {
+      if (paired[i]) return;
+      const k = bestHeading(gens, g.code, g.yearStart, g.yearEnd, shared);
+      // Years alone do not make a heading stand for a new entry: the Lancer's
+      // "GS platform" shares its years with a generation's heading.
+      if (k < 0 || !headingEvidence(gens[k], g.code, g.yearStart, g.yearEnd, shared).named) {
+        skip.push({ code: g.code, why: "no generation-level section of its own in the article" });
+        return;
+      }
+      if (used.has(k)) { skip.push({ code: g.code, why: "its section is already a generation here" }); return; }
+      const sc = headingScore(gens[k], g.code, g.yearStart, g.yearEnd, shared);
+      if (!claims.has(k)) claims.set(k, []);
+      claims.get(k).push({ g, sc });
+    });
+    const stays = old.filter(o => pairedIds.has(o.id) || keep.includes(o));
+    if (!stays.length && !fresh.some((g, i) => !paired[i])) return null;
+    const add = [];
+    claims.forEach(list => {
+      const top = Math.max(...list.map(c => c.sc));
+      const winners = list.filter(c => c.sc === top);
+      list.forEach(c => {
+        if (winners.length !== 1 || c !== winners[0]) { skip.push({ code: c.g.code, why: "another entry stands for the same section" }); return; }
+        const s0 = c.g.yearStart, e0 = c.g.yearEnd == null ? 9999 : c.g.yearEnd;
+        const finer = s0 == null ? 0 : stays.filter(o => o.year != null && o.year >= s0 && (o.end == null ? 9999 : o.end) <= e0).length;
+        if (finer >= 2) { skip.push({ code: c.g.code, why: "finer generations kept here already cover its years" }); return; }
+        add.push(c.g);
+      });
+    });
+    // A nameplate left with no generation at all is not a decision to make
+    // by rule.
+    if (!stays.length && !add.length) return null;
+    // Nothing is retired whose years the generations that remain do not
+    // cover: it stays. The Holden Caprice's re-read listed only its series
+    // (VQ ... WN), which sit inside the article's generation sections and so
+    // are not added -- retiring the bare "Caprice" with them would have left
+    // 1990-2017 with no car at all.
+    const spans = stays.map(o => [o.year, o.end]).concat(add.map(g => [g.yearStart, g.yearEnd]))
+      .filter(([a]) => a != null).map(([a, b]) => [a, b == null ? 9999 : b]).sort((x, y) => x[0] - y[0]);
+    const covered = (a, b) => {
+      let reach = a - 1;
+      for (const [x, y] of spans) {
+        if (x > reach + 1) break;
+        if (y > reach) reach = y;
+        if (reach >= b - 1) return true;
+      }
+      return false;
+    };
+    const retired = [];
+    retire.forEach(o => {
+      if (o.year != null && covered(o.year, o.end == null ? o.year : o.end)) retired.push(o);
+      else keep.push(o);
+    });
+    return { paired, fresh, add, skip, keep, retire: retired };
+  }
+  // A retired generation's successor: the new generation overlapping its
+  // years most, ties to the earlier; with no overlap, the nearest earlier
+  // one (a platform carries forward, not back), else the nearest.
+  function successorGeneration(o, candidates) {
+    const live = candidates.filter(g => g && g.id !== o.id);
+    if (!live.length) return null;
+    const by = g => g.year == null ? 1e9 : g.year;
+    const sorted = live.slice().sort((a, b) => by(a) - by(b));
+    if (o.year == null) return sorted[0];
+    const oEnd = o.end == null ? o.year : o.end;
+    let best = null, top = -1;
+    sorted.forEach(g => {
+      if (g.year == null) return;
+      const ov = Math.min(oEnd, g.end == null ? 9999 : g.end) - Math.max(o.year, g.year);
+      if (ov >= 0 && ov > top) { top = ov; best = g; }
+    });
+    if (best) return best;
+    const earlier = sorted.filter(g => g.year != null && g.year <= o.year);
+    return earlier.length ? earlier[earlier.length - 1] : sorted[0];
+  }
+  // Which of the new generations a link of a retired one belongs to: a code
+  // its own evidence names (the stored note or reason) first, then the
+  // retired generation's years -- never the other car's (the owner's
+  // ruling: a 2016 car can sit on a 2008-2012 platform).
+  function generationForLink(l, o, candidates, fallback) {
+    const key = l.llmResolvedKey;
+    const e = key && store.relations[key];
+    const said = [l.note, e && e.note, e && e.reason].filter(Boolean).join(" ");
+    if (said) {
+      const hits = candidates.filter(g => chassisTokens(g.label).some(c => chassisTokens(said).some(d => sameChassisCode(c, d))));
+      if (hits.length === 1) return hits[0];
+    }
+    return fallback;
+  }
+  // The bare nameplate standing in for a generation ("Camry" inside the
+  // Camry) was never a generation: what it was linked to is a fact about the
+  // nameplate, and goes to the nameplate.
+  function moveRetiredGenerationLinks(nodes, links, fam, o, candidates) {
+    const bare = isBareNameplate(fam, o);
+    const target = bare ? fam : successorGeneration(o, candidates);
+    if (!target) return;
+    o.supersededBy = target.id;
+    const family = new Set(nodes.filter(n => n.familyOf === fam.id).map(n => n.id).concat([fam.id]));
+    const n0 = links.length;
+    for (let i = 0; i < n0; i++) {
+      const l = links[i];
+      if (REBOUND_LINK_TYPES.indexOf(l.type) < 0) continue;
+      const s0 = idOf(l.source), t0 = idOf(l.target);
+      if (s0 !== o.id && t0 !== o.id) continue;
+      const other = s0 === o.id ? t0 : s0;
+      if (family.has(other)) continue;
+      const to = bare ? fam : generationForLink(l, o, candidates, target);
+      const ns = s0 === o.id ? to.id : s0, nt = t0 === o.id ? to.id : t0;
+      if (links.some(l2 => l2.type === l.type && ((idOf(l2.source) === ns && idOf(l2.target) === nt) ||
+                                                   (idOf(l2.source) === nt && idOf(l2.target) === ns)))) continue;
+      const nl = { source: ns, target: nt, type: l.type, rebound: true, reboundFrom: o.id };
+      if (l.note) nl.note = l.note;
+      if (l.llmDiscovered) nl.llmDiscovered = true;
+      if (l.llmResolved) { nl.llmResolved = true; if (l.llmResolvedKey) nl.llmResolvedKey = l.llmResolvedKey; }
+      links.push(nl);
+    }
   }
   // `make` scopes the search to the SAME manufacturer as the nameplate
   // being processed -- a bare chassis/generation code like "R107" is short
@@ -11110,35 +11541,22 @@ Rules:
   function additiveRecheck(famId, genNodes, nodes) {
     const entry = recheckEntryFor(famId);
     if (!entry || entry.status !== "provisional") return null;
-    const fresh = (entry.proposal && entry.proposal.generations) || [];
-    if (!fresh.length) return null;
-    const { addedFresh, removedOld } = diffGenerationCodes(genNodes, fresh);
-    // Only a list that ADDS. For a while this was wider -- "the same number
-    // of generations or more ... automatically replace it" -- and a list that
-    // was no shorter replaced the old one even where it dropped generations:
-    // the CLK lost both of its harvested generations, each with its own
-    // article, engines and relations, to three re-minted ones, at every page
-    // load. Asked which rule should stand, the owner chose this one: anything
-    // that would retire a generation waits in Pending Generation Splits.
-    const had = (genNodes || []).length;
-    if (removedOld.length) return null;
-    if (!addedFresh.length) return null;                          // nothing would change
+    const fam = nodes ? nodes.find(n => n.id === famId) : null;
+    if (!fam) return null;
+    // Decided by the article's headings (see decideRecheck). An entry whose
+    // headings are not read yet waits for sweepRecheckSections.
+    const d = decideRecheck(fam, genNodes, entry, nodes);
+    if (!d || (!d.add.length && !d.retire.length)) return null;
     // "Adds a generation" has a second shape that is not purely additive at
     // all: applyFamilyOverride does not always MINT the new generation. If the
     // car already exists somewhere else in the graph -- a never-grouped
     // standalone, or a generation under a different family -- it absorbs that
     // node and retires it (see findDuplicateGeneration/supersedeStandalone).
-    // The Mercedes-Benz SL-Class R107 is the case on record. Nothing is lost
-    // when that happens, but a car does disappear from where it was, and
-    // deciding that is exactly the kind of call the user asked to keep.
-    if (nodes) {
-      const fam = nodes.find(n => n.id === famId);
-      const absorbs = addedFresh.some(g =>
-        !!findDuplicateGeneration(nodes, g.code, famId, fam && fam.make, fam && fam.label));
-      if (absorbs) return null;
-    }
-    return { added: addedFresh.map(g => g.code), removed: removedOld.map(g => g.label || g.code || g.id),
-             had, now: fresh.length };
+    // The Mercedes-Benz SL-Class R107 is the case on record. That still waits.
+    if (d.add.some(g => !!findDuplicateGeneration(nodes, g.code, famId, fam.make, fam.label))) return null;
+    return { added: d.add.map(g => g.code), removed: d.retire.map(g => g.label || g.id),
+             kept: d.keep.map(g => g.label || g.id), skipped: d.skip.map(x => x.code),
+             had: (genNodes || []).length, now: d.fresh.length };
   }
 
   // ---------- manual "LLM re-check": relation side ----------
@@ -11165,6 +11583,13 @@ Rules:
     const byIdLocal = new Map(nodes.map(n => [n.id, n]));
     const freshByCode = new Map();
     (freshGens || []).forEach(g => { const k = norm(g.code); if (k) freshByCode.set(k, g); });
+    // The same pairing the diff made, so a generation the re-read only named
+    // differently ("Eighth generation (2005)") is still recognised here.
+    const ownGens = genNodesFor(fam, byIdLocal);
+    const pairedFresh = new Map(), pairedOld = new Map();
+    pairFreshGenerations(ownGens, freshGens || []).forEach((o, i) => {
+      if (o) { pairedFresh.set(o.id, freshGens[i]); pairedOld.set(freshGens[i], o); }
+    });
 
     // Pass 1: does every EXISTING confirmed relation touching this family
     // still hold up against the fresh read?
@@ -11205,7 +11630,7 @@ Rules:
       // only ever found a generation whose label WAS its code and the check
       // below never ran for an ordinary one.
       const tail = trailingCode(ownGenOld.label);
-      const fresh = freshByCode.get(norm(ownGenOld.label)) ||
+      const fresh = pairedFresh.get(ownGenOld.id) || freshByCode.get(norm(ownGenOld.label)) ||
         (freshGens || []).find(g => g.code && norm(generationNodeLabel(fam.label, g.code)) === norm(ownGenOld.label)) ||
         (tail ? freshByCode.get(norm(tail.code)) : null);
       if (!fresh) return; // couldn't confidently line this generation up with a fresh entry -- not enough signal either way, leave it alone
@@ -11239,7 +11664,7 @@ Rules:
     // RESULT, never reimplements the matching itself.
     (freshGens || []).forEach(fresh => {
       const key = norm(fresh.code);
-      const old = key ? genNodeForCode(genNodesFor(fam, byIdLocal), fresh.code, removedIds) : null;
+      const old = pairedOld.get(fresh) || (key ? genNodeForCode(ownGens, fresh.code, removedIds) : null);
       if (!old) return; // this fresh generation is a brand-new one this pass doesn't mint (that's applyFamilyOverride's job once the user accepts the generation diff) -- nothing to resolve relations against yet
       const gn = Object.assign({}, old, {
         sharedPlatformTexts: Array.isArray(fresh.sharedPlatforms) ? fresh.sharedPlatforms
@@ -11392,6 +11817,8 @@ Rules:
           manualRecheck: true,
           engineScansCleared,
           generationDiff: { addedCodes: addedFresh.map(g => g.code), removedIds: removedOld.map(o => o.id) },
+          // The article's headings, which decide the entry (decideRecheck).
+          sections: headingsOf(wikitext),
         };
         // Reached by another car's scan, and Wikipedia still says exactly what
         // was declined: it stays declined. Asking for this nameplate by name
@@ -16563,7 +16990,9 @@ Rules:
   // own id, so anything already pointing at it (search history, a path
   // traced through Six Degrees) stays valid; only its year/designers/
   // engineers/photo get refreshed.
-  function applyFamilyOverride(famId, nodes, links) {
+  // `opts.byRules`: applied by the rules (decideRecheck) rather than by a
+  // person's Accept, which takes the list as shown.
+  function applyFamilyOverride(famId, nodes, links, opts) {
     const entry = recheckEntryFor(famId);
     // Also re-runs for an ALREADY-"applied" entry -- this is what makes the
     // override survive a page reload: nodes/links are rebuilt fresh from
@@ -16579,15 +17008,30 @@ Rules:
     const fam = byId.get(famId);
     if (!fam || fam.type !== "family") return;
     const oldGens = (fam.generations || []).map(id => byId.get(id)).filter(Boolean);
+    if (wasProvisional) {
+      // Decided once, as it is applied, and written on the entry: what the
+      // article's headings keep, and what they leave out (decideRecheck).
+      const d = opts && opts.byRules ? decideRecheck(fam, oldGens, entry, nodes) : null;
+      if (d) {
+        entry.kept = d.keep.map(o => o.id);
+        const known = new Set((entry.outsiders || []).map(o => norm(o.code)));
+        entry.outsiders = (entry.outsiders || []).concat(d.skip.filter(x => !known.has(norm(x.code))));
+        entry.retiredGenerations = d.retire.map(o => ({ id: o.id, label: o.label }));
+      } else {
+        setAsideOtherCars(entry, fam, nodes);
+      }
+    }
     const freshGens = insideGenerations(entry);
+    const keptIds = new Set(entry.kept || []);
 
     const usedOld = new Set();
-    const paired = pairFreshGenerations(oldGens, freshGens);
+    const paired = pairFreshGenerations(oldGens.filter(o => !keptIds.has(o.id)), freshGens);
     const pairs = freshGens.map((g, i) => {
       if (paired[i]) usedOld.add(paired[i].id);
       return { fresh: g, old: paired[i] || null };
     });
-    const orphaned = oldGens.filter(o => !usedOld.has(o.id));
+    const kept = oldGens.filter(o => keptIds.has(o.id) && !usedOld.has(o.id) && !o.retired);
+    const orphaned = oldGens.filter(o => !usedOld.has(o.id) && !keptIds.has(o.id));
 
     const allDesigners = new Set(fam.designers || []);
     const allEngineers = new Set(fam.engineers || []);
@@ -16631,6 +17075,13 @@ Rules:
       }
       usedGids.add(gid);
       let gn = old || byId.get(gid);
+      // The bare nameplate standing in for a generation ("Boxster and
+      // Cayman", 1996-2005) paired with the real one by its years ("986")
+      // takes that generation's name, and keeps its id and everything on it.
+      if (old && norm(String(old.label || "").replace(fam.label, "")) === "") {
+        old.label = generationNodeLabel(fam.label, fresh.code);
+        namesChanged();
+      }
       let dup = null;
       if (!gn) {
         // De-duplication: this fresh generation has no match among the
@@ -16772,6 +17223,31 @@ Rules:
     links.forEach(l => {
       if (l.type === "generation" && l.source === famId && orphanIds.has(l.target)) l.retired = true;
       if (l.type === "gensucc" && (orphanIds.has(l.source) || orphanIds.has(l.target))) l.retired = true;
+    });
+
+    // A retired generation's relationships go to the generation that takes
+    // its place (see moveRetiredGenerationLinks); it records where it went,
+    // so a stored decision naming it follows. Deleting this entry undoes all
+    // of it at the next load: nothing here is written over.
+    const liveNew = newGenIds.map(id => byId.get(id)).filter(Boolean).concat(kept);
+    orphaned.forEach(o => { if (!usedOld.has(o.id)) moveRetiredGenerationLinks(nodes, links, fam, o, liveNew); });
+
+    // In order of their years (undated last), whatever order the article
+    // listed them in, and the succession arrows rebuilt to match.
+    kept.forEach(o => newGenIds.push(o.id));
+    const yr = id => { const g = byId.get(id); return g && g.year != null ? g.year : 1e9; };
+    newGenIds.sort((a, b) => yr(a) - yr(b));
+    const inFamily = new Set(newGenIds);
+    const next = new Map(newGenIds.slice(0, -1).map((id, i) => [id, newGenIds[i + 1]]));
+    links.forEach(l => {
+      if (l.type !== "gensucc" || l.retired) return;
+      const a = idOf(l.source), b = idOf(l.target);
+      if (inFamily.has(a) && inFamily.has(b) && next.get(a) !== b) l.retired = true;
+    });
+    next.forEach((b, a) => {
+      if (!links.some(l => l.type === "gensucc" && !l.retired && idOf(l.source) === a && idOf(l.target) === b)) {
+        links.push({ source: a, target: b, type: "gensucc" });
+      }
     });
 
     fam.generations = newGenIds;
@@ -17006,7 +17482,7 @@ Rules:
     refreshGenerationImages,
     setDecisionSource, decisionSource: () => decisionSource,
     resolveWeakRelations, makeRelationship, weakProposalRejection,
-    additiveRecheck, diffGenerationCodes,
+    additiveRecheck, diffGenerationCodes, pairFreshGenerations,
     resolvePendingOwnGenerations, ownGenerationCode, sameArticleOwner,
     placeInCascade, cascadeDepthOf: id => depthOf(id), ownCodeShape, foldUmbrellaModels,
     schedulePartnerCheck, cascadeDepthIn,
@@ -17041,7 +17517,7 @@ Rules:
     forceRecheckEngine,
     clearEngineScansFor, note, nameplateSectionForCar, mergeEngineHits,
     mergeEngines, undoEngineMerge, allEngineMerges, applyEngineMerges,
-    sameEngineLine, decodeEntities, articleIsNotACar, sweepStoredSplitsForOutsiders, sweepWholePageEngineLists, sweepOrdinalPlaceholders, replayStarted, replayFinished,
+    sameEngineLine, decodeEntities, articleIsNotACar, sweepStoredSplitsForOutsiders, sweepRecheckSections, decideRecheck, headingsOf, sweepWholePageEngineLists, sweepOrdinalPlaceholders, replayStarted, replayFinished,
     lastSaveError: () => lastSaveError,
     engineMentions, unlinkedEngineMentions, engineSpecLabel,
     recordEngineMentions, recordEngineMentionsFrom, applyEngineMentions,

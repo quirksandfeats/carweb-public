@@ -3141,20 +3141,36 @@ window.CarWeb = (function () {
   // way. Returns whether it applied. A diff that also drops a generation is
   // left alone -- that is not "more generations than currently listed", and
   // retiring one deserves a human.
+  // Every waiting cross-check the rules can settle, applied. Returns how many.
+  function applyPendingCrossChecks() {
+    if (!window.LlmFamilies || !window.LlmFamilies.allRecheckEntries) return 0;
+    let applied = 0;
+    try {
+      window.LlmFamilies.allRecheckEntries()
+        .filter(e => e.status === "provisional")
+        .forEach(e => {
+          const fam = byId.get(e.id);
+          if (fam && fam.type === "family" && autoAcceptAdditiveRecheck(fam)) applied++;
+        });
+    } catch (e) { console.warn("CarWeb: could not apply pending cross-checks", e); }
+    return applied;
+  }
   function autoAcceptAdditiveRecheck(fam) {
     if (!window.LlmFamilies || !window.LlmFamilies.additiveRecheck) return false;
     let verdict = null;
     try { verdict = window.LlmFamilies.additiveRecheck(fam.id, currentGenNodes(fam), nodes); }
     catch (e) { return false; }
     if (!verdict) return false;
-    applyFamilyOverrideConfirm(fam);
+    applyFamilyOverrideConfirm(fam, { byRules: true });
     console.info(`[carweb] ${fam.make ? fam.make + " " : ""}${fam.label}: Wikipedia lists ` +
-                 `${verdict.now} generations where this had ${verdict.had} — applied without asking ` +
-                 `(added ${verdict.added.join(", ")})`);
+                 `${verdict.now} generations where this had ${verdict.had} — applied without asking` +
+                 (verdict.added.length ? `; added ${verdict.added.join(", ")}` : "") +
+                 (verdict.removed.length ? `; retired ${verdict.removed.join(", ")}` : "") +
+                 (verdict.kept.length ? `; kept ${verdict.kept.join(", ")} (still in the article)` : ""));
     return true;
   }
-  function applyFamilyOverrideConfirm(fam) {
-    window.LlmFamilies.applyFamilyOverride(fam.id, nodes, links);
+  function applyFamilyOverrideConfirm(fam, opts) {
+    window.LlmFamilies.applyFamilyOverride(fam.id, nodes, links, opts);
     // Real gap found while adding multi-relation support: applyFamilyOverride
     // above can resolve a shared-platform mention straight to "confirmed" in
     // store.relations (same as the other two discovery flows), but that's
@@ -9063,16 +9079,10 @@ window.CarWeb = (function () {
       // tab, or one from before this rule existed. Same verdict, same confirm
       // path; idempotent, because applying flips the entry to "applied" and
       // additiveRecheck only ever looks at "provisional" ones.
-      if (window.LlmFamilies && window.LlmFamilies.allRecheckEntries) {
-        try {
-          window.LlmFamilies.allRecheckEntries()
-            .filter(e => e.status === "provisional")
-            .forEach(e => {
-              const fam = byId.get(e.id);
-              if (fam && fam.type === "family") autoAcceptAdditiveRecheck(fam);
-            });
-        } catch (e) { console.warn("CarWeb: could not apply pending cross-checks", e); }
-      }
+      applyPendingCrossChecks();
+      // Again once the waiting re-checks' article headings have been read
+      // (llm_families.js's sweepRecheckSections), which is what decides them.
+      document.addEventListener("llm:recheck-sections", () => applyPendingCrossChecks());
       // Stand-in orphans, cleared automatically. Has to run HERE, after every
       // overlay pass above has minted whatever it mints: "not in the graph"
       // asked any earlier would be true of cars that are merely not created

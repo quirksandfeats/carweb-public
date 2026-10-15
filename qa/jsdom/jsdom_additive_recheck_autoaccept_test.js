@@ -14,6 +14,10 @@
 // what stops "G01" and the existing "X3 (G01)" being read as two different
 // generations -- get that wrong and a pure reformatting looks additive and
 // applies itself.
+//
+// Since 15 Oct 2026 the article's own headings decide (llm_families.js's
+// decideRecheck, and jsdom_recheck_article_rules_test.js for the rules), so
+// each entry here carries the headings of its article, as a real one does.
 const { JSDOM } = require("jsdom");
 const fs = require("fs");
 const path = require("path");
@@ -59,6 +63,7 @@ function entryWith(gens, discrepancy) {
     proposal: { hasMultipleGenerations: true, generations: gens },
     discrepancy: discrepancy || "Wikipedia currently describes more generations than this nameplate shows",
     attempts: 1, feedback: [],
+    sections: [[1, "MK1 (1990–1999)"], [1, "MK2 (2000–2009)"], [1, "MK3 (2010–present)"], [1, "References"]],
   };
 }
 
@@ -86,6 +91,8 @@ function boot(recheckEntry) {
   return window;
 }
 
+// The graph the verdicts below are asked against: the nameplate has to be in it.
+let NODES = null;
 // ---------- 1. the verdict itself ----------
 {
   const w = boot(entryWith([gen("MK1", 1990, 1999), gen("MK2", 2000, 2009), gen("MK3", 2010, null)]));
@@ -96,7 +103,8 @@ function boot(recheckEntry) {
   // Boot already swept it, so ask the verdict on a fresh, unapplied copy.
   const w2 = boot(entryWith([gen("MK1", 1990, 1999), gen("MK2", 2000, 2009), gen("MK3", 2010, null)]));
   const LF2 = w2.LlmFamilies;
-  const v = LF2.additiveRecheck(FAM, [G1, G2].map(id => ({ id, label: "Roadster (" + (id.endsWith("mk1") ? "MK1" : "MK2") + ")" })));
+  NODES = w2.CARDATA.nodes;
+  const v = LF2.additiveRecheck(FAM, [G1, G2].map(id => ({ id, label: "Roadster (" + (id.endsWith("mk1") ? "MK1" : "MK2") + ")" })), NODES);
   check("a list that keeps both generations and adds a third is additive", !!v, JSON.stringify(v));
   check("...and it says what was added", v && v.added.join(",") === "MK3", v && v.added.join(","));
   check("...and how the count moved", v && v.had === 2 && v.now === 3, v && (v.had + "->" + v.now));
@@ -142,22 +150,22 @@ function boot(recheckEntry) {
 {
   const w = boot(entryWith([gen("MK1", 1990, 1999), gen("MK3", 2000, 2009)]));
   const LF = w.LlmFamilies;
-  const v = LF.additiveRecheck(FAM, [G1, G2].map(id => ({ id, label: "Roadster (" + (id.endsWith("mk1") ? "MK1" : "MK2") + ")" })));
+  const v = LF.additiveRecheck(FAM, [G1, G2].map(id => ({ id, label: "Roadster (" + (id.endsWith("mk1") ? "MK1" : "MK2") + ")" })), NODES);
   check("a list with as many generations as before, one of them different, does not apply itself", !v, JSON.stringify(v));
   // A code that is two codes joined is the same generation re-spelled, not one removed and one added.
   const w3 = boot(entryWith([gen("MK1/CAB1", 1990, 1999), gen("MK2/CAB2", 2000, 2009), gen("MK3", 2010, null)]));
-  const v3 = w3.LlmFamilies.additiveRecheck(FAM, [G1, G2].map(id => ({ id, label: "Roadster (" + (id.endsWith("mk1") ? "MK1" : "MK2") + ")" })));
+  const v3 = w3.LlmFamilies.additiveRecheck(FAM, [G1, G2].map(id => ({ id, label: "Roadster (" + (id.endsWith("mk1") ? "MK1" : "MK2") + ")" })), NODES);
   check("...and a re-spelled code (MK1/CAB1 for MK1) is not a removal, so a list that only adds still applies",
         !!v3 && v3.removed.length === 0 && v3.added.length === 1, JSON.stringify(v3));
   const w2 = boot(entryWith([gen("MK1", 1990, 1999), gen("MK2", 2000, 2009)]));
-  const v2 = w2.LlmFamilies.additiveRecheck(FAM, [G1, G2].map(id => ({ id, label: "Roadster (" + (id.endsWith("mk1") ? "MK1" : "MK2") + ")" })));
+  const v2 = w2.LlmFamilies.additiveRecheck(FAM, [G1, G2].map(id => ({ id, label: "Roadster (" + (id.endsWith("mk1") ? "MK1" : "MK2") + ")" })), NODES);
   check("...but an identical list changes nothing and is not applied", !v2, JSON.stringify(v2));
 }
 
-// ---------- 3. a re-check that DROPS one still waits ----------
+// ---------- 3. a re-check that DROPS one the article still has waits ----------
 {
-  // Two listed, Wikipedia says one: the shape the BMW X3 bare-fold fix is
-  // about, and the one that must never apply itself.
+  // Two listed, the re-read says one, and the article still has a heading
+  // for the other: the model missed it, so nothing applies by itself.
   const w = boot(entryWith([gen("MK1", 1990, 1999)], "an existing generation here is really just the bare nameplate"));
   const cw = w.CarWeb; cw.boot();
   const fam = cw.byId.get(FAM);
@@ -183,8 +191,8 @@ function boot(recheckEntry) {
   const nodes = [{ id: G1, label: "Roadster (MK1)" }, { id: G2, label: "Roadster (MK2)" }];
   w.LLM_FAMILIES.recheck[FAM] = entryWith([gen("MK1", 1990, 1999), gen("MK2", 2000, 2009)]);
   check("a proposal naming the same two generations is not additive",
-        LF.additiveRecheck(FAM, nodes) === null);
-  check("an empty proposal is not additive", LF.additiveRecheck(FAM, nodes) === null);
+        LF.additiveRecheck(FAM, nodes, cw.nodes) === null);
+  check("an empty proposal is not additive", LF.additiveRecheck(FAM, nodes, cw.nodes) === null);
 }
 
 // ---------- 5. nothing to decide means nothing to do ----------

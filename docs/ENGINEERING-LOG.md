@@ -1987,7 +1987,7 @@ of the family states, is the same engine and is listed as "also called"; a
 layout or size the other side's cars contradict keeps them apart. A whole-page
 engine list carries the production years of the infobox it sits in.
 
-## Saves that merge, and a mirror in parts (15 Oct 2026)
+### 15 October: saves that merge, and a mirror in parts
 
 **Two pages saving.** Each page POSTed its whole copy of the store and the
 file kept the last one, so approvals made in one tab while the agent's page
@@ -2004,3 +2004,43 @@ mirror 25.8 MiB, and every deploy from then on failed with "Asset too large".
 8 MiB: `llm_families_data.js` names the rest in `LLM_FAMILIES_PARTS`, and each
 adds its entries to `LLM_FAMILIES_STATIC`. A part no longer needed is deleted;
 the agent commits the parts with the store.
+
+### 15 October: re-checks settled by the article
+
+On 14 Oct 261 nameplate re-checks were waiting for review. Most proposed to
+retire generations the re-read had only named differently, and a retirement
+took the generation's relationships with it. The owner asked for re-checks to
+apply by themselves, Wikipedia's fewer generations included, with safeguards.
+
+**Pairing.** `pairFreshGenerations` also pairs, only where exactly one match
+exists both ways: a code in brackets ("First generation (J50)" with "QX50
+(J50)"), the same place where the years agree ("Eighth generation (2005)" with
+"Civic (eighth generation)"), and the same years. Two different codes are
+never paired, whatever the years say: the 2024 Citroën C3 CC24 and CC21 start
+together. "Mk4" is a place, not a code. A bare nameplate paired by its years
+takes the generation's name and keeps its id.
+
+**The article decides** (`decideRecheck`, from headings stored on the entry as
+`sections`; waiting entries are read once by `sweepRecheckSections`, no
+model). A generation the re-read left out is kept if the article has a heading
+for it or it has its own article. One whose heading already stands for a kept
+generation is a duplicate and goes, unless it has a code of its own (the AE86
+beside the AE85). A new entry is added only if a generation-level heading
+names it by code or place: not a subsection of another generation, not under
+"Other uses" or "Related", not years alone, not one naming another make or
+model ("BMW Z1" in the Z4's list, "Daewoo Damas" in the Carry's), and not a
+coarser entry finer kept generations cover (the owner's Falcon ruling).
+Nothing is retired whose years what remains does not cover: the Holden
+Caprice's bare node stays rather than leave 1990-2017 empty. A person's Accept
+still takes the list as shown.
+
+**Applied.** A retired generation's relationships move to the new generation
+its years overlap most (a code the relationship's own note names first; ties
+and gaps to the earlier one), and it records `supersededBy`; a bare
+nameplate's go to the nameplate. Generations are sorted by year and the
+succession arrows rebuilt. What was kept, retired and left out is written on
+the entry; deleting the entry undoes all of it at the next load.
+
+Simulated on the stored data with every waiting article's headings read:
+57 lists apply (53 generations added, 52 retired, 58 kept), 238 of the 240
+relationships on retired generations stay attached, and the rest wait.
