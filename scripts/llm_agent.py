@@ -520,7 +520,9 @@ def run_pass(targets, budget_seconds, per_node_seconds, settle_seconds=300, quie
     started = time.time()
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=True,
-                                    args=["--no-sandbox", "--disable-gpu", "--disable-dev-shm-usage"])
+                                    args=["--no-sandbox", "--disable-gpu", "--disable-dev-shm-usage",
+                                          f"--js-flags=--max-old-space-size={PAGE_HEAP_MB}",
+                                          "--enable-precise-memory-info"])
         # Every exit from here on closes the browser, an interrupt included --
         # a headless Chromium left running holds the page (and its pending
         # fetches to llama-server) open behind the shutdown. See Aborted.
@@ -554,6 +556,18 @@ def run_pass(targets, budget_seconds, per_node_seconds, settle_seconds=300, quie
 # the list, for a later --resume.
 CRASHES_PER_CAR = 3
 CRASHES_PER_RUN = 12
+
+# The Toyota Corolla, Fiat 500 and Mazda CX-5 requests (Oct 2026) each
+# stopped at the crash limit, the later ones sooner (26 h, then about 11 h)
+# as the store grew past 30 MB -- possibly a tab running out of memory,
+# though a freshly loaded page holds only about 180 MB of a 3.5 GB limit, so
+# that is not yet proven. The page's heap is logged every ten minutes so the
+# next crash can be read against it, the tab gets Chromium's largest heap
+# (4 GB), and a tab past RECYCLE_HEAP_MB -- eight times a fresh one -- is
+# reopened on purpose, the same resume a crash gets but not counted as one.
+MEMORY_LOG_SECONDS = 600
+RECYCLE_HEAP_MB = 1500
+PAGE_HEAP_MB = 4096
 
 
 def is_page_crash(e):
@@ -591,6 +605,26 @@ class LivePage:
         self._page.on("pageerror", lambda e: self._errors.append("pageerror: " + str(e)[:200]))
         self.queued_already = prepare_page(self._page, self._per_node_seconds,
                                            [i for i, _ in self.set_aside])
+
+    def heap_mb(self):
+        """The tab's JavaScript heap in use, in MB, or None if it cannot say."""
+        try:
+            used = self._page.evaluate("() => performance.memory ? performance.memory.usedJSHeapSize : null")
+            return round(used / 1048576) if used else None
+        except Exception:
+            return None
+
+    def recycle(self, heap):
+        """Reopen a tab that has grown too large, and pick the work back up."""
+        log(f"  page memory at {heap} MB (limit {RECYCLE_HEAP_MB} MB) -- reopening the page "
+            "before it runs out; finished work is saved")
+        self.current = None
+        self.open()
+        resumed = self._page.evaluate(
+            "(skip) => { const LF = window.LlmFamilies; return LF && LF.resumeCascade ? "
+            "LF.resumeCascade(CarWeb.nodes, { cascade: true, skip }) : 0; }",
+            [i for i, _ in self.set_aside])
+        log(f"  reopened -- {resumed} queued car(s) picked back up")
 
     def recover(self, e):
         self.total_crashes += 1
@@ -1129,10 +1163,19 @@ def settle_cascade(page, settle_seconds, quiet_seconds=60):
     """
     last, idle, quiet, said = entry_rows(page), 0, 0, None
     working = None
+    memory_at = time.time()
     while idle < settle_seconds:
         page.wait_for_timeout(3000)
         idle += 3
         renew_claim()
+        if isinstance(page, LivePage) and time.time() - memory_at >= MEMORY_LOG_SECONDS:
+            memory_at = time.time()
+            heap = page.heap_mb()
+            if heap is not None:
+                log(f"  page memory: {heap} MB")
+                if heap >= RECYCLE_HEAP_MB:
+                    page.recycle(heap)
+                    idle = 0
         now = entry_rows(page)
         if len(now) != len(last):
             report_new(now, last, "cascade")

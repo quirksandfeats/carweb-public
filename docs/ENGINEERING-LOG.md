@@ -2061,3 +2061,9 @@ name match is confirmed when the article it was found in (the `famA` side)
 names the matched car in full -- make and name -- or links to its article, and
 declined otherwise; one answered from connections already in the graph is
 confirmed (the owner's rulings). On the 35 waiting: 31 confirmed, 4 declined.
+
+**Page crashes.** Three requests stopped at the 13-crash limit, the later ones
+sooner as the store grew. The cause is not proven: a freshly loaded page holds
+about 180 MB of its 3.5 GB heap. The agent now logs the page's heap every ten
+minutes, gives the tab Chromium's largest heap (4 GB), and reopens a tab past
+1,500 MB on purpose -- the resume a crash gets, not counted as one.
