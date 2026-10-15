@@ -5097,6 +5097,15 @@ Rules:
       return true;
     }
     if (partnerCheckScheduled.has(car.id) || inFlight.has(car.id) || inFlight.has("recheck:" + car.id)) return true;
+    // Split during this same scan: its article was read then, and a second
+    // read only names the same generations differently. 53 of the first 98
+    // re-checks waiting for review on 14 Oct 2026 were this -- the Infiniti
+    // QX50's "J50" read back as "First generation (J50)" six hours later.
+    const split = plate && store.families[car.id];
+    if (split && split.status === "confirmed" && store.fullScan && String(split.decidedAt || "") >= String(store.fullScan.startedAt || "~")) {
+      freshScan.add(car.id);
+      return true;
+    }
     const from = cascadeDepthIn(originId, nodes);
     if (from == null) return true;
     const depth = from + 1;
