@@ -2044,3 +2044,14 @@ the entry; deleting the entry undoes all of it at the next load.
 Simulated on the stored data with every waiting article's headings read:
 57 lists apply (53 generations added, 52 retired, 58 kept), 238 of the 240
 relationships on retired generations stay attached, and the rest wait.
+
+**Flagged relationships.** A "its generation would be retired" flag is cleared
+once the re-check behind it is decided or, under the new pairing, retires
+nothing (`settleRetiredGenerationFlags`, nothing read): 2,232 of 2,312 on the
+stored data. A "not mentioned again" flag is settled by both cars' articles
+(`sweepFlaggedMentions`): kept if either names the other car, removed as a
+"no" if neither does (the owner's ruling). On a sample of 127 against
+Wikipedia, 119 were kept. A new re-check now searches the article's text
+before flagging, so the model leaving a car out of its answer no longer flags
+it. A title stored percent-encoded ("Fiat 500 %22Topolino%22") is decoded
+before it is fetched.

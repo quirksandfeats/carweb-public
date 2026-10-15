@@ -696,7 +696,9 @@ window.LlmFamilies = (function () {
     // cut it off. It reads Wikipedia and calls no model, and it does nothing
     // once every list has been through it.
     setTimeout(() => {
-      sweepStoredSplitsForOutsiders().then(() => sweepRecheckSections(nodes)).then(() => sweepWholePageEngineLists())
+      sweepStoredSplitsForOutsiders().then(() => sweepRecheckSections(nodes))
+        .then(() => { settleRetiredGenerationFlags(nodes); return sweepFlaggedMentions(nodes); })
+        .then(() => sweepWholePageEngineLists())
         .then(() => sweepOrdinalPlaceholders(nodes))
         .catch(e => console.warn("LlmFamilies: stored-list check failed", e));
     }, 4000);
@@ -751,6 +753,9 @@ window.LlmFamilies = (function () {
     // An engine read out of an index article carries its section in its link
     // ("List of Isuzu engines#4ZE1"); the API wants the page.
     title = String(title || "").split("#")[0].trim() || title;
+    // A title stored percent-encoded ("Fiat 500 %22Topolino%22") was encoded
+    // a second time below and never found.
+    if (/%[0-9A-Fa-f]{2}/.test(title)) { try { title = decodeURIComponent(title); } catch (e) { /* keep it */ } }
     const cached = cachedArticle(title);
     if (cached) return cached;
     const url = "https://en.wikipedia.org/w/api.php?action=parse&format=json&origin=*&prop=wikitext&redirects=1&page=" +
@@ -2563,6 +2568,131 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
       return out;
     })();
     return sectionsSweep;
+  }
+  // ---------- relationships an older re-check flagged, settled ----------
+  // On 14 Oct 2026, 3,427 confirmed relationships carried a "may need
+  // removing" flag. About 2,000 were there only because a waiting re-check
+  // would retire their generation -- most of those re-checks only renamed
+  // it. The rest were flagged because the model's second read of an
+  // article did not list the other car. The owner's rulings: a relationship
+  // one article names is kept ("it likely means that the Vitz page was
+  // incomplete"), and only one neither article names goes.
+  //
+  // Whether an article's text names a car: its nameplate's name as whole
+  // words ("Vitz"), with the make in front when the name alone is short or a
+  // number ("Mazda 6", "Citroën C3").
+  function articleNamesCar(wikitext, car, nodes) {
+    if (!wikitext || !car) return false;
+    const plate = car.familyOf ? (nodeWithId(nodes, car.familyOf) || car) : car;
+    const names = new Set();
+    const add = (label, make) => {
+      label = String(label || "").replace(/\s*\([^()]*\)\s*$/, "").trim();
+      if (!label) return;
+      names.add(label.replace(/[^A-Za-z]/g, "").length < 3 && make ? make + " " + label : label);
+    };
+    add(plate.label, plate.make);
+    add(car.label, car.make);
+    const text = String(wikitext);
+    for (const n of names) {
+      const words = n.split(/[\s\-]+/).filter(Boolean).map(w => w.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"));
+      if (!words.length) continue;
+      const re = new RegExp("(?:^|[^\\p{L}\\p{N}])" + words.join("[\\s\\-]*") + "(?=$|[^\\p{L}\\p{N}])", "iu");
+      if (re.test(text)) return true;
+    }
+    return false;
+  }
+  // A "its generation would be retired" flag outlives its reason once the
+  // re-check behind it is decided, or once the generation turns out not to
+  // be retired after all. Settled from what is stored; nothing is read.
+  function settleRetiredGenerationFlags(nodes) {
+    if (!nodes) return 0;
+    const byIdLocal = new Map(nodes.map(n => [n.id, n]));
+    let cleared = 0;
+    Object.keys(store.relations).forEach(key => {
+      const e = store.relations[key];
+      const f = e && e.reworkPending;
+      if (!f || !/no longer appears/.test(f.reason || "")) return;
+      const open = [["famA", "genIdA"], ["famB", "genIdB"]].some(([fk, gk]) => {
+        const r = store.recheck[e[fk]], gid = e[gk];
+        if (!r || r.status !== "provisional" || !gid) return false;
+        const fam = byIdLocal.get(e[fk]);
+        if (!fam) return false;
+        const gens = (fam.generations || []).map(id => byIdLocal.get(id)).filter(g => g && !g.retired);
+        if (!gens.some(g => g.id === gid)) return false;
+        const d = decideRecheck(fam, gens, r, nodes);
+        if (d) return d.retire.some(o => o.id === gid);
+        return diffGenerationCodes(gens, insideGenerations(r)).removedOld.some(o => o.id === gid);
+      });
+      if (!open) { delete e.reworkPending; cleared++; }
+    });
+    if (cleared) {
+      note(`relationships: ${cleared} "its generation would be retired" flag(s) cleared -- the re-check behind them is decided, or retires nothing`);
+      persist();
+    }
+    return cleared;
+  }
+  // A "not mentioned again" flag, settled by both cars' articles: kept if
+  // either names the other, removed (as a "no" is, so it is not proposed
+  // again) if neither does. An article that could not be read leaves the
+  // flag for next time.
+  let mentionSweep = null;
+  function sweepFlaggedMentions(nodes) {
+    if (!serverAvailable || !nodes) return Promise.resolve({ kept: 0, removed: 0, failed: 0 });
+    if (mentionSweep) return mentionSweep;
+    mentionSweep = (async () => {
+      const out = { kept: 0, removed: 0, failed: 0 };
+      const byIdLocal = new Map(nodes.map(n => [n.id, n]));
+      const todo = Object.keys(store.relations).filter(k => {
+        const f = store.relations[k] && store.relations[k].reworkPending;
+        return f && /no longer mentions/.test(f.reason || "");
+      });
+      if (!todo.length) return out;
+      note(`relationships: checking ${todo.length} flagged relationship(s) against both cars' articles`);
+      const texts = new Map();
+      const textOf = async title => {
+        if (!texts.has(title)) texts.set(title, fetchArticleDigest(title).then(d => d.wikitext, () => null));
+        return texts.get(title);
+      };
+      const titlesOf = car => {
+        if (!car) return [];
+        const plate = car.familyOf ? byIdLocal.get(car.familyOf) || car : car;
+        return [...new Set([car.wp, plate.wp, store.families[plate.id] && store.families[plate.id].sourceTitle,
+                            store.recheck[plate.id] && store.recheck[plate.id].sourceTitle].filter(Boolean))];
+      };
+      let next = 0;
+      const worker = async () => {
+        while (next < todo.length) {
+          const key = todo[next++];
+          const e = store.relations[key];
+          if (!e || !e.reworkPending) continue;
+          const a = byIdLocal.get(e.genIdA || e.famA), b = byIdLocal.get(e.genIdB || e.famB);
+          let named = false, unread = false;
+          for (const [car, other] of [[a, b], [b, a]]) {
+            for (const title of titlesOf(car)) {
+              const text = await textOf(title);
+              if (text == null) { unread = true; continue; }
+              if (articleNamesCar(text, other, nodes)) { named = true; break; }
+            }
+            if (named) break;
+          }
+          if (named) { delete e.reworkPending; out.kept++; }
+          else if (unread || !a || !b) out.failed++;
+          else {
+            delete store.relations[key];
+            store.rejectedRelations[key] = true;
+            out.removed++;
+            note(`relationships: ${a.make || ""} ${a.label} / ${b.make || ""} ${b.label} -- neither article names the other; removed`);
+          }
+          await new Promise(r => setTimeout(r, 120));
+        }
+      };
+      await Promise.all([worker(), worker(), worker()]);
+      await persist();
+      note(`relationships: ${out.kept} kept (an article names the other car), ${out.removed} removed` +
+           (out.failed ? `, ${out.failed} left for next time (an article could not be read)` : ""));
+      return out;
+    })();
+    return mentionSweep;
   }
   let outsiderSweep = null;
   function sweepStoredSplitsForOutsiders(opts) {
@@ -11587,7 +11717,7 @@ Rules:
   // discovery flows already use -- tagging anything it produces `rework:
   // true` so the panel can label it "potential re-work" rather than an
   // ordinary first-time proposal.
-  function reworkRelationsForFamily(fam, nodes, links, freshGens, removedOld) {
+  function reworkRelationsForFamily(fam, nodes, links, freshGens, removedOld, wikitext) {
     const removedIds = new Set(removedOld.map(o => o.id));
     const byIdLocal = new Map(nodes.map(n => [n.id, n]));
     const freshByCode = new Map();
@@ -11652,7 +11782,9 @@ Rules:
         const m = findMatchingNameplate(nodes, t, fam.id);
         return m && m.node && (m.node.id === otherGenId || m.node.id === otherFamId);
       });
-      if (!stillMentioned) {
+      // The model leaving a car out of its answer is not the article leaving
+      // it out: the text itself is searched before anything is flagged.
+      if (!stillMentioned && !(wikitext && articleNamesCar(wikitext, otherNode, nodes))) {
         e.reworkPending = {
           kind: "remove", checkedAt: new Date().toISOString(),
           reason: `the current article text no longer mentions ${otherNode ? (otherNode.make ? otherNode.make + " " + otherNode.label : otherNode.label) : "this car"} alongside ${ownGenOld.label} -- this re-check couldn't confirm the match still holds`,
@@ -11851,7 +11983,7 @@ Rules:
         // Not for a car a scan merely reached: what Andy rejected on it stays
         // rejected unless he re-checks that car himself.
         if (!(opts && opts.keepRejections)) clearRejectionsFor(fam.id);
-        reworkRelationsForFamily(fam, nodes, links, clean.generations, removedOld);
+        reworkRelationsForFamily(fam, nodes, links, clean.generations, removedOld, wikitext);
         entry.peopleAdded = applyFreshPeopleCredits(fam, nodes, links, clean.generations, removedOld);
         await persist();
         return entry;
@@ -17526,7 +17658,8 @@ Rules:
     forceRecheckEngine,
     clearEngineScansFor, note, nameplateSectionForCar, mergeEngineHits,
     mergeEngines, undoEngineMerge, allEngineMerges, applyEngineMerges,
-    sameEngineLine, decodeEntities, articleIsNotACar, sweepStoredSplitsForOutsiders, sweepRecheckSections, decideRecheck, headingsOf, sweepWholePageEngineLists, sweepOrdinalPlaceholders, replayStarted, replayFinished,
+    sameEngineLine, decodeEntities, articleIsNotACar, sweepStoredSplitsForOutsiders, sweepRecheckSections, decideRecheck, headingsOf,
+    articleNamesCar, settleRetiredGenerationFlags, sweepFlaggedMentions, sweepWholePageEngineLists, sweepOrdinalPlaceholders, replayStarted, replayFinished,
     lastSaveError: () => lastSaveError,
     engineMentions, unlinkedEngineMentions, engineSpecLabel,
     recordEngineMentions, recordEngineMentionsFrom, applyEngineMentions,
