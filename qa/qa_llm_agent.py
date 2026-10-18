@@ -294,6 +294,8 @@ check("a clean run's shutdown is still interruptible", agent.CLEANING is False)
 # unreachable queue parks in wait_for_job's poll sleep, which needs no model,
 # no browser and no reachable network -- the same blocking shape a real run
 # spends nearly all its time in.
+check("everything the agent sends the queue in a day stays under the plan's 1,000",
+      86400 // agent.POLL_SECONDS + 96 + 48 < 1000, agent.POLL_SECONDS)
 # No status page: a test run must never write over the real one.
 env = dict(os.environ, CARWEB_QUEUE_URL="http://127.0.0.1:9", CARWEB_AGENT_TOKEN="test-token", CARWEB_STATUS_PAGE="off")
 proc = subprocess.Popen(

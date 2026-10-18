@@ -109,7 +109,11 @@ Order comes from each job's `queuedAt`, not from array position, so a listing
 that comes back shuffled still reads oldest-first. The one cost is that KV
 listing is eventually consistent — a job written at one edge can take a moment
 to appear in a list read at another. It does not matter here: the POST hands
-the request straight back to whoever made it, and the agent polls.
+the request straight back to whoever made it, and the agent polls -- every
+108 seconds, so that everything the agent sends the queue (polling, the status
+page's reads every 15 minutes, a running request's claim renewals every 30)
+stays under 950 requests a day, inside the plan's 1,000. The site's request
+panel asks once a minute, and only while it is open.
 
 There is no free-text field. A request is a car id and a label, and the label
 is stripped of markup and control characters before it is stored as well as

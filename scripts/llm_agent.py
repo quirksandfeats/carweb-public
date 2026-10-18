@@ -253,6 +253,16 @@ def _claim_age(job):
     return max(0, int((dt.datetime.now(dt.timezone.utc) - t).total_seconds()))
 
 
+# Real user request (18 Oct 2026): the Cloudflare plan allows 1,000 queue
+# requests a day, and --watch asked for work every minute -- 1,440 a day on
+# its own. Everything this agent sends the queue is budgeted to stay just
+# under the limit: the status page reads it every 15 minutes (96 a day), a
+# running request's claim is renewed every 30 (48 a day at most), and the
+# polling for work gets the rest -- one ask every 108 seconds, 800 a day.
+QUEUE_CALLS_PER_DAY = 950
+POLL_SECONDS = -(-86400 // (QUEUE_CALLS_PER_DAY - 24 * 60 // 15 - 24 * 60 // 30))
+
+
 def wait_for_job(poll_seconds, give_up_after):
     """Returns a job dict, or None once give_up_after seconds have passed.
     give_up_after of 0 means wait forever."""
@@ -1437,7 +1447,9 @@ def main():
     ap.add_argument("--resume", action="store_true",
                     help="pick up the cascade an earlier run queued and never finished "
                          "(a crash, Ctrl+C, the budget), then commit and push as usual")
-    ap.add_argument("--poll-seconds", type=int, default=60)
+    ap.add_argument("--poll-seconds", type=int, default=POLL_SECONDS,
+                    help=f"seconds between asks for work (default {POLL_SECONDS}: keeps the agent's queue "
+                         f"requests under {QUEUE_CALLS_PER_DAY} a day)")
     ap.add_argument("--wait-minutes", type=int, default=10, help="how long --once waits for a job")
     # How many cars a run scans is governed by the CASCADE, not by a count
     # here: one seed pulls in whatever its own article names, out to the depth

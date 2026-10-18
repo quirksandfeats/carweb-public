@@ -6461,7 +6461,10 @@ window.CarWeb = (function () {
   //
   // Shown only when there is NO local server: with serve.py running you are
   // sitting at the machine and run the pass yourself from the Tools menu.
-  const LRQ_POLL_MS = 20000;
+  // Once a minute, and only while the panel is open: every ask counts against
+  // the Cloudflare plan's 1,000 queue requests a day, which the agent's own
+  // polling already uses most of (see llm_agent.py's QUEUE_CALLS_PER_DAY).
+  const LRQ_POLL_MS = 60000;
   function initLlmRequest() {
     const wrap = document.getElementById("llmrequest-wrap");
     const trigger = document.getElementById("llmrequest-btn");
