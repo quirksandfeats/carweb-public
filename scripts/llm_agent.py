@@ -1609,9 +1609,12 @@ def use_repo_venv():
     import importlib.util
     if importlib.util.find_spec("playwright") is not None:
         return
-    venv_py = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
-                           ".venv", "bin", "python")
-    if os.path.exists(venv_py) and os.path.realpath(sys.executable) != os.path.realpath(venv_py) \
+    venv = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), ".venv")
+    venv_py = os.path.join(venv, "bin", "python")
+    # Asked by prefix, not by binary: .venv/bin/python is a link to the very
+    # interpreter Homebrew runs, so comparing the two paths found them equal
+    # and never switched (15 Oct 2026: "playwright is not installed").
+    if os.path.exists(venv_py) and os.path.realpath(sys.prefix) != os.path.realpath(venv) \
             and not os.environ.get("CARWEB_AGENT_REEXEC"):
         os.environ["CARWEB_AGENT_REEXEC"] = "1"
         os.execv(venv_py, [venv_py, os.path.abspath(__file__)] + sys.argv[1:])
