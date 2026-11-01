@@ -141,6 +141,8 @@ window.LlmFamilies = (function () {
     // scan saved for itself. Only a chosen one may replace a link the car
     // already carries -- see applyWpLinks.
     wpLinksChosen: bootData.wpLinksChosen || {},
+    // Stored links the article-link sweep has read and kept (sweepArticleLinks).
+    wpLinkChecks: bootData.wpLinkChecks || {},
     // Real user request (the Mercedes-Benz E-Class W211 case): "it would be
     // actually worth checking if there exists a separate wikipedia page for
     // each of these generations, and then use that wikipedia page for the
@@ -702,6 +704,7 @@ window.LlmFamilies = (function () {
       sweepStoredSplitsForOutsiders().then(() => sweepRecheckSections(nodes))
         .then(() => { settleRetiredGenerationFlags(nodes); return sweepFlaggedMentions(nodes); })
         .then(() => sweepWeakRelations(nodes))
+        .then(() => sweepArticleLinks(nodes))
         .then(() => sweepWholePageEngineLists())
         .then(() => sweepOrdinalPlaceholders(nodes))
         .catch(e => console.warn("LlmFamilies: stored-list check failed", e));
@@ -842,14 +845,43 @@ window.LlmFamilies = (function () {
       return hits.length ? hits[0].title : null;
     } catch (e) { return null; }
   }
-  async function findWikipediaTitleFor(makeLabel, modelLabel) {
+  // Is this article plausibly about this car? A search's first hit is often
+  // right even when the title does not say so -- the Toyota Rush is in the
+  // Daihatsu Terios article, the Citroën Nemo in the Fiat Fiorino's -- so the
+  // article is read: not a disambiguation page, not a maker's page or a list,
+  // and it names the car, with a car infobox or the make in its title. Taken
+  // unchecked, "Duesenberg Ritz" got Rudolf Wanderone, a pool player, and
+  // "Nissan March third generation" the Nissan Armada.
+  const DISAMBIGUATION_RE = /\{\{\s*(?:disambig|disambiguation|hndis|geodis|set index|car disambiguation)/i;
+  const CAR_INFOBOX_RE = /\{\{\s*infobox\s+(?:automobile|car|vehicle|truck)/i;
+  function modelNameCore(label) {
+    return String(label || "").replace(/\([^()]*\)/g, " ")
+      .replace(/\b(?:first|second|third|fourth|fifth|sixth|seventh|eighth|ninth|tenth|eleventh|twelfth)\s+generation\b/gi, " ")
+      .replace(/\s+/g, " ").trim();
+  }
+  function articleFitsCar(wikitext, title, makeLabel, modelLabel) {
+    const text = String(wikitext || "");
+    if (!text || DISAMBIGUATION_RE.test(text)) return false;
+    if (articleIsNotACar(text, title)) return false;
+    const core = modelNameCore(modelLabel);
+    if (!core || !articleNamesCar(text, { id: "", label: core, make: makeLabel }, [])) return false;
+    return CAR_INFOBOX_RE.test(text) || norm(title).includes(norm(makeLabel || ""));
+  }
+  // `strict` for a lookup nobody is watching. A person adding a car by name sees
+  // the result and can change it.
+  async function findWikipediaTitleFor(makeLabel, modelLabel, opts) {
     const guess = `${makeLabel} ${modelLabel}`.trim();
-    const direct = await resolvedWikipediaTitle(guess);
-    if (direct) return direct;
+    const read = async title => { try { return await fetchArticleDigest(title); } catch (e) { return null; } };
+    const direct = await read(guess);
+    if (direct && !DISAMBIGUATION_RE.test(direct.wikitext || "")) {
+      return direct.resolvedTitle || guess.split("#")[0].trim();
+    }
     const searched = await searchWikipediaTitle(guess);
     if (searched && searched !== guess) {
-      const resolved = await resolvedWikipediaTitle(searched);
-      if (resolved) return resolved;
+      const hit = await read(searched);
+      if (hit && (!(opts && opts.strict) || articleFitsCar(hit.wikitext, hit.resolvedTitle || searched, makeLabel, modelLabel))) {
+        return hit.resolvedTitle || searched;
+      }
     }
     return null;
   }
@@ -868,8 +900,15 @@ window.LlmFamilies = (function () {
   }
 
   function extractDigest(wikitext) {
-    const allHeadingMatches = Array.from(wikitext.matchAll(/^={2,4}\s*([^=]+?)\s*={2,4}\s*$/gm));
-    const headings = allHeadingMatches.map(m => m[1].trim());
+    // Most generation headings carry an anchor ("== <span class=\"anchor\"
+    // id=\"XV10\"></span>XV10 ==") whose "=" the older pattern could not match:
+    // the Camry's and Corolla's generations never reached the model, and their
+    // side cards took the label of whatever plain heading came before.
+    const allHeadingMatches = Array.from(wikitext.matchAll(/^(={2,4})\s*(.+?)\s*\1\s*$/gm)).map(m => ({
+      index: m.index,
+      1: m[2].replace(/<[^>]+>/g, "").replace(/\{\{[^{}]*\}\}/g, "").replace(/\[\[(?:[^\]|]*\|)?([^\]]*)\]\]/g, "$1").replace(/'{2,}/g, "").trim(),
+    })).filter(m => m[1]);
+    const headings = allHeadingMatches.map(m => m[1]);
 
     // ---------- infobox extraction: EVERY infobox in the article, not just the first ----------
     // Real bug report ("the LLM sometimes misses a generation's production
@@ -913,7 +952,7 @@ window.LlmFamilies = (function () {
       }
       infoboxes.push({ start: bstart, text, heading });
       INFOBOX_RE.lastIndex = Math.max(i, INFOBOX_RE.lastIndex); // resume after this infobox, don't re-match inside its own nested templates
-      if (infoboxes.length >= 12) break; // sane upper bound -- even the most sprawling nameplate article won't have more real generations than this
+      if (infoboxes.length >= 40) break; // only a backstop: articles run oldest first, so a low cap lost the newest generations (the Camry has 14), and perGenBudget bounds the prompt
     }
     const infobox = infoboxes.length ? infoboxes[0].text : ""; // kept as before: the primary/overall-nameplate infobox, sent in full
 
@@ -2712,6 +2751,59 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
     })();
     return mentionSweep;
   }
+  // ---------- links stored before an article had to name its car ----------
+  // A one-off read of links whose title does not carry the car's name. Most
+  // are right (a redirect, or a car covered in another's article). A link goes
+  // only when the page is plainly not about it -- a disambiguation page, a
+  // maker's page or a list, or no car infobox and no mention of the car -- and
+  // what was read from that page goes with it. A link chosen by hand stays.
+  let articleLinkSweep = null;
+  function sweepArticleLinks(nodes) {
+    if (!serverAvailable || !nodes) return Promise.resolve({ read: 0, removed: 0, failed: 0 });
+    if (articleLinkSweep) return articleLinkSweep;
+    articleLinkSweep = (async () => {
+      const out = { read: 0, removed: 0, failed: 0 };
+      const byIdLocal = new Map(nodes.map(n => [n.id, n]));
+      const todo = Object.keys(store.wpLinks || {}).filter(id => {
+        if (!id.startsWith("llm-related-") || store.wpLinksChosen[id] || store.wpLinkChecks[id]) return false;
+        const n = byIdLocal.get(id);
+        if (!n || n.retired) return false;
+        const core = nameWordsOf(modelNameCore(n.label));
+        const title = norm(store.wpLinks[id]);
+        return core.length && !core.some(w => w.length >= 2 && title.includes(w));
+      });
+      if (!todo.length) return out;
+      note(`article links: reading ${todo.length} stored link(s) whose title does not carry the car's name`);
+      const texts = new Map();
+      let next = 0;
+      const worker = async () => {
+        while (next < todo.length) {
+          const id = todo[next++];
+          const title = store.wpLinks[id], n = byIdLocal.get(id);
+          if (!texts.has(title)) texts.set(title, fetchArticleDigest(title).then(d => d.wikitext, () => null));
+          const text = await texts.get(title);
+          if (text == null) { out.failed++; continue; }
+          out.read++;
+          const core = modelNameCore(n.label);
+          const notAbout = DISAMBIGUATION_RE.test(text) || articleIsNotACar(text, title) ||
+            (!CAR_INFOBOX_RE.test(text) && !articleNamesCar(text, { id: "", label: core, make: n.make }, []));
+          if (!notAbout) { store.wpLinkChecks[id] = true; continue; }
+          delete store.wpLinks[id];
+          if (n.wp === title) n.wp = null;
+          const e = store.families[id];
+          if (e && (e.sourceTitle === title || e.status === "same-article")) delete store.families[id];
+          out.removed++;
+          note(`article links: ${n.make || ""} ${n.label} -- "${title}" is not about it; link removed`);
+          await new Promise(r => setTimeout(r, 120));
+        }
+      };
+      await Promise.all([worker(), worker(), worker()]);
+      await persist();
+      note(`article links: ${out.read} read, ${out.removed} removed` + (out.failed ? `, ${out.failed} left for next time` : ""));
+      return out;
+    })();
+    return articleLinkSweep;
+  }
   // ---------- the weak proposals, settled ----------
   // Real user ruling (14 Oct 2026): a relationship proposed on a loose match
   // (part of a name, overlapping years) is confirmed when the article it was
@@ -2741,7 +2833,11 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
       const byIdLocal = new Map(nodes.map(n => [n.id, n]));
       const todo = Object.keys(store.relations).filter(k => {
         const e = store.relations[k];
-        return e && e.status === "provisional" && !e.reworkPending && (e.relType === "platform" || e.relType === "related");
+        if (!e || e.status !== "provisional" || e.reworkPending || (e.relType !== "platform" && e.relType !== "related")) return false;
+        // A relation check's generation guess (matchLevel) asks WHICH
+        // generation, which an article naming the car cannot answer. Only the
+        // answer from the graph's own connections is settled here.
+        return !e.matchLevel || e.matchLevel === "transitive";
       });
       if (!todo.length) return out;
       note(`relationships: settling ${todo.length} proposal(s) waiting for review against the article each was found in`);
@@ -2763,7 +2859,7 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
         }
         if (named) { confirmRelation(key); e.decidedBy = "rules"; out.confirmed++; }
         else if (!read) out.failed++;
-        else { await rejectRelation(key); out.declined++; }
+        else { await rejectRelation(key, { keepCoarse: true }); out.declined++; }
         await new Promise(r => setTimeout(r, 120));
       }
       await persist();
@@ -5007,7 +5103,7 @@ Rules:
     // every boot -- without this, the junk nodes would keep coming back.
     if (looksLikePlatformNotCar(trimmed)) return null;
     let makeNode = findExistingMake(nodes, trimmed);
-    let modelLabel, idParts = null;
+    let modelLabel, idParts = null, gluedName = null;
     if (!makeNode && makeVariant && makeVariant.matchId) {
       const resolved = nodes.find(n => n.id === makeVariant.matchId && n.type === "make" && !n.retired);
       if (resolved) {
@@ -5081,6 +5177,9 @@ Rules:
           idParts = [makeLabel, modelLabel];
           makeNode = real;
           modelLabel = makeLabel.slice(real.label.length) + (modelLabel ? " " + modelLabel : "");
+          // Its article is looked up under the name as written: "Mazda 2
+          // Hybrid" has no article, and its first search hit is the Mazda CX-90.
+          gluedName = trimmed;
         }
       }
       if (!makeNode) {
@@ -5128,6 +5227,7 @@ Rules:
       end: cached ? (cached.end != null ? cached.end : null) : null,
       llmGenerated: true, llmCreatedNode: true,
     };
+    if (gluedName) modelNode.lookupName = gluedName;
     if (cached && cached.source) modelNode.factsSource = cached.source;
     // Its Wikipedia article, if a previous session found one. Real bug: every
     // car this function mints -- 233 of the 356 saved links on the graph after
@@ -5230,7 +5330,7 @@ Rules:
     cascadeDepth.set(node.id, mintedDepth);
     rememberCascade(node.id, mintedDepth, originId || engagedId);
     wpLookupScheduled.add(node.id);
-    findWikipediaTitleFor(node.make, node.label).then(title => {
+    (node.lookupName ? findWikipediaTitleFor("", node.lookupName, { strict: true }) : findWikipediaTitleFor(node.make, node.label, { strict: true })).then(title => {
       if (!title) return; // nothing found automatically -- leave it for a manual paste later
       // A manual paste (setNodeWikiLink, see below) or an independent mint
       // of the same node elsewhere may have already resolved this by the
@@ -5737,8 +5837,10 @@ Rules:
       source: String(spec.source || "local"),
       state: "waiting",
       queuedAt: new Date().toISOString(),
-      // How far the cascade may go from it (1 by default, up to 7 locally).
-      depth: Math.max(1, Math.min(7, parseInt(spec.depth, 10) || 1)),
+      // How far the cascade may go from it (up to 7 locally), when the request
+      // says. A card button or a requested scan does not: it runs at the
+      // configured depth, the one the agent started the server with.
+      depth: Number.isFinite(parseInt(spec.depth, 10)) ? Math.max(1, Math.min(7, parseInt(spec.depth, 10))) : null,
     };
     list.push(job);
     persist();
@@ -5806,6 +5908,14 @@ Rules:
     return { ok: true, dropped };
   }
 
+  async function cascadeDrained() {
+    for (;;) {
+      const p = pendingWork();
+      if (!p.checks.length && !p.partners.length && !p.lookups.length && !p.engineReads) return;
+      await partnerQueue.catch(() => {});
+      await new Promise(r => setTimeout(r, 20));
+    }
+  }
   // One at a time, and re-entrant-safe: every path that could start work
   // (enqueue, a finished job, boot recovery) calls this, and only the first
   // one through actually runs.
@@ -5840,8 +5950,6 @@ Rules:
       await runner(Object.assign({}, next));
     } catch (e) {
       err = e;
-    } finally {
-      cascadeMaxDepth = configuredCascadeDepth;
     }
     if (err) {
       const e = err;
@@ -5861,6 +5969,13 @@ Rules:
     await persist();
     const left = jobList().filter(j => j.state === "waiting").length;
     note(`queue: ${next.label} done` + (left ? ` -- ${left} left` : " -- queue empty"));
+    // The next one waits for this one's cascade. A runner returns once its own
+    // car is read, with the cars it named still queued behind it. Starting the
+    // next job there reset the cascade's distances and put the depth back, so
+    // the first request's cars stopped following their connections. The job
+    // itself is already off the list: a crash from here on carries on from the
+    // saved cascade, it does not start the request over.
+    try { await cascadeDrained(); } finally { cascadeMaxDepth = configuredCascadeDepth; }
     jobPumping = false;
     notifyJobs();
     // Not awaited: this is the tail of one job, not the caller's business.
@@ -8487,6 +8602,29 @@ Rules:
     }
     return text.slice(start, index);
   }
+  // The whole clause around a mention. "<code> does not share..." disclaims it
+  // as much as "does not share <code>", and only the part before was checked:
+  // "well-known that the Ford Fusion is not related to any Mazda6" confirmed.
+  function clauseAround(text, index, length) {
+    let end = text.length;
+    CLAUSE_BOUNDARY_RE.lastIndex = index + length;
+    const m = CLAUSE_BOUNDARY_RE.exec(text);
+    if (m) end = m.index;
+    return clauseBefore(text, index) + text.slice(index, end);
+  }
+  // The reason really claims knowledge: a knowledge phrase in a clause that
+  // does not disclaim it ("Without well-established knowledge..." does), and
+  // no statement that the two are not related at all.
+  const DENIES_RELATION_RE = /\b(?:not|no|never|isn't|aren't|doesn't|don't|neither)\b[^.;]{0,40}\b(?:related|relationship|relation|connection|connected|link|share[sd]?|sharing|platform)\b/i;
+  function assertsKnowledge(reason) {
+    if (DENIES_RELATION_RE.test(reason)) return false;
+    const re = new RegExp(KNOWLEDGE_LANGUAGE_RE.source, "gi");
+    let m;
+    while ((m = re.exec(reason))) {
+      if (!CLAUSE_NEGATION_RE.test(clauseAround(reason, m.index, m[0].length))) return true;
+    }
+    return false;
+  }
   // Returns the code of a generation of `info` that the reason ASSERTS, or
   // null. Longest match wins, so "Tiguan AD1/AX1" is preferred over a bare
   // "AD1" that happens to also be a listed code.
@@ -8524,7 +8662,11 @@ Rules:
           const before = at > 0 ? hay[at - 1] : " ";
           const after = at + needle.length < hay.length ? hay[at + needle.length] : " ";
           if (/[a-z0-9]/i.test(before) || /[a-z0-9]/i.test(after)) continue;
-          if (CLAUSE_NEGATION_RE.test(clauseBefore(hay, at))) continue;   // disclaimed, not asserted
+          const clause = clauseAround(hay, at, needle.length);
+          if (CLAUSE_NEGATION_RE.test(clause)) continue;   // disclaimed, not asserted
+          // A bare "(E10)" only counts beside this car's own name. "Toyota
+          // Sprinter (E10)" is not the Corolla E10.
+          if (needleRaw !== c.code && !clause.toLowerCase().includes(String(info.label || "").toLowerCase())) continue;
           return c.code;
         }
       }
@@ -8551,14 +8693,18 @@ Rules:
     // Only consulted as a last resort, after real article evidence and after
     // the model's own explicit codeA/codeB.
     const reasonRaw = String((raw && raw.reason) || "");
-    const knowledgeLanguage = KNOWLEDGE_LANGUAGE_RE.test(reasonRaw);
-    const salvagedA = knowledgeLanguage ? assertedCodeInReason(reasonRaw, infoA) : null;
-    const salvagedB = knowledgeLanguage ? assertedCodeInReason(reasonRaw, infoB) : null;
+    const knowledgeLanguage = assertsKnowledge(reasonRaw);
+    // A side with one generation has nothing to salvage: its own label in the
+    // reason says nothing about which generation, only that it was named.
+    const salvagedA = knowledgeLanguage && infoA.generations.length > 1 ? assertedCodeInReason(reasonRaw, infoA) : null;
+    const salvagedB = knowledgeLanguage && infoB.generations.length > 1 ? assertedCodeInReason(reasonRaw, infoB) : null;
+    // A code filled into a refusal is not an answer the model stood behind.
+    const stoodBehind = !!(raw && raw.resolved !== false);
     const genA = infoA.generations.length === 1 ? infoA.generations[0]
-      : findGenByCode(infoA.generations, evidence.codeForA) || (raw ? findGenByCode(infoA.generations, raw.codeA) : null)
+      : findGenByCode(infoA.generations, evidence.codeForA) || (stoodBehind ? findGenByCode(infoA.generations, raw.codeA) : null)
         || findGenByCode(infoA.generations, salvagedA);
     const genB = infoB.generations.length === 1 ? infoB.generations[0]
-      : findGenByCode(infoB.generations, evidence.codeForB) || (raw ? findGenByCode(infoB.generations, raw.codeB) : null)
+      : findGenByCode(infoB.generations, evidence.codeForB) || (stoodBehind ? findGenByCode(infoB.generations, raw.codeB) : null)
         || findGenByCode(infoB.generations, salvagedB);
     // True only when the salvage is what actually produced an answer -- i.e.
     // the model itself resolved nothing. Used below to let a stated-but-
@@ -8841,8 +8987,9 @@ Rules:
     // it could only ever pair a generation with itself or with a sibling the
     // generation chain already joins. Not asked, and nothing stored.
     if (infoA && infoB && infoA.id === infoB.id) return Promise.resolve({ status: "none", sameNameplate: true });
+    // A failed attempt is not an answer: a timeout used to stop a pair for good.
     const existing = relationEntryFor(key);
-    if (existing) return Promise.resolve(existing);
+    if (existing && existing.status !== "error") return Promise.resolve(existing);
     if (relationInFlight.has(key)) return relationInFlight.get(key);
     const p = (async () => {
       try {
@@ -8889,7 +9036,9 @@ Rules:
         let entry = computeRelationEntry(infoA, infoB, relType, effectiveNote, evidence, raw);
         // The model couldn't pin the pair down and this would land in front of
         // the user. Before it does, see whether the graph already answers it.
-        if (entry && !entry.matchLevel && graph) {
+        // Not for a succession: a chain of shared platforms connects cars of
+        // the same era, and a predecessor and its successor are not that.
+        if (entry && !entry.matchLevel && graph && (relType === "platform" || relType === "related")) {
           const t = transitiveAnswerFor(infoA, infoB, graph.nodes, graph.links);
           if (t) {
             entry = Object.assign({}, entry, {
@@ -8908,7 +9057,8 @@ Rules:
         await persist();
         return entry;
       } catch (e) {
-        const entry = { status: "error", checkedAt: new Date().toISOString(), error: String(e.message || e), detail: errorDetail(e) };
+        const entry = { status: "error", checkedAt: new Date().toISOString(), error: String(e.message || e), detail: errorDetail(e),
+                        famA: infoA.id, famB: infoB.id, relType };
         if (!store.relations) store.relations = {};
         store.relations[key] = entry;
         return entry;
@@ -9564,6 +9714,11 @@ Rules:
     for (const [key, e] of Object.entries(store.relations || {})) {
       if (!e || e.status !== "provisional" || e.reworkPending) continue;
       const d = decideProvisional(key, e, nodes);
+      // It reads shared-platform mentions, so of a proposal that did not come
+      // from one -- a succession, a related car, a relation check's (those
+      // carry matchLevel) -- it can only say yes. "None of its mentions names
+      // the other car" deleted such a proposal and blacklisted the pair.
+      if ((e.relType !== "platform" || e.matchLevel) && d.verdict !== "confirm" && d.verdict !== "drop") continue;
       if (d.verdict === "keep") {
         if (d.missingGeneration && !e.missingGeneration) {
           e.missingGeneration = d.missingGeneration;
@@ -12158,7 +12313,7 @@ Rules:
       // paste-a-link UI (see app.js's renderFamilyNoWikiLink) has something
       // stable to render instead of re-running this check on every render.
       const entry = { status: "no-wiki-link", checkedAt: new Date().toISOString() };
-      store.recheck[fam.id] = entry; persist();
+      writeRecheck(fam.id, entry); persist();
       return Promise.resolve(entry);
     }
     const flightKey = "recheck:" + fam.id;
@@ -12200,7 +12355,7 @@ Rules:
           await persist();
           return prior;
         }
-        store.recheck[fam.id] = entry;
+        writeRecheck(fam.id, entry);
         // An explicit, user-initiated re-check is the deliberate escape
         // hatch out of any earlier delete's permanent suppression (see
         // purgeRelationsFor/clearRejectionsFor): "delete this nameplate's
@@ -12217,7 +12372,7 @@ Rules:
         return entry;
       } catch (e) {
         const entry = { status: "error", checkedAt: new Date().toISOString(), error: String(e.message || e), attempts: 1, manualRecheck: true, detail: errorDetail(e) };
-        store.recheck[fam.id] = entry; await persist();
+        writeRecheck(fam.id, entry); await persist();
         return entry;
       } finally {
         inFlight.delete(flightKey);
@@ -17242,7 +17397,7 @@ Rules:
     if (inFlight.has(flightKey)) return inFlight.get(flightKey);
     if (!fam.wp) {
       const entry = { status: "no-wiki-link", checkedAt: new Date().toISOString() };
-      store.recheck[fam.id] = entry; persist();
+      writeRecheck(fam.id, entry); persist();
       return Promise.resolve(entry);
     }
     const p = (async () => {
@@ -17261,12 +17416,12 @@ Rules:
           if (engagedId === fam.id) holdForCard("recheck", fam.id, entry);
           return entry;
         }
-        store.recheck[fam.id] = entry; await persist();
+        writeRecheck(fam.id, entry); await persist();
         return entry;
       } catch (e) {
         const entry = { status: "error", checkedAt: new Date().toISOString(), error: String(e.message || e), attempts: 1, detail: errorDetail(e) };
         if (engagedId !== fam.id) return entry;
-        store.recheck[fam.id] = entry; await persist();
+        writeRecheck(fam.id, entry); await persist();
         return entry;
       } finally {
         inFlight.delete(flightKey);
@@ -17300,7 +17455,7 @@ Rules:
           if (engagedId === fam.id) holdForCard("recheck", fam.id, entry);
           return entry;
         }
-        store.recheck[fam.id] = entry; await persist();
+        writeRecheck(fam.id, entry); await persist();
         return entry;
       } catch (e) {
         const entry = Object.assign({}, existing, {
@@ -17308,7 +17463,7 @@ Rules:
           detail: errorDetail(e),
           attempts: (existing.attempts || 0) + 1 });
         if (engagedId !== fam.id) return entry;
-        store.recheck[fam.id] = entry; await persist();
+        writeRecheck(fam.id, entry); await persist();
         return entry;
       } finally {
         inFlight.delete(flightKey);
@@ -17323,16 +17478,29 @@ Rules:
   // here", so the proposal was back after a reload, and from the file by the
   // Pending panel, so nothing knew it had ever been turned down and the next
   // scan to reach the nameplate proposed the very same list again.
+  // Every write of a nameplate's re-check entry. A correction already applied
+  // only lives on through its entry: boot replays "applied" entries and nothing
+  // else, so writing a new verdict over one -- a later scan finding the list
+  // matches, an error, a new proposal -- quietly undid the correction at the
+  // next load, while the session went on showing it. The applied entry is
+  // carried along (`appliedBefore`) and replayed under whatever comes next.
+  function writeRecheck(famId, entry) {
+    const prior = store.recheck[famId];
+    const base = prior && prior !== entry && (prior.status === "applied" ? prior : prior.appliedBefore);
+    if (base) entry.appliedBefore = base;
+    store.recheck[famId] = entry;
+    return entry;
+  }
   function recordDeclinedRecheck(famId) {
     const e = store.recheck[famId];
     const gens = (e && e.proposal && e.proposal.generations) || [];
-    store.recheck[famId] = {
+    writeRecheck(famId, {
       status: "declined",
       checkedAt: (e && e.checkedAt) || new Date().toISOString(),
       declinedAt: new Date().toISOString(), decidedBy: decisionSource,
       sourceTitle: (e && e.sourceTitle) || null,
       declinedCodes: gens.map(g => g.code),
-    };
+    });
     return persist();
   }
   function sameCodeList(codes, gens) {
@@ -17362,7 +17530,7 @@ Rules:
   // `opts.byRules`: applied by the rules (decideRecheck) rather than by a
   // person's Accept, which takes the list as shown.
   function applyFamilyOverride(famId, nodes, links, opts) {
-    const entry = recheckEntryFor(famId);
+    const entry = (opts && opts.entry) || recheckEntryFor(famId);
     // Also re-runs for an ALREADY-"applied" entry -- this is what makes the
     // override survive a page reload: nodes/links are rebuilt fresh from
     // cars.json/data.js on every boot (the override only ever lives in
@@ -17658,12 +17826,15 @@ Rules:
   // clicked Accept and reverted on the very next reload, since nothing else
   // ever re-ran applyFamilyOverride for a decision that was already made in
   // a previous session.
+  // A correction carried under a later re-check (`appliedBefore`, see
+  // writeRecheck) is replayed first, oldest to newest.
   function applyAllFamilyOverrides(nodes, links) {
-    Object.keys(store.recheck).forEach(famId => {
-      if (store.recheck[famId] && store.recheck[famId].status === "applied") {
-        applyFamilyOverride(famId, nodes, links);
-      }
-    });
+    const replay = (famId, e) => {
+      if (!e) return;
+      if (e.appliedBefore) replay(famId, e.appliedBefore);
+      if (e.status === "applied") applyFamilyOverride(famId, nodes, links, { entry: e });
+    };
+    Object.keys(store.recheck).forEach(famId => replay(famId, store.recheck[famId]));
   }
 
   // ---------- playground: manual LLM prompt/response testing ----------
@@ -17903,7 +18074,7 @@ Rules:
     clearEngineScansFor, note, nameplateSectionForCar, mergeEngineHits,
     mergeEngines, undoEngineMerge, allEngineMerges, applyEngineMerges,
     sameEngineLine, decodeEntities, articleIsNotACar, sweepStoredSplitsForOutsiders, sweepRecheckSections, decideRecheck, headingsOf,
-    markFutureGenerations, articleNamesCar, settleRetiredGenerationFlags, sweepFlaggedMentions, articleNamesCarInFull, sweepWeakRelations, sweepWholePageEngineLists, sweepOrdinalPlaceholders, replayStarted, replayFinished,
+    markFutureGenerations, articleNamesCar, articleFitsCar, sweepArticleLinks, settleRetiredGenerationFlags, sweepFlaggedMentions, articleNamesCarInFull, sweepWeakRelations, sweepWholePageEngineLists, sweepOrdinalPlaceholders, replayStarted, replayFinished,
     lastSaveError: () => lastSaveError,
     engineMentions, unlinkedEngineMentions, engineSpecLabel,
     recordEngineMentions, recordEngineMentionsFrom, applyEngineMentions,

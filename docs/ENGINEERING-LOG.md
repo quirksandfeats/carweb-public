@@ -2117,3 +2117,43 @@ earlier. Where no generation was built within ten years, the graph lacks the
 right one and the link stays on the nameplate (a 2018 VinFast Fadil is not a
 1970 Vauxhall Viva). On the stored data about 1,850 links move from nameplate
 to generation: 1,041 chosen with evidence, 789 by years alone.
+
+### 1 November: the first audit batch
+
+An audit of the code found these, each checked against the code and the stored
+data before fixing.
+
+**An applied correction no longer reverts.** Boot replays only "applied"
+re-check entries, and any later re-check of the nameplate (every scan that
+reaches it) wrote its verdict over one, so the correction vanished at the next
+load. `writeRecheck` carries the applied entry along as `appliedBefore`, and
+`applyAllFamilyOverrides` replays those first, oldest to newest.
+
+**Refusals no longer confirm what they deny.** The salvage of a model's refusal
+checked only the text before a mention for negation, so "well-known that the
+Ford Fusion is not related to any Mazda6" confirmed the pair. It now reads the
+whole clause, needs a knowledge phrase that is not itself disclaimed, takes a
+bare code ("(E10)") only beside the car's own name, ignores codes filled into a
+refusal, and does not count a one-generation side's own label as an answer.
+
+**Auto-decide says only what it can judge.** `decideProvisional` reads platform
+mentions, and deleted and blacklisted succession and related proposals for not
+being among them. Of those it may now only confirm or drop. A succession is no
+longer answered from a chain of shared platforms. A failed relation check is
+asked again rather than standing as an answer.
+
+**The model sees every generation heading.** `extractDigest`'s pattern could not
+match a heading with an anchor span, which is most of them on the big articles:
+the Camry's and Corolla's generations never reached the prompt, and their side
+cards got the wrong labels. The cap of 12 infoboxes lost the newest generations.
+
+**The work queue waits for a request's cascade.** The next job started when a
+runner returned, with the cars it named still queued, and reset the cascade's
+distances under them. A job with no depth of its own forced depth 1 while it ran,
+including a scan the agent asked for at a higher depth; it now keeps the
+configured depth, and a job's depth holds until its cascade has drained.
+
+**An article found by search has to be about the car.** The first search hit was
+taken unread: "Duesenberg Ritz" got Rudolf Wanderone, a pool player. An unattended
+lookup now reads it (`articleFitsCar`), and `sweepArticleLinks` reads stored links
+once and removes those plainly not about the car.

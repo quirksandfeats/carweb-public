@@ -27,6 +27,7 @@ t("\"Corolla II\" in a Toyota's article is a Toyota", a && a.make === "Toyota" &
 t("...and no make called Corolla is made", !nodes.some(n => n.type === "make" && n.label === "Corolla"));
 const b = LF.mintRelatedNode(nodes, links, "Mazda2 Hybrid", null, "m-tercel");
 t("\"Mazda2 Hybrid\" is a Mazda", b && b.make === "Mazda" && b.label === "2 Hybrid", b && b.make + " / " + b.label);
+t("...whose article is looked up under the name as written", b && b.lookupName === "Mazda2 Hybrid", b && b.lookupName);
 const c = LF.mintRelatedNode(nodes, links, "Meridian Sport", null, "m-tercel");
 t("a first word that is no model of the make still makes a make, as before", c && c.make === "Meridian");
 console.log(fails ? `\n${fails} FAILED` : "\nALL PASS");

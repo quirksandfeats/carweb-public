@@ -1,6 +1,6 @@
 // The page's own scan queue runs each request at the cascade depth it was
-// added with (1 by default, up to 7 on the machine itself), and puts the
-// configured depth back afterwards.
+// added with (up to 7 on the machine itself), and a request that names none --
+// a card button, or a scan the agent asked for -- at the configured depth.
 const { JSDOM } = require("jsdom");
 const fs = require("fs"), path = require("path");
 const APP = path.resolve(__dirname, "..", "..", "app");
@@ -20,10 +20,10 @@ LF.registerJobRunner("check", async () => { seen.push(LF.cascadeMaxDepth()); });
   const a = LF.enqueueJob({ kind: "check", targetId: "m-a", label: "A" });
   const b = LF.enqueueJob({ kind: "check", targetId: "m-b", label: "B", depth: 3 });
   const c = LF.enqueueJob({ kind: "check", targetId: "m-c", label: "C", depth: 12 });
-  t("a request added with no depth gets 1", a.depth === 1, a.depth);
+  t("a request added with no depth has none of its own", a.depth === null, a.depth);
   t("...one asking for more than 7 is held to 7", c.depth === 7, c.depth);
   for (let i = 0; i < 40 && seen.length < 3; i++) await new Promise(r => setTimeout(r, 25));
-  t("each runs at its own depth", seen.join() === "1,3,7", seen.join());
+  t("each runs at its own depth, or the configured one", seen.join() === "7,3,7", seen.join());
   t("...and the configured depth is back afterwards", LF.cascadeMaxDepth() === 7, LF.cascadeMaxDepth());
   console.log(fails ? `\n${fails} FAILED` : "\nALL PASS");
   process.exit(fails ? 1 : 0);
