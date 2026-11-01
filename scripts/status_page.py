@@ -653,6 +653,11 @@ ol.q li span{flex:1}.chip{font-size:11px;padding:2px 8px;border-radius:999px;bor
 .chip.on{color:var(--ok);border-color:currentColor}.chip.flag{color:var(--warn);border-color:currentColor}
 .block{margin-top:14px}.block:first-of-type{margin-top:0}.block .t{display:flex;justify-content:space-between;font-size:13px;margin-bottom:6px}
 .block .t b{font-weight:600}.block .t span{color:var(--muted);font-variant-numeric:tabular-nums}
+.lvl{margin:0 0 12px}.lvl label{display:block;font-size:13px;margin-bottom:4px}.lvl b{font-size:16px}
+.lvl input{width:100%;height:28px;margin:0;accent-color:var(--accent);cursor:pointer}
+.lvl input:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:4px}
+.lvl-ticks{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);padding:0 5px}
+.ns-total{margin:0 0 8px;font-size:14px}
 ul.plain{list-style:none;margin:0;padding:0;font-size:13px}ul.plain li{padding:5px 0;border-top:1px solid var(--line)}
 ul.plain li:first-child{border-top:0}ul.plain small{display:block;color:var(--muted)}
 .chips{display:flex;flex-wrap:wrap;gap:6px}.muted{color:var(--muted)}
@@ -667,6 +672,43 @@ details.fold>summary::after{content:"Show";font-size:12px;color:var(--muted)}det
 details.fold[open]>summary{margin-bottom:12px}ul.plain li em.chip{font-style:normal;margin-left:6px}
 footer{color:var(--muted);font-size:12px;margin-top:16px;line-height:1.6}
 """
+
+
+# Remembers the level across the page's own updates, where the viewer allows it.
+NEXT_SCANS_SCRIPT = """<script>(function(){
+var data=JSON.parse(document.getElementById('ns-data').textContent);
+var input=document.getElementById('ns-level'),control=document.getElementById('ns-control');
+var list=document.getElementById('ns-list'),total=document.getElementById('ns-total'),value=document.getElementById('ns-value');
+var fmt=function(x){return Number(x).toLocaleString('en-US');};
+function tag(name,text){var el=document.createElement(name);if(text!=null)el.textContent=text;return el;}
+function show(depth){
+  var level=data.filter(function(l){return l.depth===depth;})[0];
+  if(!level)return;
+  value.textContent=depth;
+  input.setAttribute('aria-valuetext','Cascade level '+depth);
+  var sum=level.picks.reduce(function(s,p){return s+p.newCars;},0);
+  total.textContent='';
+  if(level.picks.length){
+    total.appendChild(document.createTextNode('At cascade level '+depth+', '+(level.picks.length===1?'this car adds ':level.picks.length===5?'these five add ':'these '+level.picks.length+' add ')));
+    total.appendChild(tag('b',fmt(sum)));
+    total.appendChild(document.createTextNode(' new car'+(sum===1?'':'s')+'.'));
+  }else total.textContent='No car reaches a new car at cascade level '+depth+'.';
+  list.textContent='';
+  level.picks.forEach(function(p){
+    var li=tag('li');
+    li.appendChild(tag('b',p.label));
+    li.appendChild(document.createTextNode(' +'+fmt(p.newCars)+' new car'+(p.newCars===1?'':'s')));
+    if(p.queued){li.appendChild(document.createTextNode(' '));var c=tag('em','already queued');c.className='chip';li.appendChild(c);}
+    li.appendChild(tag('small',fmt(p.alone)+' new on its own \u00b7 reads '+fmt(p.reads)+' car'+(p.reads===1?'':'s')+' in all'));
+    list.appendChild(li);
+  });
+}
+var saved=null;try{saved=parseInt(localStorage.getItem('carweb-next-scans-level'),10);}catch(e){}
+if(saved>=+input.min&&saved<=+input.max)input.value=saved;
+control.hidden=false;
+show(+input.value);
+input.addEventListener('input',function(){show(+input.value);try{localStorage.setItem('carweb-next-scans-level',input.value);}catch(e){}});
+})();</script>"""
 
 
 def render(d):
@@ -788,21 +830,34 @@ def render(d):
         out.append(f"<div class='card'><h2>Errors ({len(d['errors'])})</h2><ul class='plain'>{items}</ul></div>")
 
     ns = d.get("next_scans")
-    if ns and ns.get("picks"):
-        rows = "".join(
-            f"<li><b>{e(p['label'])}</b> +{n(p['newCars'])} new cars"
-            + (" <em class='chip'>already queued</em>" if p["id"] in d["queued_ids"] else "")
-            + f"<small>{n(p['alone'])} new on its own · reads {n(p['reads'])} cars in all</small></li>"
-            for p in ns["picks"])
+    levels = [dict(l, picks=[dict(p, queued=p["id"] in d["queued_ids"]) for p in l["picks"]])
+              for l in (ns or {}).get("levels") or []]
+    if levels and levels[-1]["picks"]:
+        # Written out for the deepest level, so a viewer that runs no scripts (a
+        # file preview on a phone) still has an answer. The slider takes over
+        # where scripts run.
+        def pick_row(p):
+            return (f"<li><b>{e(p['label'])}</b> +{n(p['newCars'])} new cars"
+                    + (" <em class='chip'>already queued</em>" if p["queued"] else "")
+                    + f"<small>{n(p['alone'])} new on its own · reads {n(p['reads'])} cars in all</small></li>")
+        deepest = levels[-1]
+        ticks = "".join(f"<span>{l['depth']}</span>" for l in levels)
         at = parse_time(ns.get("at"))
-        out.append(f"<div class='card'><h2>Best cars to scan next</h2>"
-                   f"<p class='muted'>At cascade level {ns['depth']}, which only the local queue panel offers. Each adds "
-                   "the count shown beyond the cars above it. Counts use connections known now, and reading the "
-                   "articles usually finds more.</p>"
-                   f"<ul class='plain'>{rows}</ul>"
+        data = json.dumps(levels, ensure_ascii=True).replace("<", "\\u003c")
+        out.append("<div class='card next-scans'><h2>Best cars to scan next</h2>"
+                   f"<div class='lvl' id='ns-control' hidden><label for='ns-level'>Cascade level <b id='ns-value'>{deepest['depth']}</b></label>"
+                   f"<input type='range' id='ns-level' min='{levels[0]['depth']}' max='{deepest['depth']}' step='1' value='{deepest['depth']}'>"
+                   f"<div class='lvl-ticks' aria-hidden='true'>{ticks}</div></div>"
+                   f"<p class='ns-total' id='ns-total'>At cascade level {deepest['depth']}, these five add "
+                   f"<b>{n(sum(p['newCars'] for p in deepest['picks']))}</b> new cars.</p>"
+                   f"<ul class='plain' id='ns-list'>{''.join(pick_row(p) for p in deepest['picks'])}</ul>"
+                   "<p class='muted'>Each car adds the count shown beyond the cars above it. Counts use connections "
+                   "known now, and reading the articles usually finds more. The public form stops at level 3, and "
+                   "higher levels need the local queue panel.</p>"
                    f"<p class='muted'>{n(ns['unread'])} cars are still unread. {n(ns['unconnected'])} of them have no "
                    "connections, so only asking for them by name reads them."
-                   + (f" Worked out {clock(at, d['now'])}." if at else "") + "</p></div>")
+                   + (f" Worked out {clock(at, d['now'])}." if at else "") + "</p>"
+                   f"<script type='application/json' id='ns-data'>{data}</script></div>")
     fin = d["finished"]
     if fin:
         rows = "".join(
@@ -841,6 +896,8 @@ def render(d):
     out.append("<script>try{var m=Math.round((Date.now()-%d)/60000);if(m>=2)document.getElementById('ago')"
                ".textContent=' ('+(m<90?m+' min ago':Math.round(m/60)+' h ago')+')';}catch(e){}</script>"
                % int(d["now"].timestamp() * 1000))
+    if levels and levels[-1]["picks"]:
+        out.append(NEXT_SCANS_SCRIPT)
     out.append("</main></body></html>")
     return "".join(out)
 

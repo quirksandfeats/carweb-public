@@ -38,12 +38,17 @@ check("...and counts the request the agent finished, though the queue never reco
       "Requests finished in this run: 1" in t, t[t.find("Final report"):][:240])
 check("...and keeps a dated copy", len(glob.glob(os.path.join(d, "CarWeb final report *.html"))) == 1)
 check("a second final write does nothing", sp.final() is None)
-sp.save_next_scans({"depth": 7, "unread": 40, "unconnected": 10, "picks": [
-    {"id": "qa-best", "label": "QA <Best> Car", "newCars": 30, "alone": 30, "reads": 90}]})
+pick = lambda label, new, alone, reads: {"id": "qa-" + label, "label": label, "newCars": new, "alone": alone, "reads": reads}
+sp.save_next_scans({"unread": 40, "unconnected": 10, "levels": [
+    {"depth": 1, "picks": [pick("QA Near", 3, 3, 4)]},
+    {"depth": 2, "picks": [pick("QA <Best> Car", 30, 30, 90)]}]})
 sp.AGENT["final"] = False
 sp.write_page()
 t = text()
-check("the best next scans are listed, with their counts", "Best cars to scan next" in t and "+30 new cars" in t and "reads 90 cars" in t)
-check("...and a label is escaped", "QA &lt;Best&gt; Car" in t and "<Best>" not in t)
+check("the best next scans are listed for the deepest level", "Best cars to scan next" in t and "+30 new cars" in t and "reads 90 cars" in t)
+raw = open(out, encoding="utf-8").read()
+check("...with a slider over every level", "type='range'" in raw and "min='1'" in raw and "max='2'" in raw)
+check("...and every level's list is in the page", "QA Near" in raw)
+check("...and a label is escaped, also inside the page's data", "QA &lt;Best&gt; Car" in raw and "<Best>" not in raw)
 print("\n%s" % ("ALL PASS" if not fails else "%d FAILED" % fails))
 sys.exit(1 if fails else 0)

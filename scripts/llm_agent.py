@@ -980,7 +980,7 @@ def note_next_scans(page):
     now. Never worth stopping a run over."""
     try:
         status_page.save_next_scans(page.evaluate(
-            "() => window.LlmFamilies.bestNextScans(CarWeb.nodes, CarWeb.links)"))
+            "() => window.LlmFamilies.bestNextScansByLevel(CarWeb.nodes, CarWeb.links)"))
     except Exception as e:
         log(f"could not work out the best next scans: {str(e)[:120]}")
 

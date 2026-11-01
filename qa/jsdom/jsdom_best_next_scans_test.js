@@ -40,7 +40,8 @@ const links = [
   link("hub", "e1", "fitted"), link("e1", "lone", "fitted"),
   link("x1", "x2"), link("a1", "x1"), { source: "hub", target: "far", type: "platform", retired: true },
 ];
-const r = LF.bestNextScans(nodes, links, { depth: 7 });
+const all = LF.bestNextScansByLevel(nodes, links);
+const r = { picks: all.levels[6].picks, unconnected: all.unconnected };
 const first = r.picks[0], second = r.picks[1];
 t("the car reaching the most new cars comes first", first && first.newCars === 4 + 0 && first.alone === 4, JSON.stringify(first));
 t("a nameplate and its generations are one stop, and links go through to its neighbours", first.reads >= 7, first.reads);
@@ -48,8 +49,9 @@ t("what it reads includes cars already read", first.reads > first.newCars);
 t("the next one counts only what the first did not reach", second && second.newCars === 2, JSON.stringify(second));
 t("a retired link, a declined split and an engine are not hops", !r.picks.some(p => p.alone > 4));
 t("unread cars with no live connection are counted as unconnected", r.unconnected === 2, r.unconnected);
-const near = LF.bestNextScans(nodes, links, { depth: 1 });
-t("the level limits the hops", near.picks[0].alone < 4, JSON.stringify(near.picks[0]));
-t("the list stops at five", LF.bestNextScans(nodes, links).picks.length <= 5);
+t("every level from 1 to 7 has its own list", all.levels.map(l => l.depth).join() === "1,2,3,4,5,6,7");
+t("the level limits the hops", all.levels[0].picks[0].alone < 4, JSON.stringify(all.levels[0].picks[0]));
+t("a deeper level never reaches less", all.levels.every((l, i) => !i || l.picks[0].alone >= all.levels[i - 1].picks[0].alone));
+t("the list stops at five", all.levels.every(l => l.picks.length <= 5));
 console.log(fails ? `\n${fails} FAILED` : "\nALL PASS");
 process.exit(fails ? 1 : 0);

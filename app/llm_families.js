@@ -6019,7 +6019,7 @@ Rules:
 
   // ---------- which car to scan next ----------
   // Real user request: for the status report alone, the cars that would bring the
-  // most new cars into the graph at the highest cascade level. Walks the hops a
+  // most new cars into the graph at each cascade level. Walks the hops a
   // requested scan takes (app.js's followSuccession): a nameplate and its
   // generations are one stop, every platform, related and succession link is a
   // hop, and a declined split is not read or passed through.
@@ -6028,8 +6028,8 @@ Rules:
   // heavily: the second-biggest alone adds a tenth of its reach after the first.
   // Only connections already known count, and reading an article usually finds
   // more, so each figure is the least that car would bring.
-  function bestNextScans(nodes, links, opts) {
-    const depth = (opts && opts.depth) || 7, count = (opts && opts.count) || 5;
+  function bestNextScansByLevel(nodes, links, opts) {
+    const count = (opts && opts.count) || 5, deepest = (opts && opts.deepest) || 7;
     const byIdLocal = new Map(nodes.map(n => [n.id, n]));
     const live = n => {
       for (let i = 0; n && n.retired && n.supersededBy && i < 8; i++) n = byIdLocal.get(n.supersededBy);
@@ -6053,8 +6053,8 @@ Rules:
     const next = joined.map(set => [...set]);
     const declined = stops.map(c => c.type !== "family" && (store.families[c.id] || {}).status === "rejected");
     const unread = stops.map((c, i) => !declined[i] && !store.families[c.id] && !(c.type === "family" && store.recheck[c.id]));
-    const seenBy = new Int32Array(stops.length).fill(-1);
-    const reach = from => {
+    const seenBy = new Int32Array(stops.length);
+    const reach = (from, depth) => {
       const found = [from];
       seenBy[from] = from;
       let head = 0;
@@ -6069,13 +6069,15 @@ Rules:
       }
       return found;
     };
-    const counted = new Uint8Array(stops.length);
-    const picks = [];
-    for (let k = 0; k < count; k++) {
+    const picksAt = depth => {
+      seenBy.fill(-1);
+      const counted = new Uint8Array(stops.length);
+      const picks = [];
+      for (let k = 0; k < count; k++) {
       let best = null;
       stops.forEach((car, i) => {
         if (declined[i]) return;
-        const found = reach(i);
+        const found = reach(i, depth);
         let beyond = 0, alone = 0;
         for (const j of found) if (unread[j]) { alone++; if (!counted[j]) beyond++; }
         if (beyond && (!best || beyond > best.beyond || (beyond === best.beyond && found.length < best.found.length))) {
@@ -6087,8 +6089,12 @@ Rules:
       const car = stops[best.i];
       picks.push({ id: car.id, label: ((car.make ? car.make + " " : "") + car.label).trim(),
                    newCars: best.beyond, alone: best.alone, reads: best.found.length });
-    }
-    return { depth, picks, unread: unread.filter(Boolean).length,
+      }
+      return picks;
+    };
+    const levels = [];
+    for (let depth = 1; depth <= deepest; depth++) levels.push({ depth, picks: picksAt(depth) });
+    return { levels, unread: unread.filter(Boolean).length,
              unconnected: unread.filter((u, i) => u && !next[i].length).length };
   }
 
@@ -18705,7 +18711,7 @@ Rules:
     relabelMisnamedEngines, engineArticleKey,
     // The section-reading half of the generation-article lookup, exposed so
     // the suite can drive it against real cached wikitext without a network.
-    wikitextSections, hatnoteArticle, proseArticle, sectionForCode, validate, sweepDroppedGenerations, bestNextScans,
+    wikitextSections, hatnoteArticle, proseArticle, sectionForCode, validate, sweepDroppedGenerations, bestNextScansByLevel,
     isEngineArticle, engineInfobox, engineVariants, engineApplications,
     mentionName, yearsCover,
     parseApplicationLine, readEngineArticle,
