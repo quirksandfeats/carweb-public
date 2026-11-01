@@ -140,10 +140,10 @@ const DATA = window.CARDATA;
         n.variants.every(v => !v.specs || (!v.specs.power && !v.specs.displacement)),
         JSON.stringify(n.variants.map(v => [v.code, v.specs])));
   check("...and the summary of nothing is nothing", LF.engineSpecSummary(null) === "");
-  // An article with no displacement field does not grow one.
+  // A displacement held in a list template is the article's own statement.
   const g = LF.readEngineArticle(GMCV6, "GMC V6", "GMC V6 engine");
-  check("a family with no displacement of its own does not invent one",
-        !g.specs.displacement, g.specs.displacement);
+  check("a family's displacement list is read, not deleted with its template",
+        g.specs.displacement === "305-702 CID", g.specs.displacement);
   check("...while still reporting what it does state", g.specs.layout === "V" && !!g.specs.power,
         LF.engineSpecSummary(g.specs));
 }

@@ -243,7 +243,7 @@ const names = ms => ms.map(m => m.name).join(", ");
   check("an engine is not named after its own cylinder layout",
         a.shortName === "Duramax V8", a.shortName);
   check("...and its variants are named for it, without the layout",
-        a.variants.map(v => v.code).join(", ") === "Duramax LB7, Duramax L5P, Duramax L5D",
+        a.variants.map(v => v.code).join(", ") === "Duramax LB7, Duramax LLY, Duramax LMM, Duramax LGH, Duramax LML, Duramax L5P, Duramax L5D",
         a.variants.map(v => v.code).join(", "));
   check("...with the layout kept where it belongs, on the specs",
         a.specs.layout === "V" && a.specs.cylinders === 8, LF.engineSpecSummary(a.specs));

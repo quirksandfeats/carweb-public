@@ -4647,7 +4647,10 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
     const makeKey = norm(make);
     const nameKey = norm(nameplateLabel);
     if (!key || !makeKey) return null;
-    const eligible = n => n.type === "model" && !n.retired && n.id !== famId && n.familyOf !== famId && nameKeysOf(n).make === makeKey;
+    // A car with its own confirmed split is a nameplate in its own right, not
+    // a duplicate of someone's generation, whichever decision comes first.
+    const splitOwn = n => { const e = store.families[n.id]; return !!(e && e.status === "confirmed"); };
+    const eligible = n => n.type === "model" && !n.retired && n.id !== famId && n.familyOf !== famId && nameKeysOf(n).make === makeKey && !splitOwn(n);
     for (let attempt = 0; attempt < 2; attempt++) {
       const ix = nameIndexOf(nodes);
       let stale = false;
@@ -6798,6 +6801,16 @@ Rules:
     const last = w.slice(1).reverse().find(x => ROMAN_ORD[x]);
     return last && last !== "i" && last !== "v" && last !== "x" ? ROMAN_ORD[last] : null;
   }
+  // The place a mention names, read past the nameplate's own name: "Toyota Mark
+  // II" names the car, and only "Toyota Mark II second generation" names a place.
+  function ordinalBeyondName(text, fam) {
+    const said = nameWordsOf(text), name = nameWordsOf(fam && fam.label);
+    if (name.length) {
+      const at = said.findIndex((_, i) => name.every((w, j) => said[i + j] === w));
+      if (at >= 0) said.splice(at, name.length);
+    }
+    return mentionOrdinal(said.join(" "));
+  }
   // The generation of `fam` a mention names, by code or by place, if exactly one.
   function generationNamedBy(fam, mentionText, nodes) {
     if (!fam || !(fam.generations || []).length) return null;
@@ -6811,7 +6824,7 @@ Rules:
       return codes.some(c => c.length >= 2 && said.has(c));
     });
     if (byCode.length === 1) return byCode[0];
-    const ord = mentionOrdinal(mentionText);
+    const ord = ordinalBeyondName(mentionText, fam);
     if (ord && gens[ORDINAL_N[ord] - 1]) return gens[ORDINAL_N[ord] - 1];
     return null;
   }
@@ -6868,7 +6881,7 @@ Rules:
     if (dSaid && dCand && dSaid !== dCand && !ORDINAL_N[dSaid.replace(/generation$/, "")]) {
       return { ok: false, why: `"${mentionText}" is the ${dSaid}, and this is the ${dCand}` };
     }
-    const ordWord = mentionOrdinal(mentionText);
+    const ordWord = ordinalBeyondName(mentionText, fam);
     const gensInOrder = fam ? (fam.generations || []).map(id => nodeWithId(nodes, id)).filter(g => g && !g.retired)
       .sort((x, y) => (x.year == null ? 1e9 : x.year) - (y.year == null ? 1e9 : y.year)) : [];
     const pos = gensInOrder.indexOf(cand) + 1;
@@ -6926,6 +6939,28 @@ Rules:
     }
     return n;
   }
+  // A stub minted from another car's wording ("Rover 600") is no better a match
+  // than the real car the pick found ("Rover 600 Series"), when the pick's name
+  // holds every word of the mention.
+  function stubNamedByPick(exact, pickId, mentionText, nodes) {
+    if (!String(exact.id).includes("llm-related-")) return false;
+    const pick = nodeWithId(nodes, pickId);
+    if (!pick) return false;
+    const fam = pick.familyOf ? nodeWithId(nodes, pick.familyOf) : null;
+    const have = new Set(nameWordsOf(pick.label).concat(nameWordsOf(fam && fam.label)));
+    const text = String(mentionText).replace(/\([^()]*\)/g, " ");
+    const make = findExistingMake(nodes, text);
+    const said = nameWordsOf(make ? text.trim().slice(make.label.length) : text.trim().split(/\s+/).slice(1).join(" "));
+    return said.length > 0 && said.every(w => have.has(w));
+  }
+  function retireOverruledPick(gn, pickId, exact, nodes) {
+    const pick = nodeWithId(nodes, pickId);
+    if (!pick || pick === exact || (exact.familyOf && exact.familyOf === pick.id)) return;
+    [pick.id].concat(pick.generations || []).forEach(id => {
+      const key = relKey(gn.id, id, "platform"), e = store.relations[key];
+      if (e && e.decidedBy !== "user" && e.genIdA === gn.id) delete store.relations[key];
+    });
+  }
   function pairAlreadyDecided(gn, cand) {
     const others = [cand.id].concat(cand.generations || []);
     return others.some(id => {
@@ -6951,6 +6986,45 @@ Rules:
     }
     if (parts.length < 2) return null;
     return "llm-related-" + slugify(parts[0]) + "-" + slugify(parts.slice(1).join(" "));
+  }
+  const NAMED_BY_MENTION = "the mention names this generation by its code or place";
+  const PLATFORM_REACH_YEARS = 10;
+  function withinPlatformReach(gn, g2) {
+    if (gn.year == null || g2.year == null) return true;
+    const gap = gn.year - (g2.end == null ? 9999 : g2.end);
+    const after = g2.year - (gn.end == null ? gn.year : gn.end);
+    return gap <= PLATFORM_REACH_YEARS && after <= PLATFORM_REACH_YEARS;
+  }
+  function yearsShared(a, b) {
+    const now = new Date().getFullYear();
+    return Math.min(a.end == null ? now : a.end, b.end == null ? now : b.end) - Math.max(a.year, b.year) + 1;
+  }
+  function siblingFitsBetter(gn, g2, nodes) {
+    const fam = gn.familyOf ? nodeWithId(nodes, gn.familyOf) : null;
+    if (!fam || gn.year == null || g2.year == null) return false;
+    const mine = yearsShared(gn, g2);
+    if (mine > 0) return false;
+    return (fam.generations || []).some(id => {
+      const sib = id !== gn.id ? nodeWithId(nodes, id) : null;
+      return sib && !sib.retired && sib.year != null && yearsShared(sib, g2) > mine;
+    });
+  }
+  // A replay can choose a different generation than an earlier one did. The
+  // automatic edge the earlier choice left goes, or the car shows two. A pick
+  // another mention of this car names by code stays, and so does anything the
+  // owner decided.
+  function retireEarlierPicks(nodes, gn, match, keep, mentionText, keepIsNamed) {
+    const texts = Array.isArray(gn.sharedPlatformTexts) ? gn.sharedPlatformTexts : [];
+    (match.generations || []).forEach(id => {
+      if (keep && id === keep.id) return;
+      const key = relKey(gn.id, id, "platform"), e = store.relations[key];
+      if (!e || e.genIdA !== gn.id || e.status !== "confirmed" || e.decidedBy === "user") return;
+      if (!String(e.reason || "").startsWith("matched automatically -- the nameplate was named exactly")) return;
+      const others = texts.filter(t => t !== mentionText && (findMatchingNameplate(nodes, t, gn.familyOf || gn.id, {}) || {}).node === match);
+      if (others.some(t => (generationNamedBy(match, t, nodes) || {}).id === id)) return;
+      if (keepIsNamed && others.length) return;
+      delete store.relations[key];
+    });
   }
   function resolvePlatformMention(nodes, links, famId, gn) {
     const texts = Array.isArray(gn.sharedPlatformTexts) ? gn.sharedPlatformTexts
@@ -6980,7 +7054,11 @@ Rules:
       found = { node: probe.refused, loose: true };
     }
     const sanity = gn.sharedPlatformMatches && gn.sharedPlatformMatches[mentionText];
-    if (sanity && sanity.matchId) {
+    // The sanity check is only asked when nothing matches exactly. A car named
+    // exactly that arrived later wins, and the old pick's automatic edges go.
+    const exactOverrules = sanity && sanity.matchId && found && !found.loose && !stubNamedByPick(found.node, sanity.matchId, mentionText, nodes);
+    if (exactOverrules) retireOverruledPick(gn, sanity.matchId, found.node, nodes);
+    else if (sanity && sanity.matchId) {
       // The LLM found a specific existing node -- trust it over the plain
       // deterministic guess (which may have found nothing, or found the
       // wrong/coarser thing), since this is exactly the case a formatting
@@ -7129,9 +7207,13 @@ Rules:
       if (!loose) {
         const targetGens = match.generations.map(id => byIdLocal.get(id)).filter(g2 => g2 && !g2.retired);
         let pick = generationNamedBy(match, mentionText, nodes);
-        if (pick) pickedBy = "the mention names this generation by its code or place";
+        if (pick) pickedBy = NAMED_BY_MENTION;
         if (!pick) {
-          const naming = targetGens.filter(g2 => (g2.sharedPlatformTexts || []).some(t => articleNamesCar(t, gn, nodes)));
+          // The text names the car's nameplate, so a section can be talking
+          // about a different generation of it: one decades away, or a sibling
+          // built closer to that section's years.
+          const naming = targetGens.filter(g2 => withinPlatformReach(gn, g2) && !siblingFitsBetter(gn, g2, nodes) &&
+            (g2.sharedPlatformTexts || []).some(t => articleNamesCar(t, gn, nodes)));
           if (naming.length === 1) { pick = naming[0]; pickedBy = "this generation's own section of its article names this car"; }
           // Several do (the Pajero's first and second both name the Galloper):
           // the years choose among those, not among all of them.
@@ -7145,12 +7227,11 @@ Rules:
           // With no generation built near these years, the graph is missing
           // the right one (the VinFast Fadil's 2015 Opel Karl/Viva, against a
           // 1970 Vauxhall Viva): the nameplate stays the honest answer.
-          const gap = pick ? gn.year - (pick.end == null ? 9999 : pick.end) : 0;
-          const after = pick ? pick.year - (gn.end == null ? gn.year : gn.end) : 0;
-          if (pick && (gap > 10 || after > 10)) pick = null;
+          if (pick && !withinPlatformReach(gn, pick)) pick = null;
           if (pick) pickedBy = "no text says which, so the generation whose years fit this one best";
         }
         if (pick) cands = [pick];
+        retireEarlierPicks(nodes, gn, match, cands.length === 1 ? cands[0] : null, mentionText, pickedBy === NAMED_BY_MENTION);
       }
       if (cands.length === 1) {
         // Same per-pair keying as the explicitGen branch above, and for the
@@ -12697,6 +12778,11 @@ Rules:
         }
         return parts.length >= 2 ? parts[0] + " " + parts[1] : parts[0];
       })
+      // A list is its items: deleting it took a whole displacement field along.
+      .replace(/\{\{\s*(?:ubl|ubli|ublist|unbulleted[\s_]*list|plain[\s_]*list|flatlist|hlist|blist|bulleted[\s_]*list|collapsible[\s_]*list|nowrap)\s*\|([^{}]*)\}\}/gi, (m0, args) =>
+        args.replace(/\[\[([^\]|]+)(?:\|([^\]]+))?\]\]/g, (m1, t, d) => d || t).split("|")
+          .filter(x => x.trim() && !/^\s*[A-Za-z_][\w\s-]*=/.test(x))
+          .map(x => x.replace(/^\s*\d+\s*=/, "").trim()).join(", "))
       .replace(/\{\{[^{}]*\}\}/g, "")
       .replace(/\[\[([^\]|]+)(?:\|([^\]]+))?\]\]/g, (m0, t, d) => d || t)
       .replace(/<[^>]+>/g, " ")
@@ -12886,8 +12972,36 @@ Rules:
     }
     return out;
   }
+  function bulletOfCarLinks(line) {
+    if (!/^\s*[*#]+\s*(?:'{2,})?\[\[/.test(line)) return false;
+    const targets = (line.match(/\[\[[^\]|#]+/g) || []).map(t => t.slice(2));
+    if (targets.some(t => /\bengines?\b|^list of\b/i.test(t) || !/\s/.test(t.trim()))) return false;
+    const rest = stripEngineMarkup(line.replace(/\[\[[^\]]*\]\]/g, " ")).replace(/\([^()]*\)/g, " ");
+    return /^[\s,\/&;\d–—-]*(?:and[\s,\/&;\d–—-]*)*$/.test(rest);
+  }
+  // A line's first car, and those joined straight onto it by a slash, comma or
+  // "and". A link further along the sentence is about something else.
+  function chainedApplications(line) {
+    const clean = String(line || "").replace(/<ref[^>]*\/>|<ref(?:\s[^>]*)?>[\s\S]*?<\/ref>/gi, "")
+      .replace(/\[\[\s*(?:File|Image)\s*:[^\]]*\]\]/gi, "");
+    const first = parseApplicationLine(clean);
+    if (!first) return [];
+    const out = [first];
+    const rx = /\[\[([^\]|#]+)(?:#([^\]|]*))?(?:\|([^\]]*))?\]\]/g;
+    let m, prevEnd = -1;
+    while ((m = rx.exec(clean))) {
+      if (prevEnd >= 0) {
+        if (!/^\s*(?:[,\/&;]|and)\s*$/.test(clean.slice(prevEnd, m.index))) break;
+        out.push(Object.assign({}, first, { target: m[1].trim(), anchor: (m[2] || "").trim() || null,
+          display: (m[3] || m[1]).replace(/\s+/g, " ").trim() }));
+      }
+      prevEnd = rx.lastIndex;
+    }
+    return out;
+  }
   function engineApplications(body) {
-    const src = String(body || "").replace(/<!--[\s\S]*?-->/g, "");
+    const cut = String(body || "").search(/^==\s*(?:See also|References|External links|Notes|Further reading)\s*==\s*$/im);
+    const src = (cut >= 0 ? String(body).slice(0, cut) : String(body || "")).replace(/<!--[\s\S]*?-->/g, "");
     const out = [];
     const seen = new Set();
     src.split(/\n/).forEach(line => {
@@ -12900,13 +13014,15 @@ Rules:
       // "As part of the agreement with Mercedes-AMG since 2013, Aston Martin
       // installs the M177 engines in the DB11 V8 and DB11 Volante (2017-)..."
       // parsed as an application fitted to Aston Martin the company in 2017.
-      if (!APP_LINE_RE.test(line)) return;
-      const e = parseApplicationLine(line);
-      if (!e) return;
-      const key = norm(e.target || "") + "|" + norm(e.display);
-      if (seen.has(key)) return;
-      seen.add(key);
-      out.push(e);
+      // The other shape real lists use: a bullet that opens with the car and
+      // says its years after, or none, with nothing but links on it.
+      if (!APP_LINE_RE.test(line) && !bulletOfCarLinks(line)) return;
+      for (const e of chainedApplications(line)) {
+        const key = norm(e.target || "") + "|" + norm(e.display);
+        if (seen.has(key)) continue;
+        seen.add(key);
+        out.push(e);
+      }
     });
     // Both shapes, because one article can use both -- the M178's section has
     // a specifications table AND an applications table. Bullets are the more
@@ -12943,13 +13059,16 @@ Rules:
   const ENGINE_HEAD_STOP = new Set(["applications", "models", "versions", "variants",
     "references", "notes", "see also", "external links", "design", "history",
     "specifications", "overview", "gallery", "engines"]);
-  const VARIANT_CODE_RE = /^[A-Z][A-Z0-9]*(?:[ ./+-][A-Z0-9]+)*$/;
+  const VARIANT_CODE_RE = /^(?:[A-Z]|\d+[A-Z])[A-Z0-9]*(?:[ ./+-][A-Z0-9]+)*$/;
+  // Filed by shape or by size, not named: "V6", "I-4", "16V", "3L", "4WD".
+  const NOT_A_DESIGNATION_RE = /^(?:[VWIHFL]-?(?:2|3|4|5|6|8|10|12|16)|\d+(?:V|L|CC|CID|HP|PS|KW|WD)|\dX\d)$/i;
   function looksLikeVariantHeading(title) {
     const t = String(title || "").replace(/\s+/g, " ").trim();
     if (!t || t.length > 44) return false;
     if (ENGINE_HEAD_STOP.has(norm(t))) return false;
     if (/[()]/.test(t)) return false;        // "Third generation (W166; 2011)" is not a designation
-    if (!/\d/.test(t)) return false;         // every real one carries a number
+    if (!/\d/.test(t)) return false;         // sibling codes aside, see lettersOnlySiblings
+    if (NOT_A_DESIGNATION_RE.test(t)) return false;
     return VARIANT_CODE_RE.test(t);
   }
   // The section of a multi-engine article that IS the engine asked for.
@@ -13069,21 +13188,43 @@ Rules:
     return leaves.filter(sec => !looksLikeModelNumber(sec));
   }
 
-  function engineVariants(wikitext, name, inherited) {
+  // Codes with no number exist where their siblings show the pattern: the
+  // Duramax's LLY and LBZ sit beside its LB7 and L5P.
+  function lettersOnlySiblings(secs, hits) {
+    const codes = hits.map(sec => String(sec.title || "").trim()).filter(looksLikeVariantHeading);
+    const firsts = new Set(codes.map(t => t[0]));
+    if (codes.length < 2 || firsts.size !== 1) return [];
+    return secs.filter(sec => {
+      const t = String(sec.title || "").trim();
+      return hits.indexOf(sec) < 0 && /^[A-Z]{3,4}$/.test(t) && firsts.has(t[0]) && !/^(?:LPG|LNG|CNG)$/.test(t);
+    });
+  }
+  function variantSections(wikitext, name) {
     const key = norm(name || "");
     const secs = wikitextSections(wikitext);
-    const hits = secs.filter(sec => {
+    let hits = secs.filter(sec => {
       const t = norm(sec.title);
       if (looksLikeVariantHeading(sec.title)) return true;
       return !!key && t.startsWith(key) && t !== key;
     });
+    hits = hits.concat(lettersOnlySiblings(secs, hits)).sort((a, b) => a.at - b.at);
     // A matched section that CONTAINS another matched section is that one's
     // parent, not a variant of its own -- counting both would attach the
     // inner section's applications twice, once at each level.
-    const inner = hits.filter(a => hits.some(b => b !== a && b.at > a.at && b.at < a.stop));
+    return hits.filter(a => !hits.some(b => b !== a && b.at > a.at && b.at < a.stop));
+  }
+  // The article with its variants' own sections taken out: what it lists there
+  // belongs to the engine as a whole.
+  function textOutsideVariants(wikitext, name) {
+    const src = String(wikitext || "");
+    let out = "", from = 0;
+    variantSections(src, name).forEach(sec => { out += src.slice(from, sec.at); from = sec.stop; });
+    return out + src.slice(from);
+  }
+  function engineVariants(wikitext, name, inherited) {
+    const key = norm(name || "");
     const out = [];
-    for (const sec of hits) {
-      if (inner.indexOf(sec) >= 0) continue;
+    for (const sec of variantSections(wikitext, name)) {
       const title = stripEngineMarkup(sec.title).replace(/\s+/g, " ").trim();
       // "DE35" on its own says nothing about which engine; the article's own
       // prose calls it "the M276 DE 35". Prefixed so the variant reads as
@@ -13145,7 +13286,7 @@ Rules:
   function layoutFromConfiguration(text) {
     const t = stripEngineMarkup(text || "").replace(/&nbsp;/g, " ");
     if (!t) return null;
-    let m = /\b(straight|inline|flat|boxer|vee|v|w|h)\s*-?\s*(\d{1,2}|two|three|four|five|six|seven|eight|ten|twelve|sixteen)\b/i.exec(t);
+    let m = /\b(straight|inline|flat|boxer|vee|v|w|h|i)\s*-?\s*(\d{1,2}|two|three|four|five|six|seven|eight|ten|twelve|sixteen)\b/i.exec(t);
     if (!m) m = /\b([VWvw])\s*-?\s*(\d{1,2})\b/.exec(t);
     if (!m) {
       const single = /\b(single|twin|two)[\s-]cylinder\b/i.exec(t);
@@ -13225,7 +13366,11 @@ Rules:
         if (v) { out[key] = v; break; }
       }
     });
-    const c = layoutFromConfiguration(out.configuration || "");
+    // A family of several layouts ("I3, I4 and 60° V6") has no one layout to
+    // give its variants; each states its own or stays silent.
+    const shapes = new Set((String(out.configuration || "").match(/\b(?:straight|inline|flat|boxer|[VWIH])[\s-]?\d{1,2}\b/gi) || [])
+      .map(x => norm(x)));
+    const c = shapes.size > 1 ? null : layoutFromConfiguration(out.configuration || "");
     if (c) {
       if (c.layout) out.layout = c.layout;
       if (c.cylinders) out.cylinders = c.cylinders;
@@ -13370,7 +13515,12 @@ Rules:
     // No variant sections at all still means applications -- they just sit in
     // the article body. Same fallback the nameplate side uses for a car that
     // turns out to have only one generation.
-    const loose = (indexed || variants.length) ? [] : engineApplicationsIn(body);
+    // Outside the variants' sections, a table row named for a variant is that
+    // variant's specification, not a car.
+    const namesVariant = app => variants.some(v => norm(app.display || "") === norm(v.code) || norm(app.target || "") === norm(v.code));
+    const loose = indexed ? [] : variants.length
+      ? engineApplicationsIn(textOutsideVariants(body, short)).filter(app => !namesVariant(app))
+      : engineApplicationsIn(body);
     return {
       name: stripEngineMarkup(info.name || "") || short || titleShort,
       shortName: short,
@@ -13509,6 +13659,18 @@ Rules:
     // the honest answer -- it is the part we are sure of.
     return fam && fam !== node ? fam : node;
   }
+  // A run of years can carry on into the next generation: "1988-2000" is on
+  // both Festivas. One shared edge year alone says nothing. A stated code has
+  // already named the one generation it means.
+  function gensLaterInRun(node, app, byId) {
+    const from = app && app.yearStart;
+    const to = app && (app.yearEnd === "present" ? new Date().getFullYear() : app.yearEnd);
+    if (!Number.isFinite(from) || !Number.isFinite(to) || !node.familyOf) return [];
+    if (chassisCodesIn(app.anchor).concat(chassisCodesIn(app.display)).length) return [];
+    const fam = byId.get(node.familyOf);
+    return ((fam && fam.generations) || []).map(id => byId.get(id)).filter(g => g && !g.retired && g !== node &&
+      Number.isFinite(g.year) && Math.min(to, Number.isFinite(g.end) ? g.end : to) - Math.max(from, g.year) >= 1);
+  }
   // Generations by their chassis code, where that code is unambiguous across
   // the whole graph. Real user request about the M117: "when I do a re-read
   // of the Wikipedia article, it should also find the W463 as a generation
@@ -13596,9 +13758,13 @@ Rules:
     const placed = [];
     for (const app of applications) {
       let node = carForApplication(app, byId, byWp, resolved.get(app.target), byCode);
-      if (!node) {
-        node = mint(app) || null;
-        if (node) {
+      // A link to the company stands in for a car only where its text names one
+      // of theirs: "[[Isdera|Isdera Autobahnkurier AK116i]]".
+      const shown = norm(app.display || "");
+      const companyStandsIn = node && node.type === "make" && shown !== norm(node.label) && shown.startsWith(norm(node.label));
+      if (!node || companyStandsIn) {
+        node = mint(app) || node;
+        if (node && node.type !== "make") {
           byId.set(node.id, node);
           if (node.wp) byWp.set(norm(node.wp), node);
           byWp.set(norm(((node.make ? node.make + " " : "") + node.label).trim()), node);
@@ -13613,6 +13779,7 @@ Rules:
       // the entry rather than hanging an engine off a manufacturer.
       if (node.type === "make" || node.type === "person") continue;
       placed.push({ app, node, from: app.__from || null });
+      gensLaterInRun(node, app, byId).forEach(g => placed.push({ app, node: g, from: app.__from || null }));
     }
 
     // The rule, applied per nameplate -- across the WHOLE engine, not per
@@ -14909,7 +15076,7 @@ Rules:
     const sp = (mention && mention.specs) || {};
     if (!car || !Number.isFinite(car.year) || !Number.isFinite(sp.yearStart)) return false;
     const now = new Date().getFullYear();
-    const open = /present|current|ongoing/i.test(String(mention.said || ""));
+    const open = /present|current|ongoing|\b(?:since|from)\s+\d{4}|onwards?\b/i.test(String(mention.said || ""));
     const lineEnd = Number.isFinite(sp.yearEnd) ? sp.yearEnd : (open ? now : sp.yearStart);
     const carEnd = Number.isFinite(car.end) ? car.end : now;
     return sp.yearStart > carEnd || lineEnd < car.year;
@@ -14923,7 +15090,22 @@ Rules:
     try { return replayEngineMentions(nodes, links); }
     finally { replayingEngineMentions = false; }
   }
+  // Two engines each folded into the other come from the old title rule, which
+  // joined two articles by what they share ("Ford Essex V6 engine (UK)" and
+  // "(Canadian)"). They are two engines.
+  function dropMutualEngineMerges() {
+    const merges = store.engineMerges || {};
+    Object.keys(merges).forEach(id => {
+      ((merges[id] && merges[id].memberIds) || []).slice().forEach(other => {
+        const back = merges[other];
+        if (!back || !(back.memberIds || []).includes(id)) return;
+        delete merges[id];
+        delete merges[other];
+      });
+    });
+  }
   function replayEngineMentions(nodes, links) {
+    dropMutualEngineMerges();
     const byId = new Map(nodes.map(n => [n.id, n]));
     let engines = 0, fitted = 0;
     staleSharedEngineScans(byId);
@@ -15316,7 +15498,7 @@ Rules:
   // regex: a "|" inside an item's own [[link|display]] or {{convert|...}} is
   // not a separator. Reading the Suburban's ninth generation as ONE line, and
   // so as one engine out of five, is what this is for.
-  const LIST_TEMPLATE_RE = /^(?:ubl|unbulleted list|plainlist|flatlist|hlist|blist|collapsible list|ubli)$/i;
+  const LIST_TEMPLATE_RE = /^(?:ubl|ubli|ublist|unbulletedlist|plainlist|flatlist|hlist|blist|bulletedlist|collapsiblelist)$/i;
   function splitEngineField(field) {
     const src = String(field || "").replace(/<br\s*\/?>/gi, "\n");
     const out = [];
@@ -15330,12 +15512,12 @@ Rules:
         const inner = src.slice(i + 2, j - 2);
         const bar = topLevelBar(inner);
         const head = (bar < 0 ? inner : inner.slice(0, bar)).trim();
-        if (LIST_TEMPLATE_RE.test(head) && bar >= 0) {
+        if (LIST_TEMPLATE_RE.test(head.replace(/[\s_]+/g, "")) && bar >= 0) {
           // Its arguments ARE the lines. Positional only: "|title=..." is a
           // property of the list, not an item of it.
           splitTopLevel(inner.slice(bar + 1)).forEach(part => {
             if (/^\s*[A-Za-z_][\w\s-]*=/.test(part)) return;
-            splitEngineField(part).forEach(x => out.push(x));
+            splitEngineField(part.replace(/^\s*\d+\s*=/, "")).forEach(x => out.push(x));
           });
           flush();
           i = j - 1;
@@ -15527,10 +15709,12 @@ Rules:
   // link is plainly to a technology ("[[Multi-valve|16V]]", "[[Common
   // rail|DTI]]") rather than to an engine.
   const TECH_LINK_TITLE_RE = /^(?:multi-?valve|dohc|sohc|ohv|ohc|overhead (?:camshaft|valve)|common rail|turbo-?diesel|turbocharger|supercharger|twin-?turbo|fuel injection|direct injection|variable valve timing|petrol engine|diesel engine|straight-\w+ engine|inline-\w+ engine|v\d+ engine|flat-\w+ engine|intercooler|hybrid.*|electric motor)$/i;
+  const FUEL_OR_LAYOUT_RE = /^(?:E\d{2,3}|[VWIHL]-?(?:2|3|4|5|6|8|10|12|16)|(?:straight|inline|flat)[\s-]\w+)$/i;
   function looksLikeCodeLink(title, display) {
     const t = String(title || "").trim();
     if (!t || TECH_LINK_TITLE_RE.test(t) || /\bengines?\b/i.test(t)) return false;
     const shown = String(display || "").replace(/'{2,}/g, "").trim();
+    if (FUEL_OR_LAYOUT_RE.test(t) || FUEL_OR_LAYOUT_RE.test(shown)) return false;
     const isCode = w => ENGINE_CODE_WORD_RE.test(w) && !/^\d+V$/i.test(w) && !/^\d+(?:\.\d+)?L$/i.test(w);
     if (isCode(t)) return !shown || norm(shown) === norm(t) || isCode(shown);
     return !!shown && isCode(shown);
@@ -15718,7 +15902,8 @@ Rules:
       out.forEach(e => {
         if (e.links.length) return;
         for (const w of String(e.text || "").split(/[^A-Za-z0-9-]+/)) {
-          if (!w || w.length < 3 || !/\d/.test(w)) continue;
+          // Only a real code: "16V", "V-8" and "350" name no engine.
+          if (!w || !ENGINE_CODE_WORD_RE.test(w) || /^\d+V$/.test(w) || /^[VWIHL]-?\d{1,2}$/.test(w)) continue;
           const l = linked.get(norm(w));
           if (l) { e.links = [Object.assign({}, l, { display: w, inherited: true })]; break; }
         }
@@ -16381,7 +16566,9 @@ Rules:
       if (!anchor || isGenericIndexSection(anchor)) return null;
       return "index:" + norm(wp) + "#" + norm(anchor);
     }
-    return norm(stripEngineSuffix(wp));
+    // The parenthetical stays: "Ford Essex V6 engine (UK)" and "(Canadian)" are
+    // two articles, and a real redirect has already joined any that are one.
+    return norm(wp.replace(/\s+engines?(?:\s+(?:family|families|range|series|line|lineup))?(?=\s*\(|\s*$)/i, ""));
   }
   // An engine named after something that is not its name.
   //
