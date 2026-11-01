@@ -6017,6 +6017,81 @@ Rules:
                     queued.length + running.length + engineReadsInFlight };
   }
 
+  // ---------- which car to scan next ----------
+  // Real user request: for the status report alone, the cars that would bring the
+  // most new cars into the graph at the highest cascade level. Walks the hops a
+  // requested scan takes (app.js's followSuccession): a nameplate and its
+  // generations are one stop, every platform, related and succession link is a
+  // hop, and a declined split is not read or passed through.
+  //
+  // Ranked by what each adds beyond the ones above it, because reach overlaps
+  // heavily: the second-biggest alone adds a tenth of its reach after the first.
+  // Only connections already known count, and reading an article usually finds
+  // more, so each figure is the least that car would bring.
+  function bestNextScans(nodes, links, opts) {
+    const depth = (opts && opts.depth) || 7, count = (opts && opts.count) || 5;
+    const byIdLocal = new Map(nodes.map(n => [n.id, n]));
+    const live = n => {
+      for (let i = 0; n && n.retired && n.supersededBy && i < 8; i++) n = byIdLocal.get(n.supersededBy);
+      return n && !n.retired ? n : null;
+    };
+    const stop = n => {
+      const car = live(n);
+      if (!car || (car.type !== "model" && car.type !== "family")) return null;
+      return (car.familyOf && live(byIdLocal.get(car.familyOf))) || car;
+    };
+    const stops = [...new Set(nodes.map(stop).filter(Boolean))];
+    const index = new Map(stops.map((c, i) => [c.id, i]));
+    const joined = stops.map(() => new Set());
+    links.forEach(l => {
+      if (l.retired || !["succession", "platform", "related"].includes(l.type)) return;
+      const a = stop(byIdLocal.get(idOf(l.source))), b = stop(byIdLocal.get(idOf(l.target)));
+      if (!a || !b || a === b) return;
+      joined[index.get(a.id)].add(index.get(b.id));
+      joined[index.get(b.id)].add(index.get(a.id));
+    });
+    const next = joined.map(set => [...set]);
+    const declined = stops.map(c => c.type !== "family" && (store.families[c.id] || {}).status === "rejected");
+    const unread = stops.map((c, i) => !declined[i] && !store.families[c.id] && !(c.type === "family" && store.recheck[c.id]));
+    const seenBy = new Int32Array(stops.length).fill(-1);
+    const reach = from => {
+      const found = [from];
+      seenBy[from] = from;
+      let head = 0;
+      for (let hop = 0; hop < depth && head < found.length; hop++) {
+        for (const end = found.length; head < end; head++) {
+          for (const to of next[found[head]]) {
+            if (seenBy[to] === from || declined[to]) continue;
+            seenBy[to] = from;
+            found.push(to);
+          }
+        }
+      }
+      return found;
+    };
+    const counted = new Uint8Array(stops.length);
+    const picks = [];
+    for (let k = 0; k < count; k++) {
+      let best = null;
+      stops.forEach((car, i) => {
+        if (declined[i]) return;
+        const found = reach(i);
+        let beyond = 0, alone = 0;
+        for (const j of found) if (unread[j]) { alone++; if (!counted[j]) beyond++; }
+        if (beyond && (!best || beyond > best.beyond || (beyond === best.beyond && found.length < best.found.length))) {
+          best = { i, beyond, alone, found };
+        }
+      });
+      if (!best) break;
+      best.found.forEach(j => { if (unread[j]) counted[j] = 1; });
+      const car = stops[best.i];
+      picks.push({ id: car.id, label: ((car.make ? car.make + " " : "") + car.label).trim(),
+                   newCars: best.beyond, alone: best.alone, reads: best.found.length });
+    }
+    return { depth, picks, unread: unread.filter(Boolean).length,
+             unconnected: unread.filter((u, i) => u && !next[i].length).length };
+  }
+
   // ---------- the work queue ----------
   // Real user request: "If I want to add further cars for the LLM to check
   // (in serve.py, or in the web version, or anywhere), make sure that the
@@ -18630,7 +18705,7 @@ Rules:
     relabelMisnamedEngines, engineArticleKey,
     // The section-reading half of the generation-article lookup, exposed so
     // the suite can drive it against real cached wikitext without a network.
-    wikitextSections, hatnoteArticle, proseArticle, sectionForCode, validate, sweepDroppedGenerations,
+    wikitextSections, hatnoteArticle, proseArticle, sectionForCode, validate, sweepDroppedGenerations, bestNextScans,
     isEngineArticle, engineInfobox, engineVariants, engineApplications,
     mentionName, yearsCover,
     parseApplicationLine, readEngineArticle,

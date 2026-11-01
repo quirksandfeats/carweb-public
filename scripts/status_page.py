@@ -301,6 +301,24 @@ def final_report(d):
 
 
 # ---------------------------------------------------------------- gathering
+def next_scans_path():
+    return os.path.join(REPO, "llama_logs", "next-scans.json")
+
+
+def save_next_scans(data):
+    """The page's own answer, kept between runs: this file has no graph to work
+    it out from, and the report is written while no page is open."""
+    if not configured_path() or not data:
+        return
+    data = dict(data, at=dt.datetime.now(dt.timezone.utc).isoformat())
+    path = next_scans_path()
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    tmp = path + ".tmp"
+    with open(tmp, "w") as f:
+        json.dump(data, f)
+    os.replace(tmp, path)
+
+
 def gather():
     now = dt.datetime.now(dt.timezone.utc)
     store_path = os.path.join(REPO, "app", "llm_families.json")
@@ -468,6 +486,8 @@ def gather():
         "ahead": int(ahead.group(1)) if ahead else 0, "last_commit": last_commit,
         "history": hist, "delta": delta, "eta_at": eta_at, "last_activity": last_activity,
         "power": power, "on_battery": on_battery, "finished": finished,
+        "next_scans": read_json(next_scans_path()) if os.path.exists(next_scans_path()) else None,
+        "queued_ids": {j.get("targetId") for j in qlist},
         "run": getattr(track_requests, "run", {}),
     }
 
@@ -767,6 +787,22 @@ def render(d):
         items = "".join(f"<li>{e(a)}<small>{e(b)}</small></li>" for a, b in d["errors"])
         out.append(f"<div class='card'><h2>Errors ({len(d['errors'])})</h2><ul class='plain'>{items}</ul></div>")
 
+    ns = d.get("next_scans")
+    if ns and ns.get("picks"):
+        rows = "".join(
+            f"<li><b>{e(p['label'])}</b> +{n(p['newCars'])} new cars"
+            + (" <em class='chip'>already queued</em>" if p["id"] in d["queued_ids"] else "")
+            + f"<small>{n(p['alone'])} new on its own · reads {n(p['reads'])} cars in all</small></li>"
+            for p in ns["picks"])
+        at = parse_time(ns.get("at"))
+        out.append(f"<div class='card'><h2>Best cars to scan next</h2>"
+                   f"<p class='muted'>At cascade level {ns['depth']}, which only the local queue panel offers. Each adds "
+                   "the count shown beyond the cars above it. Counts use connections known now, and reading the "
+                   "articles usually finds more.</p>"
+                   f"<ul class='plain'>{rows}</ul>"
+                   f"<p class='muted'>{n(ns['unread'])} cars are still unread. {n(ns['unconnected'])} of them have no "
+                   "connections, so only asking for them by name reads them."
+                   + (f" Worked out {clock(at, d['now'])}." if at else "") + "</p></div>")
     fin = d["finished"]
     if fin:
         rows = "".join(

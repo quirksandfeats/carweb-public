@@ -773,6 +773,7 @@ def _run_pass_in(browser, targets, budget_seconds, per_node_seconds,
         if resumed:
             log(f"resuming: {resumed} car(s) an earlier run queued and never got to")
 
+        note_next_scans(page)
         depth = page.evaluate("() => window.LlmFamilies.cascadeMaxDepth()")
         rows_before = entry_rows(page)
         entries_before = len(rows_before)
@@ -974,6 +975,16 @@ def _one_seed(page, nid, started, budget_seconds, per_node_seconds, settle_secon
 
 
 
+def note_next_scans(page):
+    """For the status report: which cars to queue next, from the graph as it is
+    now. Never worth stopping a run over."""
+    try:
+        status_page.save_next_scans(page.evaluate(
+            "() => window.LlmFamilies.bestNextScans(CarWeb.nodes, CarWeb.links)"))
+    except Exception as e:
+        log(f"could not work out the best next scans: {str(e)[:120]}")
+
+
 def _finish_pass(page, depth, entries_before, agent_before, done, errors, skipped):
         # The run is over with nothing left queued: a full scan that got to
         # every car is finished, and stops being one the next --resume picks up.
@@ -988,6 +999,7 @@ def _finish_pass(page, depth, entries_before, agent_before, done, errors, skippe
                 + ", ".join(label for _, label in page.set_aside))
             errors.extend(f"{cid}: crashed the page {CRASHES_PER_CAR} times, set aside for --resume"
                           for cid, _ in page.set_aside)
+        note_next_scans(page)
         rows_after = entry_rows(page)
         entries_after = len(rows_after)
         # The seeds are not the only cars this run can have SPLIT. A seed's

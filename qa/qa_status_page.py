@@ -38,5 +38,12 @@ check("...and counts the request the agent finished, though the queue never reco
       "Requests finished in this run: 1" in t, t[t.find("Final report"):][:240])
 check("...and keeps a dated copy", len(glob.glob(os.path.join(d, "CarWeb final report *.html"))) == 1)
 check("a second final write does nothing", sp.final() is None)
+sp.save_next_scans({"depth": 7, "unread": 40, "unconnected": 10, "picks": [
+    {"id": "qa-best", "label": "QA <Best> Car", "newCars": 30, "alone": 30, "reads": 90}]})
+sp.AGENT["final"] = False
+sp.write_page()
+t = text()
+check("the best next scans are listed, with their counts", "Best cars to scan next" in t and "+30 new cars" in t and "reads 90 cars" in t)
+check("...and a label is escaped", "QA &lt;Best&gt; Car" in t and "<Best>" not in t)
 print("\n%s" % ("ALL PASS" if not fails else "%d FAILED" % fails))
 sys.exit(1 if fails else 0)

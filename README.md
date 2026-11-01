@@ -86,8 +86,9 @@ page three times is set aside for a later `--resume`. See
 
 While it runs, the agent can keep a one-page status dashboard up to date
 (`scripts/status_page.py`): written when it starts, every 15 minutes, and as a
-final report when it stops. Say where in `scripts/agent_settings.local.json`,
-which git ignores:
+final report when it stops. It also lists the five cars that would add the most
+new cars at cascade level 7, worked out when a run starts and when it ends. Say
+where in `scripts/agent_settings.local.json`, which git ignores:
 
 ```json
 {"statusPage": "/path/to/a/synced/folder/CarWeb scan status.html"}
