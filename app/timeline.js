@@ -376,6 +376,7 @@ window.CarWebTimeline = (function () {
     },
     goto(n) {
       if (!built) build();
+      if (n.type !== "make") highlightMake = null;
       if (n.type === "person") {
         setFollow("person", n.label);
         fillPicker();   // selects them, adding an entry if they are not one of the listed 400
@@ -384,7 +385,7 @@ window.CarWebTimeline = (function () {
       if (n.type === "make") {
         highlightMake = n.label; clearFollow();
         document.getElementById("tl-designer").value = "";
-        api._applyDim();
+        api._applyDim(); drawCareer();
         document.getElementById("tl-caption").textContent = `${n.label} models highlighted`;
         return;
       }

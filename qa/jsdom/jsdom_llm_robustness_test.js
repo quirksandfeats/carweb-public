@@ -134,8 +134,8 @@ function freshWindow(opts) {
       LF.codeVerifiedIn(hay, "ZN6/XX9") === "ZN6", LF.codeVerifiedIn && LF.codeVerifiedIn(hay, "ZN6/XX9"));
     check("...and a composite with NO real half is still rejected outright",
       LF.codeAnchorIn(hay, "XX9/YY8") < 0);
-    check("a non-generic parenthetical that isn't in the text is still rejected",
-      LF.codeAnchorIn(hay, "ZN6 (Track Edition)") < 0);
+    check("a remark that isn't in the text is left off, and the real code stays",
+      LF.codeAnchorIn(hay, "ZN6 (Track Edition)") >= 0 && LF.codeVerifiedIn(hay, "ZN6 (Track Edition)") === "ZN6");
     check("a non-generic parenthetical that IS in the text is accepted",
       LF.codeAnchorIn(hay, "ZN6 (Scion FR-S)") >= 0);
   }

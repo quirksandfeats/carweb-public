@@ -15,6 +15,7 @@ window.CarWeb = (function () {
   // ---------- data ----------
   const DATA = window.CARDATA;
   const nodes = DATA.nodes, links = DATA.links;
+  flipImpossibleSuccession();
   // Real bug report: a car added by hand via the "Add Car" panel would
   // vanish on the very next page load -- clicking its make or searching for
   // it found nothing, because nothing about it was ever recorded anywhere
@@ -311,6 +312,8 @@ window.CarWeb = (function () {
   // purge. Running it before them left 128 derived succession links pointing
   // at generations that had since been retired, and the coarse nameplate
   // lines they had stepped aside for still deferring to them.
+  // Before the succession pass, which pairs generations by how their years meet.
+  backfillGenerationEnds(new Map(nodes.map(n => [n.id, n])));
   if (window.LlmFamilies) window.LlmFamilies.pushSuccessionToGenerations(nodes, links);
   // After every pass that can add a relation: one between a car and itself
   // is never drawn. See llm_families.js's retireSelfLinks.
@@ -341,10 +344,30 @@ window.CarWeb = (function () {
   // at boot. Also directly helps checkRelation's own year-overlap reasoning
   // (see llm_families.js's fmtGenList) — a bounded end year is a much
   // stronger year-adjacency signal than an open-ended one.
-  function backfillGenerationEnds() {
+  // The harvest keeps whichever direction of a succession it read first, and an
+  // article's predecessor field can list the same car as its successor. A car
+  // that had ended before the other began cannot have followed it.
+  function flipImpossibleSuccession() {
+    const at = new Map(nodes.map(n => [n.id, n]));
+    const id = v => (typeof v === "string" ? v : v && v.id);
+    const have = new Set(links.filter(l => l.type === "succession").map(l => id(l.source) + "|" + id(l.target)));
+    links.forEach(l => {
+      if (l.type !== "succession" || l.retired) return;
+      const from = at.get(id(l.source)), to = at.get(id(l.target));
+      if (!from || !to || from.year == null || to.year == null || to.end == null) return;
+      if (to.year >= from.year || to.end > from.year) return;
+      if (have.has(id(l.target) + "|" + id(l.source))) return;
+      have.delete(id(l.source) + "|" + id(l.target));
+      have.add(id(l.target) + "|" + id(l.source));
+      const was = l.source; l.source = l.target; l.target = was;
+    });
+  }
+  function backfillGenerationEnds(index) {
+    const at = index || byId;
+    const thisYear = new Date().getFullYear();
     nodes.forEach(fam => {
       if (fam.type !== "family" || !fam.generations || fam.generations.length < 2) return;
-      const gens = fam.generations.map(id => byId.get(id)).filter(g => g && !g.retired && g.year != null);
+      const gens = fam.generations.map(id => at.get(id)).filter(g => g && !g.retired && g.year != null);
       gens.sort((a, b) => a.year - b.year);
       for (let i = 0; i < gens.length - 1; i++) {
         const g = gens[i], next = gens[i + 1];
@@ -358,7 +381,12 @@ window.CarWeb = (function () {
         // bounded by the next generation's start. A genuinely one-year
         // generation followed immediately by its successor is left alone.
         const degenerate = g.end != null && g.end === g.year && next.year > g.year + 1;
-        if (g.end == null || degenerate) g.end = next.year;
+        // Null also means still built. A next generation that has not started
+        // ends nothing, and neither a label nor a heading saying "present" can
+        // be overruled by a sibling's start (the Land Cruiser J70).
+        const stillBuilt = next.year > thisYear || /present/i.test(g.label || "") ||
+          (window.LlmFamilies && window.LlmFamilies.generationStatedOpen && window.LlmFamilies.generationStatedOpen(fam, g));
+        if ((g.end == null && !stillBuilt) || degenerate) g.end = next.year;
       }
       // ...and then the family's OWN end year, which build_family_layer.py
       // could only leave null: it closes a family solely when every member
@@ -375,7 +403,6 @@ window.CarWeb = (function () {
       }
     });
   }
-  backfillGenerationEnds();
   // ---------- data cleanup: a family's own wp, from the right sibling generation ----------
   // dbSourceFor() (below) already falls back to a documented generation for
   // photo/specs display -- build_family_layer.py never gives a FAMILY node
@@ -1058,7 +1085,7 @@ window.CarWeb = (function () {
     if (!expandedFamilies.has(famId)) return null;
     const fam = byId.get(famId);
     if (!fam || !Number.isFinite(fam.x) || !Number.isFinite(fam.y)) return null;
-    const gens = childIdsOf(fam).filter(id => byId.has(id));
+    const gens = childIdsOf(fam).filter(id => byId.has(id) && !byId.get(id).retired);
     if (!gens.length) return null;
     const r = ringRadius(gens.length);
     return { fam, gens: new Set(gens), x: fam.x, y: fam.y, r, clear: r + RING_CLEARANCE };
@@ -1147,7 +1174,7 @@ window.CarWeb = (function () {
   }
 
   function layoutGenerationsRadial(fam) {
-    const gens = childIdsOf(fam).map(id => byId.get(id)).filter(Boolean);
+    const gens = childIdsOf(fam).map(id => byId.get(id)).filter(g => g && !g.retired);
     if (!gens.length) return;
     fam.fx = fam.x; fam.fy = fam.y;
     if (gens.length === 1) {
@@ -1376,6 +1403,32 @@ window.CarWeb = (function () {
       .catch(() => null);
   }
 
+  // A make or a person's title is only their name, and a name can be anything:
+  // "Jaguar" is the cat, "Kevin Hunter" a redirect to someone else. Their article
+  // has to say what they are, and a few usual titles are tried before showing none.
+  const ARTICLE_MUST_SAY = {
+    make: /\b(?:cars?|automobiles?|automotive|automakers?|motor|motors|vehicles?|trucks?|coachbuild\w*|marque|racing)\b/i,
+    person: /\b(?:designers?|engineers?|automo\w+|cars?|racing|motor\w*|stylists?|coachbuild\w*|executives?|industrialists?)\b/i,
+  };
+  const ARTICLE_TITLES = {
+    make: t => [`${t} (automobile)`, `${t} Cars`, `${t} Motor Company`, `${t} Motors`, `${t} Automobiles`, `${t} Corporation`],
+    person: t => [`${t} (designer)`, `${t} (car designer)`, `${t} (automobile designer)`, `${t} (engineer)`],
+  };
+  const wikiForCache = new Map();
+  function wikiFor(n) {
+    const mustSay = ARTICLE_MUST_SAY[n.type];
+    if (!mustSay) return wiki(n.wp);
+    if (wikiForCache.has(n.id)) return wikiForCache.get(n.id);
+    const p = (async () => {
+      for (const title of [n.wp].concat(ARTICLE_TITLES[n.type](n.label))) {
+        const w = await wiki(title);
+        if (w && mustSay.test(w.about || "")) return w;
+      }
+      return null;
+    })();
+    wikiForCache.set(n.id, p);
+    return p;
+  }
   function wiki(title) {
     if (wikiCache.has(title)) return wikiCache.get(title);
     const ctrl = new AbortController();
@@ -1387,12 +1440,14 @@ window.CarWeb = (function () {
       .then(async j => {
         clearTimeout(t);
         if (!j) { wikiCache.delete(title); return null; }  // transient — retry on next hover
+        if (j.type === "disambiguation") return { thumb: null, extract: "", url: null, about: "" };
         let thumb = j.thumbnail ? j.thumbnail.source : null;
         if (!thumb) thumb = await apiThumb(title);
         return {
           thumb,
           extract: j.extract || "",
           url: j.content_urls ? j.content_urls.desktop.page : null,
+          about: ((j.description || "") + " " + (j.extract || "")).slice(0, 400),
         };
       })
       .catch(() => { wikiCache.delete(title); return null; });  // timeout/offline — retry later
@@ -1439,7 +1494,7 @@ window.CarWeb = (function () {
       return ["engine"].concat(bits).join(" · ");
     }
     if (n.type === "enginevar") return "engine variant";
-    if (n.type === "family") return (n.garage ? "my garage · " : "") + "nameplate · " + n.generations.length + " generations";
+    if (n.type === "family") return (n.garage ? "my garage · " : "") + "nameplate · " + n.generations.filter(id => { const g = byId.get(id); return g && !g.retired; }).length + " generations";
     if (n.type === "model") return (n.garage ? "my garage · " : n.heritage ? "heritage · " : "") + (n.year != null ? n.year : "years unknown");
     if (n.type === "make") return "marque" + (n.country ? " · " + n.country : "");
     return personRoleWord(n) + (n.born ? ` · ${n.born}–${n.died || ""}` : "");
@@ -1593,7 +1648,7 @@ window.CarWeb = (function () {
     if (dbPhoto) { hcImg.style.backgroundImage = `url("${dbPhoto}")`; hc.classList.add("hasimg"); }
     else if (genPhoto) { hcImg.style.backgroundImage = `url("${genPhoto}")`; hc.classList.add("hasimg"); }
     else if (n.wp) {
-      wiki(n.wp).then(w => {
+      wikiFor(n).then(w => {
         // `n` may no longer be the hovered node by the time this resolves
         // (the user moved on, possibly to a node with no image at all) --
         // never apply a photo fetched for a node we've since moved away
@@ -1662,7 +1717,7 @@ window.CarWeb = (function () {
       if (sid !== node.id && tid !== node.id) continue;
       const s = byIdLocal.get(sid) || l.sn;
       const t = byIdLocal.get(tid) || l.tn;
-      if (!s || !t) continue;
+      if (!s || !t || s.retired || t.retired) continue;
       if (s === node) out.push({ other: t, l });
       else if (t === node) out.push({ other: s, l });
     }
@@ -1819,7 +1874,12 @@ window.CarWeb = (function () {
     // A nameplate with generations shows no engines of its own: every engine
     // is on the generation that ran it. Real case, the Nissan Silvia, whose
     // card listed all seven generations' engines at once.
-    if (n.type === "family" && (n.generations || []).some(id => byId.has(id))) return;
+    // Unless no generation has any, and then the nameplate's are all there is
+    // (the Nissan Versa, the Ford Contour).
+    if (n.type === "family" && (n.generations || []).some(id => {
+      const g = byId.get(id);
+      return g && !g.retired && powertrainEdgesFor(g, index).some(e => isPowertrain(e.other));
+    })) return;
     let engines = powertrainEdgesFor(n, index).filter(e => isPowertrain(e.other));
     // Real user report on the SL R232's card: "notice that the engine and the
     // enginevar is specified in the list of engines... if the engine var is
@@ -2046,21 +2106,22 @@ window.CarWeb = (function () {
     const genPhoto = genPhotoUrl(n);
     if (dbPhoto) { img.style.backgroundImage = `url("${dbPhoto}")`; img.classList.add("show"); }
     else if (genPhoto) { img.style.backgroundImage = `url("${genPhoto}")`; img.classList.add("show"); }
-    if (n.wp) wiki(n.wp).then(w => {
+    if (n.wp) wikiFor(n).then(w => {
       // Still this car's card, not just still a card -- same guard as the
       // hover card's. A slow reply for the car before this one otherwise
       // lands on top of the photo and extract already drawn here.
       if (dt.hidden || dtNode !== n) return;
       if (w && w.thumb && !dbPhoto && !genPhoto) { img.style.backgroundImage = `url("${w.thumb}")`; img.classList.add("show"); }
-      if (w && w.extract) ex.innerHTML = w.extract.split(". ").slice(0, 2).join(". ") +
-        (w.url ? `. <a href="${w.url}" target="_blank" rel="noopener">Wikipedia ↗</a>` : "");
+      // Plain text from a page anyone can edit: never markup.
+      if (w && w.extract) ex.innerHTML = esc(w.extract.split(". ").slice(0, 2).join(". ")) +
+        (w.url ? `. <a href="${esc(w.url)}" target="_blank" rel="noopener">Wikipedia ↗</a>` : "");
     });
     renderPowertrain(n);
     const genWrap = dt.querySelector(".dt-generations");
     genWrap.innerHTML = "";
     if (n.type === "family" && n.generations && n.generations.length) {
       const h = document.createElement("h4"); h.textContent = "Generations"; genWrap.appendChild(h);
-      n.generations.map(id => byId.get(id)).filter(Boolean).forEach(g => {
+      n.generations.map(id => byId.get(id)).filter(g => g && !g.retired).forEach(g => {
         const b = document.createElement("button");
         b.className = "dt-conn dt-gen";
         const run = carYears(g);
@@ -2413,7 +2474,7 @@ window.CarWeb = (function () {
   // request" -- so asking for a car from any of them asks for the same work.
   function llmJobSpecFor(n) {
     const LF = window.LlmFamilies;
-    if (!n || n.retired || n.type === "make") return null;
+    if (!n || n.retired || !["model", "family", "engine"].includes(n.type)) return null;
     const label = (n.make ? n.make + " " : "") + n.label;
     if (n.type === "engine") {
       return { kind: "engine-read", targetId: n.id, label,
@@ -2801,7 +2862,7 @@ window.CarWeb = (function () {
   // (open the detail panel with 🤖 LLM Check on), but only ever surfaces
   // something when it actually finds a discrepancy — silent otherwise.
   function currentGenNodes(fam) {
-    return (fam.generations || []).map(id => byId.get(id)).filter(Boolean);
+    return (fam.generations || []).map(id => byId.get(id)).filter(g => g && !g.retired);
   }
   function looseEq(a, b) { return String(a || "").trim().toLowerCase() === String(b || "").trim().toLowerCase(); }
   // Build-time family nodes don't carry their own `wp` (only their
@@ -3424,6 +3485,8 @@ window.CarWeb = (function () {
     try { r = LFam.applyEngineMentions(nodes, links); }
     catch (e) { console.warn("CarWeb: could not record engine mentions", e); return; }
     if (!r || (!r.engines && !r.fitted)) return;
+    // The same tidy as a load, or lines it moved come back until a reload.
+    if (LFam.tidyEngineLinks) LFam.tidyEngineLinks(nodes, links);
     spliceIntoIndexes(nodesBefore, linksBefore);
     powertrainChanged();
     console.info(`[carweb] powertrain: noted ${r.engines} engine(s) and ${r.fitted} connection(s) ` +
@@ -3580,7 +3643,7 @@ window.CarWeb = (function () {
       // asking the LLM to guess from a bare list of codes -- see its own
       // gatherRelationEvidence comment for the real bug report this fixes.
       id: fam.id, make: fam.make, label: fam.label, wp: fam.wp || null,
-      generations: (fam.generations || []).map(id => byId.get(id)).filter(Boolean)
+      generations: (fam.generations || []).map(id => byId.get(id)).filter(g => g && !g.retired)
         .map(g => ({ id: g.id, code: g.label, year: g.year, end: g.end })),
     };
   }
@@ -3623,6 +3686,13 @@ window.CarWeb = (function () {
       o = next;
     }
     return o && !o.retired ? o : null;
+  }
+  // A nameplate-level key has no direction, so the entry's famA can be the other
+  // car. Its codes are read from the side of the car on screen.
+  function orientedEntry(entry, n) {
+    if (!entry || entry.famB !== n.id || entry.famA === n.id) return entry;
+    return Object.assign({}, entry, { famA: entry.famB, famB: entry.famA, codeA: entry.codeB, codeB: entry.codeA,
+                                      genIdA: entry.genIdB, genIdB: entry.genIdA });
   }
   function unresolvedFamilyRelations(n) {
     // Real user request: "even if the selected car does not find multiple
@@ -3685,7 +3755,7 @@ window.CarWeb = (function () {
       const key = relationKey(n.id, o.id, l.type);
       if (seen.has(key)) return;
       seen.add(key);
-      const existing = window.LlmFamilies.relationEntryFor(key);
+      const existing = orientedEntry(window.LlmFamilies.relationEntryFor(key), n);
       if (existing && existing.status === "confirmed") return; // already resolved and wired into the graph
       out.push({ key, famA: n, famB: o, relType: l.type, note: l.note, existing });
     });
@@ -3751,7 +3821,7 @@ window.CarWeb = (function () {
       const key = relationKey(n.id, o.id, l.type);
       if (seen.has(key)) return;
       seen.add(key);
-      const existing = window.LlmFamilies.relationEntryFor(key);
+      const existing = orientedEntry(window.LlmFamilies.relationEntryFor(key), n);
       if (existing && existing.status === "confirmed") out.push({ key, famA: n, famB: o, relType: l.type, entry: existing });
     });
     return out;
@@ -3870,7 +3940,7 @@ window.CarWeb = (function () {
           // re-run against the new generation list. keepCoarse, because this
           // isn't a rejection of the connection -- it's a re-ask.
           if (c.existing) {
-            window.LlmFamilies.rejectRelation(c.key, { keepCoarse: true });
+            window.LlmFamilies.rejectRelation(c.key, { reask: true });
             c.existing = null;
           }
           box.innerHTML = "";
@@ -4148,7 +4218,7 @@ window.CarWeb = (function () {
       // not a rejection of the connection itself -- blacklisting the coarse
       // nameplate-level key here would delete the very link the retry exists
       // to resolve. See rejectRelation's own comment.
-      window.LlmFamilies.rejectRelation(c.key, { keepCoarse: true });
+      window.LlmFamilies.rejectRelation(c.key, { reask: true });
       const note = c.note ? `${c.note} ${reason}` : reason;
       freshenGenerationsBeforeMatch(box, c)
         .then(() => window.LlmFamilies.checkRelation(c.key, relationGenInfo(c.famA), relationGenInfo(c.famB), c.relType, note, { nodes, links }))
@@ -4885,7 +4955,9 @@ window.CarWeb = (function () {
             // but a coarse llmDiscovered link that predates the resolution
             // isn't either of those -- sever that too, or accepting a
             // "remove" re-work visibly changes nothing.
-            if (LF.severRelationEntryLinks) { LF.severRelationEntryLinks(e, links); refreshAfterLinkChange(); }
+            const stillTied = LF.allRelationEntries().some(o => o.status === "confirmed" && o.id !== e.id && o.relType === e.relType &&
+              ((o.famA === e.famA && o.famB === e.famB) || (o.famA === e.famB && o.famB === e.famA)));
+            if (LF.severRelationEntryLinks && !stillTied) { LF.severRelationEntryLinks(e, links); refreshAfterLinkChange(); }
             refresh();
           };
           row.querySelector(".ucr-no").onclick = () => {
@@ -6419,7 +6491,8 @@ window.CarWeb = (function () {
 
     async function stampOf() {
       try {
-        const r = await fetch("data.js", { method: "HEAD", cache: "no-store" });
+        // What a scan changes: data.js only changes with a rebuild.
+        const r = await fetch("llm_families_data.js", { method: "HEAD", cache: "no-store" });
         return r.headers.get("etag") || r.headers.get("last-modified") || null;
       } catch (e) { return null; }
     }
@@ -6727,9 +6800,8 @@ window.CarWeb = (function () {
     // back to the text box.
     onDetailOpen(n => { if (!panel.hidden && scannable(n)) setChosen(n); });
 
-    // One check at boot so the dot can show something is queued without the
-    // panel ever being opened.
-    refresh();
+    // No check at boot: each one is a queue list against 1,000 a day, the agent
+    // already uses 950, and the panel asks for itself when it opens.
   }
 
 
@@ -6902,6 +6974,7 @@ window.CarWeb = (function () {
       const spec = chosen ? llmJobSpecFor(chosen) : null;
       if (!spec) { say("Pick a car, nameplate or engine first.", "err"); carEl.focus(); return; }
       spec.depth = Number((document.getElementById("llmqueue-depth") || {}).value) || 1;
+      spec.detail = Object.assign({}, spec.detail || {}, { full: true });
       const res = LF.enqueueJob(spec);
       if (res && res.error === "queue-full") {
         say(`The queue is full (${res.limit} waiting). Let some of it run first.`, "err");
@@ -7254,10 +7327,12 @@ window.CarWeb = (function () {
   const YEAR_RANGE_KEY = "cw-year-range";
   let yearLo = DATA_MIN_YEAR, yearHi = DATA_MAX_YEAR;
   try {
-    const saved = (localStorage.getItem(YEAR_RANGE_KEY) || "").split(",").map(Number);
-    if (saved.length === 2 && saved.every(Number.isFinite) && saved[0] <= saved[1]) {
-      yearLo = Math.max(DATA_MIN_YEAR, Math.min(saved[0], DATA_MAX_YEAR));
-      yearHi = Math.min(DATA_MAX_YEAR, Math.max(saved[1], yearLo));
+    // An empty end means "up to whatever the data reaches".
+    const saved = (localStorage.getItem(YEAR_RANGE_KEY) || "").split(",");
+    const lo = saved[0] === "" ? DATA_MIN_YEAR : Number(saved[0]), hi = saved[1] === "" ? DATA_MAX_YEAR : Number(saved[1]);
+    if (saved.length === 2 && Number.isFinite(lo) && Number.isFinite(hi) && lo <= hi) {
+      yearLo = Math.max(DATA_MIN_YEAR, Math.min(lo, DATA_MAX_YEAR));
+      yearHi = Math.min(DATA_MAX_YEAR, Math.max(hi, yearLo));
     }
   } catch (e) { /* private mode -- the full range is the right default anyway */ }
   let yearFilterSet = null; // Set of currently-in-range node ids; recomputed on slider change
@@ -7326,7 +7401,7 @@ window.CarWeb = (function () {
     if (lo === yearLo && hi === yearHi) return;
     yearLo = lo; yearHi = hi;
     // Remembered so a deliberate range survives a reload -- see YEAR_RANGE_KEY.
-    try { localStorage.setItem(YEAR_RANGE_KEY, yearLo + "," + yearHi); } catch (e) {}
+    try { localStorage.setItem(YEAR_RANGE_KEY, (yearLo === DATA_MIN_YEAR ? "" : yearLo) + "," + (yearHi === DATA_MAX_YEAR ? "" : yearHi)); } catch (e) {}
     refreshYearFilter();
   }
   // Explicit navigation (search, a connection link, Six Degrees) shouldn't

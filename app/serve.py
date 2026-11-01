@@ -84,6 +84,7 @@ Requires: `llama-server` (part of llama.cpp -- see README.md for install
           needed). See LLAMA_MODEL/LLAMA_MODEL_ALIAS below for the ONE place
           to change which model this uses.
 """
+import hashlib
 import atexit
 import http.server
 import json
@@ -811,9 +812,13 @@ def mirror_parts(data):
 def write_mirror(data):
     parts = mirror_parts(data)
     names = [MIRROR_PART_NAME.format(i) for i in range(2, len(parts) + 1)]
+    # A change in any part changes the first file, which is what an open page
+    # watches for a new version (app.js's initAutoRefresh).
+    version = hashlib.sha1("".join(parts).encode("utf-8")).hexdigest()
     files = [(LLM_FAMILIES_DATA_JS_PATH,
               "window.LLM_FAMILIES_STATIC = " + parts[0] + ";\n" +
-              ("window.LLM_FAMILIES_PARTS = " + json.dumps(names) + ";\n" if names else ""))]
+              ("window.LLM_FAMILIES_PARTS = " + json.dumps(names) + ";\n" if names else "") +
+              "window.LLM_FAMILIES_VERSION = " + json.dumps(version) + ";\n")]
     for name, text in zip(names, parts[1:]):
         files.append((os.path.join(DIR, name),
                       "(function (S, P) {\n"

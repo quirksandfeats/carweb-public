@@ -704,6 +704,16 @@ window.LlmFamilies = (function () {
   // is news, and it is saved, so it is said once.
   let replaying = false, replayLines = 0;
   function replayStarted() { replaying = true; replayLines = 0; }
+  // An entry written after a pair's rejection has answered it again. Left by the
+  // re-ask that used to reject the nameplate-level key while keeping the link.
+  function releaseAnsweredRejections() {
+    let n = 0;
+    Object.keys(store.relations || {}).forEach(key => {
+      const e = store.relations[key];
+      if (store.rejectedRelations[key] && e && e.status === "confirmed") { delete store.rejectedRelations[key]; n++; }
+    });
+    if (n) persist();
+  }
   function replayFinished(nodes) {
     if (!replaying) return;
     replaying = false;
@@ -715,9 +725,10 @@ window.LlmFamilies = (function () {
     // once every list has been through it.
     setTimeout(() => {
       releaseCrossGroupRejections(nodes);
+      releaseAnsweredRejections();
       settleDecidedRechecks(nodes);
       settleRetiredGenerationFlags(nodes);
-      sweepStoredSplitsForOutsiders().then(() => sweepRecheckSections(nodes))
+      sweepDroppedGenerations(nodes).then(() => sweepStoredSplitsForOutsiders()).then(() => sweepRecheckSections(nodes))
         .then(() => { settleRetiredGenerationFlags(nodes); return sweepFlaggedMentions(nodes); })
         .then(() => sweepWeakRelations(nodes))
         .then(() => sweepArticleLinks(nodes))
@@ -2251,9 +2262,13 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
     const m = raw.match(/^(.*?)\s*\(([^()]*)\)\s*$/);
     const core = (m ? m[1] : raw).trim(), paren = m ? m[2].trim() : "";
     if (!core) return -1;
-    // A non-generic parenthetical is a factual claim of its own and still
-    // has to be real -- only a plain ordinal/facelift descriptor gets a pass.
-    if (paren && !GENERIC_CODE_PAREN_RE.test(paren) && !hay.includes(paren.toLowerCase())) return -1;
+    // A parenthetical the article does not state is left off by codeVerifiedIn.
+    // It does not take down a generation whose own code is in the article: "B7
+    // (Typ 3C facelift)" is the B7. With no code to stand on, it still decides.
+    // A bare name with a remark is different: "Fiat Topolino (Sport Edition)"
+    // names no generation once the remark comes off.
+    const coreIsCode = /\d/.test(core) || /^[A-Z]{2,}$/.test(core) || GENERIC_CODE_PAREN_RE.test(core);
+    if (paren && !GENERIC_CODE_PAREN_RE.test(paren) && !hay.includes(paren.toLowerCase()) && !coreIsCode) return -1;
     const coreIdx = codeIndexIn(hay, core);
     if (coreIdx >= 0) return coreIdx;
     // "ZN6/ZC6", "Astra F / T91" -- a composite of several names.
@@ -2296,7 +2311,10 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
     if (hay.indexOf(raw.toLowerCase()) >= 0) return raw;
     const m = raw.match(/^(.*?)\s*\(([^()]*)\)\s*$/);
     const core = m ? m[1].trim() : raw;
-    if (hay.indexOf(core.toLowerCase()) >= 0) return m ? raw : core;
+    if (hay.indexOf(core.toLowerCase()) >= 0) {
+      const paren = m ? m[2].trim() : "";
+      return !paren || GENERIC_CODE_PAREN_RE.test(paren) || hay.includes(paren.toLowerCase()) ? raw : core;
+    }
     const parts = splitCompositeCode(core);
     const kept = parts.filter(p => hay.indexOf(p.toLowerCase()) >= 0);
     return kept.length ? kept.join(" / ") : raw;
@@ -2354,8 +2372,13 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
     if (new RegExp("(?<![0-9])" + s + "(?![0-9])").test(hay)) return y;
     return new RegExp("[–—-]\\s*" + s.slice(2) + "(?![0-9])").test(hay) ? y : null;
   }
+  // "Type&nbsp;16" and "Type 16" are the same words. Nothing in the guard below
+  // should turn on how an editor wrote a space.
+  function articleHay(wikitext) {
+    return String(wikitext || "").replace(/&nbsp;|&#160;|\{\{\s*nbsp\s*\}\}|\u00a0/gi, " ").toLowerCase();
+  }
   function validate(raw, wikitext) {
-    const hay = wikitext.toLowerCase();
+    const hay = articleHay(wikitext);
     // Shared across every generation in this proposal so no two of them can
     // end up with the same photo -- see findGenerationImage's own comment for
     // the "most of the time it uses the same picture for each generation"
@@ -2696,6 +2719,92 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
   // the next load, or now, through the page's own pending-cross-check pass
   // (the "llm:recheck-sections" event).
   let sectionsSweep = null;
+  // The guard used to throw out a whole generation over how its article wrote a
+  // space ("Type&nbsp;16"), and over any remark in brackets it could not find,
+  // which cost the Passat and the Jetta nearly all of theirs. What the model said
+  // is on file, so the answers are read again with no model. Generations already
+  // on file stay exactly as they are: their ids hold relationships.
+  const DROPPED_SWEEP_V = 1;
+  let droppedSweep = null;
+  const bareCode = code => norm(String(code || "").replace(/\s*\([^()]*\)\s*$/, ""));
+  function recoveredGenerations(entry, clean) {
+    const had = (entry.proposal && entry.proposal.generations) || [];
+    const byCode = new Map(had.map(g => [bareCode(g.code), g]));
+    const known = new Set();
+    const merged = clean.generations.map(g => {
+      const old = byCode.get(bareCode(g.code));
+      if (old) known.add(old);
+      return old || g;
+    });
+    return merged.length > known.size ? merged.concat(had.filter(g => !known.has(g))) : null;
+  }
+  function sweepDroppedGenerations(nodes) {
+    if (!serverAvailable || !nodes) return Promise.resolve({ read: 0, recovered: 0, failed: 0 });
+    if (droppedSweep) return droppedSweep;
+    droppedSweep = (async () => {
+      const out = { read: 0, recovered: 0, failed: 0 };
+      const byIdLocal = new Map(nodes.map(n => [n.id, n]));
+      const cutShort = e => {
+        const said = e && e.debug && e.debug.raw && e.debug.raw.generations;
+        return Array.isArray(said) && e.droppedSweepV !== DROPPED_SWEEP_V &&
+               said.length > ((e.proposal && e.proposal.generations) || []).length;
+      };
+      const todo = [];
+      for (const [bucket, all] of [["recheck", store.recheck || {}], ["families", store.families || {}]]) {
+        Object.keys(all).forEach(id => { if (cutShort(all[id])) todo.push({ bucket, id }); });
+      }
+      if (!todo.length) return out;
+      note(`generations: reading ${todo.length} stored answer(s) again that may have lost generations`);
+      let next = 0;
+      const worker = async () => {
+        while (next < todo.length) {
+          const { bucket, id } = todo[next++];
+          const e = store[bucket][id], car = byIdLocal.get(id);
+          const title = e.sourceTitle || (car && car.wp);
+          if (!title || !car) { e.droppedSweepV = DROPPED_SWEEP_V; continue; }
+          let wikitext = null;
+          try { wikitext = (await fetchArticleDigest(title)).wikitext; }
+          catch (err) { out.failed++; continue; }
+          out.read++;
+          e.droppedSweepV = DROPPED_SWEEP_V;
+          const clean = wikitext ? validate(e.debug.raw, wikitext) : null;
+          const generations = clean && clean.generations.length > 1 ? recoveredGenerations(e, clean) : null;
+          if (generations) {
+            out.recovered++;
+            markFutureGenerations(generations, wikitext);
+            const proposal = Object.assign({}, e.proposal, { hasMultipleGenerations: true, generations });
+            note(`generations: ${car.make || ""} ${car.label} -- recovered ${generations.length - ((e.proposal && e.proposal.generations) || []).length} generation(s) from what the model said`);
+            if (bucket === "recheck") reopenRecheck(id, car, e, proposal, wikitext, byIdLocal, nodes);
+            else reopenSplit(car, e, proposal);
+          }
+          await new Promise(r => setTimeout(r, 120));
+        }
+      };
+      await Promise.all([worker(), worker(), worker()]);
+      await persist();
+      if (out.recovered) note(`generations: ${out.recovered} stored answer(s) recovered generations; a reload draws them`);
+      try { document.dispatchEvent(new CustomEvent("llm:recheck-sections")); } catch (err) { /* no page */ }
+      return out;
+    })();
+    return droppedSweep;
+  }
+  function reopenRecheck(id, fam, e, proposal, wikitext, byIdLocal, nodes) {
+    const gens = (fam.generations || []).map(g => byIdLocal.get(g)).filter(g => g && !g.retired);
+    const discrepancy = fam.type === "family" ? compareGenerations(fam, gens, proposal.generations) : null;
+    const entry = Object.assign({}, e, { proposal, discrepancy, sections: headingsOf(wikitext),
+                                         status: discrepancy ? "provisional" : "none" });
+    delete entry.outsidersV; delete entry.kept; delete entry.appliedAt;
+    if (e.status === "applied" && !discrepancy) { e.proposal = proposal; return; }
+    writeRecheck(id, entry);
+    settleIfUnchanged(fam, gens, entry, nodes);
+  }
+  function reopenSplit(car, e, proposal) {
+    e.proposal = proposal;
+    delete e.outsidersV;
+    // A car the old guard left with one generation has hidden ones after all,
+    // and making a nameplate for the first time needs nobody's approval.
+    if (e.status === "none") { e.status = "provisional"; autoApplyFirstSplit(car, e); }
+  }
   function sweepRecheckSections(nodes) {
     if (!serverAvailable || !nodes) return Promise.resolve({ read: 0, settled: 0, failed: 0 });
     if (sectionsSweep) return sectionsSweep;
@@ -4444,7 +4553,10 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
         skip.push({ code: g.code, why: "no generation-level section of its own in the article" });
         return;
       }
-      if (used.has(k)) { skip.push({ code: g.code, why: "its section is already a generation here" }); return; }
+      // A heading that joins two ("B6 (Typ 3C; 2005) and B7 (2010)") is a section
+      // for both, so one being on file does not account for the other.
+      const joined = gens[k].codes.length > 1 && /\band\b/i.test(gens[k].text);
+      if (used.has(k) && !joined) { skip.push({ code: g.code, why: "its section is already a generation here" }); return; }
       const sc = headingScore(gens[k], own(g.code), g.yearStart, g.yearEnd, shared);
       if (!claims.has(k)) claims.set(k, []);
       claims.get(k).push({ g, sc });
@@ -9369,6 +9481,9 @@ Rules:
   async function rejectRelation(key, opts) {
     const e = store.relations && store.relations[key];
     if (store.relations) delete store.relations[key];
+    // Asked again, not turned down: this key is the nameplate-level one, and
+    // rejecting it took the link away at the next load.
+    if (opts && opts.reask) { await persist(); return; }
     store.rejectedRelations[key] = true;
     if (opts && opts.keepCoarse) { await persist(); return; }
     // Real bug report (Ford Focus <-> VW Jetta): deleting a relation removed
@@ -17935,6 +18050,15 @@ Rules:
     const m = /(\d{4})\s*[-–—]\s*(present|current|\d{4})?\s*\)/i.exec(heads[0]);
     return m ? { start: +m[1], end: m[2] && /\d/.test(m[2]) ? +m[2] : null } : null;
   }
+  // A generation whose article heading says it is still built ("(1984–present)").
+  function generationStatedOpen(fam, g) {
+    const e = store.recheck && store.recheck[fam.id];
+    const fresh = e && insideGenerations(e);
+    if (!fresh || !e.sections) return false;
+    const f = fresh.find(x => labelEndsInCode(g.label, x.code));
+    const run = f && headingRunFor(e, f.code);
+    return !!(run && run.end == null);
+  }
   // A re-read that states no end is not saying the old end is right: null is
   // also how it says "still built". Kept unless the heading says otherwise or
   // it comes before the generation began (Camry XV80, 2024-2023).
@@ -18370,7 +18494,7 @@ Rules:
     isDismissed, dismiss, dismissMany, allDismissed,
     reconcileDbGenerations, applySharedPlatformForSingleGen, applyPeopleForSingleGen,
     isEligibleForRecheck, recheckEntryFor, checkFamily, retryFamilyCheck,
-    rejectFamilyRecheck, applyFamilyOverride, applyAllFamilyOverrides,
+    rejectFamilyRecheck, applyFamilyOverride, applyAllFamilyOverrides, generationStatedOpen,
     allRecheckEntries, deleteRecheckEntry,
     forceRecheckFamily, retractConfirmedRelation, dismissRework,
     // "I want it to essentially do a re-check of the entire car that I
@@ -18503,7 +18627,7 @@ Rules:
     relabelMisnamedEngines, engineArticleKey,
     // The section-reading half of the generation-article lookup, exposed so
     // the suite can drive it against real cached wikitext without a network.
-    wikitextSections, hatnoteArticle, proseArticle, sectionForCode,
+    wikitextSections, hatnoteArticle, proseArticle, sectionForCode, validate, sweepDroppedGenerations,
     isEngineArticle, engineInfobox, engineVariants, engineApplications,
     mentionName, yearsCover,
     parseApplicationLine, readEngineArticle,

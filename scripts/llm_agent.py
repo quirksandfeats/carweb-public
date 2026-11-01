@@ -1471,7 +1471,15 @@ def finish(jid, state, summary):
     log(f"{state}: {summary}")
     status_page.job_finished(jid, state, summary)
     if jid:
-        _, d = api("/api/request/done", "POST", {"id": jid, "state": state, "summary": summary})
+        # A report that does not arrive leaves the job "running", and 90 minutes
+        # later the whole scan runs again.
+        for attempt in range(3):
+            code, d = api("/api/request/done", "POST", {"id": jid, "state": state, "summary": summary})
+            if code == 200:
+                break
+            log(f"could not report the result to the queue ({code})" + (" -- trying again" if attempt < 2 else ""))
+            if attempt < 2:
+                time.sleep(30)
         waiting = d.get("waiting") if isinstance(d, dict) else None
         if waiting:
             log(f"{waiting} more request(s) still waiting")
