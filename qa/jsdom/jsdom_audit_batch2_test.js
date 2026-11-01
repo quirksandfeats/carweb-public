@@ -26,7 +26,7 @@ const model = (slug, label, y0, y1) => ({ id: "m-tev-" + slug, type: "model", la
 D.nodes.push({ id: "mk-tev", type: "make", label: "TestEv" },
   model("mark-ii", "Mark II", 1968, 2007), model("brevis", "Brevis", 2001, 2007),
   model("malibu", "Malibu", 1964, 1972), model("skylark", "Skylark", 1964, 1998),
-  model("oasis", "Oasis", 1996, 1999), model("odyssey", "Odyssey", 1995, 2003), model("rodeo", "Rodeo", 1988, 2002));
+  model("micra", "Micra", 2002, 2010), model("note", "Note", 2005, 2012), model("oasis", "Oasis", 1996, 1999), model("odyssey", "Odyssey", 1995, 2003), model("rodeo", "Rodeo", 1988, 2002));
 const auto = "matched automatically -- the nameplate was named exactly in the source text; this generation's own section of its article names this car";
 const relKeyOf = (a, b) => [a, b].sort().join("|") + "|platform";
 const A = "llm-m-tev-malibu-first-generation", B = "llm-m-tev-skylark-seventh-generation", C = "llm-m-tev-malibu-second-generation";
@@ -35,6 +35,7 @@ window.LLM_FAMILIES = { families: {
   "m-tev-brevis": split([gen("First generation", 2001, 2004, ["TestEv Mark II"]), gen("Second generation", 2005, 2007)]),
   "m-tev-malibu": split([gen("First generation", 1964, 1967, ["TestEv Skylark"]), gen("Second generation", 1968, 1972, ["TestEv Skylark"])]),
   "m-tev-skylark": split([gen("Second generation", 1964, 1967), gen("Third generation", 1968, 1972, ["TestEv Malibu"]), gen("Seventh generation", 1992, 1998, ["TestEv Malibu"])]),
+  "m-tev-micra": split([gen("K11", 2002, 2004), gen("K12", 2005, 2010, ["TestEv Note"])]),
   "m-tev-odyssey": split([gen("RA1", 1995, 1999, ["TestEv Oasis"], { sharedPlatformMatches: { "TestEv Oasis": { matchId: "m-tev-rodeo", confidence: "high" } } }), gen("RA6", 1999, 2003)]),
 }, relations: {
   [relKeyOf(A, B)]: { status: "confirmed", famA: "m-tev-malibu", famB: "m-tev-skylark", relType: "platform", genIdA: A, genIdB: B, reason: auto, llmDiscovered: true },
@@ -56,6 +57,20 @@ t("the generation built alongside takes the edge", between("malibu-first", "skyl
 t("a car named exactly outranks a stored guess", between("odyssey-ra1", "rodeo").length === 0 && between("odyssey-ra1", "oasis").length + (window.CARDATA.links.some(l => /odyssey/.test(String(l.source && l.source.id || l.source)) && /oasis/.test(String(l.target && l.target.id || l.target))) ? 1 : 0) >= 1);
 t("two engines folded into each other come apart", !store.engineMerges["eng-a"] && !store.engineMerges["eng-b"]);
 t("...and a one-way fold stays", !!store.engineMerges["eng-c"]);
+
+store.families["m-tev-note"] = split([gen("E11", 2005, 2012), gen("E12", 2013, 2020)]);
+LF.applyConfirmed(D.nodes, D.links);
+t("a split in a live session reaches cars that already named the nameplate", between("micra-k12", "note-e11").length === 1, JSON.stringify(Object.keys(R).filter(k => k.includes("micra"))));
+
+const fest = [{ id: "fam-f", type: "family", label: "Festiva", make: "TestEv", year: 1986, end: 2000, wp: "TestEv Festiva", generations: ["g1", "g2"] },
+  { id: "g1", type: "model", label: "First", make: "TestEv", year: 1986, end: 2000, familyOf: "fam-f" }, { id: "g2", type: "model", label: "Second", make: "TestEv", year: 1993, end: 2000, familyOf: "fam-f" }];
+const app = LF.parseApplicationLine("* 1988-2000 [[TestEv Festiva]]");
+const placedIds = LF.planEngineEdgesWith([app], fest, new Map()).map(p => (p.node || p.car || p).id).sort().join();
+t("a run into the next generation reaches both", placedIds === "g1,g2", placedIds);
+const isd = [{ id: "mk-i", type: "make", label: "Isdera", wp: "Isdera" }];
+let minted = 0;
+LF.planEngineEdgesWith([LF.parseApplicationLine("* 1983-1991 [[Isdera|Isdera Autobahnkurier]]")], isd, new Map(), () => { minted++; return null; });
+t("a company link whose text names a car can make the car", minted === 1, minted);
 
 const page = body => "{{Infobox engine|name=TE|configuration=V8}}\n" + body;
 const jz = LF.readEngineArticle(page("==1JZ-GE==\n* [[TestEv Chaser]]/[[TestEv Cresta|Cresta]] (1990-1995)\n==2JZ-GTE==\n* 1993-2002 [[TestEv Supra]]\n"), "TE JZ", "TE JZ engine");

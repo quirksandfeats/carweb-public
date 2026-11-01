@@ -7864,6 +7864,18 @@ Rules:
       };
     });
     mentionsToResolve.forEach(([famId, gn]) => resolvePlatformMention(nodes, links, famId, gn));
+    // A split made in a live session: cars that already name this nameplate
+    // need matching against its new generations, as a reload would do. A load
+    // has every split here at once and matches every mention anyway.
+    const newlySplit = [...new Set(mentionsToResolve.map(([famId]) => famId))].map(id => nodeWithId(nodes, id)).filter(Boolean);
+    if (newlySplit.length && newlySplit.length <= 20) {
+      const done = new Set(mentionsToResolve.map(([, gn]) => gn.id));
+      const names = newlySplit.map(fam => norm(fam.label)).filter(Boolean);
+      nodes.filter(n => n && !n.retired && !done.has(n.id) && n.familyOf && (n.sharedPlatformTexts || []).length).forEach(n => {
+        n.sharedPlatformTexts.filter(t => names.some(k => norm(t).includes(k)))
+          .forEach(t => resolveOnePlatformMention(nodes, links, n.familyOf, n, t));
+      });
+    }
   }
 
   // ---------- My Database: prefer a specific generation over the bare nameplate, once one exists ----------

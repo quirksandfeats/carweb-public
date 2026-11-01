@@ -3365,15 +3365,20 @@ window.CarWeb = (function () {
       byId.set(nn.id, nn);
       if (!adj.has(nn.id)) adj.set(nn.id, []);
     }
-    for (let i = linksBefore; i < links.length; i++) {
-      if (links[i] && !wireLink(links[i])) unwired++;
+    // A read can drop links, which moves new ones below linksBefore, so any
+    // link not wired yet counts as new wherever it now sits.
+    const fresh = [];
+    for (let i = 0; i < links.length; i++) {
+      const l = links[i];
+      if (!l || (i < linksBefore && l.sn)) continue;
+      if (wireLink(l)) fresh.push(l);
+      else if (i >= linksBefore) unwired++;
     }
     // Degree/radius for everything a new link touched, new or pre-existing.
     const touched = new Set();
-    for (let i = linksBefore; i < links.length; i++) {
-      const l = links[i];
-      if (l && l.sn) touched.add(l.sn);
-      if (l && l.tn) touched.add(l.tn);
+    for (const l of fresh) {
+      if (l.sn) touched.add(l.sn);
+      if (l.tn) touched.add(l.tn);
     }
     for (let i = nodesBefore; i < nodes.length; i++) if (nodes[i]) touched.add(nodes[i]);
     touched.forEach(nn => { nn.deg = (adj.get(nn.id) || []).length; nn.r = radius(nn); });
