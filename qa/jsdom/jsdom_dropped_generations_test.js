@@ -47,6 +47,11 @@ ev("llm_families.js"); ev("app.js"); ev("timeline.js"); ev("sixdeg.js");
 w.CarWeb.boot();
 const LF = w.LlmFamilies, S = w.LLM_FAMILIES;
 
+const heads = [[1, "B6 (Typ 3C; 2005) and B7 (2010)"], [1, "B8 (Typ 3G; 2015)"]];
+const famB = { id: "fam-tev-b", type: "family", label: "Passat", make: "TestEv", wp: "TestEv Passat" };
+const oldGens = [{ id: "g-b6", label: "Passat (B6)", make: "TestEv", year: 2005, end: 2015, familyOf: famB.id }, { id: "g-b8", label: "Passat (B8)", make: "TestEv", year: 2015, end: null, familyOf: famB.id }];
+const decided = LF.decideRecheck(famB, oldGens, { sections: heads, sourceTitle: "TestEv Passat", proposal: { generations: [gen("B6", 2005, 2010), gen("B7", 2010, 2015), gen("B8", 2015, null)] } }, w.CarWeb.nodes);
+t("a heading that joins two generations stands for both", decided.add.map(x => x.code || (x.g && x.g.code)).includes("B7"), JSON.stringify(decided.add).slice(0, 120));
 const v = LF.validate(raw, JETTA).generations.map(g => g.code);
 t("a space written as &nbsp; does not cost a generation", v.includes("A1 (Type 16)"), v.join());
 t("a bracketed remark the article lacks is left off, and the code stays", v.includes("A2"), v.join());

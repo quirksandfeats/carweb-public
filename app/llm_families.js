@@ -4468,7 +4468,10 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
       if (place !== h.place) return { score: 0, named: false };
       score += 2; named = true;
     }
-    if (start != null && h.start != null) {
+    // A heading that joins two gives only the first one's year ("B6 (Typ 3C;
+    // 2005) and B7 (2010)"), so a code it names is not ruled out by that year.
+    const joinedHeading = named && h.codes.length > 1 && /\band\b/i.test(h.text);
+    if (start != null && h.start != null && !(joinedHeading && Math.abs(start - h.start) > 2)) {
       if (Math.abs(start - h.start) > 2) return { score: 0, named: false };
       if (Math.abs(start - h.start) <= 1 && (end == null || h.end == null || Math.abs(end - h.end) <= 1)) score += 2;
     }
