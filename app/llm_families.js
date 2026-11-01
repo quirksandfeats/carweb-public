@@ -715,6 +715,8 @@ window.LlmFamilies = (function () {
     // once every list has been through it.
     setTimeout(() => {
       releaseCrossGroupRejections(nodes);
+      settleDecidedRechecks(nodes);
+      settleRetiredGenerationFlags(nodes);
       sweepStoredSplitsForOutsiders().then(() => sweepRecheckSections(nodes))
         .then(() => { settleRetiredGenerationFlags(nodes); return sweepFlaggedMentions(nodes); })
         .then(() => sweepWeakRelations(nodes))
@@ -2645,6 +2647,35 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
   const SORTING_WORDS = new Set(["series", "generation", "gen", "model", "models", "type", "facelift", "version",
     "versions", "edition", "first", "second", "third", "fourth", "fifth", "sixth", "seventh", "eighth", "ninth",
     "tenth", "mk", "mark", "i", "ii", "iii", "iv", "v", "vi"]);
+  // A waiting re-check the rules find nothing to change in is closed, not left
+  // waiting. Only the one-off sweep below did this, and only for entries it had
+  // just read, so every list a later scan brought stayed open: 31 of the 40
+  // waiting on 1 Nov 2026, with 72 relationships flagged behind them.
+  function settleIfUnchanged(fam, genNodes, entry, nodes) {
+    if (!entry || entry.status !== "provisional" || !fam) return false;
+    const d = decideRecheck(fam, genNodes, entry, nodes);
+    if (!d || d.add.length || d.retire.length || d.skip.some(x => x.related)) return false;
+    entry.status = "none";
+    entry.settledAt = new Date().toISOString();
+    entry.settledBy = "rules";
+    entry.settledWhy = d.keep.length
+      ? "nothing in the article supports a change: the generations it left out stay"
+      : "the re-read names the same generations";
+    return true;
+  }
+  function settleDecidedRechecks(nodes) {
+    if (!nodes) return 0;
+    const byIdLocal = new Map(nodes.map(n => [n.id, n]));
+    let n = 0;
+    Object.keys(store.recheck || {}).forEach(id => {
+      const fam = byIdLocal.get(id);
+      if (!fam) return;
+      const gens = (fam.generations || []).map(g => byIdLocal.get(g)).filter(g => g && !g.retired);
+      if (settleIfUnchanged(fam, gens, store.recheck[id], nodes)) n++;
+    });
+    if (n) { note(`generations: ${n} waiting re-check(s) settled -- nothing in their articles supports a change`); persist(); }
+    return n;
+  }
   // The re-checks waiting from before their article's headings were kept:
   // each article read once more (no model), its headings stored, and a list
   // the rules find nothing to change in -- a re-read that only named the
@@ -2678,14 +2709,7 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
           out.read++;
           const fam = byIdLocal.get(id);
           const gens = fam ? (fam.generations || []).map(g => byIdLocal.get(g)).filter(g => g && !g.retired) : [];
-          const d = fam ? decideRecheck(fam, gens, e, nodes) : null;
-          if (d && !d.add.length && !d.retire.length) {
-            e.status = "none";
-            e.settledAt = new Date().toISOString();
-            e.settledBy = "rules";
-            e.settledWhy = "the re-read names the same generations" + (d.keep.length ? ", and the article still has a section for each one it left out" : "");
-            out.settled++;
-          }
+          if (settleIfUnchanged(fam, gens, e, nodes)) out.settled++;
           await new Promise(r => setTimeout(r, 120));
         }
       };
@@ -2798,6 +2822,12 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
           const e = store.relations[key];
           if (!e || !e.reworkPending) continue;
           const a = byIdLocal.get(e.genIdA || e.famA), b = byIdLocal.get(e.genIdB || e.famB);
+          // A car that is gone cannot be named. If it was replaced the link
+          // moved with it (supersededBy), so only the flag goes; otherwise
+          // the entry does, not as a "no": a car that comes back may match.
+          const lost = c => !c || (c.retired && !c.supersededBy);
+          if (lost(a) || lost(b)) { delete store.relations[key]; out.removed++; continue; }
+          if ((a && a.retired) || (b && b.retired)) { delete e.reworkPending; out.kept++; continue; }
           // Two generations of one nameplate: its article names it either way,
           // so that says nothing, and a car is not its own platform partner.
           const plateOf = c => c && (c.familyOf || c.id);
@@ -2818,7 +2848,7 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
             if (named) break;
           }
           if (named) { delete e.reworkPending; out.kept++; }
-          else if (unread || !a || !b) out.failed++;
+          else if (unread) out.failed++;
           else {
             delete store.relations[key];
             store.rejectedRelations[key] = true;
@@ -4333,7 +4363,10 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
       const sc = headingScore(h, label, start, end, shared);
       if (sc > top) { top = sc; best = i; tie = false; } else if (sc && sc === top) tie = true;
     });
-    return tie ? -1 : best;
+    // Two headings naming one code: the article has it, and the first is its
+    // own section (the Prius's XW60, whose variants have headings of their own).
+    // A tie on place or years alone settles nothing.
+    return tie && top < 4 ? -1 : best;
   }
   function sharedLabelCodes(genNodes) {
     const labelled = (genNodes || []).filter(Boolean);
@@ -4403,7 +4436,11 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
       claims.get(k).push({ g, sc });
     });
     const stays = old.filter(o => pairedIds.has(o.id) || keep.includes(o));
-    if (!stays.length && !fresh.some((g, i) => !paired[i])) return null;
+    // A re-read that would leave the nameplate with nothing is no evidence of
+    // anything (a page with no generation headings, a list of none): what it
+    // has now stays, and there is nothing to decide.
+    const nothingSupported = () => ({ paired: paired.map(() => null), fresh, add: [], skip, keep: old, retire: [] });
+    if (!stays.length && !fresh.some((g, i) => !paired[i])) return nothingSupported();
     const add = [];
     claims.forEach(list => {
       const top = Math.max(...list.map(c => c.sc));
@@ -4426,9 +4463,7 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
         add.push(c.g);
       });
     });
-    // A nameplate left with no generation at all is not a decision to make
-    // by rule.
-    if (!stays.length && !add.length) return null;
+    if (!stays.length && !add.length) return nothingSupported();
     // Nothing is retired whose years the generations that remain do not
     // cover: it stays. The Holden Caprice's re-read listed only its series
     // (VQ ... WN), which sit inside the article's generation sections and so
@@ -12456,6 +12491,10 @@ Rules:
           return prior;
         }
         writeRecheck(fam.id, entry);
+        // Reached by a scan with nothing to change: closed on the spot, and
+        // nothing gets flagged as about to be retired. Asked for by name, the
+        // person sees the list and answers it.
+        const settled = !!(opts && opts.keepRejections) && settleIfUnchanged(fam, genNodes, entry, nodes);
         // An explicit, user-initiated re-check is the deliberate escape
         // hatch out of any earlier delete's permanent suppression (see
         // purgeRelationsFor/clearRejectionsFor): "delete this nameplate's
@@ -12466,7 +12505,7 @@ Rules:
         // Not for a car a scan merely reached: what Andy rejected on it stays
         // rejected unless he re-checks that car himself.
         if (!(opts && opts.keepRejections)) clearRejectionsFor(fam.id);
-        reworkRelationsForFamily(fam, nodes, links, clean.generations, removedOld, wikitext);
+        reworkRelationsForFamily(fam, nodes, links, clean.generations, settled ? [] : removedOld, wikitext);
         entry.peopleAdded = applyFreshPeopleCredits(fam, nodes, links, clean.generations, removedOld);
         await persist();
         return entry;
@@ -18174,7 +18213,7 @@ Rules:
     clearEngineScansFor, note, nameplateSectionForCar, mergeEngineHits,
     mergeEngines, undoEngineMerge, allEngineMerges, applyEngineMerges,
     sameEngineLine, decodeEntities, articleIsNotACar, sweepStoredSplitsForOutsiders, sweepRecheckSections, decideRecheck, headingsOf,
-    markFutureGenerations, articleNamesCar, articleFitsCar, sweepArticleLinks, settleRetiredGenerationFlags, sweepFlaggedMentions, articleNamesCarInFull, sweepWeakRelations, sweepWholePageEngineLists, sweepOrdinalPlaceholders, replayStarted, replayFinished,
+    markFutureGenerations, articleNamesCar, articleFitsCar, sweepArticleLinks, settleDecidedRechecks, settleRetiredGenerationFlags, sweepFlaggedMentions, articleNamesCarInFull, sweepWeakRelations, sweepWholePageEngineLists, sweepOrdinalPlaceholders, replayStarted, replayFinished,
     lastSaveError: () => lastSaveError,
     engineMentions, unlinkedEngineMentions, engineSpecLabel,
     recordEngineMentions, recordEngineMentionsFrom, applyEngineMentions,

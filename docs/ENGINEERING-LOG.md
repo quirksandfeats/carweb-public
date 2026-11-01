@@ -2177,3 +2177,17 @@ mirrors as LLM-made; the job queue is saved whole, so two pages can overwrite it
 credits from a manual re-check are live-only; a merged generation stays listed
 under its old nameplate; boot sweeps change the store but not the live graph until
 the next load.
+
+**The review panel empties itself.** Of the 94 relationships in Unconfirmed
+Relationships on 1 Nov, 72 waited on 40 re-checks that the rules had already
+decided: only the one-off sweep closed a list with nothing to change, so every
+list a later scan brought stayed open. `settleIfUnchanged` closes them, at load
+and as a scan reads them, which clears their flags. A re-read that would leave a
+nameplate with nothing, or has no heading to back a change, keeps what is there.
+The other 22 pointed at a car no longer in the graph: the entry goes, not as a
+"no", or only the flag if the car was replaced. A heading tie on a code takes the
+first heading (the Prius's XW60 was skipped because its variants have headings).
+
+Those 22 also showed the damage of the first batch's bug: 21 nameplates had lost
+applied corrections since the 12 Oct reset, the Prius XW60 and the Passat B7 among
+them. They are restored by re-scanning, not by editing the store.

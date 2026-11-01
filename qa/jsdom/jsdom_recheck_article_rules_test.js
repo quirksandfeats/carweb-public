@@ -154,5 +154,23 @@ t("an entry without the article's headings is not decided by rule", decide([node
     fam.generations.join());
 }
 
+// ---------- a list the rules find nothing to change in is closed ----------
+{
+  const nodes = [famNode(["g-1", "g-2"]), node("g-1", "Falcon (first generation)", 1960, 1975), node("g-2", "Falcon (second generation)", 1976, 1985)];
+  const e = entry([gen("First generation", 1960, 1975)], [[1, "First generation (1960–1975)"], [1, "Second generation (1976–1985)"]]);
+  const w = boot(e, nodes, [{ source: FAM, target: "g-1", type: "generation" }, { source: FAM, target: "g-2", type: "generation" }]);
+  const cw = w.CarWeb; cw.boot();
+  t("a re-read that left out a generation the article still has is closed", w.LlmFamilies.settleDecidedRechecks(cw.nodes) === 1 && w.LlmFamilies.recheckEntryFor(FAM).status === "none", w.LlmFamilies.recheckEntryFor(FAM).status);
+  t("...and the nameplate keeps both", cw.byId.get(FAM).generations.length === 2);
+}
+{
+  const nodes = [famNode(["g-1", "g-2"]), node("g-1", "Falcon (first generation)", 1960, 1975), node("g-2", "Falcon (second generation)", 1976, 1985)];
+  const e = entry([], [[1, "Overview"]]);
+  const w = boot(e, nodes, [{ source: FAM, target: "g-1", type: "generation" }, { source: FAM, target: "g-2", type: "generation" }]);
+  const cw = w.CarWeb; cw.boot();
+  w.LlmFamilies.settleDecidedRechecks(cw.nodes);
+  t("a re-read with nothing usable changes nothing and is closed", w.LlmFamilies.recheckEntryFor(FAM).status === "none" && cw.byId.get(FAM).generations.length === 2);
+}
+
 console.log(fails ? `\n${fails} FAILED` : "\nALL PASS");
 process.exit(fails ? 1 : 0);
