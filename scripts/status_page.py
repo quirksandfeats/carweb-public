@@ -194,7 +194,11 @@ def track_requests(queue, fs, done, queued, now):
         if fs.get("seed") and running.get("targetId") == fs.get("seed") and rec.get("baseline"):
             rec["baseline"] = 0          # its own scan has started: the store counts for it now
             rec["carriedFrom"] = None
-        rec.update({"done": done, "queued": queued, "seed": fs.get("seed")})
+        # The scan's record is cleared just before the request finishes: the
+        # count and seed it left stay as they were.
+        rec["queued"] = queued
+        if fs:
+            rec.update({"done": done, "seed": fs.get("seed")})
         current = rec
     for last in ((queue or {}).get("last") or {}, AGENT["last"] or {}):
         # As times, not text: "since" is local and a finish is UTC.
@@ -235,7 +239,7 @@ def track_requests(queue, fs, done, queued, now):
         out.append({"label": rec.get("label"), "state": rec.get("state") or "done",
                     "took": (b - a).total_seconds() if a and b else None,
                     "at": b.astimezone() if b else None, "pushed": bool(rec.get("pushed")),
-                    "cars": (rec.get("done") or 0) - (rec.get("baseline") or 0) if rec.get("done") is not None else None,
+                    "cars": max(0, (rec.get("done") or 0) - (rec.get("baseline") or 0)) if rec.get("done") is not None else None,
                     "summary": rec.get("summary") or "", "reason": rec.get("reason") or ""})
     track_requests.run = dict(run)
     track_requests.current = dict(current) if current else None
@@ -656,6 +660,10 @@ def render(d):
            f"<meta name='viewport' content='width=device-width,initial-scale=1'><title>CarWeb scan status</title>"
            f"<style>{CSS}</style></head><body><main>"]
     final = final_report(d) if state == "stopped" else None
+    # The scan's record is gone by the final page: the request it finished says.
+    if final and not d["seed"] and d["finished"]:
+        last = d["finished"][0]
+        d = dict(d, seed=last["label"], done=d["done"] or last.get("cars") or 0)
     pill = state
     if final:
         state_text = final["pill"]

@@ -583,7 +583,13 @@ RECYCLE_HEAP_MB = 1500
 PAGE_HEAP_MB = 4096
 
 
+class PageGaveUp(RuntimeError):
+    """The crash limits are reached. Not itself a crash, whatever it says."""
+
+
 def is_page_crash(e):
+    if isinstance(e, PageGaveUp):
+        return False
     msg = str(e).lower()
     return ("crash" in msg or "target page, context or browser has been closed" in msg
             or "target closed" in msg)
@@ -646,14 +652,14 @@ class LivePage:
         self.crashes[key] = self.crashes.get(key, 0) + 1
         n = self.crashes[key]
         if self.total_crashes > CRASHES_PER_RUN:
-            raise RuntimeError(f"the page crashed {self.total_crashes} times this run -- stopping; "
+            raise PageGaveUp(f"the page crashed {self.total_crashes} times this run -- stopping; "
                                "everything finished is saved, the rest is on the list for --resume")
         if cid and n >= CRASHES_PER_CAR:
             self.set_aside.append((cid, label))
             log(f"PAGE CRASHED ({str(e).splitlines()[0][:80]}) -- {CRASHES_PER_CAR} times now while on "
                 f"{label}: setting it aside for --resume and moving on to the rest")
         elif not cid and n >= CRASHES_PER_CAR:
-            raise RuntimeError(f"the page crashed {n} times with no car in progress -- stopping")
+            raise PageGaveUp(f"the page crashed {n} times with no car in progress -- stopping")
         else:
             log(f"PAGE CRASHED ({str(e).splitlines()[0][:80]}) while on "
                 f"{label or 'nothing in particular'} ({n}/{CRASHES_PER_CAR}) -- "
@@ -678,7 +684,18 @@ def guarded(page, fn, settle_seconds, quiet_seconds):
         except Exception as e:
             if not isinstance(page, LivePage) or not is_page_crash(e):
                 raise
-            page.recover(e)
+            # Reopening can crash too, and that counts like any other crash:
+            # recover stops the run itself once a limit is reached.
+            while True:
+                try:
+                    page.recover(e)
+                    break
+                except PageGaveUp:
+                    raise
+                except Exception as again:
+                    if not is_page_crash(again):
+                        raise
+                    e = again
             fn = lambda: settle_cascade(page, settle_seconds, quiet_seconds)
 
 
@@ -1106,6 +1123,9 @@ def report_new(now, before, why):
             log(f"    + {now[nid]['label']} -- {describe(now[nid])}  ({why})")
 
 
+MODEL_DOWN_LIMIT = 5
+
+
 def pending_work(page):
     """What the page still has outstanding: checks in flight, partners queued
     behind them, article lookups a newly-minted car is waiting on. The app
@@ -1121,7 +1141,7 @@ def pending_work(page):
               const name = key => { const id = String(key).replace(/^recheck:/, ""); const n = cw.byId.get(id);
                 return n ? ((n.make ? n.make + " " : "") + n.label) : id; };
               const bare = k => String(k).replace(/^recheck:/, "");
-              return { total: p.total, abandoned: p.abandoned || [],
+              return { total: p.total, abandoned: p.abandoned || [], modelDownStreak: p.modelDownStreak || 0,
                        ids: p.checks.map(bare), checking: p.checks.map(name),
                        names: [...p.checks, ...p.partners, ...p.lookups].map(name) };
             }""")
@@ -1131,6 +1151,11 @@ def pending_work(page):
         if is_page_crash(e):
             raise
         return None
+    # Nothing restarts llama-server, so every car left would fail the same way.
+    # The failed ones stay on the saved list for --resume.
+    if res and res.get("modelDownStreak", 0) >= MODEL_DOWN_LIMIT:
+        raise RuntimeError(f"llama-server stopped answering: {res['modelDownStreak']} checks failed in a row -- "
+                           "stopping; everything finished is saved, the rest is on the list for --resume")
     # Which car the page is on -- the one blamed if the page crashes now.
     if isinstance(page, LivePage) and res:
         page.note_current(res.get("ids"), res.get("checking"))
@@ -1376,9 +1401,17 @@ def do_job(job, args):
         # log line, not an answer. The long version stays in the terminal and
         # in the commit, where it is actually useful.
         if job and job.get("targetId"):
-            row = (cascade.get("rows") or {}).get(job["targetId"])
-            if row:
-                user_summary = describe(row)
+            # What THIS run found, on the id it actually scanned: the target can
+            # have moved, and a row on file may be an older answer.
+            rows = cascade.get("rows") or {}
+            scanned = done[0] if done else None
+            if scanned and scanned[1] == "error":
+                user_summary = "the check failed -- please ask again"
+            elif scanned:
+                row = rows.get(scanned[0])
+                user_summary = describe(row) if row else "nothing found"
+            elif not skipped and rows.get(job["targetId"]):
+                user_summary = "the check did not finish -- please ask again"
             elif skipped and not done:
                 # "nothing found" is what a car that WAS looked at and had no
                 # hidden generations says. A car that could not be found at all
@@ -1411,7 +1444,11 @@ def do_job(job, args):
         log("FAILED: " + summary)
     finally:
         begin_cleanup()
-        stop_serve(proc)
+        # An interrupt here must not skip the push and the queue report below.
+        try:
+            stop_serve(proc)
+        except Aborted:
+            log("interrupted while stopping serve.py -- still pushing what was written")
 
     try:
         push_result(summary or "no summary", detail)

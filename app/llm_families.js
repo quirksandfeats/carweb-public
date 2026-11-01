@@ -1238,6 +1238,16 @@ window.LlmFamilies = (function () {
   // maxTokens}. A reply cut off at the ceiling and a reply that is genuine
   // nonsense both arrive here as text that will not parse; only this tells
   // them apart, and they need completely different answers from a person.
+  // The model not answering says nothing about the car. Such a car gets no error
+  // entry and stays on the to-do list for --resume, and the agent stops the run
+  // once several in a row have failed (scripts/llm_agent.py's pending_work).
+  let modelDownStreak = 0;
+  const modelDownCars = new Set();
+  function noteIfModelDown(id, e) {
+    const down = !!(e && (e.modelDown || /failed to fetch|networkerror|load failed/i.test(String(e.message || e))));
+    if (down) { modelDownStreak++; modelDownCars.add(id); }
+    return down;
+  }
   function parseLlmJson(content, meta) {
     const text = String(content == null ? "" : content).trim();
     if (!text) throw new Error("empty response from llama.cpp");
@@ -1379,9 +1389,12 @@ window.LlmFamilies = (function () {
     });
     if (!r.ok) {
       const body = await r.json().catch(() => ({}));
-      throw new Error(body.hint || body.error || ("llama.cpp request failed: " + r.status));
+      const failed = new Error(body.hint || body.error || ("llama.cpp request failed: " + r.status));
+      failed.modelDown = r.status >= 500;
+      throw failed;
     }
     const j = await r.json();
+    modelDownStreak = 0;
     const choice = j && j.choices && j.choices[0];
     const content = choice && choice.message && choice.message.content;
     if (!content) throw new Error("empty response from llama.cpp");
@@ -3696,6 +3709,7 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
         return entry;
       } catch (e) {
         const entry = { status: "error", checkedAt: new Date().toISOString(), error: String(e.message || e), attempts: 1, detail: errorDetail(e) };
+        if (noteIfModelDown(node.id, e)) return existing || entry;
         if (fresh && existing && existing.status !== "error") {
           existing.lastFreshError = { at: entry.checkedAt, error: entry.error };
           await persist();
@@ -4454,7 +4468,7 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
         // list): with an article of its own it stays a car of its own, linked
         // as related; without one it moves in as this generation (the
         // owner's ruling, 14 Oct 2026).
-        const dup = findDuplicateGeneration(nodes, c.g.code, fam.id, fam.make, fam.label);
+        const dup = findDuplicateGeneration(nodes, c.g.code, fam.id, fam.make, fam.label, c.g);
         if (dup && dup.wp && norm(dup.wp) !== norm(entry.sourceTitle || "") && norm(dup.wp) !== norm(fam.wp || "") &&
             !isGenerationArticleOf(fam, dup.wp)) {
           skip.push({ code: c.g.code, why: "a car of its own, with its own article", related: dup.id });
@@ -4642,7 +4656,7 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
   const entryFresh = e => e.label === e.n.label && e.make === e.n.make;
   function staleNames() { namesEpoch++; return null; }
 
-  function findDuplicateGeneration(nodes, code, famId, make, nameplateLabel) {
+  function findDuplicateGeneration(nodes, code, famId, make, nameplateLabel, gen) {
     const key = norm(code);
     const makeKey = norm(make);
     const nameKey = norm(nameplateLabel);
@@ -4650,6 +4664,16 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
     // A car with its own confirmed split is a nameplate in its own right, not
     // a duplicate of someone's generation, whichever decision comes first.
     const splitOwn = n => { const e = store.families[n.id]; return !!(e && e.status === "confirmed"); };
+    // A code that is one part of a joined label ("Astra LB, LC") says little: a
+    // generation of another nameplate stays its own, and a standalone car has to
+    // have been built in these years. The Torana's LC is not the Astra's.
+    const y0 = gen && gen.yearStart, y1 = gen && gen.yearEnd;
+    const partMayBe = e => {
+      const n = e.n;
+      if (n.familyOf && n.familyOf !== famId) return false;
+      if (!Number.isFinite(y0) || !Number.isFinite(n.year)) return true;
+      return n.year <= (Number.isFinite(y1) ? y1 : 9999) && (Number.isFinite(n.end) ? n.end : 9999) >= y0;
+    };
     const eligible = n => n.type === "model" && !n.retired && n.id !== famId && n.familyOf !== famId && nameKeysOf(n).make === makeKey && !splitOwn(n);
     for (let attempt = 0; attempt < 2; attempt++) {
       const ix = nameIndexOf(nodes);
@@ -4661,7 +4685,7 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
         }
         return null;
       };
-      const hit = first(ix.bare.get(key)) || (!stale && first(ix.parts.get(key))) ||
+      const hit = first(ix.bare.get(key)) || (!stale && first((ix.parts.get(key) || []).filter(partMayBe))) ||
                   (!stale && nameKey && first(ix.tail.get(key + "|" + nameKey))) || null;
       if (!stale) return hit;
       staleNames();
@@ -5686,7 +5710,7 @@ Rules:
       .then(() => {
         partnerCheckScheduled.delete(car.id);
         // A car the queue gave up on stays on the list for --resume.
-        if (!abandoned.has(car.id)) { markFreshDone(car.id); forgetCascade(car.id); }
+        if (!modelDownCars.delete(car.id) && !abandoned.has(car.id)) { markFreshDone(car.id); forgetCascade(car.id); }
         notifyFactsUpdate();
       });
   }
@@ -5768,7 +5792,7 @@ Rules:
         // Crossed off only once it has an answer. A car handed on to the
         // Wikipedia lookup stays on the list until THAT lands (see
         // scheduleWpLookupAndCheck), so nothing falls between the two.
-        if (entryFor(node.id)) { forgetCascade(node.id); if (freshScan) markFreshDone(node.id); }
+        if (!modelDownCars.delete(node.id) && entryFor(node.id)) { forgetCascade(node.id); if (freshScan) markFreshDone(node.id); }
         notifyFactsUpdate();
       });
   }
@@ -5873,7 +5897,7 @@ Rules:
     const running = jobList().filter(j => j.state === "running").map(j => j.targetId)
                              .filter(id => !checks.includes(id));
     return { checks, partners, lookups, queued, running, abandoned: [...abandoned.values()],
-             saved: pendingCascadeCount(), engineReads: engineReadsInFlight,
+             saved: pendingCascadeCount(), engineReads: engineReadsInFlight, modelDownStreak,
              total: checks.length + partners.length + lookups.length +
                     queued.length + running.length + engineReadsInFlight };
   }
@@ -6193,7 +6217,10 @@ Rules:
     // forever. A real, non-"no-wiki-link" verdict (this node was checked
     // successfully once already, unrelated to this link) is left alone.
     if (store.families[nodeId] && store.families[nodeId].status === "no-wiki-link") delete store.families[nodeId];
-    if (store.recheck[nodeId] && store.recheck[nodeId].status === "no-wiki-link") delete store.recheck[nodeId];
+    if (store.recheck[nodeId] && store.recheck[nodeId].status === "no-wiki-link") {
+      const carried = store.recheck[nodeId].appliedBefore;
+      if (carried) store.recheck[nodeId] = carried; else delete store.recheck[nodeId];
+    }
     return persist();
   }
 
@@ -7687,7 +7714,7 @@ Rules:
         // gn is minted below); its designer/engineer names are additionally
         // folded up to the family level here, same as applyFamilyOverride
         // does for its own orphaned generations.
-        const dup = findDuplicateGeneration(nodes, g.code, nodeId, orig.make, orig.label);
+        const dup = findDuplicateGeneration(nodes, g.code, nodeId, orig.make, orig.label, g);
         if (dup && dup.familyOf) orphanedOldFamIds.add(dup.familyOf);
         if (dup) {
           (dup.designers || []).forEach(name => {
@@ -7852,7 +7879,7 @@ Rules:
       // arrived, and an accepted re-check lasted until the next reload.
       const seeded = store.recheck[nodeId];
       if (seeded && seeded.status !== "none") return;
-      if (seeded && (seeded.sourceTitle || null) === (entry.sourceTitle || orig.wp || null)) return;
+      if (seeded && (seeded.appliedBefore || (seeded.sourceTitle || null) === (entry.sourceTitle || orig.wp || null))) return;
       store.recheck[nodeId] = {
         status: "none",
         checkedAt: new Date().toISOString(),
@@ -10022,8 +10049,16 @@ Rules:
     Object.keys(store.relations || {}).forEach(key => {
       const entry = store.relations[key];
       if (entry.status !== "confirmed") return;
-      const genA = followSuperseded(byId, byId.get(entry.genIdA));
-      const genB = followSuperseded(byId, byId.get(entry.genIdB));
+      // Evidence naming a code wins here too, as it does when a live re-check
+      // moves the link: the session and a reload land on the same generation.
+      const throughEvidence = (id, gen) => {
+        const o = byId.get(id), fam = o && o.retired && o.familyOf ? byId.get(o.familyOf) : null;
+        if (!fam || !gen || gen.familyOf !== fam.id) return gen;
+        const live = (fam.generations || []).map(g => byId.get(g)).filter(g => g && !g.retired);
+        return generationForLink({ llmResolvedKey: key, note: entry.note }, o, live, gen);
+      };
+      const genA = throughEvidence(entry.genIdA, followSuperseded(byId, byId.get(entry.genIdA)));
+      const genB = throughEvidence(entry.genIdB, followSuperseded(byId, byId.get(entry.genIdB)));
       const famA = byId.get(entry.famA), famB = byId.get(entry.famB);
       if (!genA || !genB || !famA || !famB) return;
       if (sameCar(genA, genB)) return;   // a stored relation of a car with itself draws nothing
@@ -16935,7 +16970,13 @@ Rules:
     const secs = wikitextSections(famWikitext);
     if (!secs.length) return null;
     const top = Math.min(...secs.map(x => x.level));
-    const cands = secs.filter(x => x.level === top);
+    // Generations are usually the article's top headings, but some file them
+    // under one ("Production versions", then "Series 1"), so the deeper ones are
+    // read when the top ones name nothing.
+    return sectionMatchAmong(secs.filter(x => x.level === top), want) ||
+           sectionMatchAmong(secs.filter(x => x.level > top), want);
+  }
+  function sectionMatchAmong(cands, want) {
     const pick = list => (list.length === 1 ? list[0] : null);
     // Exact first, then the year, then the ordinal, then a chassis code. Each
     // is only accepted when exactly one section matches it.
@@ -17012,8 +17053,15 @@ Rules:
   // 6: fuel headings without a colon are read, and unlinked lines are kept
   // by their words. A read from before is still shown, and is replaced the
   // next time the car's engines are read.
-  const ENGINE_SCAN_VERSION = 6;
+  const ENGINE_SCAN_VERSION = 7;
   function engineScanIsCurrent(rec) { return !!rec && (rec.v || 1) >= ENGINE_SCAN_VERSION; }
+  // A page that would not load is tried again on a later load, not on every
+  // check of the nameplate in this one.
+  const unreadableThisLoad = new Set();
+  function engineScanSettled(id) {
+    const rec = store.engineScans[id];
+    return engineScanIsCurrent(rec) || !!(rec && rec.status === "unreadable" && unreadableThisLoad.has(id));
+  }
   // Every car whose engines should be (re-)read: read by an older reader, or
   // checked but never engine-read at all (the Daihatsu Thor). A nameplate
   // with generations stands for them -- scanEnginesFor reads each of its
@@ -17164,7 +17212,7 @@ Rules:
     // The nameplate's own article, read ONCE for the whole pass: it is what
     // says where each generation's article is, and fetching it per generation
     // would be the same page six times.
-    const pending = targets.filter(c => c && !c.retired && !engineScanIsCurrent(store.engineScans[c.id]));
+    const pending = targets.filter(c => c && !c.retired && !engineScanSettled(c.id));
     if (!pending.length) return out;
     note(`powertrain: reading engines for ${node.label} -- ` +
          `${pending.length} car(s) to check, from their own articles and from ` +
@@ -17185,7 +17233,7 @@ Rules:
     }
     for (const car of targets) {
       if (!car || car.retired) continue;
-      if (engineScanIsCurrent(store.engineScans[car.id])) { out.skipped++; continue; }
+      if (engineScanSettled(car.id)) { out.skipped++; continue; }
       let title = null;
       try { title = engineArticleFor(car, fam, famWikitext, umbrella); } catch (e) { title = null; }
 
@@ -17280,7 +17328,7 @@ Rules:
                "covers every generation");
         }
       }
-      store.aliases[car.id] = { names: aka, from: akaFrom, checkedAt: new Date().toISOString() };
+      if (!unreadable) store.aliases[car.id] = { names: aka, from: akaFrom, checkedAt: new Date().toISOString() };
       if (aka.length) note(`names: ${car.label} -- also called ${aka.join(" · ")}`);
       if (unlinked.length) {
         note(`powertrain: ${car.label} -- ${unlinked.length} engine(s) named with no article ` +
@@ -17294,13 +17342,22 @@ Rules:
       // nameplate, forever, for the same answer. Clearing it is what the
       // deliberate re-check does.
       if (!hits.length) {
+        // A page that did not load says nothing about the engines: an earlier
+        // read stands, and the car stays due for another try.
+        const prior = store.engineScans[car.id];
+        if (unreadable && prior && (prior.engines || []).length) {
+          note(`powertrain: ${car.label} -- could not read "${title}"; keeping its earlier read`);
+          out.scanned++; out.skipped++;
+          continue;
+        }
+        if (unreadable) unreadableThisLoad.add(car.id);
         const status = unreadable ? "unreadable"
                      : title ? "no-engines"
                      : (fromSection || wholePage) ? "no-engines" : "no-article";
         store.engineScans[car.id] = {
           checkedAt: new Date().toISOString(),
           sourceTitle: readTitle || ((fromSection || wholePage) && umbrella) || null,
-          status, engines: [], unlinked, v: ENGINE_SCAN_VERSION,
+          status, engines: [], unlinked, v: unreadable ? 1 : ENGINE_SCAN_VERSION,
         };
         note(`powertrain: ${car.label} -- ` + (
           unreadable ? `could not read "${title}"`
@@ -17458,6 +17515,7 @@ Rules:
     if (!m) return null;
     const t = m[1].trim();
     if (!t || /^[a-z]/.test(t) && !/\s/.test(t)) return null;   // {{main|section-name}} style self-reference
+    if (t.includes("=") || /^(?:File|Image|Category)\s*:/i.test(t)) return null;
     return t.split("#")[0].trim() || null;
   }
 
@@ -17482,7 +17540,7 @@ Rules:
     const links = [];
     const rx = /\[\[([^\]|#]+)(?:\|[^\]]*)?\]\]/g;
     let m;
-    while ((m = rx.exec(body))) links.push({ title: m[1].trim(), at: m.index });
+    while ((m = rx.exec(body))) if (!/^(?:File|Image|Category)\s*:/i.test(m[1].trim())) links.push({ title: m[1].trim(), at: m.index });
     // The code has to be a WORD of the title. Real case, the Opel Omega A:
     // code "A", and "IDA-Opel" -- the Yugoslav plant in its assembly line --
     // contains both "a" and "opel", so the generation's engines were read
@@ -17758,7 +17816,7 @@ Rules:
         return entry;
       } catch (e) {
         const entry = { status: "error", checkedAt: new Date().toISOString(), error: String(e.message || e), attempts: 1, detail: errorDetail(e) };
-        if (engagedId !== fam.id) return entry;
+        if (noteIfModelDown(fam.id, e) || engagedId !== fam.id) return entry;
         writeRecheck(fam.id, entry); await persist();
         return entry;
       } finally {
@@ -17800,7 +17858,7 @@ Rules:
           status: "error", checkedAt: new Date().toISOString(), error: String(e.message || e),
           detail: errorDetail(e),
           attempts: (existing.attempts || 0) + 1 });
-        if (engagedId !== fam.id) return entry;
+        if (noteIfModelDown(fam.id, e) || engagedId !== fam.id) return entry;
         writeRecheck(fam.id, entry); await persist();
         return entry;
       } finally {
@@ -17867,6 +17925,24 @@ Rules:
   // engineers/photo get refreshed.
   // `opts.byRules`: applied by the rules (decideRecheck) rather than by a
   // person's Accept, which takes the list as shown.
+  // The run the article's own heading gives one generation, if exactly one
+  // heading names its code: "XV80 (2024–present)".
+  function headingRunFor(entry, code) {
+    const key = norm(code);
+    if (key.length < 2) return null;
+    const heads = (entry.sections || []).map(s => String(s[1] || "")).filter(h => norm(h).includes(key));
+    if (heads.length !== 1) return null;
+    const m = /(\d{4})\s*[-–—]\s*(present|current|\d{4})?\s*\)/i.exec(heads[0]);
+    return m ? { start: +m[1], end: m[2] && /\d/.test(m[2]) ? +m[2] : null } : null;
+  }
+  // A re-read that states no end is not saying the old end is right: null is
+  // also how it says "still built". Kept unless the heading says otherwise or
+  // it comes before the generation began (Camry XV80, 2024-2023).
+  function keptEnd(gn, end, entry, code) {
+    const run = headingRunFor(entry, code);
+    if (run) return run.end;
+    return end != null && gn.year != null && end < gn.year ? null : end;
+  }
   function applyFamilyOverride(famId, nodes, links, opts) {
     const entry = (opts && opts.entry) || recheckEntryFor(famId);
     // Also re-runs for an ALREADY-"applied" entry -- this is what makes the
@@ -17882,7 +17958,9 @@ Rules:
     const byId = new Map(nodes.map(n => [n.id, n]));
     const fam = byId.get(famId);
     if (!fam || fam.type !== "family") return;
-    const oldGens = (fam.generations || []).map(id => byId.get(id)).filter(Boolean);
+    // Another nameplate's split may have taken one of these already. Pairing a
+    // fresh generation with it would leave that generation hidden (the Polo Mk2).
+    const oldGens = (fam.generations || []).map(id => byId.get(id)).filter(o => o && !o.retired);
     if (wasProvisional) {
       // Decided once, as it is applied, and written on the entry: what the
       // article's headings keep, and what they leave out (decideRecheck).
@@ -17918,14 +17996,14 @@ Rules:
       (o.designers || []).forEach(name => {
         allDesigners.add(name);
         const p = resolvePersonNode(nodes, byId, name, "designer");
-        if (p && !links.some(l => l.type === "designed" && l.source === famId && l.target === p.id)) {
+        if (p && !links.some(l => l.type === "designed" && idOf(l.source) === famId && idOf(l.target) === p.id)) {
           links.push({ source: famId, target: p.id, type: "designed", llmDiscovered: true });
         }
       });
       (o.engineers || []).forEach(name => {
         allEngineers.add(name);
         const p = resolvePersonNode(nodes, byId, name, "engineer");
-        if (p && !links.some(l => l.type === "engineered" && l.source === famId && l.target === p.id)) {
+        if (p && !links.some(l => l.type === "engineered" && idOf(l.source) === famId && idOf(l.target) === p.id)) {
           links.push({ source: famId, target: p.id, type: "engineered", llmDiscovered: true });
         }
       });
@@ -17985,20 +18063,20 @@ Rules:
         // below, once gn's own fields are settled; here we only fold its
         // designer/engineer names up to the family level, same as the
         // orphaned-generation handling above.
-        dup = findDuplicateGeneration(nodes, fresh.code, famId, fam.make, fam.label);
+        dup = findDuplicateGeneration(nodes, fresh.code, famId, fam.make, fam.label, fresh);
         if (dup && dup.familyOf && dup.familyOf !== famId) orphanedOldFamIds.add(dup.familyOf);
         if (dup) {
           (dup.designers || []).forEach(name => {
             allDesigners.add(name);
             const p = resolvePersonNode(nodes, byId, name, "designer");
-            if (p && !links.some(l => l.type === "designed" && l.source === famId && l.target === p.id)) {
+            if (p && !links.some(l => l.type === "designed" && idOf(l.source) === famId && idOf(l.target) === p.id)) {
               links.push({ source: famId, target: p.id, type: "designed", llmDiscovered: true });
             }
           });
           (dup.engineers || []).forEach(name => {
             allEngineers.add(name);
             const p = resolvePersonNode(nodes, byId, name, "engineer");
-            if (p && !links.some(l => l.type === "engineered" && l.source === famId && l.target === p.id)) {
+            if (p && !links.some(l => l.type === "engineered" && idOf(l.source) === famId && idOf(l.target) === p.id)) {
               links.push({ source: famId, target: p.id, type: "engineered", llmDiscovered: true });
             }
           });
@@ -18014,7 +18092,7 @@ Rules:
       // every undated generation as the nameplate's first).
       gn.year = plausibleStart(fresh.yearStart) || gn.year || (dup && dup.year) || null;
       gn.end = plausibleEnd(fresh.yearStart, fresh.yearEnd) != null ? plausibleEnd(fresh.yearStart, fresh.yearEnd)
-        : (gn.end != null ? gn.end : (dup && dup.end != null ? dup.end : null));
+        : keptEnd(gn, gn.end != null ? gn.end : (dup && dup.end != null ? dup.end : null), entry, fresh.code);
       if (fresh.designers && fresh.designers.length) gn.designers = fresh.designers;
       if (fresh.engineers && fresh.engineers.length) gn.engineers = fresh.engineers;
       if (fresh.wikiFile) gn.wikiFile = fresh.wikiFile;
@@ -18051,10 +18129,10 @@ Rules:
       (gn.engineers || []).forEach(d => allEngineers.add(d));
       newGenIds.push(gid);
       if (prevGid) {
-        const already = links.some(l => l.type === "gensucc" && l.source === prevGid && l.target === gid);
+        const already = links.some(l => l.type === "gensucc" && idOf(l.source) === prevGid && idOf(l.target) === gid);
         if (!already) links.push({ source: prevGid, target: gid, type: "gensucc" });
       }
-      const hub = links.some(l => l.type === "generation" && l.source === famId && l.target === gid);
+      const hub = links.some(l => l.type === "generation" && idOf(l.source) === famId && idOf(l.target) === gid);
       if (!hub) links.push({ source: famId, target: gid, type: "generation" });
       prevGid = gid;
       resolvePlatformMention(nodes, links, famId, gn);
@@ -18072,7 +18150,7 @@ Rules:
         const p = resolvePersonNode(nodes, byId, name, "designer");
         if (!p || seenOnThisGen.has("designed|" + p.id)) return;
         seenOnThisGen.add("designed|" + p.id);
-        if (!links.some(l => l.type === "designed" && l.source === gid && l.target === p.id)) {
+        if (!links.some(l => l.type === "designed" && idOf(l.source) === gid && idOf(l.target) === p.id)) {
           links.push({ source: gid, target: p.id, type: "designed", llmDiscovered: true });
         }
         famPersonLinks.set("designed|" + p.id, { type: "designed", personId: p.id });
@@ -18081,14 +18159,14 @@ Rules:
         const p = resolvePersonNode(nodes, byId, name, "engineer");
         if (!p || seenOnThisGen.has("engineered|" + p.id)) return;
         seenOnThisGen.add("engineered|" + p.id);
-        if (!links.some(l => l.type === "engineered" && l.source === gid && l.target === p.id)) {
+        if (!links.some(l => l.type === "engineered" && idOf(l.source) === gid && idOf(l.target) === p.id)) {
           links.push({ source: gid, target: p.id, type: "engineered", llmDiscovered: true });
         }
         famPersonLinks.set("engineered|" + p.id, { type: "engineered", personId: p.id });
       });
     });
     famPersonLinks.forEach(({ type, personId }) => {
-      if (!links.some(l => l.type === type && l.source === famId && l.target === personId)) {
+      if (!links.some(l => l.type === type && idOf(l.source) === famId && idOf(l.target) === personId)) {
         links.push({ source: famId, target: personId, type, llmDiscovered: true });
       }
     });
@@ -18099,8 +18177,8 @@ Rules:
     // list and gensucc chain from still counting it.
     const orphanIds = new Set(orphaned.map(o => o.id));
     links.forEach(l => {
-      if (l.type === "generation" && l.source === famId && orphanIds.has(l.target)) l.retired = true;
-      if (l.type === "gensucc" && (orphanIds.has(l.source) || orphanIds.has(l.target))) l.retired = true;
+      if (l.type === "generation" && idOf(l.source) === famId && orphanIds.has(idOf(l.target))) l.retired = true;
+      if (l.type === "gensucc" && (orphanIds.has(idOf(l.source)) || orphanIds.has(idOf(l.target)))) l.retired = true;
     });
 
     // A retired generation's relationships go to the generation that takes
@@ -18173,6 +18251,38 @@ Rules:
       if (e.status === "applied") applyFamilyOverride(famId, nodes, links, { entry: e });
     };
     Object.keys(store.recheck).forEach(famId => replay(famId, store.recheck[famId]));
+    applyRereadEnds(nodes);
+  }
+  // A re-read that changes nothing else can still correct when a generation
+  // ended, and it closes as "nothing to change", so no override carries that
+  // here. The end is taken only where the re-read agrees on when the
+  // generation began, or the article's heading gives the run: re-reads do get
+  // years wrong, and those disagree at the start as well (Astra H as 1991-2014).
+  function applyRereadEnds(nodes) {
+    const byId = new Map(nodes.map(n => [n.id, n]));
+    Object.keys(store.recheck).forEach(famId => {
+      const e = store.recheck[famId], fam = byId.get(famId);
+      if (!e || e.status !== "none" || !e.sections || !fam || fam.type !== "family") return;
+      const gens = (fam.generations || []).map(id => byId.get(id)).filter(g => g && !g.retired);
+      const fresh = insideGenerations(e);
+      const paired = pairFreshGenerations(gens, fresh);
+      fresh.forEach((f, i) => {
+        const g = paired[i];
+        if (!g || g.year == null) return;
+        const run = headingRunFor(e, f.code);
+        if (run && run.start === g.year) g.end = run.end;
+        else if (!run && Math.abs((f.yearStart || 0) - g.year) <= 1 && plausibleEnd(f.yearStart, f.yearEnd) != null) {
+          // Running on into the next generation by more than a year is the
+          // read taking the nameplate's run for this one's (Malibu First, to 1972).
+          const end = plausibleEnd(f.yearStart, f.yearEnd);
+          const later = gens.filter(o => o !== g && o.year != null && o.year > g.year).map(o => o.year);
+          // A year either way is usually production against model year.
+          const worthIt = g.end == null || Math.abs(end - g.end) >= 2;
+          if (worthIt && (!later.length || end <= Math.min(...later) + 1 || (g.end != null && end <= g.end))) g.end = end;
+        }
+        else if (g.end != null && g.end < g.year) g.end = null;
+      });
+    });
   }
 
   // ---------- playground: manual LLM prompt/response testing ----------
