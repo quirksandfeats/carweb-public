@@ -115,6 +115,15 @@ page's reads every 15 minutes, a running request's claim renewals every 30)
 stays under 950 requests a day, inside the plan's 1,000. The site's request
 panel asks once a minute, and only while it is open.
 
+`GET /api/request/status` does not list the queue. It answers from a saved copy
+(`status:view`), so public traffic costs KV reads (100,000 a day) rather than list
+operations. Every route that changes the queue marks the copy out of date and the
+next reader lists. A changed copy is checked again after two minutes, because a
+list can lag a write made elsewhere; one that has held still lasts an hour. With no
+changes that is at most 24 lists a day, whatever the traffic. The Cache API is not used because it has no effect on a
+workers.dev address. If today's list operations have run out, the route returns the
+old copy with `stale: true`.
+
 There is no free-text field. A request is a car id and a label, and the label
 is stripped of markup and control characters before it is stored as well as
 escaped when shown.

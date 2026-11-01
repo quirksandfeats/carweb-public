@@ -48,7 +48,7 @@ const job = (id, state) => JSON.stringify({ id, state, queuedAt: old, targetId: 
   {
     const e = env();
     for (let i = 0; i < 5; i++) await worker.fetch(req("/api/request/jobs", { headers: bearer }), e);
-    t("an agent asking five times in a row is written down once (the free plan's writes)", e.JOBS.writes() === 1, e.JOBS.writes());
+    t("an agent asking five times in a row is written down once (the free plan's writes), beside one copy of the status", e.JOBS.writes() === 2, e.JOBS.writes());
   }
   {
     const e = env();

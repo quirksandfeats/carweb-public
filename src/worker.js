@@ -56,6 +56,18 @@
 // see it immediately, and the agent polls.
 const JOB_PREFIX = "job:car:";
 const LAST_KEY = "job:last";
+// What the public status route answers from. Listing the queue counts against
+// the free plan's 1,000 list operations a day, and anyone can ask for the status,
+// so reading it must not list. Reads have a budget of 100,000 a day. The Cache
+// API would be the usual answer, but it does nothing on a workers.dev address.
+// A change marks the copy out of date and the next reader lists. A list can lag a
+// write made elsewhere by up to a minute, so a copy that differs from the last one
+// is trusted for two minutes before it is checked again; one that has held still
+// lasts an hour.
+const STATUS_KEY = "status:view";
+const STATUS_MAX_AGE_MS = 60 * 60 * 1000;
+const STATUS_SETTLE_MS = 2 * 60 * 1000;
+const statusIsFresh = s => !!s && Date.now() - s.at < (s.ttl || STATUS_MAX_AGE_MS);
 const MAX_QUEUED = 25;
 const jobKey = targetId => JOB_PREFIX + targetId;
 // A job nobody claims should not sit in the queue forever -- the Mac may
@@ -207,11 +219,43 @@ export default {
                                                  { expirationTtl: KV_TTL_SECONDS });
     const dropJob = async j => await env.JOBS.delete(jobKey(j.targetId));
     const getLast = async () => await env.JOBS.get(LAST_KEY, "json");
+    // Written only when something a reader would see has changed or the copy has
+    // run out. A failed write costs a stale answer for a while, never the request
+    // it follows.
+    const saveStatus = async queue => {
+      const view = publicView(queue, await getLast());
+      try {
+        const saved = await env.JOBS.get(STATUS_KEY, "json");
+        const same = !!saved && JSON.stringify(saved.view) === JSON.stringify(view);
+        if (!same || !statusIsFresh(saved)) {
+          await env.JOBS.put(STATUS_KEY, JSON.stringify({ at: Date.now(), ttl: same ? STATUS_MAX_AGE_MS : STATUS_SETTLE_MS, view }));
+        }
+      } catch (e) { console.warn("could not save the queue status", e); }
+      return view;
+    };
+    // After a change. Two requests made together each hold a list without the
+    // other's car, so neither writes its own view: the next reader lists. The old
+    // copy stays, to answer with if the day's list operations have run out.
+    const statusChanged = async queue => {
+      const view = publicView(queue, await getLast());
+      try {
+        const saved = await env.JOBS.get(STATUS_KEY, "json");
+        if (saved) await env.JOBS.put(STATUS_KEY, JSON.stringify({ ...saved, at: 0 }));
+      } catch (e) { console.warn("could not mark the queue status", e); }
+      return view;
+    };
 
     // ---- public: what is waiting, and where did my request get to? ----------
     if (path === "/api/request/status" && request.method === "GET") {
-      const [queue, last] = await Promise.all([getQueue(), getLast()]);
-      return json({ ok: true, ...publicView(queue, last) });
+      const saved = await env.JOBS.get(STATUS_KEY, "json");
+      if (statusIsFresh(saved)) return json({ ok: true, ...saved.view });
+      try {
+        return json({ ok: true, ...await saveStatus(await getQueue()) });
+      } catch (e) {
+        // Out of list operations for today: an old answer beats none.
+        if (saved) return json({ ok: true, stale: true, ...saved.view });
+        throw e;
+      }
     }
 
     // ---- public (passphrase): ask for one car to be scanned -----------------
@@ -261,7 +305,7 @@ export default {
         depth: Math.max(1, Math.min(PUBLIC_MAX_DEPTH, parseInt(body.depth, 10) || DEPTH_DEFAULT)),
       };
       await putJob(job);
-      return json({ ok: true, already: false, ...publicView([...queue, job], await getLast()) });
+      return json({ ok: true, already: false, ...await statusChanged([...queue, job]) });
     }
 
     // ---- passphrase OR agent token: take something back out ----------------
@@ -290,7 +334,7 @@ export default {
         const doomed = queue.filter(j => j.state !== "running");
         await Promise.all(doomed.map(dropJob));
         const keep = queue.filter(j => j.state === "running");
-        return json({ ok: true, removed: doomed.length, ...publicView(keep, await getLast()) });
+        return json({ ok: true, removed: doomed.length, ...await statusChanged(keep) });
       }
       const job = matchJob(queue, body.id) || (isAgent ? matchJob(await allJobs(), body.id) : null);
       if (!job) return json({ ok: false, error: "no-job" }, 404);
@@ -300,7 +344,7 @@ export default {
       }
       await dropJob(job);
       return json({ ok: true, removed: 1,
-                    ...publicView(queue.filter(j => j !== job), await getLast()) });
+                    ...await statusChanged(queue.filter(j => j !== job)) });
     }
 
     // ---- agent-only from here on -------------------------------------------
@@ -319,7 +363,9 @@ export default {
       const queue = await getQueue();
       // The head only. One job at a time is still how the agent works -- it
       // has one model and one browser -- but the rest of the list is returned
-      // so it can log how much is waiting.
+      // so it can log how much is waiting. This route also sees requests expire
+      // and dead claims come back, which nothing else would tell the status.
+      await saveStatus(queue);
       return json({ ok: true, job: queue[0] || null, waiting: queue.length });
     }
 
@@ -339,6 +385,7 @@ export default {
       job.state = "running";
       job.claimedAt = new Date().toISOString();
       await putJob(job);
+      await statusChanged(queue);
       return json({ ok: true, already: false, job });
     }
 
@@ -356,7 +403,7 @@ export default {
       job.claimedAt = null;
       job.releasedAt = new Date().toISOString();
       await putJob(job);
-      return json({ ok: true, job: jobView(job), ...publicView(queue, await getLast()) });
+      return json({ ok: true, job: jobView(job), ...await statusChanged(queue) });
     }
 
     if (path === "/api/request/done" && request.method === "POST") {
@@ -374,6 +421,7 @@ export default {
       // that can be re-claimed rather than a result nobody recorded.
       await env.JOBS.put(LAST_KEY, JSON.stringify(done));
       await dropJob(job);
+      await statusChanged(queue.filter(j => j !== job));
       return json({ ok: true, job: done, waiting: Math.max(0, queue.length - 1) });
     }
 
