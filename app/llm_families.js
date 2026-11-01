@@ -734,6 +734,7 @@ window.LlmFamilies = (function () {
         .then(() => sweepArticleLinks(nodes))
         .then(() => sweepWholePageEngineLists())
         .then(() => sweepOrdinalPlaceholders(nodes))
+        .then(() => note("load: all checks finished -- nothing else is running; reload to draw what they changed"))
         .catch(e => console.warn("LlmFamilies: stored-list check failed", e));
     }, 4000);
     note(`load: stored decisions replayed -- ${count("model") + count("family")} cars, ` +
