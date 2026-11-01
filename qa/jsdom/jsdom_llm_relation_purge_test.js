@@ -149,7 +149,7 @@ window.LLM_FAMILIES = {
       codeA: "PlainNP", codeB: "Uno", genIdA: FAM_PLAIN_ID, genIdB: FAM_U1_ID, reason: "test seed",
     },
   },
-  __serverAvailable: true,
+  __serverAvailable: true, __fullSaves: true,
 };
 loadScript("llm_families.js");
 loadScript("app.js");
@@ -201,7 +201,7 @@ console.log("\n--- deleteRecheckEntry(X3): should purge ONLY X3's two relation e
   global.window = window2; global.document = window2.document;
   window2.eval(fs.readFileSync(path.join(APP, "d3.min.js"), "utf-8"));
   window2.CARDATA = JSON.parse(JSON.stringify(SEED_SNAPSHOT)); // fresh, pre-boot copy of the same seeded build-time data
-  window2.LLM_FAMILIES = Object.assign({}, JSON.parse(JSON.stringify(lastPost)), { __serverAvailable: true });
+  window2.LLM_FAMILIES = Object.assign({}, JSON.parse(JSON.stringify(lastPost)), { __serverAvailable: true, __fullSaves: true });
   window2.eval(fs.readFileSync(path.join(APP, "llm_families.js"), "utf-8"));
   window2.eval(fs.readFileSync(path.join(APP, "app.js"), "utf-8"));
   window2.eval(fs.readFileSync(path.join(APP, "timeline.js"), "utf-8"));

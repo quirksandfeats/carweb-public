@@ -2157,3 +2157,23 @@ configured depth, and a job's depth holds until its cascade has drained.
 taken unread: "Duesenberg Ritz" got Rudolf Wanderone, a pool player. An unattended
 lookup now reads it (`articleFitsCar`), and `sweepArticleLinks` reads stored links
 once and removes those plainly not about the car.
+
+**Second audit batch.** Real partner makes no longer veto each other's rebadges:
+18 of 24 "not the same company" rejections were true pairs, so joint ventures and
+badge deals join `MAKE_GROUPS` and `releaseCrossGroupRejections` takes those back
+(the proposal still has to pass on its evidence). A save sends only what changed,
+not the 27 MB store. Clearing one nameplate's rejections no longer clears those of
+a nameplate whose id merely starts the same. Closing a card no longer deletes a
+manual re-check saved while it was open. A flagged pair of two generations of one
+nameplate is removed rather than kept because the article names itself. A short
+code matches only as a whole word ("AU" is not in "Australian"), which fixes wrong
+photos and the guard. A failed lookup stays on the cascade's list. A year the
+article never states is dropped. A future mark runs out with its year, and a car
+with a start year is not called future over a planned variant.
+
+Left for a later pass, confirmed but rarer: a merge into an LLM-split nameplate
+differs after reload (no merges are stored today); sever passes treat build-time
+mirrors as LLM-made; the job queue is saved whole, so two pages can overwrite it;
+credits from a manual re-check are live-only; a merged generation stays listed
+under its old nameplate; boot sweeps change the store but not the live graph until
+the next load.

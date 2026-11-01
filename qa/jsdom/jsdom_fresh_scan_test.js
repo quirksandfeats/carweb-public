@@ -97,7 +97,7 @@ function boot(cascadeMaxDepth, hang, storeOverride) {
   window.LLM_FAMILIES = Object.assign(storeOverride ? JSON.parse(JSON.stringify(storeOverride)) : {
     families: { "m-fresht-s": none, "m-fresht-p": none, "m-fresht-q": none },
     relations: {}, recheck: {}, rejectedRelations: { [rejectedKey]: true },
-  }, { __serverAvailable: true, __config: { cascadeMaxDepth } });
+  }, { __serverAvailable: true, __fullSaves: true, __config: { cascadeMaxDepth } });
   load("llm_families.js");
   load("app.js");
   load("timeline.js");

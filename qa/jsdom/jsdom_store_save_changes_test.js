@@ -44,9 +44,9 @@ const LF = w.LlmFamilies;
   t("the save lists exactly the entry that changed",
     JSON.stringify(changed && changed.set) === JSON.stringify({ families: ["m-two"] }), JSON.stringify(changed));
   t("...and nothing removed", changed && Object.keys(changed.del).length === 0, JSON.stringify(changed && changed.del));
-  const body = Object.assign({}, last); delete body.__changed;
-  t("the rest of the body is still the whole store, as a full save would send it",
-    body.families && Object.keys(body.families).length === 3 && body.families["m-two"].status === "confirmed");
+  t("the body carries the changed entry and nothing else of the store",
+    last.families && Object.keys(last.families).join() === "m-two" && last.families["m-two"].status === "confirmed",
+    Object.keys(last.families || {}).join());
 
   LF.confirmNode("m-three");
   await new Promise(r => setTimeout(r, 50));

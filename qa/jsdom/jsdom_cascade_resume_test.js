@@ -115,7 +115,7 @@ for (const f of [...html.matchAll(/<script src="([^"]+)"><\/script>/g)].map(m =>
       // The depth a user runs at. A car saved at depth 2 is resumed at 2
       // under this; under a lower limit it would be capped to that.
       __config: { cascadeMaxDepth: 7 },
-      __serverAvailable: true };
+      __serverAvailable: true, __fullSaves: true };
   }
   ev(f);
 }

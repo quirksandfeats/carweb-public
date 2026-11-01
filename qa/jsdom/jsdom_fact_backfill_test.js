@@ -154,7 +154,7 @@ window.LLM_FAMILIES = {
     },
   },
   relations: {}, recheck: {}, rejectedRelations: {}, dismissed: {}, mintedFacts: {},
-  __serverAvailable: true,
+  __serverAvailable: true, __fullSaves: true,
 };
 loadScript("llm_families.js");
 

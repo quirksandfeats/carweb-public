@@ -79,7 +79,7 @@ function seedStore() {
     transitive: { [[LLMCAR, G2].sort().join("|") + "|related"]: { a: LLMCAR, b: G2, status: "proposed" } },
     rejectedRelations: { [[LLMCAR, G2].sort().join("|") + "|platform"]: true },
     deletions: {}, renames: {}, merges: {}, purged: {}, unmerges: {},
-    __serverAvailable: true,
+    __serverAvailable: true, __fullSaves: true,
   };
 }
 

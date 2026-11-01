@@ -16,7 +16,7 @@ function slice(name) {
   return lb < 0 ? f : f.slice(0, lb + 4);
 }
 eval(src.match(/const GENERIC_CODE_PAREN_RE = [^\n]+/)[0] + "\n" +
-     slice("codeAnchorIn") + "\n" + slice("splitCompositeCode") + "\n" + slice("codeVerifiedIn"));
+     slice("codeIndexIn") + "\n" + slice("codeAnchorIn") + "\n" + slice("splitCompositeCode") + "\n" + slice("codeVerifiedIn"));
 
 let fails = 0;
 const t = (n, c, e) => { if (!c) fails++; console.log((c ? "PASS " : "FAIL ") + n + (e !== undefined ? "  -- " + e : "")); };

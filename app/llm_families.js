@@ -464,16 +464,19 @@ window.LlmFamilies = (function () {
   // used to delete those too, so opening a waiting split from that panel and
   // then clicking anything else threw it away, with only another full
   // re-check to get it back.
-  const heldForCard = { families: new Set(), recheck: new Set() };
+  const heldForCard = { families: new Map(), recheck: new Map() };
   function holdForCard(bucket, nodeId, entry) {
     store[bucket][nodeId] = entry;
-    heldForCard[bucket].add(nodeId);
+    heldForCard[bucket].set(nodeId, entry);
   }
   function discardPending(nodeId) {
     ["families", "recheck"].forEach(bucket => {
+      const held = heldForCard[bucket].get(nodeId);
       if (!heldForCard[bucket].delete(nodeId)) return;
+      // Only the entry that was held. A manual re-check on the same open card
+      // writes its own, which is saved and waits for a decision.
       const e = store[bucket][nodeId];
-      if (e && e.status === "provisional") delete store[bucket][nodeId];
+      if (e && e === held && e.status === "provisional") delete store[bucket][nodeId];
     });
   }
   // Avoids kicking off a second concurrent llama.cpp call for the same car if
@@ -577,16 +580,26 @@ window.LlmFamilies = (function () {
     if (prev) prev.forEach((_, k) => { if (!next.has(k)) { out.atomic.push(k); any = true; } });
     return any ? out : null;
   }
-  // The same text JSON.stringify(store) gives, built from the parts already
-  // serialised, plus the list of what changed.
+  // What a save sends: the entries it changed and the parts saved whole,
+  // with the list of what changed. serve.py reads nothing else, and building
+  // and posting the whole 27 MB store for a one-entry change cost tens of MB
+  // on every save, in a page that was running out of memory.
   function bodyOfParts(parts, changed) {
     const out = [];
+    // The test suite's stand-in server keeps a save's body as the whole store.
+    const wholes = new Set(bootData.__fullSaves ? [...parts.keys()] : changed.atomic);
     parts.forEach((p, k) => {
-      if (!(p instanceof Map)) { out.push(JSON.stringify(k) + ":" + p); return; }
+      const set = changed.set[k];
+      if (wholes.has(k) || !(p instanceof Map)) {
+        if (!wholes.has(k) && k !== "families") return;
+        if (!(p instanceof Map)) { out.push(JSON.stringify(k) + ":" + p); return; }
+      } else if (!set && k !== "families") return;
       const entries = [];
-      p.forEach((s, e) => entries.push(JSON.stringify(e) + ":" + s));
+      if (wholes.has(k)) p.forEach((s, e) => entries.push(JSON.stringify(e) + ":" + s));
+      else (set || []).forEach(e => entries.push(JSON.stringify(e) + ":" + p.get(e)));
       out.push(JSON.stringify(k) + ":{" + entries.join(",") + "}");
     });
+    if (!parts.has("families")) out.push('"families":{}');
     out.push(JSON.stringify("__changed") + ":" + JSON.stringify(changed));
     return "{" + out.join(",") + "}";
   }
@@ -701,6 +714,7 @@ window.LlmFamilies = (function () {
     // cut it off. It reads Wikipedia and calls no model, and it does nothing
     // once every list has been through it.
     setTimeout(() => {
+      releaseCrossGroupRejections(nodes);
       sweepStoredSplitsForOutsiders().then(() => sweepRecheckSections(nodes))
         .then(() => { settleRetiredGenerationFlags(nodes); return sweepFlaggedMentions(nodes); })
         .then(() => sweepWeakRelations(nodes))
@@ -834,16 +848,19 @@ window.LlmFamilies = (function () {
       return (r && r.resolvedTitle) || String(title).split("#")[0].trim() || title;
     } catch (e) { return null; }
   }
-  async function searchWikipediaTitle(query) {
+  async function searchWikipediaTitle(query, throwOnFailure) {
     try {
       const url = "https://en.wikipedia.org/w/api.php?action=query&list=search&format=json&origin=*&srlimit=3&srsearch=" +
         encodeURIComponent(query);
       const r = await fetch(url);
-      if (!r.ok) return null;
+      if (!r.ok) throw new Error("wikipedia search failed: " + r.status);
       const j = await r.json();
       const hits = (j && j.query && j.query.search) || [];
       return hits.length ? hits[0].title : null;
-    } catch (e) { return null; }
+    } catch (e) {
+      if (throwOnFailure) throw e;
+      return null;
+    }
   }
   // Is this article plausibly about this car? A search's first hit is often
   // right even when the title does not say so -- the Toyota Rush is in the
@@ -871,12 +888,20 @@ window.LlmFamilies = (function () {
   // the result and can change it.
   async function findWikipediaTitleFor(makeLabel, modelLabel, opts) {
     const guess = `${makeLabel} ${modelLabel}`.trim();
-    const read = async title => { try { return await fetchArticleDigest(title); } catch (e) { return null; } };
+    // Only "no such page" is an answer. A failed request stays a failure when
+    // nobody is watching, so the car stays on the cascade's list for later.
+    const read = async title => {
+      try { return await fetchArticleDigest(title); }
+      catch (e) {
+        if (opts && opts.strict && !/no wikitext/.test(String(e && e.message))) throw e;
+        return null;
+      }
+    };
     const direct = await read(guess);
     if (direct && !DISAMBIGUATION_RE.test(direct.wikitext || "")) {
       return direct.resolvedTitle || guess.split("#")[0].trim();
     }
-    const searched = await searchWikipediaTitle(guess);
+    const searched = await searchWikipediaTitle(guess, opts && opts.strict);
     if (searched && searched !== guess) {
       const hit = await read(searched);
       if (hit && (!(opts && opts.strict) || articleFitsCar(hit.wikitext, hit.resolvedTitle || searched, makeLabel, modelLabel))) {
@@ -1521,7 +1546,11 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
   // designation. Without this, both generations resolved to the FIRST section
   // and the later one could never find a photo (or any text) of its own.
   function sectionRangesForCode(wikitext, code) {
-    const headings = Array.from(wikitext.matchAll(/^={2,4}\s*([^=\n]+?)\s*={2,4}\s*$/gm));
+    const headings = Array.from(wikitext.matchAll(/^(={2,4})\s*(.+?)\s*\1\s*$/gm)).map(m => {
+      const o = [m[0], m[2].replace(/<[^>]+>/g, "").trim()];
+      o.index = m.index;
+      return o;
+    });
     if (!headings.length) return [];
     const wanted = String(code || "").toLowerCase();
     if (!wanted) return [];
@@ -1531,7 +1560,7 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
     const out = [];
     for (let i = 0; i < headings.length; i++) {
       const h = headings[i][1].toLowerCase();
-      if (!parts.some(p => p.length > 1 && h.includes(p)) && !h.includes(wanted)) continue;
+      if (!parts.some(p => p.length > 1 && codeIndexIn(h, p) >= 0) && codeIndexIn(h, wanted) < 0) continue;
       out.push({
         start: headings[i].index,
         end: i + 1 < headings.length ? headings[i + 1].index : wikitext.length,
@@ -1829,6 +1858,19 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
     suzuki: ["Suzuki", "Maruti Suzuki"],
     isuzu: ["Isuzu"],
     byd: ["BYD", "Denza", "Yangwang"],
+    // Joint ventures and badge deals, not ownership. Left out, their real
+    // rebadges were rejected for good as "not part of the same company": 18 of
+    // the 24 such rejections on 1 Nov 2026 were real pairs (the Pontiac Vibe and
+    // Toyota Matrix, the Holden Nova and Toyota Sprinter, the Ford Ranger and
+    // Volkswagen Amarok). Being grouped proves nothing; it only stops the veto,
+    // and the proposal then has to pass on its own evidence.
+    "toyota-gm": ["Toyota", "Chevrolet", "Pontiac", "Geo", "Holden"],
+    "isuzu-gm-honda": ["Isuzu", "Chevrolet", "GMC", "Holden", "Opel", "Vauxhall", "Honda", "Acura"],
+    "honda-rover": ["Honda", "Acura", "Rover", "Austin", "MG", "Sterling"],
+    "nissan-ford-subaru": ["Nissan", "Datsun", "Ford", "Mercury", "Subaru", "Mazda"],
+    "mitsubishi-chrysler": ["Mitsubishi", "Chrysler", "Dodge", "Plymouth", "Eagle", "Hyundai"],
+    "suzuki-partners": ["Suzuki", "Maruti Suzuki", "Chevrolet", "Geo", "Pontiac", "Opel", "Vauxhall", "Holden", "Mitsubishi", "Nissan", "Mazda"],
+    "ford-vw": ["Ford", "Volkswagen", "SEAT"],
     chery: ["Chery", "Exeed", "Jetour", "Omoda"],
     greatwall: ["Great Wall", "Haval", "Wey", "Ora", "Tank"],
     changan: ["Changan", "Deepal", "Avatr"],
@@ -1919,6 +1961,21 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
     }
   }
 
+  // A cross-company rejection the groups no longer support is taken back, so
+  // the next replay can propose the pair and it can pass on its evidence.
+  function releaseCrossGroupRejections(nodes) {
+    let n = 0;
+    Object.keys(store.crossGroupRejections || {}).forEach(key => {
+      const r = store.crossGroupRejections[key];
+      const a = nodeWithId(nodes, r && r.a), b = nodeWithId(nodes, r && r.b);
+      if (!a || !b || makeRelationship(a.make, b.make) === "different") return;
+      delete store.crossGroupRejections[key];
+      delete store.rejectedRelations[key];
+      n++;
+    });
+    if (n) { note(`relationships: ${n} rejection(s) for "not the same company" taken back -- those makes are partners`); persist(); }
+    return n;
+  }
   // The same policy, applied once to proposals that were already sitting in
   // the review queue when it arrived. 32 of them, and they sorted themselves:
   //
@@ -2156,10 +2213,20 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
   // article writes 1936-1955 with a different dash character than the model
   // does, or gives the two years in separate sentences.
   const GENERIC_CODE_PAREN_RE = /^(?:(?:first|second|third|fourth|fifth|sixth|seventh|eighth|ninth|tenth|\d+(?:st|nd|rd|th))[\s-]?generation|generation\s+(?:[ivxIVX]+|\d+)|(?:pre-?)?facelift(?:ed)?|current|latest|final|(?:c\.?\s*)?(?:1[89]|20)\d{2}\s*(?:[-\u2010-\u2015\u2212]|to|until|through)?\s*(?:(?:1[89]|20)\d{2}|present|now)?)$/i;
+  // Where a code stands in the text. A short one only as a whole word: "AU" is
+  // in "Australian", and that anchor took the Falcon AU's photo from the wrong
+  // generation and let any invented two-letter code through the guard.
+  function codeIndexIn(hay, code) {
+    const c = String(code || "").toLowerCase();
+    if (!c) return -1;
+    if (c.length > 3) return hay.indexOf(c);
+    const m = new RegExp("(?<![a-z0-9])" + c.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + "(?![a-z0-9])").exec(hay);
+    return m ? m.index : -1;
+  }
   function codeAnchorIn(hay, rawCode) {
     const raw = String(rawCode == null ? "" : rawCode).trim();
     if (!raw) return -1;
-    const direct = hay.indexOf(raw.toLowerCase());
+    const direct = codeIndexIn(hay, raw);
     if (direct >= 0) return direct;
     // A trailing parenthetical is optional. This used to bail out entirely
     // when there wasn't one -- which meant the composite handling further
@@ -2172,7 +2239,7 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
     // A non-generic parenthetical is a factual claim of its own and still
     // has to be real -- only a plain ordinal/facelift descriptor gets a pass.
     if (paren && !GENERIC_CODE_PAREN_RE.test(paren) && !hay.includes(paren.toLowerCase())) return -1;
-    const coreIdx = hay.indexOf(core.toLowerCase());
+    const coreIdx = codeIndexIn(hay, core);
     if (coreIdx >= 0) return coreIdx;
     // "ZN6/ZC6", "Astra F / T91" -- a composite of several names.
     //
@@ -2264,6 +2331,14 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
     return false;
   }
 
+  // Years answer to the article like every other claim: one it never states is
+  // dropped. An end year may be written short ("1996-99").
+  function yearInArticle(y, hay) {
+    if (!Number.isFinite(y)) return null;
+    const s = String(y);
+    if (new RegExp("(?<![0-9])" + s + "(?![0-9])").test(hay)) return y;
+    return new RegExp("[–—-]\\s*" + s.slice(2) + "(?![0-9])").test(hay) ? y : null;
+  }
   function validate(raw, wikitext) {
     const hay = wikitext.toLowerCase();
     // Shared across every generation in this proposal so no two of them can
@@ -2280,8 +2355,8 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
         const code = codeVerifiedIn(hay, g.code);
         return {
           code, anchor,
-          yearStart: Number.isFinite(g.yearStart) ? g.yearStart : null,
-          yearEnd: Number.isFinite(g.yearEnd) ? g.yearEnd : null,
+          yearStart: yearInArticle(g.yearStart, hay),
+          yearEnd: yearInArticle(g.yearEnd, hay),
           designers: (Array.isArray(g.designers) ? g.designers : []).filter(d => d && hay.includes(String(d).toLowerCase())),
           engineers: (Array.isArray(g.engineers) ? g.engineers : []).filter(d => d && hay.includes(String(d).toLowerCase())),
           wikiFile: null,   // filled in after the list is settled -- see below
@@ -2723,6 +2798,16 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
           const e = store.relations[key];
           if (!e || !e.reworkPending) continue;
           const a = byIdLocal.get(e.genIdA || e.famA), b = byIdLocal.get(e.genIdB || e.famB);
+          // Two generations of one nameplate: its article names it either way,
+          // so that says nothing, and a car is not its own platform partner.
+          const plateOf = c => c && (c.familyOf || c.id);
+          if (a && b && plateOf(a) === plateOf(b)) {
+            delete store.relations[key];
+            store.rejectedRelations[key] = true;
+            out.removed++;
+            note(`relationships: ${a.make || ""} ${a.label} / ${b.label} -- two generations of one nameplate; removed`);
+            continue;
+          }
           let named = false, unread = false;
           for (const [car, other] of [[a, b], [b, a]]) {
             for (const title of titlesOf(car)) {
@@ -4152,13 +4237,19 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
     if (prev) prev.body = text.slice(prev.from);
     return out;
   }
+  // Still in the future? A mark made in 2026 for 2027 runs out by itself.
+  function stillFuture(g) {
+    return !!g.future && (g.expectedYear == null || g.expectedYear >= new Date().getFullYear());
+  }
   function markFutureGenerations(generations, wikitext) {
     const now = new Date().getFullYear();
     const sections = wikitext ? sectionTexts(wikitext) : [];
     (generations || []).forEach(g => {
       if (!g) return;
       if (g.yearStart != null && g.yearStart > now) { g.future = true; g.expectedYear = g.yearStart; return; }
-      if (g.yearStart != null && g.yearStart <= now - 1) return;
+      // A car with a start year has one: a section saying a hybrid version
+      // "is planned" does not make it a future model.
+      if (g.yearStart != null) { delete g.future; delete g.expectedYear; return; }
       const place = generationPlace(g.code), codes = codesNamedIn(g.code);
       const sec = sections.find(x => labelCarriesCode(x.heading, g.code) ||
         (codes.length && codesNamedIn(x.heading).some(c => codes.includes(c))) ||
@@ -5330,6 +5421,7 @@ Rules:
     cascadeDepth.set(node.id, mintedDepth);
     rememberCascade(node.id, mintedDepth, originId || engagedId);
     wpLookupScheduled.add(node.id);
+    let lookupFailed = false;
     (node.lookupName ? findWikipediaTitleFor("", node.lookupName, { strict: true }) : findWikipediaTitleFor(node.make, node.label, { strict: true })).then(title => {
       if (!title) return; // nothing found automatically -- leave it for a manual paste later
       // A manual paste (setNodeWikiLink, see below) or an independent mint
@@ -5340,12 +5432,14 @@ Rules:
       store.wpLinks[node.id] = title;
       return persist().then(() => checkNodeCascade(node, nodes));
     }).catch(e => {
+      lookupFailed = true;
       console.warn("LlmFamilies: background Wikipedia lookup failed for " + node.id, e);
     }).finally(() => {
       wpLookupScheduled.delete(node.id);
       // An answer, or no article to be found at all: either way there is
-      // nothing left for a resumed cascade to do with this car.
-      if (entryFor(node.id) || !node.wp) forgetCascade(node.id);
+      // nothing left for a resumed cascade to do with this car. A lookup that
+      // failed is neither, and it stays on the list.
+      if (entryFor(node.id) || (!node.wp && !lookupFailed)) forgetCascade(node.id);
       notifyFactsUpdate(); // reuse the same "something about this node changed in the background" signal app.js already listens for
     });
   }
@@ -7517,7 +7611,7 @@ Rules:
           // shared parent-article thumbnail. Null just means none was found
           // nearby; the app falls back to the normal per-article thumbnail.
           wikiFile: g.wikiFile || null,
-          future: !!g.future, expectedYear: g.future ? (g.expectedYear || null) : null,
+          future: stillFuture(g), expectedYear: stillFuture(g) ? (g.expectedYear || null) : null,
           // Free-text names of every DIFFERENT nameplate this generation's
           // own article text says it shares a platform with / is a rebadge
           // of (hallucination-guarded to appear verbatim in the source by
@@ -11913,8 +12007,14 @@ Rules:
   // Does this rejectedRelations key involve `id` -- either as one of its two
   // endpoints outright, or as a generation minted under it (applyConfirmed's
   // own `llm-<nodeId>-<code>` id convention)?
+  // A key part belongs to `id` if it is that car or one of its generations.
+  // Ids are slugs, so "llm-m-mazda-familia-van-y11" also starts with the prefix
+  // of m-mazda-familia: a longer nameplate id that fits keeps it for itself.
   function rejectionKeyTouches(key, id) {
-    return String(key).split("|").some(part => part === id || part.startsWith("llm-" + id + "-"));
+    const longer = Object.keys(store.families || {}).concat(Object.keys(store.recheck || {}))
+      .filter(x => x !== id && x.startsWith(id + "-"));
+    return String(key).split("|").some(part => part === id ||
+      (part.startsWith("llm-" + id + "-") && !longer.some(x => part === x || part.startsWith("llm-" + x + "-"))));
   }
   function clearRejectionsFor(id) {
     if (!id || !store.rejectedRelations) return 0;
@@ -17680,8 +17780,8 @@ Rules:
       if (fresh.designers && fresh.designers.length) gn.designers = fresh.designers;
       if (fresh.engineers && fresh.engineers.length) gn.engineers = fresh.engineers;
       if (fresh.wikiFile) gn.wikiFile = fresh.wikiFile;
-      gn.future = !!fresh.future;
-      gn.expectedYear = fresh.future ? (fresh.expectedYear || null) : null;
+      gn.future = stillFuture(fresh);
+      gn.expectedYear = stillFuture(fresh) ? (fresh.expectedYear || null) : null;
       // Real gap found while adding multi-relation support: this override
       // flow called resolvePlatformMention below on every pass, but never
       // actually SET gn.sharedPlatformTexts first -- so an EXISTING

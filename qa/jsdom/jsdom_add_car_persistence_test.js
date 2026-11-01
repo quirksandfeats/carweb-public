@@ -72,7 +72,7 @@ w1.fetch = (url, opts) => {
 };
 w1.XMLHttpRequest = function () {
   this.open = () => {};
-  this.send = () => { this.status = 200; this.responseText = JSON.stringify({ families: {}, relations: {}, recheck: {}, __serverAvailable: true }); };
+  this.send = () => { this.status = 200; this.responseText = JSON.stringify({ families: {}, relations: {}, recheck: {}, __serverAvailable: true, __fullSaves: true }); };
 };
 global.window = w1; global.document = w1.document;
 loadScript(w1, "d3.min.js");

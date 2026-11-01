@@ -52,7 +52,7 @@ function freshWindow({ fetchImpl, seed, llmFamilies } = {}) {
   loadScript("d3.min.js");
   loadScript("data.js");
   if (typeof seed === "function") seed(window.CARDATA);
-  window.LLM_FAMILIES = llmFamilies || { families: {}, relations: {}, recheck: {}, __serverAvailable: true };
+  window.LLM_FAMILIES = llmFamilies || { families: {}, relations: {}, recheck: {}, __serverAvailable: true, __fullSaves: true };
   loadScript("llm_families.js");
   loadScript("app.js");
   loadScript("timeline.js");
@@ -101,7 +101,7 @@ const winA = freshWindow({
     relations: {
       [relKey]: { famA: FAM_A, famB: FAM_B, relType: "related", status: "confirmed", codeA: "Kappa (I)", codeB: "Lambda (I)", checkedAt: new Date().toISOString() },
     },
-    __serverAvailable: true,
+    __serverAvailable: true, __fullSaves: true,
   },
 });
 {
@@ -144,7 +144,7 @@ check("window A: bulk clear also persisted (dismissed map now includes the appli
 // ---------- window B: fresh boot, seeded with exactly what window A persisted -- simulates a real page reload ----------
 const winB = freshWindow({
   seed,
-  llmFamilies: Object.assign({ __serverAvailable: true }, lastPersistedBody || {}),
+  llmFamilies: Object.assign({ __serverAvailable: true, __fullSaves: true }, lastPersistedBody || {}),
 });
 {
   const cw = winB.CarWeb;
@@ -168,7 +168,7 @@ const winB = freshWindow({
 // ---------- "Clear ALL" in the debug panel must also wipe dismissals, not just leave them stranded ----------
   const winC = freshWindow({
     seed,
-    llmFamilies: Object.assign({ __serverAvailable: true }, lastPersistedBody || {}),
+    llmFamilies: Object.assign({ __serverAvailable: true, __fullSaves: true }, lastPersistedBody || {}),
   });
   check("window C: dismissed map is non-empty before resetAll", winC.LlmFamilies.allDismissed().length > 0, winC.LlmFamilies.allDismissed());
   await winC.LlmFamilies.resetAll();
