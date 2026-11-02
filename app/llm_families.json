@@ -132010,7 +132010,7 @@
   },
   "llm-related-mitsubishi-delica": {
    "status": "same-article",
-   "checkedAt": "2026-10-15T15:00:23.718Z",
+   "checkedAt": "2026-11-02T14:28:23.610Z",
    "sourceTitle": "Mitsubishi Delica",
    "sameAs": "llm-related-mitsubishi-delica-d-3",
    "sameAsLabel": "Mitsubishi Delica D:3",
@@ -256673,62 +256673,13 @@
    "sameAsLabel": "Acura Integra (2022)",
    "attempts": 1
   },
-  "llm-related-ford-taurus-middle-east-cambodia": {
-   "status": "none",
-   "checkedAt": "2026-11-02T11:08:19.687Z",
-   "sourceTitle": "Ford Mondeo (fifth generation)",
-   "proposal": {
-    "hasMultipleGenerations": false,
-    "generations": [
-     {
-      "code": "Ford Mondeo (fifth generation)",
-      "yearStart": 2022,
-      "yearEnd": null,
-      "designers": [
-       "Nathan Kongsarai"
-      ],
-      "engineers": [],
-      "wikiFile": "2022 Chаng'an-Ford Mondeo (front).jpg",
-      "sharedPlatforms": [
-       "Ford Evos",
-       "Mondeo Sport",
-       "Lincoln Z"
-      ],
-      "sharedPlatformMatches": {
-       "Ford Evos": {
-        "matchId": "m-ford-evos-concept-car",
-        "confidence": "high",
-        "reason": "The mention 'Ford Evos' refers to the concept car unveiled by Ford at the Geneva Motor Show in March 2011. The candidate 'm-ford-evos-concept-car' is explicitly labeled as 'Ford Evos (concept car)' with the year 2011, which matches the specific event and vehicle described. No production version of the 'Ford Evos' exists in the candidate list, making the concept car the only valid match."
-       }
-      }
-     }
-    ]
-   },
-   "attempts": 1,
-   "feedback": [],
-   "debug": {
-    "raw": {
-     "hasMultipleGenerations": false,
-     "generations": [
-      {
-       "code": "Ford Mondeo (fifth generation)",
-       "yearStart": 2022,
-       "yearEnd": null,
-       "designers": [
-        "Nathan Kongsarai"
-       ],
-       "engineers": [],
-       "sharedPlatforms": [
-        "Ford Evos",
-        "Mondeo Sport",
-        "Lincoln Z"
-       ]
-      }
-     ]
-    },
-    "dropped": []
-   },
-   "cascadeDiscovered": true
+  "llm-llm-related-hyundai-porter-third-generation": {
+   "status": "same-article",
+   "checkedAt": "2026-11-02T14:30:46.187Z",
+   "sourceTitle": "Hyundai Porter",
+   "sameAs": "llm-related-hyundai-porter",
+   "sameAsLabel": "Hyundai Porter",
+   "attempts": 1
   }
  },
  "relations": {
@@ -276563,8 +276514,8 @@
   },
   "llm-m-nissan-micra-k14|llm-m-nissan-note-e12|platform": {
    "status": "confirmed",
-   "checkedAt": "2026-11-02T10:55:10.289Z",
-   "decidedAt": "2026-11-02T10:55:10.289Z",
+   "checkedAt": "2026-11-02T14:28:00.831Z",
+   "decidedAt": "2026-11-02T14:28:00.831Z",
    "famA": "m-nissan-note",
    "famB": "m-nissan-micra",
    "relType": "platform",
@@ -318475,8 +318426,8 @@
   },
   "llm-llm-related-daewoo-veritas-wn|llm-m-chevrolet-caprice-sixth-generation|platform": {
    "status": "confirmed",
-   "checkedAt": "2026-11-02T10:55:16.217Z",
-   "decidedAt": "2026-11-02T10:55:16.217Z",
+   "checkedAt": "2026-11-02T14:28:06.530Z",
+   "decidedAt": "2026-11-02T14:28:06.530Z",
    "famA": "llm-related-daewoo-veritas",
    "famB": "m-chevrolet-caprice",
    "relType": "platform",
@@ -434745,8 +434696,8 @@
   },
   "llm-llm-related-ford-contour-mk-i-mk-ii|llm-m-mercury-cougar-seventh-generation|platform": {
    "status": "confirmed",
-   "checkedAt": "2026-11-02T10:55:16.768Z",
-   "decidedAt": "2026-11-02T10:55:16.768Z",
+   "checkedAt": "2026-11-02T14:28:07.073Z",
+   "decidedAt": "2026-11-02T14:28:07.073Z",
    "famA": "llm-related-ford-contour",
    "famB": "m-mercury-cougar",
    "relType": "platform",
@@ -461288,8 +461239,8 @@
   },
   "llm-llm-related-volkswagen-alltrack-b6|llm-m-skoda-superb-b6-3t|platform": {
    "status": "confirmed",
-   "checkedAt": "2026-11-02T10:55:19.507Z",
-   "decidedAt": "2026-11-02T10:55:19.507Z",
+   "checkedAt": "2026-11-02T14:28:09.817Z",
+   "decidedAt": "2026-11-02T14:28:09.817Z",
    "famA": "llm-related-volkswagen-alltrack",
    "famB": "m-skoda-superb",
    "relType": "platform",
@@ -463866,8 +463817,8 @@
   },
   "llm-m-lincoln-custom-lincoln-custom-1941|llm-m-lincoln-lincoln-zephyr-lincoln-h-series|platform": {
    "status": "confirmed",
-   "checkedAt": "2026-11-02T10:55:12.841Z",
-   "decidedAt": "2026-11-02T10:55:12.841Z",
+   "checkedAt": "2026-11-02T14:28:03.301Z",
+   "decidedAt": "2026-11-02T14:28:03.301Z",
    "famA": "m-lincoln-custom",
    "famB": "m-lincoln-lincoln-zephyr",
    "relType": "platform",
@@ -493699,8 +493650,8 @@
   },
   "llm-m-mitsubishi-3000gt-z16a|llm-m-mitsubishi-sigma-first-generation|platform": {
    "status": "confirmed",
-   "checkedAt": "2026-11-02T10:55:13.240Z",
-   "decidedAt": "2026-11-02T10:55:13.240Z",
+   "checkedAt": "2026-11-02T14:28:03.691Z",
+   "decidedAt": "2026-11-02T14:28:03.691Z",
    "famA": "m-mitsubishi-sigma",
    "famB": "m-mitsubishi-3000gt",
    "relType": "platform",
@@ -503802,20 +503753,6 @@
    "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
    "llmDiscovered": true
   },
-  "m-ford-mondeo-fifth-generation|m-ford-taurus-china|platform": {
-   "status": "confirmed",
-   "checkedAt": "2026-11-02T08:44:09.153Z",
-   "decidedAt": "2026-11-02T08:44:09.153Z",
-   "famA": "m-ford-taurus-china",
-   "famB": "fam-ford-mondeo",
-   "relType": "platform",
-   "codeA": "Taurus (China)",
-   "codeB": "Mondeo (fifth generation)",
-   "genIdA": "m-ford-taurus-china",
-   "genIdB": "m-ford-mondeo-fifth-generation",
-   "reason": "matched automatically -- the nameplate was named exactly in the source text, and exactly one of its generations was in production alongside this one, so that is the generation it refers to",
-   "llmDiscovered": true
-  },
   "llm-fam-holden-caprice-second-generation-wh-wk-wl-|llm-llm-related-pontiac-gto-fifth-generation|platform": {
    "status": "confirmed",
    "checkedAt": "2026-11-02T08:44:09.742Z",
@@ -504849,20 +504786,6 @@
    "llmDiscovered": true,
    "llmVerifiedDuplicate": true
   },
-  "llm-m-opel-omega-omega-a|m-holden-caprice|platform": {
-   "status": "confirmed",
-   "checkedAt": "2026-10-13T06:34:13.984Z",
-   "decidedAt": "2026-10-13T06:34:13.984Z",
-   "famA": "m-holden-caprice-vq",
-   "famB": "m-opel-omega",
-   "relType": "platform",
-   "codeA": "Caprice (VQ) VQ I",
-   "codeB": "Omega A",
-   "genIdA": "m-holden-caprice",
-   "genIdB": "llm-m-opel-omega-omega-a",
-   "reason": "matched automatically -- the nameplate was named exactly in the source text, and exactly one of its generations was in production alongside this one, so that is the generation it refers to",
-   "llmDiscovered": true
-  },
   "llm-m-opel-senator-senator-b|m-holden-caprice|platform": {
    "status": "confirmed",
    "checkedAt": "2026-10-13T06:34:13.984Z",
@@ -504889,20 +504812,6 @@
    "genIdA": "llm-m-isuzu-gemini-jt150",
    "genIdB": "llm-related-acadian-automobile",
    "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
-   "llmDiscovered": true
-  },
-  "llm-m-suzuki-ertiga-nc|m-suzuki-ciaz|platform": {
-   "status": "confirmed",
-   "checkedAt": "2026-11-02T10:55:14.726Z",
-   "decidedAt": "2026-11-02T10:55:14.726Z",
-   "famA": "m-suzuki-ciaz",
-   "famB": "m-suzuki-ertiga",
-   "relType": "platform",
-   "codeA": "Ciaz",
-   "codeB": "Ertiga NC",
-   "genIdA": "m-suzuki-ciaz",
-   "genIdB": "llm-m-suzuki-ertiga-nc",
-   "reason": "matched automatically -- the nameplate was named exactly in the source text; no text says which, so the generation whose years fit this one best",
    "llmDiscovered": true
   },
   "m-holden-caprice-vq|m-holden-utility-vg|platform": {
@@ -505004,34 +504913,6 @@
    "reason": "matched automatically -- the nameplate was named exactly in the source text; no text says which, so the generation whose years fit this one best",
    "llmDiscovered": true
   },
-  "llm-m-volkswagen-id-buzz-id-buzz-concept|m-volkswagen-id-tiguan|platform": {
-   "status": "confirmed",
-   "checkedAt": "2026-11-02T10:55:15.104Z",
-   "decidedAt": "2026-11-02T10:55:15.104Z",
-   "famA": "m-volkswagen-id-tiguan",
-   "famB": "m-volkswagen-id-buzz",
-   "relType": "platform",
-   "codeA": "ID. Tiguan",
-   "codeB": "ID. Buzz (concept)",
-   "genIdA": "m-volkswagen-id-tiguan",
-   "genIdB": "llm-m-volkswagen-id-buzz-id-buzz-concept",
-   "reason": "matched automatically -- the nameplate was named exactly in the source text; no text says which, so the generation whose years fit this one best",
-   "llmDiscovered": true
-  },
-  "llm-m-lancia-stratos-stratos-zero|m-lancia-rally-037|platform": {
-   "status": "confirmed",
-   "checkedAt": "2026-11-02T10:55:15.121Z",
-   "decidedAt": "2026-11-02T10:55:15.121Z",
-   "famA": "m-lancia-rally-037",
-   "famB": "m-lancia-stratos",
-   "relType": "platform",
-   "codeA": "Rally 037",
-   "codeB": "Stratos Zero",
-   "genIdA": "m-lancia-rally-037",
-   "genIdB": "llm-m-lancia-stratos-stratos-zero",
-   "reason": "matched automatically -- the nameplate was named exactly in the source text; no text says which, so the generation whose years fit this one best",
-   "llmDiscovered": true
-  },
   "llm-llm-related-acadian-automobile-pontiac-acadian|llm-m-isuzu-gemini-jt150|platform": {
    "status": "confirmed",
    "checkedAt": "2026-11-02T10:55:16.147Z",
@@ -505048,8 +504929,8 @@
   },
   "llm-m-toyota-sienta-xp170|llm-m-toyota-yaris-xp210|platform": {
    "status": "confirmed",
-   "checkedAt": "2026-11-02T10:55:16.349Z",
-   "decidedAt": "2026-11-02T10:55:16.349Z",
+   "checkedAt": "2026-11-02T14:28:06.661Z",
+   "decidedAt": "2026-11-02T14:28:06.661Z",
    "famA": "m-toyota-yaris",
    "famB": "m-toyota-sienta",
    "relType": "platform",
@@ -505076,8 +504957,8 @@
   },
   "llm-m-dodge-colt-first-generation|llm-m-mitsubishi-galant-first-generation|platform": {
    "status": "confirmed",
-   "checkedAt": "2026-11-02T10:55:17.314Z",
-   "decidedAt": "2026-11-02T10:55:17.314Z",
+   "checkedAt": "2026-11-02T14:28:07.610Z",
+   "decidedAt": "2026-11-02T14:28:07.610Z",
    "famA": "m-dodge-colt",
    "famB": "m-mitsubishi-galant",
    "relType": "platform",
@@ -505090,8 +504971,8 @@
   },
   "llm-m-dodge-colt-second-generation|llm-m-mitsubishi-galant-third-generation|platform": {
    "status": "confirmed",
-   "checkedAt": "2026-11-02T10:55:17.315Z",
-   "decidedAt": "2026-11-02T10:55:17.315Z",
+   "checkedAt": "2026-11-02T14:28:07.610Z",
+   "decidedAt": "2026-11-02T14:28:07.610Z",
    "famA": "m-dodge-colt",
    "famB": "m-mitsubishi-galant",
    "relType": "platform",
@@ -505100,48 +504981,6 @@
    "genIdA": "llm-m-dodge-colt-second-generation",
    "genIdB": "llm-m-mitsubishi-galant-third-generation",
    "reason": "matched automatically -- the nameplate was named exactly in the source text; this generation's own section of its article names this car",
-   "llmDiscovered": true
-  },
-  "llm-llm-related-oldsmobile-starfire-concept-car|m-chevrolet-vega|platform": {
-   "status": "confirmed",
-   "checkedAt": "2026-11-02T10:55:17.915Z",
-   "decidedAt": "2026-11-02T10:55:17.915Z",
-   "famA": "m-chevrolet-vega",
-   "famB": "llm-related-oldsmobile-starfire",
-   "relType": "platform",
-   "codeA": "Vega",
-   "codeB": "Starfire Concept car",
-   "genIdA": "m-chevrolet-vega",
-   "genIdB": "llm-llm-related-oldsmobile-starfire-concept-car",
-   "reason": "matched automatically -- the nameplate was named exactly in the source text; no text says which, so the generation whose years fit this one best",
-   "llmDiscovered": true
-  },
-  "llm-llm-related-mitsubishi-minicab-miev-seventh-generation|m-mitsubishi-i-miev|platform": {
-   "status": "confirmed",
-   "checkedAt": "2026-11-02T10:55:17.929Z",
-   "decidedAt": "2026-11-02T10:55:17.929Z",
-   "famA": "m-mitsubishi-i-miev",
-   "famB": "llm-related-mitsubishi-minicab-miev",
-   "relType": "platform",
-   "codeA": "i-MiEV",
-   "codeB": "Minicab MiEV Seventh generation",
-   "genIdA": "m-mitsubishi-i-miev",
-   "genIdB": "llm-llm-related-mitsubishi-minicab-miev-seventh-generation",
-   "reason": "matched automatically -- the nameplate was named exactly in the source text; no text says which, so the generation whose years fit this one best",
-   "llmDiscovered": true
-  },
-  "llm-fam-ford-taurus-seventh-generation-2016-|m-ford-mondeo-fifth-generation|platform": {
-   "status": "confirmed",
-   "checkedAt": "2026-11-02T10:55:17.935Z",
-   "decidedAt": "2026-11-02T10:55:17.935Z",
-   "famA": "fam-ford-taurus",
-   "famB": "fam-ford-mondeo",
-   "relType": "platform",
-   "codeA": "Taurus Seventh generation (2016)",
-   "codeB": "Mondeo (fifth generation)",
-   "genIdA": "llm-fam-ford-taurus-seventh-generation-2016-",
-   "genIdB": "m-ford-mondeo-fifth-generation",
-   "reason": "matched automatically -- the nameplate was named exactly in the source text, and exactly one of its generations was in production alongside this one, so that is the generation it refers to",
    "llmDiscovered": true
   },
   "llm-llm-related-nissan-clipper-mitsubishi-minicab-fourth-generation|llm-related-cushman-company|platform": {
@@ -507024,20 +506863,6 @@
    "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
    "llmDiscovered": true
   },
-  "llm-related-ford-taurus-middle-east-cambodia|m-ford-mondeo-fifth-generation|platform": {
-   "status": "confirmed",
-   "checkedAt": "2026-11-02T11:07:13.086Z",
-   "decidedAt": "2026-11-02T11:07:13.086Z",
-   "famA": "fam-ford-mondeo",
-   "famB": "llm-related-ford-taurus-middle-east-cambodia",
-   "relType": "platform",
-   "codeA": "Mondeo (fifth generation)",
-   "codeB": "Taurus (Middle East, Cambodia)",
-   "genIdA": "m-ford-mondeo-fifth-generation",
-   "genIdB": "llm-related-ford-taurus-middle-east-cambodia",
-   "reason": "matched automatically -- \"Ford Taurus (Middle East, Cambodia)\" was named as a related car but didn't exist anywhere in the graph yet, so it was newly created from this mention (double-checked by the local LLM sanity pass against every plausible existing car -- none matched)",
-   "llmDiscovered": true
-  },
   "m-ford-evos-concept-car|m-ford-mondeo-fifth-generation|platform": {
    "status": "confirmed",
    "checkedAt": "2026-11-02T11:07:13.086Z",
@@ -507093,34 +506918,6 @@
    "genIdA": "llm-m-ford-s-max-cd539",
    "genIdB": "llm-m-lincoln-nautilus-first-generation-u540",
    "reason": "matched automatically -- the nameplate was named exactly in the source text; no text says which, so the generation whose years fit this one best",
-   "llmDiscovered": true
-  },
-  "llm-m-volvo-v60-first-generation|llm-related-volvo-s60-ii|platform": {
-   "status": "confirmed",
-   "checkedAt": "2026-11-02T11:11:02.081Z",
-   "decidedAt": "2026-11-02T11:11:02.081Z",
-   "famA": "m-volvo-v60",
-   "famB": "llm-related-volvo-s60-ii",
-   "relType": "platform",
-   "codeA": "V60 First generation",
-   "codeB": "S60 II",
-   "genIdA": "llm-m-volvo-v60-first-generation",
-   "genIdB": "llm-related-volvo-s60-ii",
-   "reason": "matched automatically -- \"Volvo S60 II\" was named as a related car but didn't exist anywhere in the graph yet, so it was newly created from this mention",
-   "llmDiscovered": true
-  },
-  "llm-m-volvo-v60-second-generation|llm-related-volvo-s60-iii|platform": {
-   "status": "confirmed",
-   "checkedAt": "2026-11-02T11:11:02.085Z",
-   "decidedAt": "2026-11-02T11:11:02.085Z",
-   "famA": "m-volvo-v60",
-   "famB": "llm-related-volvo-s60-iii",
-   "relType": "platform",
-   "codeA": "V60 Second generation",
-   "codeB": "S60 III",
-   "genIdA": "llm-m-volvo-v60-second-generation",
-   "genIdB": "llm-related-volvo-s60-iii",
-   "reason": "matched automatically -- \"Volvo S60 III\" was named as a related car but didn't exist anywhere in the graph yet, so it was newly created from this mention",
    "llmDiscovered": true
   },
   "llm-m-ford-falcon-australia-xd|llm-related-ford-fairlane|platform": {
@@ -507238,34 +507035,6 @@
    "llmDiscovered": true,
    "llmVerifiedDuplicate": true
   },
-  "llm-m-ford-telstar-third-generation-ax-ay|llm-related-ford-extol|platform": {
-   "status": "confirmed",
-   "checkedAt": "2026-11-02T11:27:21.074Z",
-   "decidedAt": "2026-11-02T11:27:21.074Z",
-   "famA": "m-ford-telstar",
-   "famB": "llm-related-ford-extol",
-   "relType": "platform",
-   "codeA": "Telstar Third generation (AX, AY)",
-   "codeB": "Extol",
-   "genIdA": "llm-m-ford-telstar-third-generation-ax-ay",
-   "genIdB": "llm-related-ford-extol",
-   "reason": "matched automatically -- \"Ford Extol\" was named as a related car but didn't exist anywhere in the graph yet, so it was newly created from this mention (double-checked by the local LLM sanity pass against every plausible existing car -- none matched)",
-   "llmDiscovered": true
-  },
-  "llm-m-ford-telstar-fifth-generation|llm-related-mazda-capella-626-gf|platform": {
-   "status": "confirmed",
-   "checkedAt": "2026-11-02T11:27:21.082Z",
-   "decidedAt": "2026-11-02T11:27:21.082Z",
-   "famA": "m-ford-telstar",
-   "famB": "llm-related-mazda-capella-626-gf",
-   "relType": "platform",
-   "codeA": "Telstar Fifth generation",
-   "codeB": "Capella/626 (GF)",
-   "genIdA": "llm-m-ford-telstar-fifth-generation",
-   "genIdB": "llm-related-mazda-capella-626-gf",
-   "reason": "matched automatically -- \"Mazda Capella/626 (GF)\" was named as a related car but didn't exist anywhere in the graph yet, so it was newly created from this mention (double-checked by the local LLM sanity pass against every plausible existing car -- none matched)",
-   "llmDiscovered": true
-  },
   "llm-m-ford-fusion-hybrid-second-generation-2013|m-ford-mondeo-fourth-generation|platform": {
    "status": "confirmed",
    "checkedAt": "2026-11-02T11:29:13.414Z",
@@ -507278,20 +507047,6 @@
    "genIdA": "llm-m-ford-fusion-hybrid-second-generation-2013",
    "genIdB": "m-ford-mondeo-fourth-generation",
    "reason": "matched automatically -- the nameplate was named exactly in the source text; no text says which, so the generation whose years fit this one best",
-   "llmDiscovered": true
-  },
-  "llm-m-ford-fusion-hybrid-second-generation-2013|llm-related-ford-c-max-energi|platform": {
-   "status": "confirmed",
-   "checkedAt": "2026-11-02T11:29:13.415Z",
-   "decidedAt": "2026-11-02T11:29:13.415Z",
-   "famA": "m-ford-fusion-hybrid",
-   "famB": "llm-related-ford-c-max-energi",
-   "relType": "platform",
-   "codeA": "Fusion Hybrid Second generation (2013)",
-   "codeB": "C-Max Energi",
-   "genIdA": "llm-m-ford-fusion-hybrid-second-generation-2013",
-   "genIdB": "llm-related-ford-c-max-energi",
-   "reason": "matched automatically -- \"Ford C-Max Energi\" was named as a related car but didn't exist anywhere in the graph yet, so it was newly created from this mention (double-checked by the local LLM sanity pass against every plausible existing car -- none matched)",
    "llmDiscovered": true
   },
   "llm-m-ford-ikon-second-generation|m-ford-mondeo-third-generation|platform": {
@@ -507322,20 +507077,6 @@
    "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
    "llmDiscovered": true
   },
-  "llm-m-mercury-cougar-sixth-generation|llm-related-ford-cougar-mexico|platform": {
-   "status": "confirmed",
-   "checkedAt": "2026-11-02T11:31:21.025Z",
-   "decidedAt": "2026-11-02T11:31:21.025Z",
-   "famA": "m-mercury-cougar",
-   "famB": "llm-related-ford-cougar-mexico",
-   "relType": "platform",
-   "codeA": "Cougar Sixth generation",
-   "codeB": "Cougar (Mexico)",
-   "genIdA": "llm-m-mercury-cougar-sixth-generation",
-   "genIdB": "llm-related-ford-cougar-mexico",
-   "reason": "matched automatically -- \"Ford Cougar (Mexico)\" was named as a related car but didn't exist anywhere in the graph yet, so it was newly created from this mention (double-checked by the local LLM sanity pass against every plausible existing car -- none matched)",
-   "llmDiscovered": true
-  },
   "llm-fam-mazda-6-gh1-gh2-gz|llm-m-mazda-mpv-ly|platform": {
    "status": "confirmed",
    "checkedAt": "2026-11-02T11:32:09.872Z",
@@ -507347,20 +507088,6 @@
    "codeB": "MPV LY",
    "genIdA": "llm-fam-mazda-6-gh1-gh2-gz",
    "genIdB": "llm-m-mazda-mpv-ly",
-   "reason": "matched automatically -- the nameplate was named exactly in the source text; this generation's own section of its article names this car",
-   "llmDiscovered": true
-  },
-  "llm-m-mazda-cx-5-ke|m-mazda-6-third-generation|platform": {
-   "status": "confirmed",
-   "checkedAt": "2026-11-02T11:32:09.876Z",
-   "decidedAt": "2026-11-02T11:32:09.876Z",
-   "famA": "fam-mazda-6",
-   "famB": "m-mazda-cx-5",
-   "relType": "platform",
-   "codeA": "6 (third generation)",
-   "codeB": "CX-5 KE",
-   "genIdA": "m-mazda-6-third-generation",
-   "genIdB": "llm-m-mazda-cx-5-ke",
    "reason": "matched automatically -- the nameplate was named exactly in the source text; this generation's own section of its article names this car",
    "llmDiscovered": true
   },
@@ -507433,6 +507160,550 @@
    "genIdB": "m-ford-mondeo-fourth-generation",
    "reason": "matched automatically (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
    "llmDiscovered": true
+  },
+  "llm-related-ford-mondeo-second-generation|m-jaguar-x-type|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-11-02T14:28:05.357Z",
+   "decidedAt": "2026-11-02T14:28:05.357Z",
+   "famA": "m-jaguar-x-type",
+   "famB": "llm-related-ford-mondeo-second-generation",
+   "relType": "platform",
+   "codeA": "X-Type",
+   "codeB": "Mondeo (second generation)",
+   "genIdA": "m-jaguar-x-type",
+   "genIdB": "llm-related-ford-mondeo-second-generation",
+   "reason": "matched automatically -- \"Ford Mondeo (second generation)\" was named as a related car but didn't exist anywhere in the graph yet, so it was newly created from this mention",
+   "llmDiscovered": true
+  },
+  "m-ford-mondeo-fourth-generation|m-ford-taurus-china|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-11-02T14:28:05.864Z",
+   "decidedAt": "2026-11-02T14:28:05.864Z",
+   "famA": "m-ford-taurus-china",
+   "famB": "fam-ford-mondeo",
+   "relType": "platform",
+   "codeA": "Taurus (China)",
+   "codeB": "Mondeo (fourth generation)",
+   "genIdA": "m-ford-taurus-china",
+   "genIdB": "m-ford-mondeo-fourth-generation",
+   "reason": "matched automatically -- the nameplate was named exactly in the source text; no text says which, so the generation whose years fit this one best",
+   "llmDiscovered": true
+  },
+  "llm-m-volvo-v70-third-generation|llm-related-volvo-xc70|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-11-02T14:28:05.866Z",
+   "decidedAt": "2026-11-02T14:28:05.866Z",
+   "famA": "llm-related-volvo-xc70",
+   "famB": "m-volvo-v70",
+   "relType": "platform",
+   "codeA": "XC70",
+   "codeB": "V70 Third generation",
+   "genIdA": "llm-related-volvo-xc70",
+   "genIdB": "llm-m-volvo-v70-third-generation",
+   "reason": "matched automatically -- the nameplate was named exactly in the source text; no text says which, so the generation whose years fit this one best",
+   "llmDiscovered": true
+  },
+  "llm-llm-related-ford-contour-north-american|m-ford-mondeo-first-generation|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-11-02T14:28:06.541Z",
+   "decidedAt": "2026-11-02T14:28:06.541Z",
+   "famA": "llm-related-ford-contour",
+   "famB": "fam-ford-mondeo",
+   "relType": "platform",
+   "codeA": "Contour North American",
+   "codeB": "Mondeo (first generation)",
+   "genIdA": "llm-llm-related-ford-contour-north-american",
+   "genIdB": "m-ford-mondeo-first-generation",
+   "reason": "matched automatically -- the nameplate was named exactly in the source text; no text says which, so the generation whose years fit this one best",
+   "llmDiscovered": true
+  },
+  "llm-llm-related-ford-contour-mk-ii|m-ford-mondeo-first-generation|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-11-02T14:28:07.075Z",
+   "decidedAt": "2026-11-02T14:28:07.075Z",
+   "famA": "llm-related-ford-contour",
+   "famB": "fam-ford-mondeo",
+   "relType": "platform",
+   "codeA": "Contour Mk II",
+   "codeB": "Mondeo (first generation)",
+   "genIdA": "llm-llm-related-ford-contour-mk-ii",
+   "genIdB": "m-ford-mondeo-first-generation",
+   "reason": "matched automatically -- the nameplate was named exactly in the source text; no text says which, so the generation whose years fit this one best",
+   "llmDiscovered": true
+  },
+  "llm-fam-ford-taurus-seventh-generation-2016-|m-ford-mondeo-fourth-generation|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-11-02T14:28:08.238Z",
+   "decidedAt": "2026-11-02T14:28:08.238Z",
+   "famA": "fam-ford-taurus",
+   "famB": "fam-ford-mondeo",
+   "relType": "platform",
+   "codeA": "Taurus Seventh generation (2016)",
+   "codeB": "Mondeo (fourth generation)",
+   "genIdA": "llm-fam-ford-taurus-seventh-generation-2016-",
+   "genIdB": "m-ford-mondeo-fourth-generation",
+   "reason": "matched automatically -- the nameplate was named exactly in the source text; no text says which, so the generation whose years fit this one best",
+   "llmDiscovered": true
+  },
+  "llm-m-mazda-cx-5-kf|m-mazda-6-third-generation|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-11-02T14:28:17.219Z",
+   "decidedAt": "2026-11-02T14:28:17.219Z",
+   "famA": "fam-mazda-6",
+   "famB": "m-mazda-cx-5",
+   "relType": "platform",
+   "codeA": "6 (third generation)",
+   "codeB": "CX-5 KF",
+   "genIdA": "m-mazda-6-third-generation",
+   "genIdB": "llm-m-mazda-cx-5-kf",
+   "reason": "matched automatically -- the nameplate was named exactly in the source text; no text says which, so the generation whose years fit this one best",
+   "llmDiscovered": true
+  },
+  "llm-m-suzuki-ertiga-suzuki-xl6-xl7|m-suzuki-ciaz|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-11-02T14:28:26.788Z",
+   "decidedAt": "2026-11-02T14:28:26.788Z",
+   "famA": "m-suzuki-ciaz",
+   "famB": "m-suzuki-ertiga",
+   "relType": "platform",
+   "codeA": "Ciaz",
+   "codeB": "Ertiga Suzuki XL6/XL7",
+   "genIdA": "m-suzuki-ciaz",
+   "genIdB": "llm-m-suzuki-ertiga-suzuki-xl6-xl7",
+   "reason": "matched automatically -- the nameplate was named exactly in the source text; no text says which, so the generation whose years fit this one best",
+   "llmDiscovered": true
+  },
+  "llm-m-opel-omega-omega-b|m-holden-caprice|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-11-02T14:28:26.847Z",
+   "decidedAt": "2026-11-02T14:28:26.847Z",
+   "famA": "fam-holden-caprice",
+   "famB": "m-opel-omega",
+   "relType": "platform",
+   "codeA": "Caprice First generation (VQ, VR, VS)",
+   "codeB": "Omega B",
+   "genIdA": "m-holden-caprice",
+   "genIdB": "llm-m-opel-omega-omega-b",
+   "reason": "matched automatically -- the nameplate was named exactly in the source text; no text says which, so the generation whose years fit this one best",
+   "llmDiscovered": true
+  },
+  "llm-llm-related-oldsmobile-starfire-second-generation|m-chevrolet-vega|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-11-02T14:28:26.864Z",
+   "decidedAt": "2026-11-02T14:28:26.864Z",
+   "famA": "m-chevrolet-vega",
+   "famB": "llm-related-oldsmobile-starfire",
+   "relType": "platform",
+   "codeA": "Vega",
+   "codeB": "Starfire Second generation",
+   "genIdA": "m-chevrolet-vega",
+   "genIdB": "llm-llm-related-oldsmobile-starfire-second-generation",
+   "reason": "matched automatically -- the nameplate was named exactly in the source text, and exactly one of its generations was in production alongside this one, so that is the generation it refers to",
+   "llmDiscovered": true
+  },
+  "llm-llm-related-mitsubishi-minicab-miev-eighth-generation|m-mitsubishi-i-miev|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-11-02T14:28:26.900Z",
+   "decidedAt": "2026-11-02T14:28:26.900Z",
+   "famA": "m-mitsubishi-i-miev",
+   "famB": "llm-related-mitsubishi-minicab-miev",
+   "relType": "platform",
+   "codeA": "i-MiEV",
+   "codeB": "Minicab MiEV Eighth generation",
+   "genIdA": "m-mitsubishi-i-miev",
+   "genIdB": "llm-llm-related-mitsubishi-minicab-miev-eighth-generation",
+   "reason": "matched automatically -- the nameplate was named exactly in the source text; no text says which, so the generation whose years fit this one best",
+   "llmDiscovered": true
+  },
+  "llm-m-volkswagen-id-buzz-id-buzz-production|m-volkswagen-id-tiguan|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-11-02T14:28:27.038Z",
+   "decidedAt": "2026-11-02T14:28:27.038Z",
+   "famA": "m-volkswagen-id-tiguan",
+   "famB": "m-volkswagen-id-buzz",
+   "relType": "platform",
+   "codeA": "ID. Tiguan",
+   "codeB": "ID. Buzz (production)",
+   "genIdA": "m-volkswagen-id-tiguan",
+   "genIdB": "llm-m-volkswagen-id-buzz-id-buzz-production",
+   "reason": "matched automatically -- the nameplate was named exactly in the source text, and exactly one of its generations was in production alongside this one, so that is the generation it refers to",
+   "llmDiscovered": true
+  },
+  "llm-m-lancia-stratos-sibilo|m-lancia-rally-037|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-11-02T14:28:27.048Z",
+   "decidedAt": "2026-11-02T14:28:27.048Z",
+   "famA": "m-lancia-rally-037",
+   "famB": "m-lancia-stratos",
+   "relType": "platform",
+   "codeA": "Rally 037",
+   "codeB": "Stratos Sibilo",
+   "genIdA": "m-lancia-rally-037",
+   "genIdB": "llm-m-lancia-stratos-sibilo",
+   "reason": "matched automatically -- the nameplate was named exactly in the source text, and exactly one of its generations was in production alongside this one, so that is the generation it refers to",
+   "llmDiscovered": true
+  },
+  "llm-related-mitsubishi-delica|m-suzuki-solio|platform": {
+   "status": "error",
+   "checkedAt": "2026-11-02T14:30:18.013Z",
+   "error": "the model ran past the 3000-token ceiling without finishing its answer -- it was still going when it was stopped (raise LLAMA_MAX_TOKENS, or retry: this is usually the model looping)",
+   "detail": {
+    "cutOff": true,
+    "finishReason": "length",
+    "raw": "{\n\"resolved\": true,\n\"codeA\": \"Delica (1968–)\",\n\"codeB\": \"Solio MA26S/MA36S/MA46S (2015–2020)\",\n\"evidenceQuote\": \"Since 2011, the Delica D:2 nameplate has been applied to the rebadged Suzuki Solio.\",\n\"reason\": \"The note explicitly states that since 2011, the Delica D:2 is a rebadged Suzuki Solio. Rebadged models share the exact same platform, chassis, and unibody structure as the original model. Therefore, the specific generation of the Delica D:2 (which corresponds to the Solio MA15S/MA26S era) shares a platform with the Solio generations produced during that time. The Delica (1968–) is the only entry in the Car A list covering the D:2 era (2011-2019). The Car B list contains two overlapping generations covering the 2011-2019 period: Solio MA15S (2011–2015) and Solio MA26S/MA36S/MA46S (2015–2020). The Solio MA15S (2011-2015) corresponds to the Delica D:2 (2011-2019), while the Solio MA26S/MA36S/MA46S (2015-2020) corresponds to the Delica D:2 (2015-2019). Since the D:2 was the rebadged Solio for the entire duration of the MA15S and MA26S generations, both Car B generations are valid matches. However, the prompt asks for the specific generation(s) the relationship applies to based on the lists. The relationship applies to the Delica D:2 (part of Delica 1968-) and the Solio generations MA15S and MA26S/MA36S/MA46S. The Delica (1968–) code covers the D:2. The Solio MA15S and Solio MA26S/MA36S/MA46S codes cover the Solio D:2. Given the instruction to map the best correspondence, and knowing the D:2 replaced the MA15S in 2015 with the MA26S/MA36S/MA46S chassis (while keeping the same Solio platform lineage), both Solio codes are technically correct for the D:2 relationship. However, often in these datasets, the later generation code is the primary identifier for the 'current' rebadge. Let's re-evaluate the 'best' correspondence. The D:2 started in 2011 on the MA15S. It continued on the MA26S platform in 2015. The relationship 'shares a platform' is true for the entire D:2 run. The Delica (1968-) list entry covers the whole D:2 run. The Solio list has two entries covering the run. The relationship applies to BOTH Solio generations (MA15S and MA26S/MA36S/MA46S) with the Delica (1968-). However, the prompt asks to identify which SPECIFIC generation(s). If I must pick one from the Solio list that represents the 'Solio' part of the pair most distinctly or if there's a nuance I'm missing: The D:2 is the rebadge. The MA15S Solio is the 2011-2015 version. The MA26S Solio is the 2015-2020 version. The D:2 exists on both. Is there a reason to prefer one? The prompt says 'Identify which SPECIFIC generation(s)...'. If multiple apply, I should list them? The format requires a single code string. Wait, the format is `{\"resolved\": boolean, ...}`. It doesn't say `codeA` and `codeB` must be singular. But the example shows singular. If the relationship holds for multiple generations of B, can I pick the one that is most representative or the one that was the 'base' at the time of the D:2 launch? Or perhaps the D:2 is primarily associated with the MA15S in some contexts? Actually, the D:2 is the rebadge of the Solio. The Solio MA15S is the first generation of the Solio (2011). The Solio MA26S is the second (2015). The D:2 is the rebadge of the Solio. So the relationship applies to Delica (1968-) [covering D:2] and Solio MA15S/MA26S... The question is whether to output the code for the Solio MA15S or MA26S. The note says 'Since 2011... Delica D:2... rebadged Suzuki Solio'. This implies the D:2 *is* the Solio. The Solio has two generations in that range. The D:2 shares the platform with the Solio. Which Solio generation? Both. But usually, in these 'share platform' tasks, if a model is a rebadge, the 'platform sharing' is tautological for the rebadge period. The most distinct 'generation' of Solio that the D:2 is based on is the one active during the D:2's main production? Or perhaps the MA15S is the direct base? Let's look at the Solio MA15S section: 'Second generation (MA15S; 2011)... aka = Mitsubishi Delica#Mitsubishi Delica D:2 (rebadged Suzuki Solio)'. This explicitly links the MA15S to the D:2. The MA26S section is not shown in the provided text but is in the list. If the text only links MA15S to D:2 in the provided snippet, maybe I should stick to MA15S? The text provided for Solio says: 'Second generation (MA15S; 2011)... aka = Mitsubishi Delica#Mitsubishi Delica D:2 (rebadged Suzuki Solio)'. It does NOT show the link for MA26S in the provided text, though it exists in reality. The instruction says 'based on real evidence -- textual or well-established factual knowledge'. The textual evidence provided links MA15S to D:2. The factual knowledge confirms MA26S is also a rebadge (or continuation). However, the strongest textual link is MA15S. Also, the Delica D:2 started in 2011. The MA15S is the 2011 model. The MA26S is 2015. The 'relationship' (sharing a platform) is most strongly evidenced by the 2011 start. But wait, the D:2 continued on the MA26S platform. In fact, the D:2 is often considered the 'Solio' sold as a Delica. The most accurate mapping for the 'Solio' side of a 'Delica D:2' relationship is the Solio generation that the D:2 is based on. Since the D:2 is the rebadge of the Solio, and the Solio MA15S is explicitly called out as the rebadge source in the text, and the MA26S is a facelift/continuation of the same platform, both are valid. But if I must choose one code from the list to represent the 'Solio' part, and the list has two options for the 2011-2020 period... Is there a convention? Usually, the 'base' generation is the one. Or perhaps the question implies that the Delica (1968-) is the platform owner, and the Solio is the one sharing it? Yes. So CodeA is Delica (1968-). CodeB is Solio MA15S or MA26S. The note says 'Delica D:2... applied to the rebadged Suzuki Solio'. This refers to the Solio platform. The Solio MA15S is the 2011 model. The Solio MA26S is the 2015 model. The D:2 is the rebadge. The relationship is 'Delica D:2 shares platform with Solio'. Which Solio? Both. But the Solio MA15S is the one explicitly linked in the text provided. The Solio MA26S is in the list but the text doesn't explicitly link it in the snippet (though it's implied by continuity). Given the constraint to use the provided text for evidence, the explicit link is MA15S. However, the prompt allows 'well-established factual knowledge'. Factually, the D:2 uses the Solio platform from 2011 to 2019. The Solio MA15S is 2011-2015. The Solio MA26S is 2015-2020. The D:2 covers both. Is it possible the answer expects the Solio MA15S because it's the 'first' rebadge? Or the MA26S because it's the 'current' one? Let's look at the Delica list: 'Delica (1968–)'. This covers the whole history. The relationship is specifically about the D:2. The D:2 is a specific generation of Delica. The D:2 shares the platform with the Solio. The Solio generations are MA15S and MA26S. The most precise mapping for the 'Solio' part of the pair, if the relationship is 'Delica D:2 <--> Solio', is the Solio generation that the D:2 is based on. Since the D:2 is the rebadge of the Solio, it shares the platform with the Solio. The Solio MA15S is the generation that introduced the D:2. The Solio MA26S is the generation that continued it. If I have to pick one, the MA15S is the one where the relationship 'started' and is explicitly named. Also, in many automotive databases, the 'Solio' generation is often referred to by the MA15S code when discussing the D:2. Let's assume the MA15S is the intended answer for the Solio side due to the explicit text link.\nWait, let's re-read the Solio list carefully. 'Solio MA26S/MA36S/MA46S (2015–2020)'. The D:2 ended in 2019. So the D:2 overlaps with MA15S (2011-2015) and MA26S (2015-2020). The relationship applies to both. Why would I pick one? Maybe the prompt implies that the 'Delica (1968-)' is the *only* Delica entry, and I need to find the *corresponding* Solio entry. If th"
+   },
+   "famA": "llm-related-mitsubishi-delica",
+   "famB": "m-suzuki-solio",
+   "relType": "platform"
+  },
+  "llm-related-mitsubishi-delica|m-hyundai-starex|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-11-02T14:30:27.466Z",
+   "decidedAt": "2026-11-02T14:30:27.466Z",
+   "autoConfirmed": true,
+   "famA": "llm-related-mitsubishi-delica",
+   "famB": "m-hyundai-starex",
+   "relType": "platform",
+   "note": "Mitsubishi Delica's own article says: \"…hi Space Gear<br />Mitsubishi Express (Australia)<br />Mitsubishi Starwagon (Australia)<br />Dongfeng Fengxing Lingzhi | production = 1994–2007<br>1994–2006 (Malaysia)<br>2001–present (China) | assembly = Japan: Nagoya<br />Taiwan (CMC)<br>China:<br>Guangzhou (Baolong)<br>FAW Freewind (Ziyoufeng)<br>Liuzhou (Dongfeng Liuzhou Motor) | designer = | class = | body_style = 4/5-door minivan | layout = Front-engine, rear-wheel-drive<br />Front-engine, four-wheel-drive | platform = | related = Hyundai Starex (A1)<br>Dongfeng Fengxing Lingzhi<br>Baolong Pegasus | engine = | transmission = 3-speed automatic with \n === 1994–1997 === Released on 12 May 1994, the newest Delica received considerably more aerodynamic bodywork. No truck model was available of this generation, and passenger models were now called Delica Space Gear in the Japanese domestic market. Body specifications of the Space Gear in Japan ranged from XR, XG, Exceed, Super Exceed and Royal Exceed, and both long and short-wheelbase …\" / Hyundai Starex's own article says: \"…| manufacturer = Hyundai | production = 1996 – March 2021 (South Korea) <br/> 1996–2023 (international) | assembly = South Korea: Ulsan (Plant 4)<br />Egypt: Cairo (Ghabbour Group)<br />Algeria: Tiaret (TMC Group)<br />Indonesia: Bekasi () <br/>Turkey: Izmit (Hyundai Assan Otomotiv) | class = Light commercial vehicle (M): | body_style = 4-door van<br/>4-door minibus<br/>2-door pickup (Libero) | layout = Front-engine, rear-wheel-drive<br/>Front-engine, four-wheel-drive | predecessor = Mitsubishi Delica#Third generation (1986) (Mitsubishi Motors) | successor = Hyundai Staria<br>Hyundai Solati H350 (Mexico)<br>Hyundai ST1 (Libero) }} The Hyundai Starex () is a series of light commercial vehicles built by Hyundai, produced from 1996 to 2023. \n The first-generation models were known in Europe as Hyundai H-1, and in the Netherlands as Hyundai H200. The cargo variant of the second-generation models was marketed as the Hyundai iLoad in both Australia and the United Kingdom, and the second-gene…\"",
+   "matchLevel": "generation",
+   "codeA": "Delica",
+   "codeB": "Starex A1",
+   "genIdA": "llm-related-mitsubishi-delica",
+   "genIdB": "llm-m-hyundai-starex-a1",
+   "reason": "matched from an explicit chassis/generation code found directly in one of the two Wikipedia articles' own text (the LLM separately agreed: The note explicitly states 'related = Hyundai Starex (A1)' under the Mitsubishi Delica section. The Starex A1 corresponds to the 1996–2007 generation in the provided list. This relationship is well-established factually: the first-generation Mitsubishi Delica (1986–1994) and the first-generation Hyundai Starex (1996–2007) share the same platform (often referred to as the FWD platform, derived from the Toyota HiAce/Hiace concept for that era, though the note specifically links the Delica to the Starex A1).)",
+   "debug": {
+    "raw": {
+     "resolved": true,
+     "codeA": "Delica (1968–)",
+     "codeB": "Starex A1 (1996–2007)",
+     "evidenceQuote": "related = Hyundai Starex (A1)",
+     "reason": "The note explicitly states 'related = Hyundai Starex (A1)' under the Mitsubishi Delica section. The Starex A1 corresponds to the 1996–2007 generation in the provided list. This relationship is well-established factually: the first-generation Mitsubishi Delica (1986–1994) and the first-generation Hyundai Starex (1996–2007) share the same platform (often referred to as the FWD platform, derived from the Toyota HiAce/Hiace concept for that era, though the note specifically links the Delica to the Starex A1)."
+    },
+    "evidenceCodeForA": "1986",
+    "evidenceCodeForB": "A1",
+    "ordinalFromNoteA": null,
+    "ordinalFromNoteB": null,
+    "ordinalBacked": false,
+    "evidenceQuote": "related = Hyundai Starex (A1)",
+    "quoteVerified": true,
+    "llmVerified": false,
+    "knowledgeBacked": true,
+    "sourceAttributed": true,
+    "citedA": "Delica",
+    "citedB": "Starex A1",
+    "citationBacked": true,
+    "quoteFabricated": false,
+    "fetchedArticleA": true,
+    "fetchedArticleB": true,
+    "availableCodesA": [
+     "Delica"
+    ],
+    "availableCodesB": [
+     "Starex A1",
+     "Starex TQ"
+    ]
+   }
+  },
+  "llm-related-mitsubishi-delica|m-dodge-journey|platform": {
+   "status": "none",
+   "checkedAt": "2026-11-02T14:30:38.157Z",
+   "famA": "llm-related-mitsubishi-delica",
+   "famB": "m-dodge-journey",
+   "relType": "platform",
+   "note": "Mitsubishi Delica's own article says: \"…ive private purchasers. Unique to the Mahindra Voyager is the fitment of PSA's 2.5-litre XD3P diesel engine, producing DIN at 4000&nbsp;rpm. \n == <span class=\"anchor\" id=\"third\"></span> Third generation (1986) == {{Infobox automobile | name = Third generation | image = Mitsubishi Delica Van 003.JPG | caption = A Mitsubishi Delica 4x4 van | aka = Mitsubishi L300<br />Mitsubishi Express (Australia)<br />Mitsubishi Starwagon (Australia)<br />Mitsubishi Versa Van<br />Mitsubishi Van/Wagon (US)<br />Dodge 1000 (Mexico)<br />Hyundai Grace<br />Hyundai H-100<br>Mitsubishi L300 Exceed (Philippines)<br>Soueast Delica (China)<br>Wanli Grace WLZ6470 (China)<br>Sanxing SXZ6441 (China)<br>CMC D260 (Taiwan)<br> CMC D270 (Taiwan) | production = | assembly = Japan: | class = | body_style = 2-door pickup<br />4-door van/minibus | layout = Mid engine, rear-/four-wheel drive | platform = P01V–P35W | related = | engine = {{ubl | Petrol: | 1439&nbsp;cc 4G33 I4 | 1597&nbsp;cc 4G32 I4 (P02/12) | 1795&nbsp;cc…\" / Dodge Journey's own article says: \"Chrysler 200, Chrysler Sebring, Citroën C-Crosser, Citroën C4 Aircross, Dodge Avenger, Dodge Caliber, Jeep Patriot, Jeep Compass, Mitsubishi ASX, Mitsubishi Delica, Mitsubishi Eclipse Cross, Mitsubishi Lancer#Ninth generation (2007), Mitsubishi Lancer Evolution X, Mitsubishi Outlander, Peugeot 4007, Peugeot 4008 \n Chrysler JC platform \n {{Infobox automobile | name = Dodge Journey | image = 2012 Dodge Journey -- NHTSA 3.jpg | caption = 2012 Dodge Journey | manufacturer = Dodge{{efn|name=manufacturer| }} | aka = Fiat Freemont<br />Dodge JC (Japan)<br />Dodge JCUV (China) | production = 2008–2020 | model_years = 2009–2020<br>2011–2015 (Freemont) | asse…\"",
+   "matchLevel": null,
+   "codeA": null,
+   "codeB": null,
+   "genIdA": null,
+   "genIdB": null,
+   "reason": "The provided text identifies the 'Third generation (1986)' of the Mitsubishi Delica as using the P01V–P35W platform. However, the note states generally that the 'Mitsubishi Delica' shares a platform with the 'Dodge Journey'. It does not explicitly state that the 1986 Delica shares a platform with the Dodge Journey, nor does it mention the Dodge Journey's specific platform (the JC platform) in relation to the Delica's P01V–P35W platform. Without explicit confirmation linking the specific generation mentioned in the text to the specific generation of the Dodge Journey, or without external knowledge confirming this specific pairing (which is historically inaccurate as the Delica and Journey are built on different platforms), the relationship cannot be resolved based strictly on the provided evidence.",
+   "debug": {
+    "raw": {
+     "resolved": false,
+     "codeA": "Delica (1968–)",
+     "codeB": null,
+     "evidenceQuote": null,
+     "reason": "The provided text identifies the 'Third generation (1986)' of the Mitsubishi Delica as using the P01V–P35W platform. However, the note states generally that the 'Mitsubishi Delica' shares a platform with the 'Dodge Journey'. It does not explicitly state that the 1986 Delica shares a platform with the Dodge Journey, nor does it mention the Dodge Journey's specific platform (the JC platform) in relation to the Delica's P01V–P35W platform. Without explicit confirmation linking the specific generation mentioned in the text to the specific generation of the Dodge Journey, or without external knowledge confirming this specific pairing (which is historically inaccurate as the Delica and Journey are built on different platforms), the relationship cannot be resolved based strictly on the provided evidence."
+    },
+    "evidenceCodeForA": null,
+    "evidenceCodeForB": null,
+    "ordinalFromNoteA": null,
+    "ordinalFromNoteB": null,
+    "ordinalBacked": false,
+    "evidenceQuote": null,
+    "quoteVerified": false,
+    "llmVerified": false,
+    "knowledgeBacked": false,
+    "sourceAttributed": true,
+    "citedA": "Delica",
+    "citedB": null,
+    "citationBacked": false,
+    "quoteFabricated": false,
+    "fetchedArticleA": true,
+    "fetchedArticleB": true,
+    "availableCodesA": [
+     "Delica"
+    ],
+    "availableCodesB": [
+     "Journey JC49",
+     "Journey Second generation"
+    ]
+   }
+  },
+  "llm-related-hyundai-porter|llm-related-mitsubishi-delica|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-11-02T14:30:43.978Z",
+   "decidedAt": "2026-11-02T14:30:43.978Z",
+   "autoConfirmed": true,
+   "famA": "llm-related-mitsubishi-delica",
+   "famB": "llm-related-hyundai-porter",
+   "relType": "platform",
+   "note": "Mitsubishi Delica's own article says: \"…built by Karya Logam (Indonesia) 2021 Mitsubishi Colt L300 Pick Up Standard 2.5 L039P (20211007) 01.jpg|Third facelift Mitsubishi Colt L300 Diesel pickup (Indonesia) 2021 Mitsubishi Colt L300 Pick Up Standard 2.5 L039P (20211007) 02.jpg|Rear view 2023 Mitsubishi Colt L300 (cropped).jpg|Fourth facelift Mitsubishi Colt L300 (Indonesia) 2016 Isuzu Bison with modified bed.jpg|Isuzu Bison (Indonesia) </gallery> \n ;South Korea In South Korea, Hyundai built the second generation Delica as the \"Hyundai Porter\", replacing an earlier model with the same name. South Korean production of this Porter continued alongside the third generation Delica, which was marketed by Hyundai as the \"Grace\". This Porter was replaced by an indigenously developed third generation Porter in March 1996. <gallery widths=\"200\" heights=\"150\"> Hyundai Porter 2.5d 1992 (15287112708).jpg|Hyundai Porter (pre-facelift, Chile) Hyundai H100 Porter Super 1997 (9551386696).jpg|Hyundai H100 Porter (facelift, Chile) </gallery> \n ;…\" / Hyundai Porter's own article says: \"…drive; Hyundai was only allowed to build passenger automobiles as a result. The first generation used the Perkins 4.108 diesel engine, displacing and producing . \n === <span class=\"anchor\" id=\"second generation\"></span><span class=\"anchor\" id=\"AH\"></span> Second generation (1986–1996) === File:Hyundai Porter 2.5d 1992 (15287112708).jpg In November 1986, Hyundai revived the label with the introduction of the second generation Porter, which was now a rebadged licensed second generation Mitsubishi Delica (L300). While the third generation Delica was also built by Hyundai, it was known as the Grace and was marketed only as a van, in parallel with the Porter truck range. It was built with the following body styles: 2-door truck, 4-door truck, 3-door van and 4-door van. \n ====Upgrade==== File:Hyundai H100 Porter Super 1997 (9551386696).jpg The upgraded second generation was a facelifted version of the second generation model. Round headlights, a steering wheel from the 1991 Sonata, and the d…\"",
+   "matchLevel": "generation",
+   "codeA": "Delica",
+   "codeB": "Porter Third generation",
+   "genIdA": "llm-related-mitsubishi-delica",
+   "genIdB": "llm-llm-related-hyundai-porter-third-generation",
+   "reason": "matched from an explicit chassis/generation code found directly in one of the two Wikipedia articles' own text (the LLM separately agreed: The Hyundai Porter article explicitly states that the second generation Porter was a rebadged version of the second generation Mitsubishi Delica (L300), meaning they share the same platform.)",
+   "debug": {
+    "raw": {
+     "resolved": true,
+     "codeA": "Delica (1968–)",
+     "codeB": "Porter Second generation (1986–1996)",
+     "evidenceQuote": "the second generation Porter, which was now a rebadged licensed second generation Mitsubishi Delica",
+     "reason": "The Hyundai Porter article explicitly states that the second generation Porter was a rebadged version of the second generation Mitsubishi Delica (L300), meaning they share the same platform."
+    },
+    "evidenceCodeForA": "L300",
+    "evidenceCodeForB": "Porter Third generation",
+    "ordinalFromNoteA": null,
+    "ordinalFromNoteB": "Porter Third generation",
+    "ordinalBacked": true,
+    "evidenceQuote": "the second generation Porter, which was now a rebadged licensed second generation Mitsubishi Delica",
+    "quoteVerified": true,
+    "llmVerified": false,
+    "knowledgeBacked": false,
+    "sourceAttributed": true,
+    "citedA": "Delica",
+    "citedB": "Porter Second generation",
+    "citationBacked": true,
+    "quoteFabricated": false,
+    "fetchedArticleA": true,
+    "fetchedArticleB": true,
+    "availableCodesA": [
+     "Delica"
+    ],
+    "availableCodesB": [
+     "Porter First generation",
+     "Porter Second generation",
+     "Porter Third generation",
+     "Porter Fourth generation"
+    ]
+   }
+  },
+  "llm-related-mazda-bongo-brawny|llm-related-mitsubishi-delica|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-11-02T14:30:52.953Z",
+   "decidedAt": "2026-11-02T14:30:52.953Z",
+   "autoConfirmed": true,
+   "famA": "llm-related-mitsubishi-delica",
+   "famB": "llm-related-mazda-bongo-brawny",
+   "relType": "platform",
+   "note": "Mitsubishi Delica's own article says: \"…third generation) and New Zealand, Express and Starwagon in Australia, and plain Mitsubishi Van and Wagon in the United States. The passenger car versions were known as Delica Star Wagon from 1979 until the 1994 introduction of the Delica Space Gear, which became simply Space Gear in Europe at least. The most recent version (not available as a commercial vehicle) is called the Delica D:5. With the exception of th \n In Japan, the Delica Cargo and Delica D:3 nameplates were used on rebadged Mazda Bongo Brawny (between 1999 and 2010) and Nissan NV200 (between 2011 and 2019) respectively. Since 2011, the Delica D:2 nameplate has been applied to the rebadged Suzuki Solio. Starting in 2023, the Delica Mini nameplate is also used as a kei car model based on the eK X Space. \n == <span class=\"anchor\" id=\"T100\"></span><span class=\"anchor\" id=\"T120\"></span> First generation (1968) == {{Infobox automobile | name = First generation | image = Osaka Auto Messe 2018 (437) - Mitsubishi DELICA 75 VAN mi…\" / Mazda Bongo's own article says: \"…manufacturer = | model_code = | aka = | production = June 1999–July 2020 | platform = Mazda SK platform | layout = | body_style = | related = | engine = Petrol Diesel | transmission = | wheelbase = | length = {{ubl | (van) | (truck) }} | width = | height = {{ubl | (van) | (truck) }} | weight = | successor = Mazda Bongo (fourth generation) | sp = us }} \n In June 1999, a new generation of Bongo vans and trucks went on sale, which were also rebadged as the Mazda E-series, Ford Econovan, Mitsubishi Delica Van/Truck, and Nissan Vanette. This model adopted the SK platform which was based on the previous generation SS/SE model. This was sold at various Mazda, Mazda Anfini and Mazda Autozam dealers. On August 20, 2010, an upgraded Bongo truck/van were officially released in Japan. \n Mazda's difficult business environment at the time meant they could not afford to build a full brand new platform. A petrol 1.8-litre EGI F8-E with and a diesel 2.2-litre R2 with were available. Mazda announced tha…\"",
+   "matchLevel": "generation",
+   "codeA": "Delica",
+   "codeB": "Bongo Brawny",
+   "genIdA": "llm-related-mitsubishi-delica",
+   "genIdB": "llm-llm-related-mazda-bongo-brawny-bongo-brawny",
+   "reason": "matched from an explicit \"Nth generation\" statement in the source text, counted against the nameplate's own year-ordered generation list, which independently agrees with the LLM's own answer (the LLM separately agreed: The text explicitly states that the Delica D:3 nameplate (which falls under the production era of the third generation, 1983–1999, and overlaps with the Bongo Brawny era) is a rebadged version of the Mazda Bongo Brawny. Since they are the exact same vehicle (rebadged), they share the exact same platform (Mazda SK platform), satisfying the condition of sharing a platform.)",
+   "debug": {
+    "raw": {
+     "resolved": true,
+     "codeA": "Delica (1968–)",
+     "codeB": "Bongo Brawny (1983–2010)",
+     "evidenceQuote": "In Japan, the Delica Cargo and Delica D:3 nameplates were used on rebadged Mazda Bongo Brawny (between 1999 and 2010)",
+     "reason": "The text explicitly states that the Delica D:3 nameplate (which falls under the production era of the third generation, 1983–1999, and overlaps with the Bongo Brawny era) is a rebadged version of the Mazda Bongo Brawny. Since they are the exact same vehicle (rebadged), they share the exact same platform (Mazda SK platform), satisfying the condition of sharing a platform."
+    },
+    "evidenceCodeForA": null,
+    "evidenceCodeForB": null,
+    "ordinalFromNoteA": null,
+    "ordinalFromNoteB": "Bongo Brawny",
+    "ordinalBacked": true,
+    "evidenceQuote": "In Japan, the Delica Cargo and Delica D:3 nameplates were used on rebadged Mazda Bongo Brawny (between 1999 and 2010)",
+    "quoteVerified": true,
+    "llmVerified": false,
+    "knowledgeBacked": true,
+    "sourceAttributed": true,
+    "citedA": "Delica",
+    "citedB": "Bongo Brawny",
+    "citationBacked": true,
+    "quoteFabricated": false,
+    "fetchedArticleA": true,
+    "fetchedArticleB": true,
+    "availableCodesA": [
+     "Delica"
+    ],
+    "availableCodesB": [
+     "Bongo First generation",
+     "Bongo Second generation",
+     "Bongo Third generation",
+     "Bongo Fourth generation",
+     "Bongo Friendee",
+     "Bongo Brawny",
+     "Bongo Third generation (H200)",
+     "Bongo Fifth generation"
+    ]
+   }
+  },
+  "llm-related-hyundai-h-100|llm-related-mitsubishi-delica|platform": {
+   "status": "none",
+   "checkedAt": "2026-11-02T14:31:06.146Z",
+   "famA": "llm-related-mitsubishi-delica",
+   "famB": "llm-related-hyundai-h-100",
+   "relType": "platform",
+   "note": "Mitsubishi Delica's own article says: \"…er is the fitment of PSA's 2.5-litre XD3P diesel engine, producing DIN at 4000&nbsp;rpm. \n == <span class=\"anchor\" id=\"third\"></span> Third generation (1986) == {{Infobox automobile | name = Third generation | image = Mitsubishi Delica Van 003.JPG | caption = A Mitsubishi Delica 4x4 van | aka = Mitsubishi L300<br />Mitsubishi Express (Australia)<br />Mitsubishi Starwagon (Australia)<br />Mitsubishi Versa Van<br />Mitsubishi Van/Wagon (US)<br />Dodge 1000 (Mexico)<br />Hyundai Grace<br />Hyundai H-100<br>Mitsubishi L300 Exceed (Philippines)<br>Soueast Delica (China)<br>Wanli Grace WLZ6470 (China)<br>Sanxing SXZ6441 (China)<br>CMC D260 (Taiwan)<br> CMC D270 (Taiwan) | production = | assembly = Japan: | class = | body_style = 2-door pickup<br />4-door van/minibus | layout = Mid engine, rear-/four-wheel drive | platform = P01V–P35W | related = | engine = {{ubl | Petrol: | 1439&nbsp;cc 4G33 I4 | 1597&nbsp;cc 4G32 I4 (P02/12) | 1795&nbsp;cc 4G62 I4 | 1997&nbsp;cc 4G63 I4 | 2351&nbsp \n Althou…\"",
+   "matchLevel": null,
+   "codeA": null,
+   "codeB": null,
+   "genIdA": null,
+   "genIdB": null,
+   "reason": "The provided text snippet for the Mitsubishi Delica explicitly labels the section as 'Third generation (1986)' and mentions the Hyundai H-100 in the 'aka' list. However, the provided list for the Hyundai H-100 does not contain a 'Third generation' entry; it lists First (1977–1981), Second (1986–1996), Third (1996–2004), and Fourth (2004–). The H-100 Third generation listed in the user's data corresponds to the 1996–2004 period, whereas the text identifies the Delica as the 1986 model (which corresponds to the H-100 Second generation in real-world chronology). Due to the discrepancy between the ordinal 'Third generation' in the text and the specific year ranges provided in the user's code list for the H-100 (where the 1986 model is the Second generation), a definitive mapping to the provided list cannot be made without external knowledge not present in the snippet to correct the ordinal/counting error implied by the list's structure.",
+   "debug": {
+    "raw": {
+     "resolved": false,
+     "codeA": "Delica (1968–)",
+     "codeB": null,
+     "evidenceQuote": null,
+     "reason": "The provided text snippet for the Mitsubishi Delica explicitly labels the section as 'Third generation (1986)' and mentions the Hyundai H-100 in the 'aka' list. However, the provided list for the Hyundai H-100 does not contain a 'Third generation' entry; it lists First (1977–1981), Second (1986–1996), Third (1996–2004), and Fourth (2004–). The H-100 Third generation listed in the user's data corresponds to the 1996–2004 period, whereas the text identifies the Delica as the 1986 model (which corresponds to the H-100 Second generation in real-world chronology). Due to the discrepancy between the ordinal 'Third generation' in the text and the specific year ranges provided in the user's code list for the H-100 (where the 1986 model is the Second generation), a definitive mapping to the provided list cannot be made without external knowledge not present in the snippet to correct the ordinal/counting error implied by the list's structure."
+    },
+    "evidenceCodeForA": null,
+    "evidenceCodeForB": "Philippines",
+    "ordinalFromNoteA": null,
+    "ordinalFromNoteB": null,
+    "ordinalBacked": false,
+    "evidenceQuote": null,
+    "quoteVerified": false,
+    "llmVerified": false,
+    "knowledgeBacked": false,
+    "sourceAttributed": false,
+    "citedA": null,
+    "citedB": null,
+    "citationBacked": false,
+    "quoteFabricated": false,
+    "fetchedArticleA": true,
+    "fetchedArticleB": true,
+    "availableCodesA": [
+     "Delica"
+    ],
+    "availableCodesB": [
+     "H-100 First generation (HD1000)",
+     "H-100 Second generation (AH)",
+     "H-100 Third generation (AU)",
+     "H-100 Fourth generation (HR)"
+    ]
+   }
+  },
+  "llm-related-mitsubishi-delica|llm-related-mitsubishi-express|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-11-02T14:31:18.616Z",
+   "decidedAt": "2026-11-02T14:31:18.616Z",
+   "autoConfirmed": true,
+   "famA": "llm-related-mitsubishi-delica",
+   "famB": "llm-related-mitsubishi-express",
+   "relType": "platform",
+   "note": "Mitsubishi Delica's own article says: \"…ans and pickup trucks designed and built by the Japanese automaker Mitsubishi Motors since 1968. It was originally based on a cabover van and pickup truck introduced the previous year, also called the Delica, its name a Contraction (grammar) of the English language phrase Delivery car. This pickup truck, and a commercial van derived from it has received many names in export markets, being sold as the L300 (later L400) in Europe, Jamaica (discontinued after the third generation) and New Zealand, Express and Starwagon in Australia, and plain Mitsubishi Van and Wagon in the United States. The passenger car versions were known as Delica Star Wagon from 1979 until the 1994 introduction of the Delica Space Gear, which became simply Space Gear in Europe at least. The most recent version (not available as a commercial vehicle) is called the Delica D:5. With the exception of th \n In Japan, the Delica Cargo and Delica D:3 nameplates were used on rebadged Mazda Bongo Brawny (between 1999 and 2010…\" / Mitsubishi Express's own article says: \"Between 1980 and 1986, Mitsubishi in Australia sold the following vehicles: * Mitsubishi L200 Express (MA/MB/MC/MD), a rebadged version of the Mitsubishi Forte. * Mitsubishi L300 Express (SA/SB/SC/SD/SE), a rebadged version of the Mitsubishi Delica (second generation). \n Between 1986 and 2013, Mitsubishi in Australia replaced the L300 Express with a new generation, now called Mitsubishi Express: * Mitsubishi Express (SF/SG/SH/SJ), a rebadged version of the Mitsubishi Delica (third generation). \n Between 1994 and 2005, Mitsubishi in Australia sold the pricier fourth generation of the Delica in parallel, also with the Express name plate: * Mitsubishi Express (WA), a rebadged version of the Mitsubishi Delica (fourth generation). \n Betw…\"",
+   "matchLevel": "generation",
+   "codeA": "Delica",
+   "codeB": "Express Mitsubishi Delica (Second generation)",
+   "genIdA": "llm-related-mitsubishi-delica",
+   "genIdB": "llm-llm-related-mitsubishi-express-mitsubishi-delica-second-generation",
+   "reason": "auto-approved: the model attributed this to one of the two Wikipedia articles and named Mitsubishi Delica → Delica and Mitsubishi Express → Express Mitsubishi Delica (Second generation), which is a generation from that car's own real code list, in an asserted (not disclaimed) clause: The Mitsubishi Delica (1968–) list entry corresponds to the first generation of the Delica. The text explicitly states that the 'Mitsubishi L300 Express (SA/SB/SC/SD/SE)' sold between 1980 and 1986 was a 'rebadged version of the Mitsubishi Delica (second generation)'. Since the Delica Express nameplate was originally introduced as a rebadged Delica, the first generation of the Express (1980–1986) shares the platform with the first generation of the Delica. The code 'Express Mitsubishi Delica (Second generation) (1979–1994)' in the provided list corresponds to this initial Express/Delica platform family (covering the L300 Express era and the subsequent SF/SG generation which is also a rebadged Delica). The relationship is based on the Express being a rebadged Delica of the same generation.",
+   "debug": {
+    "raw": {
+     "resolved": true,
+     "codeA": "Delica (1968–)",
+     "codeB": "Express Mitsubishi Delica (Second generation) (1979–1994)",
+     "evidenceQuote": "Mitsubishi L300 Express (SA/SB/SC/SD/SE), a rebadged version of the Mitsubishi Delica (second generation).",
+     "reason": "The Mitsubishi Delica (1968–) list entry corresponds to the first generation of the Delica. The text explicitly states that the 'Mitsubishi L300 Express (SA/SB/SC/SD/SE)' sold between 1980 and 1986 was a 'rebadged version of the Mitsubishi Delica (second generation)'. Since the Delica Express nameplate was originally introduced as a rebadged Delica, the first generation of the Express (1980–1986) shares the platform with the first generation of the Delica. The code 'Express Mitsubishi Delica (Second generation) (1979–1994)' in the provided list corresponds to this initial Express/Delica platform family (covering the L300 Express era and the subsequent SF/SG generation which is also a rebadged Delica). The relationship is based on the Express being a rebadged Delica of the same generation."
+    },
+    "evidenceCodeForA": null,
+    "evidenceCodeForB": "Australia",
+    "ordinalFromNoteA": null,
+    "ordinalFromNoteB": null,
+    "ordinalBacked": false,
+    "evidenceQuote": "Mitsubishi L300 Express (SA/SB/SC/SD/SE), a rebadged version of the Mitsubishi Delica (second generation).",
+    "quoteVerified": true,
+    "llmVerified": false,
+    "knowledgeBacked": false,
+    "sourceAttributed": true,
+    "citedA": "Delica",
+    "citedB": "Express Mitsubishi Delica (Second generation)",
+    "citationBacked": true,
+    "quoteFabricated": false,
+    "fetchedArticleA": true,
+    "fetchedArticleB": true,
+    "availableCodesA": [
+     "Delica"
+    ],
+    "availableCodesB": [
+     "Express Mitsubishi Delica (Second generation)",
+     "Express Renault Trafic (First generation)",
+     "Express Mitsubishi Express (SF/SG/SH/SJ)",
+     "Express Third generation",
+     "Express Mitsubishi Delica (Fourth generation)",
+     "Express Mitsubishi Express (WA)",
+     "Express Mitsubishi Express (X82)",
+     "Express Mitsubishi Express (X82)",
+     "Express Mitsubishi Express (X82)",
+     "Express Mitsubishi Express (X82)"
+    ]
+   }
+  },
+  "llm-llm-related-hyundai-porter-third-generation|llm-related-mitsubishi-delica|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-11-02T14:31:28.103Z",
+   "decidedAt": "2026-11-02T14:31:28.103Z",
+   "autoConfirmed": true,
+   "famA": "llm-related-mitsubishi-delica",
+   "famB": "llm-llm-related-hyundai-porter-third-generation",
+   "relType": "platform",
+   "note": "Mitsubishi Delica's own article says: \"…).jpg|Second facelift Mitsubishi Colt L300 Star Wagon coachbuilt by Karya Logam (Indonesia) 2021 Mitsubishi Colt L300 Pick Up Standard 2.5 L039P (20211007) 01.jpg|Third facelift Mitsubishi Colt L300 Diesel pickup (Indonesia) 2021 Mitsubishi Colt L300 Pick Up Standard 2.5 L039P (20211007) 02.jpg|Rear view 2023 Mitsubishi Colt L300 (cropped).jpg|Fourth facelift Mitsubishi Colt L300 (Indonesia) 2016 Isuzu Bison with modified bed.jpg|Isuzu Bison (Indonesia) </gallery> \n ;South Korea In South Korea, Hyundai built the second generation Delica as the \"Hyundai Porter\", replacing an earlier model with the same name. South Korean production of this Porter continued alongside the third generation Delica, which was marketed by Hyundai as the \"Grace\". This Porter was replaced by an indigenously developed third generation Porter in March 1996. <gallery widths=\"200\" heights=\"150\"> Hyundai Porter 2.5d 1992 (15287112708).jpg|Hyundai Porter (pre-facelift, Chile) Hyundai H100 Porter Super 1997 (955138669…\" / Hyundai Porter Third generation's own article says: \"…drive; Hyundai was only allowed to build passenger automobiles as a result. The first generation used the Perkins 4.108 diesel engine, displacing and producing . \n === <span class=\"anchor\" id=\"second generation\"></span><span class=\"anchor\" id=\"AH\"></span> Second generation (1986–1996) === File:Hyundai Porter 2.5d 1992 (15287112708).jpg In November 1986, Hyundai revived the label with the introduction of the second generation Porter, which was now a rebadged licensed second generation Mitsubishi Delica (L300). While the third generation Delica was also built by Hyundai, it was known as the Grace and was marketed only as a van, in parallel with the Porter truck range. It was built with the following body styles: 2-door truck, 4-door truck, 3-door van and 4-door van. \n ====Upgrade==== File:Hyundai H100 Porter Super 1997 (9551386696).jpg The upgraded second generation was a facelifted version of the second generation model. Round headlights, a steering wheel from the 1991 Sonata, and the d…\"",
+   "matchLevel": "generation",
+   "codeA": "Delica",
+   "codeB": "Porter Third generation",
+   "genIdA": "llm-related-mitsubishi-delica",
+   "genIdB": "llm-llm-related-hyundai-porter-third-generation",
+   "reason": "auto-approved from concretely-named, well-established knowledge -- no literal quote, but a specific fact is named rather than a vague similarity: The note explicitly states that the second generation Hyundai Porter was a rebadged second generation Mitsubishi Delica. It further states that this second generation Porter was replaced in March 1996 by an 'indigenously developed third generation Porter'. Since the second generation Delica/Porter pair was replaced by the third generation of each, it is a well-established fact that the third generation Mitsubishi Delica and the third generation Hyundai Porter share the same platform (the Fuso Canter/Delica L300 platform lineage).",
+   "debug": {
+    "raw": {
+     "resolved": true,
+     "codeA": "Delica (1968–)",
+     "codeB": "Porter Third generation (1996–2004)",
+     "evidenceQuote": "In November 1986, Hyundai revived the label with the introduction of the second generation Porter, which was now a rebadged licensed second generation Mitsubishi Delica (L300). ... This Porter was replaced by an indigenously developed third generation Porter in March 1996.",
+     "reason": "The note explicitly states that the second generation Hyundai Porter was a rebadged second generation Mitsubishi Delica. It further states that this second generation Porter was replaced in March 1996 by an 'indigenously developed third generation Porter'. Since the second generation Delica/Porter pair was replaced by the third generation of each, it is a well-established fact that the third generation Mitsubishi Delica and the third generation Hyundai Porter share the same platform (the Fuso Canter/Delica L300 platform lineage)."
+    },
+    "evidenceCodeForA": "L300",
+    "evidenceCodeForB": null,
+    "ordinalFromNoteA": null,
+    "ordinalFromNoteB": null,
+    "ordinalBacked": false,
+    "evidenceQuote": "In November 1986, Hyundai revived the label with the introduction of the second generation Porter, which was now a rebadged licensed second generation Mitsubishi Delica (L300). ... This Porter was replaced by an indigenously developed third generation Porter in March 1996.",
+    "quoteVerified": false,
+    "llmVerified": false,
+    "knowledgeBacked": true,
+    "sourceAttributed": true,
+    "citedA": "Delica",
+    "citedB": null,
+    "citationBacked": false,
+    "quoteFabricated": true,
+    "fetchedArticleA": true,
+    "fetchedArticleB": true,
+    "availableCodesA": [
+     "Delica"
+    ],
+    "availableCodesB": [
+     "Porter Third generation"
+    ]
+   }
   }
  },
  "recheck": {
@@ -989726,8 +989997,7 @@
   "llm-llm-related-dacia-spring-second-generation-bbg": "Dacia Spring (electric car)",
   "llm-llm-related-dacia-spring-second-generation-b1325": "Renault Twingo E-Tech",
   "llm-llm-related-nissan-pixo-ev-suzuki-alto": "Suzuki Alto",
-  "llm-llm-related-nissan-pixo-ev-renault-twingo-e-tech": "Renault Twingo E-Tech",
-  "llm-related-ford-taurus-middle-east-cambodia": "Ford Mondeo (fifth generation)"
+  "llm-llm-related-nissan-pixo-ev-renault-twingo-e-tech": "Renault Twingo E-Tech"
  },
  "wpLinksChosen": {
   "llm-related-dacia-spring-second-generation": true,
@@ -1265046,6 +1265316,14 @@
    "engines": [],
    "unlinked": [],
    "v": 7
+  },
+  "llm-related-mitsubishi-delica": {
+   "checkedAt": "2026-11-02T14:28:27.386Z",
+   "sourceTitle": null,
+   "status": "no-engines",
+   "engines": [],
+   "unlinked": [],
+   "v": 7
   }
  },
  "aliases": {
@@ -1316481,6 +1316759,11 @@
    "names": [],
    "from": null,
    "checkedAt": "2026-11-02T11:08:22.140Z"
+  },
+  "llm-related-mitsubishi-delica": {
+   "names": [],
+   "from": null,
+   "checkedAt": "2026-11-02T14:28:27.386Z"
   }
  },
  "prunedDecisions": {
@@ -1324548,15 +1324831,60 @@
    "what": "connection you decided",
    "label": "Volkswagen Transporter ↔ llm-related-volkswagen-multivan (platform, confirmed)",
    "prunedAt": "2026-11-02T10:55:28.676Z"
+  },
+  "families|llm-related-ford-taurus-middle-east-cambodia": {
+   "what": "generation split",
+   "label": "llm-related-ford-taurus-middle-east-cambodia",
+   "prunedAt": "2026-11-02T14:28:18.765Z"
+  },
+  "wpLinks|llm-related-ford-taurus-middle-east-cambodia": {
+   "what": "Wikipedia link you pasted",
+   "label": "llm-related-ford-taurus-middle-east-cambodia → Ford Mondeo (fifth generation)",
+   "prunedAt": "2026-11-02T14:28:18.765Z"
+  },
+  "relations|llm-related-ford-taurus-middle-east-cambodia|m-ford-mondeo-fifth-generation|platform": {
+   "what": "connection you decided",
+   "label": "Ford Mondeo ↔ llm-related-ford-taurus-middle-east-cambodia (platform, confirmed)",
+   "prunedAt": "2026-11-02T14:28:18.765Z"
+  },
+  "relations|llm-m-volvo-v60-first-generation|llm-related-volvo-s60-ii|platform": {
+   "what": "connection you decided",
+   "label": "Volvo V60 ↔ llm-related-volvo-s60-ii (platform, confirmed)",
+   "prunedAt": "2026-11-02T14:28:18.765Z"
+  },
+  "relations|llm-m-volvo-v60-second-generation|llm-related-volvo-s60-iii|platform": {
+   "what": "connection you decided",
+   "label": "Volvo V60 ↔ llm-related-volvo-s60-iii (platform, confirmed)",
+   "prunedAt": "2026-11-02T14:28:18.765Z"
+  },
+  "relations|llm-m-ford-telstar-third-generation-ax-ay|llm-related-ford-extol|platform": {
+   "what": "connection you decided",
+   "label": "Ford Telstar ↔ llm-related-ford-extol (platform, confirmed)",
+   "prunedAt": "2026-11-02T14:28:18.765Z"
+  },
+  "relations|llm-m-ford-telstar-fifth-generation|llm-related-mazda-capella-626-gf|platform": {
+   "what": "connection you decided",
+   "label": "Ford Telstar ↔ llm-related-mazda-capella-626-gf (platform, confirmed)",
+   "prunedAt": "2026-11-02T14:28:18.765Z"
+  },
+  "relations|llm-m-ford-fusion-hybrid-second-generation-2013|llm-related-ford-c-max-energi|platform": {
+   "what": "connection you decided",
+   "label": "Ford Fusion Hybrid ↔ llm-related-ford-c-max-energi (platform, confirmed)",
+   "prunedAt": "2026-11-02T14:28:18.765Z"
+  },
+  "relations|llm-m-mercury-cougar-sixth-generation|llm-related-ford-cougar-mexico|platform": {
+   "what": "connection you decided",
+   "label": "Mercury Cougar ↔ llm-related-ford-cougar-mexico (platform, confirmed)",
+   "prunedAt": "2026-11-02T14:28:18.765Z"
   }
  },
  "jobs": [],
  "lastJob": {
-  "id": "job-mvz57mvo-go9py",
-  "kind": "family-recheck",
-  "targetId": "fam-ford-mondeo",
-  "label": "Ford Mondeo",
-  "finishedAt": "2026-11-02T11:07:24.929Z",
+  "id": "job-mvzctcbn-9rs2z",
+  "kind": "node-check",
+  "targetId": "llm-related-mitsubishi-delica",
+  "label": "Mitsubishi Delica",
+  "finishedAt": "2026-11-02T14:28:27.386Z",
   "state": "done",
   "summary": ""
  },
