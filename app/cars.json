@@ -3104,7 +3104,7 @@
    "label": "ElectraMeccanica",
    "country": "Unknown",
    "year": null,
-   "wp": "ElectraMeccanica",
+   "wp": "ElectraMeccanica Solo",
    "x": -1528.5,
    "y": 1295.1
   },
@@ -8674,7 +8674,7 @@
    "label": "Rambunctious",
    "country": "Unknown",
    "year": null,
-   "wp": "Rambunctious",
+   "wp": "Rambunctious (Funny Car)",
    "x": -2215.2,
    "y": -2014.4
   },
@@ -131314,7 +131314,7 @@
    "label": "PK4",
    "make": "Stoewer",
    "year": 1909,
-   "end": 1910,
+   "end": 1912,
    "designers": [],
    "wp": "Stoewer PK4",
    "heritage": true,
@@ -231038,6 +231038,12 @@
    "source": "m-jetour-x90",
    "target": "m-jetour-x95",
    "type": "related"
+  },
+  {
+   "source": "m-jetour-x70",
+   "target": "m-soueast-s07",
+   "type": "platform",
+   "note": "The Soueast S07 is a rebadged Jetour X70 Plus"
   },
   {
    "source": "m-jetour-x90",

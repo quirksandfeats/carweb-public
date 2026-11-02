@@ -6609,7 +6609,7 @@ Rules:
       reviewedGen("Original (1962–1963)", 1962, 1963, ["Raymond Loewy"]),
       reviewedGen("Avanti II", 1965, 1986, ["Leo Newman", "Nate Altman"]), reviewedGen("Avanti", 1987, 2006, ["Tom Kellogg"])] },
   };
-  const REVIEWED_V = 3;
+  const REVIEWED_V = 4;
   function applyReviewedCorrections() {
     // Only over what these lists correct: a new or wiped store has nothing to put right.
     const had = (store.settings && store.settings.reviewedV) || 0;
@@ -6621,7 +6621,19 @@ Rules:
     if (had < 1) applyFirstReview(onFile, at);
     if (had < 2) applySecondReview(at);
     if (had < 3) applyThirdReview(at);
+    if (had < 4) applyFourthReview();
     store.settings.reviewedV = REVIEWED_V;
+  }
+  function applyFourthReview() {
+    // What a car read before the EA855's page was treated as gone: the same line,
+    // on the section that replaced it (see ENGINE_PAGE_REPLACED).
+    for (const scan of Object.values(store.engineScans || {})) {
+      for (const m of (scan && scan.engines) || []) {
+        if (m.title !== "Volkswagen EA855") continue;
+        const [title, section] = ENGINE_PAGE_REPLACED[m.title].split("#");
+        m.title = title; m.name = section; m.variant = section;
+      }
+    }
   }
   function applyThirdReview(at) {
     // The Caprice (VQ) is the start of the Caprice's first generation. Its own
@@ -16314,6 +16326,8 @@ Rules:
     if (isCode(t)) return !shown || norm(shown) === norm(t) || isCode(shown);
     return !!shown && isCode(shown);
   }
+  // Pages Wikipedia deleted that articles still link, and where the engine went.
+  const ENGINE_PAGE_REPLACED = { "Volkswagen EA855": "List of Volkswagen Group petrol engines#EA855 R5" };
   function engineLinksIn(line, makes) {
     const out = [];
     const rx = /\[\[([^\]|]+)(?:\|([^\]]*))?\]\]/g;
@@ -16324,7 +16338,8 @@ Rules:
       // diesel]]". Every rule below reads words, so they are normalised here
       // or none of them match: that one link was the whole of the Land Rover
       // series' engine list that could be followed at all.
-      const raw = m[1].trim().replace(/_/g, " ");
+      const written = m[1].trim().replace(/_/g, " ");
+      const raw = ENGINE_PAGE_REPLACED[written] || written;
       if (!raw || /^\s*(?:File|Image|Category)\s*:/i.test(raw)) continue;
       const title = raw.split("#")[0].trim();
       const anchor = raw.indexOf("#") >= 0 ? raw.slice(raw.indexOf("#") + 1).trim() : null;

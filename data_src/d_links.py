@@ -104,4 +104,6 @@ PLATFORM_GROUPS = [
  [("Kia","Elan"),("Lotus","Elan (M100)")]),
 ("Quattroporte V and GranTurismo share the M139 platform",
  [("Maserati","Quattroporte V"),("Maserati","GranTurismo")]),
+("The Soueast S07 is a rebadged Jetour X70 Plus",
+ [("Jetour","X70"),("Soueast","S07")]),
 ]

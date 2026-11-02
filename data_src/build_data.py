@@ -177,8 +177,13 @@ for (make, name, y0, y1, designers, wp, note) in MODELS:
                        wp=w, note=note, src="cur"))
     remember(make, name, w)
 
+# End years the harvest has wrong. The PK4's own page is gone, so DBpedia cannot
+# correct it; the Stoewer article gives 1909-1912.
+AUTO_END_FIXES = {("Stoewer", "PK4"): 1912}
+
 for (make, name, y0, y1, designers, wp, note) in AUTO_MODELS:
     make = canon_make(make)
+    y1 = AUTO_END_FIXES.get((make, name), y1)
     if (norm(make), norm(name)) in seen_mn or norm(wp) in seen_wp:
         # Already here -- unless it only shares the key because its
         # punctuation was thrown away. That takes both: a NAME that is written
@@ -242,7 +247,9 @@ model_ids_exact = {}   # by exact(), so "9-3" and "93" each find their own car
 
 WP_MAKE_OVERRIDE = {"Mini":"Mini (marque)","Smart":"Smart (marque)","Eagle":"Eagle (automobile)",
                     "Genesis":"Genesis Motor","DS":"DS Automobiles","Li":"Li Auto",
-                    "Beijing":"Beijing Automotive Group","Lynk & Co":"Lynk & Co"}
+                    "Beijing":"Beijing Automotive Group","Lynk & Co":"Lynk & Co",
+                    # Wikipedia has no page for either make, only for its one car.
+                    "ElectraMeccanica":"ElectraMeccanica Solo","Rambunctious":"Rambunctious (Funny Car)"}
 
 used_makes = {m["make"] for m in models}
 for mk in sorted(used_makes):
