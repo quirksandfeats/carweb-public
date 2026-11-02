@@ -281,6 +281,7 @@ window.CarWeb = (function () {
     if (LFam.foldBuildFamiliesIntoLlmFamilies) LFam.foldBuildFamiliesIntoLlmFamilies(nodes, links);
     // The same for a plain car and a nameplate of one name, when either came late.
     LFam.mergeDuplicateNameplates(nodes, links);
+    LFam.foldReviewedCars(nodes, links);
     // Waiting relationships are decided by rule now, and only now: on the
     // finished graph. Decided before the passes above had made the cars that
     // arrive late, three of them were dropped on every load because "one of

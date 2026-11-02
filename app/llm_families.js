@@ -2358,12 +2358,17 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
     "TNGA", "GA-C", "GA-K", "GA-B", "CMF", "CMP", "EMP2",
     "BMA", "FAAR", "SPA", "CMA", "GEM", "BEV3", "MHP",
   ]);
+  // The same, with a maker's name or a size in them, and one engine. Each became a
+  // make with one "car" (2 Nov 2026). Compared as slugs, however the text wrote them.
+  const NOT_CARS = new Set(["cmf-b", "cmf-b-hs", "cmf-c", "cmf-d", "stla-small", "stla-medium", "stla-large", "stla-frame",
+    "gm-vss-f", "gm-vss-p", "gm-vss-r", "gm-vss-s", "hyundai-kia-m3", "hyundai-kia-pb", "fire-evo"]);
   function looksLikePlatformNotCar(text) {
     const t = String(text || "").trim();
     if (!t) return true;
     if (PLATFORM_NAME_RE.test(t)) return true;
     if (BARE_CODE_RE.test(t)) return true;
     if (PLATFORM_ACRONYMS.has(t.toUpperCase())) return true;
+    if (NOT_CARS.has(slugify(t))) return true;
     return false;
   }
 
@@ -5036,7 +5041,8 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
     // ("Chevrolet Suburban#Fifth generation (1960)"). The car it names is the
     // article's car; with the anchor left on, nothing matched and a second
     // Suburban got minted from it.
-    const key = norm(String(text).split("#")[0]);
+    const words = String(text).split("#")[0].trim().split(/\s+/);
+    const key = norm(words.length > 1 && MAKE_SHORT_NAMES[words[0]] ? MAKE_SHORT_NAMES[words[0]] + " " + words.slice(1).join(" ") : words.join(" "));
     if (!key) return null;
     const eligible = n => (n.type === "model" || n.type === "family") &&
       n.id !== excludeFamId && n.familyOf !== excludeFamId;
@@ -5456,19 +5462,49 @@ Rules:
   // and confident, it says "the marque named here IS this existing make, just
   // spelled differently", so the model is filed under the real marque instead
   // of a brand-new duplicate one being minted beside it.
+  const MAKE_SHORT_NAMES = { VW: "Volkswagen", Chevy: "Chevrolet" };
+  const ARTICLE_KIND_RE = /^\((?:automobile|car|company|marque|vehicle|truck)\)$/i;
+  const REFILED_CARS = {
+    "300zx-z31": { make: "Nissan", label: "300ZX (Z31)" },
+    "fairlady-z-z34": { make: "Nissan", label: "Fairlady Z Z34" },
+    "t-98-kombat": { make: "Kombat Armouring", label: "T-98 Kombat" },
+    "bardo-car": { make: "Iran Khodro", label: "Bardo" },
+  };
   function mintRelatedNode(nodes, links, text, makeVariant, originId) {
     // "Chevrolet Suburban#Fifth generation (1960)" is a link into a section
     // of the Suburban's article. The car it names is the Suburban. Kept whole
     // it became its own nameplate, re-read the same article and proposed the
     // Suburban's generations a second time.
-    const trimmed = String(text || "").split("#")[0].trim();
-    if (!trimmed) return null;
+    const written = String(text || "").split("#")[0].trim();
+    if (!written) return null;
     // Also checked here, not just in validate(), because an ALREADY-PERSISTED
     // proposal from before that filter existed replays through this path on
     // every boot -- without this, the junk nodes would keep coming back.
-    if (looksLikePlatformNotCar(trimmed)) return null;
+    if (looksLikePlatformNotCar(written)) return null;
+    const writtenParts = written.split(/\s+/);
+    // A link's target and its text, as the article had them: the name is the text.
+    // The Sunshine Special became a make called "Sunshine".
+    const trimmed = written.includes("|") ? written.split("|").pop().replace(/["“”]/g, "").trim() : written;
     let makeNode = findExistingMake(nodes, trimmed);
     let modelLabel, idParts = null, gluedName = null;
+    if (written !== trimmed && makeNode) { idParts = [writtenParts[0], writtenParts.slice(1).join(" ")]; }
+    // A short name for a make: the car's name is what follows it.
+    const shortName = writtenParts.length > 1 && !makeNode && !(makeVariant && makeVariant.matchId) && MAKE_SHORT_NAMES[writtenParts[0]];
+    if (shortName) {
+      const real = nodes.find(n => n.type === "make" && !n.retired && norm(n.label) === norm(shortName));
+      if (real) { idParts = [writtenParts[0], writtenParts.slice(1).join(" ")]; makeNode = real; modelLabel = idParts[1]; }
+    }
+    // Filed by hand: nothing in the mention says whose car it is.
+    const refiled = !makeNode && writtenParts.length > 1 && REFILED_CARS[slugify(writtenParts[0]) + "-" + slugify(writtenParts.slice(1).join(" "))];
+    if (refiled) {
+      idParts = [writtenParts[0], writtenParts.slice(1).join(" ")];
+      modelLabel = refiled.label;
+      makeNode = nodes.find(n => n.type === "make" && !n.retired && norm(n.label) === norm(refiled.make));
+      if (!makeNode) {
+        makeNode = { id: uniqueId(nodes, "llm-make-" + slugify(refiled.make)), type: "make", label: refiled.make, year: null, llmGenerated: true };
+        nodes.push(makeNode);
+      }
+    }
     if (!makeNode && makeVariant && makeVariant.matchId) {
       const resolved = nodes.find(n => n.id === makeVariant.matchId && n.type === "make" && !n.retired);
       if (resolved) {
@@ -5511,6 +5547,13 @@ Rules:
         const homeWords = home ? String(home.label || "").trim().split(/\s+/).filter(Boolean) : [];
         if (homeMake && homeWords.length && homeWords.length < parts.length &&
             norm(parts.slice(0, homeWords.length).join(" ")) === norm(home.label)) {
+          idParts = [makeLabel, modelLabel];
+          makeNode = homeMake;
+          modelLabel = trimmed;
+        }
+        // Led by the stem of a hyphenated nameplate: "G 500 Guard" and "G-Wagen
+        // W462" in the G-Class's article. Each stem had become a make.
+        if (!makeNode && homeMake && /-/.test(home.label) && norm(makeLabel.split("-")[0]) === norm(home.label.split("-")[0])) {
           idParts = [makeLabel, modelLabel];
           makeNode = homeMake;
           modelLabel = trimmed;
@@ -5558,6 +5601,11 @@ Rules:
         } else if (!couldBeAMake(nodes, makeLabel)) {
           return null;
         }
+      }
+      // "Meteor (automobile)": an article's title for a brand. The brand is the name.
+      if (!makeNode && ARTICLE_KIND_RE.test(modelLabel)) {
+        idParts = [makeLabel, modelLabel];
+        modelLabel = makeLabel;
       }
       if (!makeNode) {
         const newMakeId = uniqueId(nodes, "llm-make-" + slugify(makeLabel));
@@ -6561,7 +6609,7 @@ Rules:
       reviewedGen("Original (1962–1963)", 1962, 1963, ["Raymond Loewy"]),
       reviewedGen("Avanti II", 1965, 1986, ["Leo Newman", "Nate Altman"]), reviewedGen("Avanti", 1987, 2006, ["Tom Kellogg"])] },
   };
-  const REVIEWED_V = 2;
+  const REVIEWED_V = 3;
   function applyReviewedCorrections() {
     // Only over what these lists correct: a new or wiped store has nothing to put right.
     const had = (store.settings && store.settings.reviewedV) || 0;
@@ -6572,7 +6620,20 @@ Rules:
     const at = new Date().toISOString();
     if (had < 1) applyFirstReview(onFile, at);
     if (had < 2) applySecondReview(at);
+    if (had < 3) applyThirdReview(at);
     store.settings.reviewedV = REVIEWED_V;
+  }
+  function applyThirdReview(at) {
+    // The Caprice (VQ) is the start of the Caprice's first generation. Its own
+    // split into VQ I and VQ II goes with it, and what was found for those moves.
+    const VQ = "m-holden-caprice-vq", e = store.families[VQ];
+    if (e && e.status === "confirmed") {
+      const gens = (e.proposal && e.proposal.generations) || [];
+      store.families[VQ] = { status: "none", checkedAt: at, sourceTitle: e.sourceTitle, attempts: 1, reviewed: true,
+                             proposal: { hasMultipleGenerations: false, generations: gens.slice(0, 1) } };
+      moveRelations(new Map(gens.map(g => ["llm-" + VQ + "-" + slugify(g.code), "m-holden-caprice"])));
+    }
+    if (store.recheck[VQ]) delete store.recheck[VQ];
   }
   function applySecondReview(at) {
     // The two whose later lists are right: the T2 and the Mirage-based Lancers.
@@ -11857,6 +11918,24 @@ Rules:
       merged++;
     });
     return merged;
+  }
+  // Cars filed twice, whose one record says so: each is the second one, in every
+  // way a person checking both articles can tell. Their connections move with them.
+  const REVIEWED_SAME_CARS = {
+    "llm-related-300zx-z31": "llm-m-nissan-300zx-z32-z31",
+    "llm-related-fairlady-z-z34": "llm-fam-nissan-fairlady-z-z34",
+    "llm-related-vw-beetle": "m-volkswagen-beetle",
+    "llm-related-g-63-amg-6x6": "m-mercedes-benz-mercedes-amg-g-63-6x6",
+    "m-holden-caprice-vq": "m-holden-caprice",
+  };
+  function foldReviewedCars(nodes, links) {
+    const byIdLocal = new Map(nodes.map(n => [n.id, n]));
+    Object.keys(REVIEWED_SAME_CARS).forEach(id => {
+      const car = byIdLocal.get(id), into = byIdLocal.get(REVIEWED_SAME_CARS[id]);
+      if (!car || car.retired || !into || into.retired || car.type === "family") return;
+      car.familyOf = null;
+      supersedeStandalone(nodes, links, car, into, into.familyOf || into.id, `${into.make} ${into.label}`);
+    });
   }
   function unmergeDuplicate(famId, dupId) {
     store.unmergedDuplicates[famId + "|" + dupId] = true;
@@ -18967,7 +19046,7 @@ Rules:
     // Automatic fold of a nameplate duplicated as a bare umbrella model --
     // must run before applyConfirmed, since it changes which nodes are
     // already grouped. See mergeDuplicateNameplates' own comment.
-    mergeDuplicateNameplates, duplicateNameplatePairs, unmergeDuplicate,
+    mergeDuplicateNameplates, foldReviewedCars, duplicateNameplatePairs, unmergeDuplicate,
     // Exposed for the jsdom suite: the hallucination-guard/parsing helpers
     // and the per-generation image picker, whose exact behavior several
     // regression tests pin down directly rather than through a whole check
