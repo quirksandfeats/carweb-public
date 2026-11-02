@@ -30,6 +30,7 @@ window.CarWeb = (function () {
   // terminal is counted and summed up in one line at the end, in place of two
   // hundred of the same lines on every refresh.
   if (window.LlmFamilies && window.LlmFamilies.replayStarted) window.LlmFamilies.replayStarted();
+  if (window.LlmFamilies) window.LlmFamilies.applyReviewedCorrections();
   if (window.LlmFamilies) window.LlmFamilies.applyUserCars(nodes, links);
   // Real user request: "the info box should have a location for the user
   // to be able to put in the wikipedia link with the car associated" -- a
@@ -278,6 +279,8 @@ window.CarWeb = (function () {
     // the Jaguar XJ6, on the Jaguar XJ's own article, stood beside it with every
     // generation twice.
     if (LFam.foldBuildFamiliesIntoLlmFamilies) LFam.foldBuildFamiliesIntoLlmFamilies(nodes, links);
+    // The same for a plain car and a nameplate of one name, when either came late.
+    LFam.mergeDuplicateNameplates(nodes, links);
     // Waiting relationships are decided by rule now, and only now: on the
     // finished graph. Decided before the passes above had made the cars that
     // arrive late, three of them were dropped on every load because "one of

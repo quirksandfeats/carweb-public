@@ -6505,6 +6505,90 @@ Rules:
   // in app.js's boot sequence, before applyConfirmed/applyResolvedRelations,
   // since a confirmed split or resolved relation targeting this car needs
   // its base node to already exist to attach to.
+  // ---------- corrections from the review of 2 Nov 2026 ----------
+  // Lists a re-read cannot put right, because the article does not set them out
+  // as generations, each checked against Wikipedia by hand. Written once, as the
+  // answers they stand in for, so a later scan can still change them.
+  //
+  // Not nameplates: a list page and a brand page, whose cars the split took for
+  // generations. Each car stands alone, keeping its credits and platform mates.
+  const REVIEWED_NOT_NAMEPLATES = {
+    "llm-related-gmc-granite": { make: "GMC", keep: "Granite", concepts: true, cars: {
+      "Terracross": "llm-related-gmc-terracross", "Denali XT": "llm-related-gmc-denali-xt" } },
+    "llm-related-toyota-will-vs": { make: "Toyota", keep: "WiLL VS", cars: {
+      "WiLL Vi": "llm-related-toyota-will-vi", "WiLL Cypha": "llm-related-toyota-will-cypha" } },
+  };
+  const reviewedGen = (code, yearStart, yearEnd, designers) => ({ code, yearStart, yearEnd, designers: designers || [], engineers: [], sharedPlatforms: [] });
+  const REVIEWED_LISTS = {
+    // The article's three generations, which the model reads as their series.
+    "fam-holden-caprice": { sourceTitle: "Holden Caprice", generations: [
+      reviewedGen("Statesman (HQ–WB)", 1971, 1984, ["Leo Pruneau"]), reviewedGen("First generation (VQ, VR, VS)", 1990, 1999),
+      reviewedGen("Second generation (WH, WK, WL)", 1999, 2006), reviewedGen("WM", 2006, 2017, ["Mike Simcoe"])] },
+    // The car the article is about, which the split left out for what came after.
+    "m-studebaker-avanti": { sourceTitle: "Studebaker Avanti", generations: [
+      reviewedGen("Original (1962–1963)", 1962, 1963, ["Raymond Loewy"]),
+      reviewedGen("Avanti II", 1965, 1986, ["Leo Newman", "Nate Altman"]), reviewedGen("Avanti", 1987, 2006, ["Tom Kellogg"])] },
+  };
+  const REVIEWED_V = 1;
+  function applyReviewedCorrections() {
+    // Only over what these lists correct: a new or wiped store has nothing to put right.
+    if (store.settings && store.settings.reviewedV === REVIEWED_V) return;
+    const onFile = id => !!((store.families[id] && store.families[id].status === "confirmed") || store.recheck[id]);
+    if (![...Object.keys(REVIEWED_NOT_NAMEPLATES), ...Object.keys(REVIEWED_LISTS)].some(onFile)) return;
+    if (!store.settings) store.settings = {};
+    const at = new Date().toISOString();
+    const single = (e, g) => ({ status: "none", checkedAt: at, sourceTitle: e.sourceTitle, attempts: 1, reviewed: true,
+                                proposal: { hasMultipleGenerations: false, generations: [g] } });
+    Object.keys(REVIEWED_NOT_NAMEPLATES).forEach(id => {
+      const rec = REVIEWED_NOT_NAMEPLATES[id], e = store.families[id];
+      if (!e || e.status !== "confirmed") return;
+      const gens = (e.proposal && e.proposal.generations) || [];
+      const carOf = new Map();
+      gens.forEach(g => {
+        const carId = g.code === rec.keep ? id : rec.cars[g.code];
+        if (!carId) return;
+        carOf.set("llm-" + id + "-" + slugify(g.code), carId);
+        // A concept car was shown in the one year.
+        const end = rec.concepts ? g.yearStart : g.yearEnd;
+        const one = Object.assign({}, g, { yearEnd: end });
+        store.families[carId] = single(e, one);
+        if (g.yearStart != null) store.mintedFacts[carId] = Object.assign({}, store.mintedFacts[carId], { year: g.yearStart, end });
+        if (carId !== id) store.userCars[carId] = { makeLabel: rec.make, modelLabel: g.code, wpTitle: e.sourceTitle, addedAt: at, year: g.yearStart, end };
+      });
+      // What was resolved for its generations moves to the cars they became.
+      Object.keys(store.relations).forEach(k => {
+        const r = store.relations[k], to = gid => carOf.get(gid);
+        if (!r || !(to(r.genIdA) || to(r.genIdB))) return;
+        delete store.relations[k];
+        ["A", "B"].forEach(side => { const car = to(r["genId" + side]); if (car) { r["genId" + side] = car; r["fam" + side] = car; } });
+        const moved = relKey(r.genIdA || r.famA, r.genIdB || r.famB, r.relType);
+        if (r.famA !== r.famB && !store.relations[moved] && !store.rejectedRelations[moved]) store.relations[moved] = r;
+      });
+    });
+    Object.keys(REVIEWED_LISTS).forEach(id => {
+      const rec = REVIEWED_LISTS[id];
+      if (!onFile(id)) return;
+      store.recheck[id] = { status: "applied", checkedAt: at, appliedAt: at, sourceTitle: rec.sourceTitle, attempts: 1, reviewed: true, feedback: [],
+                            manualRecheck: true, outsidersV: OUTSIDER_RULE_VERSION,
+                            proposal: { hasMultipleGenerations: true, generations: rec.generations } };
+    });
+    // Nameplates a mention minted under one of their versions: each takes its
+    // article's name, and the version keeps its own.
+    [["llm-related-mazda-bongo-brawny", "Bongo", "Bongo Brawny"], ["llm-related-isuzu-journey-j", "Journey", "Journey-J"],
+     ["llm-related-jeep-dj-5", "DJ", "DJ-5"]].forEach(([id, label, version]) => {
+      if (!store.families[id]) return;
+      const name = (key, to, from) => { store.renames[key] = { label: to, previousLabel: from, kind: "family", renamedAt: at, auto: true, reason: "named after its article" }; };
+      name(id, label, version);
+      name("llm-" + id + "-" + slugify(version), version, label);
+    });
+    // A plain "Bongo" stood beside its own nameplate: on one article they fold.
+    if (store.families["llm-related-mazda-bongo-brawny"]) store.wpLinks["llm-related-mazda-bongo"] = "Mazda Bongo";
+    // The first-generation page is the only article the Roadster's nameplate has:
+    // its own title is a disambiguation page.
+    if (store.recheck["fam-tesla-roadster"]) store.wpLinks["fam-tesla-roadster"] = "Tesla Roadster (first generation)";
+    delete store.wpLinks["fam-ford-mondeo"];
+    store.settings.reviewedV = REVIEWED_V;
+  }
   function applyUserCars(nodes, links) {
     const entries = Object.entries(store.userCars);
     if (!entries.length) return;
@@ -6520,7 +6604,7 @@ Rules:
       }
       const modelNode = {
         id, type: "model", label: rec.modelLabel, make: makeNode.label,
-        year: null, end: null, wp: rec.wpTitle || null, userAdded: true,
+        year: rec.year == null ? null : rec.year, end: rec.end == null ? null : rec.end, wp: rec.wpTitle || null, userAdded: true,
       };
       nodes.push(modelNode);
       existingIds.add(id);
@@ -10985,7 +11069,23 @@ Rules:
            "their base name (revert from the rename list if that is wrong)");
       persist();
     }
+    nameAfterArticles(nodes, byIdLocal);
     return n;
+  }
+  // A generation named just like its nameplate, with an article of its own for
+  // that generation, says which it is: the Mondeo's "Ford Mondeo (second
+  // generation)". Worked out at every load, so nothing is written; a name set by
+  // hand is applied after this and wins.
+  function nameAfterArticles(nodes, byIdLocal) {
+    for (const fam of nodes) {
+      if (!fam || fam.retired || fam.type !== "family") continue;
+      (fam.generations || []).map(id => byIdLocal.get(id)).forEach(g => {
+        if (!g || g.retired || g.label !== fam.label) return;
+        const said = String(g.wp || "");
+        const own = said.toLowerCase().startsWith(`${fam.make} ${fam.label} (`.toLowerCase()) && said.match(/\(([^()]*\bgeneration\b[^()]*)\)$/i);
+        if (own) { g.label = `${fam.label} (${own[1]})`; namesChanged(); }
+      });
+    }
   }
   // The same question for a split still waiting in the pending list: "Audi
   // 80 (B1)" proposing B1..B5 is the Audi 80, not a car with five
@@ -18810,7 +18910,7 @@ Rules:
     clearEngineScansFor, note, nameplateSectionForCar, mergeEngineHits,
     mergeEngines, undoEngineMerge, allEngineMerges, applyEngineMerges,
     sameEngineLine, decodeEntities, articleIsNotACar, sweepStoredSplitsForOutsiders, sweepRecheckSections, decideRecheck, headingsOf,
-    markFutureGenerations, articleNamesCar, articleFitsCar, sweepArticleLinks, settleDecidedRechecks, settleRetiredGenerationFlags, sweepFlaggedMentions, articleNamesCarInFull, sweepWeakRelations, settleAfterScans, sweepWholePageEngineLists, sweepOrdinalPlaceholders, replayStarted, replayFinished,
+    markFutureGenerations, articleNamesCar, articleFitsCar, sweepArticleLinks, settleDecidedRechecks, settleRetiredGenerationFlags, sweepFlaggedMentions, articleNamesCarInFull, sweepWeakRelations, settleAfterScans, applyReviewedCorrections, sweepWholePageEngineLists, sweepOrdinalPlaceholders, replayStarted, replayFinished,
     lastSaveError: () => lastSaveError,
     engineMentions, unlinkedEngineMentions, engineSpecLabel,
     recordEngineMentions, recordEngineMentionsFrom, applyEngineMentions,
