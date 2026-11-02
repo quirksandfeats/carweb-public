@@ -6609,7 +6609,7 @@ Rules:
       reviewedGen("Original (1962–1963)", 1962, 1963, ["Raymond Loewy"]),
       reviewedGen("Avanti II", 1965, 1986, ["Leo Newman", "Nate Altman"]), reviewedGen("Avanti", 1987, 2006, ["Tom Kellogg"])] },
   };
-  const REVIEWED_V = 4;
+  const REVIEWED_V = 5;
   function applyReviewedCorrections() {
     // Only over what these lists correct: a new or wiped store has nothing to put right.
     const had = (store.settings && store.settings.reviewedV) || 0;
@@ -6622,7 +6622,14 @@ Rules:
     if (had < 2) applySecondReview(at);
     if (had < 3) applyThirdReview(at);
     if (had < 4) applyFourthReview();
+    if (had < 5) applyFifthReview();
     store.settings.reviewedV = REVIEWED_V;
+  }
+  function applyFifthReview() {
+    // Real end years put these on the generation built longest alongside. The 301's
+    // article names the 2009 C3, and the Veracruz was launched beside the Sonata NF.
+    store.rejectedRelations["llm-m-citroen-c3-sx-sy|m-peugeot-301-2012|platform"] = true;
+    store.rejectedRelations["llm-llm-related-hyundai-sonata-yf|m-hyundai-veracruz|platform"] = true;
   }
   function applyFourthReview() {
     // What a car read before the EA855's page was treated as gone: the same line,
@@ -12331,7 +12338,18 @@ Rules:
     const sorted = [...gens].sort((a, b) => a.year - b.year);
     return which === "newest" ? sorted[sorted.length - 1] : sorted[0];
   }
+  // Cars still built after their successor began, so the years alone point at the
+  // successor's next generation. Each one's article names the car that followed it.
+  const HANDOVER_NAMED = {
+    "m-saturn-ion|m-opel-astra": "llm-m-opel-astra-astra-h",
+    "m-ford-aerostar|m-ford-windstar": "llm-m-ford-windstar-first-generation",
+    "m-mini-electric|m-mini-cooper": "llm-m-mini-cooper-j01",
+    "m-roewe-750|m-roewe-950": "llm-m-roewe-950-roewe-950",
+    "m-alfa-romeo-1750-berlina|m-alfa-romeo-alfetta-gt-gtv": "llm-m-alfa-romeo-alfetta-gt-gtv-berlina",
+  };
   function successionPair(s, t, byIdLocal) {
+    const named = byIdLocal.get(HANDOVER_NAMED[s.id + "|" + t.id]);
+    if (named && !named.retired) return [s, named];
     const dated = n => (n.type === "family" ? (n.generations || []).map(id => byIdLocal.get(id)) : [n])
       .filter(g => g && !g.retired && g.year != null);
     // An undated plain car on one side: the old rule, last hands to first.

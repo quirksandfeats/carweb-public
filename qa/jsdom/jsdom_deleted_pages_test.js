@@ -42,4 +42,13 @@ const sec = w.CARDATA.nodes.find(n => n.type === "engine" && n.wp === LIST + "#E
 t("the line lands on the list article's section", !!sec && fitted(sec.id).length === 1, sec && sec.id);
 t("the car's own words stay on the line", sec && fitted(sec.id)[0].saidText === "2.5L Volkswagen EA855 TFSI I5");
 t("a Multiplina or Emblème stays a car", !!by("m-fiat-multiplina") && !!by("m-renault-embleme"));
+t("an article's own end year is the car's", by("m-volvo-duett").end === 1969 && by("m-mazda-biante").end === 2018, by("m-volvo-duett").end);
+t("a car still in production has no end year", by("m-maserati-mc20").end == null, by("m-maserati-mc20").end);
+const astra = { id: "m-opel-astra", type: "family", generations: ["llm-m-opel-astra-astra-h", "llm-m-opel-astra-astra-j"] };
+const ion = { id: "m-saturn-ion", type: "model", year: 2002, end: 2007 };
+const gens = [{ id: "llm-m-opel-astra-astra-h", year: 2004, end: 2014 }, { id: "llm-m-opel-astra-astra-j", year: 2009, end: 2021 }];
+const made = [ion, astra, ...gens], placed = [{ source: ion.id, target: astra.id, type: "succession" }];
+w.LlmFamilies.pushSuccessionToGenerations(made, placed);
+t("a named successor beats the nearest years", placed.some(l => l.genLevel && l.target === "llm-m-opel-astra-astra-h"), JSON.stringify(placed.filter(l => l.genLevel).map(l => l.target)));
+t("the links the years put wrong stay declined", !w.CARDATA.links.some(l => !l.retired && id(l.target) === "llm-m-citroen-c3-sx-sy" && id(l.source) === "m-peugeot-301-2012"));
 process.exit(fails ? 1 : 0);

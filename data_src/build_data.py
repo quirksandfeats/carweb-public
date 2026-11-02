@@ -18,6 +18,7 @@ from d_models import MODELS
 from d_links import PLATFORM_GROUPS
 from d_engineers import ENGINEERS, MODEL_ENGINEERS
 from d_auto import AUTO_MAKES, AUTO_DESIGNERS, AUTO_MODELS, SUCCESSION, RELATED
+from d_end_fixes import END_FIXES
 from build_family_layer import build_families
 
 # ---------------- My Database layer: opt-in, OFF by default ----------------
@@ -177,13 +178,8 @@ for (make, name, y0, y1, designers, wp, note) in MODELS:
                        wp=w, note=note, src="cur"))
     remember(make, name, w)
 
-# End years the harvest has wrong. The PK4's own page is gone, so DBpedia cannot
-# correct it; the Stoewer article gives 1909-1912.
-AUTO_END_FIXES = {("Stoewer", "PK4"): 1912, ("ElectraMeccanica", "Solo"): 2023}
-
 for (make, name, y0, y1, designers, wp, note) in AUTO_MODELS:
     make = canon_make(make)
-    y1 = AUTO_END_FIXES.get((make, name), y1)
     if (norm(make), norm(name)) in seen_mn or norm(wp) in seen_wp:
         # Already here -- unless it only shares the key because its
         # punctuation was thrown away. That takes both: a NAME that is written
@@ -292,6 +288,7 @@ for m in models:
     model_ids[(norm(m["make"]), norm(m["name"]))] = mid
     model_ids_exact[(exact(m["make"]), exact(m["name"]))] = mid
     m["id"] = mid
+    if mid in END_FIXES: m["y1"] = END_FIXES[mid]
     node = {"id": mid, "type": "model", "label": m["name"], "make": m["make"],
             "year": m["y0"], "end": m["y1"], "designers": m["designers"], "wp": WP_SHOWN.get(m["wp"], m["wp"])}
     if m.get("engineers"):
