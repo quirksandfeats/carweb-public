@@ -43490,7 +43490,7 @@
   },
   "llm-related-renault-city-k-ze": {
    "status": "same-article",
-   "checkedAt": "2026-10-13T00:02:29.186Z",
+   "checkedAt": "2026-11-02T08:02:44.053Z",
    "sourceTitle": "Renault Kwid",
    "sameAs": "m-renault-kwid",
    "sameAsLabel": "Renault Kwid",
@@ -276635,8 +276635,8 @@
   },
   "llm-m-nissan-micra-k14|llm-m-nissan-note-e12|platform": {
    "status": "confirmed",
-   "checkedAt": "2026-11-02T07:46:50.636Z",
-   "decidedAt": "2026-11-02T07:46:50.636Z",
+   "checkedAt": "2026-11-02T07:59:40.684Z",
+   "decidedAt": "2026-11-02T07:59:40.684Z",
    "famA": "m-nissan-note",
    "famB": "m-nissan-micra",
    "relType": "platform",
@@ -318589,8 +318589,8 @@
   },
   "llm-llm-related-daewoo-veritas-wn|llm-m-chevrolet-caprice-sixth-generation|platform": {
    "status": "confirmed",
-   "checkedAt": "2026-11-02T07:46:56.890Z",
-   "decidedAt": "2026-11-02T07:46:56.890Z",
+   "checkedAt": "2026-11-02T07:59:46.193Z",
+   "decidedAt": "2026-11-02T07:59:46.193Z",
    "famA": "llm-related-daewoo-veritas",
    "famB": "m-chevrolet-caprice",
    "relType": "platform",
@@ -361375,7 +361375,7 @@
    "llmDiscovered": true,
    "reworkPending": {
     "kind": "remove",
-    "checkedAt": "2026-11-02T04:13:47.167Z",
+    "checkedAt": "2026-11-02T08:02:51.765Z",
     "reason": "the current article text no longer mentions Dacia Spring (second generation) B1325 alongside Pixo EV Renault Twingo E-Tech -- this re-check couldn't confirm the match still holds"
    }
   },
@@ -435065,8 +435065,8 @@
   },
   "llm-llm-related-ford-contour-mk-i-mk-ii|llm-m-mercury-cougar-seventh-generation|platform": {
    "status": "confirmed",
-   "checkedAt": "2026-11-02T07:46:57.536Z",
-   "decidedAt": "2026-11-02T07:46:57.536Z",
+   "checkedAt": "2026-11-02T07:59:46.726Z",
+   "decidedAt": "2026-11-02T07:59:46.726Z",
    "famA": "llm-related-ford-contour",
    "famB": "m-mercury-cougar",
    "relType": "platform",
@@ -461636,8 +461636,8 @@
   },
   "llm-llm-related-volkswagen-alltrack-b6|llm-m-skoda-superb-b6-3t|platform": {
    "status": "confirmed",
-   "checkedAt": "2026-11-02T07:47:00.522Z",
-   "decidedAt": "2026-11-02T07:47:00.522Z",
+   "checkedAt": "2026-11-02T07:59:49.306Z",
+   "decidedAt": "2026-11-02T07:59:49.306Z",
    "famA": "llm-related-volkswagen-alltrack",
    "famB": "m-skoda-superb",
    "relType": "platform",
@@ -464228,8 +464228,8 @@
   },
   "llm-m-lincoln-custom-lincoln-custom-1941|llm-m-lincoln-lincoln-zephyr-lincoln-h-series|platform": {
    "status": "confirmed",
-   "checkedAt": "2026-11-02T07:46:53.281Z",
-   "decidedAt": "2026-11-02T07:46:53.281Z",
+   "checkedAt": "2026-11-02T07:59:43.049Z",
+   "decidedAt": "2026-11-02T07:59:43.049Z",
    "famA": "m-lincoln-custom",
    "famB": "m-lincoln-lincoln-zephyr",
    "relType": "platform",
@@ -494140,8 +494140,8 @@
   },
   "llm-m-mitsubishi-3000gt-z16a|llm-m-mitsubishi-sigma-first-generation|platform": {
    "status": "confirmed",
-   "checkedAt": "2026-11-02T07:46:53.698Z",
-   "decidedAt": "2026-11-02T07:46:53.699Z",
+   "checkedAt": "2026-11-02T07:59:43.444Z",
+   "decidedAt": "2026-11-02T07:59:43.444Z",
    "famA": "m-mitsubishi-sigma",
    "famB": "m-mitsubishi-3000gt",
    "relType": "platform",
@@ -499922,8 +499922,8 @@
   },
   "llm-m-toyota-sienta-xp170|llm-m-toyota-yaris-xp210|platform": {
    "status": "confirmed",
-   "checkedAt": "2026-11-02T07:46:57.037Z",
-   "decidedAt": "2026-11-02T07:46:57.037Z",
+   "checkedAt": "2026-11-02T07:59:46.318Z",
+   "decidedAt": "2026-11-02T07:59:46.318Z",
    "famA": "m-toyota-yaris",
    "famB": "m-toyota-sienta",
    "relType": "platform",
@@ -499936,8 +499936,8 @@
   },
   "llm-m-dodge-colt-first-generation|llm-m-mitsubishi-galant-first-generation|platform": {
    "status": "confirmed",
-   "checkedAt": "2026-11-02T07:46:58.081Z",
-   "decidedAt": "2026-11-02T07:46:58.081Z",
+   "checkedAt": "2026-11-02T07:59:47.187Z",
+   "decidedAt": "2026-11-02T07:59:47.187Z",
    "famA": "m-dodge-colt",
    "famB": "m-mitsubishi-galant",
    "relType": "platform",
@@ -499950,8 +499950,8 @@
   },
   "llm-m-dodge-colt-second-generation|llm-m-mitsubishi-galant-third-generation|platform": {
    "status": "confirmed",
-   "checkedAt": "2026-11-02T07:46:58.081Z",
-   "decidedAt": "2026-11-02T07:46:58.081Z",
+   "checkedAt": "2026-11-02T07:59:47.187Z",
+   "decidedAt": "2026-11-02T07:59:47.187Z",
    "famA": "m-dodge-colt",
    "famB": "m-mitsubishi-galant",
    "relType": "platform",
@@ -500203,8 +500203,8 @@
   },
   "llm-m-mazda-cx-5-kf|m-mazda-6-third-generation|platform": {
    "status": "confirmed",
-   "checkedAt": "2026-11-02T07:47:08.490Z",
-   "decidedAt": "2026-11-02T07:47:08.490Z",
+   "checkedAt": "2026-11-02T07:59:56.161Z",
+   "decidedAt": "2026-11-02T07:59:56.161Z",
    "famA": "fam-mazda-6",
    "famB": "m-mazda-cx-5",
    "relType": "platform",
@@ -501636,62 +501636,6 @@
    "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
    "llmDiscovered": true
   },
-  "llm-m-suzuki-ertiga-suzuki-xl6-xl7|m-suzuki-ciaz|platform": {
-   "status": "confirmed",
-   "checkedAt": "2026-11-02T07:47:18.526Z",
-   "decidedAt": "2026-11-02T07:47:18.526Z",
-   "famA": "m-suzuki-ciaz",
-   "famB": "m-suzuki-ertiga",
-   "relType": "platform",
-   "codeA": "Ciaz",
-   "codeB": "Ertiga Suzuki XL6/XL7",
-   "genIdA": "m-suzuki-ciaz",
-   "genIdB": "llm-m-suzuki-ertiga-suzuki-xl6-xl7",
-   "reason": "matched automatically -- the nameplate was named exactly in the source text; no text says which, so the generation whose years fit this one best",
-   "llmDiscovered": true
-  },
-  "llm-llm-related-oldsmobile-starfire-second-generation|m-chevrolet-vega|platform": {
-   "status": "confirmed",
-   "checkedAt": "2026-11-02T07:47:18.615Z",
-   "decidedAt": "2026-11-02T07:47:18.615Z",
-   "famA": "m-chevrolet-vega",
-   "famB": "llm-related-oldsmobile-starfire",
-   "relType": "platform",
-   "codeA": "Vega",
-   "codeB": "Starfire Second generation",
-   "genIdA": "m-chevrolet-vega",
-   "genIdB": "llm-llm-related-oldsmobile-starfire-second-generation",
-   "reason": "matched automatically -- the nameplate was named exactly in the source text, and exactly one of its generations was in production alongside this one, so that is the generation it refers to",
-   "llmDiscovered": true
-  },
-  "llm-llm-related-mitsubishi-minicab-miev-eighth-generation|m-mitsubishi-i-miev|platform": {
-   "status": "confirmed",
-   "checkedAt": "2026-11-02T07:47:18.657Z",
-   "decidedAt": "2026-11-02T07:47:18.657Z",
-   "famA": "m-mitsubishi-i-miev",
-   "famB": "llm-related-mitsubishi-minicab-miev",
-   "relType": "platform",
-   "codeA": "i-MiEV",
-   "codeB": "Minicab MiEV Eighth generation",
-   "genIdA": "m-mitsubishi-i-miev",
-   "genIdB": "llm-llm-related-mitsubishi-minicab-miev-eighth-generation",
-   "reason": "matched automatically -- the nameplate was named exactly in the source text; no text says which, so the generation whose years fit this one best",
-   "llmDiscovered": true
-  },
-  "llm-m-lancia-stratos-sibilo|m-lancia-rally-037|platform": {
-   "status": "confirmed",
-   "checkedAt": "2026-11-02T07:47:18.849Z",
-   "decidedAt": "2026-11-02T07:47:18.849Z",
-   "famA": "m-lancia-rally-037",
-   "famB": "m-lancia-stratos",
-   "relType": "platform",
-   "codeA": "Rally 037",
-   "codeB": "Stratos Sibilo",
-   "genIdA": "m-lancia-rally-037",
-   "genIdB": "llm-m-lancia-stratos-sibilo",
-   "reason": "matched automatically -- the nameplate was named exactly in the source text, and exactly one of its generations was in production alongside this one, so that is the generation it refers to",
-   "llmDiscovered": true
-  },
   "llm-related-dacia-spring|m-renault-kwid|platform": {
    "status": "confirmed",
    "checkedAt": "2026-11-02T07:47:41.283Z",
@@ -501740,54 +501684,141 @@
     ]
    }
   },
-  "llm-related-dacia-spring|m-renault-twingo|platform": {
-   "status": "provisional",
-   "checkedAt": "2026-11-02T07:47:55.576Z",
-   "famA": "llm-related-dacia-spring",
-   "famB": "m-renault-twingo",
+  "llm-m-suzuki-ertiga-nc|m-suzuki-ciaz|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-11-02T07:59:44.823Z",
+   "decidedAt": "2026-11-02T07:59:44.823Z",
+   "famA": "m-suzuki-ciaz",
+   "famB": "m-suzuki-ertiga",
    "relType": "platform",
-   "note": "Renault Twingo's own article says: \"… until 8 June 2012 in Colombia, by the Sofasa conglomerate, strictly for the domestic market. ;Twingo I Safety \n In Japan, Renault was formerly licensed by Yanase (car dealership), and in 1999, Renault purchased a stake in Japanese automaker Nissan after Nissan had faced financial troubles following the collapse of the Japanese asset price bubble in 1991 and subsequent Lost Decade (Japan). As a result of Renault's purchase of interest, Yanase cancelled its licensing contract with Renault in the spring of 2000, and Nissan Motor Co., Ltd took over as the sole licensee, hence sales of the Twingo I in Japan were transferred from Yanase Store locations to Nissan Red Stage Store locations. Despite Japan being a right-hand drive market, the first generation was sold exclusively as left-hand drive, with the only change being the headlights. \n In total, 2.6&nbsp;million units of the first-generation Twingo were manufactured. \n <gallery widths=\"200\"> File:Renault Twingo front 20080709.jpg|1993–1…\"",
-   "matchLevel": "transitive",
-   "codeA": "Spring",
-   "codeB": "Twingo E-Tech",
-   "genIdA": "llm-related-dacia-spring",
-   "genIdB": "llm-m-renault-twingo-twingo-e-tech",
-   "reason": "Answered from connections already in the graph: Spring is connected to HS, which is connected to Twingo E-Tech. That is the only such pairing between these two, so it settles which generations this is about. (The model itself could not tell: The provided note contains no information regarding platform sharing. The text discusses licensing history, market restrictions (Japan, Colombia), and sales figures for the first generation of the Renault Twingo, but does not mention a shared platform with the Dacia Spring or any specific platform codes. Furthermore, based on general automotive knowledge, the Dacia Spring (current generation, ~2018+) is built on the Renault-Nissan alliance's CMF-A platform (derived from the Renault Captur/E-Tech Electric), whereas the Twingo models listed are based on the Renault A-segment platforms (A07 for Twingo I/II, A08 for Twingo III). There is no evidence in the provided text or established fact that these specific nameplate generations share the same platform.)",
+   "codeA": "Ciaz",
+   "codeB": "Ertiga NC",
+   "genIdA": "m-suzuki-ciaz",
+   "genIdB": "llm-m-suzuki-ertiga-nc",
+   "reason": "matched automatically -- the nameplate was named exactly in the source text; no text says which, so the generation whose years fit this one best",
+   "llmDiscovered": true
+  },
+  "llm-m-lancia-stratos-stratos-zero|m-lancia-rally-037|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-11-02T07:59:45.194Z",
+   "decidedAt": "2026-11-02T07:59:45.194Z",
+   "famA": "m-lancia-rally-037",
+   "famB": "m-lancia-stratos",
+   "relType": "platform",
+   "codeA": "Rally 037",
+   "codeB": "Stratos Zero",
+   "genIdA": "m-lancia-rally-037",
+   "genIdB": "llm-m-lancia-stratos-stratos-zero",
+   "reason": "matched automatically -- the nameplate was named exactly in the source text; no text says which, so the generation whose years fit this one best",
+   "llmDiscovered": true
+  },
+  "llm-llm-related-oldsmobile-starfire-concept-car|m-chevrolet-vega|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-11-02T07:59:47.779Z",
+   "decidedAt": "2026-11-02T07:59:47.779Z",
+   "famA": "m-chevrolet-vega",
+   "famB": "llm-related-oldsmobile-starfire",
+   "relType": "platform",
+   "codeA": "Vega",
+   "codeB": "Starfire Concept car",
+   "genIdA": "m-chevrolet-vega",
+   "genIdB": "llm-llm-related-oldsmobile-starfire-concept-car",
+   "reason": "matched automatically -- the nameplate was named exactly in the source text; no text says which, so the generation whose years fit this one best",
+   "llmDiscovered": true
+  },
+  "llm-llm-related-mitsubishi-minicab-miev-seventh-generation|m-mitsubishi-i-miev|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-11-02T07:59:47.790Z",
+   "decidedAt": "2026-11-02T07:59:47.790Z",
+   "famA": "m-mitsubishi-i-miev",
+   "famB": "llm-related-mitsubishi-minicab-miev",
+   "relType": "platform",
+   "codeA": "i-MiEV",
+   "codeB": "Minicab MiEV Seventh generation",
+   "genIdA": "m-mitsubishi-i-miev",
+   "genIdB": "llm-llm-related-mitsubishi-minicab-miev-seventh-generation",
+   "reason": "matched automatically -- the nameplate was named exactly in the source text; no text says which, so the generation whose years fit this one best",
+   "llmDiscovered": true
+  },
+  "llm-related-dacia-spring-second-generation|llm-related-nissan-pixo-ev|platform": {
+   "status": "none",
+   "checkedAt": "2026-11-02T08:00:04.201Z",
+   "famA": "llm-related-dacia-spring-second-generation",
+   "famB": "llm-related-nissan-pixo-ev",
+   "relType": "platform",
+   "note": null,
+   "matchLevel": null,
+   "codeA": null,
+   "codeB": null,
+   "genIdA": null,
+   "genIdB": null,
+   "reason": "skipped without asking the LLM -- neither article mentions the other car, no chassis/generation code was found in either one, and no note was supplied, so there is nothing to resolve a specific generation pair from (production-year overlap alone is never sufficient evidence). Retry with a hint if you know which generations this is really about.",
+   "noEvidence": true,
+   "debug": {
+    "raw": null,
+    "evidenceCodeForA": null,
+    "evidenceCodeForB": null,
+    "skippedForLackOfEvidence": true,
+    "fetchedArticleA": false,
+    "fetchedArticleB": true,
+    "availableCodesA": [
+     "Spring (second generation) BBG",
+     "Spring (second generation) B1325"
+    ],
+    "availableCodesB": [
+     "Pixo EV Suzuki Alto",
+     "Pixo EV Renault Twingo E-Tech"
+    ]
+   }
+  },
+  "llm-related-dacia-spring-second-generation|m-renault-kwid|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-11-02T08:00:23.520Z",
+   "decidedAt": "2026-11-02T08:00:23.520Z",
+   "autoConfirmed": true,
+   "famA": "llm-related-dacia-spring-second-generation",
+   "famB": "m-renault-kwid",
+   "relType": "platform",
+   "note": "Renault Kwid's own article says: \"…= 2023 Renault Kwid (Colombia; first facelift) | model_code = BW | manufacturer = Renault | production = 2015–present | assembly = | class = Crossover city car (A) | body_style = 5-door hatchback | layout = Front-engine, front-wheel-drive | platform = Renault–Nissan CMF-A platform | related = | engine = | powerout = {{unbulleted list | (0.8) | (1.0) }} | transmission = | wheelbase = | length = | width = | height = | weight = | aka = IKCO K112 (Iran, code name)<br />Renault Climber (Brunei)<br />Dacia Spring (electric car)<br />Renault City | designer = Serge Cosenza | predecessor = Renault Sandero (Mexico) }} \n == History == The Kwid was developed under the project code BBA. It is the first car to be based on the new CMF-A platform jointly developed by Renault and Nissan. It is slightly longer but narrower than Renault's smallest conventional vehicle, the Twingo with a high sitting position and a ride height. \n The car was designed by an engineers' team settled in India led by Gérard D…\"",
+   "matchLevel": "nameplate",
+   "codeA": "Spring (second generation) BBG",
+   "codeB": "Kwid",
+   "genIdA": "llm-llm-related-dacia-spring-second-generation-bbg",
+   "genIdB": "m-renault-kwid",
+   "reason": "auto-approved: the model attributed this to one of the two Wikipedia articles and named Dacia Spring (second generation) → Spring (second generation) BBG, which is a generation from that car's own real code list, in an asserted (not disclaimed) clause: The note explicitly states that the Renault Kwid is based on the CMF-A platform and is the 'first car' to use it, identifying it as the first generation of the Kwid (2015–present). The Dacia Spring (second generation) BBG is also well-documented as being built on the Renault-Nissan CMF-A platform. Therefore, the relationship applies to the first generation of the Kwid and the second generation of the Dacia Spring.",
    "debug": {
     "raw": {
-     "resolved": false,
-     "codeA": null,
-     "codeB": null,
-     "evidenceQuote": null,
-     "reason": "The provided note contains no information regarding platform sharing. The text discusses licensing history, market restrictions (Japan, Colombia), and sales figures for the first generation of the Renault Twingo, but does not mention a shared platform with the Dacia Spring or any specific platform codes. Furthermore, based on general automotive knowledge, the Dacia Spring (current generation, ~2018+) is built on the Renault-Nissan alliance's CMF-A platform (derived from the Renault Captur/E-Tech Electric), whereas the Twingo models listed are based on the Renault A-segment platforms (A07 for Twingo I/II, A08 for Twingo III). There is no evidence in the provided text or established fact that these specific nameplate generations share the same platform."
+     "resolved": true,
+     "codeA": "Dacia Spring (second generation)",
+     "codeB": "Renault Kwid (first generation)",
+     "evidenceQuote": "The Kwid was developed under the project code BBA. It is the first car to be based on the new CMF-A platform jointly developed by Renault and Nissan.",
+     "reason": "The note explicitly states that the Renault Kwid is based on the CMF-A platform and is the 'first car' to use it, identifying it as the first generation of the Kwid (2015–present). The Dacia Spring (second generation) BBG is also well-documented as being built on the Renault-Nissan CMF-A platform. Therefore, the relationship applies to the first generation of the Kwid and the second generation of the Dacia Spring."
     },
     "evidenceCodeForA": null,
     "evidenceCodeForB": null,
     "ordinalFromNoteA": null,
-    "ordinalFromNoteB": "Twingo I",
+    "ordinalFromNoteB": null,
     "ordinalBacked": false,
-    "evidenceQuote": null,
-    "quoteVerified": false,
+    "evidenceQuote": "The Kwid was developed under the project code BBA. It is the first car to be based on the new CMF-A platform jointly developed by Renault and Nissan.",
+    "quoteVerified": true,
     "llmVerified": false,
-    "knowledgeBacked": false,
-    "sourceAttributed": false,
-    "citedA": null,
+    "knowledgeBacked": true,
+    "sourceAttributed": true,
+    "citedA": "Spring (second generation) BBG",
     "citedB": null,
-    "citationBacked": false,
+    "citationBacked": true,
     "quoteFabricated": false,
     "fetchedArticleA": false,
     "fetchedArticleB": true,
     "availableCodesA": [
-     "Spring"
+     "Spring (second generation) BBG",
+     "Spring (second generation) B1325"
     ],
     "availableCodesB": [
-     "Twingo I",
-     "Twingo II",
-     "Twingo III",
-     "Twingo E-Tech"
+     "Kwid BW",
+     "Kwid B1325"
     ]
-   },
-   "transitiveVia": "llm-related-cmf-b-hs"
+   }
   }
  },
  "recheck": {
@@ -625699,7 +625730,7 @@
   },
   "llm-related-dacia-spring-second-generation": {
    "status": "error",
-   "checkedAt": "2026-11-02T04:02:39.317Z",
+   "checkedAt": "2026-11-02T08:00:02.339Z",
    "error": "no wikitext for Dacia Spring (article may not exist / was redirected oddly)",
    "attempts": 1,
    "manualRecheck": true,
@@ -625707,76 +625738,81 @@
   },
   "m-renault-kwid": {
    "status": "none",
-   "checkedAt": "2026-11-02T04:15:47.167Z",
+   "checkedAt": "2026-11-02T08:02:39.822Z",
    "sourceTitle": "Renault Kwid",
    "proposal": {
-    "hasMultipleGenerations": false,
+    "hasMultipleGenerations": true,
     "generations": [
      {
-      "code": "Renault Kwid",
+      "code": "BW",
       "yearStart": 2015,
       "yearEnd": null,
       "designers": [
-       "Serge Cosenza",
+       "Serge Cosenza"
+      ],
+      "engineers": [
        "Gérard Detourbet"
       ],
+      "wikiFile": "Renault Kwid - Facelift (2026).png",
+      "sharedPlatforms": []
+     },
+     {
+      "code": "BBG",
+      "yearStart": null,
+      "yearEnd": null,
+      "designers": [],
       "engineers": [],
-      "wikiFile": "Renault City K-ZE IMG001.jpg",
+      "wikiFile": "Renault KWLD concept SAO 2014 0365.JPG",
       "sharedPlatforms": [
-       "Datsun redi-Go",
-       "Nissan Magnite",
-       "Renault Kiger",
-       "Renault Triber",
-       "Dacia Spring",
-       "Renault City",
-       "IKCO K112",
-       "Renault Climber",
+       "Renault Kwid",
        "Venucia e30",
+       "Dacia Spring Electric",
+       "Forthing T1",
+       "Renault Kwid E-Tech",
        "Dongfeng Aeolus EX1",
-       "Dongfeng Nano Box",
-       "Forthing T1"
+       "Dongfeng Nano Box"
       ],
       "sharedPlatformMatches": {
-       "Renault City": {
+       "Renault Kwid": {
         "matchId": null,
         "confidence": "high",
-        "reason": "The mentioned car 'Renault City' is a distinct model name (often used for microcars or city cars, notably the Renault City R28 in the 1980s) and does not correspond to any of the specific candidates listed. While the database contains 'Aixam City' (a microcar brand with similar naming conventions), 'Honda City', and 'Think City', none of these are the 'Renault City'. The other candidates are various other Renault models (Clio, Twingo, Kangoo, etc.) that are different vehicles. There is no evidence in the provided list that 'Renault City' was a badge-engineered version of any of the listed candidates."
-       },
-       "IKCO K112": {
-        "matchId": null,
-        "confidence": "high",
-        "reason": "The mention 'IKCO K112' does not match any of the provided candidate IDs. The candidates list IKCO models such as Arisun, Dena, Reera, Runna, Samand, Soren, and Tara. While the 'K112' code often appears in the naming convention of Iranian cars derived from the Peugeot 106 (like the Saipa 112 or older IKCO variants), none of the specific candidate IDs represent the 'K112' model or a direct rename of it. For instance, the IKCO Soren is based on a different platform (Peugeot 206) and the IKCO Runna is a different model. Without a candidate explicitly named 'K112' or a known alias for it in the list, no match can be confirmed."
-       },
-       "Renault Climber": {
-        "matchId": null,
-        "confidence": "high",
-        "reason": "The mentioned car 'Renault Climber' refers to a specific model (the 1954–1962 pickup truck, derived from the Renault 4CV). None of the provided candidate IDs correspond to the 'Climber'; the list includes the 'Renault 4CV' (the donor vehicle) and the 'Renault Estafette' (a different van), but not the Climber itself."
+        "reason": "The mentioned car 'Renault Kwid' is a distinct subcompact crossover SUV produced by Renault from 2014 to present. While the provided candidate list contains many Renault models (including the Kiger, Kadjar, and Captur which are contemporaries or competitors), 'Renault Kwid' does not appear as a specific entry in the database. None of the listed candidates (e.g., Renault 16, Renault 5, Renault Clio, etc.) is the same vehicle as the Kwid."
        },
        "Venucia e30": {
         "matchId": "m-zotye-e30",
         "confidence": "high",
-        "reason": "The 'Venucia e30' is the export name for the Zotye E30 (also known as Zotye E300), sold under the Venucia brand in international markets starting around 2015. The candidate 'm-zotye-e30' refers to the exact same vehicle model, matching the years (2015–2019) and the specific model designation (E30) despite the branding difference between Zotye and Venucia."
+        "reason": "The Venucia e30 was a rebadged Zotye E30, sharing the exact same chassis and production years (2015–2019), making it the identical physical car with a different badge name."
        },
-       "Dongfeng Aeolus EX1": {
-        "matchId": null,
-        "confidence": "high",
-        "reason": "The mentioned car 'Dongfeng Aeolus EX1' is not present in the candidate list. The nameplate 'Aeolus' (now often rebranded as 'eπ' for new EVs) is distinct from the 'Fengdu', 'Fengguang', 'Fengxing', 'Rich', 'Succe', 'Z9', 'eπ 007', and 'eπ 008' models listed. While 'Aeolus' and 'eπ' share a lineage, the EX1 is a specific sedan model (often associated with the E11 chassis or similar), whereas the candidates list specific other models like the eπ 007/008 (crossovers/SUVs) or entirely different nameplates. No candidate matches the specific model name 'EX1' or its documented chassis variants."
-       },
-       "Dongfeng Nano Box": {
-        "matchId": null,
-        "confidence": "high",
-        "reason": "The 'Dongfeng Nano Box' is a microvan based on the Dongfeng eπ 007 platform (specifically the eπ008/007 generation). None of the candidates represent this vehicle. The candidate 'm-dongfeng-e-007' and 'm-dongfeng-e-008' are sedans/coupes, not the microvan. The other Dongfeng models listed (A9, Fengdu, Fengguang, Rich, etc.) are completely different vehicle models with no relation to the Nano Box."
+       "Dacia Spring Electric": {
+        "matchId": "llm-related-dacia-spring",
+        "confidence": "low",
+        "reason": "The mention specifies 'Dacia Spring Electric', which distinguishes it from the conventional petrol Dacia Spring. The candidate list only contains generic 'Dacia Spring' entries (including one explicitly labeled 'second generation') without specifying the 'Electric' powertrain variant. While the electric version is a known market derivative of the Dacia Spring platform, the database entry lacks the specific 'Electric' qualifier required to confirm it is the exact same car, and production start dates for the electric variant differ from the generic model's implied timeline."
        },
        "Forthing T1": {
         "matchId": null,
         "confidence": "high",
-        "reason": "The mention 'Forthing T1' refers to a specific Forthing model name. None of the provided candidates share this exact model name ('T1'). The candidates include 'Forthing T5', 'Forthing T5 Evo', 'Forthing T1' is absent. Other names like 'Forthing S500' or 'Forthing SX6' are distinct models and not documented aliases for the 'T1'. Therefore, no match exists in the candidate list."
+        "reason": "The mention 'Forthing T1' refers to a specific vehicle (likely an SUV/MPV based on Forthing naming conventions, often associated with the T1/T5/T6 lines). None of the provided candidates match this name. The closest candidates are the Forthing T5 and T5 Evo, but these are distinct models from different generations with different production years and chassis codes, not the same car as the T1."
+       },
+       "Renault Kwid E-Tech": {
+        "matchId": null,
+        "confidence": "high",
+        "reason": "The mentioned car 'Renault Kwid E-Tech' is the Kwid, which is a completely different model name from the 'Renault 5 E-Tech' listed in the candidates. The 'Renault 5 E-Tech' is a concept car based on the Renault 5, whereas the Kwid is a separate model (derived from the SM3 platform). No candidate matches the 'Kwid' nameplate."
+       },
+       "Dongfeng Aeolus EX1": {
+        "matchId": null,
+        "confidence": "high",
+        "reason": "The mentioned car 'Dongfeng Aeolus EX1' is a specific model (often associated with the Chery Fengyun A5 or a joint venture variant) not present in the candidate list. The candidates include various Dongfeng models (A9, Fengdu, Fengguang, Rich, etc.) but none match the 'Aeolus' nameplate or the specific 'EX1' model designation. There is no evidence of a rename or badge engineering relationship between the mentioned car and the listed candidates."
+       },
+       "Dongfeng Nano Box": {
+        "matchId": null,
+        "confidence": "high",
+        "reason": "The mentioned car 'Dongfeng Nano Box' (also known as the Fengguang Mini EV) is a small electric city car. None of the provided candidates match this vehicle. The closest related nameplate in the list is 'm-dongfeng-fengguang-330' (Fengguang 330), but this is a different model (a compact MPV/sedan) and not the 'Nano Box'."
        }
       }
      }
     ]
    },
-   "discrepancy": "Wikipedia currently describes 1 generation, but this nameplate currently shows 2 here",
+   "discrepancy": null,
    "attempts": 1,
    "feedback": [],
    "engines": [
@@ -625807,31 +625843,36 @@
    ],
    "debug": {
     "raw": {
-     "hasMultipleGenerations": false,
+     "hasMultipleGenerations": true,
      "generations": [
       {
-       "code": "Renault Kwid",
+       "code": "BW",
        "yearStart": 2015,
        "yearEnd": null,
        "designers": [
-        "Serge Cosenza",
+        "Serge Cosenza"
+       ],
+       "engineers": [
         "Gérard Detourbet"
        ],
+       "sharedPlatforms": []
+      },
+      {
+       "code": "BBG",
+       "yearStart": null,
+       "yearEnd": null,
+       "designers": [],
+       "engineers": [],
        "sharedPlatforms": [
-        "Datsun redi-Go",
-        "Nissan Magnite",
-        "Renault Kiger",
-        "Renault Triber",
-        "Dacia Spring",
-        "Renault City",
-        "IKCO K112",
-        "Renault Climber",
+        "Renault Kwid",
         "Venucia e30",
+        "Dacia Spring Electric",
+        "Forthing T1",
+        "Renault Kwid E-Tech",
         "Dongfeng Aeolus EX1",
-        "Dongfeng Aeolus Fengxing T1",
-        "Dongfeng Aeolus Fengguang E1",
-        "Dongfeng Nano Box",
-        "Forthing T1"
+        "Dongfeng Fengxing T1",
+        "Dongfeng Fengguang E1",
+        "Dongfeng Nano Box"
        ]
       }
      ]
@@ -625841,7 +625882,9 @@
    "manualRecheck": true,
    "engineScansCleared": 2,
    "generationDiff": {
-    "addedCodes": [],
+    "addedCodes": [
+     "BBG"
+    ],
     "removedIds": [
      "llm-m-renault-kwid-b1325"
     ]
@@ -625952,10 +625995,16 @@
      "External links"
     ]
    ],
-   "settledAt": "2026-11-02T04:15:47.168Z",
+   "settledAt": "2026-11-02T08:02:39.823Z",
    "settledBy": "rules",
    "settledWhy": "nothing in the article supports a change: the generations it left out stay",
-   "peopleAdded": []
+   "peopleAdded": [
+    {
+     "generation": "Kwid BW",
+     "role": "engineer",
+     "name": "Gérard Detourbet"
+    }
+   ]
   },
   "llm-related-toyopet-toyoace-skb": {
    "status": "none",
@@ -701184,7 +701233,7 @@
   },
   "m-renault-twingo": {
    "status": "none",
-   "checkedAt": "2026-11-02T03:24:35.878Z",
+   "checkedAt": "2026-11-02T08:01:10.527Z",
    "sourceTitle": "Renault Twingo",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -701237,9 +701286,8 @@
       "engineers": [],
       "wikiFile": "Renault Twingo Electric Vibes (III, Facelift) – f 30012021.jpg",
       "sharedPlatforms": [
-       "Dacia Spring (second generation)",
-       "Renault 5 E-Tech",
-       "Renault 4 E-Tech"
+       "Dacia Spring",
+       "Nissan Pixo"
       ]
      }
     ]
@@ -701405,8 +701453,8 @@
        "designers": [],
        "engineers": [],
        "sharedPlatforms": [
-        "Renault Wind",
-        "Renault Clio (X65)"
+        "Renault Clio (X65)",
+        "Renault Wind"
        ]
       },
       {
@@ -701432,9 +701480,8 @@
        ],
        "engineers": [],
        "sharedPlatforms": [
-        "Dacia Spring (second generation)",
-        "Renault 5 E-Tech",
-        "Renault 4 E-Tech"
+        "Dacia Spring",
+        "Nissan Pixo"
        ]
       }
      ]
@@ -778596,13 +778643,13 @@
   },
   "llm-related-nissan-pixo-ev": {
    "status": "none",
-   "checkedAt": "2026-11-02T04:13:47.154Z",
+   "checkedAt": "2026-11-02T08:02:51.759Z",
    "sourceTitle": "Nissan Pixo",
    "proposal": {
     "hasMultipleGenerations": true,
     "generations": [
      {
-      "code": "Suzuki Alto",
+      "code": "Suzuki Alto (2006–2009)",
       "yearStart": 2009,
       "yearEnd": 2013,
       "designers": [],
@@ -778634,7 +778681,7 @@
      "hasMultipleGenerations": true,
      "generations": [
       {
-       "code": "Suzuki Alto",
+       "code": "Suzuki Alto (2006–2009)",
        "yearStart": 2009,
        "yearEnd": 2013,
        "designers": [],
@@ -960671,7 +960718,8 @@
   "llm-llm-related-dodge-challenger-second-generation-1978-1983|llm-m-mitsubishi-colt-mirage-based-colt-a150|platform": true,
   "m-fiat-panda|m-fiat-uno|platform": true,
   "llm-m-citroen-c3-aircross-ai58|m-citroen-c-elysee|platform": true,
-  "llm-related-dacia-spring|m-renault-twingo|platform": true
+  "llm-related-dacia-spring|m-renault-twingo|platform": true,
+  "llm-related-dacia-spring-second-generation|m-renault-twingo|platform": true
  },
  "crossGroupRejections": {
   "llm-llm-related-hino-liesse-ii-first-generation-1996|llm-llm-related-isuzu-journey-j-journey-j|platform": {
@@ -1228463,38 +1228511,6 @@
    "unlinked": [],
    "v": 7
   },
-  "llm-m-renault-twingo-twingo-i": {
-   "checkedAt": "2026-11-02T03:24:39.506Z",
-   "sourceTitle": null,
-   "status": "no-article",
-   "engines": [],
-   "unlinked": [],
-   "v": 7
-  },
-  "llm-m-renault-twingo-twingo-ii": {
-   "checkedAt": "2026-11-02T03:24:39.506Z",
-   "sourceTitle": null,
-   "status": "no-article",
-   "engines": [],
-   "unlinked": [],
-   "v": 7
-  },
-  "llm-m-renault-twingo-twingo-iii": {
-   "checkedAt": "2026-11-02T03:24:39.506Z",
-   "sourceTitle": null,
-   "status": "no-article",
-   "engines": [],
-   "unlinked": [],
-   "v": 7
-  },
-  "llm-m-renault-twingo-twingo-e-tech": {
-   "checkedAt": "2026-11-02T03:24:39.507Z",
-   "sourceTitle": "Renault Twingo E-Tech",
-   "status": "no-engines",
-   "engines": [],
-   "unlinked": [],
-   "v": 7
-  },
   "llm-m-dacia-logan-logan-i": {
    "checkedAt": "2026-11-02T03:26:28.898Z",
    "sourceTitle": null,
@@ -1234391,22 +1234407,6 @@
    "unlinked": [],
    "v": 7
   },
-  "llm-llm-related-dacia-spring-second-generation-bbg": {
-   "checkedAt": "2026-11-02T04:02:42.913Z",
-   "sourceTitle": null,
-   "status": "no-article",
-   "engines": [],
-   "unlinked": [],
-   "v": 7
-  },
-  "llm-llm-related-dacia-spring-second-generation-b1325": {
-   "checkedAt": "2026-11-02T04:02:42.913Z",
-   "sourceTitle": null,
-   "status": "no-article",
-   "engines": [],
-   "unlinked": [],
-   "v": 7
-  },
   "llm-related-dodge-arrow": {
    "checkedAt": "2026-11-02T04:03:51.471Z",
    "sourceTitle": "Mitsubishi Lancer (A70)",
@@ -1235482,38 +1235482,6 @@
      "said": "698 cc M160 turbo I3 (petrol)"
     }
    ],
-   "unlinked": [],
-   "v": 7
-  },
-  "llm-llm-related-nissan-pixo-ev-suzuki-alto": {
-   "checkedAt": "2026-11-02T04:13:49.023Z",
-   "sourceTitle": null,
-   "status": "no-article",
-   "engines": [],
-   "unlinked": [],
-   "v": 7
-  },
-  "llm-llm-related-nissan-pixo-ev-renault-twingo-e-tech": {
-   "checkedAt": "2026-11-02T04:13:49.023Z",
-   "sourceTitle": null,
-   "status": "no-article",
-   "engines": [],
-   "unlinked": [],
-   "v": 7
-  },
-  "llm-m-renault-kwid-bw": {
-   "checkedAt": "2026-11-02T04:15:50.095Z",
-   "sourceTitle": null,
-   "status": "no-article",
-   "engines": [],
-   "unlinked": [],
-   "v": 7
-  },
-  "llm-m-renault-kwid-b1325": {
-   "checkedAt": "2026-11-02T04:15:50.096Z",
-   "sourceTitle": null,
-   "status": "no-article",
-   "engines": [],
    "unlinked": [],
    "v": 7
   },
@@ -1251085,6 +1251053,86 @@
    "engines": [],
    "unlinked": [],
    "v": 1
+  },
+  "llm-llm-related-dacia-spring-second-generation-bbg": {
+   "checkedAt": "2026-11-02T08:00:05.782Z",
+   "sourceTitle": null,
+   "status": "no-article",
+   "engines": [],
+   "unlinked": [],
+   "v": 7
+  },
+  "llm-llm-related-dacia-spring-second-generation-b1325": {
+   "checkedAt": "2026-11-02T08:00:05.782Z",
+   "sourceTitle": null,
+   "status": "no-article",
+   "engines": [],
+   "unlinked": [],
+   "v": 7
+  },
+  "llm-m-renault-twingo-twingo-i": {
+   "checkedAt": "2026-11-02T08:01:13.107Z",
+   "sourceTitle": null,
+   "status": "no-article",
+   "engines": [],
+   "unlinked": [],
+   "v": 7
+  },
+  "llm-m-renault-twingo-twingo-ii": {
+   "checkedAt": "2026-11-02T08:01:13.107Z",
+   "sourceTitle": null,
+   "status": "no-article",
+   "engines": [],
+   "unlinked": [],
+   "v": 7
+  },
+  "llm-m-renault-twingo-twingo-iii": {
+   "checkedAt": "2026-11-02T08:01:13.107Z",
+   "sourceTitle": null,
+   "status": "no-article",
+   "engines": [],
+   "unlinked": [],
+   "v": 7
+  },
+  "llm-m-renault-twingo-twingo-e-tech": {
+   "checkedAt": "2026-11-02T08:01:13.336Z",
+   "sourceTitle": "Renault Twingo E-Tech",
+   "status": "no-engines",
+   "engines": [],
+   "unlinked": [],
+   "v": 7
+  },
+  "llm-m-renault-kwid-bw": {
+   "checkedAt": "2026-11-02T08:02:42.388Z",
+   "sourceTitle": null,
+   "status": "no-article",
+   "engines": [],
+   "unlinked": [],
+   "v": 7
+  },
+  "llm-m-renault-kwid-b1325": {
+   "checkedAt": "2026-11-02T08:02:42.388Z",
+   "sourceTitle": null,
+   "status": "no-article",
+   "engines": [],
+   "unlinked": [],
+   "v": 7
+  },
+  "llm-llm-related-nissan-pixo-ev-suzuki-alto": {
+   "checkedAt": "2026-11-02T08:02:53.741Z",
+   "sourceTitle": null,
+   "status": "no-article",
+   "engines": [],
+   "unlinked": [],
+   "v": 7
+  },
+  "llm-llm-related-nissan-pixo-ev-renault-twingo-e-tech": {
+   "checkedAt": "2026-11-02T08:02:53.741Z",
+   "sourceTitle": null,
+   "status": "no-article",
+   "engines": [],
+   "unlinked": [],
+   "v": 7
   }
  },
  "aliases": {
@@ -1259817,12 +1259865,12 @@
   "llm-llm-related-dacia-spring-second-generation-bbg": {
    "names": [],
    "from": null,
-   "checkedAt": "2026-11-02T04:02:42.913Z"
+   "checkedAt": "2026-11-02T08:00:05.782Z"
   },
   "llm-llm-related-dacia-spring-second-generation-b1325": {
    "names": [],
    "from": null,
-   "checkedAt": "2026-11-02T04:02:42.913Z"
+   "checkedAt": "2026-11-02T08:00:05.782Z"
   },
   "m-general-motors-beaumont": {
    "names": [],
@@ -1259832,7 +1259880,7 @@
   "llm-related-nissan-pixo-ev": {
    "names": [],
    "from": "Nissan Pixo",
-   "checkedAt": "2026-11-02T04:13:49.023Z"
+   "checkedAt": "2026-11-02T08:02:53.741Z"
   },
   "m-renault-kwid": {
    "names": [
@@ -1259842,17 +1259890,17 @@
     "Renault City"
    ],
    "from": "Renault Kwid",
-   "checkedAt": "2026-11-02T04:15:50.095Z"
+   "checkedAt": "2026-11-02T08:02:42.387Z"
   },
   "llm-m-renault-kwid-bw": {
    "names": [],
    "from": null,
-   "checkedAt": "2026-11-02T04:15:50.095Z"
+   "checkedAt": "2026-11-02T08:02:42.388Z"
   },
   "llm-m-renault-kwid-b1325": {
    "names": [],
    "from": null,
-   "checkedAt": "2026-11-02T04:15:50.096Z"
+   "checkedAt": "2026-11-02T08:02:42.388Z"
   },
   "llm-related-toyopet-toyoace-skb": {
    "names": [
@@ -1267075,29 +1267123,29 @@
   "m-renault-twingo": {
    "names": [],
    "from": "Renault Twingo",
-   "checkedAt": "2026-11-02T03:24:39.506Z"
+   "checkedAt": "2026-11-02T08:01:13.106Z"
   },
   "llm-m-renault-twingo-twingo-i": {
    "names": [],
    "from": null,
-   "checkedAt": "2026-11-02T03:24:39.506Z"
+   "checkedAt": "2026-11-02T08:01:13.107Z"
   },
   "llm-m-renault-twingo-twingo-ii": {
    "names": [],
    "from": null,
-   "checkedAt": "2026-11-02T03:24:39.506Z"
+   "checkedAt": "2026-11-02T08:01:13.107Z"
   },
   "llm-m-renault-twingo-twingo-iii": {
    "names": [],
    "from": null,
-   "checkedAt": "2026-11-02T03:24:39.506Z"
+   "checkedAt": "2026-11-02T08:01:13.107Z"
   },
   "llm-m-renault-twingo-twingo-e-tech": {
    "names": [
     "Nissan Pixo"
    ],
    "from": "Renault Twingo E-Tech",
-   "checkedAt": "2026-11-02T03:24:39.507Z"
+   "checkedAt": "2026-11-02T08:01:13.336Z"
   },
   "m-alfa-romeo-arna": {
    "names": [],
@@ -1277010,12 +1277058,12 @@
   "llm-llm-related-nissan-pixo-ev-suzuki-alto": {
    "names": [],
    "from": null,
-   "checkedAt": "2026-11-02T04:13:49.023Z"
+   "checkedAt": "2026-11-02T08:02:53.741Z"
   },
   "llm-llm-related-nissan-pixo-ev-renault-twingo-e-tech": {
    "names": [],
    "from": null,
-   "checkedAt": "2026-11-02T04:13:49.023Z"
+   "checkedAt": "2026-11-02T08:02:53.741Z"
   },
   "m-alfa-romeo-alfasud": {
    "names": [
@@ -1310168,11 +1310216,11 @@
  },
  "jobs": [],
  "lastJob": {
-  "id": "job-mvyyhgzx-c5vyi",
-  "kind": "node-check",
-  "targetId": "llm-related-dacia-spring",
-  "label": "Dacia Spring",
-  "finishedAt": "2026-11-02T07:47:19.301Z",
+  "id": "job-mvyyxx1w-wa6q7",
+  "kind": "family-recheck",
+  "targetId": "llm-related-dacia-spring-second-generation",
+  "label": "Dacia Spring (second generation)",
+  "finishedAt": "2026-11-02T08:00:11.775Z",
   "state": "done",
   "summary": ""
  },
