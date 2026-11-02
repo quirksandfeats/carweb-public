@@ -276,6 +276,15 @@ for k in sorted(used_people):
     if p["note"]: node["note"] = p["note"]
     nodes.append(node)
 
+# The article a car links to, where it is not the title the tables above hold.
+# Those titles are also what harvested cars are matched against, and written as
+# the real article they would make "Lincoln Continental" this car's duplicate.
+WP_SHOWN = {"Mazda Cosmo Sport": "Mazda Cosmo", "Hyundai Sonata (YF)": "Hyundai Sonata",
+            "Dodge Challenger (LC)": "Dodge Challenger", "Maserati Ghibli (AM115)": "Maserati Ghibli",
+            "Fiat Panda (first generation)": "Fiat Panda", "Lotus Elan (M100)": "Lotus Elan",
+            "Jaguar XJ (Series 1, 2 and 3)": "Jaguar XJ", "Auburn 851 Speedster": "Auburn Speedster",
+            "Lincoln Continental (Mark I)": "Lincoln Continental"}
+
 for m in models:
     base = f"m-{slug(m['make'])}-{slug(m['name'])}"
     mid, n = base, 2
@@ -284,7 +293,7 @@ for m in models:
     model_ids_exact[(exact(m["make"]), exact(m["name"]))] = mid
     m["id"] = mid
     node = {"id": mid, "type": "model", "label": m["name"], "make": m["make"],
-            "year": m["y0"], "end": m["y1"], "designers": m["designers"], "wp": m["wp"]}
+            "year": m["y0"], "end": m["y1"], "designers": m["designers"], "wp": WP_SHOWN.get(m["wp"], m["wp"])}
     if m.get("engineers"):
         node["engineers"] = [e for e, _ in m["engineers"]]
         node["engroles"] = {e: r for e, r in m["engineers"] if r}

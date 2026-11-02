@@ -163,7 +163,7 @@ MODEL_ENGINEERS = [
     ("Triumph 2000", "Harry Webster", "chief engineer"),
     ("Jaguar E-Type", "William Heynes", "chief engineer"),
     ("Jaguar Mark 2", "William Heynes", "chief engineer"),
-    ("Jaguar XJ", "Bob Knight", "development chief"),
+    ("Jaguar XJ (Series 1, 2 and 3)", "Bob Knight", "development chief"),
     
     
     ("Jaguar XJ220", "Jim Randle", "concept engineering director"),
