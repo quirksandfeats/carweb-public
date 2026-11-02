@@ -33,6 +33,7 @@ const id = v => typeof v === "string" ? v : v.id;
 const fitted = n => w.CARDATA.links.filter(l => l.type === "fitted" && !l.retired && id(l.source) === n);
 
 t("the PK4 ends when the Stoewer article says it does", by("m-stoewer-pk4").end === 1912, by("m-stoewer-pk4").end);
+t("the Solo ends when its article says it does", by("m-electrameccanica-solo").end === 2023, by("m-electrameccanica-solo").end);
 t("a make with no page links to its one car", by("mk-electrameccanica").wp === "ElectraMeccanica Solo" && by("mk-rambunctious").wp === "Rambunctious (Funny Car)");
 t("those cars keep their own articles", by("m-electrameccanica-solo").wp === "ElectraMeccanica Solo" && by("m-rambunctious-funny-car").wp === "Rambunctious (Funny Car)");
 t("the S07 is linked to the car it rebadges", w.CARDATA.links.some(l => l.type === "platform" && id(l.source) === "m-jetour-x70" && id(l.target) === "m-soueast-s07"));

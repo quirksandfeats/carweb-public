@@ -179,7 +179,7 @@ for (make, name, y0, y1, designers, wp, note) in MODELS:
 
 # End years the harvest has wrong. The PK4's own page is gone, so DBpedia cannot
 # correct it; the Stoewer article gives 1909-1912.
-AUTO_END_FIXES = {("Stoewer", "PK4"): 1912}
+AUTO_END_FIXES = {("Stoewer", "PK4"): 1912, ("ElectraMeccanica", "Solo"): 2023}
 
 for (make, name, y0, y1, designers, wp, note) in AUTO_MODELS:
     make = canon_make(make)
