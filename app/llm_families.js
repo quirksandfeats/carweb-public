@@ -723,7 +723,8 @@ window.LlmFamilies = (function () {
     // The one-off check of stored generation lists picks up where a reload
     // cut it off. It reads Wikipedia and calls no model, and it does nothing
     // once every list has been through it.
-    setTimeout(() => {
+    loadedNodes = nodes;
+    loadChecks = new Promise(done => setTimeout(() => {
       releaseCrossGroupRejections(nodes);
       releaseAnsweredRejections();
       settleDecidedRechecks(nodes);
@@ -735,8 +736,9 @@ window.LlmFamilies = (function () {
         .then(() => sweepWholePageEngineLists())
         .then(() => sweepOrdinalPlaceholders(nodes))
         .then(() => note("load: all checks finished -- nothing else is running; reload to draw what they changed"))
-        .catch(e => console.warn("LlmFamilies: stored-list check failed", e));
-    }, 4000);
+        .catch(e => console.warn("LlmFamilies: stored-list check failed", e))
+        .then(done);
+    }, 4000));
     note(`load: stored decisions replayed -- ${count("model") + count("family")} cars, ` +
          `${count("engine")} engines and ${count("enginevar")} variants on screen` +
          (replayLines ? ` (${replayLines} routine line(s) not shown)` : ""));
@@ -3062,6 +3064,34 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
     if (linked) return true;
     return [plate, car].some(c => c.make && articleNamesCar(text, { label: c.make + " " + String(c.label || "").replace(/\s*\([^()]*\)\s*$/, "") }, nodes));
   }
+  // A generation guess the rules can answer without a page: the model's pair
+  // has no article text behind it (text would have confirmed it), so a pair
+  // whose years cannot meet, or that shares no years while the two nameplates
+  // are already connected, adds nothing. Answered as "none", not declined: the
+  // key is the nameplate-level one, and declining it would take that link away.
+  // A proposal written over a "no" on file stays a "no".
+  function settleStoredProposals(nodes) {
+    const byIdLocal = new Map(nodes.map(n => [n.id, n]));
+    const plateOf = id => { const n = byIdLocal.get(id); return (n && n.familyOf) || id; };
+    const pairOf = e => e.relType + "|" + [plateOf(e.genIdA || e.famA), plateOf(e.genIdB || e.famB)].sort().join("|");
+    const connected = new Set(Object.values(store.relations).filter(e => e && e.status === "confirmed").map(pairOf));
+    let n = 0;
+    Object.keys(store.relations).forEach(key => {
+      const e = store.relations[key];
+      if (!e || e.status !== "provisional") return;
+      if (store.rejectedRelations && store.rejectedRelations[key]) { delete store.relations[key]; n++; return; }
+      if (e.matchLevel !== "generation" || (e.relType !== "platform" && e.relType !== "related")) return;
+      const a = byIdLocal.get(e.genIdA), b = byIdLocal.get(e.genIdB);
+      if (!a || !b || a.year == null || b.year == null) return;
+      if (withinPlatformReach(a, b) && (yearsShared(a, b) > 0 || !connected.has(pairOf(e)))) return;
+      note(`relationships: ${a.make || ""} ${a.label} / ${b.make || ""} ${b.label} -- the years rule out this generation pair; nothing to review`);
+      Object.assign(e, { status: "none", matchLevel: null, codeA: null, codeB: null, genIdA: null, genIdB: null,
+                         settledAt: new Date().toISOString(), settledBy: "rules",
+                         settledWhy: `the years of ${a.label} and ${b.label} rule the pair out` });
+      n++;
+    });
+    return n;
+  }
   let weakSweep = null;
   function sweepWeakRelations(nodes) {
     if (!serverAvailable || !nodes) return Promise.resolve({ confirmed: 0, declined: 0, failed: 0 });
@@ -3069,6 +3099,7 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
     weakSweep = (async () => {
       const out = { confirmed: 0, declined: 0, failed: 0 };
       const byIdLocal = new Map(nodes.map(n => [n.id, n]));
+      if (settleStoredProposals(nodes)) await persist();
       const todo = Object.keys(store.relations).filter(k => {
         const e = store.relations[k];
         if (!e || e.status !== "provisional" || e.reworkPending || (e.relType !== "platform" && e.relType !== "related")) return false;
@@ -3106,6 +3137,30 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
       return out;
     })();
     return weakSweep;
+  }
+  // What a scan leaves behind, settled by the rules before its page closes. A
+  // load did this, and the agent loads a page once per request, before the scan:
+  // everything a scan raised stayed "waiting for review" until the next request
+  // (123 flags and a generation list on 2 Nov 2026). Reads articles, calls no
+  // model, and a page closed halfway finishes at its next load.
+  let loadedNodes = null, loadChecks = null, scanSettle = null;
+  function settleAfterScans() {
+    if (!serverAvailable || !loadedNodes) return Promise.resolve();
+    if (scanSettle) return scanSettle;
+    const open = e => e && (e.status === "provisional" || e.reworkPending);
+    if (!Object.values(store.recheck || {}).some(open) && !Object.values(store.relations || {}).some(open)) return Promise.resolve();
+    const nodes = loadedNodes;
+    scanSettle = (async () => {
+      await loadChecks;
+      settleDecidedRechecks(nodes);
+      settleRetiredGenerationFlags(nodes);
+      mentionSweep = null;
+      await sweepFlaggedMentions(nodes);
+      weakSweep = null;
+      await sweepWeakRelations(nodes);
+    })().catch(e => console.warn("LlmFamilies: settling after a scan failed", e))
+      .then(() => { scanSettle = null; });
+    return scanSettle;
   }
   let outsiderSweep = null;
   function sweepStoredSplitsForOutsiders(opts) {
@@ -6014,8 +6069,9 @@ Rules:
                              .filter(id => !checks.includes(id));
     return { checks, partners, lookups, queued, running, abandoned: [...abandoned.values()],
              saved: pendingCascadeCount(), engineReads: engineReadsInFlight, modelDownStreak,
+             settling: !!scanSettle,
              total: checks.length + partners.length + lookups.length +
-                    queued.length + running.length + engineReadsInFlight };
+                    queued.length + running.length + engineReadsInFlight + (scanSettle ? 1 : 0) };
   }
 
   // ---------- which car to scan next ----------
@@ -6329,6 +6385,7 @@ Rules:
     // itself is already off the list: a crash from here on carries on from the
     // saved cascade, it does not start the request over.
     try { await cascadeDrained(); } finally { cascadeMaxDepth = configuredCascadeDepth; }
+    if (!jobList().length) settleAfterScans();
     jobPumping = false;
     notifyJobs();
     // Not awaited: this is the tail of one job, not the caller's business.
@@ -12819,10 +12876,10 @@ Rules:
           return prior;
         }
         writeRecheck(fam.id, entry);
-        // Reached by a scan with nothing to change: closed on the spot, and
-        // nothing gets flagged as about to be retired. Asked for by name, the
-        // person sees the list and answers it.
-        const settled = !!(opts && opts.keepRejections) && settleIfUnchanged(fam, genNodes, entry, nodes);
+        // Nothing to change: closed on the spot, and nothing gets flagged as
+        // about to be retired. The next load closed it anyway, so a list asked
+        // for by name waited for nothing (the Mitsubishi Colt, 2 Nov 2026).
+        const settled = settleIfUnchanged(fam, genNodes, entry, nodes);
         // An explicit, user-initiated re-check is the deliberate escape
         // hatch out of any earlier delete's permanent suppression (see
         // purgeRelationsFor/clearRejectionsFor): "delete this nameplate's
@@ -18731,7 +18788,7 @@ Rules:
     clearEngineScansFor, note, nameplateSectionForCar, mergeEngineHits,
     mergeEngines, undoEngineMerge, allEngineMerges, applyEngineMerges,
     sameEngineLine, decodeEntities, articleIsNotACar, sweepStoredSplitsForOutsiders, sweepRecheckSections, decideRecheck, headingsOf,
-    markFutureGenerations, articleNamesCar, articleFitsCar, sweepArticleLinks, settleDecidedRechecks, settleRetiredGenerationFlags, sweepFlaggedMentions, articleNamesCarInFull, sweepWeakRelations, sweepWholePageEngineLists, sweepOrdinalPlaceholders, replayStarted, replayFinished,
+    markFutureGenerations, articleNamesCar, articleFitsCar, sweepArticleLinks, settleDecidedRechecks, settleRetiredGenerationFlags, sweepFlaggedMentions, articleNamesCarInFull, sweepWeakRelations, settleAfterScans, sweepWholePageEngineLists, sweepOrdinalPlaceholders, replayStarted, replayFinished,
     lastSaveError: () => lastSaveError,
     engineMentions, unlinkedEngineMentions, engineSpecLabel,
     recordEngineMentions, recordEngineMentionsFrom, applyEngineMentions,

@@ -6312,7 +6312,7 @@ window.CarWeb = (function () {
       const head = running.length
         ? "checking " + running.slice(0, 2).join(", ") +
           (running.length > 2 ? ` +${running.length - 2}` : "")
-        : "starting the next check";
+        : p.settling ? "settling what the scan found" : "starting the next check";
       text.textContent = head +
         (queued ? ` — ${queued} more queued` : "") +
         (asked.length ? ` (${asked.length} you asked for)` : "");
