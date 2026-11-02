@@ -200284,7 +200284,7 @@
   },
   "llm-related-dacia-spring": {
    "status": "same-article",
-   "checkedAt": "2026-11-02T04:18:08.198Z",
+   "checkedAt": "2026-11-02T07:47:15.061Z",
    "sourceTitle": "Dacia Spring",
    "sameAs": "llm-related-dacia-spring-second-generation",
    "sameAsLabel": "Dacia Spring (second generation)",
@@ -276635,8 +276635,8 @@
   },
   "llm-m-nissan-micra-k14|llm-m-nissan-note-e12|platform": {
    "status": "confirmed",
-   "checkedAt": "2026-11-02T07:37:19.875Z",
-   "decidedAt": "2026-11-02T07:37:19.875Z",
+   "checkedAt": "2026-11-02T07:46:50.636Z",
+   "decidedAt": "2026-11-02T07:46:50.636Z",
    "famA": "m-nissan-note",
    "famB": "m-nissan-micra",
    "relType": "platform",
@@ -318589,8 +318589,8 @@
   },
   "llm-llm-related-daewoo-veritas-wn|llm-m-chevrolet-caprice-sixth-generation|platform": {
    "status": "confirmed",
-   "checkedAt": "2026-11-02T07:37:25.410Z",
-   "decidedAt": "2026-11-02T07:37:25.410Z",
+   "checkedAt": "2026-11-02T07:46:56.890Z",
+   "decidedAt": "2026-11-02T07:46:56.890Z",
    "famA": "llm-related-daewoo-veritas",
    "famB": "m-chevrolet-caprice",
    "relType": "platform",
@@ -435065,8 +435065,8 @@
   },
   "llm-llm-related-ford-contour-mk-i-mk-ii|llm-m-mercury-cougar-seventh-generation|platform": {
    "status": "confirmed",
-   "checkedAt": "2026-11-02T07:37:25.991Z",
-   "decidedAt": "2026-11-02T07:37:25.991Z",
+   "checkedAt": "2026-11-02T07:46:57.536Z",
+   "decidedAt": "2026-11-02T07:46:57.536Z",
    "famA": "llm-related-ford-contour",
    "famB": "m-mercury-cougar",
    "relType": "platform",
@@ -461636,8 +461636,8 @@
   },
   "llm-llm-related-volkswagen-alltrack-b6|llm-m-skoda-superb-b6-3t|platform": {
    "status": "confirmed",
-   "checkedAt": "2026-11-02T07:37:28.599Z",
-   "decidedAt": "2026-11-02T07:37:28.599Z",
+   "checkedAt": "2026-11-02T07:47:00.522Z",
+   "decidedAt": "2026-11-02T07:47:00.522Z",
    "famA": "llm-related-volkswagen-alltrack",
    "famB": "m-skoda-superb",
    "relType": "platform",
@@ -464228,8 +464228,8 @@
   },
   "llm-m-lincoln-custom-lincoln-custom-1941|llm-m-lincoln-lincoln-zephyr-lincoln-h-series|platform": {
    "status": "confirmed",
-   "checkedAt": "2026-11-02T07:37:22.241Z",
-   "decidedAt": "2026-11-02T07:37:22.241Z",
+   "checkedAt": "2026-11-02T07:46:53.281Z",
+   "decidedAt": "2026-11-02T07:46:53.281Z",
    "famA": "m-lincoln-custom",
    "famB": "m-lincoln-lincoln-zephyr",
    "relType": "platform",
@@ -494140,8 +494140,8 @@
   },
   "llm-m-mitsubishi-3000gt-z16a|llm-m-mitsubishi-sigma-first-generation|platform": {
    "status": "confirmed",
-   "checkedAt": "2026-11-02T07:37:22.623Z",
-   "decidedAt": "2026-11-02T07:37:22.623Z",
+   "checkedAt": "2026-11-02T07:46:53.698Z",
+   "decidedAt": "2026-11-02T07:46:53.699Z",
    "famA": "m-mitsubishi-sigma",
    "famB": "m-mitsubishi-3000gt",
    "relType": "platform",
@@ -499922,8 +499922,8 @@
   },
   "llm-m-toyota-sienta-xp170|llm-m-toyota-yaris-xp210|platform": {
    "status": "confirmed",
-   "checkedAt": "2026-11-02T07:37:25.536Z",
-   "decidedAt": "2026-11-02T07:37:25.536Z",
+   "checkedAt": "2026-11-02T07:46:57.037Z",
+   "decidedAt": "2026-11-02T07:46:57.037Z",
    "famA": "m-toyota-yaris",
    "famB": "m-toyota-sienta",
    "relType": "platform",
@@ -499936,8 +499936,8 @@
   },
   "llm-m-dodge-colt-first-generation|llm-m-mitsubishi-galant-first-generation|platform": {
    "status": "confirmed",
-   "checkedAt": "2026-11-02T07:37:26.470Z",
-   "decidedAt": "2026-11-02T07:37:26.470Z",
+   "checkedAt": "2026-11-02T07:46:58.081Z",
+   "decidedAt": "2026-11-02T07:46:58.081Z",
    "famA": "m-dodge-colt",
    "famB": "m-mitsubishi-galant",
    "relType": "platform",
@@ -499950,8 +499950,8 @@
   },
   "llm-m-dodge-colt-second-generation|llm-m-mitsubishi-galant-third-generation|platform": {
    "status": "confirmed",
-   "checkedAt": "2026-11-02T07:37:26.470Z",
-   "decidedAt": "2026-11-02T07:37:26.470Z",
+   "checkedAt": "2026-11-02T07:46:58.081Z",
+   "decidedAt": "2026-11-02T07:46:58.081Z",
    "famA": "m-dodge-colt",
    "famB": "m-mitsubishi-galant",
    "relType": "platform",
@@ -500203,8 +500203,8 @@
   },
   "llm-m-mazda-cx-5-kf|m-mazda-6-third-generation|platform": {
    "status": "confirmed",
-   "checkedAt": "2026-11-02T07:37:35.585Z",
-   "decidedAt": "2026-11-02T07:37:35.585Z",
+   "checkedAt": "2026-11-02T07:47:08.490Z",
+   "decidedAt": "2026-11-02T07:47:08.490Z",
    "famA": "fam-mazda-6",
    "famB": "m-mazda-cx-5",
    "relType": "platform",
@@ -501267,62 +501267,6 @@
    "reason": "matched automatically -- the nameplate was named exactly in the source text; no text says which, so the generation whose years fit this one best",
    "llmDiscovered": true
   },
-  "llm-m-suzuki-ertiga-suzuki-xl6-xl7|m-suzuki-ciaz|platform": {
-   "status": "confirmed",
-   "checkedAt": "2026-11-02T07:38:19.177Z",
-   "decidedAt": "2026-11-02T07:38:19.177Z",
-   "famA": "m-suzuki-ciaz",
-   "famB": "m-suzuki-ertiga",
-   "relType": "platform",
-   "codeA": "Ciaz",
-   "codeB": "Ertiga Suzuki XL6/XL7",
-   "genIdA": "m-suzuki-ciaz",
-   "genIdB": "llm-m-suzuki-ertiga-suzuki-xl6-xl7",
-   "reason": "matched automatically -- the nameplate was named exactly in the source text; no text says which, so the generation whose years fit this one best",
-   "llmDiscovered": true
-  },
-  "llm-llm-related-oldsmobile-starfire-second-generation|m-chevrolet-vega|platform": {
-   "status": "confirmed",
-   "checkedAt": "2026-11-02T07:38:19.330Z",
-   "decidedAt": "2026-11-02T07:38:19.330Z",
-   "famA": "m-chevrolet-vega",
-   "famB": "llm-related-oldsmobile-starfire",
-   "relType": "platform",
-   "codeA": "Vega",
-   "codeB": "Starfire Second generation",
-   "genIdA": "m-chevrolet-vega",
-   "genIdB": "llm-llm-related-oldsmobile-starfire-second-generation",
-   "reason": "matched automatically -- the nameplate was named exactly in the source text, and exactly one of its generations was in production alongside this one, so that is the generation it refers to",
-   "llmDiscovered": true
-  },
-  "llm-llm-related-mitsubishi-minicab-miev-eighth-generation|m-mitsubishi-i-miev|platform": {
-   "status": "confirmed",
-   "checkedAt": "2026-11-02T07:38:19.410Z",
-   "decidedAt": "2026-11-02T07:38:19.410Z",
-   "famA": "m-mitsubishi-i-miev",
-   "famB": "llm-related-mitsubishi-minicab-miev",
-   "relType": "platform",
-   "codeA": "i-MiEV",
-   "codeB": "Minicab MiEV Eighth generation",
-   "genIdA": "m-mitsubishi-i-miev",
-   "genIdB": "llm-llm-related-mitsubishi-minicab-miev-eighth-generation",
-   "reason": "matched automatically -- the nameplate was named exactly in the source text; no text says which, so the generation whose years fit this one best",
-   "llmDiscovered": true
-  },
-  "llm-m-lancia-stratos-sibilo|m-lancia-rally-037|platform": {
-   "status": "confirmed",
-   "checkedAt": "2026-11-02T07:38:19.722Z",
-   "decidedAt": "2026-11-02T07:38:19.722Z",
-   "famA": "m-lancia-rally-037",
-   "famB": "m-lancia-stratos",
-   "relType": "platform",
-   "codeA": "Rally 037",
-   "codeB": "Stratos Sibilo",
-   "genIdA": "m-lancia-rally-037",
-   "genIdB": "llm-m-lancia-stratos-sibilo",
-   "reason": "matched automatically -- the nameplate was named exactly in the source text, and exactly one of its generations was in production alongside this one, so that is the generation it refers to",
-   "llmDiscovered": true
-  },
   "m-mazda-cosmo|m-nissan-200sx|platform": {
    "status": "none",
    "checkedAt": "2026-11-02T07:38:34.092Z",
@@ -501593,90 +501537,6 @@
    "reason": "matched automatically -- the nameplate was named exactly in the source text; no text says which, so the generation whose years fit this one best",
    "llmDiscovered": true
   },
-  "llm-m-mazda-luce-la2-la3|llm-related-mazda-rx-4|platform": {
-   "status": "confirmed",
-   "checkedAt": "2026-11-02T07:41:07.260Z",
-   "decidedAt": "2026-11-02T07:41:07.260Z",
-   "famA": "m-mazda-luce",
-   "famB": "llm-related-mazda-rx-4",
-   "relType": "platform",
-   "codeA": "Luce LA2/LA3",
-   "codeB": "RX-4",
-   "genIdA": "llm-m-mazda-luce-la2-la3",
-   "genIdB": "llm-related-mazda-rx-4",
-   "reason": "matched automatically -- \"Mazda RX-4\" was named as a related car but didn't exist anywhere in the graph yet, so it was newly created from this mention (double-checked by the local LLM sanity pass against every plausible existing car -- none matched)",
-   "llmDiscovered": true
-  },
-  "llm-m-mazda-luce-la4|llm-related-mazda-929l|platform": {
-   "status": "confirmed",
-   "checkedAt": "2026-11-02T07:41:07.265Z",
-   "decidedAt": "2026-11-02T07:41:07.265Z",
-   "famA": "m-mazda-luce",
-   "famB": "llm-related-mazda-929l",
-   "relType": "platform",
-   "codeA": "Luce LA4",
-   "codeB": "929L",
-   "genIdA": "llm-m-mazda-luce-la4",
-   "genIdB": "llm-related-mazda-929l",
-   "reason": "matched automatically -- \"Mazda 929L\" was named as a related car but didn't exist anywhere in the graph yet, so it was newly created from this mention",
-   "llmDiscovered": true
-  },
-  "llm-m-mazda-luce-la4|llm-related-mazda-2000|platform": {
-   "status": "confirmed",
-   "checkedAt": "2026-11-02T07:41:07.266Z",
-   "decidedAt": "2026-11-02T07:41:07.266Z",
-   "famA": "m-mazda-luce",
-   "famB": "llm-related-mazda-2000",
-   "relType": "platform",
-   "codeA": "Luce LA4",
-   "codeB": "2000",
-   "genIdA": "llm-m-mazda-luce-la4",
-   "genIdB": "llm-related-mazda-2000",
-   "reason": "matched automatically -- \"Mazda 2000\" was named as a related car but didn't exist anywhere in the graph yet, so it was newly created from this mention (double-checked by the local LLM sanity pass against every plausible existing car -- none matched)",
-   "llmDiscovered": true
-  },
-  "llm-m-mazda-luce-la4|llm-related-mazda-rx-9|platform": {
-   "status": "confirmed",
-   "checkedAt": "2026-11-02T07:41:07.266Z",
-   "decidedAt": "2026-11-02T07:41:07.266Z",
-   "famA": "m-mazda-luce",
-   "famB": "llm-related-mazda-rx-9",
-   "relType": "platform",
-   "codeA": "Luce LA4",
-   "codeB": "RX-9",
-   "genIdA": "llm-m-mazda-luce-la4",
-   "genIdB": "llm-related-mazda-rx-9",
-   "reason": "matched automatically -- \"Mazda RX-9\" was named as a related car but didn't exist anywhere in the graph yet, so it was newly created from this mention (double-checked by the local LLM sanity pass against every plausible existing car -- none matched)",
-   "llmDiscovered": true
-  },
-  "llm-m-mazda-luce-la4|llm-related-haima-hmc6470l|platform": {
-   "status": "confirmed",
-   "checkedAt": "2026-11-02T07:41:07.266Z",
-   "decidedAt": "2026-11-02T07:41:07.266Z",
-   "famA": "m-mazda-luce",
-   "famB": "llm-related-haima-hmc6470l",
-   "relType": "platform",
-   "codeA": "Luce LA4",
-   "codeB": "HMC6470L",
-   "genIdA": "llm-m-mazda-luce-la4",
-   "genIdB": "llm-related-haima-hmc6470l",
-   "reason": "matched automatically -- \"Haima HMC6470L\" was named as a related car but didn't exist anywhere in the graph yet, so it was newly created from this mention (double-checked by the local LLM sanity pass against every plausible existing car -- none matched)",
-   "llmDiscovered": true
-  },
-  "llm-m-mazda-luce-hb|llm-related-haima-hmc6470l|platform": {
-   "status": "confirmed",
-   "checkedAt": "2026-11-02T07:41:07.272Z",
-   "decidedAt": "2026-11-02T07:41:07.272Z",
-   "famA": "m-mazda-luce",
-   "famB": "llm-related-haima-hmc6470l",
-   "relType": "platform",
-   "codeA": "Luce HB",
-   "codeB": "HMC6470L",
-   "genIdA": "llm-m-mazda-luce-hb",
-   "genIdB": "llm-related-haima-hmc6470l",
-   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
-   "llmDiscovered": true
-  },
   "llm-m-mazda-929-hc|llm-m-mazda-luce-hc|platform": {
    "status": "confirmed",
    "checkedAt": "2026-11-02T07:41:07.277Z",
@@ -501703,20 +501563,6 @@
    "genIdA": "llm-m-mazda-929-la4",
    "genIdB": "llm-m-mazda-luce-la4",
    "reason": "matched automatically -- the nameplate was named exactly in the source text; no text says which, so the generation whose years fit this one best",
-   "llmDiscovered": true
-  },
-  "llm-related-mazda-ibuki|m-mazda-mx-5-nc|platform": {
-   "status": "confirmed",
-   "checkedAt": "2026-11-02T07:43:16.040Z",
-   "decidedAt": "2026-11-02T07:43:16.040Z",
-   "famA": "fam-mazda-mx-5",
-   "famB": "llm-related-mazda-ibuki",
-   "relType": "platform",
-   "codeA": "MX-5 (NC)",
-   "codeB": "Ibuki",
-   "genIdA": "m-mazda-mx-5-nc",
-   "genIdB": "llm-related-mazda-ibuki",
-   "reason": "matched automatically -- \"Mazda Ibuki\" was named as a related car but didn't exist anywhere in the graph yet, so it was newly created from this mention (double-checked by the local LLM sanity pass against every plausible existing car -- none matched)",
    "llmDiscovered": true
   },
   "llm-m-datsun-sports-sp311-spl311|llm-m-nissan-200sx-csp311|platform": {
@@ -501789,6 +501635,159 @@
    "genIdB": "llm-related-nissan-gazelle",
    "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
    "llmDiscovered": true
+  },
+  "llm-m-suzuki-ertiga-suzuki-xl6-xl7|m-suzuki-ciaz|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-11-02T07:47:18.526Z",
+   "decidedAt": "2026-11-02T07:47:18.526Z",
+   "famA": "m-suzuki-ciaz",
+   "famB": "m-suzuki-ertiga",
+   "relType": "platform",
+   "codeA": "Ciaz",
+   "codeB": "Ertiga Suzuki XL6/XL7",
+   "genIdA": "m-suzuki-ciaz",
+   "genIdB": "llm-m-suzuki-ertiga-suzuki-xl6-xl7",
+   "reason": "matched automatically -- the nameplate was named exactly in the source text; no text says which, so the generation whose years fit this one best",
+   "llmDiscovered": true
+  },
+  "llm-llm-related-oldsmobile-starfire-second-generation|m-chevrolet-vega|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-11-02T07:47:18.615Z",
+   "decidedAt": "2026-11-02T07:47:18.615Z",
+   "famA": "m-chevrolet-vega",
+   "famB": "llm-related-oldsmobile-starfire",
+   "relType": "platform",
+   "codeA": "Vega",
+   "codeB": "Starfire Second generation",
+   "genIdA": "m-chevrolet-vega",
+   "genIdB": "llm-llm-related-oldsmobile-starfire-second-generation",
+   "reason": "matched automatically -- the nameplate was named exactly in the source text, and exactly one of its generations was in production alongside this one, so that is the generation it refers to",
+   "llmDiscovered": true
+  },
+  "llm-llm-related-mitsubishi-minicab-miev-eighth-generation|m-mitsubishi-i-miev|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-11-02T07:47:18.657Z",
+   "decidedAt": "2026-11-02T07:47:18.657Z",
+   "famA": "m-mitsubishi-i-miev",
+   "famB": "llm-related-mitsubishi-minicab-miev",
+   "relType": "platform",
+   "codeA": "i-MiEV",
+   "codeB": "Minicab MiEV Eighth generation",
+   "genIdA": "m-mitsubishi-i-miev",
+   "genIdB": "llm-llm-related-mitsubishi-minicab-miev-eighth-generation",
+   "reason": "matched automatically -- the nameplate was named exactly in the source text; no text says which, so the generation whose years fit this one best",
+   "llmDiscovered": true
+  },
+  "llm-m-lancia-stratos-sibilo|m-lancia-rally-037|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-11-02T07:47:18.849Z",
+   "decidedAt": "2026-11-02T07:47:18.849Z",
+   "famA": "m-lancia-rally-037",
+   "famB": "m-lancia-stratos",
+   "relType": "platform",
+   "codeA": "Rally 037",
+   "codeB": "Stratos Sibilo",
+   "genIdA": "m-lancia-rally-037",
+   "genIdB": "llm-m-lancia-stratos-sibilo",
+   "reason": "matched automatically -- the nameplate was named exactly in the source text, and exactly one of its generations was in production alongside this one, so that is the generation it refers to",
+   "llmDiscovered": true
+  },
+  "llm-related-dacia-spring|m-renault-kwid|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-11-02T07:47:41.283Z",
+   "decidedAt": "2026-11-02T07:47:41.283Z",
+   "autoConfirmed": true,
+   "famA": "llm-related-dacia-spring",
+   "famB": "m-renault-kwid",
+   "relType": "platform",
+   "note": "Renault Kwid's own article says: \"… Renault Kwid (Colombia; first facelift) | model_code = BW | manufacturer = Renault | production = 2015–present | assembly = | class = Crossover city car (A) | body_style = 5-door hatchback | layout = Front-engine, front-wheel-drive | platform = Renault–Nissan CMF-A platform | related = | engine = | powerout = {{unbulleted list | (0.8) | (1.0) }} | transmission = | wheelbase = | length = | width = | height = | weight = | aka = IKCO K112 (Iran, code name)<br />Renault Climber (Brunei)<br />Dacia Spring (electric car)<br />Renault City | designer = Serge Cosenza | predecessor = Renault Sandero (Mexico) }} \n == History == The Kwid was developed under the project code BBA. It is the first car to be based on the new CMF-A platform jointly developed by Renault and Nissan. It is slightly longer but narrower than Renault's smallest conventional vehicle, the Twingo with a high sitting position and a ride height. \n The car was designed by an engineers' team settled in India led by Gérard Detourb…\"",
+   "matchLevel": "generation",
+   "codeA": "Spring",
+   "codeB": "Kwid BW",
+   "genIdA": "llm-related-dacia-spring",
+   "genIdB": "llm-m-renault-kwid-bw",
+   "reason": "matched by the LLM from a quoted passage it found in the article text, verified against the real source: \"Dacia Spring (electric car)\"",
+   "debug": {
+    "raw": {
+     "resolved": true,
+     "codeA": "Spring (?)",
+     "codeB": "Kwid BW (2015–)",
+     "evidenceQuote": "Dacia Spring (electric car)",
+     "reason": "The note explicitly states that the Dacia Spring is a variant of the Renault Kwid (Colombia; first facelift) model code BW. This specific Kwid variant (code BW) is described as being based on the Renault–Nissan CMF-A platform, which is the exact platform shared by the Dacia Spring."
+    },
+    "evidenceCodeForA": "electric car",
+    "evidenceCodeForB": null,
+    "ordinalFromNoteA": null,
+    "ordinalFromNoteB": null,
+    "ordinalBacked": false,
+    "evidenceQuote": "Dacia Spring (electric car)",
+    "quoteVerified": true,
+    "llmVerified": true,
+    "knowledgeBacked": false,
+    "sourceAttributed": true,
+    "citedA": "Spring",
+    "citedB": null,
+    "citationBacked": true,
+    "quoteFabricated": false,
+    "fetchedArticleA": false,
+    "fetchedArticleB": true,
+    "availableCodesA": [
+     "Spring"
+    ],
+    "availableCodesB": [
+     "Kwid BW",
+     "Kwid B1325"
+    ]
+   }
+  },
+  "llm-related-dacia-spring|m-renault-twingo|platform": {
+   "status": "provisional",
+   "checkedAt": "2026-11-02T07:47:55.576Z",
+   "famA": "llm-related-dacia-spring",
+   "famB": "m-renault-twingo",
+   "relType": "platform",
+   "note": "Renault Twingo's own article says: \"… until 8 June 2012 in Colombia, by the Sofasa conglomerate, strictly for the domestic market. ;Twingo I Safety \n In Japan, Renault was formerly licensed by Yanase (car dealership), and in 1999, Renault purchased a stake in Japanese automaker Nissan after Nissan had faced financial troubles following the collapse of the Japanese asset price bubble in 1991 and subsequent Lost Decade (Japan). As a result of Renault's purchase of interest, Yanase cancelled its licensing contract with Renault in the spring of 2000, and Nissan Motor Co., Ltd took over as the sole licensee, hence sales of the Twingo I in Japan were transferred from Yanase Store locations to Nissan Red Stage Store locations. Despite Japan being a right-hand drive market, the first generation was sold exclusively as left-hand drive, with the only change being the headlights. \n In total, 2.6&nbsp;million units of the first-generation Twingo were manufactured. \n <gallery widths=\"200\"> File:Renault Twingo front 20080709.jpg|1993–1…\"",
+   "matchLevel": "transitive",
+   "codeA": "Spring",
+   "codeB": "Twingo E-Tech",
+   "genIdA": "llm-related-dacia-spring",
+   "genIdB": "llm-m-renault-twingo-twingo-e-tech",
+   "reason": "Answered from connections already in the graph: Spring is connected to HS, which is connected to Twingo E-Tech. That is the only such pairing between these two, so it settles which generations this is about. (The model itself could not tell: The provided note contains no information regarding platform sharing. The text discusses licensing history, market restrictions (Japan, Colombia), and sales figures for the first generation of the Renault Twingo, but does not mention a shared platform with the Dacia Spring or any specific platform codes. Furthermore, based on general automotive knowledge, the Dacia Spring (current generation, ~2018+) is built on the Renault-Nissan alliance's CMF-A platform (derived from the Renault Captur/E-Tech Electric), whereas the Twingo models listed are based on the Renault A-segment platforms (A07 for Twingo I/II, A08 for Twingo III). There is no evidence in the provided text or established fact that these specific nameplate generations share the same platform.)",
+   "debug": {
+    "raw": {
+     "resolved": false,
+     "codeA": null,
+     "codeB": null,
+     "evidenceQuote": null,
+     "reason": "The provided note contains no information regarding platform sharing. The text discusses licensing history, market restrictions (Japan, Colombia), and sales figures for the first generation of the Renault Twingo, but does not mention a shared platform with the Dacia Spring or any specific platform codes. Furthermore, based on general automotive knowledge, the Dacia Spring (current generation, ~2018+) is built on the Renault-Nissan alliance's CMF-A platform (derived from the Renault Captur/E-Tech Electric), whereas the Twingo models listed are based on the Renault A-segment platforms (A07 for Twingo I/II, A08 for Twingo III). There is no evidence in the provided text or established fact that these specific nameplate generations share the same platform."
+    },
+    "evidenceCodeForA": null,
+    "evidenceCodeForB": null,
+    "ordinalFromNoteA": null,
+    "ordinalFromNoteB": "Twingo I",
+    "ordinalBacked": false,
+    "evidenceQuote": null,
+    "quoteVerified": false,
+    "llmVerified": false,
+    "knowledgeBacked": false,
+    "sourceAttributed": false,
+    "citedA": null,
+    "citedB": null,
+    "citationBacked": false,
+    "quoteFabricated": false,
+    "fetchedArticleA": false,
+    "fetchedArticleB": true,
+    "availableCodesA": [
+     "Spring"
+    ],
+    "availableCodesB": [
+     "Twingo I",
+     "Twingo II",
+     "Twingo III",
+     "Twingo E-Tech"
+    ]
+   },
+   "transitiveVia": "llm-related-cmf-b-hs"
   }
  },
  "recheck": {
@@ -960671,7 +960670,8 @@
   "llm-llm-related-daihatsu-d130-jumbo-s90-s91-s92|m-slate-truck|platform": true,
   "llm-llm-related-dodge-challenger-second-generation-1978-1983|llm-m-mitsubishi-colt-mirage-based-colt-a150|platform": true,
   "m-fiat-panda|m-fiat-uno|platform": true,
-  "llm-m-citroen-c3-aircross-ai58|m-citroen-c-elysee|platform": true
+  "llm-m-citroen-c3-aircross-ai58|m-citroen-c-elysee|platform": true,
+  "llm-related-dacia-spring|m-renault-twingo|platform": true
  },
  "crossGroupRejections": {
   "llm-llm-related-hino-liesse-ii-first-generation-1996|llm-llm-related-isuzu-journey-j-journey-j|platform": {
@@ -1251077,6 +1251077,14 @@
    ],
    "unlinked": [],
    "v": 7
+  },
+  "llm-related-dacia-spring": {
+   "checkedAt": "2026-11-02T07:47:19.700Z",
+   "sourceTitle": null,
+   "status": "unreadable",
+   "engines": [],
+   "unlinked": [],
+   "v": 1
   }
  },
  "aliases": {
@@ -1304535,7 +1304543,7 @@
   "relations|llm-related-mazda-ibuki|m-mazda-mx-5-nc|platform": {
    "what": "connection you decided",
    "label": "Mazda MX-5 ↔ llm-related-mazda-ibuki (platform, confirmed)",
-   "prunedAt": "2026-10-14T14:59:34.783Z"
+   "prunedAt": "2026-11-02T07:47:10.158Z"
   },
   "relations|llm-related-dodge-durango-wd|m-jeep-grand-cherokee-wk2|platform": {
    "what": "connection you decided",
@@ -1310126,15 +1310134,45 @@
    "what": "connection you decided",
    "label": "Lancia Ypsilon ↔ llm-related-common-modular (platform, confirmed)",
    "prunedAt": "2026-11-02T07:37:37.105Z"
+  },
+  "relations|llm-m-mazda-luce-la2-la3|llm-related-mazda-rx-4|platform": {
+   "what": "connection you decided",
+   "label": "Mazda Luce ↔ llm-related-mazda-rx-4 (platform, confirmed)",
+   "prunedAt": "2026-11-02T07:47:10.158Z"
+  },
+  "relations|llm-m-mazda-luce-la4|llm-related-mazda-929l|platform": {
+   "what": "connection you decided",
+   "label": "Mazda Luce ↔ llm-related-mazda-929l (platform, confirmed)",
+   "prunedAt": "2026-11-02T07:47:10.158Z"
+  },
+  "relations|llm-m-mazda-luce-la4|llm-related-mazda-2000|platform": {
+   "what": "connection you decided",
+   "label": "Mazda Luce ↔ llm-related-mazda-2000 (platform, confirmed)",
+   "prunedAt": "2026-11-02T07:47:10.158Z"
+  },
+  "relations|llm-m-mazda-luce-la4|llm-related-mazda-rx-9|platform": {
+   "what": "connection you decided",
+   "label": "Mazda Luce ↔ llm-related-mazda-rx-9 (platform, confirmed)",
+   "prunedAt": "2026-11-02T07:47:10.158Z"
+  },
+  "relations|llm-m-mazda-luce-la4|llm-related-haima-hmc6470l|platform": {
+   "what": "connection you decided",
+   "label": "Mazda Luce ↔ llm-related-haima-hmc6470l (platform, confirmed)",
+   "prunedAt": "2026-11-02T07:47:10.158Z"
+  },
+  "relations|llm-m-mazda-luce-hb|llm-related-haima-hmc6470l|platform": {
+   "what": "connection you decided",
+   "label": "Mazda Luce ↔ llm-related-haima-hmc6470l (platform, confirmed)",
+   "prunedAt": "2026-11-02T07:47:10.158Z"
   }
  },
  "jobs": [],
  "lastJob": {
-  "id": "job-mvyy56vi-1mrtp",
+  "id": "job-mvyyhgzx-c5vyi",
   "kind": "node-check",
-  "targetId": "m-mazda-cosmo",
-  "label": "Mazda Cosmo",
-  "finishedAt": "2026-11-02T07:38:20.016Z",
+  "targetId": "llm-related-dacia-spring",
+  "label": "Dacia Spring",
+  "finishedAt": "2026-11-02T07:47:19.301Z",
   "state": "done",
   "summary": ""
  },
