@@ -3095,6 +3095,37 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
     });
     return n;
   }
+  // A generation guess whose years leave no other answer. The article of one car
+  // names the other's nameplate, and just one generation of that nameplate was
+  // built alongside it: the rule the first-time match already uses. The Civic
+  // (third generation) lists the Integra as related, and only its first
+  // generation shares the years.
+  async function settleGenerationGuesses(nodes, byIdLocal, out) {
+    const todo = Object.keys(store.relations).filter(k => {
+      const e = store.relations[k];
+      return e && e.status === "provisional" && !e.reworkPending && e.matchLevel === "generation" && (e.relType === "platform" || e.relType === "related");
+    });
+    for (const key of todo) {
+      const e = store.relations[key];
+      const a = byIdLocal.get(e.genIdA), b = byIdLocal.get(e.genIdB);
+      if (!a || !b || a.year == null || b.year == null || yearsShared(a, b) <= 0) continue;
+      for (const [car, pick] of [[a, b], [b, a]]) {
+        const plate = pick.familyOf && byIdLocal.get(pick.familyOf);
+        if (!plate || !car.wp) continue;
+        const alongside = (plate.generations || []).map(id => byIdLocal.get(id)).filter(g => g && !g.retired && g.year != null && yearsShared(g, car) > 0);
+        if (alongside.length !== 1 || alongside[0] !== pick) continue;
+        let text = null;
+        try { text = (await fetchArticleDigest(car.wp)).wikitext; } catch (err) { continue; }
+        if (!articleNamesCarInFull(text, pick, nodes)) continue;
+        confirmRelation(key);
+        e.decidedBy = "rules";
+        out.confirmed++;
+        note(`relationships: ${a.make || ""} ${a.label} / ${b.make || ""} ${b.label} -- confirmed: its article names the car, and the years leave one generation`);
+        break;
+      }
+    }
+    if (todo.length) await persist();
+  }
   let weakSweep = null;
   function sweepWeakRelations(nodes) {
     if (!serverAvailable || !nodes) return Promise.resolve({ confirmed: 0, declined: 0, failed: 0 });
@@ -3103,6 +3134,7 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
       const out = { confirmed: 0, declined: 0, failed: 0 };
       const byIdLocal = new Map(nodes.map(n => [n.id, n]));
       if (settleStoredProposals(nodes)) await persist();
+      await settleGenerationGuesses(nodes, byIdLocal, out);
       const todo = Object.keys(store.relations).filter(k => {
         const e = store.relations[k];
         if (!e || e.status !== "provisional" || e.reworkPending || (e.relType !== "platform" && e.relType !== "related")) return false;
@@ -6529,14 +6561,80 @@ Rules:
       reviewedGen("Original (1962–1963)", 1962, 1963, ["Raymond Loewy"]),
       reviewedGen("Avanti II", 1965, 1986, ["Leo Newman", "Nate Altman"]), reviewedGen("Avanti", 1987, 2006, ["Tom Kellogg"])] },
   };
-  const REVIEWED_V = 1;
+  const REVIEWED_V = 2;
   function applyReviewedCorrections() {
     // Only over what these lists correct: a new or wiped store has nothing to put right.
-    if (store.settings && store.settings.reviewedV === REVIEWED_V) return;
+    const had = (store.settings && store.settings.reviewedV) || 0;
+    if (had >= REVIEWED_V) return;
     const onFile = id => !!((store.families[id] && store.families[id].status === "confirmed") || store.recheck[id]);
     if (![...Object.keys(REVIEWED_NOT_NAMEPLATES), ...Object.keys(REVIEWED_LISTS)].some(onFile)) return;
     if (!store.settings) store.settings = {};
     const at = new Date().toISOString();
+    if (had < 1) applyFirstReview(onFile, at);
+    if (had < 2) applySecondReview(at);
+    store.settings.reviewedV = REVIEWED_V;
+  }
+  function applySecondReview(at) {
+    // The two whose later lists are right: the T2 and the Mirage-based Lancers.
+    ["fam-volkswagen-type-2", "fam-mitsubishi-lancer"].forEach(id => { if (store.recheck[id]) store.recheck[id].olderOnce = true; });
+    // A re-read that took one generation for two, and retired the one with an article.
+    if (store.recheck["fam-honda-cr-v"]) {
+      const list = [["RD1–RD3", 1995, 2001, ["Hiroyuki Kawase"]], ["RD4–RD9", 2001, 2006, ["Mitsuhiro Honda"]],
+                    ["RE1–RE5, RE7", 2006, 2012, ["Daisuke Sawai", "Naoya Ishikura", "Deane James"]],
+                    ["RM1 / RE5", 2011, 2018, ["Manabu Konaka", "Seiji Takayama"]],
+                    ["RT5 / RT6 / RY1 / RY2", 2016, 2023, ["Iliya Bridan"]], ["RS / ZC8", 2022, null, ["Mitsuhiro Abe"]]];
+      store.recheck["fam-honda-cr-v"] = { status: "applied", checkedAt: at, appliedAt: at, sourceTitle: "Honda CR-V", attempts: 1, reviewed: true, feedback: [],
+        manualRecheck: true, outsidersV: OUTSIDER_RULE_VERSION, proposal: { hasMultipleGenerations: true, generations: list.map(([c, a, b, who]) => reviewedGen(c, a, b, who)) } };
+      moveRelations(new Map([["llm-fam-honda-cr-v-rs", "m-honda-cr-v-sixth-generation"], ["llm-fam-honda-cr-v-rs-zc8", "m-honda-cr-v-sixth-generation"]]));
+      const named = (id, label) => { store.renames[id] = { label, kind: "model", renamedAt: at, auto: true, reason: "the article's own name for it" }; };
+      named("m-honda-cr-v", "CR-V (first generation)");
+      named("llm-fam-honda-cr-v-rd4-rd9", "CR-V (second generation)");
+    }
+    const name = (id, label, previousLabel) => { store.renames[id] = { label, previousLabel, kind: "family", renamedAt: at, auto: true, reason: "named after its article" }; };
+    const link = (id, title) => { store.wpLinks[id] = title; store.wpLinksChosen[id] = true; };
+    // Read before its page was deleted on 26 Oct 2026. The cars are still on
+    // Wikipedia under the Kwid, for the first, and the Twingo E-Tech for the second.
+    const SPRING = "llm-related-dacia-spring-second-generation";
+    if (store.families[SPRING]) {
+      name(SPRING, "Spring", "Spring (second generation)");
+      link(SPRING, "Dacia Spring (electric car)");
+      link("llm-related-dacia-spring", "Dacia Spring (electric car)");
+      link("llm-llm-related-dacia-spring-second-generation-bbg", "Dacia Spring (electric car)");
+      link("llm-llm-related-dacia-spring-second-generation-b1325", "Renault Twingo E-Tech");
+      if (store.recheck[SPRING] && store.recheck[SPRING].status === "error") delete store.recheck[SPRING];
+      // Both are badged Twingo E-Techs, as that article says.
+      const pair = store.relations["llm-llm-related-dacia-spring-second-generation-b1325|llm-llm-related-nissan-pixo-ev-renault-twingo-e-tech|platform"];
+      if (pair) delete pair.reworkPending;
+    }
+    // "Nissan Pixo is a nameplate for two cars": the Pixo EV is the second.
+    const PIXO = "llm-related-nissan-pixo-ev";
+    if (store.families[PIXO]) {
+      name(PIXO, "Pixo", "Pixo EV");
+      name("llm-llm-related-nissan-pixo-ev-suzuki-alto", "Pixo (Suzuki Alto-based)", "Pixo EV Suzuki Alto");
+      name("llm-llm-related-nissan-pixo-ev-renault-twingo-e-tech", "Pixo EV (Renault Twingo E-Tech-based)", "Pixo EV Renault Twingo E-Tech");
+      link("llm-llm-related-nissan-pixo-ev-suzuki-alto", "Suzuki Alto");
+      link("llm-llm-related-nissan-pixo-ev-renault-twingo-e-tech", "Renault Twingo E-Tech");
+      // The plain "Pixo" folds into it, and its years are only the first car's.
+      store.mintedFacts["llm-related-nissan-pixo"] = Object.assign({}, store.mintedFacts["llm-related-nissan-pixo"], { year: 2009, end: null });
+    }
+  }
+  // What was resolved for a generation moves to the car or generation it became.
+  function moveRelations(carOf) {
+    Object.keys(store.relations).forEach(k => {
+      const r = store.relations[k], to = gid => carOf.get(gid);
+      if (!r || !(to(r.genIdA) || to(r.genIdB))) return;
+      delete store.relations[k];
+      ["A", "B"].forEach(side => {
+        const car = to(r["genId" + side]);
+        if (!car) return;
+        if (r["fam" + side] === r["genId" + side]) r["fam" + side] = car;
+        r["genId" + side] = car;
+      });
+      const moved = relKey(r.genIdA || r.famA, r.genIdB || r.famB, r.relType);
+      if (r.genIdA !== r.genIdB && !store.relations[moved] && !store.rejectedRelations[moved]) store.relations[moved] = r;
+    });
+  }
+  function applyFirstReview(onFile, at) {
     const single = (e, g) => ({ status: "none", checkedAt: at, sourceTitle: e.sourceTitle, attempts: 1, reviewed: true,
                                 proposal: { hasMultipleGenerations: false, generations: [g] } });
     Object.keys(REVIEWED_NOT_NAMEPLATES).forEach(id => {
@@ -6556,14 +6654,7 @@ Rules:
         if (carId !== id) store.userCars[carId] = { makeLabel: rec.make, modelLabel: g.code, wpTitle: e.sourceTitle, addedAt: at, year: g.yearStart, end };
       });
       // What was resolved for its generations moves to the cars they became.
-      Object.keys(store.relations).forEach(k => {
-        const r = store.relations[k], to = gid => carOf.get(gid);
-        if (!r || !(to(r.genIdA) || to(r.genIdB))) return;
-        delete store.relations[k];
-        ["A", "B"].forEach(side => { const car = to(r["genId" + side]); if (car) { r["genId" + side] = car; r["fam" + side] = car; } });
-        const moved = relKey(r.genIdA || r.famA, r.genIdB || r.famB, r.relType);
-        if (r.famA !== r.famB && !store.relations[moved] && !store.rejectedRelations[moved]) store.relations[moved] = r;
-      });
+      moveRelations(carOf);
     });
     Object.keys(REVIEWED_LISTS).forEach(id => {
       const rec = REVIEWED_LISTS[id];
@@ -6587,7 +6678,6 @@ Rules:
     // its own title is a disambiguation page.
     if (store.recheck["fam-tesla-roadster"]) store.wpLinks["fam-tesla-roadster"] = "Tesla Roadster (first generation)";
     delete store.wpLinks["fam-ford-mondeo"];
-    store.settings.reviewedV = REVIEWED_V;
   }
   function applyUserCars(nodes, links) {
     const entries = Object.entries(store.userCars);
@@ -18346,6 +18436,7 @@ Rules:
     const byId = new Map(nodes.map(n => [n.id, n]));
     const fam = byId.get(famId);
     if (!fam || fam.type !== "family") return;
+    if (wasProvisional) entry.olderOnce = true;
     // Another nameplate's split may have taken one of these already. Pairing a
     // fresh generation with it would leave that generation hidden (the Polo Mk2).
     const oldGens = (fam.generations || []).map(id => byId.get(id)).filter(o => o && !o.retired);
@@ -18632,10 +18723,20 @@ Rules:
   // a previous session.
   // A correction carried under a later re-check (`appliedBefore`, see
   // writeRecheck) is replayed first, oldest to newest.
+  // An earlier list is replayed once per load. This runs several times, and each
+  // replay of it retired what the later list had just added: the Type 2's T2. Only
+  // for lists applied since (`olderOnce`): the earlier ones have settled around the
+  // repeats, and some name what does not belong (the Sigma's A112 is a Galant).
+  const olderListsReplayed = new WeakSet();
   function applyAllFamilyOverrides(nodes, links) {
     const replay = (famId, e) => {
       if (!e) return;
-      if (e.appliedBefore) replay(famId, e.appliedBefore);
+      // Not before its nameplate exists: one a later pass brings in reads nothing yet.
+      if (e.appliedBefore && (!e.olderOnce ||
+          (!olderListsReplayed.has(e.appliedBefore) && nodes.some(n => n.id === famId && n.type === "family")))) {
+        olderListsReplayed.add(e.appliedBefore);
+        replay(famId, e.appliedBefore);
+      }
       if (e.status === "applied") applyFamilyOverride(famId, nodes, links, { entry: e });
     };
     Object.keys(store.recheck).forEach(famId => replay(famId, store.recheck[famId]));

@@ -23,20 +23,27 @@ ev("d3.min.js"); ev("data.js");
 const gen = (code, yearStart, yearEnd, designers) => ({ code, yearStart, yearEnd, designers: designers || [], engineers: [], sharedPlatforms: [] });
 const WILL = "llm-related-toyota-will-vs", VI = "llm-related-toyota-will-vi", GEN_VI = "llm-" + WILL + "-will-vi", GEN_VS = "llm-" + WILL + "-will-vs";
 const key = (a, b, type) => [a, b].sort().join("|") + "|" + type;
+const SPRING_PIXO = "llm-llm-related-dacia-spring-second-generation-b1325|llm-llm-related-nissan-pixo-ev-renault-twingo-e-tech|platform";
 const KEY_VI = key(GEN_VI, "m-toyota-vitz", "platform"), KEY_DROPPED = key("llm-" + WILL + "-gone", "m-toyota-vitz", "platform");
 const rel = (a, b, genA) => ({ status: "confirmed", relType: "platform", famA: a, famB: b, genIdA: genA, genIdB: b });
 const split = (title, gens) => ({ status: "confirmed", sourceTitle: title, proposal: { hasMultipleGenerations: true, generations: gens } });
 w.LLM_FAMILIES = { settings: {}, rejectedRelations: {}, renames: {}, userCars: {}, wpLinks: {}, mintedFacts: {},
-  recheck: { "fam-holden-caprice": { status: "none", sourceTitle: "Holden Caprice" }, "fam-tesla-roadster": { status: "none", sourceTitle: "Tesla Roadster (first generation)" } },
+  wpLinksChosen: {},
+  recheck: { "fam-honda-cr-v": { status: "none", sourceTitle: "Honda CR-V" }, "llm-related-dacia-spring-second-generation": { status: "error", error: "no wikitext" },
+    "fam-holden-caprice": { status: "none", sourceTitle: "Holden Caprice" }, "fam-tesla-roadster": { status: "none", sourceTitle: "Tesla Roadster (first generation)" } },
   families: { [WILL]: split("WiLL", [gen("WiLL Vi", 2000, 2001, ["Jim Shimizu"]), gen("WiLL VS", 2001, 2004, ["Hiroo Ono"]), gen("WiLL Cypha", 2002, 2005)]),
     "m-studebaker-avanti": split("Studebaker Avanti", [gen("Avanti II", 1965, 1986), gen("Avanti", 1987, 2006)]),
     "llm-related-mazda-bongo-brawny": split("Mazda Bongo", [gen("First generation", 1966, 1975), gen("Bongo Brawny", 1983, 2010)]),
-    "llm-related-jeep-dj-5": split("Jeep DJ", [gen("DJ-3A", 1955, 1965), gen("DJ-5", 1965, 1967)]) },
-  relations: { [KEY_VI]: rel(WILL, "m-toyota-vitz", GEN_VI), [KEY_DROPPED]: rel(WILL, "m-toyota-vitz", "llm-" + WILL + "-gone") },
+    "llm-related-jeep-dj-5": split("Jeep DJ", [gen("DJ-3A", 1955, 1965), gen("DJ-5", 1965, 1967)]),
+    "llm-related-dacia-spring-second-generation": split("Dacia Spring", [gen("BBG", 2021, 2026), gen("B1325", 2027, null)]),
+    "llm-related-nissan-pixo-ev": split("Nissan Pixo", [gen("Suzuki Alto", 2009, 2013), gen("Renault Twingo E-Tech", 2026, null)]) },
+  relations: { [KEY_VI]: rel(WILL, "m-toyota-vitz", GEN_VI), [KEY_DROPPED]: rel(WILL, "m-toyota-vitz", "llm-" + WILL + "-gone"),
+    [key("llm-fam-honda-cr-v-rs", "m-honda-element", "platform")]: rel("fam-honda-cr-v", "m-honda-element", "llm-fam-honda-cr-v-rs"),
+    [SPRING_PIXO]: Object.assign(rel("llm-related-dacia-spring-second-generation", "llm-related-nissan-pixo-ev", "llm-llm-related-dacia-spring-second-generation-b1325"), { genIdB: "llm-llm-related-nissan-pixo-ev-renault-twingo-e-tech", reworkPending: { kind: "remove", reason: "no longer mentions" } }) },
   __serverAvailable: false };
 const minted = (id, make, label) => ({ id, type: "model", make, label, year: 2000, end: null, wp: label });
 w.CARDATA.nodes.push({ id: "mk-testar", type: "make", label: "TestAr" }, minted(WILL, "Toyota", "WiLL VS"),
-  minted("llm-related-mazda-bongo-brawny", "Mazda", "Bongo Brawny"), minted("llm-related-jeep-dj-5", "Jeep", "DJ-5"),
+  minted("llm-related-mazda-bongo-brawny", "Mazda", "Bongo Brawny"), minted("llm-related-dacia-spring-second-generation", "Dacia", "Spring (second generation)"), minted("llm-related-nissan-pixo-ev", "Nissan", "Pixo EV"), minted("llm-related-jeep-dj-5", "Jeep", "DJ-5"),
   { id: "f-rd", type: "family", label: "RD", make: "TestAr", generations: ["g-rd2", "g-rd3"] },
   { id: "g-rd2", type: "model", label: "RD", make: "TestAr", year: 2000, end: 2007, wp: "TestAr RD (second generation)", familyOf: "f-rd" },
   { id: "g-rd3", type: "model", label: "RD (third generation)", make: "TestAr", year: 2007, end: 2013, wp: "TestAr RD (third generation)", familyOf: "f-rd" },
@@ -64,6 +71,15 @@ t("a nameplate whose own title is a disambiguation page keeps its article", S.wp
 S.recheck["fam-holden-caprice"].status = "none";
 LF.applyReviewedCorrections();
 t("written once, so a later answer stands", S.recheck["fam-holden-caprice"].status === "none");
+// The second review.
+t("the CR-V's generation with an article is back in its list", S.recheck["fam-honda-cr-v"].proposal.generations.some(g => g.code === "RS / ZC8") && !S.recheck["fam-honda-cr-v"].proposal.generations.some(g => g.code === "RS"));
+t("...and what was resolved for its stray entry moves to it", !!S.relations[key("m-honda-cr-v-sixth-generation", "m-honda-element", "platform")]);
+t("a nameplate whose page was deleted keeps what was read, under a page that exists", S.wpLinks["llm-related-dacia-spring-second-generation"] === "Dacia Spring (electric car)" && S.wpLinksChosen["llm-related-dacia-spring-second-generation"] === true);
+t("...its failed re-read no longer waits", (S.recheck["llm-related-dacia-spring-second-generation"] || {}).status !== "error");
+t("...and the name that was never the car's goes", S.renames["llm-related-dacia-spring-second-generation"].label === "Spring");
+t("the flag behind that deleted page is cleared", !S.relations[SPRING_PIXO].reworkPending);
+t("the Pixo's nameplate takes the article's name", S.renames["llm-related-nissan-pixo-ev"].label === "Pixo");
+t("...and its second car says what it is", S.renames["llm-llm-related-nissan-pixo-ev-renault-twingo-e-tech"].label === "Pixo EV (Renault Twingo E-Tech-based)");
 // Named after its own article, at load.
 t("a generation named like its nameplate takes the generation its article is", by("g-rd2").label === "RD (second generation)", by("g-rd2").label);
 t("...and the nameplate then reads its own overview", by("f-rd").wp === "TestAr RD", by("f-rd").wp);
