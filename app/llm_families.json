@@ -100629,11 +100629,137 @@
    "cascadeDiscovered": true
   },
   "m-mazda-cosmo": {
-   "status": "error",
-   "checkedAt": "2026-10-14T18:49:23.691Z",
-   "error": "no wikitext for Mazda Cosmo Sport (article may not exist / was redirected oddly)",
+   "status": "confirmed",
+   "checkedAt": "2026-11-02T07:38:15.784Z",
+   "sourceTitle": "Mazda Cosmo",
+   "proposal": {
+    "hasMultipleGenerations": true,
+    "generations": [
+     {
+      "code": "L10A/L10B",
+      "yearStart": 1967,
+      "yearEnd": 1972,
+      "designers": [
+       "Heiji Kobayashi",
+       "Kenichi Yamamoto"
+      ],
+      "engineers": [],
+      "wikiFile": "Mazda Cosmo L10A front-right 2016 Shanghai Auto Museum.jpg",
+      "sharedPlatforms": []
+     },
+     {
+      "code": "CD",
+      "yearStart": 1975,
+      "yearEnd": 1981,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "Mazda Cosmo AP 2000.jpg",
+      "sharedPlatforms": [
+       "Mazda Luce"
+      ]
+     },
+     {
+      "code": "HB",
+      "yearStart": 1981,
+      "yearEnd": 1989,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "Mazda HB Cosmo 001.JPG",
+      "sharedPlatforms": [
+       "Mazda Luce",
+       "Mazda 929"
+      ]
+     },
+     {
+      "code": "JC",
+      "yearStart": 1990,
+      "yearEnd": 1995,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "Eunos Cosmo in the Mazda Museum.jpg",
+      "sharedPlatforms": []
+     },
+     {
+      "code": "Cosmo 21 Concept",
+      "yearStart": 2002,
+      "yearEnd": null,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "Mazda Cosmo Concept.jpg",
+      "sharedPlatforms": [
+       "Mazda MX-5 (NB)"
+      ]
+     }
+    ]
+   },
    "attempts": 1,
-   "detail": null
+   "feedback": [],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": true,
+     "generations": [
+      {
+       "code": "L10A/L10B",
+       "yearStart": 1967,
+       "yearEnd": 1972,
+       "designers": [
+        "Heiji Kobayashi",
+        "Kenichi Yamamoto"
+       ],
+       "sharedPlatforms": []
+      },
+      {
+       "code": "CD",
+       "yearStart": 1975,
+       "yearEnd": 1981,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Mazda Luce"
+       ]
+      },
+      {
+       "code": "HB",
+       "yearStart": 1981,
+       "yearEnd": 1989,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Mazda Luce",
+        "Mazda 929"
+       ]
+      },
+      {
+       "code": "JC",
+       "yearStart": 1990,
+       "yearEnd": 1995,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": []
+      },
+      {
+       "code": "Cosmo 21 Concept",
+       "yearStart": 2002,
+       "yearEnd": null,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Mazda MX-5 (NB)"
+       ]
+      }
+     ]
+    },
+    "dropped": []
+   },
+   "cascadeDiscovered": true,
+   "decidedBy": "agent",
+   "decidedAt": "2026-11-02T07:38:15.784Z",
+   "allDesigners": [
+    "Heiji Kobayashi",
+    "Kenichi Yamamoto"
+   ],
+   "allEngineers": [],
+   "outsidersV": 2
   },
   "m-hillman-gazelle": {
    "status": "none",
@@ -276509,8 +276635,8 @@
   },
   "llm-m-nissan-micra-k14|llm-m-nissan-note-e12|platform": {
    "status": "confirmed",
-   "checkedAt": "2026-11-02T07:20:40.549Z",
-   "decidedAt": "2026-11-02T07:20:40.549Z",
+   "checkedAt": "2026-11-02T07:37:19.875Z",
+   "decidedAt": "2026-11-02T07:37:19.875Z",
    "famA": "m-nissan-note",
    "famB": "m-nissan-micra",
    "relType": "platform",
@@ -318463,8 +318589,8 @@
   },
   "llm-llm-related-daewoo-veritas-wn|llm-m-chevrolet-caprice-sixth-generation|platform": {
    "status": "confirmed",
-   "checkedAt": "2026-11-02T07:20:46.196Z",
-   "decidedAt": "2026-11-02T07:20:46.196Z",
+   "checkedAt": "2026-11-02T07:37:25.410Z",
+   "decidedAt": "2026-11-02T07:37:25.410Z",
    "famA": "llm-related-daewoo-veritas",
    "famB": "m-chevrolet-caprice",
    "relType": "platform",
@@ -411618,90 +411744,6 @@
    "llmDiscovered": true,
    "llmVerifiedDuplicate": true
   },
-  "llm-related-fiat-100-series-engine|llm-related-seat-800|platform": {
-   "status": "confirmed",
-   "checkedAt": "2026-10-14T03:01:13.494Z",
-   "decidedAt": "2026-10-14T03:01:13.494Z",
-   "famA": "llm-related-fiat-100-series-engine",
-   "famB": "llm-related-seat-800",
-   "relType": "platform",
-   "codeA": "100 series engine",
-   "codeB": "800",
-   "genIdA": "llm-related-fiat-100-series-engine",
-   "genIdB": "llm-related-seat-800",
-   "reason": "matched automatically -- \"SEAT 800\" was named as a related car but didn't exist anywhere in the graph yet, so it was newly created from this mention (double-checked by the local LLM sanity pass against every plausible existing car -- none matched)",
-   "llmDiscovered": true
-  },
-  "llm-related-fiat-100-series-engine|llm-related-fiat-850t|platform": {
-   "status": "confirmed",
-   "checkedAt": "2026-10-14T03:01:13.495Z",
-   "decidedAt": "2026-10-14T03:01:13.495Z",
-   "famA": "llm-related-fiat-100-series-engine",
-   "famB": "llm-related-fiat-850t",
-   "relType": "platform",
-   "codeA": "100 series engine",
-   "codeB": "850T",
-   "genIdA": "llm-related-fiat-100-series-engine",
-   "genIdB": "llm-related-fiat-850t",
-   "reason": "matched automatically -- \"Fiat 850T\" was named as a related car but didn't exist anywhere in the graph yet, so it was newly created from this mention",
-   "llmDiscovered": true
-  },
-  "llm-related-fiat-100-series-engine|llm-related-seat-ibiza-junior|platform": {
-   "status": "confirmed",
-   "checkedAt": "2026-10-14T03:01:13.496Z",
-   "decidedAt": "2026-10-14T03:01:13.496Z",
-   "famA": "llm-related-fiat-100-series-engine",
-   "famB": "llm-related-seat-ibiza-junior",
-   "relType": "platform",
-   "codeA": "100 series engine",
-   "codeB": "Ibiza Junior",
-   "genIdA": "llm-related-fiat-100-series-engine",
-   "genIdB": "llm-related-seat-ibiza-junior",
-   "reason": "matched automatically -- \"SEAT Ibiza Junior\" was named as a related car but didn't exist anywhere in the graph yet, so it was newly created from this mention (double-checked by the local LLM sanity pass against every plausible existing car -- none matched)",
-   "llmDiscovered": true
-  },
-  "llm-related-fiat-100-series-engine|llm-related-fiat-900t|platform": {
-   "status": "confirmed",
-   "checkedAt": "2026-10-14T03:01:13.497Z",
-   "decidedAt": "2026-10-14T03:01:13.497Z",
-   "famA": "llm-related-fiat-100-series-engine",
-   "famB": "llm-related-fiat-900t",
-   "relType": "platform",
-   "codeA": "100 series engine",
-   "codeB": "900T",
-   "genIdA": "llm-related-fiat-100-series-engine",
-   "genIdB": "llm-related-fiat-900t",
-   "reason": "matched automatically -- \"Fiat 900T\" was named as a related car but didn't exist anywhere in the graph yet, so it was newly created from this mention (double-checked by the local LLM sanity pass against every plausible existing car -- none matched)",
-   "llmDiscovered": true
-  },
-  "llm-related-fiat-100-series-engine|llm-related-seat-trans|platform": {
-   "status": "confirmed",
-   "checkedAt": "2026-10-14T03:01:13.497Z",
-   "decidedAt": "2026-10-14T03:01:13.497Z",
-   "famA": "llm-related-fiat-100-series-engine",
-   "famB": "llm-related-seat-trans",
-   "relType": "platform",
-   "codeA": "100 series engine",
-   "codeB": "Trans",
-   "genIdA": "llm-related-fiat-100-series-engine",
-   "genIdB": "llm-related-seat-trans",
-   "reason": "matched automatically -- \"Seat Trans\" was named as a related car but didn't exist anywhere in the graph yet, so it was newly created from this mention (double-checked by the local LLM sanity pass against every plausible existing car -- none matched)",
-   "llmDiscovered": true
-  },
-  "llm-related-fiat-100-series-engine|llm-related-zastava-600|platform": {
-   "status": "confirmed",
-   "checkedAt": "2026-10-14T03:01:13.497Z",
-   "decidedAt": "2026-10-14T03:01:13.497Z",
-   "famA": "llm-related-fiat-100-series-engine",
-   "famB": "llm-related-zastava-600",
-   "relType": "platform",
-   "codeA": "100 series engine",
-   "codeB": "600",
-   "genIdA": "llm-related-fiat-100-series-engine",
-   "genIdB": "llm-related-zastava-600",
-   "reason": "matched automatically -- \"Zastava 600\" was named as a related car but didn't exist anywhere in the graph yet, so it was newly created from this mention (double-checked by the local LLM sanity pass against every plausible existing car -- none matched)",
-   "llmDiscovered": true
-  },
   "m-fiat-grande-panda|m-fiat-grizzly|platform": {
    "status": "confirmed",
    "checkedAt": "2026-10-14T03:01:13.507Z",
@@ -435023,8 +435065,8 @@
   },
   "llm-llm-related-ford-contour-mk-i-mk-ii|llm-m-mercury-cougar-seventh-generation|platform": {
    "status": "confirmed",
-   "checkedAt": "2026-11-02T07:20:46.763Z",
-   "decidedAt": "2026-11-02T07:20:46.763Z",
+   "checkedAt": "2026-11-02T07:37:25.991Z",
+   "decidedAt": "2026-11-02T07:37:25.991Z",
    "famA": "llm-related-ford-contour",
    "famB": "m-mercury-cougar",
    "relType": "platform",
@@ -461594,8 +461636,8 @@
   },
   "llm-llm-related-volkswagen-alltrack-b6|llm-m-skoda-superb-b6-3t|platform": {
    "status": "confirmed",
-   "checkedAt": "2026-11-02T07:20:49.300Z",
-   "decidedAt": "2026-11-02T07:20:49.300Z",
+   "checkedAt": "2026-11-02T07:37:28.599Z",
+   "decidedAt": "2026-11-02T07:37:28.599Z",
    "famA": "llm-related-volkswagen-alltrack",
    "famB": "m-skoda-superb",
    "relType": "platform",
@@ -464186,8 +464228,8 @@
   },
   "llm-m-lincoln-custom-lincoln-custom-1941|llm-m-lincoln-lincoln-zephyr-lincoln-h-series|platform": {
    "status": "confirmed",
-   "checkedAt": "2026-11-02T07:20:42.928Z",
-   "decidedAt": "2026-11-02T07:20:42.928Z",
+   "checkedAt": "2026-11-02T07:37:22.241Z",
+   "decidedAt": "2026-11-02T07:37:22.241Z",
    "famA": "m-lincoln-custom",
    "famB": "m-lincoln-lincoln-zephyr",
    "relType": "platform",
@@ -494098,8 +494140,8 @@
   },
   "llm-m-mitsubishi-3000gt-z16a|llm-m-mitsubishi-sigma-first-generation|platform": {
    "status": "confirmed",
-   "checkedAt": "2026-11-02T07:20:43.309Z",
-   "decidedAt": "2026-11-02T07:20:43.309Z",
+   "checkedAt": "2026-11-02T07:37:22.623Z",
+   "decidedAt": "2026-11-02T07:37:22.623Z",
    "famA": "m-mitsubishi-sigma",
    "famB": "m-mitsubishi-3000gt",
    "relType": "platform",
@@ -499880,8 +499922,8 @@
   },
   "llm-m-toyota-sienta-xp170|llm-m-toyota-yaris-xp210|platform": {
    "status": "confirmed",
-   "checkedAt": "2026-11-02T07:20:46.322Z",
-   "decidedAt": "2026-11-02T07:20:46.322Z",
+   "checkedAt": "2026-11-02T07:37:25.536Z",
+   "decidedAt": "2026-11-02T07:37:25.536Z",
    "famA": "m-toyota-yaris",
    "famB": "m-toyota-sienta",
    "relType": "platform",
@@ -499894,8 +499936,8 @@
   },
   "llm-m-dodge-colt-first-generation|llm-m-mitsubishi-galant-first-generation|platform": {
    "status": "confirmed",
-   "checkedAt": "2026-11-02T07:20:47.222Z",
-   "decidedAt": "2026-11-02T07:20:47.222Z",
+   "checkedAt": "2026-11-02T07:37:26.470Z",
+   "decidedAt": "2026-11-02T07:37:26.470Z",
    "famA": "m-dodge-colt",
    "famB": "m-mitsubishi-galant",
    "relType": "platform",
@@ -499908,8 +499950,8 @@
   },
   "llm-m-dodge-colt-second-generation|llm-m-mitsubishi-galant-third-generation|platform": {
    "status": "confirmed",
-   "checkedAt": "2026-11-02T07:20:47.223Z",
-   "decidedAt": "2026-11-02T07:20:47.223Z",
+   "checkedAt": "2026-11-02T07:37:26.470Z",
+   "decidedAt": "2026-11-02T07:37:26.470Z",
    "famA": "m-dodge-colt",
    "famB": "m-mitsubishi-galant",
    "relType": "platform",
@@ -500161,8 +500203,8 @@
   },
   "llm-m-mazda-cx-5-kf|m-mazda-6-third-generation|platform": {
    "status": "confirmed",
-   "checkedAt": "2026-11-02T07:20:56.097Z",
-   "decidedAt": "2026-11-02T07:20:56.097Z",
+   "checkedAt": "2026-11-02T07:37:35.585Z",
+   "decidedAt": "2026-11-02T07:37:35.585Z",
    "famA": "fam-mazda-6",
    "famB": "m-mazda-cx-5",
    "relType": "platform",
@@ -500474,62 +500516,6 @@
    "codeB": "Panda 319",
    "genIdA": "llm-related-fiat-global-small-engine",
    "genIdB": "llm-m-fiat-panda-319",
-   "reason": "matched automatically -- the nameplate was named exactly in the source text, and exactly one of its generations was in production alongside this one, so that is the generation it refers to",
-   "llmDiscovered": true
-  },
-  "llm-m-suzuki-ertiga-suzuki-xl6-xl7|m-suzuki-ciaz|platform": {
-   "status": "confirmed",
-   "checkedAt": "2026-11-02T07:22:36.736Z",
-   "decidedAt": "2026-11-02T07:22:36.736Z",
-   "famA": "m-suzuki-ciaz",
-   "famB": "m-suzuki-ertiga",
-   "relType": "platform",
-   "codeA": "Ciaz",
-   "codeB": "Ertiga Suzuki XL6/XL7",
-   "genIdA": "m-suzuki-ciaz",
-   "genIdB": "llm-m-suzuki-ertiga-suzuki-xl6-xl7",
-   "reason": "matched automatically -- the nameplate was named exactly in the source text; no text says which, so the generation whose years fit this one best",
-   "llmDiscovered": true
-  },
-  "llm-llm-related-oldsmobile-starfire-second-generation|m-chevrolet-vega|platform": {
-   "status": "confirmed",
-   "checkedAt": "2026-11-02T07:22:36.891Z",
-   "decidedAt": "2026-11-02T07:22:36.891Z",
-   "famA": "m-chevrolet-vega",
-   "famB": "llm-related-oldsmobile-starfire",
-   "relType": "platform",
-   "codeA": "Vega",
-   "codeB": "Starfire Second generation",
-   "genIdA": "m-chevrolet-vega",
-   "genIdB": "llm-llm-related-oldsmobile-starfire-second-generation",
-   "reason": "matched automatically -- the nameplate was named exactly in the source text, and exactly one of its generations was in production alongside this one, so that is the generation it refers to",
-   "llmDiscovered": true
-  },
-  "llm-llm-related-mitsubishi-minicab-miev-eighth-generation|m-mitsubishi-i-miev|platform": {
-   "status": "confirmed",
-   "checkedAt": "2026-11-02T07:22:36.973Z",
-   "decidedAt": "2026-11-02T07:22:36.973Z",
-   "famA": "m-mitsubishi-i-miev",
-   "famB": "llm-related-mitsubishi-minicab-miev",
-   "relType": "platform",
-   "codeA": "i-MiEV",
-   "codeB": "Minicab MiEV Eighth generation",
-   "genIdA": "m-mitsubishi-i-miev",
-   "genIdB": "llm-llm-related-mitsubishi-minicab-miev-eighth-generation",
-   "reason": "matched automatically -- the nameplate was named exactly in the source text; no text says which, so the generation whose years fit this one best",
-   "llmDiscovered": true
-  },
-  "llm-m-lancia-stratos-sibilo|m-lancia-rally-037|platform": {
-   "status": "confirmed",
-   "checkedAt": "2026-11-02T07:22:37.295Z",
-   "decidedAt": "2026-11-02T07:22:37.295Z",
-   "famA": "m-lancia-rally-037",
-   "famB": "m-lancia-stratos",
-   "relType": "platform",
-   "codeA": "Rally 037",
-   "codeB": "Stratos Sibilo",
-   "genIdA": "m-lancia-rally-037",
-   "genIdB": "llm-m-lancia-stratos-sibilo",
    "reason": "matched automatically -- the nameplate was named exactly in the source text, and exactly one of its generations was in production alongside this one, so that is the generation it refers to",
    "llmDiscovered": true
   },
@@ -501119,20 +501105,6 @@
    "reason": "matched automatically -- the nameplate was named exactly in the source text; no text says which, so the generation whose years fit this one best",
    "llmDiscovered": true
   },
-  "llm-m-lancia-ypsilon-type-843|llm-related-fiat-b|platform": {
-   "status": "confirmed",
-   "checkedAt": "2026-11-02T07:29:05.243Z",
-   "decidedAt": "2026-11-02T07:29:05.243Z",
-   "famA": "m-lancia-ypsilon",
-   "famB": "llm-related-fiat-b",
-   "relType": "platform",
-   "codeA": "Ypsilon Type 843",
-   "codeB": "B",
-   "genIdA": "llm-m-lancia-ypsilon-type-843",
-   "genIdB": "llm-related-fiat-b",
-   "reason": "matched automatically -- \"Fiat B\" was named as a related car but didn't exist anywhere in the graph yet, so it was newly created from this mention (double-checked by the local LLM sanity pass against every plausible existing car -- none matched)",
-   "llmDiscovered": true
-  },
   "llm-m-lancia-ypsilon-type-846|llm-related-fiat-mini|platform": {
    "status": "confirmed",
    "checkedAt": "2026-11-02T07:29:05.247Z",
@@ -501145,20 +501117,6 @@
    "genIdA": "llm-m-lancia-ypsilon-type-846",
    "genIdB": "llm-related-fiat-mini",
    "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
-   "llmDiscovered": true
-  },
-  "llm-m-lancia-ypsilon-type-l21|llm-related-common-modular|platform": {
-   "status": "confirmed",
-   "checkedAt": "2026-11-02T07:29:05.254Z",
-   "decidedAt": "2026-11-02T07:29:05.254Z",
-   "famA": "m-lancia-ypsilon",
-   "famB": "llm-related-common-modular",
-   "relType": "platform",
-   "codeA": "Ypsilon Type L21",
-   "codeB": "Modular",
-   "genIdA": "llm-m-lancia-ypsilon-type-l21",
-   "genIdB": "llm-related-common-modular",
-   "reason": "matched automatically -- \"Common Modular\" was named as a related car but didn't exist anywhere in the graph yet, so it was newly created from this mention",
    "llmDiscovered": true
   },
   "llm-related-opel-frontera|m-fiat-panda|platform": {
@@ -501225,30 +501183,170 @@
    "reason": "matched automatically -- the nameplate was named exactly in the source text; no text says which, so the generation whose years fit this one best",
    "llmDiscovered": true
   },
-  "m-fiat-panda|m-fiat-uno|platform": {
-   "status": "provisional",
-   "checkedAt": "2026-11-02T07:35:57.384Z",
-   "famA": "m-fiat-panda",
-   "famB": "m-fiat-uno",
+  "llm-m-nissan-micra-k13|llm-m-nissan-note-e12|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-11-02T07:37:19.676Z",
+   "decidedAt": "2026-11-02T07:37:19.676Z",
+   "famA": "m-nissan-micra",
+   "famB": "m-nissan-note",
    "relType": "platform",
-   "note": "Fiat Panda's own article says: \"…rial design award for the Panda. A less positive reaction to the design came from German magazine Der Spiegel, which in 1980 contrasted Giugiaro defining the Panda as \"the most enchanting work of his life\", and chief designer Felice Cornacchia describing himself as \"proud overall of the car's architecture\" to Peter Glodschey, road tester of mass-market Bild newspaper, who likened the car to \"a shoe box\". In several key markets the Panda's styling would continue to attract mixed reactions as the Uno followed in 1983 and the aggressively boxy look became the house style for Fiats throughout the 1980s. \n ==<span class=\"anchor\" id=\"169\"></span><span class=\"anchor\" id=\"II\"></span><span class=\"anchor\" id=\"2\"></span>Second generation (2003)== {{Infobox automobile | name = Second generation | image = 2004 Fiat Panda Dynamic 1.2 Front.jpg | caption = 2004 Fiat Panda Dynamic (UK) | model_code = 169 | aka = Fiat Gingo (May 2003–August 2003)<br />Fiat Panda Classic (September 2011–December 2012) |…\" / Fiat Uno's own article says: \"{{Infobox automobile | name = Fiat Uno | image = 2011 Fiat Uno 1.4 Attractive.jpg | manufacturer = Fiat | aka = Fiat Mille<br /> Innocenti Mille Clip<br /> Fiat Grand Raid (Ecuador)<br /> Fiat Ranch (Colombia)<br /> Fiat Uno Origin | production = 1983–2021 | assembly = | class = | layout = Front-engine, front-wheel-drive | predecessor = Fiat 127 | successor = Fiat Punto }} \n The Fiat Uno is a supermini manufactured and marketed by Fiat. Launched in 1983, the Uno was produced over a single generation (with an intermediate fac…\"",
-   "matchLevel": "transitive",
-   "codeA": "Panda 319",
-   "codeB": "Uno Type 327",
-   "genIdA": "llm-m-fiat-panda-319",
-   "genIdB": "llm-m-fiat-uno-type-327",
-   "reason": "Answered from connections already in the graph: Panda 319 is connected to Global Small Engine, which is connected to Uno Type 327. That is the only such pairing between these two, so it settles which generations this is about. (The model itself could not tell: The provided text confirms a stylistic and historical connection between the first-generation Panda (Type 141) and the first-generation Uno (Type 146), noting that the Uno followed the Panda in 1983 and adopted its 'aggressively boxy' house style. However, the text does not state that they share a physical platform (chassis). Furthermore, real-world automotive engineering knowledge indicates that the Type 141 Panda and Type 146 Uno utilize different platforms (the Panda used the A/B platform, while the Uno used the 168 platform). Therefore, the claim that these nameplates share a platform is factually incorrect for the generations described or implied, preventing a valid resolution.)",
+   "codeA": "Micra K13",
+   "codeB": "Note E12",
+   "genIdA": "llm-m-nissan-micra-k13",
+   "genIdB": "llm-m-nissan-note-e12",
+   "reason": "matched automatically (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-mazda-cosmo-cd|llm-m-mazda-luce-la4|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-11-02T07:38:15.857Z",
+   "decidedAt": "2026-11-02T07:38:15.857Z",
+   "famA": "m-mazda-cosmo",
+   "famB": "m-mazda-luce",
+   "relType": "platform",
+   "codeA": "Cosmo CD",
+   "codeB": "Luce LA4",
+   "genIdA": "llm-m-mazda-cosmo-cd",
+   "genIdB": "llm-m-mazda-luce-la4",
+   "reason": "matched automatically -- the nameplate was named exactly in the source text; its article's sections for these generations name this car, and this one's years fit best",
+   "llmDiscovered": true
+  },
+  "llm-m-mazda-cosmo-hb|llm-m-mazda-luce-hb|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-11-02T07:38:15.857Z",
+   "decidedAt": "2026-11-02T07:38:15.857Z",
+   "famA": "m-mazda-cosmo",
+   "famB": "m-mazda-luce",
+   "relType": "platform",
+   "codeA": "Cosmo HB",
+   "codeB": "Luce HB",
+   "genIdA": "llm-m-mazda-cosmo-hb",
+   "genIdB": "llm-m-mazda-luce-hb",
+   "reason": "matched automatically -- the nameplate was named exactly in the source text; its article's sections for these generations name this car, and this one's years fit best",
+   "llmDiscovered": true
+  },
+  "llm-m-mazda-929-hb|llm-m-mazda-cosmo-hb|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-11-02T07:38:15.857Z",
+   "decidedAt": "2026-11-02T07:38:15.857Z",
+   "famA": "m-mazda-cosmo",
+   "famB": "m-mazda-929",
+   "relType": "platform",
+   "codeA": "Cosmo HB",
+   "codeB": "929 HB",
+   "genIdA": "llm-m-mazda-cosmo-hb",
+   "genIdB": "llm-m-mazda-929-hb",
+   "reason": "matched automatically -- the nameplate was named exactly in the source text; this generation's own section of its article names this car",
+   "llmDiscovered": true
+  },
+  "llm-m-mazda-cosmo-cosmo-21-concept|m-mazda-mx-5-nb|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-11-02T07:38:15.858Z",
+   "decidedAt": "2026-11-02T07:38:15.858Z",
+   "famA": "m-mazda-cosmo",
+   "famB": "fam-mazda-mx-5",
+   "relType": "platform",
+   "codeA": "Cosmo 21 Concept",
+   "codeB": "MX-5 (NB)",
+   "genIdA": "llm-m-mazda-cosmo-cosmo-21-concept",
+   "genIdB": "m-mazda-mx-5-nb",
+   "reason": "matched automatically (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-mazda-cosmo-hb|llm-m-nissan-200sx-s110|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-11-02T07:38:15.860Z",
+   "decidedAt": "2026-11-02T07:38:15.860Z",
+   "famA": "m-nissan-200sx",
+   "famB": "m-mazda-cosmo",
+   "relType": "platform",
+   "codeA": "200SX S110",
+   "codeB": "Cosmo HB",
+   "genIdA": "llm-m-nissan-200sx-s110",
+   "genIdB": "llm-m-mazda-cosmo-hb",
+   "reason": "matched automatically -- the nameplate was named exactly in the source text; no text says which, so the generation whose years fit this one best",
+   "llmDiscovered": true
+  },
+  "llm-m-suzuki-ertiga-suzuki-xl6-xl7|m-suzuki-ciaz|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-11-02T07:38:19.177Z",
+   "decidedAt": "2026-11-02T07:38:19.177Z",
+   "famA": "m-suzuki-ciaz",
+   "famB": "m-suzuki-ertiga",
+   "relType": "platform",
+   "codeA": "Ciaz",
+   "codeB": "Ertiga Suzuki XL6/XL7",
+   "genIdA": "m-suzuki-ciaz",
+   "genIdB": "llm-m-suzuki-ertiga-suzuki-xl6-xl7",
+   "reason": "matched automatically -- the nameplate was named exactly in the source text; no text says which, so the generation whose years fit this one best",
+   "llmDiscovered": true
+  },
+  "llm-llm-related-oldsmobile-starfire-second-generation|m-chevrolet-vega|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-11-02T07:38:19.330Z",
+   "decidedAt": "2026-11-02T07:38:19.330Z",
+   "famA": "m-chevrolet-vega",
+   "famB": "llm-related-oldsmobile-starfire",
+   "relType": "platform",
+   "codeA": "Vega",
+   "codeB": "Starfire Second generation",
+   "genIdA": "m-chevrolet-vega",
+   "genIdB": "llm-llm-related-oldsmobile-starfire-second-generation",
+   "reason": "matched automatically -- the nameplate was named exactly in the source text, and exactly one of its generations was in production alongside this one, so that is the generation it refers to",
+   "llmDiscovered": true
+  },
+  "llm-llm-related-mitsubishi-minicab-miev-eighth-generation|m-mitsubishi-i-miev|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-11-02T07:38:19.410Z",
+   "decidedAt": "2026-11-02T07:38:19.410Z",
+   "famA": "m-mitsubishi-i-miev",
+   "famB": "llm-related-mitsubishi-minicab-miev",
+   "relType": "platform",
+   "codeA": "i-MiEV",
+   "codeB": "Minicab MiEV Eighth generation",
+   "genIdA": "m-mitsubishi-i-miev",
+   "genIdB": "llm-llm-related-mitsubishi-minicab-miev-eighth-generation",
+   "reason": "matched automatically -- the nameplate was named exactly in the source text; no text says which, so the generation whose years fit this one best",
+   "llmDiscovered": true
+  },
+  "llm-m-lancia-stratos-sibilo|m-lancia-rally-037|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-11-02T07:38:19.722Z",
+   "decidedAt": "2026-11-02T07:38:19.722Z",
+   "famA": "m-lancia-rally-037",
+   "famB": "m-lancia-stratos",
+   "relType": "platform",
+   "codeA": "Rally 037",
+   "codeB": "Stratos Sibilo",
+   "genIdA": "m-lancia-rally-037",
+   "genIdB": "llm-m-lancia-stratos-sibilo",
+   "reason": "matched automatically -- the nameplate was named exactly in the source text, and exactly one of its generations was in production alongside this one, so that is the generation it refers to",
+   "llmDiscovered": true
+  },
+  "m-mazda-cosmo|m-nissan-200sx|platform": {
+   "status": "none",
+   "checkedAt": "2026-11-02T07:38:34.092Z",
+   "famA": "m-mazda-cosmo",
+   "famB": "m-nissan-200sx",
+   "relType": "platform",
+   "note": "Mazda Cosmo's own article says: \"…Inspired by the US market, in particular the Lincoln Continental#Fifth generation (1970–1979), a notchback coupé model called the Landau appeared in early 1977. Called the Cosmo L in Japan, it included an opera window and padded vinyl roof covering. Neither body style found many international buyers; it was, however, an enormous success in Japan where over 55,000 were sold in the first year alone and effectively saved Mazda from financial disaster. This new model competed with the Toyota Crown, Nissan Cedric, Nissan Gloria, and \n Mazda America used the Cosmo name and offered it from 1976 through 1978, fitted with the 13B rotary engine. In the United States, the Cosmo was replaced by the smaller, lighter, and sportier Mazda RX-7. Due to its poor sales as an export, the Series II version, built from 1979, was not exported and remained a Japanese domestic sale only. In Europe, the RX-5 saw very little competition in the rotary-engine equipped market, with the introduction of the short-liv…\"",
+   "matchLevel": null,
+   "codeA": null,
+   "codeB": null,
+   "genIdA": null,
+   "genIdB": null,
+   "reason": "The provided note for the Mazda Cosmo discusses the 1970s generations (Series I and II) and mentions the RX-7 as a successor, but does not state that the Cosmo shares a platform with any generation of the Nissan 200SX. Furthermore, real-world automotive knowledge confirms that the Mazda Cosmo (a rotary-engine coupe/sedan) and the Nissan 200SX (a turbocharged inline-4 coupe) are distinct vehicles built on completely different architectures and never shared a platform. Any appearance of them in the same sentence in the note is due to them competing in the same market segment or era, not a shared platform relationship.",
    "debug": {
     "raw": {
      "resolved": false,
      "codeA": null,
      "codeB": null,
      "evidenceQuote": null,
-     "reason": "The provided text confirms a stylistic and historical connection between the first-generation Panda (Type 141) and the first-generation Uno (Type 146), noting that the Uno followed the Panda in 1983 and adopted its 'aggressively boxy' house style. However, the text does not state that they share a physical platform (chassis). Furthermore, real-world automotive engineering knowledge indicates that the Type 141 Panda and Type 146 Uno utilize different platforms (the Panda used the A/B platform, while the Uno used the 168 platform). Therefore, the claim that these nameplates share a platform is factually incorrect for the generations described or implied, preventing a valid resolution."
+     "reason": "The provided note for the Mazda Cosmo discusses the 1970s generations (Series I and II) and mentions the RX-7 as a successor, but does not state that the Cosmo shares a platform with any generation of the Nissan 200SX. Furthermore, real-world automotive knowledge confirms that the Mazda Cosmo (a rotary-engine coupe/sedan) and the Nissan 200SX (a turbocharged inline-4 coupe) are distinct vehicles built on completely different architectures and never shared a platform. Any appearance of them in the same sentence in the note is due to them competing in the same market segment or era, not a shared platform relationship."
     },
     "evidenceCodeForA": null,
     "evidenceCodeForB": null,
-    "ordinalFromNoteA": "Panda 169",
+    "ordinalFromNoteA": null,
     "ordinalFromNoteB": null,
     "ordinalBacked": false,
     "evidenceQuote": null,
@@ -501263,17 +501361,434 @@
     "fetchedArticleA": true,
     "fetchedArticleB": true,
     "availableCodesA": [
-     "Panda 141",
-     "Panda 169",
-     "Panda 319",
-     "Panda Grande Panda"
+     "Cosmo"
     ],
     "availableCodesB": [
-     "Uno Type 146",
-     "Uno Type 327"
+     "200SX CSP311",
+     "200SX S10",
+     "200SX S11",
+     "200SX S110",
+     "200SX S12",
+     "200SX S13",
+     "200SX S14",
+     "200SX S15",
+     "200SX B14",
+     "200SX N15"
     ]
-   },
-   "transitiveVia": "llm-related-fiat-global-small-engine"
+   }
+  },
+  "m-mazda-cosmo|m-mazda-rx-7-fb|platform": {
+   "status": "none",
+   "checkedAt": "2026-11-02T07:38:45.154Z",
+   "famA": "m-mazda-cosmo",
+   "famB": "m-mazda-rx-7-fb",
+   "relType": "platform",
+   "note": "Mazda Cosmo's own article says: \"The is an automobile produced by Mazda from 1967 to 1995. During its production run, the Cosmo served as a \"halo\" vehicle for Mazda, with the first Cosmo successfully launching the Mazda Wankel engine. The final generation of the Cosmo served as Mazda's flagship vehicle in Japan, sold as the Eunos Cosmo through its luxury Eunos (automobile) division in Japan. \n == <span class=\"anchor\" id=\"L10A\"></span><span class=\"anchor\" id=\"L10B\"></span> Series L10A/L10B (1967–1972) == {{Infobox automobile | name = Series L10A/L10B | image = …\" / Mazda RX-7 (FB)'s own article says: \"…| length = | width = | height = | wheelbase = | weight = | designer = Matasaburo Maeda (1976) }} \n ===Series 1 (1978–1980)=== Series 1 (produced from 1978 until 1980) is commonly referred to as the \"SA22C\" from the first alphanumeric of the vehicle identification number. Mazda's internal project number for what was to become the RX-7 was X605. In Japan, it was introduced in March 1978, replacing the Savanna RX-3, and joined Mazda's only other remaining rotary engine-powered products, called the Cosmo, which was a two-door luxury coupé, and the Luce luxury saloon. \n In 1980, Mazda introduced a limited run North American model known as the Leathersport, or LS. The LS was essentially an uprated GS with additions such as LS badges on the B-pillars, exterior stripes, gold anodised wheels, brown leather upholstery, leather-wrapped steering wheel and shift knob, removable sunroof, four-speaker AM/FM stereo radio with power antenna (listed as a six-speaker stereo, as the two rear dual voice co…\"",
+   "matchLevel": null,
+   "codeA": null,
+   "codeB": null,
+   "genIdA": null,
+   "genIdB": null,
+   "reason": "The Cosmo (1967–1972) is a front-wheel-drive rotary coupe with its own unique L10A/L10B platform and was produced as a luxury coupe (SAAB-like dimensions). The Mazda RX-7 (FB) SA/FB (1978–1985) is a rear-wheel-drive rotary coupe with its own unique SA22C platform. While they share the rotary engine technology, they are not built on the same physical platform (chassis/frame structure). The premise that they share a platform is factually incorrect.",
+   "debug": {
+    "raw": {
+     "resolved": false,
+     "codeA": "Cosmo (1967–1972)",
+     "codeB": "RX-7 (FB) SA/FB (1978–1985)",
+     "evidenceQuote": null,
+     "reason": "The Cosmo (1967–1972) is a front-wheel-drive rotary coupe with its own unique L10A/L10B platform and was produced as a luxury coupe (SAAB-like dimensions). The Mazda RX-7 (FB) SA/FB (1978–1985) is a rear-wheel-drive rotary coupe with its own unique SA22C platform. While they share the rotary engine technology, they are not built on the same physical platform (chassis/frame structure). The premise that they share a platform is factually incorrect."
+    },
+    "evidenceCodeForA": null,
+    "evidenceCodeForB": null,
+    "ordinalFromNoteA": null,
+    "ordinalFromNoteB": null,
+    "ordinalBacked": false,
+    "evidenceQuote": null,
+    "quoteVerified": false,
+    "llmVerified": false,
+    "knowledgeBacked": false,
+    "sourceAttributed": false,
+    "citedA": null,
+    "citedB": null,
+    "citationBacked": false,
+    "quoteFabricated": false,
+    "fetchedArticleA": true,
+    "fetchedArticleB": true,
+    "availableCodesA": [
+     "Cosmo"
+    ],
+    "availableCodesB": [
+     "RX-7 (FB) SA/FB",
+     "RX-7 (FB) FC",
+     "RX-7 (FB) FD"
+    ]
+   }
+  },
+  "m-mazda-929|m-mazda-cosmo|platform": {
+   "status": "none",
+   "checkedAt": "2026-11-02T07:38:58.698Z",
+   "famA": "m-mazda-cosmo",
+   "famB": "m-mazda-929",
+   "relType": "platform",
+   "note": "Mazda Cosmo's own article says: \"…on, built from 1979, was not exported and remained a Japanese domestic sale only. In Europe, the RX-5 saw very little competition in the rotary-engine equipped market, with the introduction of the short-lived Citroën GS Birotor, as well as any remaining NSU RO80 sedans. \n == <span class=\"anchor\" id=\"HB\"></span><span class=\"anchor\" id=\"1981\"></span> Series HB (1981–1989) == {{Infobox automobile | name = Series HB | image = Mazda HB Cosmo 001.JPG | caption = First series Cosmo coupé | aka = Mazda 929 (1982–1986) | production = 1981–1989 | body_style = | engine = | transmission = | length = | width = | height = | wheelbase = | weight = | related = Mazda Luce }} \n The third generation HB Cosmo from September 1981 shared the Mazda HB chassis with its twin, the Mazda Luce. Some versions of both HB cars were sold overseas as the Mazda 929. The HB Cosmo was offered as a coupé (also called two door hardtop), as a sleek frameless window sedan (also called four door hardtop), and as a formal pill…\" / Mazda 929's own article says: \"The Mazda 929 is a full-size car which was sold by the Japanese automobile manufacturer Mazda between 1973 and 1997. Mazda used the 929 nameplate for export markets only, badge engineering its Luce model until 1991 and then transferring the name to export specification Sentia models. Between 1982 and 1986, Mazda also used the 929 nameplate on its Cosmo coupé in certain export markets. \n == <span class=\"anchor\" id=\"LA2\"></span><span class=\"anchor\" id=\"LA3\"></span> LA2 Series I (1973–1976) == <gallery widths=\"200\" heights=\"120\"> File:Mazda 929 per European nomenclature photographed in Belgium ie Europe but aka Mazda Luce elsewhere.JPG|Mazda Luce sedan File:1974 Mazda 929 S Coupé (53143447289).jpg|Mazda Luce coupe File:1975 Mazda 929 Combi in Red, front right.jpg|Mazda Luce station wagon (Combi) </gallery> \n == <span class=\"anchor\" id=\"LA2\"…\"",
+   "matchLevel": null,
+   "codeA": null,
+   "codeB": null,
+   "genIdA": null,
+   "genIdB": null,
+   "reason": "The provided text states that the third-generation HB Cosmo (1981-1989) shared the Mazda HB chassis with the Mazda Luce and was sold as the Mazda 929 in export markets. However, the code list for Car B (Mazda 929) does not contain an entry explicitly named 'Mazda Luce' or 'HB Cosmo'. While the text implies a relationship between the Cosmo and the 929 nameplate during this era, the specific generation of the 929 corresponding to the Cosmo (likely the 929 HB) is not listed as a distinct item in the provided 'Car B' list options (which start from 929 SU/SV or LA2). Furthermore, the shared platform is explicitly identified as the 'Mazda HB chassis' used by the Luce and Cosmo, not necessarily the 'Mazda 929' chassis in the same way, and the list lacks the specific 'Mazda 929 (HB)' entry required to resolve the match based on the rules against inventing codes or using year overlap alone without a specific named match in the list.",
+   "debug": {
+    "raw": {
+     "resolved": false,
+     "codeA": null,
+     "codeB": null,
+     "evidenceQuote": null,
+     "reason": "The provided text states that the third-generation HB Cosmo (1981-1989) shared the Mazda HB chassis with the Mazda Luce and was sold as the Mazda 929 in export markets. However, the code list for Car B (Mazda 929) does not contain an entry explicitly named 'Mazda Luce' or 'HB Cosmo'. While the text implies a relationship between the Cosmo and the 929 nameplate during this era, the specific generation of the 929 corresponding to the Cosmo (likely the 929 HB) is not listed as a distinct item in the provided 'Car B' list options (which start from 929 SU/SV or LA2). Furthermore, the shared platform is explicitly identified as the 'Mazda HB chassis' used by the Luce and Cosmo, not necessarily the 'Mazda 929' chassis in the same way, and the list lacks the specific 'Mazda 929 (HB)' entry required to resolve the match based on the rules against inventing codes or using year overlap alone without a specific named match in the list."
+    },
+    "evidenceCodeForA": null,
+    "evidenceCodeForB": null,
+    "ordinalFromNoteA": null,
+    "ordinalFromNoteB": null,
+    "ordinalBacked": false,
+    "evidenceQuote": null,
+    "quoteVerified": false,
+    "llmVerified": false,
+    "knowledgeBacked": false,
+    "sourceAttributed": false,
+    "citedA": null,
+    "citedB": null,
+    "citationBacked": false,
+    "quoteFabricated": false,
+    "fetchedArticleA": true,
+    "fetchedArticleB": true,
+    "availableCodesA": [
+     "Cosmo"
+    ],
+    "availableCodesB": [
+     "929 SU/SV",
+     "929 LA2/LA3",
+     "929 LA4",
+     "929 HB",
+     "929 HC",
+     "929 HD",
+     "929 HE"
+    ]
+   }
+  },
+  "m-mazda-cosmo|m-mazda-luce|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-11-02T07:39:09.615Z",
+   "decidedAt": "2026-11-02T07:39:09.615Z",
+   "autoConfirmed": true,
+   "famA": "m-mazda-cosmo",
+   "famB": "m-mazda-luce",
+   "relType": "platform",
+   "note": "Mazda Cosmo's own article says: \"…n = | wheelbase = Series I: <br>Series II: | length = | width = | height = | weight = | caption = 1967 Mazda Cosmo L10A (Series I) }} \n == <span class=\"anchor\" id=\"CD\"></span><span class=\"anchor\" id=\"1975\"></span> Series CD (1975–1981) == {{Infobox automobile | name = Series CD | image = Mazda Cosmo AP 2000.jpg | caption = Mazda Cosmo AP fastback | aka = | production = 1975–1981 | body_style = | engine = | transmission = | weight = | wheelbase = | length = | width = | height = | related = Mazda Luce | successor = Mazda 121 (DA) }} \n thumb|left|Mazda 121 L Landau coupé The second generation CD Cosmo appeared in 1975 and lasted until 1981. It was known as the Cosmo AP (Anti-Pollution) in Japan, and sold internationally as the Mazda RX-5, though in some export markets its piston-powered counterpart was called the Mazda 121 (a name later applied to Mazda's subcompact model). The anti-pollution label reflected that the cars were able to meet the strict, 1976 Japanese emissions standards, th…\" / Mazda Luce's own article says: \"…powered by a 1769&nbsp;cc Mazda VB engine. Output was and . \n Engines: * 1973–1977 1.8&nbsp;L (1769 cc) VB I4, 2-barrel, / \n ==<span class=\"anchor\" id=\"LA4\"></span><span class=\"anchor\" id=\"third\"></span><span class=\"anchor\" id=\"Mazda RX-9\"></span><span class=\"anchor\" id=\"RX-9\"></span><span class=\"anchor\" id=\"Legato\"></span> LA4 series (1977–1981) == {{Infobox automobile | name = LA4 | image = 1977 Mazda Luce Legato.jpg | aka = | production = | body_style = | layout = FR layout | related = Mazda Cosmo | engine = | transmission = | wheelbase = | length = {{ubl | sedan: | wagon: }} | width = | height = {{ubl | sedan: | wagon: }} | weight = sedan: | caption = 1977 Mazda Luce Legato (pre-facelift) | model_code = LA4 }} \n The rebodied Mazda Luce Legato became the second generation 929 in 1978 for export markets, often called the 929L. There was no coupé version developed of this generation, although a four-door hardtop body was available in Japan and some other markets including France. A st…\"",
+   "matchLevel": "generation",
+   "codeA": "Cosmo",
+   "codeB": "Luce LA4",
+   "genIdA": "m-mazda-cosmo",
+   "genIdB": "llm-m-mazda-luce-la4",
+   "reason": "auto-approved: the model attributed this to one of the two Wikipedia articles and named Mazda Cosmo → Cosmo and Mazda Luce → Luce LA4, which is a generation from that car's own real code list, in an asserted (not disclaimed) clause: The note explicitly states that the Series CD (1975–1981) Cosmo (the second generation listed) is 'related' to the Mazda Luce. The Luce section identifies the 'LA4 series (1977–1981)' as the generation related to the Mazda Cosmo. While the Cosmo note mentions the 'second generation CD', the Luce note confirms the LA4 series is the one related to the Cosmo. These two specific generations (Cosmo CD and Luce LA4) share the same platform (the Mazda Luce CD platform), making this a valid platform sharing relationship between the specific entries in the provided lists.",
+   "debug": {
+    "raw": {
+     "resolved": true,
+     "codeA": "Cosmo (1967–1972)",
+     "codeB": "Luce LA4 (1977–1981)",
+     "evidenceQuote": "related = Mazda Luce",
+     "reason": "The note explicitly states that the Series CD (1975–1981) Cosmo (the second generation listed) is 'related' to the Mazda Luce. The Luce section identifies the 'LA4 series (1977–1981)' as the generation related to the Mazda Cosmo. While the Cosmo note mentions the 'second generation CD', the Luce note confirms the LA4 series is the one related to the Cosmo. These two specific generations (Cosmo CD and Luce LA4) share the same platform (the Mazda Luce CD platform), making this a valid platform sharing relationship between the specific entries in the provided lists."
+    },
+    "evidenceCodeForA": null,
+    "evidenceCodeForB": "DA",
+    "ordinalFromNoteA": null,
+    "ordinalFromNoteB": null,
+    "ordinalBacked": false,
+    "evidenceQuote": "related = Mazda Luce",
+    "quoteVerified": true,
+    "llmVerified": false,
+    "knowledgeBacked": true,
+    "sourceAttributed": true,
+    "citedA": "Cosmo",
+    "citedB": "Luce LA4",
+    "citationBacked": true,
+    "quoteFabricated": false,
+    "fetchedArticleA": true,
+    "fetchedArticleB": true,
+    "availableCodesA": [
+     "Cosmo"
+    ],
+    "availableCodesB": [
+     "Luce SU/SV",
+     "Luce R130",
+     "Luce LA2/LA3",
+     "Luce LA4",
+     "Luce HB",
+     "Luce HC"
+    ]
+   }
+  },
+  "fam-mazda-mx-5|m-mazda-cosmo|platform": {
+   "status": "none",
+   "checkedAt": "2026-11-02T07:40:01.995Z",
+   "famA": "m-mazda-cosmo",
+   "famB": "fam-mazda-mx-5",
+   "relType": "platform",
+   "note": "Mazda Cosmo's own article says: \"The is an automobile produced by Mazda from 1967 to 1995. During its production run, the Cosmo served as a \"halo\" vehicle for Mazda, with the first Cosmo successfully launching the Mazda Wankel engine. The final generation of the Cosmo served as Mazda's flagship vehicle in Japan, sold as the Eunos Cosmo through its luxury Eunos (automobile) division in Japan. \n == <span class=\"anchor\" id=\"L10A\"></span><span class=\"anchor\" id=\"L10B\"></span> Series L10A/L10B (1967–1972) == {{Infobox automobile | name = Series L10A/L10B | image = …\" / Mazda MX-5's own article says: \"Mazda N platform \n {{Infobox automobile | image = Mazda Roadster (MX-5) by Negawa Bridge (cropped).jpg | name = Mazda MX-5 | manufacturer = Mazda | aka = | production = 1989–present | assembly = Japan: Hiroshima (Hiroshima (Mazda factory)) | class = Roadster (car), sports car (S)<!-- both a roadster and a sportscar at the **same** time, not one or the other --> | layout = | platform = Mazda N platform }} \n The Mazda MX-5 is a lightweight two-seat sports car manufactured and marketed by Mazda. Wh…\"",
+   "matchLevel": null,
+   "codeA": null,
+   "codeB": null,
+   "genIdA": null,
+   "genIdB": null,
+   "reason": "The provided text states the MX-5 uses the 'Mazda N platform'. However, there is no information in the notes or lists identifying which specific Cosmo generation uses this platform. Furthermore, real-world automotive knowledge confirms that the Mazda Cosmo (a 4-door luxury coupe) and the Mazda MX-5 (a 2-door sports roadster) are fundamentally different vehicle types with different architectures; the Cosmo historically used unique chassis or variations of the Mazda H platform (and earlier unique designs), while the MX-5 uses the lightweight N platform. They do not share a platform.",
+   "debug": {
+    "raw": {
+     "resolved": false,
+     "codeA": null,
+     "codeB": null,
+     "evidenceQuote": null,
+     "reason": "The provided text states the MX-5 uses the 'Mazda N platform'. However, there is no information in the notes or lists identifying which specific Cosmo generation uses this platform. Furthermore, real-world automotive knowledge confirms that the Mazda Cosmo (a 4-door luxury coupe) and the Mazda MX-5 (a 2-door sports roadster) are fundamentally different vehicle types with different architectures; the Cosmo historically used unique chassis or variations of the Mazda H platform (and earlier unique designs), while the MX-5 uses the lightweight N platform. They do not share a platform."
+    },
+    "evidenceCodeForA": null,
+    "evidenceCodeForB": null,
+    "ordinalFromNoteA": null,
+    "ordinalFromNoteB": null,
+    "ordinalBacked": false,
+    "evidenceQuote": null,
+    "quoteVerified": false,
+    "llmVerified": false,
+    "knowledgeBacked": false,
+    "sourceAttributed": false,
+    "citedA": null,
+    "citedB": null,
+    "citationBacked": false,
+    "quoteFabricated": false,
+    "fetchedArticleA": true,
+    "fetchedArticleB": true,
+    "availableCodesA": [
+     "Cosmo L10A/L10B",
+     "Cosmo CD",
+     "Cosmo HB",
+     "Cosmo JC",
+     "Cosmo 21 Concept"
+    ],
+    "availableCodesB": [
+     "MX-5 (NA)",
+     "MX-5 (NB)",
+     "MX-5 (NC)",
+     "MX-5 (ND)"
+    ]
+   }
+  },
+  "llm-m-mazda-929-la2-la3|llm-m-mazda-luce-la2-la3|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-11-02T07:41:07.259Z",
+   "decidedAt": "2026-11-02T07:41:07.259Z",
+   "famA": "m-mazda-luce",
+   "famB": "m-mazda-929",
+   "relType": "platform",
+   "codeA": "Luce LA2/LA3",
+   "codeB": "929 LA2/LA3",
+   "genIdA": "llm-m-mazda-luce-la2-la3",
+   "genIdB": "llm-m-mazda-929-la2-la3",
+   "reason": "matched automatically -- the nameplate was named exactly in the source text; no text says which, so the generation whose years fit this one best",
+   "llmDiscovered": true
+  },
+  "llm-m-mazda-luce-la2-la3|llm-related-mazda-rx-4|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-11-02T07:41:07.260Z",
+   "decidedAt": "2026-11-02T07:41:07.260Z",
+   "famA": "m-mazda-luce",
+   "famB": "llm-related-mazda-rx-4",
+   "relType": "platform",
+   "codeA": "Luce LA2/LA3",
+   "codeB": "RX-4",
+   "genIdA": "llm-m-mazda-luce-la2-la3",
+   "genIdB": "llm-related-mazda-rx-4",
+   "reason": "matched automatically -- \"Mazda RX-4\" was named as a related car but didn't exist anywhere in the graph yet, so it was newly created from this mention (double-checked by the local LLM sanity pass against every plausible existing car -- none matched)",
+   "llmDiscovered": true
+  },
+  "llm-m-mazda-luce-la4|llm-related-mazda-929l|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-11-02T07:41:07.265Z",
+   "decidedAt": "2026-11-02T07:41:07.265Z",
+   "famA": "m-mazda-luce",
+   "famB": "llm-related-mazda-929l",
+   "relType": "platform",
+   "codeA": "Luce LA4",
+   "codeB": "929L",
+   "genIdA": "llm-m-mazda-luce-la4",
+   "genIdB": "llm-related-mazda-929l",
+   "reason": "matched automatically -- \"Mazda 929L\" was named as a related car but didn't exist anywhere in the graph yet, so it was newly created from this mention",
+   "llmDiscovered": true
+  },
+  "llm-m-mazda-luce-la4|llm-related-mazda-2000|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-11-02T07:41:07.266Z",
+   "decidedAt": "2026-11-02T07:41:07.266Z",
+   "famA": "m-mazda-luce",
+   "famB": "llm-related-mazda-2000",
+   "relType": "platform",
+   "codeA": "Luce LA4",
+   "codeB": "2000",
+   "genIdA": "llm-m-mazda-luce-la4",
+   "genIdB": "llm-related-mazda-2000",
+   "reason": "matched automatically -- \"Mazda 2000\" was named as a related car but didn't exist anywhere in the graph yet, so it was newly created from this mention (double-checked by the local LLM sanity pass against every plausible existing car -- none matched)",
+   "llmDiscovered": true
+  },
+  "llm-m-mazda-luce-la4|llm-related-mazda-rx-9|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-11-02T07:41:07.266Z",
+   "decidedAt": "2026-11-02T07:41:07.266Z",
+   "famA": "m-mazda-luce",
+   "famB": "llm-related-mazda-rx-9",
+   "relType": "platform",
+   "codeA": "Luce LA4",
+   "codeB": "RX-9",
+   "genIdA": "llm-m-mazda-luce-la4",
+   "genIdB": "llm-related-mazda-rx-9",
+   "reason": "matched automatically -- \"Mazda RX-9\" was named as a related car but didn't exist anywhere in the graph yet, so it was newly created from this mention (double-checked by the local LLM sanity pass against every plausible existing car -- none matched)",
+   "llmDiscovered": true
+  },
+  "llm-m-mazda-luce-la4|llm-related-haima-hmc6470l|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-11-02T07:41:07.266Z",
+   "decidedAt": "2026-11-02T07:41:07.266Z",
+   "famA": "m-mazda-luce",
+   "famB": "llm-related-haima-hmc6470l",
+   "relType": "platform",
+   "codeA": "Luce LA4",
+   "codeB": "HMC6470L",
+   "genIdA": "llm-m-mazda-luce-la4",
+   "genIdB": "llm-related-haima-hmc6470l",
+   "reason": "matched automatically -- \"Haima HMC6470L\" was named as a related car but didn't exist anywhere in the graph yet, so it was newly created from this mention (double-checked by the local LLM sanity pass against every plausible existing car -- none matched)",
+   "llmDiscovered": true
+  },
+  "llm-m-mazda-luce-hb|llm-related-haima-hmc6470l|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-11-02T07:41:07.272Z",
+   "decidedAt": "2026-11-02T07:41:07.272Z",
+   "famA": "m-mazda-luce",
+   "famB": "llm-related-haima-hmc6470l",
+   "relType": "platform",
+   "codeA": "Luce HB",
+   "codeB": "HMC6470L",
+   "genIdA": "llm-m-mazda-luce-hb",
+   "genIdB": "llm-related-haima-hmc6470l",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-mazda-929-hc|llm-m-mazda-luce-hc|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-11-02T07:41:07.277Z",
+   "decidedAt": "2026-11-02T07:41:07.277Z",
+   "famA": "m-mazda-luce",
+   "famB": "m-mazda-929",
+   "relType": "platform",
+   "codeA": "Luce HC",
+   "codeB": "929 HC",
+   "genIdA": "llm-m-mazda-luce-hc",
+   "genIdB": "llm-m-mazda-929-hc",
+   "reason": "matched automatically -- the nameplate was named exactly in the source text; its article's sections for these generations name this car, and this one's years fit best",
+   "llmDiscovered": true
+  },
+  "llm-m-mazda-929-la4|llm-m-mazda-luce-la4|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-11-02T07:41:55.906Z",
+   "decidedAt": "2026-11-02T07:41:55.906Z",
+   "famA": "m-mazda-929",
+   "famB": "m-mazda-luce",
+   "relType": "platform",
+   "codeA": "929 LA4",
+   "codeB": "Luce LA4",
+   "genIdA": "llm-m-mazda-929-la4",
+   "genIdB": "llm-m-mazda-luce-la4",
+   "reason": "matched automatically -- the nameplate was named exactly in the source text; no text says which, so the generation whose years fit this one best",
+   "llmDiscovered": true
+  },
+  "llm-related-mazda-ibuki|m-mazda-mx-5-nc|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-11-02T07:43:16.040Z",
+   "decidedAt": "2026-11-02T07:43:16.040Z",
+   "famA": "fam-mazda-mx-5",
+   "famB": "llm-related-mazda-ibuki",
+   "relType": "platform",
+   "codeA": "MX-5 (NC)",
+   "codeB": "Ibuki",
+   "genIdA": "m-mazda-mx-5-nc",
+   "genIdB": "llm-related-mazda-ibuki",
+   "reason": "matched automatically -- \"Mazda Ibuki\" was named as a related car but didn't exist anywhere in the graph yet, so it was newly created from this mention (double-checked by the local LLM sanity pass against every plausible existing car -- none matched)",
+   "llmDiscovered": true
+  },
+  "llm-m-datsun-sports-sp311-spl311|llm-m-nissan-200sx-csp311|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-11-02T07:44:36.881Z",
+   "decidedAt": "2026-11-02T07:44:36.881Z",
+   "famA": "m-nissan-200sx",
+   "famB": "m-datsun-sports",
+   "relType": "platform",
+   "codeA": "200SX CSP311",
+   "codeB": "Sports SP311/SPL311",
+   "genIdA": "llm-m-nissan-200sx-csp311",
+   "genIdB": "llm-m-datsun-sports-sp311-spl311",
+   "reason": "auto-approved in the background -- the local LLM sanity check confidently identified this as the same car as \"Datsun Fairlady SP311\" (confidence: high) -- The mention 'Datsun Fairlady SP311' refers to a specific generation of the Datsun Sports/Fairlady nameplate, identified by the chassis code SP311. The candidate 'Datsun Sports SP311/SPL311' explicitly contains the model name 'Datsun Sports' (a synonym for Fairlady in this context) and the exact chassis code 'SP311', confirming they are the same physical car.",
+   "llmDiscovered": true,
+   "llmVerifiedDuplicate": true
+  },
+  "llm-m-nissan-200sx-s10|llm-m-nissan-skyline-nissan-skyline-c110|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-11-02T07:44:36.886Z",
+   "decidedAt": "2026-11-02T07:44:36.886Z",
+   "famA": "m-nissan-200sx",
+   "famB": "m-nissan-skyline",
+   "relType": "platform",
+   "codeA": "200SX S10",
+   "codeB": "Skyline Nissan Skyline (C110)",
+   "genIdA": "llm-m-nissan-200sx-s10",
+   "genIdB": "llm-m-nissan-skyline-nissan-skyline-c110",
+   "reason": "matched automatically -- the nameplate was named exactly in the source text; no text says which, so the generation whose years fit this one best",
+   "llmDiscovered": true
+  },
+  "llm-m-nissan-200sx-s12|llm-related-nissan-gazelle|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-11-02T07:44:36.894Z",
+   "decidedAt": "2026-11-02T07:44:36.894Z",
+   "famA": "m-nissan-200sx",
+   "famB": "llm-related-nissan-gazelle",
+   "relType": "platform",
+   "codeA": "200SX S12",
+   "codeB": "Gazelle",
+   "genIdA": "llm-m-nissan-200sx-s12",
+   "genIdB": "llm-related-nissan-gazelle",
+   "reason": "matched automatically -- \"Nissan Gazelle\" was named as a related car but didn't exist anywhere in the graph yet, so it was newly created from this mention (double-checked by the local LLM sanity pass against every plausible existing car -- none matched)",
+   "llmDiscovered": true
+  },
+  "llm-m-nissan-200sx-s13|llm-related-nissan-gazelle|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-11-02T07:44:36.898Z",
+   "decidedAt": "2026-11-02T07:44:36.898Z",
+   "famA": "m-nissan-200sx",
+   "famB": "llm-related-nissan-gazelle",
+   "relType": "platform",
+   "codeA": "200SX S13",
+   "codeB": "Gazelle",
+   "genIdA": "llm-m-nissan-200sx-s13",
+   "genIdB": "llm-related-nissan-gazelle",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-nissan-200sx-b14|llm-related-nissan-gazelle|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-11-02T07:44:36.910Z",
+   "decidedAt": "2026-11-02T07:44:36.910Z",
+   "famA": "m-nissan-200sx",
+   "famB": "llm-related-nissan-gazelle",
+   "relType": "platform",
+   "codeA": "200SX B14",
+   "codeB": "Gazelle",
+   "genIdA": "llm-m-nissan-200sx-b14",
+   "genIdB": "llm-related-nissan-gazelle",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
   }
  },
  "recheck": {
@@ -621942,42 +622457,44 @@
    ]
   },
   "m-nissan-200sx": {
-   "status": "none",
-   "checkedAt": "2026-10-15T11:42:01.427Z",
+   "status": "applied",
+   "checkedAt": "2026-11-02T07:44:36.854Z",
    "sourceTitle": "Nissan 200SX",
    "proposal": {
     "hasMultipleGenerations": true,
     "generations": [
      {
-      "code": "S10",
-      "yearStart": 1975,
-      "yearEnd": 1979,
-      "designers": [],
+      "code": "CSP311",
+      "yearStart": null,
+      "yearEnd": null,
+      "designers": [
+       "Kazuo Kimura",
+       "Fumio Yoshida"
+      ],
       "engineers": [],
-      "wikiFile": "Nissan Silvia S15 001.JPG",
+      "wikiFile": "Nissan Silvia CSP311.jpg",
       "sharedPlatforms": [
-       "Nissan Sunny"
-      ]
-     },
-     {
-      "code": "S11",
-      "yearStart": 1976,
-      "yearEnd": 1979,
-      "designers": [],
-      "engineers": [],
-      "wikiFile": "1975 Nissan New Silvia LS Type S.jpg",
-      "sharedPlatforms": [
-       "Datsun Fairlady SP311",
-       "Nissan Leopard",
-       "Nissan Z-car"
+       "Datsun Fairlady SP311"
       ],
       "sharedPlatformMatches": {
        "Datsun Fairlady SP311": {
         "matchId": "llm-m-datsun-sports-sp311-spl311",
         "confidence": "high",
-        "reason": "The mention 'Datsun Fairlady SP311' refers to the exact same vehicle as the candidate 'Datsun Sports SP311/SPL311'. The 'Fairlady' was the export name (specifically for North America) used for the Datsun Sports model during its production run (1965–1970), matching the chassis code SP311 explicitly listed in the candidate."
+        "reason": "The mention 'Datsun Fairlady SP311' refers to a specific generation of the Datsun Sports/Fairlady nameplate, identified by the chassis code SP311. The candidate 'Datsun Sports SP311/SPL311' explicitly contains the model name 'Datsun Sports' (a synonym for Fairlady in this context) and the exact chassis code 'SP311', confirming they are the same physical car."
        }
       }
+     },
+     {
+      "code": "S10/S11",
+      "yearStart": 1975,
+      "yearEnd": 1979,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "1975 Nissan New Silvia LS Type S.jpg",
+      "sharedPlatforms": [
+       "Nissan Sunny",
+       "Nissan Skyline"
+      ]
      },
      {
       "code": "S110",
@@ -622000,14 +622517,13 @@
       "engineers": [],
       "wikiFile": "1985 Nissan Silvia Coupe RS-X Turbo.jpg",
       "sharedPlatforms": [
-       "Nissan Gazelle",
-       "Nissan Silvia"
+       "Nissan Gazelle"
       ],
       "sharedPlatformMatches": {
        "Nissan Gazelle": {
         "matchId": null,
         "confidence": "high",
-        "reason": "The 'Nissan Gazelle' (often referred to as the Nissan Gazelle in the UK and other markets) is a rebadged version of the **Isuzu Trooper** (or Isuzu Pickup-based SUV) produced in the mid-to-late 1990s to early 2000s. None of the provided candidates correspond to this vehicle. The candidates include older 'Hillman Gazelle' and 'Singer Gazelle' models (which are completely different British cars based on different platforms and eras) and various Nissan models that do not match the description or production years of the Nissan Gazelle."
+        "reason": "The mentioned car is the 'Nissan Gazelle', a specific model name (often the Nissan Cherry in Japan). The candidates provided are 'Hillman Gazelle' (a British car) and 'Singer Gazelle' (a British car). While 'Gazelle' is a shared word, the mention explicitly includes the 'Nissan' marque, which does not match the British manufacturers (Hillman/Singer) of the candidates. Furthermore, the Nissan model is an export/rebadged version of the British Hillman Hunter/Cherry, but the specific 'Gazelle' nameplate was used by Singer/Hillman, not Nissan. Therefore, the cars are distinct entities with different manufacturers and production histories."
        }
       }
      },
@@ -622020,15 +622536,13 @@
       "wikiFile": "1988 Nissan Silvia Q's.jpg",
       "sharedPlatforms": [
        "Nissan Gazelle",
-       "Nissan 240SX",
-       "Nissan Lucino",
-       "Nissan Sunny"
+       "Nissan 240SX"
       ],
       "sharedPlatformMatches": {
        "Nissan Gazelle": {
         "matchId": null,
         "confidence": "high",
-        "reason": "The 'Nissan Gazelle' (often referred to as the Nissan Gazelle in the UK and other markets) is a rebadged version of the **Isuzu Trooper** (or Isuzu Pickup-based SUV) produced in the mid-to-late 1990s to early 2000s. None of the provided candidates correspond to this vehicle. The candidates include older 'Hillman Gazelle' and 'Singer Gazelle' models (which are completely different British cars based on different platforms and eras) and various Nissan models that do not match the description or production years of the Nissan Gazelle."
+        "reason": "The mentioned car is the 'Nissan Gazelle', a specific model name (often the Nissan Cherry in Japan). The candidates provided are 'Hillman Gazelle' (a British car) and 'Singer Gazelle' (a British car). While 'Gazelle' is a shared word, the mention explicitly includes the 'Nissan' marque, which does not match the British manufacturers (Hillman/Singer) of the candidates. Furthermore, the Nissan model is an export/rebadged version of the British Hillman Hunter/Cherry, but the specific 'Gazelle' nameplate was used by Singer/Hillman, not Nissan. Therefore, the cars are distinct entities with different manufacturers and production histories."
        }
       }
      },
@@ -622041,9 +622555,7 @@
       "wikiFile": "Nissan_Silvia_Q's_(E-S14)_front.jpg",
       "sharedPlatforms": [
        "Nissan 240SX",
-       "Nissan Lucino",
-       "Nissan Pulsar",
-       "Nissan Almera"
+       "Nissan Lucino"
       ]
      },
      {
@@ -622054,10 +622566,31 @@
       "engineers": [],
       "wikiFile": "The frontview of Nissan Silvia spec S (S15) (cropped).JPG",
       "sharedPlatforms": []
+     },
+     {
+      "code": "B14",
+      "yearStart": 1995,
+      "yearEnd": 1998,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "Nissan Lucino 002.JPG",
+      "sharedPlatforms": [
+       "Nissan Gazelle",
+       "Nissan Pulsar",
+       "Nissan Sentra",
+       "Nissan Sunny"
+      ],
+      "sharedPlatformMatches": {
+       "Nissan Gazelle": {
+        "matchId": null,
+        "confidence": "high",
+        "reason": "The mentioned car is the 'Nissan Gazelle', a specific model name (often the Nissan Cherry in Japan). The candidates provided are 'Hillman Gazelle' (a British car) and 'Singer Gazelle' (a British car). While 'Gazelle' is a shared word, the mention explicitly includes the 'Nissan' marque, which does not match the British manufacturers (Hillman/Singer) of the candidates. Furthermore, the Nissan model is an export/rebadged version of the British Hillman Hunter/Cherry, but the specific 'Gazelle' nameplate was used by Singer/Hillman, not Nissan. Therefore, the cars are distinct entities with different manufacturers and production histories."
+       }
+      }
      }
     ]
    },
-   "discrepancy": "Wikipedia currently describes 7 generations, but this nameplate currently shows 10 here",
+   "discrepancy": "Wikipedia currently describes 8 generations, but this nameplate currently shows 10 here",
    "attempts": 1,
    "feedback": [],
    "engines": [
@@ -622445,25 +622978,26 @@
      "hasMultipleGenerations": true,
      "generations": [
       {
-       "code": "S10",
+       "code": "CSP311",
+       "yearStart": null,
+       "yearEnd": null,
+       "designers": [
+        "Kazuo Kimura",
+        "Fumio Yoshida"
+       ],
+       "sharedPlatforms": [
+        "Datsun Fairlady SP311"
+       ]
+      },
+      {
+       "code": "S10/S11",
        "yearStart": 1975,
        "yearEnd": 1979,
        "designers": [],
        "engineers": [],
        "sharedPlatforms": [
-        "Nissan Sunny"
-       ]
-      },
-      {
-       "code": "S11",
-       "yearStart": 1976,
-       "yearEnd": 1979,
-       "designers": [],
-       "engineers": [],
-       "sharedPlatforms": [
-        "Datsun Fairlady SP311",
-        "Nissan Leopard",
-        "Nissan Z-car"
+        "Nissan Sunny",
+        "Nissan Skyline"
        ]
       },
       {
@@ -622485,8 +623019,7 @@
        "designers": [],
        "engineers": [],
        "sharedPlatforms": [
-        "Nissan Gazelle",
-        "Nissan Silvia"
+        "Nissan Gazelle"
        ]
       },
       {
@@ -622497,9 +623030,7 @@
        "engineers": [],
        "sharedPlatforms": [
         "Nissan Gazelle",
-        "Nissan 240SX",
-        "Nissan Lucino",
-        "Nissan Sunny"
+        "Nissan 240SX"
        ]
       },
       {
@@ -622510,9 +623041,7 @@
        "engineers": [],
        "sharedPlatforms": [
         "Nissan 240SX",
-        "Nissan Lucino",
-        "Nissan Pulsar",
-        "Nissan Almera"
+        "Nissan Lucino"
        ]
       },
       {
@@ -622522,6 +623051,19 @@
        "designers": [],
        "engineers": [],
        "sharedPlatforms": []
+      },
+      {
+       "code": "B14",
+       "yearStart": 1995,
+       "yearEnd": 1998,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Nissan Gazelle",
+        "Nissan Pulsar",
+        "Nissan Sentra",
+        "Nissan Sunny"
+       ]
       }
      ]
     },
@@ -622532,8 +623074,7 @@
    "generationDiff": {
     "addedCodes": [],
     "removedIds": [
-     "llm-m-nissan-200sx-csp311",
-     "llm-m-nissan-200sx-b14",
+     "llm-m-nissan-200sx-s11",
      "llm-m-nissan-200sx-n15"
     ]
    },
@@ -622808,10 +623349,19 @@
     ]
    ],
    "peopleAdded": [],
-   "outsidersV": 2,
-   "settledAt": "2026-11-01T11:05:13.742Z",
-   "settledBy": "rules",
-   "settledWhy": "nothing in the article supports a change: the generations it left out stay"
+   "kept": [
+    "llm-m-nissan-200sx-n15"
+   ],
+   "outsiders": [],
+   "relatedCars": [],
+   "retiredGenerations": [
+    {
+     "id": "llm-m-nissan-200sx-s11",
+     "label": "200SX S11"
+    }
+   ],
+   "appliedAt": "2026-11-02T07:44:38.634Z",
+   "outsidersV": 2
   },
   "m-nissan-240sx": {
    "status": "none",
@@ -753227,14 +753777,6 @@
    },
    "peopleAdded": []
   },
-  "fam-jaguar-xj": {
-   "status": "error",
-   "checkedAt": "2026-10-15T12:32:22.409Z",
-   "error": "no wikitext for Jaguar XJ (Series 1, 2 and 3) (article may not exist / was redirected oddly)",
-   "attempts": 1,
-   "manualRecheck": true,
-   "detail": null
-  },
   "m-lincoln-mkz": {
    "status": "none",
    "checkedAt": "2026-10-14T17:31:19.334Z",
@@ -768757,7 +769299,7 @@
   },
   "m-mazda-rx-7-fb": {
    "status": "none",
-   "checkedAt": "2026-10-15T11:42:48.787Z",
+   "checkedAt": "2026-11-02T07:45:19.766Z",
    "sourceTitle": "Mazda RX-7",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -768770,7 +769312,7 @@
        "Matasaburo Maeda"
       ],
       "engineers": [],
-      "wikiFile": "1985-1992 Mazda RX-7 FC.jpg",
+      "wikiFile": "1980 Mazda RX-7 SE Limited (17888386539) (cropped).jpg",
       "sharedPlatforms": []
      },
      {
@@ -768781,10 +769323,8 @@
        "Akio Uchiyama"
       ],
       "engineers": [],
-      "wikiFile": "1980 Mazda RX-7 SE Limited (17888386539) (cropped).jpg",
-      "sharedPlatforms": [
-       "Mazda Cosmo"
-      ]
+      "wikiFile": "1988 Mazda RX-7 GXL in Claret Mica, Front Left, 09-10-2023.jpg",
+      "sharedPlatforms": []
      },
      {
       "code": "FD",
@@ -768796,10 +769336,8 @@
        "Yoichi Sato"
       ],
       "engineers": [],
-      "wikiFile": "1994 Mazda RX-7 R2 in Vintage Red, front left (Lime Rock).jpg",
-      "sharedPlatforms": [
-       "Jaguar E-Type"
-      ]
+      "wikiFile": "Mazda-rx7-3rd-generation01.jpg",
+      "sharedPlatforms": []
      }
     ]
    },
@@ -768887,9 +769425,7 @@
         "Akio Uchiyama"
        ],
        "engineers": [],
-       "sharedPlatforms": [
-        "Mazda Cosmo"
-       ]
+       "sharedPlatforms": []
       },
       {
        "code": "FD",
@@ -768901,9 +769437,7 @@
         "Yoichi Sato"
        ],
        "engineers": [],
-       "sharedPlatforms": [
-        "Jaguar E-Type"
-       ]
+       "sharedPlatforms": []
       }
      ]
     },
@@ -825146,7 +825680,7 @@
   },
   "fam-mazda-mx-5": {
    "status": "none",
-   "checkedAt": "2026-10-14T14:54:37.611Z",
+   "checkedAt": "2026-11-02T07:43:16.010Z",
    "sourceTitle": "Mazda MX-5",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -825159,8 +825693,10 @@
        "Tom Matano",
        "Shunji Tanaka"
       ],
-      "engineers": [],
-      "wikiFile": "Eunos.jpg",
+      "engineers": [
+       "Hirotaka Tachibana"
+      ],
+      "wikiFile": "1992-1993 Mazda MX-5 (NA) roadster (2011-11-18) 01.jpg",
       "sharedPlatforms": []
      },
      {
@@ -825170,10 +825706,8 @@
       "designers": [
        "Tom Matano"
       ],
-      "engineers": [
-       "Hirotaka Tachibana"
-      ],
-      "wikiFile": "Mazda Roadster (MX-5) by Negawa Bridge (cropped).jpg",
+      "engineers": [],
+      "wikiFile": "1999 Mazda MX-5 Miata Leather Package in Highlight Silver Metallic, Front Right, 06-29-2023.jpg",
       "sharedPlatforms": []
      },
      {
@@ -825185,7 +825719,7 @@
        "Moray Callum"
       ],
       "engineers": [],
-      "wikiFile": "V705 front 01.jpg",
+      "wikiFile": "Mazda MX-5 NC front.JPG",
       "sharedPlatforms": [
        "Mazda Ibuki",
        "Mazda RX-8",
@@ -825194,8 +825728,9 @@
       "sharedPlatformMatches": {
        "Mazda Ibuki": {
         "matchId": null,
-        "confidence": "high",
-        "reason": "The Mazda Ibuki was a concept car unveiled at the 1989 Tokyo Motor Show. It is not a production model. None of the candidates in the database represent the Mazda Ibuki; they are all either production models (like the Familia, Cosmo, MX-5, etc.) or other unrelated concepts (like the EX-005). The Ibuki does not share a name or direct identity with any listed candidate."
+        "confidence": "low",
+        "reason": "rejected: the local model claimed \"Mazda Ibuki\" is another name for Mazda Familia SSA (First generation) (1963–1968) — but the two names have nothing in common beyond the marque, and that car's production doesn't overlap the 2005–2015 generation this mention came from, so they can't be the same vehicle under two names. (A car reusing an older car's platform is a different claim, and isn't affected by this check.) Its stated reasoning was: The Mazda Ibuki is the export name for the first generation of the Mazda Familia (SSA generation), sold in Australia and New Zealand from 1980 to 1983. The candidate 'llm-m-mazda-familia-ssa-first-generation' explicitly covers the Mazda Familia SSA (First generation) (1963–1968), which is the same chassis/lineage, and the mention of 'Ibuki' serves as the documented other-market name for this specific model line.",
+        "rejectedMatchId": "llm-m-mazda-familia-ssa-first-generation"
        }
       }
      },
@@ -825207,21 +825742,13 @@
        "Masashi Nakayama"
       ],
       "engineers": [],
-      "wikiFile": "V705 rear.jpg",
+      "wikiFile": "Mazda MX-5 RF IMG 7340.jpg",
       "sharedPlatforms": [
        "Fiat 124 Spider (2016)",
-       "Abarth 124 Spider",
        "Mitsuoka Himiko",
        "Mitsuoka Rock Star",
        "Hurtan Grand Albaycín"
-      ],
-      "sharedPlatformMatches": {
-       "Abarth 124 Spider": {
-        "matchId": null,
-        "confidence": "high",
-        "reason": "The mentioned 'Abarth 124 Spider' does not exist in the provided candidate list. The closest matches are the 'Fiat 124' (a sedan/hatchback) and 'SEAT 124', neither of which are the Abarth version (which is a rebadged Toyota 86/Subaru BRZ). The other Abarth candidates (like the 1000 GT, 1500 Biposto, or 207A Spyder) are different models entirely. Additionally, the years for the mentioned car (late 2010s) do not overlap with the production years of the listed Abarth models (mostly 1930s-1970s or the 2021 Classiche 1000 SP)."
-       }
-      }
+      ]
      }
     ]
    },
@@ -825343,7 +825870,9 @@
         "Tom Matano",
         "Shunji Tanaka"
        ],
-       "engineers": [],
+       "engineers": [
+        "Hirotaka Tachibana"
+       ],
        "sharedPlatforms": []
       },
       {
@@ -825353,9 +825882,7 @@
        "designers": [
         "Tom Matano"
        ],
-       "engineers": [
-        "Hirotaka Tachibana"
-       ],
+       "engineers": [],
        "sharedPlatforms": []
       },
       {
@@ -825383,7 +825910,6 @@
        "engineers": [],
        "sharedPlatforms": [
         "Fiat 124 Spider (2016)",
-        "Abarth 124 Spider",
         "Mitsuoka Himiko",
         "Mitsuoka Rock Star",
         "Hurtan Grand Albaycín"
@@ -825399,6 +825925,308 @@
     "addedCodes": [],
     "removedIds": []
    },
+   "sections": [
+    [
+     1,
+     "Overview"
+    ],
+    [
+     1,
+     "Conception"
+    ],
+    [
+     1,
+     "Generations"
+    ],
+    [
+     2,
+     "First generation – NA (1989–1997)"
+    ],
+    [
+     2,
+     "Second generation – NB (1998–2005)"
+    ],
+    [
+     2,
+     "Third generation – NC (2005–2015)"
+    ],
+    [
+     2,
+     "Fourth generation – ND (2015–present)"
+    ],
+    [
+     1,
+     "Production numbers and details"
+    ],
+    [
+     1,
+     "Legacy and recognition"
+    ],
+    [
+     2,
+     "Awards"
+    ],
+    [
+     1,
+     "Motorsport"
+    ],
+    [
+     1,
+     "See also"
+    ],
+    [
+     1,
+     "Notes"
+    ],
+    [
+     1,
+     "References"
+    ],
+    [
+     1,
+     "Bibliography"
+    ],
+    [
+     1,
+     "External links"
+    ],
+    [
+     1,
+     "Overview"
+    ],
+    [
+     1,
+     "Special editions"
+    ],
+    [
+     2,
+     "M2 special editions"
+    ],
+    [
+     1,
+     "Factory restoration program"
+    ],
+    [
+     1,
+     "Awards and recognition"
+    ],
+    [
+     1,
+     "Specifications"
+    ],
+    [
+     1,
+     "References"
+    ],
+    [
+     1,
+     "External links"
+    ],
+    [
+     1,
+     "Overview"
+    ],
+    [
+     1,
+     "MX-5 10th Anniversary Model (1999)"
+    ],
+    [
+     1,
+     "Mono-Posto (2000)"
+    ],
+    [
+     1,
+     "Facelift (2001)"
+    ],
+    [
+     1,
+     "MX-5 SP (2002)"
+    ],
+    [
+     1,
+     "Mazdaspeed MX-5 (2004–2005)"
+    ],
+    [
+     1,
+     "Safety"
+    ],
+    [
+     1,
+     "In media"
+    ],
+    [
+     1,
+     "Technical specifications (UK)"
+    ],
+    [
+     1,
+     "Awards and recognition"
+    ],
+    [
+     1,
+     "References"
+    ],
+    [
+     1,
+     "2005—2008 (NC1)"
+    ],
+    [
+     2,
+     "Power Retractable Hard Top"
+    ],
+    [
+     2,
+     "Special editions (2005—2008)"
+    ],
+    [
+     1,
+     "2009 facelift (NC2)"
+    ],
+    [
+     2,
+     "Special editions (2009—2012)"
+    ],
+    [
+     2,
+     "Marketing"
+    ],
+    [
+     1,
+     "2012 update (NC3)"
+    ],
+    [
+     2,
+     "Special editions (2013—2014)"
+    ],
+    [
+     1,
+     "Technical specifications (UK)"
+    ],
+    [
+     1,
+     "Transmissions"
+    ],
+    [
+     2,
+     "U.S."
+    ],
+    [
+     2,
+     "Canada"
+    ],
+    [
+     1,
+     "Motorsport"
+    ],
+    [
+     1,
+     "Reception"
+    ],
+    [
+     1,
+     "Accolades"
+    ],
+    [
+     1,
+     "References"
+    ],
+    [
+     1,
+     "Overview"
+    ],
+    [
+     2,
+     "MX-5 RF"
+    ],
+    [
+     2,
+     "2018 update"
+    ],
+    [
+     2,
+     "2021 update"
+    ],
+    [
+     2,
+     "2024 update"
+    ],
+    [
+     1,
+     "Cooperation with Fiat Chrysler"
+    ],
+    [
+     1,
+     "Special editions"
+    ],
+    [
+     2,
+     "Mazda MX-5 Icon (2016)"
+    ],
+    [
+     2,
+     "Mazda MX-5 Levanto (2016)"
+    ],
+    [
+     2,
+     "Mazda MX-5 Z-Sport (2018)"
+    ],
+    [
+     2,
+     "Mazda MX-5 Yamamoto Signature (2018)"
+    ],
+    [
+     2,
+     "Mazda MX-5 30th Anniversary Edition (2019)"
+    ],
+    [
+     2,
+     "Mazda MX-5 Eunos Edition (2020)"
+    ],
+    [
+     2,
+     "Mazda MX-5 100th Anniversary (2020)"
+    ],
+    [
+     2,
+     "Mazda MX-5 MCP 25th Anniversary Edition (2022)"
+    ],
+    [
+     2,
+     "Mazda MX-5 Flat Out Edition (2024)"
+    ],
+    [
+     2,
+     "Mazda Spirit Racing Roadster 12R"
+    ],
+    [
+     1,
+     "Gallery"
+    ],
+    [
+     1,
+     "Specifications"
+    ],
+    [
+     1,
+     "Safety"
+    ],
+    [
+     1,
+     "Reception"
+    ],
+    [
+     1,
+     "Accolades"
+    ],
+    [
+     1,
+     "References"
+    ],
+    [
+     1,
+     "External links"
+    ]
+   ],
    "peopleAdded": [
     {
      "generation": "MX-5 (NA)",
@@ -825406,7 +826234,7 @@
      "name": "Shunji Tanaka"
     },
     {
-     "generation": "MX-5 (NB)",
+     "generation": "MX-5 (NA)",
      "role": "engineer",
      "name": "Hirotaka Tachibana"
     }
@@ -870238,7 +871066,7 @@
   },
   "m-mazda-929": {
    "status": "none",
-   "checkedAt": "2026-10-14T17:42:33.603Z",
+   "checkedAt": "2026-11-02T07:41:55.877Z",
    "sourceTitle": "Mazda 929",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -870247,9 +871075,7 @@
       "code": "SU/SV",
       "yearStart": 1966,
       "yearEnd": 1973,
-      "designers": [
-       "Giorgetto Giugiaro"
-      ],
+      "designers": [],
       "engineers": [],
       "wikiFile": "1966 Mazda Luce 1500 Deluxe.jpg",
       "sharedPlatforms": []
@@ -870258,12 +871084,12 @@
       "code": "LA2/LA3",
       "yearStart": 1972,
       "yearEnd": 1977,
-      "designers": [
-       "Giorgetto Giugiaro"
-      ],
+      "designers": [],
       "engineers": [],
       "wikiFile": "1975 Mazda Luce AP Gran Turismo.jpg",
-      "sharedPlatforms": []
+      "sharedPlatforms": [
+       "Mazda Luce"
+      ]
      },
      {
       "code": "LA4",
@@ -870272,12 +871098,14 @@
       "designers": [],
       "engineers": [],
       "wikiFile": "Mazda HC Luce 001.jpg",
-      "sharedPlatforms": []
+      "sharedPlatforms": [
+       "Mazda Luce"
+      ]
      },
      {
       "code": "HB",
       "yearStart": 1981,
-      "yearEnd": 1987,
+      "yearEnd": 1989,
       "designers": [],
       "engineers": [],
       "wikiFile": "Mazda Luce estate.jpg",
@@ -870294,7 +871122,7 @@
       "engineers": [],
       "wikiFile": "Mazda 929 arriving Schaffen-Diest 2018.jpg",
       "sharedPlatforms": [
-       "Mazda Cosmo"
+       "Mazda Luce"
       ]
      },
      {
@@ -870303,8 +871131,7 @@
       "yearEnd": 1996,
       "designers": [
        "Dori Regev",
-       "Shunji Tanaka",
-       "Peter Montero"
+       "Shunji Tanaka"
       ],
       "engineers": [],
       "wikiFile": "Mazda R130 or Mazda 1800 aka Mazda Luce coupe manufactured 1969.JPG",
@@ -870321,8 +871148,8 @@
       "engineers": [],
       "wikiFile": "1975 Mazda Luce AP Gran Turismo rear.jpg",
       "sharedPlatforms": [
-       "Kia Enterprise",
-       "Kia Potentia"
+       "Mazda Sentia",
+       "Kia Enterprise"
       ]
      }
     ]
@@ -870536,7 +871363,7 @@
       "displacement": "1.3 L",
       "induction": "turbocharged"
      },
-     "said": "1.3 L 13B turbo Wankel"
+     "said": "1.3 L 13B turbo rotary"
     },
     {
      "title": "Mazda J engine",
@@ -870740,9 +871567,7 @@
        "code": "SU/SV",
        "yearStart": 1966,
        "yearEnd": 1973,
-       "designers": [
-        "Giorgetto Giugiaro"
-       ],
+       "designers": [],
        "engineers": [],
        "sharedPlatforms": []
       },
@@ -870750,11 +871575,11 @@
        "code": "LA2/LA3",
        "yearStart": 1972,
        "yearEnd": 1977,
-       "designers": [
-        "Giorgetto Giugiaro"
-       ],
+       "designers": [],
        "engineers": [],
-       "sharedPlatforms": []
+       "sharedPlatforms": [
+        "Mazda Luce"
+       ]
       },
       {
        "code": "LA4",
@@ -870762,12 +871587,14 @@
        "yearEnd": 1981,
        "designers": [],
        "engineers": [],
-       "sharedPlatforms": []
+       "sharedPlatforms": [
+        "Mazda Luce"
+       ]
       },
       {
        "code": "HB",
        "yearStart": 1981,
-       "yearEnd": 1987,
+       "yearEnd": 1989,
        "designers": [],
        "engineers": [],
        "sharedPlatforms": [
@@ -870782,7 +871609,7 @@
        "designers": [],
        "engineers": [],
        "sharedPlatforms": [
-        "Mazda Cosmo"
+        "Mazda Luce"
        ]
       },
       {
@@ -870791,8 +871618,7 @@
        "yearEnd": 1996,
        "designers": [
         "Dori Regev",
-        "Shunji Tanaka",
-        "Peter Montero"
+        "Shunji Tanaka"
        ],
        "engineers": [],
        "sharedPlatforms": [
@@ -870807,8 +871633,8 @@
        "designers": [],
        "engineers": [],
        "sharedPlatforms": [
-        "Kia Enterprise",
-        "Kia Potentia"
+        "Mazda Sentia",
+        "Kia Enterprise"
        ]
       }
      ]
@@ -870821,18 +871647,161 @@
     "addedCodes": [],
     "removedIds": []
    },
-   "peopleAdded": [
-    {
-     "generation": "929 SU/SV",
-     "role": "designer",
-     "name": "Giorgetto Giugiaro"
-    },
-    {
-     "generation": "929 HD",
-     "role": "designer",
-     "name": "Peter Montero"
-    }
-   ]
+   "sections": [
+    [
+     1,
+     "LA2 Series I (1973–1976)"
+    ],
+    [
+     1,
+     "LA2 Series II (1976–1978)"
+    ],
+    [
+     1,
+     "LA4 (1978–1981)"
+    ],
+    [
+     1,
+     "HB (1982–1987)"
+    ],
+    [
+     1,
+     "HC (1986–1991)"
+    ],
+    [
+     1,
+     "HD (1991–1995)"
+    ],
+    [
+     1,
+     "HE (1996–1997)"
+    ],
+    [
+     1,
+     "Etymology"
+    ],
+    [
+     1,
+     "SU/SV series (1966–1973)"
+    ],
+    [
+     2,
+     "1500/1800"
+    ],
+    [
+     2,
+     "R130"
+    ],
+    [
+     1,
+     "LA2/LA3 series (1972–1977)"
+    ],
+    [
+     2,
+     "RX-4"
+    ],
+    [
+     2,
+     "929"
+    ],
+    [
+     1,
+     "LA4 series (1977–1981)"
+    ],
+    [
+     1,
+     "HB series (1981–1986)"
+    ],
+    [
+     1,
+     "HC series (1986–1991)"
+    ],
+    [
+     2,
+     "Kia Potentia"
+    ],
+    [
+     1,
+     "References"
+    ],
+    [
+     1,
+     "Etymology"
+    ],
+    [
+     1,
+     "First generation (HD; 1991–1996)"
+    ],
+    [
+     2,
+     "929"
+    ],
+    [
+     1,
+     "Second generation (HE; 1995–1999)"
+    ],
+    [
+     2,
+     "Kia Enterprise"
+    ],
+    [
+     1,
+     "References"
+    ],
+    [
+     1,
+     "External links"
+    ],
+    [
+     1,
+     "Series L10A/L10B (1967–1972)"
+    ],
+    [
+     2,
+     "Racing"
+    ],
+    [
+     2,
+     "Series I"
+    ],
+    [
+     2,
+     "Series II"
+    ],
+    [
+     1,
+     "Series CD (1975–1981)"
+    ],
+    [
+     1,
+     "Series HB (1981–1989)"
+    ],
+    [
+     1,
+     "Series JC (Eunos Cosmo, 1990–1995)"
+    ],
+    [
+     1,
+     "Cosmo 21 Concept (2002)"
+    ],
+    [
+     1,
+     "References"
+    ],
+    [
+     2,
+     "Notes"
+    ],
+    [
+     2,
+     "Bibliography"
+    ],
+    [
+     1,
+     "External links"
+    ]
+   ],
+   "peopleAdded": []
   },
   "m-toyota-sequoia": {
    "status": "none",
@@ -950089,7 +951058,7 @@
   },
   "m-mazda-luce": {
    "status": "none",
-   "checkedAt": "2026-10-14T18:49:17.971Z",
+   "checkedAt": "2026-11-02T07:41:07.239Z",
    "sourceTitle": "Mazda Luce",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -950113,7 +951082,7 @@
        "Giorgetto Giugiaro"
       ],
       "engineers": [],
-      "wikiFile": "1975 Mazda Luce AP Gran Turismo.jpg",
+      "wikiFile": "Mazda Luce estate.jpg",
       "sharedPlatforms": []
      },
      {
@@ -950122,8 +951091,18 @@
       "yearEnd": 1977,
       "designers": [],
       "engineers": [],
-      "wikiFile": "1975 Mazda Luce AP Gran Turismo rear.jpg",
-      "sharedPlatforms": []
+      "wikiFile": "1975 Mazda Luce AP Gran Turismo.jpg",
+      "sharedPlatforms": [
+       "Mazda 929",
+       "Mazda RX-4"
+      ],
+      "sharedPlatformMatches": {
+       "Mazda RX-4": {
+        "matchId": null,
+        "confidence": "high",
+        "reason": "The mention 'Mazda RX-4' refers to a specific model (produced in Japan as the Mazda Savanna and Mazda Luce, and exported as the RX-4 from roughly 1969–1971). None of the candidate IDs correspond to the Mazda RX-4. The closest candidates are the Mazda RX-7 or Mazda RX-500, which are different model generations/names entirely. The RX-4 is not listed in the provided database candidates."
+       }
+      }
      },
      {
       "code": "LA4",
@@ -950133,19 +951112,59 @@
       "engineers": [],
       "wikiFile": "1977 Mazda Luce Legato.jpg",
       "sharedPlatforms": [
+       "Mazda 929L",
+       "Mazda 2000",
+       "Mazda RX-9",
+       "Haima HMC6470L",
        "Mazda Cosmo"
-      ]
+      ],
+      "sharedPlatformMatches": {
+       "Mazda 929L": {
+        "matchId": "m-mazda-929",
+        "confidence": "high",
+        "reason": "The mention 'Mazda 929L' is an export-specific designation (specifically for the Japanese domestic market 'L' trim or a specific badging variation) for the Mazda 929 model. The candidate 'm-mazda-929' covers the entire production run of the Mazda 929 (1966–1999), which includes the years and variants denoted by the 'L' suffix in the mention. They refer to the exact same physical car/model.",
+        "refused": {
+         "v": 1,
+         "id": "m-mazda-929",
+         "why": "\"Mazda 929L\" does not name the Mazda 929"
+        }
+       },
+       "Mazda 2000": {
+        "matchId": null,
+        "confidence": "high",
+        "reason": "The 'Mazda 2000' was a 1960s Japanese-market sedan (chassis codes C260, C270). None of the provided candidates correspond to this specific car. The closest nameplate, 'Mazda Familia' (m-mazda-familia), is the correct export name for the 'Mazda 2000', but per the rules, a different qualifier or export name difference (unless explicitly documented as a direct rename in the context of the specific mention) makes them distinct entries for matching purposes. Furthermore, the production years and model designation do not overlap directly as a single entity in the provided list."
+       },
+       "Mazda RX-9": {
+        "matchId": null,
+        "confidence": "high",
+        "reason": "The Mazda RX-9 was a cancelled concept car (prototypes shown in 1990) that never entered production. The database contains the Roewe RX9 (a production SUV) and various Mazda RX models, but none are the specific 'Mazda RX-9' concept mentioned. Since the mention names a specific model that is not in the production list (or is a concept without a corresponding database entry for that specific item), and no candidate is the same physical car (production vs concept, or different model entirely), the match is null."
+       },
+       "Haima HMC6470L": {
+        "matchId": null,
+        "confidence": "high",
+        "reason": "The mentioned car 'Haima HMC6470L' refers to a specific chassis code (likely the Haima H5, produced roughly 2004-2012). None of the provided candidates (Haima 2, 3, 7, 7X, 8S, Aishang, F7, Familia, Family, Freema, Fstar, M3, M6, M8, S5, S5 Young, or specific Family generations) correspond to the HMC6470L model. For instance, the 'Haima Family' II (2007–2013) and III (2013–2019) are distinct model names from the HMC6470L, and the chassis code does not match any of the other listed models."
+       }
+      }
      },
      {
       "code": "HB",
       "yearStart": 1981,
-      "yearEnd": 1991,
+      "yearEnd": 1986,
       "designers": [],
       "engineers": [],
-      "wikiFile": "Mazda Luce estate.jpg",
+      "wikiFile": "1982 Mazda Luce Rotary Limited.jpg",
       "sharedPlatforms": [
-       "Mazda Cosmo"
-      ]
+       "Mazda 929",
+       "Mazda Cosmo",
+       "Haima HMC6470L"
+      ],
+      "sharedPlatformMatches": {
+       "Haima HMC6470L": {
+        "matchId": null,
+        "confidence": "high",
+        "reason": "The mentioned car 'Haima HMC6470L' refers to a specific chassis code (likely the Haima H5, produced roughly 2004-2012). None of the provided candidates (Haima 2, 3, 7, 7X, 8S, Aishang, F7, Familia, Family, Freema, Fstar, M3, M6, M8, S5, S5 Young, or specific Family generations) correspond to the HMC6470L model. For instance, the 'Haima Family' II (2007–2013) and III (2013–2019) are distinct model names from the HMC6470L, and the chassis code does not match any of the other listed models."
+       }
+      }
      },
      {
       "code": "HC",
@@ -950153,8 +951172,9 @@
       "yearEnd": 1991,
       "designers": [],
       "engineers": [],
-      "wikiFile": "Mazda HC Luce 001.jpg",
+      "wikiFile": "1987-1989 Mazda 929 (HC) sedan (2011-04-28) 01.jpg",
       "sharedPlatforms": [
+       "Mazda 929",
        "Kia Potentia"
       ]
      }
@@ -950162,7 +951182,349 @@
    },
    "discrepancy": null,
    "attempts": 1,
-   "feedback": []
+   "feedback": [],
+   "engines": [
+    {
+     "title": "Mazda C engine",
+     "name": "UB",
+     "variant": "UB",
+     "specs": {
+      "displacement": "1.5 L",
+      "layout": "I",
+      "cylinders": 4
+     },
+     "said": "1.5 L UB I4 (1500, \"SUA\")"
+    },
+    {
+     "title": "Mazda C engine",
+     "name": "VB",
+     "variant": "VB",
+     "specs": {
+      "displacement": "1.8 L",
+      "layout": "I",
+      "cylinders": 4
+     },
+     "said": "1.8 L VB I4 (1800, \"SVA\")"
+    },
+    {
+     "title": "Mazda Wankel engine",
+     "name": "13A",
+     "variant": "13A",
+     "specs": {
+      "displacement": "1.3 L"
+     },
+     "said": "1.3 L 13A Wankel engine (R130)"
+    },
+    {
+     "title": "Mazda F engine",
+     "name": "VC",
+     "variant": "VC",
+     "specs": {
+      "displacement": "1769 cc",
+      "layout": "I",
+      "cylinders": 4
+     },
+     "said": "1769 cc VC I4 (LA2V)"
+    },
+    {
+     "title": "Mazda Wankel engine",
+     "name": "12A Wankel",
+     "variant": "12A",
+     "specs": {
+      "displacement": "1.2 L"
+     },
+     "said": "1.2 L 12A Wankel (LA22)"
+    },
+    {
+     "title": "Mazda Wankel engine",
+     "name": "13B Wankel",
+     "variant": "13B",
+     "specs": {
+      "displacement": "1.3 L"
+     },
+     "said": "1.3 L 13B Wankel"
+    },
+    {
+     "title": "Mazda C engine",
+     "name": "VC",
+     "variant": "VC",
+     "specs": {
+      "displacement": "1.8 L",
+      "layout": "I",
+      "cylinders": 4
+     },
+     "said": "1.8 L VC I4 (LA4V)"
+    },
+    {
+     "title": "Mazda F engine",
+     "name": "F/MA",
+     "variant": "MA",
+     "specs": {
+      "displacement": "2.0 L",
+      "layout": "I",
+      "cylinders": 4
+     },
+     "said": "2.0 L F/MA I4 (LA4M)"
+    },
+    {
+     "title": "Mazda Wankel engine",
+     "name": "12A Wankel",
+     "variant": "12A",
+     "specs": {
+      "displacement": "1.2 L"
+     },
+     "said": "1.2 L 12A Wankel (LA42)"
+    },
+    {
+     "title": "Mazda Wankel engine",
+     "name": "13B Wankel",
+     "variant": "13B",
+     "specs": {
+      "displacement": "1.3 L"
+     },
+     "said": "1.3 L 13B Wankel (LA43)"
+    },
+    {
+     "title": "Mazda diesel engines",
+     "name": "S2",
+     "variant": "Perkins",
+     "specs": {
+      "displacement": "2.2 L",
+      "layout": "I",
+      "cylinders": 4,
+      "fuel": "diesel"
+     },
+     "said": "2.2 L S2 diesel I4 (LA4S)"
+    },
+    {
+     "title": "Mazda C engine",
+     "name": "VC",
+     "variant": "VC",
+     "specs": {
+      "displacement": "1.8 L",
+      "layout": "I",
+      "cylinders": 4
+     },
+     "said": "1.8 L VC I4"
+    },
+    {
+     "title": "Mazda F engine",
+     "name": "FE",
+     "variant": "FE",
+     "specs": {
+      "displacement": "2.0 L",
+      "layout": "I",
+      "cylinders": 4
+     },
+     "said": "2.0 L FE I4"
+    },
+    {
+     "title": "Mazda Wankel engine",
+     "name": "12A Wankel",
+     "variant": "12A",
+     "specs": {
+      "displacement": "1146 cc"
+     },
+     "said": "1146 cc 12A Wankel"
+    },
+    {
+     "title": "Mazda Wankel engine",
+     "name": "13B Wankel",
+     "variant": "13B",
+     "specs": {
+      "displacement": "1308 cc"
+     },
+     "said": "1308 cc 13B Wankel"
+    },
+    {
+     "title": "Mazda diesel engines",
+     "name": "S2",
+     "variant": "Perkins",
+     "specs": {
+      "displacement": "2.2 L",
+      "layout": "I",
+      "cylinders": 4,
+      "fuel": "diesel"
+     },
+     "said": "2.2 L S2 diesel I4"
+    },
+    {
+     "title": "Mazda J engine",
+     "name": "JF",
+     "variant": "JF",
+     "specs": {
+      "displacement": "2.0 L",
+      "layout": "V",
+      "cylinders": 6
+     },
+     "said": "2.0 L JF V6"
+    },
+    {
+     "title": "Mazda F engine",
+     "name": "F2",
+     "variant": "F2",
+     "specs": {
+      "displacement": "2.2 L",
+      "layout": "I",
+      "cylinders": 4
+     },
+     "said": "2.2 L F2 I4"
+    },
+    {
+     "title": "Mazda J engine",
+     "name": "JE",
+     "variant": "JE",
+     "specs": {
+      "displacement": "3.0 L",
+      "layout": "V",
+      "cylinders": 6
+     },
+     "said": "3.0 L JE V6"
+    },
+    {
+     "title": "Mazda Wankel engine",
+     "name": "13B",
+     "variant": "13B",
+     "specs": {
+      "displacement": "1.3 L",
+      "induction": "turbocharged"
+     },
+     "said": "1.3 L 13B turbo rotary"
+    }
+   ],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": true,
+     "generations": [
+      {
+       "code": "SU/SV",
+       "yearStart": 1966,
+       "yearEnd": 1973,
+       "designers": [
+        "Giorgetto Giugiaro"
+       ],
+       "engineers": [],
+       "sharedPlatforms": []
+      },
+      {
+       "code": "R130",
+       "yearStart": 1969,
+       "yearEnd": 1972,
+       "designers": [
+        "Giorgetto Giugiaro"
+       ],
+       "engineers": [],
+       "sharedPlatforms": []
+      },
+      {
+       "code": "LA2/LA3",
+       "yearStart": 1972,
+       "yearEnd": 1977,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Mazda 929",
+        "Mazda RX-4"
+       ]
+      },
+      {
+       "code": "LA4",
+       "yearStart": 1977,
+       "yearEnd": 1981,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Mazda 929L",
+        "Mazda 2000",
+        "Mazda RX-9",
+        "Haima HMC6470L",
+        "Mazda Cosmo"
+       ]
+      },
+      {
+       "code": "HB",
+       "yearStart": 1981,
+       "yearEnd": 1986,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Mazda 929",
+        "Mazda Cosmo",
+        "Haima HMC6470L"
+       ]
+      },
+      {
+       "code": "HC",
+       "yearStart": 1986,
+       "yearEnd": 1991,
+       "designers": [],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Mazda 929",
+        "Kia Potentia"
+       ]
+      }
+     ]
+    },
+    "dropped": []
+   },
+   "manualRecheck": true,
+   "engineScansCleared": 6,
+   "generationDiff": {
+    "addedCodes": [],
+    "removedIds": []
+   },
+   "sections": [
+    [
+     1,
+     "Etymology"
+    ],
+    [
+     1,
+     "SU/SV series (1966–1973)"
+    ],
+    [
+     2,
+     "1500/1800"
+    ],
+    [
+     2,
+     "R130"
+    ],
+    [
+     1,
+     "LA2/LA3 series (1972–1977)"
+    ],
+    [
+     2,
+     "RX-4"
+    ],
+    [
+     2,
+     "929"
+    ],
+    [
+     1,
+     "LA4 series (1977–1981)"
+    ],
+    [
+     1,
+     "HB series (1981–1986)"
+    ],
+    [
+     1,
+     "HC series (1986–1991)"
+    ],
+    [
+     2,
+     "Kia Potentia"
+    ],
+    [
+     1,
+     "References"
+    ]
+   ],
+   "peopleAdded": []
   },
   "llm-related-ford-panther": {
    "status": "none",
@@ -958861,6 +960223,74 @@
    "discrepancy": null,
    "attempts": 1,
    "feedback": []
+  },
+  "m-mazda-cosmo": {
+   "status": "none",
+   "checkedAt": "2026-11-02T07:38:15.849Z",
+   "sourceTitle": "Mazda Cosmo",
+   "proposal": {
+    "hasMultipleGenerations": true,
+    "generations": [
+     {
+      "code": "L10A/L10B",
+      "yearStart": 1967,
+      "yearEnd": 1972,
+      "designers": [
+       "Heiji Kobayashi",
+       "Kenichi Yamamoto"
+      ],
+      "engineers": [],
+      "wikiFile": "Mazda Cosmo L10A front-right 2016 Shanghai Auto Museum.jpg",
+      "sharedPlatforms": []
+     },
+     {
+      "code": "CD",
+      "yearStart": 1975,
+      "yearEnd": 1981,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "Mazda Cosmo AP 2000.jpg",
+      "sharedPlatforms": [
+       "Mazda Luce"
+      ]
+     },
+     {
+      "code": "HB",
+      "yearStart": 1981,
+      "yearEnd": 1989,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "Mazda HB Cosmo 001.JPG",
+      "sharedPlatforms": [
+       "Mazda Luce",
+       "Mazda 929"
+      ]
+     },
+     {
+      "code": "JC",
+      "yearStart": 1990,
+      "yearEnd": 1995,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "Eunos Cosmo in the Mazda Museum.jpg",
+      "sharedPlatforms": []
+     },
+     {
+      "code": "Cosmo 21 Concept",
+      "yearStart": 2002,
+      "yearEnd": null,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "Mazda Cosmo Concept.jpg",
+      "sharedPlatforms": [
+       "Mazda MX-5 (NB)"
+      ]
+     }
+    ]
+   },
+   "discrepancy": null,
+   "attempts": 1,
+   "feedback": []
   }
  },
  "rejectedRelations": {
@@ -959240,7 +960670,6 @@
   "llm-m-studebaker-avanti-avanti|m-ford-mustang-fourth-generation|platform": true,
   "llm-llm-related-daihatsu-d130-jumbo-s90-s91-s92|m-slate-truck|platform": true,
   "llm-llm-related-dodge-challenger-second-generation-1978-1983|llm-m-mitsubishi-colt-mirage-based-colt-a150|platform": true,
-  "m-fiat-panda|m-ford-ka|platform": true,
   "m-fiat-panda|m-fiat-uno|platform": true,
   "llm-m-citroen-c3-aircross-ai58|m-citroen-c-elysee|platform": true
  },
@@ -973662,6 +975091,43 @@
    "year": null,
    "end": null,
    "tries": 1
+  },
+  "p-heiji-kobayashi": {
+   "checkedAt": "2026-11-02T07:39:54.065Z",
+   "born": null,
+   "died": null,
+   "country": null,
+   "tries": 1
+  },
+  "llm-related-haima-hmc6470l": {
+   "checkedAt": "2026-11-02T07:41:07.812Z",
+   "year": null,
+   "end": null,
+   "tries": 1
+  },
+  "llm-related-mazda-929l": {
+   "checkedAt": "2026-11-02T07:41:07.815Z",
+   "year": null,
+   "end": null,
+   "tries": 1
+  },
+  "llm-related-mazda-rx-4": {
+   "checkedAt": "2026-11-02T07:41:12.908Z",
+   "year": 1966,
+   "end": 1991,
+   "source": "wikipedia"
+  },
+  "llm-related-mazda-rx-9": {
+   "checkedAt": "2026-11-02T07:41:16.737Z",
+   "year": 1966,
+   "end": 1991,
+   "source": "wikipedia"
+  },
+  "llm-related-mazda-2000": {
+   "checkedAt": "2026-11-02T07:41:20.440Z",
+   "year": 1966,
+   "end": 1991,
+   "source": "wikipedia"
   }
  },
  "userCars": {},
@@ -1104370,162 +1105836,6 @@
    "unlinked": [],
    "v": 6
   },
-  "m-mazda-mx-5-na": {
-   "checkedAt": "2026-11-01T23:11:47.148Z",
-   "sourceTitle": "Mazda MX-5 (NA)",
-   "section": "First generation – NA (1989–1997)",
-   "engines": [
-    {
-     "title": "Mazda B engine",
-     "name": "B6ZE(RS)",
-     "variant": "B6ZE(RS)",
-     "specs": {
-      "displacement": "1597 cc",
-      "layout": "I",
-      "cylinders": 4
-     },
-     "said": "1,597 cc B6ZE(RS) DOHC I4"
-    },
-    {
-     "title": "Mazda B engine",
-     "name": "B6ZE(RS)",
-     "variant": "B6ZE(RS)",
-     "specs": {
-      "displacement": "1597 cc",
-      "layout": "I",
-      "cylinders": 4,
-      "induction": "supercharged"
-     },
-     "said": "1,597 cc B6ZE(RS) DOHC supercharged I4 (Mazdaspeed B-Spec)"
-    },
-    {
-     "title": "Mazda B engine",
-     "name": "BP",
-     "variant": "BP",
-     "specs": {
-      "displacement": "1839 cc",
-      "layout": "I",
-      "cylinders": 4
-     },
-     "said": "1,839 cc BP DOHC I4"
-    }
-   ],
-   "unlinked": [
-    {
-     "name": "1995 cc I4",
-     "specs": {
-      "displacement": "1995 cc",
-      "layout": "I",
-      "cylinders": 4
-     },
-     "said": "1,995 cc BP DOHC I4 (Mazdaspeed C-Spec)"
-    }
-   ],
-   "v": 7
-  },
-  "m-mazda-mx-5-nb": {
-   "checkedAt": "2026-11-01T23:11:47.595Z",
-   "sourceTitle": "Mazda MX-5 (NB)",
-   "section": "Second generation – NB (1998–2005)",
-   "engines": [
-    {
-     "title": "Mazda B engine",
-     "name": "B6-ZE",
-     "variant": "B6ZE(RS)",
-     "specs": {
-      "displacement": "1.6 L",
-      "layout": "I",
-      "cylinders": 4
-     },
-     "said": "1.6 L B6-ZE I4 (Europe/Japan)"
-    },
-    {
-     "title": "Mazda B engine",
-     "name": "BP-4W",
-     "variant": "BP-4W",
-     "specs": {
-      "displacement": "1.8 L",
-      "layout": "I",
-      "cylinders": 4
-     },
-     "said": "1.8 L BP-4W I4"
-    },
-    {
-     "title": "Mazda B engine",
-     "name": "BP-Z3",
-     "variant": "BP-Z3",
-     "specs": {
-      "displacement": "1.8 L",
-      "layout": "I",
-      "cylinders": 4
-     },
-     "said": "1.8 L BP-Z3 I4"
-    },
-    {
-     "title": "Mazda B engine",
-     "name": "BPT",
-     "variant": "BPT",
-     "specs": {
-      "displacement": "1.8 L",
-      "layout": "I",
-      "cylinders": 4,
-      "induction": "turbocharged"
-     },
-     "said": "1.8 L turbocharged BPT I4 (Mazdaspeed)"
-    }
-   ],
-   "unlinked": [
-    {
-     "name": "BP-5A · 1.8 L I4",
-     "specs": {
-      "displacement": "1.8 L",
-      "layout": "I",
-      "cylinders": 4
-     },
-     "said": "1.8 L BP-5A I4 (Japan)"
-    }
-   ],
-   "v": 7
-  },
-  "m-mazda-mx-5-nc": {
-   "checkedAt": "2026-11-01T23:11:48.200Z",
-   "sourceTitle": "Mazda MX-5 (NC)",
-   "section": "Third generation – NC (2005–2015)",
-   "engines": [
-    {
-     "title": "Mazda L engine",
-     "name": "MZR L8-DE",
-     "variant": "1.8 L (L8-DE, L8-VE)",
-     "specs": {
-      "displacement": "1.8 L",
-      "layout": "I",
-      "cylinders": 4
-     },
-     "said": "1.8 L MZR L8-DE DOHC I4 (Europe)"
-    },
-    {
-     "title": "Mazda L engine",
-     "name": "MZR LF-VE",
-     "variant": "2.0 L (LF-DE, LF-VE, LF-VD)",
-     "specs": {
-      "displacement": "2.0 L",
-      "layout": "I",
-      "cylinders": 4
-     },
-     "said": "2.0 L MZR LF-VE DOHC I4"
-    }
-   ],
-   "unlinked": [],
-   "v": 7
-  },
-  "m-mazda-mx-5-nd": {
-   "checkedAt": "2026-11-01T23:11:48.833Z",
-   "sourceTitle": "Mazda MX-5",
-   "status": "no-engines",
-   "engines": [],
-   "unlinked": [],
-   "v": 7
-  },
   "m-mazda-rx-8-hydrogen-re": {
    "checkedAt": "2026-11-01T22:22:00.173Z",
    "sourceTitle": "Mazda RX-8 Hydrogen RE",
@@ -1116425,62 +1117735,6 @@
    "unlinked": [],
    "v": 7
   },
-  "llm-m-mazda-929-su-sv": {
-   "checkedAt": "2026-11-01T22:21:06.497Z",
-   "sourceTitle": null,
-   "status": "no-article",
-   "engines": [],
-   "unlinked": [],
-   "v": 7
-  },
-  "llm-m-mazda-929-la2-la3": {
-   "checkedAt": "2026-11-01T22:21:06.498Z",
-   "sourceTitle": null,
-   "status": "no-article",
-   "engines": [],
-   "unlinked": [],
-   "v": 7
-  },
-  "llm-m-mazda-929-la4": {
-   "checkedAt": "2026-11-01T22:21:06.498Z",
-   "sourceTitle": "Mazda 929",
-   "status": "no-engines",
-   "engines": [],
-   "unlinked": [],
-   "v": 7
-  },
-  "llm-m-mazda-929-hb": {
-   "checkedAt": "2026-11-01T22:21:06.498Z",
-   "sourceTitle": "Mazda 929",
-   "status": "no-engines",
-   "engines": [],
-   "unlinked": [],
-   "v": 7
-  },
-  "llm-m-mazda-929-hc": {
-   "checkedAt": "2026-11-01T22:21:06.498Z",
-   "sourceTitle": "Mazda 929",
-   "status": "no-engines",
-   "engines": [],
-   "unlinked": [],
-   "v": 7
-  },
-  "llm-m-mazda-929-hd": {
-   "checkedAt": "2026-11-01T22:21:06.498Z",
-   "sourceTitle": "Mazda 929",
-   "status": "no-engines",
-   "engines": [],
-   "unlinked": [],
-   "v": 7
-  },
-  "llm-m-mazda-929-he": {
-   "checkedAt": "2026-11-01T22:21:06.498Z",
-   "sourceTitle": "Mazda 929",
-   "status": "no-engines",
-   "engines": [],
-   "unlinked": [],
-   "v": 7
-  },
   "m-autozam-clef": {
    "checkedAt": "2026-11-01T18:18:06.548Z",
    "sourceTitle": "Autozam Clef",
@@ -1123383,295 +1124637,6 @@
   "llm-m-chevrolet-groove-310s": {
    "checkedAt": "2026-11-01T19:08:01.873Z",
    "sourceTitle": "Chevrolet Groove",
-   "status": "no-engines",
-   "engines": [],
-   "unlinked": [],
-   "v": 7
-  },
-  "llm-m-mazda-luce-su-sv": {
-   "checkedAt": "2026-11-01T22:21:48.458Z",
-   "sourceTitle": "Mazda Luce",
-   "section": "SU/SV series (1966–1973)",
-   "engines": [
-    {
-     "title": "Mazda C engine",
-     "name": "UB",
-     "variant": "UB",
-     "specs": {
-      "displacement": "1.5 L",
-      "layout": "I",
-      "cylinders": 4
-     },
-     "said": "1.5 L UB I4 (1500, \"SUA\")"
-    },
-    {
-     "title": "Mazda C engine",
-     "name": "VB",
-     "variant": "VB",
-     "specs": {
-      "displacement": "1.8 L",
-      "layout": "I",
-      "cylinders": 4
-     },
-     "said": "1.8 L VB I4 (1800, \"SVA\")"
-    },
-    {
-     "title": "Mazda Wankel engine",
-     "name": "13A",
-     "variant": "13A",
-     "specs": {
-      "displacement": "1.3 L"
-     },
-     "said": "1.3 L 13A Wankel engine (R130)"
-    }
-   ],
-   "unlinked": [],
-   "v": 7
-  },
-  "llm-m-mazda-luce-r130": {
-   "checkedAt": "2026-11-01T22:21:48.511Z",
-   "sourceTitle": "Mazda Luce",
-   "status": "no-engines",
-   "engines": [],
-   "unlinked": [],
-   "v": 7
-  },
-  "llm-m-mazda-luce-la2-la3": {
-   "checkedAt": "2026-11-01T22:21:48.512Z",
-   "sourceTitle": "Mazda Luce",
-   "section": "LA2/LA3 series (1972–1977)",
-   "engines": [
-    {
-     "title": "Mazda F engine",
-     "name": "VC",
-     "variant": "VC",
-     "specs": {
-      "displacement": "1769 cc",
-      "layout": "I",
-      "cylinders": 4
-     },
-     "said": "1769 cc VC I4 (LA2V)"
-    },
-    {
-     "title": "Mazda Wankel engine",
-     "name": "12A Wankel",
-     "variant": "12A",
-     "specs": {
-      "displacement": "1.2 L"
-     },
-     "said": "1.2 L 12A Wankel (LA22)"
-    },
-    {
-     "title": "Mazda Wankel engine",
-     "name": "13B Wankel",
-     "variant": "13B",
-     "specs": {
-      "displacement": "1.3 L"
-     },
-     "said": "1.3 L 13B Wankel"
-    }
-   ],
-   "unlinked": [],
-   "v": 7
-  },
-  "llm-m-mazda-luce-la4": {
-   "checkedAt": "2026-11-01T22:21:48.548Z",
-   "sourceTitle": "Mazda Luce",
-   "section": "LA4 series (1977–1981)",
-   "engines": [
-    {
-     "title": "Mazda C engine",
-     "name": "VC",
-     "variant": "VC",
-     "specs": {
-      "displacement": "1.8 L",
-      "layout": "I",
-      "cylinders": 4
-     },
-     "said": "1.8 L VC I4 (LA4V)"
-    },
-    {
-     "title": "Mazda F engine",
-     "name": "F/MA",
-     "variant": "MA",
-     "specs": {
-      "displacement": "2.0 L",
-      "layout": "I",
-      "cylinders": 4
-     },
-     "said": "2.0 L F/MA I4 (LA4M)"
-    },
-    {
-     "title": "Mazda Wankel engine",
-     "name": "12A Wankel",
-     "variant": "12A",
-     "specs": {
-      "displacement": "1.2 L"
-     },
-     "said": "1.2 L 12A Wankel (LA42)"
-    },
-    {
-     "title": "Mazda Wankel engine",
-     "name": "13B Wankel",
-     "variant": "13B",
-     "specs": {
-      "displacement": "1.3 L"
-     },
-     "said": "1.3 L 13B Wankel (LA43)"
-    },
-    {
-     "title": "Mazda diesel engines",
-     "name": "S2",
-     "variant": "Perkins",
-     "specs": {
-      "displacement": "2.2 L",
-      "layout": "I",
-      "cylinders": 4,
-      "fuel": "diesel"
-     },
-     "said": "2.2 L S2 diesel I4 (LA4S)"
-    }
-   ],
-   "unlinked": [],
-   "v": 7
-  },
-  "llm-m-mazda-luce-hb": {
-   "checkedAt": "2026-11-01T22:21:48.581Z",
-   "sourceTitle": "Mazda Luce",
-   "section": "HB series (1981–1986)",
-   "engines": [
-    {
-     "title": "Mazda C engine",
-     "name": "VC",
-     "variant": "VC",
-     "specs": {
-      "displacement": "1.8 L",
-      "layout": "I",
-      "cylinders": 4
-     },
-     "said": "1.8 L VC I4"
-    },
-    {
-     "title": "Mazda F engine",
-     "name": "FE",
-     "variant": "FE",
-     "specs": {
-      "displacement": "2.0 L",
-      "layout": "I",
-      "cylinders": 4
-     },
-     "said": "2.0 L FE I4"
-    },
-    {
-     "title": "Mazda Wankel engine",
-     "name": "12A Wankel",
-     "variant": "12A",
-     "specs": {
-      "displacement": "1146 cc"
-     },
-     "said": "1146 cc 12A Wankel"
-    },
-    {
-     "title": "Mazda Wankel engine",
-     "name": "13B Wankel",
-     "variant": "13B",
-     "specs": {
-      "displacement": "1308 cc"
-     },
-     "said": "1308 cc 13B Wankel"
-    },
-    {
-     "title": "Mazda diesel engines",
-     "name": "S2",
-     "variant": "Perkins",
-     "specs": {
-      "displacement": "2.2 L",
-      "layout": "I",
-      "cylinders": 4,
-      "fuel": "diesel"
-     },
-     "said": "2.2 L S2 diesel I4"
-    }
-   ],
-   "unlinked": [
-    {
-     "name": "2.0 L I4",
-     "specs": {
-      "displacement": "2.0 L",
-      "layout": "I",
-      "cylinders": 4
-     },
-     "said": "2.0 L F/MA I4"
-    }
-   ],
-   "v": 7
-  },
-  "llm-m-mazda-luce-hc": {
-   "checkedAt": "2026-11-01T22:21:48.615Z",
-   "sourceTitle": "Mazda Luce",
-   "section": "HC series (1986–1991)",
-   "engines": [
-    {
-     "title": "Mazda F engine",
-     "name": "FE",
-     "variant": "FE",
-     "specs": {
-      "displacement": "2.0 L",
-      "layout": "I",
-      "cylinders": 4
-     },
-     "said": "2.0 L FE I4"
-    },
-    {
-     "title": "Mazda J engine",
-     "name": "JF",
-     "variant": "JF",
-     "specs": {
-      "displacement": "2.0 L",
-      "layout": "V",
-      "cylinders": 6
-     },
-     "said": "2.0 L JF V6"
-    },
-    {
-     "title": "Mazda F engine",
-     "name": "F2",
-     "variant": "F2",
-     "specs": {
-      "displacement": "2.2 L",
-      "layout": "I",
-      "cylinders": 4
-     },
-     "said": "2.2 L F2 I4"
-    },
-    {
-     "title": "Mazda J engine",
-     "name": "JE",
-     "variant": "JE",
-     "specs": {
-      "displacement": "3.0 L",
-      "layout": "V",
-      "cylinders": 6
-     },
-     "said": "3.0 L JE V6"
-    },
-    {
-     "title": "Mazda Wankel engine",
-     "name": "13B",
-     "variant": "13B",
-     "specs": {
-      "displacement": "1.3 L",
-      "induction": "turbocharged"
-     },
-     "said": "1.3 L 13B turbo rotary"
-    }
-   ],
-   "unlinked": [],
-   "v": 7
-  },
-  "m-mazda-cosmo": {
-   "checkedAt": "2026-11-01T18:07:49.298Z",
-   "sourceTitle": null,
    "status": "no-engines",
    "engines": [],
    "unlinked": [],
@@ -1152334,170 +1153299,6 @@
       "cylinders": 4
      },
      "said": "1.8 L 2ZZ-GE VVTL-i I4 (ZZT231)"
-    }
-   ],
-   "unlinked": [],
-   "v": 7
-  },
-  "llm-m-nissan-200sx-csp311": {
-   "checkedAt": "2026-11-01T22:26:42.781Z",
-   "sourceTitle": null,
-   "status": "no-article",
-   "engines": [],
-   "unlinked": [],
-   "v": 7
-  },
-  "llm-m-nissan-200sx-s10": {
-   "checkedAt": "2026-11-01T22:26:42.781Z",
-   "sourceTitle": null,
-   "status": "no-article",
-   "engines": [],
-   "unlinked": [],
-   "v": 7
-  },
-  "llm-m-nissan-200sx-s11": {
-   "checkedAt": "2026-11-01T22:26:42.781Z",
-   "sourceTitle": null,
-   "status": "no-article",
-   "engines": [],
-   "unlinked": [],
-   "v": 7
-  },
-  "llm-m-nissan-200sx-s110": {
-   "checkedAt": "2026-11-01T22:26:42.781Z",
-   "sourceTitle": null,
-   "status": "no-article",
-   "engines": [],
-   "unlinked": [],
-   "v": 7
-  },
-  "llm-m-nissan-200sx-s12": {
-   "checkedAt": "2026-11-01T22:26:42.781Z",
-   "sourceTitle": null,
-   "status": "no-article",
-   "engines": [],
-   "unlinked": [],
-   "v": 7
-  },
-  "llm-m-nissan-200sx-s13": {
-   "checkedAt": "2026-11-01T22:26:42.781Z",
-   "sourceTitle": null,
-   "status": "no-article",
-   "engines": [],
-   "unlinked": [],
-   "v": 7
-  },
-  "llm-m-nissan-200sx-s14": {
-   "checkedAt": "2026-11-01T22:26:42.781Z",
-   "sourceTitle": null,
-   "status": "no-article",
-   "engines": [],
-   "unlinked": [],
-   "v": 7
-  },
-  "llm-m-nissan-200sx-s15": {
-   "checkedAt": "2026-11-01T22:26:42.781Z",
-   "sourceTitle": null,
-   "status": "no-article",
-   "engines": [],
-   "unlinked": [],
-   "v": 7
-  },
-  "llm-m-nissan-200sx-b14": {
-   "checkedAt": "2026-11-01T22:26:42.782Z",
-   "sourceTitle": null,
-   "status": "no-article",
-   "engines": [],
-   "unlinked": [],
-   "v": 7
-  },
-  "llm-m-nissan-200sx-n15": {
-   "checkedAt": "2026-11-01T22:26:42.782Z",
-   "sourceTitle": null,
-   "status": "no-article",
-   "engines": [],
-   "unlinked": [],
-   "v": 7
-  },
-  "llm-m-mazda-rx-7-fb-sa-fb": {
-   "checkedAt": "2026-11-01T18:07:51.124Z",
-   "sourceTitle": "Mazda RX-7",
-   "section": "First generation (SA, FB)",
-   "engines": [
-    {
-     "title": "Mazda Wankel engine",
-     "name": "12A",
-     "variant": "12A",
-     "specs": {
-      "displacement": "1146 cc"
-     },
-     "said": "1146 cc 12A twin-rotor"
-    },
-    {
-     "title": "Mazda Wankel engine",
-     "name": "12A",
-     "variant": "Turbo",
-     "specs": {
-      "displacement": "1146 cc",
-      "induction": "turbocharged"
-     },
-     "said": "1146 cc turbo 12A twin-rotor"
-    },
-    {
-     "title": "Mazda Wankel engine",
-     "name": "13B-RESI",
-     "variant": "13B-RESI",
-     "specs": {
-      "displacement": "1308 cc"
-     },
-     "said": "1308 cc 13B-RESI twin-rotor"
-    }
-   ],
-   "unlinked": [],
-   "v": 7
-  },
-  "llm-m-mazda-rx-7-fb-fc": {
-   "checkedAt": "2026-11-01T18:07:51.200Z",
-   "sourceTitle": "Mazda RX-7",
-   "section": "Second generation (FC)",
-   "engines": [
-    {
-     "title": "Mazda Wankel engine",
-     "name": "13B",
-     "variant": "13B-DEI",
-     "specs": {
-      "displacement": "1308 cc"
-     },
-     "said": "1308 cc 13B twin-rotor"
-    },
-    {
-     "title": "Mazda Wankel engine",
-     "name": "13B-T",
-     "variant": "13B-DEI",
-     "specs": {
-      "displacement": "1308 cc",
-      "induction": "turbocharged"
-     },
-     "said": "1308 cc 13B-T turbo twin-rotor"
-    }
-   ],
-   "unlinked": [],
-   "v": 7
-  },
-  "llm-m-mazda-rx-7-fb-fd": {
-   "checkedAt": "2026-11-01T18:07:51.233Z",
-   "sourceTitle": "Mazda RX-7",
-   "section": "Third generation (FD)",
-   "engines": [
-    {
-     "title": "Mazda Wankel engine",
-     "name": "13B-REW",
-     "variant": "13B-REW",
-     "specs": {
-      "displacement": "1308 cc",
-      "induction": "turbocharged"
-     },
-     "said": "1308 cc 13B-REW twin-turbo twin-rotor"
     }
    ],
    "unlinked": [],
@@ -1249627,6 +1250428,655 @@
    ],
    "unlinked": [],
    "v": 7
+  },
+  "llm-m-mazda-luce-su-sv": {
+   "checkedAt": "2026-11-02T07:41:09.851Z",
+   "sourceTitle": "Mazda Luce",
+   "section": "SU/SV series (1966–1973)",
+   "engines": [
+    {
+     "title": "Mazda C engine",
+     "name": "UB",
+     "variant": "UB",
+     "specs": {
+      "displacement": "1.5 L",
+      "layout": "I",
+      "cylinders": 4
+     },
+     "said": "1.5 L UB I4 (1500, \"SUA\")"
+    },
+    {
+     "title": "Mazda C engine",
+     "name": "VB",
+     "variant": "VB",
+     "specs": {
+      "displacement": "1.8 L",
+      "layout": "I",
+      "cylinders": 4
+     },
+     "said": "1.8 L VB I4 (1800, \"SVA\")"
+    },
+    {
+     "title": "Mazda Wankel engine",
+     "name": "13A",
+     "variant": "13A",
+     "specs": {
+      "displacement": "1.3 L"
+     },
+     "said": "1.3 L 13A Wankel engine (R130)"
+    }
+   ],
+   "unlinked": [],
+   "v": 7
+  },
+  "llm-m-mazda-luce-r130": {
+   "checkedAt": "2026-11-02T07:41:09.904Z",
+   "sourceTitle": "Mazda Luce",
+   "status": "no-engines",
+   "engines": [],
+   "unlinked": [],
+   "v": 7
+  },
+  "llm-m-mazda-luce-la2-la3": {
+   "checkedAt": "2026-11-02T07:41:09.905Z",
+   "sourceTitle": "Mazda Luce",
+   "section": "LA2/LA3 series (1972–1977)",
+   "engines": [
+    {
+     "title": "Mazda F engine",
+     "name": "VC",
+     "variant": "VC",
+     "specs": {
+      "displacement": "1769 cc",
+      "layout": "I",
+      "cylinders": 4
+     },
+     "said": "1769 cc VC I4 (LA2V)"
+    },
+    {
+     "title": "Mazda Wankel engine",
+     "name": "12A Wankel",
+     "variant": "12A",
+     "specs": {
+      "displacement": "1.2 L"
+     },
+     "said": "1.2 L 12A Wankel (LA22)"
+    },
+    {
+     "title": "Mazda Wankel engine",
+     "name": "13B Wankel",
+     "variant": "13B",
+     "specs": {
+      "displacement": "1.3 L"
+     },
+     "said": "1.3 L 13B Wankel"
+    }
+   ],
+   "unlinked": [],
+   "v": 7
+  },
+  "llm-m-mazda-luce-la4": {
+   "checkedAt": "2026-11-02T07:41:09.957Z",
+   "sourceTitle": "Mazda Luce",
+   "section": "LA4 series (1977–1981)",
+   "engines": [
+    {
+     "title": "Mazda C engine",
+     "name": "VC",
+     "variant": "VC",
+     "specs": {
+      "displacement": "1.8 L",
+      "layout": "I",
+      "cylinders": 4
+     },
+     "said": "1.8 L VC I4 (LA4V)"
+    },
+    {
+     "title": "Mazda F engine",
+     "name": "F/MA",
+     "variant": "MA",
+     "specs": {
+      "displacement": "2.0 L",
+      "layout": "I",
+      "cylinders": 4
+     },
+     "said": "2.0 L F/MA I4 (LA4M)"
+    },
+    {
+     "title": "Mazda Wankel engine",
+     "name": "12A Wankel",
+     "variant": "12A",
+     "specs": {
+      "displacement": "1.2 L"
+     },
+     "said": "1.2 L 12A Wankel (LA42)"
+    },
+    {
+     "title": "Mazda Wankel engine",
+     "name": "13B Wankel",
+     "variant": "13B",
+     "specs": {
+      "displacement": "1.3 L"
+     },
+     "said": "1.3 L 13B Wankel (LA43)"
+    },
+    {
+     "title": "Mazda diesel engines",
+     "name": "S2",
+     "variant": "Perkins",
+     "specs": {
+      "displacement": "2.2 L",
+      "layout": "I",
+      "cylinders": 4,
+      "fuel": "diesel"
+     },
+     "said": "2.2 L S2 diesel I4 (LA4S)"
+    }
+   ],
+   "unlinked": [],
+   "v": 7
+  },
+  "llm-m-mazda-luce-hb": {
+   "checkedAt": "2026-11-02T07:41:10.013Z",
+   "sourceTitle": "Mazda Luce",
+   "section": "HB series (1981–1986)",
+   "engines": [
+    {
+     "title": "Mazda C engine",
+     "name": "VC",
+     "variant": "VC",
+     "specs": {
+      "displacement": "1.8 L",
+      "layout": "I",
+      "cylinders": 4
+     },
+     "said": "1.8 L VC I4"
+    },
+    {
+     "title": "Mazda F engine",
+     "name": "FE",
+     "variant": "FE",
+     "specs": {
+      "displacement": "2.0 L",
+      "layout": "I",
+      "cylinders": 4
+     },
+     "said": "2.0 L FE I4"
+    },
+    {
+     "title": "Mazda Wankel engine",
+     "name": "12A Wankel",
+     "variant": "12A",
+     "specs": {
+      "displacement": "1146 cc"
+     },
+     "said": "1146 cc 12A Wankel"
+    },
+    {
+     "title": "Mazda Wankel engine",
+     "name": "13B Wankel",
+     "variant": "13B",
+     "specs": {
+      "displacement": "1308 cc"
+     },
+     "said": "1308 cc 13B Wankel"
+    },
+    {
+     "title": "Mazda diesel engines",
+     "name": "S2",
+     "variant": "Perkins",
+     "specs": {
+      "displacement": "2.2 L",
+      "layout": "I",
+      "cylinders": 4,
+      "fuel": "diesel"
+     },
+     "said": "2.2 L S2 diesel I4"
+    }
+   ],
+   "unlinked": [
+    {
+     "name": "2.0 L I4",
+     "specs": {
+      "displacement": "2.0 L",
+      "layout": "I",
+      "cylinders": 4
+     },
+     "said": "2.0 L F/MA I4"
+    }
+   ],
+   "v": 7
+  },
+  "llm-m-mazda-luce-hc": {
+   "checkedAt": "2026-11-02T07:41:10.082Z",
+   "sourceTitle": "Mazda Luce",
+   "section": "HC series (1986–1991)",
+   "engines": [
+    {
+     "title": "Mazda F engine",
+     "name": "FE",
+     "variant": "FE",
+     "specs": {
+      "displacement": "2.0 L",
+      "layout": "I",
+      "cylinders": 4
+     },
+     "said": "2.0 L FE I4"
+    },
+    {
+     "title": "Mazda J engine",
+     "name": "JF",
+     "variant": "JF",
+     "specs": {
+      "displacement": "2.0 L",
+      "layout": "V",
+      "cylinders": 6
+     },
+     "said": "2.0 L JF V6"
+    },
+    {
+     "title": "Mazda F engine",
+     "name": "F2",
+     "variant": "F2",
+     "specs": {
+      "displacement": "2.2 L",
+      "layout": "I",
+      "cylinders": 4
+     },
+     "said": "2.2 L F2 I4"
+    },
+    {
+     "title": "Mazda J engine",
+     "name": "JE",
+     "variant": "JE",
+     "specs": {
+      "displacement": "3.0 L",
+      "layout": "V",
+      "cylinders": 6
+     },
+     "said": "3.0 L JE V6"
+    },
+    {
+     "title": "Mazda Wankel engine",
+     "name": "13B",
+     "variant": "13B",
+     "specs": {
+      "displacement": "1.3 L",
+      "induction": "turbocharged"
+     },
+     "said": "1.3 L 13B turbo rotary"
+    }
+   ],
+   "unlinked": [],
+   "v": 7
+  },
+  "llm-m-mazda-929-su-sv": {
+   "checkedAt": "2026-11-02T07:41:57.877Z",
+   "sourceTitle": null,
+   "status": "no-article",
+   "engines": [],
+   "unlinked": [],
+   "v": 7
+  },
+  "llm-m-mazda-929-la2-la3": {
+   "checkedAt": "2026-11-02T07:41:57.878Z",
+   "sourceTitle": null,
+   "status": "no-article",
+   "engines": [],
+   "unlinked": [],
+   "v": 7
+  },
+  "llm-m-mazda-929-la4": {
+   "checkedAt": "2026-11-02T07:41:57.878Z",
+   "sourceTitle": "Mazda 929",
+   "status": "no-engines",
+   "engines": [],
+   "unlinked": [],
+   "v": 7
+  },
+  "llm-m-mazda-929-hb": {
+   "checkedAt": "2026-11-02T07:41:57.878Z",
+   "sourceTitle": "Mazda 929",
+   "status": "no-engines",
+   "engines": [],
+   "unlinked": [],
+   "v": 7
+  },
+  "llm-m-mazda-929-hc": {
+   "checkedAt": "2026-11-02T07:41:57.878Z",
+   "sourceTitle": "Mazda 929",
+   "status": "no-engines",
+   "engines": [],
+   "unlinked": [],
+   "v": 7
+  },
+  "llm-m-mazda-929-hd": {
+   "checkedAt": "2026-11-02T07:41:57.878Z",
+   "sourceTitle": "Mazda 929",
+   "status": "no-engines",
+   "engines": [],
+   "unlinked": [],
+   "v": 7
+  },
+  "llm-m-mazda-929-he": {
+   "checkedAt": "2026-11-02T07:41:57.878Z",
+   "sourceTitle": "Mazda 929",
+   "status": "no-engines",
+   "engines": [],
+   "unlinked": [],
+   "v": 7
+  },
+  "m-mazda-mx-5-na": {
+   "checkedAt": "2026-11-02T07:43:19.300Z",
+   "sourceTitle": "Mazda MX-5 (NA)",
+   "section": "First generation – NA (1989–1997)",
+   "engines": [
+    {
+     "title": "Mazda B engine",
+     "name": "B6ZE(RS)",
+     "variant": "B6ZE(RS)",
+     "specs": {
+      "displacement": "1597 cc",
+      "layout": "I",
+      "cylinders": 4
+     },
+     "said": "1,597 cc B6ZE(RS) DOHC I4"
+    },
+    {
+     "title": "Mazda B engine",
+     "name": "B6ZE(RS)",
+     "variant": "B6ZE(RS)",
+     "specs": {
+      "displacement": "1597 cc",
+      "layout": "I",
+      "cylinders": 4,
+      "induction": "supercharged"
+     },
+     "said": "1,597 cc B6ZE(RS) DOHC supercharged I4 (Mazdaspeed B-Spec)"
+    },
+    {
+     "title": "Mazda B engine",
+     "name": "BP",
+     "variant": "BP",
+     "specs": {
+      "displacement": "1839 cc",
+      "layout": "I",
+      "cylinders": 4
+     },
+     "said": "1,839 cc BP DOHC I4"
+    }
+   ],
+   "unlinked": [
+    {
+     "name": "1995 cc I4",
+     "specs": {
+      "displacement": "1995 cc",
+      "layout": "I",
+      "cylinders": 4
+     },
+     "said": "1,995 cc BP DOHC I4 (Mazdaspeed C-Spec)"
+    }
+   ],
+   "v": 7
+  },
+  "m-mazda-mx-5-nb": {
+   "checkedAt": "2026-11-02T07:43:19.755Z",
+   "sourceTitle": "Mazda MX-5 (NB)",
+   "section": "Second generation – NB (1998–2005)",
+   "engines": [
+    {
+     "title": "Mazda B engine",
+     "name": "B6-ZE",
+     "variant": "B6ZE(RS)",
+     "specs": {
+      "displacement": "1.6 L",
+      "layout": "I",
+      "cylinders": 4
+     },
+     "said": "1.6 L B6-ZE I4 (Europe/Japan)"
+    },
+    {
+     "title": "Mazda B engine",
+     "name": "BP-4W",
+     "variant": "BP-4W",
+     "specs": {
+      "displacement": "1.8 L",
+      "layout": "I",
+      "cylinders": 4
+     },
+     "said": "1.8 L BP-4W I4"
+    },
+    {
+     "title": "Mazda B engine",
+     "name": "BP-Z3",
+     "variant": "BP-Z3",
+     "specs": {
+      "displacement": "1.8 L",
+      "layout": "I",
+      "cylinders": 4
+     },
+     "said": "1.8 L BP-Z3 I4"
+    },
+    {
+     "title": "Mazda B engine",
+     "name": "BPT",
+     "variant": "BPT",
+     "specs": {
+      "displacement": "1.8 L",
+      "layout": "I",
+      "cylinders": 4,
+      "induction": "turbocharged"
+     },
+     "said": "1.8 L turbocharged BPT I4 (Mazdaspeed)"
+    }
+   ],
+   "unlinked": [
+    {
+     "name": "BP-5A · 1.8 L I4",
+     "specs": {
+      "displacement": "1.8 L",
+      "layout": "I",
+      "cylinders": 4
+     },
+     "said": "1.8 L BP-5A I4 (Japan)"
+    }
+   ],
+   "v": 7
+  },
+  "m-mazda-mx-5-nc": {
+   "checkedAt": "2026-11-02T07:43:20.397Z",
+   "sourceTitle": "Mazda MX-5 (NC)",
+   "section": "Third generation – NC (2005–2015)",
+   "engines": [
+    {
+     "title": "Mazda L engine",
+     "name": "MZR L8-DE",
+     "variant": "1.8 L (L8-DE, L8-VE)",
+     "specs": {
+      "displacement": "1.8 L",
+      "layout": "I",
+      "cylinders": 4
+     },
+     "said": "1.8 L MZR L8-DE DOHC I4 (Europe)"
+    },
+    {
+     "title": "Mazda L engine",
+     "name": "MZR LF-VE",
+     "variant": "2.0 L (LF-DE, LF-VE, LF-VD)",
+     "specs": {
+      "displacement": "2.0 L",
+      "layout": "I",
+      "cylinders": 4
+     },
+     "said": "2.0 L MZR LF-VE DOHC I4"
+    }
+   ],
+   "unlinked": [],
+   "v": 7
+  },
+  "m-mazda-mx-5-nd": {
+   "checkedAt": "2026-11-02T07:43:21.001Z",
+   "sourceTitle": "Mazda MX-5",
+   "status": "no-engines",
+   "engines": [],
+   "unlinked": [],
+   "v": 7
+  },
+  "llm-m-nissan-200sx-s10": {
+   "checkedAt": "2026-11-02T07:44:40.510Z",
+   "sourceTitle": null,
+   "status": "no-article",
+   "engines": [],
+   "unlinked": [],
+   "v": 7
+  },
+  "llm-m-nissan-200sx-s110": {
+   "checkedAt": "2026-11-02T07:44:40.510Z",
+   "sourceTitle": null,
+   "status": "no-article",
+   "engines": [],
+   "unlinked": [],
+   "v": 7
+  },
+  "llm-m-nissan-200sx-s12": {
+   "checkedAt": "2026-11-02T07:44:40.510Z",
+   "sourceTitle": null,
+   "status": "no-article",
+   "engines": [],
+   "unlinked": [],
+   "v": 7
+  },
+  "llm-m-nissan-200sx-s13": {
+   "checkedAt": "2026-11-02T07:44:40.510Z",
+   "sourceTitle": null,
+   "status": "no-article",
+   "engines": [],
+   "unlinked": [],
+   "v": 7
+  },
+  "llm-m-nissan-200sx-s14": {
+   "checkedAt": "2026-11-02T07:44:40.510Z",
+   "sourceTitle": null,
+   "status": "no-article",
+   "engines": [],
+   "unlinked": [],
+   "v": 7
+  },
+  "llm-m-nissan-200sx-b14": {
+   "checkedAt": "2026-11-02T07:44:40.510Z",
+   "sourceTitle": null,
+   "status": "no-article",
+   "engines": [],
+   "unlinked": [],
+   "v": 7
+  },
+  "llm-m-nissan-200sx-n15": {
+   "checkedAt": "2026-11-02T07:44:40.510Z",
+   "sourceTitle": null,
+   "status": "no-article",
+   "engines": [],
+   "unlinked": [],
+   "v": 7
+  },
+  "llm-m-nissan-200sx-s15": {
+   "checkedAt": "2026-11-02T07:44:40.510Z",
+   "sourceTitle": null,
+   "status": "no-article",
+   "engines": [],
+   "unlinked": [],
+   "v": 7
+  },
+  "llm-m-nissan-200sx-csp311": {
+   "checkedAt": "2026-11-02T07:44:40.510Z",
+   "sourceTitle": null,
+   "status": "no-article",
+   "engines": [],
+   "unlinked": [],
+   "v": 7
+  },
+  "llm-m-mazda-rx-7-fb-sa-fb": {
+   "checkedAt": "2026-11-02T07:45:21.777Z",
+   "sourceTitle": "Mazda RX-7",
+   "section": "First generation (SA, FB)",
+   "engines": [
+    {
+     "title": "Mazda Wankel engine",
+     "name": "12A",
+     "variant": "12A",
+     "specs": {
+      "displacement": "1146 cc"
+     },
+     "said": "1146 cc 12A twin-rotor"
+    },
+    {
+     "title": "Mazda Wankel engine",
+     "name": "12A",
+     "variant": "Turbo",
+     "specs": {
+      "displacement": "1146 cc",
+      "induction": "turbocharged"
+     },
+     "said": "1146 cc turbo 12A twin-rotor"
+    },
+    {
+     "title": "Mazda Wankel engine",
+     "name": "13B-RESI",
+     "variant": "13B-RESI",
+     "specs": {
+      "displacement": "1308 cc"
+     },
+     "said": "1308 cc 13B-RESI twin-rotor"
+    }
+   ],
+   "unlinked": [],
+   "v": 7
+  },
+  "llm-m-mazda-rx-7-fb-fc": {
+   "checkedAt": "2026-11-02T07:45:21.822Z",
+   "sourceTitle": "Mazda RX-7",
+   "section": "Second generation (FC)",
+   "engines": [
+    {
+     "title": "Mazda Wankel engine",
+     "name": "13B",
+     "variant": "13B-DEI",
+     "specs": {
+      "displacement": "1308 cc"
+     },
+     "said": "1308 cc 13B twin-rotor"
+    },
+    {
+     "title": "Mazda Wankel engine",
+     "name": "13B-T",
+     "variant": "13B-DEI",
+     "specs": {
+      "displacement": "1308 cc",
+      "induction": "turbocharged"
+     },
+     "said": "1308 cc 13B-T turbo twin-rotor"
+    }
+   ],
+   "unlinked": [],
+   "v": 7
+  },
+  "llm-m-mazda-rx-7-fb-fd": {
+   "checkedAt": "2026-11-02T07:45:21.866Z",
+   "sourceTitle": "Mazda RX-7",
+   "section": "Third generation (FD)",
+   "engines": [
+    {
+     "title": "Mazda Wankel engine",
+     "name": "13B-REW",
+     "variant": "13B-REW",
+     "specs": {
+      "displacement": "1308 cc",
+      "induction": "turbocharged"
+     },
+     "said": "1308 cc 13B-REW twin-turbo twin-rotor"
+    }
+   ],
+   "unlinked": [],
+   "v": 7
   }
  },
  "aliases": {
@@ -1257896,17 +1259346,17 @@
   "m-nissan-200sx": {
    "names": [],
    "from": "Nissan 200SX",
-   "checkedAt": "2026-11-01T22:26:42.781Z"
+   "checkedAt": "2026-11-02T07:44:40.510Z"
   },
   "llm-m-nissan-200sx-csp311": {
    "names": [],
    "from": null,
-   "checkedAt": "2026-11-01T22:26:42.781Z"
+   "checkedAt": "2026-11-02T07:44:40.510Z"
   },
   "llm-m-nissan-200sx-s10": {
    "names": [],
    "from": null,
-   "checkedAt": "2026-11-01T22:26:42.781Z"
+   "checkedAt": "2026-11-02T07:44:40.510Z"
   },
   "llm-m-nissan-200sx-s11": {
    "names": [],
@@ -1257916,37 +1259366,37 @@
   "llm-m-nissan-200sx-s110": {
    "names": [],
    "from": null,
-   "checkedAt": "2026-11-01T22:26:42.781Z"
+   "checkedAt": "2026-11-02T07:44:40.510Z"
   },
   "llm-m-nissan-200sx-s12": {
    "names": [],
    "from": null,
-   "checkedAt": "2026-11-01T22:26:42.781Z"
+   "checkedAt": "2026-11-02T07:44:40.510Z"
   },
   "llm-m-nissan-200sx-s13": {
    "names": [],
    "from": null,
-   "checkedAt": "2026-11-01T22:26:42.781Z"
+   "checkedAt": "2026-11-02T07:44:40.510Z"
   },
   "llm-m-nissan-200sx-s14": {
    "names": [],
    "from": null,
-   "checkedAt": "2026-11-01T22:26:42.781Z"
+   "checkedAt": "2026-11-02T07:44:40.510Z"
   },
   "llm-m-nissan-200sx-s15": {
    "names": [],
    "from": null,
-   "checkedAt": "2026-11-01T22:26:42.781Z"
+   "checkedAt": "2026-11-02T07:44:40.510Z"
   },
   "llm-m-nissan-200sx-b14": {
    "names": [],
    "from": null,
-   "checkedAt": "2026-11-01T22:26:42.782Z"
+   "checkedAt": "2026-11-02T07:44:40.510Z"
   },
   "llm-m-nissan-200sx-n15": {
    "names": [],
    "from": null,
-   "checkedAt": "2026-11-01T22:26:42.782Z"
+   "checkedAt": "2026-11-02T07:44:40.510Z"
   },
   "llm-m-holden-special-vehicles-vx": {
    "names": [
@@ -1269273,8 +1270723,8 @@
   },
   "m-mazda-cosmo": {
    "names": [],
-   "from": null,
-   "checkedAt": "2026-11-01T18:07:49.298Z"
+   "from": "Mazda Cosmo",
+   "checkedAt": "2026-11-02T07:38:18.083Z"
   },
   "m-hillman-gazelle": {
    "names": [],
@@ -1273549,28 +1274999,28 @@
     "Mazda ɛ̃fini RX-7 (Japan, 1991–1997)"
    ],
    "from": "Mazda RX-7",
-   "checkedAt": "2026-11-01T18:07:51.121Z"
+   "checkedAt": "2026-11-02T07:45:21.776Z"
   },
   "llm-m-mazda-rx-7-fb-sa-fb": {
    "names": [
     "Mazda Savanna RX-7"
    ],
    "from": "Mazda RX-7 § First generation (SA, FB)",
-   "checkedAt": "2026-11-01T18:07:51.124Z"
+   "checkedAt": "2026-11-02T07:45:21.777Z"
   },
   "llm-m-mazda-rx-7-fb-fc": {
    "names": [
     "Mazda Savanna RX-7"
    ],
    "from": "Mazda RX-7 § Second generation (FC)",
-   "checkedAt": "2026-11-01T18:07:51.200Z"
+   "checkedAt": "2026-11-02T07:45:21.822Z"
   },
   "llm-m-mazda-rx-7-fb-fd": {
    "names": [
     "ɛ̃fini RX-7 (Japan, 1991–1997)"
    ],
    "from": "Mazda RX-7 § Third generation (FD)",
-   "checkedAt": "2026-11-01T18:07:51.233Z"
+   "checkedAt": "2026-11-02T07:45:21.866Z"
   },
   "m-volvo-s40": {
    "names": [],
@@ -1282437,7 +1283887,7 @@
   "fam-mazda-mx-5": {
    "names": [],
    "from": "Mazda MX-5",
-   "checkedAt": "2026-11-01T23:11:46.736Z"
+   "checkedAt": "2026-11-02T07:43:18.941Z"
   },
   "m-mazda-mx-5-na": {
    "names": [
@@ -1282446,7 +1283896,7 @@
     "Mazda MX-5 Miata (North America)"
    ],
    "from": "Mazda MX-5 (NA)",
-   "checkedAt": "2026-11-01T23:11:47.148Z"
+   "checkedAt": "2026-11-02T07:43:19.300Z"
   },
   "m-mazda-mx-5-nb": {
    "names": [
@@ -1282455,7 +1283905,7 @@
     "Mazda MX-5 Miata (North America, 2003–2005)"
    ],
    "from": "Mazda MX-5 (NB)",
-   "checkedAt": "2026-11-01T23:11:47.595Z"
+   "checkedAt": "2026-11-02T07:43:19.755Z"
   },
   "m-mazda-mx-5-nc": {
    "names": [
@@ -1282463,12 +1283913,12 @@
     "Mazda MX-5 Miata (U.S.)"
    ],
    "from": "Mazda MX-5 (NC)",
-   "checkedAt": "2026-11-01T23:11:48.200Z"
+   "checkedAt": "2026-11-02T07:43:20.397Z"
   },
   "m-mazda-mx-5-nd": {
    "names": [],
    "from": null,
-   "checkedAt": "2026-11-01T23:11:48.833Z"
+   "checkedAt": "2026-11-02T07:43:21.001Z"
   },
   "m-fiat-pininfarina-cabriolet": {
    "names": [],
@@ -1287843,42 +1289293,42 @@
   "m-mazda-929": {
    "names": [],
    "from": "Mazda 929",
-   "checkedAt": "2026-11-01T22:21:06.497Z"
+   "checkedAt": "2026-11-02T07:41:57.877Z"
   },
   "llm-m-mazda-929-su-sv": {
    "names": [],
    "from": null,
-   "checkedAt": "2026-11-01T22:21:06.497Z"
+   "checkedAt": "2026-11-02T07:41:57.877Z"
   },
   "llm-m-mazda-929-la2-la3": {
    "names": [],
    "from": null,
-   "checkedAt": "2026-11-01T22:21:06.498Z"
+   "checkedAt": "2026-11-02T07:41:57.878Z"
   },
   "llm-m-mazda-929-la4": {
    "names": [],
    "from": null,
-   "checkedAt": "2026-11-01T22:21:06.498Z"
+   "checkedAt": "2026-11-02T07:41:57.878Z"
   },
   "llm-m-mazda-929-hb": {
    "names": [],
    "from": null,
-   "checkedAt": "2026-11-01T22:21:06.498Z"
+   "checkedAt": "2026-11-02T07:41:57.878Z"
   },
   "llm-m-mazda-929-hc": {
    "names": [],
    "from": null,
-   "checkedAt": "2026-11-01T22:21:06.498Z"
+   "checkedAt": "2026-11-02T07:41:57.878Z"
   },
   "llm-m-mazda-929-hd": {
    "names": [],
    "from": null,
-   "checkedAt": "2026-11-01T22:21:06.498Z"
+   "checkedAt": "2026-11-02T07:41:57.878Z"
   },
   "llm-m-mazda-929-he": {
    "names": [],
    "from": null,
-   "checkedAt": "2026-11-01T22:21:06.498Z"
+   "checkedAt": "2026-11-02T07:41:57.878Z"
   },
   "m-mazda-cx-80": {
    "names": [],
@@ -1297665,7 +1299115,7 @@
     "Mazda 929 (export markets)"
    ],
    "from": "Mazda Luce",
-   "checkedAt": "2026-11-01T22:21:48.456Z"
+   "checkedAt": "2026-11-02T07:41:09.850Z"
   },
   "llm-m-mazda-luce-su-sv": {
    "names": [
@@ -1297674,12 +1299124,12 @@
     "Mazda R130"
    ],
    "from": "Mazda Luce § SU/SV series (1966–1973)",
-   "checkedAt": "2026-11-01T22:21:48.458Z"
+   "checkedAt": "2026-11-02T07:41:09.851Z"
   },
   "llm-m-mazda-luce-r130": {
    "names": [],
    "from": null,
-   "checkedAt": "2026-11-01T22:21:48.511Z"
+   "checkedAt": "2026-11-02T07:41:09.904Z"
   },
   "llm-m-mazda-luce-la2-la3": {
    "names": [
@@ -1297687,7 +1299137,7 @@
     "Mazda RX-4"
    ],
    "from": "Mazda Luce § LA2/LA3 series (1972–1977)",
-   "checkedAt": "2026-11-01T22:21:48.512Z"
+   "checkedAt": "2026-11-02T07:41:09.905Z"
   },
   "llm-m-mazda-luce-la4": {
    "names": [
@@ -1297698,7 +1299148,7 @@
     "Haima HMC6470L (China)"
    ],
    "from": "Mazda Luce § LA4 series (1977–1981)",
-   "checkedAt": "2026-11-01T22:21:48.548Z"
+   "checkedAt": "2026-11-02T07:41:09.957Z"
   },
   "llm-m-mazda-luce-hb": {
    "names": [
@@ -1297707,7 +1299157,7 @@
     "Mazda Cosmo"
    ],
    "from": "Mazda Luce § HB series (1981–1986)",
-   "checkedAt": "2026-11-01T22:21:48.581Z"
+   "checkedAt": "2026-11-02T07:41:10.013Z"
   },
   "llm-m-mazda-luce-hc": {
    "names": [
@@ -1297715,7 +1299165,7 @@
     "Kia Potentia"
    ],
    "from": "Mazda Luce § HC series (1986–1991)",
-   "checkedAt": "2026-11-01T22:21:48.615Z"
+   "checkedAt": "2026-11-02T07:41:10.082Z"
   },
   "llm-related-volkswagen-group-meb": {
    "names": [],
@@ -1300944,6 +1302394,36 @@
    "names": [],
    "from": null,
    "checkedAt": "2026-11-02T07:34:01.711Z"
+  },
+  "llm-m-mazda-cosmo-l10a-l10b": {
+   "names": [],
+   "from": null,
+   "checkedAt": "2026-11-02T07:38:18.088Z"
+  },
+  "llm-m-mazda-cosmo-cd": {
+   "names": [
+    "Mazda RX-5",
+    "Mazda 121"
+   ],
+   "from": "Mazda Cosmo § Series CD (1975–1981)",
+   "checkedAt": "2026-11-02T07:38:18.158Z"
+  },
+  "llm-m-mazda-cosmo-hb": {
+   "names": [
+    "Mazda 929 (1982–1986)"
+   ],
+   "from": "Mazda Cosmo § Series HB (1981–1989)",
+   "checkedAt": "2026-11-02T07:38:18.214Z"
+  },
+  "llm-m-mazda-cosmo-jc": {
+   "names": [],
+   "from": null,
+   "checkedAt": "2026-11-02T07:38:18.267Z"
+  },
+  "llm-m-mazda-cosmo-cosmo-21-concept": {
+   "names": [],
+   "from": null,
+   "checkedAt": "2026-11-02T07:38:18.319Z"
   }
  },
  "prunedDecisions": {
@@ -1303685,12 +1305165,12 @@
   "relations|llm-related-fiat-100-series-engine|llm-related-seat-800|platform": {
    "what": "connection you decided",
    "label": "Fiat 100 series engine ↔ llm-related-seat-800 (platform, confirmed)",
-   "prunedAt": "2026-10-14T02:06:22.827Z"
+   "prunedAt": "2026-11-02T07:37:37.105Z"
   },
   "relations|llm-related-fiat-100-series-engine|llm-related-fiat-850t|platform": {
    "what": "connection you decided",
    "label": "Fiat 100 series engine ↔ llm-related-fiat-850t (platform, confirmed)",
-   "prunedAt": "2026-10-14T02:06:22.827Z"
+   "prunedAt": "2026-11-02T07:37:37.105Z"
   },
   "relations|llm-related-fiat-100-series-engine|llm-related-fiat-850-sport-spider|platform": {
    "what": "connection you decided",
@@ -1303700,7 +1305180,7 @@
   "relations|llm-related-fiat-100-series-engine|llm-related-fiat-900t|platform": {
    "what": "connection you decided",
    "label": "Fiat 100 series engine ↔ llm-related-fiat-900t (platform, confirmed)",
-   "prunedAt": "2026-10-14T02:06:22.827Z"
+   "prunedAt": "2026-11-02T07:37:37.105Z"
   },
   "relations|llm-related-fiat-100-series-engine|llm-related-fiat-uno-45|platform": {
    "what": "connection you decided",
@@ -1303710,7 +1305190,7 @@
   "relations|llm-related-fiat-100-series-engine|llm-related-zastava-600|platform": {
    "what": "connection you decided",
    "label": "Fiat 100 series engine ↔ llm-related-zastava-600 (platform, confirmed)",
-   "prunedAt": "2026-10-14T02:06:22.827Z"
+   "prunedAt": "2026-11-02T07:37:37.105Z"
   },
   "relations|llm-related-fiat-100-series-engine|llm-related-fiat-600t|platform": {
    "what": "connection you decided",
@@ -1303730,7 +1305210,7 @@
   "relations|llm-related-fiat-100-series-engine|llm-related-seat-ibiza-junior|platform": {
    "what": "connection you decided",
    "label": "Fiat 100 series engine ↔ llm-related-seat-ibiza-junior (platform, confirmed)",
-   "prunedAt": "2026-10-14T02:06:22.827Z"
+   "prunedAt": "2026-11-02T07:37:37.105Z"
   },
   "relations|llm-related-fiat-100-series-engine|llm-related-fiat-770-coupe-vignale|platform": {
    "what": "connection you decided",
@@ -1303740,7 +1305220,7 @@
   "relations|llm-related-fiat-100-series-engine|llm-related-seat-trans|platform": {
    "what": "connection you decided",
    "label": "Fiat 100 series engine ↔ llm-related-seat-trans (platform, confirmed)",
-   "prunedAt": "2026-10-14T02:06:22.827Z"
+   "prunedAt": "2026-11-02T07:37:37.105Z"
   },
   "relations|llm-related-volkswagen-teramont|m-volkswagen-viloran|platform": {
    "what": "connection you decided",
@@ -1308636,15 +1310116,25 @@
    "what": "connection you decided",
    "label": "Suzuki Vitara ↔ llm-related-santana-300 (platform, confirmed)",
    "prunedAt": "2026-11-02T07:20:57.737Z"
+  },
+  "relations|llm-m-lancia-ypsilon-type-843|llm-related-fiat-b|platform": {
+   "what": "connection you decided",
+   "label": "Lancia Ypsilon ↔ llm-related-fiat-b (platform, confirmed)",
+   "prunedAt": "2026-11-02T07:37:37.105Z"
+  },
+  "relations|llm-m-lancia-ypsilon-type-l21|llm-related-common-modular|platform": {
+   "what": "connection you decided",
+   "label": "Lancia Ypsilon ↔ llm-related-common-modular (platform, confirmed)",
+   "prunedAt": "2026-11-02T07:37:37.105Z"
   }
  },
  "jobs": [],
  "lastJob": {
-  "id": "job-mvyxjrmm-0anub",
+  "id": "job-mvyy56vi-1mrtp",
   "kind": "node-check",
-  "targetId": "m-fiat-panda",
-  "label": "Fiat Panda",
-  "finishedAt": "2026-11-02T07:22:37.594Z",
+  "targetId": "m-mazda-cosmo",
+  "label": "Mazda Cosmo",
+  "finishedAt": "2026-11-02T07:38:20.016Z",
   "state": "done",
   "summary": ""
  },
@@ -1310025,7 +1311515,10 @@
   "Suzuki Santana": "Suzuki Jimny",
   "Suzuki Stockman": "Suzuki Jimny",
   "Italdesign Giugiaro S.p.A.": "Italdesign Giugiaro",
-  "Modular": "Module"
+  "Modular": "Module",
+  "Mazda RX-4": "Mazda Luce",
+  "Mazda RX-9": "Mazda Luce",
+  "Mazda 2000": "Mazda Luce"
  },
  "pendingCascade": {},
  "fullScan": null,
