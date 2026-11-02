@@ -4416,7 +4416,9 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
   // exactly as the session did.
   function headingsOf(wikitext) {
     const out = [];
-    const re = /^(={2,6})\s*(.+?)\s*\1\s*$/gm;
+    // A comment after the closing "==" is not part of the line: the Type 2's
+    // "Second generation (T2; 1967)" carries one, and went unread.
+    const re = /^(={2,6})\s*(.+?)\s*\1\s*(?:<!--.*?-->\s*)*$/gm;
     let m;
     while ((m = re.exec(String(wikitext || "")))) {
       const text = m[2].replace(/\[\[(?:[^\]|]*\|)?([^\]]*)\]\]/g, "$1").replace(/'{2,}/g, "")
@@ -4437,7 +4439,7 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
   const FUTURE_TEXT_RE = /\b(?:upcoming|planned|forthcoming|yet to be (?:released|launched)|will (?:be (?:launched|introduced|released|unveiled|revealed|built|produced|sold)|go on sale|enter production)|(?:is|are) (?:expected|scheduled|due|set|slated) to|expected (?:in|to (?:be|go|enter|arrive|launch))|due (?:in|for|to (?:hit|arrive|launch|go|enter|be))|scheduled for|slated for|next[- ]generation)\b/i;
   function sectionTexts(wikitext) {
     const out = [];
-    const re = /^(={2,6})\s*(.+?)\s*\1\s*$/gm;
+    const re = /^(={2,6})\s*(.+?)\s*\1\s*(?:<!--.*?-->\s*)*$/gm;
     const text = String(wikitext || "");
     let m, prev = null;
     while ((m = re.exec(text))) {
@@ -4475,6 +4477,7 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
     return generations;
   }
   const OUTSIDE_HEADING_RE = /\b(?:other uses|further use|related|see also|concepts?|derivatives|spin-?offs?|references|notes|external links|further reading|bibliography)\b/i;
+  const ORDINAL_HEADING_RE = /^(?:first|second|third|fourth|fifth|sixth|seventh|eighth|ninth|tenth)\s+generation\s*(?:\(\s*(?:1[89]|20)\d{2}[^()a-z]*\))?\s*$/i;
   const GENERATION_HEADING_RE = /\bgeneration\b|\b(?:mk|mark)\s*[ivx\d]+\b|\(\s*(?:1[89]|20)\d{2}|\b(?:1[89]|20)\d{2}\s*[–-]/i;
   function headingYears(text) {
     const m = String(text).match(/\b(1[89]\d{2}|20\d{2})\b(?:\s*[–-]\s*(1[89]\d{2}|20\d{2}|\d{2}\b))?/);
@@ -4610,8 +4613,11 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
       if (paired[i]) return;
       const k = bestHeading(gens, own(g.code), g.yearStart, g.yearEnd, shared);
       // Years alone do not make a heading stand for a new entry: the Lancer's
-      // "GS platform" shares its years with a generation's heading.
-      if (k < 0 || !headingEvidence(gens[k], own(g.code), g.yearStart, g.yearEnd, shared).named) {
+      // "GS platform" shares its years with a generation's heading. They do for
+      // a heading that names nothing but its place in the order, which no code
+      // could match: the CR-V's "Second generation (2002)" for "RD4-RD9, 2001-2006".
+      if (k < 0 || !(headingEvidence(gens[k], own(g.code), g.yearStart, g.yearEnd, shared).named ||
+                     (ORDINAL_HEADING_RE.test(gens[k].text) && !/\bplatform\b/i.test(g.code) && headingScore(gens[k], own(g.code), g.yearStart, g.yearEnd, shared) >= 2))) {
         skip.push({ code: g.code, why: "no generation-level section of its own in the article" });
         return;
       }
@@ -11615,15 +11621,16 @@ Rules:
       if (store.unmergedDuplicates[fam.id + "|" + dup.id]) return;
       // Real user report: the Boxster and Cayman listed its own overview
       // page as a fifth "generation" running 1996 to now. An umbrella article
-      // is an earlier era only when it starts BEFORE the nameplate's first
-      // generation (Aston Martin's 1972 Vantage, the 1963 Porsche 911). One
-      // that starts with or after it is the overview of the generations
-      // already there -- the Corolla's 1966-1970 is its E10, the Audi R8's
-      // 2006-2024 is both of its generations -- and it is folded into the
-      // nameplate itself rather than listed beside them.
+      // is an earlier era only when it starts well before the nameplate's first
+      // generation (Aston Martin's 1972 Vantage). One that starts with or after
+      // it, or a year before it, is the overview of the generations already
+      // there -- the Corolla's 1966-1970 is its E10, the Audi R8's 2006-2024 is
+      // both of its generations, the Porsche 911's 1963 is the 911 (classic)
+      // shown that year -- and it is folded into the nameplate itself rather
+      // than listed beside them.
       const firstGen = Math.min(...(fam.generations || []).map(id => byIdLocal.get(id))
         .filter(g => g && !g.retired && g !== dup && g.year != null).map(g => g.year));
-      if (Number.isFinite(firstGen) && !(dup.year != null && dup.year < firstGen)) {
+      if (Number.isFinite(firstGen) && !(dup.year != null && dup.year < firstGen - 1)) {
         supersedeStandalone(nodes, links, dup, fam, fam.id, `${fam.make} ${fam.label}`);
         if (!fam.wp && dup.wp) fam.wp = dup.wp;
         if (dup.db) fam.db = true;
@@ -18767,7 +18774,7 @@ Rules:
     refreshGenerationImages,
     setDecisionSource, decisionSource: () => decisionSource,
     resolveWeakRelations, makeRelationship, weakProposalRejection,
-    additiveRecheck, diffGenerationCodes, pairFreshGenerations,
+    additiveRecheck, diffGenerationCodes, pairFreshGenerations, headingsOf,
     resolvePendingOwnGenerations, ownGenerationCode, sameArticleOwner,
     placeInCascade, cascadeDepthOf: id => depthOf(id), ownCodeShape, foldUmbrellaModels,
     schedulePartnerCheck, cascadeDepthIn,
