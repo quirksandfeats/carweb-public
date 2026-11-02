@@ -274,6 +274,10 @@ window.CarWeb = (function () {
       LFam.applyResolvedRelations(nodes, links, { deferDecisions: true });
       if (nodes.length === nb && links.length === lb) break;
     }
+    // A nameplate another car's replay brought in late has no fold at the top:
+    // the Jaguar XJ6, on the Jaguar XJ's own article, stood beside it with every
+    // generation twice.
+    if (LFam.foldBuildFamiliesIntoLlmFamilies) LFam.foldBuildFamiliesIntoLlmFamilies(nodes, links);
     // Waiting relationships are decided by rule now, and only now: on the
     // finished graph. Decided before the passes above had made the cars that
     // arrive late, three of them were dropped on every load because "one of

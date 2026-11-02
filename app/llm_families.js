@@ -2709,6 +2709,9 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
     Object.keys(store.recheck || {}).forEach(id => {
       const fam = byIdLocal.get(id);
       if (!fam) return;
+      // A failed read of a nameplate that has since been folded into another
+      // cannot be retried: nothing is left to scan.
+      if (fam.retired && fam.supersededBy && store.recheck[id] && store.recheck[id].status === "error") { delete store.recheck[id]; n++; return; }
       const gens = (fam.generations || []).map(g => byIdLocal.get(g)).filter(g => g && !g.retired);
       if (settleIfUnchanged(fam, gens, store.recheck[id], nodes)) n++;
     });
@@ -11573,12 +11576,24 @@ Rules:
         }
         const twin = lGens.find(g => (g.wp && m.wp && articleKeyOf(g.wp) === articleKeyOf(m.wp) && articleKeyOf(g.wp) !== key) ||
                                      (codeOf(m) && codeOf(m) === codeOf(g)));
-        if (twin) supersedeStandalone(nodes, links, m, twin, L.id, `${L.make} ${L.label}`);
+        if (twin) {
+          // The member has the generation's own article; the twin only the nameplate's.
+          if (m.wp && articleKeyOf(m.wp) !== key && (!twin.wp || articleKeyOf(twin.wp) === key)) twin.wp = m.wp;
+          supersedeStandalone(nodes, links, m, twin, L.id, `${L.make} ${L.label}`);
+        }
       }
       F.retired = true;
       F.supersededBy = L.id;
       F.retiredReason = `the same nameplate as ${L.make} ${L.label}`;
       supersedeStandaloneLinksOnly(links, F.id, L.id);
+      // The one named after the article gives the name: "Jaguar XJ", not the
+      // "XJ6" a mention minted. A rename by hand stays.
+      if (!store.renames[L.id] && norm(`${F.make} ${F.label}`) === key && norm(`${L.make} ${L.label}`) !== key) {
+        const old = L.label;
+        L.label = F.label;
+        lGens.forEach(g => { if (String(g.label).startsWith(old + " ")) g.label = F.label + g.label.slice(old.length); });
+        namesChanged();
+      }
       // Both nameplates credited the same people; one credit each is enough.
       const seenCredit = new Set();
       for (let i = 0; i < links.length; i++) {
