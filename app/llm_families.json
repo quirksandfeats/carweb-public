@@ -191032,18 +191032,30 @@
    "cascadeDiscovered": true
   },
   "m-volkswagen-id-buzz": {
-   "status": "none",
-   "checkedAt": "2026-10-15T12:41:31.884Z",
+   "status": "confirmed",
+   "checkedAt": "2026-11-02T09:00:55.089Z",
    "sourceTitle": "Volkswagen ID. Buzz",
    "proposal": {
-    "hasMultipleGenerations": false,
+    "hasMultipleGenerations": true,
     "generations": [
      {
-      "code": "Volkswagen ID. Buzz",
-      "yearStart": 2022,
+      "code": "ID. Buzz (concept)",
+      "yearStart": 2017,
       "yearEnd": null,
       "designers": [
        "Einar Castillo"
+      ],
+      "engineers": [],
+      "wikiFile": "Volkswagen press conference, IAA 2017, Frankfurt (1Y7A2075).jpg",
+      "sharedPlatforms": []
+     },
+     {
+      "code": "ID. Buzz (production)",
+      "yearStart": 2022,
+      "yearEnd": null,
+      "designers": [
+       "Einar Castillo",
+       "Klaus Zyciora"
       ],
       "engineers": [],
       "wikiFile": "Volkswagen ID. Buzz 1X7A6263.jpg",
@@ -191055,14 +191067,25 @@
    "feedback": [],
    "debug": {
     "raw": {
-     "hasMultipleGenerations": false,
+     "hasMultipleGenerations": true,
      "generations": [
       {
-       "code": "Volkswagen ID. Buzz",
-       "yearStart": 2022,
+       "code": "ID. Buzz (concept)",
+       "yearStart": 2017,
        "yearEnd": null,
        "designers": [
         "Einar Castillo"
+       ],
+       "engineers": [],
+       "sharedPlatforms": []
+      },
+      {
+       "code": "ID. Buzz (production)",
+       "yearStart": 2022,
+       "yearEnd": null,
+       "designers": [
+        "Einar Castillo",
+        "Klaus Zyciora"
        ],
        "engineers": [],
        "sharedPlatforms": []
@@ -191071,7 +191094,15 @@
     },
     "dropped": []
    },
-   "cascadeDiscovered": true
+   "cascadeDiscovered": true,
+   "decidedBy": "agent",
+   "decidedAt": "2026-11-02T09:00:55.089Z",
+   "allDesigners": [
+    "Einar Castillo",
+    "Klaus Zyciora"
+   ],
+   "allEngineers": [],
+   "outsidersV": 2
   },
   "m-volkswagen-id-3": {
    "status": "none",
@@ -276972,8 +277003,8 @@
   },
   "llm-m-nissan-micra-k14|llm-m-nissan-note-e12|platform": {
    "status": "confirmed",
-   "checkedAt": "2026-11-02T08:44:04.087Z",
-   "decidedAt": "2026-11-02T08:44:04.087Z",
+   "checkedAt": "2026-11-02T08:57:23.104Z",
+   "decidedAt": "2026-11-02T08:57:23.104Z",
    "famA": "m-nissan-note",
    "famB": "m-nissan-micra",
    "relType": "platform",
@@ -318898,8 +318929,8 @@
   },
   "llm-llm-related-daewoo-veritas-wn|llm-m-chevrolet-caprice-sixth-generation|platform": {
    "status": "confirmed",
-   "checkedAt": "2026-11-02T08:44:09.807Z",
-   "decidedAt": "2026-11-02T08:44:09.807Z",
+   "checkedAt": "2026-11-02T08:57:28.836Z",
+   "decidedAt": "2026-11-02T08:57:28.836Z",
    "famA": "llm-related-daewoo-veritas",
    "famB": "m-chevrolet-caprice",
    "relType": "platform",
@@ -435332,8 +435363,8 @@
   },
   "llm-llm-related-ford-contour-mk-i-mk-ii|llm-m-mercury-cougar-seventh-generation|platform": {
    "status": "confirmed",
-   "checkedAt": "2026-11-02T08:44:10.361Z",
-   "decidedAt": "2026-11-02T08:44:10.361Z",
+   "checkedAt": "2026-11-02T08:57:29.378Z",
+   "decidedAt": "2026-11-02T08:57:29.378Z",
    "famA": "llm-related-ford-contour",
    "famB": "m-mercury-cougar",
    "relType": "platform",
@@ -461903,8 +461934,8 @@
   },
   "llm-llm-related-volkswagen-alltrack-b6|llm-m-skoda-superb-b6-3t|platform": {
    "status": "confirmed",
-   "checkedAt": "2026-11-02T08:44:13.117Z",
-   "decidedAt": "2026-11-02T08:44:13.117Z",
+   "checkedAt": "2026-11-02T08:57:32.158Z",
+   "decidedAt": "2026-11-02T08:57:32.158Z",
    "famA": "llm-related-volkswagen-alltrack",
    "famB": "m-skoda-superb",
    "relType": "platform",
@@ -464495,8 +464526,8 @@
   },
   "llm-m-lincoln-custom-lincoln-custom-1941|llm-m-lincoln-lincoln-zephyr-lincoln-h-series|platform": {
    "status": "confirmed",
-   "checkedAt": "2026-11-02T08:44:06.597Z",
-   "decidedAt": "2026-11-02T08:44:06.597Z",
+   "checkedAt": "2026-11-02T08:57:25.599Z",
+   "decidedAt": "2026-11-02T08:57:25.599Z",
    "famA": "m-lincoln-custom",
    "famB": "m-lincoln-lincoln-zephyr",
    "relType": "platform",
@@ -494356,8 +494387,8 @@
   },
   "llm-m-mitsubishi-3000gt-z16a|llm-m-mitsubishi-sigma-first-generation|platform": {
    "status": "confirmed",
-   "checkedAt": "2026-11-02T08:44:06.978Z",
-   "decidedAt": "2026-11-02T08:44:06.978Z",
+   "checkedAt": "2026-11-02T08:57:25.982Z",
+   "decidedAt": "2026-11-02T08:57:25.982Z",
    "famA": "m-mitsubishi-sigma",
    "famB": "m-mitsubishi-3000gt",
    "relType": "platform",
@@ -500138,8 +500169,8 @@
   },
   "llm-m-toyota-sienta-xp170|llm-m-toyota-yaris-xp210|platform": {
    "status": "confirmed",
-   "checkedAt": "2026-11-02T08:44:09.936Z",
-   "decidedAt": "2026-11-02T08:44:09.936Z",
+   "checkedAt": "2026-11-02T08:57:28.963Z",
+   "decidedAt": "2026-11-02T08:57:28.963Z",
    "famA": "m-toyota-yaris",
    "famB": "m-toyota-sienta",
    "relType": "platform",
@@ -500152,8 +500183,8 @@
   },
   "llm-m-dodge-colt-first-generation|llm-m-mitsubishi-galant-first-generation|platform": {
    "status": "confirmed",
-   "checkedAt": "2026-11-02T08:44:10.902Z",
-   "decidedAt": "2026-11-02T08:44:10.902Z",
+   "checkedAt": "2026-11-02T08:57:29.931Z",
+   "decidedAt": "2026-11-02T08:57:29.931Z",
    "famA": "m-dodge-colt",
    "famB": "m-mitsubishi-galant",
    "relType": "platform",
@@ -500166,8 +500197,8 @@
   },
   "llm-m-dodge-colt-second-generation|llm-m-mitsubishi-galant-third-generation|platform": {
    "status": "confirmed",
-   "checkedAt": "2026-11-02T08:44:10.903Z",
-   "decidedAt": "2026-11-02T08:44:10.903Z",
+   "checkedAt": "2026-11-02T08:57:29.931Z",
+   "decidedAt": "2026-11-02T08:57:29.931Z",
    "famA": "m-dodge-colt",
    "famB": "m-mitsubishi-galant",
    "relType": "platform",
@@ -500419,8 +500450,8 @@
   },
   "llm-m-mazda-cx-5-kf|m-mazda-6-third-generation|platform": {
    "status": "confirmed",
-   "checkedAt": "2026-11-02T08:44:20.471Z",
-   "decidedAt": "2026-11-02T08:44:20.471Z",
+   "checkedAt": "2026-11-02T08:57:39.596Z",
+   "decidedAt": "2026-11-02T08:57:39.596Z",
    "famA": "fam-mazda-6",
    "famB": "m-mazda-cx-5",
    "relType": "platform",
@@ -505049,34 +505080,6 @@
    "reason": "matched automatically (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
    "llmDiscovered": true
   },
-  "llm-m-suzuki-ertiga-nc|m-suzuki-ciaz|platform": {
-   "status": "confirmed",
-   "checkedAt": "2026-11-02T08:44:08.438Z",
-   "decidedAt": "2026-11-02T08:44:08.438Z",
-   "famA": "m-suzuki-ciaz",
-   "famB": "m-suzuki-ertiga",
-   "relType": "platform",
-   "codeA": "Ciaz",
-   "codeB": "Ertiga NC",
-   "genIdA": "m-suzuki-ciaz",
-   "genIdB": "llm-m-suzuki-ertiga-nc",
-   "reason": "matched automatically -- the nameplate was named exactly in the source text; no text says which, so the generation whose years fit this one best",
-   "llmDiscovered": true
-  },
-  "llm-m-lancia-stratos-stratos-zero|m-lancia-rally-037|platform": {
-   "status": "confirmed",
-   "checkedAt": "2026-11-02T08:44:08.816Z",
-   "decidedAt": "2026-11-02T08:44:08.816Z",
-   "famA": "m-lancia-rally-037",
-   "famB": "m-lancia-stratos",
-   "relType": "platform",
-   "codeA": "Rally 037",
-   "codeB": "Stratos Zero",
-   "genIdA": "m-lancia-rally-037",
-   "genIdB": "llm-m-lancia-stratos-stratos-zero",
-   "reason": "matched automatically -- the nameplate was named exactly in the source text; no text says which, so the generation whose years fit this one best",
-   "llmDiscovered": true
-  },
   "llm-related-daihatsu-gran-max|llm-related-mazda-bongo-brawny|platform": {
    "status": "confirmed",
    "checkedAt": "2026-11-02T08:44:09.152Z",
@@ -505203,34 +505206,6 @@
    "reason": "matched automatically (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
    "llmDiscovered": true
   },
-  "llm-llm-related-oldsmobile-starfire-concept-car|m-chevrolet-vega|platform": {
-   "status": "confirmed",
-   "checkedAt": "2026-11-02T08:44:11.524Z",
-   "decidedAt": "2026-11-02T08:44:11.524Z",
-   "famA": "m-chevrolet-vega",
-   "famB": "llm-related-oldsmobile-starfire",
-   "relType": "platform",
-   "codeA": "Vega",
-   "codeB": "Starfire Concept car",
-   "genIdA": "m-chevrolet-vega",
-   "genIdB": "llm-llm-related-oldsmobile-starfire-concept-car",
-   "reason": "matched automatically -- the nameplate was named exactly in the source text; no text says which, so the generation whose years fit this one best",
-   "llmDiscovered": true
-  },
-  "llm-llm-related-mitsubishi-minicab-miev-seventh-generation|m-mitsubishi-i-miev|platform": {
-   "status": "confirmed",
-   "checkedAt": "2026-11-02T08:44:11.535Z",
-   "decidedAt": "2026-11-02T08:44:11.535Z",
-   "famA": "m-mitsubishi-i-miev",
-   "famB": "llm-related-mitsubishi-minicab-miev",
-   "relType": "platform",
-   "codeA": "i-MiEV",
-   "codeB": "Minicab MiEV Seventh generation",
-   "genIdA": "m-mitsubishi-i-miev",
-   "genIdB": "llm-llm-related-mitsubishi-minicab-miev-seventh-generation",
-   "reason": "matched automatically -- the nameplate was named exactly in the source text; no text says which, so the generation whose years fit this one best",
-   "llmDiscovered": true
-  },
   "llm-llm-related-mazda-bongo-brawny-bongo-brawny|llm-related-daihatsu-gran-max|platform": {
    "status": "confirmed",
    "checkedAt": "2026-11-02T08:44:11.540Z",
@@ -505243,20 +505218,6 @@
    "genIdA": "llm-related-daihatsu-gran-max",
    "genIdB": "llm-llm-related-mazda-bongo-brawny-bongo-brawny",
    "reason": "matched automatically -- the nameplate was named exactly in the source text; no text says which, so the generation whose years fit this one best",
-   "llmDiscovered": true
-  },
-  "llm-fam-ford-taurus-seventh-generation-2016-|m-ford-mondeo-fifth-generation|platform": {
-   "status": "confirmed",
-   "checkedAt": "2026-11-02T08:44:11.541Z",
-   "decidedAt": "2026-11-02T08:44:11.541Z",
-   "famA": "fam-ford-taurus",
-   "famB": "fam-ford-mondeo",
-   "relType": "platform",
-   "codeA": "Taurus Seventh generation (2016)",
-   "codeB": "Mondeo (fifth generation)",
-   "genIdA": "llm-fam-ford-taurus-seventh-generation-2016-",
-   "genIdB": "m-ford-mondeo-fifth-generation",
-   "reason": "matched automatically -- the nameplate was named exactly in the source text, and exactly one of its generations was in production alongside this one, so that is the generation it refers to",
    "llmDiscovered": true
   },
   "fam-honda-cr-v|m-haval-h6|related": {
@@ -505647,20 +505608,6 @@
    "reason": "matched automatically (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
    "llmDiscovered": true
   },
-  "llm-related-isuzu-vertex|m-honda-civic-sixth-generation|platform": {
-   "status": "confirmed",
-   "checkedAt": "2026-11-02T08:51:04.443Z",
-   "decidedAt": "2026-11-02T08:51:04.443Z",
-   "famA": "fam-honda-civic",
-   "famB": "llm-related-isuzu-vertex",
-   "relType": "platform",
-   "codeA": "Civic (sixth generation)",
-   "codeB": "Vertex",
-   "genIdA": "m-honda-civic-sixth-generation",
-   "genIdB": "llm-related-isuzu-vertex",
-   "reason": "matched automatically -- \"Isuzu Vertex\" was named as a related car but didn't exist anywhere in the graph yet, so it was newly created from this mention (double-checked by the local LLM sanity pass against every plausible existing car -- none matched)",
-   "llmDiscovered": true
-  },
   "m-honda-civic-tenth-generation|m-honda-cr-v-fourth-generation|platform": {
    "status": "confirmed",
    "checkedAt": "2026-11-02T08:51:04.483Z",
@@ -505731,20 +505678,6 @@
    "reason": "matched automatically -- the nameplate was named exactly in the source text; its article's sections for these generations name this car, and this one's years fit best",
    "llmDiscovered": true
   },
-  "llm-fam-honda-integra-third-generation-1993-|llm-related-isuzu-vertex|platform": {
-   "status": "confirmed",
-   "checkedAt": "2026-11-02T08:55:51.278Z",
-   "decidedAt": "2026-11-02T08:55:51.278Z",
-   "famA": "fam-honda-integra",
-   "famB": "llm-related-isuzu-vertex",
-   "relType": "platform",
-   "codeA": "Integra Third generation (1993)",
-   "codeB": "Vertex",
-   "genIdA": "llm-fam-honda-integra-third-generation-1993-",
-   "genIdB": "llm-related-isuzu-vertex",
-   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
-   "llmDiscovered": true
-  },
   "m-honda-civic-seventh-generation|m-honda-integra-fourth-generation|platform": {
    "status": "confirmed",
    "checkedAt": "2026-11-02T08:55:51.282Z",
@@ -505771,6 +505704,621 @@
    "genIdA": "llm-fam-honda-integra-fifth-generation-2022-",
    "genIdB": "llm-related-honda-zr-v-hr-v-rz",
    "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-fam-honda-cr-v-rs|m-honda-civic-eleventh-generation|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-11-02T08:57:25.537Z",
+   "decidedAt": "2026-11-02T08:57:25.537Z",
+   "famA": "fam-honda-cr-v",
+   "famB": "fam-honda-civic",
+   "relType": "platform",
+   "codeA": "CR-V RS",
+   "codeB": "Civic (eleventh generation)",
+   "genIdA": "llm-fam-honda-cr-v-rs",
+   "genIdB": "m-honda-civic-eleventh-generation",
+   "reason": "matched automatically (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-fam-honda-cr-v-rs-zc8|m-acura-adx|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-11-02T08:57:25.540Z",
+   "decidedAt": "2026-11-02T08:57:25.540Z",
+   "famA": "fam-honda-cr-v",
+   "famB": "m-acura-adx",
+   "relType": "platform",
+   "codeA": "CR-V RS / ZC8",
+   "codeB": "ADX",
+   "genIdA": "llm-fam-honda-cr-v-rs-zc8",
+   "genIdB": "m-acura-adx",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-fam-honda-cr-v-rs-zc8|llm-related-honda-zr-v-hr-v-rz|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-11-02T08:57:25.540Z",
+   "decidedAt": "2026-11-02T08:57:25.540Z",
+   "famA": "fam-honda-cr-v",
+   "famB": "llm-related-honda-zr-v-hr-v-rz",
+   "relType": "platform",
+   "codeA": "CR-V RS / ZC8",
+   "codeB": "ZR-V/HR-V (RZ)",
+   "genIdA": "llm-fam-honda-cr-v-rs-zc8",
+   "genIdB": "llm-related-honda-zr-v-hr-v-rz",
+   "reason": "matched automatically -- \"Honda ZR-V/HR-V (RZ)\" was named as a related car but didn't exist anywhere in the graph yet, so it was newly created from this mention",
+   "llmDiscovered": true
+  },
+  "llm-fam-honda-cr-v-rs-zc8|m-honda-civic-eleventh-generation|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-11-02T08:57:25.540Z",
+   "decidedAt": "2026-11-02T08:57:25.540Z",
+   "famA": "fam-honda-cr-v",
+   "famB": "fam-honda-civic",
+   "relType": "platform",
+   "codeA": "CR-V RS / ZC8",
+   "codeB": "Civic (eleventh generation)",
+   "genIdA": "llm-fam-honda-cr-v-rs-zc8",
+   "genIdB": "m-honda-civic-eleventh-generation",
+   "reason": "matched automatically (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-fam-honda-cr-v-rs-zc8|llm-related-acura-integra-2023|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-11-02T08:57:25.540Z",
+   "decidedAt": "2026-11-02T08:57:25.540Z",
+   "famA": "fam-honda-cr-v",
+   "famB": "llm-related-acura-integra-2023",
+   "relType": "platform",
+   "codeA": "CR-V RS / ZC8",
+   "codeB": "Integra (2023)",
+   "genIdA": "llm-fam-honda-cr-v-rs-zc8",
+   "genIdB": "llm-related-acura-integra-2023",
+   "reason": "matched automatically -- \"Acura Integra (2023)\" was named as a related car but didn't exist anywhere in the graph yet, so it was newly created from this mention",
+   "llmDiscovered": true
+  },
+  "m-acura-csx|m-honda-cr-v-third-generation|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-11-02T08:57:27.642Z",
+   "decidedAt": "2026-11-02T08:57:27.642Z",
+   "famA": "m-acura-csx",
+   "famB": "fam-honda-cr-v",
+   "relType": "platform",
+   "codeA": "CSX",
+   "codeB": "CR-V (third generation)",
+   "genIdA": "m-acura-csx",
+   "genIdB": "m-honda-cr-v-third-generation",
+   "reason": "matched automatically -- the nameplate was named exactly in the source text; its article's sections for these generations name this car, and this one's years fit best",
+   "llmDiscovered": true
+  },
+  "llm-fam-honda-cr-v-rs|llm-fam-honda-integra-fifth-generation-2022-|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-11-02T08:57:29.587Z",
+   "decidedAt": "2026-11-02T08:57:29.587Z",
+   "famA": "fam-honda-integra",
+   "famB": "fam-honda-cr-v",
+   "relType": "platform",
+   "codeA": "Integra Fifth generation (2022)",
+   "codeB": "CR-V RS",
+   "genIdA": "llm-fam-honda-integra-fifth-generation-2022-",
+   "genIdB": "llm-fam-honda-cr-v-rs",
+   "reason": "matched automatically -- the nameplate was named exactly in the source text; its article's sections for these generations name this car, and this one's years fit best",
+   "llmDiscovered": true
+  },
+  "fam-volkswagen-transporter|fam-volkswagen-type-2|succession": {
+   "status": "confirmed",
+   "checkedAt": "2026-11-02T08:58:02.936Z",
+   "decidedAt": "2026-11-02T08:58:02.937Z",
+   "autoConfirmed": true,
+   "famA": "fam-volkswagen-type-2",
+   "famB": "fam-volkswagen-transporter",
+   "relType": "succession",
+   "note": "Volkswagen Type 2's own article says: \"…bile | name = Volkswagen Type 2 | image = 0385 Porsche Diesel Bus blau.jpg | manufacturer = Volkswagen | aka = | production = November 1949 – present <!-- T6 generation still made (as of November 2018) --> | assembly = | predecessor = | successor = Volkswagen ID. Buzz (Type 2 RWD) | class = Light commercial vehicle (M) | body_style = | platform = Volkswagen Group T platform | layout = | sp = us }} <!-- Note: This is the lead paragraph of an article that covers ALL six (so far) generations of VW Transporters – T1 is only its first generation, and only the first two or three generations were called \"Type 2\" by Volkswagen, in any significant documents or frequency. --> \n The Volkswagen Transporter has been built in many variants. It is best known for its panel vans, but it was also built as a small bus or minivan, with choices of up to 23 windows and either hinged or sliding side doors. From the first generation, both regular and crew-cab, as well as long- and short-bed pickups, were made…\" / Volkswagen Transporter's own article says: \"…tion = November 1949 – present | assembly = Germany: Hanover | class = Light commercial vehicle/Large MPV (Multivan/Caravelle) (M) | body_style = | layout = | platform = | predecessor = }} \n The Volkswagen Transporter, (formerly based on the Volkswagen Group's T platform), now in its seventh generation using a platform shared with Ford, refers to a series of vans produced for over 70 years and marketed worldwide. \n Initially derived from the Volkswagen Type 1 (Volkswagen Beetle), the Volkswagen Type 2 (T1) was the first generation of Volkswagen's Transporter family. \n The Volkswagen T2 platform was marketed from 1967 through 1979 model years, with a Volkswagen Type 4 engine optionally available from 1972 on. \n <gallery widths=\"200\" heights=\"133\"> File:Vw transporter t3 luft v sst.jpg|T3 (front) File:1984-1986 Volkswagen Caravelle (253) CL van (2015-12-07) 02.jpg|T3 (rear) </gallery> \n === <span class=\"anchor\" id=\"T5\"></span>T5 (2003) === thumb|Two vehicles of the Belgian police: Federa…\"",
+   "matchLevel": "generation",
+   "codeA": "Type 2 T1",
+   "codeB": "Transporter (T5)",
+   "genIdA": "llm-fam-volkswagen-type-2-t1",
+   "genIdB": "m-volkswagen-transporter-t5",
+   "reason": "matched from an explicit chassis/generation code found directly in one of the two Wikipedia articles' own text",
+   "debug": {
+    "raw": {
+     "resolved": false,
+     "codeA": null,
+     "codeB": null,
+     "evidenceQuote": null,
+     "reason": "The provided text describes the entire lineage of the vehicle as a single family ('Volkswagen Type 2' and 'Volkswagen Transporter') spanning from 1949 to the present, noting that the 'Type 2' name was only used for the first two or three generations. While the text identifies specific generations (T1, T2, T3, etc.) and mentions platform usage (e.g., T platform for the T2, shared platform for the T7), it does not contain a specific note linking a specific generation of Car A (Type 2) to a specific generation of Car B (Transporter) as a predecessor/successor pair in the context of the relationship query. The text treats them as the same vehicle series with varying names over time, rather than distinct nameplates where one specific generation replaces another in a cross-nameplate succession relationship defined by the note. Without a specific textual link or external knowledge confirming which specific 'Type 2' generation corresponds to which 'Transporter' generation as a predecessor/successor pair (since they are often the same model with different naming conventions), the relationship cannot be resolved to a specific generation pair based strictly on the provided notes."
+    },
+    "evidenceCodeForA": "T1",
+    "evidenceCodeForB": "Transporter (T5)",
+    "ordinalFromNoteA": "Type 2 T1",
+    "ordinalFromNoteB": "Transporter T1",
+    "ordinalBacked": true,
+    "evidenceQuote": null,
+    "quoteVerified": false,
+    "llmVerified": false,
+    "knowledgeBacked": false,
+    "sourceAttributed": false,
+    "citedA": null,
+    "citedB": null,
+    "citationBacked": false,
+    "quoteFabricated": false,
+    "fetchedArticleA": true,
+    "fetchedArticleB": true,
+    "availableCodesA": [
+     "Type 2 T1",
+     "Type 2",
+     "Type 2 (T3)",
+     "Type 2 T4",
+     "Type 2 T5",
+     "Type 2 T6"
+    ],
+    "availableCodesB": [
+     "Transporter T1",
+     "Transporter T2",
+     "Transporter T3",
+     "Transporter (T4)",
+     "Transporter (T5)",
+     "Transporter (T6)",
+     "Transporter T7"
+    ]
+   }
+  },
+  "llm-m-suzuki-ertiga-suzuki-xl6-xl7|m-suzuki-ciaz|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-11-02T08:59:18.604Z",
+   "decidedAt": "2026-11-02T08:59:18.604Z",
+   "famA": "m-suzuki-ciaz",
+   "famB": "m-suzuki-ertiga",
+   "relType": "platform",
+   "codeA": "Ciaz",
+   "codeB": "Ertiga Suzuki XL6/XL7",
+   "genIdA": "m-suzuki-ciaz",
+   "genIdB": "llm-m-suzuki-ertiga-suzuki-xl6-xl7",
+   "reason": "matched automatically -- the nameplate was named exactly in the source text; no text says which, so the generation whose years fit this one best",
+   "llmDiscovered": true
+  },
+  "llm-llm-related-oldsmobile-starfire-second-generation|m-chevrolet-vega|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-11-02T08:59:18.767Z",
+   "decidedAt": "2026-11-02T08:59:18.767Z",
+   "famA": "m-chevrolet-vega",
+   "famB": "llm-related-oldsmobile-starfire",
+   "relType": "platform",
+   "codeA": "Vega",
+   "codeB": "Starfire Second generation",
+   "genIdA": "m-chevrolet-vega",
+   "genIdB": "llm-llm-related-oldsmobile-starfire-second-generation",
+   "reason": "matched automatically -- the nameplate was named exactly in the source text, and exactly one of its generations was in production alongside this one, so that is the generation it refers to",
+   "llmDiscovered": true
+  },
+  "llm-llm-related-mitsubishi-minicab-miev-eighth-generation|m-mitsubishi-i-miev|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-11-02T08:59:18.850Z",
+   "decidedAt": "2026-11-02T08:59:18.850Z",
+   "famA": "m-mitsubishi-i-miev",
+   "famB": "llm-related-mitsubishi-minicab-miev",
+   "relType": "platform",
+   "codeA": "i-MiEV",
+   "codeB": "Minicab MiEV Eighth generation",
+   "genIdA": "m-mitsubishi-i-miev",
+   "genIdB": "llm-llm-related-mitsubishi-minicab-miev-eighth-generation",
+   "reason": "matched automatically -- the nameplate was named exactly in the source text; no text says which, so the generation whose years fit this one best",
+   "llmDiscovered": true
+  },
+  "llm-fam-ford-taurus-seventh-generation-2016-|m-ford-mondeo-fourth-generation|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-11-02T08:59:18.919Z",
+   "decidedAt": "2026-11-02T08:59:18.919Z",
+   "famA": "fam-ford-taurus",
+   "famB": "fam-ford-mondeo",
+   "relType": "platform",
+   "codeA": "Taurus Seventh generation (2016)",
+   "codeB": "Mondeo (fourth generation)",
+   "genIdA": "llm-fam-ford-taurus-seventh-generation-2016-",
+   "genIdB": "m-ford-mondeo-fourth-generation",
+   "reason": "matched automatically -- the nameplate was named exactly in the source text; no text says which, so the generation whose years fit this one best",
+   "llmDiscovered": true
+  },
+  "llm-m-lancia-stratos-sibilo|m-lancia-rally-037|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-11-02T08:59:19.187Z",
+   "decidedAt": "2026-11-02T08:59:19.187Z",
+   "famA": "m-lancia-rally-037",
+   "famB": "m-lancia-stratos",
+   "relType": "platform",
+   "codeA": "Rally 037",
+   "codeB": "Stratos Sibilo",
+   "genIdA": "m-lancia-rally-037",
+   "genIdB": "llm-m-lancia-stratos-sibilo",
+   "reason": "matched automatically -- the nameplate was named exactly in the source text, and exactly one of its generations was in production alongside this one, so that is the generation it refers to",
+   "llmDiscovered": true
+  },
+  "fam-volkswagen-type-2|m-volkswagen-beetle|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-11-02T08:59:32.306Z",
+   "decidedAt": "2026-11-02T09:00:55.206Z",
+   "famA": "fam-volkswagen-type-2",
+   "famB": "m-volkswagen-beetle",
+   "relType": "platform",
+   "note": "Volkswagen Type 2's own article says: \"…n built in many variants. It is best known for its panel vans, but it was also built as a small bus or minivan, with choices of up to 23 windows and either hinged or sliding side doors. From the first generation, both regular and crew-cab, as well as long- and short-bed pickups, were made, and multiple firms sprang up to manufacture varying designs of camper vans, based on VW's Transporter models, to this day. \n For the first 40 years, all VW Type&nbsp;2 variants were forward control, with a VW-Beetle-derived flat-four engine in the rear, and all riding on the same (initial thirty years—T1 and T2), or similar (T3), wheelbase as the Type&nbsp;1 Beetle. As a result, all forward-control Type&nbsp;2 pickups were either of standard-cab, long-bed or crew-cab, short-bed configuration, and because of the relatively high bed floor (above the rear, flat engine), most pickups came with drop sides in addition to the tailgate. In 1979, the Volkswagen Type 2 (T3) introduced an all-new, more square a…\" / Volkswagen Beetle's own article says: \"Volkswagen Type 2, Volkswagen Type 3 \n {{Infobox automobile | sp = uk | name = | image = VW Käfer Baujahr 1966.jpg | caption = 1965–1966 Volkswagen Käfer | manufacturer = Volkswagen | alt = A front-three quarters view of a pale-yellow Volkswagen Käfer. It features 165/80R15 tires, which shod 15x4. 5\" silver, circular wheels. The Käfer features a beetle-like body, and its window is open. The picture is taken with much greenery in the background, and the photo was edited to give it a more warmer tone. | aka …\"",
+   "matchLevel": "generation",
+   "codeA": "Type 2 T1",
+   "codeB": "Beetle Type 1",
+   "genIdA": "llm-fam-volkswagen-type-2-t1",
+   "genIdB": "llm-m-volkswagen-beetle-type-1",
+   "reason": "confirmed by rule: \"Volkswagen Type 2\" names the Volkswagen Type 2, and the Type 2 T1 is the one generation built alongside",
+   "debug": {
+    "raw": {
+     "resolved": true,
+     "codeA": "Type 2 T1 (1950–1967)",
+     "codeB": "Beetle Type 1 (1938–1964)",
+     "evidenceQuote": "For the first 40 years, all VW Type 2 variants were forward control, with a VW-Beetle-derived flat-four engine in the rear, and all riding on the same (initial thirty years—T1 and T2), or similar (T3), wheelbase as the Type 1 Beetle.",
+     "reason": "The provided text explicitly states that the Type 2 T1 (and T2) shared the same wheelbase and platform characteristics as the Type 1 Beetle (Beetle Type 1) for the initial thirty years. The T1 Beetle corresponds to the 'Beetle Type 1 (1938–1964)' entry and the T1 Type 2 corresponds to the 'Type 2 T1 (1950–1967)' entry."
+    },
+    "evidenceCodeForA": null,
+    "evidenceCodeForB": null,
+    "ordinalFromNoteA": null,
+    "ordinalFromNoteB": null,
+    "ordinalBacked": false,
+    "evidenceQuote": "For the first 40 years, all VW Type 2 variants were forward control, with a VW-Beetle-derived flat-four engine in the rear, and all riding on the same (initial thirty years—T1 and T2), or similar (T3), wheelbase as the Type 1 Beetle.",
+    "quoteVerified": false,
+    "llmVerified": false,
+    "knowledgeBacked": false,
+    "sourceAttributed": true,
+    "citedA": "Type 2 T1",
+    "citedB": "Beetle Type 1",
+    "citationBacked": false,
+    "quoteFabricated": true,
+    "fetchedArticleA": true,
+    "fetchedArticleB": true,
+    "availableCodesA": [
+     "Type 2 T1",
+     "Type 2",
+     "Type 2 (T3)",
+     "Type 2 T4",
+     "Type 2 T5",
+     "Type 2 T6"
+    ],
+    "availableCodesB": [
+     "Beetle Type 1",
+     "Beetle Super Beetle / 1302",
+     "Beetle 1303 (1972–1976)",
+     "Beetle Final Models (1986–2003)"
+    ]
+   },
+   "decidedBy": "rules"
+  },
+  "fam-volkswagen-type-2|llm-m-volkswagen-beetle-1303-1972-1976|platform": {
+   "status": "none",
+   "checkedAt": "2026-11-02T08:59:47.845Z",
+   "famA": "fam-volkswagen-type-2",
+   "famB": "llm-m-volkswagen-beetle-1303-1972-1976",
+   "relType": "platform",
+   "note": "Volkswagen Type 2's own article says: \"Volkswagen Group T platform \n {{Infobox automobile | name = Volkswagen Type 2 | image = 0385 Porsche Diesel Bus blau.jpg | manufacturer = Volkswagen | aka = | production = November 1949 – present <!-- T6 generation still made (as of November 2018) --> | assembly = | predecessor = | successor = Volkswagen ID. Buzz (Type 2 RWD) | class = Light commercial vehicle (M) | body_style = | platform = Volkswagen Group T platform | layout = | sp = us }} <!-- Note: This is the lead paragraph of an article t…\" / Volkswagen Beetle 1303 (1972–1976)'s own article says: \"Volkswagen Type 2, Volkswagen Type 3 \n {{Infobox automobile | sp = uk | name = | image = VW Käfer Baujahr 1966.jpg | caption = 1965–1966 Volkswagen Käfer | manufacturer = Volkswagen | alt = A front-three quarters view of a pale-yellow Volkswagen Käfer. It features 165/80R15 tires, which shod 15x4. 5\" silver, circular wheels. The Käfer features a beetle-like body, and its window is open. The picture is taken with much greenery in the background, and the photo was edited to give it a more warmer tone. | aka …\"",
+   "matchLevel": null,
+   "codeA": null,
+   "codeB": null,
+   "genIdA": null,
+   "genIdB": null,
+   "reason": "The provided text contains a factual error or a trick in the 'Relationship' statement. The note explicitly states that the Volkswagen Type 2 (specifically citing the 'Volkswagen Group T platform' in the infobox) shares a platform with the Volkswagen Beetle 1303. However, in reality, the Volkswagen Type 2 (T1, T2, T3, etc.) uses the Volkswagen Group T platform (based on the Type 2 chassis), while the Volkswagen Beetle 1303 uses the air-cooled Type 1 platform. These are distinct and unrelated platforms. The text claims a relationship that does not exist between the specific generations listed (Type 2 T1/T2/T3 vs Beetle 1303). Since the premise of the relationship in the text is factually incorrect regarding these specific models/generations, and no other well-established shared platform exists between the listed generations, the relationship cannot be resolved as true based on real-world evidence. The overlapping years in the text (e.g., Type 2 T3 1979-2002 and Beetle 1303 1972-1976 do not overlap significantly enough to imply a shared platform for the 1303, and the 1303 is the last air-cooled Beetle generation while the Type 2 evolved into water-cooled VW Group T platform cars) further indicates the note's claim is invalid for these specific codes.",
+   "debug": {
+    "raw": {
+     "resolved": false,
+     "codeA": null,
+     "codeB": null,
+     "evidenceQuote": null,
+     "reason": "The provided text contains a factual error or a trick in the 'Relationship' statement. The note explicitly states that the Volkswagen Type 2 (specifically citing the 'Volkswagen Group T platform' in the infobox) shares a platform with the Volkswagen Beetle 1303. However, in reality, the Volkswagen Type 2 (T1, T2, T3, etc.) uses the Volkswagen Group T platform (based on the Type 2 chassis), while the Volkswagen Beetle 1303 uses the air-cooled Type 1 platform. These are distinct and unrelated platforms. The text claims a relationship that does not exist between the specific generations listed (Type 2 T1/T2/T3 vs Beetle 1303). Since the premise of the relationship in the text is factually incorrect regarding these specific models/generations, and no other well-established shared platform exists between the listed generations, the relationship cannot be resolved as true based on real-world evidence. The overlapping years in the text (e.g., Type 2 T3 1979-2002 and Beetle 1303 1972-1976 do not overlap significantly enough to imply a shared platform for the 1303, and the 1303 is the last air-cooled Beetle generation while the Type 2 evolved into water-cooled VW Group T platform cars) further indicates the note's claim is invalid for these specific codes."
+    },
+    "evidenceCodeForA": null,
+    "evidenceCodeForB": null,
+    "ordinalFromNoteA": null,
+    "ordinalFromNoteB": null,
+    "ordinalBacked": false,
+    "evidenceQuote": null,
+    "quoteVerified": false,
+    "llmVerified": false,
+    "knowledgeBacked": false,
+    "sourceAttributed": true,
+    "citedA": "Type 2 T1",
+    "citedB": null,
+    "citationBacked": false,
+    "quoteFabricated": false,
+    "fetchedArticleA": true,
+    "fetchedArticleB": true,
+    "availableCodesA": [
+     "Type 2 T1",
+     "Type 2 T2",
+     "Type 2 (T3)",
+     "Type 2 T4",
+     "Type 2 T5",
+     "Type 2 T6"
+    ],
+    "availableCodesB": [
+     "Beetle 1303 (1972–1976)"
+    ]
+   }
+  },
+  "fam-volkswagen-type-2|m-volkswagen-id-buzz|succession": {
+   "status": "none",
+   "checkedAt": "2026-11-02T08:59:56.055Z",
+   "famA": "fam-volkswagen-type-2",
+   "famB": "m-volkswagen-id-buzz",
+   "relType": "succession",
+   "note": "Volkswagen Type 2's own article says: \"Volkswagen Group T platform \n {{Infobox automobile | name = Volkswagen Type 2 | image = 0385 Porsche Diesel Bus blau.jpg | manufacturer = Volkswagen | aka = | production = November 1949 – present <!-- T6 generation still made (as of November 2018) --> | assembly = | predecessor = | successor = Volkswagen ID. Buzz (Type 2 RWD) | class = Light commercial vehicle (M) | body_style = | platform = Volkswagen Group T platform | layout = | sp = us }} <!-- Note: This is the lead paragraph of an article that covers ALL six (so far) generations of VW Transporters – T1 is only its first generation, and only the first two or three generations were called \"Type 2\" by Volkswagen, in any significant documents or frequency. --> \n The Volkswagen Transporter has been built in many variants. It is best known for it…\" / Volkswagen ID. Buzz's own article says: \"Volkswagen Group MEB \n {{Infobox electric vehicle | name = Volkswagen ID. Buzz | image = Volkswagen ID. Buzz 1X7A6263.jpg | caption = | manufacturer = Volkswagen | aka = | production = June 2022 – present | model_years = 2025, 2027-present (North America) | assembly = | designer = Einar Castillo under Klaus Zyciora | class = | body_style = 5-door minivan / panel van | platform = Volkswagen Group MEB | motor = | powerout = {{unbulleted list | () | (LWB; ) | (GTX; ) }} | drivetrain = | battery = 8…\"",
+   "matchLevel": null,
+   "codeA": null,
+   "codeB": null,
+   "genIdA": null,
+   "genIdB": null,
+   "reason": "The provided text states that the Type 2 uses the 'Volkswagen Group T platform' and the ID. Buzz uses the 'Volkswagen Group MEB platform'. Since 'T' and 'MEB' are distinct platform names, the note does not establish a shared platform. The relationship description ('predecessor/successor pair') refers to the lineage of the vehicle nameplate (Transporter -> ID. Buzz), which is a marketing/branding relationship, not a technical successor relationship where one model replaces another via a shared chassis or platform evolution. Therefore, no specific generation can be identified as sharing a platform based on the provided text.",
+   "debug": {
+    "raw": {
+     "resolved": false,
+     "codeA": null,
+     "codeB": null,
+     "evidenceQuote": null,
+     "reason": "The provided text states that the Type 2 uses the 'Volkswagen Group T platform' and the ID. Buzz uses the 'Volkswagen Group MEB platform'. Since 'T' and 'MEB' are distinct platform names, the note does not establish a shared platform. The relationship description ('predecessor/successor pair') refers to the lineage of the vehicle nameplate (Transporter -> ID. Buzz), which is a marketing/branding relationship, not a technical successor relationship where one model replaces another via a shared chassis or platform evolution. Therefore, no specific generation can be identified as sharing a platform based on the provided text."
+    },
+    "evidenceCodeForA": null,
+    "evidenceCodeForB": "Type 2 RWD",
+    "ordinalFromNoteA": null,
+    "ordinalFromNoteB": null,
+    "ordinalBacked": false,
+    "evidenceQuote": null,
+    "quoteVerified": false,
+    "llmVerified": false,
+    "knowledgeBacked": false,
+    "sourceAttributed": false,
+    "citedA": null,
+    "citedB": null,
+    "citationBacked": false,
+    "quoteFabricated": false,
+    "fetchedArticleA": true,
+    "fetchedArticleB": true,
+    "availableCodesA": [
+     "Type 2 T1",
+     "Type 2 T2",
+     "Type 2 (T3)",
+     "Type 2 T4",
+     "Type 2 T5",
+     "Type 2 T6"
+    ],
+    "availableCodesB": [
+     "ID. Buzz"
+    ]
+   }
+  },
+  "fam-volkswagen-type-2|llm-m-volkswagen-beetle-final-models-1986-2003|platform": {
+   "status": "none",
+   "checkedAt": "2026-11-02T09:00:09.598Z",
+   "famA": "fam-volkswagen-type-2",
+   "famB": "llm-m-volkswagen-beetle-final-models-1986-2003",
+   "relType": "platform",
+   "note": "Volkswagen Type 2's own article says: \"Volkswagen Group T platform \n {{Infobox automobile | name = Volkswagen Type 2 | image = 0385 Porsche Diesel Bus blau.jpg | manufacturer = Volkswagen | aka = | production = November 1949 – present <!-- T6 generation still made (as of November 2018) --> | assembly = | predecessor = | successor = Volkswagen ID. Buzz (Type 2 RWD) | class = Light commercial vehicle (M) | body_style = | platform = Volkswagen Group T platform | layout = | sp = us }} <!-- Note: This is the lead paragraph of an article t…\" / Volkswagen Beetle Final Models (1986–2003)'s own article says: \"Volkswagen Type 2, Volkswagen Type 3 \n {{Infobox automobile | sp = uk | name = | image = VW Käfer Baujahr 1966.jpg | caption = 1965–1966 Volkswagen Käfer | manufacturer = Volkswagen | alt = A front-three quarters view of a pale-yellow Volkswagen Käfer. It features 165/80R15 tires, which shod 15x4. 5\" silver, circular wheels. The Käfer features a beetle-like body, and its window is open. The picture is taken with much greenery in the background, and the photo was edited to give it a more warmer tone. | aka …\"",
+   "matchLevel": null,
+   "codeA": null,
+   "codeB": null,
+   "genIdA": null,
+   "genIdB": null,
+   "reason": "The provided notes are insufficient to determine the specific generation. The note for the Volkswagen Type 2 states it uses the 'Volkswagen Group T platform'. However, the note for the Volkswagen Beetle Final Models (1986–2003) does not mention the platform at all; it only references 'Volkswagen Type 2, Volkswagen Type 3' in a list of related models (likely under 'aka' or similar, though the text snippet cuts off). Without a platform name for the Beetle in the provided text, and without external knowledge confirming that the late Beetle shared the 'VW Group T' platform (it famously used the VW A1/A2 transverse platform until the New Beetle era), the relationship cannot be resolved to a specific generation from the given lists. Furthermore, the 'VW Group T' platform was used by the Type 2 (T3), while the Beetle (T1/T2) used the VW A platform, meaning they likely do not share the platform mentioned for the Type 2, but the text provided does not explicitly clarify this conflict or the Beetle's platform, leading to an inability to resolve based strictly on the provided evidence or safe mapping.",
+   "debug": {
+    "raw": {
+     "resolved": false,
+     "codeA": null,
+     "codeB": null,
+     "evidenceQuote": null,
+     "reason": "The provided notes are insufficient to determine the specific generation. The note for the Volkswagen Type 2 states it uses the 'Volkswagen Group T platform'. However, the note for the Volkswagen Beetle Final Models (1986–2003) does not mention the platform at all; it only references 'Volkswagen Type 2, Volkswagen Type 3' in a list of related models (likely under 'aka' or similar, though the text snippet cuts off). Without a platform name for the Beetle in the provided text, and without external knowledge confirming that the late Beetle shared the 'VW Group T' platform (it famously used the VW A1/A2 transverse platform until the New Beetle era), the relationship cannot be resolved to a specific generation from the given lists. Furthermore, the 'VW Group T' platform was used by the Type 2 (T3), while the Beetle (T1/T2) used the VW A platform, meaning they likely do not share the platform mentioned for the Type 2, but the text provided does not explicitly clarify this conflict or the Beetle's platform, leading to an inability to resolve based strictly on the provided evidence or safe mapping."
+    },
+    "evidenceCodeForA": null,
+    "evidenceCodeForB": null,
+    "ordinalFromNoteA": null,
+    "ordinalFromNoteB": null,
+    "ordinalBacked": false,
+    "evidenceQuote": null,
+    "quoteVerified": false,
+    "llmVerified": false,
+    "knowledgeBacked": false,
+    "sourceAttributed": false,
+    "citedA": null,
+    "citedB": null,
+    "citationBacked": false,
+    "quoteFabricated": false,
+    "fetchedArticleA": true,
+    "fetchedArticleB": true,
+    "availableCodesA": [
+     "Type 2 T1",
+     "Type 2 T2",
+     "Type 2 (T3)",
+     "Type 2 T4",
+     "Type 2 T5",
+     "Type 2 T6"
+    ],
+    "availableCodesB": [
+     "Beetle Final Models (1986–2003)"
+    ]
+   }
+  },
+  "fam-volkswagen-type-2|llm-m-volkswagen-beetle-super-beetle-1302|platform": {
+   "status": "none",
+   "checkedAt": "2026-11-02T09:00:22.427Z",
+   "famA": "fam-volkswagen-type-2",
+   "famB": "llm-m-volkswagen-beetle-super-beetle-1302",
+   "relType": "platform",
+   "note": "Volkswagen Type 2's own article says: \"Volkswagen Group T platform \n {{Infobox automobile | name = Volkswagen Type 2 | image = 0385 Porsche Diesel Bus blau.jpg | manufacturer = Volkswagen | aka = | production = November 1949 – present <!-- T6 generation still made (as of November 2018) --> | assembly = | predecessor = | successor = Volkswagen ID. Buzz (Type 2 RWD) | class = Light commercial vehicle (M) | body_style = | platform = Volkswagen Group T platform | layout = | sp = us }} <!-- Note: This is the lead paragraph of an article t…\" / Volkswagen Beetle Super Beetle / 1302's own article says: \"Volkswagen Type 2, Volkswagen Type 3 \n {{Infobox automobile | sp = uk | name = | image = VW Käfer Baujahr 1966.jpg | caption = 1965–1966 Volkswagen Käfer | manufacturer = Volkswagen | alt = A front-three quarters view of a pale-yellow Volkswagen Käfer. It features 165/80R15 tires, which shod 15x4. 5\" silver, circular wheels. The Käfer features a beetle-like body, and its window is open. The picture is taken with much greenery in the background, and the photo was edited to give it a more warmer tone. | aka …\"",
+   "matchLevel": null,
+   "codeA": null,
+   "codeB": null,
+   "genIdA": null,
+   "genIdB": null,
+   "reason": "The provided notes do not identify specific generations for either vehicle. The note for the Volkswagen Type 2 states it uses the 'Volkswagen Group T platform', but this platform was used across multiple generations (T1, T2, T3, T4, T5, T6). The note for the Beetle mentions 'Volkswagen Type 2' and 'Volkswagen Type 3' as related, but does not explicitly state that the Beetle Super Beetle / 1302 shares a specific platform with a specific generation of the Type 2. The Beetle Super Beetle (1967–1972) is based on the Type 2 platform (specifically the T2 generation in many contexts, though historically the early Beetle and early Type 2s shared a common 'Type 2' platform lineage), but the text provided does not explicitly link the specific 'Super Beetle / 1302' generation code to a specific 'Type 2' generation code (e.g., 'Type 2 T2') via the platform name. Without a specific platform name linking a specific generation of Car A to a specific generation of Car B, or ordinal alignment provided in the text, the relationship cannot be resolved to a specific generation pair based strictly on the provided evidence.",
+   "debug": {
+    "raw": {
+     "resolved": false,
+     "codeA": null,
+     "codeB": null,
+     "evidenceQuote": null,
+     "reason": "The provided notes do not identify specific generations for either vehicle. The note for the Volkswagen Type 2 states it uses the 'Volkswagen Group T platform', but this platform was used across multiple generations (T1, T2, T3, T4, T5, T6). The note for the Beetle mentions 'Volkswagen Type 2' and 'Volkswagen Type 3' as related, but does not explicitly state that the Beetle Super Beetle / 1302 shares a specific platform with a specific generation of the Type 2. The Beetle Super Beetle (1967–1972) is based on the Type 2 platform (specifically the T2 generation in many contexts, though historically the early Beetle and early Type 2s shared a common 'Type 2' platform lineage), but the text provided does not explicitly link the specific 'Super Beetle / 1302' generation code to a specific 'Type 2' generation code (e.g., 'Type 2 T2') via the platform name. Without a specific platform name linking a specific generation of Car A to a specific generation of Car B, or ordinal alignment provided in the text, the relationship cannot be resolved to a specific generation pair based strictly on the provided evidence."
+    },
+    "evidenceCodeForA": null,
+    "evidenceCodeForB": null,
+    "ordinalFromNoteA": null,
+    "ordinalFromNoteB": null,
+    "ordinalBacked": false,
+    "evidenceQuote": null,
+    "quoteVerified": false,
+    "llmVerified": false,
+    "knowledgeBacked": false,
+    "sourceAttributed": true,
+    "citedA": "Type 2 T2",
+    "citedB": null,
+    "citationBacked": false,
+    "quoteFabricated": false,
+    "fetchedArticleA": true,
+    "fetchedArticleB": true,
+    "availableCodesA": [
+     "Type 2 T1",
+     "Type 2 T2",
+     "Type 2 (T3)",
+     "Type 2 T4",
+     "Type 2 T5",
+     "Type 2 T6"
+    ],
+    "availableCodesB": [
+     "Beetle Super Beetle / 1302"
+    ]
+   }
+  },
+  "fam-volkswagen-type-2|llm-m-volkswagen-beetle-type-1|platform": {
+   "status": "none",
+   "checkedAt": "2026-11-02T09:00:31.724Z",
+   "famA": "fam-volkswagen-type-2",
+   "famB": "llm-m-volkswagen-beetle-type-1",
+   "relType": "platform",
+   "note": "Volkswagen Type 2's own article says: \"Volkswagen Group T platform \n {{Infobox automobile | name = Volkswagen Type 2 | image = 0385 Porsche Diesel Bus blau.jpg | manufacturer = Volkswagen | aka = | production = November 1949 – present <!-- T6 generation still made (as of November 2018) --> | assembly = | predecessor = | successor = Volkswagen ID. Buzz (Type 2 RWD) | class = Light commercial vehicle (M) | body_style = | platform = Volkswagen Group T platform | layout = | sp = us }} <!-- Note: This is the lead paragraph of an article t…\" / Volkswagen Beetle Type 1's own article says: \"Volkswagen Type 2, Volkswagen Type 3 \n {{Infobox automobile | sp = uk | name = | image = VW Käfer Baujahr 1966.jpg | caption = 1965–1966 Volkswagen Käfer | manufacturer = Volkswagen | alt = A front-three quarters view of a pale-yellow Volkswagen Käfer. It features 165/80R15 tires, which shod 15x4. 5\" silver, circular wheels. The Käfer features a beetle-like body, and its window is open. The picture is taken with much greenery in the background, and the photo was edited to give it a more warmer tone. | aka …\"",
+   "matchLevel": null,
+   "codeA": null,
+   "codeB": null,
+   "genIdA": null,
+   "genIdB": null,
+   "reason": "The provided text states that the Volkswagen Type 2 uses the 'Volkswagen Group T platform' and mentions the Beetle Type 1 in the same context. However, the 'Group T platform' is a specific modular platform introduced in the 1980s (associated with the Type 2 T4, T5, and T6). The Beetle Type 1 (1938–1964) is built on the original Type 1 platform, not the Group T platform. Therefore, the statement that they 'share a platform' in the provided text is factually incorrect regarding the specific generations listed (as the T1 Beetle is not on the T platform), and the text does not identify a specific generation of the Beetle that shares the T platform with a specific Type 2 generation. Consequently, no specific generation pair can be resolved based on the provided evidence.",
+   "debug": {
+    "raw": {
+     "resolved": false,
+     "codeA": null,
+     "codeB": null,
+     "evidenceQuote": null,
+     "reason": "The provided text states that the Volkswagen Type 2 uses the 'Volkswagen Group T platform' and mentions the Beetle Type 1 in the same context. However, the 'Group T platform' is a specific modular platform introduced in the 1980s (associated with the Type 2 T4, T5, and T6). The Beetle Type 1 (1938–1964) is built on the original Type 1 platform, not the Group T platform. Therefore, the statement that they 'share a platform' in the provided text is factually incorrect regarding the specific generations listed (as the T1 Beetle is not on the T platform), and the text does not identify a specific generation of the Beetle that shares the T platform with a specific Type 2 generation. Consequently, no specific generation pair can be resolved based on the provided evidence."
+    },
+    "evidenceCodeForA": null,
+    "evidenceCodeForB": null,
+    "ordinalFromNoteA": null,
+    "ordinalFromNoteB": null,
+    "ordinalBacked": false,
+    "evidenceQuote": null,
+    "quoteVerified": false,
+    "llmVerified": false,
+    "knowledgeBacked": false,
+    "sourceAttributed": false,
+    "citedA": null,
+    "citedB": null,
+    "citationBacked": false,
+    "quoteFabricated": false,
+    "fetchedArticleA": true,
+    "fetchedArticleB": true,
+    "availableCodesA": [
+     "Type 2 T1",
+     "Type 2 T2",
+     "Type 2 (T3)",
+     "Type 2 T4",
+     "Type 2 T5",
+     "Type 2 T6"
+    ],
+    "availableCodesB": [
+     "Beetle Type 1"
+    ]
+   }
+  },
+  "llm-fam-volkswagen-transporter-t3|llm-related-volkswagen-caravelle|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-11-02T09:02:40.329Z",
+   "decidedAt": "2026-11-02T09:02:40.329Z",
+   "famA": "fam-volkswagen-transporter",
+   "famB": "llm-related-volkswagen-caravelle",
+   "relType": "platform",
+   "codeA": "Transporter T3",
+   "codeB": "Caravelle",
+   "genIdA": "llm-fam-volkswagen-transporter-t3",
+   "genIdB": "llm-related-volkswagen-caravelle",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-related-volkswagen-multivan|m-volkswagen-transporter-t4|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-11-02T09:02:40.335Z",
+   "decidedAt": "2026-11-02T09:02:40.335Z",
+   "famA": "fam-volkswagen-transporter",
+   "famB": "llm-related-volkswagen-multivan",
+   "relType": "platform",
+   "codeA": "Transporter (T4)",
+   "codeB": "Multivan",
+   "genIdA": "m-volkswagen-transporter-t4",
+   "genIdB": "llm-related-volkswagen-multivan",
+   "reason": "matched automatically -- \"Volkswagen Multivan\" was named as a related car but didn't exist anywhere in the graph yet, so it was newly created from this mention",
+   "llmDiscovered": true
+  },
+  "llm-related-volkswagen-multivan|m-volkswagen-transporter-t5|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-11-02T09:02:40.339Z",
+   "decidedAt": "2026-11-02T09:02:40.339Z",
+   "famA": "fam-volkswagen-transporter",
+   "famB": "llm-related-volkswagen-multivan",
+   "relType": "platform",
+   "codeA": "Transporter (T5)",
+   "codeB": "Multivan",
+   "genIdA": "m-volkswagen-transporter-t5",
+   "genIdB": "llm-related-volkswagen-multivan",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-related-volkswagen-multivan|m-volkswagen-transporter-t6|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-11-02T09:02:40.343Z",
+   "decidedAt": "2026-11-02T09:02:40.343Z",
+   "famA": "fam-volkswagen-transporter",
+   "famB": "llm-related-volkswagen-multivan",
+   "relType": "platform",
+   "codeA": "Transporter (T6)",
+   "codeB": "Multivan",
+   "genIdA": "m-volkswagen-transporter-t6",
+   "genIdB": "llm-related-volkswagen-multivan",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-fam-volkswagen-transporter-t7|llm-related-audi-a3|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-11-02T09:02:40.354Z",
+   "decidedAt": "2026-11-02T09:02:40.354Z",
+   "famA": "fam-volkswagen-transporter",
+   "famB": "llm-related-audi-a3",
+   "relType": "platform",
+   "codeA": "Transporter T7",
+   "codeB": "A3",
+   "genIdA": "llm-fam-volkswagen-transporter-t7",
+   "genIdB": "llm-related-audi-a3",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-fam-volkswagen-transporter-t7|llm-llm-related-volkswagen-caddy-typ-2k|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-11-02T09:02:40.354Z",
+   "decidedAt": "2026-11-02T09:02:40.354Z",
+   "famA": "fam-volkswagen-transporter",
+   "famB": "llm-related-volkswagen-caddy",
+   "relType": "platform",
+   "codeA": "Transporter T7",
+   "codeB": "Caddy Typ 2K",
+   "genIdA": "llm-fam-volkswagen-transporter-t7",
+   "genIdB": "llm-llm-related-volkswagen-caddy-typ-2k",
+   "reason": "matched automatically -- the nameplate was named exactly in the source text; no text says which, so the generation whose years fit this one best",
    "llmDiscovered": true
   }
  },
@@ -822509,8 +823057,8 @@
    ]
   },
   "fam-volkswagen-transporter": {
-   "status": "applied",
-   "checkedAt": "2026-10-14T01:30:10.769Z",
+   "status": "none",
+   "checkedAt": "2026-11-02T09:02:40.303Z",
    "sourceTitle": "Volkswagen Transporter",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -822541,28 +823089,11 @@
       "engineers": [],
       "wikiFile": "Volkswagen Type 2 at The Henry Ford - July 2017.jpg",
       "sharedPlatforms": [
+       "Volkswagen Caravelle",
        "Volkswagen Vanagon",
        "Volkswagen Danfo",
        "Volkswagen Microbus"
-      ],
-      "sharedPlatformMatches": {
-       "Volkswagen Vanagon": {
-        "matchId": null,
-        "confidence": "high",
-        "reason": "The mentioned car 'Volkswagen Vanagon' is the North American export name for the Volkswagen Transporter (specifically the T3 generation, produced 1979–1992). While the database contains entries for the 'Volkswagen Type 2 (T1)' (the predecessor) and the 'Volkswagen Multivan (T7)' (the successor), it lacks a specific entry for the T3 generation (often labeled as 'Transporter T3', 'Vanagon', or 'California' in databases). According to the rules, sharing a marque is not evidence of a match, and a different generation or nameplate is a different car. Since no candidate represents the specific 'Vanagon' (T3) model, the match is null."
-       },
-       "Volkswagen Danfo": {
-        "matchId": null,
-        "confidence": "high",
-        "reason": "Volkswagen Danfo is the Chinese market name for the Volkswagen Passat (specifically the B6 generation, 2005–2010). None of the provided candidates in the database correspond to the Passat B6; the list includes older generations (B1, B2, B3, B4) and newer generations (B7/B8) or other models, but no entry for the B6 which would be the correct match for 'Danfo'. Additionally, 'Danfo' is not a name contained within any of the candidate names as a whole word in a way that identifies the specific variant, and the specific generation required for the match is absent."
-       },
-       "Volkswagen Microbus": {
-        "matchId": null,
-        "confidence": "low",
-        "reason": "rejected: the local model claimed \"Volkswagen Microbus\" is another name for Volkswagen Type 2 (T1) (1950–1967) — but the two names have nothing in common beyond the marque, and that car's production doesn't overlap the 1979–2002 generation this mention came from, so they can't be the same vehicle under two names. (A car reusing an older car's platform is a different claim, and isn't affected by this check.) Its stated reasoning was: Volkswagen Microbus is the common English name for the Volkswagen Type 2. The candidate 'Volkswagen Type 2 (T1)' explicitly references the chassis code T1, which corresponds to the original generation of the Type 2/Microbus produced from 1950 to 1967. No other candidate refers to this specific vehicle.",
-        "rejectedMatchId": "m-volkswagen-type-2-t1"
-       }
-      }
+      ]
      },
      {
       "code": "T4",
@@ -822572,26 +823103,22 @@
       "engineers": [],
       "wikiFile": "VW T1-BD 20-5031.JPG",
       "sharedPlatforms": [
-       "Volkswagen EuroVan",
        "Volkswagen Caravelle",
+       "Volkswagen Multivan",
+       "Volkswagen EuroVan",
        "Volkswagen Vanagon",
        "Volkswagen Routan"
       ],
       "sharedPlatformMatches": {
-       "Volkswagen EuroVan": {
-        "matchId": null,
+       "Volkswagen Multivan": {
+        "matchId": "m-volkswagen-multivan-t7",
         "confidence": "high",
-        "reason": "The mentioned car 'Volkswagen EuroVan' is an export name (used primarily in North America) for the Volkswagen Type 2 (T3). While the database contains entries for the VW Type 2 (T1) and the VW Multivan (T7), it does not contain an entry for the Type 2 (T3) or the EuroVan. Per the rules, a name that merely contains the candidate's name (e.g., 'EuroVan' containing 'Van') or refers to a different generation is not a match. Since the specific chassis code (T3) or the export name is missing from the candidates, no valid match can be established."
-       },
-       "Volkswagen Caravelle": {
-        "matchId": null,
-        "confidence": "high",
-        "reason": "The mention 'Volkswagen Caravelle' refers to a Volkswagen van (derived from the Type 2 or T25 chassis). While the candidate list includes 'Volkswagen Sharan' (a VW van) and 'Plymouth Caravelle' (a Dodge van), the specific name 'Volkswagen Caravelle' is not an official model name used by Volkswagen. The 'Plymouth Caravelle' is a Dodge vehicle sold in the US, not a Volkswagen, so it does not match. No candidate in the list represents the actual 'Volkswagen Caravelle' model."
-       },
-       "Volkswagen Vanagon": {
-        "matchId": null,
-        "confidence": "high",
-        "reason": "The mentioned car 'Volkswagen Vanagon' is the North American export name for the Volkswagen Transporter (specifically the T3 generation, produced 1979–1992). While the database contains entries for the 'Volkswagen Type 2 (T1)' (the predecessor) and the 'Volkswagen Multivan (T7)' (the successor), it lacks a specific entry for the T3 generation (often labeled as 'Transporter T3', 'Vanagon', or 'California' in databases). According to the rules, sharing a marque is not evidence of a match, and a different generation or nameplate is a different car. Since no candidate represents the specific 'Vanagon' (T3) model, the match is null."
+        "reason": "The mention 'Volkswagen Multivan' refers to the Volkswagen Transporter van, which is marketed as 'Multivan' in Europe. The candidate 'm-volkswagen-multivan-t7' explicitly lists the model name 'Volkswagen Multivan' (corresponding to the T7 generation). Since the mention does not specify a generation but names the model, and the database contains a specific generation entry with the exact market name used in the mention, this is a valid match.",
+        "refused": {
+         "v": 1,
+         "id": "m-volkswagen-multivan-t7",
+         "why": "built 17 years apart (1990–2004 and 2021–2026)"
+        }
        }
       }
      },
@@ -822609,25 +823136,15 @@
        "Volkswagen Eurovan"
       ],
       "sharedPlatformMatches": {
-       "Volkswagen Caravelle": {
-        "matchId": null,
-        "confidence": "high",
-        "reason": "The mention 'Volkswagen Caravelle' refers to a Volkswagen van (derived from the Type 2 or T25 chassis). While the candidate list includes 'Volkswagen Sharan' (a VW van) and 'Plymouth Caravelle' (a Dodge van), the specific name 'Volkswagen Caravelle' is not an official model name used by Volkswagen. The 'Plymouth Caravelle' is a Dodge vehicle sold in the US, not a Volkswagen, so it does not match. No candidate in the list represents the actual 'Volkswagen Caravelle' model."
-       },
        "Volkswagen Multivan": {
         "matchId": "m-volkswagen-multivan-t7",
         "confidence": "high",
-        "reason": "The mention 'Volkswagen Multivan' refers to the current generation of the VW Transporter van. The candidate 'm-volkswagen-multivan-t7' is the specific database entry for the seventh generation (T7) of the Multivan (2021–present), which is the only Multivan currently in production and matches the modern naming convention implied by the mention without a specific generation code."
-       },
-       "Volkswagen California": {
-        "matchId": null,
-        "confidence": "high",
-        "reason": "The mentioned car 'Volkswagen California' is a camper van (based on the Type 2/Transporter platform), whereas all provided candidates are passenger cars (sedans, hatchbacks, coupes) or do not include the California camper model. Specifically, while 'Volkswagen Multivan (T7)' and 'Volkswagen ID. Buzz' are related to the California lineage (Multivan/Caravelle/T6/T7), they are distinct vehicle models and generation codes from the specific 'California' nameplate mentioned. No candidate matches the exact vehicle."
-       },
-       "Volkswagen Eurovan": {
-        "matchId": null,
-        "confidence": "high",
-        "reason": "The mentioned car 'Volkswagen EuroVan' is an export name (used primarily in North America) for the Volkswagen Type 2 (T3). While the database contains entries for the VW Type 2 (T1) and the VW Multivan (T7), it does not contain an entry for the Type 2 (T3) or the EuroVan. Per the rules, a name that merely contains the candidate's name (e.g., 'EuroVan' containing 'Van') or refers to a different generation is not a match. Since the specific chassis code (T3) or the export name is missing from the candidates, no valid match can be established."
+        "reason": "The mention 'Volkswagen Multivan' refers to the Volkswagen Transporter van, which is marketed as 'Multivan' in Europe. The candidate 'm-volkswagen-multivan-t7' explicitly lists the model name 'Volkswagen Multivan' (corresponding to the T7 generation). Since the mention does not specify a generation but names the model, and the database contains a specific generation entry with the exact market name used in the mention, this is a valid match.",
+        "refused": {
+         "v": 1,
+         "id": "m-volkswagen-multivan-t7",
+         "why": "built 17 years apart (1990–2004 and 2021–2026)"
+        }
        }
       }
      },
@@ -822637,66 +823154,38 @@
       "yearEnd": 2024,
       "designers": [],
       "engineers": [],
-      "wikiFile": "2020 Volkswagen Transporter 6.1 Highline Kombi TDi 2.0.jpg",
-      "sharedPlatforms": [
-       "Volkswagen Caravelle",
-       "Volkswagen Multivan",
-       "Volkswagen California",
-       "Volkswagen T6.1"
-      ],
-      "sharedPlatformMatches": {
-       "Volkswagen Caravelle": {
-        "matchId": null,
-        "confidence": "high",
-        "reason": "The mention 'Volkswagen Caravelle' refers to a Volkswagen van (derived from the Type 2 or T25 chassis). While the candidate list includes 'Volkswagen Sharan' (a VW van) and 'Plymouth Caravelle' (a Dodge van), the specific name 'Volkswagen Caravelle' is not an official model name used by Volkswagen. The 'Plymouth Caravelle' is a Dodge vehicle sold in the US, not a Volkswagen, so it does not match. No candidate in the list represents the actual 'Volkswagen Caravelle' model."
-       },
-       "Volkswagen Multivan": {
-        "matchId": "m-volkswagen-multivan-t7",
-        "confidence": "high",
-        "reason": "The mention 'Volkswagen Multivan' refers to the current generation of the VW Transporter van. The candidate 'm-volkswagen-multivan-t7' is the specific database entry for the seventh generation (T7) of the Multivan (2021–present), which is the only Multivan currently in production and matches the modern naming convention implied by the mention without a specific generation code."
-       },
-       "Volkswagen California": {
-        "matchId": null,
-        "confidence": "high",
-        "reason": "The mentioned car 'Volkswagen California' is a camper van (based on the Type 2/Transporter platform), whereas all provided candidates are passenger cars (sedans, hatchbacks, coupes) or do not include the California camper model. Specifically, while 'Volkswagen Multivan (T7)' and 'Volkswagen ID. Buzz' are related to the California lineage (Multivan/Caravelle/T6/T7), they are distinct vehicle models and generation codes from the specific 'California' nameplate mentioned. No candidate matches the exact vehicle."
-       },
-       "Volkswagen T6.1": {
-        "matchId": null,
-        "confidence": "high",
-        "reason": "The mention is 'Volkswagen T6.1', which refers to the second generation of the Volkswagen Transporter (T6) van series (produced roughly 2015–2021). None of the provided candidates correspond to the VW Transporter T6 or T6.1. While candidates like 'm-volkswagen-touareg' share the 'T' prefix, they are completely different models. Candidates with 'T' in the chassis code like 'm-volkswagen-type-2-t1' refer to the T1 (Type 2) van, not the T6. The candidate 'm-lola-t61' refers to a British racing car, not a Volkswagen."
-       }
-      }
-     },
-     {
-      "code": "T7",
-      "yearStart": 2022,
-      "yearEnd": null,
-      "designers": [],
-      "engineers": [],
       "wikiFile": "1958 Volkswagen T1 Transporter Kombi bus.jpg",
       "sharedPlatforms": [
-       "Volkswagen Sharan",
        "Volkswagen Caravelle",
        "Volkswagen Multivan",
        "Volkswagen California"
       ],
       "sharedPlatformMatches": {
-       "Volkswagen Caravelle": {
-        "matchId": null,
-        "confidence": "high",
-        "reason": "The mention 'Volkswagen Caravelle' refers to a Volkswagen van (derived from the Type 2 or T25 chassis). While the candidate list includes 'Volkswagen Sharan' (a VW van) and 'Plymouth Caravelle' (a Dodge van), the specific name 'Volkswagen Caravelle' is not an official model name used by Volkswagen. The 'Plymouth Caravelle' is a Dodge vehicle sold in the US, not a Volkswagen, so it does not match. No candidate in the list represents the actual 'Volkswagen Caravelle' model."
-       },
        "Volkswagen Multivan": {
         "matchId": "m-volkswagen-multivan-t7",
         "confidence": "high",
-        "reason": "The mention 'Volkswagen Multivan' refers to the current generation of the VW Transporter van. The candidate 'm-volkswagen-multivan-t7' is the specific database entry for the seventh generation (T7) of the Multivan (2021–present), which is the only Multivan currently in production and matches the modern naming convention implied by the mention without a specific generation code."
-       },
-       "Volkswagen California": {
-        "matchId": null,
-        "confidence": "high",
-        "reason": "The mentioned car 'Volkswagen California' is a camper van (based on the Type 2/Transporter platform), whereas all provided candidates are passenger cars (sedans, hatchbacks, coupes) or do not include the California camper model. Specifically, while 'Volkswagen Multivan (T7)' and 'Volkswagen ID. Buzz' are related to the California lineage (Multivan/Caravelle/T6/T7), they are distinct vehicle models and generation codes from the specific 'California' nameplate mentioned. No candidate matches the exact vehicle."
+        "reason": "The mention 'Volkswagen Multivan' refers to the Volkswagen Transporter van, which is marketed as 'Multivan' in Europe. The candidate 'm-volkswagen-multivan-t7' explicitly lists the model name 'Volkswagen Multivan' (corresponding to the T7 generation). Since the mention does not specify a generation but names the model, and the database contains a specific generation entry with the exact market name used in the mention, this is a valid match.",
+        "refused": {
+         "v": 1,
+         "id": "m-volkswagen-multivan-t7",
+         "why": "built 17 years apart (1990–2004 and 2021–2026)"
+        }
        }
       }
+     },
+     {
+      "code": "T7",
+      "yearStart": 2021,
+      "yearEnd": null,
+      "designers": [],
+      "engineers": [],
+      "wikiFile": "1962 Volkswagen Type 2 2-door utility (26928884264).jpg",
+      "sharedPlatforms": [
+       "Volkswagen Sharan",
+       "Audi A3",
+       "Volkswagen Caddy",
+       "Volkswagen California"
+      ]
      },
      {
       "code": "2024",
@@ -822707,25 +823196,19 @@
       "wikiFile": "2017 Volkswagen Transporter T28 Highline TDi 2.0 Front.jpg",
       "sharedPlatforms": [
        "Ford Transit Custom",
-       "Ford Transit Custom / Tourneo Custom",
-       "Volkswagen Caravelle"
+       "Ford Tourneo Custom"
       ],
       "sharedPlatformMatches": {
-       "Ford Transit Custom / Tourneo Custom": {
-        "matchId": "llm-related-ford-transit-custom",
-        "confidence": "high",
-        "reason": "The mention explicitly names 'Ford Transit Custom' (along with its van variant 'Tourneo Custom'), which directly matches the model name and production era (2012–present) of the candidate id 'llm-related-ford-transit-custom'. The other 'Custom' entries refer to unrelated historical models or different manufacturers."
-       },
-       "Volkswagen Caravelle": {
+       "Ford Tourneo Custom": {
         "matchId": null,
         "confidence": "high",
-        "reason": "The mention 'Volkswagen Caravelle' refers to a Volkswagen van (derived from the Type 2 or T25 chassis). While the candidate list includes 'Volkswagen Sharan' (a VW van) and 'Plymouth Caravelle' (a Dodge van), the specific name 'Volkswagen Caravelle' is not an official model name used by Volkswagen. The 'Plymouth Caravelle' is a Dodge vehicle sold in the US, not a Volkswagen, so it does not match. No candidate in the list represents the actual 'Volkswagen Caravelle' model."
+        "reason": "The mentioned car 'Ford Tourneo Custom' is a modern commercial van (production started around 2013). None of the provided candidates are the Tourneo Custom. The only similar-sounding name is 'Ford Custom', but the candidates listed (e.g., 1949–1981, 1952–1955, 1941–1955) refer to historical American full-size cars from the mid-20th century, which are completely different vehicles from the modern European-derived Tourneo Custom van. Additionally, the production years of the candidates do not overlap with the modern era of the Tourneo Custom."
        }
       }
      }
     ]
    },
-   "discrepancy": "an existing \"generation\" here (Transporter) is really just the bare nameplate itself, not a distinct generation",
+   "discrepancy": "Wikipedia currently describes 8 generations, but this nameplate currently shows 7 here",
    "attempts": 1,
    "feedback": [],
    "engines": [
@@ -822803,11 +823286,11 @@
        "designers": [],
        "engineers": [],
        "sharedPlatforms": [
+        "Volkswagen Caravelle",
         "Volkswagen Vanagon",
         "Volkswagen Danfo",
         "Volkswagen Faragon",
-        "Volkswagen Microbus",
-        "Volkswagen Syncro"
+        "Volkswagen Microbus"
        ]
       },
       {
@@ -822817,14 +823300,11 @@
        "designers": [],
        "engineers": [],
        "sharedPlatforms": [
-        "Volkswagen EuroVan",
         "Volkswagen Caravelle",
+        "Volkswagen Multivan",
+        "Volkswagen EuroVan",
         "Volkswagen Vanagon",
-        "Volkswagen Routan",
-        "Winnebago EuroVan",
-        "Winnebago Rialta",
-        "Winnebago Vista",
-        "Winnebago Sunstar"
+        "Volkswagen Routan"
        ]
       },
       {
@@ -822849,20 +823329,19 @@
        "sharedPlatforms": [
         "Volkswagen Caravelle",
         "Volkswagen Multivan",
-        "Volkswagen California",
-        "Volkswagen T6.1"
+        "Volkswagen California"
        ]
       },
       {
        "code": "T7",
-       "yearStart": 2022,
+       "yearStart": 2021,
        "yearEnd": null,
        "designers": [],
        "engineers": [],
        "sharedPlatforms": [
         "Volkswagen Sharan",
-        "Volkswagen Caravelle",
-        "Volkswagen Multivan",
+        "Audi A3",
+        "Volkswagen Caddy",
         "Volkswagen California"
        ]
       },
@@ -822874,8 +823353,7 @@
        "engineers": [],
        "sharedPlatforms": [
         "Ford Transit Custom",
-        "Ford Transit Custom / Tourneo Custom",
-        "Volkswagen Caravelle"
+        "Ford Tourneo Custom"
        ]
       }
      ]
@@ -822883,21 +823361,13 @@
     "dropped": []
    },
    "manualRecheck": true,
-   "engineScansCleared": 4,
+   "engineScansCleared": 7,
    "generationDiff": {
     "addedCodes": [
-     "T1",
-     "T2",
-     "T3",
-     "T7",
      "2024"
     ],
-    "removedIds": [
-     "m-volkswagen-transporter"
-    ]
+    "removedIds": []
    },
-   "peopleAdded": [],
-   "outsidersV": 2,
    "sections": [
     [
      1,
@@ -822962,23 +823432,944 @@
     [
      1,
      "External links"
+    ],
+    [
+     1,
+     "Legacy of the Type 2"
+    ],
+    [
+     1,
+     "History"
+    ],
+    [
+     1,
+     "Variants"
+    ],
+    [
+     1,
+     "First generation (T1; 1950)"
+    ],
+    [
+     2,
+     "Samba"
+    ],
+    [
+     2,
+     "US Chicken tax"
+    ],
+    [
+     1,
+     "Second generation (T2; 1967)"
+    ],
+    [
+     2,
+     "T2b"
+    ],
+    [
+     2,
+     "T2c"
+    ],
+    [
+     2,
+     "Azul"
+    ],
+    [
+     1,
+     "Third generation (T3; 1979)"
+    ],
+    [
+     1,
+     "Fourth generation (T4; 1990)"
+    ],
+    [
+     1,
+     "Fifth generation (T5; 2003)"
+    ],
+    [
+     1,
+     "Sixth generation (T6; 2015)"
+    ],
+    [
+     1,
+     "Volkswagen Microbus concept vehicle"
+    ],
+    [
+     1,
+     "Names and nicknames"
+    ],
+    [
+     1,
+     "Mexican production"
+    ],
+    [
+     1,
+     "Hippie van"
+    ],
+    [
+     1,
+     "See also"
+    ],
+    [
+     1,
+     "References"
+    ],
+    [
+     1,
+     "Legacy of the Type 2"
+    ],
+    [
+     1,
+     "History"
+    ],
+    [
+     1,
+     "Variants"
+    ],
+    [
+     1,
+     "First generation (T1; 1950)"
+    ],
+    [
+     2,
+     "Samba"
+    ],
+    [
+     2,
+     "US Chicken tax"
+    ],
+    [
+     1,
+     "Second generation (T2; 1967)"
+    ],
+    [
+     2,
+     "T2b"
+    ],
+    [
+     2,
+     "T2c"
+    ],
+    [
+     2,
+     "Azul"
+    ],
+    [
+     1,
+     "Third generation (T3; 1979)"
+    ],
+    [
+     1,
+     "Fourth generation (T4; 1990)"
+    ],
+    [
+     1,
+     "Fifth generation (T5; 2003)"
+    ],
+    [
+     1,
+     "Sixth generation (T6; 2015)"
+    ],
+    [
+     1,
+     "Volkswagen Microbus concept vehicle"
+    ],
+    [
+     1,
+     "Names and nicknames"
+    ],
+    [
+     1,
+     "Mexican production"
+    ],
+    [
+     1,
+     "Hippie van"
+    ],
+    [
+     1,
+     "See also"
+    ],
+    [
+     1,
+     "References"
+    ],
+    [
+     1,
+     "History"
+    ],
+    [
+     1,
+     "Features"
+    ],
+    [
+     1,
+     "Engines"
+    ],
+    [
+     2,
+     "Petrol engines"
+    ],
+    [
+     2,
+     "Diesel engines"
+    ],
+    [
+     1,
+     "U.S. model variations"
+    ],
+    [
+     1,
+     "South African models"
+    ],
+    [
+     1,
+     "Safety and Crash Tests"
+    ],
+    [
+     1,
+     "Engine-swapped limited production versions"
+    ],
+    [
+     2,
+     "Porsche B32"
+    ],
+    [
+     2,
+     "Claer CT3"
+    ],
+    [
+     2,
+     "Oettinger T3"
+    ],
+    [
+     1,
+     "Today"
+    ],
+    [
+     1,
+     "Gallery"
+    ],
+    [
+     1,
+     "References"
+    ],
+    [
+     1,
+     "External links"
+    ],
+    [
+     1,
+     "History"
+    ],
+    [
+     1,
+     "Chassis"
+    ],
+    [
+     2,
+     "Wheelbase"
+    ],
+    [
+     2,
+     "Body types"
+    ],
+    [
+     3,
+     "Van"
+    ],
+    [
+     3,
+     "Pickup"
+    ],
+    [
+     2,
+     "Roofs"
+    ],
+    [
+     2,
+     "Doors"
+    ],
+    [
+     2,
+     "Long and short-nose"
+    ],
+    [
+     2,
+     "Four Wheel Drive (Syncro)"
+    ],
+    [
+     2,
+     "Campervans"
+    ],
+    [
+     1,
+     "Engines"
+    ],
+    [
+     2,
+     "Petrol engines"
+    ],
+    [
+     2,
+     "Diesel engines"
+    ],
+    [
+     1,
+     "Enthusiasts' groups"
+    ],
+    [
+     1,
+     "T4 in North America (EuroVan)"
+    ],
+    [
+     1,
+     "See also"
+    ],
+    [
+     1,
+     "References"
+    ],
+    [
+     1,
+     "External links"
+    ],
+    [
+     1,
+     "Overview"
+    ],
+    [
+     2,
+     "Body types"
+    ],
+    [
+     2,
+     "People movers"
+    ],
+    [
+     1,
+     "Variants"
+    ],
+    [
+     2,
+     "Sportline"
+    ],
+    [
+     2,
+     "California campervan"
+    ],
+    [
+     1,
+     "Facelift"
+    ],
+    [
+     2,
+     "Edition 25 Multivan (2011)"
+    ],
+    [
+     1,
+     "Engines"
+    ],
+    [
+     1,
+     "Safety"
+    ],
+    [
+     1,
+     "Awards"
+    ],
+    [
+     1,
+     "Gallery"
+    ],
+    [
+     1,
+     "References"
+    ],
+    [
+     1,
+     "Notes"
+    ],
+    [
+     1,
+     "External links"
+    ],
+    [
+     1,
+     "Overview"
+    ],
+    [
+     2,
+     "Transporter T6.1"
+    ],
+    [
+     2,
+     "ABT e-Transporter"
+    ],
+    [
+     2,
+     "End of production and successors"
+    ],
+    [
+     1,
+     "Powertrain"
+    ],
+    [
+     1,
+     "Safety"
+    ],
+    [
+     1,
+     "Models"
+    ],
+    [
+     2,
+     "Cargo: Panel van and Kombi"
+    ],
+    [
+     2,
+     "Passenger: Caravelle, Multivan, and Shuttle"
+    ],
+    [
+     2,
+     "Chassis cab"
+    ],
+    [
+     2,
+     "Campervans"
+    ],
+    [
+     1,
+     "Notes"
+    ],
+    [
+     1,
+     "References"
+    ],
+    [
+     1,
+     "Overview"
+    ],
+    [
+     2,
+     "Facelift"
+    ],
+    [
+     2,
+     "Trim levels"
+    ],
+    [
+     1,
+     "Powertrain"
+    ],
+    [
+     1,
+     "Safety"
+    ],
+    [
+     2,
+     "ANCAP"
+    ],
+    [
+     2,
+     "Euro NCAP"
+    ],
+    [
+     1,
+     "References"
+    ],
+    [
+     1,
+     "Gallery"
+    ],
+    [
+     1,
+     "Safety"
+    ],
+    [
+     1,
+     "References"
+    ],
+    [
+     1,
+     "External links"
     ]
    ],
-   "kept": [],
-   "outsiders": [
-    {
-     "code": "2024",
-     "why": "no generation-level section of its own in the article"
-    }
-   ],
-   "relatedCars": [],
-   "retiredGenerations": [
-    {
-     "id": "m-volkswagen-transporter",
-     "label": "Transporter"
-    }
-   ],
-   "appliedAt": "2026-10-15T07:55:07.351Z"
+   "appliedBefore": {
+    "status": "applied",
+    "checkedAt": "2026-10-14T01:30:10.769Z",
+    "sourceTitle": "Volkswagen Transporter",
+    "proposal": {
+     "hasMultipleGenerations": true,
+     "generations": [
+      {
+       "code": "T1",
+       "yearStart": 1950,
+       "yearEnd": 1967,
+       "designers": [],
+       "engineers": [],
+       "wikiFile": "Politie-Police, Federal & local of Belgium.jpg",
+       "sharedPlatforms": []
+      },
+      {
+       "code": "T2",
+       "yearStart": 1967,
+       "yearEnd": 1979,
+       "designers": [],
+       "engineers": [],
+       "wikiFile": "Volkswagen Plattenwagen.jpg",
+       "sharedPlatforms": []
+      },
+      {
+       "code": "T3",
+       "yearStart": 1979,
+       "yearEnd": 2002,
+       "designers": [],
+       "engineers": [],
+       "wikiFile": "Volkswagen Type 2 at The Henry Ford - July 2017.jpg",
+       "sharedPlatforms": [
+        "Volkswagen Vanagon",
+        "Volkswagen Danfo",
+        "Volkswagen Microbus"
+       ],
+       "sharedPlatformMatches": {
+        "Volkswagen Vanagon": {
+         "matchId": null,
+         "confidence": "high",
+         "reason": "The mentioned car 'Volkswagen Vanagon' is the North American export name for the Volkswagen Transporter (specifically the T3 generation, produced 1979–1992). While the database contains entries for the 'Volkswagen Type 2 (T1)' (the predecessor) and the 'Volkswagen Multivan (T7)' (the successor), it lacks a specific entry for the T3 generation (often labeled as 'Transporter T3', 'Vanagon', or 'California' in databases). According to the rules, sharing a marque is not evidence of a match, and a different generation or nameplate is a different car. Since no candidate represents the specific 'Vanagon' (T3) model, the match is null."
+        },
+        "Volkswagen Danfo": {
+         "matchId": null,
+         "confidence": "high",
+         "reason": "Volkswagen Danfo is the Chinese market name for the Volkswagen Passat (specifically the B6 generation, 2005–2010). None of the provided candidates in the database correspond to the Passat B6; the list includes older generations (B1, B2, B3, B4) and newer generations (B7/B8) or other models, but no entry for the B6 which would be the correct match for 'Danfo'. Additionally, 'Danfo' is not a name contained within any of the candidate names as a whole word in a way that identifies the specific variant, and the specific generation required for the match is absent."
+        },
+        "Volkswagen Microbus": {
+         "matchId": null,
+         "confidence": "low",
+         "reason": "rejected: the local model claimed \"Volkswagen Microbus\" is another name for Volkswagen Type 2 (T1) (1950–1967) — but the two names have nothing in common beyond the marque, and that car's production doesn't overlap the 1979–2002 generation this mention came from, so they can't be the same vehicle under two names. (A car reusing an older car's platform is a different claim, and isn't affected by this check.) Its stated reasoning was: Volkswagen Microbus is the common English name for the Volkswagen Type 2. The candidate 'Volkswagen Type 2 (T1)' explicitly references the chassis code T1, which corresponds to the original generation of the Type 2/Microbus produced from 1950 to 1967. No other candidate refers to this specific vehicle.",
+         "rejectedMatchId": "m-volkswagen-type-2-t1"
+        }
+       }
+      },
+      {
+       "code": "T4",
+       "yearStart": 1990,
+       "yearEnd": 2004,
+       "designers": [],
+       "engineers": [],
+       "wikiFile": "VW T1-BD 20-5031.JPG",
+       "sharedPlatforms": [
+        "Volkswagen EuroVan",
+        "Volkswagen Caravelle",
+        "Volkswagen Vanagon",
+        "Volkswagen Routan"
+       ],
+       "sharedPlatformMatches": {
+        "Volkswagen EuroVan": {
+         "matchId": null,
+         "confidence": "high",
+         "reason": "The mentioned car 'Volkswagen EuroVan' is an export name (used primarily in North America) for the Volkswagen Type 2 (T3). While the database contains entries for the VW Type 2 (T1) and the VW Multivan (T7), it does not contain an entry for the Type 2 (T3) or the EuroVan. Per the rules, a name that merely contains the candidate's name (e.g., 'EuroVan' containing 'Van') or refers to a different generation is not a match. Since the specific chassis code (T3) or the export name is missing from the candidates, no valid match can be established."
+        },
+        "Volkswagen Caravelle": {
+         "matchId": null,
+         "confidence": "high",
+         "reason": "The mention 'Volkswagen Caravelle' refers to a Volkswagen van (derived from the Type 2 or T25 chassis). While the candidate list includes 'Volkswagen Sharan' (a VW van) and 'Plymouth Caravelle' (a Dodge van), the specific name 'Volkswagen Caravelle' is not an official model name used by Volkswagen. The 'Plymouth Caravelle' is a Dodge vehicle sold in the US, not a Volkswagen, so it does not match. No candidate in the list represents the actual 'Volkswagen Caravelle' model."
+        },
+        "Volkswagen Vanagon": {
+         "matchId": null,
+         "confidence": "high",
+         "reason": "The mentioned car 'Volkswagen Vanagon' is the North American export name for the Volkswagen Transporter (specifically the T3 generation, produced 1979–1992). While the database contains entries for the 'Volkswagen Type 2 (T1)' (the predecessor) and the 'Volkswagen Multivan (T7)' (the successor), it lacks a specific entry for the T3 generation (often labeled as 'Transporter T3', 'Vanagon', or 'California' in databases). According to the rules, sharing a marque is not evidence of a match, and a different generation or nameplate is a different car. Since no candidate represents the specific 'Vanagon' (T3) model, the match is null."
+        }
+       }
+      },
+      {
+       "code": "T5",
+       "yearStart": 2003,
+       "yearEnd": 2015,
+       "designers": [],
+       "engineers": [],
+       "wikiFile": "1964 Volkswagen T1 Transporter Kombi bus (6106456722).jpg",
+       "sharedPlatforms": [
+        "Volkswagen Caravelle",
+        "Volkswagen Multivan",
+        "Volkswagen California",
+        "Volkswagen Eurovan"
+       ],
+       "sharedPlatformMatches": {
+        "Volkswagen Caravelle": {
+         "matchId": null,
+         "confidence": "high",
+         "reason": "The mention 'Volkswagen Caravelle' refers to a Volkswagen van (derived from the Type 2 or T25 chassis). While the candidate list includes 'Volkswagen Sharan' (a VW van) and 'Plymouth Caravelle' (a Dodge van), the specific name 'Volkswagen Caravelle' is not an official model name used by Volkswagen. The 'Plymouth Caravelle' is a Dodge vehicle sold in the US, not a Volkswagen, so it does not match. No candidate in the list represents the actual 'Volkswagen Caravelle' model."
+        },
+        "Volkswagen Multivan": {
+         "matchId": "m-volkswagen-multivan-t7",
+         "confidence": "high",
+         "reason": "The mention 'Volkswagen Multivan' refers to the current generation of the VW Transporter van. The candidate 'm-volkswagen-multivan-t7' is the specific database entry for the seventh generation (T7) of the Multivan (2021–present), which is the only Multivan currently in production and matches the modern naming convention implied by the mention without a specific generation code."
+        },
+        "Volkswagen California": {
+         "matchId": null,
+         "confidence": "high",
+         "reason": "The mentioned car 'Volkswagen California' is a camper van (based on the Type 2/Transporter platform), whereas all provided candidates are passenger cars (sedans, hatchbacks, coupes) or do not include the California camper model. Specifically, while 'Volkswagen Multivan (T7)' and 'Volkswagen ID. Buzz' are related to the California lineage (Multivan/Caravelle/T6/T7), they are distinct vehicle models and generation codes from the specific 'California' nameplate mentioned. No candidate matches the exact vehicle."
+        },
+        "Volkswagen Eurovan": {
+         "matchId": null,
+         "confidence": "high",
+         "reason": "The mentioned car 'Volkswagen EuroVan' is an export name (used primarily in North America) for the Volkswagen Type 2 (T3). While the database contains entries for the VW Type 2 (T1) and the VW Multivan (T7), it does not contain an entry for the Type 2 (T3) or the EuroVan. Per the rules, a name that merely contains the candidate's name (e.g., 'EuroVan' containing 'Van') or refers to a different generation is not a match. Since the specific chassis code (T3) or the export name is missing from the candidates, no valid match can be established."
+        }
+       }
+      },
+      {
+       "code": "T6",
+       "yearStart": 2015,
+       "yearEnd": 2024,
+       "designers": [],
+       "engineers": [],
+       "wikiFile": "2020 Volkswagen Transporter 6.1 Highline Kombi TDi 2.0.jpg",
+       "sharedPlatforms": [
+        "Volkswagen Caravelle",
+        "Volkswagen Multivan",
+        "Volkswagen California",
+        "Volkswagen T6.1"
+       ],
+       "sharedPlatformMatches": {
+        "Volkswagen Caravelle": {
+         "matchId": null,
+         "confidence": "high",
+         "reason": "The mention 'Volkswagen Caravelle' refers to a Volkswagen van (derived from the Type 2 or T25 chassis). While the candidate list includes 'Volkswagen Sharan' (a VW van) and 'Plymouth Caravelle' (a Dodge van), the specific name 'Volkswagen Caravelle' is not an official model name used by Volkswagen. The 'Plymouth Caravelle' is a Dodge vehicle sold in the US, not a Volkswagen, so it does not match. No candidate in the list represents the actual 'Volkswagen Caravelle' model."
+        },
+        "Volkswagen Multivan": {
+         "matchId": "m-volkswagen-multivan-t7",
+         "confidence": "high",
+         "reason": "The mention 'Volkswagen Multivan' refers to the current generation of the VW Transporter van. The candidate 'm-volkswagen-multivan-t7' is the specific database entry for the seventh generation (T7) of the Multivan (2021–present), which is the only Multivan currently in production and matches the modern naming convention implied by the mention without a specific generation code."
+        },
+        "Volkswagen California": {
+         "matchId": null,
+         "confidence": "high",
+         "reason": "The mentioned car 'Volkswagen California' is a camper van (based on the Type 2/Transporter platform), whereas all provided candidates are passenger cars (sedans, hatchbacks, coupes) or do not include the California camper model. Specifically, while 'Volkswagen Multivan (T7)' and 'Volkswagen ID. Buzz' are related to the California lineage (Multivan/Caravelle/T6/T7), they are distinct vehicle models and generation codes from the specific 'California' nameplate mentioned. No candidate matches the exact vehicle."
+        },
+        "Volkswagen T6.1": {
+         "matchId": null,
+         "confidence": "high",
+         "reason": "The mention is 'Volkswagen T6.1', which refers to the second generation of the Volkswagen Transporter (T6) van series (produced roughly 2015–2021). None of the provided candidates correspond to the VW Transporter T6 or T6.1. While candidates like 'm-volkswagen-touareg' share the 'T' prefix, they are completely different models. Candidates with 'T' in the chassis code like 'm-volkswagen-type-2-t1' refer to the T1 (Type 2) van, not the T6. The candidate 'm-lola-t61' refers to a British racing car, not a Volkswagen."
+        }
+       }
+      },
+      {
+       "code": "T7",
+       "yearStart": 2022,
+       "yearEnd": null,
+       "designers": [],
+       "engineers": [],
+       "wikiFile": "1958 Volkswagen T1 Transporter Kombi bus.jpg",
+       "sharedPlatforms": [
+        "Volkswagen Sharan",
+        "Volkswagen Caravelle",
+        "Volkswagen Multivan",
+        "Volkswagen California"
+       ],
+       "sharedPlatformMatches": {
+        "Volkswagen Caravelle": {
+         "matchId": null,
+         "confidence": "high",
+         "reason": "The mention 'Volkswagen Caravelle' refers to a Volkswagen van (derived from the Type 2 or T25 chassis). While the candidate list includes 'Volkswagen Sharan' (a VW van) and 'Plymouth Caravelle' (a Dodge van), the specific name 'Volkswagen Caravelle' is not an official model name used by Volkswagen. The 'Plymouth Caravelle' is a Dodge vehicle sold in the US, not a Volkswagen, so it does not match. No candidate in the list represents the actual 'Volkswagen Caravelle' model."
+        },
+        "Volkswagen Multivan": {
+         "matchId": "m-volkswagen-multivan-t7",
+         "confidence": "high",
+         "reason": "The mention 'Volkswagen Multivan' refers to the current generation of the VW Transporter van. The candidate 'm-volkswagen-multivan-t7' is the specific database entry for the seventh generation (T7) of the Multivan (2021–present), which is the only Multivan currently in production and matches the modern naming convention implied by the mention without a specific generation code."
+        },
+        "Volkswagen California": {
+         "matchId": null,
+         "confidence": "high",
+         "reason": "The mentioned car 'Volkswagen California' is a camper van (based on the Type 2/Transporter platform), whereas all provided candidates are passenger cars (sedans, hatchbacks, coupes) or do not include the California camper model. Specifically, while 'Volkswagen Multivan (T7)' and 'Volkswagen ID. Buzz' are related to the California lineage (Multivan/Caravelle/T6/T7), they are distinct vehicle models and generation codes from the specific 'California' nameplate mentioned. No candidate matches the exact vehicle."
+        }
+       }
+      },
+      {
+       "code": "2024",
+       "yearStart": 2024,
+       "yearEnd": null,
+       "designers": [],
+       "engineers": [],
+       "wikiFile": "2017 Volkswagen Transporter T28 Highline TDi 2.0 Front.jpg",
+       "sharedPlatforms": [
+        "Ford Transit Custom",
+        "Ford Transit Custom / Tourneo Custom",
+        "Volkswagen Caravelle"
+       ],
+       "sharedPlatformMatches": {
+        "Ford Transit Custom / Tourneo Custom": {
+         "matchId": "llm-related-ford-transit-custom",
+         "confidence": "high",
+         "reason": "The mention explicitly names 'Ford Transit Custom' (along with its van variant 'Tourneo Custom'), which directly matches the model name and production era (2012–present) of the candidate id 'llm-related-ford-transit-custom'. The other 'Custom' entries refer to unrelated historical models or different manufacturers."
+        },
+        "Volkswagen Caravelle": {
+         "matchId": null,
+         "confidence": "high",
+         "reason": "The mention 'Volkswagen Caravelle' refers to a Volkswagen van (derived from the Type 2 or T25 chassis). While the candidate list includes 'Volkswagen Sharan' (a VW van) and 'Plymouth Caravelle' (a Dodge van), the specific name 'Volkswagen Caravelle' is not an official model name used by Volkswagen. The 'Plymouth Caravelle' is a Dodge vehicle sold in the US, not a Volkswagen, so it does not match. No candidate in the list represents the actual 'Volkswagen Caravelle' model."
+        }
+       }
+      }
+     ]
+    },
+    "discrepancy": "an existing \"generation\" here (Transporter) is really just the bare nameplate itself, not a distinct generation",
+    "attempts": 1,
+    "feedback": [],
+    "engines": [
+     {
+      "title": "Air-cooled engine",
+      "name": "air-cooled",
+      "variant": null,
+      "specs": {
+       "displacement": "1.6 L",
+       "fuel": "petrol"
+      },
+      "said": "1.6 L air-cooled H4"
+     },
+     {
+      "title": "VR6 engine",
+      "name": "VR6",
+      "variant": null,
+      "specs": {
+       "displacement": "3.2 L",
+       "fuel": "petrol"
+      },
+      "said": "3.2 L VR6 (petrol)"
+     },
+     {
+      "title": "Ford EcoBlue engine",
+      "name": "TDI",
+      "variant": null,
+      "specs": {
+       "displacement": "2.0 L",
+       "layout": "I",
+       "cylinders": 4,
+       "induction": "turbocharged",
+       "fuel": "diesel"
+      },
+      "said": "2.0 L TDI I4 turbo"
+     },
+     {
+      "title": "Ford Duratec engine",
+      "name": "eHybrid",
+      "variant": null,
+      "specs": {
+       "displacement": "2.5 L",
+       "layout": "I",
+       "cylinders": 4,
+       "induction": "turbocharged",
+       "fuel": "petrol"
+      },
+      "said": "2.5 L eHybrid PHEV I4 turbo"
+     }
+    ],
+    "debug": {
+     "raw": {
+      "hasMultipleGenerations": true,
+      "generations": [
+       {
+        "code": "T1",
+        "yearStart": 1950,
+        "yearEnd": 1967,
+        "designers": [],
+        "engineers": [],
+        "sharedPlatforms": []
+       },
+       {
+        "code": "T2",
+        "yearStart": 1967,
+        "yearEnd": 1979,
+        "designers": [],
+        "engineers": [],
+        "sharedPlatforms": []
+       },
+       {
+        "code": "T3",
+        "yearStart": 1979,
+        "yearEnd": 2002,
+        "designers": [],
+        "engineers": [],
+        "sharedPlatforms": [
+         "Volkswagen Vanagon",
+         "Volkswagen Danfo",
+         "Volkswagen Faragon",
+         "Volkswagen Microbus",
+         "Volkswagen Syncro"
+        ]
+       },
+       {
+        "code": "T4",
+        "yearStart": 1990,
+        "yearEnd": 2004,
+        "designers": [],
+        "engineers": [],
+        "sharedPlatforms": [
+         "Volkswagen EuroVan",
+         "Volkswagen Caravelle",
+         "Volkswagen Vanagon",
+         "Volkswagen Routan",
+         "Winnebago EuroVan",
+         "Winnebago Rialta",
+         "Winnebago Vista",
+         "Winnebago Sunstar"
+        ]
+       },
+       {
+        "code": "T5",
+        "yearStart": 2003,
+        "yearEnd": 2015,
+        "designers": [],
+        "engineers": [],
+        "sharedPlatforms": [
+         "Volkswagen Caravelle",
+         "Volkswagen Multivan",
+         "Volkswagen California",
+         "Volkswagen Eurovan"
+        ]
+       },
+       {
+        "code": "T6",
+        "yearStart": 2015,
+        "yearEnd": 2024,
+        "designers": [],
+        "engineers": [],
+        "sharedPlatforms": [
+         "Volkswagen Caravelle",
+         "Volkswagen Multivan",
+         "Volkswagen California",
+         "Volkswagen T6.1"
+        ]
+       },
+       {
+        "code": "T7",
+        "yearStart": 2022,
+        "yearEnd": null,
+        "designers": [],
+        "engineers": [],
+        "sharedPlatforms": [
+         "Volkswagen Sharan",
+         "Volkswagen Caravelle",
+         "Volkswagen Multivan",
+         "Volkswagen California"
+        ]
+       },
+       {
+        "code": "2024",
+        "yearStart": 2024,
+        "yearEnd": null,
+        "designers": [],
+        "engineers": [],
+        "sharedPlatforms": [
+         "Ford Transit Custom",
+         "Ford Transit Custom / Tourneo Custom",
+         "Volkswagen Caravelle"
+        ]
+       }
+      ]
+     },
+     "dropped": []
+    },
+    "manualRecheck": true,
+    "engineScansCleared": 4,
+    "generationDiff": {
+     "addedCodes": [
+      "T1",
+      "T2",
+      "T3",
+      "T7",
+      "2024"
+     ],
+     "removedIds": [
+      "m-volkswagen-transporter"
+     ]
+    },
+    "peopleAdded": [],
+    "outsidersV": 2,
+    "sections": [
+     [
+      1,
+      "Type 2"
+     ],
+     [
+      2,
+      "T1 (1950)"
+     ],
+     [
+      2,
+      "T2 (1967)"
+     ],
+     [
+      2,
+      "T3 (1979)"
+     ],
+     [
+      1,
+      "Transporter/Multivan"
+     ],
+     [
+      2,
+      "T4 (1990)"
+     ],
+     [
+      2,
+      "T5 (2003)"
+     ],
+     [
+      3,
+      "2003 (pre-facelift)"
+     ],
+     [
+      3,
+      "2009 (facelift)"
+     ],
+     [
+      2,
+      "T6 (2016)"
+     ],
+     [
+      2,
+      "T7"
+     ],
+     [
+      3,
+      "Multivan (2022)"
+     ],
+     [
+      3,
+      "Transporter (2024)"
+     ],
+     [
+      1,
+      "See also"
+     ],
+     [
+      1,
+      "References"
+     ],
+     [
+      1,
+      "External links"
+     ]
+    ],
+    "kept": [],
+    "outsiders": [
+     {
+      "code": "2024",
+      "why": "no generation-level section of its own in the article"
+     }
+    ],
+    "relatedCars": [],
+    "retiredGenerations": [
+     {
+      "id": "m-volkswagen-transporter",
+      "label": "Transporter"
+     }
+    ],
+    "appliedAt": "2026-10-15T07:55:07.351Z"
+   },
+   "settledAt": "2026-11-02T09:02:40.305Z",
+   "settledBy": "rules",
+   "settledWhy": "the re-read names the same generations",
+   "peopleAdded": []
   },
   "m-ford-granada-europe": {
    "status": "none",
@@ -865699,7 +867090,7 @@
   },
   "fam-volkswagen-type-2": {
    "status": "applied",
-   "checkedAt": "2026-10-13T21:25:07.503Z",
+   "checkedAt": "2026-11-02T08:59:16.462Z",
    "sourceTitle": "Volkswagen Type 2",
    "proposal": {
     "hasMultipleGenerations": true,
@@ -865710,7 +867101,7 @@
       "yearEnd": 1967,
       "designers": [],
       "engineers": [],
-      "wikiFile": "0385 Porsche Diesel Bus blau.jpg",
+      "wikiFile": "1961 Volkswagen Type 2 Campervan.jpg",
       "sharedPlatforms": []
      },
      {
@@ -865728,7 +867119,7 @@
       "yearEnd": 2002,
       "designers": [],
       "engineers": [],
-      "wikiFile": "Volkswagen Type 2 at The Henry Ford - July 2017.jpg",
+      "wikiFile": "Volkswagen Transporter (13946831716).jpg",
       "sharedPlatforms": []
      },
      {
@@ -865737,7 +867128,7 @@
       "yearEnd": 2004,
       "designers": [],
       "engineers": [],
-      "wikiFile": "Volkswagen Eurovan.jpg",
+      "wikiFile": "VW T4 Multivan Allstar.jpg",
       "sharedPlatforms": []
      },
      {
@@ -865746,7 +867137,7 @@
       "yearEnd": 2015,
       "designers": [],
       "engineers": [],
-      "wikiFile": "VW T1-BD 20-5031.JPG",
+      "wikiFile": "VW Eurovan T5 Multivan.jpg",
       "sharedPlatforms": []
      },
      {
@@ -865755,7 +867146,7 @@
       "yearEnd": null,
       "designers": [],
       "engineers": [],
-      "wikiFile": "2020 Volkswagen Transporter 6.1 Highline Kombi TDi 2.0.jpg",
+      "wikiFile": "VW T6 Multivan Generation Six 2.0 TDI.JPG",
       "sharedPlatforms": []
      }
     ]
@@ -865842,21 +867233,15 @@
     "dropped": []
    },
    "manualRecheck": true,
-   "engineScansCleared": 0,
+   "engineScansCleared": 6,
    "generationDiff": {
     "addedCodes": [
-     "T1",
-     "T2",
-     "T4",
-     "T5",
-     "T6"
+     "T2"
     ],
     "removedIds": [
      "m-volkswagen-type-2"
     ]
    },
-   "peopleAdded": [],
-   "outsidersV": 2,
    "sections": [
     [
      1,
@@ -865881,6 +867266,10 @@
     [
      2,
      "US Chicken tax"
+    ],
+    [
+     1,
+     "Second generation (T2; 1967)"
     ],
     [
      2,
@@ -865933,20 +867322,547 @@
     [
      1,
      "References"
+    ],
+    [
+     1,
+     "Background"
+    ],
+    [
+     1,
+     "Diplomacy failure and the UAW"
+    ],
+    [
+     1,
+     "Ramifications"
+    ],
+    [
+     2,
+     "Circumventing the tariff"
+    ],
+    [
+     1,
+     "References"
+    ],
+    [
+     1,
+     "Further reading"
+    ],
+    [
+     1,
+     "History"
+    ],
+    [
+     1,
+     "Features"
+    ],
+    [
+     1,
+     "Engines"
+    ],
+    [
+     2,
+     "Petrol engines"
+    ],
+    [
+     2,
+     "Diesel engines"
+    ],
+    [
+     1,
+     "U.S. model variations"
+    ],
+    [
+     1,
+     "South African models"
+    ],
+    [
+     1,
+     "Safety and Crash Tests"
+    ],
+    [
+     1,
+     "Engine-swapped limited production versions"
+    ],
+    [
+     2,
+     "Porsche B32"
+    ],
+    [
+     2,
+     "Claer CT3"
+    ],
+    [
+     2,
+     "Oettinger T3"
+    ],
+    [
+     1,
+     "Today"
+    ],
+    [
+     1,
+     "Gallery"
+    ],
+    [
+     1,
+     "References"
+    ],
+    [
+     1,
+     "External links"
+    ],
+    [
+     1,
+     "History"
+    ],
+    [
+     1,
+     "Chassis"
+    ],
+    [
+     2,
+     "Wheelbase"
+    ],
+    [
+     2,
+     "Body types"
+    ],
+    [
+     3,
+     "Van"
+    ],
+    [
+     3,
+     "Pickup"
+    ],
+    [
+     2,
+     "Roofs"
+    ],
+    [
+     2,
+     "Doors"
+    ],
+    [
+     2,
+     "Long and short-nose"
+    ],
+    [
+     2,
+     "Four Wheel Drive (Syncro)"
+    ],
+    [
+     2,
+     "Campervans"
+    ],
+    [
+     1,
+     "Engines"
+    ],
+    [
+     2,
+     "Petrol engines"
+    ],
+    [
+     2,
+     "Diesel engines"
+    ],
+    [
+     1,
+     "Enthusiasts' groups"
+    ],
+    [
+     1,
+     "T4 in North America (EuroVan)"
+    ],
+    [
+     1,
+     "See also"
+    ],
+    [
+     1,
+     "References"
+    ],
+    [
+     1,
+     "External links"
+    ],
+    [
+     1,
+     "Overview"
+    ],
+    [
+     2,
+     "Body types"
+    ],
+    [
+     2,
+     "People movers"
+    ],
+    [
+     1,
+     "Variants"
+    ],
+    [
+     2,
+     "Sportline"
+    ],
+    [
+     2,
+     "California campervan"
+    ],
+    [
+     1,
+     "Facelift"
+    ],
+    [
+     2,
+     "Edition 25 Multivan (2011)"
+    ],
+    [
+     1,
+     "Engines"
+    ],
+    [
+     1,
+     "Safety"
+    ],
+    [
+     1,
+     "Awards"
+    ],
+    [
+     1,
+     "Gallery"
+    ],
+    [
+     1,
+     "References"
+    ],
+    [
+     1,
+     "Notes"
+    ],
+    [
+     1,
+     "External links"
+    ],
+    [
+     1,
+     "Overview"
+    ],
+    [
+     2,
+     "Transporter T6.1"
+    ],
+    [
+     2,
+     "ABT e-Transporter"
+    ],
+    [
+     2,
+     "End of production and successors"
+    ],
+    [
+     1,
+     "Powertrain"
+    ],
+    [
+     1,
+     "Safety"
+    ],
+    [
+     1,
+     "Models"
+    ],
+    [
+     2,
+     "Cargo: Panel van and Kombi"
+    ],
+    [
+     2,
+     "Passenger: Caravelle, Multivan, and Shuttle"
+    ],
+    [
+     2,
+     "Chassis cab"
+    ],
+    [
+     2,
+     "Campervans"
+    ],
+    [
+     1,
+     "Notes"
+    ],
+    [
+     1,
+     "References"
     ]
    ],
-   "kept": [
-    "m-volkswagen-type-2"
-   ],
-   "outsiders": [
+   "appliedBefore": {
+    "status": "applied",
+    "checkedAt": "2026-10-13T21:25:07.503Z",
+    "sourceTitle": "Volkswagen Type 2",
+    "proposal": {
+     "hasMultipleGenerations": true,
+     "generations": [
+      {
+       "code": "T1",
+       "yearStart": 1950,
+       "yearEnd": 1967,
+       "designers": [],
+       "engineers": [],
+       "wikiFile": "0385 Porsche Diesel Bus blau.jpg",
+       "sharedPlatforms": []
+      },
+      {
+       "code": "T2",
+       "yearStart": 1967,
+       "yearEnd": 1979,
+       "designers": [],
+       "engineers": [],
+       "wikiFile": "Volkswagen Plattenwagen.jpg",
+       "sharedPlatforms": []
+      },
+      {
+       "code": "T3",
+       "yearStart": 1979,
+       "yearEnd": 2002,
+       "designers": [],
+       "engineers": [],
+       "wikiFile": "Volkswagen Type 2 at The Henry Ford - July 2017.jpg",
+       "sharedPlatforms": []
+      },
+      {
+       "code": "T4",
+       "yearStart": 1990,
+       "yearEnd": 2004,
+       "designers": [],
+       "engineers": [],
+       "wikiFile": "Volkswagen Eurovan.jpg",
+       "sharedPlatforms": []
+      },
+      {
+       "code": "T5",
+       "yearStart": 2003,
+       "yearEnd": 2015,
+       "designers": [],
+       "engineers": [],
+       "wikiFile": "VW T1-BD 20-5031.JPG",
+       "sharedPlatforms": []
+      },
+      {
+       "code": "T6",
+       "yearStart": 2015,
+       "yearEnd": null,
+       "designers": [],
+       "engineers": [],
+       "wikiFile": "2020 Volkswagen Transporter 6.1 Highline Kombi TDi 2.0.jpg",
+       "sharedPlatforms": []
+      }
+     ]
+    },
+    "discrepancy": "an existing \"generation\" here (Type 2) is really just the bare nameplate itself, not a distinct generation",
+    "attempts": 1,
+    "feedback": [],
+    "engines": [
+     {
+      "title": "Air-cooled engine",
+      "name": "air-cooled",
+      "variant": null,
+      "specs": {
+       "displacement": "1.6 L",
+       "fuel": "petrol"
+      },
+      "said": "1.6 L air-cooled H4"
+     },
+     {
+      "title": "VR6 engine",
+      "name": "VR6",
+      "variant": null,
+      "specs": {
+       "displacement": "3.2 L",
+       "fuel": "petrol"
+      },
+      "said": "3.2 L VR6 (petrol)"
+     }
+    ],
+    "debug": {
+     "raw": {
+      "hasMultipleGenerations": true,
+      "generations": [
+       {
+        "code": "T1",
+        "yearStart": 1950,
+        "yearEnd": 1967,
+        "designers": [],
+        "engineers": [],
+        "sharedPlatforms": []
+       },
+       {
+        "code": "T2",
+        "yearStart": 1967,
+        "yearEnd": 1979,
+        "designers": [],
+        "engineers": [],
+        "sharedPlatforms": []
+       },
+       {
+        "code": "T3",
+        "yearStart": 1979,
+        "yearEnd": 2002,
+        "designers": [],
+        "engineers": [],
+        "sharedPlatforms": []
+       },
+       {
+        "code": "T4",
+        "yearStart": 1990,
+        "yearEnd": 2004,
+        "designers": [],
+        "engineers": [],
+        "sharedPlatforms": []
+       },
+       {
+        "code": "T5",
+        "yearStart": 2003,
+        "yearEnd": 2015,
+        "designers": [],
+        "engineers": [],
+        "sharedPlatforms": []
+       },
+       {
+        "code": "T6",
+        "yearStart": 2015,
+        "yearEnd": null,
+        "designers": [],
+        "engineers": [],
+        "sharedPlatforms": []
+       }
+      ]
+     },
+     "dropped": []
+    },
+    "manualRecheck": true,
+    "engineScansCleared": 0,
+    "generationDiff": {
+     "addedCodes": [
+      "T1",
+      "T2",
+      "T4",
+      "T5",
+      "T6"
+     ],
+     "removedIds": [
+      "m-volkswagen-type-2"
+     ]
+    },
+    "peopleAdded": [],
+    "outsidersV": 2,
+    "sections": [
+     [
+      1,
+      "Legacy of the Type 2"
+     ],
+     [
+      1,
+      "History"
+     ],
+     [
+      1,
+      "Variants"
+     ],
+     [
+      1,
+      "First generation (T1; 1950)"
+     ],
+     [
+      2,
+      "Samba"
+     ],
+     [
+      2,
+      "US Chicken tax"
+     ],
+     [
+      2,
+      "T2b"
+     ],
+     [
+      2,
+      "T2c"
+     ],
+     [
+      2,
+      "Azul"
+     ],
+     [
+      1,
+      "Third generation (T3; 1979)"
+     ],
+     [
+      1,
+      "Fourth generation (T4; 1990)"
+     ],
+     [
+      1,
+      "Fifth generation (T5; 2003)"
+     ],
+     [
+      1,
+      "Sixth generation (T6; 2015)"
+     ],
+     [
+      1,
+      "Volkswagen Microbus concept vehicle"
+     ],
+     [
+      1,
+      "Names and nicknames"
+     ],
+     [
+      1,
+      "Mexican production"
+     ],
+     [
+      1,
+      "Hippie van"
+     ],
+     [
+      1,
+      "See also"
+     ],
+     [
+      1,
+      "References"
+     ]
+    ],
+    "kept": [
+     "m-volkswagen-type-2"
+    ],
+    "outsiders": [
+     {
+      "code": "T2",
+      "why": "no generation-level section of its own in the article"
+     }
+    ],
+    "relatedCars": [],
+    "retiredGenerations": [],
+    "appliedAt": "2026-10-15T07:55:07.749Z"
+   },
+   "peopleAdded": [],
+   "kept": [],
+   "outsiders": [],
+   "relatedCars": [],
+   "retiredGenerations": [
     {
-     "code": "T2",
-     "why": "no generation-level section of its own in the article"
+     "id": "m-volkswagen-type-2",
+     "label": "Type 2"
     }
    ],
-   "relatedCars": [],
-   "retiredGenerations": [],
-   "appliedAt": "2026-10-15T07:55:07.749Z"
+   "appliedAt": "2026-11-02T08:59:18.309Z",
+   "outsidersV": 2
   },
   "llm-related-kia-bongo": {
    "status": "none",
@@ -959665,52 +961581,272 @@
   },
   "m-volkswagen-beetle": {
    "status": "none",
-   "checkedAt": "2026-10-15T13:01:55.683Z",
+   "checkedAt": "2026-11-02T09:03:25.541Z",
    "sourceTitle": "Volkswagen Beetle",
    "proposal": {
     "hasMultipleGenerations": true,
     "generations": [
      {
-      "code": "Super Beetle / 1302",
-      "yearStart": 1967,
-      "yearEnd": 1972,
-      "designers": [],
+      "code": "Type 1",
+      "yearStart": 1938,
+      "yearEnd": 2003,
+      "designers": [
+       "Ferdinand Porsche",
+       "Josef Ganz",
+       "Erwin Komenda",
+       "Josef Kales",
+       "Karl Rabe",
+       "Josef Mickl",
+       "Franz Xaver Reimspiess"
+      ],
+      "engineers": [
+       "Karl Rabe"
+      ],
+      "wikiFile": "VW Käfer Baujahr 1966.jpg",
+      "sharedPlatforms": [
+       "Volkswagen Type 2",
+       "Volkswagen Type 3"
+      ]
+     },
+     {
+      "code": "New Beetle",
+      "yearStart": 1997,
+      "yearEnd": 2019,
+      "designers": [
+       "J Mays",
+       "Freeman Thomas"
+      ],
       "engineers": [],
       "wikiFile": "Bundesarchiv Bild 146-1979-025-30A, Reichsautobahn mit zwei KdF-Wagen, Cabrio-Version (cropped).jpg",
       "sharedPlatforms": [
-       "Volkswagen Type 2",
-       "Volkswagen Type 3"
-      ]
-     },
-     {
-      "code": "1303 (1972–1976)",
-      "yearStart": 1972,
-      "yearEnd": 1976,
-      "designers": [],
-      "engineers": [],
-      "wikiFile": "ATMS 52 - Volkswagen.jpg",
-      "sharedPlatforms": [
-       "Volkswagen Type 2",
-       "Volkswagen Type 3"
-      ]
-     },
-     {
-      "code": "Final Models (1986–2003)",
-      "yearStart": 1986,
-      "yearEnd": 2003,
-      "designers": [],
-      "engineers": [],
-      "wikiFile": "Autostadt ZH 21 (cropped).jpg",
-      "sharedPlatforms": [
-       "Volkswagen Type 2",
-       "Volkswagen Type 3"
+       "Volkswagen Golf Mk1",
+       "Volkswagen Golf"
       ]
      }
     ]
    },
-   "discrepancy": null,
+   "discrepancy": "Wikipedia currently describes 2 generations, but this nameplate currently shows 4 here",
    "attempts": 1,
-   "feedback": []
+   "feedback": [],
+   "engines": [
+    {
+     "title": "Volkswagen air-cooled engine",
+     "name": "Volkswagen air-cooled",
+     "variant": null,
+     "specs": {
+      "displacement": "995 cc",
+      "fuel": "petrol"
+     },
+     "said": "995 cc H4 (first 1938 models)"
+    }
+   ],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": true,
+     "generations": [
+      {
+       "code": "Type 1",
+       "yearStart": 1938,
+       "yearEnd": 2003,
+       "designers": [
+        "Ferdinand Porsche",
+        "Josef Ganz",
+        "Erwin Komenda",
+        "Josef Kales",
+        "Karl Rabe",
+        "Josef Mickl",
+        "Franz Xaver Reimspiess"
+       ],
+       "engineers": [
+        "Karl Rabe"
+       ],
+       "sharedPlatforms": [
+        "Volkswagen Type 2",
+        "Volkswagen Type 3"
+       ]
+      },
+      {
+       "code": "New Beetle",
+       "yearStart": 1997,
+       "yearEnd": 2019,
+       "designers": [
+        "J Mays",
+        "Freeman Thomas"
+       ],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Volkswagen Golf Mk1",
+        "Volkswagen Golf"
+       ]
+      }
+     ]
+    },
+    "dropped": []
+   },
+   "manualRecheck": true,
+   "engineScansCleared": 4,
+   "generationDiff": {
+    "addedCodes": [
+     "New Beetle"
+    ],
+    "removedIds": [
+     "llm-m-volkswagen-beetle-super-beetle-1302",
+     "llm-m-volkswagen-beetle-1303-1972-1976",
+     "llm-m-volkswagen-beetle-final-models-1986-2003"
+    ]
+   },
+   "sections": [
+    [
+     1,
+     "History"
+    ],
+    [
+     2,
+     "KdF-Wagen"
+    ],
+    [
+     2,
+     "Design"
+    ],
+    [
+     2,
+     "Design controversies"
+    ],
+    [
+     1,
+     "Tenure"
+    ],
+    [
+     2,
+     "World War II and military production: 1938–1945"
+    ],
+    [
+     2,
+     "Post-war production and success: 1945–1970"
+    ],
+    [
+     2,
+     "Decline and end of West German production: 1970–1990"
+    ],
+    [
+     2,
+     "New Beetle and end of production: 1990–2003"
+    ],
+    [
+     1,
+     "Models and history of design"
+    ],
+    [
+     2,
+     "Initial and successful models: 1946–1974"
+    ],
+    [
+     2,
+     "Mid-life and declining models: 1970–1986"
+    ],
+    [
+     2,
+     "Final models: 1986–2003"
+    ],
+    [
+     1,
+     "Cultural impact and legacy"
+    ],
+    [
+     1,
+     "Markets and assembly"
+    ],
+    [
+     2,
+     "Specific markets"
+    ],
+    [
+     3,
+     "Brazil"
+    ],
+    [
+     3,
+     "Mexico"
+    ],
+    [
+     3,
+     "Australia"
+    ],
+    [
+     1,
+     "See also"
+    ],
+    [
+     1,
+     "Notes"
+    ],
+    [
+     1,
+     "Citations"
+    ],
+    [
+     1,
+     "Sources"
+    ],
+    [
+     1,
+     "External links"
+    ],
+    [
+     1,
+     "First steps in Mexico"
+    ],
+    [
+     1,
+     "Start of production in Puebla"
+    ],
+    [
+     1,
+     "Export to Europe"
+    ],
+    [
+     1,
+     "Price reduction and anti-pollution measures"
+    ],
+    [
+     1,
+     "Economic crisis and sales decline"
+    ],
+    [
+     1,
+     "Volkswagen Sedán Última Edición"
+    ],
+    [
+     2,
+     "Special features"
+    ],
+    [
+     2,
+     "Additional notes"
+    ],
+    [
+     1,
+     "See also"
+    ],
+    [
+     1,
+     "References"
+    ],
+    [
+     1,
+     "External links"
+    ]
+   ],
+   "settledAt": "2026-11-02T09:03:25.542Z",
+   "settledBy": "rules",
+   "settledWhy": "nothing in the article supports a change: the generations it left out stay",
+   "peopleAdded": [
+    {
+     "generation": "Beetle Type 1",
+     "role": "designer",
+     "name": "Josef Ganz"
+    }
+   ]
   },
   "m-ford-country-sedan": {
    "status": "none",
@@ -968056,6 +970192,42 @@
       "sharedPlatforms": [
        "BMW X3 (G01)"
       ]
+     }
+    ]
+   },
+   "discrepancy": null,
+   "attempts": 1,
+   "feedback": []
+  },
+  "m-volkswagen-id-buzz": {
+   "status": "none",
+   "checkedAt": "2026-11-02T09:00:55.160Z",
+   "sourceTitle": "Volkswagen ID. Buzz",
+   "proposal": {
+    "hasMultipleGenerations": true,
+    "generations": [
+     {
+      "code": "ID. Buzz (concept)",
+      "yearStart": 2017,
+      "yearEnd": null,
+      "designers": [
+       "Einar Castillo"
+      ],
+      "engineers": [],
+      "wikiFile": "Volkswagen press conference, IAA 2017, Frankfurt (1Y7A2075).jpg",
+      "sharedPlatforms": []
+     },
+     {
+      "code": "ID. Buzz (production)",
+      "yearStart": 2022,
+      "yearEnd": null,
+      "designers": [
+       "Einar Castillo",
+       "Klaus Zyciora"
+      ],
+      "engineers": [],
+      "wikiFile": "Volkswagen ID. Buzz 1X7A6263.jpg",
+      "sharedPlatforms": []
      }
     ]
    },
@@ -982967,6 +985139,19 @@
   "llm-related-toyota-will-cypha": {
    "year": 2002,
    "end": 2005
+  },
+  "llm-related-volkswagen-multivan": {
+   "checkedAt": "2026-11-02T09:02:44.436Z",
+   "year": 1949,
+   "end": null,
+   "source": "wikipedia"
+  },
+  "p-josef-ganz": {
+   "checkedAt": "2026-11-02T09:03:28.227Z",
+   "born": null,
+   "died": null,
+   "country": null,
+   "tries": 1
   }
  },
  "userCars": {
@@ -1055878,119 +1058063,6 @@
    "unlinked": [],
    "v": 7
   },
-  "m-volkswagen-type-2": {
-   "checkedAt": "2026-11-01T23:14:18.505Z",
-   "sourceTitle": "Volkswagen Type 2",
-   "status": "no-engines",
-   "engines": [],
-   "unlinked": [],
-   "v": 7
-  },
-  "m-volkswagen-type-2-t3": {
-   "checkedAt": "2026-11-01T23:14:18.506Z",
-   "sourceTitle": "Volkswagen Type 2 (T3)",
-   "section": "Third generation (T3; 1979)",
-   "engines": [
-    {
-     "title": "Air-cooled engine",
-     "name": "air-cooled",
-     "variant": null,
-     "specs": {
-      "displacement": "1.6 L",
-      "fuel": "petrol"
-     },
-     "said": "1.6 L air-cooled H4"
-    }
-   ],
-   "unlinked": [
-    {
-     "name": "1.9 L (petrol)",
-     "specs": {
-      "displacement": "1.9 L",
-      "fuel": "petrol"
-     },
-     "said": "1.9 L H4"
-    },
-    {
-     "name": "2.0 L (petrol)",
-     "specs": {
-      "displacement": "2.0 L",
-      "fuel": "petrol"
-     },
-     "said": "2.0 L air-cooled H4"
-    },
-    {
-     "name": "2.1 L (petrol)",
-     "specs": {
-      "displacement": "2.1 L",
-      "fuel": "petrol"
-     },
-     "said": "2.1 L H4"
-    },
-    {
-     "name": "2.3 L I5 (petrol)",
-     "specs": {
-      "displacement": "2.3 L",
-      "layout": "I",
-      "cylinders": 5,
-      "fuel": "petrol"
-     },
-     "said": "2.3 L I5"
-    },
-    {
-     "name": "2.5 L I5 (petrol)",
-     "specs": {
-      "displacement": "2.5 L",
-      "layout": "I",
-      "cylinders": 5,
-      "fuel": "petrol"
-     },
-     "said": "2.5 L I5"
-    },
-    {
-     "name": "2.6 L I5 (petrol)",
-     "specs": {
-      "displacement": "2.6 L",
-      "layout": "I",
-      "cylinders": 5,
-      "fuel": "petrol"
-     },
-     "said": "2.6 L I5"
-    },
-    {
-     "name": "1.6 L I4 (diesel)",
-     "specs": {
-      "displacement": "1.6 L",
-      "layout": "I",
-      "cylinders": 4,
-      "fuel": "diesel"
-     },
-     "said": "1.6 L I4"
-    },
-    {
-     "name": "1.6 L turbo I4 (diesel)",
-     "specs": {
-      "displacement": "1.6 L",
-      "layout": "I",
-      "cylinders": 4,
-      "induction": "turbocharged",
-      "fuel": "diesel"
-     },
-     "said": "1.6 L turbo I4"
-    },
-    {
-     "name": "1.7 L I4 (diesel)",
-     "specs": {
-      "displacement": "1.7 L",
-      "layout": "I",
-      "cylinders": 4,
-      "fuel": "diesel"
-     },
-     "said": "1.7 L I4"
-    }
-   ],
-   "v": 7
-  },
   "llm-llm-related-ford-transit-taunus-transit-1953": {
    "checkedAt": "2026-11-01T23:16:37.194Z",
    "sourceTitle": "Ford Transit",
@@ -1066280,104 +1068352,6 @@
    "unlinked": [],
    "v": 6
   },
-  "m-volkswagen-transporter-t4": {
-   "checkedAt": "2026-11-01T23:14:15.427Z",
-   "sourceTitle": "Volkswagen Transporter (T4)",
-   "status": "no-engines",
-   "engines": [],
-   "unlinked": [],
-   "v": 7
-  },
-  "m-volkswagen-transporter-t5": {
-   "checkedAt": "2026-11-01T23:14:15.711Z",
-   "sourceTitle": "Volkswagen Transporter (T5)",
-   "section": "T5 (2003)",
-   "engines": [
-    {
-     "title": "VR6 engine",
-     "name": "VR6",
-     "variant": null,
-     "specs": {
-      "displacement": "3.2 L",
-      "fuel": "petrol"
-     },
-     "said": "3.2 L VR6 (petrol)"
-    }
-   ],
-   "unlinked": [
-    {
-     "name": "2.0 L I4 (petrol)",
-     "specs": {
-      "displacement": "2.0 L",
-      "layout": "I",
-      "cylinders": 4,
-      "fuel": "petrol"
-     },
-     "said": "2.0 L I4 (petrol)"
-    },
-    {
-     "name": "1.9 L I4 (diesel)",
-     "specs": {
-      "displacement": "1.9 L",
-      "layout": "I",
-      "cylinders": 4,
-      "fuel": "diesel"
-     },
-     "said": "1.9 L I4 TDI (diesel)"
-    },
-    {
-     "name": "2.0 L I4 (diesel)",
-     "specs": {
-      "displacement": "2.0 L",
-      "layout": "I",
-      "cylinders": 4,
-      "fuel": "diesel"
-     },
-     "said": "2.0 L I4 TDI (diesel)"
-    },
-    {
-     "name": "2.5 L I5 (diesel)",
-     "specs": {
-      "displacement": "2.5 L",
-      "layout": "I",
-      "cylinders": 5,
-      "fuel": "diesel"
-     },
-     "said": "2.5 L I5 TDI (diesel)"
-    }
-   ],
-   "v": 7
-  },
-  "m-volkswagen-transporter-t6": {
-   "checkedAt": "2026-11-01T23:14:16.153Z",
-   "sourceTitle": "Volkswagen Transporter (T6)",
-   "status": "no-engines",
-   "engines": [],
-   "unlinked": [
-    {
-     "name": "2.0 L I4 (petrol)",
-     "specs": {
-      "displacement": "2.0 L",
-      "layout": "I",
-      "cylinders": 4,
-      "fuel": "petrol"
-     },
-     "said": "2.0 L I4"
-    },
-    {
-     "name": "2.0 L turbo I4 (diesel)",
-     "specs": {
-      "displacement": "2.0 L",
-      "layout": "I",
-      "cylinders": 4,
-      "induction": "turbocharged",
-      "fuel": "diesel"
-     },
-     "said": "2.0 L TDI turbo I4"
-    }
-   ],
-   "v": 7
-  },
   "m-volkswagen-tarok": {
    "checkedAt": "2026-11-01T23:04:24.796Z",
    "sourceTitle": "Volkswagen Tarok",
@@ -1066478,14 +1068452,6 @@
   "m-ford-explorer-ev": {
    "checkedAt": "2026-11-01T21:45:56.023Z",
    "sourceTitle": "Ford Explorer EV",
-   "status": "no-engines",
-   "engines": [],
-   "unlinked": [],
-   "v": 7
-  },
-  "m-volkswagen-id-buzz": {
-   "checkedAt": "2026-11-01T23:03:28.418Z",
-   "sourceTitle": "Volkswagen ID. Buzz",
    "status": "no-engines",
    "engines": [],
    "unlinked": [],
@@ -1193278,206 +1195244,6 @@
    ],
    "v": 7
   },
-  "llm-m-volkswagen-beetle-type-1": {
-   "checkedAt": "2026-11-01T18:13:13.953Z",
-   "sourceTitle": "Volkswagen Beetle",
-   "section": "(the whole page)",
-   "engines": [
-    {
-     "title": "Volkswagen air-cooled engine",
-     "name": "Volkswagen air-cooled",
-     "variant": null,
-     "specs": {
-      "displacement": "995 cc",
-      "fuel": "petrol"
-     },
-     "said": "995 cc H4 (first 1938 models)"
-    }
-   ],
-   "unlinked": [
-    {
-     "name": "1132 cc (petrol)",
-     "specs": {
-      "displacement": "1132 cc",
-      "fuel": "petrol"
-     },
-     "said": "1132 cc H4"
-    },
-    {
-     "name": "1192 cc (petrol)",
-     "specs": {
-      "displacement": "1192 cc",
-      "fuel": "petrol"
-     },
-     "said": "1192 cc H4"
-    },
-    {
-     "name": "1285 cc (petrol)",
-     "specs": {
-      "displacement": "1285 cc",
-      "fuel": "petrol"
-     },
-     "said": "1285 cc H4"
-    },
-    {
-     "name": "1493 cc (petrol)",
-     "specs": {
-      "displacement": "1493 cc",
-      "fuel": "petrol"
-     },
-     "said": "1493 cc H4"
-    },
-    {
-     "name": "1584 cc (petrol)",
-     "specs": {
-      "displacement": "1584 cc",
-      "fuel": "petrol"
-     },
-     "said": "1584 cc H4"
-    }
-   ],
-   "v": 7,
-   "fieldYears": [
-    1938,
-    2003
-   ]
-  },
-  "llm-m-volkswagen-beetle-super-beetle-1302": {
-   "checkedAt": "2026-11-01T18:13:14.005Z",
-   "sourceTitle": "Volkswagen Beetle",
-   "section": "(the whole page)",
-   "engines": [
-    {
-     "title": "Volkswagen air-cooled engine",
-     "name": "Volkswagen air-cooled",
-     "variant": null,
-     "specs": {
-      "displacement": "995 cc",
-      "fuel": "petrol"
-     },
-     "said": "995 cc H4 (first 1938 models)"
-    }
-   ],
-   "unlinked": [
-    {
-     "name": "1132 cc (petrol)",
-     "specs": {
-      "displacement": "1132 cc",
-      "fuel": "petrol"
-     },
-     "said": "1132 cc H4"
-    },
-    {
-     "name": "1192 cc (petrol)",
-     "specs": {
-      "displacement": "1192 cc",
-      "fuel": "petrol"
-     },
-     "said": "1192 cc H4"
-    },
-    {
-     "name": "1285 cc (petrol)",
-     "specs": {
-      "displacement": "1285 cc",
-      "fuel": "petrol"
-     },
-     "said": "1285 cc H4"
-    },
-    {
-     "name": "1493 cc (petrol)",
-     "specs": {
-      "displacement": "1493 cc",
-      "fuel": "petrol"
-     },
-     "said": "1493 cc H4"
-    },
-    {
-     "name": "1584 cc (petrol)",
-     "specs": {
-      "displacement": "1584 cc",
-      "fuel": "petrol"
-     },
-     "said": "1584 cc H4"
-    }
-   ],
-   "v": 7,
-   "fieldYears": [
-    1938,
-    2003
-   ]
-  },
-  "llm-m-volkswagen-beetle-1303-1972-1976": {
-   "checkedAt": "2026-11-01T18:13:14.042Z",
-   "sourceTitle": "Volkswagen Beetle",
-   "section": "(the whole page)",
-   "engines": [
-    {
-     "title": "Volkswagen air-cooled engine",
-     "name": "Volkswagen air-cooled",
-     "variant": null,
-     "specs": {
-      "displacement": "995 cc",
-      "fuel": "petrol"
-     },
-     "said": "995 cc H4 (first 1938 models)"
-    }
-   ],
-   "unlinked": [
-    {
-     "name": "1132 cc (petrol)",
-     "specs": {
-      "displacement": "1132 cc",
-      "fuel": "petrol"
-     },
-     "said": "1132 cc H4"
-    },
-    {
-     "name": "1192 cc (petrol)",
-     "specs": {
-      "displacement": "1192 cc",
-      "fuel": "petrol"
-     },
-     "said": "1192 cc H4"
-    },
-    {
-     "name": "1285 cc (petrol)",
-     "specs": {
-      "displacement": "1285 cc",
-      "fuel": "petrol"
-     },
-     "said": "1285 cc H4"
-    },
-    {
-     "name": "1493 cc (petrol)",
-     "specs": {
-      "displacement": "1493 cc",
-      "fuel": "petrol"
-     },
-     "said": "1493 cc H4"
-    },
-    {
-     "name": "1584 cc (petrol)",
-     "specs": {
-      "displacement": "1584 cc",
-      "fuel": "petrol"
-     },
-     "said": "1584 cc H4"
-    }
-   ],
-   "v": 7,
-   "fieldYears": [
-    1938,
-    2003
-   ]
-  },
-  "llm-m-volkswagen-beetle-final-models-1986-2003": {
-   "checkedAt": "2026-11-01T18:13:14.077Z",
-   "sourceTitle": "Volkswagen Beetle",
-   "status": "no-engines",
-   "engines": [],
-   "unlinked": [],
-   "v": 7
-  },
   "llm-m-alfa-romeo-giulia-type-105": {
    "checkedAt": "2026-11-01T18:14:51.432Z",
    "sourceTitle": "Alfa Romeo Giulia",
@@ -1201689,391 +1203455,6 @@
    "status": "no-engines",
    "engines": [],
    "unlinked": [],
-   "v": 7
-  },
-  "llm-fam-volkswagen-transporter-t1": {
-   "checkedAt": "2026-11-01T23:14:13.906Z",
-   "sourceTitle": "Volkswagen Type 2 (T1)",
-   "status": "no-engines",
-   "engines": [],
-   "unlinked": [
-    {
-     "name": "1.1 L (petrol)",
-     "specs": {
-      "displacement": "1.1 L",
-      "fuel": "petrol"
-     },
-     "said": "1.1 L B4 (petrol)"
-    },
-    {
-     "name": "1.2 L (petrol)",
-     "specs": {
-      "displacement": "1.2 L",
-      "fuel": "petrol"
-     },
-     "said": "1.2 L B4 (petrol)"
-    },
-    {
-     "name": "1.5 L (petrol)",
-     "specs": {
-      "displacement": "1.5 L",
-      "fuel": "petrol"
-     },
-     "said": "1.5 L B4 (petrol)"
-    },
-    {
-     "name": "1.6 L (petrol)",
-     "specs": {
-      "displacement": "1.6 L",
-      "fuel": "petrol"
-     },
-     "said": "1.6 L B4 (petrol) (Brazil, after 1967)"
-    }
-   ],
-   "v": 7
-  },
-  "llm-fam-volkswagen-transporter-t2": {
-   "checkedAt": "2026-11-01T23:14:14.583Z",
-   "sourceTitle": "Volkswagen Type 2 (T2)",
-   "status": "no-engines",
-   "engines": [],
-   "unlinked": [
-    {
-     "name": "1.6 L (petrol)",
-     "specs": {
-      "displacement": "1.6 L",
-      "fuel": "petrol"
-     },
-     "said": "1.6 L B4 (petrol)"
-    },
-    {
-     "name": "1.7 L (petrol)",
-     "specs": {
-      "displacement": "1.7 L",
-      "fuel": "petrol"
-     },
-     "said": "1.7 L B4 (petrol)"
-    },
-    {
-     "name": "1.8 L (petrol)",
-     "specs": {
-      "displacement": "1.8 L",
-      "fuel": "petrol"
-     },
-     "said": "1.8 L B4 (petrol)"
-    },
-    {
-     "name": "1.8 L I4 (petrol)",
-     "specs": {
-      "displacement": "1.8 L",
-      "layout": "I",
-      "cylinders": 4,
-      "fuel": "petrol"
-     },
-     "said": "1.8 L I4 (petrol)"
-    },
-    {
-     "name": "2.0 L (petrol)",
-     "specs": {
-      "displacement": "2.0 L",
-      "fuel": "petrol"
-     },
-     "said": "2.0 L B4 (petrol)"
-    }
-   ],
-   "v": 7
-  },
-  "llm-fam-volkswagen-transporter-t3": {
-   "checkedAt": "2026-11-01T23:14:14.948Z",
-   "sourceTitle": "Volkswagen Type 2 (T3)",
-   "section": "T3 (1979)",
-   "engines": [
-    {
-     "title": "Air-cooled engine",
-     "name": "air-cooled",
-     "variant": null,
-     "specs": {
-      "displacement": "1.6 L",
-      "fuel": "petrol"
-     },
-     "said": "1.6 L air-cooled H4"
-    }
-   ],
-   "unlinked": [
-    {
-     "name": "1.9 L (petrol)",
-     "specs": {
-      "displacement": "1.9 L",
-      "fuel": "petrol"
-     },
-     "said": "1.9 L H4"
-    },
-    {
-     "name": "2.0 L (petrol)",
-     "specs": {
-      "displacement": "2.0 L",
-      "fuel": "petrol"
-     },
-     "said": "2.0 L air-cooled H4"
-    },
-    {
-     "name": "2.1 L (petrol)",
-     "specs": {
-      "displacement": "2.1 L",
-      "fuel": "petrol"
-     },
-     "said": "2.1 L H4"
-    },
-    {
-     "name": "2.3 L I5 (petrol)",
-     "specs": {
-      "displacement": "2.3 L",
-      "layout": "I",
-      "cylinders": 5,
-      "fuel": "petrol"
-     },
-     "said": "2.3 L I5"
-    },
-    {
-     "name": "2.5 L I5 (petrol)",
-     "specs": {
-      "displacement": "2.5 L",
-      "layout": "I",
-      "cylinders": 5,
-      "fuel": "petrol"
-     },
-     "said": "2.5 L I5"
-    },
-    {
-     "name": "2.6 L I5 (petrol)",
-     "specs": {
-      "displacement": "2.6 L",
-      "layout": "I",
-      "cylinders": 5,
-      "fuel": "petrol"
-     },
-     "said": "2.6 L I5"
-    },
-    {
-     "name": "1.6 L I4 (diesel)",
-     "specs": {
-      "displacement": "1.6 L",
-      "layout": "I",
-      "cylinders": 4,
-      "fuel": "diesel"
-     },
-     "said": "1.6 L I4"
-    },
-    {
-     "name": "1.6 L turbo I4 (diesel)",
-     "specs": {
-      "displacement": "1.6 L",
-      "layout": "I",
-      "cylinders": 4,
-      "induction": "turbocharged",
-      "fuel": "diesel"
-     },
-     "said": "1.6 L turbo I4"
-    },
-    {
-     "name": "1.7 L I4 (diesel)",
-     "specs": {
-      "displacement": "1.7 L",
-      "layout": "I",
-      "cylinders": 4,
-      "fuel": "diesel"
-     },
-     "said": "1.7 L I4"
-    }
-   ],
-   "v": 7
-  },
-  "llm-fam-volkswagen-transporter-t7": {
-   "checkedAt": "2026-11-01T23:14:16.394Z",
-   "sourceTitle": "Volkswagen Multivan (T7)",
-   "status": "no-engines",
-   "engines": [],
-   "unlinked": [
-    {
-     "name": "1.5 L I4 (petrol)",
-     "specs": {
-      "displacement": "1.5 L",
-      "layout": "I",
-      "cylinders": 4,
-      "fuel": "petrol"
-     },
-     "said": "1.5 L TSI I4"
-    },
-    {
-     "name": "2.0 L I4 (petrol)",
-     "specs": {
-      "displacement": "2.0 L",
-      "layout": "I",
-      "cylinders": 4,
-      "fuel": "petrol"
-     },
-     "said": "2.0 L TSI I4"
-    },
-    {
-     "name": "1.4 L I4 (petrol)",
-     "specs": {
-      "displacement": "1.4 L",
-      "layout": "I",
-      "cylinders": 4,
-      "fuel": "petrol"
-     },
-     "said": "1.4 L eHybrid I4"
-    },
-    {
-     "name": "2.0 L I4 (diesel)",
-     "specs": {
-      "displacement": "2.0 L",
-      "layout": "I",
-      "cylinders": 4,
-      "fuel": "diesel"
-     },
-     "said": "2.0 L TDI I4"
-    }
-   ],
-   "v": 7
-  },
-  "llm-fam-volkswagen-type-2-t1": {
-   "checkedAt": "2026-11-01T23:14:18.504Z",
-   "sourceTitle": "Volkswagen Type 2",
-   "status": "no-engines",
-   "engines": [],
-   "unlinked": [
-    {
-     "name": "1.1 L (petrol)",
-     "specs": {
-      "displacement": "1.1 L",
-      "fuel": "petrol"
-     },
-     "said": "1.1 L B4 (petrol)"
-    },
-    {
-     "name": "1.2 L (petrol)",
-     "specs": {
-      "displacement": "1.2 L",
-      "fuel": "petrol"
-     },
-     "said": "1.2 L B4 (petrol)"
-    },
-    {
-     "name": "1.5 L (petrol)",
-     "specs": {
-      "displacement": "1.5 L",
-      "fuel": "petrol"
-     },
-     "said": "1.5 L B4 (petrol)"
-    },
-    {
-     "name": "1.6 L (petrol)",
-     "specs": {
-      "displacement": "1.6 L",
-      "fuel": "petrol"
-     },
-     "said": "1.6 L B4 (petrol) (Brazil, after 1967)"
-    }
-   ],
-   "v": 7
-  },
-  "llm-fam-volkswagen-type-2-t4": {
-   "checkedAt": "2026-11-01T23:14:18.560Z",
-   "sourceTitle": "Volkswagen Transporter (T4)",
-   "status": "no-engines",
-   "engines": [],
-   "unlinked": [],
-   "v": 7
-  },
-  "llm-fam-volkswagen-type-2-t5": {
-   "checkedAt": "2026-11-01T23:14:18.561Z",
-   "sourceTitle": "Volkswagen Transporter (T5)",
-   "section": "Fifth generation (T5; 2003)",
-   "engines": [
-    {
-     "title": "VR6 engine",
-     "name": "VR6",
-     "variant": null,
-     "specs": {
-      "displacement": "3.2 L",
-      "fuel": "petrol"
-     },
-     "said": "3.2 L VR6 (petrol)"
-    }
-   ],
-   "unlinked": [
-    {
-     "name": "2.0 L I4 (petrol)",
-     "specs": {
-      "displacement": "2.0 L",
-      "layout": "I",
-      "cylinders": 4,
-      "fuel": "petrol"
-     },
-     "said": "2.0 L I4 (petrol)"
-    },
-    {
-     "name": "1.9 L I4 (diesel)",
-     "specs": {
-      "displacement": "1.9 L",
-      "layout": "I",
-      "cylinders": 4,
-      "fuel": "diesel"
-     },
-     "said": "1.9 L I4 TDI (diesel)"
-    },
-    {
-     "name": "2.0 L I4 (diesel)",
-     "specs": {
-      "displacement": "2.0 L",
-      "layout": "I",
-      "cylinders": 4,
-      "fuel": "diesel"
-     },
-     "said": "2.0 L I4 TDI (diesel)"
-    },
-    {
-     "name": "2.5 L I5 (diesel)",
-     "specs": {
-      "displacement": "2.5 L",
-      "layout": "I",
-      "cylinders": 5,
-      "fuel": "diesel"
-     },
-     "said": "2.5 L I5 TDI (diesel)"
-    }
-   ],
-   "v": 7
-  },
-  "llm-fam-volkswagen-type-2-t6": {
-   "checkedAt": "2026-11-01T23:14:18.602Z",
-   "sourceTitle": "Volkswagen Transporter (T6)",
-   "status": "no-engines",
-   "engines": [],
-   "unlinked": [
-    {
-     "name": "2.0 L I4 (petrol)",
-     "specs": {
-      "displacement": "2.0 L",
-      "layout": "I",
-      "cylinders": 4,
-      "fuel": "petrol"
-     },
-     "said": "2.0 L I4"
-    },
-    {
-     "name": "2.0 L turbo I4 (diesel)",
-     "specs": {
-      "displacement": "2.0 L",
-      "layout": "I",
-      "cylinders": 4,
-      "induction": "turbocharged",
-      "fuel": "diesel"
-     },
-     "said": "2.0 L TDI turbo I4"
-    }
-   ],
    "v": 7
   },
   "llm-llm-related-oldsmobile-hurst-olds-1968": {
@@ -1259148,7 +1260529,8 @@
     }
    ],
    "unlinked": [],
-   "v": 7
+   "v": 0,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-fam-honda-integra-second-generation-1989-": {
    "checkedAt": "2026-11-02T08:55:53.859Z",
@@ -1259193,7 +1260575,8 @@
     }
    ],
    "unlinked": [],
-   "v": 7
+   "v": 0,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-fam-honda-integra-third-generation-1993-": {
    "checkedAt": "2026-11-02T08:55:53.901Z",
@@ -1259235,7 +1260618,8 @@
     }
    ],
    "unlinked": [],
-   "v": 7
+   "v": 0,
+   "staleReason": "read a page that covers several cars"
   },
   "m-honda-integra-fourth-generation": {
    "checkedAt": "2026-11-02T08:55:54.400Z",
@@ -1259334,6 +1260718,861 @@
      "said": "2.0 L K20C8 DOHC turbo I4 (DE5)"
     }
    ],
+   "unlinked": [],
+   "v": 7
+  },
+  "llm-fam-volkswagen-type-2-t1": {
+   "checkedAt": "2026-11-02T08:59:21.553Z",
+   "sourceTitle": "Volkswagen Type 2",
+   "status": "no-engines",
+   "engines": [],
+   "unlinked": [
+    {
+     "name": "1.1 L (petrol)",
+     "specs": {
+      "displacement": "1.1 L",
+      "fuel": "petrol"
+     },
+     "said": "1.1 L B4 (petrol)"
+    },
+    {
+     "name": "1.2 L (petrol)",
+     "specs": {
+      "displacement": "1.2 L",
+      "fuel": "petrol"
+     },
+     "said": "1.2 L B4 (petrol)"
+    },
+    {
+     "name": "1.5 L (petrol)",
+     "specs": {
+      "displacement": "1.5 L",
+      "fuel": "petrol"
+     },
+     "said": "1.5 L B4 (petrol)"
+    },
+    {
+     "name": "1.6 L (petrol)",
+     "specs": {
+      "displacement": "1.6 L",
+      "fuel": "petrol"
+     },
+     "said": "1.6 L B4 (petrol) (Brazil, after 1967)"
+    }
+   ],
+   "v": 7
+  },
+  "llm-fam-volkswagen-type-2-t2": {
+   "checkedAt": "2026-11-02T08:59:21.554Z",
+   "sourceTitle": "Volkswagen Type 2",
+   "status": "no-engines",
+   "engines": [],
+   "unlinked": [
+    {
+     "name": "1.6 L (petrol)",
+     "specs": {
+      "displacement": "1.6 L",
+      "fuel": "petrol"
+     },
+     "said": "1.6 L B4 (petrol)"
+    },
+    {
+     "name": "1.7 L (petrol)",
+     "specs": {
+      "displacement": "1.7 L",
+      "fuel": "petrol"
+     },
+     "said": "1.7 L B4 (petrol)"
+    },
+    {
+     "name": "1.8 L (petrol)",
+     "specs": {
+      "displacement": "1.8 L",
+      "fuel": "petrol"
+     },
+     "said": "1.8 L B4 (petrol)"
+    },
+    {
+     "name": "1.8 L I4 (petrol)",
+     "specs": {
+      "displacement": "1.8 L",
+      "layout": "I",
+      "cylinders": 4,
+      "fuel": "petrol"
+     },
+     "said": "1.8 L I4 (petrol)"
+    },
+    {
+     "name": "2.0 L (petrol)",
+     "specs": {
+      "displacement": "2.0 L",
+      "fuel": "petrol"
+     },
+     "said": "2.0 L B4 (petrol)"
+    }
+   ],
+   "v": 7
+  },
+  "m-volkswagen-type-2-t3": {
+   "checkedAt": "2026-11-02T08:59:21.812Z",
+   "sourceTitle": "Volkswagen Type 2 (T3)",
+   "section": "Third generation (T3; 1979)",
+   "engines": [
+    {
+     "title": "Air-cooled engine",
+     "name": "air-cooled",
+     "variant": null,
+     "specs": {
+      "displacement": "1.6 L",
+      "fuel": "petrol"
+     },
+     "said": "1.6 L air-cooled H4"
+    }
+   ],
+   "unlinked": [
+    {
+     "name": "1.9 L (petrol)",
+     "specs": {
+      "displacement": "1.9 L",
+      "fuel": "petrol"
+     },
+     "said": "1.9 L H4"
+    },
+    {
+     "name": "2.0 L (petrol)",
+     "specs": {
+      "displacement": "2.0 L",
+      "fuel": "petrol"
+     },
+     "said": "2.0 L air-cooled H4"
+    },
+    {
+     "name": "2.1 L (petrol)",
+     "specs": {
+      "displacement": "2.1 L",
+      "fuel": "petrol"
+     },
+     "said": "2.1 L H4"
+    },
+    {
+     "name": "2.3 L I5 (petrol)",
+     "specs": {
+      "displacement": "2.3 L",
+      "layout": "I",
+      "cylinders": 5,
+      "fuel": "petrol"
+     },
+     "said": "2.3 L I5"
+    },
+    {
+     "name": "2.5 L I5 (petrol)",
+     "specs": {
+      "displacement": "2.5 L",
+      "layout": "I",
+      "cylinders": 5,
+      "fuel": "petrol"
+     },
+     "said": "2.5 L I5"
+    },
+    {
+     "name": "2.6 L I5 (petrol)",
+     "specs": {
+      "displacement": "2.6 L",
+      "layout": "I",
+      "cylinders": 5,
+      "fuel": "petrol"
+     },
+     "said": "2.6 L I5"
+    },
+    {
+     "name": "1.6 L I4 (diesel)",
+     "specs": {
+      "displacement": "1.6 L",
+      "layout": "I",
+      "cylinders": 4,
+      "fuel": "diesel"
+     },
+     "said": "1.6 L I4"
+    },
+    {
+     "name": "1.6 L turbo I4 (diesel)",
+     "specs": {
+      "displacement": "1.6 L",
+      "layout": "I",
+      "cylinders": 4,
+      "induction": "turbocharged",
+      "fuel": "diesel"
+     },
+     "said": "1.6 L turbo I4"
+    },
+    {
+     "name": "1.7 L I4 (diesel)",
+     "specs": {
+      "displacement": "1.7 L",
+      "layout": "I",
+      "cylinders": 4,
+      "fuel": "diesel"
+     },
+     "said": "1.7 L I4"
+    }
+   ],
+   "v": 7
+  },
+  "llm-fam-volkswagen-type-2-t4": {
+   "checkedAt": "2026-11-02T08:59:22.269Z",
+   "sourceTitle": "Volkswagen Transporter (T4)",
+   "status": "no-engines",
+   "engines": [],
+   "unlinked": [],
+   "v": 7
+  },
+  "llm-fam-volkswagen-type-2-t5": {
+   "checkedAt": "2026-11-02T08:59:22.680Z",
+   "sourceTitle": "Volkswagen Transporter (T5)",
+   "section": "Fifth generation (T5; 2003)",
+   "engines": [
+    {
+     "title": "VR6 engine",
+     "name": "VR6",
+     "variant": null,
+     "specs": {
+      "displacement": "3.2 L",
+      "fuel": "petrol"
+     },
+     "said": "3.2 L VR6 (petrol)"
+    }
+   ],
+   "unlinked": [
+    {
+     "name": "2.0 L I4 (petrol)",
+     "specs": {
+      "displacement": "2.0 L",
+      "layout": "I",
+      "cylinders": 4,
+      "fuel": "petrol"
+     },
+     "said": "2.0 L I4 (petrol)"
+    },
+    {
+     "name": "1.9 L I4 (diesel)",
+     "specs": {
+      "displacement": "1.9 L",
+      "layout": "I",
+      "cylinders": 4,
+      "fuel": "diesel"
+     },
+     "said": "1.9 L I4 TDI (diesel)"
+    },
+    {
+     "name": "2.0 L I4 (diesel)",
+     "specs": {
+      "displacement": "2.0 L",
+      "layout": "I",
+      "cylinders": 4,
+      "fuel": "diesel"
+     },
+     "said": "2.0 L I4 TDI (diesel)"
+    },
+    {
+     "name": "2.5 L I5 (diesel)",
+     "specs": {
+      "displacement": "2.5 L",
+      "layout": "I",
+      "cylinders": 5,
+      "fuel": "diesel"
+     },
+     "said": "2.5 L I5 TDI (diesel)"
+    }
+   ],
+   "v": 7
+  },
+  "llm-fam-volkswagen-type-2-t6": {
+   "checkedAt": "2026-11-02T08:59:23.096Z",
+   "sourceTitle": "Volkswagen Transporter (T6)",
+   "status": "no-engines",
+   "engines": [],
+   "unlinked": [
+    {
+     "name": "2.0 L I4 (petrol)",
+     "specs": {
+      "displacement": "2.0 L",
+      "layout": "I",
+      "cylinders": 4,
+      "fuel": "petrol"
+     },
+     "said": "2.0 L I4"
+    },
+    {
+     "name": "2.0 L turbo I4 (diesel)",
+     "specs": {
+      "displacement": "2.0 L",
+      "layout": "I",
+      "cylinders": 4,
+      "induction": "turbocharged",
+      "fuel": "diesel"
+     },
+     "said": "2.0 L TDI turbo I4"
+    }
+   ],
+   "v": 7
+  },
+  "llm-m-volkswagen-id-buzz-id-buzz-concept": {
+   "checkedAt": "2026-11-02T09:00:58.006Z",
+   "sourceTitle": "Volkswagen ID. Buzz",
+   "status": "no-engines",
+   "engines": [],
+   "unlinked": [],
+   "v": 7
+  },
+  "llm-m-volkswagen-id-buzz-id-buzz-production": {
+   "checkedAt": "2026-11-02T09:00:58.006Z",
+   "sourceTitle": null,
+   "status": "no-article",
+   "engines": [],
+   "unlinked": [],
+   "v": 7
+  },
+  "llm-fam-volkswagen-transporter-t1": {
+   "checkedAt": "2026-11-02T09:02:43.296Z",
+   "sourceTitle": "Volkswagen Type 2 (T1)",
+   "status": "no-engines",
+   "engines": [],
+   "unlinked": [
+    {
+     "name": "1.1 L (petrol)",
+     "specs": {
+      "displacement": "1.1 L",
+      "fuel": "petrol"
+     },
+     "said": "1.1 L B4 (petrol)"
+    },
+    {
+     "name": "1.2 L (petrol)",
+     "specs": {
+      "displacement": "1.2 L",
+      "fuel": "petrol"
+     },
+     "said": "1.2 L B4 (petrol)"
+    },
+    {
+     "name": "1.5 L (petrol)",
+     "specs": {
+      "displacement": "1.5 L",
+      "fuel": "petrol"
+     },
+     "said": "1.5 L B4 (petrol)"
+    },
+    {
+     "name": "1.6 L (petrol)",
+     "specs": {
+      "displacement": "1.6 L",
+      "fuel": "petrol"
+     },
+     "said": "1.6 L B4 (petrol) (Brazil, after 1967)"
+    }
+   ],
+   "v": 7
+  },
+  "llm-fam-volkswagen-transporter-t2": {
+   "checkedAt": "2026-11-02T09:02:43.756Z",
+   "sourceTitle": "Volkswagen Type 2 (T2)",
+   "status": "no-engines",
+   "engines": [],
+   "unlinked": [
+    {
+     "name": "1.6 L (petrol)",
+     "specs": {
+      "displacement": "1.6 L",
+      "fuel": "petrol"
+     },
+     "said": "1.6 L B4 (petrol)"
+    },
+    {
+     "name": "1.7 L (petrol)",
+     "specs": {
+      "displacement": "1.7 L",
+      "fuel": "petrol"
+     },
+     "said": "1.7 L B4 (petrol)"
+    },
+    {
+     "name": "1.8 L (petrol)",
+     "specs": {
+      "displacement": "1.8 L",
+      "fuel": "petrol"
+     },
+     "said": "1.8 L B4 (petrol)"
+    },
+    {
+     "name": "1.8 L I4 (petrol)",
+     "specs": {
+      "displacement": "1.8 L",
+      "layout": "I",
+      "cylinders": 4,
+      "fuel": "petrol"
+     },
+     "said": "1.8 L I4 (petrol)"
+    },
+    {
+     "name": "2.0 L (petrol)",
+     "specs": {
+      "displacement": "2.0 L",
+      "fuel": "petrol"
+     },
+     "said": "2.0 L B4 (petrol)"
+    }
+   ],
+   "v": 7
+  },
+  "llm-fam-volkswagen-transporter-t3": {
+   "checkedAt": "2026-11-02T09:02:44.102Z",
+   "sourceTitle": "Volkswagen Type 2 (T3)",
+   "section": "T3 (1979)",
+   "engines": [
+    {
+     "title": "Air-cooled engine",
+     "name": "air-cooled",
+     "variant": null,
+     "specs": {
+      "displacement": "1.6 L",
+      "fuel": "petrol"
+     },
+     "said": "1.6 L air-cooled H4"
+    }
+   ],
+   "unlinked": [
+    {
+     "name": "1.9 L (petrol)",
+     "specs": {
+      "displacement": "1.9 L",
+      "fuel": "petrol"
+     },
+     "said": "1.9 L H4"
+    },
+    {
+     "name": "2.0 L (petrol)",
+     "specs": {
+      "displacement": "2.0 L",
+      "fuel": "petrol"
+     },
+     "said": "2.0 L air-cooled H4"
+    },
+    {
+     "name": "2.1 L (petrol)",
+     "specs": {
+      "displacement": "2.1 L",
+      "fuel": "petrol"
+     },
+     "said": "2.1 L H4"
+    },
+    {
+     "name": "2.3 L I5 (petrol)",
+     "specs": {
+      "displacement": "2.3 L",
+      "layout": "I",
+      "cylinders": 5,
+      "fuel": "petrol"
+     },
+     "said": "2.3 L I5"
+    },
+    {
+     "name": "2.5 L I5 (petrol)",
+     "specs": {
+      "displacement": "2.5 L",
+      "layout": "I",
+      "cylinders": 5,
+      "fuel": "petrol"
+     },
+     "said": "2.5 L I5"
+    },
+    {
+     "name": "2.6 L I5 (petrol)",
+     "specs": {
+      "displacement": "2.6 L",
+      "layout": "I",
+      "cylinders": 5,
+      "fuel": "petrol"
+     },
+     "said": "2.6 L I5"
+    },
+    {
+     "name": "1.6 L I4 (diesel)",
+     "specs": {
+      "displacement": "1.6 L",
+      "layout": "I",
+      "cylinders": 4,
+      "fuel": "diesel"
+     },
+     "said": "1.6 L I4"
+    },
+    {
+     "name": "1.6 L turbo I4 (diesel)",
+     "specs": {
+      "displacement": "1.6 L",
+      "layout": "I",
+      "cylinders": 4,
+      "induction": "turbocharged",
+      "fuel": "diesel"
+     },
+     "said": "1.6 L turbo I4"
+    },
+    {
+     "name": "1.7 L I4 (diesel)",
+     "specs": {
+      "displacement": "1.7 L",
+      "layout": "I",
+      "cylinders": 4,
+      "fuel": "diesel"
+     },
+     "said": "1.7 L I4"
+    }
+   ],
+   "v": 7
+  },
+  "m-volkswagen-transporter-t4": {
+   "checkedAt": "2026-11-02T09:02:44.511Z",
+   "sourceTitle": "Volkswagen Transporter (T4)",
+   "status": "no-engines",
+   "engines": [],
+   "unlinked": [],
+   "v": 7
+  },
+  "m-volkswagen-transporter-t5": {
+   "checkedAt": "2026-11-02T09:02:44.874Z",
+   "sourceTitle": "Volkswagen Transporter (T5)",
+   "section": "T5 (2003)",
+   "engines": [
+    {
+     "title": "VR6 engine",
+     "name": "VR6",
+     "variant": null,
+     "specs": {
+      "displacement": "3.2 L",
+      "fuel": "petrol"
+     },
+     "said": "3.2 L VR6 (petrol)"
+    }
+   ],
+   "unlinked": [
+    {
+     "name": "2.0 L I4 (petrol)",
+     "specs": {
+      "displacement": "2.0 L",
+      "layout": "I",
+      "cylinders": 4,
+      "fuel": "petrol"
+     },
+     "said": "2.0 L I4 (petrol)"
+    },
+    {
+     "name": "1.9 L I4 (diesel)",
+     "specs": {
+      "displacement": "1.9 L",
+      "layout": "I",
+      "cylinders": 4,
+      "fuel": "diesel"
+     },
+     "said": "1.9 L I4 TDI (diesel)"
+    },
+    {
+     "name": "2.0 L I4 (diesel)",
+     "specs": {
+      "displacement": "2.0 L",
+      "layout": "I",
+      "cylinders": 4,
+      "fuel": "diesel"
+     },
+     "said": "2.0 L I4 TDI (diesel)"
+    },
+    {
+     "name": "2.5 L I5 (diesel)",
+     "specs": {
+      "displacement": "2.5 L",
+      "layout": "I",
+      "cylinders": 5,
+      "fuel": "diesel"
+     },
+     "said": "2.5 L I5 TDI (diesel)"
+    }
+   ],
+   "v": 7
+  },
+  "m-volkswagen-transporter-t6": {
+   "checkedAt": "2026-11-02T09:02:45.121Z",
+   "sourceTitle": "Volkswagen Transporter (T6)",
+   "status": "no-engines",
+   "engines": [],
+   "unlinked": [
+    {
+     "name": "2.0 L I4 (petrol)",
+     "specs": {
+      "displacement": "2.0 L",
+      "layout": "I",
+      "cylinders": 4,
+      "fuel": "petrol"
+     },
+     "said": "2.0 L I4"
+    },
+    {
+     "name": "2.0 L turbo I4 (diesel)",
+     "specs": {
+      "displacement": "2.0 L",
+      "layout": "I",
+      "cylinders": 4,
+      "induction": "turbocharged",
+      "fuel": "diesel"
+     },
+     "said": "2.0 L TDI turbo I4"
+    }
+   ],
+   "v": 7
+  },
+  "llm-fam-volkswagen-transporter-t7": {
+   "checkedAt": "2026-11-02T09:02:45.535Z",
+   "sourceTitle": "Volkswagen Multivan (T7)",
+   "status": "no-engines",
+   "engines": [],
+   "unlinked": [
+    {
+     "name": "1.5 L I4 (petrol)",
+     "specs": {
+      "displacement": "1.5 L",
+      "layout": "I",
+      "cylinders": 4,
+      "fuel": "petrol"
+     },
+     "said": "1.5 L TSI I4"
+    },
+    {
+     "name": "2.0 L I4 (petrol)",
+     "specs": {
+      "displacement": "2.0 L",
+      "layout": "I",
+      "cylinders": 4,
+      "fuel": "petrol"
+     },
+     "said": "2.0 L TSI I4"
+    },
+    {
+     "name": "1.4 L I4 (petrol)",
+     "specs": {
+      "displacement": "1.4 L",
+      "layout": "I",
+      "cylinders": 4,
+      "fuel": "petrol"
+     },
+     "said": "1.4 L eHybrid I4"
+    },
+    {
+     "name": "2.0 L I4 (diesel)",
+     "specs": {
+      "displacement": "2.0 L",
+      "layout": "I",
+      "cylinders": 4,
+      "fuel": "diesel"
+     },
+     "said": "2.0 L TDI I4"
+    }
+   ],
+   "v": 7
+  },
+  "llm-m-volkswagen-beetle-type-1": {
+   "checkedAt": "2026-11-02T09:03:27.873Z",
+   "sourceTitle": "Volkswagen Beetle",
+   "section": "(the whole page)",
+   "engines": [
+    {
+     "title": "Volkswagen air-cooled engine",
+     "name": "Volkswagen air-cooled",
+     "variant": null,
+     "specs": {
+      "displacement": "995 cc",
+      "fuel": "petrol"
+     },
+     "said": "995 cc H4 (first 1938 models)"
+    }
+   ],
+   "unlinked": [
+    {
+     "name": "1132 cc (petrol)",
+     "specs": {
+      "displacement": "1132 cc",
+      "fuel": "petrol"
+     },
+     "said": "1132 cc H4"
+    },
+    {
+     "name": "1192 cc (petrol)",
+     "specs": {
+      "displacement": "1192 cc",
+      "fuel": "petrol"
+     },
+     "said": "1192 cc H4"
+    },
+    {
+     "name": "1285 cc (petrol)",
+     "specs": {
+      "displacement": "1285 cc",
+      "fuel": "petrol"
+     },
+     "said": "1285 cc H4"
+    },
+    {
+     "name": "1493 cc (petrol)",
+     "specs": {
+      "displacement": "1493 cc",
+      "fuel": "petrol"
+     },
+     "said": "1493 cc H4"
+    },
+    {
+     "name": "1584 cc (petrol)",
+     "specs": {
+      "displacement": "1584 cc",
+      "fuel": "petrol"
+     },
+     "said": "1584 cc H4"
+    }
+   ],
+   "v": 7,
+   "fieldYears": [
+    1938,
+    2003
+   ]
+  },
+  "llm-m-volkswagen-beetle-super-beetle-1302": {
+   "checkedAt": "2026-11-02T09:03:27.917Z",
+   "sourceTitle": "Volkswagen Beetle",
+   "section": "(the whole page)",
+   "engines": [
+    {
+     "title": "Volkswagen air-cooled engine",
+     "name": "Volkswagen air-cooled",
+     "variant": null,
+     "specs": {
+      "displacement": "995 cc",
+      "fuel": "petrol"
+     },
+     "said": "995 cc H4 (first 1938 models)"
+    }
+   ],
+   "unlinked": [
+    {
+     "name": "1132 cc (petrol)",
+     "specs": {
+      "displacement": "1132 cc",
+      "fuel": "petrol"
+     },
+     "said": "1132 cc H4"
+    },
+    {
+     "name": "1192 cc (petrol)",
+     "specs": {
+      "displacement": "1192 cc",
+      "fuel": "petrol"
+     },
+     "said": "1192 cc H4"
+    },
+    {
+     "name": "1285 cc (petrol)",
+     "specs": {
+      "displacement": "1285 cc",
+      "fuel": "petrol"
+     },
+     "said": "1285 cc H4"
+    },
+    {
+     "name": "1493 cc (petrol)",
+     "specs": {
+      "displacement": "1493 cc",
+      "fuel": "petrol"
+     },
+     "said": "1493 cc H4"
+    },
+    {
+     "name": "1584 cc (petrol)",
+     "specs": {
+      "displacement": "1584 cc",
+      "fuel": "petrol"
+     },
+     "said": "1584 cc H4"
+    }
+   ],
+   "v": 7,
+   "fieldYears": [
+    1938,
+    2003
+   ]
+  },
+  "llm-m-volkswagen-beetle-1303-1972-1976": {
+   "checkedAt": "2026-11-02T09:03:27.957Z",
+   "sourceTitle": "Volkswagen Beetle",
+   "section": "(the whole page)",
+   "engines": [
+    {
+     "title": "Volkswagen air-cooled engine",
+     "name": "Volkswagen air-cooled",
+     "variant": null,
+     "specs": {
+      "displacement": "995 cc",
+      "fuel": "petrol"
+     },
+     "said": "995 cc H4 (first 1938 models)"
+    }
+   ],
+   "unlinked": [
+    {
+     "name": "1132 cc (petrol)",
+     "specs": {
+      "displacement": "1132 cc",
+      "fuel": "petrol"
+     },
+     "said": "1132 cc H4"
+    },
+    {
+     "name": "1192 cc (petrol)",
+     "specs": {
+      "displacement": "1192 cc",
+      "fuel": "petrol"
+     },
+     "said": "1192 cc H4"
+    },
+    {
+     "name": "1285 cc (petrol)",
+     "specs": {
+      "displacement": "1285 cc",
+      "fuel": "petrol"
+     },
+     "said": "1285 cc H4"
+    },
+    {
+     "name": "1493 cc (petrol)",
+     "specs": {
+      "displacement": "1493 cc",
+      "fuel": "petrol"
+     },
+     "said": "1493 cc H4"
+    },
+    {
+     "name": "1584 cc (petrol)",
+     "specs": {
+      "displacement": "1584 cc",
+      "fuel": "petrol"
+     },
+     "said": "1584 cc H4"
+    }
+   ],
+   "v": 7,
+   "fieldYears": [
+    1938,
+    2003
+   ]
+  },
+  "llm-m-volkswagen-beetle-final-models-1986-2003": {
+   "checkedAt": "2026-11-02T09:03:27.998Z",
+   "sourceTitle": "Volkswagen Beetle",
+   "status": "no-engines",
+   "engines": [],
    "unlinked": [],
    "v": 7
   }
@@ -1290550,7 +1292789,7 @@
     "Kombi"
    ],
    "from": "Volkswagen Transporter",
-   "checkedAt": "2026-11-01T23:14:13.411Z"
+   "checkedAt": "2026-11-02T09:02:42.871Z"
   },
   "m-volkswagen-transporter": {
    "names": [],
@@ -1290564,7 +1292803,7 @@
     "Volkswagen Vanagon (Japan)"
    ],
    "from": "Volkswagen Transporter (T4)",
-   "checkedAt": "2026-11-01T23:14:15.426Z"
+   "checkedAt": "2026-11-02T09:02:44.511Z"
   },
   "m-volkswagen-transporter-t5": {
    "names": [
@@ -1290574,7 +1292813,7 @@
     "Volkswagen Eurovan (Mexico)"
    ],
    "from": "Volkswagen Transporter (T5)",
-   "checkedAt": "2026-11-01T23:14:15.711Z"
+   "checkedAt": "2026-11-02T09:02:44.874Z"
   },
   "m-volkswagen-transporter-t6": {
    "names": [
@@ -1290584,7 +1292823,7 @@
     "Volkswagen T6.1 (facelift)"
    ],
    "from": "Volkswagen Transporter (T6)",
-   "checkedAt": "2026-11-01T23:14:16.153Z"
+   "checkedAt": "2026-11-02T09:02:45.121Z"
   },
   "llm-related-volkswagen-caravelle": {
    "names": [],
@@ -1295987,8 +1298226,8 @@
   },
   "m-volkswagen-id-buzz": {
    "names": [],
-   "from": null,
-   "checkedAt": "2026-11-01T23:03:28.418Z"
+   "from": "Volkswagen ID. Buzz",
+   "checkedAt": "2026-11-02T09:00:58.005Z"
   },
   "m-volkswagen-id-3": {
    "names": [
@@ -1296637,7 +1298876,7 @@
     "Volkswagen Transporter"
    ],
    "from": "Volkswagen Type 2",
-   "checkedAt": "2026-11-01T23:14:18.502Z"
+   "checkedAt": "2026-11-02T08:59:21.015Z"
   },
   "m-volkswagen-type-2": {
    "names": [],
@@ -1296653,7 +1298892,7 @@
     "Volkswagen Microbus (South Africa)"
    ],
    "from": "Volkswagen Type 2 (T3)",
-   "checkedAt": "2026-11-01T23:14:18.506Z"
+   "checkedAt": "2026-11-02T08:59:21.812Z"
   },
   "llm-related-kia-bongo": {
    "names": [
@@ -1300046,7 +1302285,7 @@
     "Full list"
    ],
    "from": "Volkswagen Beetle",
-   "checkedAt": "2026-11-01T18:13:13.951Z"
+   "checkedAt": "2026-11-02T09:03:27.872Z"
   },
   "m-porsche-914": {
    "names": [
@@ -1307627,19 +1309866,19 @@
     "Full list"
    ],
    "from": "Volkswagen Beetle",
-   "checkedAt": "2026-11-01T18:13:14.005Z"
+   "checkedAt": "2026-11-02T09:03:27.917Z"
   },
   "llm-m-volkswagen-beetle-1303-1972-1976": {
    "names": [
     "Full list"
    ],
    "from": "Volkswagen Beetle",
-   "checkedAt": "2026-11-01T18:13:14.041Z"
+   "checkedAt": "2026-11-02T09:03:27.957Z"
   },
   "llm-m-volkswagen-beetle-final-models-1986-2003": {
    "names": [],
    "from": null,
-   "checkedAt": "2026-11-01T18:13:14.077Z"
+   "checkedAt": "2026-11-02T09:03:27.998Z"
   },
   "m-maxus-d90": {
    "names": [
@@ -1308214,7 +1310453,7 @@
     "Full list"
    ],
    "from": "Volkswagen Beetle",
-   "checkedAt": "2026-11-01T18:13:13.953Z"
+   "checkedAt": "2026-11-02T09:03:27.873Z"
   },
   "m-alfa-romeo-giulia": {
    "names": [],
@@ -1309466,12 +1311705,12 @@
   "llm-fam-volkswagen-transporter-t1": {
    "names": [],
    "from": null,
-   "checkedAt": "2026-11-01T23:14:13.906Z"
+   "checkedAt": "2026-11-02T09:02:43.296Z"
   },
   "llm-fam-volkswagen-transporter-t2": {
    "names": [],
    "from": null,
-   "checkedAt": "2026-11-01T23:14:14.583Z"
+   "checkedAt": "2026-11-02T09:02:43.756Z"
   },
   "llm-fam-volkswagen-transporter-t3": {
    "names": [
@@ -1309482,19 +1311721,19 @@
     "Volkswagen Microbus (South Africa)"
    ],
    "from": "Volkswagen Type 2 (T3)",
-   "checkedAt": "2026-11-01T23:14:14.948Z"
+   "checkedAt": "2026-11-02T09:02:44.102Z"
   },
   "llm-fam-volkswagen-transporter-t7": {
    "names": [
     "Volkswagen California"
    ],
    "from": "Volkswagen Multivan (T7)",
-   "checkedAt": "2026-11-01T23:14:16.394Z"
+   "checkedAt": "2026-11-02T09:02:45.535Z"
   },
   "llm-fam-volkswagen-type-2-t1": {
    "names": [],
    "from": null,
-   "checkedAt": "2026-11-01T23:14:18.504Z"
+   "checkedAt": "2026-11-02T08:59:21.553Z"
   },
   "llm-fam-volkswagen-type-2-t4": {
    "names": [
@@ -1309503,7 +1311742,7 @@
     "Volkswagen Vanagon (Japan)"
    ],
    "from": "Volkswagen Transporter (T4)",
-   "checkedAt": "2026-11-01T23:14:18.560Z"
+   "checkedAt": "2026-11-02T08:59:22.269Z"
   },
   "llm-fam-volkswagen-type-2-t5": {
    "names": [
@@ -1309513,7 +1311752,7 @@
     "Volkswagen Eurovan (Mexico)"
    ],
    "from": "Volkswagen Transporter (T5)",
-   "checkedAt": "2026-11-01T23:14:18.561Z"
+   "checkedAt": "2026-11-02T08:59:22.680Z"
   },
   "llm-fam-volkswagen-type-2-t6": {
    "names": [
@@ -1309523,7 +1311762,7 @@
     "Volkswagen T6.1 (facelift)"
    ],
    "from": "Volkswagen Transporter (T6)",
-   "checkedAt": "2026-11-01T23:14:18.602Z"
+   "checkedAt": "2026-11-02T08:59:23.096Z"
   },
   "llm-llm-related-ford-courier-sedan-delivery-1952-1960-": {
    "names": [],
@@ -1310742,6 +1312981,21 @@
    "names": [],
    "from": null,
    "checkedAt": "2026-11-02T08:42:26.290Z"
+  },
+  "llm-fam-volkswagen-type-2-t2": {
+   "names": [],
+   "from": null,
+   "checkedAt": "2026-11-02T08:59:21.554Z"
+  },
+  "llm-m-volkswagen-id-buzz-id-buzz-concept": {
+   "names": [],
+   "from": null,
+   "checkedAt": "2026-11-02T09:00:58.006Z"
+  },
+  "llm-m-volkswagen-id-buzz-id-buzz-production": {
+   "names": [],
+   "from": null,
+   "checkedAt": "2026-11-02T09:00:58.006Z"
   }
  },
  "prunedDecisions": {
@@ -1318493,16 +1320747,21 @@
   "relations|llm-related-isuzu-vertex|m-honda-civic-sixth-generation|platform": {
    "what": "connection you decided",
    "label": "Honda Civic ↔ llm-related-isuzu-vertex (platform, confirmed)",
-   "prunedAt": "2026-11-02T08:44:21.976Z"
+   "prunedAt": "2026-11-02T08:57:41.174Z"
+  },
+  "relations|llm-fam-honda-integra-third-generation-1993-|llm-related-isuzu-vertex|platform": {
+   "what": "connection you decided",
+   "label": "Honda Integra ↔ llm-related-isuzu-vertex (platform, confirmed)",
+   "prunedAt": "2026-11-02T08:57:41.174Z"
   }
  },
  "jobs": [],
  "lastJob": {
-  "id": "job-mvz0j0xe-y0p2q",
+  "id": "job-mvz105ht-09bnm",
   "kind": "family-recheck",
-  "targetId": "fam-honda-cr-v",
-  "label": "Honda CR-V",
-  "finishedAt": "2026-11-02T08:47:31.182Z",
+  "targetId": "fam-volkswagen-type-2",
+  "label": "Volkswagen Type 2",
+  "finishedAt": "2026-11-02T08:59:37.596Z",
   "state": "done",
   "summary": ""
  },
@@ -1319889,7 +1322148,8 @@
   "Mazda 2000": "Mazda Luce",
   "BMW X3 (F25)": "BMW X3",
   "Honda N600": "Honda N360",
-  "Isuzu Vertex": "Honda Integra"
+  "Isuzu Vertex": "Honda Integra",
+  "Volkswagen Multivan": "Volkswagen Transporter"
  },
  "pendingCascade": {},
  "fullScan": null,
