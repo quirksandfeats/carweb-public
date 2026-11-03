@@ -6897,7 +6897,7 @@ Rules:
       reviewedGen("Original (1962–1963)", 1962, 1963, ["Raymond Loewy"]),
       reviewedGen("Avanti II", 1965, 1986, ["Leo Newman", "Nate Altman"]), reviewedGen("Avanti", 1987, 2006, ["Tom Kellogg"])] },
   };
-  const REVIEWED_V = 10;
+  const REVIEWED_V = 11;
   function applyReviewedCorrections() {
     // Only over what these lists correct: a new or wiped store has nothing to put right.
     const had = (store.settings && store.settings.reviewedV) || 0;
@@ -6916,6 +6916,7 @@ Rules:
     if (had < 8) applyEighthReview(at);
     if (had < 9) applyNinthReview(at);
     if (had < 10) applyTenthReview();
+    if (had < 11) applyEleventhReview(at);
     store.settings.reviewedV = REVIEWED_V;
   }
   // Cars whose article search found something else: a pool player, an album, a
@@ -6958,6 +6959,50 @@ Rules:
     }
     const era = store.aliases["llm-m-austin-mini-mini-1275-gt"];
     if (era && !era.names.includes("Mini Clubman")) era.names.unshift("Mini Clubman");
+  }
+  function applyEleventhReview(at) {
+    // The Mach-E's article says it shares the C2 platform with the fourth generation
+    // Focus. The Mustang's has a section for the Mach-E, and the re-read gave the fact
+    // to the S550 too, which is on the D2C.
+    const WRONG = "m-ford-focus-fourth-generation|m-ford-mustang-sixth-generation|platform";
+    const was = store.relations[WRONG];
+    delete store.relations[WRONG];
+    store.rejectedRelations[WRONG] = true;
+    store.rejectedRelations[relKey("fam-ford-focus", "fam-ford-mustang", "platform")] = true;
+    for (const g of ((store.recheck["fam-ford-mustang"] || {}).proposal || {}).generations || []) {
+      if (g.code === "Sixth generation (S550)") g.sharedPlatforms = (g.sharedPlatforms || []).filter(m => m !== "Ford Focus (fourth generation)");
+    }
+    if (was) {
+      store.relations[relKey("m-ford-focus-fourth-generation", "m-ford-mustang-mach-e", "platform")] = Object.assign({}, was,
+        { famA: "m-ford-mustang-mach-e", genIdA: "m-ford-mustang-mach-e", codeA: "Mustang Mach-E", checkedAt: at, decidedAt: at,
+          reason: "the Mach-E's article: the C2 platform, shared with the fourth generation Focus" });
+    }
+    // Each Phoenix series is one year's car, as the article says. Its first read took
+    // the run of the Canadian cars behind it for the series'.
+    const ENDS = { PD4: 1960, RD4: 1961, SD2: 1962, TD2: 1963, VD2: 1964, AP2D: 1965, DB6: 1966, DC: 1967, DD: 1968, DG: 1971 };
+    // From the AP2D on it is a rebadged Plymouth Fury, and the same read gave those the
+    // Dart and the 440 too. The article puts those behind the SD2, the TD2 and the VD2.
+    const FURY_BASED = ["AP2D", "DB6", "DC", "DD", "DE", "DF", "DG", "DH"];
+    for (const e of [store.families["m-dodge-phoenix"], store.recheck["m-dodge-phoenix"]]) {
+      for (const g of (e && e.proposal && e.proposal.generations) || []) {
+        if (ENDS[g.code]) g.yearEnd = ENDS[g.code];
+        if (FURY_BASED.includes(g.code)) g.sharedPlatforms = (g.sharedPlatforms || []).filter(m => /\bFury\b/.test(m));
+      }
+    }
+    const furyGen = new Set(FURY_BASED.map(c => "llm-m-dodge-phoenix-" + c.toLowerCase()));
+    const dartOr440 = id => /^(?:llm-)?m-dodge-(?:dart|440)(?:-|$)/.test(id);
+    for (const key of Object.keys(store.relations)) {
+      const [x, y] = key.split("|");
+      if ((furyGen.has(x) && dartOr440(y)) || (furyGen.has(y) && dartOr440(x))) {
+        delete store.relations[key];
+        store.rejectedRelations[key] = true;
+      }
+    }
+    for (const [gen, code] of [["llm-m-dodge-phoenix-td2", "TD2"], ["llm-m-dodge-phoenix-vd2", "VD2"]]) {
+      store.relations[relKey(gen, "llm-m-dodge-440-dodge-440", "platform")] = { status: "confirmed", relType: "platform", checkedAt: at, decidedAt: at,
+        famA: "m-dodge-phoenix", genIdA: gen, codeA: code, famB: "m-dodge-440", genIdB: "llm-m-dodge-440-dodge-440", codeB: "Dodge 440",
+        reason: `the Dodge Phoenix article: the ${code} is based on the Dodge 440` };
+    }
   }
   function applyTenthReview() {
     // What the Dodge Dart (PF)'s cascade read wrongly. "Chrysler Australia" in the
@@ -19386,8 +19431,11 @@ Rules:
         const g = paired[i];
         if (!g || g.year == null) return;
         const run = headingRunFor(e, f.code);
+        // Its start is another generation's own: the Dodge 440's "440" (1963) pairs by
+        // name with the Dart 440 (1962), and its end is not that car's.
+        const anothers = f.yearStart !== g.year && gens.some(o => o !== g && o.year === f.yearStart);
         if (run && run.start === g.year) g.end = run.end;
-        else if (!run && Math.abs((f.yearStart || 0) - g.year) <= 1 && plausibleEnd(f.yearStart, f.yearEnd) != null) {
+        else if (!run && !anothers && Math.abs((f.yearStart || 0) - g.year) <= 1 && plausibleEnd(f.yearStart, f.yearEnd) != null) {
           // Running on into the next generation by more than a year is the
           // read taking the nameplate's run for this one's (Malibu First, to 1972).
           const end = plausibleEnd(f.yearStart, f.yearEnd);

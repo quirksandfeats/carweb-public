@@ -2329,5 +2329,22 @@ The change affects later re-reads only: a load changed no node, link or stored e
 article and years, and the Dart's add-only read changed nothing. Its cascade folded the
 Giulietta (1954) and (2010) into Type 750 / 101 and Type 940 with their links. Review 10
 corrects what that cascade read wrongly: "Chrysler Australia", a company, became a car,
-and the Diplomat's end year came from a photo caption. Still open: the Dart 440 shows
-1962-1964, though its stored answer and its heading say 1962.
+and the Diplomat's end year came from a photo caption.
+
+**What that check left, review 11.** The Dart 440 showed 1962-1964: `pairFreshGenerations`
+pairs the re-read's "440" (1963-1964) with the label "Dodge Dart 440", and
+`applyRereadEnds` took its end. A re-read whose start is another generation's own start
+now gives this one no end. The pairing itself is unchanged, since it decides much more.
+
+The Focus fourth generation / Mustang sixth generation link was the Mach-E's fact: its
+article says it shares the C2 with that Focus, and the Mustang's article has a Mach-E
+section, so the re-read gave the fact to the S550 too, which is on the D2C. The link
+moves to the Mach-E, and the S550 and nameplate pairs are rejected. Nothing general
+stops this: a model can still repeat a sub-article's fact on a sibling generation.
+
+The Dodge Phoenix's first read took one run for each series. The article gives each
+series one year, DE and DF running into the next, and says the AP2D to the DH are
+rebadged Plymouth Furys. They lose their Dart and 440 links (36 links, nameplate
+rollups included), and the TD2 and VD2 gain the 440, as the article says. The SD2 lands
+on the second generation Dart by its corrected years. PD4 stays on the first generation
+Dart, by years alone, and the article does not say so.
