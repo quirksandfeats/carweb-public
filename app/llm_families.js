@@ -6741,7 +6741,7 @@ Rules:
       reviewedGen("Original (1962–1963)", 1962, 1963, ["Raymond Loewy"]),
       reviewedGen("Avanti II", 1965, 1986, ["Leo Newman", "Nate Altman"]), reviewedGen("Avanti", 1987, 2006, ["Tom Kellogg"])] },
   };
-  const REVIEWED_V = 8;
+  const REVIEWED_V = 9;
   function applyReviewedCorrections() {
     // Only over what these lists correct: a new or wiped store has nothing to put right.
     const had = (store.settings && store.settings.reviewedV) || 0;
@@ -6758,6 +6758,7 @@ Rules:
     if (had < 6) applySixthReview();
     if (had < 7) applySeventhReview(at);
     if (had < 8) applyEighthReview(at);
+    if (had < 9) applyNinthReview(at);
     store.settings.reviewedV = REVIEWED_V;
   }
   // Cars whose article search found something else: a pool player, an album, a
@@ -6800,6 +6801,35 @@ Rules:
     }
     const era = store.aliases["llm-m-austin-mini-mini-1275-gt"];
     if (era && !era.names.includes("Mini Clubman")) era.names.unshift("Mini Clubman");
+  }
+  function applyNinthReview(at) {
+    // "Thunderbird (83–88)" read the Mustang's article, so its "generations" are
+    // Mustangs and what they found describes the Mustang. Only the Fox platform,
+    // named of the Thunderbird itself, is about this car.
+    const BIRD = "llm-related-ford-thunderbird-83-88";
+    for (const key of Object.keys(store.relations)) {
+      if (key.split("|").some(id => id.startsWith("llm-" + BIRD + "-"))) delete store.relations[key];
+    }
+    delete store.families[BIRD];
+    delete store.recheck[BIRD];
+    // The EXA is a Pulsar: nothing ties it to the Terrano, which is now to keep this link.
+    const EXA = "llm-m-nissan-exa-n13|llm-related-nissan-terrano-wd21|platform";
+    delete store.relations[EXA];
+    store.rejectedRelations[EXA] = true;
+    // Its scan has now made the F54, so the F54's UKL2 partners go on it.
+    const F54 = "llm-m-mini-clubman-2007-f54";
+    if (store.families["m-mini-clubman-2007"] && store.families["m-mini-clubman-2007"].status === "confirmed") {
+      for (const [key, e] of Object.entries(store.relations)) {
+        if (e.reason !== "the Mini Clubman (F54) is the second generation of this car") continue;
+        delete store.relations[key];
+        const a = e.genIdB === "m-mini-clubman-2007";
+        store.relations[relKey(a ? e.genIdA : e.genIdB, F54, "platform")] = Object.assign({}, e, a ? { genIdB: F54, codeB: "F54" } : { genIdA: F54, codeA: "F54" });
+      }
+    }
+    // The car's only list of generations is on the name with the bracket.
+    store.renames["llm-related-renault-arkana-cmf-b"] = { label: "Arkana", previousLabel: "Arkana (CMF-B)", kind: "family", renamedAt: at, auto: true, reason: "the article's own name for it" };
+    // Its codes each pointed at the Camry's article; the Vista has its own.
+    if (!store.wpLinks["llm-related-toyota-vista"]) store.wpLinks["llm-related-toyota-vista"] = "Toyota Vista";
   }
   function applySeventhReview(at) {
     // Filed under the wrong make, so under another id too. Each is made again from
@@ -12171,6 +12201,86 @@ Rules:
     "llm-related-vw-beetle": "m-volkswagen-beetle",
     "llm-related-g-63-amg-6x6": "m-mercedes-benz-mercedes-amg-g-63-6x6",
     "m-holden-caprice-vq": "m-holden-caprice",
+    // A name with a code or a qualifier in brackets, beside the car it names. Each
+    // was read against its article; a car with a page of its own stays apart.
+    // What this one holds, DeLorean and the Tempest, is the nameplate's article.
+    "m-pontiac-gto-2004": "llm-related-pontiac-gto",
+    "m-holden-monaro-v2": "llm-llm-related-holden-monaro-v2-vz",
+    "llm-related-holden-monaro-v2-ii-and-iii": "llm-llm-related-holden-monaro-v2-vz",
+    "m-dodge-challenger-1970": "llm-llm-related-dodge-challenger-first-generation-1970-1974",
+    "m-dodge-challenger-2008": "llm-llm-related-dodge-challenger-third-generation-2008-2023",
+    "m-maserati-ghibli-am115": "m-maserati-ghibli",
+    "m-lincoln-continental-mark-i": "llm-m-lincoln-continental-first-generation",
+    "llm-related-lincoln-continental-1961-1969": "llm-m-lincoln-continental-fourth-generation",
+    "m-nissan-fairlady-z-240z": "m-nissan-fairlady-z-s30",
+    "llm-related-yaris-ativ-ac100": "llm-related-toyota-yaris-ativ",
+    "llm-related-toyota-rush-f700": "llm-related-toyota-rush",
+    "llm-related-toyota-rush-f800": "llm-related-toyota-rush",
+    // Japan's Micra. These are the K11, K12 and K13.
+    "llm-related-nissan-march-second-generation": "llm-m-nissan-micra-k11",
+    "llm-related-nissan-march-third-generation": "llm-m-nissan-micra-k12",
+    "llm-related-nissan-march-fourth-generation": "llm-m-nissan-micra-k13",
+    "llm-related-nissan-micra-march-k13": "llm-m-nissan-micra-k13",
+    "llm-related-toyota-vista-v50": "llm-related-toyota-vista",
+    "llm-related-toyota-vista-v20": "llm-related-toyota-vista",
+    "llm-related-toyota-vista-japan": "llm-related-toyota-vista",
+    "llm-related-toyota-celica-a40": "llm-m-toyota-celica-a40-a50",
+    "llm-related-ford-fusion-ju": "m-ford-fusion-europe",
+    "llm-related-nissan-kicks-d15": "llm-m-nissan-kicks-p15-d15",
+    "llm-related-renault-arkana": "llm-related-renault-arkana-cmf-b",
+    "llm-related-holden-adventra-vy-ii": "llm-related-holden-adventra",
+    "llm-related-holden-crewman-vy": "llm-related-holden-crewman",
+    "llm-related-holden-one-tonner-vy": "llm-related-holden-one-tonner",
+    "llm-related-holden-caprice-wn": "m-holden-caprice-wm",
+    "llm-related-toyota-rav4-xa50": "llm-m-toyota-rav4-xa50",
+    "llm-related-saab-900-ng": "llm-m-saab-900-saab-900-ng",
+    "llm-related-statesman-automobile": "m-holden-statesman",
+    "llm-related-toyota-hilux-n30": "llm-m-toyota-hilux-n30-n40",
+    "llm-related-toyota-hilux-n80": "llm-m-toyota-hilux-n80-n90-n100-n110-n200",
+    "llm-related-toyota-hilux-an120": "llm-m-toyota-hilux-an110-an120-an130",
+    // The Fairlane NL and the LTD DL are one section of the Fairlane's article.
+    "llm-related-ford-ltd-dl": "llm-m-ford-fairlane-australia-nl-dl-1996-1999",
+    "llm-related-ford-fairlane-nl": "llm-m-ford-fairlane-australia-nl-dl-1996-1999",
+    "llm-related-ford-ltd-north-america": "m-ford-ltd-americas",
+    "llm-related-honda-vezel-second-generation": "llm-related-honda-vezel",
+    "llm-related-bmw-x7-g07": "m-bmw-x7",
+    "llm-related-honda-accord-cb": "llm-fam-honda-accord-fourth-generation",
+    "llm-related-honda-accord-cb3": "llm-fam-honda-accord-fourth-generation",
+    "llm-related-dodge-charger-b-body": "m-dodge-charger-1966",
+    "llm-related-audi-s4-b7": "llm-m-audi-s4-fourth-generation-b7-8e-8h",
+    "llm-related-audi-s4-b8": "llm-m-audi-s4-fifth-generation-b8-8k",
+    "llm-related-audi-s4-b9": "llm-m-audi-s4-sixth-generation-b9-8w",
+    "llm-related-audi-a4-b5": "llm-m-audi-a4-b5-typ-8d",
+    "llm-related-seat-leon-first-generation": "llm-llm-related-seat-leon-mk1-1m",
+    "llm-related-seat-leon-second-generation": "llm-llm-related-seat-leon-mk2-1p",
+    "llm-related-audi-a3-second-generation": "llm-related-audi-a3",
+    "llm-related-audi-a3-third-generation": "llm-related-audi-a3",
+    "llm-related-skoda-octavia-second-generation": "llm-llm-related-skoda-octavia-mk2",
+    "llm-related-skoda-octavia-third-generation": "llm-llm-related-skoda-octavia-typ-5e-mk3",
+    "llm-related-dodge-avenger-south-africa": "llm-m-dodge-avenger-hillman-avenger",
+    "llm-related-alfa-romeo-giulietta-116": "llm-llm-related-alfa-romeo-giulietta-type-116",
+    "llm-related-dodge-durango-wd": "llm-m-dodge-durango-third-generation",
+    "llm-related-toyota-supra-a40": "llm-m-toyota-supra-a40-a50",
+    "llm-related-ford-thunderbird-83-88": "m-ford-thunderbird-ninth-generation",
+    "llm-related-ford-thunderbird-80-82": "m-ford-thunderbird-eighth-generation",
+    "llm-related-honda-zr-v-hr-v-rz": "m-honda-zr-v",
+    "llm-related-acura-integra-2023": "m-acura-integra-2022",
+    "llm-related-isuzu-faster-tf": "llm-m-isuzu-faster-third-generation",
+    "llm-related-subaru-legacy-bw": "m-subaru-legacy-seventh-generation",
+    // The Rapid sold as a Polo in Russia: the nameplate's, no generation of it.
+    "llm-related-volkswagen-polo-ck-2020-2022-russia": "fam-volkswagen-polo",
+    "llm-related-tata-safari-2021": "llm-m-tata-safari-second-generation-2021",
+    "llm-related-nissan-terrano-wd21": "llm-related-nissan-terrano",
+    "llm-related-nissan-terrano-ii-r20": "m-nissan-terrano-ii",
+    "llm-related-ford-maverick-north-america": "m-ford-maverick-1970-1977",
+    "llm-related-toyota-townace-r10": "llm-llm-related-toyota-townace-r10",
+    "llm-related-toyota-townace-s400": "llm-llm-related-toyota-townace-s400",
+    "llm-related-suzuki-swift-third-generation": "llm-m-suzuki-swift-a2l",
+    "llm-related-volkswagen-passat-pro-b9": "llm-llm-related-volkswagen-passat-pro-b9",
+    "llm-related-volkswagen-passat-china-2019": "llm-m-volkswagen-passat-north-america-and-china-second-generation-china",
+    "llm-related-mitsubishi-express-wa": "llm-llm-related-mitsubishi-express-mitsubishi-express-wa",
+    "llm-related-mitsubishi-express-sf-sg-sh-sj": "llm-llm-related-mitsubishi-express-mitsubishi-express-sf-sg-sh-sj",
+    "llm-related-mitsubishi-express-x82": "llm-llm-related-mitsubishi-express-mitsubishi-express-x82",
   };
   function foldReviewedCars(nodes, links) {
     const byIdLocal = new Map(nodes.map(n => [n.id, n]));
