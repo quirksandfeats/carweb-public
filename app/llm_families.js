@@ -5512,6 +5512,9 @@ Rules:
         // so the rest is the model label -- "VW Passat" under a matched
         // "Volkswagen" make must become the model "Passat", not "VW Passat".
         const rest = trimmed.split(/\s+/).slice(makeVariant.makeGuessWords || 1).join(" ").trim();
+        // "Full-size Ford" names the maker and no car. It was a car called "Ford",
+        // whose article search then found Ford Madox Ford, the novelist.
+        if (norm(rest) === norm(resolved.label)) return null;
         if (rest) {
           makeNode = resolved;
           modelLabel = rest;
@@ -6609,7 +6612,7 @@ Rules:
       reviewedGen("Original (1962–1963)", 1962, 1963, ["Raymond Loewy"]),
       reviewedGen("Avanti II", 1965, 1986, ["Leo Newman", "Nate Altman"]), reviewedGen("Avanti", 1987, 2006, ["Tom Kellogg"])] },
   };
-  const REVIEWED_V = 5;
+  const REVIEWED_V = 6;
   function applyReviewedCorrections() {
     // Only over what these lists correct: a new or wiped store has nothing to put right.
     const had = (store.settings && store.settings.reviewedV) || 0;
@@ -6623,7 +6626,20 @@ Rules:
     if (had < 3) applyThirdReview(at);
     if (had < 4) applyFourthReview();
     if (had < 5) applyFifthReview();
+    if (had < 6) applySixthReview();
     store.settings.reviewedV = REVIEWED_V;
+  }
+  function applySixthReview() {
+    // The GT-R is the only car on its PM platform. "Nissan Skyline" in its scan
+    // was placed on the V37 by years alone.
+    const key = "llm-m-nissan-skyline-nissan-skyline-v37|m-nissan-gt-r-r35|platform";
+    delete store.relations[key];
+    store.rejectedRelations[key] = true;
+    store.rejectedRelations["m-nissan-gt-r-r35|m-nissan-skyline|platform"] = true;
+    // With no car called "Ford" to catch every Ford mention, the Gol's "Ford Escort"
+    // would become a car. Its article names the Escort XR3 as a rival.
+    if (!store.purged) store.purged = {};
+    store.purged["llm-related-ford-escort"] = true;
   }
   function applyFifthReview() {
     // Real end years put these on the generation built longest alongside. The 301's
