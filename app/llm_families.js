@@ -885,7 +885,9 @@ window.LlmFamilies = (function () {
   // and it names the car, with a car infobox or the make in its title. Taken
   // unchecked, "Duesenberg Ritz" got Rudolf Wanderone, a pool player, and
   // "Nissan March third generation" the Nissan Armada.
-  const DISAMBIGUATION_RE = /\{\{\s*(?:disambig|disambiguation|hndis|geodis|set index|car disambiguation)/i;
+  // "{{sia|cars}}" is how "Mini Clubman" says it: the page listed three cars and
+  // the check took it for the article of one.
+  const DISAMBIGUATION_RE = /\{\{\s*(?:disambig|disambiguation|disamb\b|dab\b|hndis|geodis|set index|sia\b|car disambiguation)/i;
   const CAR_INFOBOX_RE = /\{\{\s*infobox\s+(?:automobile|car|vehicle|truck)/i;
   function modelNameCore(label) {
     return String(label || "").replace(/\([^()]*\)/g, " ")
@@ -916,6 +918,13 @@ window.LlmFamilies = (function () {
     const direct = await read(guess);
     if (direct && !DISAMBIGUATION_RE.test(direct.wikitext || "")) {
       return direct.resolvedTitle || guess.split("#")[0].trim();
+    }
+    // An index page answers by what it lists: "Mini Clubman" has one page that
+    // carries the name. Several, and the check reads them all (see settleListPage).
+    if (direct && isListOfArticles(direct.wikitext)) {
+      const pages = await carPagesListed(direct.wikitext, makeLabel, modelLabel);
+      if (pages.length === 1) return pages[0].title;
+      if (pages.length > 1) return direct.resolvedTitle || guess.split("#")[0].trim();
     }
     const searched = await searchWikipediaTitle(guess, opts && opts.strict);
     if (searched && searched !== guess) {
@@ -3412,7 +3421,70 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
     if (boxes.length || /\bengines?\b/i.test(String(title || ""))) return false;
     return !!make && norm(title).includes(norm(make));
   }
-  async function buildCheckMaterial(node, priorProposal, feedback) {
+  // A page that only points at other pages: under "may refer to" or an index
+  // template, with no infobox and no section delegating to a main article. (A
+  // set index with sections, like the Kia Pride's, is read as an article.) The
+  // model given "Mini Clubman", three lines long, made each line a generation
+  // with nothing known about it, and took one line's car for another's partner.
+  function isListOfArticles(wikitext) {
+    const text = String(wikitext || "");
+    if (text.length > 3000 || /\{\{\s*(?:infobox|main\b)/i.test(text)) return false;
+    return DISAMBIGUATION_RE.test(text) || /\bmay (?:also )?refer to\b/i.test(text.slice(0, 400));
+  }
+  function listedArticles(wikitext) {
+    const out = [];
+    for (const line of String(wikitext || "").split("\n")) {
+      const m = /^\*/.test(line) && line.match(/\[\[([^\]|#]+)/);
+      if (m && !/^(?:file|image|category):/i.test(m[1]) && !out.includes(m[1].trim())) out.push(m[1].trim());
+    }
+    return out;
+  }
+  // The car pages it lists for this car: those whose listed or served title has
+  // its name, and those naming it (the Chevrolet Prisma is listed as the Celta and
+  // the Onix). "Chevrolet Sonic (2012)" is served as the Aveo (T300): the listing is
+  // what says that page is the Sonic's.
+  async function carPagesListed(wikitext, make, label) {
+    const read = await Promise.all(listedArticles(wikitext).slice(0, MAX_SUB_ARTICLES).map(t =>
+      fetchArticleDigest(t).then(r => ({ asked: t, title: r.resolvedTitle || t, wikitext: r.wikitext, digest: r.digest })).catch(() => null)));
+    const core = modelNameCore(label);
+    const seen = new Set();
+    return read.filter(p => {
+      if (!p || seen.has(norm(p.title))) return false;
+      seen.add(norm(p.title));
+      if (isListOfArticles(p.wikitext) || /\{\{\s*infobox\s+motorcycle/i.test(p.wikitext) || /\((?:atv|motorcycle|scooter|moped)\)/i.test(p.title)) return false;
+      if (!hatnotePageIsAboutCars(p.wikitext, p.title, make)) return false;
+      p.servedTitled = !!norm(core) && norm(p.title).includes(norm(core));
+      p.titled = p.servedTitled || (!!norm(core) && norm(p.asked).includes(norm(core)));
+      return p.titled || articleNamesCar(p.wikitext, { id: "", label: core, make }, []);
+    });
+  }
+  // What to read for a car whose link is such a page. Null: its link is an article.
+  // A page another car links is that car's, so a name covering only those has
+  // nothing of its own to read, and no duplicate is made of them. One page left
+  // over, with the name in its title or the only one listed: that is this car's
+  // article, and the link moves. A nameplate keeps its link and reads every page
+  // carrying its name, whoever else links it: reading fewer would put its other
+  // generations up for retiring. A page without its name is another car's: the
+  // Fiat Talento is listed as the Ducato, and the Mini Clubman as the whole Mini.
+  async function settleListPage(node, nodes) {
+    const { wikitext } = await fetchArticleDigest(node.wp || node.label);
+    if (!isListOfArticles(wikitext)) return null;
+    const pages = await carPagesListed(wikitext, node.make, node.label);
+    const others = (Array.isArray(nodes) ? nodes : []).filter(n => n && !n.retired && n.id !== node.id &&
+      n.familyOf !== node.id && (n.type === "model" || n.type === "family") && n.wp);
+    const taken = new Set(others.map(n => articleKeyOf(n.wp)));
+    const free = pages.filter(p => !taken.has(articleKeyOf(p.title)));
+    const movable = node.type === "model" && !(store.wpLinksChosen && store.wpLinksChosen[node.id]);
+    const moveTo = title => {
+      note(`llm: ${node.make || ""} ${node.label} -- "${node.wp}" only lists other articles; its article is "${title}"`);
+      node.wp = title;
+      store.wpLinks[node.id] = title;
+    };
+    if (movable && free.length === 1 && (free[0].titled || pages.length === 1)) { moveTo(free[0].title); return null; }
+    if (movable && !free.length && pages.length === 1) moveTo(pages[0].title);
+    return { pages: node.type === "family" ? pages.filter(p => p.servedTitled) : free.filter(p => p.titled) };
+  }
+  async function buildCheckMaterial(node, priorProposal, feedback, listedPages) {
     const wp = node.wp || node.label;
     let { wikitext, digest, resolvedTitle } = await fetchArticleDigest(wp);
     // ---------- follow {{Main|...}} sub-articles (the Kia Pride case) ----------
@@ -3420,11 +3492,12 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
     // generations itself: if the headings/cues already carry the detail,
     // fetching more is wasted work. See extractDigest's subArticles comment.
     const subs = (digest.subArticles || []).slice(0, MAX_SUB_ARTICLES);
-    if (subs.length) {
-      const fetched = await Promise.all(subs.map(sa =>
-        fetchArticleDigest(sa.title)
-          .then(r => ({ sa, wikitext: r.wikitext, digest: r.digest }))
-          .catch(() => null)));
+    if (subs.length || listedPages) {
+      const fetched = listedPages ? listedPages.map(p => ({ sa: { title: p.title, heading: "" }, wikitext: p.wikitext, digest: p.digest }))
+        : await Promise.all(subs.map(sa =>
+          fetchArticleDigest(sa.title)
+            .then(r => ({ sa, wikitext: r.wikitext, digest: r.digest }))
+            .catch(() => null)));
       const good = fetched.filter(g => g && hatnotePageIsAboutCars(g.wikitext, g.sa.title, node.make));
       if (good.length) {
         // The hallucination guard checks every claimed code/name against
@@ -3483,7 +3556,14 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
     return maker && !car ? "the maker's own page" : null;
   }
   async function runCheck(node, priorProposal, feedback, manualRaw, nodes) {
-    const { wp, wikitext, messages, resolvedTitle } = await buildCheckMaterial(node, priorProposal, feedback);
+    const listed = manualRaw === undefined ? await settleListPage(node, nodes) : null;
+    if (listed && !listed.pages.length) {
+      const why = "an index of other articles";
+      note(`llm: ${node.make || ""} ${node.label} -- "${node.wp}" is ${why}, none of them its own: not split`);
+      return { wp: node.wp, wikitext: "", raw: null, dropped: [], messages: [], resolvedTitle: node.wp,
+               clean: { hasMultipleGenerations: false, generations: [], notACar: why } };
+    }
+    const { wp, wikitext, messages, resolvedTitle } = await buildCheckMaterial(node, priorProposal, feedback, listed && listed.pages);
     const notACar = manualRaw === undefined ? articleIsNotACar(wikitext, resolvedTitle || wp) : null;
     if (notACar) {
       note(`llm: ${node.make || ""} ${node.label} -- "${resolvedTitle || wp}" is ${notACar}, not this car's article: not split`);
@@ -3493,6 +3573,7 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
     const raw = manualRaw !== undefined ? manualRaw
       : await askLlamaCpp(messages, `${node.make || ""} ${node.label}`.trim() + " · split");
     const clean = validate(raw, wikitext);
+    if (listed) clean.fromIndexPage = true;
     markFutureGenerations(clean.generations, wikitext);
     if (nodes) await annotateSharedPlatformMatches(nodes, node.id, clean);
     // Kept alongside the (possibly much shorter, hallucination-filtered)
@@ -3713,6 +3794,7 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
     // SL: its nameplate deferred to another node sharing the page, so its own
     // check read nothing -- no generations re-read, no engines.
     if (node.type === "family") return null;
+    try { await settleListPage(node, nodes); } catch (e) { /* the check itself will report the fetch failing */ }
     let title = node.wp;
     try {
       const r = await fetchArticleDigest(node.wp);
@@ -4638,7 +4720,11 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
       if (k2 >= 0) used.add(k2);
     });
     const keep = [], retire = [];
+    // Read off an index page, the list covers only the pages carrying the name: the
+    // Vento's lists the Jetta for three of its generations. Those are not gone.
+    const partial = !!(entry.proposal && entry.proposal.fromIndexPage);
     old.filter(o => !pairedIds.has(o.id)).forEach(o => {
+      if (partial) { keep.push(o); return; }
       if (isBareNameplate(fam, o)) { retire.push(o); return; }
       const ownArticle = !!o.wp && !!entry.sourceTitle && norm(o.wp) !== norm(entry.sourceTitle) &&
         norm(o.wp) !== norm(fam.wp || "") && !(store.wpRedirects && norm(store.wpRedirects[o.wp] || "") === norm(entry.sourceTitle));
@@ -4849,12 +4935,13 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
   // never stored. And a hit is re-read off the node before it is believed.
   let namesEpoch = 0;
   function namesChanged() { namesEpoch++; }
+  const BRACKETED_NAME_RE = /^(.*\S)\s*\(([^()]+)\)$/;
   const nameIndexes = new WeakMap();
   function nameIndexOf(nodes) {
     let ix = nameIndexes.get(nodes);
     if (!ix || ix.epoch !== namesEpoch) {
       ix = { epoch: namesEpoch, upTo: 0, cars: [], full: new Map(), bare: new Map(),
-             parts: new Map(), tail: new Map(), grams: new Map(), short: [] };
+             parts: new Map(), tail: new Map(), grams: new Map(), short: [], bracketed: new Map() };
       nameIndexes.set(nodes, ix);
     }
     const put = (map, k, v) => { const a = map.get(k); if (a) a.push(v); else map.set(k, [v]); };
@@ -4866,6 +4953,8 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
       ix.cars.push(e);
       put(ix.full, nk.full, e);
       put(ix.bare, nk.bare, e);
+      const bracket = String(n.label || "").match(BRACKETED_NAME_RE);
+      if (bracket) put(ix.bracketed, norm(`${n.make} ${bracket[1]}`), { e, said: bracket[2] });
       const parts = labelParts(n.label);
       if (parts.length > 1) new Set(parts.map(p => norm(p))).forEach(k => { if (k) put(ix.parts, k, e); });
       const tc = trailingCode(n.label);
@@ -5158,6 +5247,31 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
     }
     if (probe) probe.refused = null;
     return { node: only, loose: true };
+  }
+  // The same car with a code in brackets. "Mini Clubman (F54)" was made a car
+  // beside the Mini "Clubman (2007)" whose article has the F54 in it, and so were
+  // "Toyota Hilux (N30)", "Audi A4 (B5)" and about a hundred more. A place in the
+  // brackets is left alone: the Ford Escort (Europe) is not the American one.
+  // Neither is a car too far from this one's years to share its platform.
+  function bracketNamesGeneration(said) {
+    const s = String(said || "").trim();
+    return (/^[A-Z0-9]+(?:[\/-][A-Z0-9]+)*$/.test(s) && !/^\d{4}$/.test(s) && !/^(?:UK|US|USA|EU|NA)$/.test(s)) ||
+      /\b(?:first|second|third|fourth|fifth|sixth|seventh|eighth|ninth|tenth|\d+(?:st|nd|rd|th))[\s-]+generation\b/i.test(s);
+  }
+  function sameCarOutsideBrackets(nodes, text, gn, famId) {
+    const written = String(text || "").split("#")[0].trim();
+    const m = written.match(BRACKETED_NAME_RE);
+    if (m && !bracketNamesGeneration(m[2])) return null;
+    const words = (m ? m[1] : written).split(/\s+/);
+    const key = norm(words.length > 1 && MAKE_SHORT_NAMES[words[0]] ? MAKE_SHORT_NAMES[words[0]] + " " + words.slice(1).join(" ") : words.join(" "));
+    if (!key) return null;
+    const ix = nameIndexOf(nodes);
+    const usable = e => entryFresh(e) && !e.n.retired && !e.n.familyOf && e.n.id !== famId;
+    const plain = m ? (ix.full.get(key) || []).filter(usable) : [];
+    const pool = plain.length ? plain : (ix.bracketed.get(key) || [])
+      .filter(b => usable(b.e) && (bracketNamesGeneration(b.said) || /^\d{4}$/.test(b.said.trim()))).map(b => b.e);
+    const near = pool.filter(e => withinPlatformReach(gn, e.n));
+    return near.length === 1 ? near[0].n : null;
   }
   // The harvested make a mention names: in front, or behind a year ("1957
   // Ford"). Null when it names none the graph knows.
@@ -6627,7 +6741,7 @@ Rules:
       reviewedGen("Original (1962–1963)", 1962, 1963, ["Raymond Loewy"]),
       reviewedGen("Avanti II", 1965, 1986, ["Leo Newman", "Nate Altman"]), reviewedGen("Avanti", 1987, 2006, ["Tom Kellogg"])] },
   };
-  const REVIEWED_V = 7;
+  const REVIEWED_V = 8;
   function applyReviewedCorrections() {
     // Only over what these lists correct: a new or wiped store has nothing to put right.
     const had = (store.settings && store.settings.reviewedV) || 0;
@@ -6643,6 +6757,7 @@ Rules:
     if (had < 5) applyFifthReview();
     if (had < 6) applySixthReview();
     if (had < 7) applySeventhReview(at);
+    if (had < 8) applyEighthReview(at);
     store.settings.reviewedV = REVIEWED_V;
   }
   // Cars whose article search found something else: a pool player, an album, a
@@ -6656,6 +6771,36 @@ Rules:
     "llm-related-ford-cardinal": "Ford Taunus P4",
     "llm-related-concept-eqg": "Mercedes-Benz G-Class",
   };
+  // Wikipedia's "Mini Clubman" only lists three cars. The Mini Clubman (2007) is in
+  // the graph already, with its own article, which has the R55 and the F54; the 1969
+  // Clubman and the Morris Mini Clubman (Australia) are in the Mini's article, as
+  // its "Mini Clubman and 1275 GT". A car called "Clubman" read the list, and its
+  // "generations" were copies of those with nothing known about them. The F54's
+  // UKL2 partners go to the 2007 car, which a scan can then place on the generation.
+  function applyEighthReview(at) {
+    const CLUBMAN = "m-mini-clubman-2007", F54 = "llm-related-mini-clubman-f54";
+    const gone = ["llm-related-mini-clubman", "llm-llm-related-mini-clubman-bl-mini-clubman",
+                  "llm-llm-related-mini-clubman-bmw-mini-clubman", F54, "llm-related-morris-mini-clubman"];
+    for (const [key, e] of Object.entries(store.relations)) {
+      if (!key.split("|").some(id => gone.includes(id))) continue;
+      delete store.relations[key];
+      if (!key.split("|").includes(F54)) continue;
+      const a = e.genIdB === F54;
+      const partner = a ? e.genIdA : e.genIdB;
+      store.relations[relKey(partner, CLUBMAN, "platform")] = Object.assign({}, e, a
+        ? { famB: CLUBMAN, genIdB: CLUBMAN, codeB: "Clubman (2007)" } : { famA: CLUBMAN, genIdA: CLUBMAN, codeA: "Clubman (2007)" },
+        { checkedAt: at, decidedAt: at, reason: "the Mini Clubman (F54) is the second generation of this car" });
+    }
+    if (!store.purged) store.purged = {};
+    for (const id of gone) {
+      for (const bucket of [store.families, store.recheck, store.wpLinks, store.mintedFacts, store.engineScans, store.aliases, store.pendingCascade]) {
+        if (bucket) delete bucket[id];
+      }
+      store.purged[id] = true;
+    }
+    const era = store.aliases["llm-m-austin-mini-mini-1275-gt"];
+    if (era && !era.names.includes("Mini Clubman")) era.names.unshift("Mini Clubman");
+  }
   function applySeventhReview(at) {
     // Filed under the wrong make, so under another id too. Each is made again from
     // the mention that named it.
@@ -7198,6 +7343,16 @@ Rules:
       for (const text of texts) {
         const det = findMatchingNameplate(nodes, text, famId);
         if (det && !det.loose) continue; // exact deterministic match is already trustworthy -- nothing to double-check
+        // Written down with the scan, so a load replays the answer and never asks.
+        // A car already made from this mention stays one: what was learned about it
+        // is on file, and folding those in is a decision of its own.
+        const ownId = relatedIdFor(nodes, text, null);
+        const onFile = ownId && (nodeWithId(nodes, ownId) || [store.purged, store.mintedFacts, store.wpLinks, store.families, store.engineScans, store.aliases].some(b => b && b[ownId]));
+        const sameCar = !det && !onFile ? sameCarOutsideBrackets(nodes, text, { year: g.yearStart, end: g.yearEnd }, famId) : null;
+        if (sameCar) {
+          matches[text] = { matchId: sameCar.id, confidence: "high", reason: `"${text}" is the ${sameCar.make} ${sameCar.label} by name; only the brackets differ` };
+          continue;
+        }
         const verified = await verifySharedPlatformMention(nodes, text, famId,
           { start: g.yearStart, end: g.yearEnd });
         if (verified) matches[text] = verified;
@@ -13240,6 +13395,15 @@ Rules:
     const p = (async () => {
       try {
         const { wp, wikitext, clean, raw, dropped } = await runCheck(fam, null, null, undefined, nodes);
+        // A page that is no article of this car's says nothing about the generations
+        // on file. Read as "none of them", it would put every one up for retiring.
+        if (clean.notACar) {
+          const entry = { status: "none", checkedAt: new Date().toISOString(), sourceTitle: wp, proposal: clean,
+                          attempts: 1, feedback: [], engines: [], manualRecheck: true, engineScansCleared };
+          writeRecheck(fam.id, entry);
+          await persist();
+          return entry;
+        }
         const discrepancy = compareGenerations(fam, genNodes, clean.generations);
         const { addedFresh, removedOld } = diffGenerationCodes(genNodes, clean.generations);
         const entry = {
@@ -19193,7 +19357,7 @@ Rules:
     clearEngineScansFor, note, nameplateSectionForCar, mergeEngineHits,
     mergeEngines, undoEngineMerge, allEngineMerges, applyEngineMerges,
     sameEngineLine, decodeEntities, articleIsNotACar, sweepStoredSplitsForOutsiders, sweepRecheckSections, decideRecheck, headingsOf,
-    markFutureGenerations, articleNamesCar, articleFitsCar, hatnotePageIsAboutCars, sweepArticleLinks, settleDecidedRechecks, settleRetiredGenerationFlags, sweepFlaggedMentions, articleNamesCarInFull, sweepWeakRelations, settleAfterScans, applyReviewedCorrections, sweepWholePageEngineLists, sweepOrdinalPlaceholders, replayStarted, replayFinished,
+    markFutureGenerations, articleNamesCar, articleFitsCar, hatnotePageIsAboutCars, isListOfArticles, settleListPage, sameCarOutsideBrackets, runCheck, decideRecheck, sweepArticleLinks, settleDecidedRechecks, settleRetiredGenerationFlags, sweepFlaggedMentions, articleNamesCarInFull, sweepWeakRelations, settleAfterScans, applyReviewedCorrections, sweepWholePageEngineLists, sweepOrdinalPlaceholders, replayStarted, replayFinished,
     lastSaveError: () => lastSaveError,
     engineMentions, unlinkedEngineMentions, engineSpecLabel,
     recordEngineMentions, recordEngineMentionsFrom, applyEngineMentions,
