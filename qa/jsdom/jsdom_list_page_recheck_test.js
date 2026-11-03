@@ -46,8 +46,12 @@ const LF = w.LlmFamilies, N = w.CARDATA.nodes, L = w.CARDATA.links;
   t("it says why", entry.proposal && entry.proposal.notACar === "an index of other articles", entry.proposal && entry.proposal.notACar);
   t("no generation is up for retiring", !gens.some(g => g.retired) && !entry.generationDiff);
   t("no model was asked", modelAsked === 0);
-  const partial = LF.decideRecheck(fam, gens, { sections: [], sourceTitle: "Mini Clubman", proposal: { generations: [{ code: "Clubman One", yearStart: 1969, yearEnd: 1980 }], fromIndexPage: true } }, N);
-  t("a list read off an index page retires nothing", partial && !(partial.retire || []).length, JSON.stringify((partial || {}).retire || []).slice(0, 80));
+  // Its years inside those of a generation that stays: from an article, this one is retired.
+  const inner = { id: "g3", type: "model", make: "Mini", label: "Clubman Three", familyOf: FAM, year: 1970, end: 1975 };
+  const read = fromIndexPage => LF.decideRecheck(fam, [gens[0], inner], { sections: [], sourceTitle: "Mini Clubman",
+    proposal: { generations: [{ code: "Clubman One", yearStart: 1969, yearEnd: 1980 }], fromIndexPage } }, N).retire.map(g => g.id).join();
+  t("from an article, a generation the list leaves out is retired", read(false) === "g3", read(false));
+  t("a list read off an index page retires nothing", read(true) === "", read(true));
   console.log(fails ? `\n${fails} FAILED` : "\nall passed");
   process.exit(fails ? 1 : 0);
 })().catch(e => { console.log("FAIL threw", e); process.exit(1); });
