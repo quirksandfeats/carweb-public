@@ -1207,7 +1207,7 @@ window.LlmFamilies = (function () {
       // a piped link whose display half we don't want.
       hm2[1].split("|").forEach(raw => {
         const title = raw.split("#")[0].trim();
-        if (!title || /^l\d?=|^selfref/i.test(title)) return;   // template params, not titles
+        if (!title || /^(?:l|label)\s*\d*\s*=|^selfref/i.test(title)) return;   // template params, not titles
         const k = title.toLowerCase();
         if (seenSub.has(k)) return;
         seenSub.add(k);
@@ -3400,6 +3400,18 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
   // Wikipedia fetch (no LLM call), and they only exist for nameplates that
   // genuinely delegate, so this is rare rather than routine.
   const MAX_SUB_ARTICLES = 12;
+  // A hatnote can point away from cars. The GT-R's article points at its drive
+  // system, its engine family and a list of lap times, and every car those pages
+  // named came back as sharing the GT-R's platform. With no infobox to go by, a
+  // page under the car's own make stands: "Volkswagen Beetle in Mexico" has none.
+  function hatnotePageIsAboutCars(wikitext, title, make) {
+    if (/^\s*lists? of\b/i.test(String(title || ""))) return false;
+    const boxes = (String(wikitext || "").match(/\{\{\s*infobox\s+[a-z0-9 ]+/gi) || [])
+      .map(b => b.replace(/\{\{\s*infobox\s+/i, "").trim().toLowerCase());
+    if (boxes.some(b => /^(?:automobile(?! engine)|electric vehicle|racing car|formula one car|f1 car|motorcycle|truck|bus|concept car|vehicle|military vehicle|tractor)/.test(b))) return true;
+    if (boxes.length || /\bengines?\b/i.test(String(title || ""))) return false;
+    return !!make && norm(title).includes(norm(make));
+  }
   async function buildCheckMaterial(node, priorProposal, feedback) {
     const wp = node.wp || node.label;
     let { wikitext, digest, resolvedTitle } = await fetchArticleDigest(wp);
@@ -3413,7 +3425,7 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
         fetchArticleDigest(sa.title)
           .then(r => ({ sa, wikitext: r.wikitext, digest: r.digest }))
           .catch(() => null)));
-      const good = fetched.filter(Boolean);
+      const good = fetched.filter(g => g && hatnotePageIsAboutCars(g.wikitext, g.sa.title, node.make));
       if (good.length) {
         // The hallucination guard checks every claimed code/name against
         // `wikitext`, so the sub-articles' text has to become part of that
@@ -5469,6 +5481,9 @@ Rules:
     "fairlady-z-z34": { make: "Nissan", label: "Fairlady Z Z34" },
     "t-98-kombat": { make: "Kombat Armouring", label: "T-98 Kombat" },
     "bardo-car": { make: "Iran Khodro", label: "Bardo" },
+    "duesen-bayern-ritz": { make: "Duesen Bayern", label: "Ritz" },
+    "saehan-camina": { make: "Saehan", label: "Camina" },
+    "concept-eqg": { make: "Mercedes-Benz", label: "Concept EQG" },
   };
   function mintRelatedNode(nodes, links, text, makeVariant, originId) {
     // "Chevrolet Suburban#Fifth generation (1960)" is a link into a section
@@ -5495,7 +5510,7 @@ Rules:
       if (real) { idParts = [writtenParts[0], writtenParts.slice(1).join(" ")]; makeNode = real; modelLabel = idParts[1]; }
     }
     // Filed by hand: nothing in the mention says whose car it is.
-    const refiled = !makeNode && writtenParts.length > 1 && REFILED_CARS[slugify(writtenParts[0]) + "-" + slugify(writtenParts.slice(1).join(" "))];
+    const refiled = writtenParts.length > 1 && REFILED_CARS[slugify(writtenParts[0]) + "-" + slugify(writtenParts.slice(1).join(" "))];
     if (refiled) {
       idParts = [writtenParts[0], writtenParts.slice(1).join(" ")];
       modelLabel = refiled.label;
@@ -6612,7 +6627,7 @@ Rules:
       reviewedGen("Original (1962–1963)", 1962, 1963, ["Raymond Loewy"]),
       reviewedGen("Avanti II", 1965, 1986, ["Leo Newman", "Nate Altman"]), reviewedGen("Avanti", 1987, 2006, ["Tom Kellogg"])] },
   };
-  const REVIEWED_V = 6;
+  const REVIEWED_V = 7;
   function applyReviewedCorrections() {
     // Only over what these lists correct: a new or wiped store has nothing to put right.
     const had = (store.settings && store.settings.reviewedV) || 0;
@@ -6627,7 +6642,46 @@ Rules:
     if (had < 4) applyFourthReview();
     if (had < 5) applyFifthReview();
     if (had < 6) applySixthReview();
+    if (had < 7) applySeventhReview(at);
     store.settings.reviewedV = REVIEWED_V;
+  }
+  // Cars whose article search found something else: a pool player, an album, a
+  // tennis tournament, a crown and two disambiguation pages. None of those scans
+  // said anything about the car, and their "designers" became people.
+  const REVIEWED_ARTICLES = {
+    "llm-related-duesen-bayern-ritz": "Duesen Bayern",
+    "llm-related-saehan-camina": "Saehan Camina",
+    "llm-related-seat-barcelona": "SEAT Ibiza",
+    "llm-related-imperial-crown": "Imperial (automobile)",
+    "llm-related-ford-cardinal": "Ford Taunus P4",
+    "llm-related-concept-eqg": "Mercedes-Benz G-Class",
+  };
+  function applySeventhReview(at) {
+    // Filed under the wrong make, so under another id too. Each is made again from
+    // the mention that named it.
+    for (const old of ["llm-related-duesenberg-ritz", "llm-related-saic-camina"]) {
+      for (const bucket of [store.families, store.wpLinks, store.mintedFacts, store.engineScans, store.aliases]) delete bucket[old];
+      for (const key of Object.keys(store.relations)) if (key.split("|").includes(old)) delete store.relations[key];
+    }
+    for (const [id, title] of Object.entries(REVIEWED_ARTICLES)) {
+      store.wpLinks[id] = title;
+      store.wpLinksChosen[id] = true;
+      store.families[id] = { status: "none", checkedAt: at, sourceTitle: title, attempts: 1, reviewed: true,
+                             proposal: { hasMultipleGenerations: false, generations: [] } };
+      if (store.engineScans[id]) store.engineScans[id].sourceTitle = title;
+    }
+    // The GT-R's article says it is the only car on its PM platform. Its list came
+    // from the pages hatnotes point at, and a re-scan moved names to other generations.
+    const GT_R = "m-nissan-gt-r-r35";
+    for (const [key, e] of Object.entries(store.relations)) {
+      if (e.relType !== "platform" || ![e.famA, e.famB, e.genIdA, e.genIdB].includes(GT_R)) continue;
+      delete store.relations[key];
+      store.rejectedRelations[key] = true;
+      store.rejectedRelations[relKey(e.famA, e.famB, "platform")] = true;
+      if (e.genIdA && e.genIdB) store.rejectedRelations[relKey(e.genIdA, e.genIdB, "platform")] = true;
+    }
+    const scan = store.families[GT_R];
+    for (const g of (scan && scan.proposal && scan.proposal.generations) || []) { g.sharedPlatforms = []; delete g.sharedPlatformMatches; }
   }
   function applySixthReview() {
     // The GT-R is the only car on its PM platform. "Nissan Skyline" in its scan
@@ -19139,7 +19193,7 @@ Rules:
     clearEngineScansFor, note, nameplateSectionForCar, mergeEngineHits,
     mergeEngines, undoEngineMerge, allEngineMerges, applyEngineMerges,
     sameEngineLine, decodeEntities, articleIsNotACar, sweepStoredSplitsForOutsiders, sweepRecheckSections, decideRecheck, headingsOf,
-    markFutureGenerations, articleNamesCar, articleFitsCar, sweepArticleLinks, settleDecidedRechecks, settleRetiredGenerationFlags, sweepFlaggedMentions, articleNamesCarInFull, sweepWeakRelations, settleAfterScans, applyReviewedCorrections, sweepWholePageEngineLists, sweepOrdinalPlaceholders, replayStarted, replayFinished,
+    markFutureGenerations, articleNamesCar, articleFitsCar, hatnotePageIsAboutCars, sweepArticleLinks, settleDecidedRechecks, settleRetiredGenerationFlags, sweepFlaggedMentions, articleNamesCarInFull, sweepWeakRelations, settleAfterScans, applyReviewedCorrections, sweepWholePageEngineLists, sweepOrdinalPlaceholders, replayStarted, replayFinished,
     lastSaveError: () => lastSaveError,
     engineMentions, unlinkedEngineMentions, engineSpecLabel,
     recordEngineMentions, recordEngineMentionsFrom, applyEngineMentions,
