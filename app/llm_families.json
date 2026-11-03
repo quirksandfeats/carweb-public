@@ -265013,6 +265013,97 @@
    "sameAs": "m-chrysler-neon",
    "sameAsLabel": "Chrysler Neon",
    "attempts": 1
+  },
+  "m-glas-1700": {
+   "status": "none",
+   "checkedAt": "2026-11-03T22:52:59.318Z",
+   "sourceTitle": "Glas 1700",
+   "proposal": {
+    "hasMultipleGenerations": false,
+    "generations": [
+     {
+      "code": "Glas 1700",
+      "yearStart": 1964,
+      "yearEnd": 1967,
+      "designers": [
+       "Pietro Frua"
+      ],
+      "engineers": [],
+      "wikiFile": "Glas 1700 (1967), Dutch licence registration AL-90-04 pic2.JPG",
+      "sharedPlatforms": [
+       "BMW 1800SA",
+       "BMW 1800",
+       "BMW 1804",
+       "BMW 2004"
+      ],
+      "sharedPlatformMatches": {
+       "BMW 1800SA": {
+        "matchId": null,
+        "confidence": "high",
+        "reason": "The mention 'BMW 1800SA' refers to a specific historical model (likely the 'Special A' version of the BMW 1800, produced in the late 1950s). None of the provided candidate IDs correspond to the '1800' model line or the '1800SA' variant. The closest BMW candidates are the '320', '321', '326', '327', '328', '335', '340', '501', '503', '600', '700', etc., which are numerically distinct and represent different chassis/generations. Since the exact model name is not in the list and no candidate can be confirmed as the same physical car, the match is null."
+       },
+       "BMW 1800": {
+        "matchId": null,
+        "confidence": "high",
+        "reason": "The mention 'BMW 1800' refers to a specific car model (often the BMW 1800 sedan from the 1930s/40s or a specific generation badge), but there is no candidate in the database with the exact name 'BMW 1800'. The closest candidates are the 'BMW 1 Series' (which uses '1' as part of the model name, not '1800'), the 'BMW 320' (a different displacement/model), or other unrelated models. While '1800' appears in the mentions of 'Chrysler 180' or 'Austin 1800', those are different manufacturers. There is no documentation in the provided list linking 'BMW 1800' to any of the specific BMW models listed (like the 1 Series, 320, or 321) via a chassis code, generation, or documented export name."
+       },
+       "BMW 1804": {
+        "matchId": null,
+        "confidence": "high",
+        "reason": "There is no car model named 'BMW 1804' in the provided candidate list. The number '1804' does not correspond to any known BMW chassis code (e.g., E36, E46) or model designation. While BMW has models named '1800' or '2002', and other manufacturers have models with '180' or '804' in their names, 'BMW 1804' appears to be a non-existent or hallucinated model name that does not match any of the specific entries in the database."
+       },
+       "BMW 2004": {
+        "matchId": null,
+        "confidence": "high",
+        "reason": "The mention 'BMW 2004' refers to a BMW concept car (specifically the BMW 2002 concept or potentially a confusion with the 'BMW 2002' nameplate which started in 1968). None of the candidate cars match 'BMW 2004'. The candidate 'm-bmw-2002' is the BMW 2002, which is a different model. The candidates 'm-bmw-1-series-e87', 'm-bmw-2-series-f22', etc., are different series. No candidate corresponds to a 'BMW 2004'."
+       }
+      }
+     }
+    ]
+   },
+   "attempts": 1,
+   "feedback": [],
+   "engines": [],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": false,
+     "generations": [
+      {
+       "code": "Glas 1700",
+       "yearStart": 1964,
+       "yearEnd": 1967,
+       "designers": [
+        "Pietro Frua"
+       ],
+       "engineers": [],
+       "sharedPlatforms": [
+        "BMW 1800SA",
+        "BMW 2000SA",
+        "BMW 1800",
+        "BMW 1804",
+        "BMW 2004"
+       ]
+      }
+     ]
+    },
+    "dropped": []
+   }
+  },
+  "llm-related-bmw-1800sa": {
+   "status": "same-article",
+   "checkedAt": "2026-11-03T22:53:05.930Z",
+   "sourceTitle": "Glas 1700",
+   "sameAs": "m-glas-1700",
+   "sameAsLabel": "Glas 1700",
+   "attempts": 1
+  },
+  "llm-related-bmw-1800": {
+   "status": "same-article",
+   "checkedAt": "2026-11-03T22:53:06.202Z",
+   "sourceTitle": "BMW New Class",
+   "sameAs": "m-bmw-new-class",
+   "sameAsLabel": "BMW New Class",
+   "attempts": 1
   }
  },
  "relations": {
@@ -284804,8 +284895,8 @@
   },
   "llm-m-nissan-micra-k14|llm-m-nissan-note-e12|platform": {
    "status": "confirmed",
-   "checkedAt": "2026-11-03T22:08:47.003Z",
-   "decidedAt": "2026-11-03T22:08:47.003Z",
+   "checkedAt": "2026-11-03T22:51:06.986Z",
+   "decidedAt": "2026-11-03T22:51:06.986Z",
    "famA": "m-nissan-note",
    "famB": "m-nissan-micra",
    "relType": "platform",
@@ -326447,8 +326538,8 @@
   },
   "llm-llm-related-daewoo-veritas-wn|llm-m-chevrolet-caprice-sixth-generation|platform": {
    "status": "confirmed",
-   "checkedAt": "2026-11-03T22:08:54.208Z",
-   "decidedAt": "2026-11-03T22:08:54.208Z",
+   "checkedAt": "2026-11-03T22:51:13.447Z",
+   "decidedAt": "2026-11-03T22:51:13.447Z",
    "famA": "llm-related-daewoo-veritas",
    "famB": "m-chevrolet-caprice",
    "relType": "platform",
@@ -441856,8 +441947,8 @@
   },
   "llm-llm-related-ford-contour-mk-i-mk-ii|llm-m-mercury-cougar-seventh-generation|platform": {
    "status": "confirmed",
-   "checkedAt": "2026-11-03T22:08:54.879Z",
-   "decidedAt": "2026-11-03T22:08:54.879Z",
+   "checkedAt": "2026-11-03T22:51:14.070Z",
+   "decidedAt": "2026-11-03T22:51:14.070Z",
    "famA": "llm-related-ford-contour",
    "famB": "m-mercury-cougar",
    "relType": "platform",
@@ -467629,8 +467720,8 @@
   },
   "llm-llm-related-volkswagen-alltrack-b6|llm-m-skoda-superb-b6-3t|platform": {
    "status": "confirmed",
-   "checkedAt": "2026-11-03T22:08:58.462Z",
-   "decidedAt": "2026-11-03T22:08:58.462Z",
+   "checkedAt": "2026-11-03T22:51:17.415Z",
+   "decidedAt": "2026-11-03T22:51:17.415Z",
    "famA": "llm-related-volkswagen-alltrack",
    "famB": "m-skoda-superb",
    "relType": "platform",
@@ -470150,8 +470241,8 @@
   },
   "llm-m-lincoln-custom-lincoln-custom-1941|llm-m-lincoln-lincoln-zephyr-lincoln-h-series|platform": {
    "status": "confirmed",
-   "checkedAt": "2026-11-03T22:08:50.144Z",
-   "decidedAt": "2026-11-03T22:08:50.144Z",
+   "checkedAt": "2026-11-03T22:51:09.838Z",
+   "decidedAt": "2026-11-03T22:51:09.838Z",
    "famA": "m-lincoln-custom",
    "famB": "m-lincoln-lincoln-zephyr",
    "relType": "platform",
@@ -499730,8 +499821,8 @@
   },
   "llm-m-mitsubishi-3000gt-z16a|llm-m-mitsubishi-sigma-first-generation|platform": {
    "status": "confirmed",
-   "checkedAt": "2026-11-03T22:08:50.633Z",
-   "decidedAt": "2026-11-03T22:08:50.633Z",
+   "checkedAt": "2026-11-03T22:51:10.299Z",
+   "decidedAt": "2026-11-03T22:51:10.299Z",
    "famA": "m-mitsubishi-sigma",
    "famB": "m-mitsubishi-3000gt",
    "relType": "platform",
@@ -518517,8 +518608,8 @@
   },
   "llm-m-vauxhall-astra-mkii-kadett-e|llm-related-bedford-astra|platform": {
    "status": "confirmed",
-   "checkedAt": "2026-11-03T22:08:49.086Z",
-   "decidedAt": "2026-11-03T22:08:49.086Z",
+   "checkedAt": "2026-11-03T22:51:08.926Z",
+   "decidedAt": "2026-11-03T22:51:08.926Z",
    "famA": "m-vauxhall-astra",
    "famB": "llm-related-bedford-astra",
    "relType": "platform",
@@ -522664,8 +522755,8 @@
   },
   "llm-llm-related-oldsmobile-hurst-olds-1968|llm-llm-related-pontiac-gto-second-generation-1968-1972|platform": {
    "status": "confirmed",
-   "checkedAt": "2026-11-03T22:08:58.527Z",
-   "decidedAt": "2026-11-03T22:08:58.527Z",
+   "checkedAt": "2026-11-03T22:51:17.475Z",
+   "decidedAt": "2026-11-03T22:51:17.475Z",
    "famA": "llm-related-oldsmobile-hurst-olds",
    "famB": "llm-related-pontiac-gto",
    "relType": "platform",
@@ -535065,8 +535156,8 @@
   },
   "llm-m-toyota-sienta-xp170|llm-m-toyota-yaris-xp210|platform": {
    "status": "confirmed",
-   "checkedAt": "2026-11-03T22:08:54.376Z",
-   "decidedAt": "2026-11-03T22:08:54.376Z",
+   "checkedAt": "2026-11-03T22:51:13.600Z",
+   "decidedAt": "2026-11-03T22:51:13.600Z",
    "famA": "m-toyota-yaris",
    "famB": "m-toyota-sienta",
    "relType": "platform",
@@ -535079,8 +535170,8 @@
   },
   "llm-m-buick-electra-fourth-generation|llm-m-cadillac-fleetwood-fourth-generation-1971-1976-|platform": {
    "status": "confirmed",
-   "checkedAt": "2026-11-03T22:08:54.966Z",
-   "decidedAt": "2026-11-03T22:08:54.966Z",
+   "checkedAt": "2026-11-03T22:51:14.152Z",
+   "decidedAt": "2026-11-03T22:51:14.152Z",
    "famA": "m-cadillac-fleetwood",
    "famB": "m-buick-electra",
    "relType": "platform",
@@ -535093,8 +535184,8 @@
   },
   "llm-m-cadillac-fleetwood-fourth-generation-1971-1976-|llm-m-oldsmobile-98-ninth-generation-1971-1976|platform": {
    "status": "confirmed",
-   "checkedAt": "2026-11-03T22:08:54.967Z",
-   "decidedAt": "2026-11-03T22:08:54.967Z",
+   "checkedAt": "2026-11-03T22:51:14.152Z",
+   "decidedAt": "2026-11-03T22:51:14.152Z",
    "famA": "m-cadillac-fleetwood",
    "famB": "m-oldsmobile-98",
    "relType": "platform",
@@ -535107,8 +535198,8 @@
   },
   "llm-m-dodge-colt-first-generation|llm-m-mitsubishi-galant-first-generation|platform": {
    "status": "confirmed",
-   "checkedAt": "2026-11-03T22:08:55.685Z",
-   "decidedAt": "2026-11-03T22:08:55.685Z",
+   "checkedAt": "2026-11-03T22:51:14.822Z",
+   "decidedAt": "2026-11-03T22:51:14.822Z",
    "famA": "m-dodge-colt",
    "famB": "m-mitsubishi-galant",
    "relType": "platform",
@@ -535121,8 +535212,8 @@
   },
   "llm-m-dodge-colt-second-generation|llm-m-mitsubishi-galant-third-generation|platform": {
    "status": "confirmed",
-   "checkedAt": "2026-11-03T22:08:55.685Z",
-   "decidedAt": "2026-11-03T22:08:55.685Z",
+   "checkedAt": "2026-11-03T22:51:14.823Z",
+   "decidedAt": "2026-11-03T22:51:14.823Z",
    "famA": "m-dodge-colt",
    "famB": "m-mitsubishi-galant",
    "relType": "platform",
@@ -535135,8 +535226,8 @@
   },
   "llm-m-dodge-colt-sixth-generation|llm-m-mitsubishi-mirage-fourth-generation-1991-ca-cb-cc-cd|platform": {
    "status": "confirmed",
-   "checkedAt": "2026-11-03T22:08:55.689Z",
-   "decidedAt": "2026-11-03T22:08:55.689Z",
+   "checkedAt": "2026-11-03T22:51:14.826Z",
+   "decidedAt": "2026-11-03T22:51:14.826Z",
    "famA": "m-dodge-colt",
    "famB": "m-mitsubishi-mirage",
    "relType": "platform",
@@ -535149,8 +535240,8 @@
   },
   "llm-fam-mitsubishi-lancer-mirage-based|llm-m-mitsubishi-mirage-fifth-generation-1995-cj-ck-cl-cm|platform": {
    "status": "confirmed",
-   "checkedAt": "2026-11-03T22:08:55.919Z",
-   "decidedAt": "2026-11-03T22:08:55.919Z",
+   "checkedAt": "2026-11-03T22:51:15.041Z",
+   "decidedAt": "2026-11-03T22:51:15.041Z",
    "famA": "fam-mitsubishi-lancer",
    "famB": "m-mitsubishi-mirage",
    "relType": "platform",
@@ -535163,8 +535254,8 @@
   },
   "llm-m-mazda-cx-5-kf|m-mazda-6-third-generation|platform": {
    "status": "confirmed",
-   "checkedAt": "2026-11-03T22:09:08.195Z",
-   "decidedAt": "2026-11-03T22:09:08.195Z",
+   "checkedAt": "2026-11-03T22:51:26.527Z",
+   "decidedAt": "2026-11-03T22:51:26.527Z",
    "famA": "fam-mazda-6",
    "famB": "m-mazda-cx-5",
    "relType": "platform",
@@ -536050,48 +536141,6 @@
    "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
    "llmDiscovered": true
   },
-  "llm-m-suzuki-ertiga-suzuki-xl6-xl7|m-suzuki-ciaz|platform": {
-   "status": "confirmed",
-   "checkedAt": "2026-11-03T22:10:29.759Z",
-   "decidedAt": "2026-11-03T22:10:29.759Z",
-   "famA": "m-suzuki-ciaz",
-   "famB": "m-suzuki-ertiga",
-   "relType": "platform",
-   "codeA": "Ciaz",
-   "codeB": "Ertiga Suzuki XL6/XL7",
-   "genIdA": "m-suzuki-ciaz",
-   "genIdB": "llm-m-suzuki-ertiga-suzuki-xl6-xl7",
-   "reason": "matched automatically -- the nameplate was named exactly in the source text; no text says which, so the generation whose years fit this one best",
-   "llmDiscovered": true
-  },
-  "llm-llm-related-oldsmobile-starfire-second-generation|m-chevrolet-vega|platform": {
-   "status": "confirmed",
-   "checkedAt": "2026-11-03T22:10:29.925Z",
-   "decidedAt": "2026-11-03T22:10:29.926Z",
-   "famA": "m-chevrolet-vega",
-   "famB": "llm-related-oldsmobile-starfire",
-   "relType": "platform",
-   "codeA": "Vega",
-   "codeB": "Starfire Second generation",
-   "genIdA": "m-chevrolet-vega",
-   "genIdB": "llm-llm-related-oldsmobile-starfire-second-generation",
-   "reason": "matched automatically -- the nameplate was named exactly in the source text, and exactly one of its generations was in production alongside this one, so that is the generation it refers to",
-   "llmDiscovered": true
-  },
-  "llm-llm-related-mitsubishi-minicab-miev-eighth-generation|m-mitsubishi-i-miev|platform": {
-   "status": "confirmed",
-   "checkedAt": "2026-11-03T22:10:30.011Z",
-   "decidedAt": "2026-11-03T22:10:30.011Z",
-   "famA": "m-mitsubishi-i-miev",
-   "famB": "llm-related-mitsubishi-minicab-miev",
-   "relType": "platform",
-   "codeA": "i-MiEV",
-   "codeB": "Minicab MiEV Eighth generation",
-   "genIdA": "m-mitsubishi-i-miev",
-   "genIdB": "llm-llm-related-mitsubishi-minicab-miev-eighth-generation",
-   "reason": "matched automatically -- the nameplate was named exactly in the source text; no text says which, so the generation whose years fit this one best",
-   "llmDiscovered": true
-  },
   "llm-llm-related-alfa-romeo-giulietta-type-940|m-dodge-dart-pf|platform": {
    "status": "confirmed",
    "checkedAt": "2026-11-03T22:10:30.117Z",
@@ -536118,34 +536167,6 @@
    "genIdA": "m-dodge-dart-pf",
    "genIdB": "llm-m-chrysler-200-second-generation-compact-wide",
    "reason": "matched automatically -- the nameplate was named exactly in the source text; this generation's own section of its article names this car",
-   "llmDiscovered": true
-  },
-  "llm-m-volkswagen-id-buzz-id-buzz-production|m-volkswagen-id-tiguan|platform": {
-   "status": "confirmed",
-   "checkedAt": "2026-11-03T22:10:30.320Z",
-   "decidedAt": "2026-11-03T22:10:30.320Z",
-   "famA": "m-volkswagen-id-tiguan",
-   "famB": "m-volkswagen-id-buzz",
-   "relType": "platform",
-   "codeA": "ID. Tiguan",
-   "codeB": "ID. Buzz (production)",
-   "genIdA": "m-volkswagen-id-tiguan",
-   "genIdB": "llm-m-volkswagen-id-buzz-id-buzz-production",
-   "reason": "matched automatically -- the nameplate was named exactly in the source text, and exactly one of its generations was in production alongside this one, so that is the generation it refers to",
-   "llmDiscovered": true
-  },
-  "llm-m-lancia-stratos-sibilo|m-lancia-rally-037|platform": {
-   "status": "confirmed",
-   "checkedAt": "2026-11-03T22:10:30.344Z",
-   "decidedAt": "2026-11-03T22:10:30.344Z",
-   "famA": "m-lancia-rally-037",
-   "famB": "m-lancia-stratos",
-   "relType": "platform",
-   "codeA": "Rally 037",
-   "codeB": "Stratos Sibilo",
-   "genIdA": "m-lancia-rally-037",
-   "genIdB": "llm-m-lancia-stratos-sibilo",
-   "reason": "matched automatically -- the nameplate was named exactly in the source text, and exactly one of its generations was in production alongside this one, so that is the generation it refers to",
    "llmDiscovered": true
   },
   "m-chrysler-neon|m-dodge-dart-pf|succession": {
@@ -536522,20 +536543,6 @@
     ]
    }
   },
-  "llm-m-chrysler-neon-third-generation-2016|llm-related-fiat-egea|platform": {
-   "status": "confirmed",
-   "checkedAt": "2026-11-03T22:16:26.831Z",
-   "decidedAt": "2026-11-03T22:16:26.831Z",
-   "famA": "m-chrysler-neon",
-   "famB": "llm-related-fiat-egea",
-   "relType": "platform",
-   "codeA": "Neon Third generation (2016)",
-   "codeB": "Egea",
-   "genIdA": "llm-m-chrysler-neon-third-generation-2016",
-   "genIdB": "llm-related-fiat-egea",
-   "reason": "matched automatically -- \"Fiat Egea\" was named as a related car but didn't exist anywhere in the graph yet, so it was newly created from this mention (double-checked by the local LLM sanity pass against every plausible existing car -- none matched)",
-   "llmDiscovered": true
-  },
   "llm-llm-related-alfa-romeo-giulietta-type-940|m-fiat-stilo|platform": {
    "status": "confirmed",
    "checkedAt": "2026-11-03T22:19:03.559Z",
@@ -536733,6 +536740,217 @@
    "genIdA": "llm-m-dodge-440-dodge-dart-440",
    "genIdB": "m-dodge-330",
    "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-dodge-phoenix-ap2d|llm-m-plymouth-fury-fifth-generation|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-11-03T22:51:08.104Z",
+   "decidedAt": "2026-11-03T22:51:08.104Z",
+   "famA": "m-plymouth-fury",
+   "famB": "m-dodge-phoenix",
+   "relType": "platform",
+   "codeA": "Fury Fifth generation",
+   "codeB": "Phoenix AP2D",
+   "genIdA": "llm-m-plymouth-fury-fifth-generation",
+   "genIdB": "llm-m-dodge-phoenix-ap2d",
+   "reason": "matched automatically -- the nameplate was named exactly in the source text; its article's sections for these generations name this car, and this one's years fit best",
+   "llmDiscovered": true
+  },
+  "llm-related-desoto-deluxe|m-desoto-diplomat|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-11-03T22:51:12.327Z",
+   "decidedAt": "2026-11-03T22:51:12.327Z",
+   "famA": "m-desoto-diplomat",
+   "famB": "llm-related-desoto-deluxe",
+   "relType": "platform",
+   "codeA": "Diplomat",
+   "codeB": "Deluxe",
+   "genIdA": "m-desoto-diplomat",
+   "genIdB": "llm-related-desoto-deluxe",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "m-desoto-diplomat|m-desoto-powermaster|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-11-03T22:51:12.327Z",
+   "decidedAt": "2026-11-03T22:51:12.327Z",
+   "famA": "m-desoto-diplomat",
+   "famB": "m-desoto-powermaster",
+   "relType": "platform",
+   "codeA": "Diplomat",
+   "codeB": "Powermaster",
+   "genIdA": "m-desoto-diplomat",
+   "genIdB": "m-desoto-powermaster",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "m-desoto-diplomat|m-desoto-firesweep|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-11-03T22:51:12.327Z",
+   "decidedAt": "2026-11-03T22:51:12.327Z",
+   "famA": "m-desoto-diplomat",
+   "famB": "m-desoto-firesweep",
+   "relType": "platform",
+   "codeA": "Diplomat",
+   "codeB": "Firesweep",
+   "genIdA": "m-desoto-diplomat",
+   "genIdB": "m-desoto-firesweep",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-chrysler-royal-1937-1950|m-desoto-diplomat|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-11-03T22:51:12.327Z",
+   "decidedAt": "2026-11-03T22:51:27.298Z",
+   "famA": "m-desoto-diplomat",
+   "famB": "m-chrysler-royal",
+   "relType": "platform",
+   "codeA": "Diplomat",
+   "codeB": "Royal 1937–1950",
+   "genIdA": "m-desoto-diplomat",
+   "genIdB": "llm-m-chrysler-royal-1937-1950",
+   "reason": "confirmed by rule: \"Chrysler Royal (Australia)\" names the Chrysler Royal, and the Royal 1937–1950 is the one generation built alongside",
+   "llmDiscovered": true,
+   "decidedBy": "rules"
+  },
+  "llm-m-suzuki-ertiga-suzuki-xl6-xl7|m-suzuki-ciaz|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-11-03T22:53:01.919Z",
+   "decidedAt": "2026-11-03T22:53:01.919Z",
+   "famA": "m-suzuki-ciaz",
+   "famB": "m-suzuki-ertiga",
+   "relType": "platform",
+   "codeA": "Ciaz",
+   "codeB": "Ertiga Suzuki XL6/XL7",
+   "genIdA": "m-suzuki-ciaz",
+   "genIdB": "llm-m-suzuki-ertiga-suzuki-xl6-xl7",
+   "reason": "matched automatically -- the nameplate was named exactly in the source text; no text says which, so the generation whose years fit this one best",
+   "llmDiscovered": true
+  },
+  "llm-llm-related-oldsmobile-starfire-second-generation|m-chevrolet-vega|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-11-03T22:53:02.019Z",
+   "decidedAt": "2026-11-03T22:53:02.019Z",
+   "famA": "m-chevrolet-vega",
+   "famB": "llm-related-oldsmobile-starfire",
+   "relType": "platform",
+   "codeA": "Vega",
+   "codeB": "Starfire Second generation",
+   "genIdA": "m-chevrolet-vega",
+   "genIdB": "llm-llm-related-oldsmobile-starfire-second-generation",
+   "reason": "matched automatically -- the nameplate was named exactly in the source text, and exactly one of its generations was in production alongside this one, so that is the generation it refers to",
+   "llmDiscovered": true
+  },
+  "llm-llm-related-mitsubishi-minicab-miev-eighth-generation|m-mitsubishi-i-miev|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-11-03T22:53:02.078Z",
+   "decidedAt": "2026-11-03T22:53:02.078Z",
+   "famA": "m-mitsubishi-i-miev",
+   "famB": "llm-related-mitsubishi-minicab-miev",
+   "relType": "platform",
+   "codeA": "i-MiEV",
+   "codeB": "Minicab MiEV Eighth generation",
+   "genIdA": "m-mitsubishi-i-miev",
+   "genIdB": "llm-llm-related-mitsubishi-minicab-miev-eighth-generation",
+   "reason": "matched automatically -- the nameplate was named exactly in the source text; no text says which, so the generation whose years fit this one best",
+   "llmDiscovered": true
+  },
+  "llm-llm-related-alfa-romeo-giulietta-type-940|llm-m-chrysler-200-first-generation-js|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-11-03T22:53:02.184Z",
+   "decidedAt": "2026-11-03T22:53:02.184Z",
+   "famA": "llm-related-alfa-romeo-giulietta",
+   "famB": "m-chrysler-200",
+   "relType": "platform",
+   "codeA": "Giulietta Type 940",
+   "codeB": "200 First generation (JS)",
+   "genIdA": "llm-llm-related-alfa-romeo-giulietta-type-940",
+   "genIdB": "llm-m-chrysler-200-first-generation-js",
+   "reason": "matched automatically -- the nameplate was named exactly in the source text; no text says which, so the generation whose years fit this one best",
+   "llmDiscovered": true
+  },
+  "llm-m-volkswagen-id-buzz-id-buzz-production|m-volkswagen-id-tiguan|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-11-03T22:53:02.263Z",
+   "decidedAt": "2026-11-03T22:53:02.263Z",
+   "famA": "m-volkswagen-id-tiguan",
+   "famB": "m-volkswagen-id-buzz",
+   "relType": "platform",
+   "codeA": "ID. Tiguan",
+   "codeB": "ID. Buzz (production)",
+   "genIdA": "m-volkswagen-id-tiguan",
+   "genIdB": "llm-m-volkswagen-id-buzz-id-buzz-production",
+   "reason": "matched automatically -- the nameplate was named exactly in the source text, and exactly one of its generations was in production alongside this one, so that is the generation it refers to",
+   "llmDiscovered": true
+  },
+  "llm-m-lancia-stratos-sibilo|m-lancia-rally-037|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-11-03T22:53:02.279Z",
+   "decidedAt": "2026-11-03T22:53:02.279Z",
+   "famA": "m-lancia-rally-037",
+   "famB": "m-lancia-stratos",
+   "relType": "platform",
+   "codeA": "Rally 037",
+   "codeB": "Stratos Sibilo",
+   "genIdA": "m-lancia-rally-037",
+   "genIdB": "llm-m-lancia-stratos-sibilo",
+   "reason": "matched automatically -- the nameplate was named exactly in the source text, and exactly one of its generations was in production alongside this one, so that is the generation it refers to",
+   "llmDiscovered": true
+  },
+  "llm-related-bmw-1800sa|m-glas-1700|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-11-03T22:53:02.398Z",
+   "decidedAt": "2026-11-03T22:53:02.398Z",
+   "famA": "m-glas-1700",
+   "famB": "llm-related-bmw-1800sa",
+   "relType": "platform",
+   "codeA": "1700",
+   "codeB": "1800SA",
+   "genIdA": "m-glas-1700",
+   "genIdB": "llm-related-bmw-1800sa",
+   "reason": "matched automatically -- \"BMW 1800SA\" was named as a related car but didn't exist anywhere in the graph yet, so it was newly created from this mention (double-checked by the local LLM sanity pass against every plausible existing car -- none matched)",
+   "llmDiscovered": true
+  },
+  "llm-related-bmw-1800|m-glas-1700|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-11-03T22:53:02.399Z",
+   "decidedAt": "2026-11-03T22:53:02.399Z",
+   "famA": "m-glas-1700",
+   "famB": "llm-related-bmw-1800",
+   "relType": "platform",
+   "codeA": "1700",
+   "codeB": "1800",
+   "genIdA": "m-glas-1700",
+   "genIdB": "llm-related-bmw-1800",
+   "reason": "matched automatically -- \"BMW 1800\" was named as a related car but didn't exist anywhere in the graph yet, so it was newly created from this mention (double-checked by the local LLM sanity pass against every plausible existing car -- none matched)",
+   "llmDiscovered": true
+  },
+  "llm-related-bmw-1804|m-glas-1700|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-11-03T22:53:02.399Z",
+   "decidedAt": "2026-11-03T22:53:02.399Z",
+   "famA": "m-glas-1700",
+   "famB": "llm-related-bmw-1804",
+   "relType": "platform",
+   "codeA": "1700",
+   "codeB": "1804",
+   "genIdA": "m-glas-1700",
+   "genIdB": "llm-related-bmw-1804",
+   "reason": "matched automatically -- \"BMW 1804\" was named as a related car but didn't exist anywhere in the graph yet, so it was newly created from this mention (double-checked by the local LLM sanity pass against every plausible existing car -- none matched)",
+   "llmDiscovered": true
+  },
+  "llm-related-bmw-2004|m-glas-1700|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-11-03T22:53:02.400Z",
+   "decidedAt": "2026-11-03T22:53:02.400Z",
+   "famA": "m-glas-1700",
+   "famB": "llm-related-bmw-2004",
+   "relType": "platform",
+   "codeA": "1700",
+   "codeB": "2004",
+   "genIdA": "m-glas-1700",
+   "genIdB": "llm-related-bmw-2004",
+   "reason": "matched automatically -- \"BMW 2004\" was named as a related car but didn't exist anywhere in the graph yet, so it was newly created from this mention (double-checked by the local LLM sanity pass against every plausible existing car -- none matched)",
    "llmDiscovered": true
   }
  },
@@ -1024514,7 +1024732,7 @@
      {
       "code": "Second generation",
       "yearStart": 1980,
-      "yearEnd": 1983,
+      "yearEnd": 1989,
       "designers": [],
       "engineers": [],
       "wikiFile": "1980_Dodge_Diplomat_station_wagon,_fR.jpg",
@@ -1035464,7 +1035682,8 @@
    "settledAt": "2026-11-03T22:30:28.189Z",
    "settledBy": "rules",
    "settledWhy": "nothing in the article supports a change: the generations it left out stay",
-   "peopleAdded": []
+   "peopleAdded": [],
+   "droppedSweepV": 1
   },
   "m-dodge-intrepid": {
    "status": "none",
@@ -1132805,7 +1133024,7 @@
  },
  "transitive": {},
  "settings": {
-  "reviewedV": 9
+  "reviewedV": 10
  },
  "dismissed": {},
  "mintedFacts": {
@@ -1148747,6 +1148966,30 @@
    "year": 2015,
    "end": 2026,
    "source": "wikipedia"
+  },
+  "llm-related-bmw-1800sa": {
+   "checkedAt": "2026-11-03T22:53:03.012Z",
+   "year": null,
+   "end": null,
+   "tries": 1
+  },
+  "llm-related-bmw-1800": {
+   "checkedAt": "2026-11-03T22:53:08.142Z",
+   "year": 1963,
+   "end": 1971,
+   "source": "wikipedia"
+  },
+  "llm-related-bmw-1804": {
+   "checkedAt": "2026-11-03T22:53:10.263Z",
+   "year": null,
+   "end": null,
+   "tries": 1
+  },
+  "llm-related-bmw-2004": {
+   "checkedAt": "2026-11-03T22:53:14.739Z",
+   "year": 2004,
+   "end": null,
+   "source": "wikipedia"
   }
  },
  "userCars": {
@@ -1150225,7 +1150468,9 @@
   "llm-related-toyota-vista": "Toyota Vista",
   "llm-llm-related-jiangling-baodian-first-generation": "Isuzu Faster",
   "llm-llm-related-jiangling-baodian-second-generation": "Isuzu Faster",
-  "llm-llm-related-jiangling-baodian-third-generation": "Isuzu Faster"
+  "llm-llm-related-jiangling-baodian-third-generation": "Isuzu Faster",
+  "llm-related-bmw-1800": "BMW New Class",
+  "llm-related-bmw-1800sa": "Glas 1700"
  },
  "wpLinksChosen": {
   "llm-related-dacia-spring-second-generation": true,
@@ -1150428,7 +1150673,8 @@
   "llm-llm-related-mini-clubman-bl-mini-clubman": true,
   "llm-llm-related-mini-clubman-bmw-mini-clubman": true,
   "llm-related-mini-clubman-f54": true,
-  "llm-related-morris-mini-clubman": true
+  "llm-related-morris-mini-clubman": true,
+  "llm-related-chrysler-australia": true
  },
  "unmerges": {},
  "engines": {},
@@ -1432579,6 +1432825,24 @@
    "engines": [],
    "unlinked": [],
    "v": 7
+  },
+  "m-glas-1700": {
+   "checkedAt": "2026-11-03T22:53:02.849Z",
+   "sourceTitle": "Glas 1700",
+   "status": "no-engines",
+   "engines": [],
+   "unlinked": [
+    {
+     "name": "1682 cc I4",
+     "specs": {
+      "displacement": "1682 cc",
+      "layout": "I",
+      "cylinders": 4
+     },
+     "said": "1682 cc SOHC I4"
+    }
+   ],
+   "v": 7
   }
  },
  "aliases": {
@@ -1486025,6 +1486289,13 @@
    ],
    "from": "Isuzu Faster § Third generation (TF; 1988)",
    "checkedAt": "2026-11-03T21:36:16.563Z"
+  },
+  "m-glas-1700": {
+   "names": [
+    "BMW 1800SA/2000SA"
+   ],
+   "from": "Glas 1700",
+   "checkedAt": "2026-11-03T22:53:02.849Z"
   }
  },
  "prunedDecisions": {
@@ -1496012,15 +1496283,20 @@
    "what": "Wikipedia link you pasted",
    "label": "llm-related-ford-thunderbird-80-82 → Ford Mustang (third generation)",
    "prunedAt": "2026-11-03T21:31:03.444Z"
+  },
+  "relations|llm-m-chrysler-neon-third-generation-2016|llm-related-fiat-egea|platform": {
+   "what": "connection you decided",
+   "label": "Chrysler Neon ↔ llm-related-fiat-egea (platform, confirmed)",
+   "prunedAt": "2026-11-03T22:51:28.606Z"
   }
  },
  "jobs": [],
  "lastJob": {
-  "id": "job-mw18pvbk-pczut",
+  "id": "job-mw1a89pf-cpqu1",
   "kind": "node-check",
-  "targetId": "m-dodge-dart-pf",
-  "label": "Dodge Dart (PF)",
-  "finishedAt": "2026-11-03T22:10:30.755Z",
+  "targetId": "m-glas-1700",
+  "label": "Glas 1700",
+  "finishedAt": "2026-11-03T22:53:02.680Z",
   "state": "done",
   "summary": ""
  },
@@ -1497506,7 +1497782,8 @@
   "Presidential state car (United States)": "United States presidential state car",
   "Series 370": "Cadillac V-12",
   "Fiat Egea": "Fiat Tipo (2015)",
-  "Alfa Romeo Giulietta (750/101)": "Alfa Romeo Giulietta (1954)"
+  "Alfa Romeo Giulietta (750/101)": "Alfa Romeo Giulietta (1954)",
+  "BMW 1800": "BMW New Class"
  },
  "pendingCascade": {},
  "fullScan": null,
