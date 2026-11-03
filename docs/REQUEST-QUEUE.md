@@ -52,6 +52,15 @@ stamped so it can be reviewed afterwards.
   it is the queue the page itself works through, whether the request came from
   a button on the card, the Tools > Scan Queue panel, or the agent.
 
+## What a scan reaches
+
+A requested scan reads the car, then follows its connections out to the job's
+cascade depth. Two cars count as the same level as the car that reached them,
+because they are the same car: an owner of the article it defers to, and the
+nameplate of a car found to be one of its generations. A nameplate read that way
+only adds generations. Its partners are one level further out, as the car's are.
+See "3 November" in `ENGINEERING-LOG.md`.
+
 ## The local scan queue
 
 Every LLM pass the page can run -- a hidden-generation check, a nameplate

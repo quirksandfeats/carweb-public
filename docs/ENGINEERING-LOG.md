@@ -2191,3 +2191,129 @@ first heading (the Prius's XW60 was skipped because its variants have headings).
 Those 22 also showed the damage of the first batch's bug: 21 nameplates had lost
 applied corrections since the 12 Oct reset, the Prius XW60 and the Passat B7 among
 them. They are restored by re-scanning, not by editing the store.
+
+### 1 November: the later audit batches, and the status page
+
+**Relationship picks.** A section naming a nameplate no longer claims generations
+decades away or built alongside a sibling. A changed pick replaces the earlier
+automatic edge, and an exact name outranks a stored guess.
+
+**Generations the guard threw out.** The hallucination guard dropped whole
+generations over how an article wrote a space (`Type&nbsp;16`): the Passat, the
+Jetta, the Golf and about 70 stored answers. `sweepDroppedGenerations` recovers
+them at load with no model. A code that is one part of a joined label no longer
+retires another nameplate's generation, and a model outage keeps cars on the
+to-do list. Engine read version 7 reads every car's engines again on request.
+
+**Queue status.** Each public status call listed the queue against 1,000 list
+operations a day, and the Cache API has no effect on a workers.dev address. The
+status answers from a saved copy in KV. Removing a rework flag does not blacklist
+the coarse key, so a pair with nothing else behind it can return at reload.
+
+**Status report.** It ranks the best next scans for cascade levels 1 to 7 by the
+new cars each adds, with a slider. The agent works them out when a run starts and
+ends.
+
+### 2 November: reviews, waiting entries and rebuilds
+
+**Waiting entries settle during a scan.** The rules that answer a waiting list, a
+flag or a weak proposal ran only at load, before the scan. They now also run when
+the queue empties, and the agent waits for them. The owner kept the 14 Oct ruling
+that a weak proposal is confirmed when the article merely links the car.
+
+**One-off reviews.** `applyReviewedCorrections` runs each once, gated by
+`settings.reviewedV`. Versions 1 to 5 cover the 39 nameplates with a generation
+named like themselves, repairs to the CR-V, Type 2, Lancer, Dacia Spring and Nissan
+Pixo, the Caprice (VQ), 17 scan-created makes that were not makes (79 became 67),
+facts that depended on deleted pages, and end years.
+
+**Late nameplates.** The Jaguar XJ6, minted late in the replay, missed the fold
+that runs before it exists, so every XJ generation stood twice. The fold also runs
+on the finished replay. A later generation list keeps what it adds: replaying the
+earlier one retired the Type 2's T2 at every reload.
+
+**Deleted pages.** Of 11,115 stored titles, 1,655 have no page and 49 were deleted,
+some in one batch on 26 Oct 2026 as presumed LLM-generated. The Dacia Spring's page
+was one, and the Fiat Multiplina and Renault Embleme stay at the owner's choice.
+
+**Rebuilds.** Nine titles corrected in `d_models.py` were also what harvested cars
+match by, so a rebuild dropped the Lincoln Continental, the Lotus Elan and the
+Maserati Ghibli. The tables keep the titles they match by, and the build writes the
+real article. `qa/qa_build_matches_shipped.py` guards this. Never correct a title in
+`d_models.py` directly. 319 end years live in `d_end_fixes.py`, and `HANDOVER_NAMED`
+pins five successors the years alone chose wrongly.
+
+### 3 November: what a scan takes for a car
+
+**A maker is not a car.** "Full-size Ford" became a car called Ford, whose article
+search found Ford Madox Ford, and it caught every Ford mention with no exact match.
+`Crestline`, `Territory (SY)` and others came back when it went.
+
+**Hatnote pages.** Scans read pages a hatnote points at, and the GT-R took its
+platform partners from `ATTESA`, `Nissan VR engine` and a list of lap times.
+`hatnotePageIsAboutCars` skips lists and pages with a non-car infobox, and pages
+with no infobox unless the make is in the title. See-also pages about cars are still
+read. Links already made that way stay until a re-scan. Reviews 6 and 7 remove the
+GT-R's platform links and give six scan-created cars the right article.
+
+**Index pages.** Wikipedia's "Mini Clubman" lists three pages under `{{sia|cars}}`,
+which `DISAMBIGUATION_RE` missed, so the page became a car's article and the model
+made each line a generation. `settleListPage` now moves a car to its one free page,
+reads the pages carrying a nameplate's name, or stops with no model call. A re-scan
+that stops, or reads off an index (`fromIndexPage`), retires nothing. Of 58 stored
+titles on list-type pages, 34 are bare lists: 10 read real pages, 4 move and 20 have
+nothing of their own. Jaguar XF was the first real run: both pages read, nothing
+retired, no copies.
+
+**Bracketed copies.** "Mini Clubman (F54)" named a code with no generation on file
+and became a new car beside the 2007 Clubman. `sameCarOutsideBrackets` resolves such
+a mention during a scan. It first lived in `resolveOnePlatformMention`, which boot
+replays, and the whole-graph diff showed about 70 unrelated links moving. 74 older
+copies are listed in `REVIEWED_SAME_CARS`, which folds at every load, so taking an
+entry out undoes it. Left apart: Mazda 2 (XP210), Peugeot 408 (crossover), Lancer
+(ninth generation), Chrysler 300 (1979), BMW i3 (G28), Chevrolet SS (South Africa),
+Ford Futura (Venezuela) and Dodge Charger (1968). Review 9 also drops the Thunderbird
+(83-88)'s Mustang generations and rejects EXA / Terrano.
+
+**Placing a generation.** The owner asked whether a scanned model that is really a
+generation lands on its nameplate and fills it out. It did only when the car's page
+covered the whole nameplate, and even then `generationOf` was a note that nothing
+read: the Corolla (E160) and the Beetle (A5) sat alone. A car with a page of its own
+was read as complete, and its nameplate was never looked at.
+
+`placeAsGeneration` now records `genPlacements[car] = { plate, said }`, and
+`applyGenerationPlacements` replays them at every load, after the folds:
+
+- The name must be a nameplate in the graph plus brackets, and the page must be
+  titled with that nameplate. BMW i3 (G28), on the 3 Series' page, stays apart.
+- A code or a generation is enough. A year, a place or another word needs the
+  nameplate's page to point at it, through `{{main}}` or an index listing, redirects
+  followed (the owner's ruling). `{{about}}` and `{{for}}` hatnotes do not count, so
+  the Lancia Delta (1911), the Austin 12 (1939) and the Skoda Superb (1934-1949) stay.
+- A car the nameplate calls its predecessor, and a racing or show car, stays.
+- Other bracketed cars the nameplate's page points at are placed with it.
+
+A placed car folds into a generation by code, by page, or by years agreeing at both
+ends with one generation that has no page of its own (Capri (Australia), Capri
+SA30). Otherwise it joins as a new generation and keeps its article. A plain nameplate
+becomes a family without a stand-in generation (`noSelf`). The nameplate is read at
+the car's own cascade level (`fillOutNameplate`), once per scan, and that read carries
+`addOnly`. A placed generation is never retired by a re-read. Undo with
+`unmergedDuplicates["<plate>|<car>"]`.
+
+The first version showed why overlaps matter. `backfillGenerationEnds` closes an open
+generation at the start of the next in the sorted list, so adding the Accord's North
+American seventh generation ended the Japanese one in 2002. A placed car now closes
+nothing and has no end inferred. Changing the pass for every family altered 12 other
+cars for better and worse (HR-V, Silverado better; Impala first generation, Banshee
+concepts worse), so it stays as it is for them.
+
+A dry run against live Wikipedia, with no model, gave 36 placements among 68 bracketed
+cars with a nameplate. Only a scan records one, so the shipped graph does not change.
+
+Left: a bracketed car with no nameplate in the graph stays as it is (74 such cars have
+a page titled with the name, such as Mazda RX-7 (FD)); a name with no brackets and a
+page of its own is not placed; the Maverick's list holds both P758 and C2, so its 2022
+car joins as a new generation; a re-read of a normal article can still retire a
+generation whose years others cover, and whether it should is the owner's open
+decision.

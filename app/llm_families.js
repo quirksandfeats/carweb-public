@@ -143,6 +143,7 @@ window.LlmFamilies = (function () {
     wpLinksChosen: bootData.wpLinksChosen || {},
     // Stored links the article-link sweep has read and kept (sweepArticleLinks).
     wpLinkChecks: bootData.wpLinkChecks || {},
+    genPlacements: bootData.genPlacements || {},
     // Real user request (the Mercedes-Benz E-Class W211 case): "it would be
     // actually worth checking if there exists a separate wikipedia page for
     // each of these generations, and then use that wikipedia page for the
@@ -3627,12 +3628,14 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
         const same0 = await sameArticleOwner(node, nodes);
         if (same0) {
           const same = sameArticleEntry(same0.owner, same0.title);
+          placeOnOwner(node, same0.owner, nodes);
           store.families[node.id] = same; await persist();
           return same;
         }
         const { wp, wikitext, clean, raw, dropped } = await runCheck(node, null, null, undefined, nodes);
         const genOf = await resolveOwnGeneration(node, nodes, clean, wp);
         if (genOf) { store.families[node.id] = genOf; await persist(); return genOf; }
+        await placeAsGeneration(node, nodes, clean, wp);
         // What this car ran, noted but not followed. See recordEngineMentions.
         const engineHits = engineMentions(wikitext);
         const entry = {
@@ -3938,6 +3941,8 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
       }
       note(`llm: ${node.make} ${node.label} is the ${own.code} generation of the ${node.make} ` +
            `${plate.label} -- that nameplate holds its article`);
+      recordPlacement(node, plate, own.code);
+      if (plate.type === "family") fillOutNameplate(plate, node, nodes);
       return Object.assign(sameArticleEntry(plate, title), { generationOf: plate.id, code: own.code });
     }
     // No nameplate in the graph: this car is it. Recorded like any rename, so
@@ -3952,6 +3957,150 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
       node.renamed = true;
     }
     return null;
+  }
+
+  // ---------- a car with its own article that is one generation of a nameplate ----------
+  // Real user request: "If the car actually turns out to be a generation of
+  // another nameplate, will it know to place it as a generation of a particular
+  // nameplate, and then additionally fill out the rest of the nameplate?" The
+  // check above only sees a page covering the whole nameplate. "Ford Falcon (XG)"
+  // has a page of its own, read as one complete car, and the Falcon was never
+  // looked at. Its name says what it is, when the nameplate is in the graph, the
+  // page carries the nameplate's name and the nameplate does not call it a
+  // predecessor (rule from the W201 on the C-Class page). A code or a generation
+  // in the brackets is enough. A year, a place or a word is not: the Alfa Romeo
+  // Giulietta (2010) is a generation and the Lancia Delta (1911) an older car of
+  // that name, so the nameplate's own page has to point at it (the owner's ruling,
+  // 3 Nov 2026). Recorded, and applied at every load (applyGenerationPlacements).
+  // Under the name each is served as, too: the Giulietta's page lists "(750/101)",
+  // and the car's link is "(1954)".
+  async function pagesPointedAt(wikitext) {
+    const text = String(wikitext || ""), said = new Set();
+    if (isListOfArticles(text)) listedArticles(text).forEach(t => said.add(t));
+    for (const m of text.matchAll(/\{\{\s*(?:main|main article)\s*\|([^{}]+)\}\}/gi)) {
+      m[1].split("|").filter(t => !t.includes("=")).forEach(t => said.add(t.split("#")[0].trim()));
+    }
+    const out = new Set([...said].map(norm));
+    await Promise.all([...said].slice(0, 2 * MAX_SUB_ARTICLES).map(t => servedTitleOf(t).then(s => out.add(norm(s)))));
+    return out;
+  }
+  function servedTitleOf(title) {
+    return fetchArticleDigest(title).then(r => r.resolvedTitle || title).catch(() => title);
+  }
+  const titledAs = (page, make, base) => norm(String(page).replace(/\s*\([^()]*\)\s*$/, "")) === norm(`${make} ${base}`);
+  // A racing version or a show car has the nameplate's name and is no generation of it.
+  const NOT_A_GENERATION_RE = /\b(?:concept|supercar|racing|race car|rally|prototype|dragster)\b/i;
+  function calledPredecessor(wikitext, title) {
+    return String(wikitext || "").split("\n").some(l => /^\s*\|\s*predecessor\s*=/i.test(l) && norm(l).includes(norm(title)));
+  }
+  function recordPlacement(node, plate, said) {
+    if (store.genPlacements[node.id]) return;
+    store.genPlacements[node.id] = { plate: plate.id, said, at: new Date().toISOString() };
+    note(`llm: ${node.make} ${node.label} is a generation of the ${plate.make} ${plate.label}`);
+  }
+  function bracketedSiblings(node, base, nodes) {
+    const key = norm(`${node.make} ${base}`);
+    return nodes.filter(n => n && !n.retired && n.id !== node.id && n.type === "model" && !n.familyOf &&
+      !(n.generations || []).length && n.wp && (String(n.label || "").match(BRACKETED_NAME_RE) || [])[1] &&
+      norm(`${n.make} ${String(n.label).match(BRACKETED_NAME_RE)[1]}`) === key);
+  }
+  async function placeAsGeneration(node, nodes, clean, title) {
+    if (!Array.isArray(nodes) || !node || node.type !== "model" || node.familyOf || (node.generations || []).length) return null;
+    if (!clean || clean.notACar || (clean.generations || []).length > 1) return null;
+    const m = String(node.label || "").trim().match(BRACKETED_NAME_RE);
+    if (!m) return null;
+    const plate = nameplateNamed(node, m[1], nodes);
+    const page = title || node.wp;
+    if (!plate || !plate.wp || !titledAs(page, node.make, m[1]) || NOT_A_GENERATION_RE.test(m[2])) return null;
+    let wikitext;
+    try { ({ wikitext } = await fetchArticleDigest(plate.wp)); } catch (e) { return null; }
+    if (calledPredecessor(wikitext, page) || calledPredecessor(wikitext, node.wp)) return null;
+    const pointed = await pagesPointedAt(wikitext);
+    const named = pointed.has(norm(page)) || pointed.has(norm(node.wp)) || pointed.has(norm(await servedTitleOf(page)));
+    if (!bracketNamesGeneration(m[2]) && !named) return null;
+    recordPlacement(node, plate, m[2]);
+    // The rest of the nameplate that its page names, already in the graph.
+    for (const n of bracketedSiblings(node, m[1], nodes)) {
+      const said = String(n.label).match(BRACKETED_NAME_RE)[2];
+      if (!titledAs(n.wp, n.make, m[1]) || NOT_A_GENERATION_RE.test(said)) continue;
+      if (pointed.has(norm(n.wp)) || pointed.has(norm(await servedTitleOf(n.wp)))) recordPlacement(n, plate, said);
+    }
+    fillOutNameplate(plate, node, nodes);
+    return plate;
+  }
+  // A code in brackets deferring to the page of the nameplate it names.
+  function placeOnOwner(node, owner, nodes) {
+    const m = String((node && node.label) || "").trim().match(BRACKETED_NAME_RE);
+    if (!m || !bracketNamesGeneration(m[2]) || node.type !== "model" || node.familyOf) return;
+    if (nameplateNamed(node, m[1], nodes) === owner) recordPlacement(node, owner, m[2]);
+  }
+  // Read at the car's own distance: it is the same car, so its nameplate's partners
+  // are one hop out, as this car's are. Only ever adds to a nameplate that is
+  // already split (see addOnly in decideRecheck): another car's scan is no reason
+  // to take a generation away.
+  const addOnlyReads = new Set(), filledOut = new Set();
+  function splitThisScan(car) {
+    const split = store.families[car.id];
+    return !!split && split.status === "confirmed" && !!store.fullScan && String(split.decidedAt || "") >= String(store.fullScan.startedAt || "~");
+  }
+  function fillOutNameplate(plate, node, nodes) {
+    if (!serverAvailable || !plate || plate.retired) return;
+    if (plate.type !== "family") {
+      if (holdsReading(plate) || entryFor(plate.id)) return;
+      placeInCascade(plate.id, node.id, true);
+      try { checkNodeCascade(plate, nodes); } catch (e) { /* its own entry records it */ }
+      return;
+    }
+    if (filledOut.has(plate.id) || inFlight.has("recheck:" + plate.id) || partnerCheckScheduled.has(plate.id) || splitThisScan(plate)) return;
+    if (freshScan && freshScan.has(plate.id)) return;
+    if (!freshRecheckRunner) return;
+    filledOut.add(plate.id);
+    addOnlyReads.add(plate.id);
+    const depth = placeInCascade(plate.id, node.id, true);
+    note(`scan: ${plate.make} ${plate.label} -- reading it for the rest of its generations`);
+    if (freshScan) { queueFreshRecheck(plate, nodes, depth, node.id); return; }
+    partnerQueue = partnerQueue.then(() => withCarTimeout(plate, () => freshRecheckRunner(plate)))
+      .catch(e => { console.warn("LlmFamilies: reading the nameplate failed for " + plate.id, e); })
+      .then(() => { notifyFactsUpdate(); });
+  }
+  // Which of the nameplate's generations this car is: by its code, its generation
+  // or its page, or else by years that agree at both ends with a generation that
+  // has no page of its own (the Ford Capri (Australia) and the Capri SA30). Sharing
+  // some years says nothing: an old generation is often still built beside the next.
+  function generationMatching(plate, car, rec, byIdLocal) {
+    const gens = (plate.generations || []).map(id => byIdLocal.get(id)).filter(g => g && !g.retired);
+    const one = list => (list.length === 1 ? list[0] : null);
+    const said = norm(rec.said);
+    const byName = gens.filter(g => {
+      const label = String(g.label || "");
+      return norm(label).includes(said) && (chassisCodesIn(label).some(c => norm(c) === said) ||
+        label.split(/[^A-Za-z0-9]+/).some(w => w && norm(w) === said) || /\s/.test(String(rec.said).trim()));
+    });
+    if (one(byName)) return byName[0];
+    const page = car.wp ? articleKeyOf(car.wp) : "", plateKey = articleKeyOf(nameplateArticleOf(plate, byIdLocal));
+    const byPage = page ? gens.filter(g => g.wp && articleKeyOf(g.wp) === page && page !== plateKey) : [];
+    if (one(byPage)) return byPage[0];
+    if (car.year == null) return null;
+    const close = (a, b) => (a == null && b == null) || (a != null && b != null && Math.abs(a - b) <= 1);
+    return one(gens.filter(g => g.year != null && close(g.year, car.year) && close(g.end, car.end) &&
+      (!g.wp || articleKeyOf(g.wp) === plateKey)));
+  }
+  function applyGenerationPlacements(nodes, links) {
+    let placed = 0;
+    for (const [id, rec] of Object.entries(store.genPlacements || {})) {
+      const byIdLocal = new Map(nodes.map(n => [n.id, n]));
+      const car = byIdLocal.get(id), plate = rec && byIdLocal.get(rec.plate);
+      if (!car || car.retired || car.familyOf || car.type !== "model" || (car.generations || []).length) continue;
+      if (!plate || plate.retired || plate.familyOf || norm(plate.make) !== norm(car.make)) continue;
+      if (store.unmergedDuplicates[plate.id + "|" + id]) continue;
+      const gen = generationMatching(plate, car, rec, byIdLocal);
+      if (gen) {
+        if (store.unmergedDuplicates[gen.id + "|" + id]) continue;
+        supersedeStandalone(nodes, links, car, gen, plate.id, `${plate.make} ${plate.label}`);
+      } else if (!applyOneMerge(nodes, links, plate.id, { memberIds: [id], noSelf: true })) continue;
+      placed++;
+    }
+    return placed;
   }
 
   // A plain model split for the first time. The graph had it as one car, so
@@ -3986,12 +4135,14 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
         const same0 = await sameArticleOwner(node, nodes);
         if (same0) {
           const same = sameArticleEntry(same0.owner, same0.title);
+          placeOnOwner(node, same0.owner, nodes);
           store.families[node.id] = same; await persist();
           return same;
         }
         const { wp, clean, raw, dropped } = await runCheck(node, null, null, undefined, nodes);
         const genOf = await resolveOwnGeneration(node, nodes, clean, wp);
         if (genOf) { store.families[node.id] = genOf; await persist(); return genOf; }
+        await placeAsGeneration(node, nodes, clean, wp);
         const entry = {
           status: clean.generations.length > 1 ? "provisional" : "none",
           checkedAt: new Date().toISOString(),
@@ -4722,9 +4873,11 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
     const keep = [], retire = [];
     // Read off an index page, the list covers only the pages carrying the name: the
     // Vento's lists the Jetta for three of its generations. Those are not gone.
-    const partial = !!(entry.proposal && entry.proposal.fromIndexPage);
+    // Nor does a read for a generation's sake take any away, and a car placed here
+    // from its own article stays whatever this article says.
+    const partial = !!(entry.proposal && (entry.proposal.fromIndexPage || entry.proposal.addOnly));
     old.filter(o => !pairedIds.has(o.id)).forEach(o => {
-      if (partial) { keep.push(o); return; }
+      if (partial || store.genPlacements[o.id]) { keep.push(o); return; }
       if (isBareNameplate(fam, o)) { retire.push(o); return; }
       const ownArticle = !!o.wp && !!entry.sourceTitle && norm(o.wp) !== norm(entry.sourceTitle) &&
         norm(o.wp) !== norm(fam.wp || "") && !(store.wpRedirects && norm(store.wpRedirects[o.wp] || "") === norm(entry.sourceTitle));
@@ -11216,7 +11369,7 @@ Rules:
     if (!ids.size) return 0;
     const touchesId = v => ids.has(v);
     ["families", "recheck", "genResearch", "mintedFacts", "wpLinks", "userCars",
-     "renames", "merges", "mergeWpChoices", "dismissed"].forEach(bucket => {
+     "renames", "merges", "mergeWpChoices", "dismissed", "genPlacements"].forEach(bucket => {
       if (!store[bucket]) return;
       Object.keys(store[bucket]).forEach(k => { if (touchesId(k)) delete store[bucket][k]; });
     });
@@ -12384,7 +12537,8 @@ Rules:
     // in for, so there is nothing to mint.
     const selfGenId = "merge-" + primaryId + "-self";
     let selfGen = primary.type === "family" ? null : byIdLocal.get(selfGenId);
-    if (!selfGen && primary.type !== "family") {
+    // A nameplate placed cars arrive in is what its own page says, not one more car.
+    if (!selfGen && primary.type !== "family" && !rec.noSelf) {
       selfGen = {
         id: selfGenId, type: "model", label: primary.label, make: primary.make,
         year: primary.year, end: primary.end, wp: primary.wp,
@@ -12431,9 +12585,10 @@ Rules:
       }
       prev = m.id;
     });
-    const years = ordered.map(m => m.year).filter(y => y != null);
-    const ends = ordered.map(m => m.end);
-    const designers = new Set(), engineers = new Set();
+    const spans = rec.noSelf ? [primary, ...ordered] : ordered;
+    const years = spans.map(m => m.year).filter(y => y != null);
+    const ends = spans.map(m => m.end);
+    const designers = new Set(rec.noSelf ? primary.designers || [] : []), engineers = new Set(rec.noSelf ? primary.engineers || [] : []);
     ordered.forEach(m => {
       (m.designers || []).forEach(d => designers.add(d));
       (m.engineers || []).forEach(d => engineers.add(d));
@@ -13505,6 +13660,7 @@ Rules:
     const p = (async () => {
       try {
         const { wp, wikitext, clean, raw, dropped } = await runCheck(fam, null, null, undefined, nodes);
+        if (addOnlyReads.delete(fam.id)) clean.addOnly = true;
         // A page that is no article of this car's says nothing about the generations
         // on file. Read as "none of them", it would put every one up for retiring.
         if (clean.notACar) {
@@ -19433,7 +19589,7 @@ Rules:
     resolveWeakRelations, makeRelationship, weakProposalRejection,
     additiveRecheck, diffGenerationCodes, pairFreshGenerations, headingsOf,
     resolvePendingOwnGenerations, ownGenerationCode, sameArticleOwner,
-    placeInCascade, cascadeDepthOf: id => depthOf(id), ownCodeShape, foldUmbrellaModels,
+    placeInCascade, cascadeDepthOf: id => depthOf(id), ownCodeShape, foldUmbrellaModels, applyGenerationPlacements, placeAsGeneration, pagesPointedAt,
     schedulePartnerCheck, cascadeDepthIn,
     beginFreshScan, endFreshScan, freshScanActive, setFreshRecheckRunner, setCarTimeout, finishFullScan,
     sanityMatchPlausible, decideProvisional, autoDecideProvisionalRelations, tidyEngineLinks,
@@ -19478,6 +19634,7 @@ Rules:
     // seeded object, so a NEW top-level key on it is not visible through
     // window.LLM_FAMILIES -- read it through here.
     prunedDecisions: () => store.prunedDecisions || {},
+    genPlacements: () => store.genPlacements || {},
     parseLlmJson, codeAnchorIn, codeVerifiedIn, findGenerationImage, infoboxImageForCode,
     looksLikePlatformNotCar,
     // Exposed for the regression suite only: a persisted proposal from before

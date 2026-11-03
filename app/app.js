@@ -282,6 +282,7 @@ window.CarWeb = (function () {
     // The same for a plain car and a nameplate of one name, when either came late.
     LFam.mergeDuplicateNameplates(nodes, links);
     LFam.foldReviewedCars(nodes, links);
+    LFam.applyGenerationPlacements(nodes, links);
     // Waiting relationships are decided by rule now, and only now: on the
     // finished graph. Decided before the passes above had made the cars that
     // arrive late, three of them were dropped on every load because "one of
@@ -378,7 +379,12 @@ window.CarWeb = (function () {
       const gens = fam.generations.map(id => at.get(id)).filter(g => g && !g.retired && g.year != null);
       gens.sort((a, b) => a.year - b.year);
       for (let i = 0; i < gens.length - 1; i++) {
-        const g = gens[i], next = gens[i + 1];
+        // A car placed here from its own article says for itself when it ended, and
+        // one started the same year runs alongside the generation before it: the
+        // Accord's North American seventh generation ends nothing for the Japanese one.
+        const placed = (window.LlmFamilies && window.LlmFamilies.genPlacements && window.LlmFamilies.genPlacements()) || {};
+        const g = gens[i], next = gens.slice(i + 1).find(x => !placed[x.id] || x.year > g.year);
+        if (!next || placed[g.id]) continue;
         // Real user report, the A-Class: "the first generation seems to only
         // have the starting year. However the wikipedia has both starting and
         // end year." Not the model's doing -- the build-time DBpedia layer
@@ -3272,6 +3278,7 @@ window.CarWeb = (function () {
       window.LlmFamilies.applyResolvedRelations(nodes, links);
       if (nodes.length === nb && links.length === lb) break;
     }
+    window.LlmFamilies.applyGenerationPlacements(nodes, links);
     adj.forEach((_, k) => adj.set(k, []));
     nodes.forEach(n2 => { byId.set(n2.id, n2); if (!adj.has(n2.id)) adj.set(n2.id, []); });
     links.forEach(l => {

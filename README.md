@@ -56,10 +56,19 @@ untouched.
 What the layer does:
 
 - **Generations.** Splits a nameplate into its generations. A first split
-  applies itself, and so does a re-check that adds generations and removes
-  none; any re-check that would remove a generation waits in **Tools → Pending
+  applies itself, and so does a re-check: the article's headings decide what it
+  adds and retires, and what they cannot settle waits in **Tools → Pending
   Generation Splits**. A car the article states as the predecessor or the
   successor is not a generation. A car with no stated year stays undated.
+  Generations of one nameplate can overlap in years, and that alone never makes
+  them one car.
+- **Placing a generation.** A scanned car named as a nameplate and a code or
+  generation, such as "Ford Falcon (XG)", joins that nameplate and keeps its own
+  article. It folds into a generation that is the same car, and otherwise becomes
+  a new one. A year, a place or another word in the brackets needs the nameplate's
+  own page to point at the car, so the Lancia Delta (1911) stays apart. The
+  nameplate is then read at the same cascade level, and that read only adds. A
+  page that only lists other articles is not read as a car's article.
 - **Shared platforms.** Reads which other cars each generation shares a
   platform with or is a rebadge of, and connects it to the right generation of
   the right car. A connection to a nameplate is hidden once a generation of
