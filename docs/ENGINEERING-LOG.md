@@ -2314,6 +2314,20 @@ cars with a nameplate. Only a scan records one, so the shipped graph does not ch
 Left: a bracketed car with no nameplate in the graph stays as it is (74 such cars have
 a page titled with the name, such as Mazda RX-7 (FD)); a name with no brackets and a
 page of its own is not placed; the Maverick's list holds both P758 and C2, so its 2022
-car joins as a new generation; a re-read of a normal article can still retire a
-generation whose years others cover, and whether it should is the owner's open
-decision.
+car joins as a new generation.
+
+**A re-read no longer retires by coverage.** `decideRecheck` retired a generation the
+re-read left out when it had no heading and other generations covered its years. Since
+generations overlap, coverage proves nothing, and a real generation could disappear
+without a word. The owner ruled on 3 Nov that it stays, which narrows the 14 Oct ruling
+that re-checks apply fewer generations by themselves. A re-read still retires an
+overview standing as a generation and a duplicate whose heading already stands for a
+kept generation. A wrong generation with no heading now stays until someone removes it.
+The change affects later re-reads only: a load changed no node, link or stored entry.
+
+**First real placement.** Dodge Dart (PF) joined the Dart as a fifth generation with its
+article and years, and the Dart's add-only read changed nothing. Its cascade folded the
+Giulietta (1954) and (2010) into Type 750 / 101 and Type 940 with their links. Review 10
+corrects what that cascade read wrongly: "Chrysler Australia", a company, became a car,
+and the Diplomat's end year came from a photo caption. Still open: the Dart 440 shows
+1962-1964, though its stored answer and its heading say 1962.

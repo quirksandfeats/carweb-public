@@ -4892,8 +4892,11 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
         entryNamesAnotherCar(fam, ownName, nodes);
       if (k >= 0 && used.has(k) && !ownArticle && duplicate) { retire.push(o); return; }
       if (k >= 0) used.add(k);
-      if (ownArticle || k >= 0 || bestHeading(all, own(o.label), o.year, o.end, shared) >= 0) keep.push(o);
-      else retire.push(o);
+      // Otherwise it stays, heading or no heading. Generations overlap, so other
+      // generations covering its years say nothing, and a read that leaves a real one
+      // out would lose it without a word (the owner's ruling, 3 Nov 2026). A wrong one
+      // stays until someone removes it.
+      keep.push(o);
     });
     const skip = otherCars.map(g => ({ code: g.code, why: "names another car" }));
     const claims = new Map();
@@ -6894,7 +6897,7 @@ Rules:
       reviewedGen("Original (1962–1963)", 1962, 1963, ["Raymond Loewy"]),
       reviewedGen("Avanti II", 1965, 1986, ["Leo Newman", "Nate Altman"]), reviewedGen("Avanti", 1987, 2006, ["Tom Kellogg"])] },
   };
-  const REVIEWED_V = 9;
+  const REVIEWED_V = 10;
   function applyReviewedCorrections() {
     // Only over what these lists correct: a new or wiped store has nothing to put right.
     const had = (store.settings && store.settings.reviewedV) || 0;
@@ -6912,6 +6915,7 @@ Rules:
     if (had < 7) applySeventhReview(at);
     if (had < 8) applyEighthReview(at);
     if (had < 9) applyNinthReview(at);
+    if (had < 10) applyTenthReview();
     store.settings.reviewedV = REVIEWED_V;
   }
   // Cars whose article search found something else: a pool player, an album, a
@@ -6954,6 +6958,17 @@ Rules:
     }
     const era = store.aliases["llm-m-austin-mini-mini-1275-gt"];
     if (era && !era.names.includes("Mini Clubman")) era.names.unshift("Mini Clubman");
+  }
+  function applyTenthReview() {
+    // What the Dodge Dart (PF)'s cascade read wrongly. "Chrysler Australia" in the
+    // DeSoto Diplomat's list is a company. The Diplomat ran to 1989; the 1983 is a
+    // photo's caption.
+    if (!store.purged) store.purged = {};
+    store.purged["llm-related-chrysler-australia"] = true;
+    for (const e of [store.recheck["m-dodge-diplomat"], store.families["m-dodge-diplomat"]]) {
+      const g = e && e.proposal && (e.proposal.generations || []).find(x => x.code === "Second generation");
+      if (g) g.yearEnd = 1989;
+    }
   }
   function applyNinthReview(at) {
     // "Thunderbird (83–88)" read the Mustang's article, so its "generations" are

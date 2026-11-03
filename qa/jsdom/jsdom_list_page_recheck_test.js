@@ -46,12 +46,15 @@ const LF = w.LlmFamilies, N = w.CARDATA.nodes, L = w.CARDATA.links;
   t("it says why", entry.proposal && entry.proposal.notACar === "an index of other articles", entry.proposal && entry.proposal.notACar);
   t("no generation is up for retiring", !gens.some(g => g.retired) && !entry.generationDiff);
   t("no model was asked", modelAsked === 0);
-  // Its years inside those of a generation that stays: from an article, this one is retired.
+  // Its years inside those of a generation that stays, and no heading for it.
   const inner = { id: "g3", type: "model", make: "Mini", label: "Clubman Three", familyOf: FAM, year: 1970, end: 1975 };
-  const read = fromIndexPage => LF.decideRecheck(fam, [gens[0], inner], { sections: [], sourceTitle: "Mini Clubman",
+  const read = (extra, fromIndexPage) => LF.decideRecheck(fam, [gens[0], extra], { sections: [], sourceTitle: "Mini Clubman",
     proposal: { generations: [{ code: "Clubman One", yearStart: 1969, yearEnd: 1980 }], fromIndexPage } }, N).retire.map(g => g.id).join();
-  t("from an article, a generation the list leaves out is retired", read(false) === "g3", read(false));
-  t("a list read off an index page retires nothing", read(true) === "", read(true));
+  t("from an article, other generations covering its years retire nothing", read(inner, false) === "", read(inner, false));
+  // The nameplate's own name standing as a generation is still an overview.
+  const bare = { id: "g4", type: "model", make: "Mini", label: "Clubman", familyOf: FAM, year: 1970, end: 1975 };
+  t("from an article, an overview among the generations is retired", read(bare, false) === "g4", read(bare, false));
+  t("a list read off an index page retires nothing", read(bare, true) === "", read(bare, true));
   console.log(fails ? `\n${fails} FAILED` : "\nall passed");
   process.exit(fails ? 1 : 0);
 })().catch(e => { console.log("FAIL threw", e); process.exit(1); });

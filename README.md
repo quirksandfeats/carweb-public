@@ -57,8 +57,9 @@ What the layer does:
 
 - **Generations.** Splits a nameplate into its generations. A first split
   applies itself, and so does a re-check: the article's headings decide what it
-  adds and retires, and what they cannot settle waits in **Tools → Pending
-  Generation Splits**. A car the article states as the predecessor or the
+  adds, and it retires only an overview or a duplicate of a kept generation. A
+  generation the re-read leaves out otherwise stays. What the headings cannot
+  settle waits in **Tools → Pending Generation Splits**. A car the article states as the predecessor or the
   successor is not a generation. A car with no stated year stays undated.
   Generations of one nameplate can overlap in years, and that alone never makes
   them one car.
