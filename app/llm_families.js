@@ -2633,6 +2633,9 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
     gens.forEach((g, i) => {
       const own = placed[i];
       if (!own || g.yearStart == null || placed.some((x, j) => j !== i && x && x.at === own.at)) return;
+      // The heading can say it alone: "Fifth generation (2001–present)".
+      const headed = /((?:19|20)\d{2})\s*[-\u2013\u2014]\s*(?:present|current)\b/i.exec(String(own.title || ""));
+      if (g.yearEnd == null && headed && Number(headed[1]) === g.yearStart) g.stillBuilt = true;
       const body = wikitext.slice((wikitext.indexOf("\n", own.at) + 1) || own.stop, own.stop);
       const nextHeading = body.search(/^={2,6}[^=]/m);
       const text = nextHeading >= 0 ? body.slice(0, nextHeading) : body;
@@ -2641,8 +2644,12 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
       const card = text.slice(box);
       const production = infoboxFieldValue(card, /\|\s*production\s*=/i);
       if (production != null && production.trim() && !cardRange(production)) return;
-      const ranges = [production, infoboxFieldValue(card, /\|\s*model_years\s*=/i)]
-        .map(cardRange).filter(r => r && r.start === g.yearStart);
+      const stated = [production, infoboxFieldValue(card, /\|\s*model_years\s*=/i)].map(cardRange).filter(Boolean);
+      const ranges = stated.filter(r => r.start === g.yearStart);
+      // The read and the card both leave it open, so a later generation does not end it.
+      // Another range with an end makes it unsure: the Seltos's first generation has
+      // 2019-present beside model years 2021-2026.
+      if (g.yearEnd == null && ranges.length && stated.every(r => r.end == null)) g.stillBuilt = true;
       if (!ranges.length || ranges.some(r => r.end === g.yearEnd)) return;
       const heading = /((?:19|20)\d{2})\s*[-\u2013\u2014]\s*((?:19|20)\d{2})\D*$/.exec(String(own.title || ""));
       if (heading && Number(heading[2]) === g.yearEnd) return;
@@ -7108,7 +7115,7 @@ Rules:
       reviewedGen("Original (1962–1963)", 1962, 1963, ["Raymond Loewy"]),
       reviewedGen("Avanti II", 1965, 1986, ["Leo Newman", "Nate Altman"]), reviewedGen("Avanti", 1987, 2006, ["Tom Kellogg"])] },
   };
-  const REVIEWED_V = 14;
+  const REVIEWED_V = 15;
   function applyReviewedCorrections() {
     // Only over what these lists correct: a new or wiped store has nothing to put right.
     const had = (store.settings && store.settings.reviewedV) || 0;
@@ -7131,6 +7138,7 @@ Rules:
     if (had < 12) applyTwelfthReview(at);
     if (had < 13) applyThirteenthReview();
     if (had < 14) applyFourteenthReview(at);
+    if (had < 15) applyFifteenthReview();
     store.settings.reviewedV = REVIEWED_V;
   }
   // Cars whose article search found something else: a pool player, an album, a
@@ -7232,6 +7240,21 @@ Rules:
     "m-volkswagen-bora-china": { "Fourth generation": [2018, 2026], "Fourth generation (MQB)": [2018, 2026] },
     "m-volkswagen-scirocco": { "Third generation": [2008, 2017] },
   };
+  // Both reads ended these when the next generation began. Their cards say "present",
+  // and the Innova's second generation and the D-Max's RT are still built.
+  function applyFifteenthReview() {
+    for (const [car, start] of [["m-toyota-innova", 2015], ["m-isuzu-d-max", 2011]]) {
+      for (const e of [store.families[car], store.recheck[car]]) {
+        for (const g of (e && e.proposal && e.proposal.generations) || []) {
+          if (g.yearStart === start) g.yearEnd = null;
+        }
+      }
+    }
+    // The ZH2's same start closed the T1XX in its first year. Its card says 2018-2026.
+    for (const g of (store.recheck["fam-chevrolet-silverado"]?.proposal?.generations) || []) {
+      if (g.code === "GMT T1XX") g.yearEnd = 2026;
+    }
+  }
   function applyFourteenthReview(at) {
     // A handover tie now goes to the generation that carried on. The years are all that
     // rule has. These articles say which, and it is the earlier one: a new car can be
@@ -10958,7 +10981,7 @@ Rules:
     if (!n || !Number.isFinite(n.year)) return null;
     let end = Number.isFinite(n.end) ? n.end : null;
     const fam = n.familyOf && spanNodes ? nodeWithId(spanNodes, n.familyOf) : null;
-    if (fam && (end == null || end === n.year)) {
+    if (fam && (end == null || end === n.year) && !(end == null && generationStatedOpen(fam, n))) {
       const next = (fam.generations || []).map(id => nodeWithId(spanNodes, id))
         .filter(g => g && g !== n && !g.retired && Number.isFinite(g.year) && (g.year > n.year || (end == null && g.year === n.year)))
         .sort((x, y) => x.year - y.year)[0];
@@ -13269,7 +13292,16 @@ Rules:
     if (t.type !== "family" && t.year == null) { const g = endGenerationOf(s, byIdLocal, "newest"); return g ? [g, t] : null; }
     const S = dated(s), T = dated(t);
     if (!S.length || !T.length) return null;
-    const endOf = g => (g.end != null ? g.end : g.year);
+    // A generation still built handed over when its own next generation began, as far
+    // as pairing goes: its start would pair it with whatever began the same year.
+    const endOf = g => {
+      if (g.end != null) return g.end;
+      const fam = g.familyOf && byIdLocal.get(g.familyOf);
+      if (!fam || !generationStatedOpen(fam, g)) return g.year;
+      const later = (fam.generations || []).map(id => byIdLocal.get(id))
+        .filter(o => o && !o.retired && o.year != null && o.id !== g.id && o.year >= g.year).map(o => o.year);
+      return later.length ? Math.min(...later) : g.year;
+    };
     let best = null;
     for (const a of S) for (const b of T) {
       if (b.year < a.year) continue;
@@ -19438,8 +19470,53 @@ Rules:
     const m = /(\d{4})\s*[-–—]\s*(present|current|\d{4})?\s*\)/i.exec(heads[0]);
     return m ? { start: +m[1], end: m[2] && /\d/.test(m[2]) ? +m[2] : null } : null;
   }
-  // A generation whose article heading says it is still built ("(1984–present)").
+  // Generations still built after the next one began, read against their articles on
+  // 4 November 2026: each card or heading gives its start and "present". A later read
+  // that states an end still wins, because this only stops an end being inferred.
+  // Left out: the Seltos's first generation and the GL8's third, whose cards are stale.
+  const STILL_BUILT_GENERATIONS = new Set([
+    "llm-llm-related-ford-transit-fourth-generation",
+    "llm-llm-related-hino-ranger-5th-gen",
+    "llm-llm-related-mazda-bongo-brawny-third-generation-h200",
+    "llm-m-cadillac-xt5-first-generation-2016",
+    "llm-m-chana-star-chana-star-5",
+    "llm-m-chevrolet-blazer-blazer-crossover",
+    "llm-m-chevrolet-express-gmt610",
+    "llm-m-citroen-ami-electric-vehicle-ami-1st-generation",
+    "llm-m-dongfeng-rich-rich-6",
+    "llm-m-dongfeng-rich-second-generation",
+    "llm-m-fiat-panda-319",
+    "llm-m-ford-raptor-third-generation-2021",
+    "llm-m-haval-h6-second-generation",
+    "llm-m-honda-wr-v-dg4",
+    "llm-m-hyundai-i20-bc3-bi3",
+    "llm-m-hyundai-venue-qx",
+    "llm-m-isuzu-d-max-second-generation-rt",
+    "llm-m-mercedes-benz-g-class-w464",
+    "llm-m-mercedes-benz-glc-x254-c254-v254-second-generation",
+    "llm-m-mitsubishi-asx-ga",
+    "llm-m-mitsubishi-eclipse-cross-gk-gl-ya-yb",
+    "llm-m-suzuki-ertiga-nc",
+    "llm-m-toyota-c-hr-second-generation-ax20",
+    "llm-m-toyota-century-g60",
+    "llm-m-toyota-hilux-an110-an120-an130",
+    "llm-m-toyota-innova-an140",
+    "llm-m-toyota-yaris-cross-xp210",
+    "llm-m-vinfast-vf-8-first-generation-2022",
+    "llm-m-volkswagen-lavida-third-generation",
+    "m-bmw-2-series-g42",
+    "m-ford-mustang-seventh-generation",
+    "m-mercedes-benz-c-class-w206",
+    "m-toyota-land-cruiser-j70",
+  ]);
+  // A generation its article says is still built, which no later generation ends: the
+  // list above, a read endYearsFromOwnCards marked, or a heading ("(1984–present)").
   function generationStatedOpen(fam, g) {
+    if (STILL_BUILT_GENERATIONS.has(g.id)) return true;
+    const marked = [store.recheck && store.recheck[fam.id], store.families && store.families[fam.id]]
+      .some(entry => insideGenerations(entry).some(f => f.stillBuilt && f.yearEnd == null &&
+        f.yearStart === g.year && (labelEndsInCode(g.label, f.code) || labelCarriesCode(g.label, f.code))));
+    if (marked) return true;
     const e = store.recheck && store.recheck[fam.id];
     const fresh = e && insideGenerations(e);
     if (!fresh || !e.sections) return false;

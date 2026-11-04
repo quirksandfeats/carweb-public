@@ -2462,8 +2462,33 @@ Net on the shipped store: 42 links off, 29 on, no car or year changed. No relati
 decided moved. A store at review 13 and one before it load the same, the static mirror gives the
 same graph, and a second load changes nothing.
 
-**Left as found.** The Innova AN140 still shows 2022: its card says it is still built, but
-`backfillGenerationEnds` in `app.js` closes a generation with no end at the next one's start, so
-the end does not display (the second Rich's 2017 has the same cause; its card says "present").
-Hilux N80, K9 RJ and Vitara FT stay out of `REVIEWED_CARD_ENDS`: those moves come from a stated
+**Left as found.** Hilux N80, K9 RJ and Vitara FT stay out of `REVIEWED_CARD_ENDS`: those moves come from a stated
 end's overlap, not the tie. C3 Aircross A88 / C3 CC21 is wrong and was already on the graph.
+
+### A generation still built stays open
+
+The owner's rule: a generation still built after its successor appears shows as running.
+`backfillGenerationEnds` closed every generation with no end at the next one's start, so the
+Land Cruiser J70 showed 1984-1990 and the Mustang's seventh generation 2022-2024.
+
+| Part | What it does |
+|---|---|
+| `STILL_BUILT_GENERATIONS` | 33 generations, each read against its article: the card or heading gives its start and "present" |
+| `endYearsFromOwnCards` | A new read with no end is marked `stillBuilt` if its card or heading says "present" and no other range on the card gives an end |
+| `generationStatedOpen` | Answers true for the list and for a marked read, so the backfill leaves the end empty |
+| `spanOfNode` | No longer bounds these at the next start, so picks read the same years the card displays |
+| `successionPair` | Hands these over at their next generation's start, as before |
+| Review 15 | Clears the Innova AN140's 2022 and the D-Max RT's 2019, and gives the Silverado T1XX its card's 2026 |
+
+`successionPair` needs the handover year because a running car has no end. Its fallback, the
+generation's own start, moved four links: the J70 lost the Prado J90, and the Hilux AN110 paired
+with the Tacoma that began the same year.
+
+Net on the shipped store: 34 end years changed, with no link, car or family end changed. A later
+read that states an end still wins, because the list only stops an end being inferred.
+
+Left closed: the Seltos's first generation (2019-present beside model years 2021-2026) and the
+GL8's third, whose reads state an end and whose cards are stale. The Xpander's facelift nodes,
+the Puma Rally1 and the Galue Convertible take a card written about the whole car, so they are not on the list.
+The ASX GA's and the Hilux AN110's "present" rest on the card alone, with no prose confirming it.
+Seen in passing and not changed: the 2 Series F45/F46 shows 2016, though its read says 2021.
