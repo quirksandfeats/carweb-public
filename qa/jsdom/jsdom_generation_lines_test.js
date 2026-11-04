@@ -121,5 +121,40 @@ const read = (gens, text) => { LF.endYearsFromOwnCards(gens, text); return gens;
   check("the generation's own page counts", gens[0].endOnCard === true && !gens[1].endOnCard);
 }
 
+// Ends the articles settle, in both directions, and the pairing year stays put.
+for (const [id, start, end] of [
+  ["llm-m-ford-falcon-australia-xe", 1982, 1984], ["llm-m-ford-falcon-australia-xf", 1984, 1993],
+  ["llm-llm-related-holden-utility-ht", 1969, 1970], ["llm-llm-related-holden-utility-hg", 1970, 1971],
+  ["llm-llm-related-holden-utility-hq", 1971, 1974],
+]) check(id, node(id).year === start && node(id).end === end, node(id).year + "-" + node(id).end);
+check("the Falcon XF's cars handed over at the EA", node("llm-m-ford-falcon-australia-xf").handover === 1988);
+check("the Holden Utility runs HK, HT, HG, HQ",
+  succ.has("llm-llm-related-holden-utility-hk>llm-llm-related-holden-utility-ht") &&
+  succ.has("llm-llm-related-holden-utility-ht>llm-llm-related-holden-utility-hg") &&
+  succ.has("llm-llm-related-holden-utility-hg>llm-llm-related-holden-utility-hq"));
+const crown = "llm-m-toyota-crown-eighth-generation-s130";
+check("the Crown S130 is one car", (!node(crown + "-1987") || node(crown + "-1987").retired) && node(crown).end === 2000);
+check("the Crown S130 still leads to the S140", succ.has(crown + ">llm-m-toyota-crown-ninth-generation-s140"));
+const byLabel = (make, label) => nodes.find(n => !n.retired && n.make === make && n.label === label);
+const shorter = byLabel("Land Rover", "Freelander L359");
+check("an earlier end on the card shows, and pairing keeps the old one", shorter.end === 2014 && shorter.handover === 2015);
+{
+  const f = nodes.find(n => n.id === "m-toyota-crown");
+  check("a family's generations are all still there", (f.generations || []).filter(id => node(id) && !node(id).retired).length >= 15);
+}
+{
+  const [a] = read([gen("AB1", 1951, 1951), gen("AB2", 1953, 1955)], section("First generation (AB1; 1951)",
+    "| production = {{unbulleted list|1951|One produced}}") + section("Second generation (AB2; 1953)", "| production = 1953–1955"));
+  check("a single year on the card counts", a.endOnCard === true);
+}
+{
+  const [a] = read([gen("AB1", 2000, 2006), gen("AB2", 2004, null)], section("First generation (AB1; 2000)",
+    "| production = {{ubl | 2000–2006 | 2004–2011 (China) }}") + section("Second generation (AB2; 2004)", "| production = 2004–present"));
+  check("the card's ends are kept with the mark", a.endOnCard === true && a.cardEnds.includes(2006) && a.cardEnds.includes(2011));
+}
+const rule = [["a heading's run outranks a card", node("llm-m-ford-ranger-americas-third-generation-1998-2012"), 2012],
+  ["\"present\" in a heading outranks a card", byLabel("Mitsubishi", "Delica D:3 Third generation (1986–present)"), null]];
+for (const [name, n, end] of rule) if (n) check(name, n.end === end, n.end);
+
 console.log(fails ? fails + " FAILED" : "all passed");
 process.exit(fails ? 1 : 0);

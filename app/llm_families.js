@@ -2630,11 +2630,18 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
   // bodies: the Cedric Y30's "1983-1999 (wagon/van)", the Hilux's "extended until
   // September 1988". That is what tells a real overlap from a read that took the
   // nameplate's end, because a card has no reason to name that year.
-  function productionNamesEnd(field, year) {
+  function productionEnds(field) {
     const v = String(field).replace(/<!--[\s\S]*?-->/g, "")
       .replace(/<ref[^>]*\/>|<ref(?:\s[^>]*)?>[\s\S]*?<\/ref>/gi, "")
       .replace(/&nbsp;/g, " ").replace(/&ndash;|&mdash;/g, "\u2013");
-    return new RegExp("(?:[-\\u2013\\u2014]|\\bto|\\buntil)\\s*(?:[a-z]+\\.?\\s+)?(?:\\d{1,2},?\\s+)?" + year + "\\b", "i").test(v);
+    const ends = [...v.matchAll(/(?:[-\u2013\u2014]|\bto|\buntil)\s*(?:[a-z]+\.?\s+)?(?:\d{1,2},?\s+)?((?:19|20)\d{2})\b/gi)].map(m => Number(m[1]));
+    // One year and nothing more: the CJ-4's "1951, one produced", a concept or an edition.
+    const only = /^\s*(?:\{\{[^|{}]*\|\s*)?((?:19|20)\d{2})\s*(?:\||\}\}|$)/.exec(v);
+    if (only) ends.push(Number(only[1]));
+    return ends;
+  }
+  function productionNamesEnd(field, year) {
+    return productionEnds(field).includes(year);
   }
   function ownCardNamesEnd(g, own, wikitext, subPages) {
     const field = text => {
@@ -2648,7 +2655,8 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
       texts.push(nextHeading >= 0 ? body.slice(0, nextHeading) : body);
     }
     (subPages || []).filter(p => labelCarriesCode(p.title, g.code)).forEach(p => texts.push(wikitext.slice(p.at, p.stop)));
-    return texts.some(t => { const f = field(t); return f != null && productionNamesEnd(f, g.yearEnd); });
+    const ends = texts.map(field).filter(f => f != null).flatMap(productionEnds);
+    return ends.includes(g.yearEnd) ? ends : null;
   }
   function endYearsFromOwnCards(gens, wikitext, subPages) {
     if (!wikitext || !gens || gens.length < 2) return;
@@ -2658,8 +2666,9 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
     const markEnds = () => gens.forEach((g, i) => {
       const own = placed[i];
       const shared = own && placed.some((x, j) => j !== i && x && x.at === own.at);
-      if (g.yearEnd != null && ownCardNamesEnd(g, shared ? null : own, wikitext, subPages)) g.endOnCard = true;
-      else delete g.endOnCard;
+      const ends = g.yearEnd != null ? ownCardNamesEnd(g, shared ? null : own, wikitext, subPages) : null;
+      if (ends) { g.endOnCard = true; g.cardEnds = [...new Set(ends)]; }
+      else { delete g.endOnCard; delete g.cardEnds; }
     });
     gens.forEach((g, i) => {
       const own = placed[i];
@@ -7152,7 +7161,7 @@ Rules:
       reviewedGen("Original (1962–1963)", 1962, 1963, ["Raymond Loewy"]),
       reviewedGen("Avanti II", 1965, 1986, ["Leo Newman", "Nate Altman"]), reviewedGen("Avanti", 1987, 2006, ["Tom Kellogg"])] },
   };
-  const REVIEWED_V = 16;
+  const REVIEWED_V = 17;
   function applyReviewedCorrections() {
     // Only over what these lists correct: a new or wiped store has nothing to put right.
     const had = (store.settings && store.settings.reviewedV) || 0;
@@ -7177,6 +7186,7 @@ Rules:
     if (had < 14) applyFourteenthReview(at);
     if (had < 15) applyFifteenthReview();
     if (had < 16) applySixteenthReview();
+    if (had < 17) applySeventeenthReview();
     store.settings.reviewedV = REVIEWED_V;
   }
   // Cars whose article search found something else: a pool player, an album, a
@@ -7280,6 +7290,81 @@ Rules:
   };
   // Both reads ended these when the next generation began. Their cards say "present",
   // and the Innova's second generation and the D-Max's RT are still built.
+  function applySeventeenthReview() {
+    // More reads from before a scan marked this, checked against their articles on
+    // 4 November 2026. A new read marks itself and needs nothing here.
+    const ON_CARD = [
+      ["families", "m-mitsubishi-colt", ["Colt 600, 800, 1000, 1100, 1200, 1500"]],
+      ["families", "llm-related-oldsmobile-hurst-olds", ["1972"]],
+      ["recheck", "llm-related-chrysler-300l", ["300K (VC2-M300)"]],
+      ["recheck", "fam-bmw-5-series", ["E28"]],
+      ["recheck", "fam-chevrolet-camaro", ["First generation (1967–1969)", "Third generation (1982–1992)"]],
+      ["recheck", "fam-chevrolet-impala", ["Ninth generation (2006–2016)"]],
+      ["recheck", "fam-ford-f-series", ["Tenth generation"]],
+      ["recheck", "fam-ford-thunderbird", ["Tenth generation (1989–1997)"]],
+      ["recheck", "fam-jaguar-xk", ["X100"]],
+      ["recheck", "fam-mercedes-benz-clk", ["C208/A208", "C209/A209"]],
+      ["recheck", "fam-mercedes-benz-slk", ["R171"]],
+      ["recheck", "fam-toyota-corolla", ["E80"]],
+      ["recheck", "fam-volkswagen-golf", ["Mk5 (Typ 1K)", "Mk7 (Typ 5G)"]],
+      ["recheck", "llm-related-chevrolet-brookwood", ["Third generation"]],
+      ["recheck", "llm-related-pontiac-gto", ["Fourth generation"]],
+      ["recheck", "m-citroen-berlingo", ["M49 (M59)"]],
+      ["recheck", "m-citroen-c3", ["FC/FN"]],
+      ["recheck", "m-citroen-c5", ["RD/TD"]],
+      ["recheck", "m-daewoo-lacetti", ["J200"]],
+      ["recheck", "m-ford-corsair", ["Edsel Corsair (1959)"]],
+      ["recheck", "m-ford-country-squire", ["Eighth generation"]],
+      ["recheck", "m-ford-ecosport", ["B515"]],
+      ["recheck", "m-ford-kuga", ["Second generation (C520)"]],
+      ["recheck", "m-ford-windstar", ["Third generation"]],
+      ["recheck", "m-jeep-cj", ["CJ-4"]],
+      ["recheck", "m-kia-k5", ["MS"]],
+      ["recheck", "m-land-rover-freelander", ["L359"]],
+      ["recheck", "m-lincoln-continental", ["Sixth generation"]],
+      ["recheck", "m-mitsubishi-chariot", ["Second generation (N30W/N40W)"]],
+      ["recheck", "m-mitsubishi-diamante", ["First generation (1990–1995)"]],
+      ["recheck", "m-mitsubishi-galant", ["E10"]],
+      ["recheck", "m-nissan-bluebird", ["310/311/312 series", "610 series", "810 series", "U13 series"]],
+      ["recheck", "m-nissan-maxima", ["A32"]],
+      ["recheck", "m-nissan-skyline", ["V35"]],
+      ["recheck", "m-nissan-skyline-gt-r-r32", ["KPGC110"]],
+      ["recheck", "m-nissan-sylphy", ["G11/G15"]],
+      ["recheck", "m-nissan-x-trail", ["T32"]],
+      ["recheck", "m-oldsmobile-cutlass", ["Fifth generation (1978)"]],
+      ["recheck", "m-opel-omega", ["Omega A"]],
+      ["recheck", "m-pontiac-banshee", ["III (1974)"]],
+      ["recheck", "m-ssangyong-chairman", ["Chairman H"]],
+      ["recheck", "m-subaru-leone", ["AB/AM/AF/AJ"]],
+      ["recheck", "m-toyota-hilux", ["N190", "N80"]],
+      ["recheck", "m-toyota-mark-x", ["X120"]],
+    ];
+    for (const [where, car, codes] of ON_CARD) {
+      for (const g of (store[where][car]?.proposal?.generations) || []) {
+        if (codes.includes(g.code)) g.endOnCard = true;
+      }
+    }
+    // Years each generation's own article gives, against reads of the nameplate's article.
+    // The Holden Utility's article has the HT and HG the wrong way round; their own say 1969-1970 and 1970-1971.
+    // The XF's cars ended in 1988, as the EA began; its utility and van went on to 1993.
+    const YEARS = {
+      "m-ford-falcon-australia": { XE: [1982, 1984], XF: [1984, 1988] },
+      "llm-related-holden-utility": { HT: [1969, 1970], HG: [1970, 1971], HQ: [1971, 1974] },
+    };
+    for (const [car, years] of Object.entries(YEARS)) {
+      for (const e of [store.families[car], store.recheck[car]]) {
+        const list = e && e.proposal && e.proposal.generations;
+        if (!list) continue;
+        for (const g of list) {
+          if (years[g.code]) [g.yearStart, g.yearEnd] = years[g.code];
+        }
+        const ht = list.findIndex(g => g.code === "HT"), hg = list.findIndex(g => g.code === "HG");
+        if (ht > hg && hg >= 0) list.splice(hg, 0, list.splice(ht, 1)[0]);
+      }
+    }
+    const xf = (store.recheck["m-ford-falcon-australia"]?.proposal?.generations || []).find(g => g.code === "XF");
+    if (xf) { xf.yearEnd = 1993; xf.endOnCard = true; }
+  }
   function applySixteenthReview() {
     // Reads taken before a scan marked this themselves, checked against the cards on
     // 4 November 2026. Each card gives the read's end for a market or body that outlived
@@ -12850,6 +12935,8 @@ Rules:
   // Cars filed twice, whose one record says so: each is the second one, in every
   // way a person checking both articles can tell. Their connections move with them.
   const REVIEWED_SAME_CARS = {
+    // Read twice under one name. The other carries the end its article gives.
+    "llm-m-toyota-crown-eighth-generation-s130-1987": "llm-m-toyota-crown-eighth-generation-s130",
     "llm-related-300zx-z31": "llm-m-nissan-300zx-z32-z31",
     "llm-related-fairlady-z-z34": "llm-fam-nissan-fairlady-z-z34",
     "llm-related-vw-beetle": "m-volkswagen-beetle",
@@ -12941,6 +13028,11 @@ Rules:
     Object.keys(REVIEWED_SAME_CARS).forEach(id => {
       const car = byIdLocal.get(id), into = byIdLocal.get(REVIEWED_SAME_CARS[id]);
       if (!car || car.retired || !into || into.retired || car.type === "family") return;
+      // A generation read twice: what followed the copy follows the one that stays.
+      if (car.familyOf && car.familyOf === into.familyOf) {
+        links.filter(l => l.type === "gensucc" && !l.retired && idOf(l.source) === car.id && idOf(l.target) !== into.id)
+          .forEach(l => { links.push({ source: into.id, target: idOf(l.target), type: "gensucc" }); });
+      }
       car.familyOf = null;
       supersedeStandalone(nodes, links, car, into, into.familyOf || into.id, `${into.make} ${into.label}`);
     });
@@ -20033,30 +20125,40 @@ Rules:
     });
   }
 
-  // A generation's own card naming a read's end past the next generation's start is an
-  // overlap, and it shows (the Cedric Y31 sedan, built to 2002). Last of all, once every
-  // car has been paired: the cars still go by when the next generation took over, and
-  // the Infiniti J30 belongs to the Y32, not to a Y31 still built for fleets.
+  // A read's end its generation's own card names shows, against whatever the load left:
+  // the next start, or an older read. If the card names both, the later one does, because
+  // the generation was still being built (the Cedric Y31 sedan, to 2002). A heading that
+  // gives the run or says "present" outranks a card, as it does for a read.
+  // Last of all, once every car has been paired: the cars still go by when the next
+  // generation took over, and the Infiniti J30 belongs to the Y32, not to a Y31 built for fleets.
   function applyOverlapEnds(nodes) {
     const byId = new Map(nodes.map(n => [n.id, n]));
-    Object.keys(store.recheck).forEach(famId => {
-      const e = store.recheck[famId], fam = byId.get(famId);
-      if (!e || e.status !== "none" || !fam || fam.type !== "family") return;
+    const apply = (famId, e) => {
+      const fam = byId.get(famId);
+      if (!fam || fam.type !== "family") return;
       const fresh = insideGenerations(e);
       if (!fresh.some(f => f.endOnCard)) return;
       const gens = (fam.generations || []).map(id => byId.get(id)).filter(g => g && !g.retired);
       const paired = pairFreshGenerations(gens, fresh);
-      const lines = linesByFamily.get(famId);
       fresh.forEach((f, i) => {
         const g = paired[i], end = f.endOnCard ? plausibleEnd(f.yearStart, f.yearEnd) : null;
-        if (!g || g.year == null || end == null || Math.abs((f.yearStart || 0) - g.year) > 1) return;
-        const line = lines && lines.find(l => l.includes(g.id));
-        const later = gens.filter(o => o !== g && o.year != null && o.year > g.year &&
-          (!line || line.includes(o.id))).map(o => o.year);
-        if (!later.length || end <= Math.min(...later) + 1 || g.end === end) return;
-        g.handover = Math.min(...later);
+        if (!g || g.year == null || end == null || g.end === end || Math.abs((f.yearStart || 0) - g.year) > 1) return;
+        if (generationStatedOpen(fam, g)) return;
+        const run = /\d{4}\s*[-\u2013\u2014]\s*(present|current|\d{4})/i.exec(String(g.label || ""));
+        if (run && run[1] !== String(end)) return;
+        if (f.cardEnds && g.end > end && f.cardEnds.includes(g.end)) return;
+        if (g.handover == null && g.end != null) g.handover = g.end;
         g.end = end;
       });
+    };
+    // The re-check last, as the newer read.
+    Object.keys(store.families).forEach(famId => {
+      const e = store.families[famId];
+      if (e && e.status === "confirmed") apply(famId, e);
+    });
+    Object.keys(store.recheck).forEach(famId => {
+      const e = store.recheck[famId];
+      if (e && e.status === "none") apply(famId, e);
     });
   }
 

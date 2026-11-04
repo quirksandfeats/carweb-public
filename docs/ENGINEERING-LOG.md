@@ -2539,4 +2539,22 @@ Limits: a generation sharing a section with another (Hilux N30 and N40), or with
 A card can be stale, though a stale card rarely names an end year. The Golf Mk4 shows the read's
 2006, though its card also gives 2014 for Brazil.
 
+## Ends against the articles, all at once
+
+A comparison using the app's own pairing found 127 of 4,212 generations whose shown end differed
+from a stored read. The rule above now applies in both directions, with one exception: if the card
+names both years, the later one shows. A heading that gives the run or says "present" outranks a
+card. `applyOverlapEnds` keeps the old end as `handover` either way, so no link follows the change.
+
+Outcome: 55 generations changed, leaving 77 disagreements: 29 where the card shows the graph is
+right, 4 where a heading outranks the card, 2 where the card names neither year, and 42 with no
+infobox to tie to that generation. Those 42 are unchecked and stay as they are.
+Review 17 marks the stored reads and sets the years below; a new scan marks its own read.
+
+Own articles settled three cases. Falcon XE is 1982-1984 and XF 1984-1993, with the XF's cars
+ending in 1988 as the EA began. Holden Utility HT is 1969-1970, HG 1970-1971 and HQ 1971-1974; the
+Utility's own article has the HT and HG the wrong way round. The Crown S130 was read twice, and
+`REVIEWED_SAME_CARS` folds the copy. The only links that changed follow those: Holden Utility HT to
+Kingswood HT, Fairlane ZL/FE to Falcon XF, and the chain HK, HT, HG, HQ.
+
 Test: `qa/jsdom/jsdom_generation_lines_test.js`.
