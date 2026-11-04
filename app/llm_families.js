@@ -5178,7 +5178,11 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
   }
   // A retired generation's successor: the new generation overlapping its
   // years most, ties to the earlier; with no overlap, the nearest earlier
-  // one (a platform carries forward, not back), else the nearest.
+  // one (a platform carries forward, not back), else the nearest. A car with
+  // no end year is measured at its first year, which may mean only that the end
+  // is not on file. A partner that ended that year ties with the one that carried
+  // on, and the car shares its years with the one that carried on: the 2015
+  // Fortuner with the 2015 Hilux, not the 2004 one.
   function successorGeneration(o, candidates) {
     const live = candidates.filter(g => g && g.id !== o.id);
     if (!live.length) return null;
@@ -5192,6 +5196,10 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
       const ov = Math.min(oEnd, g.end == null ? 9999 : g.end) - Math.max(o.year, g.year);
       if (ov >= 0 && ov > top) { top = ov; best = g; }
     });
+    if (best && o.end == null && best.end === o.year) {
+      const carriedOn = sorted.find(g => g.year != null && g.year <= o.year && (g.end == null || g.end > o.year));
+      if (carriedOn) best = carriedOn;
+    }
     if (best) return best;
     const earlier = sorted.filter(g => g.year != null && g.year <= o.year);
     return earlier.length ? earlier[earlier.length - 1] : sorted[0];
@@ -7100,7 +7108,7 @@ Rules:
       reviewedGen("Original (1962–1963)", 1962, 1963, ["Raymond Loewy"]),
       reviewedGen("Avanti II", 1965, 1986, ["Leo Newman", "Nate Altman"]), reviewedGen("Avanti", 1987, 2006, ["Tom Kellogg"])] },
   };
-  const REVIEWED_V = 13;
+  const REVIEWED_V = 14;
   function applyReviewedCorrections() {
     // Only over what these lists correct: a new or wiped store has nothing to put right.
     const had = (store.settings && store.settings.reviewedV) || 0;
@@ -7122,6 +7130,7 @@ Rules:
     if (had < 11) applyEleventhReview(at);
     if (had < 12) applyTwelfthReview(at);
     if (had < 13) applyThirteenthReview();
+    if (had < 14) applyFourteenthReview(at);
     store.settings.reviewedV = REVIEWED_V;
   }
   // Cars whose article search found something else: a pool player, an album, a
@@ -7223,6 +7232,32 @@ Rules:
     "m-volkswagen-bora-china": { "Fourth generation": [2018, 2026], "Fourth generation (MQB)": [2018, 2026] },
     "m-volkswagen-scirocco": { "Third generation": [2008, 2017] },
   };
+  function applyFourteenthReview(at) {
+    // A handover tie now goes to the generation that carried on. The years are all that
+    // rule has. These articles say which, and it is the earlier one: a new car can be
+    // built on a platform its partner has just left.
+    const SAID = {
+      "llm-m-land-rover-range-rover-evoque-l538|m-tata-harrier|platform":
+        "the Tata Harrier's article: a re-engineered version of the D8 platform, adopted by the Range Rover Evoque",
+      "llm-m-peugeot-208-a9|m-ikco-tara|platform":
+        "the IKCO Tara's article: a modified PSA PF1 platform, shared with the Peugeot 208",
+      "llm-m-dongfeng-rich-second-generation|llm-m-nissan-navara-d22|platform":
+        "the Nissan Navara's article lists the Peugeot Pick-Up under the D22, and the Dongfeng Rich's lists it under this generation",
+    };
+    for (const [key, reason] of Object.entries(SAID)) {
+      if (store.relations[key]) store.relations[key].reason = reason;
+    }
+    // The generation each of those would otherwise take. The Evoque L551 and the 208 P21
+    // are not on the D8 or the PF1.
+    store.rejectedRelations["llm-m-land-rover-range-rover-evoque-l551|m-tata-harrier|platform"] = true;
+    store.rejectedRelations["llm-m-peugeot-208-p21|m-ikco-tara|platform"] = true;
+    // This pair stood only by a retired C3 generation's mistaken move, which the rule
+    // corrects. The pair itself is right: both infoboxes give the PSA PF1 platform.
+    store.relations[relKey("llm-m-citroen-c3-aircross-a88", "llm-m-citroen-c3-sx-sy", "platform")] = { status: "confirmed", relType: "platform", checkedAt: at, decidedAt: at,
+      famA: "m-citroen-c3-aircross", genIdA: "llm-m-citroen-c3-aircross-a88", codeA: "C3 Aircross A88",
+      famB: "m-citroen-c3", genIdB: "llm-m-citroen-c3-sx-sy", codeB: "C3 SX/SY",
+      reason: "both articles' infoboxes: the PSA PF1 platform" };
+  }
   function applyThirteenthReview() {
     // The Genesis BH's corrected end makes the DH fit the K9 KH better by years. The K9's
     // article puts the KH on the BH's platform.
@@ -19978,7 +20013,7 @@ Rules:
     setDecisionSource, decisionSource: () => decisionSource,
     resolveWeakRelations, makeRelationship, weakProposalRejection,
     additiveRecheck, diffGenerationCodes, pairFreshGenerations, headingsOf,
-    barePageIsThisCar, dropRivalMentions, placeMentionsBySection, endYearsFromOwnCards,
+    barePageIsThisCar, dropRivalMentions, placeMentionsBySection, endYearsFromOwnCards, successorGeneration,
     resolvePendingOwnGenerations, ownGenerationCode, sameArticleOwner,
     placeInCascade, cascadeDepthOf: id => depthOf(id), ownCodeShape, foldUmbrellaModels, applyGenerationPlacements, placeAsGeneration, pagesPointedAt,
     schedulePartnerCheck, cascadeDepthIn,

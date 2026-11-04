@@ -2427,8 +2427,43 @@ K9 RJ and Vitara FT would each move a link the article contradicts. The Innova A
 out for the reason below. Rejected: Genesis DH / K9 KH, which the BH's end would otherwise
 add. The six links that did move are right, such as A8 D5 to A6 C8 and 442 off the first GTO.
 
-**Open: running generations in `successorGeneration`.** It reads a missing end year as the
-year the car began. The Innova AN140 (2015-present) then ties with the Fortuner that ended in
-2015, and a tie goes to the earlier car. Reading it as still running moved about 160 links on
-the shipped store, some right, some not (Versa C11 / Tiida C11, the same car, was lost), and
-a second load was not stable. It is left unchanged until that is reviewed by itself.
+**Running generations in `successorGeneration`.** It reads a missing end year as the year the
+car began. The Fortuner AN150 (2015, no end) then tied with the Hilux that ended in 2015 and
+the one that began that year, and a tie went to the earlier car. Three fixes were measured on
+the shipped store:
+
+| Fix | Links off | Links on | Second load |
+|---|---|---|---|
+| A missing end means still running | 109 | 68 | not stable |
+| A missing end means the next generation's start, or still running for the last | 121 | 74 | not stable |
+| Only the tie changes | 46 | 31 | stable |
+
+The first two fail for one reason: a missing end is often only a gap. The Versa C11 has none,
+and it lost the Tiida C11. The third does not guess what the end is. A car with no end is still
+measured at its first year; when the winner ended that very year, the tie goes to a partner that
+carried on past it. Whether the car is running or the end is a gap, it was built after that
+year or at most in it, so it shares nothing further with the one that stopped. A stated end, a
+stated one-year car, and two partners that both carried on all go as before. So does a car
+with no end against a later generation: it is not moved forward, because a platform carries
+forward and the years alone cannot tell.
+
+Every one of the 77 moves was read. Most correct a car joined to its partner's outgoing
+generation: Fortuner AN150 to Hilux AN110, Everest U704 to Ranger P703, Tayron to Tiguan CT1,
+Accord 11 to Inspire CY, Trafic X82 to Vivaro B. Grande Panda, Frontera and Basalt leave the
+third C3 for the fourth, through the retired CC24.
+
+Review 14 keeps what the articles say against the years, because a new car can be built on the
+platform its partner has just left: the Harrier on the L538 (the D8), the Tara on the 208 A9
+(the PF1), the second Rich on the D22 (the Peugeot Pick Up is listed under both). The L551 and
+P21 pairs are rejected. C3 Aircross A88 / C3 SX/SY stood only by the retired CC24's mistaken
+move and is true, both infoboxes giving the PF1, so it is now a stored relation.
+
+Net on the shipped store: 42 links off, 29 on, no car or year changed. No relation the owner
+decided moved. A store at review 13 and one before it load the same, the static mirror gives the
+same graph, and a second load changes nothing.
+
+**Left as found.** The Innova AN140 still shows 2022: its card says it is still built, but
+`backfillGenerationEnds` in `app.js` closes a generation with no end at the next one's start, so
+the end does not display (the second Rich's 2017 has the same cause; its card says "present").
+Hilux N80, K9 RJ and Vitara FT stay out of `REVIEWED_CARD_ENDS`: those moves come from a stated
+end's overlap, not the tie. C3 Aircross A88 / C3 CC21 is wrong and was already on the graph.
