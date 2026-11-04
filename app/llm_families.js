@@ -19504,11 +19504,47 @@ Rules:
     "llm-m-toyota-yaris-cross-xp210",
     "llm-m-vinfast-vf-8-first-generation-2022",
     "llm-m-volkswagen-lavida-third-generation",
+    "llm-fam-bmw-2-series-g87",
+    "llm-fam-bmw-2-series-u06",
     "m-bmw-2-series-g42",
     "m-ford-mustang-seventh-generation",
     "m-mercedes-benz-c-class-w206",
     "m-toyota-land-cruiser-j70",
   ]);
+  // A nameplate whose article runs several bodies side by side. Each body succeeds only
+  // itself, and a generation of one body ends nothing for another.
+  const GENERATION_LINES = {
+    "fam-bmw-2-series": [
+      ["m-bmw-2-series-f22", "m-bmw-2-series-g42"],
+      ["llm-fam-bmw-2-series-f87", "llm-fam-bmw-2-series-g87"],
+      ["llm-fam-bmw-2-series-f45-f46", "llm-fam-bmw-2-series-u06"],
+      ["llm-fam-bmw-2-series-f44", "llm-fam-bmw-2-series-f74-f78"],
+    ],
+    "m-ford-raptor": [
+      ["llm-m-ford-raptor-first-generation-svt-raptor-2010", "llm-m-ford-raptor-second-generation-2017",
+        "llm-m-ford-raptor-third-generation-2021"],
+      ["llm-m-ford-raptor-first-generation-2019", "llm-m-ford-raptor-second-generation-2022"],
+    ],
+  };
+  // Links a nameplate's generations, given in year order, each to the next in its line.
+  function chainGenerations(famId, genIds, links) {
+    const inFamily = new Set(genIds);
+    const lines = GENERATION_LINES[famId] || [genIds];
+    const next = new Map(lines.flatMap(line => {
+      const here = line.filter(id => inFamily.has(id));
+      return here.slice(0, -1).map((id, i) => [id, here[i + 1]]);
+    }));
+    links.forEach(l => {
+      if (l.type !== "gensucc" || l.retired) return;
+      const a = idOf(l.source), b = idOf(l.target);
+      if (inFamily.has(a) && inFamily.has(b) && next.get(a) !== b) l.retired = true;
+    });
+    next.forEach((b, a) => {
+      if (!links.some(l => l.type === "gensucc" && !l.retired && idOf(l.source) === a && idOf(l.target) === b)) {
+        links.push({ source: a, target: b, type: "gensucc" });
+      }
+    });
+  }
   // A generation its article says is still built, which no later generation ends: the
   // list above, a read endYearsFromOwnCards marked, or a heading ("(1984–present)").
   function generationStatedOpen(fam, g) {
@@ -19787,18 +19823,7 @@ Rules:
       return g && g.year != null ? g.year : 1e9;
     };
     newGenIds.sort((a, b) => yr(a) - yr(b));
-    const inFamily = new Set(newGenIds);
-    const next = new Map(newGenIds.slice(0, -1).map((id, i) => [id, newGenIds[i + 1]]));
-    links.forEach(l => {
-      if (l.type !== "gensucc" || l.retired) return;
-      const a = idOf(l.source), b = idOf(l.target);
-      if (inFamily.has(a) && inFamily.has(b) && next.get(a) !== b) l.retired = true;
-    });
-    next.forEach((b, a) => {
-      if (!links.some(l => l.type === "gensucc" && !l.retired && idOf(l.source) === a && idOf(l.target) === b)) {
-        links.push({ source: a, target: b, type: "gensucc" });
-      }
-    });
+    chainGenerations(famId, newGenIds, links);
 
     // Cars the list named that are cars of their own: linked as related.
     (entry.relatedCars || []).forEach(r => {
@@ -19852,6 +19877,11 @@ Rules:
     };
     Object.keys(store.recheck).forEach(famId => replay(famId, store.recheck[famId]));
     applyRereadEnds(nodes);
+    // Some of these were confirmed rather than re-checked, so no replay above chained them.
+    Object.keys(GENERATION_LINES).forEach(famId => {
+      const fam = nodes.find(n => n.id === famId);
+      if (fam) chainGenerations(famId, fam.generations || [], links);
+    });
   }
   // A re-read that changes nothing else can still correct when a generation
   // ended, and it closes as "nothing to change", so no override carries that
@@ -19866,6 +19896,7 @@ Rules:
       const gens = (fam.generations || []).map(id => byId.get(id)).filter(g => g && !g.retired);
       const fresh = insideGenerations(e);
       const paired = pairFreshGenerations(gens, fresh);
+      const lines = GENERATION_LINES[famId];
       fresh.forEach((f, i) => {
         const g = paired[i];
         if (!g || g.year == null) return;
@@ -19878,7 +19909,9 @@ Rules:
           // Running on into the next generation by more than a year is the
           // read taking the nameplate's run for this one's (Malibu First, to 1972).
           const end = plausibleEnd(f.yearStart, f.yearEnd);
-          const later = gens.filter(o => o !== g && o.year != null && o.year > g.year).map(o => o.year);
+          const line = lines && lines.find(l => l.includes(g.id));
+          const later = gens.filter(o => o !== g && o.year != null && o.year > g.year &&
+            (!line || line.includes(o.id))).map(o => o.year);
           // A year either way is usually production against model year.
           const worthIt = g.end == null || Math.abs(end - g.end) >= 2;
           if (worthIt && (!later.length || end <= Math.min(...later) + 1 || (g.end != null && end <= g.end))) g.end = end;

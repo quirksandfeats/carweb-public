@@ -2495,4 +2495,24 @@ checked outside them in November 2026. Toyota South Africa builds the eighth Hil
 ninth until 2027, per the Sowetan (23 July 2026). The US still sells the GA as the Outlander Sport:
 2026 carried over, per Cars.com, and new 2027 cars are listed. No source names its plant today, so
 the ASX stays open on sales evidence. Both will need an end year once production stops.
-Seen in passing and not changed: the 2 Series F45/F46 shows 2016, though its read says 2021.
+The 2 Series F45/F46 showing 2016 is fixed in the section below.
+
+## Parallel bodies on one nameplate
+
+The 2 Series F45/F46 showed 2014-2016, against 2014-2021 in its article. The article runs the
+coupe, the M2, the Active Tourer and the Gran Coupe side by side, and the graph read them as one
+sequence by year. Three things followed from that: `applyRereadEnds` refused the read's 2021
+because the M2 F87 began in 2016, `backfillGenerationEnds` then closed the F45/F46 at 2016, and
+all seven next-generation links crossed bodies (F22 to F45/F46, F45/F46 to F87).
+
+`GENERATION_LINES` names each body's generations for a nameplate that needs it. `chainGenerations`
+links within a line, and `applyRereadEnds` compares an end only with later generations of the same
+line. The Ford Raptor is the only other entry: its third F-150 generation led to the first Ranger.
+The U06 and the G87 joined `STILL_BUILT_GENERATIONS`, because both articles say present.
+
+Result: three ends changed (F45/F46 2021, U06 and G87 open), eight links removed and four added.
+No other node or link moved. A second load, a store already at review 15 and the static mirror
+give the same graph. Test: `qa/jsdom/jsdom_generation_lines_test.js`.
+
+The table covers what a search of stored section headings found: bodies as top-level sections with
+generations beneath them. A nameplate that lists parallel bodies another way still chains by year.
