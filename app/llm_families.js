@@ -2395,7 +2395,7 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
   function articleHay(wikitext) {
     return String(wikitext || "").replace(/&nbsp;|&#160;|\{\{\s*nbsp\s*\}\}|\u00a0/gi, " ").toLowerCase();
   }
-  function validate(raw, wikitext) {
+  function validate(raw, wikitext, subPages) {
     const hay = articleHay(wikitext);
     // Shared across every generation in this proposal so no two of them can
     // end up with the same photo -- see findGenerationImage's own comment for
@@ -2454,6 +2454,9 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
     const stated = predecessorsStatedBy(wikitext, reconciled);
     const settled = stated.size && stated.size < reconciled.length
       ? reconciled.filter(g => !stated.has(g)) : reconciled;
+    dropRivalMentions(settled, wikitext);
+    placeMentionsBySection(settled, wikitext, subPages);
+    endYearsFromOwnCards(settled, wikitext);
     const seenCodes = new Map();
     settled.forEach(g => {
       // Which section this generation is: when an article names one code in
@@ -2474,6 +2477,167 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
       out.predecessors = reconciled.filter(g => stated.has(g)).map(g => ({ code: g.code, why: stated.get(g) }));
     }
     return out;
+  }
+
+  // ---------- what the article says about a mention, and where ----------
+  const mentionBaseName = m => String(m || "").split("#")[0].split("|").pop().replace(/\s*\([^()]*\)\s*$/, "").trim();
+  const nameRx = name => new RegExp("(?<![\\w-])" + name.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + "(?![\\w-])", "i");
+  // The name as itself: "BMW 1800 GL" does not name the BMW 1800.
+  function namesCar(sentence, name) {
+    const rx = new RegExp(nameRx(name).source, "gi");
+    let m;
+    while ((m = rx.exec(sentence))) {
+      if (!/^\s+(?:[A-Z]{1,4}\d*|\d+)\b/.test(sentence.slice(m.index + m[0].length))) return true;
+    }
+    return false;
+  }
+  // A car the article names only as a rival is no relation of this one. The model
+  // read the Glas 1700's "competed directly with BMW's own BMW 1800" as a shared
+  // platform, the Peugeot 305's rivals too. One other sentence naming the car is
+  // enough to keep it, as is the infobox, which is a sentence here by its line.
+  // The cue comes before the name. The Thunderbird's "continuation of the Ford Elite,
+  // to better compete in the market occupied by the Grand Prix" is about the others.
+  const RIVAL_CUE = /\b(?:compet(?:ed|es?|ing|itors?|ition)|rivals?|rivall?ed|up against)\b/i;
+  const SHARING_CUE = /\b(?:shar(?:e|es|ed|ing)|based on|rebadg\w*|badge\w*|sister|twin|derived|platforms?|chassis|same (?:body|car|vehicle)|built on|licen[cs]e\w*|version of|continuation|sold as|marketed as|related)\b/i;
+  function articleSentences(wikitext) {
+    return String(wikitext || "")
+      .replace(/<ref[^>]*\/>|<ref(?:\s[^>]*)?>[\s\S]*?<\/ref>/gi, " ")
+      .replace(/\[\[([^\]|]*)\|([^\]]*)\]\]/g, "$1 $2")
+      .replace(/\[\[([^\]]*)\]\]/g, "$1")
+      .replace(/&nbsp;|&#160;/gi, " ").replace(/'{2,}/g, "")
+      .split(/(?<=[.!?])\s+|\n/);
+  }
+  function dropRivalMentions(gens, wikitext) {
+    let sentences = null;
+    const verdict = new Map();
+    const onlyRival = m => {
+      const name = mentionBaseName(m);
+      if (!name) return false;
+      if (verdict.has(name)) return verdict.get(name);
+      sentences = sentences || articleSentences(wikitext);
+      const hits = sentences.filter(x => namesCar(x, name));
+      const before = x => x.slice(0, x.toLowerCase().indexOf(name.toLowerCase()));
+      const out = hits.length > 0 && hits.every(x => RIVAL_CUE.test(before(x)) && !SHARING_CUE.test(x));
+      verdict.set(name, out);
+      return out;
+    };
+    gens.forEach(g => { g.sharedPlatforms = (g.sharedPlatforms || []).filter(m => !onlyRival(m)); });
+  }
+  // A mention belongs to the generation whose section names it. The G-Class W463
+  // took the W460's Peugeot P4, the Mokka A the Mokka B's Peugeot 208 II. Only a name
+  // another generation's section gives moves; a name in a section of no generation
+  // may be about any of them, and one no section gives stays where the model put it.
+  //
+  // The lead and the nameplate's infobox speak for the whole car, so a name there
+  // normally stays too. Not when a read has spread one list: three or more
+  // generations with the same two or more names, as when the Dodge Phoenix's
+  // "related" field went onto every series from the AP2D on. Then the sections
+  // decide, and a name at least half of those generations' sections give stays on
+  // all of them, since a section often leaves out what the one before it said.
+  //
+  // `subPages` are pages read beside the article: { title, at, stop } within
+  // `wikitext`. One titled for a generation speaks for that generation alone. The
+  // Mach-E's page says it shares the fourth generation Focus's platform, and the S550
+  // had taken that as well.
+  //
+  // A mention that would otherwise leave the car goes to the sections that name it,
+  // because one article naming the other car is enough to keep the relationship.
+  function placeMentionsBySection(gens, wikitext, subPages) {
+    if (!wikitext || !gens || gens.length < 2) return;
+    const secs = wikitextSections(wikitext);
+    const regions = gens.map(g => {
+      const sec = generationSection(wikitext, secs, g);
+      const pages = (subPages || []).filter(p => labelCarriesCode(p.title, g.code));
+      return (sec ? [sec] : []).concat(pages);
+    });
+    const spans = [...new Map(regions.flat().map(x => [x.at, x])).values()];
+    if (spans.length < 2) return;
+    // Positions are the wikitext's: articleHay shortens it, so it comes after the cut.
+    let rest = String(wikitext);
+    spans.forEach(x => { rest = rest.slice(0, x.at) + " ".repeat(x.stop - x.at) + rest.slice(x.stop); });
+    const firstHeading = rest.search(/^==[^=]/m);
+    const lead = articleHay(firstHeading >= 0 ? rest.slice(0, firstHeading) : rest);
+    const body = articleHay(firstHeading >= 0 ? rest.slice(firstHeading) : "");
+    const textOf = list => list.map(x => articleHay(wikitext.slice(x.at, x.stop))).join("\n");
+    // Any tail of the name counts on this side: the section may say just "the Prius".
+    const namedIn = (text, name) => {
+      const words = name.toLowerCase().split(/\s+/);
+      return words.some((w, i) => {
+        const tail = words.slice(i).join(" ");
+        return tail.length >= 3 && /[a-z]/.test(tail) && nameRx(tail).test(text);
+      });
+    };
+    const listKey = g => (g.sharedPlatforms || []).map(norm).sort().join("|");
+    const sameList = new Map();
+    gens.forEach((g, i) => {
+      if ((g.sharedPlatforms || []).length < 2 || !regions[i].length) return;
+      const key = listKey(g);
+      sameList.set(key, (sameList.get(key) || []).concat(i));
+    });
+    const groupOf = gens.map(g => { const list = sameList.get(listKey(g)); return list && list.length >= 3 ? list : null; });
+    const moved = [];
+    gens.forEach((g, i) => {
+      if (!regions[i].length) return;
+      const ownText = textOf(regions[i]);
+      g.sharedPlatforms = (g.sharedPlatforms || []).filter(m => {
+        const name = mentionBaseName(m);
+        // A sibling's own name is no other car: the Toyota SA's list names its series.
+        if (!name || gens.some(o => norm(o.code) === norm(name))) return true;
+        // "Lexus ES (XV20)" on the XV20 and "Statesman HZ" on the HZ say for
+        // themselves which generation they mean.
+        const tag = /\(([^()]*)\)\s*$/.exec(String(m).split("#")[0]);
+        if ((tag && labelCarriesCode(g.code, tag[1])) || labelCarriesCode(m, g.code)) return true;
+        if (namedIn(ownText, name) || namedIn(body, name)) return true;
+        if (namedIn(lead, name)) {
+          const group = groupOf[i];
+          if (!group) return true;
+          const said = group.filter(j => namedIn(textOf(regions[j]), name)).length;
+          if (said * 2 >= group.length) return true;
+        }
+        const whole = nameRx(name.toLowerCase());
+        const holds = (x, own) => !own.some(o => x.at <= o.at && x.stop >= o.stop) && whole.test(articleHay(wikitext.slice(x.at, x.stop)));
+        const others = gens.map((o, j) => j).filter(j => j !== i && regions[j].some(x => holds(x, regions[i])));
+        if (!others.length) return true;
+        moved.push({ mention: m, to: others });
+        return false;
+      });
+    });
+    moved.forEach(({ mention, to }) => {
+      if (gens.some(g => (g.sharedPlatforms || []).some(m => norm(m) === norm(mention)))) return;
+      to.forEach(j => gens[j].sharedPlatforms.push(mention));
+    });
+  }
+  // A generation's own infobox settles when it ended, if it gives one plain range
+  // starting the year the model said. The model takes other dates from the prose:
+  // the first GTO "ended" in 1974, the DeSoto Diplomat in 1983 from a photo's
+  // caption. Several ranges, a market in brackets or another start say the card
+  // and the read are about different things, and then the read stands.
+  const CARD_RANGE_RE = /^(?:[a-z]+\.?\s+)?(?:\d{1,2},?\s+)?((?:19|20)\d{2})\s*(?:[-\u2013\u2014]|&ndash;|&mdash;|to)\s*(?:[a-z]+\.?\s+)?(?:\d{1,2},?\s+)?((?:19|20)\d{2}|present)$/i;
+  function cardRange(field) {
+    if (field == null) return null;
+    const v = String(field).replace(/<!--[\s\S]*?-->/g, "")
+      .replace(/<ref[^>]*\/>|<ref(?:\s[^>]*)?>[\s\S]*?<\/ref>/gi, "").replace(/&nbsp;/g, " ").trim();
+    const m = CARD_RANGE_RE.exec(v);
+    return m ? { start: Number(m[1]), end: /present/i.test(m[2]) ? null : Number(m[2]) } : null;
+  }
+  function endYearsFromOwnCards(gens, wikitext) {
+    if (!wikitext || !gens || gens.length < 2) return;
+    const secs = wikitextSections(wikitext);
+    const placed = gens.map(g => generationSection(wikitext, secs, g));
+    gens.forEach((g, i) => {
+      const own = placed[i];
+      if (!own || g.yearStart == null || placed.some((x, j) => j !== i && x && x.at === own.at)) return;
+      const body = wikitext.slice((wikitext.indexOf("\n", own.at) + 1) || own.stop, own.stop);
+      const nextHeading = body.search(/^={2,6}[^=]/m);
+      const text = nextHeading >= 0 ? body.slice(0, nextHeading) : body;
+      const box = text.search(/\{\{\s*infobox automobile/i);
+      if (box < 0) return;
+      const card = text.slice(box);
+      const ranges = [/\|\s*production\s*=/i, /\|\s*model_years\s*=/i]
+        .map(rx => cardRange(infoboxFieldValue(card, rx))).filter(r => r && r.start === g.yearStart);
+      if (!ranges.length || ranges.some(r => r.end === g.yearEnd)) return;
+      g.yearEnd = ranges[0].end;
+    });
   }
 
   // ---------- a predecessor is not a generation, and neither is a successor ----------
@@ -2543,33 +2707,34 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
         return looksLikeCode ? ` ${t} ` : " ";
       });
   }
+  // The generation's own section. By the code in its heading; failing
+  // that by the code without a remark the model put after it ("MA61S/MB61S
+  // (Wagon R-Wide)"); failing that by the anchor the heading carries --
+  // the Soarer's is "<span class="anchor" id="Z40"></span>Fourth generation
+  // (2001-2005)", which names no code in words at all.
+  function generationSection(wikitext, secs, g) {
+    const headingLine = sec => wikitext.slice(sec.at, (wikitext.indexOf("\n", sec.at) + 1 || wikitext.length + 1) - 1);
+    const code = String(g.codeBase || g.code || "").trim();
+    const bare = code.replace(/\s*\([^()]*\)\s*$/, "").trim();
+    const sec = sectionForCode(wikitext, code) || (bare && bare !== code ? sectionForCode(wikitext, bare) : null);
+    if (sec) return sec;
+    const want = norm(bare || code);
+    if (!want) return null;
+    return secs.find(p => {
+      const line = headingLine(p);
+      const ids = [];
+      line.replace(/\bid\s*=\s*"([^"]+)"/gi, (m0, id) => { ids.push(id); return m0; });
+      line.replace(/\{\{\s*anchor\s*\|([^{}]*)\}\}/gi, (m0, a) => { a.split("|").forEach(x => ids.push(x)); return m0; });
+      return ids.some(id => norm(id) === want);
+    }) || null;
+  }
   function predecessorsStatedBy(wikitext, gens) {
     const found = new Map();
     if (!wikitext || !gens || gens.length < 2) return found;
     const secs = wikitextSections(wikitext);
     const codeOf = g => g.codeBase || g.code;
     const claims = new Map();    // generation -> { kind, why }
-    // The generation's own section. By the code in its heading; failing
-    // that by the code without a remark the model put after it ("MA61S/MB61S
-    // (Wagon R-Wide)"); failing that by the anchor the heading carries --
-    // the Soarer's is "<span class="anchor" id="Z40"></span>Fourth generation
-    // (2001-2005)", which names no code in words at all.
-    const headingLine = sec => wikitext.slice(sec.at, (wikitext.indexOf("\n", sec.at) + 1 || wikitext.length + 1) - 1);
-    const sectionOf = g => {
-      const code = String(codeOf(g) || "").trim();
-      const bare = code.replace(/\s*\([^()]*\)\s*$/, "").trim();
-      let sec = sectionForCode(wikitext, code) || (bare && bare !== code ? sectionForCode(wikitext, bare) : null);
-      if (sec) return sec;
-      const want = norm(bare || code);
-      if (!want) return null;
-      return secs.find(p => {
-        const line = headingLine(p);
-        const ids = [];
-        line.replace(/\bid\s*=\s*"([^"]+)"/gi, (m0, id) => { ids.push(id); return m0; });
-        line.replace(/\{\{\s*anchor\s*\|([^{}]*)\}\}/gi, (m0, a) => { a.split("|").forEach(x => ids.push(x)); return m0; });
-        return ids.some(id => norm(id) === want);
-      }) || null;
-    };
+    const sectionOf = g => generationSection(wikitext, secs, g);
     gens.forEach(g => {
       const sec = sectionOf(g);
       if (!sec) return;
@@ -3488,6 +3653,7 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
   async function buildCheckMaterial(node, priorProposal, feedback, listedPages) {
     const wp = node.wp || node.label;
     let { wikitext, digest, resolvedTitle } = await fetchArticleDigest(wp);
+    let subPages = null;
     // ---------- follow {{Main|...}} sub-articles (the Kia Pride case) ----------
     // Only when the main article delegates AND doesn't already describe the
     // generations itself: if the headings/cues already carry the detail,
@@ -3507,6 +3673,12 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
         // away as "not in the source", which is exactly the failure the
         // guard is meant to prevent for INVENTED facts, not real ones read
         // from a page the article itself points at.
+        let pageAt = wikitext.length + 2;
+        subPages = good.map(g => {
+          const page = { title: g.sa.title, at: pageAt, stop: pageAt + g.wikitext.length };
+          pageAt = page.stop + 2;
+          return page;
+        });
         wikitext = wikitext + "\n\n" + good.map(g => g.wikitext).join("\n\n");
         // Surfaced to the model as clearly-labelled extra material, attributed
         // to the heading each link sat under.
@@ -3520,7 +3692,7 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
       }
     }
     const messages = buildMessages(node, digest, priorProposal, feedback);
-    return { wp, wikitext, digest, messages, resolvedTitle: resolvedTitle || wp };
+    return { wp, wikitext, digest, messages, resolvedTitle: resolvedTitle || wp, subPages };
   }
   // `manualRaw`, when supplied, skips the real askLlamaCpp() call entirely
   // and validates/applies THAT response instead -- the other half of the
@@ -3564,7 +3736,7 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
       return { wp: node.wp, wikitext: "", raw: null, dropped: [], messages: [], resolvedTitle: node.wp,
                clean: { hasMultipleGenerations: false, generations: [], notACar: why } };
     }
-    const { wp, wikitext, messages, resolvedTitle } = await buildCheckMaterial(node, priorProposal, feedback, listed && listed.pages);
+    const { wp, wikitext, messages, resolvedTitle, subPages } = await buildCheckMaterial(node, priorProposal, feedback, listed && listed.pages);
     const notACar = manualRaw === undefined ? articleIsNotACar(wikitext, resolvedTitle || wp) : null;
     if (notACar) {
       note(`llm: ${node.make || ""} ${node.label} -- "${resolvedTitle || wp}" is ${notACar}, not this car's article: not split`);
@@ -3573,7 +3745,7 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
     }
     const raw = manualRaw !== undefined ? manualRaw
       : await askLlamaCpp(messages, `${node.make || ""} ${node.label}`.trim() + " · split");
-    const clean = validate(raw, wikitext);
+    const clean = validate(raw, wikitext, subPages);
     if (listed) clean.fromIndexPage = true;
     markFutureGenerations(clean.generations, wikitext);
     if (nodes) await annotateSharedPlatformMatches(nodes, node.id, clean);
@@ -4585,7 +4757,10 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
     const taken = new Set();
     const out = (freshGens || []).map(() => null);
     (freshGens || []).forEach((g, i) => {
-      const m = (genNodes || []).find(o => o && !taken.has(o.id) && labelEndsInCode(o.label, g.code));
+      // The closest name when several end in the code: the Dodge 440's "440" is
+      // "Dodge 440", not "Dodge Dart 440".
+      const m = (genNodes || []).filter(o => o && !taken.has(o.id) && labelEndsInCode(o.label, g.code))
+        .sort((a, b) => String(a.label).length - String(b.label).length)[0];
       if (m) { taken.add(m.id); out[i] = m; }
     });
     (freshGens || []).forEach((g, i) => {
@@ -5582,10 +5757,22 @@ Rules:
     if (Array.isArray(digest.cues) && digest.cues.length) bits.push("Excerpts:\n" + digest.cues.slice(0, 6).join("\n\n"));
     return bits.join("\n\n").slice(0, 8000);
   }
-  async function fetchYearFactsGrounded(title) {
+  // A page reached by a car's bare name is only that car's if it is about a car
+  // and says whose. "BMW 2004" has no article, and "2004" is the year: the car was
+  // dated 2004. The Chevrolet NKR took 1991-2023 from the Republic of Artsakh, the
+  // Renault Univers its date from a typeface and the NSU P6 the Rover P6's.
+  function barePageIsThisCar(wikitext, make) {
+    const text = String(wikitext || "");
+    if (!/\{\{\s*infobox\s+(?:automobile(?! engine)|electric vehicle|racing car|concept car|vehicle|military vehicle|truck|bus)/i.test(text)) return false;
+    return !!make && norm(text.slice(0, 3000)).includes(norm(make));
+  }
+  async function fetchYearFactsGrounded(title, make) {
     let digest;
-    try { ({ digest } = await fetchArticleDigest(title)); }
-    catch (e) { return null; } // no article by this title, or the fetch itself failed -- not an error, just nothing to ground on
+    try {
+      const read = await fetchArticleDigest(title);
+      if (make && !barePageIsThisCar(read.wikitext, make)) return null;
+      digest = read.digest;
+    } catch (e) { return null; } // no article by this title, or the fetch itself failed -- not an error, just nothing to ground on
     const text = factsSourceText(digest);
     if (!text.trim()) return null;
     let raw;
@@ -5613,7 +5800,7 @@ Rules:
     // real 1978-1986), and a wrong year puts a car in the wrong place on the
     // Timeline. A car with no stated year is left undated.
     return (await fetchYearFactsGrounded(`${makeLabel} ${modelLabel}`.trim()))
-      || (await fetchYearFactsGrounded(modelLabel));
+      || (await fetchYearFactsGrounded(modelLabel, makeLabel));
   }
   // Years on file from that third step. They are not shown, and they do not
   // count as an answer, so the article gets another look.
@@ -5746,6 +5933,9 @@ Rules:
   // of a brand-new duplicate one being minted beside it.
   const MAKE_SHORT_NAMES = { VW: "Volkswagen", Chevy: "Chevrolet" };
   const ARTICLE_KIND_RE = /^\((?:automobile|car|company|marque|vehicle|truck)\)$/i;
+  // A maker and a place is a company: "Chrysler Australia", "Ford Brazil". Left out
+  // because they name real cars: America (Ferrari, Austin) and Mexico (Maserati).
+  const PLACE_NOT_CAR_RE = /^(?:africa|argentina|asia|australia|austria|belgium|brasil|brazil|britain|canada|chile|china|colombia|egypt|england|europe|france|germany|india|indonesia|iran|italy|japan|korea|malaysia|netherlands|new zealand|north america|pakistan|philippines|poland|portugal|russia|south africa|south america|south korea|spain|sweden|taiwan|thailand|turkey|uk|united kingdom|united states|usa|venezuela|vietnam)$/i;
   const REFILED_CARS = {
     "300zx-z31": { make: "Nissan", label: "300ZX (Z31)" },
     "fairlady-z-z34": { make: "Nissan", label: "Fairlady Z Z34" },
@@ -5809,6 +5999,7 @@ Rules:
     if (makeNode && modelLabel === undefined) {
       modelLabel = trimmed.slice(makeNode.label.length).trim();
       if (!modelLabel) return null; // mention WAS just a bare make name, nothing to mint
+      if (PLACE_NOT_CAR_RE.test(modelLabel)) return null;
     }
     if (!makeNode) {
       const parts = trimmed.split(/\s+/);
@@ -5890,6 +6081,7 @@ Rules:
           return null;
         }
       }
+      if (!makeNode && PLACE_NOT_CAR_RE.test(modelLabel)) return null;
       // "Meteor (automobile)": an article's title for a brand. The brand is the name.
       if (!makeNode && ARTICLE_KIND_RE.test(modelLabel)) {
         idParts = [makeLabel, modelLabel];
@@ -6897,7 +7089,7 @@ Rules:
       reviewedGen("Original (1962–1963)", 1962, 1963, ["Raymond Loewy"]),
       reviewedGen("Avanti II", 1965, 1986, ["Leo Newman", "Nate Altman"]), reviewedGen("Avanti", 1987, 2006, ["Tom Kellogg"])] },
   };
-  const REVIEWED_V = 11;
+  const REVIEWED_V = 12;
   function applyReviewedCorrections() {
     // Only over what these lists correct: a new or wiped store has nothing to put right.
     const had = (store.settings && store.settings.reviewedV) || 0;
@@ -6917,6 +7109,7 @@ Rules:
     if (had < 9) applyNinthReview(at);
     if (had < 10) applyTenthReview();
     if (had < 11) applyEleventhReview(at);
+    if (had < 12) applyTwelfthReview(at);
     store.settings.reviewedV = REVIEWED_V;
   }
   // Cars whose article search found something else: a pool player, an album, a
@@ -6959,6 +7152,57 @@ Rules:
     }
     const era = store.aliases["llm-m-austin-mini-mini-1275-gt"];
     if (era && !era.names.includes("Mini Clubman")) era.names.unshift("Mini Clubman");
+  }
+  function applyTwelfthReview(at) {
+    // The Glas 1700's article: BMW's own 1800 is its rival, and the BMW 1800SA, 1804
+    // and 2004 are the Glas body sold in South Africa, the first from 1968 to 1973 and
+    // the others in 1973 and 1974. The 2004 was dated from the article on the year.
+    const SOUTH_AFRICA = { "llm-related-bmw-1800sa": [1968, 1973], "llm-related-bmw-1804": [1973, 1974], "llm-related-bmw-2004": [1973, 1974] };
+    for (const [id, [year, end]] of Object.entries(SOUTH_AFRICA)) {
+      store.mintedFacts[id] = { checkedAt: at, year, end, source: "wikipedia" };
+      store.wpLinks[id] = "Glas 1700";
+    }
+    // Years read from a page about something else, by the car's bare name: a race, a
+    // motorway, a typeface, a country, a game, another maker's car. They go back to
+    // undated until an article says.
+    for (const id of ["fiat-grand-raid", "willys-m606", "xinkai-camry", "sanjiu-vitara", "renault-univers", "chevrolet-nkr",
+      "bedford-nkr", "nsu-p6", "nsu-p10", "fiat-mini", "gm-m-body", "isuzu-dragon-power"]) {
+      delete store.mintedFacts["llm-related-" + id];
+    }
+    // Named only as rivals, by the articles that gave them.
+    const RIVALS = [
+      ["Glas 1700", null, "BMW 1800", "llm-related-bmw-1800|m-glas-1700|platform"],
+      ["Peugeot 305", null, "Ford Cortina", "m-ford-cortina|m-peugeot-305|platform", "llm-m-ford-cortina-mark-iv|m-peugeot-305|platform"],
+      ["Peugeot 305", null, "Ford Taunus", "m-ford-taunus|m-peugeot-305|platform", "llm-m-ford-taunus-tc2|m-peugeot-305|platform"],
+      ["Peugeot 305", null, "Renault 12", "m-peugeot-305|m-renault-12|platform"],
+      ["Peugeot 305", null, "Ford Sierra", "llm-m-ford-sierra-mk-i|m-peugeot-305|platform"],
+      ["Dodge Challenger", /^Third generation/, "Chevrolet Camaro", "llm-llm-related-dodge-challenger-third-generation-2008-2023|m-chevrolet-camaro|platform"],
+      ["Dodge Challenger", /^Third generation/, "Ford Mustang", "llm-llm-related-dodge-challenger-third-generation-2008-2023|m-ford-mustang|platform"],
+      ["Nissan Elgrand", null, "Toyota Alphard", "llm-m-nissan-elgrand-e51-second-generation|llm-m-toyota-alphard-first-generation-ah10|platform",
+        "llm-m-nissan-elgrand-e52-third-generation|llm-m-toyota-alphard-third-generation-ah30|platform"],
+      // On the big Transit's list. The Transit Custom keeps its own link: the second
+      // generation is the new Transporter's base, as the Transporter's article says.
+      ["Ford Transit", /^Ford Transit Custom/, "Volkswagen Transporter", "llm-llm-related-ford-transit-ford-transit-custom|m-volkswagen-transporter|platform",
+        "llm-llm-related-ford-transit-ford-transit-custom-second-generation|m-volkswagen-transporter|platform"],
+      ["Ford Ranger (Americas)", null, "Chevrolet Colorado", "llm-m-chevrolet-colorado-third-generation|llm-m-ford-ranger-americas-fifth-generation-2024-present|platform",
+        "llm-m-chevrolet-colorado-second-generation-rg|llm-m-ford-ranger-americas-fourth-generation-2019-present|platform"],
+      ["Ford Taunus", null, "Opel Rekord", "llm-m-ford-taunus-17m-20m|llm-m-opel-rekord-rekord-c|platform", "llm-m-ford-taunus-17m|llm-m-opel-rekord-rekord-p2|platform"],
+    ];
+    for (const [title, code, mention, ...keys] of RIVALS) {
+      for (const key of keys) {
+        delete store.relations[key];
+        store.rejectedRelations[key] = true;
+      }
+      for (const bucket of [store.families, store.recheck]) {
+        for (const e of Object.values(bucket)) {
+          if (!e || e.sourceTitle !== title) continue;
+          for (const g of (e.proposal && e.proposal.generations) || []) {
+            if (code && !code.test(g.code)) continue;
+            g.sharedPlatforms = (g.sharedPlatforms || []).filter(m => m !== mention);
+          }
+        }
+      }
+    }
   }
   function applyEleventhReview(at) {
     // The Mach-E's article says it shares the C2 platform with the fourth generation
@@ -19485,8 +19729,8 @@ Rules:
     return { wp, messages };
   }
   async function previewNodeResult(node, raw) {
-    const { wp, wikitext } = await buildCheckMaterial(node, null, null);
-    const clean = validate(raw, wikitext);
+    const { wp, wikitext, subPages } = await buildCheckMaterial(node, null, null);
+    const clean = validate(raw, wikitext, subPages);
     const dropped = (Array.isArray(raw && raw.generations) ? raw.generations : [])
       .filter(g => !clean.generations.some(c => c.code === String(g && g.code)));
     return { wp, clean, raw, dropped };
@@ -19651,6 +19895,7 @@ Rules:
     setDecisionSource, decisionSource: () => decisionSource,
     resolveWeakRelations, makeRelationship, weakProposalRejection,
     additiveRecheck, diffGenerationCodes, pairFreshGenerations, headingsOf,
+    barePageIsThisCar, dropRivalMentions, placeMentionsBySection, endYearsFromOwnCards,
     resolvePendingOwnGenerations, ownGenerationCode, sameArticleOwner,
     placeInCascade, cascadeDepthOf: id => depthOf(id), ownCodeShape, foldUmbrellaModels, applyGenerationPlacements, placeAsGeneration, pagesPointedAt,
     schedulePartnerCheck, cascadeDepthIn,

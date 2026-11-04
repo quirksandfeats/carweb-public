@@ -2348,3 +2348,65 @@ rebadged Plymouth Furys. They lose their Dart and 440 links (36 links, nameplate
 rollups included), and the TD2 and VD2 gain the 440, as the article says. The SD2 lands
 on the second generation Dart by its corrected years. PD4 stays on the first generation
 Dart, by years alone, and the article does not say so.
+
+### 4 November: what the article says about a mention, and where
+
+The Glas 1700 scan added four BMWs, all wrong in some way. None of it came from the
+placement or re-read changes: `genPlacements` has no entry for them, and the code at
+fault dates from September and October. Measuring the causes over all 2,829 articles
+the store has read gave these rules. They run when a scan reads an article. A load
+replays stored answers as they are, so no stored read changes by itself.
+
+**A bare name's page.** `bigYearAttempt` falls back to the car's bare name when
+"Make Model" has no article. "BMW 2004" reached the article on the year 2004 and took
+that date. Of 27 cars dated through that fallback, 12 had borrowed years: the NKR trucks
+from the Republic of Artsakh, the NSU P6 from the Rover P6, the Renault Univers from a
+typeface. `barePageIsThisCar` now wants a car infobox and the make in the page's opening.
+
+**Rivals.** The check on a mention only asked whether the name is in the article, and
+"competed directly with BMW's own BMW 1800" passes. `dropRivalMentions` removes a name
+when every sentence naming it has a rival word before the name and no sharing word.
+"BMW 1800 GL" does not count as naming the BMW 1800. An infobox line counts as a
+sentence, so a `related` field keeps it. It fires on 12 of about 13,500 stored mentions.
+The first version also caught "an alternative to the Plymouth Savoy", which is a rebadge,
+and "continuation of the Ford Elite, to better compete": both stay now.
+
+**Which generation.** `placeMentionsBySection` moves a name to the generations whose
+sections give it, and only when another generation's section does. A name in a section of
+no generation, or in no section, stays where the model put it. A name in the lead stays
+too, unless three or more generations carry the same list of two or more names, which is
+what a spread list looks like. Then the sections decide, and a name half that group's
+sections give stays on all of them. A mention that would otherwise leave the car goes to
+the sections that name it, so the relationship stays. On the Phoenix's old read this gives
+what review 11 did by hand. Treating every lead name that way took true links from the
+Holden Camira and the Ford Festiva, so that version was dropped.
+
+`subPages` tells it where a page read beside the article sits in the text. A page titled
+for a generation speaks for that generation alone, which is the S550 / Focus case.
+
+Over stored reads it would take about 270 mentions off a generation and put about 75 on
+another. A sample of 30 was mostly right and included some losses, such as Escort 100E /
+Thames 300E and E-Class W212 / CLS C218, where the sections do not state a true link.
+The other car's article can still give those. The stored reads are left as they are.
+
+**End years.** `endYearsFromOwnCards` takes a generation's end from its own infobox when
+that gives one plain range starting the year the model said: first GTO 1967, not 1974;
+Genesis BH 2013, not 2016. Several ranges, a market in brackets or another start leave the
+read alone, as does agreeing with either `production` or `model_years`. About 90 stored
+ends differ. These stay as they are too.
+
+**Smaller.** `pairFreshGenerations` takes the shortest label when several end in the code,
+so "440" pairs with "Dodge 440". `mintRelatedNode` makes no car of a maker and a country
+("Chrysler Australia"); America and Mexico stay out of that list because they name cars.
+
+**Tried and dropped.** Refusing a year found only in captions or references: of 20,693
+stored years that hits 515, and most are right, since many articles give a generation's
+years only in a caption. The Diplomat's 1983 would survive anyway, because it is in the
+prose and the car has no card of its own for the generation. That case stays open.
+
+**Review 12.** The BMW 1800SA runs 1968-1973, the 1804 and 2004 1973-1974, as the Glas
+1700's article says, and all three keep the link. BMW's own 1800 loses it and leaves the
+graph. Twelve cars return to undated. Links go for the rivals on the Peugeot 305,
+Challenger, Elgrand, Ranger and Taunus, and the big Transit / Transporter, which belongs to
+the Transit Custom and stays there. Whole-graph diff: 25 links and one car gone, none
+added, and a second load changes nothing.
