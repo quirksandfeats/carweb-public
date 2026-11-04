@@ -383,7 +383,10 @@ window.CarWeb = (function () {
         // one started the same year runs alongside the generation before it: the
         // Accord's North American seventh generation ends nothing for the Japanese one.
         const placed = (window.LlmFamilies && window.LlmFamilies.genPlacements && window.LlmFamilies.genPlacements()) || {};
-        const g = gens[i], next = gens.slice(i + 1).find(x => !placed[x.id] || x.year > g.year);
+        const g = gens[i];
+        const lines = window.LlmFamilies && window.LlmFamilies.generationLines && window.LlmFamilies.generationLines(fam.id);
+        const line = lines && lines.find(l => l.includes(g.id));
+        const next = gens.slice(i + 1).find(x => (!line || line.includes(x.id)) && (!placed[x.id] || x.year > g.year));
         if (!next || placed[g.id]) continue;
         // Real user report, the A-Class: "the first generation seems to only
         // have the starting year. However the wikipedia has both starting and
@@ -416,6 +419,7 @@ window.CarWeb = (function () {
         if (ends.every(e => e != null)) fam.end = Math.max(...ends);
       }
     });
+    if (window.LlmFamilies && window.LlmFamilies.applyOverlapEnds) window.LlmFamilies.applyOverlapEnds(nodes);
   }
   // ---------- data cleanup: a family's own wp, from the right sibling generation ----------
   // dbSourceFor() (below) already falls back to a documented generation for

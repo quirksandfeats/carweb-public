@@ -2505,14 +2505,38 @@ sequence by year. Three things followed from that: `applyRereadEnds` refused the
 because the M2 F87 began in 2016, `backfillGenerationEnds` then closed the F45/F46 at 2016, and
 all seven next-generation links crossed bodies (F22 to F45/F46, F45/F46 to F87).
 
-`GENERATION_LINES` names each body's generations for a nameplate that needs it. `chainGenerations`
-links within a line, and `applyRereadEnds` compares an end only with later generations of the same
-line. The Ford Raptor is the only other entry: its third F-150 generation led to the first Ranger.
-The U06 and the G87 joined `STILL_BUILT_GENERATIONS`, because both articles say present.
+`readGenerationLines` reads the bodies from a nameplate's stored headings: two or more top-level
+headings, each over two or more generations, whose starts interleave. A sub-article can add a line,
+as the BMW M2's does. `chainGenerations` links within a line, and `applyRereadEnds` and
+`backfillGenerationEnds` compare an end only with later generations of the same line. Nothing is
+listed per nameplate. Eras do not qualify, because their starts follow one another: the Transporter's
+"Type 2" and "Transporter/Multivan" stay one sequence. Only the 2 Series and the Raptor match today.
+The Raptor's third F-150 generation had led to the first Ranger.
 
-Result: three ends changed (F45/F46 2021, U06 and G87 open), eight links removed and four added.
-No other node or link moved. A second load, a store already at review 15 and the static mirror
-give the same graph. Test: `qa/jsdom/jsdom_generation_lines_test.js`.
+## A generation built past its successor
 
-The table covers what a search of stored section headings found: bodies as top-level sections with
-generations beneath them. A nameplate that lists parallel bodies another way still chains by year.
+`applyRereadEnds` refuses a read's end more than a year past the next generation's start, because
+reads take the nameplate's end (Malibu First, to 1972). That also refused true overlaps. A scan now
+marks a read `endOnCard` when the generation's own card, in its section or its own page, names that
+end: "1987-2002 (sedan, fleet only until 2014)", "extended until September 1988". A read with no
+such card stays out. The word "until" and a range's end count; a range's start does not.
+
+Of 21 candidates, 15 were real and now show (Hilux N30/N40, Wagon R MP31S, Almera N17, Bluebird U11,
+Cedric Y30 and Y31, Navara D40, Note E12, Sentra B17, Meriva A, Kijang F40/F50, Corolla E20, E70 and
+E100, Golf Mk4). Review 16 marks those stored reads and changes no value. Move L600, Genesis BH and
+Valiant CL read the nameplate's end, and their cards do not name it. Falcon XE and Holden Utility HT
+have no card. The Crown S130 already showed 2000 on one of two nodes for that generation.
+
+The first version set the longer end during the load, and links followed it: the Infiniti J30 left
+the Cedric Y32 for the Y30, and the Avanza and Innova left the last Kijang for the F40/F50. So
+`applyOverlapEnds` runs last, after every car is paired, and keeps the next start as `handover`.
+`pairingEnd` reads `handover` first, so a later pairing also goes by it. Result against main: 16
+ends changed, no link or car moved, and stored values unchanged apart from the 15 marks. Displays,
+the year filter and engine year checks use the shown end, because the car was built in those years.
+
+Limits: a generation sharing a section with another (Hilux N30 and N40), or with no section found
+(Meriva A), does not mark itself on a re-scan and keeps only the review's mark until that re-scan.
+A card can be stale, though a stale card rarely names an end year. The Golf Mk4 shows the read's
+2006, though its card also gives 2014 for Brazil.
+
+Test: `qa/jsdom/jsdom_generation_lines_test.js`.

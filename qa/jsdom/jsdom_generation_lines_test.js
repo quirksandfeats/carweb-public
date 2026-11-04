@@ -58,5 +58,68 @@ const fam = nodes.find(n => n.id === "fam-toyota-corolla");
 const chain = fam.generations.map(id => nodes.find(n => n.id === id)).filter(g => g && !g.retired && !g.future && g.year != null);
 check("a family without lines still chains", links.some(l => live(l) && l.type === "gensucc" && chain.some(g => g.id === idOf(l.source)) && chain.some(g => g.id === idOf(l.target))));
 
+// The lines come from the article's headings, with nothing written down per nameplate.
+const lineCount = id => (LF.generationLines(id) || []).length;
+check("the 2 Series reads as four lines", lineCount("fam-bmw-2-series") === 4);
+check("the Raptor reads as two lines", lineCount("m-ford-raptor") === 2);
+check("eras are one sequence (the Transporter's Type 2 and Multivan)", lineCount("fam-volkswagen-transporter") === 0);
+check("a generation heading is not a body (the Falcon)", lineCount("m-ford-falcon-australia") === 0);
+check("a generation heading is not a body (the V70)", lineCount("m-volvo-v70") === 0);
+
+// A read's end past the next start shows only where the generation's own card names it.
+const node = id => nodes.find(n => n.id === id);
+for (const [id, end] of [
+  ["llm-m-nissan-cedric-y31", 2002], ["llm-m-nissan-cedric-y30", 1999], ["llm-m-toyota-hilux-n30-n40", 1988],
+  ["llm-m-nissan-navara-d40", 2021], ["llm-m-maruti-suzuki-wagon-r-second-generation-mp31s", 2025],
+  ["m-toyota-corolla-e70", 1987], ["m-volkswagen-golf-mk4", 2006], ["llm-m-opel-meriva-meriva-a", 2013],
+]) check(id + " shows its overlap", node(id).end === end, node(id).end);
+const notOnCard = [["fam-chrysler-valiant", "CL"], ["m-hyundai-genesis", "BH"], ["m-daihatsu-move", "L600"]];
+check("a read with no card behind it stays out", node("llm-m-hyundai-genesis-bh") ? node("llm-m-hyundai-genesis-bh").end === 2013 : true);
+for (const [fam, code] of notOnCard) {
+  const g = shipped.recheck[fam].proposal.generations.find(x => x.code === code);
+  check(fam + " " + code + " carries no mark", !g.endOnCard);
+}
+
+// An overlap moves no link: cars pair with the generation that had taken over.
+const between = (a, b) => links.some(l => live(l) && l.type === "platform" &&
+  ((idOf(l.source) === a && idOf(l.target) === b) || (idOf(l.source) === b && idOf(l.target) === a)));
+check("the J30 stays on the Y32", between("m-infiniti-j30", "llm-m-nissan-cedric-y32"));
+check("the J30 does not go to the Y30", !between("m-infiniti-j30", "llm-m-nissan-cedric-y30"));
+check("a handover is kept beside the shown end", node("llm-m-nissan-cedric-y31").handover === 1991);
+check("the Y31 still leads to the Y32", succ.has("llm-m-nissan-cedric-y31>llm-m-nissan-cedric-y32"));
+
+// A new scan marks its own read.
+const section = (title, card) => "== " + title + " ==\n{{Infobox automobile\n| name = X\n" + card + "\n}}\nProse.\n\n";
+const gen = (code, yearStart, yearEnd) => ({ code, yearStart, yearEnd, designers: [], engineers: [], sharedPlatforms: [] });
+const read = (gens, text) => { LF.endYearsFromOwnCards(gens, text); return gens; };
+{
+  const [a] = read([gen("AB1", 1983, 1999), gen("AB2", 1987, 1991)], section("First generation (AB1; 1983)",
+    "| production = {{unbulleted list | 1983–1987 | 1983–1999 (wagon/van) }}") + section("Second generation (AB2; 1987)", "| production = 1987–1991"));
+  check("a card's market or body end marks the read", a.endOnCard === true && a.yearEnd === 1999);
+}
+{
+  const [a] = read([gen("AB1", 1978, 1988), gen("AB2", 1983, 1988)], section("First generation (AB1; 1978)",
+    "| production = August 1978 – October 1983 (extended until September 1988)") + section("Second generation (AB2; 1983)", "| production = 1983–1988"));
+  check("\"extended until\" counts", a.endOnCard === true);
+}
+{
+  const [a] = read([gen("AB1", 2000, 2010), gen("AB2", 2005, null)], section("First generation (AB1; 2000)",
+    "| production = {{ubl | 2000–2005 (Japan) | 2010–2012 (Taiwan) }}") + section("Second generation (AB2; 2005)", "| production = 2005–present"));
+  check("the year as another range's start does not count", !a.endOnCard);
+}
+{
+  const gens = [gen("AB1", 2008, 2016), gen("AB2", 2013, 2016)];
+  LF.endYearsFromOwnCards(gens, section("First generation (AB1; 2008)", "| production = 2008–2013") + section("Second generation (AB2; 2013)", "| production = 2013–2016"));
+  check("a read of the nameplate's end takes the card's instead", gens[0].yearEnd === 2013 && gens[0].endOnCard === true);
+}
+{
+  const text = "== First generation (AB1; 1970) ==\nProse.\n\n== Second generation (AB2; 1974) ==\nProse.\n";
+  const page = "{{Infobox automobile\n| production = May 1970 – July 1974 (sedan), May 1970 – May 1978 (wagon)\n}}\n";
+  const w = text + "\n\n" + page;
+  const gens = [gen("AB1", 1970, 1978), gen("AB2", 1974, 1979)];
+  LF.endYearsFromOwnCards(gens, w, [{ title: "Example (AB1)", at: text.length + 2, stop: w.length }]);
+  check("the generation's own page counts", gens[0].endOnCard === true && !gens[1].endOnCard);
+}
+
 console.log(fails ? fails + " FAILED" : "all passed");
 process.exit(fails ? 1 : 0);
