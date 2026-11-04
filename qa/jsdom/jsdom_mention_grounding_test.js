@@ -105,7 +105,9 @@ t("with no page known, the text stays where the model put it", g[0].sharedPlatfo
 const card = (h, range, extra) => `==${h}==\n{{Infobox automobile\n| production = ${range}\n${extra || ""}}}\nText.\n\n`;
 const ended = (code, start, end, text) => { const x = [gen(code, [], start, end), gen("Other", [], 1990, 1995)]; LF.endYearsFromOwnCards(x, "Lead.\n\n" + text + "==Other==\nText.\n"); return x[0].yearEnd; };
 t("the card's end replaces the read's", ended("First", 1964, 1974, card("First", "1964–1967")) === 1967);
-t("a card still running clears a guessed end", ended("First", 2019, 2025, card("First", "2019–present")) === null);
+t("a card saying present does not reopen a car that ended", ended("First", 2019, 2025, card("First", "2019–present")) === 2025);
+t("a heading giving the read's end leaves the read", ended("Mexico", 1981, 1988, card("Mexico (1981–1988)", "1981–1982")) === 1988);
+t("a production field that is no plain range leaves the read", ended("First", 1999, 2005, card("First", "{{ubl|1999–2005 (Japan)}}", "| model_years = 1999–2006\n")) === 2005);
 t("months in a card are read", ended("First", 2003, 2010, card("First", "October 2003–August 2012")) === 2012);
 t("another start leaves the read", ended("First", 1978, 1980, card("First", "1977–1981")) === 1980);
 t("several ranges leave the read", ended("First", 1990, 1994, card("First", "1990–1994<br>1994–2009 (Kancil)")) === 1994);
@@ -163,5 +165,21 @@ t("the Transit Custom stays on the Transporter", linked("llm-related-ford-transi
 t("the big Transit does not", !linked("llm-related-ford-transit", "fam-volkswagen-transporter"));
 t("the Diplomat stays on the Savoy", linked("llm-m-plymouth-savoy-third-generation", "m-desoto-diplomat"));
 t("the Elite stays on the Thunderbird", linked("m-ford-elite", "m-ford-thunderbird-seventh-generation"));
+
+// ---------- end years the generations' own infoboxes give, on the shipped store ----------
+t("the Genesis BH ends in 2013", by("llm-m-hyundai-genesis-bh").end === 2013);
+t("the Sonata YF ends in 2014", by("llm-llm-related-hyundai-sonata-yf").end === 2014);
+t("the Move L600 ends in 1998", by("llm-m-daihatsu-move-l600").end === 1998);
+t("the Kadett's last year follows", by("m-opel-kadett").end === 1995);
+t("the Galaxy has ended", by("m-ford-galaxy").end === 2023);
+t("the A8 D5 sits with the A6 C8", linked("llm-m-audi-a6-c8", "llm-m-audi-a8-d5") && !linked("llm-m-audi-a6-c7", "llm-m-audi-a8-d5"));
+t("the 442 is off the first GTO", !linked("llm-m-oldsmobile-442-second-generation", "llm-llm-related-pontiac-gto-first-generation-1964-1967"));
+// Left out, because the years would move these links wrongly.
+t("the Innova AN140 stays with the Fortuner beside it", linked("llm-m-toyota-fortuner-second-generation-an150-an160", "llm-m-toyota-innova-an140"));
+t("and with the Hilux beside it", linked("llm-m-toyota-hilux-an110-an120-an130", "llm-m-toyota-innova-an140"));
+t("the K9 RJ stays on the G80 DH", linked("llm-m-genesis-g80-dh", "llm-m-kia-k9-rj"));
+t("the Tracker stays on the Vitara FT", linked("llm-m-chevrolet-tracker-americas-second-generation", "llm-m-suzuki-vitara-second-generation-ft-gt"));
+t("the 4Runner N180 stays off the Hilux N80", !linked("llm-m-toyota-4runner-n180", "llm-m-toyota-hilux-n80-n90-n100-n110-n200"));
+t("the K9 KH is not on the Genesis DH", !linked("llm-m-hyundai-genesis-dh", "llm-m-kia-k9-kh"));
 console.log(fails ? `\n${fails} FAILED` : "\nALL PASS");
 process.exit(fails ? 1 : 0);

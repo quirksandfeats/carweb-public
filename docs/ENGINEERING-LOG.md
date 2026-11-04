@@ -2410,3 +2410,25 @@ graph. Twelve cars return to undated. Links go for the rivals on the Peugeot 305
 Challenger, Elgrand, Ranger and Taunus, and the big Transit / Transporter, which belongs to
 the Transit Custom and stays there. Whole-graph diff: 25 links and one car gone, none
 added, and a second load changes nothing.
+
+**Review 13: the stored end years.** `endYearsFromOwnCards` was tightened after reading all
+93 entries it changed against their sections. A read whose end the section's heading gives
+stands (the Magnum's "Mexico (1981-1988)" over a card saying 1982). A card saying "present"
+does not reopen a car the read says ended, because cards go stale (the Seltos's first
+generation). A production field that is not a plain range ends the rule rather than falling
+to the model years, which can be one market's (the Vitz's are the North American Echo's).
+
+`REVIEWED_CARD_ENDS` then applies what is left, by car and code, with the XT5 by hand: its
+2024 is South Korea's and China's. 35 cars show a different end: 21 generations and 14
+nameplates, each nameplate agreeing with its article's lead.
+
+A generation's years also choose its links, so three corrected ends stay out: the Hilux N80,
+K9 RJ and Vitara FT would each move a link the article contradicts. The Innova AN140 stays
+out for the reason below. Rejected: Genesis DH / K9 KH, which the BH's end would otherwise
+add. The six links that did move are right, such as A8 D5 to A6 C8 and 442 off the first GTO.
+
+**Open: running generations in `successorGeneration`.** It reads a missing end year as the
+year the car began. The Innova AN140 (2015-present) then ties with the Fortuner that ended in
+2015, and a tie goes to the earlier car. Reading it as still running moved about 160 links on
+the shipped store, some right, some not (Versa C11 / Tiida C11, the same car, was lost), and
+a second load was not stable. It is left unchanged until that is reviewed by itself.

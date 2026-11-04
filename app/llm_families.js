@@ -2611,7 +2611,13 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
   // starting the year the model said. The model takes other dates from the prose:
   // the first GTO "ended" in 1974, the DeSoto Diplomat in 1983 from a photo's
   // caption. Several ranges, a market in brackets or another start say the card
-  // and the read are about different things, and then the read stands.
+  // and the read are about different things, and then the read stands. So does a
+  // read whose end the section's heading gives: the Magnum's "Mexico (1981-1988)" has
+  // a card saying 1982, and the article has not settled it. A card saying "present"
+  // does not reopen a car the read says ended, because cards go stale: the Seltos's
+  // first generation still says so beside its successor. A production field that is
+  // not a plain range ends it, rather than falling to the model years, which can be
+  // one market's: the Vitz's are the North American Echo's.
   const CARD_RANGE_RE = /^(?:[a-z]+\.?\s+)?(?:\d{1,2},?\s+)?((?:19|20)\d{2})\s*(?:[-\u2013\u2014]|&ndash;|&mdash;|to)\s*(?:[a-z]+\.?\s+)?(?:\d{1,2},?\s+)?((?:19|20)\d{2}|present)$/i;
   function cardRange(field) {
     if (field == null) return null;
@@ -2633,9 +2639,14 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
       const box = text.search(/\{\{\s*infobox automobile/i);
       if (box < 0) return;
       const card = text.slice(box);
-      const ranges = [/\|\s*production\s*=/i, /\|\s*model_years\s*=/i]
-        .map(rx => cardRange(infoboxFieldValue(card, rx))).filter(r => r && r.start === g.yearStart);
+      const production = infoboxFieldValue(card, /\|\s*production\s*=/i);
+      if (production != null && production.trim() && !cardRange(production)) return;
+      const ranges = [production, infoboxFieldValue(card, /\|\s*model_years\s*=/i)]
+        .map(cardRange).filter(r => r && r.start === g.yearStart);
       if (!ranges.length || ranges.some(r => r.end === g.yearEnd)) return;
+      const heading = /((?:19|20)\d{2})\s*[-\u2013\u2014]\s*((?:19|20)\d{2})\D*$/.exec(String(own.title || ""));
+      if (heading && Number(heading[2]) === g.yearEnd) return;
+      if (ranges[0].end == null && g.yearEnd != null) return;
       g.yearEnd = ranges[0].end;
     });
   }
@@ -7089,7 +7100,7 @@ Rules:
       reviewedGen("Original (1962–1963)", 1962, 1963, ["Raymond Loewy"]),
       reviewedGen("Avanti II", 1965, 1986, ["Leo Newman", "Nate Altman"]), reviewedGen("Avanti", 1987, 2006, ["Tom Kellogg"])] },
   };
-  const REVIEWED_V = 12;
+  const REVIEWED_V = 13;
   function applyReviewedCorrections() {
     // Only over what these lists correct: a new or wiped store has nothing to put right.
     const had = (store.settings && store.settings.reviewedV) || 0;
@@ -7110,6 +7121,7 @@ Rules:
     if (had < 10) applyTenthReview();
     if (had < 11) applyEleventhReview(at);
     if (had < 12) applyTwelfthReview(at);
+    if (had < 13) applyThirteenthReview();
     store.settings.reviewedV = REVIEWED_V;
   }
   // Cars whose article search found something else: a pool player, an album, a
@@ -7152,6 +7164,77 @@ Rules:
     }
     const era = store.aliases["llm-m-austin-mini-mini-1275-gt"];
     if (era && !era.names.includes("Mini Clubman")) era.names.unshift("Mini Clubman");
+  }
+  // End years the generation's own infobox gives, by endYearsFromOwnCards run over the
+  // stored reads, each read against its section on 4 November 2026. By car, then the
+  // code as the read wrote it: [start, end]. The XT5 is by hand: its card says
+  // "present", which that rule leaves alone, and its 2024 is South Korea's and China's.
+  // Left out because the years choose their links, and the links then moved wrongly:
+  // the Hilux N80 (2005 per its card) would take the 4Runner N180, the K9 RJ would leave
+  // the G80 DH its article names, and the Vitara's FT would lose the Tracker.
+  const REVIEWED_CARD_ENDS = {
+    "fam-ford-fiesta": { "B299": [2008, 2019] },
+    "llm-related-hyundai-sonata": { "YF": [2009, 2014] },
+    "llm-related-mitsubishi-galant-vr-4": { "E84A/E74A": [1992, 1997] },
+    "llm-related-pontiac-gto": { "First generation (1964–1967)": [1964, 1967] },
+    "m-acura-zdx": { "Second generation (GM BEV3)": [2024, 2025] },
+    "m-alpina-b4": { "G26": [2022, 2025] },
+    "m-audi-a1": { "GB": [2018, 2026] },
+    "m-audi-a8": { "D5": [2017, 2026] },
+    "m-audi-coupe": { "B3": [1988, 1996] },
+    "m-audi-rs-4": { "B9 (8W)": [2018, 2025] },
+    "m-audi-rs-6": { "C8": [2019, 2025] },
+    "m-austin-metro": { "Mk3": [1994, 1997] },
+    "m-bmw-x4": { "G02": [2018, 2025] },
+    "m-buick-lesabre": { "Eighth generation": [2000, 2005] },
+    "m-buick-park-avenue": { "First generation (1991–1996)": [1991, 1996], "Second generation (1997–2005)": [1997, 2005] },
+    "m-cadillac-xt5": { "First generation": [2016, null], "First generation (2016)": [2016, null] },
+    "m-chevrolet-cavalier": { "First generation (1982–1987)": [1982, 1987] },
+    "m-chevrolet-sail": { "Third generation": [2014, 2023] },
+    "m-daihatsu-move": { "L600": [1995, 1998] },
+    "m-dodge-charger-lx": { "Seventh generation (LD)": [2010, 2023] },
+    "m-fiat-siena": { "326": [2012, 2021] },
+    "m-ford-festiva": { "Second generation (WB, WD, WF; 1993)": [1993, 2000] },
+    "m-ford-figo": { "B562": [2015, 2021] },
+    "m-ford-galaxy": { "CD390": [2015, 2023], "Third generation (CD390)": [2015, 2023] },
+    "m-honda-mobilio": { "DD4/5": [2014, 2024] },
+    "m-honda-spirior": { "Second generation (2015)": [2015, 2018] },
+    "m-hyundai-genesis": { "BH": [2008, 2013] },
+    "m-infiniti-q45": { "Y33": [1996, 2000] },
+    "m-infiniti-q60": { "V37": [2016, 2022] },
+    "m-infiniti-qx50": { "J55": [2017, 2025] },
+    "m-jeep-cj": { "CJ-10": [1981, 1985] },
+    "m-lincoln-continental": { "Tenth generation": [2017, 2020] },
+    "m-mazda-cx-9": { "TC": [2016, 2023] },
+    "m-mazda-mpv": { "LY": [2006, 2016] },
+    "m-mazda-premacy": { "CW": [2010, 2018] },
+    "m-mini-clubman-2007": { "F54": [2015, 2024] },
+    "m-nissan-laurel": { "C35": [1997, 2002] },
+    "m-nissan-maxima": { "A33B": [1999, 2002], "A36": [2016, 2023] },
+    "m-nissan-patrol": { "Y62": [2010, 2026] },
+    "m-nissan-quest": { "RE52": [2010, 2017] },
+    "m-opel-kadett": { "Kadett E": [1984, 1995] },
+    "m-seat-toledo": { "Mk4 (KG)": [2012, 2019] },
+    "m-subaru-pleo": { "L275F/L285F/L275B/L285B": [2010, 2018] },
+    "m-suzuki-fronte": { "LC10": [1967, 1970] },
+    "m-suzuki-ignis": { "Second generation (MF)": [2016, 2026] },
+    "m-toyota-avensis": { "T270": [2009, 2018] },
+    "m-toyota-ipsum": { "XM20": [2001, 2010] },
+    "m-volkswagen-bora-china": { "Fourth generation": [2018, 2026], "Fourth generation (MQB)": [2018, 2026] },
+    "m-volkswagen-scirocco": { "Third generation": [2008, 2017] },
+  };
+  function applyThirteenthReview() {
+    // The Genesis BH's corrected end makes the DH fit the K9 KH better by years. The K9's
+    // article puts the KH on the BH's platform.
+    store.rejectedRelations["llm-m-hyundai-genesis-dh|llm-m-kia-k9-kh|platform"] = true;
+    for (const [car, codes] of Object.entries(REVIEWED_CARD_ENDS)) {
+      for (const e of [store.families[car], store.recheck[car]]) {
+        for (const g of (e && e.proposal && e.proposal.generations) || []) {
+          const said = codes[g.code];
+          if (said && g.yearStart === said[0]) g.yearEnd = said[1];
+        }
+      }
+    }
   }
   function applyTwelfthReview(at) {
     // The Glas 1700's article: BMW's own 1800 is its rival, and the BMW 1800SA, 1804
