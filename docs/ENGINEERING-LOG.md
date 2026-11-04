@@ -2490,5 +2490,9 @@ read that states an end still wins, because the list only stops an end being inf
 Left closed: the Seltos's first generation (2019-present beside model years 2021-2026) and the
 GL8's third, whose reads state an end and whose cards are stale. The Xpander's facelift nodes,
 the Puma Rally1 and the Galue Convertible take a card written about the whole car, so they are not on the list.
-The ASX GA's and the Hilux AN110's "present" rest on the card alone, with no prose confirming it.
+The ASX GA's and the Hilux AN110's "present" rest on the card alone in the articles, so both were
+checked outside them in November 2026. Toyota South Africa builds the eighth Hilux alongside the
+ninth until 2027, per the Sowetan (23 July 2026). The US still sells the GA as the Outlander Sport:
+2026 carried over, per Cars.com, and new 2027 cars are listed. No source names its plant today, so
+the ASX stays open on sales evidence. Both will need an end year once production stops.
 Seen in passing and not changed: the 2 Series F45/F46 shows 2016, though its read says 2021.
