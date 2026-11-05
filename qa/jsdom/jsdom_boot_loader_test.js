@@ -21,7 +21,7 @@ const tpl = /<template id="boot-scripts">([\s\S]*?)<\/template>/.exec(html);
 check("the page's scripts are listed in one template", !!tpl);
 const listed = tpl ? [...tpl[1].matchAll(/<script src="([^"]+)"><\/script>/g)].map(m => m[1]) : [];
 check("...in the order the page depends on",
-      listed.join(",") === "d3.min.js,data.js,llm_families_data.js,article_ends.js,llm_families.js,app.js,timeline.js,sixdeg.js",
+      listed.join(",") === "d3.min.js,data.js,llm_families_data.js,article_ends.js,namesake_people.js,llm_families.js,app.js,timeline.js,sixdeg.js",
       listed.join(","));
 const outside = html.replace(tpl ? tpl[0] : "", "");
 check("no script is loaded by a plain tag any more -- the loader runs them one at a time",

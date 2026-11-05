@@ -3062,10 +3062,17 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
   const bareCode = code => norm(String(code || "").replace(/\s*\([^()]*\)\s*$/, ""));
   function recoveredGenerations(entry, clean) {
     const had = (entry.proposal && entry.proposal.generations) || [];
-    const byCode = new Map(had.map(g => [bareCode(g.code), g]));
+    // By the whole name first. The bare name, brackets cut off, only when one
+    // stored generation has it and nothing has taken it yet: "Express (WA)" and
+    // "Express (X82)" share it, and each once became the X82.
+    const byFull = new Map(had.map(g => [norm(g.code), g]));
+    const byBare = new Map();
+    had.forEach(g => { const k = bareCode(g.code); byBare.set(k, byBare.has(k) ? null : g); });
     const known = new Set();
     const merged = clean.generations.map(g => {
-      const old = byCode.get(bareCode(g.code));
+      let old = byFull.get(norm(g.code));
+      if (!old || known.has(old)) old = byBare.get(bareCode(g.code)) || null;
+      if (old && known.has(old)) old = null;
       if (old) known.add(old);
       return old || g;
     });
@@ -4767,7 +4774,7 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
             wp: null, llmGenerated: true };
       if (cached && cached.source) p.factsSource = cached.source;
       nodes.push(p); byId.set(id, p);
-      if (!factsRecordIsUseful(cached)) scheduleFactBackfill("person", id, p, () => bigPersonAttempt(name));
+      if (!factsRecordIsUseful(cached)) scheduleFactBackfill("person", id, p, () => bigPersonAttempt(name, id));
     } else if (!p.roles.includes(role)) {
       p.roles = [...p.roles, role];
     }
@@ -6050,9 +6057,40 @@ Rules:
   function recalledYears(r) {
     return !!r && r.source === "llm-recall" && (r.year != null || r.end != null);
   }
-  async function fetchPersonFactsGrounded(name) {
+  // A page found by a person's name alone is theirs only if it names a make of a
+  // car credited to them. Alexander Suvorov's page is the general's (1730-1800),
+  // not the Hyundai Creta designer's; Tom Semple's is a hurler's. A list of
+  // namesakes is no one's. With no credited make known, only the list is refused.
+  function personPageIsTheirs(wikitext, makes) {
+    const text = String(wikitext || "");
+    if (!text || DISAMBIGUATION_RE.test(text) || /\bmay (?:also )?refer to\b/i.test(text.slice(0, 600))) return false;
+    const plain = s => String(s).normalize("NFKD").replace(COMBINING_MARKS_RE, "").toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
+    const wanted = (makes || []).map(plain).filter(Boolean);
+    if (!wanted.length) return true;
+    const words = " " + plain(text) + " ";
+    return wanted.some(m => words.includes(" " + m + " "));
+  }
+  // The makes of the cars a person is credited on, from the live graph.
+  function makesCreditedTo(personId) {
+    const data = typeof window !== "undefined" && window.CARDATA;
+    if (!data || !Array.isArray(data.links)) return [];
+    const byIdLocal = new Map(data.nodes.map(n => [n.id, n]));
+    const makes = new Set();
+    data.links.forEach(l => {
+      if (l.retired || (l.type !== "designed" && l.type !== "engineered")) return;
+      const s = idOf(l.source), t = idOf(l.target);
+      const car = byIdLocal.get(s === personId ? t : t === personId ? s : null);
+      if (car && car.make) makes.add(car.make);
+    });
+    return [...makes];
+  }
+  async function fetchPersonFactsGrounded(name, makes) {
     let digest;
-    try { ({ digest } = await fetchArticleDigest(name)); }
+    try {
+      const read = await fetchArticleDigest(name);
+      if (!personPageIsTheirs(read.wikitext, makes)) return null;
+      digest = read.digest;
+    }
     catch (e) { return null; }
     const text = factsSourceText(digest);
     if (!text.trim()) return null;
@@ -6084,8 +6122,8 @@ Rules:
     if (born == null && died == null && country == null) return null;
     return { born, died, country, source: "llm-recall" };
   }
-  async function bigPersonAttempt(name) {
-    return (await fetchPersonFactsGrounded(name)) || (await fetchPersonFactsFromKnowledge(name));
+  async function bigPersonAttempt(name, personId) {
+    return (await fetchPersonFactsGrounded(name, personId ? makesCreditedTo(personId) : [])) || (await fetchPersonFactsFromKnowledge(name));
   }
 
   // One in-flight/one-per-session guard per id, same reasoning as `inFlight`
@@ -7332,7 +7370,7 @@ Rules:
       reviewedGen("Original (1962–1963)", 1962, 1963, ["Raymond Loewy"]),
       reviewedGen("Avanti II", 1965, 1986, ["Leo Newman", "Nate Altman"]), reviewedGen("Avanti", 1987, 2006, ["Tom Kellogg"])] },
   };
-  const REVIEWED_V = 18;
+  const REVIEWED_V = 19;
   function applyReviewedCorrections() {
     // Only over what these lists correct: a new or wiped store has nothing to put right.
     const had = (store.settings && store.settings.reviewedV) || 0;
@@ -7359,6 +7397,7 @@ Rules:
     if (had < 16) applySixteenthReview();
     if (had < 17) applySeventeenthReview();
     if (had < 18) applyEighteenthReview();
+    if (had < 19) applyNineteenthReview(at);
     store.settings.reviewedV = REVIEWED_V;
   }
   // Cars whose article search found something else: a pool player, an album, a
@@ -7462,6 +7501,50 @@ Rules:
   };
   // Both reads ended these when the next generation began. Their cards say "present",
   // and the Innova's second generation and the D-Max's RT are still built.
+  // Each of these articles is about one car, read on 5 November 2026. Their reads
+  // took the Mark series table as their own generations, so each listed every Mark.
+  // The Mark series article numbers them as its generations, and by the owner's
+  // ruling of the same day they stay there; REVIEWED_SAME_CARS folds each into its
+  // generation. The MKR is a 2007 concept. The Continental Mark II's page is the
+  // 1956-1957 car's, and its list was the same table.
+  const ONE_CAR_ARTICLES = {
+    "llm-related-continental-mark-iii": ["Lincoln Continental Mark III", ["Mark III"], 1969, 1971],
+    "m-lincoln-continental-mark-iv": ["Lincoln Continental Mark IV", ["Mark IV"], 1972, 1976],
+    "m-lincoln-continental-mark-v": ["Lincoln Continental Mark V", ["Mark V"], 1977, 1979],
+    "m-lincoln-continental-mark-vii": ["Lincoln Continental Mark VII", ["Continental Mark VII (1984–1985)", "Lincoln Mark VII (1986–1992)"], 1984, 1992],
+    "m-lincoln-mkr": ["Lincoln MKR", ["Lincoln MKR"], 2007, 2007],
+    "m-ford-continental-mark-ii": ["Continental Mark II", ["1956–1957", "Mark II"], 1956, 1957],
+  };
+  function applyNineteenthReview(at) {
+    for (const [id, [title, codes, yearStart, yearEnd]] of Object.entries(ONE_CAR_ARTICLES)) {
+      // What the read found for the car itself stays with it: the MKR's designers.
+      const read = ((store.families[id] && store.families[id].proposal && store.families[id].proposal.generations) || [])
+        .filter(g => codes.includes(g.code));
+      const union = key => [...new Set(read.flatMap(g => Array.isArray(g[key]) ? g[key] : []))];
+      const own = { code: title, yearStart, yearEnd, designers: union("designers"), engineers: union("engineers"), sharedPlatforms: union("sharedPlatforms") };
+      delete store.recheck[id];
+      store.families[id] = { status: "none", checkedAt: at, sourceTitle: title, attempts: 1, reviewed: true,
+                             proposal: { hasMultipleGenerations: false, generations: [own] } };
+    }
+    // Each car's engines, read from its own page, go to its Mark series generation.
+    // The same read had been copied onto every Mark that page's list named.
+    const OWN_ENGINES = {
+      "llm-m-lincoln-mark-series-mark-ii": "llm-m-ford-continental-mark-ii-1956-1957",
+      "llm-m-lincoln-mark-series-mark-iii": "llm-llm-related-continental-mark-iii-mark-iii",
+      "llm-m-lincoln-mark-series-mark-iv": "llm-m-lincoln-continental-mark-iv-mark-iv",
+      "llm-m-lincoln-mark-series-mark-v": "llm-m-lincoln-continental-mark-v-mark-v",
+      "llm-m-lincoln-mark-series-mark-vi": "m-lincoln-continental-mark-vi",
+      "llm-m-lincoln-mark-series-mark-vii": "llm-llm-related-continental-mark-iii-mark-vii",
+    };
+    for (const [gen, from] of Object.entries(OWN_ENGINES)) {
+      const rec = store.engineScans[from];
+      if (!rec || !(rec.engines || []).length) continue;
+      const copy = JSON.parse(JSON.stringify(rec));
+      delete copy.staleReason;
+      copy.v = ENGINE_SCAN_VERSION;
+      store.engineScans[gen] = copy;
+    }
+  }
   function applyEighteenthReview() {
     // The Hilux article's racing section points at the Toyota Hilux Dakar, a rally car
     // with an article of its own. A first read listed it as a generation; the re-read
@@ -9299,7 +9382,7 @@ Rules:
         nodes.push(p);
         byId.set(id, p);
         personByNorm.set(key, p);
-        if (!factsRecordIsUseful(cached)) scheduleFactBackfill("person", id, p, () => bigPersonAttempt(name));
+        if (!factsRecordIsUseful(cached)) scheduleFactBackfill("person", id, p, () => bigPersonAttempt(name, id));
       } else if (!p.roles.includes(role)) {
         p.roles = [...p.roles, role]; // e.g. already a "designer" elsewhere, now also credited as "engineer" here
       }
@@ -11893,6 +11976,44 @@ Rules:
   // it, and the graph may lack the right car. The exception is a pair no article
   // stated, which only a model's guess or a bare word put there. Anything the owner
   // decided stays.
+  // A person's dates found by name alone can be a namesake's: Alexander Suvorov,
+  // 1730-1800, as a designer of the Hyundai Creta. They go when a car credited to
+  // the person rules them out (built after they died, or over before they were
+  // 16), or when scripts/namesake_people.js found the page they came from names
+  // none of the person's makes (personPageIsTheirs). The nationality came from
+  // the same page and goes with them. A person with an article of their own keeps
+  // the article's dates: there an impossible credit is the credit's fault.
+  const NAMESAKE_PEOPLE = (typeof window !== "undefined" && window.NAMESAKE_PEOPLE) || {};
+  function settleNamesakeFacts(nodes, links) {
+    const byIdLocal = new Map(nodes.map(n => [n.id, n]));
+    const credits = new Map();
+    links.forEach(l => {
+      if (l.retired || (l.type !== "designed" && l.type !== "engineered")) return;
+      const a = byIdLocal.get(idOf(l.source)), b = byIdLocal.get(idOf(l.target));
+      if (!a || !b) return;
+      const [p, car] = a.type === "person" ? [a, b] : [b, a];
+      if (p.type !== "person" || car.type === "person" || car.retired) return;
+      if (!credits.has(p.id)) credits.set(p.id, []);
+      credits.get(p.id).push(car);
+    });
+    const now = new Date().getFullYear();
+    const yearOfFact = v => { const y = parseInt(v, 10); return Number.isFinite(y) ? y : null; };
+    let n = 0;
+    nodes.forEach(p => {
+      if (p.type !== "person" || p.retired || p.wp || !p.factsSource) return;
+      if (p.born == null && p.died == null && p.country == null) return;
+      const born = yearOfFact(p.born), died = yearOfFact(p.died);
+      const ruledOut = (credits.get(p.id) || []).find(car => Number.isFinite(car.year) &&
+        ((died != null && car.year > died + 3) || (born != null && (Number.isFinite(car.end) ? car.end : now) < born + 16)));
+      const listed = Object.prototype.hasOwnProperty.call(NAMESAKE_PEOPLE, p.id);
+      if (!ruledOut && !listed) return;
+      p.born = null; p.died = null; p.country = null;
+      p.factsDropped = ruledOut ? `${ruledOut.make || ""} ${ruledOut.label}`.trim() + " rules the dates out" : "from the page " + NAMESAKE_PEOPLE[p.id];
+      n++;
+    });
+    return n;
+  }
+
   const REACH_LINK_TYPES = new Set(["platform", "related"]);
   const MODEL_GUESS = "auto-approved in the background";
   let reachEndsKnown = false;
@@ -13444,16 +13565,45 @@ Rules:
     "llm-m-bmw-z1-e85-e86": "m-bmw-z4-e85",
     "llm-m-bmw-z1-e89": "m-bmw-z4-e89",
     "llm-m-bmw-z1-g29": "m-bmw-z4-g29",
+    // Review 19: one car each, numbered as generations by the Mark series article.
+    "llm-related-continental-mark-iii": "llm-m-lincoln-mark-series-mark-iii",
+    "m-lincoln-continental-mark-iv": "llm-m-lincoln-mark-series-mark-iv",
+    "m-lincoln-continental-mark-v": "llm-m-lincoln-mark-series-mark-v",
+    "m-lincoln-continental-mark-vi": "llm-m-lincoln-mark-series-mark-vi",
+    "m-lincoln-continental-mark-vii": "llm-m-lincoln-mark-series-mark-vii",
+    "llm-related-lincoln-mark-vii": "llm-m-lincoln-mark-series-mark-vii",
+    "llm-related-lincoln-vii": "llm-m-lincoln-mark-series-mark-vii",
+    "m-ford-continental-mark-ii": "llm-m-lincoln-mark-series-mark-ii",
   };
+  // A nameplate listing one generation twice, by the same name and years, lists
+  // one car. The stored reads of the Mitsubishi Express held its X82 four times:
+  // recoveredGenerations once matched names with their brackets cut off, so
+  // "Express (WA)" and "Express (X82)" were one name. The first stays.
+  function repeatedGenerations(nodes) {
+    const seen = new Map(), out = {};
+    nodes.forEach(n => {
+      if (n.retired || !n.familyOf || n.type === "family") return;
+      const key = [n.familyOf, norm(n.label), n.year, n.end].join("|");
+      const first = seen.get(key);
+      if (first) out[n.id] = first.id; else seen.set(key, n);
+    });
+    return out;
+  }
   function foldReviewedCars(nodes, links) {
     const byIdLocal = new Map(nodes.map(n => [n.id, n]));
-    Object.keys(REVIEWED_SAME_CARS).forEach(id => {
-      const car = byIdLocal.get(id), into = byIdLocal.get(REVIEWED_SAME_CARS[id]);
+    const same = Object.assign(repeatedGenerations(nodes), REVIEWED_SAME_CARS);
+    Object.keys(same).forEach(id => {
+      const car = byIdLocal.get(id), into = byIdLocal.get(same[id]);
       if (!car || car.retired || !into || into.retired || car.type === "family") return;
       // A generation read twice: what followed the copy follows the one that stays.
       if (car.familyOf && car.familyOf === into.familyOf) {
         links.filter(l => l.type === "gensucc" && !l.retired && idOf(l.source) === car.id && idOf(l.target) !== into.id)
           .forEach(l => { links.push({ source: into.id, target: idOf(l.target), type: "gensucc" }); });
+        // And what led to the copy leads to the one that stays: the HR-V's second
+        // generation pointed at its third's copy.
+        links.filter(l => l.type === "gensucc" && !l.retired && idOf(l.target) === car.id && idOf(l.source) !== into.id &&
+            !links.some(m => m.type === "gensucc" && !m.retired && idOf(m.source) === idOf(l.source) && idOf(m.target) === into.id))
+          .forEach(l => { links.push({ source: idOf(l.source), target: into.id, type: "gensucc" }); });
       }
       const plate = car.familyOf && car.familyOf !== into.familyOf ? byIdLocal.get(car.familyOf) : null;
       car.familyOf = null;
@@ -20737,7 +20887,7 @@ Rules:
   }
 
   return {
-    settleOutOfReachLinks,
+    settleOutOfReachLinks, settleNamesakeFacts, personPageIsTheirs,
     serverAvailable, isEligible, entryFor,
     checkNode, checkNodeCascade, retryNode, confirmNode, rejectNode,
     applyConfirmed, filePathUrl,
