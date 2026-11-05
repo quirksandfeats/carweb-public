@@ -2558,3 +2558,47 @@ Utility's own article has the HT and HG the wrong way round. The Crown S130 was 
 Kingswood HT, Fairlane ZL/FE to Falcon XF, and the chain HK, HT, HG, HQ.
 
 Test: `qa/jsdom/jsdom_generation_lines_test.js`.
+
+## When a car stopped being built, from one rule
+
+The generations were compared with their articles, but the standalone cars were not.
+Many still had the first build's years: DBpedia gives a start year as the end year (the
+Peugeot 206 showed 1998), or no end at all (the Jaguar Mark 1 looked still built).
+`d_end_fixes.py` had taken only plain ranges.
+
+The owner's rule: a car's end year is the last year it was built anywhere. An older car
+can overlap its successor, as the Peugeot 405 did in Iran until 2022. The years overlap,
+and the start years set the order.
+
+`lastBuiltOnCard` reads a production field and answers that year, or null if the car is
+still built, or nothing if the field does not say. It ignores a line naming another car
+(the SEAT Mii's card ends with the up!), a continuation 30 or more years later (DB5,
+2020), hedged years, citation dates and anything not built yet. `cardFitsCar` refuses a
+card whose years do not reach the car's start.
+
+- A scan of a one-car article keeps the field as `cardProduction`, and the load applies
+  the rule to it. Nothing further is needed for a car once it is re-scanned.
+- `scripts/article_ends.js` runs the same rule for cars not yet re-scanned and writes
+  `app/article_ends.js`. Do not edit that file. The script's `EXCEPTIONS` list, with a
+  reason for each, is the only part written by hand. A redirect to a page that does not
+  name the car is skipped: its card is another car's.
+- A page with several cards is a nameplate's, so only a car with no real end takes it. A
+  shorter run needs a card with no other car on it.
+
+`applyArticleEnds` runs last, after `applyOverlapEnds`. Like that step, it changes what
+is shown and not what is paired: `handover` keeps the end the car had, and for a car with
+no end `shownEndFromArticle` makes `pairingEnd` keep reading null. Without this, new ends
+would move links. It also extends a nameplate to its last generation's end (the NSX to
+2022) and closes one whose generations have all ended.
+
+`orderGenerationsByStart` rebuilds any chain where a generation is followed by one that
+began earlier, and sorts that nameplate's list. It runs after `applyRereadEnds`. One with
+no start year stays after the one listed before it.
+
+Result: 626 cars and 11 nameplates show new ends, and 40 nameplates changed order. No car
+was added or removed, and no link changed except generation order. A second load, a load
+that starts from the loaded store and the static mirror give the same graph. The
+start-year differences are not touched: many are reveal dates, not production.
+
+A generation filed wrongly now sits in date order too: the Hilux Dakar falls between the
+AN10 and the AN110. Those entries need removing, which is separate work.

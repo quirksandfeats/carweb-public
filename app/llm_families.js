@@ -2658,7 +2658,95 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
     const ends = texts.map(field).filter(f => f != null).flatMap(productionEnds);
     return ends.includes(g.yearEnd) ? ends : null;
   }
+  // When a car stopped being built anywhere, from its production field: the last year of
+  // any line about this car, or null if one says it is still built. An older car can run
+  // on past its successor, as the Peugeot 405 did in Iran: the years overlap, and the
+  // start years keep the order. Answers undefined when the field does not say.
+  // Not counted: a line for another car (the SEAT Mii's card ends with the up!), a
+  // continuation decades later (DB5, 2020), hedged years, and anything not yet built.
+  // A concept or prototype counts only when the card has nothing else.
+  const CARD_LINE_WORDS = /\b(?:europe|european|asia|asia-pacific|pacific|africa|america|americas|middle east|latin|south|north|east|west|central|export|exports|markets?|international|domestic|global|worldwide|uk|u\.s\.|us|usa|united|states|kingdom|canada|mexico|brazil|argentina|chile|colombia|venezuela|ecuador|peru|uruguay|france|germany|italy|spain|portugal|poland|romania|russia|ukraine|turkey|iran|iraq|egypt|morocco|algeria|tunisia|kenya|nigeria|ghana|china|japan|korea|taiwan|india|pakistan|indonesia|malaysia|thailand|vietnam|philippines|australia|new zealand|yugoslavia|serbia|czech|republic|slovakia|hungary|austria|belgium|netherlands|sweden|finland|britain|ireland|azerbaijan|uzbekistan|kazakhstan|belarus|saudi|arabia|sedan|saloon|berlina|coupe|coupé|estate|wagon|van|pickup|pick-up|truck|convertible|cabriolet|roadster|spider|spyder|hatchback|liftback|shooting brake|suv|taxi|lpg|ev|ice|electric|hybrid|version|versions|model|models|facelift|fleets?|only|ckd|kits?|chassis|bodies|limited|until|series|first|second|third|gen|generation|units?|produced|built|made|sold|for|the|and|of|in|to|at|as|by|under|license|licensed|remaining|completed|last|concept|prototypes?|cars?|road|door|production|annually|revamped|type|mk|mark|i|ii|iii|iv|v|vi)\b/gi;
+  function lastBuiltOnCard(field, make, label) {
+    if (field == null) return undefined;
+    const v = String(field).replace(/<!--[\s\S]*?-->/g, "")
+      .replace(/<ref[^>]*\/>|<ref(?:\s[^>]*)?>[\s\S]*?<\/ref>/gi, "")
+      .replace(/&nbsp;/g, " ").replace(/&ndash;|&mdash;|&minus;|−|—/g, "–")
+      .replace(/\{\{\s*(?:endash|ndash|mdash|snd)\s*\}?\}?/gi, "–")
+      .replace(/\{\{[^{}]*\bdate\s*=[^{}]*\}\}/gi, "")
+      .replace(/\{\{\s*(?:sfnp?|efn|cn|citation needed|failed verification|better source|when|dubious)\b[^{}]*\}\}/gi, "")
+      .replace(/\{\{\s*(?:ubl|unbulleted list|plainlist|plain list|hlist|flatlist|collapsible list)\s*\|?/gi, "\n").replace(/\}\}/g, "\n")
+      .replace(/\[\[(?:[^\]|]*\|)?([^\]]*)\]\]/g, "$1").replace(/'''?/g, "").replace(/\bU\.S\.(?:A\.)?/g, "US")
+      .replace(/<br\s*\/?>|\|/gi, "\n").replace(/<[^>]+>/g, " ")
+      .replace(/\b(1[89]|20)(\d\d)\s*[-–]\s*(\d\d)\b(?![\d/]|\s+[A-Z])/g, (m, c, a, b) => Number(b) > Number(a) ? `${c}${a}–${c}${b}` : m);
+    const plain = s => String(s).normalize("NFD").replace(/[̀-ͯ]/g, "");
+    const words = s => plain(s).toLowerCase().split(/[^a-z0-9]+/).filter(Boolean);
+    const maker = new Set(words(make || "")), own = words(label || "").filter(w => w.length > 1 || /\d/.test(w));
+    // The 1500TC is the 1500, and the Dacia 2000 is not the Renault 20.
+    const isOwn = w => own.some(o => w === o || (/\d/.test(o) && w.startsWith(o) && !/\d/.test(w[o.length])));
+    const namesAnother = text => {
+      const rest = words(plain(text).replace(/(?<![a-z\d])[\d,.~+]+(?![a-z\d])/gi, " ").replace(CARD_LINE_WORDS, " ")).filter(w => !maker.has(w) && w.length > 1);
+      return rest.length > 0 && !words(text).some(isOwn);
+    };
+    const runs = [], sketches = [], others = [];
+    let notYet = false, first = Infinity;
+    for (let line of v.split(/\n|;\s/).map(s => s.trim()).filter(Boolean)) {
+      line = line.replace(/^model_years\s*=\s*/i, "");
+      if (/^[a-z_ ]+=/i.test(line)) continue;
+      if (/to commence|planned|expected|pending|attempted|cancell?ed|tentative/i.test(line)) { notYet = true; continue; }
+      line = line.replace(/\((?:possibly|probably|variations?)\b[^)]*\)|\bpossibly\b.*|\bvariations? built\b.*/i, " ")
+        .replace(/\([^()]*first prototype[^()]*\)/i, " ");
+      const sketch = /\b(?:concept|prototype)/i.test(line);
+      let another = false;
+      const prefix = /^([^:()\d][^:()]{0,28}):\s*/.exec(line) || /^(\d[^:()\s]{0,6}[a-z][^:()]{0,20}):\s*/i.exec(line);
+      if (prefix) { if (namesAnother(prefix[1])) another = true; line = line.slice(prefix[0].length); }
+      else line = line.replace(/^(\d{3,4}):\s*/, (m, name) => { if (!isOwn(name)) another = true; return ""; });
+      line = line.replace(/\(([^()]*)\)/g, (m, inner) => {
+        if (/\b(?:until|extended)\b/i.test(inner)) return ` ${inner} `;
+        if (/^\s*(?:1[89]|20)\d\d\s*[-–]\s*\d{2,4}\s*$/.test(inner)) return ` ${inner} `;
+        if (!/(?:1[89]|20)\d\d\s*[-–]/.test(inner) && namesAnother(inner)) another = true;
+        return " ";
+      });
+      line = line.replace(/\b[\d,.]+\s*(?:units?|produced|built|made|cars|sold|examples)\b/gi, " ").replace(/(?<![\d-])\d{1,3},\d{3}\b/g, " ");
+      const years = [...line.matchAll(/(?<![\d,]|\d\.)(1[89]\d\d|20[0-3]\d)(?!\d|,\d)/g)].map(m => Number(m[1]));
+      if (!years.length) continue;
+      first = Math.min(first, ...years);
+      const running = /\b(?:present|current|ongoing)\b/i.test(line);
+      const dash = /(?:1[89]|20)\d\d\s*[-–]\s*$/.test(line);
+      (another ? others : sketch ? sketches : runs).push({ start: Math.min(...years), end: running || dash ? Infinity : Math.max(...years), dash });
+    }
+    // Every line carrying its own name: codes for this car's versions (the Adler's "1G").
+    const use = runs.length ? runs : sketches.length ? sketches : others;
+    if (!use.length) return undefined;
+    use.sort((a, b) => a.start - b.start);
+    let last = use[0];
+    for (const r of use.slice(1)) {
+      if (r.start - last.end >= 30) break;  // a continuation, not this production
+      if (r.end >= last.end) last = r;
+    }
+    const thisYear = new Date().getFullYear();
+    // More still to come, unless a line says it is being built now.
+    if (notYet && last.end !== Infinity) return undefined;
+    // "2013-" with nothing after it says little once it is old.
+    if (last.end === Infinity && last.dash && last.start < thisYear - 10) return undefined;
+    // A bare recent year is when it began, not when it ended.
+    if (runs.length && last.start === last.end && last.end >= thisYear - 2 && use.length === 1) return undefined;
+    return { first, end: last.end === Infinity ? null : last.end, sure: !others.length || use === others };
+  }
+  // Whether what a card says is about this car at all, going by when it began.
+  function cardFitsCar(said, n) {
+    if (!said || n.year == null || (said.end != null && said.end < n.year)) return false;
+    return Math.abs(said.first - n.year) <= 2 || (said.first <= n.year && (said.end == null || n.year <= said.end));
+  }
+  // A one-car article's scan keeps its production field, for applyArticleEnds.
+  function markSingleCarEnd(g, wikitext) {
+    delete g.cardProduction;
+    const box = wikitext.search(/\{\{\s*infobox (?:automobile|car)\b/i);
+    if (box < 0) return;
+    const field = infoboxFieldValue(wikitext.slice(box), /\|\s*production\s*=/i);
+    if (field != null) g.cardProduction = field.slice(0, 600);
+  }
   function endYearsFromOwnCards(gens, wikitext, subPages) {
+    if (wikitext && gens && gens.length === 1) { markSingleCarEnd(gens[0], wikitext); return; }
     if (!wikitext || !gens || gens.length < 2) return;
     const secs = wikitextSections(wikitext);
     const placed = gens.map(g => generationSection(wikitext, secs, g));
@@ -5234,7 +5322,7 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
   // When a generation handed over to the next, for pairing it with other cars. Its shown
   // end can be later, for the market or body that outlived that: see applyRereadEnds.
   function pairingEnd(n) {
-    return n.handover != null ? n.handover : n.end;
+    return n.handover !== undefined && (n.handover != null || n.shownEndFromArticle) ? n.handover : n.end;
   }
   function successorGeneration(o, candidates) {
     const live = candidates.filter(g => g && g.id !== o.id);
@@ -20086,6 +20174,31 @@ Rules:
       const fam = byId.get(famId), gens = fam && (fam.generations || []).map(id => byId.get(id)).filter(g => g && !g.retired);
       if (gens) chainGenerations(famId, gens.slice().sort((a, b) => (a.year || 0) - (b.year || 0)).map(g => g.id), links);
     });
+    orderGenerationsByStart(nodes, links);
+  }
+  // Generations follow by start year, whatever the order a read listed them in or however
+  // long the older one stayed in production. One with no start year stays after the one
+  // listed before it. Only a chain that runs backwards changes.
+  function orderGenerationsByStart(nodes, links) {
+    const byId = new Map(nodes.map(n => [n.id, n]));
+    const backwards = new Set();
+    links.forEach(l => {
+      if (l.type !== "gensucc" || l.retired) return;
+      const a = byId.get(idOf(l.source)), b = byId.get(idOf(l.target));
+      if (a && b && !a.retired && !b.retired && a.familyOf && a.familyOf === b.familyOf &&
+        a.year != null && b.year != null && b.year < a.year) backwards.add(a.familyOf);
+    });
+    backwards.forEach(famId => {
+      const fam = byId.get(famId);
+      if (!fam || !fam.generations) return;
+      let carried = -Infinity;
+      const ordered = fam.generations.map((id, at) => ({ id, g: byId.get(id), at })).filter(x => x.g && !x.g.retired)
+        .map(x => { if (x.g.year != null) carried = x.g.year; return { id: x.id, at: x.at, year: x.g.year != null ? x.g.year : carried }; })
+        .sort((a, b) => a.year - b.year || a.at - b.at).map(x => x.id);
+      chainGenerations(famId, ordered, links);
+      const rest = fam.generations.filter(id => !ordered.includes(id));
+      fam.generations = ordered.concat(rest);
+    });
   }
   // A re-read that changes nothing else can still correct when a generation
   // ended, and it closes as "nothing to change", so no override carries that
@@ -20159,6 +20272,41 @@ Rules:
     Object.keys(store.recheck).forEach(famId => {
       const e = store.recheck[famId];
       if (e && e.status === "none") apply(famId, e);
+    });
+    applyArticleEnds(nodes);
+  }
+
+  // Cars not re-scanned since lastBuiltOnCard arrived: what it gives for each one's
+  // article, generated by scripts/article_ends.js into app/article_ends.js.
+  const ARTICLE_ENDS = window.ARTICLE_ENDS || {};
+  // Shown, not paired: cars still go by the end they had, so no link follows this.
+  function showArticleEnd(n, end) {
+    if (n.handover === undefined) { n.handover = n.end == null ? null : n.end; n.shownEndFromArticle = true; }
+    n.end = end;
+  }
+  function applyArticleEnds(nodes) {
+    const byId = new Map(nodes.map(n => [n.id, n]));
+    const standalone = n => n && n.type === "model" && !n.familyOf && !n.retired;
+    Object.keys(ARTICLE_ENDS).forEach(id => {
+      const n = byId.get(id);
+      if (standalone(n)) showArticleEnd(n, ARTICLE_ENDS[id]);
+    });
+    // A newer scan's read marks itself against the car's one card, and needs no table.
+    [store.families, store.recheck].forEach(bag => Object.keys(bag).forEach(id => {
+      const e = bag[id], n = byId.get(id);
+      if (!e || e.status !== "none" || !standalone(n) || n.year == null) return;
+      const fresh = insideGenerations(e);
+      if (fresh.length !== 1) return;
+      const said = lastBuiltOnCard(fresh[0].cardProduction, n.make, n.label);
+      if (cardFitsCar(said, n)) showArticleEnd(n, said.end);
+    }));
+    // A nameplate runs as long as its generations do: the NSX did not stop in 2005.
+    nodes.forEach(fam => {
+      if (fam.type !== "family" || fam.retired) return;
+      const gens = (fam.generations || []).map(id => byId.get(id)).filter(g => g && !g.retired && g.year != null);
+      if (!gens.length || gens.some(g => g.end == null)) return;
+      const last = Math.max(...gens.map(g => g.end));
+      if (fam.end == null ? gens.length > 1 : last > fam.end) showArticleEnd(fam, last);
     });
   }
 
@@ -20248,7 +20396,7 @@ Rules:
     reconcileDbGenerations, applySharedPlatformForSingleGen, applyPeopleForSingleGen,
     isEligibleForRecheck, recheckEntryFor, checkFamily, retryFamilyCheck,
     rejectFamilyRecheck, applyFamilyOverride, applyAllFamilyOverrides, generationStatedOpen,
-    generationLines: famId => linesByFamily.get(famId) || null, applyOverlapEnds,
+    generationLines: famId => linesByFamily.get(famId) || null, applyOverlapEnds, lastBuiltOnCard, cardFitsCar,
     allRecheckEntries, deleteRecheckEntry,
     forceRecheckFamily, retractConfirmedRelation, dismissRework,
     // "I want it to essentially do a re-check of the entire car that I
