@@ -323,6 +323,7 @@ window.CarWeb = (function () {
   // lines they had stepped aside for still deferring to them.
   // Before the succession pass, which pairs generations by how their years meet.
   backfillGenerationEnds(new Map(nodes.map(n => [n.id, n])));
+  if (window.LlmFamilies && window.LlmFamilies.settleOutOfReachLinks) window.LlmFamilies.settleOutOfReachLinks(nodes, links);
   if (window.LlmFamilies) window.LlmFamilies.pushSuccessionToGenerations(nodes, links);
   // After every pass that can add a relation: one between a car and itself
   // is never drawn. See llm_families.js's retireSelfLinks.

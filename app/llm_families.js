@@ -11708,6 +11708,7 @@ Rules:
     // fresh-discovery case the retag-only loop above can't reach, not just
     // the ones this function's own loop happened to just add.
     mirrorRelationLinks(nodes, links);
+    if (reachEndsKnown) settleOutOfReachLinks(nodes, links);
   }
 
   // ---------- rollup: mirror platform/related/succession links up to the
@@ -11766,6 +11767,216 @@ Rules:
     }
     if (n) note(`graph: dropped ${n} relation(s) that linked a car to itself`);
     return n;
+  }
+  // ---------- a link between cars too far apart in years to share anything ----------
+  // A name matched the wrong era: the Lincoln Navigator's "Ford F-Series" came to
+  // the 1947 truck, the Jeep Avenger's "Fiat 600" to the 1955 car, a Stella's
+  // "Subaru R2" to the 1969 R-2. Cars more than PLATFORM_REACH_YEARS apart, by the
+  // years shown, are looked at again after every pass that adds relations. The car
+  // whose article gave the name stays; the car it named is what can be wrong:
+  //   1. a car of exactly that make and name built alongside takes the link;
+  //   2. else another generation of the nameplate named;
+  //   3. else a sibling that already has the link is enough, and this one's goes;
+  //   4. else each generation gives way to its nameplate, all the name says.
+  // A pair of nameplates or plain cars with nothing better stays: an article named
+  // it, and the graph may lack the right car. The exception is a pair no article
+  // stated, which only a model's guess or a bare word put there. Anything the owner
+  // decided stays.
+  const REACH_LINK_TYPES = new Set(["platform", "related"]);
+  const MODEL_GUESS = "auto-approved in the background";
+  let reachEndsKnown = false;
+  function settleOutOfReachLinks(nodes, links) {
+    reachEndsKnown = true;
+    const byIdLocal = new Map(nodes.map(n => [n.id, n]));
+    const now = new Date().getFullYear();
+    const dated = n => !!n && !n.retired && n.year != null && (n.type === "model" || n.type === "family");
+    const stop = n => n.end == null ? 9999 : n.end;
+    const apart = (a, b) => Math.max(a.year - stop(b), b.year - stop(a));
+    const lastYear = n => n.end == null ? now : n.end;
+    const shared = (a, b) => Math.min(lastYear(a), lastYear(b)) - Math.max(a.year, b.year) + 1;
+    const plateOf = n => (n.familyOf && byIdLocal.get(n.familyOf)) || null;
+    const gensOf = fam => (fam.generations || []).map(id => byIdLocal.get(id)).filter(dated);
+    const plateKey = n => n.familyOf || n.id;
+    const pairKeyOf = (a, b, type) => type + "|" + (a < b ? a + "|" + b : b + "|" + a);
+    const live = new Map();
+    links.forEach(l => {
+      if (!l.retired && REACH_LINK_TYPES.has(l.type)) live.set(pairKeyOf(idOf(l.source), idOf(l.target), l.type), l);
+    });
+    // Which car a named one means. The newest in production by this car's second
+    // year, since a car is built on what exists then; else the first to start during
+    // its run; else the nearest before it, since a platform carries forward. Never
+    // one that came later with no years in common.
+    const fit = (cands, o) => {
+      const near = cands.filter(g => g.id !== o.id && apart(g, o) <= PLATFORM_REACH_YEARS).sort((x, y) => x.year - y.year);
+      const atStart = near.filter(g => g.year <= o.year + 1 && stop(g) >= o.year);
+      if (atStart.length) return atStart[atStart.length - 1];
+      const during = near.find(g => shared(g, o) > 0);
+      if (during) return during;
+      const before = near.filter(g => stop(g) < o.year);
+      return before.length ? before[before.length - 1] : null;
+    };
+    const bare = s => norm(String(s || "").replace(/\s*\([^)]*\)/g, "").replace(/&/g, " and "));
+    const namesOf = n => {
+      const out = new Set([bare(n.label)]);
+      const fam = plateOf(n);
+      if (fam && String(n.label).startsWith(fam.label + " ")) out.add(bare(n.label.slice(fam.label.length + 1)));
+      out.delete("");
+      return out;
+    };
+    const byName = new Map();
+    nodes.forEach(n => {
+      if (!dated(n) || n.familyOf) return;
+      namesOf(n).forEach(name => {
+        const k = bare(n.make || "") + "|" + name;
+        if (!byName.has(k)) byName.set(k, []);
+        byName.get(k).push(n);
+      });
+    });
+    const textsOf = n => Array.isArray(n.sharedPlatformTexts) ? n.sharedPlatformTexts : [];
+    const says = (owner, n) => {
+      const names = [...namesOf(n)];
+      const fam = plateOf(n);
+      if (fam) names.push(...namesOf(fam));
+      const texts = [...textsOf(owner), ...(plateOf(owner) ? textsOf(plateOf(owner)) : [])].map(bare);
+      return names.some(name => name.length > 2 && texts.some(t => t.includes(name)));
+    };
+    const ownerOf = (e, a, b) => {
+      if (e && e.genIdA === a.id) return a;
+      if (e && e.genIdA === b.id) return b;
+      const sa = says(a, b), sb = says(b, a);
+      return sa === sb ? null : (sa ? a : b);
+    };
+    // A top-level car of the same make and name as `named`, built alongside `kept`.
+    const sameNamed = (named, kept) => {
+      const code = BRACKETED_NAME_RE.exec(String(named.label || ""));
+      // "(E20)" and "(2015)" say which car this is, and no other of the name will do.
+      if (code && (bracketNamesGeneration(code[2]) || /^\d{4}$/.test(code[2]))) return null;
+      const seen = new Set();
+      namesOf(named).forEach(name => (byName.get(bare(named.make || "") + "|" + name) || []).forEach(c => {
+        if (c.id !== named.id && c.id !== plateKey(named) && c.id !== plateKey(kept) && shared(c, kept) > 0) seen.add(c);
+      }));
+      const c = fit([...seen], kept);
+      if (!c || c.type !== "family" || kept.type === "family") return c;
+      return fit(gensOf(c), kept) || c;
+    };
+    // The make and name the article wrote, on another make's car: "Nissan Armada", read as Mahindra's.
+    const writtenInFull = (owner, named) => {
+      const own = [...namesOf(named)].filter(name => name.length > 2);
+      const seen = new Set();
+      textsOf(owner).map(bare).filter(t => own.some(name => t.endsWith(name))).forEach(key => {
+        byName.forEach((list, k) => {
+          if (k.replace("|", "") !== key) return;
+          list.forEach(c => { if (bare(c.make || "") !== bare(named.make || "") && shared(c, owner) > 0) seen.add(c); });
+        });
+      });
+      if (seen.size !== 1) return null;
+      const c = [...seen][0];
+      return c.type !== "family" ? c : (fit(gensOf(c), owner) || c);
+    };
+    const nameIsOwn = n => { const fam = plateOf(n); return !fam || bare(n.label) !== bare(fam.label); };
+    // The article wrote this generation's own name, so another generation is not what it meant.
+    const namedExactly = (owner, n) => !!owner && !!plateOf(n) && nameIsOwn(n) &&
+      textsOf(owner).map(bare).includes(bare((n.make || "") + " " + n.label));
+    const added = [], gonePlates = new Set();
+    const counts = { named: 0, generation: 0, sibling: 0, nameplate: 0, dropped: 0 };
+    const rejected = (a, b, type) => !!(store.rejectedRelations && store.rejectedRelations[relKey(a.id, b.id, type)]);
+    const take = (l, a, b, how) => {
+      if (a.id === b.id || sameCar(a, b)) return false;
+      const k = pairKeyOf(a.id, b.id, l.type), already = live.get(k);
+      if (already) { if (already.mirror) { already.mirror = false; already.reachMoved = how; } return true; }
+      if (rejected(a, b, l.type)) return true;
+      const nl = { source: a.id, target: b.id, type: l.type, reachMoved: how, llmDiscovered: true };
+      if (l.note) nl.note = l.note;
+      added.push(nl);
+      live.set(k, nl);
+      return true;
+    };
+    links.slice().forEach(l => {
+      if (l.retired || l.mirror || l.reachMoved || !REACH_LINK_TYPES.has(l.type)) return;
+      const a = byIdLocal.get(idOf(l.source)), b = byIdLocal.get(idOf(l.target));
+      if (!dated(a) || !dated(b) || apart(a, b) <= PLATFORM_REACH_YEARS) return;
+      const e = store.relations[relKey(a.id, b.id, l.type)] || null;
+      if (e && e.decidedBy === "user") return;
+      const owner = ownerOf(e, a, b);
+      const pairs = owner ? [[owner, owner === a ? b : a]] : [[a, b], [b, a]];
+      let to = null, how = null;
+      const tryNamed = (kept, named) => {
+        const c = sameNamed(named, kept) || (owner === kept ? writtenInFull(kept, named) : null);
+        if (c) { to = kept === a ? [a, c] : [c, b]; how = "named"; }
+      };
+      const tryGeneration = (kept, named) => {
+        const fam = plateOf(named);
+        // A whole nameplate's years say nothing about which generation it meant.
+        if (!fam || kept.type === "family" || namedExactly(kept, named)) return;
+        const g = fit(gensOf(fam), kept);
+        if (g) { to = kept === a ? [a, g] : [g, b]; how = "generation"; }
+      };
+      for (const [kept, named] of pairs) {
+        if (nameIsOwn(named)) tryNamed(kept, named);
+        if (!to) tryGeneration(kept, named);
+        if (!to && !nameIsOwn(named)) tryNamed(kept, named);
+        if (to) break;
+      }
+      // Or the article was read onto a car of the wrong era: the Fiat 500L's onto the 1968 "500 L".
+      if (!to && owner && !/\(/.test(owner.label)) {
+        const other = owner === a ? b : a, c = sameNamed(owner, other);
+        if (c) { to = owner === a ? [c, b] : [a, c]; how = "named"; }
+      }
+      const guessed = (e && String(e.reason || "").startsWith(MODEL_GUESS)) ||
+        (owner && (owner === a ? b : a).make !== owner.make && textsOf(owner).some(t => bare(t) === bare((owner === a ? b : a).label)));
+      if (!to && guessed) {
+        l.retired = true;
+        l.retiredReason = "out of reach by years: no article stated it";
+        gonePlates.add(pairKeyOf(plateKey(a), plateKey(b), l.type));
+        counts.dropped++;
+        return;
+      }
+      // A nameplate's years, if the article wrote the name: the Stella's "Subaru R2".
+      if (!to && owner && plateOf(owner) && dated(plateOf(owner))) {
+        const named = owner === a ? b : a, fam = plateOf(owner);
+        if (says(owner, named)) {
+          const c = sameNamed(named, fam);
+          if (c) { to = owner === a ? [fam, c] : [c, fam]; how = "named"; }
+        }
+      }
+      if (!to) {
+        const named = owner === a ? b : a;
+        const sibling = owner && plateOf(owner) && gensOf(plateOf(owner)).some(g => g.id !== owner.id && apart(g, named) <= PLATFORM_REACH_YEARS &&
+          live.has(pairKeyOf(g.id, named.id, l.type)) && !live.get(pairKeyOf(g.id, named.id, l.type)).mirror);
+        if (sibling) { how = "sibling"; to = [a, b]; }
+      }
+      if (!to && owner && namedExactly(owner, owner === a ? b : a)) return;
+      if (!to) {
+        const pa = plateOf(a), pb = plateOf(b);
+        if (!pa && !pb) return;
+        to = [pa || a, pb || b];
+        how = "nameplate";
+      }
+      if (how !== "sibling" && !take(l, to[0], to[1], how)) return;
+      l.retired = true;
+      l.retiredReason = "out of reach by years: " + how;
+      l.reachTo = [to[0].id, to[1].id];
+      gonePlates.add(pairKeyOf(plateKey(a), plateKey(b), l.type));
+      counts[how]++;
+    });
+    added.forEach(nl => links.push(nl));
+    if (gonePlates.size) {
+      const held = new Set();
+      links.forEach(l => {
+        if (l.retired || l.mirror || !REACH_LINK_TYPES.has(l.type)) return;
+        const x = byIdLocal.get(idOf(l.source)), y = byIdLocal.get(idOf(l.target));
+        if (x && y) held.add(pairKeyOf(plateKey(x), plateKey(y), l.type));
+      });
+      links.forEach(l => {
+        if (!l.mirror || l.retired) return;
+        const k = pairKeyOf(idOf(l.source), idOf(l.target), l.type);
+        if (gonePlates.has(k) && !held.has(k)) { l.retired = true; l.retiredReason = "out of reach by years: nothing left behind this stand-in"; }
+      });
+      mirrorRelationLinks(nodes, links);
+    }
+    const total = Object.values(counts).reduce((x, y) => x + y, 0);
+    if (total) note(`relationships: ${total} link(s) between cars too far apart in years settled again`);
+    return counts;
   }
   function mirrorRelationLinks(nodes, links) {
     const familyOfId = new Map();
@@ -20386,6 +20597,7 @@ Rules:
   }
 
   return {
+    settleOutOfReachLinks,
     serverAvailable, isEligible, entryFor,
     checkNode, checkNodeCascade, retryNode, confirmNode, rejectNode,
     applyConfirmed, filePathUrl,

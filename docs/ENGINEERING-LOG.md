@@ -2602,3 +2602,21 @@ start-year differences are not touched: many are reveal dates, not production.
 
 A generation filed wrongly now sits in date order too: the Hilux Dakar falls between the
 AN10 and the AN110. Those entries need removing, which is separate work.
+
+## Links between cars too far apart in years
+
+A name can match the wrong era. The Lincoln Navigator's "Ford F-Series" landed on the 1947 truck, the Jeep Avenger's "Fiat 600" on the 1955 car, a Subaru Stella's "Subaru R2" on the 1969 R-2. `settleOutOfReachLinks` in `app/llm_families.js` looks again at every `platform` and `related` link between cars more than `PLATFORM_REACH_YEARS` (10) apart, by the years shown. It runs at boot once the end years are final, and after every later pass of `applyResolvedRelations`, so a scan gets it too. It changes links only, never the stored relations, so every load reaches the same answer.
+
+The car whose article gave the name stays. The car it named is what can be wrong:
+
+1. A car of that make and name built alongside takes the link. A bracketed code or year ("(E20)", "(2015)") says which car it is, so no other of the name will do.
+2. Else another generation of the nameplate named: the newest in production by this car's second year, else the first to start during its run, else the nearest before it. Never a later car with no years in common. Not when the article wrote that generation's own name, or the other side is a whole nameplate.
+3. Else a sibling of this generation that already has the link, within reach, is enough, and this one's goes.
+4. Else a link no article stated goes: an old model guess, or a bare word on another make's car ("FireFly" on the Alvis Firefly).
+5. Else each generation gives way to its nameplate.
+
+Two plain cars or nameplates with nothing better stay. Some are real (the Ecurie Ecosse LM69 and the Jaguar XJ13), and some mean a car the graph lacks (the Vauxhall Viva's 2015 car). Anything the owner decided stays, and a rejected pair is never added.
+
+The rule came from reading the dry run. The first draft moved the generation whose article gave the name, which gave false pairs such as the Clio X65 on the Mitsubishi Grandis, and moved to later cars with no shared years, such as the BAW Qishi on the 2022 Wagoneer. Compare a load with and without it before changing it: `jsdom_out_of_reach_links_test.js` holds the cases.
+
+Found on the way and not fixed here: the real Fiat 500L, Chrysler 300C and Chrysler 300M are retired, because their articles were absorbed into generations of the Fiat 500 and the 300 letter series with the wrong years ("500 L" 1968, "300C" 1957, "300M" 1966).
