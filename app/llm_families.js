@@ -5480,10 +5480,16 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
     const partMayBe = e => {
       const n = e.n;
       if (n.familyOf && n.familyOf !== famId) return false;
+      return partYears(n);
+    };
+    const partYears = n => {
       if (!Number.isFinite(y0) || !Number.isFinite(n.year)) return true;
       return n.year <= (Number.isFinite(y1) ? y1 : 9999) && (Number.isFinite(n.end) ? n.end : 9999) >= y0;
     };
     const eligible = n => n.type === "model" && !n.retired && n.id !== famId && n.familyOf !== famId && nameKeysOf(n).make === makeKey && !splitOwn(n);
+    // The same name in other years is another car. The 1957 300C of the letter series
+    // is not the 2005 Chrysler 300C, nor the 1968 Fiat 500 L the 2012 500L.
+    const sameYears = e => partYears(e.n);
     for (let attempt = 0; attempt < 2; attempt++) {
       const ix = nameIndexOf(nodes);
       let stale = false;
@@ -5494,8 +5500,8 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
         }
         return null;
       };
-      const hit = first(ix.bare.get(key)) || (!stale && first((ix.parts.get(key) || []).filter(partMayBe))) ||
-                  (!stale && nameKey && first(ix.tail.get(key + "|" + nameKey))) || null;
+      const hit = first((ix.bare.get(key) || []).filter(sameYears)) || (!stale && first((ix.parts.get(key) || []).filter(partMayBe))) ||
+                  (!stale && nameKey && first((ix.tail.get(key + "|" + nameKey) || []).filter(sameYears))) || null;
       if (!stale) return hit;
       staleNames();
     }
@@ -7249,7 +7255,7 @@ Rules:
       reviewedGen("Original (1962–1963)", 1962, 1963, ["Raymond Loewy"]),
       reviewedGen("Avanti II", 1965, 1986, ["Leo Newman", "Nate Altman"]), reviewedGen("Avanti", 1987, 2006, ["Tom Kellogg"])] },
   };
-  const REVIEWED_V = 17;
+  const REVIEWED_V = 18;
   function applyReviewedCorrections() {
     // Only over what these lists correct: a new or wiped store has nothing to put right.
     const had = (store.settings && store.settings.reviewedV) || 0;
@@ -7275,6 +7281,7 @@ Rules:
     if (had < 15) applyFifteenthReview();
     if (had < 16) applySixteenthReview();
     if (had < 17) applySeventeenthReview();
+    if (had < 18) applyEighteenthReview();
     store.settings.reviewedV = REVIEWED_V;
   }
   // Cars whose article search found something else: a pool player, an album, a
@@ -7378,6 +7385,16 @@ Rules:
   };
   // Both reads ended these when the next generation began. Their cards say "present",
   // and the Innova's second generation and the D-Max's RT are still built.
+  function applyEighteenthReview() {
+    // The Hilux article's racing section points at the Toyota Hilux Dakar, a rally car
+    // with an article of its own. A first read listed it as a generation; the re-read
+    // did not, and a re-read leaving a generation out does not retire it.
+    const gone = e => {
+      const gens = e && e.proposal && e.proposal.generations;
+      if (gens) e.proposal.generations = gens.filter(g => g.code !== "Toyota Hilux Dakar");
+    };
+    [store.families["m-toyota-hilux"], store.recheck["m-toyota-hilux"]].forEach(e => { gone(e); gone(e && e.appliedBefore); });
+  }
   function applySeventeenthReview() {
     // More reads from before a scan marked this, checked against their articles on
     // 4 November 2026. A new read marks itself and needs nothing here.
@@ -13234,6 +13251,8 @@ Rules:
   // Cars filed twice, whose one record says so: each is the second one, in every
   // way a person checking both articles can tell. Their connections move with them.
   const REVIEWED_SAME_CARS = {
+    // The Chrysler 300 article is the 300C: the build made one car of it, a mention another.
+    "m-chrysler-300c": "llm-related-chrysler-300",
     // Read twice under one name. The other carries the end its article gives.
     "llm-m-toyota-crown-eighth-generation-s130-1987": "llm-m-toyota-crown-eighth-generation-s130",
     "llm-related-300zx-z31": "llm-m-nissan-300zx-z32-z31",

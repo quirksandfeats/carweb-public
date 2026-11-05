@@ -2619,4 +2619,15 @@ Two plain cars or nameplates with nothing better stay. Some are real (the Ecurie
 
 The rule came from reading the dry run. The first draft moved the generation whose article gave the name, which gave false pairs such as the Clio X65 on the Mitsubishi Grandis, and moved to later cars with no shared years, such as the BAW Qishi on the 2022 Wagoneer. Compare a load with and without it before changing it: `jsdom_out_of_reach_links_test.js` holds the cases.
 
-Found on the way and not fixed here: the real Fiat 500L, Chrysler 300C and Chrysler 300M are retired, because their articles were absorbed into generations of the Fiat 500 and the 300 letter series with the wrong years ("500 L" 1968, "300C" 1957, "300M" 1966).
+Found on the way: the real Fiat 500L, Chrysler 300C and 300M and Ford Torino were retired, which the next section fixes.
+
+## The same name in other years is another car
+
+`findDuplicateGeneration` took a generation and a standalone car of one name for one car, whatever their years. The 1968 Fiat 500 L retired the 2012 Fiat 500L and took its article and links. The letter series' 1957 300C and 1966 300M did the same to the Chrysler 300C and 300M, and the Ford Anglia Torino to the American Ford Torino. Only a joined label's parts had a years check. Now a whole name and a nameplate-plus-code name need years in common too.
+
+The replay at every load runs this code, and re-scans do not help: the Fiat 500 and the letter series were re-scanned on 2 November and stayed wrong.
+
+Whole-graph result: exactly those four cars return, with the 300C folded by `REVIEWED_SAME_CARS` into the Chrysler 300, whose article it shares. A false link goes with each, such as the Mercury Montego sharing a platform with the Anglia.
+
+Review 18 takes the Toyota Hilux Dakar out of the Hilux generations. The article's racing section points at it as a rally car with its own article. A re-read leaving out a generation does not retire it, so a scan could not remove it. This and the 300C are hand corrections.
+
