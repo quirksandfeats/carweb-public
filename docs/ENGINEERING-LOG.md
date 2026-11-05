@@ -2643,7 +2643,7 @@ The owner ruled on 14 Oct that a car with its own article stays a car of its own
 
 **By hand:** "BMW Z4" and "BMW Z1" both lead to the BMW Z overview, whose sections are four cars, and each nameplate took them all. Eight entries in `REVIEWED_SAME_CARS` fold them. `foldReviewedCars` now moves a nameplate's start year to its first real generation.
 
-**Left as generations on purpose:** a heading that numbers the car ("Fifth generation: Nissan 350Z (Z33)", the Bora in the Jetta, the Liberty in the Cherokee), and a slice of another car's years (the Chevelle Nomad, the Baleno that was a rebadged Aerio).
+**Left as generations on purpose:** a heading that numbers the car ("Fifth generation: Nissan 350Z (Z33)", the Bora in the Jetta, the Liberty in the Cherokee), and a slice of another car's years (the Chevelle Nomad, the Baleno that was a rebadged Aerio). The owner confirmed on 5 November that numbered generations stay: when the nameplate's article calls a car a generation, it stays one, even with its own article and name.
 
 **Known limits.** Two succession links appear that are wrong: the Olympia A to the Rekord D, and the Mark series' Mark VII to the Lincoln LS. `pushSuccessionToGenerations` places a nameplate-level link on the generations left. The node Humber Vogue, known only from one mention on the Super Minx, is gone. The Lincoln Mark plates still repeat generations.
 
