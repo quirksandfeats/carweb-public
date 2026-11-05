@@ -78,5 +78,10 @@ check("the MKR keeps its designers", named("m-lincoln-mkr", "designed").includes
 check("the Mark IV has the 385 V8 its page names", named("llm-m-lincoln-mark-series-mark-iv", "fitted").some(id => /385/.test(N(id).label)));
 check("the Mark VII has the BMW diesel its page names", named("llm-m-lincoln-mark-series-mark-vii", "fitted").some(id => /M21/.test(N(id).label)));
 
+check("the Mark VIII is the Mark series' seventh generation", N("m-lincoln-mark-viii").supersededBy === "llm-m-lincoln-mark-series-mark-viii" &&
+  N("llm-m-lincoln-mark-series-mark-viii").familyOf === "m-lincoln-mark-series" && !N("llm-m-lincoln-mark-series-mark-viii").retired);
+check("the Mark VIII keeps its Modular V8", named("llm-m-lincoln-mark-series-mark-viii", "fitted").some(id => /Modular/.test(N(id).label)));
+check("the Mark VIII keeps the Thunderbird it shared a platform with", named("llm-m-lincoln-mark-series-mark-viii").includes("m-ford-thunderbird-tenth-generation"));
+
 console.log(fails ? `${fails} FAILED` : "ALL PASS");
 process.exit(fails ? 1 : 0);

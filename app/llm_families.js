@@ -5482,8 +5482,17 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
   // code here ("Fifth generation: Nissan 350Z (Z33)" is "Z33"), and a slice of
   // another car's years is this nameplate's use of it: the Chevelle Nomad of
   // 1968-1972, or the Baleno that was a rebadged Aerio. Both stay generations.
+  // Cars the nameplate's own article numbers as its generations, checked by hand:
+  // they stay generations although they have an article and a name of their own
+  // (the owner's ruling of 5 November 2026). A stored read keeps no headings, so
+  // this cannot be told from the read; the 300ZX and the Bora stay by the rule's
+  // other tests.
+  const NUMBERED_GENERATIONS = {
+    "m-lincoln-mark-series": ["Mark VIII"],  // "Seventh generation (Mark VIII; 1993–1998)"
+  };
   function carOfItsOwn(nodes, fam, g, entry) {
     if (!fam || !g || (entry && entry.decidedBy === "user")) return null;
+    if ((NUMBERED_GENERATIONS[fam.id] || []).includes(g.code)) return null;
     const marque = norm(fam.label) === norm(fam.make);
     // Under a marque the list can name another make's car: the GMC Hummer EV.
     const codeWords = nameWordsOf(g.code);
@@ -7370,7 +7379,7 @@ Rules:
       reviewedGen("Original (1962–1963)", 1962, 1963, ["Raymond Loewy"]),
       reviewedGen("Avanti II", 1965, 1986, ["Leo Newman", "Nate Altman"]), reviewedGen("Avanti", 1987, 2006, ["Tom Kellogg"])] },
   };
-  const REVIEWED_V = 19;
+  const REVIEWED_V = 20;
   function applyReviewedCorrections() {
     // Only over what these lists correct: a new or wiped store has nothing to put right.
     const had = (store.settings && store.settings.reviewedV) || 0;
@@ -7398,6 +7407,7 @@ Rules:
     if (had < 17) applySeventeenthReview();
     if (had < 18) applyEighteenthReview();
     if (had < 19) applyNineteenthReview(at);
+    if (had < 20) applyTwentiethReview();
     store.settings.reviewedV = REVIEWED_V;
   }
   // Cars whose article search found something else: a pool player, an album, a
@@ -7515,6 +7525,12 @@ Rules:
     "m-lincoln-mkr": ["Lincoln MKR", ["Lincoln MKR"], 2007, 2007],
     "m-ford-continental-mark-ii": ["Continental Mark II", ["1956–1957", "Mark II"], 1956, 1957],
   };
+  // The Mark VIII is the Mark series' seventh generation (NUMBERED_GENERATIONS), and
+  // REVIEWED_SAME_CARS folds the car into it. Its engines were read from its own page.
+  function applyTwentiethReview() {
+    const rec = store.engineScans["m-lincoln-mark-viii"];
+    if (rec && (rec.engines || []).length) store.engineScans["llm-m-lincoln-mark-series-mark-viii"] = JSON.parse(JSON.stringify(rec));
+  }
   function applyNineteenthReview(at) {
     for (const [id, [title, codes, yearStart, yearEnd]] of Object.entries(ONE_CAR_ARTICLES)) {
       // What the read found for the car itself stays with it: the MKR's designers.
@@ -13574,6 +13590,7 @@ Rules:
     "llm-related-lincoln-mark-vii": "llm-m-lincoln-mark-series-mark-vii",
     "llm-related-lincoln-vii": "llm-m-lincoln-mark-series-mark-vii",
     "m-ford-continental-mark-ii": "llm-m-lincoln-mark-series-mark-ii",
+    "m-lincoln-mark-viii": "llm-m-lincoln-mark-series-mark-viii",
   };
   // A nameplate listing one generation twice, by the same name and years, lists
   // one car. The stored reads of the Mitsubishi Express held its X82 four times:
