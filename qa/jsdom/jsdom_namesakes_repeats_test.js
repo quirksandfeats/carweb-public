@@ -83,5 +83,18 @@ check("the Mark VIII is the Mark series' seventh generation", N("m-lincoln-mark-
 check("the Mark VIII keeps its Modular V8", named("llm-m-lincoln-mark-series-mark-viii", "fitted").some(id => /Modular/.test(N(id).label)));
 check("the Mark VIII keeps the Thunderbird it shared a platform with", named("llm-m-lincoln-mark-series-mark-viii").includes("m-ford-thunderbird-tenth-generation"));
 
+// Generation photos
+const photo = id => N(id).wikiFile || "";
+check("the Mark III shows a Mark III", /Mark III/.test(photo("llm-m-lincoln-mark-series-mark-iii")), photo("llm-m-lincoln-mark-series-mark-iii"));
+check("the Mark IV shows a Mark IV", /Mark IV/.test(photo("llm-m-lincoln-mark-series-mark-iv")), photo("llm-m-lincoln-mark-series-mark-iv"));
+check("the Mark V shows a Mark V", /Mark V\b/.test(photo("llm-m-lincoln-mark-series-mark-v")), photo("llm-m-lincoln-mark-series-mark-v"));
+const cards = "{{Infobox automobile\n| name = Continental Mark II\n| image = Mark II.jpg\n| successor = [[Continental Mark III]]\n}}\n" +
+  "{{Infobox automobile\n| name = Continental Mark III\n| image = Mark III.jpg\n| predecessor = [[Continental Mark II]]\n}}";
+check("a card's successor field does not name it", LF.findGenerationImage(cards, "Mark III", -1, new Set(), 0) === "Mark III.jpg",
+  LF.findGenerationImage(cards, "Mark III", -1, new Set(), 0));
+const twoHeadings = "==Bullnose and Flatnose engines==\n[[File:Engine.jpg]]\n==Flatnose (1926–1931)==\n{{Infobox automobile\n| image = 1927 Cowley.jpg\n}}\n";
+check("the heading with the code's years is its section", LF.findGenerationImage(twoHeadings, "Flatnose (1926–1931)", -1, new Set(), 0) === "1927 Cowley.jpg",
+  LF.findGenerationImage(twoHeadings, "Flatnose (1926–1931)", -1, new Set(), 0));
+
 console.log(fails ? `${fails} FAILED` : "ALL PASS");
 process.exit(fails ? 1 : 0);

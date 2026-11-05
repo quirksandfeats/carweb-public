@@ -1586,7 +1586,8 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
   // and the later one could never find a photo (or any text) of its own.
   function sectionRangesForCode(wikitext, code) {
     const headings = Array.from(wikitext.matchAll(/^(={2,4})\s*(.+?)\s*\1\s*$/gm)).map(m => {
-      const o = [m[0], m[2].replace(/<[^>]+>/g, "").trim()];
+      // Italic or bold in a heading is markup, not name: "Morris Cowley ''Flatnose''".
+      const o = [m[0], m[2].replace(/<[^>]+>/g, "").replace(/'{2,}/g, "").trim()];
       o.index = m.index;
       return o;
     });
@@ -1606,7 +1607,12 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
         heading: headings[i][1],
       });
     }
-    return out;
+    // A heading that also carries the code's bracketed years is that generation's own:
+    // "Flatnose (1926–1931)" is "Morris Cowley Flatnose (1926–1931)", not the
+    // earlier "Bullnose and Flatnose engines" section.
+    const paren = ((wanted.match(/\(([^()]+)\)\s*$/) || [])[1] || "").replace(/^(?!.*\d{4}).*$/, "");
+    const own = paren ? out.filter(r => r.heading.toLowerCase().includes(paren.trim())) : [];
+    return own.length ? own : out;
   }
   function sectionRangeForCode(wikitext, code, occurrence) {
     const all = sectionRangesForCode(wikitext, code);
@@ -1691,6 +1697,7 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
   // generation with no infobox of its own from claiming a distant one.
   // Naming second: a box whose text names the code, compared with punctuation
   // and spacing removed, because captions write "X 156" for X156.
+  const OTHER_CARS_FIELD_RE = /\n\s*\|\s*(?:predecessor|successor|related|similar|sister[a-z_]*|rivals?)\s*=[\s\S]*?(?=\n\s*\||\n\s*\}\}|$)/gi;
   function infoboxImageForCode(wikitext, code, anchorIndex, used) {
     const boxes = infoboxBlocks(wikitext);
     if (!boxes.length) return null;
@@ -1707,7 +1714,13 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
       .split(/\s*[\/,&]\s*|\s+and\s+/)
       .map(squash).filter(x => x.length > 2);
     if (!parts.length) return null;
-    const named = boxes.find(b => free(b.image) && parts.some(x => squash(b.body).includes(x)));
+    // A card names its neighbours too. The Continental Mark II's card says its
+    // successor is the Mark III, and the Mark III took the Mark II's photo; the
+    // Mark IV and V took their predecessors' the same way. Only what the card
+    // says about its own car counts.
+    const own = body => String(body).replace(OTHER_CARS_FIELD_RE, "");
+    // Line by line: squashed whole, "Mark II" ran into "image" and read as "Mark III".
+    const named = boxes.find(b => free(b.image) && own(b.body).split("\n").some(line => parts.some(x => squash(line).includes(x))));
     return named ? named.image : null;
   }
   function findGenerationImage(wikitext, code, anchorIndex, used, occurrence) {
@@ -7379,7 +7392,7 @@ Rules:
       reviewedGen("Original (1962–1963)", 1962, 1963, ["Raymond Loewy"]),
       reviewedGen("Avanti II", 1965, 1986, ["Leo Newman", "Nate Altman"]), reviewedGen("Avanti", 1987, 2006, ["Tom Kellogg"])] },
   };
-  const REVIEWED_V = 20;
+  const REVIEWED_V = 21;
   function applyReviewedCorrections() {
     // Only over what these lists correct: a new or wiped store has nothing to put right.
     const had = (store.settings && store.settings.reviewedV) || 0;
@@ -7408,6 +7421,7 @@ Rules:
     if (had < 18) applyEighteenthReview();
     if (had < 19) applyNineteenthReview(at);
     if (had < 20) applyTwentiethReview();
+    if (had < 21) applyTwentyFirstReview();
     store.settings.reviewedV = REVIEWED_V;
   }
   // Cars whose article search found something else: a pool player, an album, a
@@ -7527,6 +7541,25 @@ Rules:
   };
   // The Mark VIII is the Mark series' seventh generation (NUMBERED_GENERATIONS), and
   // REVIEWED_SAME_CARS folds the car into it. Its engines were read from its own page.
+  // Photos the fixed findGenerationImage gives these generations, read on 5 November
+  // 2026: a card's successor field no longer names it, and a heading with the code's
+  // years wins. Each one checked against its photo. A new scan picks them by itself.
+  const REVIEWED_PHOTOS = {
+    "m-lincoln-mark-series": {
+      "Mark III": "1969 Lincoln Continetal Mark III (27056856370) (cropped).jpg",
+      "Mark IV": "1975 Lincoln Continental Mark IV, Dutch licence registration 21-YB-60 p1.JPG",
+      "Mark V": "1979 Lincoln Continental Mark V Collector's Series (7503042882) (cropped).jpg",
+    },
+    "m-citroen-c4": { "B73": "2016 Citroen C4 Feel BlueHDi 1.6 Rear.jpg", "C41": "Citroen C4 (2020) IMG 4202.jpg" },
+    "m-alpina-b4": { "F32/F33": "Alpina B4 S Bi-Turbo Cabrio Back IMG 0826.jpg" },
+  };
+  function applyTwentyFirstReview() {
+    for (const [id, photos] of Object.entries(REVIEWED_PHOTOS)) {
+      for (const e of [store.families[id], store.recheck[id]]) {
+        for (const g of (e && e.proposal && e.proposal.generations) || []) if (photos[g.code]) g.wikiFile = photos[g.code];
+      }
+    }
+  }
   function applyTwentiethReview() {
     const rec = store.engineScans["m-lincoln-mark-viii"];
     if (rec && (rec.engines || []).length) store.engineScans["llm-m-lincoln-mark-series-mark-viii"] = JSON.parse(JSON.stringify(rec));
