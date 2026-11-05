@@ -5465,6 +5465,83 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
   const entryFresh = e => e.label === e.n.label && e.make === e.n.make;
   function staleNames() { namesEpoch++; return null; }
 
+  // A car with its own article stays a car of its own, unless the title is the
+  // nameplate plus a code or generation (the owner's rulings, 14 Oct and 5 Nov
+  // 2026). The re-read path has kept to this since 14 Oct (decideRecheck); a list
+  // read for the first time folded the car in. The Fiat Grande Panda, in the
+  // Panda's article under its own name, is not a Panda generation.
+  //
+  // Only the same name and the same years. A heading that numbers the car has a
+  // code here ("Fifth generation: Nissan 350Z (Z33)" is "Z33"), and a slice of
+  // another car's years is this nameplate's use of it: the Chevelle Nomad of
+  // 1968-1972, or the Baleno that was a rebadged Aerio. Both stay generations.
+  function carOfItsOwn(nodes, fam, g, entry) {
+    if (!fam || !g || (entry && entry.decidedBy === "user")) return null;
+    const marque = norm(fam.label) === norm(fam.make);
+    // Under a marque the list can name another make's car: the GMC Hummer EV.
+    const codeWords = nameWordsOf(g.code);
+    const madeBy = marque && codeWords.length > 1 ? makeNamedIn(nodes, codeWords) : null;
+    const otherMake = madeBy && norm(madeBy.label) !== norm(fam.make) && norm(g.code).startsWith(norm(madeBy.label)) ? madeBy.label : null;
+    // The list wrote it with the make, so it is that car's whole name: "BMW 503".
+    const inFull = !otherMake && !marque && !/\(/.test(String(g.code)) && norm(g.code).startsWith(norm(fam.make)) && norm(g.code) !== norm(fam.make);
+    const key = otherMake ? norm(g.code).slice(norm(otherMake).length)
+      : inFull ? norm(g.code).slice(norm(fam.make).length) : norm(g.code);
+    // A bare number or two letters could be anything: the Fiat 147 in the Fiorino's
+    // list is the car its first generation was built from.
+    if (!key || (!marque && !inFull && key.length < 4)) return null;
+    const near = (a, b) => !Number.isFinite(a) || !Number.isFinite(b) || Math.abs(a - b) <= 1;
+    const found = (nameIndexOf(nodes).bare.get(key) || []).filter(entryFresh).map(e => e.n)
+      .filter(n => !n.retired && !n.familyOf && n.id !== fam.id && n.wp && nameKeysOf(n).make === norm(otherMake || fam.make) &&
+        near(n.year, g.yearStart) && near(n.end, g.yearEnd));
+    if (found.length !== 1) return null;
+    const car = found[0], page = articleKeyOf(car.wp);
+    if (page === articleKeyOf(fam.wp) || (entry && page === articleKeyOf(entry.sourceTitle))) return null;
+    // "Toyota Camry (XV50)", "Ford Capri (Australia)": a name and a code, place or
+    // year is a generation of some nameplate.
+    const bracket = (String(car.wp).match(/\(([^()]+)\)\s*$/) || [])[1];
+    if (bracket && !/^(?:automobile|car|vehicle)$/i.test(bracket)) return null;
+    // A nameplate named after its make is the marque: the Hummer H1 is no code.
+    if (marque) return car;
+    // The nameplate and another word: "Ford Capri EV".
+    const title = String(car.wp).replace(/\s*\([^()]*\)\s*$/, "");
+    const words = nameWordsOf(title), makeWords = nameWordsOf(fam.make), plate = nameWordsOf(fam.label);
+    const rest = makeWords.every((w, i) => words[i] === w) ? words.slice(makeWords.length) : words;
+    if (plate.every((w, i) => rest[i] === w)) return null;
+    // A name that looks like a code is one, unless it has generations of its own:
+    // the Ruf CTR3 beside the CTR2, not the W124 of the E-Class.
+    if (car.type !== "family" && !inFull && isGenerationArticleOf(fam, title)) return null;
+    return car;
+  }
+  // Linked as related. What the nameplate's article said about the car goes with it:
+  // the Hummer article's platform-mates of the H2, and who drew the Grande Panda.
+  // Saved relationships and engine reads name the generation's id. Hidden and pointing
+  // at the car, as a merged car does, they follow it instead of being dropped.
+  function handToCarOfItsOwn(nodes, links, fam, car, g) {
+    const stubId = "llm-" + fam.id + "-" + String(g.code).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/-+$/, "");
+    if (!nodeWithId(nodes, stubId)) {
+      nodes.push({ id: stubId, type: "model", label: car.label, make: car.make, wp: car.wp, year: car.year, end: car.end, llmGenerated: true,
+        retired: true, retiredFrom: fam.id, supersededBy: car.id, ownCarStub: true,
+        retiredReason: "listed in " + fam.label + "'s generations; a car with its own article" });
+    }
+    if (!links.some(l => l.type === "related" && [idOf(l.source), idOf(l.target)].sort().join() === [fam.id, car.id].sort().join())) {
+      links.push({ source: fam.id, target: car.id, type: "related", llmDiscovered: true, note: "listed in " + fam.label + "'s generations; a car with its own article" });
+    }
+    const said = Array.isArray(g.sharedPlatforms) ? g.sharedPlatforms : (g.sharedPlatform ? [g.sharedPlatform] : []);
+    car.sharedPlatformTexts = [...new Set([...(car.sharedPlatformTexts || []), ...said])];
+    car.sharedPlatformMatches = Object.assign({}, g.sharedPlatformMatches || {}, car.sharedPlatformMatches || {});
+    car.makeVariantMatches = Object.assign({}, g.makeVariantMatches || {}, car.makeVariantMatches || {});
+    const byIdLocal = new Map(nodes.map(n => [n.id, n]));
+    [["designers", "designer", "designed"], ["engineers", "engineer", "engineered"]].forEach(([field, role, type]) => {
+      car[field] = [...new Set([...(car[field] || []), ...(g[field] || [])])];
+      (g[field] || []).forEach(name => {
+        const p = resolvePersonNode(nodes, byIdLocal, name, role);
+        if (p && !links.some(l => l.type === type && idOf(l.source) === car.id && idOf(l.target) === p.id)) {
+          links.push({ source: car.id, target: p.id, type, llmDiscovered: true });
+        }
+      });
+    });
+  }
+
   function findDuplicateGeneration(nodes, code, famId, make, nameplateLabel, gen) {
     const key = norm(code);
     const makeKey = norm(make);
@@ -9239,6 +9316,7 @@ Rules:
     // Oldsmobile 98 was re-checked with the same answer). Now every split is
     // applied, and only then is each mention matched against the result.
     const mentionsToResolve = [];
+    const mentionsOfOwnCars = [];
     Object.keys(store.families).forEach(nodeId => {
       const entry = store.families[nodeId];
       // A tombstone left behind by deleteEntry(): this nameplate got
@@ -9276,7 +9354,22 @@ Rules:
       // Folded into another car since the split was confirmed: that car is
       // the one on screen, and it has its own generations.
       if (orig.retired && orig.supersededBy) return;
-      const gens = insideGenerations(entry);
+      const ownCars = [];
+      const gens = insideGenerations(entry).filter(g => {
+        const car = carOfItsOwn(nodes, orig, g, entry);
+        if (car) ownCars.push({ car, g });
+        return !car;
+      });
+      // What is left has to stand as a nameplate, or the list stays as read: one car
+      // out of two would turn the other into the whole nameplate. A marque can.
+      const asRead = insideGenerations(entry);
+      if (gens.length < 2 && ownCars.length && norm(orig.label) !== norm(orig.make)) {
+        gens.length = 0; asRead.forEach(g => gens.push(g));
+      } else ownCars.forEach(({ car, g }) => {
+        handToCarOfItsOwn(nodes, links, orig, car, g);
+        mentionsOfOwnCars.push(car);
+        if (gens.length < 2) orig.listsOwnCars = true;
+      });
       if (gens.length < 2) return;
 
       const genIds = [];
@@ -9507,6 +9600,7 @@ Rules:
       };
     });
     mentionsToResolve.forEach(([famId, gn]) => resolvePlatformMention(nodes, links, famId, gn));
+    mentionsOfOwnCars.forEach(car => { if (!car.retired) resolvePlatformMention(nodes, links, car.id, car); });
     // A split made in a live session: cars that already name this nameplate
     // need matching against its new generations, as a reload would do. A load
     // has every split here at once and matches every mention anyway.
@@ -13340,6 +13434,16 @@ Rules:
     "llm-related-mitsubishi-express-wa": "llm-llm-related-mitsubishi-express-mitsubishi-express-wa",
     "llm-related-mitsubishi-express-sf-sg-sh-sj": "llm-llm-related-mitsubishi-express-mitsubishi-express-sf-sg-sh-sj",
     "llm-related-mitsubishi-express-x82": "llm-llm-related-mitsubishi-express-mitsubishi-express-x82",
+    // "BMW Z4" and "BMW Z1" both lead to the BMW Z overview, whose sections are four cars.
+    // Each nameplate took all of them. By hand: the list says only "E36/7/8".
+    "llm-fam-bmw-z4-e30-based": "llm-m-bmw-z1-e30",
+    "llm-fam-bmw-z4-e36-7-8": "m-bmw-z3",
+    "llm-fam-bmw-z4-e52": "m-bmw-z8",
+    "llm-m-bmw-z1-e36-7-8": "m-bmw-z3",
+    "llm-m-bmw-z1-e52": "m-bmw-z8",
+    "llm-m-bmw-z1-e85-e86": "m-bmw-z4-e85",
+    "llm-m-bmw-z1-e89": "m-bmw-z4-e89",
+    "llm-m-bmw-z1-g29": "m-bmw-z4-g29",
   };
   function foldReviewedCars(nodes, links) {
     const byIdLocal = new Map(nodes.map(n => [n.id, n]));
@@ -13351,8 +13455,14 @@ Rules:
         links.filter(l => l.type === "gensucc" && !l.retired && idOf(l.source) === car.id && idOf(l.target) !== into.id)
           .forEach(l => { links.push({ source: into.id, target: idOf(l.target), type: "gensucc" }); });
       }
+      const plate = car.familyOf && car.familyOf !== into.familyOf ? byIdLocal.get(car.familyOf) : null;
       car.familyOf = null;
       supersedeStandalone(nodes, links, car, into, into.familyOf || into.id, `${into.make} ${into.label}`);
+      // A nameplate that lost a generation it never had starts when its first real one does.
+      if (plate) {
+        const years = (plate.generations || []).map(g => byIdLocal.get(g)).filter(g => g && !g.retired).map(g => g.year).filter(Number.isFinite);
+        if (years.length) plate.year = Math.min(...years);
+      }
     });
   }
   function unmergeDuplicate(famId, dupId) {
@@ -17156,13 +17266,16 @@ Rules:
     staleSharedEngineScans(byId);
     const shared = {};   // see recordEngineMentionsFrom
     const replay = (carId, hits) => {
-      const car = byId.get(carId);
+      let car = byId.get(carId);
+      // Read under a generation that turned out to be a car of its own: the car's.
+      if (car && car.ownCarStub) { for (let i = 0; car && car.retired && car.supersededBy && i < 5; i++) car = byId.get(car.supersededBy); }
       if (!car || car.retired || !hits || !hits.length) return;
       // A nameplate with generations carries no engines of its own: they
       // belong to the generations, which are read separately. Real case, the
       // Nissan Silvia -- read once as a plain car, before it was split, which
       // put all seven generations' engines on the nameplate's own card.
-      if (car.type === "family" && (car.generations || []).length) return;
+      // A marque whose list was all cars of their own is the same: the Hummer.
+      if ((car.type === "family" && (car.generations || []).length) || car.listsOwnCars) return;
       // No revive: a boot replay is not a deliberate read, and undoing the
       // user's delete on every page load would make it impossible to delete
       // an engine at all.
@@ -20169,6 +20282,14 @@ Rules:
         gid += "-" + (fresh.yearStart != null ? fresh.yearStart : usedGids.size + 1);
       }
       usedGids.add(gid);
+      if (!old) {
+        const ownCar = carOfItsOwn(nodes, fam, fresh, entry);
+        if (ownCar) {
+          handToCarOfItsOwn(nodes, links, fam, ownCar, fresh);
+          resolvePlatformMention(nodes, links, ownCar.id, ownCar);
+          return;
+        }
+      }
       let gn = old || byId.get(gid);
       // The bare nameplate standing in for a generation ("Boxster and
       // Cayman", 1996-2005) paired with the real one by its years ("986")

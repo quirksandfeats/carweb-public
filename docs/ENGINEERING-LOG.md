@@ -2631,3 +2631,19 @@ Whole-graph result: exactly those four cars return, with the 300C folded by `REV
 
 Review 18 takes the Toyota Hilux Dakar out of the Hilux generations. The article's racing section points at it as a rally car with its own article. A re-read leaving out a generation does not retire it, so a scan could not remove it. This and the 300C are hand corrections.
 
+### 5 November: a car with its own article is not a generation
+
+The owner ruled on 14 Oct that a car with its own article stays a car of its own, unless the title is the nameplate plus a code or generation. Only the re-read path kept to it (`decideRecheck`). A list read for the first time, or replayed at load, folded the car in, so a re-scan changed nothing.
+
+**The rule** (`carOfItsOwn`, in both places a list becomes generations). A list entry stays out of the nameplate when a car stands in the graph with exactly that name, the same make and years within one of the entry's, on an article that is not the nameplate's. The name may be written with the make ("BMW 503"). Not a title with a bracket other than "(automobile)" or "(car)", the nameplate and another word ("Ford Capri EV"), a title that is a code ("Mercedes-Benz W124", unless that car has generations of its own), or a name under four characters ("Fiat 147" in the Fiorino). A person's decision on the entry stands. If fewer than two generations would remain, the list stays as read, except under a marque (the Hummer), so no nameplate collapses.
+
+**The dry run decided the rule.** The first version took any entry naming another car. It removed 100 generations, including rebadges and whole lineups such as the Baleno. Exact name and years left 19 cars, and the list settled three more points. What the nameplate's article said about the car has to go with it: the H2's platform-mates would have vanished with the generation. Saved relationships and engine reads name the generation's id, so the id stays as a hidden pointer to the car (`ownCarStub`), and the replay of engine reads follows it. A marque whose list was all cars of its own carries no engines (`listsOwnCars`).
+
+**Moved by rule:** Fiat Grande Panda, Ford Customline, Hillman Super Minx, Opel Olympia Rekord, Hummer H1, H2 and H3, GMC Hummer EV, Lincoln Mark LT and Mark VIII, Ruf CTR3 and Turbo R, BMW 503, 507 and 3200 CS, Ford LTD II, Riley Nine and 12/4. The Suzuki Cultus Crescent leaves the Cultus / Swift and is the Baleno's first generation, since the Baleno's dates differ.
+
+**By hand:** "BMW Z4" and "BMW Z1" both lead to the BMW Z overview, whose sections are four cars, and each nameplate took them all. Eight entries in `REVIEWED_SAME_CARS` fold them. `foldReviewedCars` now moves a nameplate's start year to its first real generation.
+
+**Left as generations on purpose:** a heading that numbers the car ("Fifth generation: Nissan 350Z (Z33)", the Bora in the Jetta, the Liberty in the Cherokee), and a slice of another car's years (the Chevelle Nomad, the Baleno that was a rebadged Aerio).
+
+**Known limits.** Two succession links appear that are wrong: the Olympia A to the Rekord D, and the Mark series' Mark VII to the Lincoln LS. `pushSuccessionToGenerations` places a nameplate-level link on the generations left. The node Humber Vogue, known only from one mention on the Super Minx, is gone. The Lincoln Mark plates still repeat generations.
+
