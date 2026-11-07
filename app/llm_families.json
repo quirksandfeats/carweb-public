@@ -266909,14 +266909,6 @@
    "sameAs": "m-toyota-crown",
    "sameAsLabel": "Toyota Crown",
    "attempts": 1
-  },
-  "llm-related-toyota-1600gt": {
-   "status": "same-article",
-   "checkedAt": "2026-11-07T15:54:42.177Z",
-   "sourceTitle": "Toyota Corona",
-   "sameAs": "m-toyota-corona",
-   "sameAsLabel": "Toyota Corona",
-   "attempts": 1
   }
  },
  "relations": {
@@ -286693,8 +286685,8 @@
   },
   "llm-m-nissan-micra-k14|llm-m-nissan-note-e12|platform": {
    "status": "confirmed",
-   "checkedAt": "2026-11-07T15:47:58.688Z",
-   "decidedAt": "2026-11-07T15:47:58.688Z",
+   "checkedAt": "2026-11-07T22:37:05.117Z",
+   "decidedAt": "2026-11-07T22:37:05.117Z",
    "famA": "m-nissan-note",
    "famB": "m-nissan-micra",
    "relType": "platform",
@@ -328294,8 +328286,8 @@
   },
   "llm-llm-related-daewoo-veritas-wn|llm-m-chevrolet-caprice-sixth-generation|platform": {
    "status": "confirmed",
-   "checkedAt": "2026-11-07T15:48:05.075Z",
-   "decidedAt": "2026-11-07T15:48:05.075Z",
+   "checkedAt": "2026-11-07T22:37:11.573Z",
+   "decidedAt": "2026-11-07T22:37:11.573Z",
    "famA": "llm-related-daewoo-veritas",
    "famB": "m-chevrolet-caprice",
    "relType": "platform",
@@ -421855,8 +421847,8 @@
   },
   "llm-related-daewoo-nexia|m-chevrolet-aveo-t200|platform": {
    "status": "confirmed",
-   "checkedAt": "2026-11-07T15:48:16.806Z",
-   "decidedAt": "2026-11-07T15:48:16.806Z",
+   "checkedAt": "2026-11-07T22:37:23.495Z",
+   "decidedAt": "2026-11-07T22:37:23.495Z",
    "famA": "fam-chevrolet-aveo",
    "famB": "llm-related-daewoo-nexia",
    "relType": "platform",
@@ -442919,8 +442911,8 @@
   },
   "llm-llm-related-ford-contour-mk-i-mk-ii|llm-m-mercury-cougar-seventh-generation|platform": {
    "status": "confirmed",
-   "checkedAt": "2026-11-07T15:48:05.723Z",
-   "decidedAt": "2026-11-07T15:48:05.723Z",
+   "checkedAt": "2026-11-07T22:37:12.233Z",
+   "decidedAt": "2026-11-07T22:37:12.233Z",
    "famA": "llm-related-ford-contour",
    "famB": "m-mercury-cougar",
    "relType": "platform",
@@ -467054,8 +467046,8 @@
   },
   "llm-llm-related-volkswagen-alltrack-b6|llm-m-skoda-superb-b6-3t|platform": {
    "status": "confirmed",
-   "checkedAt": "2026-11-07T15:48:09.238Z",
-   "decidedAt": "2026-11-07T15:48:09.238Z",
+   "checkedAt": "2026-11-07T22:37:15.727Z",
+   "decidedAt": "2026-11-07T22:37:15.727Z",
    "famA": "llm-related-volkswagen-alltrack",
    "famB": "m-skoda-superb",
    "relType": "platform",
@@ -469519,8 +469511,8 @@
   },
   "llm-m-lincoln-custom-lincoln-custom-1941|llm-m-lincoln-lincoln-zephyr-lincoln-h-series|platform": {
    "status": "confirmed",
-   "checkedAt": "2026-11-07T15:48:01.488Z",
-   "decidedAt": "2026-11-07T15:48:01.488Z",
+   "checkedAt": "2026-11-07T22:37:07.904Z",
+   "decidedAt": "2026-11-07T22:37:07.904Z",
    "famA": "m-lincoln-custom",
    "famB": "m-lincoln-lincoln-zephyr",
    "relType": "platform",
@@ -498861,8 +498853,8 @@
   },
   "llm-m-mitsubishi-3000gt-z16a|llm-m-mitsubishi-sigma-first-generation|platform": {
    "status": "confirmed",
-   "checkedAt": "2026-11-07T15:48:01.943Z",
-   "decidedAt": "2026-11-07T15:48:01.943Z",
+   "checkedAt": "2026-11-07T22:37:08.359Z",
+   "decidedAt": "2026-11-07T22:37:08.359Z",
    "famA": "m-mitsubishi-sigma",
    "famB": "m-mitsubishi-3000gt",
    "relType": "platform",
@@ -503699,8 +503691,8 @@
   },
   "llm-llm-related-nissan-clipper-suzuki-every-fourth-generation|llm-llm-related-suzuki-carry-da16t|platform": {
    "status": "confirmed",
-   "checkedAt": "2026-11-07T15:48:11.589Z",
-   "decidedAt": "2026-11-07T15:48:11.589Z",
+   "checkedAt": "2026-11-07T22:37:18.116Z",
+   "decidedAt": "2026-11-07T22:37:18.116Z",
    "famA": "llm-related-suzuki-carry",
    "famB": "llm-related-nissan-clipper",
    "relType": "platform",
@@ -517508,8 +517500,8 @@
   },
   "llm-m-vauxhall-astra-mkii-kadett-e|llm-related-bedford-astra|platform": {
    "status": "confirmed",
-   "checkedAt": "2026-11-07T15:48:00.578Z",
-   "decidedAt": "2026-11-07T15:48:00.578Z",
+   "checkedAt": "2026-11-07T22:37:07.003Z",
+   "decidedAt": "2026-11-07T22:37:07.003Z",
    "famA": "m-vauxhall-astra",
    "famB": "llm-related-bedford-astra",
    "relType": "platform",
@@ -533717,8 +533709,8 @@
   },
   "llm-m-buick-electra-fourth-generation|llm-m-cadillac-fleetwood-fourth-generation-1971-1976-|platform": {
    "status": "confirmed",
-   "checkedAt": "2026-11-07T15:48:05.802Z",
-   "decidedAt": "2026-11-07T15:48:05.802Z",
+   "checkedAt": "2026-11-07T22:37:12.310Z",
+   "decidedAt": "2026-11-07T22:37:12.310Z",
    "famA": "m-cadillac-fleetwood",
    "famB": "m-buick-electra",
    "relType": "platform",
@@ -533731,8 +533723,8 @@
   },
   "llm-m-cadillac-fleetwood-fourth-generation-1971-1976-|llm-m-oldsmobile-98-ninth-generation-1971-1976|platform": {
    "status": "confirmed",
-   "checkedAt": "2026-11-07T15:48:05.802Z",
-   "decidedAt": "2026-11-07T15:48:05.802Z",
+   "checkedAt": "2026-11-07T22:37:12.310Z",
+   "decidedAt": "2026-11-07T22:37:12.310Z",
    "famA": "m-cadillac-fleetwood",
    "famB": "m-oldsmobile-98",
    "relType": "platform",
@@ -533745,8 +533737,8 @@
   },
   "llm-m-dodge-colt-first-generation|llm-m-mitsubishi-galant-first-generation|platform": {
    "status": "confirmed",
-   "checkedAt": "2026-11-07T15:48:06.481Z",
-   "decidedAt": "2026-11-07T15:48:06.481Z",
+   "checkedAt": "2026-11-07T22:37:12.987Z",
+   "decidedAt": "2026-11-07T22:37:12.987Z",
    "famA": "m-dodge-colt",
    "famB": "m-mitsubishi-galant",
    "relType": "platform",
@@ -533759,8 +533751,8 @@
   },
   "llm-m-dodge-colt-second-generation|llm-m-mitsubishi-galant-third-generation|platform": {
    "status": "confirmed",
-   "checkedAt": "2026-11-07T15:48:06.482Z",
-   "decidedAt": "2026-11-07T15:48:06.482Z",
+   "checkedAt": "2026-11-07T22:37:12.988Z",
+   "decidedAt": "2026-11-07T22:37:12.988Z",
    "famA": "m-dodge-colt",
    "famB": "m-mitsubishi-galant",
    "relType": "platform",
@@ -533773,8 +533765,8 @@
   },
   "llm-m-mazda-cx-5-kf|m-mazda-6-third-generation|platform": {
    "status": "confirmed",
-   "checkedAt": "2026-11-07T15:48:18.276Z",
-   "decidedAt": "2026-11-07T15:48:18.276Z",
+   "checkedAt": "2026-11-07T22:37:25.006Z",
+   "decidedAt": "2026-11-07T22:37:25.006Z",
    "famA": "fam-mazda-6",
    "famB": "m-mazda-cx-5",
    "relType": "platform",
@@ -536255,8 +536247,8 @@
   },
   "llm-llm-related-volkswagen-alltrack-b9|llm-llm-related-volkswagen-passat-pro-b9|platform": {
    "status": "confirmed",
-   "checkedAt": "2026-11-07T15:48:09.248Z",
-   "decidedAt": "2026-11-07T15:48:09.248Z",
+   "checkedAt": "2026-11-07T22:37:15.735Z",
+   "decidedAt": "2026-11-07T22:37:15.735Z",
    "famA": "llm-related-volkswagen-alltrack",
    "famB": "llm-related-volkswagen-passat-pro",
    "relType": "platform",
@@ -538647,8 +538639,8 @@
   },
   "llm-m-mazda-carol-seventh-generation-hb36|llm-m-suzuki-alto-ha25-ha35|platform": {
    "status": "confirmed",
-   "checkedAt": "2026-11-07T15:48:01.051Z",
-   "decidedAt": "2026-11-07T15:48:01.051Z",
+   "checkedAt": "2026-11-07T22:37:07.469Z",
+   "decidedAt": "2026-11-07T22:37:07.469Z",
    "famA": "m-mazda-carol",
    "famB": "m-suzuki-alto",
    "relType": "platform",
@@ -541211,8 +541203,8 @@
   },
   "llm-llm-related-suzuki-baleno-wb1|llm-m-toyota-yaris-mazda2-dj-|platform": {
    "status": "confirmed",
-   "checkedAt": "2026-11-07T15:48:07.991Z",
-   "decidedAt": "2026-11-07T15:48:07.991Z",
+   "checkedAt": "2026-11-07T22:37:14.489Z",
+   "decidedAt": "2026-11-07T22:37:14.489Z",
    "famA": "llm-related-suzuki-baleno",
    "famB": "m-toyota-yaris",
    "relType": "platform",
@@ -543487,8 +543479,8 @@
   },
   "llm-llm-related-daihatsu-delta-u400|llm-llm-related-toyota-toyoace-sixth-generation|platform": {
    "status": "confirmed",
-   "checkedAt": "2026-11-07T15:48:08.075Z",
-   "decidedAt": "2026-11-07T15:48:08.075Z",
+   "checkedAt": "2026-11-07T22:37:14.577Z",
+   "decidedAt": "2026-11-07T22:37:14.577Z",
    "famA": "llm-related-daihatsu-delta",
    "famB": "llm-related-toyota-toyoace",
    "relType": "platform",
@@ -543515,8 +543507,8 @@
   },
   "llm-llm-related-daihatsu-delta-u600-u700|llm-llm-related-toyota-toyoace-seventh-generation|platform": {
    "status": "confirmed",
-   "checkedAt": "2026-11-07T15:48:08.076Z",
-   "decidedAt": "2026-11-07T15:48:08.076Z",
+   "checkedAt": "2026-11-07T22:37:14.579Z",
+   "decidedAt": "2026-11-07T22:37:14.579Z",
    "famA": "llm-related-daihatsu-delta",
    "famB": "llm-related-toyota-toyoace",
    "relType": "platform",
@@ -546169,20 +546161,6 @@
     ]
    }
   },
-  "llm-m-toyota-corona-t40-t50|llm-related-toyota-1600gt|platform": {
-   "status": "confirmed",
-   "checkedAt": "2026-11-07T15:54:37.456Z",
-   "decidedAt": "2026-11-07T15:54:37.456Z",
-   "famA": "m-toyota-corona",
-   "famB": "llm-related-toyota-1600gt",
-   "relType": "platform",
-   "codeA": "Corona T40, T50",
-   "codeB": "1600GT",
-   "genIdA": "llm-m-toyota-corona-t40-t50",
-   "genIdB": "llm-related-toyota-1600gt",
-   "reason": "matched automatically -- \"Toyota 1600GT\" was named as a related car but didn't exist anywhere in the graph yet, so it was newly created from this mention (double-checked by the local LLM sanity pass against every plausible existing car -- none matched)",
-   "llmDiscovered": true
-  },
   "llm-m-toyota-crown-toyopet-crown-second-generation-s40|m-toyota-corona|platform": {
    "status": "confirmed",
    "checkedAt": "2026-11-07T15:54:48.213Z",
@@ -546367,272 +546345,6 @@
    "reason": "matched automatically -- the nameplate was named exactly in the source text, and exactly one of its generations was in production alongside this one, so that is the generation it refers to",
    "llmDiscovered": true
   },
-  "llm-llm-related-suzuki-baleno-aerio-baleno-sedan|llm-related-chevrolet-cassia|platform": {
-   "status": "confirmed",
-   "checkedAt": "2026-11-07T15:58:52.279Z",
-   "decidedAt": "2026-11-07T15:58:52.279Z",
-   "famA": "llm-related-chevrolet-cassia",
-   "famB": "llm-related-suzuki-baleno",
-   "relType": "platform",
-   "codeA": "Cassia",
-   "codeB": "Baleno Aerio (Baleno sedan)",
-   "genIdA": "llm-related-chevrolet-cassia",
-   "genIdB": "llm-llm-related-suzuki-baleno-aerio-baleno-sedan",
-   "reason": "matched automatically -- the nameplate was named exactly in the source text; no text says which, so the generation whose years fit this one best",
-   "llmDiscovered": true
-  },
-  "llm-m-vauxhall-cavalier-mark-ii|m-peugeot-305|platform": {
-   "status": "confirmed",
-   "checkedAt": "2026-11-07T15:58:52.321Z",
-   "decidedAt": "2026-11-07T15:58:52.321Z",
-   "famA": "m-peugeot-305",
-   "famB": "m-vauxhall-cavalier",
-   "relType": "platform",
-   "codeA": "305",
-   "codeB": "Cavalier Mark II",
-   "genIdA": "m-peugeot-305",
-   "genIdB": "llm-m-vauxhall-cavalier-mark-ii",
-   "reason": "matched automatically -- the nameplate was named exactly in the source text; no text says which, so the generation whose years fit this one best",
-   "llmDiscovered": true
-  },
-  "llm-m-opel-ascona-ascona-c|m-peugeot-305|platform": {
-   "status": "confirmed",
-   "checkedAt": "2026-11-07T15:58:52.321Z",
-   "decidedAt": "2026-11-07T15:58:52.321Z",
-   "famA": "m-peugeot-305",
-   "famB": "m-opel-ascona",
-   "relType": "platform",
-   "codeA": "305",
-   "codeB": "Ascona C",
-   "genIdA": "m-peugeot-305",
-   "genIdB": "llm-m-opel-ascona-ascona-c",
-   "reason": "matched automatically -- the nameplate was named exactly in the source text; no text says which, so the generation whose years fit this one best",
-   "llmDiscovered": true
-  },
-  "llm-m-mitsubishi-mirage-fifth-generation-1995-cj-ck-cl-cm|m-mitsubishi-mirage-dingo|platform": {
-   "status": "confirmed",
-   "checkedAt": "2026-11-07T15:58:52.365Z",
-   "decidedAt": "2026-11-07T15:58:52.365Z",
-   "famA": "m-mitsubishi-mirage-dingo",
-   "famB": "m-mitsubishi-mirage",
-   "relType": "platform",
-   "codeA": "Mirage Dingo",
-   "codeB": "Mirage Fifth generation (1995; CJ/CK/CL/CM)",
-   "genIdA": "m-mitsubishi-mirage-dingo",
-   "genIdB": "llm-m-mitsubishi-mirage-fifth-generation-1995-cj-ck-cl-cm",
-   "reason": "matched automatically -- the nameplate was named exactly in the source text; no text says which, so the generation whose years fit this one best",
-   "llmDiscovered": true
-  },
-  "llm-llm-related-seat-ritmo-seat-ronda-022a|m-seat-ronda|platform": {
-   "status": "confirmed",
-   "checkedAt": "2026-11-07T15:58:52.451Z",
-   "decidedAt": "2026-11-07T15:58:52.451Z",
-   "famA": "m-seat-ronda",
-   "famB": "llm-related-seat-ritmo",
-   "relType": "platform",
-   "codeA": "Ronda",
-   "codeB": "Ritmo SEAT Ronda (022A)",
-   "genIdA": "m-seat-ronda",
-   "genIdB": "llm-llm-related-seat-ritmo-seat-ronda-022a",
-   "reason": "matched automatically -- the nameplate was named exactly in the source text; no text says which, so the generation whose years fit this one best",
-   "llmDiscovered": true
-  },
-  "llm-llm-related-oldsmobile-starfire-second-generation|m-chevrolet-vega|platform": {
-   "status": "confirmed",
-   "checkedAt": "2026-11-07T15:58:52.470Z",
-   "decidedAt": "2026-11-07T15:58:52.470Z",
-   "famA": "m-chevrolet-vega",
-   "famB": "llm-related-oldsmobile-starfire",
-   "relType": "platform",
-   "codeA": "Vega",
-   "codeB": "Starfire Second generation",
-   "genIdA": "m-chevrolet-vega",
-   "genIdB": "llm-llm-related-oldsmobile-starfire-second-generation",
-   "reason": "matched automatically -- the nameplate was named exactly in the source text, and exactly one of its generations was in production alongside this one, so that is the generation it refers to",
-   "llmDiscovered": true
-  },
-  "llm-m-jeep-compass-second-generation-mp-552|m-fiat-tipo-2015|platform": {
-   "status": "confirmed",
-   "checkedAt": "2026-11-07T15:58:52.494Z",
-   "decidedAt": "2026-11-07T15:58:52.494Z",
-   "famA": "m-fiat-tipo-2015",
-   "famB": "m-jeep-compass",
-   "relType": "platform",
-   "codeA": "Tipo (2015)",
-   "codeB": "Compass Second generation (MP/552)",
-   "genIdA": "m-fiat-tipo-2015",
-   "genIdB": "llm-m-jeep-compass-second-generation-mp-552",
-   "reason": "matched automatically -- the nameplate was named exactly in the source text; no text says which, so the generation whose years fit this one best",
-   "llmDiscovered": true
-  },
-  "llm-m-fiat-128-nasr-128|m-zastava-skala|platform": {
-   "status": "confirmed",
-   "checkedAt": "2026-11-07T15:58:52.547Z",
-   "decidedAt": "2026-11-07T15:58:52.547Z",
-   "famA": "m-zastava-skala",
-   "famB": "m-fiat-128",
-   "relType": "platform",
-   "codeA": "Skala",
-   "codeB": "128 Nasr 128",
-   "genIdA": "m-zastava-skala",
-   "genIdB": "llm-m-fiat-128-nasr-128",
-   "reason": "matched automatically -- the nameplate was named exactly in the source text; no text says which, so the generation whose years fit this one best",
-   "llmDiscovered": true
-  },
-  "llm-llm-related-mitsubishi-minicab-miev-eighth-generation|m-mitsubishi-i-miev|platform": {
-   "status": "confirmed",
-   "checkedAt": "2026-11-07T15:58:52.552Z",
-   "decidedAt": "2026-11-07T15:58:52.552Z",
-   "famA": "m-mitsubishi-i-miev",
-   "famB": "llm-related-mitsubishi-minicab-miev",
-   "relType": "platform",
-   "codeA": "i-MiEV",
-   "codeB": "Minicab MiEV Eighth generation",
-   "genIdA": "m-mitsubishi-i-miev",
-   "genIdB": "llm-llm-related-mitsubishi-minicab-miev-eighth-generation",
-   "reason": "matched automatically -- the nameplate was named exactly in the source text; no text says which, so the generation whose years fit this one best",
-   "llmDiscovered": true
-  },
-  "llm-m-desoto-firedome-third-generation|m-desoto-fireflite|platform": {
-   "status": "confirmed",
-   "checkedAt": "2026-11-07T15:58:52.750Z",
-   "decidedAt": "2026-11-07T15:58:52.750Z",
-   "famA": "m-desoto-fireflite",
-   "famB": "m-desoto-firedome",
-   "relType": "platform",
-   "codeA": "Fireflite",
-   "codeB": "Firedome Third generation",
-   "genIdA": "m-desoto-fireflite",
-   "genIdB": "llm-m-desoto-firedome-third-generation",
-   "reason": "matched automatically -- the nameplate was named exactly in the source text; no text says which, so the generation whose years fit this one best",
-   "llmDiscovered": true
-  },
-  "llm-m-volkswagen-sharan-7n|m-volkswagen-cc|platform": {
-   "status": "confirmed",
-   "checkedAt": "2026-11-07T15:58:52.770Z",
-   "decidedAt": "2026-11-07T15:58:52.770Z",
-   "famA": "m-volkswagen-cc",
-   "famB": "m-volkswagen-sharan",
-   "relType": "platform",
-   "codeA": "CC",
-   "codeB": "Sharan 7N",
-   "genIdA": "m-volkswagen-cc",
-   "genIdB": "llm-m-volkswagen-sharan-7n",
-   "reason": "matched automatically -- the nameplate was named exactly in the source text; no text says which, so the generation whose years fit this one best",
-   "llmDiscovered": true
-  },
-  "llm-m-seat-alhambra-7n|m-volkswagen-cc|platform": {
-   "status": "confirmed",
-   "checkedAt": "2026-11-07T15:58:52.770Z",
-   "decidedAt": "2026-11-07T15:58:52.770Z",
-   "famA": "m-volkswagen-cc",
-   "famB": "m-seat-alhambra",
-   "relType": "platform",
-   "codeA": "CC",
-   "codeB": "Alhambra 7N",
-   "genIdA": "m-volkswagen-cc",
-   "genIdB": "llm-m-seat-alhambra-7n",
-   "reason": "matched automatically -- the nameplate was named exactly in the source text; no text says which, so the generation whose years fit this one best",
-   "llmDiscovered": true
-  },
-  "llm-m-audi-a3-mk3-8y|m-audi-q2|platform": {
-   "status": "confirmed",
-   "checkedAt": "2026-11-07T15:58:52.790Z",
-   "decidedAt": "2026-11-07T15:58:52.790Z",
-   "famA": "m-audi-q2",
-   "famB": "m-audi-a3-mk3",
-   "relType": "platform",
-   "codeA": "Q2",
-   "codeB": "A3 Mk3 8Y",
-   "genIdA": "m-audi-q2",
-   "genIdB": "llm-m-audi-a3-mk3-8y",
-   "reason": "matched automatically -- the nameplate was named exactly in the source text; no text says which, so the generation whose years fit this one best",
-   "llmDiscovered": true
-  },
-  "llm-m-volkswagen-id-buzz-id-buzz-production|m-volkswagen-id-tiguan|platform": {
-   "status": "confirmed",
-   "checkedAt": "2026-11-07T15:58:52.867Z",
-   "decidedAt": "2026-11-07T15:58:52.867Z",
-   "famA": "m-volkswagen-id-tiguan",
-   "famB": "m-volkswagen-id-buzz",
-   "relType": "platform",
-   "codeA": "ID. Tiguan",
-   "codeB": "ID. Buzz (production)",
-   "genIdA": "m-volkswagen-id-tiguan",
-   "genIdB": "llm-m-volkswagen-id-buzz-id-buzz-production",
-   "reason": "matched automatically -- the nameplate was named exactly in the source text, and exactly one of its generations was in production alongside this one, so that is the generation it refers to",
-   "llmDiscovered": true
-  },
-  "llm-m-citroen-c4-picasso-second-generation|m-ds-5|platform": {
-   "status": "confirmed",
-   "checkedAt": "2026-11-07T15:58:52.869Z",
-   "decidedAt": "2026-11-07T15:58:52.869Z",
-   "famA": "m-ds-5",
-   "famB": "m-citroen-c4-picasso",
-   "relType": "platform",
-   "codeA": "5",
-   "codeB": "C4 Picasso Second generation",
-   "genIdA": "m-ds-5",
-   "genIdB": "llm-m-citroen-c4-picasso-second-generation",
-   "reason": "matched automatically -- the nameplate was named exactly in the source text; no text says which, so the generation whose years fit this one best",
-   "llmDiscovered": true
-  },
-  "llm-m-lancia-stratos-sibilo|m-lancia-rally-037|platform": {
-   "status": "confirmed",
-   "checkedAt": "2026-11-07T15:58:52.891Z",
-   "decidedAt": "2026-11-07T15:58:52.891Z",
-   "famA": "m-lancia-rally-037",
-   "famB": "m-lancia-stratos",
-   "relType": "platform",
-   "codeA": "Rally 037",
-   "codeB": "Stratos Sibilo",
-   "genIdA": "m-lancia-rally-037",
-   "genIdB": "llm-m-lancia-stratos-sibilo",
-   "reason": "matched automatically -- the nameplate was named exactly in the source text, and exactly one of its generations was in production alongside this one, so that is the generation it refers to",
-   "llmDiscovered": true
-  },
-  "llm-m-kia-sportage-je-km|m-hyundai-lavita|platform": {
-   "status": "confirmed",
-   "checkedAt": "2026-11-07T15:58:52.910Z",
-   "decidedAt": "2026-11-07T15:58:52.911Z",
-   "famA": "m-hyundai-lavita",
-   "famB": "m-kia-sportage",
-   "relType": "platform",
-   "codeA": "Lavita",
-   "codeB": "Sportage JE/KM",
-   "genIdA": "m-hyundai-lavita",
-   "genIdB": "llm-m-kia-sportage-je-km",
-   "reason": "matched automatically -- the nameplate was named exactly in the source text; no text says which, so the generation whose years fit this one best",
-   "llmDiscovered": true
-  },
-  "llm-m-dodge-colt-fourth-generation|llm-related-dodge-arrow|platform": {
-   "status": "confirmed",
-   "checkedAt": "2026-11-07T15:58:52.946Z",
-   "decidedAt": "2026-11-07T15:58:52.946Z",
-   "famA": "llm-related-dodge-arrow",
-   "famB": "m-dodge-colt",
-   "relType": "platform",
-   "codeA": "Arrow",
-   "codeB": "Colt Fourth generation",
-   "genIdA": "llm-related-dodge-arrow",
-   "genIdB": "llm-m-dodge-colt-fourth-generation",
-   "reason": "matched automatically -- the nameplate was named exactly in the source text; its article's sections for these generations name this car, and this one's years fit best",
-   "llmDiscovered": true
-  },
-  "llm-m-dodge-lancer-lancer-h-body|llm-related-dodge-arrow|platform": {
-   "status": "confirmed",
-   "checkedAt": "2026-11-07T15:58:52.946Z",
-   "decidedAt": "2026-11-07T15:58:52.946Z",
-   "famA": "llm-related-dodge-arrow",
-   "famB": "m-dodge-lancer",
-   "relType": "platform",
-   "codeA": "Arrow",
-   "codeB": "Lancer (H-body)",
-   "genIdA": "llm-related-dodge-arrow",
-   "genIdB": "llm-m-dodge-lancer-lancer-h-body",
-   "reason": "matched automatically -- the nameplate was named exactly in the source text, and exactly one of its generations was in production alongside this one, so that is the generation it refers to",
-   "llmDiscovered": true
-  },
   "llm-m-toyota-carina-a40-a50|llm-related-toyota-supra-a40|platform": {
    "status": "confirmed",
    "checkedAt": "2026-11-07T16:03:11.636Z",
@@ -546703,76 +546415,6 @@
    "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
    "llmDiscovered": true
   },
-  "llm-fam-toyota-camry-v30|llm-related-lexus-es-300-xv10|platform": {
-   "status": "confirmed",
-   "checkedAt": "2026-11-07T16:11:14.905Z",
-   "decidedAt": "2026-11-07T16:11:14.905Z",
-   "famA": "fam-toyota-camry",
-   "famB": "llm-related-lexus-es-300-xv10",
-   "relType": "platform",
-   "codeA": "Camry V30",
-   "codeB": "ES 300 (XV10)",
-   "genIdA": "llm-fam-toyota-camry-v30",
-   "genIdB": "llm-related-lexus-es-300-xv10",
-   "reason": "matched automatically -- \"Lexus ES 300 (XV10)\" was named as a related car but didn't exist anywhere in the graph yet, so it was newly created from this mention",
-   "llmDiscovered": true
-  },
-  "llm-related-toyota-scepter|m-toyota-camry-xv10|platform": {
-   "status": "confirmed",
-   "checkedAt": "2026-11-07T16:11:14.919Z",
-   "decidedAt": "2026-11-07T16:11:14.919Z",
-   "famA": "fam-toyota-camry",
-   "famB": "llm-related-toyota-scepter",
-   "relType": "platform",
-   "codeA": "Camry (XV10)",
-   "codeB": "Scepter",
-   "genIdA": "m-toyota-camry-xv10",
-   "genIdB": "llm-related-toyota-scepter",
-   "reason": "matched automatically -- \"Toyota Scepter\" was named as a related car but didn't exist anywhere in the graph yet, so it was newly created from this mention (double-checked by the local LLM sanity pass against every plausible existing car -- none matched)",
-   "llmDiscovered": true
-  },
-  "llm-related-toyota-camry-300i|m-toyota-camry-xv10|platform": {
-   "status": "confirmed",
-   "checkedAt": "2026-11-07T16:11:14.919Z",
-   "decidedAt": "2026-11-07T16:11:14.919Z",
-   "famA": "fam-toyota-camry",
-   "famB": "llm-related-toyota-camry-300i",
-   "relType": "platform",
-   "codeA": "Camry (XV10)",
-   "codeB": "Camry 300i",
-   "genIdA": "m-toyota-camry-xv10",
-   "genIdB": "llm-related-toyota-camry-300i",
-   "reason": "matched automatically -- \"Toyota Camry 300i\" was named as a related car but didn't exist anywhere in the graph yet, so it was newly created from this mention (double-checked by the local LLM sanity pass against every plausible existing car -- none matched)",
-   "llmDiscovered": true
-  },
-  "llm-related-toyota-mark-ii-qualis|m-toyota-camry-xv20|platform": {
-   "status": "confirmed",
-   "checkedAt": "2026-11-07T16:11:14.924Z",
-   "decidedAt": "2026-11-07T16:11:14.924Z",
-   "famA": "fam-toyota-camry",
-   "famB": "llm-related-toyota-mark-ii-qualis",
-   "relType": "platform",
-   "codeA": "Camry (XV20)",
-   "codeB": "Mark II Qualis",
-   "genIdA": "m-toyota-camry-xv20",
-   "genIdB": "llm-related-toyota-mark-ii-qualis",
-   "reason": "matched automatically -- \"Toyota Mark II Qualis\" was named as a related car but didn't exist anywhere in the graph yet, so it was newly created from this mention (double-checked by the local LLM sanity pass against every plausible existing car -- none matched)",
-   "llmDiscovered": true
-  },
-  "llm-related-toyota-camry-xv30|m-toyota-camry-xv40|platform": {
-   "status": "confirmed",
-   "checkedAt": "2026-11-07T16:11:14.933Z",
-   "decidedAt": "2026-11-07T16:11:14.934Z",
-   "famA": "fam-toyota-camry",
-   "famB": "llm-related-toyota-camry-xv30",
-   "relType": "platform",
-   "codeA": "Camry (XV40)",
-   "codeB": "Camry (XV30)",
-   "genIdA": "m-toyota-camry-xv40",
-   "genIdB": "llm-related-toyota-camry-xv30",
-   "reason": "matched automatically -- \"Toyota Camry (XV30)\" was named as a related car but didn't exist anywhere in the graph yet, so it was newly created from this mention (double-checked by the local LLM sanity pass against every plausible existing car -- none matched)",
-   "llmDiscovered": true
-  },
   "llm-m-lexus-es-xv40|m-toyota-camry-xv50|platform": {
    "status": "confirmed",
    "checkedAt": "2026-11-07T16:11:14.938Z",
@@ -546799,20 +546441,6 @@
    "genIdA": "m-toyota-camry-xv50",
    "genIdB": "llm-m-toyota-avalon-xx30",
    "reason": "matched automatically (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
-   "llmDiscovered": true
-  },
-  "llm-related-toyota-camry-xv40|m-toyota-camry-xv50|platform": {
-   "status": "confirmed",
-   "checkedAt": "2026-11-07T16:11:14.938Z",
-   "decidedAt": "2026-11-07T16:11:14.938Z",
-   "famA": "fam-toyota-camry",
-   "famB": "llm-related-toyota-camry-xv40",
-   "relType": "platform",
-   "codeA": "Camry (XV50)",
-   "codeB": "Camry (XV40)",
-   "genIdA": "m-toyota-camry-xv50",
-   "genIdB": "llm-related-toyota-camry-xv40",
-   "reason": "matched automatically -- \"Toyota Camry (XV40)\" was named as a related car but didn't exist anywhere in the graph yet, so it was newly created from this mention (double-checked by the local LLM sanity pass against every plausible existing car -- none matched)",
    "llmDiscovered": true
   },
   "llm-m-toyota-mark-ii-x30-x40|llm-related-toyota-cressida|platform": {
@@ -546883,6 +546511,392 @@
    "genIdA": "llm-m-toyota-mark-ii-x90",
    "genIdB": "llm-related-toyota-cressida",
    "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-toyota-tarago-xr10|llm-related-toyota-liteace|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-11-07T22:37:06.564Z",
+   "decidedAt": "2026-11-07T22:37:06.564Z",
+   "famA": "m-toyota-tarago",
+   "famB": "llm-related-toyota-liteace",
+   "relType": "platform",
+   "codeA": "Tarago XR10",
+   "codeB": "LiteAce",
+   "genIdA": "llm-m-toyota-tarago-xr10",
+   "genIdB": "llm-related-toyota-liteace",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-toyota-tarago-xr10|llm-related-toyota-townace|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-11-07T22:37:06.564Z",
+   "decidedAt": "2026-11-07T22:37:06.564Z",
+   "famA": "m-toyota-tarago",
+   "famB": "llm-related-toyota-townace",
+   "relType": "platform",
+   "codeA": "Tarago XR10",
+   "codeB": "TownAce",
+   "genIdA": "llm-m-toyota-tarago-xr10",
+   "genIdB": "llm-related-toyota-townace",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-toyopet-master-masterline-rs20-30-|llm-related-toyopet-toyoace-skb|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-11-07T22:37:08.570Z",
+   "decidedAt": "2026-11-07T22:37:08.570Z",
+   "famA": "m-toyopet-master",
+   "famB": "llm-related-toyopet-toyoace-skb",
+   "relType": "platform",
+   "codeA": "Master Masterline (RS20/30)",
+   "codeB": "Toyoace SKB",
+   "genIdA": "llm-m-toyopet-master-masterline-rs20-30-",
+   "genIdB": "llm-related-toyopet-toyoace-skb",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
+   "llmDiscovered": true
+  },
+  "llm-m-vauxhall-cavalier-mark-i|m-peugeot-305|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-11-07T22:37:10.075Z",
+   "decidedAt": "2026-11-07T22:37:10.075Z",
+   "famA": "m-peugeot-305",
+   "famB": "m-vauxhall-cavalier",
+   "relType": "platform",
+   "codeA": "305",
+   "codeB": "Cavalier Mark I",
+   "genIdA": "m-peugeot-305",
+   "genIdB": "llm-m-vauxhall-cavalier-mark-i",
+   "reason": "matched automatically -- the nameplate was named exactly in the source text, and exactly one of its generations was in production alongside this one, so that is the generation it refers to",
+   "llmDiscovered": true
+  },
+  "llm-m-opel-ascona-ascona-b|m-peugeot-305|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-11-07T22:37:10.075Z",
+   "decidedAt": "2026-11-07T22:37:10.075Z",
+   "famA": "m-peugeot-305",
+   "famB": "m-opel-ascona",
+   "relType": "platform",
+   "codeA": "305",
+   "codeB": "Ascona B",
+   "genIdA": "m-peugeot-305",
+   "genIdB": "llm-m-opel-ascona-ascona-b",
+   "reason": "matched automatically -- the nameplate was named exactly in the source text, and exactly one of its generations was in production alongside this one, so that is the generation it refers to",
+   "llmDiscovered": true
+  },
+  "llm-m-mitsubishi-mirage-fourth-generation-1991-ca-cb-cc-cd|m-mitsubishi-mirage-dingo|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-11-07T22:37:10.102Z",
+   "decidedAt": "2026-11-07T22:37:10.102Z",
+   "famA": "m-mitsubishi-mirage-dingo",
+   "famB": "m-mitsubishi-mirage",
+   "relType": "platform",
+   "codeA": "Mirage Dingo",
+   "codeB": "Mirage Fourth generation (1991; CA/CB/CC/CD)",
+   "genIdA": "m-mitsubishi-mirage-dingo",
+   "genIdB": "llm-m-mitsubishi-mirage-fourth-generation-1991-ca-cb-cc-cd",
+   "reason": "matched automatically -- the nameplate was named exactly in the source text; no text says which, so the generation whose years fit this one best",
+   "llmDiscovered": true
+  },
+  "llm-m-jeep-compass-first-generation-mk49|m-fiat-tipo-2015|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-11-07T22:37:10.182Z",
+   "decidedAt": "2026-11-07T22:37:10.182Z",
+   "famA": "m-fiat-tipo-2015",
+   "famB": "m-jeep-compass",
+   "relType": "platform",
+   "codeA": "Tipo (2015)",
+   "codeB": "Compass First generation (MK49)",
+   "genIdA": "m-fiat-tipo-2015",
+   "genIdB": "llm-m-jeep-compass-first-generation-mk49",
+   "reason": "matched automatically -- the nameplate was named exactly in the source text, and exactly one of its generations was in production alongside this one, so that is the generation it refers to",
+   "llmDiscovered": true
+  },
+  "llm-m-dodge-c-series-dodge-c-series|m-dodge-town-panel-and-town-wagon|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-11-07T22:37:10.186Z",
+   "decidedAt": "2026-11-07T22:37:10.186Z",
+   "famA": "m-dodge-town-panel-and-town-wagon",
+   "famB": "m-dodge-c-series",
+   "relType": "platform",
+   "codeA": "Town Panel and Town Wagon",
+   "codeB": "C series Dodge C series",
+   "genIdA": "m-dodge-town-panel-and-town-wagon",
+   "genIdB": "llm-m-dodge-c-series-dodge-c-series",
+   "reason": "matched automatically -- the nameplate was named exactly in the source text; no text says which, so the generation whose years fit this one best",
+   "llmDiscovered": true
+  },
+  "llm-m-fiat-128-zastava-skala|m-zastava-skala|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-11-07T22:37:10.222Z",
+   "decidedAt": "2026-11-07T22:37:10.222Z",
+   "famA": "m-zastava-skala",
+   "famB": "m-fiat-128",
+   "relType": "platform",
+   "codeA": "Skala",
+   "codeB": "128 Zastava Skala",
+   "genIdA": "m-zastava-skala",
+   "genIdB": "llm-m-fiat-128-zastava-skala",
+   "reason": "matched automatically -- the nameplate was named exactly in the source text; no text says which, so the generation whose years fit this one best",
+   "llmDiscovered": true
+  },
+  "llm-m-acura-tl-ua4-ua5|m-honda-accord-north-america-seventh-generation|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-11-07T22:37:10.346Z",
+   "decidedAt": "2026-11-07T22:37:10.346Z",
+   "famA": "m-honda-accord-north-america-seventh-generation",
+   "famB": "m-acura-tl",
+   "relType": "platform",
+   "codeA": "Accord (North America seventh generation)",
+   "codeB": "TL UA4, UA5",
+   "genIdA": "m-honda-accord-north-america-seventh-generation",
+   "genIdB": "llm-m-acura-tl-ua4-ua5",
+   "reason": "matched automatically -- the nameplate was named exactly in the source text; its article's sections for these generations name this car, and this one's years fit best",
+   "llmDiscovered": true
+  },
+  "llm-m-honda-inspire-third-generation-ua4-ua5|m-honda-accord-north-america-seventh-generation|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-11-07T22:37:10.346Z",
+   "decidedAt": "2026-11-07T22:37:10.346Z",
+   "famA": "m-honda-accord-north-america-seventh-generation",
+   "famB": "m-honda-inspire",
+   "relType": "platform",
+   "codeA": "Accord (North America seventh generation)",
+   "codeB": "Inspire Third generation (UA4 & UA5)",
+   "genIdA": "m-honda-accord-north-america-seventh-generation",
+   "genIdB": "llm-m-honda-inspire-third-generation-ua4-ua5",
+   "reason": "matched automatically -- the nameplate was named exactly in the source text; its article's sections for these generations name this car, and this one's years fit best",
+   "llmDiscovered": true
+  },
+  "llm-m-desoto-firedome-second-generation|m-desoto-fireflite|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-11-07T22:37:10.348Z",
+   "decidedAt": "2026-11-07T22:37:10.348Z",
+   "famA": "m-desoto-fireflite",
+   "famB": "m-desoto-firedome",
+   "relType": "platform",
+   "codeA": "Fireflite",
+   "codeB": "Firedome Second generation",
+   "genIdA": "m-desoto-fireflite",
+   "genIdB": "llm-m-desoto-firedome-second-generation",
+   "reason": "matched automatically -- the nameplate was named exactly in the source text, and exactly one of its generations was in production alongside this one, so that is the generation it refers to",
+   "llmDiscovered": true
+  },
+  "llm-m-volkswagen-sharan-7m|m-volkswagen-cc|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-11-07T22:37:10.364Z",
+   "decidedAt": "2026-11-07T22:37:10.364Z",
+   "famA": "m-volkswagen-cc",
+   "famB": "m-volkswagen-sharan",
+   "relType": "platform",
+   "codeA": "CC",
+   "codeB": "Sharan 7M",
+   "genIdA": "m-volkswagen-cc",
+   "genIdB": "llm-m-volkswagen-sharan-7m",
+   "reason": "matched automatically -- the nameplate was named exactly in the source text, and exactly one of its generations was in production alongside this one, so that is the generation it refers to",
+   "llmDiscovered": true
+  },
+  "llm-m-seat-alhambra-7m|m-volkswagen-cc|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-11-07T22:37:10.364Z",
+   "decidedAt": "2026-11-07T22:37:10.364Z",
+   "famA": "m-volkswagen-cc",
+   "famB": "m-seat-alhambra",
+   "relType": "platform",
+   "codeA": "CC",
+   "codeB": "Alhambra 7M",
+   "genIdA": "m-volkswagen-cc",
+   "genIdB": "llm-m-seat-alhambra-7m",
+   "reason": "matched automatically -- the nameplate was named exactly in the source text, and exactly one of its generations was in production alongside this one, so that is the generation it refers to",
+   "llmDiscovered": true
+  },
+  "llm-m-audi-a3-mk3-8v|m-audi-q2|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-11-07T22:37:10.375Z",
+   "decidedAt": "2026-11-07T22:37:10.375Z",
+   "famA": "m-audi-q2",
+   "famB": "m-audi-a3-mk3",
+   "relType": "platform",
+   "codeA": "Q2",
+   "codeB": "A3 Mk3 8V",
+   "genIdA": "m-audi-q2",
+   "genIdB": "llm-m-audi-a3-mk3-8v",
+   "reason": "matched automatically -- the nameplate was named exactly in the source text, and exactly one of its generations was in production alongside this one, so that is the generation it refers to",
+   "llmDiscovered": true
+  },
+  "llm-m-volkswagen-id-buzz-id-buzz-concept|m-volkswagen-id-tiguan|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-11-07T22:37:10.423Z",
+   "decidedAt": "2026-11-07T22:37:10.423Z",
+   "famA": "m-volkswagen-id-tiguan",
+   "famB": "m-volkswagen-id-buzz",
+   "relType": "platform",
+   "codeA": "ID. Tiguan",
+   "codeB": "ID. Buzz (concept)",
+   "genIdA": "m-volkswagen-id-tiguan",
+   "genIdB": "llm-m-volkswagen-id-buzz-id-buzz-concept",
+   "reason": "matched automatically -- the nameplate was named exactly in the source text; no text says which, so the generation whose years fit this one best",
+   "llmDiscovered": true
+  },
+  "llm-m-citroen-c4-picasso-first-generation|m-ds-5|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-11-07T22:37:10.424Z",
+   "decidedAt": "2026-11-07T22:37:10.424Z",
+   "famA": "m-ds-5",
+   "famB": "m-citroen-c4-picasso",
+   "relType": "platform",
+   "codeA": "5",
+   "codeB": "C4 Picasso First generation",
+   "genIdA": "m-ds-5",
+   "genIdB": "llm-m-citroen-c4-picasso-first-generation",
+   "reason": "matched automatically -- the nameplate was named exactly in the source text, and exactly one of its generations was in production alongside this one, so that is the generation it refers to",
+   "llmDiscovered": true
+  },
+  "llm-m-lancia-stratos-stratos-zero|m-lancia-rally-037|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-11-07T22:37:10.441Z",
+   "decidedAt": "2026-11-07T22:37:10.441Z",
+   "famA": "m-lancia-rally-037",
+   "famB": "m-lancia-stratos",
+   "relType": "platform",
+   "codeA": "Rally 037",
+   "codeB": "Stratos Zero",
+   "genIdA": "m-lancia-rally-037",
+   "genIdB": "llm-m-lancia-stratos-stratos-zero",
+   "reason": "matched automatically -- the nameplate was named exactly in the source text; no text says which, so the generation whose years fit this one best",
+   "llmDiscovered": true
+  },
+  "llm-m-mercedes-benz-w180-220-a-w180-i|m-mercedes-benz-w105|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-11-07T22:37:10.444Z",
+   "decidedAt": "2026-11-07T22:37:10.444Z",
+   "famA": "m-mercedes-benz-w105",
+   "famB": "m-mercedes-benz-w180",
+   "relType": "platform",
+   "codeA": "W105",
+   "codeB": "W180 220 a (W180 I)",
+   "genIdA": "m-mercedes-benz-w105",
+   "genIdB": "llm-m-mercedes-benz-w180-220-a-w180-i",
+   "reason": "matched automatically -- the nameplate was named exactly in the source text; no text says which, so the generation whose years fit this one best",
+   "llmDiscovered": true
+  },
+  "llm-m-kia-sportage-nb|m-hyundai-lavita|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-11-07T22:37:10.458Z",
+   "decidedAt": "2026-11-07T22:37:10.458Z",
+   "famA": "m-hyundai-lavita",
+   "famB": "m-kia-sportage",
+   "relType": "platform",
+   "codeA": "Lavita",
+   "codeB": "Sportage NB",
+   "genIdA": "m-hyundai-lavita",
+   "genIdB": "llm-m-kia-sportage-nb",
+   "reason": "matched automatically -- the nameplate was named exactly in the source text, and exactly one of its generations was in production alongside this one, so that is the generation it refers to",
+   "llmDiscovered": true
+  },
+  "llm-m-dodge-colt-second-generation|llm-related-dodge-arrow|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-11-07T22:37:10.478Z",
+   "decidedAt": "2026-11-07T22:37:10.478Z",
+   "famA": "llm-related-dodge-arrow",
+   "famB": "m-dodge-colt",
+   "relType": "platform",
+   "codeA": "Arrow",
+   "codeB": "Colt Second generation",
+   "genIdA": "llm-related-dodge-arrow",
+   "genIdB": "llm-m-dodge-colt-second-generation",
+   "reason": "matched automatically -- the nameplate was named exactly in the source text; its article's sections for these generations name this car, and this one's years fit best",
+   "llmDiscovered": true
+  },
+  "llm-llm-related-oldsmobile-starfire-concept-car|m-chevrolet-vega|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-11-07T22:37:13.829Z",
+   "decidedAt": "2026-11-07T22:37:13.829Z",
+   "famA": "m-chevrolet-vega",
+   "famB": "llm-related-oldsmobile-starfire",
+   "relType": "platform",
+   "codeA": "Vega",
+   "codeB": "Starfire Concept car",
+   "genIdA": "m-chevrolet-vega",
+   "genIdB": "llm-llm-related-oldsmobile-starfire-concept-car",
+   "reason": "matched automatically -- the nameplate was named exactly in the source text; no text says which, so the generation whose years fit this one best",
+   "llmDiscovered": true
+  },
+  "llm-llm-related-mitsubishi-minicab-miev-seventh-generation|m-mitsubishi-i-miev|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-11-07T22:37:13.840Z",
+   "decidedAt": "2026-11-07T22:37:13.840Z",
+   "famA": "m-mitsubishi-i-miev",
+   "famB": "llm-related-mitsubishi-minicab-miev",
+   "relType": "platform",
+   "codeA": "i-MiEV",
+   "codeB": "Minicab MiEV Seventh generation",
+   "genIdA": "m-mitsubishi-i-miev",
+   "genIdB": "llm-llm-related-mitsubishi-minicab-miev-seventh-generation",
+   "reason": "matched automatically -- the nameplate was named exactly in the source text; no text says which, so the generation whose years fit this one best",
+   "llmDiscovered": true
+  },
+  "fam-alpina-b6|fam-alpina-b7|related": {
+   "status": "none",
+   "checkedAt": "2026-11-07T22:37:49.525Z",
+   "famA": "fam-alpina-b6",
+   "famB": "fam-alpina-b7",
+   "relType": "related",
+   "note": "Alpina B7's own article says: \"BMW 7 Series (G11) \n | related = BMW 7 Series (G11) \n {{Infobox automobile | name = Alpina B7 | image = File:BMW Alpina B7 Biturbo G12.jpg | manufacturer = Alpina | production = 2016–2022 | model_years = | assembly = Germany: | class = Full-size luxury car (F) | body_style = 4-door (LWB) sedan | layout = | platform = | related = BMW 7 Series (G11) | engine = 4.4&nbsp;L BMW N63M30 twin-turbocharged V8 | transmission = 8-speed ZF 8HP automatic | wheelbase = | length = | width = | height = {{ubl | }} | weight = | predecessor = Alpina B7 (F01) | successor = | sp = uk | powerout = }…\"",
+   "matchLevel": null,
+   "codeA": null,
+   "codeB": null,
+   "genIdA": null,
+   "genIdB": null,
+   "reason": "The provided note explicitly links the Alpina B7 to the 'BMW 7 Series (G11)'. However, the car list for Car B only includes the Alpina B7 (G12) generation (2016–2022), not the BMW 7 Series (G11) generation itself. Furthermore, the list contains entries like 'B7 Bi-Turbo (2016–2019)' and 'B7 (G12) (2016–2022)', which overlap in time. The note references the G11 chassis (BMW 7 Series 2015-2022), which predates the G12 entry in the specific list provided (which starts at 2016). Since the specific generation mentioned in the text (G11) does not correspond to a specific entry in the provided list for either car (the list has G12 for B7, and no G11 entry at all), and the relationship described in the text does not map cleanly to the specific codes provided in the lists without ambiguity or missing entries, resolution cannot be definitively made based strictly on the provided lists.",
+   "debug": {
+    "raw": {
+     "resolved": false,
+     "codeA": "Alpina B6 (G12)",
+     "codeB": "Alpina B7 (G12)",
+     "evidenceQuote": "BMW 7 Series (G11) \n | related = BMW 7 Series (G11)",
+     "reason": "The provided note explicitly links the Alpina B7 to the 'BMW 7 Series (G11)'. However, the car list for Car B only includes the Alpina B7 (G12) generation (2016–2022), not the BMW 7 Series (G11) generation itself. Furthermore, the list contains entries like 'B7 Bi-Turbo (2016–2019)' and 'B7 (G12) (2016–2022)', which overlap in time. The note references the G11 chassis (BMW 7 Series 2015-2022), which predates the G12 entry in the specific list provided (which starts at 2016). Since the specific generation mentioned in the text (G11) does not correspond to a specific entry in the provided list for either car (the list has G12 for B7, and no G11 entry at all), and the relationship described in the text does not map cleanly to the specific codes provided in the lists without ambiguity or missing entries, resolution cannot be definitively made based strictly on the provided lists."
+    },
+    "evidenceCodeForA": null,
+    "evidenceCodeForB": null,
+    "ordinalFromNoteA": null,
+    "ordinalFromNoteB": null,
+    "ordinalBacked": false,
+    "evidenceQuote": "BMW 7 Series (G11) \n | related = BMW 7 Series (G11)",
+    "quoteVerified": true,
+    "llmVerified": false,
+    "knowledgeBacked": false,
+    "sourceAttributed": false,
+    "citedA": null,
+    "citedB": null,
+    "citationBacked": false,
+    "quoteFabricated": false,
+    "fetchedArticleA": false,
+    "fetchedArticleB": true,
+    "availableCodesA": [
+     "B6 (E63)",
+     "B6 (F12)"
+    ],
+    "availableCodesB": [
+     "B7 (E65)",
+     "B7 (F01)",
+     "B7 Bi-Turbo",
+     "B7 (G12)",
+     "B7 Facelift"
+    ]
+   }
+  },
+  "m-alpina-b7-g12|m-bmw-7-series-g11|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-11-07T22:38:06.709Z",
+   "decidedAt": "2026-11-07T22:38:06.709Z",
+   "famA": "fam-alpina-b7",
+   "famB": "fam-bmw-7-series",
+   "relType": "platform",
+   "codeA": "B7 (G12)",
+   "codeB": "7 Series (G11)",
+   "genIdA": "m-alpina-b7-g12",
+   "genIdB": "m-bmw-7-series-g11",
+   "reason": "matched automatically (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
    "llmDiscovered": true
   }
  },
@@ -671340,7 +671354,8 @@
     "appliedAt": "2026-11-02T23:09:19.227Z",
     "outsidersV": 2
    },
-   "peopleAdded": []
+   "peopleAdded": [],
+   "droppedSweepV": 1
   },
   "m-toyota-noah": {
    "status": "none",
@@ -1163130,37 +1163145,33 @@
    "feedback": []
   },
   "fam-alpina-b7": {
-   "status": "applied",
-   "checkedAt": "2026-11-02T14:55:25.120Z",
+   "status": "none",
+   "checkedAt": "2026-11-07T22:38:06.698Z",
    "sourceTitle": "Alpina B7",
    "proposal": {
-    "hasMultipleGenerations": true,
+    "hasMultipleGenerations": false,
     "generations": [
      {
-      "code": "Bi-Turbo",
+      "code": "G12",
       "yearStart": 2016,
-      "yearEnd": 2019,
+      "yearEnd": 2022,
       "designers": [],
       "engineers": [],
       "wikiFile": "File:BMW Alpina B7 Biturbo G12.jpg",
       "sharedPlatforms": [
        "BMW 7 Series (G11)"
-      ]
-     },
+      ],
+      "cardProduction": " 2016–2022\n"
+     }
+    ],
+    "predecessors": [
      {
-      "code": "Facelift",
-      "yearStart": 2019,
-      "yearEnd": 2022,
-      "designers": [],
-      "engineers": [],
-      "wikiFile": "Alpina B7 Langversion Allrad IAA 2019 JM 0641.jpg",
-      "sharedPlatforms": [
-       "BMW 7 Series (G11)"
-      ]
+      "code": "F01",
+      "why": "the article's own infobox names it as the predecessor"
      }
     ]
    },
-   "discrepancy": "Wikipedia currently describes 2 generations, but this nameplate currently shows 3 here",
+   "discrepancy": "Wikipedia currently describes 1 generation, but this nameplate currently shows 5 here",
    "attempts": 1,
    "feedback": [],
    "engines": [],
@@ -1163169,18 +1163180,16 @@
      "hasMultipleGenerations": true,
      "generations": [
       {
-       "code": "Bi-Turbo",
-       "yearStart": 2016,
-       "yearEnd": 2019,
+       "code": "F01",
+       "yearStart": null,
+       "yearEnd": null,
        "designers": [],
        "engineers": [],
-       "sharedPlatforms": [
-        "BMW 7 Series (G11)"
-       ]
+       "sharedPlatforms": []
       },
       {
-       "code": "Facelift",
-       "yearStart": 2019,
+       "code": "G12",
+       "yearStart": 2016,
        "yearEnd": 2022,
        "designers": [],
        "engineers": [],
@@ -1163190,19 +1163199,26 @@
       }
      ]
     },
-    "dropped": []
+    "dropped": [
+     {
+      "code": "F01",
+      "yearStart": null,
+      "yearEnd": null,
+      "designers": [],
+      "engineers": [],
+      "sharedPlatforms": []
+     }
+    ]
    },
    "manualRecheck": true,
-   "engineScansCleared": 3,
+   "engineScansCleared": 5,
    "generationDiff": {
-    "addedCodes": [
-     "Bi-Turbo",
-     "Facelift"
-    ],
+    "addedCodes": [],
     "removedIds": [
      "m-alpina-b7-e65",
      "m-alpina-b7-f01",
-     "m-alpina-b7-g12"
+     "llm-fam-alpina-b7-bi-turbo",
+     "llm-fam-alpina-b7-facelift"
     ]
    },
    "sections": [
@@ -1163247,18 +1163263,141 @@
      "External links"
     ]
    ],
-   "peopleAdded": [],
-   "olderOnce": true,
-   "kept": [
-    "m-alpina-b7-e65",
-    "m-alpina-b7-f01",
-    "m-alpina-b7-g12"
-   ],
-   "outsiders": [],
-   "relatedCars": [],
-   "retiredGenerations": [],
-   "appliedAt": "2026-11-02T14:55:27.089Z",
-   "outsidersV": 2
+   "appliedBefore": {
+    "status": "applied",
+    "checkedAt": "2026-11-02T14:55:25.120Z",
+    "sourceTitle": "Alpina B7",
+    "proposal": {
+     "hasMultipleGenerations": true,
+     "generations": [
+      {
+       "code": "Bi-Turbo",
+       "yearStart": 2016,
+       "yearEnd": 2019,
+       "designers": [],
+       "engineers": [],
+       "wikiFile": "File:BMW Alpina B7 Biturbo G12.jpg",
+       "sharedPlatforms": [
+        "BMW 7 Series (G11)"
+       ]
+      },
+      {
+       "code": "Facelift",
+       "yearStart": 2019,
+       "yearEnd": 2022,
+       "designers": [],
+       "engineers": [],
+       "wikiFile": "Alpina B7 Langversion Allrad IAA 2019 JM 0641.jpg",
+       "sharedPlatforms": [
+        "BMW 7 Series (G11)"
+       ]
+      }
+     ]
+    },
+    "discrepancy": "Wikipedia currently describes 2 generations, but this nameplate currently shows 3 here",
+    "attempts": 1,
+    "feedback": [],
+    "engines": [],
+    "debug": {
+     "raw": {
+      "hasMultipleGenerations": true,
+      "generations": [
+       {
+        "code": "Bi-Turbo",
+        "yearStart": 2016,
+        "yearEnd": 2019,
+        "designers": [],
+        "engineers": [],
+        "sharedPlatforms": [
+         "BMW 7 Series (G11)"
+        ]
+       },
+       {
+        "code": "Facelift",
+        "yearStart": 2019,
+        "yearEnd": 2022,
+        "designers": [],
+        "engineers": [],
+        "sharedPlatforms": [
+         "BMW 7 Series (G11)"
+        ]
+       }
+      ]
+     },
+     "dropped": []
+    },
+    "manualRecheck": true,
+    "engineScansCleared": 3,
+    "generationDiff": {
+     "addedCodes": [
+      "Bi-Turbo",
+      "Facelift"
+     ],
+     "removedIds": [
+      "m-alpina-b7-e65",
+      "m-alpina-b7-f01",
+      "m-alpina-b7-g12"
+     ]
+    },
+    "sections": [
+     [
+      1,
+      "B7 Bi-Turbo (2016–2019)"
+     ],
+     [
+      2,
+      "Overview"
+     ],
+     [
+      2,
+      "Performance"
+     ],
+     [
+      2,
+      "Right-hand-drive variant"
+     ],
+     [
+      2,
+      "Chinese version"
+     ],
+     [
+      2,
+      "B7 Exclusive Edition"
+     ],
+     [
+      1,
+      "Facelift (2019–2022)"
+     ],
+     [
+      1,
+      "Production"
+     ],
+     [
+      1,
+      "References"
+     ],
+     [
+      1,
+      "External links"
+     ]
+    ],
+    "peopleAdded": [],
+    "olderOnce": true,
+    "kept": [
+     "m-alpina-b7-e65",
+     "m-alpina-b7-f01",
+     "m-alpina-b7-g12"
+    ],
+    "outsiders": [],
+    "relatedCars": [],
+    "retiredGenerations": [],
+    "appliedAt": "2026-11-02T14:55:27.089Z",
+    "outsidersV": 2
+   },
+   "settledAt": "2026-11-07T22:38:06.701Z",
+   "settledBy": "rules",
+   "settledWhy": "nothing in the article supports a change: the generations it left out stay",
+   "peopleAdded": []
   },
   "m-rolls-royce-ghost": {
    "status": "none",
@@ -1163364,7 +1163503,7 @@
   },
   "fam-alpina-b6": {
    "status": "error",
-   "checkedAt": "2026-11-02T15:22:56.019Z",
+   "checkedAt": "2026-11-07T22:37:32.220Z",
    "error": "no wikitext for Alpina B6 (article may not exist / was redirected oddly)",
    "attempts": 1,
    "manualRecheck": true,
@@ -1197270,8 +1197409,7 @@
   "llm-related-iveco-pegaso-daily": "Iveco Daily",
   "llm-related-saurer-daily-grinta": "Iveco Daily",
   "llm-related-iveco-ford-daily": "Iveco Daily",
-  "llm-related-unic-daily": "Iveco Daily",
-  "llm-related-toyota-1600gt": "Toyota Corona"
+  "llm-related-unic-daily": "Iveco Daily"
  },
  "wpLinksChosen": {
   "llm-related-dacia-spring-second-generation": true,
@@ -1357956,70 +1358094,6 @@
    "unlinked": [],
    "v": 7
   },
-  "m-alpina-b7-e65": {
-   "checkedAt": "2026-11-02T14:55:29.754Z",
-   "sourceTitle": "Alpina B7 (E65)",
-   "status": "no-engines",
-   "engines": [],
-   "unlinked": [
-    {
-     "name": "4.4 L V8",
-     "specs": {
-      "displacement": "4.4 L",
-      "layout": "V",
-      "cylinders": 8,
-      "induction": "supercharged"
-     },
-     "said": "4.4 L H1 supercharged V8"
-    }
-   ],
-   "v": 7
-  },
-  "m-alpina-b7-f01": {
-   "checkedAt": "2026-11-02T14:55:30.051Z",
-   "sourceTitle": "Alpina B7 (F01)",
-   "section": null,
-   "engines": [
-    {
-     "title": "BMW N63",
-     "name": "N63",
-     "variant": null,
-     "specs": {
-      "displacement": "4.4 L",
-      "layout": "V",
-      "cylinders": 8,
-      "induction": "turbocharged"
-     },
-     "said": "4.4 L BMW N63 twin-turbocharged V8"
-    }
-   ],
-   "unlinked": [],
-   "v": 7
-  },
-  "llm-fam-alpina-b7-bi-turbo": {
-   "checkedAt": "2026-11-02T14:55:30.128Z",
-   "sourceTitle": "Alpina B7",
-   "status": "no-engines",
-   "engines": [],
-   "unlinked": [],
-   "v": 7
-  },
-  "m-alpina-b7-g12": {
-   "checkedAt": "2026-11-02T14:55:30.509Z",
-   "sourceTitle": null,
-   "status": "no-engines",
-   "engines": [],
-   "unlinked": [],
-   "v": 7
-  },
-  "llm-fam-alpina-b7-facelift": {
-   "checkedAt": "2026-11-02T14:55:30.509Z",
-   "sourceTitle": "Alpina B7",
-   "status": "no-engines",
-   "engines": [],
-   "unlinked": [],
-   "v": 7
-  },
   "llm-related-bmw-e3": {
    "checkedAt": "2026-11-02T14:56:07.836Z",
    "sourceTitle": "BMW E3",
@@ -1359969,46 +1360043,6 @@
       "fuel": "petrol"
      },
      "said": "2.0 L 20A4E turbo I4"
-    }
-   ],
-   "unlinked": [],
-   "v": 7
-  },
-  "m-alpina-b6-e63": {
-   "checkedAt": "2026-11-02T15:22:59.858Z",
-   "sourceTitle": "Alpina B6 (E63)",
-   "status": "no-engines",
-   "engines": [],
-   "unlinked": [
-    {
-     "name": "4.4 L V8",
-     "specs": {
-      "displacement": "4.4 L",
-      "layout": "V",
-      "cylinders": 8,
-      "induction": "supercharged"
-     },
-     "said": "4.4 L H1 supercharged V8"
-    }
-   ],
-   "v": 7
-  },
-  "m-alpina-b6-f12": {
-   "checkedAt": "2026-11-02T15:23:00.214Z",
-   "sourceTitle": "Alpina B6 (F12)",
-   "section": null,
-   "engines": [
-    {
-     "title": "BMW N63",
-     "name": "N63",
-     "variant": null,
-     "specs": {
-      "displacement": "4.4 L",
-      "layout": "V",
-      "cylinders": 8,
-      "induction": "turbocharged"
-     },
-     "said": "4.4 L BMW N63 twin-turbocharged V8"
     }
    ],
    "unlinked": [],
@@ -1481493,6 +1481527,110 @@
    ],
    "unlinked": [],
    "v": 7
+  },
+  "m-alpina-b6-e63": {
+   "checkedAt": "2026-11-07T22:37:37.183Z",
+   "sourceTitle": "Alpina B6 (E63)",
+   "status": "no-engines",
+   "engines": [],
+   "unlinked": [
+    {
+     "name": "4.4 L V8",
+     "specs": {
+      "displacement": "4.4 L",
+      "layout": "V",
+      "cylinders": 8,
+      "induction": "supercharged"
+     },
+     "said": "4.4 L H1 supercharged V8"
+    }
+   ],
+   "v": 7
+  },
+  "m-alpina-b6-f12": {
+   "checkedAt": "2026-11-07T22:37:37.355Z",
+   "sourceTitle": "Alpina B6 (F12)",
+   "section": null,
+   "engines": [
+    {
+     "title": "BMW N63",
+     "name": "N63",
+     "variant": null,
+     "specs": {
+      "displacement": "4.4 L",
+      "layout": "V",
+      "cylinders": 8,
+      "induction": "turbocharged"
+     },
+     "said": "4.4 L BMW N63 twin-turbocharged V8"
+    }
+   ],
+   "unlinked": [],
+   "v": 7
+  },
+  "m-alpina-b7-e65": {
+   "checkedAt": "2026-11-07T22:38:09.143Z",
+   "sourceTitle": "Alpina B7 (E65)",
+   "status": "no-engines",
+   "engines": [],
+   "unlinked": [
+    {
+     "name": "4.4 L V8",
+     "specs": {
+      "displacement": "4.4 L",
+      "layout": "V",
+      "cylinders": 8,
+      "induction": "supercharged"
+     },
+     "said": "4.4 L H1 supercharged V8"
+    }
+   ],
+   "v": 7
+  },
+  "m-alpina-b7-f01": {
+   "checkedAt": "2026-11-07T22:38:09.665Z",
+   "sourceTitle": "Alpina B7 (F01)",
+   "section": null,
+   "engines": [
+    {
+     "title": "BMW N63",
+     "name": "N63",
+     "variant": null,
+     "specs": {
+      "displacement": "4.4 L",
+      "layout": "V",
+      "cylinders": 8,
+      "induction": "turbocharged"
+     },
+     "said": "4.4 L BMW N63 twin-turbocharged V8"
+    }
+   ],
+   "unlinked": [],
+   "v": 7
+  },
+  "llm-fam-alpina-b7-bi-turbo": {
+   "checkedAt": "2026-11-07T22:38:09.739Z",
+   "sourceTitle": "Alpina B7",
+   "status": "no-engines",
+   "engines": [],
+   "unlinked": [],
+   "v": 7
+  },
+  "m-alpina-b7-g12": {
+   "checkedAt": "2026-11-07T22:38:09.998Z",
+   "sourceTitle": null,
+   "status": "no-engines",
+   "engines": [],
+   "unlinked": [],
+   "v": 7
+  },
+  "llm-fam-alpina-b7-facelift": {
+   "checkedAt": "2026-11-07T22:38:09.999Z",
+   "sourceTitle": "Alpina B7",
+   "status": "no-engines",
+   "engines": [],
+   "unlinked": [],
+   "v": 7
   }
  },
  "aliases": {
@@ -1530696,34 +1530834,34 @@
   "m-alpina-b6-e63": {
    "names": [],
    "from": null,
-   "checkedAt": "2026-11-02T15:22:59.857Z"
+   "checkedAt": "2026-11-07T22:37:37.183Z"
   },
   "m-alpina-b6-f12": {
    "names": [],
    "from": null,
-   "checkedAt": "2026-11-02T15:23:00.214Z"
+   "checkedAt": "2026-11-07T22:37:37.355Z"
   },
   "fam-alpina-b7": {
    "names": [],
    "from": "Alpina B7",
-   "checkedAt": "2026-11-02T14:55:29.435Z"
+   "checkedAt": "2026-11-07T22:38:08.945Z"
   },
   "m-alpina-b7-e65": {
    "names": [],
    "from": null,
-   "checkedAt": "2026-11-02T14:55:29.754Z"
+   "checkedAt": "2026-11-07T22:38:09.143Z"
   },
   "m-alpina-b7-f01": {
    "names": [
     "Alpina B7 Bi-Turbo"
    ],
    "from": "Alpina B7 (F01)",
-   "checkedAt": "2026-11-02T14:55:30.051Z"
+   "checkedAt": "2026-11-07T22:38:09.665Z"
   },
   "m-alpina-b7-g12": {
    "names": [],
    "from": null,
-   "checkedAt": "2026-11-02T14:55:30.509Z"
+   "checkedAt": "2026-11-07T22:38:09.998Z"
   },
   "fam-alpine-a110": {
    "names": [],
@@ -1533045,12 +1533183,12 @@
   "llm-fam-alpina-b7-bi-turbo": {
    "names": [],
    "from": null,
-   "checkedAt": "2026-11-02T14:55:30.128Z"
+   "checkedAt": "2026-11-07T22:38:09.739Z"
   },
   "llm-fam-alpina-b7-facelift": {
    "names": [],
    "from": null,
-   "checkedAt": "2026-11-02T14:55:30.509Z"
+   "checkedAt": "2026-11-07T22:38:09.999Z"
   },
   "llm-related-bmw-e3": {
    "names": [],
@@ -1539841,7 +1539979,7 @@
   "relations|llm-related-toyota-mark-ii-qualis|m-toyota-camry-xv20|platform": {
    "what": "connection you decided",
    "label": "Toyota Camry ↔ llm-related-toyota-mark-ii-qualis (platform, confirmed)",
-   "prunedAt": "2026-10-14T10:56:40.144Z"
+   "prunedAt": "2026-11-07T22:37:27.145Z"
   },
   "relations|llm-related-daihatsu-altis|m-toyota-camry-xv70|platform": {
    "what": "connection you decided",
@@ -1546802,15 +1546940,55 @@
    "what": "connection you decided",
    "label": "Suzuki Cultus / Swift ↔ llm-related-maruti-esteem (platform, confirmed)",
    "prunedAt": "2026-11-07T15:48:20.522Z"
+  },
+  "families|llm-related-toyota-1600gt": {
+   "what": "generation split",
+   "label": "llm-related-toyota-1600gt",
+   "prunedAt": "2026-11-07T22:37:27.145Z"
+  },
+  "wpLinks|llm-related-toyota-1600gt": {
+   "what": "Wikipedia link you pasted",
+   "label": "llm-related-toyota-1600gt → Toyota Corona",
+   "prunedAt": "2026-11-07T22:37:27.145Z"
+  },
+  "relations|llm-m-toyota-corona-t40-t50|llm-related-toyota-1600gt|platform": {
+   "what": "connection you decided",
+   "label": "Toyota Corona ↔ llm-related-toyota-1600gt (platform, confirmed)",
+   "prunedAt": "2026-11-07T22:37:27.145Z"
+  },
+  "relations|llm-fam-toyota-camry-v30|llm-related-lexus-es-300-xv10|platform": {
+   "what": "connection you decided",
+   "label": "Toyota Camry ↔ llm-related-lexus-es-300-xv10 (platform, confirmed)",
+   "prunedAt": "2026-11-07T22:37:27.145Z"
+  },
+  "relations|llm-related-toyota-scepter|m-toyota-camry-xv10|platform": {
+   "what": "connection you decided",
+   "label": "Toyota Camry ↔ llm-related-toyota-scepter (platform, confirmed)",
+   "prunedAt": "2026-11-07T22:37:27.145Z"
+  },
+  "relations|llm-related-toyota-camry-300i|m-toyota-camry-xv10|platform": {
+   "what": "connection you decided",
+   "label": "Toyota Camry ↔ llm-related-toyota-camry-300i (platform, confirmed)",
+   "prunedAt": "2026-11-07T22:37:27.145Z"
+  },
+  "relations|llm-related-toyota-camry-xv30|m-toyota-camry-xv40|platform": {
+   "what": "connection you decided",
+   "label": "Toyota Camry ↔ llm-related-toyota-camry-xv30 (platform, confirmed)",
+   "prunedAt": "2026-11-07T22:37:27.145Z"
+  },
+  "relations|llm-related-toyota-camry-xv40|m-toyota-camry-xv50|platform": {
+   "what": "connection you decided",
+   "label": "Toyota Camry ↔ llm-related-toyota-camry-xv40 (platform, confirmed)",
+   "prunedAt": "2026-11-07T22:37:27.145Z"
   }
  },
  "jobs": [],
  "lastJob": {
-  "id": "job-mw6kvior-q95br",
+  "id": "job-mw6zhnfo-045ze",
   "kind": "family-recheck",
-  "targetId": "m-toyota-corona",
-  "label": "Toyota Corona",
-  "finishedAt": "2026-11-07T15:54:46.821Z",
+  "targetId": "fam-alpina-b6",
+  "label": "Alpina B6",
+  "finishedAt": "2026-11-07T22:37:42.503Z",
   "state": "done",
   "summary": ""
  },
