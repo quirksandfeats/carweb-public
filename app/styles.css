@@ -146,6 +146,7 @@ main{flex:1; position:relative; min-height:0}
 .sw-engineer{background:var(--card); border:2.5px solid var(--engineer)}
 .sw-platform{width:22px; height:0; border-top:2.5px dashed var(--accent); border-radius:0}
 .sw-related{width:22px; height:0; border-top:1.6px dashed var(--accent); border-radius:0; opacity:.6}
+.sw-name{width:22px; height:0; border-top:1.6px dotted var(--ink2); border-radius:0; opacity:.7}
 .sw-succession{width:22px; height:0; border-top:2px solid var(--ink2); border-radius:0; opacity:.55}
 .sw-gensucc{width:22px; height:0; border-top:2.5px solid var(--gensucc); border-radius:0}
 .sw-db{background:var(--accent); border:2.5px solid var(--db-gold); width:9px; height:9px}

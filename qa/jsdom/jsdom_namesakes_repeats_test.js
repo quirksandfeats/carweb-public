@@ -51,9 +51,8 @@ check("a list of namesakes is no one's", LF.personPageIsTheirs("'''Bob Lutz''' m
 check("with no make known, any real page will do", LF.personPageIsTheirs(general, []) === true);
 
 // Repeated generations
-const x82 = gens("llm-related-mitsubishi-express").filter(g => /X82/.test(g.label));
-check("the Express lists its X82 once", x82.length === 1, x82.map(g => g.id).join());
-check("the copies point at the one that stays", ["-2020", "-2020x", "-2020xx"].every(s => N("llm-llm-related-mitsubishi-express-mitsubishi-express-x82" + s).supersededBy === x82[0].id));
+// The Mitsubishi Express's page is a list of other articles (8 Nov), so its read is not
+// replayed; the fold itself is checked on the seven nameplates below.
 for (const [plate, re] of [["m-toyota-bz4x", /Pre-facelift/], ["m-austin-bmc-ado17", /Mark I\)/], ["m-morris-cowley", /Bullnose \(1919/],
   ["m-maruti-suzuki-gypsy", /16V/], ["m-bmw-ix3", /NA6/], ["m-cmc-veryca", /Minicab \(Second/], ["fam-honda-hr-v", /third generation/i]]) {
   const hit = gens(plate).filter(g => re.test(g.label));
@@ -63,7 +62,7 @@ const ru = "llm-fam-honda-hr-v-second-generation-ru-";
 check("the HR-V's second generation leads to the third that stays",
   DATA.links.some(l => !l.retired && l.type === "gensucc" && idOf(l.source) === ru && idOf(l.target) === "m-honda-hr-v-third-generation"));
 check("the third that stays keeps the copy's Civic platform", named("m-honda-hr-v-third-generation").includes("m-honda-civic-eleventh-generation"));
-check("different generations of one plate stay apart", gens("llm-related-mitsubishi-express").length >= 5, gens("llm-related-mitsubishi-express").length);
+check("different generations of one plate stay apart", gens("m-cmc-veryca").length >= 4, gens("m-cmc-veryca").length);
 
 // The Lincoln Marks: one car each, numbered as generations by the Mark series article
 const marks = gens("m-lincoln-mark-series").map(g => g.label.replace("Mark series ", ""));

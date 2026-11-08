@@ -68,6 +68,7 @@ window.CarWebSix = (function () {
     const forward = l.sn === prevN; // prev -> this
     if (l.type === "platform") return "shares a platform with";
     if (l.type === "related") return "is related to";
+    if (l.type === "name") return "shares its name with";
     // One generation to the next is a succession like any other; it had no
     // case here and fell through to the designer's sentence at the bottom.
     if (l.type === "succession" || l.type === "gensucc") return forward ? "was succeeded by" : "succeeds";

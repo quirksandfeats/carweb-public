@@ -506,6 +506,25 @@ window.LlmFamilies = (function () {
   }
 
   function recheckEntryFor(nodeId) { return store.recheck[nodeId] || null; }
+  // Reads of a page that only lists other articles, made before scans could tell
+  // (scripts/list_page_reads.js lists them by isListOfArticles). Such a read made
+  // each listed car a generation: the Isuzu MU became the Honda Jazz's second. It is
+  // not replayed; a new read of the page, from the pages it lists, is.
+  const LIST_PAGE_READS = (typeof window !== "undefined" && window.LIST_PAGE_READS) || {};
+  function readOfListPage(id, entry) {
+    const listed = LIST_PAGE_READS[id];
+    return !!(listed && entry && entry.checkedAt && (listed.reads || []).includes(entry.checkedAt));
+  }
+  // Separate cars that carry one name, from Wikipedia's index of that name
+  // (scripts/shared_names.js): "Ford Capri (disambiguation)" lists the Capri
+  // (Australia) and the Capri EV beside the 1968 Capri; the "Chevrolet Blazer" page
+  // lists the K5, the S-10 Blazer and the crossover. Keyed by the car holding the
+  // bare name; `index` when that car's own page is the index.
+  const SHARED_NAMES = (typeof window !== "undefined" && window.SHARED_NAMES) || {};
+  function sharedNameCars(holderId) {
+    const e = SHARED_NAMES[holderId];
+    return e ? (e.cars || []).map(c => c[0]) : [];
+  }
   function isEligibleForRecheck(n) {
     // Any nameplate family — build-time-grouped or LLM-discovered. This is
     // deliberately broader than isEligible() above: it exists to catch a
@@ -5462,7 +5481,8 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
     const put = (map, k, v) => { const a = map.get(k); if (a) a.push(v); else map.set(k, [v]); };
     for (; ix.upTo < nodes.length; ix.upTo++) {
       const n = nodes[ix.upTo];
-      if (!n || (n.type !== "model" && n.type !== "family")) continue;
+      // A name of several cars (applySharedNames) is no car a mention can mean.
+      if (!n || (n.type !== "model" && n.type !== "family") || n.nameOnly) continue;
       const nk = nameKeysOf(n);
       const e = { n, pos: ix.upTo, full: nk.full, bare: nk.bare, label: n.label, make: n.make };
       ix.cars.push(e);
@@ -5510,6 +5530,17 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
   function carOfItsOwn(nodes, fam, g, entry) {
     if (!fam || !g || (entry && entry.decidedBy === "user")) return null;
     if ((NUMBERED_GENERATIONS[fam.id] || []).includes(g.code)) return null;
+    // A car the name's disambiguation page or hatnote sets apart, built in these
+    // years: the Capri SA30 is the Capri (Australia), and the Capri EV its own car,
+    // though the Capri's article tells their story. Both ends have to agree.
+    // Only where the nameplate has an article of its own: a page that only lists
+    // cars (the Ford Ranger's) was read from those cars, generation by generation.
+    const ownArticle = !!(SHARED_NAMES[fam.id] && SHARED_NAMES[fam.id].own);
+    const listedApart = (ownArticle ? sharedNameCars(fam.id) : []).map(id => nodeWithId(nodes, id))
+      .filter(n => n && !n.familyOf && n.id !== fam.id && Number.isFinite(n.year) && Number.isFinite(g.yearStart) &&
+        Math.abs(n.year - g.yearStart) <= 1 &&
+        (Number.isFinite(n.end) && Number.isFinite(g.yearEnd) ? Math.abs(n.end - g.yearEnd) <= 1 : n.end == null && g.yearEnd == null));
+    if (listedApart.length === 1) return listedApart[0];
     const marque = norm(fam.label) === norm(fam.make);
     // Under a marque the list can name another make's car: the GMC Hummer EV.
     const codeWords = nameWordsOf(g.code);
@@ -5556,7 +5587,9 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
         retired: true, retiredFrom: fam.id, supersededBy: car.id, ownCarStub: true,
         retiredReason: "listed in " + fam.label + "'s generations; a car with its own article" });
     }
-    if (!links.some(l => l.type === "related" && [idOf(l.source), idOf(l.target)].sort().join() === [fam.id, car.id].sort().join())) {
+    // One name, two cars: the name link says how they meet (applySharedNames).
+    if (!sharedNameCars(fam.id).includes(car.id) &&
+        !links.some(l => l.type === "related" && [idOf(l.source), idOf(l.target)].sort().join() === [fam.id, car.id].sort().join())) {
       links.push({ source: fam.id, target: car.id, type: "related", llmDiscovered: true, note: "listed in " + fam.label + "'s generations; a car with its own article" });
     }
     const said = Array.isArray(g.sharedPlatforms) ? g.sharedPlatforms : (g.sharedPlatform ? [g.sharedPlatform] : []);
@@ -9355,7 +9388,43 @@ Rules:
   function applySharedPlatformForSingleGen(nodes, links) {
     const byId = new Map(nodes.map(n => [n.id, n]));
     Object.keys(store.families).forEach(nodeId => {
-      const entry = store.families[nodeId];
+      let entry = store.families[nodeId];
+      // A list page's read is not replayed as generations (readOfListPage), but the
+      // cars it named are still named on that page: they hang off the plain car, as a
+      // one-car read's do. The Fiat Talento's page names the Ducato.
+      // When the page only lists cars of one name (SHARED_NAMES), each line it read
+      // as a generation is one of those cars: the S-10 Blazer's mentions go to the
+      // S-10 Blazer, not to the name.
+      if (entry.status === "confirmed" && readOfListPage(nodeId, entry)) {
+        const skipped = [entry];
+        for (let r = store.recheck[nodeId]; r; r = r.appliedBefore) if (readOfListPage(nodeId, r)) skipped.push(r);
+        const all = skipped.flatMap(e => (e.proposal && e.proposal.generations) || []);
+        const named = SHARED_NAMES[nodeId] && SHARED_NAMES[nodeId].index
+          ? sharedNameCars(nodeId).map(id => followSuperseded(byId, byId.get(id))).filter(n => n && !n.retired) : [];
+        const words = nameWordsOf;
+        // By name, brackets kept ("Maverick (1970–1977)", "Blazer (crossover)"), else
+        // by the line's years where they meet one car's at both ends.
+        const carFor = g => {
+          const code = words(g.code);
+          let hits = code.length ? named.filter(n => { const w = words((n.make || "") + " " + n.label + " " + (n.wp || "")); return code.every(x => w.includes(x)); }) : [];
+          if (hits.length !== 1 && Number.isFinite(g.yearStart)) {
+            hits = named.filter(n => Number.isFinite(n.year) && Math.abs(n.year - g.yearStart) <= 1 &&
+              (!Number.isFinite(g.yearEnd) || !Number.isFinite(n.end) || Math.abs(n.end - g.yearEnd) <= 2));
+          }
+          return hits.length === 1 ? hits[0] : null;
+        };
+        const byCar = new Map();
+        all.forEach(g => { const c = carFor(g); const k = c ? c.id : nodeId; (byCar.get(k) || byCar.set(k, []).get(k)).push(g); });
+        const oneRead = gs => ({ status: "none", proposal: { generations: [{
+          sharedPlatforms: [...new Set(gs.flatMap(g => Array.isArray(g.sharedPlatforms) ? g.sharedPlatforms : []))],
+          sharedPlatformMatches: Object.assign({}, ...gs.map(g => g.sharedPlatformMatches || {})),
+          makeVariantMatches: Object.assign({}, ...gs.map(g => g.makeVariantMatches || {})) }] } });
+        byCar.forEach((gs, id) => hangOneRead(id, oneRead(gs)));
+        return;
+      }
+      hangOneRead(nodeId, entry);
+    });
+    function hangOneRead(nodeId, entry) {
       if (entry.status !== "none") return;
       const gens = (entry.proposal && entry.proposal.generations) || [];
       if (gens.length !== 1) return;
@@ -9388,7 +9457,7 @@ Rules:
       // hangs off the family the way every other relation entry does) --
       // gn.id stays the specific generation, which is what genIdA records.
       resolvePlatformMention(nodes, links, orig.familyOf || orig.id, gn);
-    });
+    }
   }
 
   // ---------- the same, for the PEOPLE a single-generation check found ----------
@@ -9482,9 +9551,16 @@ Rules:
       const key = norm(name);
       if (!key) return null;
       let p = personByNorm.get(key);
+      // A car handed to its own article (handToCarOfItsOwn) can credit someone after
+      // the index above was made: "Italdesign" on the Capri (Australia), then
+      // "ItalDesign" on another car, minted twice under one id.
+      if (!p) {
+        p = nodes.find(n => n.type === "person" && norm(n.label) === key) || null;
+        if (p) personByNorm.set(key, p);
+      }
       if (!p) {
         let id = "p-" + slugify(name);
-        if (byId.has(id)) id = id + "-" + Math.random().toString(36).slice(2, 6); // exceedingly rare collision
+        if (byId.has(id) || nodeWithId(nodes, id)) id = id + "-" + Math.random().toString(36).slice(2, 6); // exceedingly rare collision
         // Same "very big attempt" cache/backfill as resolvePersonNode's own
         // twin implementation above -- see scheduleFactBackfill's comment.
         const cached = store.mintedFacts[id];
@@ -9517,6 +9593,7 @@ Rules:
     const mentionsOfOwnCars = [];
     Object.keys(store.families).forEach(nodeId => {
       const entry = store.families[nodeId];
+      if (readOfListPage(nodeId, entry)) return;
       // A tombstone left behind by deleteEntry(): this nameplate got
       // undone, but the designers/engineers the LLM found on it shouldn't
       // vanish -- credit them directly on the still-plain model node
@@ -12099,6 +12176,74 @@ Rules:
   // the same page and goes with them. A person with an article of their own keeps
   // the article's dates: there an impossible credit is the credit's fault.
   const NAMESAKE_PEOPLE = (typeof window !== "undefined" && window.NAMESAKE_PEOPLE) || {};
+  // One name, separate cars (SHARED_NAMES): the car with the bare name links each
+  // other car its index lists, the "Ford Capri" the Capri EV and the Lincoln Capri.
+  // A car listed by a section of its article goes under the section's name ("Ford
+  // Consul Capri", on the Consul Classic), on the link and in search. When the
+  // car's own page only lists cars of the name, as the Blazer's does, it is the
+  // name: a platform or "related" line between it and one of them says no more.
+  // A line another car's article drew to the bare name stays with the name: years
+  // do not tell which Blazer it meant (the Mazda 6 GG is nearer the European
+  // Fusion's years, but it is the American Fusion's platform). Where no car holds
+  // the name (the two Ford Pumas), the name is a node of its own ("name:" keys).
+  // Safe to run again after a merge: a link whose cars no longer qualify goes.
+  function applySharedNames(nodes, links) {
+    const byId = new Map(nodes.map(n => [n.id, n]));
+    const live = id => {
+      let n = byId.get(id), hops = 0;
+      while (n && n.retired && n.supersededBy && hops++ < 6) n = byId.get(n.supersededBy);
+      return n && !n.retired ? n : null;
+    };
+    const pair = (l, a, b) => { const s = idOf(l.source), t = idOf(l.target); return (s === a && t === b) || (s === b && t === a); };
+    const wanted = new Set();
+    Object.keys(SHARED_NAMES).forEach(key => {
+      const e = SHARED_NAMES[key];
+      let holder;
+      if (key.startsWith("name:")) {
+        const id = "name-" + key.slice(5);
+        holder = byId.get(id);
+        const make = nodes.find(n => n.type === "make" && norm(n.label) === norm(e.make));
+        if (!holder) {
+          if (!make) return;
+          holder = { id, type: "model", make: e.make, label: e.label, wp: e.page, nameOnly: true, llmGenerated: true };
+          nodes.push(holder); byId.set(id, holder);
+          links.push({ source: id, target: make.id, type: "made" });
+        }
+      } else holder = live(key);
+      if (!holder || holder.familyOf) return;
+      const cars = [];
+      (e.cars || []).forEach(([id, as]) => {
+        const c = live(id);
+        if (!c || c.id === holder.id || c.familyOf === holder.id || cars.some(x => x.c === c)) return;
+        cars.push({ c, as: as || null });
+      });
+      if (holder.nameOnly) {
+        const ys = cars.map(x => x.c.year).filter(Number.isFinite);
+        holder.year = ys.length ? Math.min(...ys) : null;
+        holder.end = cars.some(x => !Number.isFinite(x.c.end)) ? null : Math.max(...cars.map(x => x.c.end));
+      }
+      if (!cars.length) { delete holder.nameIndex; return; }
+      if (e.index) holder.nameIndex = cars.length;
+      cars.forEach(({ c, as }) => {
+        wanted.add(holder.id + "|" + c.id);
+        if (as) c.namedAs = [...new Set([...(c.namedAs || []), as])];
+        if (e.index) links.forEach(l => {
+          if (!l.retired && (l.type === "platform" || l.type === "related") && pair(l, holder.id, c.id)) {
+            l.retired = true; l.retiredReason = "carries the name " + e.page;
+          }
+        });
+        if (links.some(l => l.type === "name" && !l.retired && pair(l, holder.id, c.id))) return;
+        const l = { source: holder.id, target: c.id, type: "name", page: e.page };
+        if (as) l.as = as;
+        links.push(l);
+      });
+    });
+    links.forEach(l => {
+      if (l.type === "name" && !l.retired && !wanted.has(idOf(l.source) + "|" + idOf(l.target))) {
+        l.retired = true; l.retiredReason = "no longer two cars of one name";
+      }
+    });
+  }
   function settleNamesakeFacts(nodes, links) {
     const byIdLocal = new Map(nodes.map(n => [n.id, n]));
     const credits = new Map();
@@ -12172,7 +12317,7 @@ Rules:
     };
     const byName = new Map();
     nodes.forEach(n => {
-      if (!dated(n) || n.familyOf) return;
+      if (!dated(n) || n.familyOf || n.nameOnly) return;
       namesOf(n).forEach(name => {
         const k = bare(n.make || "") + "|" + name;
         if (!byName.has(k)) byName.set(k, []);
@@ -13705,7 +13850,37 @@ Rules:
     });
     return out;
   }
+  // A name on such a page with no page of its own there is another name for cars
+  // that have their own: "Honda Jazz" lists the City AA, the Isuzu MU and the Fit,
+  // and their cards say "also called Honda Jazz". The bare entry steps aside, and a
+  // search for the name finds those cars by their also-called names. Only for the
+  // same maker's cars (owner, 8 Nov 2026): a market's name for the car is an
+  // also-called name, but one badged by another maker is a car of its own. The
+  // Opel Vivaro stays beside the Renault Trafic it shares, and so does a name that
+  // is both: the Honda Jazz is the Fit and a Honda-badged Isuzu MU.
+  function settleListPageNames(nodes) {
+    const byIdLocal = new Map(nodes.map(n => [n.id, n]));
+    const key = s => norm(String(s || "").replace(/\s*\([^()]*\)\s*$/, ""));
+    const holders = new Map();
+    Object.entries(store.aliases || {}).forEach(([id, e]) => ((e && e.names) || []).forEach(name => {
+      const k = key(decodeEntities(name));
+      if (!holders.has(k)) holders.set(k, []);
+      holders.get(k).push(id);
+    }));
+    Object.entries(LIST_PAGE_READS).forEach(([id, listed]) => {
+      const n = byIdLocal.get(id);
+      if (!n || n.retired || listed.own || n.type !== "model" || n.familyOf) return;
+      const cars = (holders.get(key(`${n.make || ""} ${n.label}`)) || []).map(h => byIdLocal.get(h)).filter(c => c && !c.retired && c.id !== id);
+      // A name some other maker's car also carries is (also) that maker's badge on it,
+      // a car of its own: the Fiat Talento is a Ducato and a Renault Trafic.
+      if (!cars.length || cars.some(c => norm(c.make || "") !== norm(n.make || ""))) return;
+      n.retired = true;
+      n.retiredReason = "another name for " + cars.slice(0, 4).map(c => `${c.make || ""} ${c.label}`.trim()).join(", ");
+      n.badgeOf = cars.map(c => c.id);
+    });
+  }
   function foldReviewedCars(nodes, links) {
+    settleListPageNames(nodes);
     const byIdLocal = new Map(nodes.map(n => [n.id, n]));
     const same = Object.assign(repeatedGenerations(nodes), REVIEWED_SAME_CARS);
     Object.keys(same).forEach(id => {
@@ -20769,7 +20944,7 @@ Rules:
   const olderListsReplayed = new WeakSet();
   function applyAllFamilyOverrides(nodes, links) {
     const replay = (famId, e) => {
-      if (!e) return;
+      if (!e || readOfListPage(famId, e)) return;
       // Not before its nameplate exists: one a later pass brings in reads nothing yet.
       if (e.appliedBefore && (!e.olderOnce ||
           (!olderListsReplayed.has(e.appliedBefore) && nodes.some(n => n.id === famId && n.type === "family")))) {
@@ -21007,7 +21182,7 @@ Rules:
   }
 
   return {
-    settleOutOfReachLinks, settleNamesakeFacts, personPageIsTheirs, sectionYearsForFragment, pageCardYears,
+    settleOutOfReachLinks, settleNamesakeFacts, applySharedNames, personPageIsTheirs, listedArticles, sectionYearsForFragment, pageCardYears,
     serverAvailable, isEligible, entryFor,
     checkNode, checkNodeCascade, retryNode, confirmNode, rejectNode,
     applyConfirmed, filePathUrl,

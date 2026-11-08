@@ -58,7 +58,6 @@ const MOVED = [
   ["llm-m-toyota-fortuner-second-generation-an150-an160", "llm-m-toyota-hilux-an110-an120-an130", "llm-m-toyota-hilux-an10-an20-an30"],
   ["llm-fam-honda-accord-eleventh-generation", "llm-m-honda-inspire-seventh-generation-cy", "llm-m-honda-inspire-sixth-generation-cv4-cv6"],
   ["llm-m-volkswagen-tayron-typ-dn", "llm-m-volkswagen-tiguan-ct1", "llm-m-volkswagen-tiguan-ad1-ax1"],
-  ["llm-llm-related-renault-trafic-third-generation-x82", "llm-m-opel-vivaro-vivaro-b", "llm-m-opel-vivaro-vivaro-a"],
 ];
 const has = id => w.CARDATA.nodes.some(n => n.id === id && !n.retired);
 for (const [a, right, wrong] of MOVED) {

@@ -57,8 +57,9 @@ check("a heading that numbers it: the 350Z is a Fairlady Z", inPlate("fam-nissan
 check("a code as the title: the W124 is an E-Class", inPlate("m-mercedes-benz-e-class", /W124/));
 check("the nameplate and a word: the Twingo E-Tech and Scenic E-Tech are generations", inPlate("m-renault-twingo", /E-Tech/) && inPlate("m-renault-scenic", /E-Tech/));
 check("a slice of another car's years: the Chevelle Nomad", inPlate("llm-related-chevrolet-nomad", /Chevelle/));
-check("a rebadge: the Baleno that was an Aerio", inPlate("llm-related-suzuki-baleno", /Aerio/));
-check("a whole lineup does not collapse: the Baleno keeps its generations", (N("llm-related-suzuki-baleno").generations || []).length >= 2 && N("llm-related-suzuki-baleno").type === "family");
+// The Baleno's page is a list of other articles (8 Nov): its read is not replayed, and a
+// re-scan rebuilds it from the pages carrying its name. See jsdom_list_page_reads_test.js.
+check("the Baleno's list-page read is not replayed", !(N("llm-related-suzuki-baleno").generations || []).length);
 check("a rebadge list stays: the Clipper's Every", inPlate("llm-related-nissan-clipper", /Every/));
 
 // BMW Z, by hand

@@ -323,6 +323,9 @@ window.CarWeb = (function () {
   // lines they had stepped aside for still deferring to them.
   // Before the succession pass, which pairs generations by how their years meet.
   backfillGenerationEnds(new Map(nodes.map(n => [n.id, n])));
+  // Before the reach pass: links an index page's car hands to its listed cars are
+  // measured by those cars' years.
+  if (window.LlmFamilies && window.LlmFamilies.applySharedNames) window.LlmFamilies.applySharedNames(nodes, links);
   if (window.LlmFamilies && window.LlmFamilies.settleOutOfReachLinks) window.LlmFamilies.settleOutOfReachLinks(nodes, links);
   if (window.LlmFamilies && window.LlmFamilies.settleNamesakeFacts) window.LlmFamilies.settleNamesakeFacts(nodes, links);
   if (window.LlmFamilies) window.LlmFamilies.pushSuccessionToGenerations(nodes, links);
@@ -1515,6 +1518,8 @@ window.CarWeb = (function () {
     }
     if (n.type === "enginevar") return "engine variant";
     if (n.type === "family") return (n.garage ? "my garage · " : "") + "nameplate · " + n.generations.filter(id => { const g = byId.get(id); return g && !g.retired; }).length + " generations";
+    // A page that only lists the cars of one name: the name, not a car.
+    if (n.type === "model" && n.nameIndex) return "nameplate · " + n.nameIndex + " cars under this name";
     if (n.type === "model") return (n.garage ? "my garage · " : n.heritage ? "heritage · " : "") + (n.year != null ? n.year : "years unknown");
     if (n.type === "make") return "marque" + (n.country ? " · " + n.country : "");
     return personRoleWord(n) + (n.born ? ` · ${n.born}–${n.died || ""}` : "");
@@ -1693,9 +1698,10 @@ window.CarWeb = (function () {
     succession: ["succeeded by", "succeeds"],
     related: ["related to", "related to"],
     generation: ["generations", "part of"],
-    gensucc: ["next generation", "previous generation"] };
+    gensucc: ["next generation", "previous generation"],
+    name: ["name also used on", "shares its name with"] };
   const CARD_SECTION_ORDER = ["made by", "maker of", "part of", "previous generation", "next generation",
-    "succeeds", "succeeded by", "drawn by", "engineered by", "designed", "engineered",
+    "succeeds", "succeeded by", "cars under this name", "name also used on", "shares its name with", "drawn by", "engineered by", "designed", "engineered",
     "shares platform with", "related to", "linked to"];
   let dtNode = null;
   // Walking away from a car with an undecided LLM proposal (switching
@@ -2186,6 +2192,7 @@ window.CarWeb = (function () {
     const creditIsLlmSourced = l => !!(l && l.llmDiscovered &&
       (l.type === "designed" || l.type === "engineered"));
     const llmCredited = new Set();
+    const listedAs = new Map();   // "Chevrolet Grand Blazer": the name a car was sold under
     conns.forEach(({ n: o, l }) => {
       if (o.retired) return;  // superseded by a nameplate generation-list override, see nodeInLayer
       // A link severed along with its deleted LLM-discovered relationship
@@ -2211,6 +2218,8 @@ window.CarWeb = (function () {
       const dir = l.sn === n ? 0 : 1;
       let verb = (verbs[l.type] || ["linked to", "linked to"])[dir];
       if (l.type === "engineered" && l.note) verb = `engineered by · ${l.note}`;
+      if (l.type === "name" && dir === 0 && n.nameIndex) verb = "cars under this name";
+      if (l.type === "name" && l.as && dir === 0) listedAs.set(verb + "|" + o.id, l.as);
       if (creditIsLlmSourced(l)) llmCredited.add(verb + "|" + o.id);
       (groups[verb] = groups[verb] || []).push(o);
     });
@@ -2242,6 +2251,7 @@ window.CarWeb = (function () {
         const fromLlm = llmCredited.has(verb + "|" + o.id);
         b.innerHTML = `${esc((o.type === "model" || o.type === "family") ? o.make + " " + o.label : o.label)}` +
           ((o.type === "model" || o.type === "family") && o.year != null ? ` <span class="verb">${o.year}</span>` : "") +
+          (listedAs.has(verb + "|" + o.id) ? ` <span class="verb">as ${esc(listedAs.get(verb + "|" + o.id))}</span>` : "") +
           (fromLlm ? ` <span class="conn-llm" title="read off the Wikipedia article by the local model, not from the hand-verified engineers table">🤖</span>` : "");
         if (fromLlm) b.classList.add("from-llm");
         b.onclick = () => api.goto(o.id);
@@ -5645,6 +5655,7 @@ window.CarWeb = (function () {
       const res = LF.unmergeNameplate(target.id, nodes, links);
       unmergeArm(false);
       if (!res.ok) return setStatus(res.error || "Couldn't unmerge that.", "error");
+      if (LF.applySharedNames) LF.applySharedNames(nodes, links);
       // No new NODES -- freeing a generation adopts nothing and mints nothing
       // -- but each freed car does gain the "made" link to its marque that it
       // previously reached only through its nameplate, so the link range still
@@ -5669,6 +5680,8 @@ window.CarWeb = (function () {
       const nodesBefore = nodes.length, linksBefore = links.length;
       const res = LF.mergeModelsIntoNameplate(target.id, ids, nodes, links);
       if (!res.ok) return setStatus(res.error || "Couldn't merge those cars.", "error");
+      // A car merged into the name it carried is a generation now, not a car of the name.
+      if (LF.applySharedNames) LF.applySharedNames(nodes, links);
       // Same live-splice treatment every other structural mutation gets --
       // the merge adopts existing nodes in place (setting familyOf) and adds
       // generation/gensucc links plus one stand-in node for the primary
@@ -7262,7 +7275,9 @@ window.CarWeb = (function () {
       const extra = ((n.type === "model" || n.type === "family")
         ? ((n.designers || []).join(" ") + " " + (n.engineers || []).join(" ") + " " +
            // "Renault Symbol" finds the Dacia Logan: its other markets' names.
-           ((window.LlmFamilies && window.LlmFamilies.aliasesFor) ? window.LlmFamilies.aliasesFor(n.id).join(" | ") : "")).toLowerCase() : "");
+           ((window.LlmFamilies && window.LlmFamilies.aliasesFor) ? window.LlmFamilies.aliasesFor(n.id).join(" | ") : "") + " | " +
+           // "Grand Blazer" finds the Tahoe: a name an index lists it under.
+           (n.namedAs || []).join(" | ")).toLowerCase() : "");
       let s = -1;
       if (hay.startsWith(q)) s = 0;
       else if (hay.includes(q)) s = 1;
@@ -7473,11 +7488,11 @@ window.CarWeb = (function () {
   // relaxLocally) settles a patch of the graph by exactly the same rules the
   // whole-graph simulation uses.
   function simLinkDistance(l) {
-    return l.type === "made" ? 60 : (l.type === "designed" || l.type === "engineered") ? 110
+    return l.type === "made" ? 60 : (l.type === "designed" || l.type === "engineered" || l.type === "name") ? 110
          : (l.type === "succession" || l.type === "gensucc") ? 34 : 46;
   }
   function simLinkStrength(l) {
-    return l.type === "made" ? 0.55 : (l.type === "designed" || l.type === "engineered") ? 0.08
+    return l.type === "made" ? 0.55 : (l.type === "designed" || l.type === "engineered" || l.type === "name") ? 0.08
          : (l.type === "succession" || l.type === "gensucc") ? 0.5 : 0.35;
   }
   function simChargeStrength(d) {
@@ -8182,11 +8197,12 @@ window.CarWeb = (function () {
       gensucc:    { col: () => C.gensucc,  a: 0.8,  w: 1.8, dash: null },
       designed:   { col: () => C.designer, a: 0.27, w: 1.1, dash: null },
       engineered: { col: () => C.engineer, a: 0.5,  w: 1.4, dash: null },
+      name:       { col: () => C.ink2,     a: 0.45, w: 1.1, dash: [1, 3] },
       _:          { col: () => C.muted,    a: 0.26, w: 1,   dash: null },
     };
     // Back to front: the quiet structural lines first, the lines that carry
     // meaning (succession, platform) last so they sit on top.
-    const EDGE_ORDER = ["_", "designed", "engineered", "related", "fitted", "succession",
+    const EDGE_ORDER = ["_", "designed", "engineered", "name", "related", "fitted", "succession",
                         "platform", "enginesucc", "gensucc"];
     // The world-space rectangle on screen, grown by `margin` world units.
     function viewRect(margin) {

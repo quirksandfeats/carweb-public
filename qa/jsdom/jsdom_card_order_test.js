@@ -30,7 +30,7 @@ const N = id => DATA.nodes.find(n => n.id === id);
 const named = (id, type = "platform") => DATA.links.filter(l => !l.retired && !l.mirror && l.type === type && (idOf(l.source) === id || idOf(l.target) === id))
   .map(l => idOf(l.source) === id ? idOf(l.target) : idOf(l.source));
 const ORDER = ["made by", "maker of", "part of", "previous generation", "next generation", "succeeds", "succeeded by",
-  "drawn by", "engineered by", "designed", "engineered", "shares platform with", "related to", "linked to"];
+  "cars under this name", "name also used on", "shares its name with", "drawn by", "engineered by", "designed", "engineered", "shares platform with", "related to", "linked to"];
 const rank = v => { const i = ORDER.findIndex(o => v === o || v.startsWith(o + " ·")); return i < 0 ? ORDER.length : i; };
 const idOf2 = v => (typeof v === "string" ? v : v.id);
 // Every car with both a predecessor and a successor, and a sample of the rest.
