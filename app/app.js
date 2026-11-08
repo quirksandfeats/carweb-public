@@ -1390,6 +1390,61 @@ window.CarWeb = (function () {
     if (window.PHOTO_SKIPS && Object.prototype.hasOwnProperty.call(window.PHOTO_SKIPS, n.wikiFile)) return null;
     return window.LlmFamilies.filePathUrl(n.wikiFile, 480);
   }
+  // Who took a photo and under which licence, from the file's own page (the owner, 8
+  // Nov 2026: credit every photo). Read when a card shows the photo; the file comes
+  // from the photo's address, so the generation's own file, the build's and the
+  // article's thumbnail are credited alike. A Commons file answers through the English
+  // Wikipedia too. The page's fields are markup anyone can edit: read as text only, in
+  // an inert document.
+  const photoCredits = new Map();
+  function photoFileOf(url) {
+    const u = String(url || "");
+    let m = u.match(/\/Special:FilePath\/([^?#]+)/);
+    // upload.wikimedia.org, and thumb.wikimedia.org for the summaries' thumbnails.
+    if (!m) m = u.match(/\/\/[a-z]+\.wikimedia\.org\/wikipedia\/[^/]+\/(?:thumb\/)?[0-9a-f]\/[0-9a-f]{2}\/([^/?#]+)/);
+    if (!m) return null;
+    try { return decodeURIComponent(m[1]).replace(/_/g, " "); } catch (e) { return null; }
+  }
+  function inertText(html) {
+    if (!html) return "";
+    const doc = new DOMParser().parseFromString(String(html), "text/html");
+    return (doc.body.textContent || "").replace(/\s+/g, " ").trim();
+  }
+  function photoCredit(file) {
+    if (!file) return Promise.resolve(null);
+    if (photoCredits.has(file)) return photoCredits.get(file);
+    const p = fetch("https://en.wikipedia.org/w/api.php?action=query&format=json&formatversion=2&origin=*" +
+        "&prop=imageinfo&iiprop=extmetadata&iiextmetadatafilter=Artist|LicenseShortName|LicenseUrl&titles=" +
+        encodeURIComponent("File:" + file))
+      .then(r => r.ok ? r.json() : null)
+      .then(j => {
+        const page = j && j.query && (j.query.pages || [])[0];
+        const meta = page && page.imageinfo && page.imageinfo[0] && page.imageinfo[0].extmetadata;
+        if (!meta) { photoCredits.delete(file); return null; }
+        const v = k => meta[k] && meta[k].value;
+        const licenceUrl = /^https?:\/\//.test(String(v("LicenseUrl") || "")) ? v("LicenseUrl") : null;
+        return { artist: inertText(v("Artist")).slice(0, 120), licence: inertText(v("LicenseShortName")).slice(0, 60), licenceUrl,
+                 page: "https://en.wikipedia.org/wiki/" + encodeURIComponent("File:" + file.replace(/ /g, "_")) };
+      })
+      .catch(() => { photoCredits.delete(file); return null; });
+    photoCredits.set(file, p);
+    return p;
+  }
+  function showPhotoCredit(n, url) {
+    const el = dt.querySelector(".dt-imgcredit");
+    if (!el) return;
+    el.textContent = ""; el.hidden = true;
+    const file = photoFileOf(url);
+    if (!file) return;
+    photoCredit(file).then(c => {
+      if (!c || dt.hidden || dtNode !== n) return;
+      const link = (href, text) => { const a = document.createElement("a"); a.href = href; a.target = "_blank"; a.rel = "noopener"; a.textContent = text; return a; };
+      el.textContent = "";
+      el.append("Photo: ", link(c.page, c.artist || "Wikimedia Commons"));
+      if (c.licence) el.append(", ", c.licenceUrl ? link(c.licenceUrl, c.licence) : c.licence);
+      el.hidden = false;
+    });
+  }
   // Real user report: "The thumbnails for the individual cars -- particularly
   // ones that are nameplates, still don't seem to match the generations it's
   // describing. Oftentimes the same picture will be used for each generation,
@@ -2140,12 +2195,16 @@ window.CarWeb = (function () {
     const genPhoto = genPhotoUrl(n);
     if (dbPhoto) { img.style.backgroundImage = `url("${dbPhoto}")`; img.classList.add("show"); }
     else if (genPhoto) { img.style.backgroundImage = `url("${genPhoto}")`; img.classList.add("show"); }
+    showPhotoCredit(n, dbPhoto || genPhoto);
     if (n.wp) wikiFor(n).then(w => {
       // Still this car's card, not just still a card -- same guard as the
       // hover card's. A slow reply for the car before this one otherwise
       // lands on top of the photo and extract already drawn here.
       if (dt.hidden || dtNode !== n) return;
-      if (w && w.thumb && !dbPhoto && !genPhoto) { img.style.backgroundImage = `url("${w.thumb}")`; img.classList.add("show"); }
+      if (w && w.thumb && !dbPhoto && !genPhoto) {
+        img.style.backgroundImage = `url("${w.thumb}")`; img.classList.add("show");
+        showPhotoCredit(n, w.thumb);
+      }
       // Plain text from a page anyone can edit: never markup.
       if (w && w.extract) ex.innerHTML = esc(w.extract.split(". ").slice(0, 2).join(". ")) +
         (w.url ? `. <a href="${esc(w.url)}" target="_blank" rel="noopener">Wikipedia ↗</a>` : "");

@@ -269,6 +269,10 @@ main{flex:1; position:relative; min-height:0}
   background-color:var(--paper2); border-block:1px solid var(--hairline);
 }
 .dt-imgwrap.show{display:block}
+/* The photo's author and licence, from its file page. */
+.dt-imgcredit{font-size:10.5px; line-height:1.4; color:var(--muted); margin-top:4px; text-align:right; overflow-wrap:anywhere}
+.dt-imgcredit[hidden]{display:none}
+.dt-imgcredit a{color:inherit; text-decoration:underline; text-decoration-style:dotted}
 .dt-meta{font-size:12.5px; color:var(--ink2); line-height:1.5; margin-top:10px}
 .dt-extract{font-size:12.5px; line-height:1.55; margin-top:10px; color:var(--ink2)}
 .dt-extract a{color:var(--accent)}

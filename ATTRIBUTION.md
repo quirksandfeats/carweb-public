@@ -61,7 +61,9 @@ CC BY-SA.
 ### Images
 Article thumbnails and extracts are fetched live from Wikipedia and Wikimedia
 Commons at view time and are **never stored in this repository**. Individual
-images carry their own licences, shown on their Commons file pages.
+images carry their own licences. A car's card credits the photo it shows with
+its author and licence, read from the file's page when the card opens, and links
+to that page and to the licence.
 
 ### Bundled third-party code
 `app/d3.min.js` — D3.js, Copyright 2010–2023 Mike Bostock, ISC License.
