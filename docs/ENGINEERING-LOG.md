@@ -2743,3 +2743,7 @@ Checked and left alone: 361 stored generation photos are named with their "File:
 ## 8 November: documentation brought up to date
 
 README counts now describe the live graph and say they grow with each scan; the test and log sizes are current; resetting the LLM layer points at `scripts/reset_llm_layer.sh`, since deleting the JSON leaves its browser mirrors. ATTRIBUTION says what is confirmed by rules, the agent or hand, lists the generated lists, and has the curated counts of `data_src/` (120 designers, 138 engineers, 224 attributions, 435 models). LICENSE-DATA covers the mirror parts and generated lists. REQUEST-QUEUE describes the per-car keys (`job:car:<id>`, up to 25), the release route, what auto-reload watches, the agent's committed files and flags, and when a re-check applies itself.
+
+## 8 November: a limit on passphrase guesses
+
+The request queue's passphrase could be guessed without limit, and a right guess queues scans the agent pushes to the live site. The Worker now counts wrong passphrases per address in KV (`guess:<ip>`, kept 15 minutes from the last wrong one). After five, `queue` and `cancel` answer `429 too-many-guesses` for that address, the right passphrase included, and the panel says to try again in 15 minutes. The agent's bearer token is not counted. Checked with a stand-in KV: five wrong answers give 403, the sixth and a right one from that address 429, another address 200.

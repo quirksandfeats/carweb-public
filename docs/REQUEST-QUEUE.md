@@ -155,6 +155,10 @@ keeps hiding every server-only control.
 | `POST /api/request/done` | bearer | the agent, with a one-line summary |
 | `POST /api/request/release` | bearer | the agent's `--release` (and `--drop` on a running job): hands a claim back so the job waits again |
 
+Wrong passphrases are counted per address (`guess:<ip>` in KV). After five, the
+address gets `429 too-many-guesses` on `queue` and `cancel`, the right passphrase
+included, until 15 minutes have passed since its last wrong one.
+
 One request per car. Asking for a car that is already waiting or being scanned
 returns the existing request; up to 25 different cars can wait, each in its own
 key (`job:car:<node id>`). The agent works through them one at a time, oldest

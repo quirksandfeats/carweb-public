@@ -121,6 +121,23 @@ function timingSafeEqual(a, b) {
   return diff === 0;
 }
 
+// Wrong passphrases are counted per address: after GUESS_LIMIT of them the
+// address is refused until GUESS_WINDOW_S has passed since its last wrong one.
+// Without this the passphrase could be guessed without limit, and a right
+// guess queues scans the agent pushes to the live site.
+const GUESS_LIMIT = 5;
+const GUESS_WINDOW_S = 15 * 60;
+async function guessState(env, request) {
+  const ip = request.headers.get("cf-connecting-ip") || "unknown";
+  const n = parseInt((await env.JOBS.get("guess:" + ip)) || "0", 10) || 0;
+  return { ip, n, blocked: n >= GUESS_LIMIT };
+}
+async function noteBadGuess(env, g) {
+  await env.JOBS.put("guess:" + g.ip, String(g.n + 1), { expirationTtl: GUESS_WINDOW_S });
+}
+const tooManyGuesses = () => json({ ok: false, error: "too-many-guesses",
+  message: "Too many wrong passphrases. Try again in 15 minutes." }, 429);
+
 async function readJson(request) {
   try { return await request.json(); } catch (e) { return null; }
 }
@@ -266,7 +283,10 @@ export default {
         return json({ ok: false, error: "queue-unconfigured",
                       message: "No passphrase is configured for this Worker yet." }, 503);
       }
+      const guesses = await guessState(env, request);
+      if (guesses.blocked) return tooManyGuesses();
       if (!timingSafeEqual(body.passphrase, env.REQUEST_SECRET)) {
+        await noteBadGuess(env, guesses);
         return json({ ok: false, error: "bad-passphrase" }, 403);
       }
       // A request names a car. That is the whole point of the button: you
@@ -319,8 +339,10 @@ export default {
       const authz = request.headers.get("authorization") || "";
       const tok = authz.startsWith("Bearer ") ? authz.slice(7) : "";
       const isAgent = !!env.AGENT_TOKEN && timingSafeEqual(tok, env.AGENT_TOKEN);
+      const guesses = isAgent ? null : await guessState(env, request);
+      if (guesses && guesses.blocked) return tooManyGuesses();
       const knowsPass = !!env.REQUEST_SECRET && timingSafeEqual(body.passphrase, env.REQUEST_SECRET);
-      if (!isAgent && !knowsPass) return json({ ok: false, error: "bad-passphrase" }, 403);
+      if (!isAgent && !knowsPass) { await noteBadGuess(env, guesses); return json({ ok: false, error: "bad-passphrase" }, 403); }
 
       const queue = await getQueue();
       if (body.all) {

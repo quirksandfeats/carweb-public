@@ -6735,6 +6735,7 @@ window.CarWeb = (function () {
         });
         const d = await r.json();
         if (d && d.error === "bad-passphrase") return say("That passphrase isn't right.", "err");
+        if (d && d.error === "too-many-guesses") return say("Too many wrong passphrases. Try again in 15 minutes.", "err");
         if (!r.ok || !d || !d.ok) return say(d && d.message ? d.message : "Couldn't remove that.", "err");
         render(d);
         say("Removed.", "ok");
@@ -6801,6 +6802,7 @@ window.CarWeb = (function () {
         });
         const d = await r.json();
         if (d && d.error === "bad-passphrase") { say("That passphrase isn't right.", "err"); refreshSendState(); return; }
+        if (d && d.error === "too-many-guesses") { say("Too many wrong passphrases. Try again in 15 minutes.", "err"); refreshSendState(); return; }
         if (!r.ok || !d || !d.ok) {
           say(d && d.message ? d.message : "The queue didn't accept that (" + r.status + ").", "err");
           refreshSendState();
