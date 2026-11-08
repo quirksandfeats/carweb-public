@@ -20841,6 +20841,10 @@ Rules:
           // Running on into the next generation by more than a year is the
           // read taking the nameplate's run for this one's (Malibu First, to 1972).
           const end = plausibleEnd(f.yearStart, f.yearEnd);
+          // Known to be still built (STILL_BUILT_GENERATIONS, or a read's own card saying
+          // "present"): a re-read's end closes it only when its own card names that end.
+          // The D-Max RT's 7 Nov re-read ended it in 2019; its card says 2011-present.
+          if (!f.endOnCard && g.end == null && generationStatedOpen(fam, g)) return;
           const line = lines && lines.find(l => l.includes(g.id));
           const later = gens.filter(o => o !== g && o.year != null && o.year > g.year &&
             (!line || line.includes(o.id))).map(o => o.year);
