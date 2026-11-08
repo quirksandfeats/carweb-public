@@ -820,7 +820,9 @@ window.LlmFamilies = (function () {
     // first is a genuinely distinct article -- the second just redirects
     // straight back to the nameplate's own page. Comparing resolved titles
     // is the only reliable way to tell those two cases apart.
-    const out = { wikitext, digest: extractDigest(wikitext), resolvedTitle: (j.parse && j.parse.title) || title };
+    const landed = j.parse && Array.isArray(j.parse.redirects) && j.parse.redirects.length ? j.parse.redirects[j.parse.redirects.length - 1] : null;
+    const out = { wikitext, digest: extractDigest(wikitext), resolvedTitle: (j.parse && j.parse.title) || title,
+                  fragment: (landed && landed.tofragment) || null };
     // Remembered, because a redirect is the one way two engine nodes can be
     // the same article without looking like it. "GM Duramax engine" is a
     // redirect to "Duramax V8 engine" -- same page, byte for byte -- and a car
@@ -6038,10 +6040,68 @@ Rules:
     if (!/\{\{\s*infobox\s+(?:automobile(?! engine)|electric vehicle|racing car|concept car|vehicle|military vehicle|truck|bus)/i.test(text)) return false;
     return !!make && norm(text.slice(0, 3000)).includes(norm(make));
   }
+  // A car with no article of its own often redirects to a section of another:
+  // "Daihatsu Taruna" lands on Daihatsu Terios#F500. The whole page's years are
+  // the Terios's (1997-), not the Taruna's (1999-2007). The section's card gives
+  // them, or its heading; a section that gives neither leaves the car undated.
+  const REDIRECT_YEARS = (typeof window !== "undefined" && window.REDIRECT_YEARS) || {};
+  function sectionYearsForFragment(wikitext, fragment, make, label) {
+    const text = String(wikitext || ""), want = norm(String(fragment || "").replace(/_/g, " "));
+    if (!want) return null;
+    const heads = [...text.matchAll(/^(={2,6})\s*(.+?)\s*\1\s*$/gm)].map(m => ({ at: m.index, level: m[1].length, raw: m[2] }));
+    const clean = h => h.replace(/\{\{\s*(?:visible )?anchors?\s*\|[^}]*\}\}/gi, "").replace(/<[^>]+>/g, "")
+      .replace(/'{2,}/g, "").replace(/\[\[(?:[^\]|]*\|)?([^\]]*)\]\]/g, "$1").replace(/&ndash;|&mdash;|—/g, "–").trim();
+    const names = s => [...String(s).matchAll(/\{\{\s*(?:visible )?anchors?\s*\|([^}]*)\}\}|\bid\s*=\s*"([^"]+)"/gi)]
+      .flatMap(m => (m[1] || m[2]).split("|")).map(x => norm(x));
+    // The heading the fragment names, or the heading of the section an anchor sits in.
+    let own = heads.find(h => norm(clean(h.raw)) === want || names(h.raw).includes(want));
+    if (!own) {
+      const re = /\{\{\s*(?:visible )?anchors?\s*\|([^}]*)\}\}|\bid\s*=\s*"([^"]+)"/gi;
+      let m, at = -1;
+      while ((m = re.exec(text))) if ((m[1] || m[2]).split("|").some(x => norm(x) === want)) { at = m.index; break; }
+      if (at < 0) return null;   // a heading renamed since: nothing to read
+      own = heads.filter(h => h.at < at).pop();
+      if (!own) return null;
+    }
+    const rangeOf = h => { const next = heads.find(x => x.at > h.at && x.level <= h.level); return text.slice(h.at, next ? next.at : text.length); };
+    const yearsIn = h => {
+      const part = rangeOf(h), box = part.search(/\{\{\s*infobox (?:automobile|car)\b/i);
+      if (box >= 0) {
+        const field = infoboxFieldValue(part.slice(box), /\|\s*production\s*=/i) || infoboxFieldValue(part.slice(box), /\|\s*model_years\s*=/i);
+        const said = field != null ? lastBuiltOnCard(field, make, label) : undefined;
+        if (said && Number.isFinite(said.first)) return { year: said.first, end: said.end };
+      }
+      const heading = clean(h.raw);
+      const run = /((?:1[89]|20)\d\d)\s*[-–]\s*((?:1[89]|20)\d\d|present)/i.exec(heading);
+      if (run) return { year: Number(run[1]), end: /present/i.test(run[2]) ? null : Number(run[2]) };
+      const began = /[;(]\s*((?:1[89]|20)\d\d)\s*\)/.exec(heading);
+      return began ? { year: Number(began[1]), end: null } : null;
+    };
+    // Its own section first, then the sections it sits in: the Taruna is a
+    // paragraph of the Terios's first generation, whose card gives the years.
+    for (let h = own; h; h = heads.filter(x => x.at < h.at && x.level < h.level).pop()) {
+      const found = yearsIn(h);
+      if (found) return found;
+    }
+    return null;
+  }
+  // The years on a page's first card: what a read of the whole page gives.
+  function pageCardYears(wikitext) {
+    const text = String(wikitext || ""), box = text.search(/\{\{\s*infobox (?:automobile|car)\b/i);
+    if (box < 0) return null;
+    const field = infoboxFieldValue(text.slice(box), /\|\s*production\s*=/i) || infoboxFieldValue(text.slice(box), /\|\s*model_years\s*=/i);
+    const said = field != null ? lastBuiltOnCard(field, "", "") : undefined;
+    return said && Number.isFinite(said.first) ? { year: said.first, end: said.end } : null;
+  }
   async function fetchYearFactsGrounded(title, make) {
     let digest;
     try {
       const read = await fetchArticleDigest(title);
+      // Landed on a section of another car's article: that section's years, or none.
+      if (read.fragment) {
+        const own = sectionYearsForFragment(read.wikitext, read.fragment, make || "", title);
+        return own ? { year: own.year, end: own.end, source: "wikipedia" } : null;
+      }
       if (make && !barePageIsThisCar(read.wikitext, make)) return null;
       digest = read.digest;
     } catch (e) { return null; } // no article by this title, or the fetch itself failed -- not an error, just nothing to ground on
@@ -6415,7 +6475,11 @@ Rules:
     // cached answer immediately instead of defaulting to null and kicking
     // off ANOTHER round-trip on every single boot forever. cached.year/end
     // are already null if the earlier attempt genuinely found nothing.
-    const onFile = store.mintedFacts[modelId];
+    // Read before a scan looked at where a redirect lands: scripts/redirect_years.js
+    // lists what sectionYearsForFragment gives those cars.
+    const onFile = Object.prototype.hasOwnProperty.call(REDIRECT_YEARS, modelId)
+      ? Object.assign({}, store.mintedFacts[modelId], { year: REDIRECT_YEARS[modelId] && REDIRECT_YEARS[modelId][0], end: REDIRECT_YEARS[modelId] && REDIRECT_YEARS[modelId][1], source: "wikipedia" })
+      : store.mintedFacts[modelId];
     const cached = recalledYears(onFile) ? null : onFile;
     const modelNode = {
       id: modelId, type: "model", label: modelLabel, make: makeNode.label,
@@ -20937,7 +21001,7 @@ Rules:
   }
 
   return {
-    settleOutOfReachLinks, settleNamesakeFacts, personPageIsTheirs,
+    settleOutOfReachLinks, settleNamesakeFacts, personPageIsTheirs, sectionYearsForFragment, pageCardYears,
     serverAvailable, isEligible, entryFor,
     checkNode, checkNodeCascade, retryNode, confirmNode, rejectNode,
     applyConfirmed, filePathUrl,
