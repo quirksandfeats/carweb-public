@@ -323,6 +323,8 @@ window.CarWeb = (function () {
   // lines they had stepped aside for still deferring to them.
   // Before the succession pass, which pairs generations by how their years meet.
   backfillGenerationEnds(new Map(nodes.map(n => [n.id, n])));
+  // A car whose read was another car's article sits on that car's platform instead.
+  if (window.LlmFamilies && window.LlmFamilies.applyBorrowedReads) window.LlmFamilies.applyBorrowedReads(nodes, links);
   // Before the reach pass: links an index page's car hands to its listed cars are
   // measured by those cars' years.
   if (window.LlmFamilies && window.LlmFamilies.applySharedNames) window.LlmFamilies.applySharedNames(nodes, links);
