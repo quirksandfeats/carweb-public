@@ -8829,6 +8829,37 @@ Rules:
     if (ord && gens[ORDINAL_N[ord] - 1]) return gens[ORDINAL_N[ord] - 1];
     return null;
   }
+  // A generation's section names this car by its name, not by a sibling's code or place:
+  // "Datsun Bluebird (910)" in a Maxima section is not naming the Bluebird 810, and
+  // "Ford S-Max (second generation)" is not naming the first. Codes and places spelled
+  // out only, and a place only where a generation says it of itself; a numeral after
+  // the name ("Morris Oxford VI") counts series, not this nameplate's generations. The make is not checked: "Autozam Carol" is the Mazda
+  // Carol, and "Chevrolet Kingswood" a Holden. Owner rule: what is shown matches what
+  // the article says.
+  function sectionNamesGeneration(text, mentioner, nodes) {
+    if (!articleNamesCar(text, mentioner, nodes)) return false;
+    const self = nodeWithId(nodes, mentioner.id) || mentioner;
+    const plate = self.familyOf ? nodeWithId(nodes, self.familyOf) : null;
+    if (!plate || !(plate.generations || []).length) return true;
+    const gens = plate.generations.map(id => nodeWithId(nodes, id)).filter(g => g && !g.retired)
+      .sort((x, y) => (x.year == null ? 1e9 : x.year) - (y.year == null ? 1e9 : y.year));
+    const said = new Set(chassisCodesIn(text).concat(
+      (String(text).match(/\(([^()]+)\)\s*$/) || [, ""])[1].split(/[\/,;]\s*/)).map(c => norm(c)).filter(Boolean));
+    const byCode = gens.filter(g => {
+      const tc = trailingCode(String(g.label || ""));
+      return chassisCodesIn(g.label).concat(tc && tc.code ? [tc.code] : []).map(c => norm(c)).some(c => c.length >= 2 && said.has(c));
+    });
+    if (byCode.length) return byCode.some(g => g.id === self.id);
+    // A place counts where a generation says it of itself: the Swift's list here starts
+    // with Cultus-era cars, so its third by year is not the article's third.
+    const w = nameWordsOf(text), at = w.findIndex((x, i) => ORDINAL_N[x] && /^(?:generation|gen)$/.test(w[i + 1] || ""));
+    if (at < 0) return true;
+    const place = w[at] + " generation";
+    const placed = gens.filter(g => nameWordsOf(`${g.label || ""} ${g.wp || ""}`).join(" ").includes(place));
+    // Two lines of one name can both have a "first generation" (the Ranger's North
+    // American and international ones): the text names one of them, not this one.
+    return !placed.length || placed.some(g => g.id === self.id);
+  }
   function sanityMatchPlausible(gn, cand, mentionText, nodes) {
     if (!cand) return { ok: false, why: "no such car" };
     const fam = cand.familyOf ? nodeWithId(nodes, cand.familyOf) : null;
@@ -9215,7 +9246,7 @@ Rules:
           // about a different generation of it: one decades away, or a sibling
           // built closer to that section's years.
           const naming = targetGens.filter(g2 => withinPlatformReach(gn, g2) && !siblingFitsBetter(gn, g2, nodes) &&
-            (g2.sharedPlatformTexts || []).some(t => articleNamesCar(t, gn, nodes)));
+            (g2.sharedPlatformTexts || []).some(t => sectionNamesGeneration(t, gn, nodes)));
           if (naming.length === 1) { pick = naming[0]; pickedBy = "this generation's own section of its article names this car"; }
           // Several do (the Pajero's first and second both name the Galloper):
           // the years choose among those, not among all of them.
