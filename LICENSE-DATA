@@ -5,8 +5,10 @@ The SOFTWARE in this repository is licensed under the Apache License 2.0
 (see LICENSE). This file covers the DATA, which is licensed separately.
 
 The dataset — app/cars.json, app/data.js, app/llm_families.json,
-app/llm_families_data.js, the curated source tables in data_src/, and the
-cached source text in qa/wiki_cache/ — is licensed under
+app/llm_families_data.js and app/llm_families_data_N.js, the generated lists
+app/article_ends.js, app/namesake_people.js, app/redirect_years.js,
+app/list_page_reads.js and app/shared_names.js, the curated source tables in
+data_src/, and the cached source text in qa/wiki_cache/ — is licensed under
 
     Creative Commons Attribution-ShareAlike 4.0 International
     (CC BY-SA 4.0)
@@ -33,4 +35,5 @@ WHAT IS NOT IN THIS REPOSITORY
 The "My Database" layer — a personal collection of magazine road-test data
 and photographs — is deliberately excluded. It is not covered by any licence
 granted here and is not redistributable. The code paths that read it
-(data_src/build_db_layer.py) are disabled by default; see ATTRIBUTION.md.
+(data_src/build_db_layer.py, not part of this repository) are disabled by
+default; see ATTRIBUTION.md.

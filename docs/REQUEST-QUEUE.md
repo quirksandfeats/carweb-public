@@ -13,7 +13,7 @@ picks the job up when it is next awake.
   focus a car
   ⚡ Request scan  ──────▶     POST /api/request/queue
   (passphrase)                {targetId, targetLabel}
-                              job:queue  [A][B][C]
+                              job:car:<id>  × up to 25
                                             ▲    │
                               GET /api/request/jobs│  agent polls
                                             └────┴──▶ claims the head
@@ -31,9 +31,10 @@ the graph if you want a third one. A request with no car would mean "go and do
 something", which is not a thing anyone can act on or review afterwards.
 
 What comes back is covered under **What it confirms** below — a first-time
-nameplate split is applied without asking, a correction to an existing
-generation list waits for a human, and everything the agent confirmed is
-stamped so it can be reviewed afterwards.
+nameplate split is applied without asking, a re-check of an existing
+generation list is applied when the article's headings decide it or it only
+adds generations, anything else waits in Tools → Pending Generation Splits, and
+everything the agent confirmed is stamped so it can be reviewed afterwards.
 
 ## Two different lists
 
@@ -152,12 +153,14 @@ keeps hiding every server-only control.
 | `POST /api/request/cancel` | passphrase, or bearer for `all` | withdraw a request |
 | `POST /api/request/claim` | bearer | the agent, before it starts |
 | `POST /api/request/done` | bearer | the agent, with a one-line summary |
+| `POST /api/request/release` | bearer | the agent's `--release` (and `--drop` on a running job): hands a claim back so the job waits again |
 
-One job at a time. A second request while one is pending returns the existing
-job rather than stacking another behind it — two queued scans of the same graph
-is one scan and one wasted wake-up. A job expires two days after it was queued
-when no agent has checked the queue in that time, because a week-old "scan
-everything" is not what anyone wants run when the machine finally comes back.
+One request per car. Asking for a car that is already waiting or being scanned
+returns the existing request; up to 25 different cars can wait, each in its own
+key (`job:car:<node id>`). The agent works through them one at a time, oldest
+first. A request expires two days after it was queued when no agent has checked
+the queue in that time, because a week-old request is not what anyone wants run
+when the machine finally comes back.
 While an agent is working through the queue nothing expires: on 14 Oct 2026 a
 fixed two days dropped four waiting requests and the one being scanned.
 
@@ -191,8 +194,9 @@ button says so rather than failing.
 
 ## After a run: the page reloads itself
 
-The graph ships inside `data.js`, so a HEAD request for that file and a look
-at its ETag says whether the deploy underneath an open tab has moved on. When
+What a scan changes ships in `app/llm_families_data.js`, so a HEAD request for
+that file and a look at its ETag says whether the deploy underneath an open tab
+has moved on. A rebuild that changes only `data.js` needs a manual reload. When
 it has, the page saves where it was, reloads, and comes back to it.
 
 What is restored is the **focus**, not a pixel-exact camera: `goto()` re-frames
@@ -228,8 +232,10 @@ A request is a suggestion, so it can be withdrawn.
   Short ids work everywhere a job id does: the eight characters the log and
   the panel print are enough.
 
-- **By hand:** dashboard → Workers KV → CARWEB_JOBS → KV Pairs → `job:queue`
-  is a plain JSON array. Editing it there works and is the last resort.
+- **By hand:** dashboard → Workers KV → CARWEB_JOBS → KV Pairs. Each waiting
+  car is its own key, `job:car:<node id>`, holding one JSON job. Delete or edit
+  that key, then delete `status:view` so the public list is rebuilt. This is the
+  last resort.
 
 Two rules. **A request being scanned right now cannot be withdrawn from the
 site** — the agent is mid-pass on it and its own `/done` is what closes it
@@ -366,8 +372,9 @@ What one run does:
    implementation to drift from it.
 5. SIGTERMs `serve.py`, whose handler stops `llama-server`. That is what
    "closes the program running locally".
-6. Commits **only** `app/llm_families.json` and `app/llm_families_data.js`,
-   and only if they moved, then pushes. Never `git add -A`: this runs
+6. Commits **only** `app/llm_families.json` and its browser mirrors
+   `app/llm_families_data.js` and `app/llm_families_data_N.js`, and only if they
+   moved, then pushes. Never `git add -A`: this runs
    unattended in a working copy that may have anything else half-finished in
    it.
 7. `POST /api/request/done` with a one-line summary, and exits.
@@ -381,9 +388,10 @@ It drives the real UI, so it inherits the app's own rule — which is **not**
   applied immediately**. That is an existing deliberate decision ("if a car is
   creating a nameplate for the first time... you do not need my approval to
   turn it into a nameplate"), and it is most of the review queue.
-- A correction to a nameplate that **already** has a generation list stays
-  **provisional** and waits for a human, because it rewrites data someone may
-  already be relying on.
+- A re-check of a nameplate that **already** has a generation list is applied
+  when the article's headings decide it or it only adds generations; it retires
+  only an overview or a duplicate of a kept generation. What the headings cannot
+  settle stays **provisional** and waits for a human.
 
 Nothing in the agent widens that. Every claim still has to appear verbatim in
 the article before it is kept — the guard in `llm_families.js` runs on this
@@ -403,7 +411,7 @@ Two things make an unattended run reviewable afterwards:
 What the guard still cannot do: it proves the codes and years appear in the
 article, not that they are generations of *this* car. A "Related models" or
 "See also" section can supply perfectly real strings. That is the reason to
-read the first few diffs before raising `--max-scans`.
+read the first few diffs before raising `--seeds` or `--cascade-depth`.
 
 ### Tests
 

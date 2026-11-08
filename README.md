@@ -1,9 +1,10 @@
 # The Car Web
 
-An explorable knowledge graph of the automobile industry: **6,823 car models**
-(101 of them grouped into nameplate families spanning 430 generations),
-**1,126 makes** and **2,309 people** — 2,206 designers and 139 chief engineers —
-joined by **19,678 relations**, from 1883 to today.
+An explorable knowledge graph of the automobile industry: **about 11,600 car
+models** (about 1,330 of them nameplates split into their generations),
+**about 1,200 makes** and **about 3,050 people** (2,829 designers and about 380
+engineers), joined by **about 56,700 connections**, from 1883 to today. The
+counts grow with each scan; the footer of the site shows the current ones.
 
 Made-by, designed-by, engineered-by, shared-platform, rebadge, succession and
 generation-succession links, all on one canvas.
@@ -32,8 +33,8 @@ anything you navigate to directly.
 
 ## The chief-engineer layer
 
-DBpedia carries no chief-engineer data at all. The 139 engineers here, and the
-245 attributions tying them to specific cars, are hand-compiled from articles,
+DBpedia carries no chief-engineer data at all. The 139 curated engineers, and
+the 245 attributions tying them to specific cars, are hand-compiled from articles,
 published interviews and marque histories, then spot-verified against source
 text: Chapman's Lotuses, Toyota's shusa system, the Corvette dynasty from
 Duntov through Juechter, Materazzi from the Stratos to the EB110.
@@ -49,9 +50,10 @@ so DBpedia never sees them as separate things to harvest. Run
 nothing is sent to any cloud service.
 
 Every generation code, year and name the model returns is checked against the
-article text before it is kept. Discoveries live only in `app/llm_families.json`;
-delete that file and the layer resets to nothing, leaving the harvested graph
-untouched.
+article text before it is kept. Discoveries live in `app/llm_families.json` and
+its browser mirrors `app/llm_families_data*.js`. `bash scripts/reset_llm_layer.sh`
+backs them up and empties them, which resets the layer to nothing and leaves the
+harvested graph untouched.
 
 What the layer does:
 
@@ -119,7 +121,7 @@ cd qa/jsdom && npm install jsdom --no-save
 for f in jsdom_*_test.js; do node "$f" >/dev/null 2>&1 || echo "FAILED: $f"; done
 ```
 
-134 headless jsdom regression tests, plus the `qa/qa_*.py` suites (those
+178 headless jsdom regression tests, plus the `qa/qa_*.py` suites (those
 need Playwright, or a running `llama-server` for the MTP benchmark).
 
 ## Data and licence
@@ -138,6 +140,6 @@ Wikimedia Commons and never stored in this repository.
 ## Further reading
 
 [`docs/ENGINEERING-LOG.md`](docs/ENGINEERING-LOG.md) is the project's full
-development log — 1,800 lines covering every design decision, the measured
+development log — about 2,700 lines covering every design decision, the measured
 speculative-decoding benchmark, and the bug reports behind most of the features
 above.

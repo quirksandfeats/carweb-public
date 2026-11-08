@@ -25,28 +25,38 @@ for the newest model years.
 * Files: `data_src/harvest/carweb_dbpedia_harvest.csv` → `data_src/d_auto.py`
 
 ### Curated designer layer
-`data_src/d_people.py` — 161 designers with dates, nationality and a one-line
+`data_src/d_people.py` — 120 designers with dates, nationality and a one-line
 note. Compiled by hand from Wikipedia articles and marque histories.
 
 ### Curated chief-engineer layer
-`data_src/d_engineers.py` — 150 chief engineers and project leads, and 224
+`data_src/d_engineers.py` — 138 chief engineers and project leads, and 224
 attributions linking them to specific cars. Compiled by hand from Wikipedia
 articles, published interviews and marque histories, and spot-verified against
 article text. DBpedia carries no chief-engineer data at all, so this layer has
 no upstream equivalent; it is an original compilation.
 
 ### Curated pre-1959 landmarks
-`data_src/d_models.py` — roughly 30 extra-verified early cars (Benz
+`data_src/d_models.py` — 435 hand-curated models, including about 40 pre-1959
+landmarks (Benz
 Patent-Motorwagen, Ford Model T, Bugatti Type 35, Citroën Traction Avant and
 others). Curated entries always win over an auto-harvested duplicate.
 
 ### Local-LLM generation layer
-`app/llm_families.json` — nameplate generation splits, people credits and
-platform relations extracted from Wikipedia article text by a locally-run
-model, with every claim validated verbatim against the source article before
-it is kept, and confirmed by a human before it is written. Derived from
-Wikipedia text, therefore CC BY-SA. Delete the file and this layer resets to
-nothing.
+`app/llm_families.json` (mirrored for the browser in `app/llm_families_data.js`
+and `app/llm_families_data_N.js`) — nameplate generation splits, people credits,
+engines and platform relations extracted from Wikipedia article text by a
+locally-run model. Every claim is validated verbatim against the source article
+before it is kept. Most entries are then confirmed by rules or by the scan agent
+(a nameplate's first split, a re-check the article's headings settle); a few by
+hand. Derived from Wikipedia text, therefore CC BY-SA.
+`bash scripts/reset_llm_layer.sh` empties the store and its mirrors, which resets
+this layer to nothing.
+
+### Generated lists
+`app/article_ends.js`, `app/namesake_people.js`, `app/redirect_years.js`,
+`app/list_page_reads.js` and `app/shared_names.js` are generated from Wikipedia
+by the scripts of the same names in `scripts/`. Derived from Wikipedia, therefore
+CC BY-SA.
 
 ### Images
 Article thumbnails and extracts are fetched live from Wikipedia and Wikimedia
@@ -74,8 +84,9 @@ Accordingly:
   tree are excluded from this repository and gitignored.
 * No node in the published dataset carries a `db`, `dbspecs`, `dbPage`,
   `dbphoto`, `dbSourceFolders` or `dbGenerations` field.
-* `data_src/build_db_layer.py` is **disabled by default**. It runs only when
-  `CARWEB_DB_LAYER=1` is set, and `build_data.py` refuses to write a snapshot
+* `data_src/build_db_layer.py` is not part of this repository. `build_data.py`
+  skips the layer when it is absent, runs it only when `CARWEB_DB_LAYER=1` is set,
+  and `build_data.py` refuses to write a snapshot
   containing any `db*` field while the layer is off.
 
 If you want a road-test or specification layer on top of this graph, use a

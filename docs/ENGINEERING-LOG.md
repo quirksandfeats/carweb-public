@@ -54,7 +54,8 @@ All of that to find what `data_src/rebuild.sh` finds anyway, through the
 curated pipeline, with the make aliasing and junk filtering the live merge
 never had. So the rebuild is now the only way new DBpedia data enters the
 graph: run it when you want fresher data, and `initAutoRefresh` (in
-`app/app.js`) reloads any open page once the new `data.js` lands. The footer
+`app/app.js`) reloads any open page once a scan's new `llm_families_data.js`
+lands (a rebuild that changes only `data.js` needs a manual reload). The footer
 says which bake you are looking at.
 
 Removed with it: the refresh layer script and its overlay file (plus the
@@ -2738,3 +2739,7 @@ The local playground wrote the model's answer (title, codes, status, reason) int
 The Review button rejected any waiting platform proposal whose two cars were built two or more years apart, and the rejection also blacklisted the two nameplates for good. It now uses the ten-year reach of `settleOutOfReachLinks` (a car can sit on an older platform) and refuses only that pair (`keepCoarse`). The shipped store has no waiting platform proposals, so the graph does not change.
 
 Checked and left alone: 361 stored generation photos are named with their "File:" prefix. Wikipedia's Special:FilePath resolves both forms to the same image, so they load.
+
+## 8 November: documentation brought up to date
+
+README counts now describe the live graph and say they grow with each scan; the test and log sizes are current; resetting the LLM layer points at `scripts/reset_llm_layer.sh`, since deleting the JSON leaves its browser mirrors. ATTRIBUTION says what is confirmed by rules, the agent or hand, lists the generated lists, and has the curated counts of `data_src/` (120 designers, 138 engineers, 224 attributions, 435 models). LICENSE-DATA covers the mirror parts and generated lists. REQUEST-QUEUE describes the per-car keys (`job:car:<id>`, up to 25), the release route, what auto-reload watches, the agent's committed files and flags, and when a re-check applies itself.
