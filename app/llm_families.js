@@ -14594,12 +14594,13 @@ Rules:
       const ya = relationYears(a), yb = relationYears(b);
       const overlap = yearsOverlap(ya, yb);
 
-      // RULE 1 -- reject: two cars that were never in production at the same
-      // time do not share a platform generation. These were proposed BY
-      // overlapping years, so a pair that no longer overlaps is one whose
-      // resolution moved to a different generation than the one proposed.
-      if (overlap != null && overlap < -1) {
-        rejectRelation(e.id);
+      // RULE 1 -- reject: two cars built more than ten years apart do not share
+      // a platform generation. A smaller gap is allowed: a car can sit on an
+      // older platform (the owner's ruling of 5 Nov, the reach settleOutOfReachLinks
+      // uses). Only this pair is refused: the nameplates' relation is the
+      // article's, and rejecting it whole took it away at every level for good.
+      if (overlap != null && overlap < -10) {
+        rejectRelation(e.id, { keepCoarse: true });
         out.rejected.push({ e, why: `built ${Math.abs(overlap)} years apart -- ` +
           `${a.label} ${ya.from}-${ya.to || "now"}, ${b.label} ${yb.from}-${yb.to || "now"}` });
         continue;

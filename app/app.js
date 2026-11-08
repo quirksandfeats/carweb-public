@@ -4770,21 +4770,21 @@ window.CarWeb = (function () {
 
     function renderNodeResult(preview) {
       const gens = preview.clean.generations;
-      let html = `<div class="llmpg-result"><b>${preview.wp}</b><br>` +
+      let html = `<div class="llmpg-result"><b>${esc(preview.wp)}</b><br>` +
         (gens.length > 1
-          ? `${gens.length} generations kept: ${gens.map(g => g.code).join(", ")}`
-          : (gens.length === 1 ? `Single generation: ${gens[0].code} (not split)` : `Nothing kept — everything was dropped, or the response had no generations`));
+          ? `${gens.length} generations kept: ${esc(gens.map(g => g.code).join(", "))}`
+          : (gens.length === 1 ? `Single generation: ${esc(gens[0].code)} (not split)` : `Nothing kept — everything was dropped, or the response had no generations`));
       if (preview.dropped.length) {
-        html += `<div class="llmpg-result-error">Dropped (not found verbatim in the article): ${preview.dropped.map(g => g && g.code).join(", ")}</div>`;
+        html += `<div class="llmpg-result-error">Dropped (not found verbatim in the article): ${esc(preview.dropped.map(g => g && g.code).join(", "))}</div>`;
       }
       output.innerHTML = html + "</div>";
     }
     function renderRelationResult(entry) {
-      let html = `<div class="llmpg-result">Status: <b>${entry.status}</b>`;
+      let html = `<div class="llmpg-result">Status: <b>${esc(entry.status)}</b>`;
       if (entry.status !== "none") {
-        html += `<br>Match level: <b>${entry.matchLevel}</b> — code A: ${entry.codeA || "—"} · code B: ${entry.codeB || "—"}`;
+        html += `<br>Match level: <b>${esc(entry.matchLevel)}</b> — code A: ${esc(entry.codeA || "—")} · code B: ${esc(entry.codeB || "—")}`;
       }
-      if (entry.reason) html += `<br>Reason: ${entry.reason}`;
+      if (entry.reason) html += `<br>Reason: ${esc(entry.reason)}`;
       html += `<br><span style="color:var(--muted)">Fetched article A: ${entry.debug.fetchedArticleA ? "yes" : "no"} · article B: ${entry.debug.fetchedArticleB ? "yes" : "no"}</span></div>`;
       output.innerHTML = html;
     }
@@ -4813,7 +4813,7 @@ window.CarWeb = (function () {
         if (mode === "node") {
           if (!nodeA) return showError("Pick a car first.");
           await LF.applyNodeResult(nodeA, raw);
-          output.innerHTML = `<div class="llmpg-result">Saved. Open <b>${nodeA.make ? nodeA.make + " " : ""}${nodeA.label}</b>'s detail panel to review and confirm it, same as a real check.</div>`;
+          output.innerHTML = `<div class="llmpg-result">Saved. Open <b>${esc((nodeA.make ? nodeA.make + " " : "") + nodeA.label)}</b>'s detail panel to review and confirm it, same as a real check.</div>`;
         } else {
           if (!nodeA || !nodeB) return showError("Pick both cars first.");
           const key = relationKey(nodeA.id, nodeB.id, relType.value);

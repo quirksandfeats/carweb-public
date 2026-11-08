@@ -2730,3 +2730,11 @@ Found on the way: `applyConfirmed`'s `resolvePerson` used an index made before `
 The card shows "cars under this name" on a name, "name also used on" on a holder with an article of its own, and "shares its name with" on each listed car, after "succeeded by"; a name's kicker reads "nameplate · N cars under this name". The listed name ("as Ford Consul Capri") shows on the holder's card only. The graph draws the link as a thin dotted line, and Six Degrees says "shares its name with".
 
 Four reviewers checked the first version against Wikipedia and the code; their wrong pairs and misses are what the rules above settle. Left as they are: the Mitsubishi Sigma and Chrysler Sigma (an Australian-built Galant Sigma, sold under the same name), the Opel and Vauxhall Frontera holders (one 1991–2004 car under two badges, both linked to the 2024 Frontera), and duplicate cars the graph already had (Ford Falcon and Falcon (Australia), Ford Ranger and Ranger (Americas), Honda and Acura Integra). Result against the list-page change: 67 names, 105 links, 11 name nodes; only the Capri's generations change; the second load and the static mirror match (18,830 nodes, 79,928 links). Test: `qa/jsdom/jsdom_shared_names_test.js`.
+
+## 8 November: playground output escaped; Review refuses only the pair
+
+The local playground wrote the model's answer (title, codes, status, reason) into the page as HTML. It is escaped now, like every other place the app shows stored text.
+
+The Review button rejected any waiting platform proposal whose two cars were built two or more years apart, and the rejection also blacklisted the two nameplates for good. It now uses the ten-year reach of `settleOutOfReachLinks` (a car can sit on an older platform) and refuses only that pair (`keepCoarse`). The shipped store has no waiting platform proposals, so the graph does not change.
+
+Checked and left alone: 361 stored generation photos are named with their "File:" prefix. Wikipedia's Special:FilePath resolves both forms to the same image, so they load.
