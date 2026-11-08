@@ -13019,6 +13019,31 @@ Rules:
                                 reason: `split under ${own.code}, one of its own generations` };
       n++;
     }
+    // A nameplate called by its article's title plus a word or bracket the title
+    // lacks was named after the car it was first seeded as: "Audi A3 Mk3" on the
+    // Audi A3 article, "Mazda RX-7 (FB)" on the Mazda RX-7's. It takes the title's
+    // name, and its generations lose the word too ("A3 Mk3 8L" is "A3 8L").
+    // Not over a name set by hand, nor onto a name another car of its make holds.
+    for (const fam of nodes) {
+      if (!fam || fam.retired || fam.type !== "family" || store.renames[fam.id] || !fam.wp || !fam.make) continue;
+      const gens = (fam.generations || []).map(id => byIdLocal.get(id)).filter(g => g && !g.retired);
+      if (gens.length < 2) continue;
+      const title = String(fam.wp).split("#")[0].trim();
+      if (!title.toLowerCase().startsWith(fam.make.toLowerCase() + " ")) continue;
+      const base = title.slice(fam.make.length + 1).trim();
+      const label = String(fam.label || "");
+      if (base.length < 2 || label === base || !(label.startsWith(base + " ") || label.startsWith(base + " ("))) continue;
+      if (nameplateNamed(fam, base, nodes)) continue;
+      const stamp = new Date().toISOString();
+      store.renames[fam.id] = { label: base, previousLabel: label, kind: fam.type, renamedAt: stamp, auto: true,
+                                reason: `its page is ${title}; "${label}" was the car it was first seeded as` };
+      gens.forEach(g => {
+        if (store.renames[g.id] || !String(g.label).startsWith(label + " ")) return;
+        store.renames[g.id] = { label: base + String(g.label).slice(label.length), previousLabel: g.label, kind: g.type,
+                                renamedAt: stamp, auto: true, reason: `its nameplate is ${title}` };
+      });
+      n++;
+    }
     if (n) {
       note(`llm: ${n} nameplate(s) were named after one of their own generations -- given ` +
            "their base name (revert from the rename list if that is wrong)");
