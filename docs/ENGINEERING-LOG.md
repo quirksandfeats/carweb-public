@@ -2747,3 +2747,7 @@ README counts now describe the live graph and say they grow with each scan; the 
 ## 8 November: a limit on passphrase guesses
 
 The request queue's passphrase could be guessed without limit, and a right guess queues scans the agent pushes to the live site. The Worker now counts wrong passphrases per address in KV (`guess:<ip>`, kept 15 minutes from the last wrong one). After five, `queue` and `cancel` answer `429 too-many-guesses` for that address, the right passphrase included, and the panel says to try again in 15 minutes. The agent's bearer token is not counted. Checked with a stand-in KV: five wrong answers give 403, the sixth and a right one from that address 429, another address 200.
+
+## 8 November: no non-free or broken generation photos
+
+Of 6,531 stored generation photos, Wikipedia marks 7 as non-free (fair use), such as the GM Impact and the 1961 Hino Briska: they may be shown on Wikipedia, not on this site. Another 14 have names an old read cut short ("1913", "Hyundai Trajet (") and load nothing. `scripts/photo_skips.js` asks Wikipedia about every stored photo and writes `app/photo_skips.js` (generated; never edit it); `genPhotoUrl` skips those, so the card shows its article's own image. The store is unchanged. Author and licence credits for the photos are still to do.

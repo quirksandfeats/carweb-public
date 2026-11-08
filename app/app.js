@@ -1383,6 +1383,9 @@ window.CarWeb = (function () {
   // now-collapsed parent family) all showing the same lead image.
   function genPhotoUrl(n) {
     if (!n.wikiFile || !window.LlmFamilies) return null;
+    // Non-free and cut-short file names (scripts/photo_skips.js): the article's
+    // own image stands in.
+    if (window.PHOTO_SKIPS && Object.prototype.hasOwnProperty.call(window.PHOTO_SKIPS, n.wikiFile)) return null;
     return window.LlmFamilies.filePathUrl(n.wikiFile, 480);
   }
   // Real user report: "The thumbnails for the individual cars -- particularly
