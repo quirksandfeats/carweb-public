@@ -6238,9 +6238,10 @@ Rules:
     const words = " " + plain(text) + " ";
     return wanted.some(m => words.includes(" " + m + " "));
   }
-  // The makes of the cars a person is credited on, from the live graph.
-  function makesCreditedTo(personId) {
-    const data = typeof window !== "undefined" && window.CARDATA;
+  // The makes of the cars a person is credited on, from the graph the credit went
+  // into (`graph`), else the live one.
+  function makesCreditedTo(personId, graph) {
+    const data = graph && Array.isArray(graph.links) ? graph : typeof window !== "undefined" && window.CARDATA;
     if (!data || !Array.isArray(data.links)) return [];
     const byIdLocal = new Map(data.nodes.map(n => [n.id, n]));
     const makes = new Set();
@@ -6290,8 +6291,13 @@ Rules:
     if (born == null && died == null && country == null) return null;
     return { born, died, country, source: "llm-recall" };
   }
-  async function bigPersonAttempt(name, personId) {
-    return (await fetchPersonFactsGrounded(name, personId ? makesCreditedTo(personId) : [])) || (await fetchPersonFactsFromKnowledge(name));
+  // The credit link is pushed after the person is made, in the same run of code, so
+  // the makes are read once that run is over: read at once, a new designer had no
+  // makes, and any page of that name passed personPageIsTheirs (a Russian general's
+  // dates on a Hyundai designer).
+  async function bigPersonAttempt(name, personId, graph) {
+    await Promise.resolve();
+    return (await fetchPersonFactsGrounded(name, personId ? makesCreditedTo(personId, graph) : [])) || (await fetchPersonFactsFromKnowledge(name));
   }
 
   // One in-flight/one-per-session guard per id, same reasoning as `inFlight`
@@ -9682,7 +9688,7 @@ Rules:
         nodes.push(p);
         byId.set(id, p);
         personByNorm.set(key, p);
-        if (!factsRecordIsUseful(cached)) scheduleFactBackfill("person", id, p, () => bigPersonAttempt(name, id));
+        if (!factsRecordIsUseful(cached)) scheduleFactBackfill("person", id, p, () => bigPersonAttempt(name, id, { nodes, links }));
       } else if (!p.roles.includes(role)) {
         p.roles = [...p.roles, role]; // e.g. already a "designer" elsewhere, now also credited as "engineer" here
       }
