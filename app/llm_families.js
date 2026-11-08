@@ -12160,15 +12160,37 @@ Rules:
       if (!genA || !genB || !famA || !famB) return;
       if (sameCar(genA, genB)) return;   // a stored relation of a car with itself draws nothing
       const already = resolvedSeen.has(entry.relType + "|" + key);
-      if (!already) {
-        links.push({ source: genA.id, target: genB.id, type: entry.relType, llmResolved: true, llmResolvedKey: key });
-        resolvedSeen.add(entry.relType + "|" + key);
-      }
       // Find the original family<->family (or family<->model) connection
       // this resolution supersedes and tag it (idempotent -- setting the
       // same fields again on a later boot is harmless). Excludes the
       // newly-resolved link itself via llmResolved, not array position.
       const orig = firstOriginal.get(pairOf(entry.relType, famA.id, famB.id)) || null;
+      // A succession is stored with the car that was checked first, whichever side of
+      // it that is: the Premio's read gave "Corolla (E210) -> Premio". It is drawn
+      // predecessor first: by the years of two cars or generations, else by the
+      // connection it stands in for (a nameplate's first year says nothing of which of
+      // its generations came after).
+      let [from, to] = [genA, genB];
+      if (entry.relType === "succession") {
+        const dated = n => n.type !== "family" && Number.isFinite(n.year);
+        if (dated(genA) && dated(genB) && genA.year !== genB.year) { if (genB.year < genA.year) [from, to] = [genB, genA]; }
+        else if (orig && idOf(orig.source) === famB.id && idOf(orig.target) === famA.id) [from, to] = [genB, genA];
+        // The generations a check picked can be the wrong ones of the right two cars: the
+        // Vitz article's "predecessor = Toyota Starlet" went on the 2005 Vitz. When the two
+        // nameplates hand over at least three years closer elsewhere, the pick is not
+        // drawn, and the nameplates' own succession stands (pushSuccessionToGenerations).
+        const plateOf = n => (n.familyOf && byId.get(n.familyOf)) || n;
+        const endOf = n => pairingEnd(n) != null ? pairingEnd(n) : Number.isFinite(n.end) ? n.end : n.year;
+        // A successor begun while the older car was still built meets it (overlaps are normal).
+        const gapOf = (x, y) => !Number.isFinite(x.year) || !Number.isFinite(y.year) || y.year < x.year ? Infinity : Math.max(0, y.year - endOf(x));
+        const pf = plateOf(from), pt = plateOf(to);
+        const hand = pf !== pt && (pf.type === "family" || pt.type === "family") ? successionPair(pf, pt, byId) : null;
+        if (hand && (hand[0] !== from || hand[1] !== to) && gapOf(hand[0], hand[1]) + 3 <= gapOf(from, to)) return;
+      }
+      if (!already) {
+        links.push({ source: from.id, target: to.id, type: entry.relType, llmResolved: true, llmResolvedKey: key });
+        resolvedSeen.add(entry.relType + "|" + key);
+      }
       if (orig) {
         const s = idOf(orig.source), t = idOf(orig.target);
         // Only ever tag mirrorSourceFam/mirrorTargetFam for a side that's a

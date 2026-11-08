@@ -150,11 +150,13 @@ console.log("--- scenario 1: succession pushed down to the right generations ---
 console.log("\n--- scenario 2: an LLM-resolved pair wins; no competing derived link ---");
 {
   // Same fixture, but with a confirmed relation entry that already pins the
-  // succession to a DIFFERENT (deliberately non-default) generation pair.
+  // succession to a DIFFERENT (deliberately non-default) generation pair, one
+  // the years allow: the first Olds stayed in production until News Mk2 began.
   // The derived rollup must stand down entirely rather than adding a second,
   // contradictory line next to it.
   const key = [O1, N2].sort().join("|") + "|succession";
-  const window = freshWindow(seedBase, {
+  const builtOn = DATA => { seedBase(DATA); DATA.nodes.find(n => n.id === O1).end = 2012; };
+  const window = freshWindow(builtOn, {
     relations: {
       [key]: {
         status: "confirmed", famA: FAM_OLD, famB: FAM_NEW, relType: "succession",
@@ -175,6 +177,52 @@ console.log("\n--- scenario 2: an LLM-resolved pair wins; no competing derived l
   const specific = cw.links.filter(l => l.type === "succession" && !l.retired && !l.mirror &&
     [l.sn, l.tn].every(e => e && (e.familyOf === FAM_OLD || e.familyOf === FAM_NEW)));
   check("exactly ONE specific generation-level succession between these two nameplates", specific.length === 1, specific.length);
+}
+
+console.log("\n--- scenario 3: a resolved pair the years rule out stands down ---");
+{
+  // The same pin, but Olds Mk1 ended in 1990 and News Mk2 began in 2012, while the
+  // nameplates hand over in 2000 (Olds Mk2 -> News Mk1): the check put the right
+  // succession on the wrong generations (the Vitz article's Starlet went on the 2005
+  // Vitz). It is not drawn; the derived pair stands.
+  const key = [O1, N2].sort().join("|") + "|succession";
+  const window = freshWindow(seedBase, {
+    relations: {
+      [key]: {
+        status: "confirmed", famA: FAM_NEW, famB: FAM_OLD, relType: "succession",
+        codeA: "News Mk2", codeB: "Olds Mk1", genIdA: N2, genIdB: O1,
+        reason: "test fixture: a resolved pair 22 years from the handover",
+      },
+    },
+  });
+  const cw = window.CarWeb;
+  cw.boot();
+  cw.setYearRange(1900, cw.yearRange().max);
+  const idOf = v => (typeof v === "string" ? v : (v && v.id));
+  const live = (a, b) => cw.links.filter(l => l.type === "succession" && !l.retired && idOf(l.source) === a && idOf(l.target) === b);
+  check("the far-off pair is not drawn either way", live(O1, N2).length === 0 && live(N2, O1).length === 0);
+  check("the nameplates' own handover is drawn, older first", live(O2, N1).length === 1, live(O2, N1).length);
+}
+
+console.log("\n--- scenario 4: a resolved pair is drawn older first, whichever car was checked ---");
+{
+  const key = [O2, N1].sort().join("|") + "|succession";
+  const window = freshWindow(seedBase, {
+    relations: {
+      [key]: {
+        status: "confirmed", famA: FAM_NEW, famB: FAM_OLD, relType: "succession",
+        codeA: "News Mk1", codeB: "Olds Mk2", genIdA: N1, genIdB: O2,
+        reason: "test fixture: read from the successor's article",
+      },
+    },
+  });
+  const cw = window.CarWeb;
+  cw.boot();
+  cw.setYearRange(1900, cw.yearRange().max);
+  const idOf = v => (typeof v === "string" ? v : (v && v.id));
+  const live = (a, b) => cw.links.filter(l => l.type === "succession" && !l.retired && idOf(l.source) === a && idOf(l.target) === b);
+  check("drawn Olds Mk2 -> News Mk1", live(O2, N1).length === 1, live(O2, N1).length);
+  check("not News Mk1 -> Olds Mk2", live(N1, O2).length === 0, live(N1, O2).length);
 }
 
 console.log("\n" + (fails === 0 ? "ALL GREEN" : fails + " FAILURE(S)"));
