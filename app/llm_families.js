@@ -11271,7 +11271,17 @@ Rules:
       !quoteFabricated && !reasonLooksDateOnly(reasonText) &&
       ((citedA && finalGenA && normCode(citedA) === normCode(finalGenA.code)) ||
        (citedB && finalGenB && normCode(citedB) === normCode(finalGenB.code)));
-    const autoConfirmed = resolved && (textBacked || llmVerified || knowledgeBacked || knowledgeSalvaged || citationBacked);
+    // A succession of two generations has to hand over: the later one begun no more than
+    // five years after the earlier one ended (overlapping is normal). A code found in the
+    // text pairs any generation that carries it: the Dart (PF) with the 2000 Neon, which
+    // ended seven years before. Such a pair waits for review instead.
+    const handsOver = (x, y) => {
+      if (!x || !y || !Number.isFinite(x.year) || !Number.isFinite(y.year)) return true;
+      const [p, q] = x.year <= y.year ? [x, y] : [y, x];
+      return q.year - (Number.isFinite(p.end) ? p.end : p.year) <= 5;
+    };
+    const inTime = relType !== "succession" || mode !== "generation" || handsOver(finalGenA, finalGenB);
+    const autoConfirmed = resolved && inTime && (textBacked || llmVerified || knowledgeBacked || knowledgeSalvaged || citationBacked);
     return {
       status: resolved ? (autoConfirmed ? "confirmed" : "provisional") : "none",
       checkedAt: new Date().toISOString(),
