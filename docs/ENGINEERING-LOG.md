@@ -2683,3 +2683,7 @@ Cars looked up before this keep their stored years unless `scripts/redirect_year
 
 `applyRereadEnds` took a re-read's end for a generation known to be still built. The Isuzu D-Max RT is on `STILL_BUILT_GENERATIONS` (its card says 2011–present), and a 7 November re-read ended it in 2019, likely from a market line. A re-read's end now closes a generation that `generationStatedOpen` holds open only when the read's own card names that end (`endOnCard`). Whole graph: only the D-Max RT changes, back to running.
 
+## 8 November: a gallery of pointers is a list page
+
+`isListOfArticles` treated any page with a `{{main}}` as an article. Short set-index pages such as Honda Jazz list their cars as captioned photos in a `<gallery>`, each caption with a `{{main}}` pointer, so a scan read the page as a nameplate and made each listed car a generation (the Isuzu MU rebadge became the Jazz's second generation). Galleries are now left out before the test. The shipped graph does not change: 28 stored first reads of such pages still replay, and what to do with them is the owner's decision.
+

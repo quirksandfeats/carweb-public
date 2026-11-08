@@ -3758,7 +3758,7 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
   }
   // A page that only points at other pages: under "may refer to" or an index
   // template, with no infobox and no section delegating to a main article. (A
-  // set index with sections, like the Kia Pride's, is read as an article.) The
+  // set index with sections is read as an article.) The
   // model given "Mini Clubman", three lines long, made each line a generation
   // with nothing known about it, and took one line's car for another's partner.
   // A gallery is not a section: the Honda Jazz page lists its cars as captioned

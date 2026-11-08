@@ -43,5 +43,9 @@ check("the generated list is applied: Nissan 300C", !ry["llm-related-nissan-300c
 check("the Maserati Quattroporte II is 1976-1978, not the whole nameplate's span", !ry["llm-related-maserati-quattroporte-ii"] || shown("llm-related-maserati-quattroporte-ii") === "1976-1978", shown("llm-related-maserati-quattroporte-ii"));
 check("a car not on the list keeps its years: the Perodua Nautica", !N("llm-related-perodua-nautica") || shown("llm-related-perodua-nautica") === "2008-2009", shown("llm-related-perodua-nautica"));
 
+const gallery = "{{Set index article|cars}}\n'''Honda Jazz''' may refer to:\n<gallery>\nA.jpg|Honda Jazz (1982–1986) {{main|Honda City (AA)}}\nB.jpg|Honda Jazz (2001) {{main|Honda Fit}}\n</gallery>\n";
+check("a list of photos, each with a {{main}}, is a list page", LF.isListOfArticles(gallery) === true);
+check("a page with a section delegating to a main article is not", LF.isListOfArticles("{{Set index article|cars}}\n==First==\n{{main|Honda City (AA)}}\nText.") === false);
+
 console.log(fails ? `${fails} FAILED` : "ALL PASS");
 process.exit(fails ? 1 : 0);
