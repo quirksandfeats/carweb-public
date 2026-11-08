@@ -2687,3 +2687,7 @@ Cars looked up before this keep their stored years unless `scripts/redirect_year
 
 `isListOfArticles` treated any page with a `{{main}}` as an article. Short set-index pages such as Honda Jazz list their cars as captioned photos in a `<gallery>`, each caption with a `{{main}}` pointer, so a scan read the page as a nameplate and made each listed car a generation (the Isuzu MU rebadge became the Jazz's second generation). Galleries are now left out before the test. The shipped graph does not change: 28 stored first reads of such pages still replay, and what to do with them is the owner's decision.
 
+
+## 8 November: one order for the sections of a car card
+
+The card listed its sections in the order the links happened to load, so "succeeded by" sometimes stood above "succeeds" and "shares platform with" above "part of" (the Camry V10). `CARD_SECTION_ORDER` in app.js now fixes it: made by, maker of, part of, previous generation, next generation, succeeds, succeeded by, drawn by, engineered by, designed, engineered, shares platform with, related to. Test: `qa/jsdom/jsdom_card_order_test.js` opens 2,106 cards.

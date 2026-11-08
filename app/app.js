@@ -1694,6 +1694,9 @@ window.CarWeb = (function () {
     related: ["related to", "related to"],
     generation: ["generations", "part of"],
     gensucc: ["next generation", "previous generation"] };
+  const CARD_SECTION_ORDER = ["made by", "maker of", "part of", "previous generation", "next generation",
+    "succeeds", "succeeded by", "drawn by", "engineered by", "designed", "engineered",
+    "shares platform with", "related to", "linked to"];
   let dtNode = null;
   // Walking away from a car with an undecided LLM proposal (switching
   // straight to a different node, same as closing the panel outright)
@@ -2226,7 +2229,12 @@ window.CarWeb = (function () {
     });
     const conn = dt.querySelector(".dt-connections");
     conn.innerHTML = "";
-    Object.entries(groups).forEach(([verb, arr]) => {
+    // One order on every card, earlier before later: who made it, what it belongs
+    // to, what came before and after, who drew and engineered it, then the cars it
+    // shares a platform with or is related to. They came in the order the links
+    // happened to load, so "succeeded by" sometimes stood above "succeeds".
+    const rankOf = verb => { const i = CARD_SECTION_ORDER.findIndex(v => verb === v || verb.startsWith(v + " ·")); return i < 0 ? CARD_SECTION_ORDER.length : i; };
+    Object.entries(groups).sort((a, b) => rankOf(a[0]) - rankOf(b[0])).forEach(([verb, arr]) => {
       const h = document.createElement("h4"); h.textContent = verb; conn.appendChild(h);
       arr.sort((a, b) => (a.year || 0) - (b.year || 0)).forEach(o => {
         const b = document.createElement("button");
