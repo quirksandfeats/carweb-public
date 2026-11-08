@@ -53,7 +53,7 @@ hand. Derived from Wikipedia text, therefore CC BY-SA.
 this layer to nothing.
 
 ### Generated lists
-`app/article_ends.js`, `app/namesake_people.js`, `app/redirect_years.js`,
+`app/article_ends.js`, `app/namesake_people.js`, `app/redirect_years.js`, `app/production_starts.js`,
 `app/list_page_reads.js`, `app/borrowed_reads.js` and `app/shared_names.js` are generated from Wikipedia
 by the scripts of the same names in `scripts/`. Derived from Wikipedia, therefore
 CC BY-SA.
