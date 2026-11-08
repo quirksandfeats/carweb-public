@@ -3761,8 +3761,10 @@ PASS 3 -- shared-platform/related mentions, same fixed generation list, attribut
   // set index with sections, like the Kia Pride's, is read as an article.) The
   // model given "Mini Clubman", three lines long, made each line a generation
   // with nothing known about it, and took one line's car for another's partner.
+  // A gallery is not a section: the Honda Jazz page lists its cars as captioned
+  // photos, each with a {{main}} pointer, and was read as a nameplate.
   function isListOfArticles(wikitext) {
-    const text = String(wikitext || "");
+    const text = String(wikitext || "").replace(/<gallery[^>]*>[\s\S]*?<\/gallery>/gi, "");
     if (text.length > 3000 || /\{\{\s*(?:infobox|main\b)/i.test(text)) return false;
     return DISAMBIGUATION_RE.test(text) || /\bmay (?:also )?refer to\b/i.test(text.slice(0, 400));
   }
