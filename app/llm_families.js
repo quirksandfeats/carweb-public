@@ -547,6 +547,20 @@ window.LlmFamilies = (function () {
       links.push({ source: id, target: owner.id, type: "platform", borrowedRead: true });
     });
   }
+  // Which way the articles state a succession drawn both ways (scripts/succession_directions.js).
+  const SUCCESSION_DIRECTIONS = (typeof window !== "undefined" && window.SUCCESSION_DIRECTIONS) || {};
+  // Whether that list rules out `from` succeeded by `to` (either may be a generation of
+  // the cars it lists): a direction no article states, or a car and its own generation.
+  function articlesRuleOutSuccession(from, to, byIdLocal) {
+    const sides = n => [n.id, n.familyOf].filter(Boolean);
+    for (const x of sides(from)) for (const y of sides(to)) {
+      const e = SUCCESSION_DIRECTIONS[[x, y].sort().join("|")];
+      if (!e) continue;
+      if (e.self) { const X = byIdLocal.get(x), Y = byIdLocal.get(y); return !(X && Y && X.familyOf && X.familyOf === Y.familyOf); }
+      return !(e.stated || []).includes(x + ">" + y);
+    }
+    return false;
+  }
   // Separate cars that carry one name, from Wikipedia's index of that name
   // (scripts/shared_names.js): "Ford Capri (disambiguation)" lists the Capri
   // (Australia) and the Capri EV beside the 1968 Capri; the "Chevrolet Blazer" page
@@ -12234,6 +12248,7 @@ Rules:
         const pf = plateOf(from), pt = plateOf(to);
         const hand = pf !== pt && (pf.type === "family" || pt.type === "family") ? successionPair(pf, pt, byId) : null;
         if (hand && (hand[0] !== from || hand[1] !== to) && gapOf(hand[0], hand[1]) + 3 <= gapOf(from, to)) return;
+        if (articlesRuleOutSuccession(from, to, byId)) return;
       }
       if (!already) {
         links.push({ source: from.id, target: to.id, type: entry.relType, llmResolved: true, llmResolvedKey: key });
@@ -14584,8 +14599,65 @@ Rules:
       pairs.get(k).push(l);
     });
     let contradictions = 0;
-    pairs.forEach(group => {
-      if (group.length < 2) return;
+    // What the articles say of a pair drawn both ways (scripts/succession_directions.js):
+    // each direction an infobox states stays, with the region the field gives ("Dodge
+    // Neon (Mexico)"); one no article states goes; a car and its own nameplate or
+    // generation (the Falcon and the Falcon (EL)) is no succession at all. Both can be
+    // stated: the Taurus IV was succeeded by the Five Hundred, and the Five Hundred by
+    // the Taurus V. Pairs not on the list go by production years, below.
+    const settledByArticles = new Set();
+    Object.keys(SUCCESSION_DIRECTIONS).forEach(k => {
+      const e = SUCCESSION_DIRECTIONS[k], group = pairs.get(k) || [];
+      // A succession drawn against one nameplate's own generation chain (the Lexus IS
+      // XE20 "succeeded by" the XE10) goes too; the chain stays.
+      const [a, b] = k.split("|"), A = byIdLocal.get(a), B = byIdLocal.get(b);
+      if (e.self && A && B && A.familyOf && A.familyOf === B.familyOf) {
+        group.forEach(l => { l.retired = true; l.retiredReason = "a succession between two generations of one nameplate: " + e.self; contradictions++; });
+        settledByArticles.add(k);
+        return;
+      }
+      if (!group.length) return;
+      // Where a statement names generations (the Continental Mark II's article: successor
+      // Lincoln Continental, the 1958 one), that pair is drawn; a side it leaves at the
+      // nameplate is placed by the years, as below.
+      if (!e.self) (e.stated || []).forEach(dir => ((e.pairs || {})[dir] || []).forEach(([x, y]) => {
+        const X = followSuperseded(byIdLocal, byIdLocal.get(x)), Y = followSuperseded(byIdLocal, byIdLocal.get(y));
+        if (!X || !Y || X.retired || Y.retired) return;
+        if (X.type === "family" && Y.type === "family") return;   // the nameplate line itself, below
+        const pair = X.type === "family" || Y.type === "family" ? successionPair(X, Y, byIdLocal) : [X, Y];
+        if (!pair || !pair[0] || !pair[1] || pair[0].id === pair[1].id) return;
+        if (links.some(o => o.type === "succession" && !o.retired && idOf(o.source) === pair[0].id && idOf(o.target) === pair[1].id)) return;
+        links.push(Object.assign({ source: pair[0].id, target: pair[1].id, type: "succession", genLevel: true, articleStated: true },
+          e.regions && e.regions[dir] ? { region: e.regions[dir] } : {}));
+      }));
+      // A direction no article states goes at every level between the two cars: the
+      // Neon's second generation "succeeded" by the Dart (PF), from a stored reading.
+      if (!e.self) {
+        const within = (n, id) => !!n && (n.id === id || n.familyOf === id);
+        [[a, b], [b, a]].forEach(([x, y]) => {
+          if ((e.stated || []).includes(x + ">" + y)) return;
+          links.forEach(o => {
+            if (o.type !== "succession" || o.retired || o.articleStated || group.includes(o)) return;
+            if (!within(byIdLocal.get(idOf(o.source)), x) || !within(byIdLocal.get(idOf(o.target)), y)) return;
+            o.retired = true; o.retiredReason = "succession neither car's article states"; contradictions++;
+          });
+        });
+      }
+      group.forEach(l => {
+        const dir = idOf(l.source) + ">" + idOf(l.target);
+        if (!e.self && (e.stated || []).includes(dir)) {
+          if (e.regions && e.regions[dir]) l.region = e.regions[dir];
+          return;
+        }
+        l.retired = true;
+        l.retiredReason = e.self ? "a car and its own nameplate or generation: " + e.self
+          : "succession neither car's article states";
+        contradictions++;
+      });
+      settledByArticles.add(k);
+    });
+    pairs.forEach((group, k) => {
+      if (group.length < 2 || settledByArticles.has(k)) return;
       const dirs = new Set(group.map(l => idOf(l.source) + ">" + idOf(l.target)));
       if (dirs.size < 2) return;                  // duplicates, not a contradiction
       const yearOf = id => { const n = byIdLocal.get(id); return n && Number.isFinite(n.year) ? n.year : null; };
@@ -14645,7 +14717,7 @@ Rules:
       // sure the coarse original defers to it.
       const specific = successions.find(o => o !== l && !o.mirror && !o.retired &&
         belongsTo(byIdLocal.get(idOf(o.source)), s.id) && belongsTo(byIdLocal.get(idOf(o.target)), t.id));
-      if (!specific) toAdd.push({ source: sGen.id, target: tGen.id, type: "succession", genLevel: true, note: l.note });
+      if (!specific) toAdd.push(Object.assign({ source: sGen.id, target: tGen.id, type: "succession", genLevel: true, note: l.note }, l.region ? { region: l.region } : {}));
       // Tag the nameplate-level original so linkInLayer hides it as soon as
       // the relevant nameplate is expanded and the specific line is on
       // screen instead -- exactly the precedence platform/related mirrors

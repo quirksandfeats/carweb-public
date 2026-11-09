@@ -2257,6 +2257,7 @@ window.CarWeb = (function () {
       (l.type === "designed" || l.type === "engineered"));
     const llmCredited = new Set();
     const listedAs = new Map();   // "Chevrolet Grand Blazer": the name a car was sold under
+    const inRegion = new Map();   // "Mexico": the market an article limits a succession to
     conns.forEach(({ n: o, l }) => {
       if (o.retired) return;  // superseded by a nameplate generation-list override, see nodeInLayer
       // A link severed along with its deleted LLM-discovered relationship
@@ -2284,6 +2285,8 @@ window.CarWeb = (function () {
       if (l.type === "engineered" && l.note) verb = `engineered by · ${l.note}`;
       if (l.type === "name" && dir === 0 && n.nameIndex) verb = "cars under this name";
       if (l.type === "name" && l.as && dir === 0) listedAs.set(verb + "|" + o.id, l.as);
+      // A succession an article states for one market: "succeeded by Chrysler Neon (Mexico)".
+      if (l.type === "succession" && l.region) inRegion.set(verb + "|" + o.id, l.region);
       if (creditIsLlmSourced(l)) llmCredited.add(verb + "|" + o.id);
       (groups[verb] = groups[verb] || []).push(o);
     });
@@ -2316,6 +2319,7 @@ window.CarWeb = (function () {
         b.innerHTML = `${esc((o.type === "model" || o.type === "family") ? o.make + " " + o.label : o.label)}` +
           ((o.type === "model" || o.type === "family") && o.year != null ? ` <span class="verb">${o.year}</span>` : "") +
           (listedAs.has(verb + "|" + o.id) ? ` <span class="verb">as ${esc(listedAs.get(verb + "|" + o.id))}</span>` : "") +
+          (inRegion.has(verb + "|" + o.id) ? ` <span class="verb">(${esc(inRegion.get(verb + "|" + o.id))})</span>` : "") +
           (fromLlm ? ` <span class="conn-llm" title="read off the Wikipedia article by the local model, not from the hand-verified engineers table">🤖</span>` : "");
         if (fromLlm) b.classList.add("from-llm");
         b.onclick = () => api.goto(o.id);
