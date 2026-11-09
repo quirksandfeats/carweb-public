@@ -1,0 +1,50 @@
+// A company or brand article shown as a car belongs to the make (9 Nov 2026).
+const { JSDOM } = require("jsdom");
+const fs = require("fs"), path = require("path");
+const APP = path.resolve(__dirname, "..", "..", "app");
+const html = fs.readFileSync(path.join(APP, "index.html"), "utf-8");
+let fails = 0;
+const check = (n, c, e) => { if (!c) fails++; console.log((c ? "PASS " : "FAIL ") + n + (e !== undefined ? "  -- " + e : "")); };
+const fakeCtx = () => { const noop = () => {}; return new Proxy({ measureText: () => ({ width: 10 }) }, { get(o, k) { return k in o ? o[k] : noop; }, set() { return true; } }); };
+const dom = new JSDOM(html, { url: "http://localhost:8077/index.html", runScripts: "outside-only" });
+const { window } = dom;
+window.HTMLCanvasElement.prototype.getContext = fakeCtx;
+window.requestAnimationFrame = () => 1;
+window.matchMedia = q => ({ matches: false, media: q, addEventListener() {}, removeEventListener() {} });
+window.Element.prototype.getBoundingClientRect = () => ({ width: 1000, height: 800, top: 0, left: 0, right: 1000, bottom: 800, x: 0, y: 0 });
+Object.defineProperty(window.HTMLElement.prototype, "offsetHeight", { get() { return 40; } });
+window.fetch = async () => ({ ok: true, json: async () => ({}), text: async () => "{}" });
+window.XMLHttpRequest = function () { this.open = () => {}; this.send = () => { throw new Error("no server"); }; };
+global.window = window; global.document = window.document;
+const ev = f => window.eval(fs.readFileSync(path.join(APP, f), "utf-8"));
+const shipped = JSON.parse(fs.readFileSync(path.join(APP, "llm_families.json"), "utf-8"));
+for (const f of [...html.matchAll(/<script src="([^"]+)"><\/script>/g)].map(m => m[1])) {
+  if (/llm_families_data/.test(f)) continue;
+  if (f === "llm_families.js") window.LLM_FAMILIES = Object.assign({}, shipped, { __serverAvailable: false });
+  ev(f);
+}
+window.CarWeb.boot();
+const DATA = window.CARDATA;
+const byId = new Map(DATA.nodes.map(n => [n.id, n]));
+const live = id => { const n = byId.get(id); return n && !n.retired; };
+const make = label => DATA.nodes.find(n => !n.retired && n.type === "make" && n.label === label);
+check("the list is loaded", Object.keys(window.COMPANY_ARTICLES || {}).length >= 80);
+const knox = byId.get("mk-knox");
+check("Knox Automobile Company is no car", !live("m-knox-automobile-company"));
+check("the Knox make takes the company's article, year and country",
+  knox && knox.wp === "Knox Automobile Company" && knox.year === 1900 && knox.country === "United States", knox && JSON.stringify([knox.wp, knox.year, knox.country]));
+check("Checker keeps its cars and takes Checker Motors Corporation", byId.get("mk-checker").wp === "Checker Motors Corporation" && DATA.nodes.some(n => !n.retired && n.make === "Checker" && n.label === "Marathon"));
+check("Edsel is no car of Edsel's", !live("m-edsel-edsel") && DATA.nodes.some(n => !n.retired && n.make === "Edsel" && n.label === "Corsair"));
+check("a make split at its first space takes the whole name: St. Louis", byId.get("mk-st").label === "St. Louis" && byId.get("mk-st").wp === "St. Louis Motor Company");
+const prem = make("Premier (1903)"), india = make("Premier");
+check("the Indianapolis Premier is a make of its own", prem && prem.country === "United States" && prem.wp === "Premier Motor Manufacturing Company");
+check("India's Premier keeps the Padmini", india && DATA.nodes.some(n => !n.retired && n.make === "Premier" && n.label === "Padmini"));
+const cun = make("Cunningham (1896)");
+check("the Rochester Cunningham is not Briggs Cunningham's", cun && cun.wp === "Cunningham Car Company" && DATA.nodes.some(n => !n.retired && n.make === "Cunningham" && n.label === "C-3"));
+check("two firms of one name are told apart by year: Pilot (1909), Pilot (1911)", make("Pilot (1909)") && make("Pilot (1911)") && !make("Pilot"));
+check("a marque whose article calls it a car stays (ruling 4): Albany", live("m-albany-1907-automobile"));
+check("a car on a company infobox stays: Stout Scarab", live("m-stout-scarab"));
+check("a car whose title redirects to its maker stays: Cisitalia 202", live("m-cisitalia-202"));
+check("no folded company keeps a live link", DATA.links.every(l => l.retired || !Object.keys(window.COMPANY_ARTICLES).includes(typeof l.source === "object" ? l.source.id : l.source) && !Object.keys(window.COMPANY_ARTICLES).includes(typeof l.target === "object" ? l.target.id : l.target)));
+console.log(fails ? `${fails} FAILED` : "ALL PASS");
+process.exit(fails ? 1 : 0);

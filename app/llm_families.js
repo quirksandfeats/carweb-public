@@ -736,6 +736,42 @@ window.LlmFamilies = (function () {
       }
     });
   }
+  // Company and brand articles shown as cars (scripts/company_articles.js): "Knox ·
+  // Automobile Company", "Edsel · Edsel", "St. · Louis Motor Company". The article is
+  // the make's: the make takes it, with its founding year and country where it has
+  // none, and the car goes. A firm that shares a name with the make it sat under (the
+  // Indianapolis Premier under India's Premier) is a make of its own, told apart by
+  // its year as Wikipedia's title is. A make split from the firm's name at its first
+  // space takes the whole name.
+  const COMPANY_ARTICLES = (typeof window !== "undefined" && window.COMPANY_ARTICLES) || {};
+  function applyCompanyArticles(nodes, links) {
+    const byId = new Map(nodes.map(n => [n.id, n]));
+    Object.keys(COMPANY_ARTICLES).forEach(id => {
+      const r = COMPANY_ARTICLES[id], car = byId.get(id);
+      if (!car || car.retired) return;
+      let mk = byId.get(r.make || (r.mint && r.mint.id));
+      if (!mk && r.mint) {
+        mk = { id: r.mint.id, type: "make", label: r.mint.label, country: r.country || "Unknown", year: r.founded, wp: r.wp, companyArticle: true };
+        nodes.push(mk); byId.set(mk.id, mk);
+      }
+      if (!mk || mk.type !== "make" || mk.retired) return;
+      if (r.label && mk.label !== r.label) {
+        const before = mk.label;
+        mk.label = r.label;
+        nodes.forEach(o => { if ((o.type === "model" || o.type === "family") && norm(o.make) === norm(before)) o.make = r.label; });
+        namesChanged();
+      }
+      mk.wp = r.wp;
+      if (mk.year == null && r.founded) mk.year = r.founded;
+      if ((!mk.country || mk.country === "Unknown") && r.country) mk.country = r.country;
+      car.retired = true;
+      car.companyOf = mk.id;
+      car.retiredReason = `the article of the make ${mk.label}: a company, not a car`;
+      links.forEach(l => {
+        if (!l.retired && (idOf(l.source) === id || idOf(l.target) === id)) { l.retired = true; l.retiredReason = car.retiredReason; }
+      });
+    });
+  }
   // Concept cars and prototypes read as generations (scripts/concept_cars.js): the
   // Oldsmobile Starfire's 1953 dream car, the Torana GTR-X, the Stratos Zero. The owner
   // (8 Nov 2026): a concept is linked to the nameplate like a car that shares its name,
@@ -21716,7 +21752,7 @@ Rules:
   }
 
   return {
-    settleOutOfReachLinks, settleNamesakeFacts, applySharedNames, applyBorrowedReads, applyBorrowedPlates, applyConceptCars, applyGenerationVariants, applyOtherMakeGenerations, phasesOf, productionRangesOnOwnCards, generationNamedBy, generationSection, personPageIsTheirs, listedArticles, sectionYearsForFragment, pageCardYears,
+    settleOutOfReachLinks, settleNamesakeFacts, applySharedNames, applyBorrowedReads, applyBorrowedPlates, applyConceptCars, applyGenerationVariants, applyOtherMakeGenerations, applyCompanyArticles, phasesOf, productionRangesOnOwnCards, generationNamedBy, generationSection, personPageIsTheirs, listedArticles, sectionYearsForFragment, pageCardYears,
     serverAvailable, isEligible, entryFor,
     checkNode, checkNodeCascade, retryNode, confirmNode, rejectNode,
     applyConfirmed, filePathUrl,
