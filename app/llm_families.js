@@ -697,6 +697,45 @@ window.LlmFamilies = (function () {
     });
   }
   function phasesOf(id) { return genPhases.get(id) || []; }
+  // Another maker's car read as a generation (scripts/other_make_generations.js): the
+  // Fiat 128's "SEAT 128", the Dodge Avenger's "Hillman Avenger", the Nissan Clipper's
+  // Suzuki Carry generations from before there was a Clipper. Each goes to the car of
+  // that name, on the platform of the generation it was built beside; a platform with no
+  // years (the RSX's "Zero platform") is no car.
+  const OTHER_MAKE_GENERATIONS = (typeof window !== "undefined" && window.OTHER_MAKE_GENERATIONS) || {};
+  function applyOtherMakeGenerations(nodes, links) {
+    const byId = new Map(nodes.map(n => [n.id, n]));
+    Object.keys(OTHER_MAKE_GENERATIONS).forEach(id => {
+      const r = OTHER_MAKE_GENERATIONS[id], g = byId.get(id), plate = g && byId.get(g.familyOf);
+      if (!g || g.retired || !plate) return;
+      const into = r.action === "merge" ? followSuperseded(byId, byId.get(r.into)) : null;
+      if (r.action === "merge" && (!into || into.retired || into.id === g.id)) return;
+      plate.generations = (plate.generations || []).filter(x => x !== id);
+      g.retired = true;
+      g.retiredReason = into ? `the ${into.make} ${into.label}, not a generation of the ${plate.make} ${plate.label}` : `not a car: ${r.why}`;
+      if (into) { g.supersededBy = into.id; g.foldedInto = into.id; }
+      const chain = links.filter(l => !l.retired && l.type === "gensucc" && [idOf(l.source), idOf(l.target)].includes(id));
+      const before = chain.filter(l => idOf(l.target) === id).map(l => idOf(l.source)), after = chain.filter(l => idOf(l.source) === id).map(l => idOf(l.target));
+      chain.forEach(l => { l.retired = true; l.retiredReason = g.retiredReason; });
+      before.forEach(x => after.forEach(y => { if (x !== y && !links.some(l => !l.retired && l.type === "gensucc" && idOf(l.source) === x && idOf(l.target) === y)) links.push({ source: x, target: y, type: "gensucc" }); }));
+      const key = l => l.type + "|" + idOf(l.source) + "|" + idOf(l.target);
+      const have = new Set(links.filter(l => !l.retired).map(key));
+      links.forEach(l => {
+        if (l.retired || l.type === "gensucc") return;
+        const a = idOf(l.source), b = idOf(l.target);
+        if (a !== id && b !== id) return;
+        if (l.type === "generation" || !into) { l.retired = true; l.retiredReason = g.retiredReason; return; }
+        const m = { type: l.type, source: a === id ? into.id : a, target: b === id ? into.id : b };
+        if (m.source === m.target || have.has(key(m))) { l.retired = true; l.retiredReason = g.retiredReason; return; }
+        l.source = m.source; l.target = m.target; have.add(key(l));
+      });
+      const beside = byId.get(r.beside);
+      if (into && beside && !beside.retired && !links.some(l => !l.retired && l.type === "platform" &&
+          [idOf(l.source), idOf(l.target)].sort().join("|") === [into.id, beside.id].sort().join("|"))) {
+        links.push({ source: into.id, target: beside.id, type: "platform", otherMakeGeneration: true });
+      }
+    });
+  }
   // Concept cars and prototypes read as generations (scripts/concept_cars.js): the
   // Oldsmobile Starfire's 1953 dream car, the Torana GTR-X, the Stratos Zero. The owner
   // (8 Nov 2026): a concept is linked to the nameplate like a car that shares its name,
@@ -21677,7 +21716,7 @@ Rules:
   }
 
   return {
-    settleOutOfReachLinks, settleNamesakeFacts, applySharedNames, applyBorrowedReads, applyBorrowedPlates, applyConceptCars, applyGenerationVariants, phasesOf, productionRangesOnOwnCards, generationNamedBy, generationSection, personPageIsTheirs, listedArticles, sectionYearsForFragment, pageCardYears,
+    settleOutOfReachLinks, settleNamesakeFacts, applySharedNames, applyBorrowedReads, applyBorrowedPlates, applyConceptCars, applyGenerationVariants, applyOtherMakeGenerations, phasesOf, productionRangesOnOwnCards, generationNamedBy, generationSection, personPageIsTheirs, listedArticles, sectionYearsForFragment, pageCardYears,
     serverAvailable, isEligible, entryFor,
     checkNode, checkNodeCascade, retryNode, confirmNode, rejectNode,
     applyConfirmed, filePathUrl,

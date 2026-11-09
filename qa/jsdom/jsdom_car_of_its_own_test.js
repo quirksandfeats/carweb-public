@@ -60,7 +60,10 @@ check("a slice of another car's years: the Chevelle Nomad", inPlate("llm-related
 // The Baleno's page is a list of other articles (8 Nov): its read is not replayed, and a
 // re-scan rebuilds it from the pages carrying its name. See jsdom_list_page_reads_test.js.
 check("the Baleno's list-page read is not replayed", !(N("llm-related-suzuki-baleno").generations || []).length);
-check("a rebadge list stays: the Clipper's Every", inPlate("llm-related-nissan-clipper", /Every/));
+// The rule above leaves a rebadge list alone. Since 9 Nov the Clipper's Suzuki Every and
+// Carry generations, from before there was a Clipper, go to the Suzuki cars themselves
+// (scripts/other_make_generations.js; see jsdom_other_make_generations_test.js).
+check("another maker's generations go to that maker's car: the Clipper's Every", !inPlate("llm-related-nissan-clipper", /Every/));
 
 // BMW Z, by hand
 check("the Z1 is one car", (N("m-bmw-z1").generations || []).filter(id => N(id) && !N(id).retired).length === 1 && N("m-bmw-z1").end === 1991);
