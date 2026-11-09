@@ -772,6 +772,46 @@ window.LlmFamilies = (function () {
       });
     });
   }
+  // Cars that carry a name their article does not give (scripts/article_names.js):
+  // "ABC · 1920 automobile" is the ABC 12hp, "Armstrong · Siddeley Hurricane" the
+  // Armstrong Siddeley Hurricane, the 1913 Mercury Cyclecar no Mercury of Ford's.
+  // The car keeps its id; its label, and where the row says so its make, change.
+  const ARTICLE_NAMES = (typeof window !== "undefined" && window.ARTICLE_NAMES) || {};
+  function applyArticleNames(nodes, links) {
+    const byId = new Map(nodes.map(n => [n.id, n]));
+    const makeNamed = label => nodes.find(n => n.type === "make" && !n.retired && norm(n.label) === norm(label));
+    Object.keys(ARTICLE_NAMES).forEach(id => {
+      const r = ARTICLE_NAMES[id], car = byId.get(id);
+      if (!car || car.retired || car.articleNamed) return;
+      car.articleNamed = true;
+      if (r.label && car.label !== r.label && !(store.renames && store.renames[id])) { car.label = r.label; namesChanged(); }
+      const from = makeNamed(car.make);
+      if (r.renameMake) {
+        const mk = byId.get(r.renameMake.id);
+        if (mk && !mk.retired && mk.label !== r.renameMake.label && !(store.renames && store.renames[mk.id])) {
+          const before = mk.label;
+          mk.label = r.renameMake.label;
+          nodes.forEach(o => { if ((o.type === "model" || o.type === "family") && norm(o.make) === norm(before)) o.make = mk.label; });
+          namesChanged();
+        }
+        return;
+      }
+      let to = r.make ? byId.get(r.make) : r.mint ? byId.get(r.mint.id) || makeNamed(r.mint.label) : null;
+      if (!to && r.mint) {
+        to = { id: r.mint.id, type: "make", label: r.mint.label, country: r.mint.country || "Unknown", year: r.mint.year };
+        nodes.push(to); byId.set(to.id, to);
+      }
+      if (!to || to.retired || to.type !== "make" || to === from) return;
+      [car].concat((car.generations || []).map(g => byId.get(g)).filter(Boolean)).forEach(n => { n.make = to.label; });
+      namesChanged();
+      links.forEach(l => {
+        if (l.retired || l.type !== "made" || idOf(l.source) !== id) return;
+        if (from && idOf(l.target) === from.id) l.target = to.id;
+      });
+      if (!links.some(l => !l.retired && l.type === "made" && idOf(l.source) === id && idOf(l.target) === to.id))
+        links.push({ source: id, target: to.id, type: "made" });
+    });
+  }
   // Concept cars and prototypes read as generations (scripts/concept_cars.js): the
   // Oldsmobile Starfire's 1953 dream car, the Torana GTR-X, the Stratos Zero. The owner
   // (8 Nov 2026): a concept is linked to the nameplate like a car that shares its name,
@@ -21752,7 +21792,7 @@ Rules:
   }
 
   return {
-    settleOutOfReachLinks, settleNamesakeFacts, applySharedNames, applyBorrowedReads, applyBorrowedPlates, applyConceptCars, applyGenerationVariants, applyOtherMakeGenerations, applyCompanyArticles, phasesOf, productionRangesOnOwnCards, generationNamedBy, generationSection, personPageIsTheirs, listedArticles, sectionYearsForFragment, pageCardYears,
+    settleOutOfReachLinks, settleNamesakeFacts, applySharedNames, applyBorrowedReads, applyBorrowedPlates, applyConceptCars, applyGenerationVariants, applyOtherMakeGenerations, applyCompanyArticles, applyArticleNames, phasesOf, productionRangesOnOwnCards, generationNamedBy, generationSection, personPageIsTheirs, listedArticles, sectionYearsForFragment, pageCardYears,
     serverAvailable, isEligible, entryFor,
     checkNode, checkNodeCascade, retryNode, confirmNode, rejectNode,
     applyConfirmed, filePathUrl,

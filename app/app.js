@@ -290,6 +290,7 @@ window.CarWeb = (function () {
     if (LFam.applyGenerationVariants) LFam.applyGenerationVariants(nodes, links);
     if (LFam.applyOtherMakeGenerations) LFam.applyOtherMakeGenerations(nodes, links);
     if (LFam.applyCompanyArticles) LFam.applyCompanyArticles(nodes, links);
+    if (LFam.applyArticleNames) LFam.applyArticleNames(nodes, links);
     // Waiting relationships are decided by rule now, and only now: on the
     // finished graph. Decided before the passes above had made the cars that
     // arrive late, three of them were dropped on every load because "one of
@@ -339,6 +340,7 @@ window.CarWeb = (function () {
   if (window.LlmFamilies && window.LlmFamilies.applyGenerationVariants) window.LlmFamilies.applyGenerationVariants(nodes, links);
   if (window.LlmFamilies && window.LlmFamilies.applyOtherMakeGenerations) window.LlmFamilies.applyOtherMakeGenerations(nodes, links);
   if (window.LlmFamilies && window.LlmFamilies.applyCompanyArticles) window.LlmFamilies.applyCompanyArticles(nodes, links);
+  if (window.LlmFamilies && window.LlmFamilies.applyArticleNames) window.LlmFamilies.applyArticleNames(nodes, links);
   // Before the reach pass: links an index page's car hands to its listed cars are
   // measured by those cars' years.
   if (window.LlmFamilies && window.LlmFamilies.applySharedNames) window.LlmFamilies.applySharedNames(nodes, links);

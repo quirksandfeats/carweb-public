@@ -1,0 +1,45 @@
+// A car takes the name and the make its article gives (9 Nov 2026).
+const { JSDOM } = require("jsdom");
+const fs = require("fs"), path = require("path");
+const APP = path.resolve(__dirname, "..", "..", "app");
+const html = fs.readFileSync(path.join(APP, "index.html"), "utf-8");
+let fails = 0;
+const check = (n, c, e) => { if (!c) fails++; console.log((c ? "PASS " : "FAIL ") + n + (e !== undefined ? "  -- " + e : "")); };
+const fakeCtx = () => { const noop = () => {}; return new Proxy({ measureText: () => ({ width: 10 }) }, { get(o, k) { return k in o ? o[k] : noop; }, set() { return true; } }); };
+const dom = new JSDOM(html, { url: "http://localhost:8077/index.html", runScripts: "outside-only" });
+const { window } = dom;
+window.HTMLCanvasElement.prototype.getContext = fakeCtx;
+window.requestAnimationFrame = () => 1;
+window.matchMedia = q => ({ matches: false, media: q, addEventListener() {}, removeEventListener() {} });
+window.Element.prototype.getBoundingClientRect = () => ({ width: 1000, height: 800, top: 0, left: 0, right: 1000, bottom: 800, x: 0, y: 0 });
+Object.defineProperty(window.HTMLElement.prototype, "offsetHeight", { get() { return 40; } });
+window.fetch = async () => ({ ok: true, json: async () => ({}), text: async () => "{}" });
+window.XMLHttpRequest = function () { this.open = () => {}; this.send = () => { throw new Error("no server"); }; };
+global.window = window; global.document = window.document;
+const ev = f => window.eval(fs.readFileSync(path.join(APP, f), "utf-8"));
+const shipped = JSON.parse(fs.readFileSync(path.join(APP, "llm_families.json"), "utf-8"));
+for (const f of [...html.matchAll(/<script src="([^"]+)"><\/script>/g)].map(m => m[1])) {
+  if (/llm_families_data/.test(f)) continue;
+  if (f === "llm_families.js") window.LLM_FAMILIES = Object.assign({}, shipped, { __serverAvailable: false });
+  ev(f);
+}
+window.CarWeb.boot();
+const DATA = window.CARDATA;
+const byId = new Map(DATA.nodes.map(n => [n.id, n]));
+const car = id => byId.get(id) || {};
+const madeBy = id => DATA.links.filter(l => !l.retired && l.type === "made" && (typeof l.source === "object" ? l.source.id : l.source) === id).map(l => byId.get(typeof l.target === "object" ? l.target.id : l.target)).filter(Boolean).map(m => m.label);
+check("the list is loaded", Object.keys(window.ARTICLE_NAMES || {}).length >= 15);
+check("a bracket label takes the infobox name: ABC 12hp", car("m-abc-1920-automobile").label === "12hp", car("m-abc-1920-automobile").label);
+check("Mini (Mark I) is the Mini Mark I", car("m-mini-mark-i").label === "Mark I" && car("m-mini-mark-i").make === "Mini");
+check("a company label on a car article: Porter Steam Stanhope", car("m-porter-motor-company").label === "Steam Stanhope");
+const as = car("m-armstrong-siddeley-hurricane");
+check("Armstrong Siddeley cars go to Armstrong Siddeley", as.make === "Armstrong Siddeley" && as.label === "Hurricane" && madeBy(as.id).join() === "Armstrong Siddeley", madeBy(as.id).join());
+check("the Armstrong cyclecar stays with Armstrong", car("m-armstrong-cyclecar").make === "Armstrong");
+check("a make that is all one maker's takes its name: Eadon Green", byId.get("mk-eadon").label === "Eadon Green" && car("m-eadon-green-zeclat").make === "Eadon Green");
+const merc = car("m-mercury-cyclecar-company");
+check("the 1913 Mercury Cyclecar is not Ford's Mercury", merc.make === "Mercury (1913)" && merc.label === "Cyclecar" && madeBy(merc.id).join() === "Mercury (1913)", merc.make + " " + madeBy(merc.id).join());
+check("Ford's Mercury keeps its cars", DATA.nodes.some(n => !n.retired && n.make === "Mercury" && n.label === "Cougar"));
+check("Standard (1912) is not the British Standard", car("m-standard-1912-automobile").make === "Standard (1912)");
+check("a marque stub is left (ruling 4): Ace (1913 automobile)", car("m-ace-1913-automobile").label === "1913 automobile" && car("m-ace-1913-automobile").make === "Ace");
+console.log(fails ? `${fails} FAILED` : "ALL PASS");
+process.exit(fails ? 1 : 0);
