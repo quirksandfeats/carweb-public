@@ -286,6 +286,7 @@ window.CarWeb = (function () {
     // Generations held under another car's name go to their own car before the
     // relationships are drawn, so a relation between the two is drawn once, now.
     if (LFam.applyBorrowedPlates) LFam.applyBorrowedPlates(nodes, links);
+    if (LFam.applyConceptCars) LFam.applyConceptCars(nodes, links);
     // Waiting relationships are decided by rule now, and only now: on the
     // finished graph. Decided before the passes above had made the cars that
     // arrive late, three of them were dropped on every load because "one of
@@ -331,6 +332,7 @@ window.CarWeb = (function () {
   // A nameplate split from another car's article under its own name gives its
   // generations to that car.
   if (window.LlmFamilies && window.LlmFamilies.applyBorrowedPlates) window.LlmFamilies.applyBorrowedPlates(nodes, links);
+  if (window.LlmFamilies && window.LlmFamilies.applyConceptCars) window.LlmFamilies.applyConceptCars(nodes, links);
   // Before the reach pass: links an index page's car hands to its listed cars are
   // measured by those cars' years.
   if (window.LlmFamilies && window.LlmFamilies.applySharedNames) window.LlmFamilies.applySharedNames(nodes, links);

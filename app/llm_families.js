@@ -647,6 +647,68 @@ window.LlmFamilies = (function () {
       }
     });
   }
+  // Concept cars and prototypes read as generations (scripts/concept_cars.js): the
+  // Oldsmobile Starfire's 1953 dream car, the Torana GTR-X, the Stratos Zero. The owner
+  // (8 Nov 2026): a concept is linked to the nameplate like a car that shares its name,
+  // outside the generation list, never a generation of it.
+  const CONCEPT_CARS = (typeof window !== "undefined" && window.CONCEPT_CARS) || {};
+  function applyConceptCars(nodes, links) {
+    const byId = new Map(nodes.map(n => [n.id, n]));
+    // A mention of a car built a decade or more away belongs to a generation of the
+    // nameplate, not to its show car: the Starfire's Chevrolet Vega is the 1975 one's.
+    // It goes back to the nameplate, for settleOutOfReachLinks to place.
+    const settleFar = (g, plate) => links.forEach(l => {
+      if (l.retired || (l.type !== "platform" && l.type !== "related")) return;
+      const a = idOf(l.source), b = idOf(l.target);
+      if (a !== g.id && b !== g.id) return;
+      const o = byId.get(a === g.id ? b : a);
+      if (!o || o.year == null || g.year == null) return;
+      const gap = Math.max(0, o.year - (g.end != null ? g.end : g.year), g.year - (o.end != null ? o.end : o.year));
+      if (gap <= 10) return;
+      // The nameplate's generation whose years meet the other car's best, else the nameplate.
+      const span = n => [n.year, n.end != null ? n.end : n.year];
+      const [os, oe] = span(o);
+      const fit = (plate.generations || []).map(x => byId.get(x)).filter(x => x && !x.retired && x.year != null)
+        .map(x => { const [s1, e1] = span(x); return { x, d: Math.max(0, s1 - oe, os - e1), ov: Math.min(e1, oe) - Math.max(s1, os) }; })
+        .filter(c => c.d <= 10).sort((p, q) => p.d - q.d || q.ov - p.ov)[0];
+      const to = fit ? fit.x.id : plate.id;
+      const other = a === g.id ? b : a;
+      if (links.some(m => m !== l && !m.retired && m.type === l.type && [idOf(m.source), idOf(m.target)].sort().join("|") === [to, other].sort().join("|"))) {
+        l.retired = true; l.retiredReason = "a concept car's mention of a car built a decade away"; return;
+      }
+      if (a === g.id) l.source = to; else l.target = to;
+    });
+    Object.keys(CONCEPT_CARS).forEach(id => {
+      const g0 = byId.get(id);
+      if (g0 && g0.concept && byId.get(g0.conceptOf)) { settleFar(g0, byId.get(g0.conceptOf)); return; }
+      const g = g0, plate = g && byId.get(g.familyOf);
+      if (!g || g.retired || !plate || plate.retired) return;
+      const order = (plate.generations || []).map(x => byId.get(x)).filter(x => x && !x.retired);
+      plate.generations = (plate.generations || []).filter(x => x !== id);
+      delete g.familyOf;
+      g.concept = true; g.conceptOf = plate.id;
+      if (CONCEPT_CARS[id].label) g.label = CONCEPT_CARS[id].label;
+      // Out of the chain: what led to it now leads to what came after it.
+      const into = links.filter(l => !l.retired && l.type === "gensucc" && idOf(l.target) === id);
+      const outOf = links.filter(l => !l.retired && l.type === "gensucc" && idOf(l.source) === id);
+      [...into, ...outOf].forEach(l => { l.retired = true; l.retiredReason = "a concept car is not a generation"; });
+      into.forEach(a => outOf.forEach(b => {
+        const x = idOf(a.source), y = idOf(b.target);
+        if (x !== y && !links.some(l => !l.retired && l.type === "gensucc" && idOf(l.source) === x && idOf(l.target) === y)) links.push({ source: x, target: y, type: "gensucc" });
+      }));
+      links.forEach(l => {
+        if (!l.retired && l.type === "generation" && [idOf(l.source), idOf(l.target)].includes(id) && [idOf(l.source), idOf(l.target)].includes(plate.id)) {
+          l.retired = true; l.retiredReason = "a concept car is not a generation";
+        }
+      });
+      if (!links.some(l => !l.retired && l.type === "made" && idOf(l.source) === id)) {
+        const mk = nodes.find(n => n.type === "make" && !n.retired && n.label === g.make);
+        if (mk) links.push({ source: id, target: mk.id, type: "made" });
+      }
+      links.push({ source: id, target: plate.id, type: "name", conceptOf: true });
+      settleFar(g, plate);
+    });
+  }
   // Separate cars that carry one name, from Wikipedia's index of that name
   // (scripts/shared_names.js): "Ford Capri (disambiguation)" lists the Capri
   // (Australia) and the Capri EV beside the 1968 Capri; the "Chevrolet Blazer" page
@@ -12519,7 +12581,7 @@ Rules:
       });
     });
     links.forEach(l => {
-      if (l.type === "name" && !l.retired && !wanted.has(idOf(l.source) + "|" + idOf(l.target))) {
+      if (l.type === "name" && !l.retired && !l.conceptOf && !wanted.has(idOf(l.source) + "|" + idOf(l.target))) {
         l.retired = true; l.retiredReason = "no longer two cars of one name";
       }
     });
@@ -17936,7 +17998,8 @@ Rules:
       if (!rec || !rec.sourceTitle || !(rec.engines || []).length || rec.v === 0) continue;
       const car = byId.get(id);
       if (!car) continue;
-      const own = car.familyOf || car.id;
+      // A concept car read from its nameplate's page reads its own section of it.
+      const own = car.familyOf || car.conceptOf || car.id;
       const other = plates.get(articleKeyOf(rec.sourceTitle));
       if (other && other !== own) { stale.add(id); continue; }
       if (!car.familyOf) continue;
@@ -21562,7 +21625,7 @@ Rules:
   }
 
   return {
-    settleOutOfReachLinks, settleNamesakeFacts, applySharedNames, applyBorrowedReads, applyBorrowedPlates, productionRangesOnOwnCards, generationNamedBy, personPageIsTheirs, listedArticles, sectionYearsForFragment, pageCardYears,
+    settleOutOfReachLinks, settleNamesakeFacts, applySharedNames, applyBorrowedReads, applyBorrowedPlates, applyConceptCars, productionRangesOnOwnCards, generationNamedBy, generationSection, personPageIsTheirs, listedArticles, sectionYearsForFragment, pageCardYears,
     serverAvailable, isEligible, entryFor,
     checkNode, checkNodeCascade, retryNode, confirmNode, rejectNode,
     applyConfirmed, filePathUrl,
