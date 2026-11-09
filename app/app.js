@@ -2325,6 +2325,22 @@ window.CarWeb = (function () {
       const seen = new Set();
       groups[verb] = groups[verb].filter(o => !seen.has(o.id) && seen.add(o.id));
     });
+    // One car in one place. Real user report: the Lotus Europa S listed the Exige
+    // under "related to" and the Exige Series 2 under "shares platform with", the
+    // Elise under both, and "succeeds" named both the Esprit and the Esprit S4. The
+    // more exact link wins: a generation over its own nameplate in any list, and a
+    // shared platform over a looser relation. (A person's card does the first
+    // already, through personCreditedCars.)
+    const PLATFORM = verbs.platform[0], RELATED = verbs.related[0];
+    const withGen = new Set([PLATFORM, RELATED].flatMap(v => groups[v] || []).filter(o => o.familyOf).map(o => o.familyOf));
+    Object.keys(groups).forEach(verb => {
+      if (verb === "part of") return;
+      const own = verb === PLATFORM || verb === RELATED ? withGen : new Set(groups[verb].filter(o => o.familyOf).map(o => o.familyOf));
+      groups[verb] = groups[verb].filter(o => !own.has(o.id));
+    });
+    const onPlatform = new Set((groups[PLATFORM] || []).flatMap(o => [o.id, o.familyOf].filter(Boolean)));
+    if (groups[RELATED]) groups[RELATED] = groups[RELATED].filter(o => !onPlatform.has(o.id) && !onPlatform.has(o.familyOf));
+    Object.keys(groups).forEach(verb => { if (!groups[verb].length) delete groups[verb]; });
     const conn = dt.querySelector(".dt-connections");
     conn.innerHTML = "";
     // One order on every card, earlier before later: who made it, what it belongs
@@ -2344,6 +2360,7 @@ window.CarWeb = (function () {
           (inRegion.has(verb + "|" + o.id) ? ` <span class="verb">(${esc(inRegion.get(verb + "|" + o.id))})</span>` : "") +
           (fromLlm ? ` <span class="conn-llm" title="read off the Wikipedia article by the local model, not from the hand-verified engineers table">🤖</span>` : "");
         if (fromLlm) b.classList.add("from-llm");
+        b.dataset.id = o.id;
         b.onclick = () => api.goto(o.id);
         conn.appendChild(b);
       });
