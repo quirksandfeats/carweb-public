@@ -1987,9 +1987,37 @@ window.CarWeb = (function () {
     // card listed all seven generations' engines at once.
     // Unless no generation has any, and then the nameplate's are all there is
     // (the Nissan Versa, the Ford Contour).
-    if (n.type === "family" && (n.generations || []).some(id => {
+    // The electric half, read off the same infobox (see electricMentions): its
+    // motors, its battery and its range, in the infobox's own words. A nameplate
+    // whose generations carry their own shows none, as with engines.
+    // A read set aside as another car's (v 0 with a reason) shows nothing.
+    const scanOf = id => { const r = LFam.engineScanEntryFor ? LFam.engineScanEntryFor(id) : null; return r && !(r.v === 0 && r.staleReason) ? r : null; };
+    const genIds = (n.generations || []).filter(id => { const g = byId.get(id); return g && !g.retired; });
+    const ownElectric = (scanOf(n.id) || {}).electric || null;
+    const electric = n.type === "family" && genIds.some(id => (scanOf(id) || {}).electric) ? null : ownElectric;
+    const renderElectric = () => {
+      if (!electric) return;
+      const det = document.createElement("details");
+      det.className = "dt-power-fold";
+      if (activeView === "power") det.open = true;
+      const sum = document.createElement("summary");
+      sum.textContent = electric.motors.length > 1 ? `Electric motors (${electric.motors.length})` : "Electric motor";
+      det.appendChild(sum);
+      box.appendChild(det);
+      const plainE = t => (LFam.decodeEntities ? LFam.decodeEntities(t) : t);
+      // A motor the engine list already shows (an article linked in "| engine =",
+      // the Toyota 1XM) is listed there only.
+      const key = t => String(plainE(t || "")).toLowerCase().replace(/[^a-z0-9]/g, "");
+      const shown = new Set([...engines.map(e => key(e.l.saidText)),
+                             ...unlinked.map(u => key(u.said))].filter(Boolean));
+      electric.motors.filter(t => !shown.has(key(t))).forEach(t => row(plainE(t), "motor", null, null, det));
+      electric.battery.forEach(t => row(plainE(t), "battery", null, null, det));
+      electric.range.forEach(t => row(plainE(t), electric.rangeKind === "electric" ? "electric range" : "range", null, null, det));
+      if (!electric.motors.length) sum.textContent = "Electric drive";
+    };
+    if (n.type === "family" && genIds.some(id => {
       const g = byId.get(id);
-      return g && !g.retired && powertrainEdgesFor(g, index).some(e => isPowertrain(e.other));
+      return powertrainEdgesFor(g, index).some(e => isPowertrain(e.other));
     })) return;
     let engines = powertrainEdgesFor(n, index).filter(e => isPowertrain(e.other));
     // Real user report on the SL R232's card: "notice that the engine and the
@@ -2021,7 +2049,7 @@ window.CarWeb = (function () {
     // unlinkedEngineMentions.
     const scan = LFam.engineScanEntryFor ? LFam.engineScanEntryFor(n.id) : null;
     const unlinked = (scan && scan.unlinked) || [];
-    if (!engines.length && !unlinked.length) return;
+    if (!engines.length && !unlinked.length) { renderElectric(); return; }
     const det = document.createElement("details");
     det.className = "dt-power-fold";
     if (activeView === "power") det.open = true;
@@ -2079,6 +2107,7 @@ window.CarWeb = (function () {
                       .filter(Boolean).join(" · "), null, null, det);
       b.title = plain(u.said || u.name);
     });
+    renderElectric();
   }
   // A car's line to an engine family, beside its lines to that family's
   // variants: a repeat when it says nothing (the bare edge an article's table

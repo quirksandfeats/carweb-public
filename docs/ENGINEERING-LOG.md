@@ -2875,3 +2875,24 @@ A name that redirects into the nameplate's own article is a section of it and st
 18 more merges: Zastava Skala, Edsel Corsair 1958 and 1959 (to its first and second generation), Holden Captiva 5 and 7, Maruti Suzuki Alto third generation, Nissan Atlas F22 and F23 off the Cabstar, Chevrolet City Express, Ford Transit City, BMW 02 Series off the New Class, Chevrolet Monza (China), Renault 4 and 5 E-Tech, Ruf BTR2, Ruf CTR Anniversary, Lotus Europa S, Morris Oxford bullnose. Left alone: Talbot 1510 (Chrysler Alpine), Soueast Veryca and Xiwang (the CMC Veryca has no generation from 2000 for them), Mitsubishi Jeep J-series, Maruti Suzuki Super Carry. Links change only where a moved generation's links follow it. The store is unchanged, and the second load and static mirror match. The test `qa/jsdom/jsdom_other_make_generations_test.js` gains 7 checks.
 
 On a car's card, one car now appears in one place. A nameplate is dropped from any list that holds one of its own generations: the Europa S "succeeds" the Esprit S4, not the Esprit and the Esprit S4. A car that shares a platform is dropped from "related to": the Europa S had listed the Elise under both, and the Exige under "related to" beside the Exige Series 2 under "shares platform with". A person's card already worked this way. Each row now carries its node id (`data-id`). Test `qa/jsdom/jsdom_card_one_place_test.js`, over 1,813 cards.
+
+## 9 November: the electric half of a powertrain
+
+Owner's report: electric cars, and the electric versions of petrol cars, had no counterpart to the engine information their Wikipedia page gives. The same was true of plug-in hybrids. The powertrain reader looked at the infobox's `| engine =` field and nothing else. The Nissan Leaf, the BMW i3, the Volkswagen ID.3 and the Renault 5 E-Tech were each read as "no engines", and a plug-in Prius or Outlander showed its petrol engine with nothing of its motors or battery.
+
+`electricMentions` reads the infobox fields `| motor =`, `| battery =` and `| electric_range =`, in the infobox's own words, from the same article or section the engines come from:
+- A bare `| range =` counts only beside a battery or a motor. It is the electric range on a car with no engine, and the range in all on one with an engine.
+- Where there is no motor field, the lines of `| engine =` that name a motor are read as motors (the Porsche Taycan).
+- Words heading a list stay with its items: "89 kWh (2024–present)", "45 kWh: up to 330 km (WLTP)".
+- A page with several motor fields is read by this car's section. With no section, a car on its own page is read by its first infobox (the Renault 5 E-Tech, whose page also carries the 5 Turbo 3E).
+
+A review found five more cases, now handled:
+- A maker's name is no motor: "General Motors" in an engine line is not read as an electric motor.
+- A field commented out is not read.
+- Words heading a list stop where the list does.
+- A nameplate's one infobox counts as a generation's own only where the nameplate has no other generation, and only for lines within that generation's years.
+- A motor the engine list already shows (an article linked in `| engine =`) is listed there only. A read set aside as another car's (`v` 0 with a reason) shows no electric fold.
+
+The read is stored on the car's engine read (`engineScans[id].electric`), and the card shows it under "Electric motor": each motor, battery and range line, labelled. A nameplate whose generations carry their own shows none, as with engines.
+
+The reader's version is now 8, so every earlier read is due again. A read from before is still shown until then, and the graph does not change. "⚙ Re-read Engines" does the backlog: one or two Wikipedia reads per car. Tried live on the Leaf's three generations, the ID.3, the Model 3, the Taycan, the Volt, the Prius Plug-in's three generations, the Outlander PHEV and the EV6. Test `qa/jsdom/jsdom_electric_powertrain_test.js`.

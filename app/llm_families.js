@@ -19170,6 +19170,171 @@ Rules:
     return out;
   }
 
+  // ---------- the electric half of a powertrain ----------
+  // Real user report: "electric car variants of the gas car, and seemingly every
+  // electric car doesn't have the correct electric motor counterpart of the gas
+  // information from the Wikipedia page. The same applies for plugin hybrids."
+  // The reader looked at "| engine =" and nothing else: the Nissan Leaf, the BMW
+  // i3 and the Volkswagen ID.3 were each read as "no engines", and a plug-in
+  // Prius showed its petrol engine and nothing of its motors or its battery.
+  // An electric car's infobox writes those as "| motor =", "| battery =" and
+  // "| electric_range =" ("| range =" where a battery stands beside it). They
+  // are kept as the infobox's own lines: a motor is far more often a type
+  // ("permanent magnet synchronous") than a unit with an article to follow, and
+  // a battery and a range are figures.
+  function infoboxFieldsNamed(wikitext, names) {
+    const src = String(wikitext || "");
+    const fields = [];
+    const fieldRx = new RegExp("\\|\\s*(?:" + names + ")\\s*=", "gi");
+    let m;
+    while ((m = fieldRx.exec(src))) {
+      let i = m.index + m[0].length, depth = 0, end = src.length;
+      for (; i < src.length; i++) {
+        const two = src.substr(i, 2);
+        if (two === "{{" || two === "[[") { depth++; i++; continue; }
+        if (two === "}}" || two === "]]") {
+          if (depth === 0) { end = i; break; }
+          depth--; i++; continue;
+        }
+        if (src[i] === "|" && depth === 0 && /^\|\s*[a-z_]+\s*=/i.test(src.slice(i, i + 40))) { end = i; break; }
+      }
+      fields.push(src.slice(m.index + m[0].length, end));
+    }
+    return fields;
+  }
+  const MOTOR_FIELDS = "motors?|electric[_ ]motors?";
+  const dropComments = t => String(t || "").replace(/<!--[\s\S]*?(?:-->|$)/g, "");
+  function motorFieldCount(wikitext) { return infoboxFieldsNamed(dropComments(wikitext), MOTOR_FIELDS).length; }
+  // A field's lines in the order they are written. splitEngineField hands a
+  // list's items back before the words that head it on the same line, which
+  // the engine reader does not mind; here "2024–present: {{ubl|79.2 kWh|93.4
+  // kWh}}" has to keep its years with its batteries.
+  const END_OF_HEADED_LIST = "\u0000";
+  function splitElectricField(field) {
+    const src = String(field || "").replace(/<br\s*\/?>/gi, "\n");
+    const out = [];
+    let buf = "";
+    const flush = () => { if (buf.trim()) out.push(buf.trim()); buf = ""; };
+    for (let i = 0; i < src.length; i++) {
+      const two = src.substr(i, 2);
+      if (two === "[[") { const j = matchingClose(src, i, "[[", "]]"); buf += src.slice(i, j); i = j - 1; continue; }
+      if (two === "{{") {
+        const j = matchingClose(src, i, "{{", "}}");
+        const inner = src.slice(i + 2, j - 2);
+        const bar = topLevelBar(inner);
+        const head = (bar < 0 ? inner : inner.slice(0, bar)).trim();
+        if (LIST_TEMPLATE_RE.test(head.replace(/[\s_]+/g, "")) && bar >= 0) {
+          // Words before the list on its line head that list and no more.
+          const headed = !!buf.trim();
+          flush();
+          splitTopLevel(inner.slice(bar + 1)).forEach(part => {
+            if (/^\s*[A-Za-z_][\w\s-]*=/.test(part)) return;
+            splitElectricField(part.replace(/^\s*\d+\s*=/, "")).forEach(x => out.push(x));
+          });
+          if (headed) out.push(END_OF_HEADED_LIST);
+          i = j - 1;
+          continue;
+        }
+        buf += src.slice(i, j); i = j - 1; continue;
+      }
+      if (src[i] === "\n") { flush(); continue; }
+      if (src[i] === "*" && !buf.trim()) { flush(); continue; }
+      buf += src[i];
+    }
+    flush();
+    return out;
+  }
+  // The small templates an electric infobox writes its figures with, kept as
+  // their words: "2010{{ndash}}2012" is a year run, "{{cvt|272|mi}}
+  // ({{abbr|SR+|Standard Range Plus}})" says which car.
+  function plainSmallTemplates(text) {
+    return String(text || "")
+      .replace(/\{\{\s*(?:ndash|nbndash|snd|spnd|spaced ndash|en dash)\s*\}\}/gi, "–")
+      .replace(/\{\{\s*(?:mdash|spaced mdash|em dash)\s*\}\}/gi, "—")
+      .replace(/\{\{\s*(?:nbsp|thinsp|sp)\s*\}\}/gi, " ")
+      .replace(/\{\{\s*(?:abbr|abbrlink|tooltip)\s*\|([^{}|]*)(?:\|[^{}]*)?\}\}/gi, "$1")
+      .replace(/\{\{\s*(?:nowrap|small|smaller|big|nobr|lang\|[a-z-]+)\s*\|([^{}]*)\}\}/gi, "$1");
+  }
+  // The first infobox on a page: an article about one car whose page carries a
+  // second for a version of it (the Renault 5 E-Tech and its 5 Turbo 3E).
+  function firstInfobox(wikitext) {
+    const src = String(wikitext || "");
+    const at = src.search(/\{\{\s*Infobox/i);
+    return at < 0 ? "" : src.slice(at, matchingClose(src, at, "{{", "}}"));
+  }
+  function electricMentions(wikitext) {
+    wikitext = plainSmallTemplates(dropComments(wikitext));
+    const lines = names => {
+      const out = [];
+      for (const field of infoboxFieldsNamed(wikitext, names)) {
+        // A line that only heads the ones after it ("2024–present:", "WLTP:")
+        // goes onto each of them, in brackets, until the next such line.
+        let heading = null;
+        for (const line of splitElectricField(field)) {
+          if (line === END_OF_HEADED_LIST) { heading = null; continue; }
+          let said = stripEngineMarkup(line).replace(/\(\s*\)/g, "").replace(/^[|,;\s]+|[|,;\s]+$/g, "").replace(/\s+/g, " ").trim();
+          if (!said || !/[A-Za-z0-9]/.test(said)) continue;
+          if (/:$/.test(said)) { heading = said.slice(0, -1).trim(); continue; }
+          // A note in brackets on a line of its own ("(all EPA est.)") belongs to
+          // no one line of the list.
+          if (/^\([^()]*\)$/.test(said)) continue;
+          if (heading) said = `${said} (${heading})`;
+          if (!out.some(x => norm(x) === norm(said))) out.push(said);
+        }
+      }
+      return out;
+    };
+    let motors = lines(MOTOR_FIELDS);
+    const battery = lines("batter(?:y|ies)");
+    const petrol = engineFields(wikitext).length > 0;
+    // Some write the motors into "| engine =" (the Porsche Taycan's "2× AC
+    // synchronous electric motors"): the lines that name a motor, where there is
+    // no motor field.
+    // Not "General Motors" or "Leyland Motors": a motor that says it is electric,
+    // a motor–generator, or a kind only an electric motor is.
+    if (!motors.length) motors = lines("engines?").filter(t =>
+      /\belectric(?:al)?\s+(?:traction\s+)?motors?\b|motor[–-]generators?|\b(?:synchronous|asynchronous|induction|permanent[- ]magnet|brushless|reluctance)\b/i.test(t) &&
+      !/\b(?:petrol|gasoline|diesel|cylinders?|straight|inline|flat|boxer)\b|\b\d(?:[.,]\d)?\s*L\b|\bcc\b|\bI[3-6]\b|\bV(?:4|6|8|10|12)\b/i.test(t));
+    const electricOnly = !petrol || (motors.length && lines("engines?").every(t => motors.includes(t)));
+    let range = lines("electric[_ ]range|all[_ ]electric[_ ]range"), rangeKind = "electric";
+    // A bare "| range =" is the electric range on a car with no engine, and how
+    // far it goes in all on one with an engine beside its battery; on a petrol
+    // car with neither it is how far a tank goes, and is not read.
+    if (!range.length && (battery.length || motors.length)) { range = lines("range"); rangeKind = electricOnly ? "electric" : "total"; }
+    if (!motors.length && !battery.length && !range.length) return null;
+    return { motors, battery, range, rangeKind };
+  }
+  // A nameplate's one infobox is a generation's own only where the nameplate
+  // has no other: with several, the engine reader's sibling and year checks
+  // decide whose list it is, and a motor or battery is no line to judge by.
+  function onlyCarOfPage(car, nodes) {
+    if (!car || !car.familyOf) return true;
+    const fam = nodes.find(n => n.id === car.familyOf);
+    return !!fam && (fam.generations || []).filter(id => { const g = nodes.find(n => n.id === id); return g && !g.retired; }).length <= 1;
+  }
+  // Off a page that covers every generation, only the lines whose years fall in
+  // this one's run: the GMT600 rule (engineLineOutsideRun), for motors.
+  function electricWithinRun(e, car) {
+    if (!e || !car || car.year == null) return e;
+    const end = car.end == null ? 9999 : car.end;
+    const inRun = t => {
+      const m = /\b(1[89]\d\d|20\d\d)\s*[–—-]\s*(1[89]\d\d|20\d\d|present)?/i.exec(t);
+      if (!m) return true;
+      const a = +m[1], b = !m[2] || /present/i.test(m[2]) ? 9999 : +m[2];
+      return a <= end + 1 && b >= car.year - 1;
+    };
+    const out = { motors: e.motors.filter(inRun), battery: e.battery.filter(inRun), range: e.range.filter(inRun), rangeKind: e.rangeKind };
+    return out.motors.length || out.battery.length || out.range.length ? out : null;
+  }
+  function mergeElectric(a, b) {
+    if (!a) return b || null;
+    if (!b) return a;
+    const join = (x, y) => x.concat(y.filter(t => !x.some(u => norm(u) === norm(t))));
+    return { motors: join(a.motors, b.motors), battery: join(a.battery, b.battery),
+             range: a.range.length ? (b.range.length && a.rangeKind === b.rangeKind ? join(a.range, b.range) : a.range) : b.range,
+             rangeKind: a.range.length ? a.rangeKind : b.rangeKind };
+  }
+
   // Put those mentions in the graph, unresearched, connected to this car.
   // Idempotent, and deliberately incapable of following anything: an engine
   // node minted here carries `unresearched` until checkEngine reads its
@@ -20201,7 +20366,9 @@ Rules:
   // 6: fuel headings without a colon are read, and unlinked lines are kept
   // by their words. A read from before is still shown, and is replaced the
   // next time the car's engines are read.
-  const ENGINE_SCAN_VERSION = 7;
+  // 8: also reads the electric half -- "| motor =", "| battery =" and the
+  // electric range (see electricMentions).
+  const ENGINE_SCAN_VERSION = 8;
   function engineScanIsCurrent(rec) { return !!rec && (rec.v || 1) >= ENGINE_SCAN_VERSION; }
   // A page that would not load is tried again on a later load, not on every
   // check of the nameplate in this one.
@@ -20390,7 +20557,7 @@ Rules:
       // is the source where one does not -- the Suburban has no per-generation
       // articles at all and twelve per-generation infoboxes. Where both exist
       // they are appended and de-duplicated, which is what the user asked for.
-      let hits = [], unlinked = [];
+      let hits = [], unlinked = [], electric = null;
       let readTitle = null, unreadable = false;
       // Engines the list names with no article behind them -- see
       // unlinkedEngineMentions. Gathered from the same two places as the
@@ -20427,6 +20594,7 @@ Rules:
           const sec = nameplateSectionForCar(car, fam, wikitext);
           if (sec) {
             hits = engineMentions(sec.body, wikitext); readTitle = title;
+            electric = mergeElectric(electric, electricMentions(sec.body));
             addUnlinked(unlinkedEngineMentions(sec.body, wikitext));
             addAka(sec.body, `${title} § ${sec.title}`);
             note(`powertrain: ${car.label} -- "${title}" covers several cars; read its section "${sec.title}"`);
@@ -20436,6 +20604,15 @@ Rules:
           }
         } else if (wikitext) {
           hits = engineMentions(wikitext); readTitle = title;
+          // An electric page with several motor fields covers several cars: only
+          // this car's section of it is this car's.
+          if (motorFieldCount(wikitext) > 1) {
+            let esec = null;
+            try { esec = nameplateSectionForCar(car, fam, wikitext); } catch (e) { esec = null; }
+            // With no section of its own, a car on its own page is its first infobox.
+            if (esec) electric = mergeElectric(electric, electricMentions(esec.body));
+            else if (!car.familyOf && car.wp && articleKeyOf(served || title) === articleKeyOf(car.wp)) electric = mergeElectric(electric, electricMentions(firstInfobox(wikitext)));
+          } else electric = mergeElectric(electric, electricMentions(wikitext));
           addUnlinked(unlinkedEngineMentions(wikitext));
           addAka(articleLead(wikitext), title);
         } else unreadable = true;
@@ -20453,6 +20630,7 @@ Rules:
                `"${umbrella}" § ${fromSection.title}`);
         }
         addUnlinked(unlinkedEngineMentions(fromSection.body, famWikitext));
+        electric = mergeElectric(electric, electricMentions(fromSection.body));
         addAka(fromSection.body, `${umbrella} § ${fromSection.title}`);
       }
       // No article of its own and no section of its own -- but a nameplate
@@ -20470,11 +20648,18 @@ Rules:
         hits = engineMentions(famWikitext).filter(h => !engineLineOutsideRun(h, car));
         addUnlinked(unlinkedEngineMentions(famWikitext).filter(h => !engineLineOutsideRun(h, car)));
         addAka(articleLead(famWikitext), umbrella);
+        if (motorFieldCount(famWikitext) <= 1 && onlyCarOfPage(car, nodes)) electric = mergeElectric(electric, electricWithinRun(electricMentions(famWikitext), car));
         wholePage = true;
         if (hits.length || unlinked.length) {
           note(`powertrain: ${car.label} -- read from "${umbrella}", whose one engine field ` +
                "covers every generation");
         }
+      }
+      // The same for an electric nameplate with one motor field and no engine
+      // field at all: one infobox describes every generation it covers.
+      if (!title && !fromSection && famWikitext && !electric && !engineFields(famWikitext).length && motorFieldCount(famWikitext) === 1 && onlyCarOfPage(car, nodes)) {
+        electric = electricWithinRun(electricMentions(famWikitext), car);
+        if (electric) wholePage = true;
       }
       if (!unreadable) store.aliases[car.id] = { names: aka, from: akaFrom, checkedAt: new Date().toISOString() };
       if (aka.length) note(`names: ${car.label} -- also called ${aka.join(" · ")}`);
@@ -20489,6 +20674,13 @@ Rules:
       // no article and no section would pay that on every check of its
       // nameplate, forever, for the same answer. Clearing it is what the
       // deliberate re-check does.
+      if (electric) {
+        note(`powertrain: ${car.label} -- electric: ` + [
+          electric.motors.length ? `${electric.motors.length} motor line(s)` : null,
+          electric.battery.length ? `battery ${electric.battery.join(" / ")}` : null,
+          electric.range.length ? `${electric.rangeKind === "electric" ? "electric " : ""}range ${electric.range.join(" / ")}` : null,
+        ].filter(Boolean).join(", "));
+      }
       if (!hits.length) {
         // A page that did not load says nothing about the engines: an earlier
         // read stands, and the car stays due for another try.
@@ -20507,10 +20699,11 @@ Rules:
           sourceTitle: readTitle || ((fromSection || wholePage) && umbrella) || null,
           status, engines: [], unlinked, v: unreadable ? 1 : ENGINE_SCAN_VERSION,
         };
+        if (electric && !unreadable) store.engineScans[car.id].electric = electric;
         note(`powertrain: ${car.label} -- ` + (
           unreadable ? `could not read "${title}"`
           : status === "no-engines"
-            ? "its article names no engine"
+            ? (electric ? "its article names no engine; it is electric" : "its article names no engine")
             : "no article of its own, and its nameplate's page has no section for it"));
         out.scanned++; out.skipped++;
         continue;
@@ -20521,6 +20714,7 @@ Rules:
         section: fromSection ? fromSection.title : (wholePage ? "(the whole page)" : null),
         engines: hits, unlinked, v: ENGINE_SCAN_VERSION,
       };
+      if (electric) store.engineScans[car.id].electric = electric;
       if (wholePage) store.engineScans[car.id].fieldYears = engineFieldProduction(famWikitext) || false;
       note(`powertrain: ${car.label} -- ${hits.length} engine(s) in ` +
            `"${readTitle || umbrella}"`);
@@ -21958,7 +22152,7 @@ Rules:
     sameEngineLine, decodeEntities, articleIsNotACar, sweepStoredSplitsForOutsiders, sweepRecheckSections, decideRecheck, headingsOf,
     markFutureGenerations, articleNamesCar, articleFitsCar, hatnotePageIsAboutCars, isListOfArticles, settleListPage, sameCarOutsideBrackets, runCheck, decideRecheck, sweepArticleLinks, settleDecidedRechecks, settleRetiredGenerationFlags, sweepFlaggedMentions, articleNamesCarInFull, sweepWeakRelations, settleAfterScans, applyReviewedCorrections, sweepWholePageEngineLists, sweepOrdinalPlaceholders, replayStarted, replayFinished,
     lastSaveError: () => lastSaveError,
-    engineMentions, unlinkedEngineMentions, engineSpecLabel,
+    engineMentions, unlinkedEngineMentions, engineSpecLabel, electricMentions,
     recordEngineMentions, recordEngineMentionsFrom, applyEngineMentions,
     looksLikeEngineArticleTitle, engineIdFromTitle,
     articleFromNameplateSection, findGenerationArticle,
