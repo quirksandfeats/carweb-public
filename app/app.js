@@ -283,6 +283,9 @@ window.CarWeb = (function () {
     LFam.mergeDuplicateNameplates(nodes, links);
     LFam.foldReviewedCars(nodes, links);
     LFam.applyGenerationPlacements(nodes, links);
+    // Generations held under another car's name go to their own car before the
+    // relationships are drawn, so a relation between the two is drawn once, now.
+    if (LFam.applyBorrowedPlates) LFam.applyBorrowedPlates(nodes, links);
     // Waiting relationships are decided by rule now, and only now: on the
     // finished graph. Decided before the passes above had made the cars that
     // arrive late, three of them were dropped on every load because "one of
@@ -325,6 +328,9 @@ window.CarWeb = (function () {
   backfillGenerationEnds(new Map(nodes.map(n => [n.id, n])));
   // A car whose read was another car's article sits on that car's platform instead.
   if (window.LlmFamilies && window.LlmFamilies.applyBorrowedReads) window.LlmFamilies.applyBorrowedReads(nodes, links);
+  // A nameplate split from another car's article under its own name gives its
+  // generations to that car.
+  if (window.LlmFamilies && window.LlmFamilies.applyBorrowedPlates) window.LlmFamilies.applyBorrowedPlates(nodes, links);
   // Before the reach pass: links an index page's car hands to its listed cars are
   // measured by those cars' years.
   if (window.LlmFamilies && window.LlmFamilies.applySharedNames) window.LlmFamilies.applySharedNames(nodes, links);

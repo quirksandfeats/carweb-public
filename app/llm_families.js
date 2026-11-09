@@ -561,6 +561,92 @@ window.LlmFamilies = (function () {
     }
     return false;
   }
+  // Nameplates split from another car's article under their own name
+  // (scripts/borrowed_plates.js): the TownAce held the LiteAce article's generations,
+  // the Vauxhall Midi the Isuzu Fargo's. The generations go to the article's own car (the
+  // plain node of its name, or a nameplate made for it), and the holder becomes another
+  // name of it, the generation its code names, or a car of its own linked to it. Where
+  // the article is another nameplate's generation, a platform, a company or a race car,
+  // the generations go and the holder stays one car.
+  const BORROWED_PLATES = (typeof window !== "undefined" && window.BORROWED_PLATES) || {};
+  const plateAka = new Map();
+  function applyBorrowedPlates(nodes, links) {
+    const byId = new Map(nodes.map(n => [n.id, n]));
+    const ownYears = h => { const f = store.mintedFacts && store.mintedFacts[h.id]; h.year = f && f.year != null ? f.year : null; h.end = f && f.end != null ? f.end : null; };
+    Object.keys(BORROWED_PLATES).forEach(hid => {
+      const r = BORROWED_PLATES[hid], h = byId.get(hid);
+      if (!h || h.retired || h.type !== "family") return;
+      const gens = (h.generations || []).map(id => byId.get(id)).filter(g => g && !g.retired);
+      const genIds = new Set(gens.map(g => g.id));
+      if (r.action === "retire") {
+        gens.forEach(g => { g.retired = true; g.retiredReason = `not a generation of the ${h.make} ${h.label}: ${r.why}`; });
+        h.type = "model"; h.generations = []; ownYears(h);
+        return;
+      }
+      let s = byId.get(r.subject || (r.mint && r.mint.id));
+      if (!s && r.mint) {
+        const mk = nodes.find(n => n.type === "make" && !n.retired && norm(n.label) === norm(r.mint.make));
+        if (!mk) return;
+        s = { id: r.mint.id, type: "model", make: mk.label, label: r.mint.label, wp: r.mint.wp, llmGenerated: true };
+        nodes.push(s); byId.set(s.id, s);
+        links.push({ source: s.id, target: mk.id, type: "made" });
+      }
+      if (!s || s.retired || s.id === h.id) return;
+      // The generations, their links up to the nameplate, and the nameplate-level
+      // stand-ins of their links, all move.
+      s.type = "family";
+      s.generations = (s.generations || []).filter(id => !genIds.has(id)).concat(gens.map(g => g.id));
+      gens.forEach(g => {
+        g.familyOf = s.id; g.make = s.make;
+        if (String(g.label).startsWith(h.label + " ")) g.label = s.label + " " + g.label.slice(h.label.length + 1);
+      });
+      links.forEach(l => {
+        const a = idOf(l.source), b = idOf(l.target);
+        if (l.type === "generation" && ((a === h.id && genIds.has(b)) || (b === h.id && genIds.has(a)))) {
+          if (a === h.id) l.source = s.id; else l.target = s.id;
+        }
+        if (l.mirrorSourceFam === h.id) { l.mirrorSourceFam = s.id; if (a === h.id) l.source = s.id; }
+        if (l.mirrorTargetFam === h.id) { l.mirrorTargetFam = s.id; if (b === h.id) l.target = s.id; }
+      });
+      const years = gens.map(g => g.year).filter(y => y != null);
+      if (years.length) { s.year = Math.min(...years); s.end = gens.some(g => g.year != null && g.end == null) ? null : Math.max(...gens.map(g => g.end).filter(y => y != null)); }
+      h.type = "model"; h.generations = [];
+      const name = `${h.make} ${h.label}`;
+      // A holder that is only another name for the car, or one of its generations, hands
+      // its own connections to the car: the Mini Cooper's designers and its succession
+      // from the Austin Mini are the Mini Hatch's.
+      if (r.holderAs === "alias" || (r.holderAs === "generation" && byId.get(r.generation))) {
+        const key = l => l.type + "|" + idOf(l.source) + "|" + idOf(l.target);
+        const have = new Set(links.filter(l => !l.retired).map(key));
+        links.forEach(l => {
+          if (l.retired || l.type === "made" || l.type === "generation") return;
+          const a = idOf(l.source), b = idOf(l.target);
+          if (a !== h.id && b !== h.id) return;
+          const moved = { source: a === h.id ? s.id : a, target: b === h.id ? s.id : b, type: l.type };
+          if (moved.source === moved.target || have.has(key(moved))) { l.retired = true; l.retiredReason = "moved to the " + s.make + " " + s.label; return; }
+          if (a === h.id) l.source = s.id; else l.target = s.id;
+          have.add(key(l));
+        });
+      }
+      if (r.holderAs === "alias") {
+        h.retired = true; h.supersededBy = s.id; h.retiredReason = `another name for the ${s.make} ${s.label}`;
+        plateAka.set(s.id, [...new Set([...(plateAka.get(s.id) || []), name])]);
+      } else if (r.holderAs === "generation" && byId.get(r.generation)) {
+        const g = byId.get(r.generation);
+        h.retired = true; h.supersededBy = g.id; h.retiredReason = `the ${s.make} ${g.label}`;
+      } else {
+        // A car of its own: a badge, a trim or an electric version the article covers.
+        // Years looked up for its name came from the whole article: the e Every is not 1982.
+        if (r.years) { h.year = r.years[0]; h.end = r.years[1]; }
+        else { ownYears(h); if (h.year != null && h.year === s.year) { h.year = null; h.end = null; } }
+        const to = byId.get(r.platformWith) || s;
+        if (!links.some(l => !l.retired && (l.type === "related" || l.type === "platform") &&
+            [idOf(l.source), idOf(l.target)].sort().join("|") === [h.id, to.id].sort().join("|"))) {
+          links.push({ source: h.id, target: to.id, type: "related", borrowedPlate: true });
+        }
+      }
+    });
+  }
   // Separate cars that carry one name, from Wikipedia's index of that name
   // (scripts/shared_names.js): "Ford Capri (disambiguation)" lists the Capri
   // (Australia) and the Capri EV beside the 1968 Capri; the "Chevrolet Blazer" page
@@ -19741,7 +19827,7 @@ Rules:
   }
   function aliasesFor(id) {
     const e = store.aliases[id];
-    return ((e && e.names) || []).map(n => decodeEntities(n)).concat(engineAka.get(id) || []);
+    return ((e && e.names) || []).map(n => decodeEntities(n)).concat(engineAka.get(id) || [], plateAka.get(id) || []);
   }
 
   function engineArticleFor(car, fam, famWikitext, umbrella) {
@@ -21476,7 +21562,7 @@ Rules:
   }
 
   return {
-    settleOutOfReachLinks, settleNamesakeFacts, applySharedNames, applyBorrowedReads, productionRangesOnOwnCards, personPageIsTheirs, listedArticles, sectionYearsForFragment, pageCardYears,
+    settleOutOfReachLinks, settleNamesakeFacts, applySharedNames, applyBorrowedReads, applyBorrowedPlates, productionRangesOnOwnCards, generationNamedBy, personPageIsTheirs, listedArticles, sectionYearsForFragment, pageCardYears,
     serverAvailable, isEligible, entryFor,
     checkNode, checkNodeCascade, retryNode, confirmNode, rejectNode,
     applyConfirmed, filePathUrl,
