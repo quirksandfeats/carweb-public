@@ -287,6 +287,7 @@ window.CarWeb = (function () {
     // relationships are drawn, so a relation between the two is drawn once, now.
     if (LFam.applyBorrowedPlates) LFam.applyBorrowedPlates(nodes, links);
     if (LFam.applyConceptCars) LFam.applyConceptCars(nodes, links);
+    if (LFam.applyGenerationVariants) LFam.applyGenerationVariants(nodes, links);
     // Waiting relationships are decided by rule now, and only now: on the
     // finished graph. Decided before the passes above had made the cars that
     // arrive late, three of them were dropped on every load because "one of
@@ -333,6 +334,7 @@ window.CarWeb = (function () {
   // generations to that car.
   if (window.LlmFamilies && window.LlmFamilies.applyBorrowedPlates) window.LlmFamilies.applyBorrowedPlates(nodes, links);
   if (window.LlmFamilies && window.LlmFamilies.applyConceptCars) window.LlmFamilies.applyConceptCars(nodes, links);
+  if (window.LlmFamilies && window.LlmFamilies.applyGenerationVariants) window.LlmFamilies.applyGenerationVariants(nodes, links);
   // Before the reach pass: links an index page's car hands to its listed cars are
   // measured by those cars' years.
   if (window.LlmFamilies && window.LlmFamilies.applySharedNames) window.LlmFamilies.applySharedNames(nodes, links);
@@ -1650,7 +1652,13 @@ window.CarWeb = (function () {
       const LFam = window.LlmFamilies;
       const aka = LFam && LFam.aliasesFor ? LFam.aliasesFor(n.id) : [];
       const a = aka.length ? `<br>also called ${aka.map(esc).join(" · ")}` : "";
-      return `${esc(n.make || "")} · ${run || "years unknown"}${d}${e}${a}`;
+      // Its facelifts and its body or powertrain versions, each with its years.
+      const parts = LFam && LFam.phasesOf ? LFam.phasesOf(n.id) : [];
+      const span = p => p.year == null ? "" : ` ${p.year}–${p.end == null ? "" : p.end}`;
+      const ph = parts.filter(p => p.kind === "phase"), va = parts.filter(p => p.kind === "variant");
+      const pl = (ph.length ? `<br>phases: ${ph.map(p => esc(p.label) + span(p)).join(" · ")}` : "") +
+                 (va.length ? `<br>versions: ${va.map(p => esc(p.label) + span(p)).join(" · ")}` : "");
+      return `${esc(n.make || "")} · ${run || "years unknown"}${d}${e}${a}${pl}`;
     }
     // An engine fell through to the person branch below and came out
     // "· 0 cars in the web" -- personCreditedCars knows nothing about a

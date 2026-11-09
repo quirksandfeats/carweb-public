@@ -647,6 +647,56 @@ window.LlmFamilies = (function () {
       }
     });
   }
+  // Facelifts, phases, body styles and electric or hybrid versions read as generations
+  // (scripts/generation_variants.js): the Diablo's "Facelift", the Peugeot 106's "Phase
+  // I" and "Phase II", the MGB "GT", the Ioniq "Electric". The owner (8 Nov 2026): a
+  // trim or electric version is part of the generation it belongs to; a facelift is a
+  // phase of its generation. Each folds into that generation, which lists it with its
+  // years and runs as long as the longest of them.
+  const GENERATION_VARIANTS = (typeof window !== "undefined" && window.GENERATION_VARIANTS) || {};
+  const genPhases = new Map();
+  function applyGenerationVariants(nodes, links) {
+    const byId = new Map(nodes.map(n => [n.id, n]));
+    Object.keys(GENERATION_VARIANTS).forEach(id => {
+      const r = GENERATION_VARIANTS[id];
+      if (r.rename) { const t = byId.get(id); if (t && !t.retired && t.familyOf && !t.variantRenamed) { t.label = r.rename; t.variantRenamed = true; } }
+    });
+    Object.keys(GENERATION_VARIANTS).forEach(id => {
+      const r = GENERATION_VARIANTS[id], g = byId.get(id), t = byId.get(r.into);
+      if (!r.into || !g || g.retired || !t || t.retired || !g.familyOf || g.familyOf !== t.familyOf) return;
+      const plate = byId.get(g.familyOf);
+      // The generation's own phase first ("Phase I 1991–1996"), with the years it had.
+      const list = genPhases.get(t.id) || [];
+      const own = GENERATION_VARIANTS[t.id];
+      if (own && own.anchorLabel && !list.some(p => p.label === own.anchorLabel)) list.push({ kind: own.kind, label: own.anchorLabel, year: t.year, end: t.end });
+      list.push({ kind: r.kind, label: r.label, year: g.year, end: g.end });
+      genPhases.set(t.id, list);
+      if (g.year != null && (t.year == null || g.year < t.year)) t.year = g.year;
+      if (t.end != null && (g.end == null ? g.year != null : g.end > t.end)) t.end = g.end;
+      g.retired = true; g.supersededBy = t.id; g.foldedInto = t.id; g.retiredReason = `a ${r.kind} of the ${plate ? plate.make + " " : ""}${t.label}`;
+      if (plate) plate.generations = (plate.generations || []).filter(x => x !== id);
+      // Its connections are the generation's; the chain closes over it.
+      const into = links.filter(l => !l.retired && l.type === "gensucc" && idOf(l.target) === id);
+      const outOf = links.filter(l => !l.retired && l.type === "gensucc" && idOf(l.source) === id);
+      [...into, ...outOf].forEach(l => { l.retired = true; l.retiredReason = "folded into " + t.label; });
+      into.forEach(a => outOf.forEach(b => {
+        const x = idOf(a.source), y = idOf(b.target);
+        if (x !== y && !links.some(l => !l.retired && l.type === "gensucc" && idOf(l.source) === x && idOf(l.target) === y)) links.push({ source: x, target: y, type: "gensucc" });
+      }));
+      const key = l => l.type + "|" + idOf(l.source) + "|" + idOf(l.target);
+      const have = new Set(links.filter(l => !l.retired).map(key));
+      links.forEach(l => {
+        if (l.retired || l.type === "gensucc") return;
+        const a = idOf(l.source), b = idOf(l.target);
+        if (a !== id && b !== id) return;
+        if (l.type === "generation") { l.retired = true; l.retiredReason = "folded into " + t.label; return; }
+        const m = { type: l.type, source: a === id ? t.id : a, target: b === id ? t.id : b };
+        if (m.source === m.target || have.has(key(m))) { l.retired = true; l.retiredReason = "folded into " + t.label; return; }
+        l.source = m.source; l.target = m.target; have.add(key(l));
+      });
+    });
+  }
+  function phasesOf(id) { return genPhases.get(id) || []; }
   // Concept cars and prototypes read as generations (scripts/concept_cars.js): the
   // Oldsmobile Starfire's 1953 dream car, the Torana GTR-X, the Stratos Zero. The owner
   // (8 Nov 2026): a concept is linked to the nameplate like a car that shares its name,
@@ -17997,7 +18047,8 @@ Rules:
     for (const [id, rec] of Object.entries(store.engineScans || {})) {
       if (!rec || !rec.sourceTitle || !(rec.engines || []).length || rec.v === 0) continue;
       const car = byId.get(id);
-      if (!car) continue;
+      // A car folded into another (a facelift into its generation) reads for nobody now.
+      if (!car || car.retired) continue;
       // A concept car read from its nameplate's page reads its own section of it.
       const own = car.familyOf || car.conceptOf || car.id;
       const other = plates.get(articleKeyOf(rec.sourceTitle));
@@ -18135,7 +18186,8 @@ Rules:
     const replay = (carId, hits) => {
       let car = byId.get(carId);
       // Read under a generation that turned out to be a car of its own: the car's.
-      if (car && car.ownCarStub) { for (let i = 0; car && car.retired && car.supersededBy && i < 5; i++) car = byId.get(car.supersededBy); }
+      // And one folded into its generation (a facelift, a body style): the generation's.
+      if (car && (car.ownCarStub || car.foldedInto)) { for (let i = 0; car && car.retired && car.supersededBy && i < 5; i++) car = byId.get(car.supersededBy); }
       if (!car || car.retired || !hits || !hits.length) return;
       // A nameplate with generations carries no engines of its own: they
       // belong to the generations, which are read separately. Real case, the
@@ -21625,7 +21677,7 @@ Rules:
   }
 
   return {
-    settleOutOfReachLinks, settleNamesakeFacts, applySharedNames, applyBorrowedReads, applyBorrowedPlates, applyConceptCars, productionRangesOnOwnCards, generationNamedBy, generationSection, personPageIsTheirs, listedArticles, sectionYearsForFragment, pageCardYears,
+    settleOutOfReachLinks, settleNamesakeFacts, applySharedNames, applyBorrowedReads, applyBorrowedPlates, applyConceptCars, applyGenerationVariants, phasesOf, productionRangesOnOwnCards, generationNamedBy, generationSection, personPageIsTheirs, listedArticles, sectionYearsForFragment, pageCardYears,
     serverAvailable, isEligible, entryFor,
     checkNode, checkNodeCascade, retryNode, confirmNode, rejectNode,
     applyConfirmed, filePathUrl,
