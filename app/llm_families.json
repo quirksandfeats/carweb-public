@@ -286964,8 +286964,8 @@
   },
   "llm-m-nissan-micra-k14|llm-m-nissan-note-e12|platform": {
    "status": "confirmed",
-   "checkedAt": "2026-11-10T10:21:17.419Z",
-   "decidedAt": "2026-11-10T10:21:17.419Z",
+   "checkedAt": "2026-11-10T10:55:26.604Z",
+   "decidedAt": "2026-11-10T10:55:26.604Z",
    "famA": "m-nissan-note",
    "famB": "m-nissan-micra",
    "relType": "platform",
@@ -421874,8 +421874,8 @@
   },
   "llm-related-daewoo-nexia|m-chevrolet-aveo-t200|platform": {
    "status": "confirmed",
-   "checkedAt": "2026-11-10T10:21:34.844Z",
-   "decidedAt": "2026-11-10T10:21:34.844Z",
+   "checkedAt": "2026-11-10T10:55:44.352Z",
+   "decidedAt": "2026-11-10T10:55:44.352Z",
    "famA": "fam-chevrolet-aveo",
    "famB": "llm-related-daewoo-nexia",
    "relType": "platform",
@@ -466497,8 +466497,8 @@
   },
   "llm-llm-related-mitsubishi-minicab-miev-u61-62-68-69|llm-llm-related-nissan-clipper-mitsubishi-town-box-first-generation|platform": {
    "status": "confirmed",
-   "checkedAt": "2026-11-10T10:21:29.810Z",
-   "decidedAt": "2026-11-10T10:21:29.810Z",
+   "checkedAt": "2026-11-10T10:55:39.259Z",
+   "decidedAt": "2026-11-10T10:55:39.259Z",
    "famA": "llm-related-mitsubishi-minicab-miev",
    "famB": "llm-related-nissan-clipper",
    "relType": "platform",
@@ -468920,8 +468920,8 @@
   },
   "llm-m-lincoln-custom-lincoln-custom-1941|llm-m-lincoln-lincoln-zephyr-lincoln-h-series|platform": {
    "status": "confirmed",
-   "checkedAt": "2026-11-10T10:21:20.245Z",
-   "decidedAt": "2026-11-10T10:21:20.245Z",
+   "checkedAt": "2026-11-10T10:55:29.514Z",
+   "decidedAt": "2026-11-10T10:55:29.514Z",
    "famA": "m-lincoln-custom",
    "famB": "m-lincoln-lincoln-zephyr",
    "relType": "platform",
@@ -498150,8 +498150,8 @@
   },
   "llm-m-mitsubishi-3000gt-z16a|llm-m-mitsubishi-sigma-first-generation|platform": {
    "status": "confirmed",
-   "checkedAt": "2026-11-10T10:21:20.706Z",
-   "decidedAt": "2026-11-10T10:21:20.706Z",
+   "checkedAt": "2026-11-10T10:55:30.003Z",
+   "decidedAt": "2026-11-10T10:55:30.003Z",
    "famA": "m-mitsubishi-sigma",
    "famB": "m-mitsubishi-3000gt",
    "relType": "platform",
@@ -502974,8 +502974,8 @@
   },
   "llm-llm-related-nissan-clipper-suzuki-every-fourth-generation|llm-llm-related-suzuki-carry-da16t|platform": {
    "status": "confirmed",
-   "checkedAt": "2026-11-10T10:21:29.875Z",
-   "decidedAt": "2026-11-10T10:21:29.875Z",
+   "checkedAt": "2026-11-10T10:55:39.330Z",
+   "decidedAt": "2026-11-10T10:55:39.330Z",
    "famA": "llm-related-suzuki-carry",
    "famB": "llm-related-nissan-clipper",
    "relType": "platform",
@@ -516769,8 +516769,8 @@
   },
   "llm-m-vauxhall-astra-mkii-kadett-e|llm-related-bedford-astra|platform": {
    "status": "confirmed",
-   "checkedAt": "2026-11-10T10:21:19.311Z",
-   "decidedAt": "2026-11-10T10:21:19.311Z",
+   "checkedAt": "2026-11-10T10:55:28.564Z",
+   "decidedAt": "2026-11-10T10:55:28.564Z",
    "famA": "m-vauxhall-astra",
    "famB": "llm-related-bedford-astra",
    "relType": "platform",
@@ -532949,8 +532949,8 @@
   },
   "llm-m-mazda-cx-5-kf|m-mazda-6-third-generation|platform": {
    "status": "confirmed",
-   "checkedAt": "2026-11-10T10:21:36.228Z",
-   "decidedAt": "2026-11-10T10:21:36.228Z",
+   "checkedAt": "2026-11-10T10:55:45.762Z",
+   "decidedAt": "2026-11-10T10:55:45.762Z",
    "famA": "fam-mazda-6",
    "famB": "m-mazda-cx-5",
    "relType": "platform",
@@ -537823,8 +537823,8 @@
   },
   "llm-m-mazda-carol-seventh-generation-hb36|llm-m-suzuki-alto-ha25-ha35|platform": {
    "status": "confirmed",
-   "checkedAt": "2026-11-10T10:21:19.812Z",
-   "decidedAt": "2026-11-10T10:21:19.812Z",
+   "checkedAt": "2026-11-10T10:55:29.056Z",
+   "decidedAt": "2026-11-10T10:55:29.056Z",
    "famA": "m-mazda-carol",
    "famB": "m-suzuki-alto",
    "relType": "platform",
@@ -542594,8 +542594,8 @@
   },
   "llm-llm-related-daihatsu-delta-u400|llm-llm-related-toyota-toyoace-sixth-generation|platform": {
    "status": "confirmed",
-   "checkedAt": "2026-11-10T10:21:26.615Z",
-   "decidedAt": "2026-11-10T10:21:26.615Z",
+   "checkedAt": "2026-11-10T10:55:36.039Z",
+   "decidedAt": "2026-11-10T10:55:36.039Z",
    "famA": "llm-related-daihatsu-delta",
    "famB": "llm-related-toyota-toyoace",
    "relType": "platform",
@@ -542622,8 +542622,8 @@
   },
   "llm-llm-related-daihatsu-delta-u600-u700|llm-llm-related-toyota-toyoace-seventh-generation|platform": {
    "status": "confirmed",
-   "checkedAt": "2026-11-10T10:21:26.617Z",
-   "decidedAt": "2026-11-10T10:21:26.617Z",
+   "checkedAt": "2026-11-10T10:55:36.040Z",
+   "decidedAt": "2026-11-10T10:55:36.040Z",
    "famA": "llm-related-daihatsu-delta",
    "famB": "llm-related-toyota-toyoace",
    "relType": "platform",
@@ -546735,8 +546735,8 @@
   },
   "llm-m-isuzu-mu-second-generation|llm-related-honda-jazz|platform": {
    "status": "confirmed",
-   "checkedAt": "2026-11-10T10:21:36.212Z",
-   "decidedAt": "2026-11-10T10:21:36.212Z",
+   "checkedAt": "2026-11-10T10:55:45.746Z",
+   "decidedAt": "2026-11-10T10:55:45.746Z",
    "famA": "llm-related-honda-jazz",
    "famB": "m-isuzu-mu",
    "relType": "platform",
@@ -547963,8 +547963,8 @@
   },
   "llm-m-suzuki-alto-ha25-ha35|llm-related-nissan-pixo-ev|platform": {
    "status": "confirmed",
-   "checkedAt": "2026-11-10T10:21:23.143Z",
-   "decidedAt": "2026-11-10T10:21:23.143Z",
+   "checkedAt": "2026-11-10T10:55:32.485Z",
+   "decidedAt": "2026-11-10T10:55:32.485Z",
    "famA": "llm-related-nissan-pixo-ev",
    "famB": "m-suzuki-alto",
    "relType": "platform",
@@ -548104,8 +548104,8 @@
   },
   "llm-m-buick-electra-fourth-generation|llm-m-cadillac-fleetwood-fourth-generation-1971-1976-|platform": {
    "status": "confirmed",
-   "checkedAt": "2026-11-10T10:21:24.518Z",
-   "decidedAt": "2026-11-10T10:21:24.518Z",
+   "checkedAt": "2026-11-10T10:55:33.891Z",
+   "decidedAt": "2026-11-10T10:55:33.892Z",
    "famA": "m-cadillac-fleetwood",
    "famB": "m-buick-electra",
    "relType": "platform",
@@ -548118,8 +548118,8 @@
   },
   "llm-m-cadillac-fleetwood-fourth-generation-1971-1976-|llm-m-oldsmobile-98-ninth-generation-1971-1976|platform": {
    "status": "confirmed",
-   "checkedAt": "2026-11-10T10:21:24.518Z",
-   "decidedAt": "2026-11-10T10:21:24.518Z",
+   "checkedAt": "2026-11-10T10:55:33.892Z",
+   "decidedAt": "2026-11-10T10:55:33.892Z",
    "famA": "m-cadillac-fleetwood",
    "famB": "m-oldsmobile-98",
    "relType": "platform",
@@ -548160,8 +548160,8 @@
   },
   "llm-m-dodge-colt-first-generation|llm-m-mitsubishi-galant-first-generation|platform": {
    "status": "confirmed",
-   "checkedAt": "2026-11-10T10:21:25.173Z",
-   "decidedAt": "2026-11-10T10:21:25.173Z",
+   "checkedAt": "2026-11-10T10:55:34.565Z",
+   "decidedAt": "2026-11-10T10:55:34.565Z",
    "famA": "m-dodge-colt",
    "famB": "m-mitsubishi-galant",
    "relType": "platform",
@@ -548174,8 +548174,8 @@
   },
   "llm-m-dodge-colt-second-generation|llm-m-mitsubishi-galant-third-generation|platform": {
    "status": "confirmed",
-   "checkedAt": "2026-11-10T10:21:25.173Z",
-   "decidedAt": "2026-11-10T10:21:25.173Z",
+   "checkedAt": "2026-11-10T10:55:34.566Z",
+   "decidedAt": "2026-11-10T10:55:34.566Z",
    "famA": "m-dodge-colt",
    "famB": "m-mitsubishi-galant",
    "relType": "platform",
@@ -550653,8 +550653,8 @@
   },
   "llm-llm-related-ford-contour-mk-i-mk-ii|llm-m-mercury-cougar-seventh-generation|platform": {
    "status": "confirmed",
-   "checkedAt": "2026-11-10T10:21:24.439Z",
-   "decidedAt": "2026-11-10T10:21:24.439Z",
+   "checkedAt": "2026-11-10T10:55:33.812Z",
+   "decidedAt": "2026-11-10T10:55:33.812Z",
    "famA": "llm-related-ford-contour",
    "famB": "m-mercury-cougar",
    "relType": "platform",
@@ -550667,8 +550667,8 @@
   },
   "llm-llm-related-volkswagen-alltrack-b6|llm-m-skoda-superb-b6-3t|platform": {
    "status": "confirmed",
-   "checkedAt": "2026-11-10T10:21:25.490Z",
-   "decidedAt": "2026-11-10T10:21:25.490Z",
+   "checkedAt": "2026-11-10T10:55:34.891Z",
+   "decidedAt": "2026-11-10T10:55:34.891Z",
    "famA": "llm-related-volkswagen-alltrack",
    "famB": "m-skoda-superb",
    "relType": "platform",
@@ -1204585,7 +1204585,7 @@
     }
    ],
    "unlinked": [],
-   "v": 8,
+   "v": 0,
    "electric": {
     "motors": [
      "AC synchronous",
@@ -1204601,7 +1204601,9 @@
      "44 mi (EPA)"
     ],
     "rangeKind": "electric"
-   }
+   },
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "m-toyota-prius-v": {
    "checkedAt": "2026-11-10T09:46:09.252Z",
@@ -1211324,7 +1211326,9 @@
     }
    ],
    "unlinked": [],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-daihatsu-mira-la350": {
    "checkedAt": "2026-11-10T10:22:14.338Z",
@@ -1211345,7 +1211349,9 @@
     }
    ],
    "unlinked": [],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "m-daihatsu-sigra": {
    "checkedAt": "2026-11-10T08:34:24.103Z",
@@ -1225460,7 +1225466,9 @@
     }
    ],
    "unlinked": [],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-llm-related-genesis-g90-eq900-hi-hi": {
    "checkedAt": "2026-11-10T10:20:54.431Z",
@@ -1228815,7 +1228823,9 @@
     }
    ],
    "unlinked": [],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-llm-related-jaguar-xj6-x300": {
    "checkedAt": "2026-11-10T10:25:21.961Z",
@@ -1228879,7 +1228889,9 @@
     }
    ],
    "unlinked": [],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-llm-related-jaguar-xj6-x308": {
    "checkedAt": "2026-11-10T10:25:22.006Z",
@@ -1228943,7 +1228955,9 @@
     }
    ],
    "unlinked": [],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-llm-related-jaguar-xj6-x350": {
    "checkedAt": "2026-11-10T10:14:22.672Z",
@@ -1244793,7 +1244807,9 @@
      "said": "1.9 L I4 SDI (diesel)"
     }
    ],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "m-volkswagen-eos": {
    "checkedAt": "2026-11-10T09:49:32.266Z",
@@ -1260827,7 +1260843,9 @@
      "said": "2.0 L EcoBlue I4 turbo"
     }
    ],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-ford-ranger-international-fourth-generation-p703-ra": {
    "checkedAt": "2026-11-10T10:22:31.111Z",
@@ -1260900,7 +1260918,7 @@
      "said": "2.0 L EcoBlue I4 turbo"
     }
    ],
-   "v": 8,
+   "v": 0,
    "electric": {
     "motors": [
      "75kW (PHEV)"
@@ -1260910,7 +1260928,9 @@
     ],
     "range": [],
     "rangeKind": "total"
-   }
+   },
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "m-alfa-romeo-4c": {
    "checkedAt": "2026-11-10T08:10:28.477Z",
@@ -1271828,7 +1271848,9 @@
      "said": "1489 cc BMC B-Series engine Straight-4"
     }
    ],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-morris-oxford-oxford-series-vi": {
    "checkedAt": "2026-11-10T10:23:07.477Z",
@@ -1271856,7 +1271878,9 @@
      "said": "1622 cc BMC B-Series engine Straight-4"
     }
    ],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "m-toyota-curren": {
    "checkedAt": "2026-11-10T09:41:37.504Z",
@@ -1278142,7 +1278166,9 @@
     }
    ],
    "unlinked": [],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-cmc-veryca-cmc-varica-first": {
    "checkedAt": "2026-11-10T08:23:12.138Z",
@@ -1283095,7 +1283121,9 @@
     }
    ],
    "unlinked": [],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-audi-s8-d3": {
    "checkedAt": "2026-11-10T10:21:52.520Z",
@@ -1283188,7 +1283216,9 @@
      "said": "4.1 L V8 TDI"
     }
    ],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-audi-s8-d4": {
    "checkedAt": "2026-11-10T08:17:04.152Z",
@@ -1283873,7 +1283903,7 @@
     }
    ],
    "unlinked": [],
-   "v": 8,
+   "v": 0,
    "electric": {
     "motors": [
      "AC PMSM (e:HEV)"
@@ -1283881,7 +1283911,9 @@
     "battery": [],
     "range": [],
     "rangeKind": "total"
-   }
+   },
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-llm-related-pontiac-fleetleader-1926-1942": {
    "checkedAt": "2026-10-14T16:58:15.530Z",
@@ -1284628,7 +1284660,9 @@
     }
    ],
    "unlinked": [],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "m-hyundai-alcazar": {
    "checkedAt": "2026-11-10T08:55:42.801Z",
@@ -1290140,7 +1290174,9 @@
      "said": "1.6 L EA113 I4"
     }
    ],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-volkswagen-jetta-china-second-generation-new-jetta-2013": {
    "checkedAt": "2026-11-10T09:49:58.663Z",
@@ -1290711,7 +1290747,9 @@
     }
    ],
    "unlinked": [],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-toyota-ist-xp60": {
    "checkedAt": "2026-11-10T09:45:12.203Z",
@@ -1290953,7 +1290991,9 @@
     }
    ],
    "unlinked": [],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-chevrolet-groove-310s": {
    "checkedAt": "2026-11-10T08:26:41.955Z",
@@ -1304519,7 +1304559,9 @@
     }
    ],
    "unlinked": [],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "m-venucia-r50": {
    "checkedAt": "2026-11-10T09:48:48.699Z",
@@ -1305691,7 +1305733,7 @@
     }
    ],
    "unlinked": [],
-   "v": 8,
+   "v": 0,
    "electric": {
     "motors": [],
     "battery": [
@@ -1305699,7 +1305741,9 @@
     ],
     "range": [],
     "rangeKind": "total"
-   }
+   },
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-toyota-aqua-xp210": {
    "checkedAt": "2026-11-10T09:40:23.686Z",
@@ -1309833,7 +1309877,9 @@
     }
    ],
    "unlinked": [],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-ford-falcon-gt-bf": {
    "checkedAt": "2026-11-10T08:45:14.802Z",
@@ -1310291,7 +1310337,9 @@
     }
    ],
    "unlinked": [],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-daimler-sovereign-jaguar-xj6-based": {
    "checkedAt": "2026-11-10T10:22:17.051Z",
@@ -1310311,7 +1310359,9 @@
     }
    ],
    "unlinked": [],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-mercury-tracer-first-generation": {
    "checkedAt": "2026-11-10T09:11:35.312Z",
@@ -1313333,7 +1313383,9 @@
      "said": "1.8 L EA113 turbo I4"
     }
    ],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-volkswagen-bora-china-second-generation": {
    "checkedAt": "2026-11-10T10:24:04.855Z",
@@ -1313475,7 +1313527,9 @@
      "said": "2.0 L EA113 I4 (petrol)"
     }
    ],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-volkswagen-bora-china-third-generation": {
    "checkedAt": "2026-11-10T10:24:04.901Z",
@@ -1313602,7 +1313656,9 @@
      "said": "1.9 L I4 SDI (diesel)"
     }
    ],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-volkswagen-bora-china-fourth-generation-mqb": {
    "checkedAt": "2026-11-10T09:49:12.697Z",
@@ -1314882,7 +1314938,9 @@
     }
    ],
    "unlinked": [],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-llm-related-toyota-sprinter-trueno-corolla-levin-ae91-92-ae86": {
    "checkedAt": "2026-11-10T10:25:26.725Z",
@@ -1314924,7 +1314982,9 @@
     }
    ],
    "unlinked": [],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-llm-related-toyota-sprinter-trueno-corolla-levin-ae91-92-ae91-ae92": {
    "checkedAt": "2026-11-10T10:20:57.420Z",
@@ -1318025,7 +1318085,7 @@
     }
    ],
    "unlinked": [],
-   "v": 8,
+   "v": 0,
    "electric": {
     "motors": [],
     "battery": [
@@ -1318033,7 +1318093,9 @@
     ],
     "range": [],
     "rangeKind": "total"
-   }
+   },
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-opel-tigra-tigra-a": {
    "checkedAt": "2026-11-10T09:23:15.304Z",
@@ -1318268,7 +1318330,9 @@
     }
    ],
    "unlinked": [],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-nissan-sunny-n17": {
    "checkedAt": "2026-11-10T10:23:21.185Z",
@@ -1318337,7 +1318401,9 @@
     }
    ],
    "unlinked": [],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-vauxhall-astra-fifth-generation-2004-2013-": {
    "checkedAt": "2026-10-15T15:11:07.985Z",
@@ -1322238,7 +1322304,7 @@
     }
    ],
    "unlinked": [],
-   "v": 8,
+   "v": 0,
    "electric": {
     "motors": [
      "Dual motor–generator (MG) system",
@@ -1322254,7 +1322320,9 @@
      "44 mi (EPA)"
     ],
     "rangeKind": "electric"
-   }
+   },
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-jeep-cj-cj-1": {
    "checkedAt": "2026-11-10T08:59:21.981Z",
@@ -1322642,7 +1322710,9 @@
     }
    ],
    "unlinked": [],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "m-volkswagen-passat-b4": {
    "checkedAt": "2026-11-10T10:25:08.988Z",
@@ -1322771,7 +1322841,9 @@
     }
    ],
    "unlinked": [],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "m-volkswagen-passat-b5": {
    "checkedAt": "2026-11-10T10:03:42.576Z",
@@ -1326897,7 +1326969,9 @@
     }
    ],
    "unlinked": [],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-fam-honda-fit-fourth-generation-gr-gs-": {
    "checkedAt": "2026-11-10T10:24:36.951Z",
@@ -1326966,7 +1327040,7 @@
     }
    ],
    "unlinked": [],
-   "v": 8,
+   "v": 0,
    "electric": {
     "motors": [
      "AC PMSM (e:HEV)"
@@ -1326974,7 +1327048,9 @@
     "battery": [],
     "range": [],
     "rangeKind": "total"
-   }
+   },
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "m-honda-nsx-first-generation": {
    "checkedAt": "2026-11-10T10:00:50.262Z",
@@ -1331445,7 +1331521,9 @@
     }
    ],
    "unlinked": [],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-chrysler-town-country-1941-1988-second-generation-1991-1995": {
    "checkedAt": "2026-11-10T08:30:14.931Z",
@@ -1334029,7 +1334107,9 @@
      "said": "6.3 L V8"
     }
    ],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-fam-mercedes-benz-s-w116": {
    "checkedAt": "2026-11-10T10:02:01.427Z",
@@ -1340250,7 +1340330,9 @@
     }
    ],
    "unlinked": [],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-dodge-caravan-third-generation": {
    "checkedAt": "2026-11-10T10:21:49.861Z",
@@ -1340319,7 +1340401,9 @@
      "said": "2.5 L VM425 turbo I4"
     }
    ],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-dodge-caravan-fourth-generation": {
    "checkedAt": "2026-11-10T10:21:49.907Z",
@@ -1340381,7 +1340465,9 @@
      "said": "2.8 L CRD diesel (Philippines)"
     }
    ],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-dodge-caravan-fifth-generation": {
    "checkedAt": "2026-11-10T08:09:21.518Z",
@@ -1340456,7 +1340542,9 @@
     }
    ],
    "unlinked": [],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-plymouth-voyager-full-size-van-ab": {
    "checkedAt": "2026-11-10T08:09:35.116Z",
@@ -1344490,20 +1344578,65 @@
    "v": 8
   },
   "llm-m-lincoln-mark-series-mark-iv": {
-   "checkedAt": "2026-11-10T09:03:59.194Z",
-   "sourceTitle": null,
-   "status": "no-article",
-   "engines": [],
+   "checkedAt": "2026-11-10T10:55:56.263Z",
+   "sourceTitle": "Lincoln Continental Mark IV",
+   "section": "(the whole page)",
+   "engines": [
+    {
+     "title": "Ford 385 engine",
+     "name": "Ford 385",
+     "variant": null,
+     "specs": {
+      "displacement": "460 cu in",
+      "layout": "V",
+      "cylinders": 8
+     },
+     "said": "460 cuin Ford 385 V8"
+    }
+   ],
    "unlinked": [],
-   "v": 8
+   "v": 8,
+   "fieldYears": [
+    1971,
+    1976
+   ],
+   "keptBy": "no article this time"
   },
   "llm-m-lincoln-mark-series-mark-v": {
-   "checkedAt": "2026-11-10T09:03:59.194Z",
-   "sourceTitle": null,
-   "status": "no-article",
-   "engines": [],
+   "checkedAt": "2026-11-10T10:55:56.264Z",
+   "sourceTitle": "Lincoln Continental Mark V",
+   "section": "(the whole page)",
+   "engines": [
+    {
+     "title": "Ford 335 engine",
+     "name": "335 Series",
+     "variant": "400",
+     "specs": {
+      "displacement": "400 cu in",
+      "layout": "V",
+      "cylinders": 8
+     },
+     "said": "400 CID 335 Series V8"
+    },
+    {
+     "title": "Ford 385 engine",
+     "name": "385/Lima",
+     "variant": null,
+     "specs": {
+      "displacement": "460 cu in",
+      "layout": "V",
+      "cylinders": 8
+     },
+     "said": "460 CID 385/Lima V8"
+    }
+   ],
    "unlinked": [],
-   "v": 8
+   "v": 8,
+   "fieldYears": [
+    1977,
+    1979
+   ],
+   "keptBy": "no article this time"
   },
   "llm-m-lincoln-mark-series-mark-vi": {
    "checkedAt": "2026-11-10T09:03:59.194Z",
@@ -1344514,12 +1344647,36 @@
    "v": 8
   },
   "llm-m-lincoln-mark-series-mark-vii": {
-   "checkedAt": "2026-11-10T09:03:59.194Z",
-   "sourceTitle": null,
-   "status": "no-article",
-   "engines": [],
+   "checkedAt": "2026-11-10T10:55:56.265Z",
+   "sourceTitle": "Lincoln Continental Mark VII",
+   "section": null,
+   "engines": [
+    {
+     "title": "Ford Windsor engine",
+     "name": "Windsor",
+     "variant": null,
+     "specs": {
+      "displacement": "4942 cc",
+      "layout": "V",
+      "cylinders": 8
+     },
+     "said": "4942 cc Windsor V8"
+    },
+    {
+     "title": "BMW M21",
+     "name": "M21",
+     "variant": null,
+     "specs": {
+      "displacement": "2443 cc",
+      "layout": "I",
+      "cylinders": 6
+     },
+     "said": "2443 cc BMW M21 TD I6"
+    }
+   ],
    "unlinked": [],
-   "v": 8
+   "v": 8,
+   "keptBy": "no article this time"
   },
   "llm-m-lincoln-mark-series-mark-viii": {
    "checkedAt": "2026-11-10T09:03:59.527Z",
@@ -1347595,12 +1347752,25 @@
    "v": 8
   },
   "llm-m-hyundai-ioniq-ioniq-hybrid": {
-   "checkedAt": "2026-11-10T08:56:22.411Z",
-   "sourceTitle": null,
-   "status": "no-article",
-   "engines": [],
+   "checkedAt": "2026-11-10T10:55:51.161Z",
+   "sourceTitle": "Hyundai Ioniq",
+   "section": "Ioniq Hybrid",
+   "engines": [
+    {
+     "title": "Hyundai Kappa engine",
+     "name": "Kappa II",
+     "variant": "G4LE",
+     "specs": {
+      "displacement": "1.6 L",
+      "layout": "I",
+      "cylinders": 4
+     },
+     "said": "1.6L Kappa II GDI HEV I4"
+    }
+   ],
    "unlinked": [],
-   "v": 8
+   "v": 8,
+   "keptBy": "no article this time"
   },
   "llm-m-hyundai-ioniq-ioniq-electric": {
    "checkedAt": "2026-11-02T04:57:56.545Z",
@@ -1347793,7 +1347963,9 @@
     }
    ],
    "unlinked": [],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-kia-cerato-yd": {
    "checkedAt": "2026-11-10T10:22:54.819Z",
@@ -1347887,7 +1348059,9 @@
     }
    ],
    "unlinked": [],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-kia-cerato-bd": {
    "checkedAt": "2026-11-10T10:22:54.865Z",
@@ -1347992,7 +1348166,9 @@
     }
    ],
    "unlinked": [],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "m-al-araba-1": {
    "checkedAt": "2026-11-10T08:13:38.058Z",
@@ -1354697,7 +1354873,9 @@
      "said": "I4 (CD7, CF2)"
     }
    ],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-fam-honda-accord-cf3-4-5-cl2-3": {
    "checkedAt": "2026-11-02T08:42:25.941Z",
@@ -1354802,7 +1354980,9 @@
     }
    ],
    "unlinked": [],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "m-honda-accord-japan-and-europe-eighth-generation": {
    "checkedAt": "2026-11-10T10:00:27.550Z",
@@ -1354991,7 +1355171,9 @@
     }
    ],
    "unlinked": [],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-fam-honda-cr-v-rd4-rd9": {
    "checkedAt": "2026-11-10T10:24:34.523Z",
@@ -1355037,7 +1355219,9 @@
     }
    ],
    "unlinked": [],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "m-honda-cr-v-third-generation": {
    "checkedAt": "2026-11-10T10:00:30.745Z",
@@ -1356777,7 +1356961,9 @@
     }
    ],
    "unlinked": [],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-fam-honda-integra-second-generation-1989-": {
    "checkedAt": "2026-11-10T10:24:41.787Z",
@@ -1356822,7 +1357008,9 @@
     }
    ],
    "unlinked": [],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-fam-honda-integra-third-generation-1993-": {
    "checkedAt": "2026-11-10T10:24:41.829Z",
@@ -1356864,7 +1357052,9 @@
     }
    ],
    "unlinked": [],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "m-honda-integra-fourth-generation": {
    "checkedAt": "2026-11-10T10:00:47.262Z",
@@ -1360462,7 +1360652,9 @@
     }
    ],
    "unlinked": [],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-ford-falcon-australia-au": {
    "checkedAt": "2026-11-10T08:45:04.673Z",
@@ -1365408,12 +1365600,25 @@
    }
   },
   "llm-related-bmw-e9": {
-   "checkedAt": "2026-11-10T10:18:46.118Z",
-   "sourceTitle": null,
-   "status": "no-article",
-   "engines": [],
+   "checkedAt": "2026-11-10T10:56:00.051Z",
+   "sourceTitle": "BMW E9",
+   "section": null,
+   "engines": [
+    {
+     "title": "BMW M30",
+     "name": "M30",
+     "variant": null,
+     "specs": {
+      "displacement": "3.2 L",
+      "layout": "I",
+      "cylinders": 6
+     },
+     "said": "2.5-3.2 L M30 I6"
+    }
+   ],
    "unlinked": [],
-   "v": 8
+   "v": 8,
+   "keptBy": "no article this time"
   },
   "m-bmw-7-series-g11": {
    "checkedAt": "2026-11-10T09:58:18.371Z",
@@ -1366805,12 +1367010,69 @@
    "v": 8
   },
   "llm-related-bmw-e3": {
-   "checkedAt": "2026-11-10T10:18:44.269Z",
-   "sourceTitle": null,
-   "status": "no-article",
-   "engines": [],
+   "checkedAt": "2026-11-10T10:55:58.184Z",
+   "sourceTitle": "BMW E3",
+   "section": null,
+   "engines": [
+    {
+     "title": "BMW M30",
+     "name": "M30B25",
+     "variant": "M30B25",
+     "specs": {
+      "displacement": "2.5 L",
+      "layout": "I",
+      "cylinders": 6
+     },
+     "said": "2.5 L M30B25 I6"
+    },
+    {
+     "title": "BMW M30",
+     "name": "M30B28",
+     "variant": "M30B28",
+     "specs": {
+      "displacement": "2.8 L",
+      "layout": "I",
+      "cylinders": 6
+     },
+     "said": "2.8 L M30B28 I6"
+    },
+    {
+     "title": "BMW M30",
+     "name": "M30B30",
+     "variant": "M30B30",
+     "specs": {
+      "displacement": "3.0 L",
+      "layout": "I",
+      "cylinders": 6
+     },
+     "said": "3.0 L M30B30 I6"
+    },
+    {
+     "title": "BMW M30",
+     "name": "M30B32LE",
+     "variant": "M30B32",
+     "specs": {
+      "displacement": "3.2 L",
+      "layout": "I",
+      "cylinders": 6
+     },
+     "said": "3.2 L M30B32LE I6"
+    },
+    {
+     "title": "BMW M30",
+     "name": "M30B33V",
+     "variant": "M30B33V",
+     "specs": {
+      "displacement": "3.3 L",
+      "layout": "I",
+      "cylinders": 6
+     },
+     "said": "3.3 L M30B33V I6"
+    }
+   ],
    "unlinked": [],
-   "v": 8
+   "v": 8,
+   "keptBy": "no article this time"
   },
   "llm-m-rolls-royce-ghost-ghost-series-i-first-generation": {
    "checkedAt": "2026-11-10T09:33:35.729Z",
@@ -1372824,7 +1373086,9 @@
     }
    ],
    "unlinked": [],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-nissan-pulsar-c12": {
    "checkedAt": "2026-11-10T10:23:18.422Z",
@@ -1372882,7 +1373146,9 @@
     }
    ],
    "unlinked": [],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-nissan-pulsar-c13": {
    "checkedAt": "2026-11-10T09:19:58.494Z",
@@ -1374446,7 +1374712,9 @@
     }
    ],
    "unlinked": [],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-infiniti-q60-v37": {
    "checkedAt": "2026-11-10T08:57:45.956Z",
@@ -1375708,7 +1375976,9 @@
     }
    ],
    "unlinked": [],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-nissan-sylphy-b18": {
    "checkedAt": "2026-11-10T10:23:23.299Z",
@@ -1375753,7 +1376023,7 @@
     }
    ],
    "unlinked": [],
-   "v": 8,
+   "v": 0,
    "electric": {
     "motors": [
      "AC3 synchronous (e-Power)"
@@ -1375763,7 +1376033,9 @@
     ],
     "range": [],
     "rangeKind": "total"
-   }
+   },
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-nissan-sylphy-b19": {
    "checkedAt": "2026-11-10T10:23:23.344Z",
@@ -1375796,7 +1376068,9 @@
     }
    ],
    "unlinked": [],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-mitsuoka-ryoga-first-generation": {
    "checkedAt": "2026-11-10T09:14:13.946Z",
@@ -1380329,7 +1380603,9 @@
     }
    ],
    "unlinked": [],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-fam-nissan-qashqai-j12": {
    "checkedAt": "2026-11-10T10:24:54.963Z",
@@ -1380376,7 +1380652,7 @@
     }
    ],
    "unlinked": [],
-   "v": 8,
+   "v": 0,
    "electric": {
     "motors": [
      "12V electric motor/generator micro-hybridization solution (μHEV)",
@@ -1380388,7 +1380664,9 @@
     ],
     "range": [],
     "rangeKind": "total"
-   }
+   },
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-nissan-titan-a60": {
    "checkedAt": "2026-11-10T09:20:41.415Z",
@@ -1381679,7 +1381957,9 @@
      "said": "2799 cc MWM Sprint I4"
     }
    ],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-nissan-frontier-north-america-d40": {
    "checkedAt": "2026-11-10T10:23:13.024Z",
@@ -1381760,7 +1382040,9 @@
     }
    ],
    "unlinked": [],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-nissan-frontier-north-america-d41": {
    "checkedAt": "2026-11-10T09:16:37.494Z",
@@ -1382494,7 +1382776,9 @@
     }
    ],
    "unlinked": [],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-fam-nissan-fairlady-z-z32": {
    "checkedAt": "2026-11-10T10:24:52.061Z",
@@ -1382526,7 +1382810,9 @@
     }
    ],
    "unlinked": [],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-fam-nissan-fairlady-z-z33": {
    "checkedAt": "2026-11-10T10:24:52.477Z",
@@ -1382557,7 +1382843,9 @@
     }
    ],
    "unlinked": [],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-fam-nissan-fairlady-z-z34": {
    "checkedAt": "2026-11-10T10:02:19.408Z",
@@ -1383284,7 +1383572,9 @@
     }
    ],
    "unlinked": [],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-mitsubishi-eclipse-cross-gk-gl-ya-yb": {
    "checkedAt": "2026-11-10T09:12:36.934Z",
@@ -1387571,7 +1387861,9 @@
     }
    ],
    "unlinked": [],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-toyota-succeed-xp160": {
    "checkedAt": "2026-11-10T10:24:02.105Z",
@@ -1387617,7 +1387909,9 @@
     }
    ],
    "unlinked": [],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-toyota-probox-xp50": {
    "checkedAt": "2026-11-10T09:46:11.518Z",
@@ -1392692,7 +1392986,9 @@
      "said": "2.2 L CA488 I4 (1992–2001) (China)"
     }
    ],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-nissan-navara-d22": {
    "checkedAt": "2026-11-10T09:19:29.447Z",
@@ -1395842,7 +1396138,9 @@
      "said": "1.8 L K-Series I4"
     }
    ],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-rover-200-25-rover-200-sd3": {
    "checkedAt": "2026-11-10T09:33:49.655Z",
@@ -1397217,7 +1397515,9 @@
     }
    ],
    "unlinked": [],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-fam-bmw-3-series-na0": {
    "checkedAt": "2026-11-10T10:24:12.756Z",
@@ -1397252,7 +1397552,9 @@
     }
    ],
    "unlinked": [],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-related-holden-hj-premier": {
    "checkedAt": "2026-11-10T10:18:03.452Z",
@@ -1397916,7 +1398218,7 @@
     }
    ],
    "unlinked": [],
-   "v": 8,
+   "v": 0,
    "electric": {
     "motors": [
      "65 kW permanent-magnet synchronous motor (PHEV)"
@@ -1397926,7 +1398228,9 @@
     ],
     "range": [],
     "rangeKind": "total"
-   }
+   },
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-fam-bmw-2-series-f87": {
    "checkedAt": "2026-11-10T09:57:55.964Z",
@@ -1397994,7 +1398298,9 @@
      "said": "2.0 L B46/B48 I4 turbo"
     }
    ],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "m-bmw-2-series-g42": {
    "checkedAt": "2026-11-10T09:57:56.571Z",
@@ -1398990,7 +1399296,9 @@
     }
    ],
    "unlinked": [],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-toyota-sprinter-e110": {
    "checkedAt": "2026-11-10T10:23:59.619Z",
@@ -1399104,7 +1399412,9 @@
     }
    ],
    "unlinked": [],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-geo-prizm-e90": {
    "checkedAt": "2026-11-10T08:09:16.246Z",
@@ -1403794,7 +1404104,9 @@
     }
    ],
    "unlinked": [],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-nissan-teana-l34": {
    "checkedAt": "2026-11-10T10:23:26.075Z",
@@ -1403842,7 +1404154,9 @@
     }
    ],
    "unlinked": [],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-nissan-violet-710": {
    "checkedAt": "2026-11-10T09:20:46.133Z",
@@ -1404355,7 +1404669,9 @@
     }
    ],
    "unlinked": [],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-datsun-1933-type-12-type-12": {
    "checkedAt": "2026-11-10T08:35:15.132Z",
@@ -1408228,7 +1408544,9 @@
      "said": "202 cuin I6"
     }
    ],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "m-holden-caprice": {
    "checkedAt": "2026-11-10T10:00:15.242Z",
@@ -1410480,7 +1410798,9 @@
      "said": "2.6 L Dual Ram Inline 6 (Export Only)"
     }
    ],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-holden-special-vehicles-vs": {
    "checkedAt": "2026-11-10T10:22:39.336Z",
@@ -1410519,7 +1410839,9 @@
      "said": "2.6 L Dual Ram Inline 6 (Export Only)"
     }
    ],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-holden-special-vehicles-vt": {
    "checkedAt": "2026-11-10T08:50:59.586Z",
@@ -1415483,7 +1415805,9 @@
     }
    ],
    "unlinked": [],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-llm-related-chevrolet-nomad-chevrolet-van-nomad-1977-1981": {
    "checkedAt": "2026-11-10T10:06:36.816Z",
@@ -1416158,7 +1416482,9 @@
     }
    ],
    "unlinked": [],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-chevrolet-malibu-second-generation": {
    "checkedAt": "2026-11-10T10:22:05.977Z",
@@ -1416279,7 +1416605,9 @@
     }
    ],
    "unlinked": [],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-chevrolet-malibu-third-generation": {
    "checkedAt": "2026-11-10T10:22:06.027Z",
@@ -1416355,7 +1416683,9 @@
     }
    ],
    "unlinked": [],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-chevrolet-malibu-fourth-generation": {
    "checkedAt": "2026-11-10T08:26:57.312Z",
@@ -1417821,7 +1418151,9 @@
     }
    ],
    "unlinked": [],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-fam-chevrolet-impala-second-generation": {
    "checkedAt": "2026-11-10T10:24:17.704Z",
@@ -1417865,7 +1418197,9 @@
     }
    ],
    "unlinked": [],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-fam-chevrolet-impala-third-generation": {
    "checkedAt": "2026-11-10T10:24:17.749Z",
@@ -1417954,7 +1418288,9 @@
     }
    ],
    "unlinked": [],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "m-chevrolet-impala-fourth-generation": {
    "checkedAt": "2026-11-10T09:58:51.621Z",
@@ -1418280,7 +1418616,9 @@
     }
    ],
    "unlinked": [],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-fam-chevrolet-impala-seventh-generation": {
    "checkedAt": "2026-11-10T10:24:17.842Z",
@@ -1418300,7 +1418638,9 @@
     }
    ],
    "unlinked": [],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-fam-chevrolet-impala-eighth-generation": {
    "checkedAt": "2026-11-10T10:24:17.887Z",
@@ -1418343,7 +1418683,9 @@
     }
    ],
    "unlinked": [],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-fam-chevrolet-impala-ninth-generation": {
    "checkedAt": "2026-11-10T10:24:17.932Z",
@@ -1418448,7 +1418790,9 @@
     }
    ],
    "unlinked": [],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-fam-chevrolet-impala-tenth-generation": {
    "checkedAt": "2026-11-10T10:24:17.977Z",
@@ -1418490,7 +1418834,7 @@
     }
    ],
    "unlinked": [],
-   "v": 8,
+   "v": 0,
    "electric": {
     "motors": [
      "belt alternator starter (eAssist MHEV)"
@@ -1418498,7 +1418842,9 @@
     "battery": [],
     "range": [],
     "rangeKind": "total"
-   }
+   },
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-pontiac-grand-am-first-generation-1973-1975": {
    "checkedAt": "2026-11-10T09:26:29.172Z",
@@ -1420494,7 +1420840,9 @@
     }
    ],
    "unlinked": [],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-fam-lexus-gs-s160": {
    "checkedAt": "2026-11-10T10:24:44.360Z",
@@ -1420548,7 +1420896,9 @@
     }
    ],
    "unlinked": [],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "m-lexus-gs-s190": {
    "checkedAt": "2026-11-10T10:01:26.343Z",
@@ -1420785,7 +1421135,7 @@
     }
    ],
    "unlinked": [],
-   "v": 8,
+   "v": 0,
    "electric": {
     "motors": [
      "105 kW 1 km synchronous (GS 300h)",
@@ -1420794,7 +1421144,9 @@
     "battery": [],
     "range": [],
     "rangeKind": "total"
-   }
+   },
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-chevrolet-captiva-c100-c140": {
    "checkedAt": "2026-11-10T08:25:46.637Z",
@@ -1423116,7 +1423468,9 @@
     }
    ],
    "unlinked": [],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-fam-pontiac-firebird-second-generation": {
    "checkedAt": "2026-11-10T10:24:57.192Z",
@@ -1423268,7 +1423622,9 @@
      "said": "301 CID Pontiac turbo V8"
     }
    ],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "m-pontiac-firebird-third-generation": {
    "checkedAt": "2026-11-10T10:02:28.188Z",
@@ -1423474,7 +1423830,9 @@
     }
    ],
    "unlinked": [],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-cadillac-ats-ats-v": {
    "checkedAt": "2026-11-10T08:23:14.884Z",
@@ -1424541,7 +1424899,9 @@
     }
    ],
    "unlinked": [],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-llm-related-dodge-challenger-third-generation-2008-2023": {
    "checkedAt": "2026-11-10T10:13:48.544Z",
@@ -1425729,7 +1426089,9 @@
     }
    ],
    "unlinked": [],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-cadillac-fleetwood-first-generation-1959-1960-": {
    "checkedAt": "2026-11-10T08:23:46.259Z",
@@ -1431168,7 +1431530,9 @@
     }
    ],
    "unlinked": [],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-ford-ranger-second-generation-2006-2011-": {
    "checkedAt": "2026-11-10T08:46:48.721Z",
@@ -1431500,7 +1431864,9 @@
      "said": "1498 cc I4, overhead valve, water-cooled (15M)"
     }
    ],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-ford-taunus-12m-1959-facelift": {
    "checkedAt": "2026-11-10T08:47:15.793Z",
@@ -1431791,7 +1432157,9 @@
     }
    ],
    "unlinked": [],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-ford-taunus-tc2": {
    "checkedAt": "2026-11-10T10:22:34.008Z",
@@ -1431860,7 +1432228,9 @@
     }
    ],
    "unlinked": [],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-ford-taunus-tc3": {
    "checkedAt": "2026-11-10T10:22:34.056Z",
@@ -1431929,7 +1432299,9 @@
     }
    ],
    "unlinked": [],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-edsel-ranger-first-generation": {
    "checkedAt": "2026-11-10T08:39:02.425Z",
@@ -1433970,7 +1434342,9 @@
      "said": "327 CID V8"
     }
    ],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-pontiac-phoenix-second-generation": {
    "checkedAt": "2026-11-10T10:23:36.015Z",
@@ -1434071,7 +1434445,9 @@
      "said": "250 CID I6 (1967)"
     }
    ],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-llm-related-oldsmobile-omega-first-generation": {
    "checkedAt": "2026-11-10T10:05:03.993Z",
@@ -1436858,7 +1437234,9 @@
     }
    ],
    "unlinked": [],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-cadillac-calais-first-generation": {
    "checkedAt": "2026-11-10T08:23:28.042Z",
@@ -1436943,7 +1437321,9 @@
     }
    ],
    "unlinked": [],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-toyota-crown-majesta-s150": {
    "checkedAt": "2026-11-10T10:23:51.440Z",
@@ -1437032,7 +1437412,9 @@
     }
    ],
    "unlinked": [],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-toyota-crown-majesta-s170": {
    "checkedAt": "2026-11-10T10:23:51.919Z",
@@ -1437133,7 +1437515,9 @@
     }
    ],
    "unlinked": [],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-toyota-crown-majesta-s180": {
    "checkedAt": "2026-11-10T10:23:52.505Z",
@@ -1437232,7 +1437616,9 @@
     }
    ],
    "unlinked": [],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-toyota-crown-majesta-s200": {
    "checkedAt": "2026-11-10T10:23:53.087Z",
@@ -1437378,7 +1437764,9 @@
     }
    ],
    "unlinked": [],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-toyota-crown-majesta-s210": {
    "checkedAt": "2026-11-10T10:23:53.683Z",
@@ -1437468,7 +1437856,7 @@
     }
    ],
    "unlinked": [],
-   "v": 8,
+   "v": 0,
    "electric": {
     "motors": [
      "105-147 kW 1KM AC synchronous"
@@ -1437476,7 +1437864,9 @@
     "battery": [],
     "range": [],
     "rangeKind": "total"
-   }
+   },
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "m-lexus-is": {
    "checkedAt": "2026-11-10T10:24:46.577Z",
@@ -1437521,7 +1437911,9 @@
     }
    ],
    "unlinked": [],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "m-lexus-is-xe20": {
    "checkedAt": "2026-11-10T10:01:29.275Z",
@@ -1437727,7 +1438119,7 @@
     }
    ],
    "unlinked": [],
-   "v": 8,
+   "v": 0,
    "electric": {
     "motors": [
      "1KM permanent magnet synchronous (IS 300h)"
@@ -1437737,7 +1438129,9 @@
     ],
     "range": [],
     "rangeKind": "total"
-   }
+   },
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-toyota-mark-x-x120": {
    "checkedAt": "2026-11-10T09:45:29.438Z",
@@ -1441029,7 +1441423,9 @@
     }
    ],
    "unlinked": [],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-fam-dodge-charger-ld": {
    "checkedAt": "2026-11-10T10:24:23.932Z",
@@ -1441083,7 +1441479,9 @@
     }
    ],
    "unlinked": [],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "m-dodge-charger-2024": {
    "checkedAt": "2026-11-10T09:59:17.004Z",
@@ -1445474,7 +1445872,9 @@
     }
    ],
    "unlinked": [],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-honda-ridgeline-yk2-3": {
    "checkedAt": "2026-11-10T08:53:08.378Z",
@@ -1445529,7 +1445929,9 @@
     }
    ],
    "unlinked": [],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-honda-odyssey-north-america-ra1-5": {
    "checkedAt": "2026-11-10T08:52:49.691Z",
@@ -1446174,7 +1446576,9 @@
     }
    ],
    "unlinked": [],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-fam-honda-hr-v-second-generation-ru-": {
    "checkedAt": "2026-11-10T10:24:39.381Z",
@@ -1446283,7 +1446687,7 @@
     }
    ],
    "unlinked": [],
-   "v": 8,
+   "v": 0,
    "electric": {
     "motors": [
      "Honda H1 AC PMSM (hybrid)"
@@ -1446291,7 +1446695,9 @@
     "battery": [],
     "range": [],
     "rangeKind": "total"
-   }
+   },
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-fam-honda-hr-v-third-generation": {
    "checkedAt": "2026-11-03T13:14:36.065Z",
@@ -1446623,7 +1447029,9 @@
     }
    ],
    "unlinked": [],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-llm-related-jiangling-baodian-second-generation": {
    "checkedAt": "2026-11-10T10:25:16.695Z",
@@ -1446740,7 +1447148,9 @@
     }
    ],
    "unlinked": [],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-llm-related-jiangling-baodian-third-generation": {
    "checkedAt": "2026-11-10T10:25:16.738Z",
@@ -1446981,7 +1447391,9 @@
      "said": "2.5 L NB25A6L turbodiesel I4"
     }
    ],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-lincoln-ls-2000-2002": {
    "checkedAt": "2026-11-10T09:03:40.705Z",
@@ -1447434,7 +1447846,9 @@
     }
    ],
    "unlinked": [],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-fam-ford-mustang-s650": {
    "checkedAt": "2026-11-10T10:24:26.741Z",
@@ -1447480,7 +1447894,9 @@
     }
    ],
    "unlinked": [],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-dodge-dart-first-generation": {
    "checkedAt": "2026-11-10T08:37:03.206Z",
@@ -1451956,7 +1452372,9 @@
     }
    ],
    "unlinked": [],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-suzuki-celerio-second-generation-fe": {
    "checkedAt": "2026-11-10T09:38:34.556Z",
@@ -1452045,7 +1452463,9 @@
     }
    ],
    "unlinked": [],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-suzuki-cervo-ss20": {
    "checkedAt": "2026-11-10T09:38:36.941Z",
@@ -1454357,7 +1454777,9 @@
     }
    ],
    "unlinked": [],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-chana-star-chana-star-2": {
    "checkedAt": "2026-11-10T08:24:39.172Z",
@@ -1455900,7 +1456322,9 @@
     }
    ],
    "unlinked": [],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-toyota-yaris-yaris-verso-xp40-": {
    "checkedAt": "2026-11-10T08:06:02.449Z",
@@ -1456025,7 +1456449,9 @@
     }
    ],
    "unlinked": [],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-toyota-yaris-xp130": {
    "checkedAt": "2026-11-10T10:21:42.879Z",
@@ -1456156,7 +1456582,9 @@
     }
    ],
    "unlinked": [],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-toyota-yaris-xp150": {
    "checkedAt": "2026-11-10T08:06:03.365Z",
@@ -1468909,7 +1469337,9 @@
     }
    ],
    "unlinked": [],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-nissan-serena-c23": {
    "checkedAt": "2026-11-10T09:20:16.250Z",
@@ -1469511,7 +1469941,9 @@
     }
    ],
    "unlinked": [],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-nissan-cherry-n12": {
    "checkedAt": "2026-11-10T09:16:25.211Z",
@@ -1475407,7 +1475839,9 @@
     }
    ],
    "unlinked": [],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-nissan-note-e11": {
    "checkedAt": "2026-11-10T09:19:31.927Z",
@@ -1477272,7 +1477706,7 @@
     }
    ],
    "unlinked": [],
-   "v": 8,
+   "v": 0,
    "electric": {
     "motors": [],
     "battery": [
@@ -1477280,7 +1477714,9 @@
     ],
     "range": [],
     "rangeKind": "total"
-   }
+   },
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-fam-chevrolet-silverado-gmt-t1xx": {
    "checkedAt": "2026-11-10T10:24:20.447Z",
@@ -1477373,7 +1477809,9 @@
     }
    ],
    "unlinked": [],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-fam-chevrolet-silverado-zh2": {
    "checkedAt": "2026-11-10T09:58:55.115Z",
@@ -1479822,7 +1480260,9 @@
     }
    ],
    "unlinked": [],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "m-proton-saga-second-generation": {
    "checkedAt": "2026-11-10T10:25:00.128Z",
@@ -1479853,7 +1480293,9 @@
     }
    ],
    "unlinked": [],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "m-proton-saga-third-generation": {
    "checkedAt": "2026-11-10T10:25:00.597Z",
@@ -1479885,7 +1480327,9 @@
     }
    ],
    "unlinked": [],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-hyundai-excel-x1": {
    "checkedAt": "2026-11-10T08:56:05.612Z",
@@ -1480004,7 +1480448,9 @@
     }
    ],
    "unlinked": [],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-hyundai-elantra-j1": {
    "checkedAt": "2026-11-10T08:56:00.594Z",
@@ -1480796,7 +1481242,9 @@
     }
    ],
    "unlinked": [],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-dodge-attitude-rb": {
    "checkedAt": "2026-11-10T10:22:19.777Z",
@@ -1480889,7 +1481337,9 @@
     }
    ],
    "unlinked": [],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-dodge-attitude-a10": {
    "checkedAt": "2026-11-10T10:22:20.305Z",
@@ -1480922,7 +1481372,9 @@
     }
    ],
    "unlinked": [],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-dodge-attitude-fourth": {
    "checkedAt": "2026-11-10T08:36:34.436Z",
@@ -1481127,7 +1481579,9 @@
     }
    ],
    "unlinked": [],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-mitsubishi-colt-colt-1000-a20-": {
    "checkedAt": "2026-11-10T09:12:21.614Z",
@@ -1481382,7 +1481836,9 @@
     }
    ],
    "unlinked": [],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-mitsubishi-fto-galant-fto-1971-1975": {
    "checkedAt": "2026-11-10T09:12:41.400Z",
@@ -1483722,7 +1484178,9 @@
     }
    ],
    "unlinked": [],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-geo-metro-second-generation-1995-2001": {
    "checkedAt": "2026-11-10T08:49:01.019Z",
@@ -1483936,7 +1484394,9 @@
     }
    ],
    "unlinked": [],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-fam-chevrolet-aveo-310c": {
    "checkedAt": "2026-11-10T10:24:15.214Z",
@@ -1483957,7 +1484417,9 @@
     }
    ],
    "unlinked": [],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-llm-related-pontiac-wave-t200": {
    "checkedAt": "2026-11-07T15:45:19.685Z",
@@ -1486151,7 +1486613,9 @@
     }
    ],
    "unlinked": [],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-toyota-crown-tenth-generation-s150": {
    "checkedAt": "2026-11-10T10:23:46.759Z",
@@ -1486240,7 +1486704,9 @@
     }
    ],
    "unlinked": [],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-toyota-crown-eleventh-generation-s170": {
    "checkedAt": "2026-11-10T10:23:47.175Z",
@@ -1486341,7 +1486807,9 @@
     }
    ],
    "unlinked": [],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-toyota-crown-twelfth-generation-s180": {
    "checkedAt": "2026-11-10T10:23:47.543Z",
@@ -1486440,7 +1486908,9 @@
     }
    ],
    "unlinked": [],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-toyota-crown-thirteenth-generation-s200": {
    "checkedAt": "2026-11-10T10:23:47.918Z",
@@ -1486586,7 +1487056,9 @@
     }
    ],
    "unlinked": [],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-toyota-crown-fourteenth-generation-s210": {
    "checkedAt": "2026-11-10T10:23:48.310Z",
@@ -1486676,7 +1487148,7 @@
     }
    ],
    "unlinked": [],
-   "v": 8,
+   "v": 0,
    "electric": {
     "motors": [
      "105-147 kW 1KM AC synchronous"
@@ -1486684,7 +1487156,9 @@
     "battery": [],
     "range": [],
     "rangeKind": "total"
-   }
+   },
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-toyota-crown-s220": {
    "checkedAt": "2026-11-10T09:41:29.450Z",
@@ -1490715,7 +1491189,9 @@
     }
    ],
    "unlinked": [],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-toyota-carina-ed-st180-t180": {
    "checkedAt": "2026-11-10T09:40:53.814Z",
@@ -1494445,7 +1494921,9 @@
      "said": "440 CID 3×2 RB (1970)"
     }
    ],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-fam-dodge-charger-third-generation": {
    "checkedAt": "2026-11-10T09:59:15.330Z",
@@ -1495915,7 +1496393,9 @@
     }
    ],
    "unlinked": [],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-related-buick-velite-5": {
    "checkedAt": "2026-11-10T10:17:29.213Z",
@@ -1518371,7 +1518851,7 @@
   "m-lincoln-mark-series": {
    "names": [],
    "from": "Lincoln Mark series",
-   "checkedAt": "2026-11-10T09:03:58.381Z"
+   "checkedAt": "2026-11-10T10:55:56.261Z"
   },
   "llm-m-lincoln-mark-series-mark-ii": {
    "names": [],
@@ -1518391,12 +1518871,12 @@
   "llm-m-lincoln-mark-series-mark-iv": {
    "names": [],
    "from": null,
-   "checkedAt": "2026-11-10T09:03:59.194Z"
+   "checkedAt": "2026-11-10T10:55:56.263Z"
   },
   "llm-m-lincoln-mark-series-mark-v": {
    "names": [],
    "from": null,
-   "checkedAt": "2026-11-10T09:03:59.194Z"
+   "checkedAt": "2026-11-10T10:55:56.264Z"
   },
   "llm-m-lincoln-mark-series-mark-vi": {
    "names": [],
@@ -1518406,7 +1518886,7 @@
   "llm-m-lincoln-mark-series-mark-vii": {
    "names": [],
    "from": null,
-   "checkedAt": "2026-11-10T09:03:59.194Z"
+   "checkedAt": "2026-11-10T10:55:56.264Z"
   },
   "llm-m-lincoln-mark-series-mark-viii": {
    "names": [],
@@ -1547208,12 +1547688,12 @@
   "m-hyundai-ioniq": {
    "names": [],
    "from": "Hyundai Ioniq",
-   "checkedAt": "2026-11-10T08:56:22.411Z"
+   "checkedAt": "2026-11-10T10:55:51.159Z"
   },
   "llm-m-hyundai-ioniq-ioniq-hybrid": {
    "names": [],
    "from": null,
-   "checkedAt": "2026-11-10T08:56:22.411Z"
+   "checkedAt": "2026-11-10T10:55:51.161Z"
   },
   "llm-m-hyundai-ioniq-ioniq-electric": {
    "names": [],
@@ -1547528,7 +1548008,7 @@
   "llm-related-bmw-e9": {
    "names": [],
    "from": null,
-   "checkedAt": "2026-11-10T10:18:46.118Z"
+   "checkedAt": "2026-11-10T10:56:00.051Z"
   },
   "llm-fam-bmw-x3-f25": {
    "names": [],
@@ -1547624,7 +1548104,7 @@
   "llm-related-bmw-e3": {
    "names": [],
    "from": null,
-   "checkedAt": "2026-11-10T10:18:44.269Z"
+   "checkedAt": "2026-11-10T10:55:58.184Z"
   },
   "m-rolls-royce-ghost": {
    "names": [],
