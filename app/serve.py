@@ -86,6 +86,7 @@ Requires: `llama-server` (part of llama.cpp -- see README.md for install
 """
 import hashlib
 import atexit
+import fcntl
 import http.server
 import json
 import os
@@ -676,7 +677,46 @@ def stop_llama_server():
 # serialization, two racing writes computed from slightly different
 # starting snapshots could silently clobber each other's changes even when
 # neither one crashes.
-_llm_families_lock = threading.Lock()
+#
+# ...per process. Two serve.py processes -- the agent's during a queued scan
+# and scripts/reread_engines.py's store server -- could still read and write
+# the file at the same moment, and both used the same tmp file, so a save
+# could land half-written. The lock now also holds a file lock beside the
+# store, which every serve.py process takes, and each write has a tmp file of
+# its own.
+class _StoreLock:
+    def __init__(self):
+        self._thread = threading.Lock()
+        self._file = None
+
+    def __enter__(self):
+        self._thread.acquire()
+        try:
+            self._file = open(LLM_FAMILIES_PATH + ".lock", "a")
+            fcntl.flock(self._file, fcntl.LOCK_EX)
+        except Exception:
+            if self._file:
+                self._file.close()
+                self._file = None
+            self._thread.release()
+            raise
+        return self
+
+    def __exit__(self, *exc):
+        try:
+            fcntl.flock(self._file, fcntl.LOCK_UN)
+            self._file.close()
+        finally:
+            self._file = None
+            self._thread.release()
+        return False
+
+
+_llm_families_lock = _StoreLock()
+
+
+def _own_tmp(path):
+    return "%s.%d.%d.tmp" % (path, os.getpid(), threading.get_ident())
 
 
 class StoreUnreadable(Exception):
@@ -750,7 +790,7 @@ def merge_llm_families(data):
 
 
 def _write_llm_families_unlocked(data):
-    tmp = LLM_FAMILIES_PATH + ".tmp"
+    tmp = _own_tmp(LLM_FAMILIES_PATH)
     with open(tmp, "w", encoding="utf-8") as f:
         json.dump(data, f, ensure_ascii=False, indent=1)
     os.replace(tmp, LLM_FAMILIES_PATH)
@@ -829,7 +869,7 @@ def write_mirror(data):
                       "  }\n"
                       "})(window.LLM_FAMILIES_STATIC, " + text + ");\n"))
     for path, text in files:
-        tmp = path + ".tmp"
+        tmp = _own_tmp(path)
         with open(tmp, "w", encoding="utf-8") as f:
             f.write(text)
         os.replace(tmp, path)
@@ -862,7 +902,7 @@ def reset_llm_families():
             stamp = time.strftime("%Y%m%d-%H%M%S")
             backup = os.path.join(LLM_BACKUP_DIR, f"llm_families-{stamp}.json")
             shutil.copy2(LLM_FAMILIES_PATH, backup)
-        tmp = LLM_FAMILIES_PATH + ".tmp"
+        tmp = _own_tmp(LLM_FAMILIES_PATH)
         with open(tmp, "w", encoding="utf-8") as f:
             f.write("{}\n")
         os.replace(tmp, LLM_FAMILIES_PATH)

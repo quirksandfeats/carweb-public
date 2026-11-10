@@ -7808,12 +7808,32 @@ Rules:
   // else runs. Must run before checkNode/checkFamily could plausibly fire
   // for any of these nodes -- called from app.js's boot sequence
   // immediately after applyUserCars, for the same reason.
+  // Cars whose link is a list of the cars sharing their name, not their own
+  // article (scripts/set_index_links.js): the 2013 BMW i3 at "BMW i3", a list
+  // since the 2026 i3. The list's own entry for the car is its article, while
+  // the link is still the list's and nobody chose another by hand.
+  const SET_INDEX_LINKS = (typeof window !== "undefined" && window.SET_INDEX_LINKS) || {};
+  function applySetIndexLinks(byId) {
+    Object.keys(SET_INDEX_LINKS).forEach(id => {
+      const r = SET_INDEX_LINKS[id], n = byId.get(id);
+      if (!n || store.wpLinksChosen[id] || norm(String(n.wp || "").split("#")[0]) !== norm(r.from)) return;
+      n.wp = r.to;
+      n.wpFromList = r.from;
+      // What was read off the list page is no reading of the car: the BMW i3's
+      // "one generation, no engines" came from "BMW i3". It goes, so the next
+      // check reads the car's own article (and a retry does not record the
+      // list as its source). Its connections stay; they have sources of their own.
+      const fromList = e => !!e && norm(String(e.sourceTitle || "").split("#")[0]) === norm(r.from);
+      if (fromList(store.engineScans[id])) { delete store.engineScans[id]; delete store.aliases[id]; }
+      ["families", "recheck", "genResearch"].forEach(k => { if (store[k] && fromList(store[k][id])) delete store[k][id]; });
+    });
+  }
   function applyWpLinks(nodes) {
     // Boot passes through here with the whole node array; the marque list the
     // engine reader uses is cheapest to take here.
     rememberMakeNames(nodes);
-    if (!store.wpLinks || !Object.keys(store.wpLinks).length) return;
     const byId = new Map(nodes.map(n => [n.id, n]));
+    if (!store.wpLinks || !Object.keys(store.wpLinks).length) { applySetIndexLinks(byId); return; }
     // A link a person corrected by hand wins over the one the car came with.
     // It used to only ever fill a missing link, so "Change link" on any car
     // that already had one lasted until the next reload, and the next check
@@ -7824,6 +7844,7 @@ Rules:
       const n = byId.get(id);
       if (n && (!n.wp || store.wpLinksChosen[id])) n.wp = store.wpLinks[id];
     });
+    applySetIndexLinks(byId);
   }
   // ---------- public: manually attach a Wikipedia link to an existing node ----------
   // Real user request: "the info box should have a location for the user

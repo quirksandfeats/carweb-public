@@ -2896,3 +2896,36 @@ A review found five more cases, now handled:
 The read is stored on the car's engine read (`engineScans[id].electric`), and the card shows it under "Electric motor": each motor, battery and range line, labelled. A nameplate whose generations carry their own shows none, as with engines.
 
 The reader's version is now 8, so every earlier read is due again. A read from before is still shown until then, and the graph does not change. "⚙ Re-read Engines" does the backlog: one or two Wikipedia reads per car. Tried live on the Leaf's three generations, the ID.3, the Model 3, the Taycan, the Volt, the Prius Plug-in's three generations, the Outlander PHEV and the EV6. Test `qa/jsdom/jsdom_electric_powertrain_test.js`.
+
+## 10 November: re-reading engines unattended, and links that are lists
+
+Owner's report: "⚙ Re-read Engines" only made progress while its page was open and in front. The button's loop runs in the page. A browser slows a hidden page (a background tab, a minimised window, the screen saver) to about one step a minute, and a Mac that sleeps stops it.
+
+`scripts/reread_engines.py` does the same work in headless Chromium, which nothing slows down:
+
+    caffeinate -i .venv/bin/python scripts/reread_engines.py
+
+- It is the button, not a second copy of it. The page is the app itself, and the script presses the button and watches its label.
+- The store is served by serve.py's own request handler, in the script's process, on port 8078, with no local model; an engine read makes no model call.
+- serve.py's store lock now holds across processes as well as threads: a file lock beside the store (`llm_families.json.lock`), and a tmp file of each write's own. Before, two serve.py processes (the agent's and this one) could write the same tmp file at once and leave the store half-written. A test in `qa/qa_serve_store_merge.py` holds the lock from a second process and checks that a write waits.
+- While any other serve.py runs (the agent's during a queued scan, or one started by hand), the script also stops after the car in hand and waits.
+- The page is reloaded every 300 cars to keep its memory down. A reload is also how it meets a crashed tab, a load that timed out, or a car whose read has not moved for ten minutes. Five failed loads in a row end the run.
+- The run ends when nothing is due, or when a load gets no further: a page that will not load stays due.
+- Each car is saved as it is read. Ctrl-C or a kill stops it after the car in hand, also when it was started in the background.
+- Nothing is committed; the reads go out with the next commit of the store.
+
+Tried on a copy of the store: cars read and saved, a wait while a stand-in serve.py ran, and a kill mid-run that stopped after the car in hand. About 2,940 cars were due. A review found six defects, all fixed above.
+
+`scripts/set_index_links.js CACHE.json` writes `app/set_index_links.js` (generated), for cars whose Wikipedia link is a list of the cars that share a name rather than their own article. The 2013 BMW i3 pointed at "BMW i3", which became such a list when the 2026 i3 arrived, so its reads found nothing. A nameplate with generations is left alone: a list of them is its article. For a single car, the row names the one entry on the list that is this car, when all of these hold:
+- Its title starts with the car's make and carries its name.
+- No other car in the graph links to it, counting titles stored percent-encoded.
+- The years on its line begin within a year of the car's start. With no years, the title's bracket says it is the car ("(car)").
+- It is an article of its own, not a redirect into another car's.
+
+`applySetIndexLinks` runs inside `applyWpLinks`, while the car still has the list's link and nobody chose another by hand. What was read off the list page (the car's generation verdict, its engine read and its other names, each with the list as its source) goes with it, so the next check reads the car's own article. Its connections stay; they have sources of their own. 3 rows: BMW i3 -> "BMW i3 (hatchback)", Buick Verano -> "Buick Verano (North America)", Ford Prefect -> "Ford Prefect (car)". Not done, because the entry redirects into another car's article: Chevrolet Sonic (Aveo T300), Suzuki Across (RAV4), Toyota Urban Cruiser XP110 (Ist), Volvo XC70 (V70). The Fiat Topolino is a second node for the Fiat 500 "Topolino", which the graph holds already. The graph does not change; the store loses the nine readings taken off the three list pages. Second load and static mirror match. Test `qa/jsdom/jsdom_set_index_links_test.js`.
+
+## 10 November: two tests the Moskvitch 412 scan broke
+
+The agent's scan of the Moskvitch 412 (commit c1279c7, store only) left two real-data tests failing on `main`. Both pass on the store from before it.
+- `jsdom_bracket_folds_test.js` expected a stand-in "Ford Futura (Venezuela)" to stay a car of its own. The scan read the Ford Fairmont's infobox, which gives "Ford Futura (Venezuela)" among its other names, so the stand-in is now the Fairmont itself and its decision is cleared as an orphan. That agrees with Wikipedia. The test now checks what it was written for: the Venezuelan Futura is never folded into the 1962 Ford Futura.
+- `jsdom_real_data_boot_test.js` found the IzH 2125 succession drawn twice. The build data holds "Moskvitch 412 -> IzH 2125", and the scan confirmed the same succession. A confirmed relation is drawn as a link of its own, and the original beside it is tagged its mirror, to be drawn when the specific link cannot be. Where neither car has generations, the mirror joins the very same two cars, has no nameplate side to hide behind, and was drawn as well. Such a mirror (`sameAsReal`) is now drawn only while the checked link cannot be. Retiring the original instead lost three real pairs, which the mirror keeps when the checked link is retired later (Alfa Romeo 164 and Saab 9000). Four pairs drew twice: Citroën SM and Maserati Merak, Alfa Romeo 164 and Saab 9000, Moskvitch 412 and IzH 2125, Smart #1 and #3. No connection changes.

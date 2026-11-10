@@ -60,3 +60,7 @@ llm_layer_backups/
 # The agent's local settings (scripts/status_page.py): where to write the
 # status page. A path on this machine, kept out of the public repository.
 scripts/agent_settings.local.json
+
+# serve.py's cross-process store lock and per-write tmp files
+app/llm_families.json.lock
+app/*.tmp

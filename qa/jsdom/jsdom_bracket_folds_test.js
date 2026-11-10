@@ -37,8 +37,12 @@ for (const id of ["llm-related-toyota-hilux-n30", "llm-related-audi-a4-b5", "m-p
   t(id + " is folded", !alive(id));
 t("its link moves to the generation", links.some(l => l.type === "platform" && l.reboundFrom === "llm-related-nissan-march-second-generation" && [idOf(l.source), idOf(l.target)].includes("llm-m-nissan-micra-k11")));
 t("the 1909 Lancia Beta stays apart from the 1972 one", alive("m-lancia-beta-1909") && alive("m-lancia-beta"));
-for (const id of ["llm-related-chrysler-300-1979", "llm-related-ford-futura-venezuela", "llm-related-chevrolet-ss-south-africa"])
+for (const id of ["llm-related-chrysler-300-1979", "llm-related-chevrolet-ss-south-africa"])
   t(id + " is a different car, and stays", alive(id));
+// The Venezuelan Futura is the Fairmont's other name (its infobox, read 9 Nov 2026), and
+// never the 1962 Ford Futura: whatever stands for it, it is not folded into that car.
+t("the Venezuelan Futura is not folded into the 1962 Ford Futura",
+  !nodes.some(n => n.id === "llm-related-ford-futura-venezuela" && (n.supersededBy === "m-ford-futura" || n.foldedInto === "m-ford-futura")));
 t("the Thunderbird that read the Mustang keeps no Mustang generations",
   !alive("llm-llm-related-ford-thunderbird-83-88-ford-mustang-third-generation") && !alive("llm-related-ford-thunderbird-83-88"));
 t("the Arkana has one name", nodes.find(n => n.id === "llm-related-renault-arkana-cmf-b").label === "Arkana" && !alive("llm-related-renault-arkana"));

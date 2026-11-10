@@ -98,5 +98,25 @@ left = sorted(f for f in os.listdir(tmp) if f.startswith("llm_families_data_"))
 check("parts a smaller store no longer needs are deleted", left == [], left)
 check("a reset leaves one empty mirror", (serve.reset_llm_families(), rebuilt())[1] == {"s": {}, "n": 0})
 
+# ---- two serve.py processes ----
+# The agent's serve.py and scripts/reread_engines.py's store server are two
+# processes: a write in one waits while the other holds the store.
+import subprocess, time
+holder = subprocess.Popen([sys.executable, "-c", (
+    "import importlib.util, sys, time\n"
+    "spec = importlib.util.spec_from_file_location('serve', %r)\n"
+    "serve = importlib.util.module_from_spec(spec); sys.argv = ['serve.py']; spec.loader.exec_module(serve)\n"
+    "serve.LLM_FAMILIES_PATH = %r\n"
+    "with serve._llm_families_lock:\n"
+    "    print('held', flush=True); time.sleep(2)\n") % (os.path.join(DIR, "..", "app", "serve.py"), serve.LLM_FAMILIES_PATH)],
+    stdout=subprocess.PIPE, text=True)
+holder.stdout.readline()
+t0 = time.time()
+serve.write_llm_families({"families": {"waited": {}}})
+waited = time.time() - t0
+holder.wait()
+check("a write waits while another process holds the store", waited >= 1.0, round(waited, 2))
+check("no tmp file is left behind", not [f for f in os.listdir(tmp) if f.endswith(".tmp")])
+
 print("\n%s" % ("ALL PASS" if not fails else "%d FAILED" % fails))
 sys.exit(1 if fails else 0)

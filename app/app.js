@@ -574,6 +574,10 @@ window.CarWeb = (function () {
       const famA = l.mirrorSourceFam || idOf(l.source), famB = l.mirrorTargetFam || idOf(l.target);
       const candidates = byPair.get(pairKey(famA, famB, l.type)) || [];
       l.mirrorAllRetired = candidates.length > 0 && candidates.every(rl => rl.sn.retired || rl.tn.retired);
+      // A "mirror" with no nameplate side joins the very two cars a checked link
+      // joins (two cars with no generations: the Moskvitch 412 and the IzH 2125).
+      // It is the same line, drawn only while that link cannot be.
+      l.sameAsReal = !l.mirrorSourceFam && !l.mirrorTargetFam && candidates.length > 0 && !l.mirrorAllRetired;
     });
     // Real user request: "there should never be a connection to a nameplate
     // unless there is zero connection to any generations of the nameplate
@@ -903,6 +907,7 @@ window.CarWeb = (function () {
     // can't be resolved down to a specific generation the mirror is simply
     // never superseded and keeps showing at the collapsed level forever.
     if (l.coveredBy && coveredOnScreen(l)) return false;
+    if (l.mirror && l.sameAsReal) return false;
     if (l.mirror && ((l.mirrorSourceFam && expandedFamilies.has(l.mirrorSourceFam)) ||
                       (l.mirrorTargetFam && expandedFamilies.has(l.mirrorTargetFam)))) {
       // Normal case: hide, trusting a more specific link to take over (see
