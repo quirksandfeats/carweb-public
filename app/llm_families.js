@@ -18206,6 +18206,9 @@ Rules:
     groups.forEach(ids => { if (ids.length > 1) ids.forEach(i => stale.add(i)); });
     stale.forEach(id => {
       const rec = store.engineScans[id];
+      // Which reader set it aside: a read again by the same reader lands on the
+      // same page and is set aside again, so it is not due (engineScanIsCurrent).
+      rec.staleFromV = rec.v;
       rec.v = 0;
       rec.staleReason = "read a page that covers several cars";
     });
@@ -20390,7 +20393,13 @@ Rules:
   // 8: also reads the electric half -- "| motor =", "| battery =" and the
   // electric range (see electricMentions).
   const ENGINE_SCAN_VERSION = 8;
-  function engineScanIsCurrent(rec) { return !!rec && (rec.v || 1) >= ENGINE_SCAN_VERSION; }
+  // A read set aside as covering several cars counts as current once this reader
+  // made it: "Re-read Engines" read the 89 such cars of 10 Nov 2026 again and
+  // again, each read set aside again at the next load, and they stayed "due".
+  function engineScanIsCurrent(rec) {
+    return !!rec && ((rec.v || 1) >= ENGINE_SCAN_VERSION ||
+      (rec.v === 0 && !!rec.staleReason && (rec.staleFromV || 0) >= ENGINE_SCAN_VERSION));
+  }
   // A page that would not load is tried again on a later load, not on every
   // check of the nameplate in this one.
   const unreadableThisLoad = new Set();
@@ -20404,10 +20413,13 @@ Rules:
   // generations -- and a car that deferred to another's article reads none.
   function engineReadsDue(nodes) {
     const out = [];
+    const byId = new Map((nodes || []).map(n => [n.id, n]));
     for (const n of nodes || []) {
       if (!n || n.retired || n.familyOf) continue;
       if (n.type === "family") {
-        const gens = n.generations || [];
+        // Its shown generations: a folded or merged one is read by nobody, and
+        // kept the nameplate due for good (the BMW Z1's five).
+        const gens = (n.generations || []).filter(id => { const g = byId.get(id); return g && !g.retired; });
         if (gens.some(id => !engineScanIsCurrent(store.engineScans[id]))) out.push(n);
         continue;
       }
@@ -20708,6 +20720,19 @@ Rules:
         const prior = store.engineScans[car.id];
         if (unreadable && prior && (prior.engines || []).length) {
           note(`powertrain: ${car.label} -- could not read "${title}"; keeping its earlier read`);
+          out.scanned++; out.skipped++;
+          continue;
+        }
+        // Nor does a read that found no article at all replace one that read a
+        // page: the Lincoln Mark series' generations carry reads of their own
+        // cars' pages, which their own titles do not find. The 10 Nov 2026
+        // re-read emptied six that way. The earlier read stays, taken as this
+        // reader's, with what this read found of the electric half.
+        if (!unreadable && !title && !fromSection && !wholePage && prior && prior.v !== 0 && (prior.engines || []).length) {
+          const kept = Object.assign({}, prior, { checkedAt: new Date().toISOString(), v: ENGINE_SCAN_VERSION, keptBy: "no article this time" });
+          if (electric) kept.electric = electric;
+          store.engineScans[car.id] = kept;
+          note(`powertrain: ${car.label} -- no article of its own this time; keeping its earlier read of "${prior.sourceTitle}"`);
           out.scanned++; out.skipped++;
           continue;
         }

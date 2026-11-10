@@ -21,6 +21,11 @@ const shipped = JSON.parse(fs.readFileSync(path.join(APP, "llm_families.json"), 
 // A link chosen by hand wins: the Ford Prefect's, set to another page.
 shipped.wpLinks = Object.assign({}, shipped.wpLinks, { "m-ford-prefect": "Ford Prefect (car) hand" });
 shipped.wpLinksChosen = Object.assign({}, shipped.wpLinksChosen, { "m-ford-prefect": true });
+// Readings off the list pages, as they stood before the rule (the re-read of 10 Nov 2026 cleared them from the store).
+shipped.families = Object.assign({}, shipped.families, {
+  "m-bmw-i3": { status: "none", sourceTitle: "BMW i3", proposal: { hasMultipleGenerations: false, generations: [] } },
+  "m-ford-prefect": { status: "none", sourceTitle: "Ford Prefect", proposal: { hasMultipleGenerations: false, generations: [] } } });
+shipped.engineScans = Object.assign({}, shipped.engineScans, { "m-bmw-i3": { sourceTitle: "BMW i3", status: "no-engines", engines: [], unlinked: [], v: 7 } });
 for (const f of [...html.matchAll(/<script src="([^"]+)"><\/script>/g)].map(m => m[1])) {
   if (/llm_families_data/.test(f)) continue;
   if (f === "llm_families.js") window.LLM_FAMILIES = Object.assign({}, shipped, { __serverAvailable: false });
