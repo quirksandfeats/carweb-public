@@ -18464,7 +18464,60 @@ Rules:
       if (car && (wholePageListIsASiblings(car, byId) || runOutsideFieldYears(rec, car))) return;
       replay(id, car ? (rec.engines || []).filter(h => !engineLineOutsideRun(h, car)) : rec.engines);
     });
+    replayElectricMotors(nodes, links, byId);
     return { engines, fitted };
+  }
+  // Electric motors as nodes, like engines (the owner, 10 Nov 2026). A motor is
+  // known by its code in the infobox's motor field: Toyota's "1MM" and "2JM",
+  // Nissan's "EM57" and "MM48", Volvo's "WA05A". One node per code, fitted to every
+  // car whose read names it, so the cars that share a motor meet at it. A motor
+  // type ("permanent magnet synchronous") is no motor, and a code that is a car's
+  // name ("XC40"), a version's in brackets ("(KMA10)") or a drive ("4WD") is none
+  // either; those lines stay on the card.
+  const MOTOR_CODE = /^(?:\d[A-Z]{2}|[A-Z]{2,4}\d{2,3}[A-Z]?)$/;
+  function motorCodesIn(text, carNames) {
+    // A bracket names a version of the car ("(XEBM15)", "(ML450 Hybrid)"), unless it
+    // says it is the motor's ("(model 1SM)").
+    const said = String(text || "").replace(/\(([^()]*)\)/g, (m, inner) => /\b(?:model|motor)\b/i.test(inner) ? " " + inner + " " : " ");
+    return [...new Set(said.split(/[^A-Za-z0-9]+/)
+      .filter(t => MOTOR_CODE.test(t) && !/^[24A]WD$/.test(t) && !carNames.has(norm(t))))];
+  }
+  function replayElectricMotors(nodes, links, byId) {
+    const carNames = new Set(nodes.filter(n => (n.type === "model" || n.type === "family") && !n.retired)
+      .map(n => norm(String(n.label).replace(/\s*\([^()]*\)\s*$/, ""))));
+    const carsOf = new Map();
+    Object.keys(store.engineScans || {}).forEach(id => {
+      const rec = store.engineScans[id] || {};
+      if ((rec.v === 0 && rec.staleReason) || !rec.electric) return;
+      let car = byId.get(id);
+      for (let i = 0; car && car.retired && car.supersededBy && i < 5; i++) car = byId.get(car.supersededBy);
+      if (!car || car.retired || (car.type === "family" && (car.generations || []).length)) return;
+      (rec.electric.motors || []).forEach(line => motorCodesIn(line, carNames).forEach(code => {
+        if (!carsOf.has(code)) carsOf.set(code, new Map());
+        carsOf.get(code).set(car.id, line);
+      }));
+    });
+    const have = new Set(links.filter(l => !l.retired && l.type === "fitted").map(l => idOf(l.source) + "|" + idOf(l.target)));
+    const overall = new Map();
+    carsOf.forEach(cars => cars.forEach((line, cid) => { const m = (byId.get(cid) || {}).make; if (m) overall.set(m, (overall.get(m) || 0) + 1); }));
+    carsOf.forEach((cars, code) => {
+      const id = "mot-" + code.toLowerCase();
+      let n = byId.get(id);
+      if (!n) {
+        // Its maker: the make most of its cars carry (Toyota's 1MM is in Lexus cars
+        // too), on a tie the one with more motors in all.
+        const count = new Map();
+        cars.forEach((line, cid) => { const m = (byId.get(cid) || {}).make; if (m) count.set(m, (count.get(m) || 0) + 1); });
+        const make = [...count.entries()].sort((a, b) => b[1] - a[1] || (overall.get(b[0]) || 0) - (overall.get(a[0]) || 0) || (a[0] < b[0] ? -1 : 1)).map(e => e[0])[0] || null;
+        n = { id, type: "engine", motor: true, label: (make ? make + " " : "") + code, make, variants: [], llmGenerated: true };
+        nodes.push(n); byId.set(id, n);
+      }
+      cars.forEach((line, cid) => {
+        if (have.has(id + "|" + cid)) return;
+        links.push({ source: id, target: cid, type: "fitted", motor: true, saidText: line });
+        have.add(id + "|" + cid);
+      });
+    });
   }
 
   function applyEngines(nodes, links) {

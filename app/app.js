@@ -1607,6 +1607,7 @@ window.CarWeb = (function () {
       // Not "no variants" -- see isEngineUnread. The M276 card read "NOT READ
       // YET" directly above its own displacement, configuration and a list of
       // seventeen cars, because it happens to have no sub-variants.
+      if (n.motor) return "electric motor";
       if (isEngineUnread(n)) bits.push("not read yet");
       return ["engine"].concat(bits).join(" · ");
     }
