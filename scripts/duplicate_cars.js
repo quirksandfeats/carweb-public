@@ -48,7 +48,7 @@ function bootApp() {
   }
   window.CarWeb.boot();
   console.log = quiet;
-  return { store, nodes: window.CARDATA.nodes, links: window.CARDATA.links };
+  return { store, nodes: window.CARDATA.nodes, links: window.CARDATA.links, LF: window.LlmFamilies };
 }
 
 function post(body) {
@@ -82,7 +82,7 @@ const idOf = v => typeof v === "string" ? v : v.id;
   if (!cachePath) { console.error("usage: node scripts/duplicate_cars.js CACHE.json"); process.exit(1); }
   const cache = fs.existsSync(cachePath) ? JSON.parse(fs.readFileSync(cachePath, "utf-8")) : {};
   const save = () => fs.writeFileSync(cachePath, JSON.stringify(cache));
-  const { nodes, links } = bootApp();
+  const { nodes, links, LF } = bootApp();
   const byId = new Map(nodes.map(n => [n.id, n]));
   const live = n => n && !n.retired;
   const plateOf = id => { const n = byId.get(id); return n && n.familyOf ? n.familyOf : id; };
@@ -99,7 +99,24 @@ const idOf = v => typeof v === "string" ? v : v.id;
     const gens = (f.generations || []).map(id => byId.get(id)).filter(live);
     if (gens.length) (plates.get(norm(article(f.wp))) || plates.set(norm(article(f.wp)), []).get(norm(article(f.wp)))).push({ f, gens });
   });
-  const rows = [];
+  const rows = [], via = new Map(), trimAsk = [];
+  // Where each single car's own name lands: a trim's title often redirects to a
+  // section of its nameplate's article that carries its year ("Nissan Rogue
+  // Plug-in Hybrid" -> "Rogue Plug-in Hybrid (2025)"), a better year than one
+  // copied from the nameplate.
+  const ownTitles = nodes.filter(d => live(d) && d.type === "model" && !d.familyOf && d.wp && plates.has(norm(article(d.wp))))
+    .map(d => `${d.make} ${d.label}`).filter(t => !(("look:" + t) in cache));
+  for (let i = 0; i < ownTitles.length; i += 50) {
+    const part = ownTitles.slice(i, i + 50);
+    const r = await query({ action: "query", titles: part.join("|"), redirects: 1 });
+    const q = r.query || {}, norms = new Map((q.normalized || []).map(x => [x.from, x.to]));
+    const reds = new Map((q.redirects || []).map(x => [x.from, x]));
+    const pages = new Map((q.pages || []).map(p => [p.title, p]));
+    part.forEach(t => { const n0 = norms.get(t) || t, rd = reds.get(n0), to = rd ? rd.to : n0, p = pages.get(to);
+      cache["look:" + t] = { to, fragment: rd && rd.tofragment || null, missing: !p || !!p.missing }; });
+    save();
+  }
+  const sectionYear = d => { const at = cache["look:" + `${d.make} ${d.label}`]; const m = at && at.fragment && /\b(19\d\d|20\d\d)\b/.exec(at.fragment); return m ? +m[1] : null; };
   nodes.forEach(d => {
     if (!live(d) || d.type !== "model" || d.familyOf || d.concept || d.conceptOf || !d.wp) return;
     if ((d.generations || []).some(id => live(byId.get(id)))) return;
@@ -112,6 +129,29 @@ const idOf = v => typeof v === "string" ? v : v.id;
         if (dc.size) return [...dc].some(x => gc.has(x));
         return Number.isFinite(d.year) && d.year === g.year && d.end === g.end && !(Number.isFinite(d.end) && d.end - d.year < 2);
       });
+      // A trim or version of the nameplate's own name ("Buick Roadmaster
+      // Convertible", "Suzuki e Every"), or a name a generation's own infobox gives
+      // it ("Toyota Echo" for the Yaris XP10): the generation in production in the
+      // car's first year. The owner's ruling 1 (8 Nov 2026): a trim or version with
+      // no article of its own is part of the generation it belongs to.
+      if (!hits.length && !dc.size) {
+        const words = x => String(x).normalize("NFKD").toLowerCase().replace(/\([^()]*\)/g, " ").split(/[^a-z0-9]+/).filter(Boolean);
+        const pw = words(f.label), dw = words(d.label);
+        const trim = dw.length > pw.length && dw.some((w, i) => pw.every((p, j) => dw[i + j] === p));
+        const named = g => (LF.aliasesFor(g.id) || []).some(a => { const x = norm(String(a).replace(/\([^()]*\)/g, " ")); return x === norm(d.make + " " + d.label) || x === norm(d.label); });
+        // Years copied from the nameplate's article say nothing of which generation
+        // (the Corolla Axio had the Corolla's 1966).
+        const sy = sectionYear(d), y = sy || d.year;
+        const plateYears = !sy && (d.year === f.year || (Number.isFinite(d.end) && d.end === f.end && d.year <= f.year + 1));
+        const inRun = g => !plateYears && Number.isFinite(y) && Number.isFinite(g.year) && g.year <= y && y <= (Number.isFinite(g.end) ? g.end : 9999);
+        // A name that is part of the nameplate's own ("Cayman" of the "Boxster and
+        // Cayman") names every generation, not one.
+        const inPlate = dw.every(w => pw.includes(w));
+        const viaName = inPlate ? [] : gens.filter(named);
+        if (viaName.length !== 1 && trim) trimAsk.push(d);
+        hits.push(...(viaName.length === 1 ? viaName : trim ? gens.filter(inRun) : []));
+        if (hits.length === 1) via.set(d.id, viaName.length === 1 ? "named" : "trim");
+      }
       if (hits.length !== 1) continue;
       const k = hits[0];
       // Every connection of its own is the generation's or the nameplate's too.
@@ -140,7 +180,7 @@ const idOf = v => typeof v === "string" ? v : v.id;
     const said = parts.some(p => flat.includes(norm(d.make + " " + p)) || (norm(p).length >= 5 && flat.includes(norm(p))));
     if (!said) { report.push(`unnamed  ${tag}: the article "${article(f.wp)}" does not give its name`); return; }
     out[d.id] = { into: k.id, name };
-    report.push(`fold     ${tag}` + (ownLinks.length ? `, bringing ${ownLinks.length} connection(s): ${ownLinks.slice(0, 4).map(([t, o]) => t + " " + ((byId.get(o) || {}).label || o)).join(", ")}` : ""));
+    report.push(`fold     ${tag}` + (via.has(d.id) ? ` [${via.get(d.id)}]` : "") + (ownLinks.length ? `, bringing ${ownLinks.length} connection(s): ${ownLinks.slice(0, 4).map(([t, o]) => t + " " + ((byId.get(o) || {}).label || o)).join(", ")}` : ""));
   });
   // A nameplate shown twice, generation by generation: the Ford Falcon (Australia)
   // read from its article beside the Falcon of the build data, whose generations

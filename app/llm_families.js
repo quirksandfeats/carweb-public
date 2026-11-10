@@ -754,9 +754,9 @@ window.LlmFamilies = (function () {
       d.supersededBy = into.id;
       d.mergedInto = into.id;
       d.retiredReason = `the same car as the ${into.make} ${into.label}`;
-      // What the car knew that the other does not: its years, photo, specs, credits.
+      // What the car knew that the other does not: its start, photo, specs, credits.
+      // Not its end: the DS 3 Crossback ended in 2022 by taking the name DS 3.
       if (into.year == null && d.year != null) into.year = d.year;
-      if (into.end == null && d.end != null && into.year === d.year) into.end = d.end;
       ["wikiFile", "db", "dbspecs", "dbphoto", "dbPage", "garage", "heritage"].forEach(k => { if (d[k] != null && into[k] == null) into[k] = d[k]; });
       ["designers", "engineers"].forEach(k => { if ((d[k] || []).length) into[k] = [...new Set([...(into[k] || []), ...d[k]])]; });
       if (!aliasesFor(into.id).some(x => bare(x) === bare(name))) plateAka.set(into.id, [...new Set([...(plateAka.get(into.id) || []), name])]);

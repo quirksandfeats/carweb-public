@@ -60,7 +60,8 @@ check("nor the Kwid", !linked("llm-m-renault-kwid-bw", "m-zotye-e30", "platform"
 const venucia = nodes.find(n => !n.retired && n.make === "Venucia" && /e30/i.test(n.label));
 check("the Venucia e30 is a car of its own on the first Leaf's platform", !!venucia && linked("m-nissan-leaf-first-generation", venucia.id, "platform"), venucia && venucia.id);
 check("a badge of another maker its article names stays (Chevrolet Nexia, the Daewoo Nexia)",
-  links.some(l => !l.retired && l.type === "platform" && [idOf(l.source), idOf(l.target)].includes("llm-related-daewoo-nexia")));
+  (() => { let id = "llm-related-daewoo-nexia"; for (let i = 0; byId.get(id) && byId.get(id).retired && byId.get(id).supersededBy && i < 5; i++) id = byId.get(id).supersededBy;
+    return links.some(l => !l.retired && l.type === "platform" && [idOf(l.source), idOf(l.target)].includes(id)); })());
 
 // "{{see also|...}}" opening a generation's section names its own article.
 const sec = "{{see also|Lincoln Continental Mark VI}}\nThe Mark VI was downsized for 1980.";

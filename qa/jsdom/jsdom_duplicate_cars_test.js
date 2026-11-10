@@ -59,5 +59,13 @@ check("a connection goes to the listed car its years meet: the XD Falcon's to th
 check("the rest to the twin: the Ranchero's to the Fairlane (Americas)", links.some(l => !l.retired && l.type === "platform" &&
   [idOf(l.source), idOf(l.target)].some(id => id === "m-ford-fairlane-americas" || (byId.get(id) || {}).familyOf === "m-ford-fairlane-americas") &&
   [idOf(l.source), idOf(l.target)].some(id => /ranchero/.test(id))));
+// Trims, versions and other names of one generation (ruling 1, 8 Nov 2026).
+const into = id => (byId.get(id) || {}).supersededBy;
+check("a name a generation's infobox gives: the Toyota Echo is the Yaris XP10", into("llm-related-toyota-echo") === "llm-m-toyota-yaris-xp10");
+check("a trim goes to the generation its section dates: the Rogue Plug-in Hybrid (2025) to the third Rogue",
+  into("llm-related-nissan-rogue-plug-in-hybrid") === "llm-m-nissan-rogue-third-generation");
+check("a trim whose years are the nameplate's goes nowhere: the Corolla Axio", !byId.get("llm-related-toyota-corolla-axio").retired);
+check("a name in the nameplate's own name is no one generation's: the Porsche Cayman", !byId.get("llm-related-porsche-cayman").retired);
+check("a folded car's end is not the generation's: the DS 3 is still built", byId.get("llm-m-ds-3-second-generation").end == null);
 console.log(fails ? `${fails} FAILED` : "ALL PASS");
 process.exit(fails ? 1 : 0);
