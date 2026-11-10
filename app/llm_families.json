@@ -267185,6 +267185,175 @@
    ],
    "allEngineers": [],
    "outsidersV": 2
+  },
+  "llm-related-mercury-mystique": {
+   "status": "same-article",
+   "checkedAt": "2026-11-10T15:51:22.124Z",
+   "sourceTitle": "Ford Mondeo (first generation)",
+   "sameAs": "m-ford-mondeo-first-generation",
+   "sameAsLabel": "Ford Mondeo (first generation)",
+   "attempts": 1
+  },
+  "m-ford-mondeo-first-generation": {
+   "status": "none",
+   "checkedAt": "2026-11-10T15:52:07.167Z",
+   "sourceTitle": "Ford Mondeo (first generation)",
+   "proposal": {
+    "hasMultipleGenerations": false,
+    "generations": [
+     {
+      "code": "Mk I / Mk II",
+      "yearStart": 1993,
+      "yearEnd": 2000,
+      "designers": [
+       "John Oldfield"
+      ],
+      "engineers": [
+       "John Oldfield"
+      ],
+      "wikiFile": "2000 Ford Mondeo LX 2.0 Front.jpg",
+      "sharedPlatforms": [
+       "Ford Cougar",
+       "Mercury Cougar"
+      ],
+      "cardProduction": " 23 November 1992<ref name=\"Digman\">{{cite book |title=Strategic management: cases |year=1997 |publisher=DAME Publications |isbn=9780873936194 |url=https://books.google.com/books?id=wv1tInKKNTMC&q=ford+mondeo+production+1992 | first = Lester A.| last = Digman}}</ref>–31 August 1996 (pre-facelift)<br />1 September 1996 – 1 November 2000 (facelift)\n"
+     }
+    ]
+   },
+   "attempts": 1,
+   "feedback": [],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": false,
+     "generations": [
+      {
+       "code": "Mk I/Mk II",
+       "yearStart": 1993,
+       "yearEnd": 2000,
+       "designers": [
+        "John Oldfield"
+       ],
+       "engineers": [
+        "John Oldfield"
+       ],
+       "sharedPlatforms": [
+        "Ford Cougar",
+        "Mercury Cougar"
+       ]
+      }
+     ]
+    },
+    "dropped": [
+     {
+      "code": "Mk I/Mk II",
+      "yearStart": 1993,
+      "yearEnd": 2000,
+      "designers": [
+       "John Oldfield"
+      ],
+      "engineers": [
+       "John Oldfield"
+      ],
+      "sharedPlatforms": [
+       "Ford Cougar",
+       "Mercury Cougar"
+      ]
+     }
+    ]
+   },
+   "cascadeDiscovered": true
+  },
+  "llm-related-ford-contour": {
+   "status": "none",
+   "checkedAt": "2026-11-10T15:54:05.889Z",
+   "sourceTitle": "Ford Contour",
+   "proposal": {
+    "hasMultipleGenerations": false,
+    "generations": [
+     {
+      "code": "Ford Contour / Mercury Mystique",
+      "yearStart": 1995,
+      "yearEnd": 2000,
+      "designers": [
+       "Patrick Schiavone"
+      ],
+      "engineers": [],
+      "wikiFile": "1998 Ford Contour SVT.png",
+      "sharedPlatforms": [
+       "Ford Mondeo Mk 1",
+       "Ford Cougar"
+      ],
+      "cardProduction": " August 15, 1994&ndash;October 19, 2000\n",
+      "sharedPlatformMatches": {
+       "Ford Mondeo Mk 1": {
+        "matchId": "fam-ford-mondeo",
+        "confidence": "high",
+        "reason": "The mention 'Ford Mondeo Mk 1' explicitly identifies the first generation of the Ford Mondeo. The candidate 'fam-ford-mondeo' is the only entry for the Ford Mondeo that covers the production era corresponding to the Mk 1 (1992–1996), whereas other candidates like 'm-ford-mondeo' refer to the second generation (2000–2007)."
+       }
+      }
+     }
+    ]
+   },
+   "attempts": 1,
+   "feedback": [],
+   "engines": [
+    {
+     "title": "Ford Zetec engine",
+     "name": "Zetec",
+     "variant": null,
+     "specs": {
+      "displacement": "2.0 L",
+      "layout": "I",
+      "cylinders": 4
+     },
+     "said": "2.0 L Zetec I4"
+    },
+    {
+     "title": "Ford Mondeo V6 engine",
+     "name": "Duratec 25",
+     "variant": null,
+     "specs": {
+      "displacement": "2.5 L",
+      "layout": "V",
+      "cylinders": 6
+     },
+     "said": "2.5 L Duratec 25 V6"
+    },
+    {
+     "title": "Ford Mondeo V6 engine",
+     "name": "Duratec 25 SVT",
+     "variant": "Duratec 25 SVT",
+     "specs": {
+      "displacement": "2.5 L",
+      "layout": "V",
+      "cylinders": 6
+     },
+     "said": "2.5 L Duratec 25 SVT V6"
+    }
+   ],
+   "debug": {
+    "raw": {
+     "hasMultipleGenerations": false,
+     "generations": [
+      {
+       "code": "Ford Contour / Mercury Mystique",
+       "yearStart": 1995,
+       "yearEnd": 2000,
+       "designers": [
+        "Patrick Schiavone"
+       ],
+       "engineers": [],
+       "sharedPlatforms": [
+        "Ford Mondeo Mk 1",
+        "Ford Mondeo Mk 2",
+        "Ford Cougar",
+        "Mercury Cougar (Eighth generation)"
+       ]
+      }
+     ]
+    },
+    "dropped": []
+   }
   }
  },
  "relations": {
@@ -286946,8 +287115,8 @@
   },
   "llm-m-nissan-micra-k14|llm-m-nissan-note-e12|platform": {
    "status": "confirmed",
-   "checkedAt": "2026-11-10T15:10:22.412Z",
-   "decidedAt": "2026-11-10T15:10:22.412Z",
+   "checkedAt": "2026-11-10T15:50:52.357Z",
+   "decidedAt": "2026-11-10T15:50:52.357Z",
    "famA": "m-nissan-note",
    "famB": "m-nissan-micra",
    "relType": "platform",
@@ -421571,8 +421740,8 @@
   },
   "llm-related-daewoo-nexia|m-chevrolet-aveo-t200|platform": {
    "status": "confirmed",
-   "checkedAt": "2026-11-10T15:10:42.150Z",
-   "decidedAt": "2026-11-10T15:10:42.150Z",
+   "checkedAt": "2026-11-10T15:51:10.639Z",
+   "decidedAt": "2026-11-10T15:51:10.639Z",
    "famA": "fam-chevrolet-aveo",
    "famB": "llm-related-daewoo-nexia",
    "relType": "platform",
@@ -463039,20 +463208,6 @@
    "reason": "matched automatically -- the nameplate was named exactly in the source text; no text says which, so the generation whose years fit this one best",
    "llmDiscovered": true
   },
-  "llm-m-moskvitch-408-m-408|m-moskvitch-412|platform": {
-   "status": "confirmed",
-   "checkedAt": "2026-10-15T11:05:59.914Z",
-   "decidedAt": "2026-10-15T11:05:59.914Z",
-   "famA": "m-moskvitch-412",
-   "famB": "m-moskvitch-408",
-   "relType": "platform",
-   "codeA": "412",
-   "codeB": "408 M-408",
-   "genIdA": "m-moskvitch-412",
-   "genIdB": "llm-m-moskvitch-408-m-408",
-   "reason": "matched automatically -- the nameplate was named exactly in the source text; no text says which, so the generation whose years fit this one best",
-   "llmDiscovered": true
-  },
   "llm-m-dodge-coronet-first-generation-1949-1952|m-desoto-series-s-10|platform": {
    "status": "confirmed",
    "checkedAt": "2026-10-15T11:05:59.924Z",
@@ -466149,8 +466304,8 @@
   },
   "llm-llm-related-mitsubishi-minicab-miev-u61-62-68-69|llm-llm-related-nissan-clipper-mitsubishi-town-box-first-generation|platform": {
    "status": "confirmed",
-   "checkedAt": "2026-11-10T15:10:36.467Z",
-   "decidedAt": "2026-11-10T15:10:36.467Z",
+   "checkedAt": "2026-11-10T15:51:05.448Z",
+   "decidedAt": "2026-11-10T15:51:05.448Z",
    "famA": "llm-related-mitsubishi-minicab-miev",
    "famB": "llm-related-nissan-clipper",
    "relType": "platform",
@@ -468572,8 +468727,8 @@
   },
   "llm-m-lincoln-custom-lincoln-custom-1941|llm-m-lincoln-lincoln-zephyr-lincoln-h-series|platform": {
    "status": "confirmed",
-   "checkedAt": "2026-11-10T15:10:25.570Z",
-   "decidedAt": "2026-11-10T15:10:25.570Z",
+   "checkedAt": "2026-11-10T15:50:55.274Z",
+   "decidedAt": "2026-11-10T15:50:55.274Z",
    "famA": "m-lincoln-custom",
    "famB": "m-lincoln-lincoln-zephyr",
    "relType": "platform",
@@ -497802,8 +497957,8 @@
   },
   "llm-m-mitsubishi-3000gt-z16a|llm-m-mitsubishi-sigma-first-generation|platform": {
    "status": "confirmed",
-   "checkedAt": "2026-11-10T15:10:26.093Z",
-   "decidedAt": "2026-11-10T15:10:26.093Z",
+   "checkedAt": "2026-11-10T15:50:55.765Z",
+   "decidedAt": "2026-11-10T15:50:55.765Z",
    "famA": "m-mitsubishi-sigma",
    "famB": "m-mitsubishi-3000gt",
    "relType": "platform",
@@ -502596,8 +502751,8 @@
   },
   "llm-llm-related-nissan-clipper-suzuki-every-fourth-generation|llm-llm-related-suzuki-carry-da16t|platform": {
    "status": "confirmed",
-   "checkedAt": "2026-11-10T15:10:36.542Z",
-   "decidedAt": "2026-11-10T15:10:36.542Z",
+   "checkedAt": "2026-11-10T15:51:05.523Z",
+   "decidedAt": "2026-11-10T15:51:05.523Z",
    "famA": "llm-related-suzuki-carry",
    "famB": "llm-related-nissan-clipper",
    "relType": "platform",
@@ -516391,8 +516546,8 @@
   },
   "llm-m-vauxhall-astra-mkii-kadett-e|llm-related-bedford-astra|platform": {
    "status": "confirmed",
-   "checkedAt": "2026-11-10T15:10:24.512Z",
-   "decidedAt": "2026-11-10T15:10:24.512Z",
+   "checkedAt": "2026-11-10T15:50:54.329Z",
+   "decidedAt": "2026-11-10T15:50:54.329Z",
    "famA": "m-vauxhall-astra",
    "famB": "llm-related-bedford-astra",
    "relType": "platform",
@@ -537341,8 +537496,8 @@
   },
   "llm-m-mazda-carol-seventh-generation-hb36|llm-m-suzuki-alto-ha25-ha35|platform": {
    "status": "confirmed",
-   "checkedAt": "2026-11-10T15:10:25.078Z",
-   "decidedAt": "2026-11-10T15:10:25.078Z",
+   "checkedAt": "2026-11-10T15:50:54.814Z",
+   "decidedAt": "2026-11-10T15:50:54.814Z",
    "famA": "m-mazda-carol",
    "famB": "m-suzuki-alto",
    "relType": "platform",
@@ -542082,8 +542237,8 @@
   },
   "llm-llm-related-daihatsu-delta-u400|llm-llm-related-toyota-toyoace-sixth-generation|platform": {
    "status": "confirmed",
-   "checkedAt": "2026-11-10T15:10:32.916Z",
-   "decidedAt": "2026-11-10T15:10:32.916Z",
+   "checkedAt": "2026-11-10T15:51:02.091Z",
+   "decidedAt": "2026-11-10T15:51:02.091Z",
    "famA": "llm-related-daihatsu-delta",
    "famB": "llm-related-toyota-toyoace",
    "relType": "platform",
@@ -542110,8 +542265,8 @@
   },
   "llm-llm-related-daihatsu-delta-u600-u700|llm-llm-related-toyota-toyoace-seventh-generation|platform": {
    "status": "confirmed",
-   "checkedAt": "2026-11-10T15:10:32.918Z",
-   "decidedAt": "2026-11-10T15:10:32.918Z",
+   "checkedAt": "2026-11-10T15:51:02.093Z",
+   "decidedAt": "2026-11-10T15:51:02.093Z",
    "famA": "llm-related-daihatsu-delta",
    "famB": "llm-related-toyota-toyoace",
    "relType": "platform",
@@ -546208,8 +546363,8 @@
   },
   "llm-m-isuzu-mu-second-generation|llm-related-honda-jazz|platform": {
    "status": "confirmed",
-   "checkedAt": "2026-11-10T15:10:43.691Z",
-   "decidedAt": "2026-11-10T15:10:43.691Z",
+   "checkedAt": "2026-11-10T15:54:08.705Z",
+   "decidedAt": "2026-11-10T15:54:08.705Z",
    "famA": "llm-related-honda-jazz",
    "famB": "m-isuzu-mu",
    "relType": "platform",
@@ -547436,8 +547591,8 @@
   },
   "llm-m-suzuki-alto-ha25-ha35|llm-related-nissan-pixo-ev|platform": {
    "status": "confirmed",
-   "checkedAt": "2026-11-10T15:10:28.930Z",
-   "decidedAt": "2026-11-10T15:10:28.930Z",
+   "checkedAt": "2026-11-10T15:50:58.395Z",
+   "decidedAt": "2026-11-10T15:50:58.395Z",
    "famA": "llm-related-nissan-pixo-ev",
    "famB": "m-suzuki-alto",
    "relType": "platform",
@@ -549731,104 +549886,6 @@
    "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
    "llmDiscovered": true
   },
-  "llm-m-ford-ltd-americas-third-generation-panther|m-ford-mustang-fox|platform": {
-   "status": "confirmed",
-   "checkedAt": "2026-11-10T08:05:10.952Z",
-   "decidedAt": "2026-11-10T08:05:10.952Z",
-   "famA": "fam-ford-mustang",
-   "famB": "m-ford-ltd-americas",
-   "relType": "platform",
-   "codeA": "Mustang (Fox)",
-   "codeB": "LTD (Americas) Third generation (Panther)",
-   "genIdA": "m-ford-mustang-fox",
-   "genIdB": "llm-m-ford-ltd-americas-third-generation-panther",
-   "reason": "matched automatically -- the nameplate was named exactly in the source text; no text says which, so the generation whose years fit this one best",
-   "llmDiscovered": true
-  },
-  "llm-m-lincoln-continental-seventh-generation|m-ford-mustang-fox|platform": {
-   "status": "confirmed",
-   "checkedAt": "2026-11-10T08:05:10.953Z",
-   "decidedAt": "2026-11-10T08:05:10.953Z",
-   "famA": "fam-ford-mustang",
-   "famB": "m-lincoln-continental",
-   "relType": "platform",
-   "codeA": "Mustang (Fox)",
-   "codeB": "Continental Seventh generation",
-   "genIdA": "m-ford-mustang-fox",
-   "genIdB": "llm-m-lincoln-continental-seventh-generation",
-   "reason": "matched automatically -- the nameplate was named exactly in the source text; no text says which, so the generation whose years fit this one best",
-   "llmDiscovered": true
-  },
-  "llm-m-vauxhall-cavalier-mark-i|m-peugeot-305|platform": {
-   "status": "confirmed",
-   "checkedAt": "2026-11-10T08:05:10.967Z",
-   "decidedAt": "2026-11-10T08:05:10.967Z",
-   "famA": "m-peugeot-305",
-   "famB": "m-vauxhall-cavalier",
-   "relType": "platform",
-   "codeA": "305",
-   "codeB": "Cavalier Mark I",
-   "genIdA": "m-peugeot-305",
-   "genIdB": "llm-m-vauxhall-cavalier-mark-i",
-   "reason": "matched automatically -- the nameplate was named exactly in the source text, and exactly one of its generations was in production alongside this one, so that is the generation it refers to",
-   "llmDiscovered": true
-  },
-  "llm-m-opel-ascona-ascona-b|m-peugeot-305|platform": {
-   "status": "confirmed",
-   "checkedAt": "2026-11-10T08:05:10.967Z",
-   "decidedAt": "2026-11-10T08:05:10.967Z",
-   "famA": "m-peugeot-305",
-   "famB": "m-opel-ascona",
-   "relType": "platform",
-   "codeA": "305",
-   "codeB": "Ascona B",
-   "genIdA": "m-peugeot-305",
-   "genIdB": "llm-m-opel-ascona-ascona-b",
-   "reason": "matched automatically -- the nameplate was named exactly in the source text, and exactly one of its generations was in production alongside this one, so that is the generation it refers to",
-   "llmDiscovered": true
-  },
-  "llm-m-mitsubishi-mirage-fourth-generation-1991-ca-cb-cc-cd|m-mitsubishi-mirage-dingo|platform": {
-   "status": "confirmed",
-   "checkedAt": "2026-11-10T08:05:10.999Z",
-   "decidedAt": "2026-11-10T08:05:10.999Z",
-   "famA": "m-mitsubishi-mirage-dingo",
-   "famB": "m-mitsubishi-mirage",
-   "relType": "platform",
-   "codeA": "Mirage Dingo",
-   "codeB": "Mirage Fourth generation (1991; CA/CB/CC/CD)",
-   "genIdA": "m-mitsubishi-mirage-dingo",
-   "genIdB": "llm-m-mitsubishi-mirage-fourth-generation-1991-ca-cb-cc-cd",
-   "reason": "matched automatically -- the nameplate was named exactly in the source text; no text says which, so the generation whose years fit this one best",
-   "llmDiscovered": true
-  },
-  "llm-m-jeep-compass-first-generation-mk49|m-fiat-tipo-2015|platform": {
-   "status": "confirmed",
-   "checkedAt": "2026-11-10T08:05:11.090Z",
-   "decidedAt": "2026-11-10T08:05:11.090Z",
-   "famA": "m-fiat-tipo-2015",
-   "famB": "m-jeep-compass",
-   "relType": "platform",
-   "codeA": "Tipo (2015)",
-   "codeB": "Compass First generation (MK49)",
-   "genIdA": "m-fiat-tipo-2015",
-   "genIdB": "llm-m-jeep-compass-first-generation-mk49",
-   "reason": "matched automatically -- the nameplate was named exactly in the source text, and exactly one of its generations was in production alongside this one, so that is the generation it refers to",
-   "llmDiscovered": true
-  },
-  "llm-m-dodge-c-series-dodge-c-series|m-dodge-town-panel-and-town-wagon|platform": {
-   "status": "confirmed",
-   "checkedAt": "2026-11-10T08:05:11.093Z",
-   "decidedAt": "2026-11-10T08:05:11.093Z",
-   "famA": "m-dodge-town-panel-and-town-wagon",
-   "famB": "m-dodge-c-series",
-   "relType": "platform",
-   "codeA": "Town Panel and Town Wagon",
-   "codeB": "C series Dodge C series",
-   "genIdA": "m-dodge-town-panel-and-town-wagon",
-   "genIdB": "llm-m-dodge-c-series-dodge-c-series",
-   "reason": "matched automatically -- the nameplate was named exactly in the source text; no text says which, so the generation whose years fit this one best",
-   "llmDiscovered": true
-  },
   "llm-m-fiat-128-zastava-skala|m-zastava-skala|platform": {
    "status": "confirmed",
    "checkedAt": "2026-11-10T08:05:11.130Z",
@@ -549855,146 +549912,6 @@
    "genIdA": "m-moskvitch-aleko",
    "genIdB": "llm-related-moskvitch-2142",
    "reason": "matched automatically -- \"Moskvitch 2142\" was named as a related car but didn't exist anywhere in the graph yet, so it was newly created from this mention (double-checked by the local LLM sanity pass against every plausible existing car -- none matched)",
-   "llmDiscovered": true
-  },
-  "llm-m-acura-tl-ua4-ua5|m-honda-accord-north-america-seventh-generation|platform": {
-   "status": "confirmed",
-   "checkedAt": "2026-11-10T08:05:11.256Z",
-   "decidedAt": "2026-11-10T08:05:11.256Z",
-   "famA": "m-honda-accord-north-america-seventh-generation",
-   "famB": "m-acura-tl",
-   "relType": "platform",
-   "codeA": "Accord (North America seventh generation)",
-   "codeB": "TL UA4, UA5",
-   "genIdA": "m-honda-accord-north-america-seventh-generation",
-   "genIdB": "llm-m-acura-tl-ua4-ua5",
-   "reason": "matched automatically -- the nameplate was named exactly in the source text; its article's sections for these generations name this car, and this one's years fit best",
-   "llmDiscovered": true
-  },
-  "llm-m-honda-inspire-third-generation-ua4-ua5|m-honda-accord-north-america-seventh-generation|platform": {
-   "status": "confirmed",
-   "checkedAt": "2026-11-10T08:05:11.256Z",
-   "decidedAt": "2026-11-10T08:05:11.256Z",
-   "famA": "m-honda-accord-north-america-seventh-generation",
-   "famB": "m-honda-inspire",
-   "relType": "platform",
-   "codeA": "Accord (North America seventh generation)",
-   "codeB": "Inspire Third generation (UA4 & UA5)",
-   "genIdA": "m-honda-accord-north-america-seventh-generation",
-   "genIdB": "llm-m-honda-inspire-third-generation-ua4-ua5",
-   "reason": "matched automatically -- the nameplate was named exactly in the source text; its article's sections for these generations name this car, and this one's years fit best",
-   "llmDiscovered": true
-  },
-  "llm-m-desoto-firedome-second-generation|m-desoto-fireflite|platform": {
-   "status": "confirmed",
-   "checkedAt": "2026-11-10T08:05:11.258Z",
-   "decidedAt": "2026-11-10T08:05:11.258Z",
-   "famA": "m-desoto-fireflite",
-   "famB": "m-desoto-firedome",
-   "relType": "platform",
-   "codeA": "Fireflite",
-   "codeB": "Firedome Second generation",
-   "genIdA": "m-desoto-fireflite",
-   "genIdB": "llm-m-desoto-firedome-second-generation",
-   "reason": "matched automatically -- the nameplate was named exactly in the source text, and exactly one of its generations was in production alongside this one, so that is the generation it refers to",
-   "llmDiscovered": true
-  },
-  "llm-m-volkswagen-sharan-7m|m-volkswagen-cc|platform": {
-   "status": "confirmed",
-   "checkedAt": "2026-11-10T08:05:11.273Z",
-   "decidedAt": "2026-11-10T08:05:11.273Z",
-   "famA": "m-volkswagen-cc",
-   "famB": "m-volkswagen-sharan",
-   "relType": "platform",
-   "codeA": "CC",
-   "codeB": "Sharan 7M",
-   "genIdA": "m-volkswagen-cc",
-   "genIdB": "llm-m-volkswagen-sharan-7m",
-   "reason": "matched automatically -- the nameplate was named exactly in the source text, and exactly one of its generations was in production alongside this one, so that is the generation it refers to",
-   "llmDiscovered": true
-  },
-  "llm-m-seat-alhambra-7m|m-volkswagen-cc|platform": {
-   "status": "confirmed",
-   "checkedAt": "2026-11-10T08:05:11.273Z",
-   "decidedAt": "2026-11-10T08:05:11.273Z",
-   "famA": "m-volkswagen-cc",
-   "famB": "m-seat-alhambra",
-   "relType": "platform",
-   "codeA": "CC",
-   "codeB": "Alhambra 7M",
-   "genIdA": "m-volkswagen-cc",
-   "genIdB": "llm-m-seat-alhambra-7m",
-   "reason": "matched automatically -- the nameplate was named exactly in the source text, and exactly one of its generations was in production alongside this one, so that is the generation it refers to",
-   "llmDiscovered": true
-  },
-  "llm-m-citroen-c4-picasso-first-generation|m-ds-5|platform": {
-   "status": "confirmed",
-   "checkedAt": "2026-11-10T08:05:11.327Z",
-   "decidedAt": "2026-11-10T08:05:11.327Z",
-   "famA": "m-ds-5",
-   "famB": "m-citroen-c4-picasso",
-   "relType": "platform",
-   "codeA": "5",
-   "codeB": "C4 Picasso First generation",
-   "genIdA": "m-ds-5",
-   "genIdB": "llm-m-citroen-c4-picasso-first-generation",
-   "reason": "matched automatically -- the nameplate was named exactly in the source text, and exactly one of its generations was in production alongside this one, so that is the generation it refers to",
-   "llmDiscovered": true
-  },
-  "llm-m-lancia-stratos-stratos-zero|m-lancia-rally-037|platform": {
-   "status": "confirmed",
-   "checkedAt": "2026-11-10T08:05:11.347Z",
-   "decidedAt": "2026-11-10T08:05:11.347Z",
-   "famA": "m-lancia-rally-037",
-   "famB": "m-lancia-stratos",
-   "relType": "platform",
-   "codeA": "Rally 037",
-   "codeB": "Stratos Zero",
-   "genIdA": "m-lancia-rally-037",
-   "genIdB": "llm-m-lancia-stratos-stratos-zero",
-   "reason": "matched automatically -- the nameplate was named exactly in the source text; no text says which, so the generation whose years fit this one best",
-   "llmDiscovered": true
-  },
-  "llm-m-mercedes-benz-w180-220-a-w180-i|m-mercedes-benz-w105|platform": {
-   "status": "confirmed",
-   "checkedAt": "2026-11-10T08:05:11.350Z",
-   "decidedAt": "2026-11-10T08:05:11.350Z",
-   "famA": "m-mercedes-benz-w105",
-   "famB": "m-mercedes-benz-w180",
-   "relType": "platform",
-   "codeA": "W105",
-   "codeB": "W180 220 a (W180 I)",
-   "genIdA": "m-mercedes-benz-w105",
-   "genIdB": "llm-m-mercedes-benz-w180-220-a-w180-i",
-   "reason": "matched automatically -- the nameplate was named exactly in the source text; no text says which, so the generation whose years fit this one best",
-   "llmDiscovered": true
-  },
-  "llm-m-kia-sportage-nb|m-hyundai-lavita|platform": {
-   "status": "confirmed",
-   "checkedAt": "2026-11-10T08:05:11.363Z",
-   "decidedAt": "2026-11-10T08:05:11.363Z",
-   "famA": "m-hyundai-lavita",
-   "famB": "m-kia-sportage",
-   "relType": "platform",
-   "codeA": "Lavita",
-   "codeB": "Sportage NB",
-   "genIdA": "m-hyundai-lavita",
-   "genIdB": "llm-m-kia-sportage-nb",
-   "reason": "matched automatically -- the nameplate was named exactly in the source text, and exactly one of its generations was in production alongside this one, so that is the generation it refers to",
-   "llmDiscovered": true
-  },
-  "llm-m-dodge-colt-second-generation|llm-related-dodge-arrow|platform": {
-   "status": "confirmed",
-   "checkedAt": "2026-11-10T08:05:11.382Z",
-   "decidedAt": "2026-11-10T08:05:11.382Z",
-   "famA": "llm-related-dodge-arrow",
-   "famB": "m-dodge-colt",
-   "relType": "platform",
-   "codeA": "Arrow",
-   "codeB": "Colt Second generation",
-   "genIdA": "llm-related-dodge-arrow",
-   "genIdB": "llm-m-dodge-colt-second-generation",
-   "reason": "matched automatically -- the nameplate was named exactly in the source text; its article's sections for these generations name this car, and this one's years fit best",
    "llmDiscovered": true
   },
   "llm-related-izh-412|m-izh-2125|platform": {
@@ -550069,8 +549986,8 @@
   },
   "llm-llm-related-volkswagen-alltrack-b6|llm-m-skoda-superb-b6-3t|platform": {
    "status": "confirmed",
-   "checkedAt": "2026-11-10T15:10:31.620Z",
-   "decidedAt": "2026-11-10T15:10:31.620Z",
+   "checkedAt": "2026-11-10T15:51:00.881Z",
+   "decidedAt": "2026-11-10T15:51:00.881Z",
    "famA": "llm-related-volkswagen-alltrack",
    "famB": "m-skoda-superb",
    "relType": "platform",
@@ -550093,34 +550010,6 @@
    "genIdA": "llm-related-mitsubishi-express",
    "genIdB": "llm-related-renault-master",
    "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
-   "llmDiscovered": true
-  },
-  "llm-llm-related-porsche-935-935-76|m-porsche-911-930|platform": {
-   "status": "confirmed",
-   "checkedAt": "2026-11-10T08:05:14.668Z",
-   "decidedAt": "2026-11-10T08:05:14.668Z",
-   "famA": "fam-porsche-911",
-   "famB": "llm-related-porsche-935",
-   "relType": "platform",
-   "codeA": "911 (930)",
-   "codeB": "935 935/76",
-   "genIdA": "m-porsche-911-930",
-   "genIdB": "llm-llm-related-porsche-935-935-76",
-   "reason": "matched automatically -- the nameplate was named exactly in the source text; no text says which, so the generation whose years fit this one best",
-   "llmDiscovered": true
-  },
-  "llm-llm-related-izh-2715-izh-2715-1970s|m-izh-2125|platform": {
-   "status": "confirmed",
-   "checkedAt": "2026-11-10T08:05:14.670Z",
-   "decidedAt": "2026-11-10T08:05:14.670Z",
-   "famA": "m-izh-2125",
-   "famB": "llm-related-izh-2715",
-   "relType": "platform",
-   "codeA": "2125",
-   "codeB": "2715 Izh 2715 (1970s)",
-   "genIdA": "m-izh-2125",
-   "genIdB": "llm-llm-related-izh-2715-izh-2715-1970s",
-   "reason": "matched automatically -- the nameplate was named exactly in the source text; no text says which, so the generation whose years fit this one best",
    "llmDiscovered": true
   },
   "llm-m-moskvitch-408-m-408|llm-related-moskvitch-433|platform": {
@@ -550419,8 +550308,8 @@
   },
   "llm-m-buick-electra-fourth-generation|llm-m-cadillac-fleetwood-fourth-generation-1971-1976-|platform": {
    "status": "confirmed",
-   "checkedAt": "2026-11-10T15:10:30.504Z",
-   "decidedAt": "2026-11-10T15:10:30.504Z",
+   "checkedAt": "2026-11-10T15:50:59.847Z",
+   "decidedAt": "2026-11-10T15:50:59.847Z",
    "famA": "m-cadillac-fleetwood",
    "famB": "m-buick-electra",
    "relType": "platform",
@@ -550433,8 +550322,8 @@
   },
   "llm-m-cadillac-fleetwood-fourth-generation-1971-1976-|llm-m-oldsmobile-98-ninth-generation-1971-1976|platform": {
    "status": "confirmed",
-   "checkedAt": "2026-11-10T15:10:30.505Z",
-   "decidedAt": "2026-11-10T15:10:30.505Z",
+   "checkedAt": "2026-11-10T15:50:59.847Z",
+   "decidedAt": "2026-11-10T15:50:59.847Z",
    "famA": "m-cadillac-fleetwood",
    "famB": "m-oldsmobile-98",
    "relType": "platform",
@@ -550447,8 +550336,8 @@
   },
   "llm-m-dodge-colt-first-generation|llm-m-mitsubishi-galant-first-generation|platform": {
    "status": "confirmed",
-   "checkedAt": "2026-11-10T15:10:31.258Z",
-   "decidedAt": "2026-11-10T15:10:31.258Z",
+   "checkedAt": "2026-11-10T15:51:00.539Z",
+   "decidedAt": "2026-11-10T15:51:00.539Z",
    "famA": "m-dodge-colt",
    "famB": "m-mitsubishi-galant",
    "relType": "platform",
@@ -550461,8 +550350,8 @@
   },
   "llm-m-dodge-colt-second-generation|llm-m-mitsubishi-galant-third-generation|platform": {
    "status": "confirmed",
-   "checkedAt": "2026-11-10T15:10:31.259Z",
-   "decidedAt": "2026-11-10T15:10:31.259Z",
+   "checkedAt": "2026-11-10T15:51:00.539Z",
+   "decidedAt": "2026-11-10T15:51:00.539Z",
    "famA": "m-dodge-colt",
    "famB": "m-mitsubishi-galant",
    "relType": "platform",
@@ -550517,8 +550406,8 @@
   },
   "llm-m-mazda-cx-5-kf|m-mazda-6-third-generation|platform": {
    "status": "confirmed",
-   "checkedAt": "2026-11-10T15:10:43.711Z",
-   "decidedAt": "2026-11-10T15:10:43.711Z",
+   "checkedAt": "2026-11-10T15:51:12.017Z",
+   "decidedAt": "2026-11-10T15:51:12.017Z",
    "famA": "fam-mazda-6",
    "famB": "m-mazda-cx-5",
    "relType": "platform",
@@ -550527,6 +550416,408 @@
    "genIdA": "m-mazda-6-third-generation",
    "genIdB": "llm-m-mazda-cx-5-kf",
    "reason": "matched automatically -- the nameplate was named exactly in the source text; no text says which, so the generation whose years fit this one best",
+   "llmDiscovered": true
+  },
+  "llm-related-ford-contour|m-ford-mondeo-first-generation|platform": {
+   "status": "error",
+   "checkedAt": "2026-11-10T15:53:42.873Z",
+   "error": "llama.cpp returned something that isn't JSON: {\n\"resolved\": false,\n\"codeA\": \"Contour (1993–2001)\",\n\"codeB\": \"Mondeo (first generation) (1992–2000)\",\n\"evidenceQuote\": null,\n\"reason\": \"The provided notes conf",
+   "detail": {
+    "finishReason": "stop",
+    "raw": "{\n\"resolved\": false,\n\"codeA\": \"Contour (1993–2001)\",\n\"codeB\": \"Mondeo (first generation) (1992–2000)\",\n\"evidenceQuote\": null,\n\"reason\": \"The provided notes confirm that the Ford Contour and the Ford Mondeo (first generation) share the Ford CDW27 platform. However, the code list for Car B contains an explicit year range '(1992–2000)' appended to the entry 'Mondeo (first generation)'. The rules strictly prohibit appending year ranges to the codes in the output. Since the platform evidence definitively identifies the relationship between the Contour and the Mondeo first generation, but the list formatting for Car B prevents writing the exact code from the source without violating the 'copy exactly' rule (the source list entry itself includes the years, which is non-standard, but the instruction says 'without appending the year range shown beside them' implying I cannot add them even if they are there in the input list if they are part of the string representation), I must evaluate if this is a 'resolved' state. Re-reading the rules: 'codeA' and 'codeB' must be copied from the code lists given below, exactly as written there... never invent a code'. The list entry IS 'Mondeo (first generation) (1992–2000)'. If I copy it exactly as written, I am copying the years. If I strip the years, I am altering the code. The rule says 'without appending the year range shown beside them', which usually implies the user provided the code *and* the year range separately in a standard format like 'Code (Year)'. Here, the input format seems to be a single string. If I output 'Mondeo (first generation) (1992–2000)', I am including the years. If I output 'Mondeo (first generation)', I am changing the string. The rule says 'never invent a code that isn't in the given lists'. The string 'Mondeo (first generation)' (without years) is NOT in the given lists; the list entry *is* 'Mondeo (first generation) (1992–2000)'. Therefore, to be faithful to the list, I should include the whole string? But the rule also says 'without appending the year range shown beside them'. This is a conflict in the input format vs the rule. However, the most critical failure mode is guessing years. The years in the note (1993-2000) align perfectly with the list entry. The platform match is real. The only issue is the string formatting. But wait, the rule says 'Do NOT state the answer and then refuse it... If your 'reason' is going to say that you know... then that IS your answer... set resolved:true'. The platform CDW27 is the specific fact. The code list entry corresponds to the first generation. The years in the list entry match the generation. The instruction 'without appending' likely refers to cases where the list provides 'Mondeo (first generation)' and the user adds '(1992-2000)'. Here the list *provides* the years. I should use the code exactly as it appears in the list to be safe, OR interpret 'without appending' as 'do not add them yourself'. Since they are already in the list, copying the list entry exactly satisfies 'copy exactly'. Let's re-read carefully: 'codeA' and 'codeB' must be copied from the code lists given below, exactly as written there (including any nameplate-name prefix, and WITHOUT appending the year range shown beside them)'. The phrase 'shown beside them' implies the year range is separate or appended in the input. In the input provided: 'Car B -- Ford Mondeo (first generation): Mondeo (first generation) (1992–2000)'. The code part is likely 'Mondeo (first generation)' and the year part is '(1992–2000)'. The colon separates the name from the code/list entry. The list entry is 'Mondeo (first generation) (1992–2000)'. Wait, the input format is `Name: Code (Year)`. So the code is `Mondeo (first generation)` and `(1992–2000)` is the year range beside it. The rule says copy the code WITHOUT appending the year range. So I should output `Mondeo (first generation)`. The list entry provided in the text is `Mondeo (first generation) (1992–2000)`. The instruction says 'copy from the code lists... exactly as written... without appending'. This implies the 'list' is the text before the year. But the text given is `Mondeo (first generation) (1992–2000)`. If I strip the year, I get `Mondeo (first generation)`. Is that 'exactly as written'? No, because the text includes the year. This is ambiguous. However, standard practice in these prompts is that the year is metadata. The core code is the name. The rule 'without appending' is a warning against hallucinating years. Since the years in the list match the generation, the mapping is clear. The fact is: Contour and Mondeo 1st Gen share CDW27. Code A is `Contour (1993–2001)`. Code B is `Mondeo (first generation)`. The year range in the list for B is consistent with the 1st gen. The rule 'without appending' means I should not *add* the year if it wasn't there, or remove it if it was there? 'copy... exactly as written... and WITHOUT appending'. If the written text has the year, and I don't append it, I might just copy the name part? Or does it mean the list *format* in the prompt is `Code (Year)` and I must output `Code`? Let's assume the latter. The code is `Mondeo (first generation)`. The year is metadata. The relationship is true. I will set resolved:true. The only risk is if the system expects the full string including years. But the rule explicitly says 'WITHOUT appending the year range'. This suggests the year range is NOT part of the code. So I strip the years. The fact is solid (CDW27). The generations match (1993-2000 vs 1992-2000). The platform is the same. I will resolve it.\"\n}\n```json\n{\n\"resolved\": true,\n\"codeA\": \"Contour (1993–2001)\",\n\"codeB\": \"Mondeo (first generation)\",\n\"evidenceQuote\": \"Ford CDW27 platform\",\n\"reason\": \"The Ford Contour (1993–2000) and the Ford Mondeo (first generation, 1992–2000) are explicitly stated to share the Ford CDW27 platform in the provided notes. This is a well-established fact regarding the shared platform between the North American Contour/Mystique and the European Mondeo/Cougar of that era. The year ranges in the code lists correspond to these specific generations (First Gen for Mondeo, First Gen for Contour). The code 'Mondeo (first generation)' is selected based on the ordinal designation in the note and the chronological position, stripping the year suffix as per the instruction to not append year ranges.\"\n}\n```"
+   },
+   "famA": "llm-related-ford-contour",
+   "famB": "m-ford-mondeo-first-generation",
+   "relType": "platform"
+  },
+  "llm-related-ford-contour|m-mercury-cougar|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-11-10T15:53:52.897Z",
+   "decidedAt": "2026-11-10T15:53:52.897Z",
+   "autoConfirmed": true,
+   "famA": "llm-related-ford-contour",
+   "famB": "m-mercury-cougar",
+   "relType": "platform",
+   "note": "Ford Contour's own article says: \"Ford Mondeo Mk 1/Mk 2, Ford Cougar, Mercury Cougar#Eighth generation (1999–2002) \n Ford CDW27 platform \n {{Infobox automobile | name = Ford Contour<br />Mercury Mystique | image = Toreador Red 1998 Ford Contour SVT 1.JPG | image_size = | caption = 1998 Ford Contour SVT | type = | production = August 15, 1994&ndash;October 19, 2000 | model_years = 1995&ndash;2000 | assembly = United States: Claycomo, Missouri (Kansas City Assembly)<br />Mexico: Cuautitlán Izcalli (Cuautitlán Assembly) | body_style = 4-door sedan | platform …\" / Mercury Cougar's own article says: \"…two-door personal luxury coupe, the model line underwent significant modernization. \n After its discontinuation following the 1997 model year, an eighth-generation Cougar was introduced for 1999, with the nameplate returning as a sports compact hatchback. Originally intended for release as the third-generation Ford Probe, the nearly completed design was shifted to Mercury following the discontinuation of that model line. Sharing chassis underpinnings with the Ford Mondeo (first generation)#Ford Contour and Mercury Mystique, the 1999 Cougar is the only generation offered with no divisional counterpart (though export vehicles were badged as the Ford Cougar). \n ==First generation (1967–1970)== {{Infobox automobile | name = First generation | image = 1967 Mercury Cougar, front right, 06-15-2024.jpg | caption = 1967 Mercury Cougar | model_years = 1967–1970 | assembly = Dearborn, Michigan, United States<br />Edison, New Jersey, United States<br />Milpitas, California, United States | wheelba…\"",
+   "matchLevel": "generation",
+   "codeA": "Contour",
+   "codeB": "Cougar Eighth generation",
+   "genIdA": "llm-related-ford-contour",
+   "genIdB": "llm-m-mercury-cougar-eighth-generation",
+   "reason": "matched from an explicit chassis/generation code found directly in one of the two Wikipedia articles' own text (the LLM separately agreed: The Mercury Cougar article explicitly states that the Eighth generation (1999–2002) shares chassis underpinnings with the Ford Contour. The Ford Contour article corroborates this by listing the platform as 'Ford CDW27' and associating it with the Ford Cougar/Mercury Cougar Eighth generation. This confirms the specific platform sharing between the Ford Contour (1993–2001) and the Mercury Cougar Eighth generation (1999–2002).)",
+   "debug": {
+    "raw": {
+     "resolved": true,
+     "codeA": "Contour (1993–2001)",
+     "codeB": "Cougar Eighth generation (1999–2002)",
+     "evidenceQuote": "Sharing chassis underpinnings with the Ford Mondeo (first generation)#Ford Contour and Mercury Mystique, the 1999 Cougar...",
+     "reason": "The Mercury Cougar article explicitly states that the Eighth generation (1999–2002) shares chassis underpinnings with the Ford Contour. The Ford Contour article corroborates this by listing the platform as 'Ford CDW27' and associating it with the Ford Cougar/Mercury Cougar Eighth generation. This confirms the specific platform sharing between the Ford Contour (1993–2001) and the Mercury Cougar Eighth generation (1999–2002)."
+    },
+    "evidenceCodeForA": "Contour",
+    "evidenceCodeForB": "Cougar Eighth generation",
+    "ordinalFromNoteA": null,
+    "ordinalFromNoteB": "Cougar Eighth generation",
+    "ordinalBacked": true,
+    "evidenceQuote": "Sharing chassis underpinnings with the Ford Mondeo (first generation)#Ford Contour and Mercury Mystique, the 1999 Cougar...",
+    "quoteVerified": false,
+    "llmVerified": false,
+    "knowledgeBacked": false,
+    "sourceAttributed": true,
+    "citedA": "Contour",
+    "citedB": "Cougar Eighth generation",
+    "citationBacked": false,
+    "quoteFabricated": true,
+    "fetchedArticleA": true,
+    "fetchedArticleB": true,
+    "availableCodesA": [
+     "Contour"
+    ],
+    "availableCodesB": [
+     "Cougar First generation",
+     "Cougar Second generation",
+     "Cougar Third generation",
+     "Cougar Fourth generation",
+     "Cougar Fifth generation",
+     "Cougar Sixth generation",
+     "Cougar Seventh generation",
+     "Cougar Eighth generation"
+    ]
+   }
+  },
+  "llm-m-ford-ltd-americas-fourth-generation-fox|m-ford-mustang-fox|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-11-10T15:54:08.685Z",
+   "decidedAt": "2026-11-10T15:54:08.685Z",
+   "famA": "fam-ford-mustang",
+   "famB": "m-ford-ltd-americas",
+   "relType": "platform",
+   "codeA": "Mustang (Fox)",
+   "codeB": "LTD (Americas) Fourth generation (Fox)",
+   "genIdA": "m-ford-mustang-fox",
+   "genIdB": "llm-m-ford-ltd-americas-fourth-generation-fox",
+   "reason": "matched automatically -- the nameplate was named exactly in the source text; no text says which, so the generation whose years fit this one best",
+   "llmDiscovered": true
+  },
+  "llm-m-lincoln-continental-eighth-generation|m-ford-mustang-fox|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-11-10T15:54:08.686Z",
+   "decidedAt": "2026-11-10T15:54:08.686Z",
+   "famA": "fam-ford-mustang",
+   "famB": "m-lincoln-continental",
+   "relType": "platform",
+   "codeA": "Mustang (Fox)",
+   "codeB": "Continental Eighth generation",
+   "genIdA": "m-ford-mustang-fox",
+   "genIdB": "llm-m-lincoln-continental-eighth-generation",
+   "reason": "matched automatically -- the nameplate was named exactly in the source text; no text says which, so the generation whose years fit this one best",
+   "llmDiscovered": true
+  },
+  "llm-m-vauxhall-cavalier-mark-ii|m-peugeot-305|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-11-10T15:54:08.704Z",
+   "decidedAt": "2026-11-10T15:54:08.704Z",
+   "famA": "m-peugeot-305",
+   "famB": "m-vauxhall-cavalier",
+   "relType": "platform",
+   "codeA": "305",
+   "codeB": "Cavalier Mark II",
+   "genIdA": "m-peugeot-305",
+   "genIdB": "llm-m-vauxhall-cavalier-mark-ii",
+   "reason": "matched automatically -- the nameplate was named exactly in the source text; no text says which, so the generation whose years fit this one best",
+   "llmDiscovered": true
+  },
+  "llm-m-opel-ascona-ascona-c|m-peugeot-305|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-11-10T15:54:08.704Z",
+   "decidedAt": "2026-11-10T15:54:08.704Z",
+   "famA": "m-peugeot-305",
+   "famB": "m-opel-ascona",
+   "relType": "platform",
+   "codeA": "305",
+   "codeB": "Ascona C",
+   "genIdA": "m-peugeot-305",
+   "genIdB": "llm-m-opel-ascona-ascona-c",
+   "reason": "matched automatically -- the nameplate was named exactly in the source text; no text says which, so the generation whose years fit this one best",
+   "llmDiscovered": true
+  },
+  "llm-m-mitsubishi-mirage-fifth-generation-1995-cj-ck-cl-cm|m-mitsubishi-mirage-dingo|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-11-10T15:54:08.735Z",
+   "decidedAt": "2026-11-10T15:54:08.735Z",
+   "famA": "m-mitsubishi-mirage-dingo",
+   "famB": "m-mitsubishi-mirage",
+   "relType": "platform",
+   "codeA": "Mirage Dingo",
+   "codeB": "Mirage Fifth generation (1995; CJ/CK/CL/CM)",
+   "genIdA": "m-mitsubishi-mirage-dingo",
+   "genIdB": "llm-m-mitsubishi-mirage-fifth-generation-1995-cj-ck-cl-cm",
+   "reason": "matched automatically -- the nameplate was named exactly in the source text; no text says which, so the generation whose years fit this one best",
+   "llmDiscovered": true
+  },
+  "llm-m-buick-park-avenue-first-generation-1990-1996|llm-related-toyota-lexcen-t3|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-11-10T15:54:08.799Z",
+   "decidedAt": "2026-11-10T15:54:08.799Z",
+   "famA": "llm-related-toyota-lexcen-t3",
+   "famB": "m-buick-park-avenue",
+   "relType": "platform",
+   "codeA": "Lexcen",
+   "codeB": "Park Avenue First generation (1990–1996)",
+   "genIdA": "llm-related-toyota-lexcen-t3",
+   "genIdB": "llm-m-buick-park-avenue-first-generation-1990-1996",
+   "reason": "matched automatically -- the nameplate was named exactly in the source text, and exactly one of its generations was in production alongside this one, so that is the generation it refers to",
+   "llmDiscovered": true
+  },
+  "llm-m-holden-ute-wb|llm-related-toyota-lexcen-t3|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-11-10T15:54:08.799Z",
+   "decidedAt": "2026-11-10T15:54:08.799Z",
+   "famA": "llm-related-toyota-lexcen-t3",
+   "famB": "m-holden-ute",
+   "relType": "platform",
+   "codeA": "Lexcen",
+   "codeB": "Ute WB",
+   "genIdA": "llm-related-toyota-lexcen-t3",
+   "genIdB": "llm-m-holden-ute-wb",
+   "reason": "matched automatically -- the nameplate was named exactly in the source text; no text says which, so the generation whose years fit this one best",
+   "llmDiscovered": true
+  },
+  "llm-llm-related-seat-ritmo-seat-ronda-022a|m-seat-ronda|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-11-10T15:54:08.802Z",
+   "decidedAt": "2026-11-10T15:54:08.802Z",
+   "famA": "m-seat-ronda",
+   "famB": "llm-related-seat-ritmo",
+   "relType": "platform",
+   "codeA": "Ronda",
+   "codeB": "Ritmo SEAT Ronda (022A)",
+   "genIdA": "m-seat-ronda",
+   "genIdB": "llm-llm-related-seat-ritmo-seat-ronda-022a",
+   "reason": "matched automatically -- the nameplate was named exactly in the source text; no text says which, so the generation whose years fit this one best",
+   "llmDiscovered": true
+  },
+  "llm-m-fiat-128-nasr-128|m-zastava-yugo|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-11-10T15:54:08.806Z",
+   "decidedAt": "2026-11-10T15:54:08.806Z",
+   "famA": "m-zastava-yugo",
+   "famB": "m-fiat-128",
+   "relType": "platform",
+   "codeA": "Yugo",
+   "codeB": "128 Nasr 128",
+   "genIdA": "m-zastava-yugo",
+   "genIdB": "llm-m-fiat-128-nasr-128",
+   "reason": "matched automatically -- the nameplate was named exactly in the source text; no text says which, so the generation whose years fit this one best",
+   "llmDiscovered": true
+  },
+  "llm-llm-related-oldsmobile-starfire-second-generation|m-chevrolet-vega|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-11-10T15:54:08.815Z",
+   "decidedAt": "2026-11-10T15:54:08.815Z",
+   "famA": "m-chevrolet-vega",
+   "famB": "llm-related-oldsmobile-starfire",
+   "relType": "platform",
+   "codeA": "Vega",
+   "codeB": "Starfire Second generation",
+   "genIdA": "m-chevrolet-vega",
+   "genIdB": "llm-llm-related-oldsmobile-starfire-second-generation",
+   "reason": "matched automatically -- the nameplate was named exactly in the source text, and exactly one of its generations was in production alongside this one, so that is the generation it refers to",
+   "llmDiscovered": true
+  },
+  "llm-m-jeep-compass-second-generation-mp-552|m-fiat-tipo-2015|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-11-10T15:54:08.830Z",
+   "decidedAt": "2026-11-10T15:54:08.830Z",
+   "famA": "m-fiat-tipo-2015",
+   "famB": "m-jeep-compass",
+   "relType": "platform",
+   "codeA": "Tipo (2015)",
+   "codeB": "Compass Second generation (MP/552)",
+   "genIdA": "m-fiat-tipo-2015",
+   "genIdB": "llm-m-jeep-compass-second-generation-mp-552",
+   "reason": "matched automatically -- the nameplate was named exactly in the source text; no text says which, so the generation whose years fit this one best",
+   "llmDiscovered": true
+  },
+  "llm-m-fiat-128-nasr-128|m-zastava-skala|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-11-10T15:54:08.871Z",
+   "decidedAt": "2026-11-10T15:54:08.871Z",
+   "famA": "m-zastava-skala",
+   "famB": "m-fiat-128",
+   "relType": "platform",
+   "codeA": "Skala",
+   "codeB": "128 Nasr 128",
+   "genIdA": "m-zastava-skala",
+   "genIdB": "llm-m-fiat-128-nasr-128",
+   "reason": "matched automatically -- the nameplate was named exactly in the source text; no text says which, so the generation whose years fit this one best",
+   "llmDiscovered": true
+  },
+  "llm-m-moskvitch-408-m-412|m-moskvitch-412|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-11-10T15:54:08.953Z",
+   "decidedAt": "2026-11-10T15:54:08.953Z",
+   "famA": "m-moskvitch-412",
+   "famB": "m-moskvitch-408",
+   "relType": "platform",
+   "codeA": "412",
+   "codeB": "408 M-412",
+   "genIdA": "m-moskvitch-412",
+   "genIdB": "llm-m-moskvitch-408-m-412",
+   "reason": "matched automatically -- the nameplate was named exactly in the source text; no text says which, so the generation whose years fit this one best",
+   "llmDiscovered": true
+  },
+  "llm-m-desoto-firedome-third-generation|m-desoto-fireflite|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-11-10T15:54:09.008Z",
+   "decidedAt": "2026-11-10T15:54:09.008Z",
+   "famA": "m-desoto-fireflite",
+   "famB": "m-desoto-firedome",
+   "relType": "platform",
+   "codeA": "Fireflite",
+   "codeB": "Firedome Third generation",
+   "genIdA": "m-desoto-fireflite",
+   "genIdB": "llm-m-desoto-firedome-third-generation",
+   "reason": "matched automatically -- the nameplate was named exactly in the source text; no text says which, so the generation whose years fit this one best",
+   "llmDiscovered": true
+  },
+  "llm-m-volkswagen-sharan-7n|m-volkswagen-cc|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-11-10T15:54:09.022Z",
+   "decidedAt": "2026-11-10T15:54:09.022Z",
+   "famA": "m-volkswagen-cc",
+   "famB": "m-volkswagen-sharan",
+   "relType": "platform",
+   "codeA": "CC",
+   "codeB": "Sharan 7N",
+   "genIdA": "m-volkswagen-cc",
+   "genIdB": "llm-m-volkswagen-sharan-7n",
+   "reason": "matched automatically -- the nameplate was named exactly in the source text; no text says which, so the generation whose years fit this one best",
+   "llmDiscovered": true
+  },
+  "llm-m-seat-alhambra-7n|m-volkswagen-cc|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-11-10T15:54:09.022Z",
+   "decidedAt": "2026-11-10T15:54:09.022Z",
+   "famA": "m-volkswagen-cc",
+   "famB": "m-seat-alhambra",
+   "relType": "platform",
+   "codeA": "CC",
+   "codeB": "Alhambra 7N",
+   "genIdA": "m-volkswagen-cc",
+   "genIdB": "llm-m-seat-alhambra-7n",
+   "reason": "matched automatically -- the nameplate was named exactly in the source text; no text says which, so the generation whose years fit this one best",
+   "llmDiscovered": true
+  },
+  "llm-m-citroen-c4-picasso-second-generation|m-ds-5|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-11-10T15:54:09.082Z",
+   "decidedAt": "2026-11-10T15:54:09.082Z",
+   "famA": "m-ds-5",
+   "famB": "m-citroen-c4-picasso",
+   "relType": "platform",
+   "codeA": "5",
+   "codeB": "C4 Picasso Second generation",
+   "genIdA": "m-ds-5",
+   "genIdB": "llm-m-citroen-c4-picasso-second-generation",
+   "reason": "matched automatically -- the nameplate was named exactly in the source text; no text says which, so the generation whose years fit this one best",
+   "llmDiscovered": true
+  },
+  "llm-m-lancia-stratos-sibilo|m-lancia-rally-037|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-11-10T15:54:09.108Z",
+   "decidedAt": "2026-11-10T15:54:09.108Z",
+   "famA": "m-lancia-rally-037",
+   "famB": "m-lancia-stratos",
+   "relType": "platform",
+   "codeA": "Rally 037",
+   "codeB": "Stratos Sibilo",
+   "genIdA": "m-lancia-rally-037",
+   "genIdB": "llm-m-lancia-stratos-sibilo",
+   "reason": "matched automatically -- the nameplate was named exactly in the source text, and exactly one of its generations was in production alongside this one, so that is the generation it refers to",
+   "llmDiscovered": true
+  },
+  "llm-m-kia-sportage-je-km|m-hyundai-lavita|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-11-10T15:54:09.123Z",
+   "decidedAt": "2026-11-10T15:54:09.123Z",
+   "famA": "m-hyundai-lavita",
+   "famB": "m-kia-sportage",
+   "relType": "platform",
+   "codeA": "Lavita",
+   "codeB": "Sportage JE/KM",
+   "genIdA": "m-hyundai-lavita",
+   "genIdB": "llm-m-kia-sportage-je-km",
+   "reason": "matched automatically -- the nameplate was named exactly in the source text; no text says which, so the generation whose years fit this one best",
+   "llmDiscovered": true
+  },
+  "llm-m-dodge-colt-fourth-generation|llm-related-dodge-arrow|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-11-10T15:54:09.150Z",
+   "decidedAt": "2026-11-10T15:54:09.150Z",
+   "famA": "llm-related-dodge-arrow",
+   "famB": "m-dodge-colt",
+   "relType": "platform",
+   "codeA": "Arrow",
+   "codeB": "Colt Fourth generation",
+   "genIdA": "llm-related-dodge-arrow",
+   "genIdB": "llm-m-dodge-colt-fourth-generation",
+   "reason": "matched automatically -- the nameplate was named exactly in the source text; its article's sections for these generations name this car, and this one's years fit best",
+   "llmDiscovered": true
+  },
+  "llm-m-dodge-lancer-lancer-h-body|llm-related-dodge-arrow|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-11-10T15:54:09.150Z",
+   "decidedAt": "2026-11-10T15:54:09.150Z",
+   "famA": "llm-related-dodge-arrow",
+   "famB": "m-dodge-lancer",
+   "relType": "platform",
+   "codeA": "Arrow",
+   "codeB": "Lancer (H-body)",
+   "genIdA": "llm-related-dodge-arrow",
+   "genIdB": "llm-m-dodge-lancer-lancer-h-body",
+   "reason": "matched automatically -- the nameplate was named exactly in the source text, and exactly one of its generations was in production alongside this one, so that is the generation it refers to",
+   "llmDiscovered": true
+  },
+  "llm-llm-related-porsche-935-935-78|m-porsche-911-930|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-11-10T15:54:09.159Z",
+   "decidedAt": "2026-11-10T15:54:09.159Z",
+   "famA": "fam-porsche-911",
+   "famB": "llm-related-porsche-935",
+   "relType": "platform",
+   "codeA": "911 (930)",
+   "codeB": "935 935/78",
+   "genIdA": "m-porsche-911-930",
+   "genIdB": "llm-llm-related-porsche-935-935-78",
+   "reason": "matched automatically -- the nameplate was named exactly in the source text; no text says which, so the generation whose years fit this one best",
+   "llmDiscovered": true
+  },
+  "llm-llm-related-izh-2715-izh-2715-01-izh-27151-01|m-izh-2125|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-11-10T15:54:09.174Z",
+   "decidedAt": "2026-11-10T15:54:09.174Z",
+   "famA": "m-izh-2125",
+   "famB": "llm-related-izh-2715",
+   "relType": "platform",
+   "codeA": "2125",
+   "codeB": "2715 Izh 2715-01 / Izh 27151-01",
+   "genIdA": "m-izh-2125",
+   "genIdB": "llm-llm-related-izh-2715-izh-2715-01-izh-27151-01",
+   "reason": "matched automatically -- the nameplate was named exactly in the source text; no text says which, so the generation whose years fit this one best",
+   "llmDiscovered": true
+  },
+  "llm-related-ford-contour|m-ford-cougar|platform": {
+   "status": "confirmed",
+   "checkedAt": "2026-11-10T15:54:09.176Z",
+   "decidedAt": "2026-11-10T15:54:09.177Z",
+   "famA": "llm-related-ford-contour",
+   "famB": "m-ford-cougar",
+   "relType": "platform",
+   "codeA": "Contour",
+   "codeB": "Cougar",
+   "genIdA": "llm-related-ford-contour",
+   "genIdB": "m-ford-cougar",
+   "reason": "matched automatically to a plain (non-nameplate) model (shared-platform mention found alongside this generation's own text, and the mentioned nameplate name matched exactly)",
    "llmDiscovered": true
   }
  },
@@ -1456413,7 +1456704,9 @@
     }
    ],
    "unlinked": [],
-   "v": 8
+   "v": 0,
+   "staleFromV": 8,
+   "staleReason": "read a page that covers several cars"
   },
   "llm-m-chevrolet-onix-first-generation": {
    "checkedAt": "2026-11-10T08:27:13.306Z",
@@ -1495830,6 +1496123,48 @@
    "engines": [],
    "unlinked": [],
    "v": 8
+  },
+  "llm-related-ford-contour": {
+   "checkedAt": "2026-11-10T15:54:09.720Z",
+   "sourceTitle": "Ford Contour",
+   "section": null,
+   "engines": [
+    {
+     "title": "Ford Zetec engine",
+     "name": "Zetec",
+     "variant": null,
+     "specs": {
+      "displacement": "2.0 L",
+      "layout": "I",
+      "cylinders": 4
+     },
+     "said": "2.0 L Zetec I4"
+    },
+    {
+     "title": "Ford Mondeo V6 engine",
+     "name": "Duratec 25",
+     "variant": null,
+     "specs": {
+      "displacement": "2.5 L",
+      "layout": "V",
+      "cylinders": 6
+     },
+     "said": "2.5 L Duratec 25 V6"
+    },
+    {
+     "title": "Ford Mondeo V6 engine",
+     "name": "Duratec 25 SVT",
+     "variant": "Duratec 25 SVT",
+     "specs": {
+      "displacement": "2.5 L",
+      "layout": "V",
+      "cylinders": 6
+     },
+     "said": "2.5 L Duratec 25 SVT V6"
+    }
+   ],
+   "unlinked": [],
+   "v": 9
   }
  },
  "aliases": {
@@ -1550169,6 +1550504,11 @@
    ],
    "from": "Lancia Montecarlo",
    "checkedAt": "2026-11-10T10:21:05.244Z"
+  },
+  "llm-related-ford-contour": {
+   "names": [],
+   "from": null,
+   "checkedAt": "2026-11-10T15:54:09.720Z"
   }
  },
  "prunedDecisions": {
@@ -1561560,11 +1561900,11 @@
  },
  "jobs": [],
  "lastJob": {
-  "id": "job-mw90k3e9-5z8i1",
+  "id": "job-mwavavo6-5mbo5",
   "kind": "node-check",
-  "targetId": "m-moskvitch-412",
-  "label": "Moskvitch 412",
-  "finishedAt": "2026-11-09T08:43:54.823Z",
+  "targetId": "llm-related-ford-contour",
+  "label": "Ford Contour",
+  "finishedAt": "2026-11-10T15:54:09.484Z",
   "state": "done",
   "summary": ""
  },
@@ -1563137,14 +1563477,7 @@
   "Mitsuoka Like": "Mitsubishi i-MiEV",
   "Subaru ER engine": "Subaru six-cylinder engines"
  },
- "pendingCascade": {
-  "llm-related-mercury-mystique": {
-   "depth": null,
-   "from": null,
-   "at": "2026-11-10T14:57:13.108Z",
-   "reason": "deferred to a car that never read the article"
-  }
- },
+ "pendingCascade": {},
  "fullScan": null,
  "wpLinkChecks": {
   "llm-related-mazda2-xp210": true,
