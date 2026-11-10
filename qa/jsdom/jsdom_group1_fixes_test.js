@@ -77,5 +77,9 @@ const due = LF.engineReadsDue(nodes).map(n => n.id);
 check("a generation's empty read of its nameplate's page is due again", due.includes("m-lincoln-mark-series"));
 check("a car with engines read by the last reader is not", !due.includes("fam-ford-falcon"));
 check("read again, the Mark VI has its Windsor V8s", !mark6 || (mark6.engines || []).some(e => /Windsor/.test(e.title || "")), mark6 && JSON.stringify(mark6.engines));
+// A successor nameplate's first generation took over from a car still built when it began.
+const succ = (a, b) => links.some(l => !l.retired && l.type === "succession" && idOf(l.source) === a && idOf(l.target) === b);
+check("the Renault 5 hands over to the first Clio", succ("llm-m-renault-5-second-generation", "llm-m-renault-clio-x57") && !succ("llm-m-renault-5-second-generation", "llm-m-renault-clio-x65"));
+check("where a generation's infobox names its predecessor, that generation: the Saturn Ion's Astra H", (window.SUCCESSION_HANDOVERS || {})["m-saturn-ion|m-opel-astra"] === "llm-m-opel-astra-astra-h");
 console.log(fails ? `${fails} FAILED` : "ALL PASS");
 process.exit(fails ? 1 : 0);

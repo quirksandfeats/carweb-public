@@ -14956,8 +14956,10 @@ Rules:
     "m-roewe-750|m-roewe-950": "llm-m-roewe-950-roewe-950",
     "m-alfa-romeo-1750-berlina|m-alfa-romeo-alfetta-gt-gtv": "llm-m-alfa-romeo-alfetta-gt-gtv-berlina",
   };
+  // The same, where a generation's own infobox says (scripts/succession_handovers.js).
+  const SUCCESSION_HANDOVERS = (typeof window !== "undefined" && window.SUCCESSION_HANDOVERS) || {};
   function successionPair(s, t, byIdLocal) {
-    const named = byIdLocal.get(HANDOVER_NAMED[s.id + "|" + t.id]);
+    const named = byIdLocal.get(HANDOVER_NAMED[s.id + "|" + t.id] || SUCCESSION_HANDOVERS[s.id + "|" + t.id]);
     if (named && !named.retired) return [s, named];
     const dated = n => (n.type === "family" ? (n.generations || []).map(id => byIdLocal.get(id)) : [n])
       .filter(g => g && !g.retired && g.year != null);
@@ -14983,6 +14985,16 @@ Rules:
       if (!best || gap < best.gap || (gap === best.gap && a.year > best.a.year)) best = { a, b, gap };
     }
     if (!best || best.gap > 10) return null;
+    // The successor nameplate's first generation, begun while the older car was
+    // still built and still built when it ended, took over: the first Clio (1990)
+    // from the Renault 5, built to 1996, not the second (1998), nearer that end.
+    // Strictly inside the older car's run: a car beside a rebadge of itself of the
+    // very same years is no handover (the Fairlady Z Z31 and the 300ZX Z31).
+    if (t.type === "family") {
+      const b0 = T.slice().sort((x, y) => x.year - y.year)[0], end = endOf(best.a);
+      const b0End = pairingEnd(b0) != null ? pairingEnd(b0) : Number.isFinite(b0.end) ? b0.end : 9999;
+      if (b0 !== best.b && best.a.year < b0.year && b0.year < end && b0End >= end) return [best.a, b0];
+    }
     return [best.a, best.b];
   }
   function pushSuccessionToGenerations(nodes, links) {
