@@ -25,6 +25,9 @@ shipped.families = Object.assign({}, shipped.families, { "llm-related-ford-conto
   status: "confirmed", proposal: { hasMultipleGenerations: true, generations: [{ code: "Mk I / Mk II", yearStart: 1994, yearEnd: 2000 }, { code: "North American", yearStart: 1994, yearEnd: 2000 }] } },
   { sourceTitle: "Ford Mondeo (first generation)" }) });
 shipped.wpRedirects = Object.assign({}, shipped.wpRedirects, { "Ford Contour": "Ford Mondeo (first generation)" });
+// The Mark VI's read by reader 8 of its nameplate's page, which found nothing.
+const mark6 = shipped.engineScans["llm-m-lincoln-mark-series-mark-vi"];
+shipped.engineScans = Object.assign({}, shipped.engineScans, { "llm-m-lincoln-mark-series-mark-vi": { checkedAt: "2026-11-10T09:03:59.194Z", sourceTitle: "Lincoln Mark series", status: "no-engines", engines: [], unlinked: [], v: 8 } });
 for (const f of [...html.matchAll(/<script src="([^"]+)"><\/script>/g)].map(m => m[1])) {
   if (/llm_families_data/.test(f)) continue;
   if (f === "llm_families.js") window.LLM_FAMILIES = Object.assign({}, shipped, { __serverAvailable: false });
@@ -72,5 +75,6 @@ check("a see-also naming a relative is not",
 const due = LF.engineReadsDue(nodes).map(n => n.id);
 check("a generation's empty read of its nameplate's page is due again", due.includes("m-lincoln-mark-series"));
 check("a car with engines read by the last reader is not", !due.includes("fam-ford-falcon"));
+check("read again, the Mark VI has its Windsor V8s", !mark6 || (mark6.engines || []).some(e => /Windsor/.test(e.title || "")), mark6 && JSON.stringify(mark6.engines));
 console.log(fails ? `${fails} FAILED` : "ALL PASS");
 process.exit(fails ? 1 : 0);

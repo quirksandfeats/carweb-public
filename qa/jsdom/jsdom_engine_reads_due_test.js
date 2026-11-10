@@ -21,6 +21,8 @@ const shipped = JSON.parse(fs.readFileSync(path.join(APP, "llm_families.json"), 
 // The same reads, as a later load would leave them once this reader had set them aside.
 const marked = JSON.parse(JSON.stringify(shipped));
 Object.values(marked.engineScans || {}).forEach(r => { if (r.v === 0 && r.staleReason) r.staleFromV = 8; });
+// The Mark VI's read by reader 8 of its nameplate's page, which found nothing (10 Nov 2026).
+marked.engineScans["llm-m-lincoln-mark-series-mark-vi"] = { checkedAt: "2026-11-10T09:03:59.194Z", sourceTitle: "Lincoln Mark series", status: "no-engines", engines: [], unlinked: [], v: 8 };
 function boot(store) {
   for (const f of [...html.matchAll(/<script src="([^"]+)"><\/script>/g)].map(m => m[1])) {
     if (/llm_families_data/.test(f)) continue;

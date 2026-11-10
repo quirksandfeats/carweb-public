@@ -2953,3 +2953,15 @@ The owner's report: duplicate and wrong nodes, wrong pairs, and engines lost in 
 Diagnosed and left for their own changes: the Renault 5's succession to the second Clio (successionPair's nearest-start pick, 92 pairs would move), the Ranger PX and Amarok 2F pair, the Presea and Sunny pairs (stale texts paired before a re-check replaced them), the S-Max CD340 and Edge pair, and engines for an engine named only in plain text (the NSX's JNC1). The 1940 and 1991 Buick Estates follow Wikipedia's restructured "Buick Estate", which now gives no engines for them.
 
 Whole-graph dry run, second load and static mirror match. Test `qa/jsdom/jsdom_group1_fixes_test.js`; `jsdom_set_index_links_test.js` adds Devrim and the decoded titles.
+
+## 10 November: a generation shown twice
+
+The owner's ruling: where two nodes are the same car, one holding the information and the other none of its own, the empty one goes into the full one. `scripts/duplicate_cars.js CACHE.json` writes `app/duplicate_cars.js` (generated). A row is written for a single car (no generations) when all of these hold:
+- Its link is the article of a nameplate with generations; it has no article of its own.
+- One of that nameplate's generations is it. Either the codes in their names meet ("SEAT León Mk1", "León Mk1 (1M)"), or, where its name carries no code, both have the same production run of three years or more ("Toyota Veloz" and "Avanza W100", both 2021 on). A different code rules a pair out ("Audi S3 Mk1" is no "A3 8V"). Show cars share their years and are never matched on years alone: the 1964 Pontiac Banshees XP-798 and XP-833, and the 1940 Chrysler Thunderbolt and Newport.
+- Every connection it has, the generation or its nameplate has too.
+- The nameplate's article gives its name.
+
+`applyDuplicateCars` retires the car into the generation, moves its links (all duplicates by the rule), and keeps its name as another name of the generation unless the article gives it already. 42 rows, among them the Veloz, Zenix, Yaris Ativ, Hyundai Marcia, Mazda Cronos, Mitsubishi Emeraude, Opel Optima (the Astra F in Indonesia), the Nissan "Almera/Latio/Sunny/Versa (N17)" stand-ins and the SEAT León Mk1 and Mk2. 42 cars go, no connection is lost (each moved link was checked on its new car), no other link changes. Left: 24 cars with connections of their own (the SEAT León Mk3, the Škoda Octavia Mk3, the Mazda RX-7 FD and others), 3 whose names the article does not give, the Austin Cambrian and Ford ZF Fairlane (runs under three years), and the Ford Falcon (Australia), which duplicates the Falcon nameplate generation by generation with information on both sides.
+
+Second load and static mirror match. Test `qa/jsdom/jsdom_duplicate_cars_test.js`.

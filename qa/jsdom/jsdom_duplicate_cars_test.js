@@ -1,0 +1,43 @@
+// A single car that is a generation shown twice goes into the generation (10 Nov 2026).
+const { JSDOM } = require("jsdom");
+const fs = require("fs"), path = require("path");
+const APP = path.resolve(__dirname, "..", "..", "app");
+const html = fs.readFileSync(path.join(APP, "index.html"), "utf-8");
+let fails = 0;
+const check = (n, c, e) => { if (!c) fails++; console.log((c ? "PASS " : "FAIL ") + n + (e !== undefined ? "  -- " + e : "")); };
+const fakeCtx = () => { const noop = () => {}; return new Proxy({ measureText: () => ({ width: 10 }) }, { get(o, k) { return k in o ? o[k] : noop; }, set() { return true; } }); };
+const dom = new JSDOM(html, { url: "http://localhost:8077/index.html", runScripts: "outside-only" });
+const { window } = dom;
+window.HTMLCanvasElement.prototype.getContext = fakeCtx;
+window.requestAnimationFrame = () => 1;
+window.matchMedia = q => ({ matches: false, media: q, addEventListener() {}, removeEventListener() {} });
+window.Element.prototype.getBoundingClientRect = () => ({ width: 1000, height: 800, top: 0, left: 0, right: 1000, bottom: 800, x: 0, y: 0 });
+Object.defineProperty(window.HTMLElement.prototype, "offsetHeight", { get() { return 40; } });
+window.fetch = async () => ({ ok: true, json: async () => ({}), text: async () => "{}" });
+window.XMLHttpRequest = function () { this.open = () => {}; this.send = () => { throw new Error("no server"); }; };
+global.window = window; global.document = window.document;
+const ev = f => window.eval(fs.readFileSync(path.join(APP, f), "utf-8"));
+const shipped = JSON.parse(fs.readFileSync(path.join(APP, "llm_families.json"), "utf-8"));
+for (const f of [...html.matchAll(/<script src="([^"]+)"><\/script>/g)].map(m => m[1])) {
+  if (/llm_families_data/.test(f)) continue;
+  if (f === "llm_families.js") window.LLM_FAMILIES = Object.assign({}, shipped, { __serverAvailable: false });
+  ev(f);
+}
+window.CarWeb.boot();
+const nodes = window.CARDATA.nodes, links = window.CARDATA.links;
+const byId = new Map(nodes.map(n => [n.id, n]));
+const idOf = v => typeof v === "string" ? v : v.id;
+const LF = window.LlmFamilies;
+check("a folded car keeps its name among the generation's: Toyota Zenix", LF.aliasesFor("llm-m-toyota-innova-ag10").some(x => /Zenix/.test(x)), LF.aliasesFor("llm-m-toyota-innova-ag10").join(", "));
+check("the list is loaded", Object.keys(window.DUPLICATE_CARS || {}).length >= 30);
+const veloz = byId.get("llm-related-toyota-veloz");
+check("the Toyota Veloz goes into the Avanza W100", veloz && veloz.retired && veloz.supersededBy === "llm-m-toyota-avanza-w100");
+check("its name stays as another name of the generation, once", LF.aliasesFor("llm-m-toyota-avanza-w100").filter(x => x === "Toyota Veloz").length === 1, LF.aliasesFor("llm-m-toyota-avanza-w100").join(", "));
+check("a folded name given already with a market is not added again: Hyundai Marcia", LF.aliasesFor("llm-llm-related-hyundai-sonata-y3").filter(x => /Marcia/.test(x)).length === 1, LF.aliasesFor("llm-llm-related-hyundai-sonata-y3").join(", "));
+check("no drawn link is left on a folded car", !links.some(l => !l.retired && !l.mirror && Object.keys(window.DUPLICATE_CARS).some(id => idOf(l.source) === id || idOf(l.target) === id)));
+check("two show cars of one year stay two cars: the Pontiac Banshee XP-798", !byId.get("llm-m-pontiac-banshee-xp-798").retired);
+check("so does the 1940 Chrysler Thunderbolt", !byId.get("llm-related-chrysler-thunderbolt").retired);
+check("a car with a code of another generation is not folded: the Audi S3 Mk1", !byId.get("llm-related-audi-s3-mk1").retired);
+check("a car with connections of its own is not folded: the SEAT León Mk3", !byId.get("m-seat-leon-mk3").retired);
+console.log(fails ? `${fails} FAILED` : "ALL PASS");
+process.exit(fails ? 1 : 0);

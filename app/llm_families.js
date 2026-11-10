@@ -736,6 +736,35 @@ window.LlmFamilies = (function () {
       }
     });
   }
+  // Single cars that are a generation shown twice (scripts/duplicate_cars.js): the
+  // Toyota Veloz beside the Avanza W100, the "Nissan Almera/Latio/Sunny/Versa
+  // (N17)" beside the Almera N17. The owner's ruling (10 Nov 2026): the node with
+  // nothing of its own goes into the full one. Its name stays as another name of
+  // the generation.
+  const DUPLICATE_CARS = (typeof window !== "undefined" && window.DUPLICATE_CARS) || {};
+  function applyDuplicateCars(nodes, links) {
+    const byId = new Map(nodes.map(n => [n.id, n]));
+    Object.keys(DUPLICATE_CARS).forEach(id => {
+      const r = DUPLICATE_CARS[id], d = byId.get(id), into = followSuperseded(byId, byId.get(r.into));
+      if (!d || d.retired || !into || into.retired || into.id === id) return;
+      d.retired = true;
+      d.supersededBy = into.id;
+      d.mergedInto = into.id;
+      d.retiredReason = `the same car as the ${into.make} ${into.label}`;
+      const bare = x => norm(String(x).replace(/\([^()]*\)/g, " "));
+      if (!aliasesFor(into.id).some(x => bare(x) === bare(r.name))) plateAka.set(into.id, [...new Set([...(plateAka.get(into.id) || []), r.name])]);
+      const key = l => l.type + "|" + [idOf(l.source), idOf(l.target)].sort().join("|");
+      const have = new Set(links.filter(l => !l.retired).map(key));
+      links.forEach(l => {
+        if (l.retired) return;
+        const a = idOf(l.source), b = idOf(l.target);
+        if (a !== id && b !== id) return;
+        const m = { type: l.type, source: a === id ? into.id : a, target: b === id ? into.id : b };
+        if (l.type === "made" || m.source === m.target || have.has(key(m))) { l.retired = true; l.retiredReason = d.retiredReason; return; }
+        l.source = m.source; l.target = m.target; have.add(key(l));
+      });
+    });
+  }
   // Company and brand articles shown as cars (scripts/company_articles.js): "Knox ·
   // Automobile Company", "Edsel · Edsel", "St. · Louis Motor Company". The article is
   // the make's: the make takes it, with its founding year and country where it has
@@ -22135,7 +22164,7 @@ Rules:
   }
 
   return {
-    settleOutOfReachLinks, settleNamesakeFacts, applySharedNames, applyBorrowedReads, applyBorrowedPlates, applyConceptCars, applyGenerationVariants, applyOtherMakeGenerations, applyCompanyArticles, applyArticleNames, phasesOf, productionRangesOnOwnCards, generationNamedBy, generationSection, personPageIsTheirs, listedArticles, sectionYearsForFragment, pageCardYears,
+    settleOutOfReachLinks, settleNamesakeFacts, applySharedNames, applyBorrowedReads, applyBorrowedPlates, applyConceptCars, applyGenerationVariants, applyOtherMakeGenerations, applyCompanyArticles, applyArticleNames, applyDuplicateCars, phasesOf, productionRangesOnOwnCards, generationNamedBy, generationSection, personPageIsTheirs, listedArticles, sectionYearsForFragment, pageCardYears,
     serverAvailable, isEligible, entryFor,
     checkNode, checkNodeCascade, retryNode, confirmNode, rejectNode,
     applyConfirmed, filePathUrl,
