@@ -4,7 +4,8 @@
 // article. Owner's report (9 Nov 2026): the 2013 BMW i3 pointed at "BMW i3",
 // which became such a list when the 2026 i3 arrived, so no reading of its
 // article found anything. Each row names the one entry on the list that is this
-// car: its title starts with the car's make and carries its name, no other car
+// car: its title starts with the car's make and carries its name (or is the
+// name with "(automobile)", as "Devrim (automobile)"), no other car
 // in the graph has it, and the years on its line begin with the car's (or, with
 // no years, its bracket says it is the car: "Ford Prefect (car)"). A nameplate
 // with generations is left alone: a list of them is its article. Nothing here
@@ -116,8 +117,11 @@ const LISTS = ["Template:Set index article", "Template:Disambiguation", "Templat
       const m = /\[\[([^\]|#]+)(?:#[^\]|]*)?(?:\|[^\]]*)?\]\]/.exec(line);
       if (!m) continue;
       const to = m[1].trim(), key = norm(to);
-      // Its title starts with the make and carries the car's name.
-      if (!key.startsWith(make) || !key.includes(label) || key === norm(from)) continue;
+      // Its title starts with the make and carries the car's name, or it is the
+      // name told apart as a car ("Devrim (automobile)" on the "Devrim" list).
+      const asCar = new RegExp("^(?:" + String(n.make || "").replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + " )?" +
+        String(n.label).replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + " \\((?:car|automobile|vehicle)\\)$", "i").test(to);
+      if ((!asCar && (!key.startsWith(make) || !key.includes(label))) || key === norm(from)) continue;
       if ((taken.get(key) || []).some(id => id !== n.id)) continue;
       const years = (line.match(/\b(?:18[89]\d|19\d\d|20\d\d)\b/g) || []).map(Number);
       const isCar = /\((?:car|automobile|vehicle)\)$/i.test(to);

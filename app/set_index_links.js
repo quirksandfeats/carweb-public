@@ -3,4 +3,5 @@ window.SET_INDEX_LINKS = {
   "m-bmw-i3": {"from":"BMW i3","to":"BMW i3 (hatchback)"},
   "m-buick-verano": {"from":"Buick Verano","to":"Buick Verano (North America)"},
   "m-ford-prefect": {"from":"Ford Prefect","to":"Ford Prefect (car)"},
+  "m-tulomsas-devrim": {"from":"Devrim","to":"Devrim (automobile)"},
 };

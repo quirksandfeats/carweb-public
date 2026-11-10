@@ -37,6 +37,12 @@ check("the list is loaded", Object.keys(window.SET_INDEX_LINKS || {}).length >= 
 check("the 2013 BMW i3 reads its own article, not the list of i3s", byId.get("m-bmw-i3").wp === "BMW i3 (hatchback)", byId.get("m-bmw-i3").wp);
 check("the Buick Verano reads the North American car's article", byId.get("m-buick-verano").wp === "Buick Verano (North America)");
 check("a link chosen by hand wins", byId.get("m-ford-prefect").wp === "Ford Prefect (car) hand", byId.get("m-ford-prefect").wp);
+check("a car named apart on a list of other things reads its own article: Devrim (automobile)", byId.get("m-tulomsas-devrim").wp === "Devrim (automobile)", byId.get("m-tulomsas-devrim").wp);
+// Seed titles stored percent-encoded read as written (10 Nov 2026).
+check("the Fiat 500 \"Topolino\" shows its name, not %22", byId.get("m-fiat-500-22topolino-22").label === '500 "Topolino"' &&
+  byId.get("m-fiat-500-22topolino-22").wp === 'Fiat 500 "Topolino"', byId.get("m-fiat-500-22topolino-22").label);
+check("no seed car shows a percent-encoded name", !window.CARDATA.nodes.some(n => /%[0-9A-F]{2}/.test(n.label || "")),
+  window.CARDATA.nodes.filter(n => /%[0-9A-F]{2}/.test(n.label || "")).map(n => n.label).join(", "));
 check("the 2026 i3 keeps its own link", byId.get("m-bmw-i3-na0").wp === "BMW i3 (NA0)");
 const LF = window.LlmFamilies;
 check("what was read off the list page goes: the i3's verdict and engine read", !LF.entryFor("m-bmw-i3") && !LF.engineScanEntryFor("m-bmw-i3"),

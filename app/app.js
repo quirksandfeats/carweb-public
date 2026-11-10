@@ -15,6 +15,7 @@ window.CarWeb = (function () {
   // ---------- data ----------
   const DATA = window.CARDATA;
   const nodes = DATA.nodes, links = DATA.links;
+  decodeSeedTitles();
   flipImpossibleSuccession();
   // Real bug report: a car added by hand via the "Add Car" panel would
   // vanish on the very next page load -- clicking its make or searching for
@@ -31,6 +32,7 @@ window.CarWeb = (function () {
   // hundred of the same lines on every refresh.
   if (window.LlmFamilies && window.LlmFamilies.replayStarted) window.LlmFamilies.replayStarted();
   if (window.LlmFamilies) window.LlmFamilies.applyReviewedCorrections();
+  if (window.LlmFamilies && window.LlmFamilies.retractCrossMakeMatches) window.LlmFamilies.retractCrossMakeMatches();
   if (window.LlmFamilies) window.LlmFamilies.applyUserCars(nodes, links);
   // Real user request: "the info box should have a location for the user
   // to be able to put in the wikipedia link with the car associated" -- a
@@ -379,6 +381,15 @@ window.CarWeb = (function () {
   // The harvest keeps whichever direction of a succession it read first, and an
   // article's predecessor field can list the same car as its successor. A car
   // that had ended before the other began cannot have followed it.
+  // Two seed titles came from the build percent-encoded: the Fiat 500 "Topolino"
+  // showed as '500 %22Topolino%22', and no index or redirect lookup found its
+  // article, so the "Fiat Topolino" index stood beside it as a second car.
+  function decodeSeedTitles() {
+    const plain = s => { try { return decodeURIComponent(s); } catch (e) { return s; } };
+    nodes.forEach(n => {
+      ["label", "wp"].forEach(k => { if (typeof n[k] === "string" && /%[0-9A-Fa-f]{2}/.test(n[k])) n[k] = plain(n[k]); });
+    });
+  }
   function flipImpossibleSuccession() {
     const at = new Map(nodes.map(n => [n.id, n]));
     const id = v => (typeof v === "string" ? v : v && v.id);

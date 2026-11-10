@@ -1212,6 +1212,11 @@ window.LlmFamilies = (function () {
         store.wpRedirects[title] = out.resolvedTitle;
         persist();
       }
+    } else if (store.wpRedirects && store.wpRedirects[title]) {
+      // A redirect that has become an article of its own ("Ford Contour", split
+      // from the first Mondeo's article on 2 Nov 2026) is no redirect any more.
+      delete store.wpRedirects[title];
+      persist();
     }
     cacheArticle(title, out);
     return out;
@@ -7828,12 +7833,35 @@ Rules:
       ["families", "recheck", "genResearch"].forEach(k => { if (store[k] && fromList(store[k][id])) delete store[k][id]; });
     });
   }
+  // Cars told on another page when they were found that have an article of their
+  // own now (scripts/own_articles.js): the Ford Contour, linked to the first
+  // Mondeo's article when "Ford Contour" redirected there, has its own since 2 Nov
+  // 2026. The car takes its article, with its generations still on the old link,
+  // and what was read off the old page goes (the Contour's "generations" were the
+  // Mondeo's), so the next check reads the car's own. The old redirect is
+  // forgotten, or a title resolved through it would lead back to the old page.
+  const OWN_ARTICLES = (typeof window !== "undefined" && window.OWN_ARTICLES) || {};
+  function applyOwnArticles(byId) {
+    Object.keys(OWN_ARTICLES).forEach(id => {
+      const r = OWN_ARTICLES[id], n = byId.get(id);
+      // The readings go first: a car minted from a mention is not in the graph
+      // yet on the first call, and its old split would be put back before it was.
+      const fromOld = e => !!e && norm(String(e.sourceTitle || "").split("#")[0]) === norm(r.from);
+      if (fromOld(store.engineScans[id])) { delete store.engineScans[id]; delete store.aliases[id]; }
+      ["families", "recheck", "genResearch"].forEach(k => { if (store[k] && fromOld(store[k][id])) delete store[k][id]; });
+      if (store.wpRedirects && store.wpRedirects[r.to]) delete store.wpRedirects[r.to];
+      const old = x => norm(String(x && x.wp || "").split("#")[0]) === norm(r.from);
+      if (!n || !old(n)) return;
+      n.wp = r.to;
+      (n.generations || []).forEach(g => { const gn = byId.get(g); if (old(gn)) gn.wp = r.to; });
+    });
+  }
   function applyWpLinks(nodes) {
     // Boot passes through here with the whole node array; the marque list the
     // engine reader uses is cheapest to take here.
     rememberMakeNames(nodes);
     const byId = new Map(nodes.map(n => [n.id, n]));
-    if (!store.wpLinks || !Object.keys(store.wpLinks).length) { applySetIndexLinks(byId); return; }
+    if (!store.wpLinks || !Object.keys(store.wpLinks).length) { applySetIndexLinks(byId); applyOwnArticles(byId); return; }
     // A link a person corrected by hand wins over the one the car came with.
     // It used to only ever fill a missing link, so "Change link" on any car
     // that already had one lasted until the next reload, and the next check
@@ -7845,6 +7873,7 @@ Rules:
       if (n && (!n.wp || store.wpLinksChosen[id])) n.wp = store.wpLinks[id];
     });
     applySetIndexLinks(byId);
+    applyOwnArticles(byId);
   }
   // ---------- public: manually attach a Wikipedia link to an existing node ----------
   // Real user request: "the info box should have a location for the user
@@ -9246,8 +9275,15 @@ Rules:
     // American and international ones): the text names one of them, not this one.
     return !placed.length || placed.some(g => g.id === self.id);
   }
+  // Cars the model's check took for a mention under another maker's name that
+  // their own article never gives them (scripts/cross_make_matches.js): the Nissan
+  // Leaf's "Venucia e30" taken for the Zotye E30, the Peugeot Partner for the
+  // Honda Partner. Keyed by the mention and the car.
+  const CROSS_MAKE_MATCHES = (typeof window !== "undefined" && window.CROSS_MAKE_MATCHES) || {};
   function sanityMatchPlausible(gn, cand, mentionText, nodes) {
     if (!cand) return { ok: false, why: "no such car" };
+    const apart = CROSS_MAKE_MATCHES[norm(mentionText) + "|" + cand.id] || (gn && CROSS_MAKE_MATCHES[norm(mentionText) + "|" + gn.id]);
+    if (apart) return { ok: false, why: `"${mentionText}" is no name the article "${apart.page}" gives that car` };
     const fam = cand.familyOf ? nodeWithId(nodes, cand.familyOf) : null;
     const makeWords = new Set(nameWordsOf(cand.make).concat(nameWordsOf(gn && gn.make)));
     const saidNorm = norm(mentionText);
@@ -9335,6 +9371,19 @@ Rules:
         }
       }
       return { ok: true };
+    }
+  }
+  // The listed ones (CROSS_MAKE_MATCHES) are taken back at the start of the load,
+  // before any pass draws them: the family pass drew the Suzuki Carry's "Hafei
+  // Xiaobawang" before the sweep below ran, so the first load, which is all the
+  // static site ever shows, still had it.
+  function retractCrossMakeMatches() {
+    for (const [key, e] of Object.entries(store.relations || {})) {
+      if (!e || e.status !== "confirmed" || e.decidedBy === "user") continue;
+      const m = String(e.reason || "").match(/^auto-approved in the background -- the local LLM sanity check confidently identified this as the same car as "([^"]+)"/);
+      if (!m || !(CROSS_MAKE_MATCHES[norm(m[1]) + "|" + e.genIdB] || CROSS_MAKE_MATCHES[norm(m[1]) + "|" + e.genIdA])) continue;
+      delete store.relations[key];
+      store.rejectedRelations[key] = true;
     }
   }
   // The same test over what was already confirmed this way, at every boot:
@@ -20259,6 +20308,7 @@ Rules:
         const code = tc && tc.code;
         const sec = code ? sectionForCode(famWikitext, code) : null;
         const stated = sec ? (hatnoteArticle(sec.body) ||
+                              seeAlsoArticle(sec.body, car.make, code, (fam && fam.label) || tc.base) ||
                               proseArticle(sec.body, car.make, code, (fam && fam.label) || tc.base)) : null;
         if (stated && (!famWp || norm(stated) !== norm(famWp))) return stated;
       }
@@ -20392,20 +20442,30 @@ Rules:
   // next time the car's engines are read.
   // 8: also reads the electric half -- "| motor =", "| battery =" and the
   // electric range (see electricMentions).
-  const ENGINE_SCAN_VERSION = 8;
+  // 9: a generation's section that opens with "{{see also|<its own article>}}"
+  // is read from that article (seeAlsoArticle). Of the reads made by 8, only a
+  // generation's empty read of its nameplate's page can come out different, so
+  // only those are due again (the Lincoln Mark VI's Windsor V8s); the rest stand.
+  const ENGINE_SCAN_VERSION = 9;
+  const ENGINE_SCAN_STANDING = 8;
   // A read set aside as covering several cars counts as current once this reader
   // made it: "Re-read Engines" read the 89 such cars of 10 Nov 2026 again and
   // again, each read set aside again at the next load, and they stayed "due".
-  function engineScanIsCurrent(rec) {
-    return !!rec && ((rec.v || 1) >= ENGINE_SCAN_VERSION ||
-      (rec.v === 0 && !!rec.staleReason && (rec.staleFromV || 0) >= ENGINE_SCAN_VERSION));
+  // `famPage`: the article of the car's nameplate, for a generation.
+  function engineScanIsCurrent(rec, famPage) {
+    if (!rec) return false;
+    const v = rec.v || 1;
+    if (v >= ENGINE_SCAN_VERSION) return true;
+    if (v >= ENGINE_SCAN_STANDING) return !(rec.status === "no-engines" && !(rec.engines || []).length && famPage &&
+      norm(String(rec.sourceTitle || "").split("#")[0]) === norm(String(famPage).split("#")[0]));
+    return rec.v === 0 && !!rec.staleReason && (rec.staleFromV || 0) >= ENGINE_SCAN_STANDING;
   }
   // A page that would not load is tried again on a later load, not on every
   // check of the nameplate in this one.
   const unreadableThisLoad = new Set();
-  function engineScanSettled(id) {
+  function engineScanSettled(id, famPage) {
     const rec = store.engineScans[id];
-    return engineScanIsCurrent(rec) || !!(rec && rec.status === "unreadable" && unreadableThisLoad.has(id));
+    return engineScanIsCurrent(rec, famPage) || !!(rec && rec.status === "unreadable" && unreadableThisLoad.has(id));
   }
   // Every car whose engines should be (re-)read: read by an older reader, or
   // checked but never engine-read at all (the Daihatsu Thor). A nameplate
@@ -20420,7 +20480,8 @@ Rules:
         // Its shown generations: a folded or merged one is read by nobody, and
         // kept the nameplate due for good (the BMW Z1's five).
         const gens = (n.generations || []).filter(id => { const g = byId.get(id); return g && !g.retired; });
-        if (gens.some(id => !engineScanIsCurrent(store.engineScans[id]))) out.push(n);
+        const page = umbrellaArticleFor(n, byId);
+        if (gens.some(id => !engineScanIsCurrent(store.engineScans[id], page))) out.push(n);
         continue;
       }
       if (n.type !== "model") continue;
@@ -20560,7 +20621,8 @@ Rules:
     // The nameplate's own article, read ONCE for the whole pass: it is what
     // says where each generation's article is, and fetching it per generation
     // would be the same page six times.
-    const pending = targets.filter(c => c && !c.retired && !engineScanSettled(c.id));
+    const umbrella = umbrellaArticleFor(fam, byIdLocal);
+    const pending = targets.filter(c => c && !c.retired && !engineScanSettled(c.id, c.familyOf ? umbrella : null));
     if (!pending.length) return out;
     note(`powertrain: reading engines for ${node.label} -- ` +
          `${pending.length} car(s) to check, from their own articles and from ` +
@@ -20569,7 +20631,6 @@ Rules:
     // is actually written in is the one its generations share. Without this
     // every generation of the Cadillac de Ville read the whole eight-
     // generation article and came back with all eight eras' engines.
-    const umbrella = umbrellaArticleFor(fam, byIdLocal);
     let famWikitext = null;
     if (umbrella) {
       try { famWikitext = (await fetchArticleDigest(umbrella)).wikitext; } catch (e) { famWikitext = null; }
@@ -20581,7 +20642,7 @@ Rules:
     }
     for (const car of targets) {
       if (!car || car.retired) continue;
-      if (engineScanSettled(car.id)) { out.skipped++; continue; }
+      if (engineScanSettled(car.id, car.familyOf ? umbrella : null)) { out.skipped++; continue; }
       let title = null;
       try { title = engineArticleFor(car, fam, famWikitext, umbrella); } catch (e) { title = null; }
 
@@ -20907,6 +20968,18 @@ Rules:
     return t.split("#")[0].trim() || null;
   }
 
+  // "{{see also|Lincoln Continental Mark VI}}" opening a generation's section
+  // points at the car's own article as often as at a relative. It counts on the
+  // terms a link in the section's prose has to meet (proseArticle): the title
+  // carries the generation's code as a word and names the car's model. The
+  // Mark VI's section in "Lincoln Mark series" has no other pointer to its page.
+  function seeAlsoArticle(body, make, code, model) {
+    const m = String(body || "").slice(0, 600).match(/\{\{\s*see also\s*\|([^{}]+)\}\}/i);
+    if (!m) return null;
+    const titles = m[1].split("|").map(x => x.trim()).filter(x => x && !x.includes("="));
+    return proseArticle(titles.map(t => "[[" + t + "]]").join(" "), make, code, model);
+  }
+
   // No hatnote: score the section's own wiki-links. The right one names the
   // nameplate and the generation's code ("Mercedes-Benz E-Class (W213)"),
   // sits early, and is not one of the dozens of incidental links. Anything
@@ -20986,7 +21059,8 @@ Rules:
     catch (e) { return null; }
     const sec = sectionForCode(wikitext, code);
     if (!sec) return null;
-    return hatnoteArticle(sec.body) || proseArticle(sec.body, gen.make, code, famLabel || tc.base) || null;
+    return hatnoteArticle(sec.body) || seeAlsoArticle(sec.body, gen.make, code, famLabel || tc.base) ||
+      proseArticle(sec.body, gen.make, code, famLabel || tc.base) || null;
   }
 
   async function findGenerationArticle(gen, famLabel, currentWp, famWp) {
@@ -21470,6 +21544,8 @@ Rules:
     if (run) return run.end;
     return end != null && gn.year != null && end < gn.year ? null : end;
   }
+  // Fresh generations that went into a kept generation article (applyFamilyOverride).
+  const keptArticleFor = new Map();
   function applyFamilyOverride(famId, nodes, links, opts) {
     const entry = (opts && opts.entry) || recheckEntryFor(famId);
     // Also re-runs for an ALREADY-"applied" entry -- this is what makes the
@@ -21508,6 +21584,31 @@ Rules:
 
     const usedOld = new Set();
     const paired = pairFreshGenerations(oldGens.filter(o => !keptIds.has(o.id)), freshGens);
+    // The bare nameplate paired by its years with a generation that a kept
+    // article of this nameplate already is: the Leaf's "ZE0 (2010–2017)" went to
+    // the bare "Nissan Leaf" beside "Nissan Leaf (first generation)", and the
+    // first generation showed twice. The kept article is the generation; the bare
+    // node goes into it, and on the next replay of the list (with the bare node
+    // gone) the generation is paired with the article again, not minted anew.
+    // (decideRecheck, pairing over every old generation, finds the years
+    // ambiguous and pairs neither.)
+    const bareMerged = [];
+    paired.forEach((o, i) => {
+      const f = freshGens[i], key = famId + "|" + norm(f.code);
+      if (!o) {
+        const again = keptArticleFor.get(key);
+        const k = again && oldGens.find(x => x.id === again && keptIds.has(x.id) && !paired.includes(x));
+        if (k) paired[i] = k;
+        return;
+      }
+      if (!isBareNameplate(fam, o)) return;
+      const art = oldGens.filter(x => keptIds.has(x.id) && !paired.includes(x) && isGenerationArticleOf(fam, x.wp) &&
+        yearsAgree(x.year, f.yearStart, 1) && (f.yearEnd == null || x.end == null || yearsAgree(x.end, f.yearEnd, 1)));
+      if (art.length !== 1) return;
+      bareMerged.push([o, art[0]]);
+      keptArticleFor.set(key, art[0].id);
+      paired[i] = art[0];
+    });
     const pairs = freshGens.map((g, i) => {
       if (paired[i]) usedOld.add(paired[i].id);
       return { fresh: g, old: paired[i] || null };
@@ -21536,6 +21637,8 @@ Rules:
         }
       });
     });
+
+    bareMerged.forEach(([bare, art]) => supersedeStandalone(nodes, links, bare, art, famId, fam.make + " " + fam.label));
 
     const newGenIds = [];
     let prevGid = null;
@@ -22190,13 +22293,13 @@ Rules:
     // family. See engineSpecsFromInfobox.
     engineSpecsFor, engineSpecSummary, engineSpecsFromInfobox, engineSpecsFromSection,
     isEngineListTitle, stripEngineSuffix, engineFieldEntries, splitEngineField,
-    scheduleEngineCascade, scanEnginesFor, engineScanEntryFor, engineArticleFor,
+    scheduleEngineCascade, scanEnginesFor, engineScanEntryFor, engineScanIsCurrent, engineArticleFor,
     aliasesFor, akaNames,
     forceRecheckEngine,
     clearEngineScansFor, note, nameplateSectionForCar, mergeEngineHits,
     mergeEngines, undoEngineMerge, allEngineMerges, applyEngineMerges,
     sameEngineLine, decodeEntities, articleIsNotACar, sweepStoredSplitsForOutsiders, sweepRecheckSections, decideRecheck, headingsOf,
-    markFutureGenerations, articleNamesCar, articleFitsCar, hatnotePageIsAboutCars, isListOfArticles, settleListPage, sameCarOutsideBrackets, runCheck, decideRecheck, sweepArticleLinks, settleDecidedRechecks, settleRetiredGenerationFlags, sweepFlaggedMentions, articleNamesCarInFull, sweepWeakRelations, settleAfterScans, applyReviewedCorrections, sweepWholePageEngineLists, sweepOrdinalPlaceholders, replayStarted, replayFinished,
+    markFutureGenerations, articleNamesCar, articleFitsCar, hatnotePageIsAboutCars, isListOfArticles, settleListPage, sameCarOutsideBrackets, runCheck, decideRecheck, sweepArticleLinks, settleDecidedRechecks, settleRetiredGenerationFlags, sweepFlaggedMentions, articleNamesCarInFull, sweepWeakRelations, settleAfterScans, applyReviewedCorrections, retractCrossMakeMatches, sweepWholePageEngineLists, sweepOrdinalPlaceholders, replayStarted, replayFinished,
     lastSaveError: () => lastSaveError,
     engineMentions, unlinkedEngineMentions, engineSpecLabel, electricMentions,
     recordEngineMentions, recordEngineMentionsFrom, applyEngineMentions,

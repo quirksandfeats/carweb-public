@@ -33,8 +33,19 @@ function boot(store) {
 const due = boot(marked);
 const label = n => (n.make || "") + " " + n.label;
 check("a nameplate whose only unread generations are folded away is not due: the BMW Z1", !due.some(n => label(n) === "BMW Z1"), due.slice(0, 10).map(label).join(", "));
-check("a read this reader set aside as covering several cars is not due again: the Buick Estate", !due.some(n => label(n) === "Buick Estate"));
-check("nothing re-read by this reader stays due for good", due.length <= 5, due.length + ": " + due.slice(0, 10).map(label).join(", "));
+// Reader 9 (10 Nov 2026) reads only a generation's empty read of its nameplate's page
+// again. Without the nameplate's page, the test is the one before it: nothing else is due.
+const scans = window.LLM_FAMILIES.engineScans || {};
+const byIdDue = new Map(window.CARDATA.nodes.map(n => [n.id, n]));
+const LFd = window.LlmFamilies;
+const otherDue = due.filter(n => n.type === "family"
+  ? (n.generations || []).some(g => byIdDue.get(g) && !byIdDue.get(g).retired && !LFd.engineScanIsCurrent(scans[g]))
+  : !LFd.engineScanIsCurrent(scans[n.id]));
+check("a read this reader set aside as covering several cars is not due again: the Buick Estate's 1991 read",
+  !otherDue.some(n => label(n) === "Buick Estate"));
+check("nothing else read by the last reader is due", otherDue.length <= 5, otherDue.length + ": " + otherDue.slice(0, 10).map(label).join(", "));
+const mark = due.find(n => label(n) === "Lincoln Mark series");
+check("the Mark series is due for its Mark VI's empty read of the nameplate's page", !!mark);
 const rec = Object.entries(window.LLM_FAMILIES.engineScans || {}).find(([, r]) => r.v === 0 && r.staleReason);
 check("a read set aside says which reader made it", !rec || rec[1].staleFromV != null, rec && JSON.stringify(rec[1]).slice(0, 160));
 console.log(fails ? `${fails} FAILED` : "ALL PASS");
