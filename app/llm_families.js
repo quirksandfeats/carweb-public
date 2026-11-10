@@ -18432,6 +18432,10 @@ Rules:
       });
     });
   }
+  // Engines a car's infobox names by code in plain text, where "<make> <code>
+  // engine" is a page or a redirect (scripts/unlinked_engines.js): the second Honda
+  // NSX's JNC1, whose article became a redirect to the NSX's own section on 8 Nov 2026.
+  const UNLINKED_ENGINES = (typeof window !== "undefined" && window.UNLINKED_ENGINES) || {};
   function replayEngineMentions(nodes, links) {
     dropMutualEngineMerges();
     const byId = new Map(nodes.map(n => [n.id, n]));
@@ -18475,6 +18479,14 @@ Rules:
       // a rebadged Renault, had the nine Mitsubishi engines of the ASX GA.
       if (car && (wholePageListIsASiblings(car, byId) || runOutsideFieldYears(rec, car))) return;
       replay(id, car ? (rec.engines || []).filter(h => !engineLineOutsideRun(h, car)) : rec.engines);
+    });
+    // Engines named in plain text that Wikipedia has a title for (scripts/unlinked_engines.js).
+    // Only while the car's read still holds the line as text.
+    Object.keys(UNLINKED_ENGINES).forEach(id => {
+      const rec = store.engineScans[id];
+      if (!rec || (rec.v === 0 && rec.staleReason)) return;
+      const codes = new Set((rec.unlinked || []).map(u => String(u && u.name || "").split(" · ")[0].trim()));
+      replay(id, UNLINKED_ENGINES[id].filter(h => codes.has(h.name)));
     });
     replayElectricMotors(nodes, links, byId);
     return { engines, fitted };

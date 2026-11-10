@@ -81,5 +81,10 @@ check("read again, the Mark VI has its Windsor V8s", !mark6 || (mark6.engines ||
 const succ = (a, b) => links.some(l => !l.retired && l.type === "succession" && idOf(l.source) === a && idOf(l.target) === b);
 check("the Renault 5 hands over to the first Clio", succ("llm-m-renault-5-second-generation", "llm-m-renault-clio-x57") && !succ("llm-m-renault-5-second-generation", "llm-m-renault-clio-x65"));
 check("where a generation's infobox names its predecessor, that generation: the Saturn Ion's Astra H", (window.SUCCESSION_HANDOVERS || {})["m-saturn-ion|m-opel-astra"] === "llm-m-opel-astra-astra-h");
+// An engine named in plain text that Wikipedia has a title for (scripts/unlinked_engines.js).
+const fittedOn = car => links.filter(l => !l.retired && l.type === "fitted" && idOf(l.target) === car).map(l => (byId.get(idOf(l.source)) || {}).label);
+check("the second NSX has its JNC1", fittedOn("m-honda-nsx-second-generation").some(x => /JNC1/.test(x || "")), fittedOn("m-honda-nsx-second-generation").join(", "));
+check("an engine whose title lands on a list of engines is left: the Tayron's EA888 stays text",
+  !fittedOn("llm-m-volkswagen-tayron-typ-5n").some(x => /EA888/.test(x || "")));
 console.log(fails ? `${fails} FAILED` : "ALL PASS");
 process.exit(fails ? 1 : 0);
