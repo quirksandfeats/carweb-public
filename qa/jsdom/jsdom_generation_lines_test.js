@@ -123,11 +123,9 @@ const read = (gens, text) => { LF.endYearsFromOwnCards(gens, text); return gens;
 
 // Ends the articles settle, in both directions, and the pairing year stays put.
 for (const [id, start, end] of [
-  ["llm-m-ford-falcon-australia-xe", 1982, 1984], ["llm-m-ford-falcon-australia-xf", 1984, 1993],
   ["llm-llm-related-holden-utility-ht", 1969, 1970], ["llm-llm-related-holden-utility-hg", 1970, 1971],
   ["llm-llm-related-holden-utility-hq", 1971, 1974],
 ]) check(id, node(id).year === start && node(id).end === end, node(id).year + "-" + node(id).end);
-check("the Falcon XF's cars handed over at the EA", node("llm-m-ford-falcon-australia-xf").handover === 1988);
 check("the Holden Utility runs HK, HT, HG, HQ",
   succ.has("llm-llm-related-holden-utility-hk>llm-llm-related-holden-utility-ht") &&
   succ.has("llm-llm-related-holden-utility-ht>llm-llm-related-holden-utility-hg") &&

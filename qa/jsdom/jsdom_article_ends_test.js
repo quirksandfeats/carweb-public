@@ -77,8 +77,9 @@ links.forEach(l => {
 });
 check("no generation is followed by one that began earlier", backwards.length === 0, backwards.slice(0, 5).join());
 check("the Cruze is in order", succ.has("llm-m-chevrolet-cruze-d2sc>llm-m-chevrolet-cruze-d2lc"));
-check("the Falcon ute sits in date order", succ.has("llm-m-ford-falcon-australia-eb>llm-m-ford-falcon-australia-xg"));
-const years = gens("m-ford-falcon-australia").map(g => g.year);
+// The Falcon (Australia) read from its article is folded into the build data's
+// Falcon (10 Nov 2026), whose generations have articles of their own.
+const years = gens("fam-ford-falcon").map(g => g.year);
 check("the list follows too", years.every((y, i) => !i || years[i - 1] <= y), years.join());
 
 // A scan marks a one-car article by itself.

@@ -738,31 +738,57 @@ window.LlmFamilies = (function () {
   }
   // Single cars that are a generation shown twice (scripts/duplicate_cars.js): the
   // Toyota Veloz beside the Avanza W100, the "Nissan Almera/Latio/Sunny/Versa
-  // (N17)" beside the Almera N17. The owner's ruling (10 Nov 2026): the node with
-  // nothing of its own goes into the full one. Its name stays as another name of
-  // the generation.
+  // (N17)" beside the Almera N17, the Mazda RX-7 (FD) beside the RX-7's FD. The
+  // owner's rulings (10 Nov 2026): an enthusiast wants each car once, with all it
+  // is known for. Its connections and what it knew go to the generation, and its
+  // name stays as another name of it.
   const DUPLICATE_CARS = (typeof window !== "undefined" && window.DUPLICATE_CARS) || {};
   function applyDuplicateCars(nodes, links) {
     const byId = new Map(nodes.map(n => [n.id, n]));
-    Object.keys(DUPLICATE_CARS).forEach(id => {
-      const r = DUPLICATE_CARS[id], d = byId.get(id), into = followSuperseded(byId, byId.get(r.into));
-      if (!d || d.retired || !into || into.retired || into.id === id) return;
+    const key = l => l.type + "|" + [idOf(l.source), idOf(l.target)].sort().join("|");
+    const bare = x => norm(String(x).replace(/\([^()]*\)/g, " "));
+    // `route`: where a connection to another car goes instead (a car standing for a
+    // list of one name hands each to the listed car its years meet; null: it goes).
+    const fold = (d, into, name, route) => {
       d.retired = true;
       d.supersededBy = into.id;
       d.mergedInto = into.id;
       d.retiredReason = `the same car as the ${into.make} ${into.label}`;
-      const bare = x => norm(String(x).replace(/\([^()]*\)/g, " "));
-      if (!aliasesFor(into.id).some(x => bare(x) === bare(r.name))) plateAka.set(into.id, [...new Set([...(plateAka.get(into.id) || []), r.name])]);
-      const key = l => l.type + "|" + [idOf(l.source), idOf(l.target)].sort().join("|");
+      // What the car knew that the other does not: its years, photo, specs, credits.
+      if (into.year == null && d.year != null) into.year = d.year;
+      if (into.end == null && d.end != null && into.year === d.year) into.end = d.end;
+      ["wikiFile", "db", "dbspecs", "dbphoto", "dbPage", "garage", "heritage"].forEach(k => { if (d[k] != null && into[k] == null) into[k] = d[k]; });
+      ["designers", "engineers"].forEach(k => { if ((d[k] || []).length) into[k] = [...new Set([...(into[k] || []), ...d[k]])]; });
+      if (!aliasesFor(into.id).some(x => bare(x) === bare(name))) plateAka.set(into.id, [...new Set([...(plateAka.get(into.id) || []), name])]);
       const have = new Set(links.filter(l => !l.retired).map(key));
       links.forEach(l => {
         if (l.retired) return;
         const a = idOf(l.source), b = idOf(l.target);
-        if (a !== id && b !== id) return;
-        const m = { type: l.type, source: a === id ? into.id : a, target: b === id ? into.id : b };
-        if (l.type === "made" || m.source === m.target || have.has(key(m))) { l.retired = true; l.retiredReason = d.retiredReason; return; }
+        if (a !== d.id && b !== d.id) return;
+        const other = a === d.id ? b : a;
+        const to = route && Object.prototype.hasOwnProperty.call(route, other) ? (route[other] ? followSuperseded(byId, byId.get(route[other])) : null) : into;
+        if (!to || to.retired) { l.retired = true; l.retiredReason = d.retiredReason; return; }
+        const m = { type: l.type, source: a === d.id ? to.id : a, target: b === d.id ? to.id : b };
+        if (l.type === "made" || l.type === "gensucc" || l.type === "generation" || m.source === m.target || have.has(key(m))) {
+          l.retired = true; l.retiredReason = d.retiredReason; return;
+        }
         l.source = m.source; l.target = m.target; have.add(key(l));
       });
+    };
+    Object.keys(DUPLICATE_CARS).forEach(id => {
+      const r = DUPLICATE_CARS[id], d = byId.get(id), into = followSuperseded(byId, byId.get(r.into));
+      if (!d || d.retired || !into || into.retired || into.id === id) return;
+      if (!r.plate) { fold(d, into, r.name, r.route); return; }
+      // A nameplate shown twice: each of its generations goes to the kept one of its
+      // code (or the car its title names), and the kept nameplate takes its article.
+      Object.entries(r.gens || {}).forEach(([gid, tid]) => {
+        const g = byId.get(gid), t = tid ? followSuperseded(byId, byId.get(tid)) : into;
+        if (!g || g.retired || !t || t.retired || t.id === g.id) return;
+        fold(g, t, `${g.make} ${g.label}`);
+      });
+      d.generations = [];
+      fold(d, into, r.name);
+      if (r.wp) into.wp = r.wp;
     });
   }
   // Company and brand articles shown as cars (scripts/company_articles.js): "Knox ·

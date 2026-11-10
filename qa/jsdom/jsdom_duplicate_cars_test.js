@@ -38,6 +38,26 @@ check("no drawn link is left on a folded car", !links.some(l => !l.retired && !l
 check("two show cars of one year stay two cars: the Pontiac Banshee XP-798", !byId.get("llm-m-pontiac-banshee-xp-798").retired);
 check("so does the 1940 Chrysler Thunderbolt", !byId.get("llm-related-chrysler-thunderbolt").retired);
 check("a car with a code of another generation is not folded: the Audi S3 Mk1", !byId.get("llm-related-audi-s3-mk1").retired);
-check("a car with connections of its own is not folded: the SEAT León Mk3", !byId.get("m-seat-leon-mk3").retired);
+const rx7 = byId.get("m-mazda-rx-7-fd");
+check("a car with connections of its own goes in too, with them: the Mazda RX-7 (FD)", rx7.retired && rx7.supersededBy === "llm-m-mazda-rx-7-fb-fd" &&
+  links.some(l => !l.retired && l.type === "engineered" && [idOf(l.source), idOf(l.target)].includes("llm-m-mazda-rx-7-fb-fd")));
+// A nameplate shown twice: the Ford Falcon (Australia) beside the Falcon of the build data.
+const falcon = byId.get("fam-ford-falcon"), aus = byId.get("m-ford-falcon-australia");
+check("the Australian Falcon is shown once", aus.retired && aus.supersededBy === "fam-ford-falcon");
+check("the Falcon kept takes the article of the Australian car", falcon.wp === "Ford Falcon (Australia)", falcon.wp);
+check("its generations are the ones with articles of their own", (falcon.generations || []).filter(id => !byId.get(id).retired).length === 24);
+check("each generation of the other went to its code's: XD", byId.get("llm-m-ford-falcon-australia-xd").supersededBy === "m-ford-falcon-xd");
+check("a code the kept nameplate lacks goes to the car of its title: EL", byId.get("llm-m-ford-falcon-australia-el").supersededBy === "m-ford-falcon-el");
+check("no Falcon generation is shown twice", nodes.filter(n => !n.retired && n.make === "Ford" && /^Falcon .*\bXD\b/.test(n.label)).length <= 1,
+  nodes.filter(n => !n.retired && n.make === "Ford" && /^Falcon .*\bXD\b/.test(n.label)).map(n => n.label).join(", "));
+// A car standing for a list of one name, in the very years of one listed car.
+const topo = byId.get("llm-related-fiat-topolino");
+check("the \"Fiat Topolino\" stand-in is the Fiat 500 \"Topolino\" twice: one Topolino", topo.retired && topo.supersededBy === "m-fiat-500-22topolino-22");
+const linkedTo = (a, b, type) => links.some(l => !l.retired && l.type === type && [idOf(l.source), idOf(l.target)].sort().join("|") === [a, b].sort().join("|"));
+check("a connection goes to the listed car its years meet: the XD Falcon's to the Fairlane (Australia)",
+  linkedTo("m-ford-fairlane-australia", "llm-m-ford-falcon-australia-xd", "platform") || linkedTo("m-ford-fairlane-australia", "m-ford-falcon-xd", "platform"));
+check("the rest to the twin: the Ranchero's to the Fairlane (Americas)", links.some(l => !l.retired && l.type === "platform" &&
+  [idOf(l.source), idOf(l.target)].some(id => id === "m-ford-fairlane-americas" || (byId.get(id) || {}).familyOf === "m-ford-fairlane-americas") &&
+  [idOf(l.source), idOf(l.target)].some(id => /ranchero/.test(id))));
 console.log(fails ? `${fails} FAILED` : "ALL PASS");
 process.exit(fails ? 1 : 0);

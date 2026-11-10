@@ -1,8 +1,6 @@
 #!/usr/bin/env node
 // Writes app/duplicate_cars.js: single cars that are a generation of a nameplate
-// shown twice. The owner's ruling (10 Nov 2026): where one node holds the
-// information and the other holds none of its own, the empty one goes into the
-// full one. A row is written for a car standing on its own (no generations) when
+// shown twice. A row is written for a car standing on its own (no generations) when
 // all of these hold:
 //   - its link is the article of a nameplate with generations (it has no
 //     article of its own);
@@ -13,9 +11,10 @@
 //     no "A3 8V"), and a run of under three years never matches by years alone:
 //     show cars share their years (the 1964 Pontiac Banshees XP-798 and XP-833,
 //     the 1940 Chrysler Thunderbolt and Newport);
-//   - every connection it has, the generation or its nameplate has too;
 //   - the nameplate's article gives its name (a name of the car, not a word of it).
-// The car's name stays as another name of the generation. Nothing here is
+// The owner's ruling (10 Nov 2026), for cars with connections of their own too:
+// an enthusiast wants each car once, with all it is known for. Its connections
+// go to the generation with it, and its name stays as another name of it. Nothing here is
 // written by hand.
 //
 //   node scripts/duplicate_cars.js CACHE.json      asks Wikipedia, keeping answers in CACHE.json
@@ -136,13 +135,136 @@ const idOf = v => typeof v === "string" ? v : v.id;
   const out = {}, report = [];
   rows.forEach(({ d, f, k, ownLinks }) => {
     const name = `${d.make} ${d.label}`, tag = `${d.id} (${name}) -> ${k.id} (${k.label})`;
-    if (ownLinks.length) { report.push(`own      ${tag}: ${ownLinks.length} connection(s) of its own, e.g. ${ownLinks.slice(0, 3).map(([t, o]) => t + " " + ((byId.get(o) || {}).label || o)).join(", ")}`); return; }
     const flat = norm(cache["text:" + article(f.wp)] || "");
     const parts = String(d.label).replace(/\([^()]*\)/g, " ").split("/").map(s => s.trim()).filter(Boolean);
     const said = parts.some(p => flat.includes(norm(d.make + " " + p)) || (norm(p).length >= 5 && flat.includes(norm(p))));
     if (!said) { report.push(`unnamed  ${tag}: the article "${article(f.wp)}" does not give its name`); return; }
     out[d.id] = { into: k.id, name };
-    report.push(`fold     ${tag}`);
+    report.push(`fold     ${tag}` + (ownLinks.length ? `, bringing ${ownLinks.length} connection(s): ${ownLinks.slice(0, 4).map(([t, o]) => t + " " + ((byId.get(o) || {}).label || o)).join(", ")}` : ""));
+  });
+  // A nameplate shown twice, generation by generation: the Ford Falcon (Australia)
+  // read from its article beside the Falcon of the build data, whose generations
+  // have articles of their own. Two nameplates of one make and one name (brackets
+  // aside) whose generations' codes meet for at least three and for most of the
+  // smaller. The one whose generations have more articles of their own is kept and
+  // takes the other's article when its own is a list page. Each generation of the
+  // other goes to the kept generation of its code; one with none goes to the car
+  // its own title is the article of ("Ford Falcon (EL)"), else to the kept
+  // generation that title redirects into, else it stays a name of the kept nameplate.
+  const bareName = n => norm(String(n.label).replace(/\s*\([^()]*\)\s*$/, ""));
+  const genCode = (g, f) => norm(String(g.label).slice(String(f.label).length).replace(/[()]/g, " "));
+  const tops = nodes.filter(f => live(f) && !f.familyOf && (f.generations || []).some(id => live(byId.get(id))));
+  const own = (f, g) => g.wp && norm(article(g.wp)) !== norm(article(f.wp));
+  const plateRows = [];
+  for (let i = 0; i < tops.length; i++) for (let j = i + 1; j < tops.length; j++) {
+    const a = tops[i], b = tops[j];
+    if (a.make !== b.make || bareName(a) !== bareName(b)) continue;
+    const ga = a.generations.map(id => byId.get(id)).filter(live), gb = b.generations.map(id => byId.get(id)).filter(live);
+    const ca = new Map(ga.map(g => [genCode(g, a), g])), cb = new Map(gb.map(g => [genCode(g, b), g]));
+    const met = [...ca.keys()].filter(c => c && cb.has(c));
+    if (met.length < 3 || met.length < 0.8 * Math.max(ga.length, gb.length)) continue;
+    const [keep, dup] = ga.filter(g => own(a, g)).length >= gb.filter(g => own(b, g)).length ? [a, b] : [b, a];
+    plateRows.push({ keep, dup, kc: keep === a ? ca : cb, dc: keep === a ? cb : ca });
+  }
+  const lostTitles = plateRows.flatMap(r => [...r.dc.entries()].filter(([c]) => !r.kc.has(c)).map(([, g]) => `${r.keep.make} ${r.keep.label} (${g.label.slice(r.dup.label.length).trim()})`));
+  const look = lostTitles.filter(t => !(("look:" + t) in cache));
+  for (let i = 0; i < look.length; i += 50) {
+    const part = look.slice(i, i + 50);
+    const r = await query({ action: "query", titles: part.join("|"), redirects: 1 });
+    const q = r.query || {}, norms = new Map((q.normalized || []).map(x => [x.from, x.to]));
+    const reds = new Map((q.redirects || []).map(x => [x.from, x]));
+    const pages = new Map((q.pages || []).map(p => [p.title, p]));
+    part.forEach(t => { const n0 = norms.get(t) || t, rd = reds.get(n0), to = rd ? rd.to : n0, p = pages.get(to);
+      cache["look:" + t] = { to, missing: !p || !!p.missing }; });
+    save();
+  }
+  const ownerOf = title => nodes.find(n => live(n) && n.wp && norm(article(n.wp)) === norm(title) && !n.familyOf) ||
+    nodes.find(n => live(n) && n.wp && norm(article(n.wp)) === norm(title));
+  plateRows.forEach(({ keep, dup, kc, dc }) => {
+    const gens = {};
+    dc.forEach((g, c) => {
+      if (kc.has(c)) { gens[g.id] = kc.get(c).id; return; }
+      const t = `${keep.make} ${keep.label} (${g.label.slice(dup.label.length).trim()})`, at = cache["look:" + t];
+      const o = at && !at.missing ? ownerOf(at.to) : null;
+      gens[g.id] = o && o.id !== dup.id && !dup.generations.includes(o.id) ? o.id : null;
+    });
+    out[dup.id] = { plate: true, into: keep.id, name: `${dup.make} ${dup.label}`, wp: article(dup.wp), gens };
+    report.push(`plate    ${dup.id} (${dup.label}, ${dc.size} generations) -> ${keep.id} (${keep.label}): ` +
+      Object.entries(gens).map(([g, t]) => `${(byId.get(g) || {}).label} -> ${t ? (byId.get(t) || {}).label : "a name"}`).join("; "));
+  });
+  // A car standing for a list of the cars of its name (its link is a set index or
+  // disambiguation page) built in the very years of one car the list gives, of its
+  // make: "Ford Fairlane" (1955-1970) beside the Fairlane (Americas), "Fiat Topolino"
+  // beside the Fiat 500 "Topolino". It is that car twice. Each of its connections
+  // goes to the listed car whose years the other end meets (within ten years), the
+  // nearest, the twin where years cannot tell; one meeting none goes (the Topolino's Citroën Ami is the 2023 Topolino's,
+  // a rebadged Ami with no article of its own).
+  const LISTS = ["Template:Set index article", "Template:Disambiguation", "Template:Car disambiguation", "Template:Hndis"];
+  const singles = nodes.filter(n => live(n) && n.type === "model" && !n.familyOf && n.wp && !/^name-/.test(n.id) &&
+    !(n.generations || []).some(id => live(byId.get(id))) && Number.isFinite(n.year) && !out[n.id]);
+  const askList = [...new Set(singles.map(n => article(n.wp)))].filter(t => !(("list:" + t) in cache));
+  for (let i = 0; i < askList.length; i += 50) {
+    const part = askList.slice(i, i + 50);
+    const r = await query({ action: "query", titles: part.join("|"), prop: "templates|pageprops", tltemplates: LISTS.join("|"), tllimit: "max", ppprop: "disambiguation" });
+    const q = r.query || {}, norms = new Map((q.normalized || []).map(x => [x.from, x.to]));
+    const pages = new Map((q.pages || []).map(p => [p.title, p]));
+    part.forEach(t => { const p = pages.get(norms.get(t) || t); cache["list:" + t] = !!(p && ((p.templates || []).length || (p.pageprops && "disambiguation" in p.pageprops))); });
+    save();
+  }
+  const holders = singles.filter(n => cache["list:" + article(n.wp)]);
+  const needLists = [...new Set(holders.map(n => article(n.wp)))].filter(t => !(("text:" + t) in cache));
+  for (let i = 0; i < needLists.length; i += 20) {
+    const part = needLists.slice(i, i + 20);
+    const r = await query({ action: "query", titles: part.join("|"), prop: "revisions", rvprop: "content", rvslots: "main" });
+    const q = r.query || {}, norms = new Map((q.normalized || []).map(x => [x.from, x.to]));
+    const pages = new Map((q.pages || []).map(p => [p.title, p]));
+    part.forEach(t => { const p = pages.get(norms.get(t) || t); cache["text:" + t] = p && p.revisions ? p.revisions[0].slots.main.content : ""; });
+    save();
+  }
+  const listed = t => [...String(cache["text:" + t] || "").matchAll(/^\s*\*[^\n]*?\[\[([^\]|#]+)/gm)].map(m => m[1].trim());
+  const entryTitles = [...new Set(holders.flatMap(n => listed(article(n.wp))))].filter(t => !(("look:" + t) in cache));
+  for (let i = 0; i < entryTitles.length; i += 50) {
+    const part = entryTitles.slice(i, i + 50);
+    const r = await query({ action: "query", titles: part.join("|"), redirects: 1 });
+    const q = r.query || {}, norms = new Map((q.normalized || []).map(x => [x.from, x.to]));
+    const reds = new Map((q.redirects || []).map(x => [x.from, x]));
+    const pages = new Map((q.pages || []).map(p => [p.title, p]));
+    part.forEach(t => { const n0 = norms.get(t) || t, rd = reds.get(n0), to = rd ? rd.to : n0, p = pages.get(to);
+      cache["look:" + t] = { to, fragment: rd && rd.tofragment || null, missing: !p || !!p.missing }; });
+    save();
+  }
+  const carsOf = new Map();
+  nodes.forEach(n => { if (live(n) && !n.familyOf && (n.type === "model" || n.type === "family") && n.wp) {
+    const k = norm(article(n.wp)); (carsOf.get(k) || carsOf.set(k, []).get(k)).push(n); } });
+  const span = n => {
+    if (n.type === "family") {
+      const gs = (n.generations || []).map(id => byId.get(id)).filter(g => live(g) && Number.isFinite(g.year));
+      if (gs.length) return [Math.min(...gs.map(g => g.year)), Math.max(...gs.map(g => Number.isFinite(g.end) ? g.end : 2026))];
+    }
+    const o = n.familyOf ? byId.get(n.familyOf) : null;
+    return Number.isFinite(n.year) ? [n.year, Number.isFinite(n.end) ? n.end : n.year] : o ? span(o) : null;
+  };
+  const gap = (a, b) => Math.max(0, a[0] - b[1], b[0] - a[1]);
+  holders.forEach(h => {
+    const entries = listed(article(h.wp)).map(t => cache["look:" + t]).filter(at => at && !at.missing && !at.fragment);
+    const carsAt = at => (carsOf.get(norm(at.to)) || []).filter(c => c.id !== h.id && c.make === h.make);
+    const twin = entries.flatMap(carsAt).filter(c => c.year === h.year && c.end === h.end);
+    if (twin.length !== 1) return;
+    // The cars a connection may go to: the twin, and the listed cars of the name
+    // itself ("Ford LTD (Australia)" lands in the Fairlane (Australia)'s article).
+    const cars = [...new Set([twin[0], ...entries.filter(at => norm(at.to).includes(norm(h.label))).flatMap(carsAt)])];
+    const route = {};
+    (adj.get(h.id) || []).forEach(([t, o]) => {
+      if (t === "made" || t === "name") return;
+      const on = byId.get(o), so = on && span(on);
+      if (!so) { route[o] = twin[0].id; return; }
+      const fit = cars.map(c => ({ c, g: span(c) ? gap(so, span(c)) : Infinity })).filter(x => x.g <= 10)
+        .sort((x, y) => x.g - y.g || (x.c === twin[0] ? -1 : y.c === twin[0] ? 1 : 0))[0];
+      route[o] = fit ? fit.c.id : null;
+    });
+    out[h.id] = { into: twin[0].id, name: `${h.make} ${h.label}`, route };
+    report.push(`twice    ${h.id} (${h.make} ${h.label} ${h.year}-${h.end}) -> ${twin[0].id} (${twin[0].label}): ` +
+      Object.entries(route).filter(([, t]) => t !== twin[0].id).map(([o, t]) => `${(byId.get(o) || {}).label} -> ${t ? byId.get(t).label : "gone"}`).join("; "));
   });
   const lines = Object.keys(out).sort().map(k => `  ${JSON.stringify(k)}: ${JSON.stringify(out[k])},`);
   fs.writeFileSync(path.join(ROOT, "app/duplicate_cars.js"),
