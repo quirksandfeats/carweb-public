@@ -2997,3 +2997,7 @@ The Renault 5's second generation, built to 1996, was drawn as succeeded by the 
 
 The second Honda NSX lost its engine in the re-read: on 8 Nov 2026 "Honda JNC1 engine" became a redirect to the NSX's own section, and the infobox's link went with it, so the line "3,493 cc JNC1 twin-turbo V6" was kept as text. `scripts/unlinked_engines.js CACHE.json` writes `app/unlinked_engines.js` (generated): for each car's plain-text engine line that carries a code (stored as "JNC1 · 3493 cc turbo V6"), "<make> <code> engine" is asked of Wikipedia, and a page or a redirect that does not land on a list of engines makes a row. `replayEngineMentions` replays the rows like any read engine. Of 742 coded lines, 13 cars: the NSX's JNC1, the Jaguar F-Pace's AJD-V6 and XF X250's AJ34S, the Mercedes W15's M15 and SL W198's M198, and the EA211 of seven Volkswagens. The W116's five (M100 to OM617) were read on its nameplate, whose engines are its generations', and are not drawn. Five lines land on "List of Volkswagen Group petrol engines" (EA888) and stay text. 12 engine links and 4 engines come; nothing else changes. Test `qa/jsdom/jsdom_group1_fixes_test.js`.
 
+
+## 11 November: the agent's commit address
+
+`scripts/llm_agent.py` committed its scan results under the owner's personal email address, in a public repository. It now commits under the account's GitHub no-reply address, as every other commit does. Changed while the agent was stopped. Commits already made keep their address.

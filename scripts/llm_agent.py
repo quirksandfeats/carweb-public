@@ -1287,7 +1287,7 @@ def push_result(summary, detail=""):
     # above says this must not do. `--only` commits these paths and leaves
     # whatever else is staged exactly as it was.
     subprocess.run(
-        ["git", "-c", "user.name=quirksandfeats", "-c", "user.email=goldenberg.andy@gmail.com",
+        ["git", "-c", "user.name=quirksandfeats", "-c", "user.email=81654886+quirksandfeats@users.noreply.github.com",
          "commit", "-q", "-m",
          "LLM pass from a queued scan request\n\n" + summary + ("\n\n" + detail if detail else ""),
          "--only", "--"] + changed,
